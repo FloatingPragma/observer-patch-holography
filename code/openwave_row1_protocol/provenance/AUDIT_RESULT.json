@@ -1,0 +1,220 @@
+{
+  "schema": "oph.row1.independent_law_gate_audit.v1",
+  "verdict": "PASS_WITH_DECLARED_SCOPE",
+  "development_only": true,
+  "official_rows_changed": [],
+  "source_commit": "19288e2b53b680e244e8ec5f4c5d45e000b2ef51",
+  "source_manifest_sha256": "d5e692b0597dbbeafabb88e6f7d417da8f7d7d1fd39a334c08fa73ffe40e8d90",
+  "source_sha256": {
+    "openwave_row1_protocol/law_controls.py": "27842accc12759e0a60a84a01d94fe780eea27c58c50a75ed0e075aac4ed18c0",
+    "openwave_row1_native/native_kernel.py": "b84e5ecdfbb8727a91571ac1b3ec6614f88ebf64b72fab0e8d35c338f08b1cff",
+    "openwave_row1_native/native_charge_winding.py": "8526fbf0cb417172d5df320a8ed75a9dea3fe1ceaaefc4591a5f478344b8dbec",
+    "openwave_row1_native/source_packet.json": "07ecff52d11e4f7fcdf907b17488603b0d0a5ff1644b01c583a86ddbbd0ec2ea",
+    "openwave_row1_native/manifest.json": "d5e692b0597dbbeafabb88e6f7d417da8f7d7d1fd39a334c08fa73ffe40e8d90"
+  },
+  "producer_receipt_sha256": "756a15690f0b720d215323757fed1ddf0c9f123979f81bdf66b9526c042054ce",
+  "auditor_sha256": "70e6b6d349d8bd4e8cea040b22e82b0d4a66888980ca1320d85f1e9c23bb136a",
+  "independence": "Separate stdlib implementation; source and BR6/BR9 findings read before coding; oracle completed before producer import.",
+  "native_census": {
+    "events": 888,
+    "holds": 564,
+    "moves": 324,
+    "arrivals": 132
+  },
+  "schedule_multiplicities": {
+    "distance_1_shortest_paths_1": 60,
+    "distance_2_shortest_paths_2": 60,
+    "distance_3_shortest_paths_10": 12
+  },
+  "arms": {
+    "native": {
+      "histories": 456,
+      "continuity": 456,
+      "closed_curves": 456,
+      "degree_equals_current": 456,
+      "one_unit_every_step": 456,
+      "regional_bound_every_step": 456,
+      "missing_record_against_loads": 0,
+      "histories_with_omission": 0,
+      "maximum_phase_error": 2.220446049250313e-16,
+      "maximum_gluing_defect": 2.4492935982947064e-16
+    },
+    "half_current": {
+      "histories": 456,
+      "continuity": 456,
+      "closed_curves": 0,
+      "degree_equals_current": 0,
+      "one_unit_every_step": 0,
+      "regional_bound_every_step": 0,
+      "missing_record_against_loads": 0,
+      "histories_with_omission": 0,
+      "maximum_phase_error": 0.0,
+      "maximum_gluing_defect": 2.0
+    },
+    "random_integer": {
+      "histories": 1368,
+      "continuity": 1368,
+      "closed_curves": 1368,
+      "degree_equals_current": 1368,
+      "one_unit_every_step": 504,
+      "regional_bound_every_step": 1069,
+      "missing_record_against_loads": 0,
+      "histories_with_omission": 0,
+      "maximum_phase_error": 4.440892098500626e-16,
+      "maximum_gluing_defect": 2.4492935982947064e-16
+    },
+    "omitted_record": {
+      "histories": 456,
+      "continuity": 456,
+      "closed_curves": 456,
+      "degree_equals_current": 456,
+      "one_unit_every_step": 456,
+      "regional_bound_every_step": 456,
+      "missing_record_against_loads": 228,
+      "histories_with_omission": 228,
+      "maximum_phase_error": 2.220446049250313e-16,
+      "maximum_gluing_defect": 2.4492935982947064e-16
+    }
+  },
+  "prefix_counts": {
+    "native_steps": 888,
+    "native_continuity": 888,
+    "native_integral_regional_domain": 888,
+    "native_real_regional_bound": 888,
+    "native_source_record_agreement": 888,
+    "half_current_steps": 888,
+    "half_current_continuity": 888,
+    "half_current_integral_regional_domain": 0,
+    "half_current_real_regional_bound": 888,
+    "half_current_source_record_agreement": 888,
+    "random_integer_steps": 2664,
+    "random_integer_continuity": 2664,
+    "random_integer_integral_regional_domain": 2295,
+    "random_integer_real_regional_bound": 2295,
+    "random_integer_source_record_agreement": 2664,
+    "omitted_record_steps": 888,
+    "omitted_record_continuity": 888,
+    "omitted_record_integral_regional_domain": 888,
+    "omitted_record_real_regional_bound": 888,
+    "omitted_record_source_record_agreement": 444
+  },
+  "actual_implementation_comparison": {
+    "histories": 2736,
+    "prefixes": 5328,
+    "phase_readouts": 5472,
+    "terminal_pentagon_degrees_on_closed_arms": 54720
+  },
+  "exhaustive_regions_per_distinct_prefix_charge": 4096,
+  "distinct_prefix_charges": 384,
+  "curve_controls": {
+    "sample_points_compared_to_analytic_curve": 17820,
+    "maximum_formula_error": 1.8385843027689748e-15,
+    "rejecting_controls": {
+      "fixed_turn_32_alias_rejected": "outside fixed sampler domain",
+      "fixed_turn_4_outside_domain_rejected": "outside fixed sampler domain",
+      "zero": "zero phase contour",
+      "open": "open phase contour",
+      "large_increment": "unresolved phase increments",
+      "insufficient_density": "insufficient fixed density"
+    },
+    "fixed_subdivisions_turns_0_1_2_3": [
+      32,
+      32,
+      32,
+      32
+    ],
+    "frozen_adaptive_subdivisions_turns_0_1_2_3": [
+      16,
+      16,
+      32,
+      48
+    ],
+    "unchecked_32_turn_sampled_readout": -1.2474149864062002e-15,
+    "global_derivative_bound_per_subdivision": 0.6535840169434395,
+    "free_homotopy": {
+      "stages": 5,
+      "vertex_phases_move": true,
+      "maximum_degree": 7.50964299789997e-17,
+      "maximum_junction_gap": 0.0
+    },
+    "even_integer_stack_split": [
+      {
+        "coin": 0,
+        "after": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "current": 1
+      },
+      {
+        "coin": 1,
+        "after": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "current": 1
+      }
+    ]
+  },
+  "rejected_receipt_and_implementation_mutations": {
+    "empty_checks": "missing or additional check name",
+    "missing_check": "missing or additional check name",
+    "missing_source_pin": "source pin mismatch or omission",
+    "all_true_forged_counts": "wrong count random_integer/one_unit_every_step",
+    "missing_mutation_arm": "missing or additional law arm",
+    "nan_residual": "wrong numeric residual native/maximum_phase_error",
+    "missing_witness_event": "witness current/state/event omission",
+    "scope_escalation": "scope escalation",
+    "adaptive_density_claim": "sampling declaration",
+    "missing_prefix_check": "witness prefix gate",
+    "constant_zero_phase_implementation": "law mutation or positive control failed",
+    "literal_true_regional_implementation": "law mutation or positive control failed"
+  },
+  "checks": {
+    "all_132_shortest_schedules_match": true,
+    "all_456_native_coin_histories_match": true,
+    "all_native_prefixes_have_exact_continuity": true,
+    "all_native_prefixes_have_integral_regional_domain": true,
+    "actual_curves_tested": true,
+    "producer_receipt_matches_independent_oracle_and_replay": true,
+    "malicious_receipts_and_implementations_rejected": true,
+    "fixed_package_unchanged": true
+  },
+  "interpretation": {
+    "carrier": "Exactly one declared twelve-port icosahedral carrier; no glued-carrier transfer.",
+    "reference": "BF=G-n requires retained preparation G and zero initial tape.",
+    "topology": "Degree identifies the integer tape class; random integer fragmented laws also pass topology.",
+    "unit": "One unit is one integer register load; even stacks split under the same native law.",
+    "homotopy": "Coboundary-related tapes admit free homotopy with moving shared vertex phases; fixed-vertex homotopy is not asserted.",
+    "observation": "The curve is a declared encoding of current records, not an independent dynamical field sensor; the pointer reads counters.",
+    "omission": "A missing moving record is detected against source loads; a valid damaged integer tape has no internal omission detector.",
+    "sampler": "32 subdivisions and absolute turn bound 3 are predeclared development-domain assumptions; arbitrary long histories require another contract.",
+    "status": "No official row validation, prospective acceptance execution, physical electric-unit identification, mass, spin or force result."
+  },
+  "prior_findings_sha256": {
+    "openwave-push/bridgework/BR6_dual_winding/AUDIT.md": "3449a77a54ede3118ddfc0c28af6ef35bb1c46e578121ab943de8baf62e7c90a",
+    "openwave-push/bridgework/BR6_dual_winding/REVIEW_FOR_CODEX.md": "5fd2abd90e3eb5d5b9c616c1b7ec002e07e55ea8f66b7c442ef342cd8c8a3658",
+    "openwave-push/bridgework/BR9_precedent_replication/AUDIT.md": "652067cdcd8fbe509b6bfe4312c4fb6a36a0bcbe8e584702b5b353620835794e",
+    "openwave-push/bridgework/BR9_precedent_replication/REVIEW_FOR_CODEX.md": "64208207cc947404409f36ba1e15e873925d6bae031976aaf2555540b5d6e28b"
+  }
+}

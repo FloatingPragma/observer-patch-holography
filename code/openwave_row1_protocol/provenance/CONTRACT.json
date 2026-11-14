@@ -1,0 +1,70 @@
+{
+  "schema": "oph.row1.independent_law_gate_contract.v1",
+  "status": "development_audit_not_prospective_acceptance",
+  "official_rows_changed": [],
+  "owner_directory": "openwave-tuning/next/CHAIN2/law_gate_audit",
+  "source_commit": "19288e2b53b680e244e8ec5f4c5d45e000b2ef51",
+  "source_manifest_sha256": "d5e692b0597dbbeafabb88e6f7d417da8f7d7d1fd39a334c08fa73ffe40e8d90",
+  "implementation_sha256": "27842accc12759e0a60a84a01d94fe780eea27c58c50a75ed0e075aac4ed18c0",
+  "producer_receipt_sha256": "756a15690f0b720d215323757fed1ddf0c9f123979f81bdf66b9526c042054ce",
+  "independence": {
+    "source_read_before_coding": true,
+    "separately_coded_oracle": true,
+    "oracle_completed_before_producer_import": true,
+    "source_histories_reconstructed_from_law": true,
+    "stored_source_history_outputs_not_used_as_oracle": true,
+    "reserved_acceptance_configurations_run": []
+  },
+  "domain": {
+    "carrier": "one twelve-port icosahedral carrier with thirty seams",
+    "preparation": "one nonnegative integer load; retained G; zero initial tape",
+    "schedules": "lexicographically first shortest seam-index word per ordered pair of distinct ports",
+    "schedule_count": 132,
+    "coin_histories": 456,
+    "fair_history_weight": "2^(-schedule_length), normalized separately for each configured pair",
+    "source_steps": 888,
+    "regions": "all 4096 subsets, including empty and whole carrier, at every source prefix",
+    "fixed_subdivisions_per_edge": 32,
+    "declared_absolute_turn_bound": 3,
+    "floating_tolerance": 1e-10,
+    "exact_arithmetic": "Python integers and fractions.Fraction for current, load, continuity and regional claims"
+  },
+  "independent_algorithms": {
+    "schedules": "enumerate simple edge words through length three and minimize (length, seam word)",
+    "geometry": "orient primal triangles consistently, then traverse outgoing primal edges around each port",
+    "source": "balanced division of the two endpoint loads, separately implemented",
+    "regions": "explicit subset-sum enumeration, cached by the exact charge vector",
+    "curve": "analytic complex sine/cosine evaluation on a uniform mesh; integrate argument of consecutive ratios",
+    "receipt": "exact required key sets, exact counts and event witnesses, finite residuals, all required source pins and scope flags"
+  },
+  "law_arms": {
+    "native": {"repeats": 1, "required": "exact continuity, one whole unit and integral regional domain at every step; glued curves and degree equal to held current"},
+    "half_current": {"repeats": 1, "current": "(n_a-n_b)/2", "required": "exact continuity passes; one-unit/integral-regional domain fails; phase gluing fails"},
+    "random_integer": {"repeats": 3, "rng": "random.Random(104729)", "current": "uniform choice in {-1,0,1}", "required": "topology passes all histories while unit and regional-domain gates reject some histories"},
+    "omitted_record": {"repeats": 1, "mutation": "omit the first nonzero current from held tape in each affected history", "required": "held tape retains valid integer degree; source-load comparison rejects exactly the affected histories"}
+  },
+  "adversarial_controls": [
+    "missing or empty receipt checks",
+    "missing source pin",
+    "forged counts with all checks true",
+    "missing mutation arm",
+    "nonfinite residual",
+    "omitted witness event or prefix check",
+    "official-status escalation",
+    "incorrect sampling declaration",
+    "constant-zero phase implementation",
+    "literal-true regional implementation",
+    "turn-32 alias rejected by actual domain gate",
+    "insufficient sampling density rejected",
+    "zero crossing, open contour and unresolved increments rejected"
+  ],
+  "interpretation": {
+    "identity": "B F = G - n follows from matched load and tape updates; phase degree is the encoded tape period",
+    "unit": "one integer register load; an even load stack can divide under the same native law",
+    "homotopy": "free homotopy permits shared vertex phases to move; fixed-vertex homotopy is not asserted",
+    "observer": "declared current encoding, not an independently evolving field sensor; native pointer reads counters",
+    "record_loss": "external comparison with source loads detects loss; tape-only winding cannot detect every lost integer record",
+    "scope": "no transfer to glued carriers, no physical electric normalization, no mass/spin/force claim, no official OpenWave validation"
+  },
+  "reproduce": "PYTHONDONTWRITEBYTECODE=1 python3 openwave-tuning/next/CHAIN2/law_gate_audit/audit.py"
+}

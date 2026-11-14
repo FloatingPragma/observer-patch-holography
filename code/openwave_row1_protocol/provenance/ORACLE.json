@@ -1,0 +1,86 @@
+{
+  "schema": "oph.row1.independent_law_oracle.v1",
+  "arms": {
+    "native": {
+      "histories": 456,
+      "continuity": 456,
+      "closed_curves": 456,
+      "degree_equals_current": 456,
+      "one_unit_every_step": 456,
+      "regional_bound_every_step": 456,
+      "missing_record_against_loads": 0,
+      "histories_with_omission": 0,
+      "maximum_phase_error": 2.220446049250313e-16,
+      "maximum_gluing_defect": 2.4492935982947064e-16
+    },
+    "half_current": {
+      "histories": 456,
+      "continuity": 456,
+      "closed_curves": 0,
+      "degree_equals_current": 0,
+      "one_unit_every_step": 0,
+      "regional_bound_every_step": 0,
+      "missing_record_against_loads": 0,
+      "histories_with_omission": 0,
+      "maximum_phase_error": 0.0,
+      "maximum_gluing_defect": 2.0
+    },
+    "random_integer": {
+      "histories": 1368,
+      "continuity": 1368,
+      "closed_curves": 1368,
+      "degree_equals_current": 1368,
+      "one_unit_every_step": 504,
+      "regional_bound_every_step": 1069,
+      "missing_record_against_loads": 0,
+      "histories_with_omission": 0,
+      "maximum_phase_error": 4.440892098500626e-16,
+      "maximum_gluing_defect": 2.4492935982947064e-16
+    },
+    "omitted_record": {
+      "histories": 456,
+      "continuity": 456,
+      "closed_curves": 456,
+      "degree_equals_current": 456,
+      "one_unit_every_step": 456,
+      "regional_bound_every_step": 456,
+      "missing_record_against_loads": 228,
+      "histories_with_omission": 228,
+      "maximum_phase_error": 2.220446049250313e-16,
+      "maximum_gluing_defect": 2.4492935982947064e-16
+    }
+  },
+  "native_events": {
+    "events": 888,
+    "holds": 564,
+    "moves": 324,
+    "arrivals": 132
+  },
+  "prefix_counts": {
+    "native_steps": 888,
+    "native_continuity": 888,
+    "native_integral_regional_domain": 888,
+    "native_real_regional_bound": 888,
+    "native_source_record_agreement": 888,
+    "half_current_steps": 888,
+    "half_current_continuity": 888,
+    "half_current_integral_regional_domain": 0,
+    "half_current_real_regional_bound": 888,
+    "half_current_source_record_agreement": 888,
+    "random_integer_steps": 2664,
+    "random_integer_continuity": 2664,
+    "random_integer_integral_regional_domain": 2295,
+    "random_integer_real_regional_bound": 2295,
+    "random_integer_source_record_agreement": 2664,
+    "omitted_record_steps": 888,
+    "omitted_record_continuity": 888,
+    "omitted_record_integral_regional_domain": 888,
+    "omitted_record_real_regional_bound": 888,
+    "omitted_record_source_record_agreement": 444
+  },
+  "shortest_schedule_multiplicities": {
+    "distance_1_shortest_paths_1": 60,
+    "distance_2_shortest_paths_2": 60,
+    "distance_3_shortest_paths_10": 12
+  }
+}
