@@ -4,12 +4,12 @@
     "clock": "The port/transit probability oscillates at 2E; no physical electron rest clock or derived commit-rate calibration is identified.",
     "continuum": "No physical particle dictionary, common relativistic continuum or complete 31-row validation follows.",
     "interaction": "No record-energy choice is selected by default. Explicit interacting variants do not inherit the free squared-generator identity.",
-    "local_native_candidate": "The modular local-coarse instrument is a separately named candidate under audit. Its complete sector grows with cycle rank; the canonical sparse observer supplies a certified one-interval comparison, not an enumerated complete sector or a repeated-channel bound.",
+    "local_native_candidate": "The modular local-coarse instrument is the active proposed construction. Complete-sector enumeration grows with cycle rank; the definite-record sparse certificate covers one interval, while uniform-fiber reduction gives an exact different-preparation simulation of the whole instrument. Neither supplies the physical species dictionary.",
     "records": "C and E outcome payloads are retained; global position and register monitoring is supplied. Native coarse local measurements are a different instrument. Separate seam-offset dynamics are not implemented.",
     "regulator": "Two finite cutoff comparisons provide no cutoff-removal theorem.",
     "shared_register_native_programs": "The nine claims in claims/joint_observer.json retain their authenticated finite source domains. A shared event register does not implement independent additive loads. No transfer to the separate-copy generator is asserted."
   },
-  "construction": "Portable port/transit incidence Hamiltonian with supplied mass; bounded integer half-seam Gauss sector and supplied fully monitored native-event instrument. Explicit record-energy variants retain the same complete monitoring.",
+  "construction": "Active canonical port/transit modular construction with supplied mass, local-coarse C/E instrument and per-seam rate; definite and uniform-fiber preparations are explicit. Bounded integer fully monitored and record-energy variants retain separate comparison domains.",
   "finite_claims": [
     {
       "domain": "Product preparations; no interacting or exchange-statistics theorem.",
@@ -75,6 +75,16 @@
       "domain": "One coherent interval and Bernoulli event from the specified initial zero-record basis state, at the same modulus. The executed 55-state radius-4 ring window has combined probability-effect error below .006. The polynomial norm defect is retained. No repeated-channel, continuous per-seam scheduling, infinite-integer, or physical row transfer follows.",
       "id": "certified_canonical_native_window",
       "statement": "A sparse local-coarse modular instrument runs on the canonical ring with explicit rejected boundary events. Exact rational Taylor arithmetic and an analytic projection bound enclose every position and classical-quantum outcome probability relative to the complete modular sector."
+    },
+    {
+      "domain": "Explicit uniform-fiber preparation, including composite modulus6; connected graph and fixed source sector. Individual record-resolving measurements generally leave the subspace. No definite-record substitution, efficient preparation of the enormous joint state, or physical charge identification is asserted. Numerical continuous propagation is distinct from the exact operator identity.",
+      "id": "uniform_fiber_native_reduction",
+      "statement": "On a connected modular Gauss sector, normalized uniform record fibers define an isometry intertwining the Hamiltonian and every local-coarse C/E Kraus operator. The reduced canonical ring therefore reproduces complete native outcomes, repeated channels, external references and the per-seam generator on this preparation subspace."
+    },
+    {
+      "domain": "Spatially compact, flat nonpropagating mode with globally coherent modular record fibers and supplied transit-as-elsewhere rule. The -m eigenvalue supplies no vacuum/positive-energy electron dictionary, physical rest clock, magnetic moment or full particle-stability criterion.",
+      "id": "compact_native_persistence",
+      "statement": "A closed three-seam transit cycle in the reduced canonical graph lifts through the uniform-fiber isometry to an eigenstate with energy -m. Every native local endpoint event preserves its density, including supplied per-seam continuous scheduling. Canonical1x1 and2x2 controls and an explicit complete modular triangle verify persistence and reject broken-cycle, definite-record and full-monitor substitutions."
     }
   ],
   "official_OpenWave_awards_added": 0,
@@ -90,14 +100,8 @@
     {
       "full_criterion_met": false,
       "id": 2,
-      "local_status": "blocked",
-      "missing_prerequisites": [
-        "Localized charged electron eigenstate, stable rest pole and a common 511 keV dictionary.",
-        "executable observable on frozen joint candidate",
-        "numeric tolerance and finite-size/error budget justified for this observable",
-        "supplied-input ancestry and physical state identification",
-        "genuinely unrun configuration, independently audited and filed before execution"
-      ],
+      "local_status": "diagnostic_only",
+      "missing_prerequisites": "The measured -m eigenvalue and localized support do not identify a physical electron rest energy. A vacuum/positive-excitation dictionary and exactly one declared 511 keV calibration are absent; supplied m is not a prediction.",
       "official_status": "untested"
     },
     {
@@ -111,7 +115,7 @@
       "full_criterion_met": false,
       "id": 4,
       "local_status": "diagnostic_only",
-      "missing_prerequisites": "The prepared localized source leaks in these finite controls. No stable physical particle preparation or stability theorem is supplied.",
+      "missing_prerequisites": "The selected state persists exactly, but is a flat nonpropagating transit mode with globally coherent record fibers. Physical particle identification, admissible preparation and the requested physical stability domain remain open. Definite-record preparations do not inherit its persistence.",
       "official_status": "untested"
     },
     {
@@ -440,6 +444,7 @@
   "source_sha256": {
     "code/openwave_candidate/candidate/oph_openwave/__init__.py": "844f2f63fede8ca1b17ff2524cc380a9c1f702b92c00fde61b04368119ef06e2",
     "code/openwave_candidate/candidate/oph_openwave/charge.py": "84f678758e7fb7e0cb60782cdfada558f72185421fe083fcf0a08debececc950",
+    "code/openwave_candidate/candidate/oph_openwave/compact_native.py": "26ae94e0f5f2bbdbab214bd87e0814a8dc8b8ea9c91d5ba446ffdd91d6ce37d6",
     "code/openwave_candidate/candidate/oph_openwave/conjugation.py": "344c5d9215318e155f8227ce83f85f89d41d678f856a68b49a57a97606e06a27",
     "code/openwave_candidate/candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907",
     "code/openwave_candidate/candidate/oph_openwave/dispersion.py": "ce81d78943d5580e6e7a4536ea4d7e1a5ee2bed5acee8ba06caaaa24bf765bbd",
@@ -454,14 +459,15 @@
     "code/openwave_candidate/candidate/oph_openwave/record_energy.py": "6a197440eeec12fff5b4f71afe8d2ae49da29119690ccaa727716d579b49784e",
     "code/openwave_candidate/candidate/oph_openwave/record_preparation.py": "79c8017dd074bad20562cc95eba4bbc722700b432a8779ff33b006a9802177b4",
     "code/openwave_candidate/candidate/oph_openwave/regional_charge.py": "d83af3aa9e7beb72da2898cd7e0adc9bb83cefaea60d7b3c81cd129df9c0c1a9",
-    "code/openwave_candidate/candidate/oph_openwave/runner.py": "7f6063e9ba4ada16b8cc086ca60444a5db1b3a30aa844408c4956d18248cd7e3",
+    "code/openwave_candidate/candidate/oph_openwave/runner.py": "d6292a81b80649b25d03bee980cdd5e38c466dd8490cab471dee334aa5429fb4",
     "code/openwave_candidate/candidate/oph_openwave/sparse_native.py": "8e31a296c038a3d3a3d7d41259e20adf14415e23f94452a91fb7b3fc6f48a243",
     "code/openwave_candidate/candidate/oph_openwave/spin.py": "07875e4c23eebdfd41404eaf57a06c5d45669b0309f8d2ae270b050730d18b1b",
-    "code/openwave_candidate/integration/assess.py": "33577f9d6045f43fedb3cbbd9b985bfcf9a22ff49d4798481e28d8d4b06f8d99",
-    "code/openwave_candidate/integration/assessment.json": "ae016b79f2d803ac5c3735942b574157acf4152f16a6ee5c26ef5d475df0e937",
+    "code/openwave_candidate/candidate/oph_openwave/uniform_native.py": "2416525dfd50cb7e7f38805a52c65858d51fda428b5875abc7295e52b03e3146",
+    "code/openwave_candidate/integration/assess.py": "bf93163ceb26dba549d3813f460471e05850d2adc4493f0408f1e4cf434ca997",
+    "code/openwave_candidate/integration/assessment.json": "ffadd9f40c9fc7073257793934e5d4695f84e9854c1dbedbe69dfa9b7685545a",
     "code/openwave_candidate/platform_packet/criteria_frozen.json": "d6e36d90bc253f5af641760de2e6efc50e181f16e17c8f5334c31d0d7928085f",
-    "code/openwave_candidate/platform_packet/packet.json": "2a203acaa796b7fc4fc390c3060f3dd1bb85aed211337a2b0c4668640a40d5b5",
-    "tools/build_openwave_joint_claims.py": "09da5c21034f4de79b1a4045fd8a26961fbeb8ef023c4a2c6b6e8ab81b3731ab",
+    "code/openwave_candidate/platform_packet/packet.json": "9e0678f5efbbc5fdc1449a693fb880ced3509abe244f4e6b90597e20e6672d82",
+    "tools/build_openwave_joint_claims.py": "d79ea5a04979a978f0cfd05afbec114ebf886c6f3e9336e2cc7f7336d2f1fff5",
     "tools/check_openwave_assessment_replay.py": "765efb63988bb4f725426da9df1469523ec3cdd18d079684bf8f77f21416eeb9"
   }
 }

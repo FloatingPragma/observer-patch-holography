@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parent
 FROZEN_SHA256 = 'd6e36d90bc253f5af641760de2e6efc50e181f16e17c8f5334c31d0d7928085f'
 COMMIT = '5d686cb049b82cc55f8822210a254d5833be23a7'
 MODELS_SHA256 = 'a69895e4af4f6bc180748c4e9a8ae11d745c75462650aea44c3a34bd687a139d'
-CANDIDATE = 'ring-hm-integer-links-v1.3-proposed'
+CANDIDATE = 'ring-hm-mod6-local-coarse-v1.4-proposed'
 
 
 def require(condition, message):

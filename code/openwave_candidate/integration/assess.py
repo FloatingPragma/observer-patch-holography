@@ -16,7 +16,7 @@ from oph_openwave.construction import Construction
 from oph_openwave.quantum_records import run as joint_probe
 from oph_openwave.geometry import carrier
 from oph_openwave.observer_protocol import run as observer_probe
-from oph_openwave import record_preparation, record_energy, interacting_records, flux_controls, regional_charge, general_cut, modular_native, sparse_native
+from oph_openwave import record_preparation, record_energy, interacting_records, flux_controls, regional_charge, general_cut, modular_native, sparse_native, uniform_native, compact_native
 from oph_openwave.runner import validate_result
 
 
@@ -105,7 +105,7 @@ def assess():
         ('record_preparation', record_preparation), ('record_energy', record_energy),
         ('interacting_records', interacting_records), ('flux_controls', flux_controls),
         ('regional_charge', regional_charge), ('general_cut', general_cut), ('modular_native', modular_native),
-        ('sparse_native', sparse_native))}
+        ('sparse_native', sparse_native), ('uniform_native', uniform_native), ('compact_native', compact_native))}
     for name, result in extensions.items():
         validate_result(name, result)
     observations[3]['record_preparation_control'] = {'evidence_key':'record_extensions.record_preparation'}
@@ -113,7 +113,15 @@ def assess():
     observations[1]['general_cut_identity'] = {'evidence_key':'record_extensions.general_cut'}
     observations[1]['local_coarse_modular_control'] = {'evidence_key':'record_extensions.modular_native'}
     observations[1]['canonical_native_observer'] = {'evidence_key':'record_extensions.sparse_native'}
+    observations[1]['uniform_preparation_native_observer'] = {'evidence_key':'record_extensions.uniform_native'}
     observations[1]['remaining'] = 'Physical electric-charge/apparatus dictionary and topological nonfragmentation across the admitted signed-sector/intervention domain. Modular Gauss, integer Gauss and one-load sharp outcomes retain distinct domains; this row need not await mass or spin results.'
+    observations[2] = {'observable':'localized selected transit eigenstate with energy -m on the actual modular instrument',
+        'evidence_key':'record_extensions.compact_native',
+        'remaining':'The measured -m eigenvalue and localized support do not identify a physical electron rest energy. A vacuum/positive-excitation dictionary and exactly one declared 511 keV calibration are absent; supplied m is not a prediction.'}
+    observations[4] = {'observable':'exact compact transit-state persistence under the same local-coarse native instrument, with uniform modular record preparation',
+        'evidence_key':'record_extensions.compact_native',
+        'definite_record_comparison':{'evidence_key':'observer_protocol.monitoring_experiment'},
+        'remaining':'The selected state persists exactly, but is a flat nonpropagating transit mode with globally coherent record fibers. Physical particle identification, admissible preparation and the requested physical stability domain remain open. Definite-record preparations do not inherit its persistence.'}
     for ident, observable, missing in (
         (6, 'supplied static-flux rotation and antipodal-doublet controls', 'No spatial angular momentum representation for identified joint particles.'),
         (7, 'rotation rephasing and Z6 statistics controls', 'A rephasable rotation cube and special doublet do not identify physical spin-1/2 or exchange statistics.'),
@@ -122,7 +130,7 @@ def assess():
         observations[ident] = {'observable': observable, 'remaining': missing,
             'evidence_key': 'record_extensions.flux_controls' if ident in (6, 7) else 'record_extensions.record_energy'}
     observations[20]['selected_interacting_instrument'] = {'evidence_key':'record_extensions.interacting_records'}
-    diagnostics = {4, 6, 7, 20, 22}
+    diagnostics = {2, 4, 6, 7, 20, 22}
     require(sorted(r['id'] for r in criteria) == list(range(1,32)), "gate failed: sorted(r['id'] for r in criteria) == list(range(1,32))")
     rows=[]
     for criterion in criteria:

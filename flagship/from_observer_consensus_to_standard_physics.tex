@@ -1929,63 +1929,58 @@ low-momentum refinement. This intraband source preserves excitation number;
 it supplies no pair-producing vacuum or interacting Lorentz theorem
 (\path{model/openwave_dirac_maxwell_refinement}).
 
-\paragraph{A joint finite charge and record instrument.}
-A declared ring gluing joins twelve-port carriers through their three
-canonical ring ports. Its bare port/transit operator is
-\[
- D=\begin{pmatrix}0&B\\B^*&0\end{pmatrix},\qquad
- H_m=D+m\Gamma,\quad \Gamma=\operatorname{diag}(I,-I),\qquad
- H_m^2=D^2+m^2I,
-\]
-where $B$ is the oriented incidence matrix and $m$ is supplied.
-The acoustic branch has $c^2=15/352$ on the two-dimensional screen.
-Its finite dispersion and port/transit oscillation at $2E$ do not
-identify a physical electron clock. A single shared coherent event
-register fails independent-subsystem energy additivity; independent
-local generators compose by a tensor sum.
+\paragraph{A local record instrument with exact compact persistence.}
+A specified one-load realization uses ports and transit seams of the canonical
+ring screen, with two six-level half-seam records per seam. Its lifted generator
+has $H_m=D+m\Gamma$, where each signed endpoint-to-transit hop shifts its
+record and $\Gamma$ is $+1$ on ports and $-1$ on transit seams. It preserves
+Gauss charges modulo six. Integer records with a hard wall define a different
+regulator; no integer-charge theorem follows from identifying residues.
 
-The joint implementation lifts each endpoint-to-transit hop to an
-integer half-seam record. For $e=(a,b)$ its two fields $F_{e,a},F_{e,b}$
-retain the exact charges
+For a connected screen with $N$ ports and $M$ seams, each fixed-position
+Gauss fiber contains $d=6^{M-N+1}$ record configurations. Let $V|z\rangle$
+be their normalized uniform superposition. Half-hop translations and every
+local C/E outcome map are bijections between the relevant fibers, so
 \[
- G_x=\mathbf1_{z=x}+\sum_{e\ni x}F_{e,x},\qquad
- G_e=\mathbf1_{z=e}-F_{e,a}-F_{e,b}.
+ H_{\rm lift}V=VH_{\rm bare},\qquad
+ K_\alpha^{\rm lift}V=VK_\alpha^{\rm bare}.
 \]
-A hop from $x$ to $e$ increments $F_{e,x}$; its reverse decrements it.
-Both preserve these charges. A symmetric hard wall $|F|\le K$ keeps
-the lifted Hamiltonian Hermitian and its massive-square identity exact.
-The lifted $D^2$ includes the record degrees of freedom; replacing it
-by the bare graph Laplacian would discard which-path information.
+Thus the reduced program computes every local-record history and position
+readout, including arbitrary idle quantum references, on this explicit
+preparation domain. A definite record preparation does not satisfy the same
+intertwining relation. The C outcome groups sources by coin and current;
+E groups them by coin and contrast. This local-coarse quantum extension is
+supplied. Complete source/record monitoring defines another instrument.
 
-An explicit measured instrument retains the source basis label, seam,
-coin and native contrast or current record. It records transit noops,
-zero-current events and boundary rejections, and acts on every admitted
-input. A discrete step evolves coherently for supplied time $t$, then
-commits with supplied probability $p$:
+The canonical carrier face gives a normalized signed three-seam cycle
+$\chi$ with $B\chi=0$. The transit state
+$\Phi=V(0,\chi)$ obeys
 \[
- \rho'=(1-p)U\rho U^*+p\,\mathcal C(U\rho U^*),\qquad U=e^{-itH_m}.
+ H_{\rm lift}\Phi=-m\Phi,\qquad
+ K_{e,\ell,c,0}\Phi=\tfrac12\Phi,
+ \qquad K_{e,\ell,c,r\ne0}\Phi=0.
 \]
-The source-resolved Kraus rows satisfy $\sum K^*K=I$ exactly.
-This is a fully specified finite monitored protocol; no fast-commit
-or physical-clock equivalence is inferred from population agreement.
+Each of the four zero-record outcomes of a drawn seam has probability $1/4$.
+Its density therefore persists under the same coherent evolution, local
+commit and supplied per-seam continuous scheduling. The three supported
+transit seams each have probability $1/3$; all port probabilities vanish.
+This conditional stability uses the declared transit-as-elsewhere rule.
 
-On a triangle, $m=0.23$ and eight steps with $t=0.37,p=0.29$,
-cutoffs $K=1,2$ give dimensions $13,25$. The maximum difference
-in final position probabilities is $0.0208933517$. Expected cumulative
-native rejection counts are $0.00573201863$ and
-$0.000000361110879$; traces differ from one by less than
-$6\times10^{-15}$. Native rejection counts do not bound coherent
-hard-wall error. These measurements establish cutoff sensitivity,
-with no regulator-removal theorem. The construction supplies no
-localized physical electron, common interacting continuum or complete
-particle spectrum. Its equations, complete instrument and portable
-reproduction are given in the executable-construction paper \cite{ophspine} and
-\path{code/openwave_candidate/candidate/methods/quantum_records.md}.
-Complete source monitoring is supplied: native local endpoint questions can
-retain coherence that this instrument removes. Cyclic records define a separate
-regulator and do not inherit integer-charge claims. The record domain,
-preparation and clock must therefore travel with every comparison; finite
-arithmetic checks award no physical criterion.
+On the fully enumerated modular triangle the selected eigen-equation and
+intertwiner have zero numerical residual; one local coherent/commit step
+changes its density by trace distance $1.3\times10^{-15}$. Choosing one
+definite compatible record at each transit position instead gives port
+leakage $0.0831732082$ at $t=0.37$, while breaking a canonical spatial
+cycle gives $0.1032191680$. The uniform state is compact in position and
+spread over $3d$ joint basis states: $d=6^{40}$ on the two-carrier screen
+and $6^{157}$ on the eight-carrier screen. Its nonlocal record preparation
+is an explicit input. The mode is flat and immobile, its energy offset is
+supplied, and its stationary density has no internal clock. No electron,
+magnetic moment or physical angular-momentum identification follows.
+The executable-construction paper gives the proof \cite{ophspine}; the
+reduced operator and complete records are specified in
+\path{code/openwave_candidate/candidate/methods/uniform_native.md} and
+\path{code/openwave_candidate/candidate/methods/compact_native.md}.
 
 \subsection{Native outgoing currents and neutral mixing}
 \label{sec:outgoing-records}

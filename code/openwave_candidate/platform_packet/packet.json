@@ -1,27 +1,27 @@
 {
   "schema": "oph.openwave.platform_packet.v1",
   "platform_commit": "5d686cb049b82cc55f8822210a254d5833be23a7",
-  "candidate_id": "ring-hm-integer-links-v1.3-proposed",
-  "candidate_state": "bounded one-load port/seam integer-link implementation with monitored native current; full physical identifications and multi-load interacting completion remain open",
+  "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
+  "candidate_state": "One local-coarse modular port/transit construction on the canonical ring; explicit definite-record and uniform-fiber preparations; supplied per-seam scheduling. Physical species/charge dictionary and interacting many-load completion remain open.",
   "official_status_change": false,
   "supplied_inputs": [
     "canonical ring connectivity and screen family",
-    "integer load and oriented record registers",
+    "one-load occupancy and Z6 oriented half-seam registers",
     "H_m and rest offset m",
-    "literal event rate r; gamma belongs only to seam-decay control",
-    "many-load statistics and filling",
-    "link state: flux-free preparation or face selection term",
-    "record-energy functional and interaction coupling if used",
-    "screen 2-cells and transverse weight if used",
-    "depth register and coupling if used",
-    "single electron anchor and common time/length dictionary"
+    "local coarse C/E quantum grouping and transit policy",
+    "rate per seam; Bernoulli step parameters when used",
+    "explicit definite or uniform-fiber preparation",
+    "many-load statistics and filling if extended",
+    "record-energy functional and interaction coupling if added",
+    "screen 2-cells/transverse weight or depth register if added",
+    "physical charge unit and common time/length/energy dictionary"
   ],
   "rows": [
     {
       "id": 1,
       "criterion": "Charge quantization",
       "literal_gate": "integer topological charge; a split e → e/2 + e/2 impossible",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Topological physical electron charge and exclusion of fractional charge over the complete joint state space.",
@@ -37,7 +37,7 @@
       "id": 2,
       "criterion": "Electron rest energy (mass)",
       "literal_gate": "localized state anchored to 511 keV",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Localized charged electron eigenstate, stable rest pole and a common 511 keV dictionary.",
@@ -53,7 +53,7 @@
       "id": 3,
       "criterion": "de Broglie clock (Zitterbewegung)",
       "literal_gate": "self-starting frequency-rigid internal oscillation at ω = mc²/ℏ",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Self-starting rigid clock at rest frequency E/hbar on that electron; 2E port/transit beating is insufficient.",
@@ -69,7 +69,7 @@
       "id": 4,
       "criterion": "Particle stability (Derrick escape)",
       "literal_gate": "the particle state persists in free evolution",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "The same physical electron survives unforced joint evolution and held-out enlargement.",
@@ -85,7 +85,7 @@
       "id": 5,
       "criterion": "Magnetic moment μ (g ≈ 2, magnetostatics)",
       "literal_gate": "intrinsic magnetostatics: a stationary state sources a static dipole B from internal circulation, g ≈ 2; dipole Larmor response",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Stationary intrinsic dipole B, g near 2 and Larmor response on the electron state.",
@@ -101,7 +101,7 @@
       "id": 6,
       "criterion": "Angular momentum J (spin ℏ/2)",
       "literal_gate": "field-carried J = ℏ/2 on the electron state",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Field-carried angular momentum hbar/2 of that electron state.",
@@ -117,7 +117,7 @@
       "id": 7,
       "criterion": "Spin-½ statistics (720° double cover)",
       "literal_gate": "the field returns under a π rotation while its frame needs 2π",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Physical frame/field rotation action and exchange statistics; flux-phase convention alone is insufficient.",
@@ -133,7 +133,7 @@
       "id": 8,
       "criterion": "Antimatter + annihilation",
       "literal_gate": "pair annihilation to radiation; follow-on: positronium 2γ/3γ",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Identified particle/antiparticle pair annihilation into propagated radiation, with channel counts.",
@@ -149,7 +149,7 @@
       "id": 9,
       "criterion": "Neutrinos (neutral states)",
       "literal_gate": "light charge-0 states released in decays",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Neutral light species actually emitted by candidate decay dynamics.",
@@ -165,7 +165,7 @@
       "id": 10,
       "criterion": "Neutrino oscillations (PMNS)",
       "literal_gate": "3 flavors + oscillation; the PMNS angles",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Three identified neutrino flavors, coherent oscillation probabilities and PMNS angles.",
@@ -181,7 +181,7 @@
       "id": 11,
       "criterion": "Lepton mass spectrum (μ, τ)",
       "literal_gate": "exactly 3 charged-lepton minima; ratios 1 : 207 : 3477",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Exactly three stable charged-lepton minima with shared-scale ratios 1:207:3477.",
@@ -197,7 +197,7 @@
       "id": 12,
       "criterion": "Quarks",
       "literal_gate": "fractional charge as partial winding on a quark string",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Partial-winding fractional quark charge on an actual stable quark string.",
@@ -213,7 +213,7 @@
       "id": 13,
       "criterion": "Baryons: bound state (p, n)",
       "literal_gate": "a stable three-quark composite",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Stable three-quark composite in the same joint dynamics.",
@@ -229,7 +229,7 @@
       "id": 14,
       "criterion": "Baryons: mass ordering + charge profile",
       "literal_gate": "m_n > m_p; positive core, negative shell",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Identified proton/neutron ordering and radial electric charge profile.",
@@ -245,7 +245,7 @@
       "id": 15,
       "criterion": "Baryons: exact masses",
       "literal_gate": "938.3 / 939.6 MeV from the field",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Proton and neutron field energies at 938.3/939.6 MeV under the same anchor.",
@@ -261,7 +261,7 @@
       "id": 16,
       "criterion": "Deuteron (binding + quadrupole)",
       "literal_gate": "m_d < m_p + m_n; the electric quadrupole moment",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Deuteron below proton-plus-neutron threshold with electric quadrupole.",
@@ -277,7 +277,7 @@
       "id": 17,
       "criterion": "Nuclear structure (levels, halos)",
       "literal_gate": "binding curve, levels, halo-nuclei lifetimes",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Nuclear binding curve, excitation levels and halo decay lifetimes.",
@@ -293,7 +293,7 @@
       "id": 18,
       "criterion": "Mesons (π, K)",
       "literal_gate": "π/K states; strange decays (Λ⁰ → p + π⁻)",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Identified pion/kaon states and strange-decay channels.",
@@ -309,7 +309,7 @@
       "id": 19,
       "criterion": "Dark matter candidate",
       "literal_gate": "a stable neutral massive state",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Stable massive neutral physical branch without importing its mass.",
@@ -325,7 +325,7 @@
       "id": 20,
       "criterion": "Electric force (Coulomb 1/r, electrostatics)",
       "literal_gate": "far-field 1/r potential at charge e; the strength (α) credited only when it follows from the model's own mechanism, never fitted",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Carrier-generated far potential 1/r for identified physical charge; coupling ancestry without fitted alpha.",
@@ -341,7 +341,7 @@
       "id": 21,
       "criterion": "Lorentz covariance (+ Coulomb = EM)",
       "literal_gate": "Lorentz-invariant action, no preferred frame; boosted states contract, c-limited",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Boosted physical states, no preferred-frame observable and a common Lorentz-invariant action/limit.",
@@ -357,7 +357,7 @@
       "id": 22,
       "criterion": "Strong force: confinement",
       "literal_gate": "linear inter-charge potential, ~1 GeV/fm (Cornell)",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Inter-quark linear potential and one common physical conversion near 1 GeV/fm.",
@@ -373,7 +373,7 @@
       "id": 23,
       "criterion": "Running coupling",
       "literal_gate": "coupling varies with scale (onset at the core radius)",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Coupling extracted at multiple scales including core crossover on the fixed interaction law.",
@@ -389,7 +389,7 @@
       "id": 24,
       "criterion": "Weak force: muon decay",
       "literal_gate": "μ relaxes to e + neutral ejecta",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Identified muon evolves to electron plus neutral outgoing excitations.",
@@ -405,7 +405,7 @@
       "id": 25,
       "criterion": "Weak force: beta decay (n → p)",
       "literal_gate": "n → p + e + ν̄, parity-violating (needs a neutron)",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Identified neutron decays to proton/electron/antineutrino with parity-violating records.",
@@ -421,7 +421,7 @@
       "id": 26,
       "criterion": "Gravity: Newton limit (GEM)",
       "literal_gate": "attractive 1/r² between masses, via the GEM route; the strength (G) credited only when it follows from the model's own mechanism, never fitted",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Attractive mass-source inverse-square force with internally fixed G.",
@@ -437,7 +437,7 @@
       "id": 27,
       "criterion": "Gravity: local metric phenomena",
       "literal_gate": "light bending, gravitational time dilation / Shapiro delay",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Light bending and clock/Shapiro-delay observables from the same emergent metric.",
@@ -453,7 +453,7 @@
       "id": 28,
       "criterion": "Cosmology: Λ / cosmic acceleration",
       "literal_gate": "Λ from the model's own mechanism, never fitted; every remaining gap and a falsification named",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Internally derived cosmological Lambda, remaining gaps and explicit falsifier.",
@@ -469,7 +469,7 @@
       "id": 29,
       "criterion": "EM waves (Maxwell)",
       "literal_gate": "Maxwell recovered; transverse waves at c",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Two transverse propagating physical Maxwell branches at the same matter-wave speed.",
@@ -485,7 +485,7 @@
       "id": 30,
       "criterion": "Quantum wave equation (Klein-Gordon)",
       "literal_gate": "emergent ω² = k² + m² for matter waves",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Controlled common-spacetime matter-wave refinement to omega²=k²+m² beyond a finite graph identity.",
@@ -501,7 +501,7 @@
       "id": 31,
       "criterion": "Orbital quantization (atomic structure)",
       "literal_gate": "hydrogen-like discrete levels from standing waves",
-      "candidate_id": "ring-hm-integer-links-v1.3-proposed",
+      "candidate_id": "ring-hm-mod6-local-coarse-v1.4-proposed",
       "status": "blocked",
       "required_before_run": [
         "Hydrogen-like bound spectrum on the same physical interaction/state law; 2D toy levels alone insufficient.",
@@ -513,5 +513,22 @@
       "result": null,
       "official_status": "untested"
     }
-  ]
+  ],
+  "architecture": {
+    "geometry": "canonical ring gluing of twelve-port carriers",
+    "generator": "lifted H_m=D+m Gamma",
+    "record_arithmetic": "Z6 half-seam residues, distinct from integer Gauss charge",
+    "instrument": "local coarse C/E equal mixture, fair coin; transit included in elsewhere",
+    "scheduler": "supplied rate per seam; Bernoulli split experiments separately labelled",
+    "preparations": [
+      "definite port0 with zero residues",
+      "normalized uniform complete fixed-Gauss fiber at declared position/state"
+    ],
+    "unselected": [
+      "record-energy interaction",
+      "face/depth extension",
+      "many-load statistics and background",
+      "physical charge, vacuum and spacetime dictionary"
+    ]
+  }
 }

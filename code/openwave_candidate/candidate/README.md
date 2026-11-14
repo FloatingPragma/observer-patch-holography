@@ -1,14 +1,24 @@
 # Portable OPH construction
 
-The current integration starts with one port/seam `Construction` and lifts it
-to the bounded integer-link `JointRecords` state space. The canonical carrier
-and ring torus are available in `oph_openwave.geometry` without a RER archive.
+The active candidate uses one canonical port/transit geometry, modular half-seam
+records and a local coarse C/E instrument. Its explicit uniform-record
+preparation admits an exact reduced simulation of every native outcome; the
+same dynamics also supports definite-record preparations with a certified
+sparse observer. Physical charge/species and many-load completion remain open.
 From this directory, install with `python -m pip install .`, then run:
 
 ```sh
-oph-openwave construction --output construction.json
-oph-openwave quantum_records --output quantum-records.json
+oph-openwave uniform_native --output native-observer.json
+oph-openwave compact_native --output compact-state.json
+oph-openwave sparse_native --output definite-record-control.json
 ```
+
+The [uniform-fiber theorem](methods/uniform_native.md) applies to the entire
+local instrument, including per-seam continuous scheduling and external quantum
+references. The [compact preparation](methods/compact_native.md) persists under
+that same instrument. It is a flat transit mode, not an identified electron.
+Uniform and definite records are distinct inputs. The earlier bounded integer
+`JointRecords` instrument retains its own fully monitored comparison domain.
 
 The full 31-row dispatch and OpenWave task handoff live in `../integration/`
 and `../platform_packet/`. Only executed supporting observables receive local

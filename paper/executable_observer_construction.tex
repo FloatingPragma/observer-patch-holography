@@ -1221,105 +1221,122 @@ return probability is $643/900$, compared with $101/120$ for two classical
 attempts. Coherent information and its changed continuation are therefore
 observable properties of the specified program.
 
-\subsection{A monitored integer-record charge instrument}
+\subsection{Local record instruments and exact compact persistence}
 \label{sec:integer-record-instrument}
 
-A port/transit realization joins coherent propagation to explicit integer
-records on the same finite state space. Fix an oriented graph, a port
-preparation and a cutoff $K$. Each seam $e=(a,b)$ has half-seam integers
-$F_{e,a},F_{e,b}$. Retain the states $|z,F\rangle$ reachable from the
-prepared $|x_0,0\rangle$ by the following half-hops, with $|F_{e,x}|\le K$.
-An endpoint-to-transit hop increments $F_{e,x}$, with amplitude $+1$ at
-$a$ and $-1$ at $b$; its adjoint decrements that field. Omitting an
-out-of-window hop together with its reverse defines a Hermitian $D_K$.
-This hard wall is a declared regulator, with no modular wraparound.
-With $\Gamma=+1$ on ports and $-1$ on transit seams,
-\begin{equation}
+A port/transit realization carries two half-seam fields $F_{e,a},F_{e,b}$
+for each oriented seam $e=(a,b)$. An endpoint-to-transit hop increments
+$F_{e,x}$, with sign $+1$ at $a$ and $-1$ at $b$; its adjoint reverses
+the shift. A symmetric integer hard wall gives a Hermitian $D_K$ and
+\[
  H_{m,K}=D_K+m\Gamma,\qquad
- \{D_K,\Gamma\}=0,\qquad H_{m,K}^2=D_K^2+m^2I.
- \label{eq:joint-record-square}
-\end{equation}
-The square is a lifted record-space operator. The bare incidence
-Laplacian cannot replace it on a graph with recorded cycles.
-
-\begin{proposition}[Exact integer Gauss sectors and complete monitoring]
-Every half-hop preserves
-\begin{equation}
+ \{D_K,\Gamma\}=0,\qquad H_{m,K}^2=D_K^2+m^2I,
+ \quad\Gamma=\operatorname{diag}(I,-I).
+\]
+The lifted square retains the record degrees of freedom. Every half-hop
+preserves the exact integer quantities
+\[
  G_x=\mathbf1_{z=x}+\sum_{e\ni x}F_{e,x},\qquad
  G_e=\mathbf1_{z=e}-F_{e,a}-F_{e,b}.
- \label{eq:half-seam-gauss}
+\]
+Indeed occupancy and its incident field change oppositely at an endpoint,
+and together at transit. A native port current changes the endpoint loads
+by $(-j,+j)$ and the two fields by $(+j,-j)$, preserving the same charges.
+Complete source monitoring can implement this update with rows
+$\sqrt{w_\alpha}|f_\alpha(s)\rangle\langle s|$;
+$\sum K^*K=I$ proves completeness, including identity outcomes on transit
+and rejected boundaries. This is a declared fully monitored comparison.
+
+The local-coarse modular realization instead shifts fields cyclically in
+$\mathbb Z_q$, so only the Gauss residues are invariant. For a drawn seam
+and fair coin, the C outcome groups sources with the same signed current;
+E groups them by the pre-repair contrast. Each grouped partial translation
+has coefficient $1/2$ when both record laws have equal weight. Transit
+positions belong to the unchanged ``elsewhere'' outcome, without an
+emitted transit flag. This grouping preserves within-outcome coherence;
+the classical integer transition alone does not select this quantum lift.
+
+\begin{proposition}[Uniform modular fibers and complete local records]
+Let the port graph be connected with $N$ vertices and $M$ seams. In the
+Gauss sector prepared by one load at port $0$ and zero records, let
+$\mathcal F_z$ be the complete record fiber at position $z$, and define
+\[
+ d=q^{M-N+1},\qquad
+ V|z\rangle=d^{-1/2}\sum_{F\in\mathcal F_z}|z,F\rangle.
+\]
+Then $V^*V=I$ and both the generator and every local-coarse outcome satisfy
+\begin{equation}
+ H_{\rm lift}V=VH_{\rm bare},\qquad
+ K_\alpha^{\rm lift}V=VK_\alpha^{\rm bare}.
+ \label{eq:uniform-fiber-intertwiner}
 \end{equation}
-There is a complete measured native-event instrument on the same bounded
-sector preserving these charges, including its rejected-boundary and
-transit outcomes.
+All local-record histories, position observations and idle-reference
+extensions therefore agree on this preparation domain.
 \end{proposition}
 \begin{proof}
-For $x\to e$, endpoint occupancy falls by one and $F_{e,x}$ rises by
-one, preserving $G_x$. Transit occupancy and the subtracted field each
-rise by one, preserving $G_e$. Reverse hops invert both changes; the
-mass is diagonal. Hence $[H_{m,K},G_x]=[H_{m,K},G_e]=0$.
-
-For a port input use its one-hot loads $n$, choose a seam and fair coin,
-and apply the native integer current
-\[
- d=n_a-n_b,\quad
- j=\frac{d-(2\,\mathrm{coin}-1)(|d|\bmod2)}2,\quad
- n'_a=n_a-j,\ n'_b=n_b+j.
-\]
-Set $F'_{e,a}=F_{e,a}+j$ and $F'_{e,b}=F_{e,b}-j$.
-Endpoint charge changes cancel; the sum of the two fields is unchanged.
-A target outside the admitted sector gives a recorded boundary rejection
-and unchanged state. A transit input gives a retained noop. These
-identity branches also preserve all charges.
-
-The instrument measures the complete source basis $s$, selects seam,
-coin and record law $\alpha$ with probabilities $w_\alpha$, and records
-its target $f_\alpha(s)$. The two record laws retain either
-$(\mathrm{coin},j)$ or $(\mathrm{coin},d)$. Its rows are
-\[
- K_{s,\alpha}=\sqrt{w_\alpha}|f_\alpha(s)\rangle\langle s|,\qquad
- \sum_{s,\alpha}K_{s,\alpha}^*K_{s,\alpha}=I.
-\]
-Every source and event remains a distinct outcome even for equal targets.
-The trace-preserving completely positive map follows on arbitrary
-quantum references. Zero-current records and failed proposals are kept.
+The subdivided graph has $N+M$ vertices and $2M$ half-edges. A spanning
+tree eliminates $N+M-1$ fields by unit-coefficient Gauss equations over
+$\mathbb Z_q$, leaving $M-N+1$ free cycle coordinates, also for composite
+$q$. Every position has the same fiber size $d$; distinct positions have
+orthogonal support. Each half-hop is a signed bijection between adjacent
+fibers, proving the Hamiltonian identity. Within a local record outcome,
+the source-position projector depends only on the drawn seam, coin and
+current or contrast. Its translated fields again form a complete target
+fiber with the same normalization. This proves the Kraus identities.
+Their products give every retained history; tensoring with an idle
+reference preserves each identity.
 \end{proof}
 
-The supplied monitoring dephases the complete source basis. A coarse native
-C record asks an endpoint-occupation question; an E record resolves the two
-endpoints and their complement. These local records can retain coherence
-inside an outcome subspace, so they define a different instrument from the
-source-resolved Kraus rows above. Replacing one by the other changes the
-observable continuation and requires a separate calculation. The discrete protocol is
+\begin{corollary}[A compact state preserved by the same local instrument]
+For a normalized cycle vector $B\chi=0$, the state $\Phi=V(0,\chi)$
+satisfies $H_{\rm lift}\Phi=-m\Phi$. Every zero-record local outcome
+acts as $\Phi/2$ and every other outcome annihilates it. Its density is
+fixed by coherent evolution, local commit, their Bernoulli mixture and
+the supplied per-seam generator
 \[
- \rho'=(1-p)U\rho U^*+p\mathcal C(U\rho U^*),\qquad
- U=e^{-itH_{m,K}}.
+ \mathcal L(\rho)=-i[H_{\rm lift},\rho]
+                  +r\sum_e(\mathcal C_e(\rho)-\rho).
 \]
-It retains the no-commit outcome with probability $1-p$. At $p=0$ it is
-coherent joint evolution. At $t=0,p=1$, an interior port input has the
-native one-event population law $I-L/(2M)$. These finite statements do
-not imply a continuous-time Poisson or fast-commit equivalence.
+\end{corollary}
+\begin{proof}
+The bare transit vector has zero port image because $B\chi=0$ and mass
+$-m$. Every native endpoint question treats all transit positions as
+elsewhere; its four zero-record Kraus rows are $I/2$ there. Apply
+\eqref{eq:uniform-fiber-intertwiner}. Each channel fixes $\Phi\Phi^*$,
+so both terms of its continuous generator vanish.
+\end{proof}
 
-On the oriented triangle with initial port $0$, zero fields and $m=0.23$,
-eight steps at $t=0.37,p=0.29$ give $13$ and $25$ reachable states for
-$K=1,2$. The maximum final position-probability difference is
-$0.0208933517$. Cumulative expected native rejection counts are
-$0.00573201863$ and $0.000000361110879$, respectively, with trace errors
-below $6\times10^{-15}$. Those counts measure monitored rejections;
-coherent hard-wall error requires a separate bound. Two cutoffs establish
-sensitivity, without a removal theorem.
+The canonical carrier face $(0,11,5)$ has cycle coefficients $+1$ on
+$(0,11)$ and $-1$ on $(5,11),(0,5)$, divided by $\sqrt3$.
+It has exact zero integer divergence on the canonical ring screens.
+Complete position records give $1/3$ on each of these three transit seams
+and zero elsewhere. At $q=6$, every drawn seam has four zero-record
+outcomes of probability $1/4$; the nonzero-current/contrast outcomes
+are retained with probability zero.
 
-The implementation and equation map are
-\path{code/openwave_candidate/candidate/oph_openwave/quantum_records.py}
-and \path{code/openwave_candidate/candidate/methods/quantum_records.md}.
-Independent tests reconstruct every Kraus row and check charge, record
-increments and~\eqref{eq:joint-record-square}. The graph, preparation,
-fields, cutoff, mass, hop time and monitoring probability are supplied.
-A finite cyclic record regulator is also a distinct architecture: it identifies
-integer currents differing by its modulus. An exact uniform-fiber control in
-that regulator supplies no integer-record preparation or charge theorem.
-Many-load exchange statistics, an unbounded-record limit and the physical
-particle and clock dictionary are outside this finite theorem.
+The fully enumerated $36$-state modular triangle gives zero numerical
+intertwiner and selected-state eigen-equation residual. At
+$m=0.23,t=0.37,p=0.29$, one coherent/commit step changes its density
+by trace distance $1.3\times10^{-15}$. A specified single-record-per-position
+preparation instead leaks $0.0831732082$ onto ports; complete global
+monitoring followed by coherent evolution leaks $0.2379296315$.
+Breaking one canonical cycle edge gives leakage $0.1032191680$.
+These controls distinguish preparation and instrument, rather than
+transferring a bare eigenvector to an arbitrary record state.
+
+On the two- and eight-carrier flat screens, the fibers contain $6^{40}$
+and $6^{157}$ configurations. The compact state has $3d$ nonzero joint
+amplitudes. Reduced execution uses the exact isometry image; the huge
+record state is specified implicitly, with a supplied nonlocal preparation.
+A definite record, a record measurement or another regulator needs its own
+transfer. The mode is flat, entirely transit-supported and immobile; no
+physical electron identity, intrinsic clock or magnetic/spin theorem
+follows from this conditional persistence.
+
+The equations and complete records are implemented in
+\path{code/openwave_candidate/candidate/oph_openwave/uniform_native.py}
+and \path{code/openwave_candidate/candidate/oph_openwave/compact_native.py},
+with proofs and controls in their accompanying method notes.
 
 \begin{proposition}[A reference prepared by the same walk]
 \label{prop:walk-reference}
