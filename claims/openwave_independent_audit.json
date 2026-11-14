@@ -67,12 +67,21 @@
         "code/openwave_audit/persistence_results.json"
       ],
       "domain": "Finite rational 384-state C10 H and complete C/E/MIX instruments, algebraic nonzero time and 0<p<1 for the discrete extension. No physical stable-particle, approximate-lifetime or mixed-state exclusion."
+    },
+    {
+      "id": "native_gravity_clock_metric_and_unit_scope",
+      "statement": "Independent native endpoint and tagged-clock enumeration, free-graph traversal, linearized curvature and common-unit arithmetic reproduce the finite gravity comparison and distinguish hop rate, attempted-contact rate and population clock frequency. The pinned graph has components1,5,7,180 and one isolated vertex.",
+      "evidence": [
+        "code/openwave_audit/GRAVITY_SOURCE_PROOF.md",
+        "code/openwave_audit/gravity_source_results.json"
+      ],
+      "domain": "Uniform native C seam attempts; existing K0/K1/K2 tagged preparations; supplied flat(3,3) pin intervention and compact coherent lapse. The length-invariant strength mismatch pertains only to the registered geometry unit attachment; no general gravity exclusion or row award."
     }
   ],
   "source_sha256": {
     "code/openwave_audit/PAIR_RECORD_PROOF.md": "3b939f09efce84c4d178f5bfd85623517739fe9c612ef16095ef3965ab66a6d1",
     "code/openwave_audit/PERSISTENCE_PROOF.md": "13df63a77f40ed6a27a5c589079b42eb2000d91d4ae75d3bd3f53a5d493f2734",
-    "code/openwave_audit/README.md": "934c839b7527a10c6f170d3863127760ef740560376397448c0955fe08c2124c",
+    "code/openwave_audit/README.md": "b35a18566bb5098ccbbdb38298e13c2cb2eb41e6b28cd6a0d5f73dc28f67f419",
     "code/openwave_audit/energy_scale.py": "0e81c1b6320a9cd2082f17d074d8c792a033a3b498f61aff885d9ffa8db19ca0",
     "code/openwave_audit/energy_scale_results.json": "17502c146a98f3cb42db079a594262393b7d89effe3815c8760ebab379eb1f45",
     "code/openwave_audit/holonomy_scope.py": "033d897126a8e2e563ad8388b9105bae638504dac71c497f926d84a120a28b0d",
@@ -90,7 +99,10 @@
     "code/openwave_audit/reservoir_audit.py": "2bcf31fd4cd601ccd2ee723ce20f7a377673e01ab6fad3c1f5088fc002c323f5",
     "code/openwave_audit/reservoir_results.json": "06f38ddef5146fcec48d0b11077f897ca5533a2f7b3800dd245d0c850ba8bcb2",
     "code/openwave_audit/spectral_archive_audit.py": "c961e6b16722a09185f1d1aea09d5d2769849d20c54163e99993f0634bc62a0e",
-    "code/openwave_audit/spectral_archive_results.json": "0ca46ba815524919f6fbd5ae74d57471e7441a0f31e6b789630dfeac1e80ce5c"
+    "code/openwave_audit/spectral_archive_results.json": "0ca46ba815524919f6fbd5ae74d57471e7441a0f31e6b789630dfeac1e80ce5c",
+    "code/openwave_audit/gravity_source_audit.py": "e7a35be2165e8d156f29f2306993fbcdf040a7c760544072a3ca9e9044d73334",
+    "code/openwave_audit/gravity_source_results.json": "8ec8076fa737b8949bf1a564f34b6d4a45cacc36fd75d661e24bd0df6d125600",
+    "code/openwave_audit/GRAVITY_SOURCE_PROOF.md": "64255db8453d27283746b76f96e18a058ccdd0ba1c42cfd7e74ea2b9fcda8f0e"
   },
   "nonclaims": [
     "No official criterion is validated by this audit ledger.",

@@ -253,3 +253,12 @@ No physical electron, winding identification, autonomous rest-energy anchor,
 self-starting clock, radiation, infinite-register limit, regulator equivalence,
 or OpenWave row award is established. No paper-level claim or platform submission follows from the receipts
 alone.
+
+
+The [native clock and gravity-source check](GRAVITY_SOURCE_PROOF.md) derives
+the distinction between attempted contacts and tagged hops, componentwise
+stationarity under supplied pins, the two-level population frequency, and
+the exterior metric residual of a supplied lapse. Its independent graph
+traversal gives free-component sizes1,5,7,180. The registered dimensional
+attachment cannot match both light speed and Newton strength by changing its
+length unit. The scope is the specified finite source and unit map.

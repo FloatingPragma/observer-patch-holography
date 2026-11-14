@@ -1,0 +1,98 @@
+{
+  "schema": "oph.openwave.gravity_source_audit.v1",
+  "checks": {
+    "native_endpoint_mean_exact": true,
+    "literal_tagged_rates_match": true,
+    "independently_rebuilt_disconnected_domain": true,
+    "linearized_exterior_metric_match": true,
+    "common_unit_invariant_match": true,
+    "population_frequency_factor_two_explicit": true,
+    "source_pins_unchanged": true
+  },
+  "local_endpoint_branches": 578,
+  "tagged_rates": [
+    {
+      "other_loads": 0,
+      "branches": 720,
+      "hop": "1/12",
+      "contact": "1/6"
+    },
+    {
+      "other_loads": 1,
+      "branches": 7920,
+      "hop": "5/66",
+      "contact": "1/6"
+    },
+    {
+      "other_loads": 2,
+      "branches": 39600,
+      "hop": "3/44",
+      "contact": "1/6"
+    }
+  ],
+  "pinned_domain": {
+    "component_sizes": [
+      1,
+      5,
+      7,
+      180
+    ],
+    "isolated_vertices": 1,
+    "outside_largest_component": 13,
+    "available_vertices": 193,
+    "largest_component_stationary_probability": "1/180",
+    "saved_isolated_available_ports": 1
+  },
+  "exterior_Gxx_over_mu_at_x3": {
+    "0": "2/27",
+    "1": "0"
+  },
+  "common_units": {
+    "G": 79.29362498705586,
+    "speed_over_c": 0.001957505084121149,
+    "G_over_speed": 40507.493763499435,
+    "G_over_observed_with_light_matched": 6.037937131139025e+42
+  },
+  "population_clocks": [
+    {
+      "carrier": 70,
+      "sin_argument_rate": 2.4052915304469584,
+      "population_angular_frequency": 4.810583060893917,
+      "lapse_ratio": 0.9691195752049555
+    },
+    {
+      "carrier": 68,
+      "sin_argument_rate": 2.427272718082248,
+      "population_angular_frequency": 4.854545436164496,
+      "lapse_ratio": 0.9779760480914892
+    },
+    {
+      "carrier": 106,
+      "sin_argument_rate": 2.4412806568825562,
+      "population_angular_frequency": 4.8825613137651125,
+      "lapse_ratio": 0.9836200074734643
+    },
+    {
+      "carrier": 159,
+      "sin_argument_rate": 2.4819347291981715,
+      "population_angular_frequency": 4.963869458396343,
+      "lapse_ratio": 1.0
+    }
+  ],
+  "source_sha256": {
+    "openwave-push/kernel/ophk.py": "5b7e10aa60af47fc67a90057469c2ed6fbf2706859ca41d8140c34fbf39f2be0",
+    "reverse-engineering-reality/model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "openwave-push/issues/D3_gravity/parts.py": "9e5c48c4b10e07e26e3fb7378469eebcc4e7dc29d9373d1d7964492844273742",
+    "openwave-push/issues/D3_gravity/d3lib.py": "29da33f4a202f479c059481180f8a841d9bf69e76cf1c5539fd3d36c72cb8202",
+    "openwave-push/issues/D3_gravity/results_native.json": "d5b09955abae3e71eadcdd6235e6d65e42f8abfe20722677ff34725cf2b657d6",
+    "openwave-push/issues/D3_gravity/results_clock.json": "930a6be9c3c762f5ace8990fd52269e3b10aff6d3529c34a8801a18645e8098b",
+    "openwave-push/issues/D3_gravity/results_lookup.json": "3631e2ae8b36e684e3f15940e44da14cd5112543a9e6eebe3f5b2e677577017e",
+    "openwave-push/issues/D3_gravity/results_bridge.json": "f51108dbeba677cdfdde3e1e9d08fcb1d28a1209217e3d88569c5e8a033844d3",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/federation.py": "29b0bb7a1e4d8a2077f16dbb508b7e08e794a7191a4a9f51e6c1b471e726ca1d"
+  },
+  "auditor_sha256": "e7a35be2165e8d156f29f2306993fbcdf040a7c760544072a3ca9e9044d73334",
+  "reserved_acceptance_executed": false,
+  "scope": "Finite native C events, supplied static pins and supplied lapse comparison. No derived gravitational field, physical Newton constant, universal event-clock lapse or self-starting clock.",
+  "official_rows_changed": []
+}
