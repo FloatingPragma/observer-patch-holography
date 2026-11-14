@@ -1,0 +1,100 @@
+{
+  "schema": "oph.audit.modular_transfer_limit.v1",
+  "checks": {
+    "literal_partial_trace_matches_exact_formula": true,
+    "all_regional_sectors_retained": true,
+    "conditional_eigenvalues_exact": true,
+    "finite_linear_generator_identification_rejected": true,
+    "finite_flow_replacement_rejected": true,
+    "opposite_time_orientation_rejected": true,
+    "all_family_errors_inside_theorem_bound": true,
+    "declared_fixed_region_limit_improves": true
+  },
+  "source": {
+    "graph": "cycle4",
+    "total_load": 2,
+    "region": [
+      0,
+      1
+    ],
+    "global_reference": "P/Tr(P), P=I-G/(2M)",
+    "global_dimension": 6,
+    "global_trace_P": "4"
+  },
+  "regional_density": [
+    [
+      "3/16",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "5/16",
+      "1/16",
+      "0"
+    ],
+    [
+      "0",
+      "1/16",
+      "5/16",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "3/16"
+    ]
+  ],
+  "one_load_block_probability": "5/8",
+  "conditional_eigenvalues": [
+    "2/5",
+    "3/5"
+  ],
+  "exact_modular_gap": 0.4054651081081644,
+  "linearized_modular_gap": 0.3333333333333333,
+  "rescaled_exact_gap": 3.243720864865315,
+  "rescaled_linear_gap": 2.6666666666666665,
+  "operator_norm_flow_error_at_s_0_37": 0.026687964585100567,
+  "opposite_time_orientation_error_at_s_0_37": 0.29891994878053824,
+  "even_cycle_family": [
+    {
+      "vertices_and_edges": 4,
+      "rescaled_exact_gap": 3.2437208648653146,
+      "limit_gap": 2.6666666666666665,
+      "operator_error": 0.5770541981986481,
+      "theorem_bound": 5.333333333333332
+    },
+    {
+      "vertices_and_edges": 8,
+      "rescaled_exact_gap": 2.917144908703274,
+      "limit_gap": 2.6666666666666665,
+      "operator_error": 0.2504782420366074,
+      "theorem_bound": 1.333333333333333
+    },
+    {
+      "vertices_and_edges": 16,
+      "rescaled_exact_gap": 2.784364063668152,
+      "limit_gap": 2.6666666666666665,
+      "operator_error": 0.11769739700148563,
+      "theorem_bound": 0.5333333333333333
+    },
+    {
+      "vertices_and_edges": 64,
+      "rescaled_exact_gap": 2.6948363773225394,
+      "limit_gap": 2.6666666666666665,
+      "operator_error": 0.028169710655872926,
+      "theorem_bound": 0.11594202898550725
+    },
+    {
+      "vertices_and_edges": 256,
+      "rescaled_exact_gap": 2.6736353183496573,
+      "limit_gap": 2.6666666666666665,
+      "operator_error": 0.006968651682990767,
+      "theorem_bound": 0.028070175438596492
+    }
+  ],
+  "scope": "Exact finite reference restriction and analytic two-level flow comparison. The regional generator is -2M log(I-D_k/(2M a_k)) modulo block scalars. D_p/a_p is its controlled growing-family limit. This comparison supplies neither preparation nor implementation by passive native repair, and no physical clock conversion.",
+  "reviewer_sha256": "01fcce7bb2b90315d2bdba44566339f0d3b8c8da76b663bf4edda0530c8ec22e"
+}

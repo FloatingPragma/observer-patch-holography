@@ -182,6 +182,29 @@ field readout; it derives no field propagation or energy from the native law.
 python3 code/openwave_audit/pair_record_covariance.py --fable ../openwave-push --output code/openwave_audit/pair_record_covariance_results.json
 ```
 
+The [regional modular countercheck](modular_transfer_limit.py) distinguishes
+the exact finite logarithmic generator from the controlled exchange limit
+in the [native regional clock theorem](../../model/native_regional_modular_clock/PROOF.md).
+On a four-cycle with two binary loads and a two-vertex region, the literal
+partial trace of the transfer reference has a local one-load block
+`[[5/16,1/16],[1/16,5/16]]`. Its conditional eigenvalues are `2/5,3/5`.
+The exact rescaled modular gap is \(8\log(3/2)=3.2437208649\), while the
+linear exchange expression gives \(8/3=2.6666666667\). For a norm-one
+off-diagonal observable, this replacement changes the flow by `0.026688`
+at modular parameter `.37`. The approximation improves on a fixed-region
+even-cycle family and stays inside the existing theorem's norm bound.
+
+In general, the exact block generator is
+\(L_{A,k}=-2M\log[I-D_k/(2Ma_k)]\), modulo block scalars.
+For \(\alpha_H^t(O)=e^{itH}Oe^{-itH}\), the stated convention
+\(\sigma_s(O)=\rho_A^{is}O\rho_A^{-is}\) has time \(-s/(2M)\)
+under \(L_A\). These are mathematical generator relations; they neither
+prepare the transfer reference nor implement its action by passive repair.
+
+```sh
+python3 code/openwave_audit/modular_transfer_limit.py --output code/openwave_audit/modular_transfer_limit_results.json
+```
+
 **Scope**: finite source arithmetic, complete modular records, specified
 native, energy and reservoir instruments, and a conditional one-load energy bound.
 No physical electron, winding identification, autonomous rest-energy anchor,

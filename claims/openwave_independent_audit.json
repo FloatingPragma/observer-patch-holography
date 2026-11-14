@@ -46,15 +46,23 @@
         "code/openwave_audit/pair_record_covariance_results.json"
       ],
       "domain": "Uniform independent seam attempts, fair coins, one excess/deficit pair and unwrapped integer C records. Extends Fable LA_L02 lifetime/martingale result; no regularity or edge transitivity needed. No supplied field-map or energy derivation."
+    },
+    {
+      "id": "finite_regional_modular_limit_scope",
+      "statement": "The exact four-cycle regional modular gap is 8 log(3/2), while its linearized exchange replacement gives 8/3; the exact matrix logarithm and controlled growing-family error bound are required.",
+      "evidence": "code/openwave_audit/modular_transfer_limit_results.json",
+      "domain": "Binary exclusion transfer reference P/Tr(P), total load two, full regional partial trace, number-preserving algebra. No preparation, passive-repair implementation or physical time conversion is inferred."
     }
   ],
   "source_sha256": {
     "code/openwave_audit/PAIR_RECORD_PROOF.md": "3b939f09efce84c4d178f5bfd85623517739fe9c612ef16095ef3965ab66a6d1",
-    "code/openwave_audit/README.md": "e91007d4a7a1910b62ca505164af544252a4a3f637c3411053dbcaf9bac690e1",
+    "code/openwave_audit/README.md": "7986d859e92f0420e2f94510d919d2bbb6b4e7778345640338c12c5c154a0adc",
     "code/openwave_audit/energy_scale.py": "0e81c1b6320a9cd2082f17d074d8c792a033a3b498f61aff885d9ffa8db19ca0",
     "code/openwave_audit/energy_scale_results.json": "17502c146a98f3cb42db079a594262393b7d89effe3815c8760ebab379eb1f45",
     "code/openwave_audit/joint_source_audit.py": "206e2791d6446213c798d96abf18aeb947dd1b42a4667b90b433a88b458a1f9d",
     "code/openwave_audit/joint_source_results.json": "bb6c7af25d98855993b841cdfd5ed973fc10039e8500d61554414ca5dea85700",
+    "code/openwave_audit/modular_transfer_limit.py": "01fcce7bb2b90315d2bdba44566339f0d3b8c8da76b663bf4edda0530c8ec22e",
+    "code/openwave_audit/modular_transfer_limit_results.json": "bbab89108e3282bc94b0ca46c7d505461767c38148f6ba5722086f37269efb4b",
     "code/openwave_audit/native_scope.py": "07f4b81da2c55686220fdf22095bc5d0bfe09e70f19650aa5676ae1c50516b31",
     "code/openwave_audit/native_scope_results.json": "f0e14d81cff718561244fa2a4bab277c6edb98044f41ac1a79cd55b9da0590be",
     "code/openwave_audit/pair_record_covariance.py": "e691f664cd69aa44544a60f059eeb834f23492bf7523dc01b8b22fc401802d63",
