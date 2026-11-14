@@ -1,0 +1,196 @@
+{
+  "schema": "oph.native_field_feedback.opposing_uncapped.v1",
+  "checks": {
+    "actual_cubic_routing_used": true,
+    "complete_exact_Fourier_decomposition": true,
+    "gap_half_by_independent_Sylvester_minors": true,
+    "complete_uncapped_output_laws_match": true,
+    "detailed_balance_and_energy_response_match": true,
+    "fine_native_holds_waits_and_path_densities_match": true,
+    "source_pins_unchanged": true
+  },
+  "exact_blocks": [
+    {
+      "frequency": [
+        0,
+        0,
+        0
+      ],
+      "positive_leading_minors": [
+        "67",
+        "4368",
+        "284724",
+        "18033840",
+        "1129716720",
+        "68591318400",
+        "4035455899200",
+        "228866365728000",
+        "12574846402272000",
+        "610946614333440000",
+        "28733582955369600000",
+        "1029063203517888000000"
+      ]
+    },
+    {
+      "frequency": [
+        0,
+        0,
+        1
+      ],
+      "positive_leading_minors": [
+        "66",
+        "4212",
+        "268488",
+        "16465680",
+        "994356000",
+        "58144806720",
+        "3209196101760",
+        "170152197177600",
+        "8845987045040640",
+        "380153988218188800",
+        "13709369955060172800",
+        "56557251439299072000"
+      ]
+    },
+    {
+      "frequency": [
+        0,
+        1,
+        0
+      ],
+      "positive_leading_minors": [
+        "66",
+        "4212",
+        "268488",
+        "16465680",
+        "994356000",
+        "57159432000",
+        "3132336873600",
+        "158445945504000",
+        "7230896785728000",
+        "205770213855360000",
+        "7882814116945152000",
+        "56557251439299072000"
+      ]
+    },
+    {
+      "frequency": [
+        0,
+        1,
+        1
+      ],
+      "positive_leading_minors": [
+        "66",
+        "4212",
+        "268488",
+        "16465680",
+        "994356000",
+        "58144806720",
+        "3209196101760",
+        "170152197177600",
+        "8845987045040640",
+        "380153988218188800",
+        "19439911755471144960",
+        "814963061215804723200"
+      ]
+    },
+    {
+      "frequency": [
+        1,
+        0,
+        0
+      ],
+      "positive_leading_minors": [
+        "66",
+        "4212",
+        "268488",
+        "16465680",
+        "994356000",
+        "57159432000",
+        "3413168668800",
+        "193954908913920",
+        "9728798051934720",
+        "402603811995939840",
+        "13742557178554828800",
+        "56557251439299072000"
+      ]
+    },
+    {
+      "frequency": [
+        1,
+        0,
+        1
+      ],
+      "positive_leading_minors": [
+        "66",
+        "4212",
+        "268488",
+        "16465680",
+        "994356000",
+        "58144806720",
+        "3466378903680",
+        "199417826361600",
+        "10791353232253440",
+        "526140737271198720",
+        "23561146184896235520",
+        "814963061215804723200"
+      ]
+    },
+    {
+      "frequency": [
+        1,
+        1,
+        0
+      ],
+      "positive_leading_minors": [
+        "66",
+        "4212",
+        "268488",
+        "16465680",
+        "994356000",
+        "57159432000",
+        "3413168668800",
+        "193954908913920",
+        "9728798051934720",
+        "402603811995939840",
+        "20004094554880296960",
+        "814963061215804723200"
+      ]
+    },
+    {
+      "frequency": [
+        1,
+        1,
+        1
+      ],
+      "positive_leading_minors": [
+        "66",
+        "4212",
+        "268488",
+        "16465680",
+        "994356000",
+        "58144806720",
+        "3466378903680",
+        "199417826361600",
+        "10791353232253440",
+        "526140737271198720",
+        "28358269788223457280",
+        "1378690721559887155200"
+      ]
+    }
+  ],
+  "position_law_max_error": 6.938893903907228e-17,
+  "energy_drift_max_error": 2.5153490401663703e-17,
+  "detailed_balance_max_error": 3.469446951953614e-18,
+  "fine_path_log_density_max_error": 3.979039320256561e-13,
+  "replayed_events_including_cap_control": 4733,
+  "retained_holds": 4705,
+  "source_sha256": {
+    "openwave-tuning/auditor/native_field_bridge/field_feedback.py": "7dd23f52420e689bafa6b318673b40488bd20b2f1e640ff64239b3c5f5643325",
+    "openwave-tuning/auditor/native_field_bridge/FIELD_FEEDBACK.json": "57667cbe061215af8858c4bf62bd8cfe1db2e98075e031cd437ff09f88d277f9",
+    "reverse-engineering-reality/model/native_spatial_refinement/source.py": "b4576a37b7610418f810ab7beebf5e52a7eeab80f66c7260ace149de9c733733"
+  },
+  "reviewer_sha256": "8d862f32ce2adfffce71eaedd5e603f1f401d23c1f7220997b8f76587ba23155",
+  "scope": "Finite, installed energy-dependent scheduler on actual native C process. Full96-position law here is uncapped. Finite-cap probability is a separate count-augmented instrument obligation; its omission cannot be normalized away. No coupling-strength, Maxwell, Lorentz or orbital criterion is awarded.",
+  "official_rows_changed": []
+}

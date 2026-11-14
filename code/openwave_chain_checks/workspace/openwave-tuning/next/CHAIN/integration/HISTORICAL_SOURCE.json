@@ -1,0 +1,18 @@
+{
+  "schema": "oph.chain.historical_source_snapshot.v1",
+  "original_live_root": "/Users/muellerberndt/Projects/oph-meta",
+  "scope": "The declared audited source versions are executed in an isolated original-relative-path workspace. This result does not validate the concurrently edited live tree.",
+  "original_reviewed_input_count": 145,
+  "additional_discovered_local_files": 172,
+  "substitution": {
+    "logical_path": "openwave-push/issues/N3D_cubic_routing/n3dlib.py",
+    "archived_origin": "openwave-push/issues/N3D_cubic_routing/consumed/n3dlib.py",
+    "executed_sha256": "6459c6f096c97922d4905c0318ca32c4a26fb35854f8154d18008d20e636b7ac",
+    "live_sha256_observed_at_packaging": "f26cbb112c23e554609e5bcbe65d3dd09e33d7a66bc921740b8859d48245318f",
+    "content_rewritten": false
+  },
+  "source_layout_preserved": true,
+  "symlink_fallback": false,
+  "mutable_root_fallback": false,
+  "independent_audit_pins_changed": false
+}

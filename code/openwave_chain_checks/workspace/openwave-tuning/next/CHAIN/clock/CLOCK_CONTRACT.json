@@ -1,0 +1,139 @@
+{
+  "schema": "oph.source_state_clock_contract.v1",
+  "clock_id": "C10_complete_marked_Poisson_v1",
+  "source_id": "C10_interacting_allnumber384_Z6",
+  "source_dimension": 384,
+  "source_H_array_sha256_le_float64": "32dfd62f776c28e532419b3c4cd61ef50bd43914e0c8cb52408f0678995c6834",
+  "preparation_array_sha256_le_complex128": "8a99dd2d77937e5e750212cc47f397a1e6699e35f6c2d40115bb2fdd1114014b",
+  "basis": "C10 JointNativeSource.states order; (occupation mask, six modular half-records)",
+  "preparation": "Recomputed global interacting ground reference followed by complete fair-0/1 charged reservoir instrument; all four branches retained",
+  "preparation_labels": [
+    {
+      "reservoir_initial": 0,
+      "reservoir_final": 0,
+      "source_charge_change": 0,
+      "boundary_record_change": 0,
+      "probability": 0.3499587866244218,
+      "input_state_archive_key": "reservoir_0_0_input",
+      "complete_final_count_state_archive_keys": [
+        "reservoir_0_0_count0",
+        "reservoir_0_0_count1",
+        "reservoir_0_0_count_ge2"
+      ]
+    },
+    {
+      "reservoir_initial": 0,
+      "reservoir_final": 1,
+      "source_charge_change": -1,
+      "boundary_record_change": 1,
+      "probability": 0.15004121337557766,
+      "input_state_archive_key": "reservoir_0_1_input",
+      "complete_final_count_state_archive_keys": [
+        "reservoir_0_1_count0",
+        "reservoir_0_1_count1",
+        "reservoir_0_1_count_ge2"
+      ]
+    },
+    {
+      "reservoir_initial": 1,
+      "reservoir_final": 0,
+      "source_charge_change": 1,
+      "boundary_record_change": -1,
+      "probability": 0.3499587866244218,
+      "input_state_archive_key": "reservoir_1_0_input",
+      "complete_final_count_state_archive_keys": [
+        "reservoir_1_0_count0",
+        "reservoir_1_0_count1",
+        "reservoir_1_0_count_ge2"
+      ]
+    },
+    {
+      "reservoir_initial": 1,
+      "reservoir_final": 1,
+      "source_charge_change": 0,
+      "boundary_record_change": 0,
+      "probability": 0.15004121337557766,
+      "input_state_archive_key": "reservoir_1_1_input",
+      "complete_final_count_state_archive_keys": [
+        "reservoir_1_1_count0",
+        "reservoir_1_1_count1",
+        "reservoir_1_1_count_ge2"
+      ]
+    }
+  ],
+  "dynamics": {
+    "generator": "L rho=-i[H,rho]+lambda*(sum_r K_r rho K_r* -rho)",
+    "marked_generator": "L(z,x,y)=-i ad_H +lambda*z*(J_noop+x J_move)-lambda Id +(Lambda-lambda)*(y-1)Id",
+    "attempt_law": "N~Poisson(lambda*T); every no-current native event contributes one",
+    "idle_law": "I~Poisson((Lambda-lambda)*T), independent of N",
+    "duration": "sum of all coherent waiting durations is T for every retained history",
+    "resource_law": "native commit pulses=N; coherent interval services=N+I+1 under the declared segmentation",
+    "expected_native_commit_pulses": 0.296,
+    "expected_coherent_services": 1.592,
+    "physical_clock_equality": false
+  },
+  "parameter_units": {
+    "T": "supplied inverse-C10-H unit",
+    "lambda": "native attempts per supplied T unit",
+    "Lambda": "marked opportunities per supplied T unit",
+    "N": "integer native attempts",
+    "native_commit_pulses": "integer C/E commit operations, including zero-current outcomes"
+  },
+  "numerical_member": {
+    "duration": 0.37,
+    "native_attempt_rate": 0.8,
+    "uniformization_rate": 1.6,
+    "law": "MIX",
+    "dimension": 384,
+    "Hamiltonian_inputs": {
+      "mass": 0.23,
+      "kappa": 0.37,
+      "face_coefficient": 0.61
+    },
+    "preparation": "Recomputed global interacting ground reference followed by complete fair-0/1 charged reservoir instrument; all four branches retained",
+    "source_pulse_cost": "One native commit pulse per native attempt, including every zero-current branch",
+    "coherent_service_cost": "One exp(-i H delta) service per marked waiting interval; native compilation cost unspecified"
+  },
+  "api": {
+    "constructor": "common_clock.CommonClock(law='MIX')",
+    "preparation": "preparation() -> (rho, list[(reservoir_metadata, subnormalized_state)])",
+    "unconditional_or_tilted": "semigroup(rho,T,lambda,attempt_mark=z,move_mark=x,idle_rate=Lambda-lambda,idle_mark=y) -> subnormalized full384 density",
+    "count_classes": "count_split(rho,T,lambda) -> (rho_N0,rho_N1,rho_Nge2)",
+    "marked_history": "trajectory(rho,T,lambda,Lambda,[(absolute_time,native_index_or_idle),...]) -> (conditional_full384_density,complete_ledger)",
+    "terminal_native_readout": "native(rho,detailed=True) -> (poststate,complete_actual_C_E_records)",
+    "terminal_number_energy": "model.energy_number_readout(rho) -> complete actual-H grouped probabilities"
+  },
+  "state_admission": {
+    "semigroup_and_count_split": "number-block-diagonal densities; cross-number coherences rejected",
+    "full_history_and_coherent_service": "full384 density, retaining cross-number coherences"
+  },
+  "transfer_boundaries": {
+    "physical_time_equality": false,
+    "native_compiler_for_coherent_H": false,
+    "passive192CAR_clock_equivalence": false,
+    "routed_flux_clock_equivalence": false,
+    "BR16_log_native_transfer_equivalence": false,
+    "continuum_or_particle_award": false
+  },
+  "source_sha256": {
+    "openwave-tuning/next/CHAIN/clock/common_clock.py": "eee29493c0cc8a2bfdaf2868fdce82e10d055535f8ee0e6a0b4b818ef9fb38db",
+    "openwave-tuning/next/C10/joint_source.py": "bbedbeecff985014f60d761c4a165546383d393f8263ef46d681b346ecbc540f",
+    "openwave-tuning/next/C10/modular_field_adapter.py": "f964dd6225af37267af8293f3a380524520e3ab83f77e30198f9126fa4c9dc32",
+    "openwave-tuning/next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e",
+    "openwave-tuning/next/C10/joint_source_states.npz": "1d75017307742e96649ea7c7e74a4a648a6d9f468e35ccd9f6ea05d202d7708b",
+    "openwave-tuning/next/C9/fermionic_shared_records.py": "623b2f3a18f3c30530bc0cc222a3062cb9cb893c35a80076c9775cef9c487e72",
+    "openwave-tuning/next/C9/fermionic_uniform_reference.py": "c409ba7b3396a73b5fb4c97d0f07aedc4e1921a4750d394a38d7cbbd570c3388",
+    "openwave-tuning/validation/bridges/providers/fock.py": "353f94ca4d09af9b3f7f33143f78a396cf3f489e8ae91b430ffb32e615ad44f9",
+    "openwave-tuning/candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907",
+    "openwave-tuning/candidate/oph_openwave/fiber_preparation.py": "d3585fb28eab66b3186376e5f60674f2ba13256d8c6057964089ad5fcf83bacb",
+    "openwave-tuning/candidate/oph_openwave/modular_native.py": "1b6e25eb63ca190e1b5ef999b0b43cefb790e7872a58ffdb40256662ca65959a",
+    "openwave-tuning/candidate/oph_openwave/quantum_records.py": "95735e200a0f7167b4efc18ad62bb0f42e1dac43277ea4defd46f5dbf3c5e34c",
+    "openwave-tuning/candidate/oph_openwave/uniform_native.py": "2416525dfd50cb7e7f38805a52c65858d51fda428b5875abc7295e52b03e3146",
+    "openwave-tuning/candidate/oph_openwave/geometry.py": "00d6ca810b1c7430e761b3106317f288d0b3c2e722dfeedec5aa18ac7bb8e32d"
+  },
+  "receipt": "COMMON_CLOCK.json",
+  "receipt_sha256": "c0b2c5b364d78c100b19cf112e3b459a559c23550ea8fde8e20969b1fbd4c6f8",
+  "state_archive": "common_clock_states.npz",
+  "state_archive_sha256": "8e85b24b28dee4894bda4095a93eb8a5219c45290b43c8a22b5d022508989077",
+  "official_rows_changed": []
+}

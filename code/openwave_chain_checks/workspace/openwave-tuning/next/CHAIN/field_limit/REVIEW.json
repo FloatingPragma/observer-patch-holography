@@ -1,0 +1,21 @@
+{
+  "schema": "oph.controlled_native_field_limit.adversarial_review.v1",
+  "checks": {
+    "actual_move_hold_readout": true,
+    "exact_negative_rounding": true,
+    "source_gap_numeric_cross_check": true,
+    "all_source_pins_verified": true,
+    "frozen_cap_law_independent_Poisson_check": true,
+    "constant_gauge_shift_preserved": true
+  },
+  "mutation_rejections": {
+    "omitted_native_current": true,
+    "wrong_native_current_sign": true,
+    "omitted_cap_flag": true,
+    "corrupted_local_arithmetic": true,
+    "success_only_renormalization": true
+  },
+  "rounding_max_exact": "1/2",
+  "result_sha256": "7908b7da1790574c950ac0a78bb89ba6cdf5370d6f5268aaa7296b7b108d984a",
+  "reviewer_independence": "Same author adversarial review; no external review claimed."
+}

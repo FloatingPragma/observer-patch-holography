@@ -1,0 +1,69 @@
+{
+  "schema": "oph.c10.dynamical_field_contract.v1",
+  "source": {
+    "baseline": "C10_interacting_allnumber384_Z6",
+    "H_sha256_le_float64": "32dfd62f776c28e532419b3c4cd61ef50bd43914e0c8cb52408f0678995c6834",
+    "family": "BoundarySource(M) + ModularField(kappa=.37, face_coefficient=.61), all 64M states",
+    "member_parameters": "integer M>=6; mass .23; no coefficient rescaling",
+    "source_code": "dynamical_field.py",
+    "ancestry": "same actual half-hop, CAR, periodic electric, magnetic and complete MIX laws"
+  },
+  "preparation": {
+    "baseline": "recomputed M6 global interacting ground projector and all four fair-reservoir outcomes",
+    "family_map": "source tree chord3, k=centered(Fmod6[3]), retain mask/k and reservoir label",
+    "support": "all 384 baseline labels have max_h abs(integer F_h)<=5",
+    "member_ground_preparation": false,
+    "postselection": false,
+    "outside_weight_removed": 0,
+    "reference": "retain the full purification/record labels; theorem allows arbitrary extra quantum references"
+  },
+  "clock": {
+    "contract": "../clock/CLOCK_CONTRACT.json",
+    "unitary": "exp(-i t H_M)",
+    "T": "37/100",
+    "native_attempt_rate": "4/5",
+    "idle_mark_rate": "4/5",
+    "law": "MIX",
+    "every_no_current_attempt_retained": true,
+    "Poisson_tail_discarded": false,
+    "native_H_compiler_supplied": false,
+    "physical_seconds_identified": false
+  },
+  "limit": {
+    "carrier": "integer Gauss fiber n+D F+(3-N)delta0=G, G=(111000), C64 tensor l2(Z)",
+    "operator": "Hmass + .37/2 sum F_h^2 + .61(2I-W-W*) + original integer-record CAR halfhops",
+    "self_adjoint_domain": "maximal diagonal electric-energy domain; bounded perturbation norm <=361/50",
+    "observable_domain": "complete marked histories and retained embedded quantum terminal state; all bounded terminal tests",
+    "radius": 5,
+    "bound": "min(1,2 sum_{j>=floor((M-1)/2)-5+1} (14837/5000)^j/j!)",
+    "extra_terminal_MIX": "decrease lower summation order by one",
+    "M42_bound": {
+      "exact_rational_upper": "93753279508426363003963011955651990110285670218267309894376338482897/22399989424312500000000000000000000000000000000000000000000000000000000000",
+      "outward_float_upper": 4.185416239825026e-06
+    },
+    "proof": "PROOF.md"
+  },
+  "boundary": {
+    "all_finite_wrap_transitions_retained": true,
+    "all_integer_B_sectors_retained": true,
+    "spatial_chart_transfer": "same residues and augmented face degrees; energy chart distinct",
+    "M6_complete_clock_bound": 1,
+    "minimal_bounded_fix": "increase only the record modulus, keeping the full lifted preparation and clock",
+    "integer_real_minimizer_identification": false
+  },
+  "rejections": {
+    "electric_term_removed": true,
+    "reference_substituted_for_reservoir_output": true,
+    "clock_duration_changed": true
+  },
+  "claims_excluded": [
+    "3D Maxwell",
+    "spatial continuum",
+    "harmonic oscillator identification",
+    "particle or force dictionary",
+    "native coherent pulse compiler",
+    "unique architecture"
+  ],
+  "result": "RESULT.json",
+  "official_rows_changed": []
+}

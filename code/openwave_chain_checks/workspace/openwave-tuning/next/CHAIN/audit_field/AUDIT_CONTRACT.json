@@ -1,0 +1,78 @@
+{
+  "schema": "oph.chain.field_audit_contract.v1",
+  "independent_review": true,
+  "scope": "Independent audit of frozen field-limit, C10 integer-field and classical arithmetic force-adapter claims.",
+  "audited_manifests": {
+    "field_limit/MANIFEST.json": "612aedd40f13faea2b80b5c31d4afbb19cb2332ff22db5b459ac2ae936879008",
+    "dynamical_field/MANIFEST.json": "2aa4fe69b85d389949d4bbaed733b5cd69aafab4760cb4a2a8cf68019c5fe2cc",
+    "force/MANIFEST.json": "f4f2f6b490aef1a87eb0fd6b5c07c429d5f394baf4414e0f39b7dc309babba1e"
+  },
+  "claims": [
+    {
+      "claim": "fixed_point_tracking",
+      "status": "PASS",
+      "finding": "Exact integer rounding, energy-norm contraction, every recorded move and residual certificate independently reconstructed."
+    },
+    {
+      "claim": "static_smoothed_3D_Coulomb",
+      "status": "PASS",
+      "finding": "All twelve Bloch branches and 26 Fejer modes retained; localized O(h), internally averaged O(h^2), electric vector bounds on the unit torus."
+    },
+    {
+      "claim": "actual_C10_M6_baseline",
+      "status": "PASS",
+      "finding": "Actual H, complete MIX matrices, global reference, all four reservoir outcomes and clock pins independently compared."
+    },
+    {
+      "claim": "interacting_integer_register_limit",
+      "status": "PASS",
+      "finding": "Exact Gauss fiber, bounded Dyson support and all-count convolution give the complete marked-law bound; M42 TV below 4.185417e-6."
+    },
+    {
+      "claim": "extra_terminal_MIX",
+      "status": "PASS",
+      "finding": "One extra support increment is charged; M42 TV below 2.286972e-5."
+    },
+    {
+      "claim": "classical_fixedpoint_energy_rate_adapter",
+      "status": "PASS",
+      "finding": "Exact energy and logarithmic-rate allowances imply complete capped-path TV; exact-real evaluation domain retained."
+    },
+    {
+      "claim": "M6_small_full_clock_limit_error",
+      "status": "FAIL",
+      "finding": "The support theorem yields TV<=1 at actual M6; passive numerical discrepancy is not a full-clock certificate."
+    },
+    {
+      "claim": "M6_integer_chart_equals_periodic_electric_energy",
+      "status": "FAIL",
+      "finding": "The maximal electric-energy discrepancy is 13.32 and the full actual preparation has positive defect weight."
+    },
+    {
+      "claim": "classical_force_to_C10_join",
+      "status": "FAIL",
+      "finding": "No map identifies classical reciprocal scheduler, C10 Hamiltonian, full preparation and clock; labels do not supply a transfer."
+    },
+    {
+      "claim": "static_charge_lift_is_dynamic_refinement",
+      "status": "FAIL",
+      "finding": "The same physical coordinate charge lift does not intertwine a coarse edge hop or clock with the fine source."
+    },
+    {
+      "claim": "Maxwell_mechanical_force_or_physical_seconds",
+      "status": "FAIL",
+      "finding": "No common spatial quantum refinement, transverse electromagnetic modes, mechanical inertia, calibrated force units or native coherent clock compiler is supplied."
+    }
+  ],
+  "supported_claims_pass": true,
+  "excluded_physical_claims_are_failed_transfers": true,
+  "exact_remaining_physical_gap": "An executable common source, preparation and clock transfer connecting the classical cubic Coulomb/feedback instrument to C10, together with a spatial dynamical quantum field refinement with transverse electromagnetic observables and a calibrated mechanical force/inertia dictionary. The proved C10 limit changes flux-register capacity on a fixed one-cycle triangle; it supplies no spatial Maxwell limit. Coherent H services have no supplied native compiler or physical-second identification.",
+  "numeric_certification_boundary": "Analytic rational certificates are independent of floating propagation diagnostics. General floating-library exponential/eigensolver error is unproved. Ground preparation follows the declared source prescription and is compared numerically.",
+  "audit_artifacts": {
+    "audit.py": "b34f1e660e2f3eef90bc05d4a2ec76988850287508ee4d9c81f1845b6102f1e3",
+    "PROOF.md": "d25820ceb03672024d21a06b25a1c6f643a8d6b3aee55baae717a38d67c718ec",
+    "AUDIT_RESULT.json": "b7f4d996954a04e98a139890053446bfa41cf2e38fcc42c4b3fb4c1af2db4523"
+  },
+  "producer_mutations": [],
+  "official_rows_changed": []
+}

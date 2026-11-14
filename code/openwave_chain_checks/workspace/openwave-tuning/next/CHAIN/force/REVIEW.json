@@ -1,0 +1,28 @@
+{
+  "schema": "oph.native_force_measurement.adversarial_review.v1",
+  "result_sha256": "8d62b031a2725335e50a09211ac0b22d677686263e1f2591ca13b4dcb49f146c",
+  "checks": {
+    "all_pins": true,
+    "independent_probability_and_endpoint_reconstruction": true,
+    "all_five_couplings": true,
+    "full_cap_outcome_archive": true
+  },
+  "mutation_rejections": {
+    "cap_output_deleted": true,
+    "native_holds_deleted": true,
+    "conclusive_only_renormalization": true,
+    "current_sign_reversed": true,
+    "fair_coin_factor_omitted": true,
+    "native_clock_rate_mislabeled": true,
+    "held_field_claimed_reciprocal": true,
+    "bare_field_omits_self_response": true,
+    "nonzero_Green_field_claimed_force_at_zero_coupling": true,
+    "reflection_with_unchanged_drift": true
+  },
+  "rational_force_transfer": {
+    "exposure_lower": "67/100000",
+    "TV_upper": "670801/1000000000000000",
+    "frozen_score_error_upper": "670801/335000000000"
+  },
+  "scope": "Separate implementation by the same author; no external scientific review claimed."
+}

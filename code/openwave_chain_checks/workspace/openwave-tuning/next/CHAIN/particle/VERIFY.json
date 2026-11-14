@@ -1,0 +1,21 @@
+{
+  "schema": "oph.particle_chain.producer_verification.v1",
+  "complete_probability": 0.9999999999999931,
+  "energy_probability_max_error": 8.326672684688674e-17,
+  "selected_poststate_reconstruction_error": 0.0,
+  "selected_actual_H_eigenstate_error": 5.931525945931602e-16,
+  "selected_actual_charge_support_error": 0.0,
+  "mutations_rejected": {
+    "drop_tail": true,
+    "drop_apparatus_failure": true,
+    "success_renormalize": true,
+    "wrong_clock": true,
+    "false_simultaneous_regional_energy": true,
+    "probability_conservation_as_stability": true
+  },
+  "source_sha256": {
+    "openwave-tuning/next/CHAIN/particle/verify.py": "bafacf89deba56eb44a64b2897aeb92432fdf2fa5cf8ff2b30bd198567add1fa",
+    "openwave-tuning/next/CHAIN/particle/PARTICLE_CONTRACT.json": "67c406d20f796193d2a88f3c8e30f463fbda1cf7ce8a93cf75f353bf8a8f6cf4",
+    "openwave-tuning/next/CHAIN/particle/RESULT.json": "9bcce002927e744b8cf2e37d78f2f26ceb0e442a36a2058a6d78541291c171b1"
+  }
+}

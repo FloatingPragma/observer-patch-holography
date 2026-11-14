@@ -1,0 +1,499 @@
+{
+  "schema": "oph.chain.independent_opposing_clock_force_audit.v1",
+  "reviewer": "worker7 independent opposing audit",
+  "status": "PASS_SCOPED_WITH_ADMISSION_GAPS",
+  "scientific_blockers": [],
+  "claims": [
+    {
+      "claim": "clock.actual_H_reconstructed",
+      "status": "PASS",
+      "evidence": {
+        "max_error": 0.0
+      }
+    },
+    {
+      "claim": "clock.actual_charged_preparation",
+      "status": "PASS",
+      "evidence": {
+        "max_error": 0.0,
+        "ground_multiplicity": 1,
+        "branch_probabilities": [
+          0.3499587866244218,
+          0.15004121337557766,
+          0.3499587866244218,
+          0.15004121337557766
+        ]
+      }
+    },
+    {
+      "claim": "clock.actual_native_K_C",
+      "status": "PASS",
+      "evidence": {
+        "marks": 12,
+        "operator_error": 5.551115123125783e-17,
+        "completeness_error": 2.220446049250313e-16,
+        "basis_coin_seam_events": 2304
+      }
+    },
+    {
+      "claim": "clock.actual_native_K_E",
+      "status": "PASS",
+      "evidence": {
+        "marks": 18,
+        "operator_error": 5.551115123125783e-17,
+        "completeness_error": 2.220446049250313e-16,
+        "basis_coin_seam_events": 2304
+      }
+    },
+    {
+      "claim": "clock.actual_native_K_MIX",
+      "status": "PASS",
+      "evidence": {
+        "marks": 30,
+        "operator_error": 0.0,
+        "completeness_error": 2.220446049250313e-16,
+        "basis_coin_seam_events": 2304
+      }
+    },
+    {
+      "claim": "clock.complete_count_0_1_tail",
+      "status": "PASS",
+      "evidence": {
+        "independent_zero_one_errors": [
+          5.90339095665968e-17,
+          2.7433743056935732e-17
+        ],
+        "traces": [
+          0.7437874280201786,
+          0.220161078693973,
+          0.03605149328584738
+        ],
+        "infinite_tail_retained": true
+      }
+    },
+    {
+      "claim": "clock.all_reservoir_count_states",
+      "status": "PASS",
+      "evidence": {
+        "retained_joint_states": 12,
+        "minimum_eigenvalue": -5.708121919908933e-17
+      }
+    },
+    {
+      "claim": "clock.actual_prepared_complete_output_and_tail",
+      "status": "PASS",
+      "evidence": {
+        "full_preparation_direct_ODE_max_error": 2.8661101322251647e-13,
+        "tail_state_max_error": 2.8658672666755534e-13
+      }
+    },
+    {
+      "claim": "clock.generator_and_joint_scaling",
+      "status": "PASS",
+      "evidence": {
+        "direct_density_ODE_error": 4.554263511605772e-13,
+        "joint_scaling_error": 0.0,
+        "rate_only_vs_half_time_frobenius": 0.6515941134757822
+      }
+    },
+    {
+      "claim": "clock.independent_Poisson_attempt_idle_law",
+      "status": "PASS",
+      "evidence": {
+        "PGF_trace_error": 2.2204470827619707e-16,
+        "expected_attempts": 0.296,
+        "expected_services": 1.592
+      }
+    },
+    {
+      "claim": "clock.conditional_history_and_resources",
+      "status": "PASS",
+      "evidence": {
+        "state_error": 1.1807593843811162e-16,
+        "density_error": 0.0,
+        "ledger": {
+          "native_zero_current_attempts": 1,
+          "uniformization_idles": 1,
+          "native_commit_pulses": 1,
+          "coherent_service_calls": 3,
+          "supplied_coherent_duration": 0.37
+        }
+      }
+    },
+    {
+      "claim": "clock.drop_noop_drop_tail_wrong_clock_counterexamples",
+      "status": "PASS",
+      "evidence": {
+        "deleted_noop_mass_one_native_attempt": 0.7569159231141472,
+        "deleted_count_tail": 0.036051493285847225,
+        "zero_attempt_native_readout_difference": 0.001995954005963793
+      }
+    },
+    {
+      "claim": "clock.declared_parameter_and_number_admission",
+      "status": "PASS",
+      "evidence": {
+        "cross_number_coherence": {
+          "rejected": true,
+          "exception": "ValueError"
+        },
+        "negative_duration": {
+          "rejected": true,
+          "exception": "ValueError"
+        },
+        "invalid_uniform_rate": {
+          "rejected": true,
+          "exception": "ValueError"
+        },
+        "invalid_event_mark": {
+          "rejected": true,
+          "exception": "ValueError"
+        },
+        "negative_density": {
+          "rejected": false,
+          "nonfinite_output": false
+        },
+        "negative_density_trajectory": {
+          "rejected": false,
+          "nonfinite_output": false
+        },
+        "nan_density": {
+          "rejected": false,
+          "nonfinite_output": true
+        }
+      }
+    },
+    {
+      "claim": "clock.general_density_input_validation",
+      "status": "FAIL",
+      "evidence": {
+        "classification": "API hardening gap; positivity and finiteness are mathematical input preconditions, not a false finite-member theorem",
+        "tests": {
+          "negative_density": {
+            "rejected": false,
+            "nonfinite_output": false
+          },
+          "negative_density_trajectory": {
+            "rejected": false,
+            "nonfinite_output": false
+          },
+          "nan_density": {
+            "rejected": false,
+            "nonfinite_output": true
+          }
+        }
+      }
+    },
+    {
+      "claim": "force.actual_96_port_field_operator",
+      "status": "PASS",
+      "evidence": {
+        "ports": 96,
+        "seams": 288,
+        "spectral_gap": 0.5358983848622453,
+        "spectral_vs_stencil_table_error": 1.4988010832439613e-15
+      }
+    },
+    {
+      "claim": "force.full_native_cap_one_laws",
+      "status": "PASS",
+      "evidence": {
+        "actual_literal_native_events_checked": 11520,
+        "outcomes_per_preparation": 1153,
+        "max_archive_error": 6.505213034913027e-19
+      }
+    },
+    {
+      "claim": "force.measured_force_drift_and_Einstein_remainder",
+      "status": "PASS",
+      "evidence": [
+        {
+          "kappa": 0.0,
+          "force": 0.0,
+          "drift": 0.0
+        },
+        {
+          "kappa": 0.01,
+          "force": 0.00034922889610389723,
+          "drift": 0.0003492289244987068
+        },
+        {
+          "kappa": 0.1,
+          "force": 0.0034922889610389724,
+          "drift": 0.003492317355936997
+        },
+        {
+          "kappa": 1.0,
+          "force": 0.034922889610389724,
+          "drift": 0.03495129136610153
+        },
+        {
+          "kappa": 2.0,
+          "force": 0.06984577922077945,
+          "drift": 0.07007315958975988
+        }
+      ]
+    },
+    {
+      "claim": "force.complete_cap_two_partition_and_executor",
+      "status": "PASS",
+      "evidence": {
+        "partitions": [
+          {
+            "kappa": 0,
+            "initial": [
+              0,
+              9
+            ],
+            "first_step_position_support": 13,
+            "no_event": 0.5621424451968224,
+            "one_event_no_cap": 0.3237940484333696,
+            "cap_two": 0.11406350636980787,
+            "mass": 1.0
+          },
+          {
+            "kappa": 0,
+            "initial": [
+              1,
+              9
+            ],
+            "first_step_position_support": 13,
+            "no_event": 0.5621424451968224,
+            "one_event_no_cap": 0.3237940484333696,
+            "cap_two": 0.11406350636980787,
+            "mass": 1.0
+          },
+          {
+            "kappa": 1,
+            "initial": [
+              0,
+              9
+            ],
+            "first_step_position_support": 13,
+            "no_event": 0.5621070585625194,
+            "one_event_no_cap": 0.3238089850457717,
+            "cap_two": 0.11408395639170878,
+            "mass": 0.9999999999999999
+          },
+          {
+            "kappa": 1,
+            "initial": [
+              1,
+              9
+            ],
+            "first_step_position_support": 13,
+            "no_event": 0.5620367756165183,
+            "one_event_no_cap": 0.323840314186777,
+            "cap_two": 0.11412291019670472,
+            "mass": 1.0
+          }
+        ],
+        "actual_paths": [
+          {
+            "cap": 1,
+            "records": 1,
+            "holds": 1,
+            "path_density_error": 0.0
+          },
+          {
+            "cap": 2,
+            "records": 2,
+            "holds": 1,
+            "path_density_error": 2.220446049250313e-16
+          }
+        ]
+      }
+    },
+    {
+      "claim": "force.self_field_required",
+      "status": "PASS",
+      "evidence": {
+        "bare_field": 0.19117965367965398,
+        "self_term": 0.15625676406926428,
+        "force": 0.034922889610389724,
+        "identity_error": 2.7755575615628914e-17
+      }
+    },
+    {
+      "claim": "force.drop_hold_drop_cap_wrong_clock_counterexamples",
+      "status": "PASS",
+      "evidence": {
+        "mass_after_cap_deletion": [
+          0.5621070585625194,
+          0.5620367756165183
+        ],
+        "deleted_hold_mass": [
+          0.43330812884887576,
+          0.43333114831825753
+        ],
+        "wrong_clock_survival": 0.3159643452858077,
+        "declared_survival": 0.5621070585625194,
+        "conclusive_only_drift": 0
+      }
+    },
+    {
+      "claim": "force.fixedpoint40_all_compiled_pairs_and_TV_bound",
+      "status": "PASS",
+      "evidence": {
+        "pairs_checked": 22,
+        "TV_upper": "670801/1000000000000000",
+        "score_error_upper": "670801/335000000000",
+        "comparison": "exact-real exponentials and ideal frozen stencil; floating library evaluation is excluded",
+        "finite_cap_scope": "couple common marked rates and coins until first rate disagreement, stop at common cap"
+      }
+    },
+    {
+      "claim": "force.general_rate_horizon_input_validation",
+      "status": "FAIL",
+      "evidence": {
+        "classification": "API hardening gap outside frozen beta/kappa/nu/T member",
+        "tests": {
+          "negative_horizon": {
+            "rejected": false,
+            "minimum_probability": -0.0007287251660018722,
+            "sum": 0.9999999999999999
+          },
+          "negative_rate": {
+            "rejected": false,
+            "minimum_probability": -0.00038043031401657003,
+            "sum": 0.9999999999999999
+          }
+        }
+      }
+    },
+    {
+      "claim": "source_identity_boundary",
+      "status": "PASS",
+      "evidence": {
+        "quantum_C10_to_classical_force_join": false,
+        "common_name_implies_transfer": false,
+        "physical_seconds": false,
+        "coherent_service_native_compiler": false,
+        "dynamic_continuum_force_limit": false
+      }
+    }
+  ],
+  "details": {
+    "clock": {
+      "operator_array_sha256_sorted_le_float64": "bdd43a97ecd0456bab7dadba6e885c42c137f9a7dd4e3e683daf29a0135b17d0",
+      "malformed_inputs": {
+        "cross_number_coherence": {
+          "rejected": true,
+          "exception": "ValueError"
+        },
+        "negative_duration": {
+          "rejected": true,
+          "exception": "ValueError"
+        },
+        "invalid_uniform_rate": {
+          "rejected": true,
+          "exception": "ValueError"
+        },
+        "invalid_event_mark": {
+          "rejected": true,
+          "exception": "ValueError"
+        },
+        "negative_density": {
+          "rejected": false,
+          "nonfinite_output": false
+        },
+        "negative_density_trajectory": {
+          "rejected": false,
+          "nonfinite_output": false
+        },
+        "nan_density": {
+          "rejected": false,
+          "nonfinite_output": true
+        }
+      },
+      "contract_source": "C10_interacting_allnumber384_Z6",
+      "malformed_fixture_basis_indices": [
+        6,
+        10
+      ]
+    },
+    "force": {
+      "malformed_inputs": {
+        "negative_horizon": {
+          "rejected": false,
+          "minimum_probability": -0.0007287251660018722,
+          "sum": 0.9999999999999999
+        },
+        "negative_rate": {
+          "rejected": false,
+          "minimum_probability": -0.00038043031401657003,
+          "sum": 0.9999999999999999
+        }
+      },
+      "source_identity": "frozen-reciprocal-two-mobile-literal-C-side2-96ports",
+      "preparation_array_sha256_le_float64": "7c4bfcfb0317c89e7e91e9846aae381a89d1b54cda619fb8050deff323494538",
+      "independent_GK_array_sha256_le_float64": "7dd9a659ac71fa62311431d1f03c98d272f410f07ad45744a8f793fb13a26d0f"
+    }
+  },
+  "input_pins": {
+    "openwave-tuning/next/CHAIN/clock/common_clock.py": "eee29493c0cc8a2bfdaf2868fdce82e10d055535f8ee0e6a0b4b818ef9fb38db",
+    "openwave-tuning/next/CHAIN/clock/CLOCK_CONTRACT.json": "885233455b5402be39c8612266a0ec735fe435b01d076be8df9ff08689a86be7",
+    "openwave-tuning/next/C10/joint_source.py": "bbedbeecff985014f60d761c4a165546383d393f8263ef46d681b346ecbc540f",
+    "openwave-tuning/next/C10/modular_field_adapter.py": "f964dd6225af37267af8293f3a380524520e3ab83f77e30198f9126fa4c9dc32",
+    "openwave-tuning/next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e",
+    "openwave-tuning/next/C10/joint_source_states.npz": "1d75017307742e96649ea7c7e74a4a648a6d9f468e35ccd9f6ea05d202d7708b",
+    "openwave-tuning/next/C9/fermionic_shared_records.py": "623b2f3a18f3c30530bc0cc222a3062cb9cb893c35a80076c9775cef9c487e72",
+    "openwave-tuning/next/C9/fermionic_uniform_reference.py": "c409ba7b3396a73b5fb4c97d0f07aedc4e1921a4750d394a38d7cbbd570c3388",
+    "openwave-tuning/validation/bridges/providers/fock.py": "353f94ca4d09af9b3f7f33143f78a396cf3f489e8ae91b430ffb32e615ad44f9",
+    "openwave-tuning/candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907",
+    "openwave-tuning/candidate/oph_openwave/fiber_preparation.py": "d3585fb28eab66b3186376e5f60674f2ba13256d8c6057964089ad5fcf83bacb",
+    "openwave-tuning/candidate/oph_openwave/modular_native.py": "1b6e25eb63ca190e1b5ef999b0b43cefb790e7872a58ffdb40256662ca65959a",
+    "openwave-tuning/candidate/oph_openwave/quantum_records.py": "95735e200a0f7167b4efc18ad62bb0f42e1dac43277ea4defd46f5dbf3c5e34c",
+    "openwave-tuning/candidate/oph_openwave/uniform_native.py": "2416525dfd50cb7e7f38805a52c65858d51fda428b5875abc7295e52b03e3146",
+    "openwave-tuning/candidate/oph_openwave/geometry.py": "00d6ca810b1c7430e761b3106317f288d0b3c2e722dfeedec5aa18ac7bb8e32d",
+    "openwave-tuning/next/CHAIN/clock/COMMON_CLOCK.json": "c0b2c5b364d78c100b19cf112e3b459a559c23550ea8fde8e20969b1fbd4c6f8",
+    "openwave-tuning/next/CHAIN/clock/common_clock_states.npz": "8e85b24b28dee4894bda4095a93eb8a5219c45290b43c8a22b5d022508989077",
+    "openwave-tuning/next/CHAIN/force/MANIFEST.json": "f4f2f6b490aef1a87eb0fd6b5c07c429d5f394baf4414e0f39b7dc309babba1e",
+    "openwave-tuning/next/CHAIN/force/README.md": "0d77fd5a94ffdbd54fbb04fc0398c14398572f10f489af2e65e5796f4f7a0a29",
+    "openwave-tuning/next/CHAIN/force/PROOF.md": "289349d586b601d6462ecf84d266d493501bb227bc3b56f2a4cf9bc6670c634f",
+    "openwave-tuning/next/CHAIN/force/force_measurement.py": "2e77839960c2263b8d5fb9c5db76363567995a829eba580a0369b7145a827f47",
+    "openwave-tuning/next/CHAIN/force/verify.py": "be34261bb0ae43a6d118687a914d236a61a0bdfa49cf985fb156f1653aab4321",
+    "openwave-tuning/next/CHAIN/force/finalize.py": "7bb2f81de8748fe9dcf573b8f21d9a46aef3fc296fdef87577f63bca8df22527",
+    "openwave-tuning/next/CHAIN/force/RESULT.json": "8d62b031a2725335e50a09211ac0b22d677686263e1f2591ca13b4dcb49f146c",
+    "openwave-tuning/next/CHAIN/force/FIRST_EVENT_OUTCOMES.npz": "d3cba7187470690905bc2657e0b72f9444658a1f60e0d2ce75761e61fd131239",
+    "openwave-tuning/next/CHAIN/force/REVIEW.json": "35e86d5454126f05eb59150dda8d660364f422cc4a4ff5ee0d62e44aed0ff52e",
+    "openwave-tuning/next/CHAIN/force/FORCE_CONTRACT.json": "fd3087e4164f309daa41bc4c819cdf9ce63c69cc53d88cd9c9521dfbaea24844",
+    "openwave-tuning/auditor/native_field_bridge/FINAL_MANIFEST.json": "4597dc9c226d203d890bc3d3a929bbe1be80e2dc57ec03898c77da4fe5b954e1",
+    "openwave-tuning/auditor/native_field_bridge/BALANCED_OCCUPANCY_REVIEW.json": "85f7bd8ae6b9a0db8fa2994ef18d00f7cda66c28c00d24a848e3c21000a1b57e",
+    "openwave-tuning/auditor/native_field_bridge/BALANCED_OCCUPANCY_REVIEW.md": "77b5e09fa65312a76cfd76cf7baceb53cf652e50ed7f63f8ef545879bfff37f4",
+    "openwave-tuning/auditor/native_field_bridge/CAPPED_INSTRUMENT.md": "23a464ad08cc2476896ccf19141f96ce9058c864d23cc5c40b94a79815cf46cb",
+    "openwave-tuning/auditor/native_field_bridge/CAPPED_LAW.json": "5992b694b47b04c0b8f9b7835884f01cd3ec1562a2d0ba9d4111b8fa65668a2f",
+    "openwave-tuning/auditor/native_field_bridge/EXTERNAL_AUDIT.md": "710756b8d09c270f5ba32cde167fe69facafa7f0df6e2a9884d32d4d893bd3c5",
+    "openwave-tuning/auditor/native_field_bridge/FIELD_FEEDBACK.json": "57667cbe061215af8858c4bf62bd8cfe1db2e98075e031cd437ff09f88d277f9",
+    "openwave-tuning/auditor/native_field_bridge/MANIFEST.json": "7f05024b497694219e3ff95d708efcd2ebaf2c391ea384c48946889e9555b0a1",
+    "openwave-tuning/auditor/native_field_bridge/NATIVE_JUMP_RATES.json": "9145700594b226dc427aaf640b0cfd3b07587783f3892589f596b52d0463306e",
+    "openwave-tuning/auditor/native_field_bridge/PROOF.md": "7a0fbd48362f05758a3409cce463c407b84d63de9228fe2cad0fac3fe835393f",
+    "openwave-tuning/auditor/native_field_bridge/RECIPROCAL_FEEDBACK.json": "464a6ad36193329334f264357c648c8d6690d84f88ab452c5203e86b98ea0332",
+    "openwave-tuning/auditor/native_field_bridge/RECIPROCAL_PROOF.md": "99fe8cce8c95375e722604eb75207e831e70c7e8a182f587403e3e867cb98f20",
+    "openwave-tuning/auditor/native_field_bridge/ROOT_UNCAPPED_REVIEW.json": "895dfccfe4983199ab12d1be8047426f231f49d903c5b5ec9fdc43118b0d5525",
+    "openwave-tuning/auditor/native_field_bridge/audit_balanced_occupancy.py": "188881cea6586637913f6ea0e22ce6d9774d68f60ade09677f8e84dffc20f976",
+    "openwave-tuning/auditor/native_field_bridge/capped_law.py": "be3bd4cf6b665a88171615e240b1b7a3f80da5a107dae646c368b86245f7fb44",
+    "openwave-tuning/auditor/native_field_bridge/field_feedback.py": "7dd23f52420e689bafa6b318673b40488bd20b2f1e640ff64239b3c5f5643325",
+    "openwave-tuning/auditor/native_field_bridge/reciprocal_feedback.py": "9a3ef66b6f1dc493b983606159bdab733b0f887c775bbbc3a06b06fecf40afe9",
+    "openwave-tuning/auditor/native_field_bridge/review_field_root.py": "8d862f32ce2adfffce71eaedd5e603f1f401d23c1f7220997b8f76587ba23155",
+    "openwave-tuning/next/CHAIN/field_limit/MANIFEST.json": "612aedd40f13faea2b80b5c31d4afbb19cb2332ff22db5b459ac2ae936879008",
+    "openwave-tuning/next/CHAIN/field_limit/README.md": "3f3a4c0c30224430f38c2b27a9a6366be2e1224c21740546fb9c65e252aab58c",
+    "openwave-tuning/next/CHAIN/field_limit/PROOF.md": "fcebbfb419d7b72ce420f503495fad614552da46ac92659a25a411b8af0052fc",
+    "openwave-tuning/next/CHAIN/field_limit/controlled_field.py": "e9bd6f9a97d0094c4f9dd3ec95a0fcfe0f596684f1bc0d472e99c95dad3ad0aa",
+    "openwave-tuning/next/CHAIN/field_limit/verify.py": "dee3c8d1b3492dcc496f21f76e1ee835f24c448ae9917a681286643f58a13ea7",
+    "openwave-tuning/next/CHAIN/field_limit/RESULT.json": "7908b7da1790574c950ac0a78bb89ba6cdf5370d6f5268aaa7296b7b108d984a",
+    "openwave-tuning/next/CHAIN/field_limit/REVIEW.json": "6602e49ce871da8215e6b381835b4428b0ffd7019ce1d5d68815f5f23f545c69",
+    "reverse-engineering-reality/model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "reverse-engineering-reality/model/native_spatial_refinement/source.py": "b4576a37b7610418f810ab7beebf5e52a7eeab80f66c7260ace149de9c733733",
+    "openwave-push/issues/N20_native_green_field/n20lib.py": "8ff2f3ee49a5efaecb2fb308f24be551103d3fea82d91196153fe796655b3f08",
+    "openwave-push/issues/N3D_cubic_routing/n3dlib.py": "6459c6f096c97922d4905c0318ca32c4a26fb35854f8154d18008d20e636b7ac",
+    "reverse-engineering-reality/Lean/Screen/DiscreteCoulombGreen.lean": "a58830d60688b7df505d2c8cbc1ff2290b057f9be055def25db7006fae7bd078",
+    "reverse-engineering-reality/model/native_spatial_refinement/PROOF.md": "c411a13d5f92b38721eb6624291e01571a4363dcca9f80cb5f141da794c7bb1b",
+    "openwave-tuning/next/CHAIN/coordination/INTEGER_FIELD_CONTROL.json": "abc9a72412d9d786c636350084c306771b8c3cded09ea21f874817a4626864e4"
+  },
+  "reviewer_script_sha256": "c52cc8fce4ab94f7bfd87fd6fee88fa5f29daf351626a36e2a38af3c239b82fa",
+  "producer_verifiers_executed": false,
+  "full_9216_semigroup_constructed": false,
+  "official_rows_changed": [],
+  "producer_files_modified": []
+}

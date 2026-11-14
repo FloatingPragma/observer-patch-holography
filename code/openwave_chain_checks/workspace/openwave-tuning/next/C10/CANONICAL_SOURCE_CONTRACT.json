@@ -1,0 +1,75 @@
+{
+  "schema": "oph.c10.canonical_source_contract.v1",
+  "construction_id": "triangle-CAR-allN-Z6-periodic-half-record-native-MIX-v1",
+  "one_source": {
+    "states": "all six-orbital CAR occupations with six shared Z6half-records;384states",
+    "H": "same actual CARHm+periodic-half-record potential+cyclic face term",
+    "reference": "global interacting all-number ground projector; unique N3 in this case",
+    "native_clock": "dimensionless half-hopparameter",
+    "native_instrument": "selectedMIX on actual fullsource; C/E standalonecontrols",
+    "reservoir": "same fullsource, complete7modeCARswap, integerB=3\u2212N; zero boundaryextraenergy, .23nr"
+  },
+  "input_ancestry": {
+    "CAR_statistics_and_phases": "C9configuration-level CAR extension with explicit transport phases; not derivedphysicalspin",
+    "Gauss_preparation": "existing affine modularfiber/tree arithmetic; sourcebackground111000 fixed",
+    "field": "L05 half-record quadratic normalform adapted to explicitly periodicrepresentatives; faceW samecycle; no hardwallidentitytransfer",
+    "reservoir": "existing mass_instrument CARannihilator/swapmethod with explicitboundarydressing",
+    "ideal_preparations": "global spectralreference and fair reservoir occupation supplied",
+    "numerical_execution": "finite float64 dense/source-number block algebra; no interval-certified trajectories"
+  },
+  "completed_observables": {
+    "hamiltonian_and_all_number_spectra": {
+      "file": "next/C10/JOINT_SOURCE.json",
+      "json_path": "actual_all_number_spectra"
+    },
+    "reference": {
+      "file": "next/C10/JOINT_SOURCE.json",
+      "json_path": "references.global_allN"
+    },
+    "boundary_dressed_addition_removal": {
+      "file": "next/C10/JOINT_SOURCE.json",
+      "json_path": "references.global_allN.complete_reservoir_response"
+    },
+    "same_reference_C_E_MIX_work": {
+      "file": "next/C10/JOINT_SOURCE.json",
+      "json_path": "references.global_allN.native_instruments"
+    },
+    "charged_pulse_field_energy": {
+      "file": "next/C10/JOINT_SOURCE.json",
+      "json_path": "references.global_allN.field_energy_before_reservoir / field_energy_after_reservoir"
+    },
+    "selected_protocol_and_readouts": {
+      "file": "next/C10/CANONICAL_CONSTRUCTION.json",
+      "json_path": "readouts"
+    },
+    "baseline_controls": {
+      "file": "next/C10/CANONICAL_CONSTRUCTION.json",
+      "json_path": "controls"
+    },
+    "complete_grouped_Luders_states_and_continuation": {
+      "file": "next/C10/CANONICAL_CONSTRUCTION.json",
+      "json_path": "spectral_readout_instrument"
+    }
+  },
+  "boundaries": [
+    "fixedGaussbackground not automatically chargeconjugationinvariant",
+    "zero boundaryenergy is supplied ledgerchoice, not completephysicalpreparationcost",
+    "full384source retained; no uniform/character compression after periodicHE",
+    "allnumberPVM uses actualoccupation labels; no unjustified genericmodularintegerdecoder",
+    "reference/clock/readouts lack physicalspecies/field/spacetimeidentification",
+    "separate component experiments are controls, not measurements transferred into this interacting construction"
+  ],
+  "full_criterion_met": false,
+  "official_rows_changed": [],
+  "source_sha256": {
+    "next/C10/canonical_construction.py": "130c65d30050e6ae7f52b9d4bd53528e4abbc2b2cb2638de1ebc305f47192902",
+    "next/C10/spectral_readout.py": "8bd12ab27ff979ae4b92e289ebb46efb376dd13696faf6752670f44c8049d83e",
+    "next/C10/joint_source.py": "bbedbeecff985014f60d761c4a165546383d393f8263ef46d681b346ecbc540f",
+    "next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e",
+    "next/C10/modular_field_adapter.py": "f964dd6225af37267af8293f3a380524520e3ab83f77e30198f9126fa4c9dc32",
+    "next/C10/JOINT_SOURCE.json": "b9750a2e5823f15496f3915dc6a647af4cc0944dbff21d4b0fd48e27693b3546",
+    "next/C10/joint_source_states.npz": "1d75017307742e96649ea7c7e74a4a648a6d9f468e35ccd9f6ea05d202d7708b",
+    "next/C10/CANONICAL_CONSTRUCTION.json": "87e364830daaf96e16cbbf1ed7a12b4329d896a816fffcf9194f29fdeceb7217",
+    "next/C10/canonical_states.npz": "27b18e957d2ececf5c0d54dcb0851d510ef307cef9a364372281966b3c7c96f1"
+  }
+}

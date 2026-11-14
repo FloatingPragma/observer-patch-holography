@@ -262,3 +262,12 @@ the exterior metric residual of a supplied lapse. Its independent graph
 traversal gives free-component sizes1,5,7,180. The registered dimensional
 attachment cannot match both light speed and Newton strength by changing its
 length unit. The scope is the specified finite source and unit map.
+
+The [field-register transfer](FIELD_REGISTER_PROOF.md) bounds complete
+finite-time records of cyclic electric registers against the integer
+compact-rotor process, with arbitrary references and explicit initial
+support, transport and magnetic-update budgets. Its standard-library
+[certificate](field_register_transfer.py) retains every active face and
+rejects a transfer that ignores register-boundary weight. Spatial Maxwell
+and interacting-vacuum claims require additional state and refinement
+estimates.

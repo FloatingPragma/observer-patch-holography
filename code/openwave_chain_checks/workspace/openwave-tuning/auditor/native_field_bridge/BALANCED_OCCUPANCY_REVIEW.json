@@ -1,0 +1,435 @@
+{
+  "schema": "oph.native.balanced_occupancy.opposing_review.v1",
+  "checks": {
+    "independent_endpoint_all_meter_replays": true,
+    "equal_success_all_three_classes": true,
+    "complete_failure_partitions_sum_one": true,
+    "zero_path_actual_degree_zero": true,
+    "actual_occupancy_output_from_pointer": true,
+    "source_and_pointer_clock_retained": true,
+    "correlated_pointer_counterexample_retained": true,
+    "source_bytes_unchanged": true
+  },
+  "actual_pointer_replays": 756,
+  "joined_occupancy_replays": 24,
+  "exact_class_laws": 108,
+  "outcomes": {
+    "complete_balanced_native_winding": 273,
+    "routing_timeout": 222,
+    "discovery_timeout": 43,
+    "measurement_timeout": 218
+  },
+  "laws": [
+    {
+      "pointer_initial": 0,
+      "retries": 1,
+      "all_three_class_success": "31/4096",
+      "stage_law": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "31/64",
+        "measurement_timeout": "1953/4096",
+        "success": "31/4096"
+      }
+    },
+    {
+      "pointer_initial": 1,
+      "retries": 1,
+      "all_three_class_success": "91/8192",
+      "stage_law": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "33/128",
+        "measurement_timeout": "5733/8192",
+        "success": "91/8192"
+      }
+    },
+    {
+      "pointer_initial": 2,
+      "retries": 1,
+      "all_three_class_success": "13/4096",
+      "stage_law": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "49/64",
+        "measurement_timeout": "819/4096",
+        "success": "13/4096"
+      }
+    },
+    {
+      "pointer_initial": 3,
+      "retries": 1,
+      "all_three_class_success": "31/8192",
+      "stage_law": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "93/128",
+        "measurement_timeout": "1953/8192",
+        "success": "31/8192"
+      }
+    },
+    {
+      "pointer_initial": 4,
+      "retries": 1,
+      "all_three_class_success": "1/256",
+      "stage_law": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "23/32",
+        "measurement_timeout": "63/256",
+        "success": "1/256"
+      }
+    },
+    {
+      "pointer_initial": 5,
+      "retries": 1,
+      "all_three_class_success": "11/1024",
+      "stage_law": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "9/32",
+        "measurement_timeout": "693/1024",
+        "success": "11/1024"
+      }
+    },
+    {
+      "pointer_initial": 6,
+      "retries": 1,
+      "all_three_class_success": "1/256",
+      "stage_law": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "23/32",
+        "measurement_timeout": "63/256",
+        "success": "1/256"
+      }
+    },
+    {
+      "pointer_initial": 7,
+      "retries": 1,
+      "all_three_class_success": "11/1024",
+      "stage_law": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "9/32",
+        "measurement_timeout": "693/1024",
+        "success": "11/1024"
+      }
+    },
+    {
+      "pointer_initial": 8,
+      "retries": 1,
+      "all_three_class_success": "45/8192",
+      "stage_law": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "79/128",
+        "measurement_timeout": "2835/8192",
+        "success": "45/8192"
+      }
+    },
+    {
+      "pointer_initial": 9,
+      "retries": 1,
+      "all_three_class_success": "45/8192",
+      "stage_law": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "79/128",
+        "measurement_timeout": "2835/8192",
+        "success": "45/8192"
+      }
+    },
+    {
+      "pointer_initial": 10,
+      "retries": 1,
+      "all_three_class_success": "41/4096",
+      "stage_law": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "21/64",
+        "measurement_timeout": "2583/4096",
+        "success": "41/4096"
+      }
+    },
+    {
+      "pointer_initial": 11,
+      "retries": 1,
+      "all_three_class_success": "41/4096",
+      "stage_law": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "21/64",
+        "measurement_timeout": "2583/4096",
+        "success": "41/4096"
+      }
+    },
+    {
+      "pointer_initial": 0,
+      "retries": 2,
+      "all_three_class_success": "2237301/16777216",
+      "stage_law": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "1023/4096",
+        "measurement_timeout": "10333323/16777216",
+        "success": "2237301/16777216"
+      }
+    },
+    {
+      "pointer_initial": 1,
+      "retries": 2,
+      "all_three_class_success": "11155887/67108864",
+      "stage_law": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "1065/16384",
+        "measurement_timeout": "51525201/67108864",
+        "success": "11155887/67108864"
+      }
+    },
+    {
+      "pointer_initial": 2,
+      "retries": 2,
+      "all_three_class_success": "1371249/16777216",
+      "stage_law": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "2211/4096",
+        "measurement_timeout": "6333327/16777216",
+        "success": "1371249/16777216"
+      }
+    },
+    {
+      "pointer_initial": 3,
+      "retries": 2,
+      "all_three_class_success": "6711903/67108864",
+      "stage_law": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "7161/16384",
+        "measurement_timeout": "30999969/67108864",
+        "success": "6711903/67108864"
+      }
+    },
+    {
+      "pointer_initial": 4,
+      "retries": 2,
+      "all_three_class_success": "203391/2097152",
+      "stage_law": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "465/1024",
+        "measurement_timeout": "939393/2097152",
+        "success": "203391/2097152"
+      }
+    },
+    {
+      "pointer_initial": 5,
+      "retries": 2,
+      "all_three_class_success": "172773/1048576",
+      "stage_law": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "75/1024",
+        "measurement_timeout": "797979/1048576",
+        "success": "172773/1048576"
+      }
+    },
+    {
+      "pointer_initial": 6,
+      "retries": 2,
+      "all_three_class_success": "203391/2097152",
+      "stage_law": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "465/1024",
+        "measurement_timeout": "939393/2097152",
+        "success": "203391/2097152"
+      }
+    },
+    {
+      "pointer_initial": 7,
+      "retries": 2,
+      "all_three_class_success": "172773/1048576",
+      "stage_law": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "75/1024",
+        "measurement_timeout": "797979/1048576",
+        "success": "172773/1048576"
+      }
+    },
+    {
+      "pointer_initial": 8,
+      "retries": 2,
+      "all_three_class_success": "8102835/67108864",
+      "stage_law": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "5253/16384",
+        "measurement_timeout": "37424205/67108864",
+        "success": "8102835/67108864"
+      }
+    },
+    {
+      "pointer_initial": 9,
+      "retries": 2,
+      "all_three_class_success": "8102835/67108864",
+      "stage_law": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "5253/16384",
+        "measurement_timeout": "37424205/67108864",
+        "success": "8102835/67108864"
+      }
+    },
+    {
+      "pointer_initial": 10,
+      "retries": 2,
+      "all_three_class_success": "2665953/16777216",
+      "stage_law": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "435/4096",
+        "measurement_timeout": "12313119/16777216",
+        "success": "2665953/16777216"
+      }
+    },
+    {
+      "pointer_initial": 11,
+      "retries": 2,
+      "all_three_class_success": "2665953/16777216",
+      "stage_law": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "435/4096",
+        "measurement_timeout": "12313119/16777216",
+        "success": "2665953/16777216"
+      }
+    },
+    {
+      "pointer_initial": 0,
+      "retries": 16,
+      "all_three_class_success": "6276431299278305807237038969661842027224501950926212890625/6277101735386680763835789423207666416102355444464034512896",
+      "stage_law": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "1208925819614629174706175/79228162514264337593543950336",
+        "measurement_timeout": "574655137070838545097864638997122240513129439899877375/6277101735386680763835789423207666416102355444464034512896",
+        "success": "6276431299278305807237038969661842027224501950926212890625/6277101735386680763835789423207666416102355444464034512896"
+      }
+    },
+    {
+      "pointer_initial": 1,
+      "retries": 16,
+      "all_three_class_success": "411338478060802327666595459634113987853633361181040449147109375/411376139330301510538742295639337626245683966408394965837152256",
+      "stage_law": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "1208925819896099856318465/5192296858534827628530496329220096",
+        "measurement_timeout": "37661173718211545728037169680840542527703971258359162077185/411376139330301510538742295639337626245683966408394965837152256",
+        "success": "411338478060802327666595459634113987853633361181040449147109375/411376139330301510538742295639337626245683966408394965837152256"
+      }
+    },
+    {
+      "pointer_initial": 2,
+      "retries": 16,
+      "all_three_class_success": "6276239760718452666780886359973898769730191136385412890625/6277101735386680763835789423207666416102355444464034512896",
+      "stage_law": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "3626703672712009026174975/79228162514264337593543950336",
+        "measurement_timeout": "574637600255390662531303438879706896306419496846360575/6277101735386680763835789423207666416102355444464034512896",
+        "success": "6276239760718452666780886359973898769730191136385412890625/6277101735386680763835789423207666416102355444464034512896"
+      }
+    },
+    {
+      "pointer_initial": 3,
+      "retries": 16,
+      "all_three_class_success": "411325925198203771077279348876788817254157735353949361787109375/411376139330301510538742295639337626245683966408394965837152256",
+      "stage_law": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "158455116102709060557913063425/5192296858534827628530496329220096",
+        "measurement_timeout": "37660024407937404052988559116676406032027937843838463770625/411376139330301510538742295639337626245683966408394965837152256",
+        "success": "411325925198203771077279348876788817254157735353949361787109375/411376139330301510538742295639337626245683966408394965837152256"
+      }
+    },
+    {
+      "pointer_initial": 4,
+      "retries": 16,
+      "all_three_class_success": "47884639946561936965251838141606440357192103812890625/47890485652059026823698344598447161988085597568237568",
+      "stage_law": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "36893488130239561725/1208925819614629174706176",
+        "measurement_timeout": "4384203860439507281481730760377290100054080126975/47890485652059026823698344598447161988085597568237568",
+        "success": "47884639946561936965251838141606440357192103812890625/47890485652059026823698344598447161988085597568237568"
+      }
+    },
+    {
+      "pointer_initial": 5,
+      "retries": 16,
+      "all_three_class_success": "1461367837623586987459684759985950199696772890625/1461501637330902918203684832716283019655932542976",
+      "stage_law": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "281479271612415/1208925819614629174706176",
+        "measurement_timeout": "133799367028371605431236953594019624606171135/1461501637330902918203684832716283019655932542976",
+        "success": "1461367837623586987459684759985950199696772890625/1461501637330902918203684832716283019655932542976"
+      }
+    },
+    {
+      "pointer_initial": 6,
+      "retries": 16,
+      "all_three_class_success": "47884639946561936965251838141606440357192103812890625/47890485652059026823698344598447161988085597568237568",
+      "stage_law": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "36893488130239561725/1208925819614629174706176",
+        "measurement_timeout": "4384203860439507281481730760377290100054080126975/47890485652059026823698344598447161988085597568237568",
+        "success": "47884639946561936965251838141606440357192103812890625/47890485652059026823698344598447161988085597568237568"
+      }
+    },
+    {
+      "pointer_initial": 7,
+      "retries": 16,
+      "all_three_class_success": "1461367837623586987459684759985950199696772890625/1461501637330902918203684832716283019655932542976",
+      "stage_law": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "281479271612415/1208925819614629174706176",
+        "measurement_timeout": "133799367028371605431236953594019624606171135/1461501637330902918203684832716283019655932542976",
+        "success": "1461367837623586987459684759985950199696772890625/1461501637330902918203684832716283019655932542976"
+      }
+    },
+    {
+      "pointer_initial": 8,
+      "retries": 16,
+      "all_three_class_success": "411332201437964489552243812607293157742216938874340964987109375/411376139330301510538742295639337626245683966408394965837152256",
+      "stage_law": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "79230580292117153511303348225/5192296858534827628530496329220096",
+        "measurement_timeout": "37660599045537659445692613282420370036747685088079168077825/411376139330301510538742295639337626245683966408394965837152256",
+        "success": "411332201437964489552243812607293157742216938874340964987109375/411376139330301510538742295639337626245683966408394965837152256"
+      }
+    },
+    {
+      "pointer_initial": 9,
+      "retries": 16,
+      "all_three_class_success": "411332201437964489552243812607293157742216938874340964987109375/411376139330301510538742295639337626245683966408394965837152256",
+      "stage_law": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "79230580292117153511303348225/5192296858534827628530496329220096",
+        "measurement_timeout": "37660599045537659445692613282420370036747685088079168077825/411376139330301510538742295639337626245683966408394965837152256",
+        "success": "411332201437964489552243812607293157742216938874340964987109375/411376139330301510538742295639337626245683966408394965837152256"
+      }
+    },
+    {
+      "pointer_initial": 10,
+      "retries": 16,
+      "all_three_class_success": "6276527068558221228793818809447001313602909473859972890625/6277101735386680763835789423207666416102355444464034512896",
+      "stage_law": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "36893206668147490815/79228162514264337593543950336",
+        "measurement_timeout": "574663905478561465635290382886529107534463686356238335/6277101735386680763835789423207666416102355444464034512896",
+        "success": "6276527068558221228793818809447001313602909473859972890625/6277101735386680763835789423207666416102355444464034512896"
+      }
+    },
+    {
+      "pointer_initial": 11,
+      "retries": 16,
+      "all_three_class_success": "6276527068558221228793818809447001313602909473859972890625/6277101735386680763835789423207666416102355444464034512896",
+      "stage_law": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "36893206668147490815/79228162514264337593543950336",
+        "measurement_timeout": "574663905478561465635290382886529107534463686356238335/6277101735386680763835789423207666416102355444464034512896",
+        "success": "6276527068558221228793818809447001313602909473859972890625/6277101735386680763835789423207666416102355444464034512896"
+      }
+    }
+  ],
+  "independence_scope": "Success balancing is conditional on fixed pointer input and fresh conditionally fair native pointer coins. For an averaged pointer input, its preparation must be independent of the source history; marginal fairness or an unspecified correlated apparatus does not suffice.",
+  "correlated_pointer_control": {
+    "prior_source_survival": "1/2",
+    "pointer0_if_survives_pointer1_if_moves": true,
+    "eta0": "31/4096",
+    "eta1": "91/8192",
+    "conclusive_source_survival": "62/153"
+  },
+  "source_pins": {
+    "openwave-tuning/auditor/row1_public_integration/balanced_occupancy.py": "a23385a0bdea821ec47b41c353ddbcbc45088ffb99ae6b78d259e782105b9732",
+    "openwave-tuning/auditor/row1_public_integration/BALANCED_OCCUPANCY.json": "055fae416cb3c598e3137c4f63af7fc464ce7e58864981adec27ad5ab4ec656a",
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_flux_topology/audit_cycle_pointer.py": "d9e803ed3d1c21f7d22b087b7f4afe307100c0b39af094813748b18cefcc9ccd"
+  },
+  "auditor_sha256": "188881cea6586637913f6ea0e22ce6d9774d68f60ade09677f8e84dffc20f976",
+  "official_rows_changed": []
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "oph.native_field_bridge.additive_custody.v1",
+  "fixed_reference_manifest_sha256": "7f05024b497694219e3ff95d708efcd2ebaf2c391ea384c48946889e9555b0a1",
+  "fixed_reference_files_preserved": true,
+  "files": {
+    "BALANCED_OCCUPANCY_REVIEW.json": "85f7bd8ae6b9a0db8fa2994ef18d00f7cda66c28c00d24a848e3c21000a1b57e",
+    "BALANCED_OCCUPANCY_REVIEW.md": "77b5e09fa65312a76cfd76cf7baceb53cf652e50ed7f63f8ef545879bfff37f4",
+    "CAPPED_INSTRUMENT.md": "23a464ad08cc2476896ccf19141f96ce9058c864d23cc5c40b94a79815cf46cb",
+    "CAPPED_LAW.json": "5992b694b47b04c0b8f9b7835884f01cd3ec1562a2d0ba9d4111b8fa65668a2f",
+    "EXTERNAL_AUDIT.md": "710756b8d09c270f5ba32cde167fe69facafa7f0df6e2a9884d32d4d893bd3c5",
+    "FIELD_FEEDBACK.json": "57667cbe061215af8858c4bf62bd8cfe1db2e98075e031cd437ff09f88d277f9",
+    "MANIFEST.json": "7f05024b497694219e3ff95d708efcd2ebaf2c391ea384c48946889e9555b0a1",
+    "NATIVE_JUMP_RATES.json": "9145700594b226dc427aaf640b0cfd3b07587783f3892589f596b52d0463306e",
+    "PROOF.md": "7a0fbd48362f05758a3409cce463c407b84d63de9228fe2cad0fac3fe835393f",
+    "RECIPROCAL_FEEDBACK.json": "464a6ad36193329334f264357c648c8d6690d84f88ab452c5203e86b98ea0332",
+    "RECIPROCAL_PROOF.md": "99fe8cce8c95375e722604eb75207e831e70c7e8a182f587403e3e867cb98f20",
+    "ROOT_UNCAPPED_REVIEW.json": "895dfccfe4983199ab12d1be8047426f231f49d903c5b5ec9fdc43118b0d5525",
+    "audit_balanced_occupancy.py": "188881cea6586637913f6ea0e22ce6d9774d68f60ade09677f8e84dffc20f976",
+    "capped_law.py": "be3bd4cf6b665a88171615e240b1b7a3f80da5a107dae646c368b86245f7fb44",
+    "field_feedback.py": "7dd23f52420e689bafa6b318673b40488bd20b2f1e640ff64239b3c5f5643325",
+    "reciprocal_feedback.py": "9a3ef66b6f1dc493b983606159bdab733b0f887c775bbbc3a06b06fecf40afe9",
+    "review_field_root.py": "8d862f32ce2adfffce71eaedd5e603f1f401d23c1f7220997b8f76587ba23155"
+  },
+  "complete_capped_instrument": "CAPPED_INSTRUMENT.md supersedes any identification of uncapped position laws with the capped executors; CAPPED_LAW.json binds all cap controls.",
+  "official_rows_changed": []
+}

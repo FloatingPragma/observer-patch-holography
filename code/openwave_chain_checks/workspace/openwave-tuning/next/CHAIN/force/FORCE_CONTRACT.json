@@ -1,0 +1,318 @@
+{
+  "schema": "oph.classical_native_force.contract.v1",
+  "source_identity": "frozen-reciprocal-two-mobile-literal-C-side2-96ports",
+  "source_manifest_sha256": "4597dc9c226d203d890bc3d3a929bbe1be80e2dc57ec03898c77da4fe5b954e1",
+  "field_manifest_sha256": "612aedd40f13faea2b80b5c31d4afbb19cb2332ff22db5b459ac2ae936879008",
+  "source_domain": {
+    "copies": 2,
+    "ports_per_copy": 96,
+    "seams_per_copy": 288,
+    "joint_position_states": 9216,
+    "quantum": false,
+    "C10_source_match": false
+  },
+  "preparation": {
+    "positive_copy": {
+      "0": "1/2",
+      "1": "1/2"
+    },
+    "negative_copy": 9,
+    "preparation_label_retained": true,
+    "reference": "known initial pair and current-record reconstruction"
+  },
+  "supplied_inputs": {
+    "beta": 4,
+    "kappa_primary": 1,
+    "nu_primary": 1,
+    "field_rounds": 512,
+    "energy": "kappa*rho^T G_K rho/2",
+    "scheduled_rate": "nu*exp(-beta*Delta_U/2)",
+    "native_coin_probability": "1/2",
+    "signs_energy_controller_are_architecture": true
+  },
+  "clock": {
+    "parameter": "one common continuous Poisson source time t",
+    "nu_units": "inverse source time per baseline seam",
+    "uncoupled_total_attempt_rate": "576*nu",
+    "uncoupled_total_transfer_rate": "6*nu",
+    "controller_arithmetic_rounds": "separate work count, no supplied latency",
+    "physical_seconds": null,
+    "C10_clock_transfer": false
+  },
+  "instrument": {
+    "horizon": "1/1000",
+    "attempt_cap": 1,
+    "outcomes_per_preparation": 1153,
+    "outcome": "preparation, no_event OR copy/seam/coin/current/terminal_positions/cap_exhausted",
+    "cap_probability_retained": [
+      0.43789294143748064,
+      0.4379632243834818
+    ],
+    "waiting_law": "no_event exp(-Lambda*T); mark exp(-Lambda*t)*r_e/2 dt for 0<t<T",
+    "success_conditioning": false
+  },
+  "observable": {
+    "seam": [
+      0,
+      1
+    ],
+    "score": "j_e/g_s, g_s=(1-exp(-Lambda_s*T))/Lambda_s; zero on no event",
+    "score_absolute_bound": 1315.6081655038138,
+    "force": "F=U_K(0,y)-U_K(1,y), declared unit seam length",
+    "drift": "J=E(score)=(nu/2)*sinh(beta*F/2)",
+    "linear_response": "J=beta*D0*F+R, D0=nu/4",
+    "remainder_bound": "nu*abs(beta*F/2)^3*cosh(abs(beta*F/2))/12",
+    "measured_force": 0.034922889610389585,
+    "measured_drift": 0.03495129136610145
+  },
+  "controlled_field_to_rate_transfer": {
+    "variant": "direct-pair-zero-start512-fixedpoint40-electric-scheduler",
+    "same_native_rule_preparation_and_clock_parameter": true,
+    "frozen_scheduler_replaced": false,
+    "comparison_domain": "beta=4, kappa=1, nu=1, horizon=1/1000; any finite native attempt cap",
+    "zero_start_field_error_upper": "33093/31250000000000",
+    "unit_energy_difference_to_ideal_frozen_upper": "1746877/1000000000000000",
+    "log_seam_rate_ratio_absolute_upper": "1746877/250000000000000",
+    "complete_marked_capped_path_TV_upper": "670801/1000000000000000",
+    "measured_first_event_TV": [
+      8.598373749113541e-15,
+      1.0969740740773837e-14
+    ],
+    "measured_frozen_score_error": 1.4705591727159305e-13,
+    "frozen_score_error_upper": 1.7650218608977452e-06,
+    "compiled_pair_count": 22,
+    "compiled_pairs": [
+      {
+        "state": [
+          0,
+          1
+        ],
+        "exact_energy": "42951532253/274877906944",
+        "residual_field_error_squared_upper": "7/9444732965739290427392",
+        "frozen_energy_difference": -7.338851748528441e-13
+      },
+      {
+        "state": [
+          0,
+          3
+        ],
+        "exact_energy": "445784138045/2199023255552",
+        "residual_field_error_squared_upper": "373/302231454903657293676544",
+        "frozen_energy_difference": -9.862388683501422e-13
+      },
+      {
+        "state": [
+          0,
+          4
+        ],
+        "exact_energy": "106482651309/549755813888",
+        "residual_field_error_squared_upper": "97/37778931862957161709568",
+        "frozen_energy_difference": -1.2854994846378531e-12
+      },
+      {
+        "state": [
+          0,
+          5
+        ],
+        "exact_energy": "21820897427/137438953472",
+        "residual_field_error_squared_upper": "373/151115727451828646838272",
+        "frozen_energy_difference": -1.139061067689795e-12
+      },
+      {
+        "state": [
+          0,
+          8
+        ],
+        "exact_energy": "425930605235/2199023255552",
+        "residual_field_error_squared_upper": "99/37778931862957161709568",
+        "frozen_energy_difference": -1.7402468355243172e-12
+      },
+      {
+        "state": [
+          0,
+          9
+        ],
+        "exact_energy": "425930605235/2199023255552",
+        "residual_field_error_squared_upper": "99/37778931862957161709568",
+        "frozen_energy_difference": -1.7402468355243172e-12
+      },
+      {
+        "state": [
+          0,
+          35
+        ],
+        "exact_energy": "542285173791/2199023255552",
+        "residual_field_error_squared_upper": "799/302231454903657293676544",
+        "frozen_energy_difference": -3.2074343181420772e-12
+      },
+      {
+        "state": [
+          1,
+          1
+        ],
+        "exact_energy": "0",
+        "residual_field_error_squared_upper": "0",
+        "frozen_energy_difference": 0.0
+      },
+      {
+        "state": [
+          1,
+          3
+        ],
+        "exact_energy": "211431385727/1099511627776",
+        "residual_field_error_squared_upper": "149/151115727451828646838272",
+        "frozen_energy_difference": -1.0102751968332768e-12
+      },
+      {
+        "state": [
+          1,
+          4
+        ],
+        "exact_energy": "106482651309/549755813888",
+        "residual_field_error_squared_upper": "97/37778931862957161709568",
+        "frozen_energy_difference": -1.2854994846378531e-12
+      },
+      {
+        "state": [
+          1,
+          5
+        ],
+        "exact_energy": "21820897427/137438953472",
+        "residual_field_error_squared_upper": "373/151115727451828646838272",
+        "frozen_energy_difference": -1.139061067689795e-12
+      },
+      {
+        "state": [
+          1,
+          8
+        ],
+        "exact_energy": "349134358831/2199023255552",
+        "residual_field_error_squared_upper": "357/151115727451828646838272",
+        "frozen_energy_difference": -1.593808418576259e-12
+      },
+      {
+        "state": [
+          1,
+          9
+        ],
+        "exact_energy": "349134358831/2199023255552",
+        "residual_field_error_squared_upper": "357/151115727451828646838272",
+        "frozen_energy_difference": -1.593808418576259e-12
+      },
+      {
+        "state": [
+          1,
+          35
+        ],
+        "exact_energy": "262418783193/1099511627776",
+        "residual_field_error_squared_upper": "711/302231454903657293676544",
+        "frozen_energy_difference": -3.1849800574690335e-12
+      },
+      {
+        "state": [
+          5,
+          9
+        ],
+        "exact_energy": "21820897427/137438953472",
+        "residual_field_error_squared_upper": "373/151115727451828646838272",
+        "frozen_energy_difference": -1.139061067689795e-12
+      },
+      {
+        "state": [
+          7,
+          9
+        ],
+        "exact_energy": "106482651309/549755813888",
+        "residual_field_error_squared_upper": "97/37778931862957161709568",
+        "frozen_energy_difference": -1.2854994846378531e-12
+      },
+      {
+        "state": [
+          8,
+          9
+        ],
+        "exact_energy": "42951532253/274877906944",
+        "residual_field_error_squared_upper": "7/9444732965739290427392",
+        "frozen_energy_difference": -7.338851748528441e-13
+      },
+      {
+        "state": [
+          9,
+          9
+        ],
+        "exact_energy": "0",
+        "residual_field_error_squared_upper": "0",
+        "frozen_energy_difference": 0.0
+      },
+      {
+        "state": [
+          10,
+          9
+        ],
+        "exact_energy": "445784138045/2199023255552",
+        "residual_field_error_squared_upper": "373/302231454903657293676544",
+        "frozen_energy_difference": -9.862666239257578e-13
+      },
+      {
+        "state": [
+          11,
+          9
+        ],
+        "exact_energy": "211431385727/1099511627776",
+        "residual_field_error_squared_upper": "149/151115727451828646838272",
+        "frozen_energy_difference": -1.0103029524088925e-12
+      },
+      {
+        "state": [
+          14,
+          9
+        ],
+        "exact_energy": "539830906765/2199023255552",
+        "residual_field_error_squared_upper": "701/302231454903657293676544",
+        "frozen_energy_difference": -3.0775104686853183e-12
+      },
+      {
+        "state": [
+          15,
+          9
+        ],
+        "exact_energy": "527291833413/2199023255552",
+        "residual_field_error_squared_upper": "89/37778931862957161709568",
+        "frozen_energy_difference": -2.860184311614944e-12
+      }
+    ],
+    "rounding_scope": "Integer controller arithmetic is exact. The coupling certificate compares exact-real exponentials and the exact-arithmetic frozen local stencil. Floating-library evaluation error is separately unproved."
+  },
+  "rational_force_score_transfer": {
+    "exposure_lower": "67/100000",
+    "TV_upper": "670801/1000000000000000",
+    "frozen_score_error_upper": "670801/335000000000"
+  },
+  "rejecting_controls": {
+    "cap_output_deleted": true,
+    "native_holds_deleted": true,
+    "conclusive_only_renormalization": true,
+    "current_sign_reversed": true,
+    "fair_coin_factor_omitted": true,
+    "native_clock_rate_mislabeled": true,
+    "held_field_claimed_reciprocal": true,
+    "bare_field_omits_self_response": true,
+    "nonzero_Green_field_claimed_force_at_zero_coupling": true,
+    "reflection_with_unchanged_drift": true
+  },
+  "boundaries": {
+    "native_integer_field_energy_equals_real_energy": false,
+    "uniform_mean_current_Green_identity_used_under_feedback": false,
+    "static_field_refinement_implies_dynamic_force_refinement": false,
+    "mechanical_acceleration_or_inertia": false,
+    "Maxwell_or_Lorentz_limit": false,
+    "alpha_derived": false
+  },
+  "artifact_sha256": {
+    "RESULT.json": "8d62b031a2725335e50a09211ac0b22d677686263e1f2591ca13b4dcb49f146c",
+    "FIRST_EVENT_OUTCOMES.npz": "d3cba7187470690905bc2657e0b72f9444658a1f60e0d2ce75761e61fd131239",
+    "REVIEW.json": "35e86d5454126f05eb59150dda8d660364f422cc4a4ff5ee0d62e44aed0ff52e",
+    "PROOF.md": "289349d586b601d6462ecf84d266d493501bb227bc3b56f2a4cf9bc6670c634f"
+  },
+  "official_rows_changed": []
+}

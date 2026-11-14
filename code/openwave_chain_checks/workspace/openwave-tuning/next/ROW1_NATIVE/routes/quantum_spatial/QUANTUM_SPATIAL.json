@@ -1,0 +1,3104 @@
+{
+  "schema": "oph.quantum.spatial_record_bridge.v1",
+  "checks": {
+    "all384_record_only_decoders_equal_actualPaulioccupation": true,
+    "exact_integer_tree_lift_and_neutrality": true,
+    "dual2vertex6edge6bigon_boundary_squared_zero": true,
+    "allH_and_allnative_support_updates_covariant_includingwrap": true,
+    "all64_regional_readout_projectors_equal_actualoccupation_withB": true,
+    "complete_joint_and_coarse_Luders_poststates_retained": true,
+    "full_sameH_native_continuation_complete": true,
+    "fine_record_and_extraB_dephasing_controls_detected": true,
+    "charged_reservoir_changes_globalQ_without_spatialdegree": true,
+    "explicit_existingB_boundary_attachment_exposes_globalQ": true
+  },
+  "parameters": {
+    "source": "frozen C10 allnumber384/Z6 interactingCAR",
+    "fixed_G": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "boundary_root": 0,
+    "primal_halfedges": [
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        0,
+        5
+      ]
+    ],
+    "tree_edges": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "region": [
+      0,
+      1,
+      3
+    ],
+    "modulus": 6
+  },
+  "topology": {
+    "dual_boundary1": [
+      [
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        1
+      ],
+      [
+        1,
+        -1,
+        1,
+        -1,
+        1,
+        -1
+      ]
+    ],
+    "dual_boundary2": [
+      [
+        1,
+        0,
+        0,
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1
+      ]
+    ],
+    "cell_counts": [
+      2,
+      6,
+      6
+    ],
+    "Euler_characteristic": 2,
+    "face_degree_definition": "w=D Fhat, actual lifted edgecurve degrees; w=G-n-Bdelta_root",
+    "global_charge_definition": "Q=N-3=-B; sum spatialface degrees0. Not universalQ=f(spatialw).",
+    "apparatus_attachment": "Oriented sphere cellulation dual to actual6cycle,6bigonfaces/multiedges retained. Fixedtree integer representative chosen explicitly; no newsourceedge/dynamics."
+  },
+  "boundary_attachment": {
+    "primal_edge": [
+      6,
+      0
+    ],
+    "actual_register_flux": "-B, existing integerboundaryregister; no newdynamicalfield",
+    "dual_boundary1": [
+      [
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        1,
+        0
+      ],
+      [
+        1,
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        0
+      ]
+    ],
+    "dual_boundary2": [
+      [
+        1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "dual_cell_counts": [
+      2,
+      7,
+      7
+    ],
+    "source_face_degrees": "G-n",
+    "boundary_face_degree": "-B=N-3=globalQ",
+    "apparatus_status": "Explicit appended boundarypuncture geometry for existingroot/reservoirservice; not intrinsic old6cyclegeometry or uniqueemergentphysicalspace."
+  },
+  "source_checks": {
+    "H_support_transitions": 1920,
+    "native_support_transitions": 9216,
+    "native_operator_count": 60,
+    "wrapping_H_transitions": 620,
+    "all_region_basis_comparisons": 24576,
+    "charged_reservoir_transitions_with_unchanged_spatial_degree": 384
+  },
+  "complete_augmented_whole_degree_readout": [
+    {
+      "face_degrees": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        -3
+      ],
+      "probability": 0.0,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "coefficient_key": "augmented_whole_coefficient_0",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        -2
+      ],
+      "probability": 0.0,
+      "indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "coefficient_key": "augmented_whole_coefficient_1",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        -2
+      ],
+      "probability": 0.0,
+      "indices": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "coefficient_key": "augmented_whole_coefficient_2",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        -1
+      ],
+      "probability": 0.0,
+      "indices": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "coefficient_key": "augmented_whole_coefficient_3",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -2
+      ],
+      "probability": 0.0,
+      "indices": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "coefficient_key": "augmented_whole_coefficient_4",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1
+      ],
+      "probability": 0.0,
+      "indices": [
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "coefficient_key": "augmented_whole_coefficient_5",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1
+      ],
+      "probability": 0.002118501659514441,
+      "indices": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "coefficient_key": "augmented_whole_coefficient_6",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "probability": 0.002118501659514441,
+      "indices": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "coefficient_key": "augmented_whole_coefficient_7",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        1,
+        1,
+        -1,
+        0,
+        0,
+        -2
+      ],
+      "probability": 0.0,
+      "indices": [
+        48,
+        49,
+        50,
+        51,
+        52,
+        53
+      ],
+      "coefficient_key": "augmented_whole_coefficient_8",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        1,
+        1,
+        -1,
+        0,
+        0,
+        -1
+      ],
+      "probability": 0.0,
+      "indices": [
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "coefficient_key": "augmented_whole_coefficient_9",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        0,
+        1,
+        -1,
+        0,
+        0,
+        -1
+      ],
+      "probability": 0.010134901689613255,
+      "indices": [
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "coefficient_key": "augmented_whole_coefficient_10",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        0,
+        1,
+        -1,
+        0,
+        0,
+        0
+      ],
+      "probability": 0.010134901689613255,
+      "indices": [
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "coefficient_key": "augmented_whole_coefficient_11",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        -1
+      ],
+      "probability": 0.01158084734883595,
+      "indices": [
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "coefficient_key": "augmented_whole_coefficient_12",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        0
+      ],
+      "probability": 0.01158084734883595,
+      "indices": [
+        78,
+        79,
+        80,
+        81,
+        82,
+        83
+      ],
+      "coefficient_key": "augmented_whole_coefficient_13",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0
+      ],
+      "probability": 0.011580847348835955,
+      "indices": [
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "coefficient_key": "augmented_whole_coefficient_14",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        1
+      ],
+      "probability": 0.011580847348835955,
+      "indices": [
+        90,
+        91,
+        92,
+        93,
+        94,
+        95
+      ],
+      "coefficient_key": "augmented_whole_coefficient_15",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        1,
+        1,
+        0,
+        -1,
+        0,
+        -2
+      ],
+      "probability": 0.0,
+      "indices": [
+        96,
+        97,
+        98,
+        99,
+        100,
+        101
+      ],
+      "coefficient_key": "augmented_whole_coefficient_16",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        1,
+        1,
+        0,
+        -1,
+        0,
+        -1
+      ],
+      "probability": 0.0,
+      "indices": [
+        102,
+        103,
+        104,
+        105,
+        106,
+        107
+      ],
+      "coefficient_key": "augmented_whole_coefficient_17",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        -1
+      ],
+      "probability": 0.011580847348835957,
+      "indices": [
+        108,
+        109,
+        110,
+        111,
+        112,
+        113
+      ],
+      "coefficient_key": "augmented_whole_coefficient_18",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0
+      ],
+      "probability": 0.011580847348835957,
+      "indices": [
+        114,
+        115,
+        116,
+        117,
+        118,
+        119
+      ],
+      "coefficient_key": "augmented_whole_coefficient_19",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        -1
+      ],
+      "probability": 0.011580847348835948,
+      "indices": [
+        120,
+        121,
+        122,
+        123,
+        124,
+        125
+      ],
+      "coefficient_key": "augmented_whole_coefficient_20",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        0
+      ],
+      "probability": 0.011580847348835948,
+      "indices": [
+        126,
+        127,
+        128,
+        129,
+        130,
+        131
+      ],
+      "coefficient_key": "augmented_whole_coefficient_21",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0
+      ],
+      "probability": 0.010134901689613235,
+      "indices": [
+        132,
+        133,
+        134,
+        135,
+        136,
+        137
+      ],
+      "coefficient_key": "augmented_whole_coefficient_22",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1
+      ],
+      "probability": 0.010134901689613235,
+      "indices": [
+        138,
+        139,
+        140,
+        141,
+        142,
+        143
+      ],
+      "coefficient_key": "augmented_whole_coefficient_23",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        1,
+        1,
+        -1,
+        -1,
+        0,
+        -1
+      ],
+      "probability": 0.0405202478167889,
+      "indices": [
+        144,
+        145,
+        146,
+        147,
+        148,
+        149
+      ],
+      "coefficient_key": "augmented_whole_coefficient_24",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        1,
+        1,
+        -1,
+        -1,
+        0,
+        0
+      ],
+      "probability": 0.0405202478167889,
+      "indices": [
+        150,
+        151,
+        152,
+        153,
+        154,
+        155
+      ],
+      "coefficient_key": "augmented_whole_coefficient_25",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        0,
+        1,
+        -1,
+        -1,
+        0,
+        0
+      ],
+      "probability": 0.00028902330791516007,
+      "indices": [
+        156,
+        157,
+        158,
+        159,
+        160,
+        161
+      ],
+      "coefficient_key": "augmented_whole_coefficient_26",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        0,
+        1,
+        -1,
+        -1,
+        0,
+        1
+      ],
+      "probability": 0.00028902330791516007,
+      "indices": [
+        162,
+        163,
+        164,
+        165,
+        166,
+        167
+      ],
+      "coefficient_key": "augmented_whole_coefficient_27",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        0
+      ],
+      "probability": 0.040520247816788896,
+      "indices": [
+        168,
+        169,
+        170,
+        171,
+        172,
+        173
+      ],
+      "coefficient_key": "augmented_whole_coefficient_28",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        1
+      ],
+      "probability": 0.040520247816788896,
+      "indices": [
+        174,
+        175,
+        176,
+        177,
+        178,
+        179
+      ],
+      "coefficient_key": "augmented_whole_coefficient_29",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        1
+      ],
+      "probability": 0.0,
+      "indices": [
+        180,
+        181,
+        182,
+        183,
+        184,
+        185
+      ],
+      "coefficient_key": "augmented_whole_coefficient_30",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        2
+      ],
+      "probability": 0.0,
+      "indices": [
+        186,
+        187,
+        188,
+        189,
+        190,
+        191
+      ],
+      "coefficient_key": "augmented_whole_coefficient_31",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        -1,
+        -2
+      ],
+      "probability": 0.0,
+      "indices": [
+        192,
+        193,
+        194,
+        195,
+        196,
+        197
+      ],
+      "coefficient_key": "augmented_whole_coefficient_32",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        -1,
+        -1
+      ],
+      "probability": 0.0,
+      "indices": [
+        198,
+        199,
+        200,
+        201,
+        202,
+        203
+      ],
+      "coefficient_key": "augmented_whole_coefficient_33",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        -1
+      ],
+      "probability": 0.011580847348835955,
+      "indices": [
+        204,
+        205,
+        206,
+        207,
+        208,
+        209
+      ],
+      "coefficient_key": "augmented_whole_coefficient_34",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "probability": 0.011580847348835955,
+      "indices": [
+        210,
+        211,
+        212,
+        213,
+        214,
+        215
+      ],
+      "coefficient_key": "augmented_whole_coefficient_35",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        -1,
+        -1
+      ],
+      "probability": 0.01013490168961323,
+      "indices": [
+        216,
+        217,
+        218,
+        219,
+        220,
+        221
+      ],
+      "coefficient_key": "augmented_whole_coefficient_36",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "probability": 0.01013490168961323,
+      "indices": [
+        222,
+        223,
+        224,
+        225,
+        226,
+        227
+      ],
+      "coefficient_key": "augmented_whole_coefficient_37",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "probability": 0.011580847348835941,
+      "indices": [
+        228,
+        229,
+        230,
+        231,
+        232,
+        233
+      ],
+      "coefficient_key": "augmented_whole_coefficient_38",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1
+      ],
+      "probability": 0.011580847348835941,
+      "indices": [
+        234,
+        235,
+        236,
+        237,
+        238,
+        239
+      ],
+      "coefficient_key": "augmented_whole_coefficient_39",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        1,
+        1,
+        -1,
+        0,
+        -1,
+        -1
+      ],
+      "probability": 0.00028902330791516023,
+      "indices": [
+        240,
+        241,
+        242,
+        243,
+        244,
+        245
+      ],
+      "coefficient_key": "augmented_whole_coefficient_40",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        1,
+        1,
+        -1,
+        0,
+        -1,
+        0
+      ],
+      "probability": 0.00028902330791516023,
+      "indices": [
+        246,
+        247,
+        248,
+        249,
+        250,
+        251
+      ],
+      "coefficient_key": "augmented_whole_coefficient_41",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        0,
+        1,
+        -1,
+        0,
+        -1,
+        0
+      ],
+      "probability": 0.040520247816788896,
+      "indices": [
+        252,
+        253,
+        254,
+        255,
+        256,
+        257
+      ],
+      "coefficient_key": "augmented_whole_coefficient_42",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        0,
+        1,
+        -1,
+        0,
+        -1,
+        1
+      ],
+      "probability": 0.040520247816788896,
+      "indices": [
+        258,
+        259,
+        260,
+        261,
+        262,
+        263
+      ],
+      "coefficient_key": "augmented_whole_coefficient_43",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        0
+      ],
+      "probability": 0.040520247816788854,
+      "indices": [
+        264,
+        265,
+        266,
+        267,
+        268,
+        269
+      ],
+      "coefficient_key": "augmented_whole_coefficient_44",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        1
+      ],
+      "probability": 0.040520247816788854,
+      "indices": [
+        270,
+        271,
+        272,
+        273,
+        274,
+        275
+      ],
+      "coefficient_key": "augmented_whole_coefficient_45",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        1
+      ],
+      "probability": 0.0,
+      "indices": [
+        276,
+        277,
+        278,
+        279,
+        280,
+        281
+      ],
+      "coefficient_key": "augmented_whole_coefficient_46",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        2
+      ],
+      "probability": 0.0,
+      "indices": [
+        282,
+        283,
+        284,
+        285,
+        286,
+        287
+      ],
+      "coefficient_key": "augmented_whole_coefficient_47",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        1,
+        1,
+        0,
+        -1,
+        -1,
+        -1
+      ],
+      "probability": 0.04052024781678887,
+      "indices": [
+        288,
+        289,
+        290,
+        291,
+        292,
+        293
+      ],
+      "coefficient_key": "augmented_whole_coefficient_48",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        1,
+        1,
+        0,
+        -1,
+        -1,
+        0
+      ],
+      "probability": 0.04052024781678887,
+      "indices": [
+        294,
+        295,
+        296,
+        297,
+        298,
+        299
+      ],
+      "coefficient_key": "augmented_whole_coefficient_49",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0
+      ],
+      "probability": 0.040520247816788875,
+      "indices": [
+        300,
+        301,
+        302,
+        303,
+        304,
+        305
+      ],
+      "coefficient_key": "augmented_whole_coefficient_50",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        1
+      ],
+      "probability": 0.040520247816788875,
+      "indices": [
+        306,
+        307,
+        308,
+        309,
+        310,
+        311
+      ],
+      "coefficient_key": "augmented_whole_coefficient_51",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        1,
+        0,
+        0,
+        -1,
+        -1,
+        0
+      ],
+      "probability": 0.00028902330791515996,
+      "indices": [
+        312,
+        313,
+        314,
+        315,
+        316,
+        317
+      ],
+      "coefficient_key": "augmented_whole_coefficient_52",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        1,
+        0,
+        0,
+        -1,
+        -1,
+        1
+      ],
+      "probability": 0.00028902330791515996,
+      "indices": [
+        318,
+        319,
+        320,
+        321,
+        322,
+        323
+      ],
+      "coefficient_key": "augmented_whole_coefficient_53",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        1
+      ],
+      "probability": 0.0,
+      "indices": [
+        324,
+        325,
+        326,
+        327,
+        328,
+        329
+      ],
+      "coefficient_key": "augmented_whole_coefficient_54",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        2
+      ],
+      "probability": 0.0,
+      "indices": [
+        330,
+        331,
+        332,
+        333,
+        334,
+        335
+      ],
+      "coefficient_key": "augmented_whole_coefficient_55",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        1,
+        1,
+        -1,
+        -1,
+        -1,
+        0
+      ],
+      "probability": 0.15400315235415085,
+      "indices": [
+        336,
+        337,
+        338,
+        339,
+        340,
+        341
+      ],
+      "coefficient_key": "augmented_whole_coefficient_56",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        1,
+        1,
+        -1,
+        -1,
+        -1,
+        1
+      ],
+      "probability": 0.15400315235415085,
+      "indices": [
+        342,
+        343,
+        344,
+        345,
+        346,
+        347
+      ],
+      "coefficient_key": "augmented_whole_coefficient_57",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        0,
+        1,
+        -1,
+        -1,
+        -1,
+        1
+      ],
+      "probability": 0.0,
+      "indices": [
+        348,
+        349,
+        350,
+        351,
+        352,
+        353
+      ],
+      "coefficient_key": "augmented_whole_coefficient_58",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        0,
+        1,
+        -1,
+        -1,
+        -1,
+        2
+      ],
+      "probability": 0.0,
+      "indices": [
+        354,
+        355,
+        356,
+        357,
+        358,
+        359
+      ],
+      "coefficient_key": "augmented_whole_coefficient_59",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        1,
+        0,
+        -1,
+        -1,
+        -1,
+        1
+      ],
+      "probability": 0.0,
+      "indices": [
+        360,
+        361,
+        362,
+        363,
+        364,
+        365
+      ],
+      "coefficient_key": "augmented_whole_coefficient_60",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        -1,
+        2
+      ],
+      "probability": 0.0,
+      "indices": [
+        366,
+        367,
+        368,
+        369,
+        370,
+        371
+      ],
+      "coefficient_key": "augmented_whole_coefficient_61",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        1,
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        2
+      ],
+      "probability": 0.0,
+      "indices": [
+        372,
+        373,
+        374,
+        375,
+        376,
+        377
+      ],
+      "coefficient_key": "augmented_whole_coefficient_62",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    },
+    {
+      "face_degrees": [
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        3
+      ],
+      "probability": 0.0,
+      "indices": [
+        378,
+        379,
+        380,
+        381,
+        382,
+        383
+      ],
+      "coefficient_key": "augmented_whole_coefficient_63",
+      "reconstruction": "Embed(indices,coefficient); completecomplexwithin-Ffiber matrix retained"
+    }
+  ],
+  "complete_joint_B_winding_readout": [
+    {
+      "B": -3,
+      "spatial_degree": 5,
+      "regional_occupation": 0,
+      "probability": 0.0,
+      "indices": [],
+      "poststate_key": "joint_B-3_Q0"
+    },
+    {
+      "B": -3,
+      "spatial_degree": 4,
+      "regional_occupation": 1,
+      "probability": 0.0,
+      "indices": [],
+      "poststate_key": "joint_B-3_Q1"
+    },
+    {
+      "B": -3,
+      "spatial_degree": 3,
+      "regional_occupation": 2,
+      "probability": 0.0,
+      "indices": [],
+      "poststate_key": "joint_B-3_Q2"
+    },
+    {
+      "B": -3,
+      "spatial_degree": 2,
+      "regional_occupation": 3,
+      "probability": 0.0,
+      "indices": [
+        378,
+        379,
+        380,
+        381,
+        382,
+        383
+      ],
+      "poststate_key": "joint_B-3_Q3"
+    },
+    {
+      "B": -2,
+      "spatial_degree": 4,
+      "regional_occupation": 0,
+      "probability": 0.0,
+      "indices": [],
+      "poststate_key": "joint_B-2_Q0"
+    },
+    {
+      "B": -2,
+      "spatial_degree": 3,
+      "regional_occupation": 1,
+      "probability": 0.0,
+      "indices": [],
+      "poststate_key": "joint_B-2_Q1"
+    },
+    {
+      "B": -2,
+      "spatial_degree": 2,
+      "regional_occupation": 2,
+      "probability": 0.0,
+      "indices": [
+        330,
+        331,
+        332,
+        333,
+        334,
+        335,
+        366,
+        367,
+        368,
+        369,
+        370,
+        371,
+        372,
+        373,
+        374,
+        375,
+        376,
+        377
+      ],
+      "poststate_key": "joint_B-2_Q2"
+    },
+    {
+      "B": -2,
+      "spatial_degree": 1,
+      "regional_occupation": 3,
+      "probability": 0.0,
+      "indices": [
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        282,
+        283,
+        284,
+        285,
+        286,
+        287,
+        354,
+        355,
+        356,
+        357,
+        358,
+        359
+      ],
+      "poststate_key": "joint_B-2_Q3"
+    },
+    {
+      "B": -1,
+      "spatial_degree": 3,
+      "regional_occupation": 0,
+      "probability": 0.0,
+      "indices": [],
+      "poststate_key": "joint_B-1_Q0"
+    },
+    {
+      "B": -1,
+      "spatial_degree": 2,
+      "regional_occupation": 1,
+      "probability": 0.00028902330791516,
+      "indices": [
+        318,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        360,
+        361,
+        362,
+        363,
+        364,
+        365
+      ],
+      "poststate_key": "joint_B-1_Q1"
+    },
+    {
+      "B": -1,
+      "spatial_degree": 1,
+      "regional_occupation": 2,
+      "probability": 0.29727964484296665,
+      "indices": [
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351,
+        352,
+        353
+      ],
+      "poststate_key": "joint_B-1_Q2"
+    },
+    {
+      "B": -1,
+      "spatial_degree": 0,
+      "regional_occupation": 3,
+      "probability": 0.05239011847354001,
+      "indices": [
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263
+      ],
+      "poststate_key": "joint_B-1_Q3"
+    },
+    {
+      "B": 0,
+      "spatial_degree": 2,
+      "regional_occupation": 0,
+      "probability": 0.00028902330791516,
+      "indices": [
+        312,
+        313,
+        314,
+        315,
+        316,
+        317
+      ],
+      "poststate_key": "joint_B0_Q0"
+    },
+    {
+      "B": 0,
+      "spatial_degree": 1,
+      "regional_occupation": 1,
+      "probability": 0.35951564169820466,
+      "indices": [
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        336,
+        337,
+        338,
+        339,
+        340,
+        341
+      ],
+      "poststate_key": "joint_B0_Q1"
+    },
+    {
+      "B": 0,
+      "spatial_degree": 0,
+      "regional_occupation": 2,
+      "probability": 0.13006043330426637,
+      "indices": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257
+      ],
+      "poststate_key": "joint_B0_Q2"
+    },
+    {
+      "B": 0,
+      "spatial_degree": -1,
+      "regional_occupation": 3,
+      "probability": 0.010134901689613257,
+      "indices": [
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "poststate_key": "joint_B0_Q3"
+    },
+    {
+      "B": 1,
+      "spatial_degree": 1,
+      "regional_occupation": 0,
+      "probability": 0.06223599685523804,
+      "indices": [
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293
+      ],
+      "poststate_key": "joint_B1_Q0"
+    },
+    {
+      "B": 1,
+      "spatial_degree": 0,
+      "regional_occupation": 1,
+      "probability": 0.07767031483072635,
+      "indices": [
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245
+      ],
+      "poststate_key": "joint_B1_Q1"
+    },
+    {
+      "B": 1,
+      "spatial_degree": -1,
+      "regional_occupation": 2,
+      "probability": 0.010134901689613257,
+      "indices": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "poststate_key": "joint_B1_Q2"
+    },
+    {
+      "B": 1,
+      "spatial_degree": -2,
+      "regional_occupation": 3,
+      "probability": 0.0,
+      "indices": [],
+      "poststate_key": "joint_B1_Q3"
+    },
+    {
+      "B": 2,
+      "spatial_degree": 0,
+      "regional_occupation": 0,
+      "probability": 0.0,
+      "indices": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197
+      ],
+      "poststate_key": "joint_B2_Q0"
+    },
+    {
+      "B": 2,
+      "spatial_degree": -1,
+      "regional_occupation": 1,
+      "probability": 0.0,
+      "indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53
+      ],
+      "poststate_key": "joint_B2_Q1"
+    },
+    {
+      "B": 2,
+      "spatial_degree": -2,
+      "regional_occupation": 2,
+      "probability": 0.0,
+      "indices": [],
+      "poststate_key": "joint_B2_Q2"
+    },
+    {
+      "B": 2,
+      "spatial_degree": -3,
+      "regional_occupation": 3,
+      "probability": 0.0,
+      "indices": [],
+      "poststate_key": "joint_B2_Q3"
+    },
+    {
+      "B": 3,
+      "spatial_degree": -1,
+      "regional_occupation": 0,
+      "probability": 0.0,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "poststate_key": "joint_B3_Q0"
+    },
+    {
+      "B": 3,
+      "spatial_degree": -2,
+      "regional_occupation": 1,
+      "probability": 0.0,
+      "indices": [],
+      "poststate_key": "joint_B3_Q1"
+    },
+    {
+      "B": 3,
+      "spatial_degree": -3,
+      "regional_occupation": 2,
+      "probability": 0.0,
+      "indices": [],
+      "poststate_key": "joint_B3_Q2"
+    },
+    {
+      "B": 3,
+      "spatial_degree": -4,
+      "regional_occupation": 3,
+      "probability": 0.0,
+      "indices": [],
+      "poststate_key": "joint_B3_Q3"
+    }
+  ],
+  "complete_coarse_regional_occupation_readout": [
+    {
+      "regional_occupation": 0,
+      "probability": 0.0625250201631532,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317
+      ],
+      "poststate_key": "coarse_Q0"
+    },
+    {
+      "regional_occupation": 1,
+      "probability": 0.43747497983684613,
+      "indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        318,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        336,
+        337,
+        338,
+        339,
+        340,
+        341,
+        360,
+        361,
+        362,
+        363,
+        364,
+        365
+      ],
+      "poststate_key": "coarse_Q1"
+    },
+    {
+      "regional_occupation": 2,
+      "probability": 0.43747497983684625,
+      "indices": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351,
+        352,
+        353,
+        366,
+        367,
+        368,
+        369,
+        370,
+        371,
+        372,
+        373,
+        374,
+        375,
+        376,
+        377
+      ],
+      "poststate_key": "coarse_Q2"
+    },
+    {
+      "regional_occupation": 3,
+      "probability": 0.06252502016315327,
+      "indices": [
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        282,
+        283,
+        284,
+        285,
+        286,
+        287,
+        354,
+        355,
+        356,
+        357,
+        358,
+        359,
+        378,
+        379,
+        380,
+        381,
+        382,
+        383
+      ],
+      "poststate_key": "coarse_Q3"
+    }
+  ],
+  "selected_joint_continuation": {
+    "branch": {
+      "B": 0,
+      "spatial_degree": 1,
+      "regional_occupation": 1,
+      "probability": 0.35951564169820466,
+      "indices": [
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        336,
+        337,
+        338,
+        339,
+        340,
+        341
+      ],
+      "poststate_key": "joint_B0_Q1"
+    },
+    "complete_outcomes": [
+      {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0,
+        "probability": 0.022138055227935438,
+        "unnormalized_total_energy": -0.03217192907158839,
+        "unnormalized_field_energy": 0.02274352234075583,
+        "joint_probability": 0.006420036016101276
+      },
+      {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1,
+        "probability": 0.007821581580248274,
+        "unnormalized_total_energy": -0.001574112729137154,
+        "unnormalized_field_energy": 0.008795472231511298,
+        "joint_probability": 0.0022682586582719994
+      },
+      {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1,
+        "probability": 0.007259456235454751,
+        "unnormalized_total_energy": -0.0013116932054643474,
+        "unnormalized_field_energy": 0.008205063616807909,
+        "joint_probability": 0.0021052423082818777
+      },
+      {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0,
+        "probability": 0.022700180572728962,
+        "unnormalized_total_energy": -0.01853313041845015,
+        "unnormalized_field_energy": 0.023372938385461173,
+        "joint_probability": 0.006583052366091398
+      },
+      {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1,
+        "probability": 0.007259456235454751,
+        "unnormalized_total_energy": -0.0021340452332218635,
+        "unnormalized_field_energy": 0.007382711589050392,
+        "joint_probability": 0.0021052423082818777
+      },
+      {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0,
+        "probability": 0.014878598992480686,
+        "unnormalized_total_energy": -0.009965634884903747,
+        "unnormalized_field_energy": 0.01536081075170544,
+        "joint_probability": 0.0043147937078193985
+      },
+      {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1,
+        "probability": 0.007821581580248274,
+        "unnormalized_total_energy": -0.001574112729137154,
+        "unnormalized_field_energy": 0.008795472231511298,
+        "joint_probability": 0.0022682586582719994
+      },
+      {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1,
+        "probability": 0.007259456235454751,
+        "unnormalized_total_energy": -0.0013116932054643474,
+        "unnormalized_field_energy": 0.008205063616807909,
+        "joint_probability": 0.0021052423082818777
+      },
+      {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0,
+        "probability": 0.014878598992480686,
+        "unnormalized_total_energy": -0.009965634884903747,
+        "unnormalized_field_energy": 0.01536081075170544,
+        "joint_probability": 0.0043147937078193985
+      },
+      {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1,
+        "probability": 0.007821581580248274,
+        "unnormalized_total_energy": -0.0023574573268927224,
+        "unnormalized_field_energy": 0.00801212763375573,
+        "joint_probability": 0.0022682586582719994
+      },
+      {
+        "seam": 1,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0,
+        "probability": 0.024164184185472063,
+        "unnormalized_total_energy": -0.021177146100038374,
+        "unnormalized_field_energy": 0.024818905653598452,
+        "joint_probability": 0.007007613413786898
+      },
+      {
+        "seam": 1,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1,
+        "probability": 0.005795452622711652,
+        "unnormalized_total_energy": 0.005610527889476518,
+        "unnormalized_field_energy": 0.007247237235031956,
+        "joint_probability": 0.001680681260586379
+      },
+      {
+        "seam": 1,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1,
+        "probability": 0.008499345820276715,
+        "unnormalized_total_energy": 0.008241427345024553,
+        "unnormalized_field_energy": 0.010054960436118959,
+        "joint_probability": 0.002464810287880247
+      },
+      {
+        "seam": 1,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0,
+        "probability": 0.021460290987907,
+        "unnormalized_total_energy": -0.011691937167408855,
+        "unnormalized_field_energy": 0.022038287921112888,
+        "joint_probability": 0.006223484386493029
+      },
+      {
+        "seam": 1,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1,
+        "probability": 0.008499345820276715,
+        "unnormalized_total_energy": 0.00690382896230427,
+        "unnormalized_field_energy": 0.008717362053398674,
+        "joint_probability": 0.002464810287880247
+      },
+      {
+        "seam": 1,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0,
+        "probability": 0.015664838365195347,
+        "unnormalized_total_energy": 0.007870341337687561,
+        "unnormalized_field_energy": 0.016101543600199778,
+        "joint_probability": 0.00454280312590665
+      },
+      {
+        "seam": 1,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1,
+        "probability": 0.005795452622711652,
+        "unnormalized_total_energy": 0.005610527889476518,
+        "unnormalized_field_energy": 0.007247237235031956,
+        "joint_probability": 0.001680681260586379
+      },
+      {
+        "seam": 1,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1,
+        "probability": 0.008499345820276715,
+        "unnormalized_total_energy": 0.008241427345024553,
+        "unnormalized_field_energy": 0.010054960436118959,
+        "joint_probability": 0.002464810287880247
+      },
+      {
+        "seam": 1,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0,
+        "probability": 0.015664838365195347,
+        "unnormalized_total_energy": 0.007870341337687561,
+        "unnormalized_field_energy": 0.016101543600199778,
+        "joint_probability": 0.00454280312590665
+      },
+      {
+        "seam": 1,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1,
+        "probability": 0.005795452622711652,
+        "unnormalized_total_energy": 0.004300034975357672,
+        "unnormalized_field_energy": 0.005936744320913111,
+        "joint_probability": 0.001680681260586379
+      },
+      {
+        "seam": 2,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0,
+        "probability": 0.021599721525983048,
+        "unnormalized_total_energy": -0.01237996299463614,
+        "unnormalized_field_energy": 0.02222599215478394,
+        "joint_probability": 0.006263919242535084
+      },
+      {
+        "seam": 2,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1,
+        "probability": 0.008359915282200668,
+        "unnormalized_total_energy": 0.0015600990924335076,
+        "unnormalized_field_energy": 0.009867674874665992,
+        "joint_probability": 0.0024243754318381936
+      },
+      {
+        "seam": 2,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1,
+        "probability": 0.00621814742942913,
+        "unnormalized_total_energy": 0.004569442879971826,
+        "unnormalized_field_energy": 0.007847258896834365,
+        "joint_probability": 0.0018032627545344474
+      },
+      {
+        "seam": 2,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0,
+        "probability": 0.023741489378754584,
+        "unnormalized_total_energy": -0.029798206422196716,
+        "unnormalized_field_energy": 0.024377193842564166,
+        "joint_probability": 0.006885031919838829
+      },
+      {
+        "seam": 2,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1,
+        "probability": 0.00621814742942913,
+        "unnormalized_total_energy": 0.003100640115084857,
+        "unnormalized_field_energy": 0.006378456131947395,
+        "joint_probability": 0.0018032627545344474
+      },
+      {
+        "seam": 2,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0,
+        "probability": 0.015381574096553918,
+        "unnormalized_total_energy": -0.0014387448116980669,
+        "unnormalized_field_energy": 0.015847536022836547,
+        "joint_probability": 0.004460656488000636
+      },
+      {
+        "seam": 2,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1,
+        "probability": 0.008359915282200668,
+        "unnormalized_total_energy": 0.0015600990924335076,
+        "unnormalized_field_energy": 0.009867674874665992,
+        "joint_probability": 0.0024243754318381936
+      },
+      {
+        "seam": 2,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1,
+        "probability": 0.00621814742942913,
+        "unnormalized_total_energy": 0.004569442879971826,
+        "unnormalized_field_energy": 0.007847258896834365,
+        "joint_probability": 0.0018032627545344474
+      },
+      {
+        "seam": 2,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0,
+        "probability": 0.015381574096553918,
+        "unnormalized_total_energy": -0.0014387448116980669,
+        "unnormalized_field_energy": 0.015847536022836547,
+        "joint_probability": 0.004460656488000636
+      },
+      {
+        "seam": 2,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1,
+        "probability": 0.008359915282200668,
+        "unnormalized_total_energy": 0.0002220820374951373,
+        "unnormalized_field_energy": 0.008529657819727622,
+        "joint_probability": 0.0024243754318381936
+      },
+      {
+        "status": "no_commit",
+        "joint_probability": 0.2552561056057253
+      }
+    ],
+    "poststate_key": "continued_joint_poststate",
+    "same_declared_coherent_time": 0.37,
+    "commit_probability": 0.29,
+    "law": "MIX"
+  },
+  "mutations": {
+    "fine_record_forgetting_trace_distance": 0.4999999999999999,
+    "fine_control_basis_indices": [
+      378,
+      379
+    ],
+    "jointB_vs_coarseQ_crossnumber_distance": 0.4999999999999999,
+    "crossnumber_control_basis_indices": [
+      0,
+      120
+    ],
+    "noB_input_and_mod6_arbitrary_lift_not_admitted": true
+  },
+  "scope": "Record-only topology/readout adapter on same quantumsource, not an intrinsic electromagnetic field derivation. FixedGauss, Pauli interval, integerboundaryB, tree lift and dualcell apparatus explicit. GroupedPVMs are added coherent apparatus choices, not claimed nativephysicalcompiler. Joint(B,w) preserveswithinclasscoherences but dephasesB; coarseQ may be computed coherently without exposingB. Spatialcharge isboundarycompensated; reservoir globalchargecounterexample retained.",
+  "state_archive": "quantum_spatial_states.npz",
+  "state_archive_sha256": "441fdc68073e438b6a04577f5632b2f0f80b4d2daa11652c7fac5bebdbb78d86",
+  "source_sha256": {
+    "openwave-tuning/next/ROW1_NATIVE/routes/quantum_spatial/quantum_spatial.py": "6968432ace53971bf7e05c13be5dbcbbca99c4bde0452a382bad50c6a11f64fd",
+    "openwave-tuning/next/C10/joint_source.py": "bbedbeecff985014f60d761c4a165546383d393f8263ef46d681b346ecbc540f",
+    "openwave-tuning/next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e",
+    "openwave-tuning/next/C10/modular_field_adapter.py": "f964dd6225af37267af8293f3a380524520e3ab83f77e30198f9126fa4c9dc32",
+    "openwave-tuning/next/C10/spectral_readout.py": "8bd12ab27ff979ae4b92e289ebb46efb376dd13696faf6752670f44c8049d83e",
+    "openwave-tuning/next/C11/boundary_charge.py": "14ca9135d5c7a6e51d776cc7e60df71253c3591fcd91116ba1c08a6ae84e81a1",
+    "openwave-tuning/next/C10/joint_source_states.npz": "1d75017307742e96649ea7c7e74a4a648a6d9f468e35ccd9f6ea05d202d7708b"
+  },
+  "official_rows_changed": []
+}

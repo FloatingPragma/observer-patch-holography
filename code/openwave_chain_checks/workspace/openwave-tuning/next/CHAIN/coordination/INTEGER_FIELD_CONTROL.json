@@ -1,0 +1,67 @@
+{
+  "schema": "oph.integer_field_minimization_control.v1",
+  "source_sha256": {
+    "reverse-engineering-reality/code/openwave_row1_native/source_packet.json": "07ecff52d11e4f7fcdf907b17488603b0d0a5ff1644b01c583a86ddbbd0ec2ea",
+    "openwave-tuning/next/CHAIN/coordination/integer_field_control.py": "ecf1e7100af3e398202b5eb236baacd3f64a13edb9b46aaef0716841b45e7896"
+  },
+  "unit_dipole_seam": [
+    0,
+    1
+  ],
+  "charge": [
+    1,
+    -1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "real_minimizer": [
+    "11/30",
+    "11/60",
+    "11/60",
+    "2/15",
+    "2/15",
+    "-11/60",
+    "-11/60",
+    "-2/15",
+    "-2/15",
+    "1/30",
+    "1/60",
+    "1/60",
+    "-1/30",
+    "-1/30",
+    "-1/60",
+    "-1/60",
+    "1/30",
+    "1/30",
+    "0",
+    "1/20",
+    "-1/20",
+    "1/20",
+    "-1/20",
+    "0",
+    "1/20",
+    "-1/20",
+    "1/20",
+    "-1/20",
+    "0",
+    "0"
+  ],
+  "real_minimum_energy": "11/60",
+  "integer_minimum_energy": "1/2",
+  "checks": {
+    "exact_real_gauss_solution": true,
+    "real_minimizer_not_integer": true,
+    "integer_lower_bound_attained_by_unit_flow": true,
+    "integer_equals_real_minimizer_claim_rejected": true
+  },
+  "scope": "For integer face loads x, F-boundary(x) remains integer and cannot equal this real Coulomb minimizer in one configuration. Real-valued face variables, an ensemble/time-averaged field or a proved refinement are different explicit domains. Topological degree is unaffected by this distinction; no force-law conclusion.",
+  "official_rows_changed": []
+}

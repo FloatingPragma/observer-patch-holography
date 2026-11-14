@@ -1,0 +1,41 @@
+{
+  "schema": "oph.common_c10.clock.reference_review.v1",
+  "checks": {
+    "all2304_literal_event_columns_and30_complete_marks": true,
+    "literal_CAR_signs_and_record_updates_match_supplied_K": true,
+    "complete_literal_instrument": true,
+    "independent_direct_matrix_ODE_agrees": true,
+    "independent_ordered_time_integral_agrees": true,
+    "dropping_native_noops_rejected": true,
+    "discarding_or_renormalizing_count_complement_rejected": true,
+    "replacing_random_wait_by_mean_wait_rejected": true,
+    "every_primary_claim_check_true": true
+  },
+  "errors": {
+    "complete_literal_gram": 2.220446049250313e-16,
+    "literal_vs_supplied_K": 0.0,
+    "direct_ODE_vs_sparse_semigroup": 1.4272194547635465e-12,
+    "quadrature24_vs32": 3.5399048389469185e-18,
+    "quadrature_vs_count1_generator": 3.475926111893202e-18
+  },
+  "native_event_columns": 2304,
+  "complete_native_marks": 30,
+  "direct_ODE_function_evaluations": 65,
+  "mutations": {
+    "noops_dropped_initial_probability": 0.756915923114147,
+    "tail_dropped_probability": 0.03605149328584856,
+    "tail_renormalization_Frobenius_difference": 0.01199239043484238,
+    "mean_wait_substitution_count1_Frobenius_difference": 0.002326775449370912
+  },
+  "independence": "Separate literal integer-current and CAR-parity Kraus reconstruction; direct density-matrix DOP853 integration and independent ordered-time Gaussian quadrature. No CommonClock implementation imported. Same author reference check, not an external auditor claim.",
+  "source_sha256": {
+    "openwave-tuning/next/CHAIN/clock/reference_review.py": "5316d511f155df7db26b3575a1573a739ab4fca0f338274b8a9241b37c4c9190",
+    "openwave-tuning/next/CHAIN/clock/common_clock.py": "eee29493c0cc8a2bfdaf2868fdce82e10d055535f8ee0e6a0b4b818ef9fb38db",
+    "openwave-tuning/next/CHAIN/clock/COMMON_CLOCK.json": "c0b2c5b364d78c100b19cf112e3b459a559c23550ea8fde8e20969b1fbd4c6f8",
+    "openwave-tuning/next/CHAIN/clock/common_clock_states.npz": "8e85b24b28dee4894bda4095a93eb8a5219c45290b43c8a22b5d022508989077",
+    "openwave-tuning/next/C10/joint_source.py": "bbedbeecff985014f60d761c4a165546383d393f8263ef46d681b346ecbc540f",
+    "openwave-tuning/next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e",
+    "openwave-tuning/next/C10/modular_field_adapter.py": "f964dd6225af37267af8293f3a380524520e3ab83f77e30198f9126fa4c9dc32"
+  },
+  "official_rows_changed": []
+}
