@@ -1,0 +1,24 @@
+{
+  "files_sha256": {
+    "CLAIMS.json": "637fe7cfa1b7fab6788b5208eb2c6b4ee84824522dd3445b8a6606171a6a1e79",
+    "PARAMETERS.json": "7d36bc78b82e4dc415ab59454694fd6ec474995032956ae634153abe290f9696",
+    "PROOF.md": "f1bdeecf47581ba2b3ceca3d84624bdeaffe0b0998f1501c5b4f60956ebed00c",
+    "RESULT.json": "5ae380c2e085c4e94451732e874a7bb8a787f4a777b0771698c3fb89d472348e",
+    "REVIEW.json": "973690413e17c787489a0b511791d446d34b843e59f678fd6386d16a45f4ceda",
+    "REVIEW_RESULT.json": "56ad20bf04d096a8f702d282c44a78fe951846148e375fd7d32b40eef95bbc91",
+    "REVIEW_RUN.log": "2fb0f21f30c8222953a311e7acf8bdf6d97b05de0143050ca015bd3c89e8f0c2",
+    "SNAPSHOTS.json": "23ead2ad1e2bcb8f31acae0f8468bfa9370461a7cb72209ec019e9ffcbeb7e26",
+    "SPIN_BRANCHES.json": "558530a28aef1f2b2e27a12e2459ca3dcdcdb2bc404b19b81c00ca7a4bb16782",
+    "check.py": "05aadacb980fbe2a88aa18504cf4ae74f1d774dacd49bca78241bbc19474ec63",
+    "independent_review.py": "ebd2a2c0aa9ee4e15ecec8dc56c7c4fe92f5795f91bf3ee995de214e7533d1e5",
+    "inputs/AUTONOMOUS_SOURCE_PROOF.md": "6292f06bdc08de115780ab9d64720aaf0ce7061e92496486960a9877268572c5",
+    "inputs/SOURCE_FACTORY.json": "f5bc04756d844f52ec9203164cad22c4cc6d7b1b35ad5ceb035d28eb19d2e400",
+    "inputs/W8_shared_member.md": "4afe246aeb73f1bd2cdbb6920e27602b21d8b133a8875e71e80711a3bad4cb12"
+  },
+  "full_criterion_met": false,
+  "independent_matrix_review": "python3 model/openwave_macro_generator_identity/independent_review.py",
+  "rows_awarded": [],
+  "schema": "oph.macro_generator_identity.freeze.v1",
+  "scoped_claims_verified": true,
+  "self_contained_standard_library_source_check": "python3 model/openwave_macro_generator_identity/check.py"
+}

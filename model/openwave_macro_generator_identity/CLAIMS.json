@@ -1,0 +1,37 @@
+{
+  "schema": "oph.macro_generator_identity.claims.v1",
+  "claims": [
+    {
+      "id": "OPH-OPENWAVE-L3-MACRO-AUTONOMOUS-DISTINCTION",
+      "status": "script_verified_with_independent_matrix_review",
+      "statement": "For each actual flavor of the L3 Q0 member, the full-shift macro differs in operator norm by more than57/50 from the continuous signed-Dirac step with matched mass and clock.",
+      "domain": "Exact Q0 sector, momentum(2pi/3,0,0), h1/3; private common free field and clock factored.",
+      "evidence": [
+        "PARAMETERS.json",
+        "check.py",
+        "RESULT.json",
+        "PROOF.md",
+        "independent_review.py",
+        "REVIEW.json"
+      ],
+      "physical_row_award": false
+    },
+    {
+      "id": "OPH-OPENWAVE-HARMONIC-REFERENCE-NONSTATIONARITY",
+      "status": "script_verified_with_independent_Hermite_review",
+      "statement": "Three canonical harmonic Gaussians have cell free-energy variance3/32 and physical variance27/32 at h1/3.",
+      "domain": "The stated normalized free-field packet; no interacting-stationary-state nonexistence claim.",
+      "evidence": [
+        "check.py",
+        "RESULT.json",
+        "independent_review.py",
+        "REVIEW.json"
+      ],
+      "physical_row_award": false
+    }
+  ],
+  "all31_validation": false,
+  "producer": "Auditor root",
+  "related_source_interface_author": "charged_particle_bridge",
+  "review_authorship_disclosure": "Reviewer independently authored related interface counterexample3596df06 and the harmonic-reference observation; root authored this standard-library proof implementation. This review supplies a separate literal8-branch matrix reconstruction, deeper rational enclosures and exact Hermite controls. It is not represented as an independent origin of every scientific claim."
+}
