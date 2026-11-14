@@ -228,6 +228,25 @@ the useful reduction while excluding the broader regulator/apparatus transfer.
 python3 code/openwave_audit/holonomy_scope.py --output code/openwave_audit/holonomy_scope_results.json
 ```
 
+The [persistence audit](persistence_audit.py) independently confirms C12's
+classification on the same interacting source. Integer native maps leave a
+96-dimensional common pure fixed subspace. Full-column-rank certificates
+over the prime field of order 65521 prove that its H-invariant part has
+dimension twelve, entirely in the empty and fully filled number sectors.
+Exact rational LDL eigenvalue counts enclose twelve distinct endpoint
+energies. No nonempty, non-full number sector contains a state stationary
+under both H and all native branches. The [proof](PERSISTENCE_PROOF.md)
+also excludes spectral aliasing at the specified algebraic time `.37`;
+it distinguishes stationary rays from repeatably pure nonstationary orbits.
+The independent complete-H propagation agrees with the former compact
+state's variance `6.4495111111` and port leakage `0.00412249177`.
+These facts identify no physical species and exclude no approximate
+lifetime or mixed stationary state.
+
+```sh
+python3 code/openwave_audit/persistence_audit.py --c10 ../openwave-tuning/next/C10 --c12 ../openwave-tuning/next/C12 --output code/openwave_audit/persistence_results.json
+```
+
 **Scope**: finite source arithmetic, complete modular records, specified
 native, energy and reservoir instruments, and a conditional one-load energy bound.
 No physical electron, winding identification, autonomous rest-energy anchor,

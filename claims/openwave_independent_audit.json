@@ -58,11 +58,21 @@
       "statement": "Complete modular character reduction does not extend to the 13-state hard-wall triangle or make every holonomy-commuting observable a function of position. Modulus-one coarse propagation does not provide an injective integer charge decoder.",
       "evidence": "code/openwave_audit/holonomy_scope_results.json",
       "domain": "One-load triangle, m=.23 and t=.37; hard wall one versus complete Z6 fibres. The valid restricted modular reduction, conditional sector states and readout/lift hypotheses are retained."
+    },
+    {
+      "id": "independent_exact_pure_persistence",
+      "statement": "Independent native maps, finite-field full-rank certificates and exact LDL spectral intervals confirm twelve stationary pure eigenrays confined to N0/N6 in the frozen interacting C10 source. Algebraic-time nonaliasing extends the support classification to its declared retained-no-commit discrete step.",
+      "evidence": [
+        "code/openwave_audit/PERSISTENCE_PROOF.md",
+        "code/openwave_audit/persistence_results.json"
+      ],
+      "domain": "Finite rational 384-state C10 H and complete C/E/MIX instruments, algebraic nonzero time and 0<p<1 for the discrete extension. No physical stable-particle, approximate-lifetime or mixed-state exclusion."
     }
   ],
   "source_sha256": {
     "code/openwave_audit/PAIR_RECORD_PROOF.md": "3b939f09efce84c4d178f5bfd85623517739fe9c612ef16095ef3965ab66a6d1",
-    "code/openwave_audit/README.md": "f90c6c4029da2f62345d9de046c4c7b6591fcae96df2219405c276b8e2ac909f",
+    "code/openwave_audit/PERSISTENCE_PROOF.md": "13df63a77f40ed6a27a5c589079b42eb2000d91d4ae75d3bd3f53a5d493f2734",
+    "code/openwave_audit/README.md": "934c839b7527a10c6f170d3863127760ef740560376397448c0955fe08c2124c",
     "code/openwave_audit/energy_scale.py": "0e81c1b6320a9cd2082f17d074d8c792a033a3b498f61aff885d9ffa8db19ca0",
     "code/openwave_audit/energy_scale_results.json": "17502c146a98f3cb42db079a594262393b7d89effe3815c8760ebab379eb1f45",
     "code/openwave_audit/holonomy_scope.py": "033d897126a8e2e563ad8388b9105bae638504dac71c497f926d84a120a28b0d",
@@ -75,6 +85,8 @@
     "code/openwave_audit/native_scope_results.json": "f0e14d81cff718561244fa2a4bab277c6edb98044f41ac1a79cd55b9da0590be",
     "code/openwave_audit/pair_record_covariance.py": "e691f664cd69aa44544a60f059eeb834f23492bf7523dc01b8b22fc401802d63",
     "code/openwave_audit/pair_record_covariance_results.json": "55a14fb7ce3b60b95c48a6596597068725a50f5f1c635d9c554da8008f618726",
+    "code/openwave_audit/persistence_audit.py": "25996b172705d18103348310e1b33fd475e5734a5d42093b43458ae881c46769",
+    "code/openwave_audit/persistence_results.json": "eb266b35ee5df9c65840f95ff1769f3d23e4cc447bc4bc20786a5eda89d14b87",
     "code/openwave_audit/reservoir_audit.py": "2bcf31fd4cd601ccd2ee723ce20f7a377673e01ab6fad3c1f5088fc002c323f5",
     "code/openwave_audit/reservoir_results.json": "06f38ddef5146fcec48d0b11077f897ca5533a2f7b3800dd245d0c850ba8bcb2",
     "code/openwave_audit/spectral_archive_audit.py": "c961e6b16722a09185f1d1aea09d5d2769849d20c54163e99993f0634bc62a0e",

@@ -1,0 +1,251 @@
+{
+  "schema": "oph.openwave.persistence_independent_audit.v1",
+  "checks": {
+    "independently_reconstructed_actual_H_exact": true,
+    "moving_maps_nilpotent_and_injective": true,
+    "moving_domains_exhaust_native_dark_complement": true,
+    "all_native_maps_scalar_on_dark_support": true,
+    "full_rank_certifies_no_middle_number_H_invariant_subspace": true,
+    "producer_dimensions_match": true,
+    "twelve_simple_distinct_endpoint_eigenvalues_exactly_enclosed": true,
+    "former_cycle_variance_and_escape_match": true,
+    "audited_artifacts_unchanged": true
+  },
+  "finite_field_prime": 65521,
+  "number_sector_certificates": [
+    {
+      "number": 0,
+      "native_support_dimension": 6,
+      "coupling_rank_mod_prime": 0,
+      "two_constraint_rank_mod_prime": 0,
+      "pivot_columns": [],
+      "maximal_H_invariant_dimension": 6
+    },
+    {
+      "number": 1,
+      "native_support_dimension": 18,
+      "coupling_rank_mod_prime": 17,
+      "two_constraint_rank_mod_prime": 18,
+      "pivot_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "maximal_H_invariant_dimension": 0
+    },
+    {
+      "number": 2,
+      "native_support_dimension": 18,
+      "coupling_rank_mod_prime": 18,
+      "two_constraint_rank_mod_prime": 18,
+      "pivot_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "maximal_H_invariant_dimension": 0
+    },
+    {
+      "number": 3,
+      "native_support_dimension": 12,
+      "coupling_rank_mod_prime": 12,
+      "two_constraint_rank_mod_prime": 12,
+      "pivot_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "maximal_H_invariant_dimension": 0
+    },
+    {
+      "number": 4,
+      "native_support_dimension": 18,
+      "coupling_rank_mod_prime": 18,
+      "two_constraint_rank_mod_prime": 18,
+      "pivot_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "maximal_H_invariant_dimension": 0
+    },
+    {
+      "number": 5,
+      "native_support_dimension": 18,
+      "coupling_rank_mod_prime": 17,
+      "two_constraint_rank_mod_prime": 18,
+      "pivot_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "maximal_H_invariant_dimension": 0
+    },
+    {
+      "number": 6,
+      "native_support_dimension": 6,
+      "coupling_rank_mod_prime": 0,
+      "two_constraint_rank_mod_prime": 0,
+      "pivot_columns": [],
+      "maximal_H_invariant_dimension": 6
+    }
+  ],
+  "endpoint_exact_spectral_intervals": [
+    {
+      "number": 0,
+      "lower": "14709249/10000000",
+      "upper": "14709253/10000000",
+      "exact_eigenvalue_count": 1
+    },
+    {
+      "number": 0,
+      "lower": "29617753/10000000",
+      "upper": "29617757/10000000",
+      "exact_eigenvalue_count": 1
+    },
+    {
+      "number": 0,
+      "lower": "17195869/5000000",
+      "upper": "17195871/5000000",
+      "exact_eigenvalue_count": 1
+    },
+    {
+      "number": 0,
+      "lower": "30154129/5000000",
+      "upper": "30154131/5000000",
+      "exact_eigenvalue_count": 1
+    },
+    {
+      "number": 0,
+      "lower": "65082243/10000000",
+      "upper": "65082247/10000000",
+      "exact_eigenvalue_count": 1
+    },
+    {
+      "number": 0,
+      "lower": "79990747/10000000",
+      "upper": "79990751/10000000",
+      "exact_eigenvalue_count": 1
+    },
+    {
+      "number": 6,
+      "lower": "554907/312500",
+      "upper": "4439257/2500000",
+      "exact_eigenvalue_count": 1
+    },
+    {
+      "number": 6,
+      "lower": "1455787/500000",
+      "upper": "909867/312500",
+      "exact_eigenvalue_count": 1
+    },
+    {
+      "number": 6,
+      "lower": "23254357/5000000",
+      "upper": "23254359/5000000",
+      "exact_eigenvalue_count": 1
+    },
+    {
+      "number": 6,
+      "lower": "24095641/5000000",
+      "upper": "24095643/5000000",
+      "exact_eigenvalue_count": 1
+    },
+    {
+      "number": 6,
+      "lower": "512377/78125",
+      "upper": "3279213/500000",
+      "exact_eigenvalue_count": 1
+    },
+    {
+      "number": 6,
+      "lower": "19235743/2500000",
+      "upper": "601117/78125",
+      "exact_eigenvalue_count": 1
+    }
+  ],
+  "former_cycle": {
+    "variance": 6.449511111111113,
+    "port_leakage_t_037": 0.004122491766362758
+  },
+  "source_sha256": {
+    "next/C10/JOINT_SOURCE.json": "b9750a2e5823f15496f3915dc6a647af4cc0944dbff21d4b0fd48e27693b3546",
+    "next/C10/joint_source_states.npz": "1d75017307742e96649ea7c7e74a4a648a6d9f468e35ccd9f6ea05d202d7708b",
+    "next/C12/pure_persistence.py": "86737d79ae9e8e105e721aad32f3623366e4548ab50ffe7a5315f3d9f096a764",
+    "next/C12/PURE_PERSISTENCE.json": "fa22e7311b4ca92cc8f9a8b5ff6cd525db45afcacf9cc4046d4d79aa97129691",
+    "next/C12/PURE_PERSISTENCE.md": "8e64a5fc484937f2b01930046ecd2ae433b4b076c2111b06af1f6b318ea8d646"
+  },
+  "auditor_sha256": "25996b172705d18103348310e1b33fd475e5734a5d42093b43458ae881c46769",
+  "reference_implementation_sha256": "206e2791d6446213c798d96abf18aeb947dd1b42a4667b90b433a88b458a1f9d",
+  "scope": "Frozen C10 all-number triangle. Native branchwise pure persistence and H-invariant support only. Algebraic-time extension requires the hypotheses in PERSISTENCE_PROOF.md. No approximate lifetime, mixed-state, particle or platform acceptance claim.",
+  "official_rows_changed": []
+}
