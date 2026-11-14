@@ -41,6 +41,16 @@ rest poles nor three charged leptons. The literal OpenWave lepton-spectrum
 comparison `1:207:3477` fails for this assignment. The electron and lepton
 hierarchy were exposed before the comparison, so it is retrospective.
 
+The conversion is a display calibration on this source-clock service. It does
+not assign a carrier spacing or prove a common local energy/momentum law.
+Identifying its smallest gap with an electron rest energy and simultaneously
+identifying a spatial band's speed with light would impose additional unit
+relations, which must pass high-momentum observations on that same band.
+CERN reports electron/positron beam energies above 104 GeV in
+[the LEP account](https://home.cern/the-lep-story/). No compatibility with
+that propagation domain follows from the calibrated transition table.
+
+
 The weighted transfer-ground protocol in
 [`native_transfer_control`](../native_transfer_control/PROOF.md) provides a
 separate positive source-derived logarithmic energy and complete native

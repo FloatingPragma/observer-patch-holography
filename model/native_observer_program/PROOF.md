@@ -1,5 +1,12 @@
 # One two-load observer program and its event reflection
 
+The coherent walk in this package uses one shared uniform event register for
+the complete finite source. Its exact finite probabilities do not establish
+independent-subsystem composition: a second disjoint source changes the shared
+event normalization and the joint phase is not the sum of isolated phases.
+Physical independent-load evolution requires separate local generators or a
+proved replacement with additive energies. No such transfer is asserted here.
+
 The manifest fixes one twelve-port, two-load source, its actual nine-bit
 encoding, the active six-state memory, a six-bit event register, preparation,
 record policies and apparatus. The coherent event selector is identity/swap;

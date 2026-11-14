@@ -1285,8 +1285,12 @@ The trace-preserving completely positive map follows on arbitrary
 quantum references. Zero-current records and failed proposals are kept.
 \end{proof}
 
-The supplied monitoring dephases the source basis; this is an explicit
-apparatus choice. The discrete protocol is
+The supplied monitoring dephases the complete source basis. A coarse native
+C record asks an endpoint-occupation question; an E record resolves the two
+endpoints and their complement. These local records can retain coherence
+inside an outcome subspace, so they define a different instrument from the
+source-resolved Kraus rows above. Replacing one by the other changes the
+observable continuation and requires a separate calculation. The discrete protocol is
 \[
  \rho'=(1-p)U\rho U^*+p\mathcal C(U\rho U^*),\qquad
  U=e^{-itH_{m,K}}.
@@ -1311,6 +1315,9 @@ and \path{code/openwave_candidate/candidate/methods/quantum_records.md}.
 Independent tests reconstruct every Kraus row and check charge, record
 increments and~\eqref{eq:joint-record-square}. The graph, preparation,
 fields, cutoff, mass, hop time and monitoring probability are supplied.
+A finite cyclic record regulator is also a distinct architecture: it identifies
+integer currents differing by its modulus. An exact uniform-fiber control in
+that regulator supplies no integer-record preparation or charge theorem.
 Many-load exchange statistics, an unbounded-record limit and the physical
 particle and clock dictionary are outside this finite theorem.
 

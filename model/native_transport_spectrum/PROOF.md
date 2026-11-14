@@ -31,7 +31,9 @@ phase complements, so these prepared-sector lower phases are not a gap of
 the whole carrier.
 
 The displayed unit convention uses one walk-event duration `1/sqrt(D)` in
-source phase-time units. It reuses the single electron anchor attached to
+source phase-time units. The inherited electron-gap calibration
+is an empirical display convention, without a proved local physical spacing,
+common stationary clock or high-momentum electron branch. It reuses the single electron anchor attached to
 the source-clock transition `1/3072`, with no extra mass target. The
 displayed energy is this anchor scale times `sqrt(D) omega`. The clock and
 time convention are explicit inputs. They do not establish a stationary

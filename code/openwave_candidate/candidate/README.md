@@ -128,3 +128,28 @@ choices. The instrument chooses C (coin,current) and E (coin,pre-repair contrast
 records with equal probability and retains both noops and each record value.
 The separate offset-law dynamics, many-load joint register, and removal of the
 integer cutoff remain open. This does not establish all 31 physical criteria.
+
+## Local records and charge apparatus
+
+`oph-openwave modular_native` executes the separately named
+`LocalCoarseModular` candidate. It groups source amplitudes by the actual local
+C/E outcome, retains coherence in degenerate outcomes, and uses Z6 half-seam
+records. Its continuous generator assigns a supplied rate to each seam.
+The complete small-sector comparison reproduces the change caused by global
+monitoring. This is a distinct instrument and regulator, with Gauss residues
+rather than an integer Gauss-vector theorem. See
+[the local instrument](methods/modular_native.md).
+
+`oph-openwave regional_charge` measures complete regional charge outcomes on
+the bounded integer construction, with exact boundary and continuity accounting.
+`oph-openwave general_cut` proves the diagonal cut identity on the canonical
+ring without enumerating its quantum sector. The [apparatus](methods/regional_charge.md)
+and [general-cut contract](methods/general_cut.md) distinguish fractional
+expectations from sharp charge, integer circulation from complete-boundary
+current, and operational load units from physical electric charge.
+
+These commands share the same port/transit geometry and explicit record
+conventions. A full modular sector grows exponentially with cycle rank; the
+small exact runs do not constitute canonical-screen quantum evolution.
+The native candidate remains under audit rather than silently replacing the
+published hard-wall monitoring protocol or inheriting its results.

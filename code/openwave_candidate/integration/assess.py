@@ -16,7 +16,7 @@ from oph_openwave.construction import Construction
 from oph_openwave.quantum_records import run as joint_probe
 from oph_openwave.geometry import carrier
 from oph_openwave.observer_protocol import run as observer_probe
-from oph_openwave import record_preparation, record_energy, interacting_records, flux_controls
+from oph_openwave import record_preparation, record_energy, interacting_records, flux_controls, regional_charge, general_cut, modular_native
 from oph_openwave.runner import validate_result
 
 
@@ -103,10 +103,15 @@ def assess():
         'remaining': 'The prepared localized source leaks in these finite controls. No stable physical particle preparation or stability theorem is supplied.'}
     extensions = {name: module.run() for name, module in (
         ('record_preparation', record_preparation), ('record_energy', record_energy),
-        ('interacting_records', interacting_records), ('flux_controls', flux_controls))}
+        ('interacting_records', interacting_records), ('flux_controls', flux_controls),
+        ('regional_charge', regional_charge), ('general_cut', general_cut), ('modular_native', modular_native))}
     for name, result in extensions.items():
         validate_result(name, result)
     observations[3]['record_preparation_control'] = {'evidence_key':'record_extensions.record_preparation'}
+    observations[1]['regional_apparatus'] = {'evidence_key':'record_extensions.regional_charge'}
+    observations[1]['general_cut_identity'] = {'evidence_key':'record_extensions.general_cut'}
+    observations[1]['local_coarse_modular_control'] = {'evidence_key':'record_extensions.modular_native'}
+    observations[1]['remaining'] = 'Physical electric-charge/apparatus dictionary and topological nonfragmentation across the admitted signed-sector/intervention domain. Modular Gauss, integer Gauss and one-load sharp outcomes retain distinct domains; this row need not await mass or spin results.'
     for ident, observable, missing in (
         (6, 'supplied static-flux rotation and antipodal-doublet controls', 'No spatial angular momentum representation for identified joint particles.'),
         (7, 'rotation rephasing and Z6 statistics controls', 'A rephasable rotation cube and special doublet do not identify physical spin-1/2 or exchange statistics.'),

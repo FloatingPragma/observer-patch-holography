@@ -14,7 +14,7 @@ import time
 
 RER_COMMIT = "3bcacf1276ddb3ead35be2b9adcd63b6643e2d35"
 OPENWAVE_COMMIT = "5d686cb049b82cc55f8822210a254d5833be23a7"
-MODULES = ("charge", "spin", "leptons", "conjugation", "dispersion", "construction", "quantum_records", "observer_protocol", "record_preparation", "record_energy", "interacting_records", "flux_controls")
+MODULES = ("charge", "spin", "leptons", "conjugation", "dispersion", "construction", "quantum_records", "observer_protocol", "record_preparation", "record_energy", "interacting_records", "flux_controls", "regional_charge", "general_cut", "modular_native")
 
 
 def validate_result(name: str, result: dict) -> None:

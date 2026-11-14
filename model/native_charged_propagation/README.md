@@ -7,7 +7,8 @@ an attractive contact term without an added strength. A monitored exit test
 and a complete clock-code test distinguish spreading, observation backaction
 and code failure. Compact apparatus states are exactly persistent under
 the stated coherent program, with distinct event preparations. Particle identity and physical energy units require their
-own joint readout.
+own joint readout. The shared event register defines a finite comparison source;
+it does not establish additive independent-load dynamics.
 
 See [the proof](PROOF.md) and [the executable receipt](results.json).
 Run `python3 -m model.native_charged_propagation --write`, then the same

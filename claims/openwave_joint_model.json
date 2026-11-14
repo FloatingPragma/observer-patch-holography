@@ -4,6 +4,7 @@
     "clock": "The port/transit probability oscillates at 2E; no physical electron rest clock or derived commit-rate calibration is identified.",
     "continuum": "No physical particle dictionary, common relativistic continuum or complete 31-row validation follows.",
     "interaction": "No record-energy choice is selected by default. Explicit interacting variants do not inherit the free squared-generator identity.",
+    "local_native_candidate": "The modular local-coarse instrument is a separately named candidate under audit. Its complete sector grows with cycle rank; complete canonical-screen quantum evolution is not inferred from the exact small-graph controls.",
     "records": "C and E outcome payloads are retained; global position and register monitoring is supplied. Native coarse local measurements are a different instrument. Separate seam-offset dynamics are not implemented.",
     "regulator": "Two finite cutoff comparisons provide no cutoff-removal theorem.",
     "shared_register_native_programs": "The nine claims in claims/joint_observer.json retain their authenticated finite source domains. A shared event register does not implement independent additive loads. No transfer to the separate-copy generator is asserted."
@@ -54,6 +55,21 @@
       "domain": "Supplied bare static flux controls. No identified joint particle, physical spin, or exchange-statistics theorem.",
       "id": "static_flux_spin_nonidentification",
       "statement": "Finite bare compact modes and antipodal-flux doublets pass direct residual controls. Rotation rephasing changes the cube without changing covariance, and adjacent flux removes the doublet."
+    },
+    {
+      "domain": "Declared subdivided-vertex regions and one-load integer sector, including explicit interacting variants. Fractional expectation is not a sharp fractional outcome; no physical species or unrestricted fragmentation exclusion follows.",
+      "id": "regional_charge_instrument",
+      "statement": "The complete regional charge instrument measures sharp one-load outcomes 0 and 1, retains the complement and optional port/transit refinement, and obeys exact regional Gauss and coherent/committed continuity on the bounded integer construction."
+    },
+    {
+      "domain": "Exact diagonal operator identity. Modular data alone do not distinguish integer Gauss sectors; integer endpoint-current interpretation requires separately justified source-sector ancestry.",
+      "id": "canonical_general_cut",
+      "statement": "The canonical ring half-incidence identity cancels every internal edge on an arbitrary region boundary. Integer circulation aliases modulo the register size but contributes zero to a complete cut."
+    },
+    {
+      "domain": "Complete finite reachable one-load modular sectors and supplied coarse grouping, transit policy and rates. Global monitoring changes the measured triangle evolution. No integer-regulator equality, many-load independence theorem, native-clock derivation or physical row award follows.",
+      "id": "local_coarse_modular_instrument",
+      "statement": "The separately named modular local-coarse C/E Kraus instrument preserves trace, positivity, its Gauss residues and an external quantum reference. Its per-seam generator retains the local rate when an unoccupied remote component is added."
     }
   ],
   "official_OpenWave_awards_added": 0,
@@ -63,7 +79,7 @@
       "full_criterion_met": false,
       "id": 1,
       "local_status": "partial_support",
-      "missing_prerequisites": "Topological identification with physical electric charge and no fractional charged excitations across the full state space.",
+      "missing_prerequisites": "Physical electric-charge/apparatus dictionary and topological nonfragmentation across the admitted signed-sector/intervention domain. Modular Gauss, integer Gauss and one-load sharp outcomes retain distinct domains; this row need not await mass or spin results.",
       "official_status": "untested"
     },
     {
@@ -423,20 +439,23 @@
     "code/openwave_candidate/candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907",
     "code/openwave_candidate/candidate/oph_openwave/dispersion.py": "ce81d78943d5580e6e7a4536ea4d7e1a5ee2bed5acee8ba06caaaa24bf765bbd",
     "code/openwave_candidate/candidate/oph_openwave/flux_controls.py": "d66086fb1ef2ebcf9eed89b579247897bf0a8d5e103e2562688e0d1474fd86b9",
+    "code/openwave_candidate/candidate/oph_openwave/general_cut.py": "0330ca8fffa6f5431c20257763dfc0b12452551f00e9ab4e0edb99bca735faf3",
     "code/openwave_candidate/candidate/oph_openwave/geometry.py": "00d6ca810b1c7430e761b3106317f288d0b3c2e722dfeedec5aa18ac7bb8e32d",
     "code/openwave_candidate/candidate/oph_openwave/interacting_records.py": "ef3b002c2d59acddd132b568566162d6e273b3c40f8239cc63b5bc85a0eef56b",
     "code/openwave_candidate/candidate/oph_openwave/leptons.py": "18ec0cc98783260de38f6bf05079b72cc8437de1973d92356ae5888b75b6703b",
+    "code/openwave_candidate/candidate/oph_openwave/modular_native.py": "1b6e25eb63ca190e1b5ef999b0b43cefb790e7872a58ffdb40256662ca65959a",
     "code/openwave_candidate/candidate/oph_openwave/observer_protocol.py": "f4777a9e192610ca6815734cfb1373d325ca95087d196d64ada34a0b01ab8c18",
     "code/openwave_candidate/candidate/oph_openwave/quantum_records.py": "95735e200a0f7167b4efc18ad62bb0f42e1dac43277ea4defd46f5dbf3c5e34c",
     "code/openwave_candidate/candidate/oph_openwave/record_energy.py": "6a197440eeec12fff5b4f71afe8d2ae49da29119690ccaa727716d579b49784e",
     "code/openwave_candidate/candidate/oph_openwave/record_preparation.py": "79c8017dd074bad20562cc95eba4bbc722700b432a8779ff33b006a9802177b4",
-    "code/openwave_candidate/candidate/oph_openwave/runner.py": "1e591ff3e9a10e088a14231edeb3679d5625a4e554b36c6837f020c8d730a944",
+    "code/openwave_candidate/candidate/oph_openwave/regional_charge.py": "d83af3aa9e7beb72da2898cd7e0adc9bb83cefaea60d7b3c81cd129df9c0c1a9",
+    "code/openwave_candidate/candidate/oph_openwave/runner.py": "410480315acc498dfb4fcba485157b855828e8dbece129d9daaaa0cdff385ea8",
     "code/openwave_candidate/candidate/oph_openwave/spin.py": "07875e4c23eebdfd41404eaf57a06c5d45669b0309f8d2ae270b050730d18b1b",
-    "code/openwave_candidate/integration/assess.py": "85ab3347de5cb22c8ab52268cdcc04071817dd856c6d5ae3a8c5e80d9ee3bdcb",
-    "code/openwave_candidate/integration/assessment.json": "499f4f193bbee504958ad5d0bc513d00a66d3676b82892ce039a6eed0f613ed0",
+    "code/openwave_candidate/integration/assess.py": "1cef6d9a8d9bcf892a9e06a8abacd1fb04c0f22d177fa46ede4d20697f579330",
+    "code/openwave_candidate/integration/assessment.json": "8d35b73fe0c7d5bd33375c4559c46e6b0694a068be88ae807f0381c980757a47",
     "code/openwave_candidate/platform_packet/criteria_frozen.json": "d6e36d90bc253f5af641760de2e6efc50e181f16e17c8f5334c31d0d7928085f",
     "code/openwave_candidate/platform_packet/packet.json": "2a203acaa796b7fc4fc390c3060f3dd1bb85aed211337a2b0c4668640a40d5b5",
-    "tools/build_openwave_joint_claims.py": "6b2e38692e111e2403b0d5100487f8641b038e58458ed2ce81671bf7639de0ec",
+    "tools/build_openwave_joint_claims.py": "2e4e9410a284c1b85decec98df47979aa85d8ade4f3832cb073f1944e61bc7c2",
     "tools/check_openwave_assessment_replay.py": "765efb63988bb4f725426da9df1469523ec3cdd18d079684bf8f77f21416eeb9"
   }
 }

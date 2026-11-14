@@ -135,6 +135,13 @@ has minimizer (E=B^TL^+\rho), (L=BB^T), and energy
 Poisson lower bound is (11/480), with strict excess (19/480). The receipt
 solves all eleven pairs with origin zero exactly. Neither graph energy
 proves a Euclidean (1/r) law.
+For a normalized quantum state supported on this fixed integer-charge sector,
+the diagonal energy operator obeys the same lower bound: its expectation is
+an average of integer-string energies and is at least kappa d(x,y)/2.
+The energy of the mean flux is a different nonlinear quantity and may lie
+below that value. A real Poisson relaxation cannot replace the quantum
+expectation of the integer quadratic energy.
+
 
 ## Operational integer boundary charge and the half-split control
 
@@ -225,7 +232,14 @@ For a supplied coefficient $\beta\ge0$, define the finite loop generator
 (J_B=i\beta(U-U^*)/2). This generator is a declared finite magnetic
 interaction, without an autonomous source implementation claim. Its
 conditional current is $\pm\beta\sqrt{3}/4$, with nonselective current
-zero. The same source loop obeys
+zero. The chosen loop uses seams (0,5), (5,11), (0,11); it does not
+contain the prepared unit-string seam (0,1). Their electric vectors are
+orthogonal. On this loop orbit the string adds the same constant electric
+energy to every vacuum-orbit basis state. Consequently its vacuum-subtracted
+pair ground energy is independent of beta, including with the declared loop
+generator. The quadrature/current identities do not establish a beta-dependent
+pair force or interpolation to the real Poisson minimum. Such a comparison
+requires a specified cycle intersecting the string. The same source loop obeys
 
 \[
  [E_e,U]=c_eU,\qquad
