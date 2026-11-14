@@ -1,0 +1,30 @@
+{
+  "schema": "oph.color_positive_field.energy_theorem.freeze.v1",
+  "files_sha256": {
+    "BOUNDS.json": "cd0b0a72ae23f2f4dba752541f8879d831f84145913e77d89c5986f8057f2351",
+    "BOUNDS_RUN.log": "110eb304de32105e16d40a71cbad45381463696e21636ff2054f46b11c9ee604",
+    "PORTABLE_RUN.log": "9238cdcfbf49097f75d2f88a07a8981865325e02c41c25b678a44cae085a3b78",
+    "PROOF.md": "98ac2e4561933a499b95218400074cf2478eab1db79311779af2360d5b8bcc3a",
+    "SOURCE_PINS.json": "f5fbacf6b4cc7a72bce22ec213c141d3c6682ee008e2ce3f8df11c8c8cb00243",
+    "STRUCTURAL_CONTROLS.json": "ee0cda4315d16b0613f891915afea2c1e98e8c05105722189cb44ec9af37d7e6",
+    "STRUCTURAL_RUN.log": "2bf31aba2c05864446c88c0854dc58f9889c51f957e40e235c27ed935ce8fbe5",
+    "STRUCTURAL_RUN_CORRECTED.log": "9238cdcfbf49097f75d2f88a07a8981865325e02c41c25b678a44cae085a3b78",
+    "check_bounds.py": "cbf043803f2c8a07936b3323cfb86f66f6d155d73c096364200b39d19b0463e9",
+    "inputs/color_source.py": "5dbc93e03ef0c34c1bb05045ddf352c92ea21693a4bf51826a5e1e44c03d86c4",
+    "structural_controls.py": "4948d96389ed119278d44d82e3a501e41a38a2a93238347ce3bf83db546e9d7a"
+  },
+  "source_pins": {
+    "openwave-tuning/common_dynamics/color_chain_native/MANIFEST.json": "e222d339985bbd29e74561c076c990712dc771bf2f7bb093be649de227037c70",
+    "openwave-tuning/common_dynamics/color_chain_native/source.py": "5dbc93e03ef0c34c1bb05045ddf352c92ea21693a4bf51826a5e1e44c03d86c4",
+    "openwave-tuning/common_dynamics/color_chain_native/PROOF.md": "265945c9252fdc7a1ed43e640e21de9bf8775f01cf3f7b2a9e9493a2d3d81134",
+    "openwave-tuning/row_completion/reviews/COLOR_CHAIN_ROOT/REVIEW.json": "efe08c55a690a3b9c9f30fbfd40bf607df1781aed4b02af49804cb9d91836d38",
+    "openwave-tuning/next/CHAIN6/baryon_native_preparation_join/REVIEW.json": "dbf5d13af50fa68822fc8ba10ba8e0dc1aec20125375207796bc0b805954a969",
+    "openwave-tuning/common_dynamics/calibrated_charge/MANIFEST.json": "66dbf120a4978101e9268c1a5ed841c6d2c87933a2d757666089ff2d65efc78c"
+  },
+  "native_join_verified": false,
+  "full_row_award": false,
+  "independent_review_pending": true,
+  "source_clock": "tau; native phase tau/8; field cell-time tau/(1/2)",
+  "weak_breakup_strict_upper": "2/25",
+  "unforced_breakup_strict_upper": "7/100"
+}

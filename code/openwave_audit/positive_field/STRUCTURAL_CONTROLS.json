@@ -1,0 +1,106 @@
+{
+  "schema": "oph.color_positive_field.structural_controls.v1",
+  "source_sha256": "5dbc93e03ef0c34c1bb05045ddf352c92ea21693a4bf51826a5e1e44c03d86c4",
+  "cases": [
+    {
+      "L": 2,
+      "kappa": "1/2",
+      "physical_matter_dimension": 14,
+      "cross_gram_error": 1.393178779658193e-17,
+      "positive_hopping_minimum": 0.0006540061133722376,
+      "outputs": [
+        {
+          "probe": 0,
+          "actual_separated_floor": 6.1255584396720915,
+          "sampled_max_breakup": 0.020727913523022543
+        },
+        {
+          "probe": 0.25,
+          "actual_separated_floor": 6.080297800523328,
+          "sampled_max_breakup": 0.020799927616399372
+        },
+        {
+          "probe": -0.25,
+          "actual_separated_floor": 6.080297800523338,
+          "sampled_max_breakup": 0.020683558075818162
+        }
+      ]
+    },
+    {
+      "L": 2,
+      "kappa": "2",
+      "physical_matter_dimension": 14,
+      "cross_gram_error": 1.393178779658193e-17,
+      "positive_hopping_minimum": 0.0006540061133722376,
+      "outputs": [
+        {
+          "probe": 0,
+          "actual_separated_floor": 6.1255584396720915,
+          "sampled_max_breakup": 0.020727913523022543
+        },
+        {
+          "probe": 0.25,
+          "actual_separated_floor": 6.080297800523328,
+          "sampled_max_breakup": 0.020799927616399372
+        },
+        {
+          "probe": -0.25,
+          "actual_separated_floor": 6.080297800523338,
+          "sampled_max_breakup": 0.020683558075818162
+        }
+      ]
+    },
+    {
+      "L": 3,
+      "kappa": "1/2",
+      "physical_matter_dimension": 45,
+      "cross_gram_error": 1.411784676669775e-17,
+      "positive_hopping_minimum": 0.0020509271926729754,
+      "outputs": [
+        {
+          "probe": 0,
+          "actual_separated_floor": 6.26418440862029,
+          "sampled_max_breakup": 0.01927912001848302
+        },
+        {
+          "probe": 0.25,
+          "actual_separated_floor": 6.193055178845713,
+          "sampled_max_breakup": 0.01936456224377208
+        },
+        {
+          "probe": -0.25,
+          "actual_separated_floor": 6.193055178845712,
+          "sampled_max_breakup": 0.019226314686600913
+        }
+      ]
+    },
+    {
+      "L": 3,
+      "kappa": "2",
+      "physical_matter_dimension": 45,
+      "cross_gram_error": 1.411784676669775e-17,
+      "positive_hopping_minimum": 0.0020509271926729754,
+      "outputs": [
+        {
+          "probe": 0,
+          "actual_separated_floor": 6.283095506992504,
+          "sampled_max_breakup": 0.019287472925125407
+        },
+        {
+          "probe": 0.25,
+          "actual_separated_floor": 6.215110577252326,
+          "sampled_max_breakup": 0.0193729575409406
+        },
+        {
+          "probe": -0.25,
+          "actual_separated_floor": 6.215110577252329,
+          "sampled_max_breakup": 0.01923464408183842
+        }
+      ]
+    }
+  ],
+  "negative_energy_floor_control_breakup": 1.0,
+  "field_domain": "Two-dimensional noncommuting bounded-field control only; no approximation to the actual Maxwell field is inferred.",
+  "actual_Maxwell_field_executed": false,
+  "full_row_award": false
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "oph.claim.v1",
+  "claim": "Uniform breakup bound for a neutral finite SU(3) composite with positive Maxwell coupling",
+  "status": "Exact conditional source theorem; a separately scoped complete native join now has two independent full reviews.",
+  "source_freeze_sha256": "92553b0a143a66c427aa01bcc62fd3c17376977e3a319cad488910d5d1ffdae9",
+  "proof": "code/openwave_audit/positive_field/PROOF.md",
+  "replay": [
+    "code/openwave_audit/positive_field/check_bounds.py",
+    "code/openwave_audit/positive_field/structural_controls.py"
+  ],
+  "source_parameters": {
+    "h_star": "1/2",
+    "a": "1/2",
+    "b": "3",
+    "rho": "2/3",
+    "g": "sqrt(12*pi*alpha_input)",
+    "alpha_input": "72973525643/10000000000000",
+    "colour_parameters": "m=1,t=1/8,U=1,J=1/4,kappa in {1/2,1,2}"
+  },
+  "premises": [
+    "Actual positive normal-ordered coexact field and three noncompact harmonic pairs.",
+    "Actual unitary gauge-covariant LOCAL12 routes and positive Gauss Coulomb energy.",
+    "Neutral endpoint spin-half state; coexact vacuum; harmonic variances p=1/1000,q=250.",
+    "Physical embedding and complete native preparation/evolution/reader transfer supplied separately."
+  ],
+  "conclusion": {
+    "unforced_breakup_strict_upper": "7/100",
+    "weak_breakup_strict_upper": "2/25",
+    "weak_domain": "|f|<=1/4, graph-Lipschitz neutral dipole",
+    "source_times": "all",
+    "initial_field_excess": "3/2000",
+    "native_bad_upper_if_TV_le_1_over_1000": "81/1000"
+  },
+  "evidence": {
+    "exact_arithmetic": "code/openwave_audit/positive_field/BOUNDS.json",
+    "finite_structural_controls": "code/openwave_audit/positive_field/STRUCTURAL_CONTROLS.json",
+    "actual_full_Maxwell_program_executed": false,
+    "mathematical_independent_review_complete": true,
+    "mathematical_review_manifest_sha256": "69923d59f7e2ecdf46f461dea5b3632c5ad26d9a7ec01343a972cb67c01fba74",
+    "native_join_independent_review_complete": true,
+    "native_join_claim": "claims/openwave_positive_field_native.json",
+    "native_join_scope": "L=5 colour chain, kappa=2, h_star=1/2, native0<=tau<=1/64 and linear neutral probe|f|<=1/4; all-time source theorem is separate."
+  },
+  "calibration_ancestry": "Alpha is an input. The empirical511keV energy anchor is part of the consumed calibrated unit map; no baryon mass is used as an input here.",
+  "scope_limits": [
+    "Finite colour-chain source amendment.",
+    "No empirical baryon mass, confinement strength, spontaneous formation or interacting relativistic continuum.",
+    "No independent electromagnetic strength prediction.",
+    "No full row award or one-source31-row conclusion."
+  ],
+  "public_mathematical_replay_self_contained": true,
+  "complete_native_source_closure": false,
+  "full_criterion_met": false
+}
