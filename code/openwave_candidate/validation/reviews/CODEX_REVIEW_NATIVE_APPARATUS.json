@@ -1,0 +1,22 @@
+{
+  "outcome": "PASS_WITH_SCOPE_NOTES",
+  "errors": {
+    "actual_supported_shell_gram": 1.9984014443252818e-15,
+    "actual_total_energy_intertwiner": 4.440892098500626e-16,
+    "complete_sequential_outcome_probabilities": 0.0,
+    "finite_difference_same_H_continuity": 1.1609435635051568e-11
+  },
+  "scope": [
+    "supported initial battery shell only, not autonomous reusable finite battery",
+    "initial and final energy PVM supplied, degenerate basis resolution supplied",
+    "same-H whole-position charge is not yet physical electric current",
+    "arbitrary idle reference preserved by explicit isometry/Kraus maps"
+  ],
+  "source_sha256": {
+    "validation/reviews/review_native_apparatus.py": "628ce8a717a9544e5fbd86286a1f8cd613f90a7bfd69ad080cf8260499d26795",
+    "candidate/oph_openwave/native_currents.py": "d6bcea2178104711b1bfe4df1a1d516f86b4b18c0d56a9ca8c3c739b82956d6d",
+    "validation/observables/energy_gev/spectral_apparatus.py": "4f894b6e657d1e1282fdf538028b5728b5b615ca4437a3200228049e5857af5d",
+    "validation/observables/energy_gev/finite_spectral_adapter.py": "64ae60a2e52bf0b556695f8ebe778a29e44f26a342a0ddf67813a65dff34d115"
+  },
+  "full_physical_criterion_met": false
+}

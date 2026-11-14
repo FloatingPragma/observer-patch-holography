@@ -85,6 +85,36 @@
       "domain": "Spatially compact, flat nonpropagating mode with globally coherent modular record fibers and supplied transit-as-elsewhere rule. The -m eigenvalue supplies no vacuum/positive-energy electron dictionary, physical rest clock, magnetic moment or full particle-stability criterion.",
       "id": "compact_native_persistence",
       "statement": "A closed three-seam transit cycle in the reduced canonical graph lifts through the uniform-fiber isometry to an eigenstate with energy -m. Every native local endpoint event preserves its density, including supplied per-seam continuous scheduling. Canonical1x1 and2x2 controls and an explicit complete modular triangle verify persistence and reject broken-cycle, definite-record and full-monitor substitutions."
+    },
+    {
+      "domain": "Supplied source, mass .23, coupling .29 and half-transit charge. Coherent eigenstate stationarity fails under the tested native monitoring. No physical atom, scattering threshold, hydrogen series or H0=L clock substitution.",
+      "id": "native_pinned_charge_spectrum",
+      "statement": "A position-only E2a pinned-charge energy is added to the same uniform-fiber H_m. Complete canonical1x1 spectra and selected source-overlap eigenstates retain negative branches; a complete modular triangle checks the charge-energy lift and every native Kraus map."
+    },
+    {
+      "domain": "Whole port/transit position charge, distinct from endpoint-half energy charge. Supplied current apparatus; no C/E-only synthesis, physical electric/spin current label or reduced postmeasurement continuation inferred.",
+      "id": "native_position_current_readout",
+      "statement": "The same Hamiltonian supplies the exact regional continuity operator J=i[H,P]. Complete native outcomes account separately for committed regional-charge changes, and a declared complete current spectral PVM reproduces its expectation."
+    },
+    {
+      "domain": "Declared Bose statistics, fixed total, finite BFS sector and modulus. Modulus greater than twice an admitted absolute charge bound gives unique signed cut decoding; a net signed load alone does not. No signed sea, independent-unit commit substitution or many-load uniform-fiber theorem.",
+      "id": "shared_many_load_native",
+      "statement": "A complete nonnegative Bose occupation sector with shared modular half-records implements signed port/transit hopping and literal occupation-balancing C/E instruments. Its one-load cyclic control equals the original Hamiltonian and every native Kraus map; three-unit tree controls retain complete outcomes and fixed Gauss residues."
+    },
+    {
+      "domain": "Additional preparation resources, not native-only C/E evolution; no hardware noise, efficient gate-count bound or general complexity lower bound asserted.",
+      "id": "declared_uniform_fiber_preparation",
+      "statement": "Added dimension-N Fourier gates and reversible tree Gauss arithmetic prepare the uniform record fibers with ideal success one, including composite modulus. Complete tiny Gauss sectors and reversible work-register controls instantiate the prescription."
+    },
+    {
+      "domain": "One-way supplied linear field and embedding, zero commit rate, finite source-hold step. The endpoint native charge mismatch is retained and compared under refinement. No quantum source-field state, reciprocal backreaction, outgoing radiation, derived dispersion or physical calibration.",
+      "id": "native_current_maxwell_bridge",
+      "statement": "The actual coherent native expectation current supplies a straight-edge Fourier source for the existing Maxwell mode executor. Exact instantaneous half-transit charge continuity and held-source Gauss/work identities pass independent endpoint, quadrature and augmented-exponential checks."
+    },
+    {
+      "domain": "Tiny complete modular apparatus controls. Code/complement weights are diagnostics rather than an extra dephasing measurement. Arbitrary terminal effects do not imply closed reduced continuation.",
+      "id": "continuing_record_apparatus",
+      "statement": "Individual half-record measurements retain every full poststate, including its code-complement coherence, for subsequent full native evolution. Whole-position closed-cut measurement branches intertwine with the reduced code."
     }
   ],
   "observable_experiments": [
@@ -109,6 +139,16 @@
         0.007004124607561292,
         0.24678606272157927
       ]
+    },
+    {
+      "domain": "Spectral preparation/readout and phase reference are declared resources. GeV values use a supplied511keV half-gap calibration; no electron mass prediction or vacuum/species identification. Sequential energy measurements change reference correlations and differ from the original unmeasured-reference spectral coupling. Supported battery isometry is not a reusable autonomous battery.",
+      "id": "native_energy_and_declared_units",
+      "physical_rows_promoted": 0,
+      "receipts": [
+        "code/openwave_candidate/validation/observables/energy_gev/ENERGY_GEV.json",
+        "code/openwave_candidate/validation/observables/energy_gev/SPECTRAL_APPARATUS.json"
+      ],
+      "statement": "The complete canonical native spectrum and supplied interferometric projectors read positive/negative energy gaps. A separate complete sequential initial-energy/native-event/final-energy instrument retains every reference label and energy-conserving supported battery-shell column."
     }
   ],
   "official_OpenWave_awards_added": 0,
@@ -139,7 +179,7 @@
       "full_criterion_met": false,
       "id": 4,
       "local_status": "diagnostic_only",
-      "missing_prerequisites": "The selected state persists exactly, but is a flat nonpropagating transit mode with globally coherent record fibers. Physical particle identification, admissible preparation and the requested physical stability domain remain open. Definite-record preparations do not inherit its persistence.",
+      "missing_prerequisites": "The selected state persists exactly, but is a flat nonpropagating transit mode with globally coherent record fibers. An explicit ideal Fourier/tree preparation is supplied; physical particle identification and the requested physical stability domain remain open. Definite-record preparations do not inherit its persistence.",
       "official_status": "untested"
     },
     {
@@ -453,14 +493,8 @@
     {
       "full_criterion_met": false,
       "id": 31,
-      "local_status": "blocked",
-      "missing_prerequisites": [
-        "Hydrogen-like bound spectrum on the same physical interaction/state law; 2D toy levels alone insufficient.",
-        "executable observable on frozen joint candidate",
-        "numeric tolerance and finite-size/error budget justified for this observable",
-        "supplied-input ancestry and physical state identification",
-        "genuinely unrun configuration, independently audited and filed before execution"
-      ],
+      "local_status": "diagnostic_only",
+      "missing_prerequisites": "Actual orbital component executed; a controlled bound/scattering spectrum, hydrogen series, physical dimension and species/source dictionary remain open. Native commits mix the selected positive preparation into negative branches; no positive projected dynamics or I08 Laplacian-spectrum transfer is used.",
       "official_status": "untested"
     }
   ],
@@ -472,25 +506,50 @@
     "code/openwave_candidate/candidate/oph_openwave/conjugation.py": "344c5d9215318e155f8227ce83f85f89d41d678f856a68b49a57a97606e06a27",
     "code/openwave_candidate/candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907",
     "code/openwave_candidate/candidate/oph_openwave/dispersion.py": "ce81d78943d5580e6e7a4536ea4d7e1a5ee2bed5acee8ba06caaaa24bf765bbd",
+    "code/openwave_candidate/candidate/oph_openwave/fiber_preparation.py": "d3585fb28eab66b3186376e5f60674f2ba13256d8c6057964089ad5fcf83bacb",
     "code/openwave_candidate/candidate/oph_openwave/flux_controls.py": "d66086fb1ef2ebcf9eed89b579247897bf0a8d5e103e2562688e0d1474fd86b9",
     "code/openwave_candidate/candidate/oph_openwave/general_cut.py": "0330ca8fffa6f5431c20257763dfc0b12452551f00e9ab4e0edb99bca735faf3",
     "code/openwave_candidate/candidate/oph_openwave/geometry.py": "00d6ca810b1c7430e761b3106317f288d0b3c2e722dfeedec5aa18ac7bb8e32d",
     "code/openwave_candidate/candidate/oph_openwave/interacting_records.py": "ef3b002c2d59acddd132b568566162d6e273b3c40f8239cc63b5bc85a0eef56b",
     "code/openwave_candidate/candidate/oph_openwave/leptons.py": "18ec0cc98783260de38f6bf05079b72cc8437de1973d92356ae5888b75b6703b",
+    "code/openwave_candidate/candidate/oph_openwave/many_load_native.py": "8dcb8fb30b1986eb506905b45d98b93a5fc796fcffe46c2f3108559cc161fd3f",
     "code/openwave_candidate/candidate/oph_openwave/modular_native.py": "1b6e25eb63ca190e1b5ef999b0b43cefb790e7872a58ffdb40256662ca65959a",
+    "code/openwave_candidate/candidate/oph_openwave/native_currents.py": "d6bcea2178104711b1bfe4df1a1d516f86b4b18c0d56a9ca8c3c739b82956d6d",
     "code/openwave_candidate/candidate/oph_openwave/observer_protocol.py": "f4777a9e192610ca6815734cfb1373d325ca95087d196d64ada34a0b01ab8c18",
+    "code/openwave_candidate/candidate/oph_openwave/pinned_charge.py": "1fb7d1f50befe241ba7ea23be207494f9bd772cc102bfed76c1433dcc2dc737a",
     "code/openwave_candidate/candidate/oph_openwave/quantum_records.py": "95735e200a0f7167b4efc18ad62bb0f42e1dac43277ea4defd46f5dbf3c5e34c",
     "code/openwave_candidate/candidate/oph_openwave/record_energy.py": "6a197440eeec12fff5b4f71afe8d2ae49da29119690ccaa727716d579b49784e",
     "code/openwave_candidate/candidate/oph_openwave/record_preparation.py": "79c8017dd074bad20562cc95eba4bbc722700b432a8779ff33b006a9802177b4",
     "code/openwave_candidate/candidate/oph_openwave/regional_charge.py": "d83af3aa9e7beb72da2898cd7e0adc9bb83cefaea60d7b3c81cd129df9c0c1a9",
-    "code/openwave_candidate/candidate/oph_openwave/runner.py": "d6292a81b80649b25d03bee980cdd5e38c466dd8490cab471dee334aa5429fb4",
+    "code/openwave_candidate/candidate/oph_openwave/runner.py": "4ee784a1ac139dec8ac93e0d87aa857c4c333cd0e5830f893fd1b309605f3ce6",
     "code/openwave_candidate/candidate/oph_openwave/sparse_native.py": "8e31a296c038a3d3a3d7d41259e20adf14415e23f94452a91fb7b3fc6f48a243",
     "code/openwave_candidate/candidate/oph_openwave/spin.py": "07875e4c23eebdfd41404eaf57a06c5d45669b0309f8d2ae270b050730d18b1b",
     "code/openwave_candidate/candidate/oph_openwave/uniform_native.py": "2416525dfd50cb7e7f38805a52c65858d51fda428b5875abc7295e52b03e3146",
-    "code/openwave_candidate/integration/assess.py": "bf93163ceb26dba549d3813f460471e05850d2adc4493f0408f1e4cf434ca997",
-    "code/openwave_candidate/integration/assessment.json": "ffadd9f40c9fc7073257793934e5d4695f84e9854c1dbedbe69dfa9b7685545a",
+    "code/openwave_candidate/integration/assess.py": "4b9345c17918a919142860b9565a0c8dc9d4056a3d1798f9ab5f5ab7ca8ca906",
+    "code/openwave_candidate/integration/assessment.json": "63f356b86f1267262f6c25a2e6a80d461d445dfa445fab9f7776d41add91901c",
     "code/openwave_candidate/platform_packet/criteria_frozen.json": "d6e36d90bc253f5af641760de2e6efc50e181f16e17c8f5334c31d0d7928085f",
     "code/openwave_candidate/platform_packet/packet.json": "9e0678f5efbbc5fdc1449a693fb880ced3509abe244f4e6b90597e20e6672d82",
+    "code/openwave_candidate/validation/bridges/NATIVE_MAXWELL_SOURCE.json": "f90b605be95e925ec65e8c8ac7a8226f9041bad34cce2e31f5402c09c0dfa0ca",
+    "code/openwave_candidate/validation/bridges/NATIVE_MAXWELL_SOURCE.md": "b6533cdbc4691657456e050bbd14639ad53fd4ecc0bba6e1429fa292e986355c",
+    "code/openwave_candidate/validation/bridges/NATIVE_MAXWELL_SOURCE_INDEPENDENT_REVIEW.json": "13d2530b420a358f65cedbd43a0b17f6387d3a926ca8e00c386a63317b5c25c3",
+    "code/openwave_candidate/validation/bridges/native_maxwell_source.py": "735c83ee5e1cc8e984c595ecfb937d827b334c063754e8f38a93c51018320a5c",
+    "code/openwave_candidate/validation/bridges/providers/LICENSE": "57b567796eabf36f9b3c641d91196024fe0fd4a2dd22c4de98fc7ee21d9945ba",
+    "code/openwave_candidate/validation/bridges/providers/LICENSING_NOTICE": "7c5428d9a5ad103cf9fa09bae0a9c27f132c53de6d8c7671066173206f79f735",
+    "code/openwave_candidate/validation/bridges/providers/PROVENANCE.json": "390ac3aa6ca7cd8487a1ce3effa83f6221428204ac79bf0547eb10587b4da42e",
+    "code/openwave_candidate/validation/bridges/providers/seam_maxwell_continuum.py": "c1963e2b1825fc74a05f5bab200bbc9fc56d6315fae9ce8d46eeb815a09cfd87",
+    "code/openwave_candidate/validation/bridges/review_native_maxwell_source.py": "dff22cff991c83fe92b83e60d8eb706f56caa6c628a965460f1cdecdd16d8c7d",
+    "code/openwave_candidate/validation/bridges/test_native_maxwell_source.py": "945cb7c67d73965830dc6800b8c45942f6afdf87200d4a8376d57e9aadac6112",
+    "code/openwave_candidate/validation/observables/energy_gev/ENERGY_GEV.json": "ebacd40494d5dbf0a5c60133b99cf7f836d22a0abe8db503c39d4bddd0b90543",
+    "code/openwave_candidate/validation/observables/energy_gev/INDEPENDENT_REVIEW.json": "2c930cdf721a857e15a321f563d5e55547ecbbb47c754ac9152b946edbd6ebb7",
+    "code/openwave_candidate/validation/observables/energy_gev/INDEPENDENT_REVIEW.md": "3175f851df69abfb5d8a3284740b7dbac3c32b8011b78aaf1186c2b041492ff3",
+    "code/openwave_candidate/validation/observables/energy_gev/SPECTRAL_APPARATUS.json": "c50d3494925858178a0e3e6324775c56c0b9c02b6b23fd895195aee15efad8fe",
+    "code/openwave_candidate/validation/observables/energy_gev/SPECTRAL_APPARATUS.md": "f95fa743481a1877784d13e2303175a8336933b2acaf2d4cf35ca55ec9579f93",
+    "code/openwave_candidate/validation/observables/energy_gev/finite_spectral_adapter.py": "64ae60a2e52bf0b556695f8ebe778a29e44f26a342a0ddf67813a65dff34d115",
+    "code/openwave_candidate/validation/observables/energy_gev/review_energy_gev.py": "09f58257a929a99c6cc1e8320522c2533de1afe0ece7b54aa832c74a5885f168",
+    "code/openwave_candidate/validation/observables/energy_gev/run_energy_gev.py": "3467d24655823445769115c25324b13af07d714417bcbcf1bb9f9fc9ef41ac05",
+    "code/openwave_candidate/validation/observables/energy_gev/spectral_apparatus.py": "4f894b6e657d1e1282fdf538028b5728b5b615ca4437a3200228049e5857af5d",
+    "code/openwave_candidate/validation/observables/energy_gev/test_independent_energy_gev.py": "d74f904dab2b4d4d0bb26fbf46e5f51cd291dde5e46cfddcadd35a72518c9d66",
+    "code/openwave_candidate/validation/observables/energy_gev/test_spectral_apparatus.py": "1a7b01856e95d6b305b54a9f5baf31ec7cdcfc2c094100dc94208b8999f9b61a",
     "code/openwave_candidate/validation/observables/modular_time/INDEPENDENT_REVIEW.json": "d58b0ecc5124b75b712b174bf5e3baed5e3989faf5468dbdd1556f7c7e2e8fb5",
     "code/openwave_candidate/validation/observables/modular_time/INDEPENDENT_REVIEW.md": "e1c1dc5277e9b8ed1a8d52d4e0dd4ee4fd47e81e925e90daf6f34543e2400ab8",
     "code/openwave_candidate/validation/observables/modular_time/METHOD.md": "86175190d14b63bf1cb72482b3022b7755cb0678bef921aa970d7eb24d417927",
@@ -518,7 +577,7 @@
     "code/openwave_candidate/validation/observables/spacetime/stacked_wavepacket.svg": "48a1f0bfe7697eb972218a68dcd6f0a7834d02eb1e09d13ece6399ea4a4f863f",
     "code/openwave_candidate/validation/observables/spacetime/test_independent_stacked.py": "2acd9b945281c894b63d48e958c1455c99c27df1bc8654f2b9fd4b8ef7f99181",
     "code/openwave_candidate/validation/observables/spacetime/test_stacked_assumptions.py": "73d3d148e3c88b82fd17b8f77345c40f345a5b11c7b93b7f7aec8dc9c9a24c74",
-    "tools/build_openwave_joint_claims.py": "11d3d7de1a266217098dabc305e705eb1962a12ddf413addd1234a0bc3f7d77d",
+    "tools/build_openwave_joint_claims.py": "3e5d27ce6f5b890c7059e6332e07500333b231ab4f8a7729d78eac6000c4e1c0",
     "tools/check_openwave_assessment_replay.py": "765efb63988bb4f725426da9df1469523ec3cdd18d079684bf8f77f21416eeb9"
   }
 }

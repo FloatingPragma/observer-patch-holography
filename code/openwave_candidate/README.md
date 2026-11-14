@@ -40,7 +40,7 @@ are retained in [the frozen platform packet](platform_packet/packet.json).
 
 ## Scoped observer experiments
 
-The bundle explicitly includes two experiments under `validation/observables`.
+The bundle explicitly includes three experiment groups under `validation/observables` and the scoped source-to-field bridge under `validation/bridges`.
 Their code, receipts, complete declared readouts, reviews and plots are copied
 byte-for-byte and authenticated by `export_manifest.json`. Other validation
 work and private plans are excluded. These experiments do not change the
@@ -78,3 +78,50 @@ See [modular method](validation/observables/modular_time/METHOD.md) and
 piece, observable and numerical limitation. Rendering requires Matplotlib,
 which is declared in the public repository's `requirements.txt`; the candidate
 package itself provides the numerical experiment dependencies.
+
+
+## Shared preparations, occupations and calibrated energy readouts
+
+The integrated runner includes the pinned-charge H_m orbital source, regional
+continuity current, shared nonnegative Bose occupations and explicit uniform
+Gauss-fiber preparation. The added preparation uses ideal Fourier and reversible
+modular arithmetic gates. Continuing record measurements retain the complete
+postmeasurement state, including its component outside the uniform code.
+
+The GeV experiment preserves every energy branch. Its supplied 511 keV half-gap
+anchor is a calibration, not a prediction of electron mass. A separate complete
+sequential energy/native-record/energy instrument retains source and battery
+energy changes. Its apparatus and work reference are declared resources.
+
+```sh
+python -m oph_openwave.runner pinned_charge
+python -m oph_openwave.runner native_currents
+python -m oph_openwave.runner many_load_native
+python -m oph_openwave.runner fiber_preparation
+python code/openwave_candidate/validation/observables/energy_gev/run_energy_gev.py
+python code/openwave_candidate/validation/observables/energy_gev/spectral_apparatus.py
+python code/openwave_candidate/validation/observables/energy_gev/review_energy_gev.py
+python code/openwave_candidate/validation/reviews/review_energy_gev.py
+python code/openwave_candidate/validation/reviews/review_native_apparatus.py
+python code/openwave_candidate/validation/review_many_load_native.py
+python code/openwave_candidate/validation/review_fiber_preparation.py
+```
+
+These commands regenerate adjacent scientific receipts. Reviews are separate
+implementations where their methods state that; producer checks do not count as
+independent physical audits. The shared-occupation control uses fixed total
+nonnegative Bose load, and does not import signed-pair or fermion-sea results.
+
+## Current driving the existing field executor
+
+The bridge reuses the packaged, byte-identical Maxwell provider with its license
+and provenance. It maps actual coherent native currents to a supplied spatial
+Fourier mode, checks continuity and Gauss, and accounts for field energy as
+supplied source work. It retains source-hold discretization error. There is no
+reciprocal source/field coupling or distant radiation claim.
+
+```sh
+python code/openwave_candidate/validation/bridges/native_maxwell_source.py
+python code/openwave_candidate/validation/bridges/review_native_maxwell_source.py
+python -m pytest -q code/openwave_candidate/validation/bridges/test_native_maxwell_source.py code/openwave_candidate/validation/observables/energy_gev/test_independent_energy_gev.py code/openwave_candidate/validation/observables/energy_gev/test_spectral_apparatus.py
+```

@@ -1,0 +1,572 @@
+{
+  "schema": "oph.native.maxwell_source_bridge.v1",
+  "checks": {
+    "exact_instantaneous_fourier_continuity": true,
+    "held_source_longitudinal_gauss": true,
+    "field_energy_source_work": true,
+    "nonzero_native_driven_field": true,
+    "zero_current_zero_field": true,
+    "source_hold_refinement": true
+  },
+  "parameters": {
+    "native_graph": "triangle",
+    "mass": 0.23,
+    "modulus": 6,
+    "preparation": "uniform modular Gauss fibers; declared coherent reduced state [1,2i,0,1-i,0,0]/sqrt7",
+    "commit_rate": 0,
+    "port_positions": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0.5,
+        0.8660254037844386,
+        0
+      ]
+    ],
+    "fourier_momentum": [
+      0.7,
+      0.4,
+      0.3
+    ],
+    "field_interval": [
+      0,
+      0.4
+    ],
+    "source_scheme": "left-held exact native coherent current",
+    "field_dispersion": "existing continuum blocks omega=|k|; speed/embedding supplied"
+  },
+  "fine": {
+    "steps": 40,
+    "source_hold_error": 0.0006163636420329948,
+    "fourier_continuity_error": 1.5011122659325205e-16,
+    "longitudinal_gauss_error": 5.661048867003676e-16,
+    "transverse_energy": 0.0011289300258107446,
+    "transverse_source_work": 0.001128930025810746,
+    "transverse_work_error": 1.3010426069826053e-18,
+    "longitudinal_energy_change": 0.025638998256411805,
+    "longitudinal_source_work": 0.025638998256411805,
+    "longitudinal_work_error": 0.0,
+    "records": [
+      {
+        "time_end": 0.01,
+        "native_whole_seam_currents": [
+          0.4285714285714285,
+          -2.5243058009950907e-17,
+          -1.4686870114880517e-16
+        ],
+        "transverse_field_energy": 2.977936084082632e-06,
+        "interval_source_work": 2.9779360840826326e-06,
+        "held_charge_real": 0.8310223145772823,
+        "held_charge_imag": -0.46291642382936926
+      },
+      {
+        "time_end": 0.02,
+        "native_whole_seam_currents": [
+          0.4248875588348519,
+          0.005756734396620388,
+          -0.001407160534070889
+        ],
+        "transverse_field_energy": 1.1568430402201767e-05,
+        "interval_source_work": 8.590494318119136e-06,
+        "held_charge_real": 0.8300200145610002,
+        "held_charge_imag": -0.465662492818162
+      },
+      {
+        "time_end": 0.03,
+        "native_whole_seam_currents": [
+          0.4210946329817077,
+          0.011596704159100975,
+          -0.002771576348691436
+        ],
+        "transverse_field_energy": 2.5262916984777776e-05,
+        "interval_source_work": 1.3694486582576011e-05,
+        "held_charge_real": 0.8290235916317182,
+        "held_charge_imag": -0.4683927188091943
+      },
+      {
+        "time_end": 0.04,
+        "native_whole_seam_currents": [
+          0.41719501738342135,
+          0.01751735367815706,
+          -0.004093376953477509
+        ],
+        "transverse_field_energy": 4.3562504606291255e-05,
+        "interval_source_work": 1.8299587621513486e-05,
+        "held_charge_real": 0.82803339777012,
+        "held_charge_imag": -0.47110613890683745
+      },
+      {
+        "time_end": 0.05,
+        "native_whole_seam_currents": [
+          0.4131911507779111,
+          0.0235160452332563,
+          -0.005372709664891063
+        ],
+        "transverse_field_energy": 6.597938067969431e-05,
+        "interval_source_work": 2.2416876073403038e-05,
+        "held_charge_real": 0.8270497788181089,
+        "held_charge_imag": -0.4738018069437637
+      },
+      {
+        "time_end": 0.06,
+        "native_whole_seam_currents": [
+          0.40908554196234664,
+          0.029590060785425358,
+          -0.006609738679699655
+        ],
+        "transverse_field_energy": 9.203819404642799e-05,
+        "interval_source_work": 2.605881336673372e-05,
+        "held_charge_real": 0.8260730742728993,
+        "held_charge_imag": -0.4764787940427708
+      },
+      {
+        "time_end": 0.07,
+        "native_whole_seam_currents": [
+          0.4048807674142545,
+          0.035736603864682685,
+          -0.007804644138116962
+        ],
+        "transverse_field_energy": 0.0001212774125684468,
+        "interval_source_work": 2.9239218522018784e-05,
+        "held_charge_real": 0.8251036170889263,
+        "held_charge_imag": -0.4791361891572194
+      },
+      {
+        "time_end": 0.08,
+        "native_whole_seam_currents": [
+          0.40057946884367646,
+          0.041952801550280416,
+          -0.008957621178057542
+        ],
+        "transverse_field_energy": 0.00015325065146174627,
+        "interval_source_work": 3.197323889329948e-05,
+        "held_charge_real": 0.8241417334877602,
+        "held_charge_imag": -0.4817730995895803
+      },
+      {
+        "time_end": 0.09,
+        "native_whole_seam_currents": [
+          0.3961843506791709,
+          0.048235706541825046,
+          -0.010068878981946592
+        ],
+        "transverse_field_energy": 0.00018752796835719846,
+        "interval_source_work": 3.427731689545223e-05,
+        "held_charge_real": 0.8231877427761997,
+        "held_charge_imag": -0.4843886514876145
+      },
+      {
+        "time_end": 0.1,
+        "native_whole_seam_currents": [
+          0.3916981774905202,
+          0.05458229931923616,
+          -0.011138639817531245
+        ],
+        "transverse_field_energy": 0.0002236971211339843,
+        "interval_source_work": 3.616915277678582e-05,
+        "held_charge_real": 0.8222419571727092,
+        "held_charge_imag": -0.48698199031773765
+      },
+      {
+        "time_end": 0.11,
+        "native_whole_seam_currents": [
+          0.3871237713510795,
+          0.060989490389394246,
+          -0.012167138074144023
+        ],
+        "transverse_field_energy": 0.00026136478464350386,
+        "interval_source_work": 3.766766350951955e-05,
+        "held_charge_real": 0.8213046816423554,
+        "held_charge_imag": -0.48955228131514844
+      },
+      {
+        "time_end": 0.12,
+        "native_whole_seam_currents": [
+          0.38246400914278167,
+          0.06745412261722172,
+          -0.013154619295870862
+        ],
+        "transverse_field_energy": 0.0003001577225272202,
+        "interval_source_work": 3.879293788371634e-05,
+        "held_charge_real": 0.8203762137403849,
+        "held_charge_imag": -0.4920987099103293
+      },
+      {
+        "time_end": 0.13,
+        "native_whole_seam_currents": [
+          0.3777218198068684,
+          0.07397297363883988,
+          -0.014101339213076406
+        ],
+        "transverse_field_energy": 0.00033972391043027723,
+        "interval_source_work": 3.956618790305698e-05,
+        "held_charge_real": 0.8194568434645795,
+        "held_charge_imag": -0.49462048213155696
+      },
+      {
+        "time_end": 0.14,
+        "native_whole_seam_currents": [
+          0.3729001815434879,
+          0.08054275835434137,
+          -0.015007562773737796
+        ],
+        "transverse_field_energy": 0.0003797336070237167,
+        "interval_source_work": 4.0009696593439435e-05,
+        "held_charge_real": 0.8185468531165082,
+        "held_charge_imag": -0.49711682498309046
+      },
+      {
+        "time_end": 0.15,
+        "native_whole_seam_currents": [
+          0.3680021189633556,
+          0.08716013149762179,
+          -0.015873563176033976
+        ],
+        "transverse_field_energy": 0.000419880369371439,
+        "interval_source_work": 4.014676234772224e-05,
+        "held_charge_real": 0.8176465171717908,
+        "held_charge_imag": -0.4995869867987328
+      },
+      {
+        "time_end": 0.16,
+        "native_whole_seam_currents": [
+          0.3630307001947325,
+          0.0938216902806188,
+          -0.01669962090363288
+        ],
+        "transverse_field_energy": 0.0004598820093133991,
+        "interval_source_work": 4.00016399419603e-05,
+        "held_charge_real": 0.8167561021594709,
+        "held_charge_imag": -0.5020302375704947
+      },
+      {
+        "time_end": 0.17,
+        "native_whole_seam_currents": [
+          0.35798903394902337,
+          0.10052397710921444,
+          -0.017486022765110815
+        ],
+        "transverse_field_energy": 0.0004994814876835562,
+        "interval_source_work": 3.959947837015694e-05,
+        "held_charge_real": 0.8158758665505892,
+        "held_charge_imag": -0.5044458692521174
+      },
+      {
+        "time_end": 0.18,
+        "native_whole_seam_currents": [
+          0.35288026654834787,
+          0.10726348236796882,
+          -0.018233060938929603
+        ],
+        "transverse_field_energy": 0.0005384477433393931,
+        "interval_source_work": 3.8966255655837164e-05,
+        "held_charge_real": 0.8150060606560346,
+        "held_charge_imag": -0.5068331960372445
+      },
+      {
+        "time_end": 0.19,
+        "native_whole_seam_currents": [
+          0.3477075789184799,
+          0.1140366472707672,
+          -0.018941032025385836
+        ],
+        "transverse_field_energy": 0.0005765764541489846,
+        "interval_source_work": 3.812871080959137e-05,
+        "held_charge_real": 0.8141469265337405,
+        "held_charge_imag": -0.5091915546120613
+      },
+      {
+        "time_end": 0.2,
+        "native_whole_seam_currents": [
+          0.3424741835505888,
+          0.12083986677438148,
+          -0.01961023610693384
+        ],
+        "transverse_field_energy": 0.0006136907272610843,
+        "interval_source_work": 3.711427311209987e-05,
+        "held_charge_real": 0.8132986979052801,
+        "held_charge_imag": -0.5115203043822536
+      },
+      {
+        "time_end": 0.21,
+        "native_whole_seam_currents": [
+          0.337183321435254,
+          0.1276694925518668,
+          -0.020240975818269127
+        ],
+        "transverse_field_energy": 0.0006496417161730808,
+        "interval_source_work": 3.5950988911996264e-05,
+        "held_charge_real": 0.8124616000819059,
+        "held_charge_imag": -0.513818827674168
+      },
+      {
+        "time_end": 0.22,
+        "native_whole_seam_currents": [
+          0.33183825897225305,
+          0.13452183602264178,
+          -0.02083355542754306
+        ],
+        "transverse_field_energy": 0.0006843091623102928,
+        "interval_source_work": 3.4667446137212045e-05,
+        "held_charge_real": 0.8116358499000664,
+        "held_charge_imag": -0.5160865299100874
+      },
+      {
+        "time_end": 0.23,
+        "native_whole_seam_currents": [
+          0.3264422848596521,
+          0.14139317143602737,
+          -0.021388279930060528
+        ],
+        "transverse_field_energy": 0.000717601859037434,
+        "interval_source_work": 3.329269672714127e-05,
+        "held_charge_real": 0.8108216556664182,
+        "held_charge_imag": -0.5183228397575673
+      },
+      {
+        "time_end": 0.24,
+        "native_whole_seam_currents": [
+          0.32099870696574817,
+          0.1482797390049524,
+          -0.021905454155793362
+        ],
+        "transverse_field_energy": 0.0007494580362384625,
+        "interval_source_work": 3.1856177201028707e-05,
+        "held_charge_real": 0.8100192171123455,
+        "held_charge_imag": -0.5205272092528089
+      },
+      {
+        "time_end": 0.25,
+        "native_whole_seam_currents": [
+          0.3155108491874342,
+          0.1551777480864723,
+          -0.022385381892019555
+        ],
+        "transverse_field_energy": 0.0007798456638238539,
+        "interval_source_work": 3.0387627585391088e-05,
+        "held_charge_real": 0.8092287253579834,
+        "held_charge_imag": -0.5226991138980783
+      },
+      {
+        "time_end": 0.26,
+        "native_whole_seam_currents": [
+          0.3099820482985693,
+          0.16208338040568432,
+          -0.02282836502237602
+        ],
+        "transverse_field_energy": 0.000808762672753851,
+        "interval_source_work": 2.8917008929997368e-05,
+        "held_charge_real": 0.8084503628857318,
+        "held_charge_imag": -0.5248380527332105
+      },
+      {
+        "time_end": 0.27,
+        "native_whole_seam_currents": [
+          0.30441565079194627,
+          0.1689927933195698,
+          -0.023234702683586704
+        ],
+        "transverse_field_energy": 0.0008362370924017816,
+        "interval_source_work": 2.7474419647930753e-05,
+        "held_charge_real": 0.8076843035232342,
+        "held_charge_imag": -0.5269435483812702
+      },
+      {
+        "time_end": 0.28,
+        "native_whole_seam_currents": [
+          0.29881500971845865,
+          0.17590212311724174,
+          -0.023604690441101587
+        ],
+        "transverse_field_energy": 0.0008623271033222925,
+        "interval_source_work": 2.6090010920511016e-05,
+        "held_charge_real": 0.8069307124357855,
+        "held_charge_imag": -0.5290151470684711
+      },
+      {
+        "time_end": 0.29,
+        "native_whole_seam_currents": [
+          0.29318348152706275,
+          0.182807488353028,
+          -0.023938619484853957
+        ],
+        "transverse_field_energy": 0.0008871210047346357,
+        "interval_source_work": 2.479390141234321e-05,
+        "held_charge_real": 0.8061897461281206,
+        "held_charge_imag": -0.5310524186184867
+      },
+      {
+        "time_end": 0.3,
+        "native_whole_seam_currents": [
+          0.28752442290913527,
+          0.18970499320877734,
+          -0.024236775846313504
+        ],
+        "transverse_field_energy": 0.0009107370962800986,
+        "interval_source_work": 2.3616091545463036e-05,
+        "held_charge_real": 0.8054615524555232,
+        "held_charge_imag": -0.5330549564213176
+      },
+      {
+        "time_end": 0.31,
+        "native_whole_seam_currents": [
+          0.28184118765081356,
+          0.1965907308817368,
+          -0.024499439637980847
+        ],
+        "transverse_field_energy": 0.000933323473864547,
+        "interval_source_work": 2.2586377584448273e-05,
+        "held_charge_real": 0.8047462706441878,
+        "held_charge_imag": -0.5350223773769089
+      },
+      {
+        "time_end": 0.32,
+        "native_whole_seam_currents": [
+          0.2761371234968982,
+          0.20346078699431483,
+          -0.024726884316437454
+        ],
+        "transverse_field_energy": 0.0009550577396509963,
+        "interval_source_work": 2.173426578644922e-05,
+        "held_charge_real": 0.8040440313207489,
+        "held_charge_imag": -0.5369543218137439
+      },
+      {
+        "time_end": 0.33,
+        "native_whole_seam_currents": [
+          0.2704155690298777,
+          0.21031124302201248,
+          -0.024919375970029575
+        ],
+        "transverse_field_energy": 0.0009761466265223401,
+        "interval_source_work": 2.1088886871343808e-05,
+        "held_charge_real": 0.8033549565508884,
+        "held_charge_imag": -0.5388504533826677
+      },
+      {
+        "time_end": 0.34,
+        "native_whole_seam_currents": [
+          0.26467985056761867,
+          0.21713817973578106,
+          -0.025077172632229687
+        ],
+        "transverse_field_energy": 0.0009968255375899808,
+        "interval_source_work": 2.0678911067640727e-05,
+        "held_charge_real": 0.8026791598869167,
+        "held_charge_imag": -0.5407104589262265
+      },
+      {
+        "time_end": 0.35000000000000003,
+        "native_whole_seam_currents": [
+          0.25893327908323743,
+          0.2239376806550419,
+          -0.025200523621682014
+        ],
+        "transverse_field_energy": 0.0010173580015793073,
+        "interval_source_work": 2.053246398932672e-05,
+        "held_charge_real": 0.8020167464242126,
+        "held_charge_imag": -0.5425340483238357
+      },
+      {
+        "time_end": 0.36,
+        "native_whole_seam_currents": [
+          0.2531791471506407,
+          0.23070583550758708,
+          -0.02528966890990005
+        ],
+        "transverse_field_energy": 0.0010380350451768907,
+        "interval_source_work": 2.067704359758337e-05,
+        "held_charge_real": 0.8013678128663987,
+        "held_charge_imag": -0.5443209543131189
+      },
+      {
+        "time_end": 0.37,
+        "native_whole_seam_currents": [
+          0.24742072591919279,
+          0.23743874369256762,
+          -0.02534483851754503
+        ],
+        "transverse_field_energy": 0.0010591744836760731,
+        "interval_source_work": 2.113943849918254e-05,
+        "held_charge_real": 0.8007324475991165,
+        "held_charge_imag": -0.5460709322877902
+      },
+      {
+        "time_end": 0.38,
+        "native_whole_seam_currents": [
+          0.24166126212092492,
+          0.2441325177427661,
+          -0.025366251940172647
+        ],
+        "transverse_field_energy": 0.0010811201315064857,
+        "interval_source_work": 2.1945647830412847e-05,
+        "held_charge_real": 0.8001107307722568,
+        "held_charge_imag": -0.5477837600724772
+      },
+      {
+        "time_end": 0.39,
+        "native_whole_seam_currents": [
+          0.2359039751136669,
+          0.25078328678235107,
+          -0.02535411760429476
+        ],
+        "transverse_field_energy": 0.0011042409344780846,
+        "interval_source_work": 2.31208029715989e-05,
+        "held_charge_real": 0.7995027343904889,
+        "held_charge_imag": -0.5494592376749103
+      },
+      {
+        "time_end": 0.4,
+        "native_whole_seam_currents": [
+          0.23015205396342941,
+          0.25738719997630455,
+          -0.025308632354558182
+        ],
+        "transverse_field_energy": 0.0011289300258107446,
+        "interval_source_work": 2.4689091332660155e-05,
+        "held_charge_real": 0.7989085224119257,
+        "held_charge_imag": -0.5510971870159332
+      }
+    ],
+    "field_real": [
+      -0.02088701677758798,
+      0.009511401056365778,
+      0.03605450440588418,
+      -0.0011706775095963904,
+      0.0023846324039324303,
+      -0.00044792901618499775
+    ],
+    "field_imag": [
+      -0.001369006128734814,
+      0.012243956874366196,
+      -0.013130928198773673,
+      -0.0015363416201109245,
+      0.007498935937759696,
+      -0.006413784136754103
+    ]
+  },
+  "coarse_source_hold_error": 0.0012285783813602718,
+  "assumptions": [
+    "one-way classical expectation current drives declared linear field; no quantum joint source/field state or backreaction",
+    "effective port charge gives each transit half to each endpoint, different from whole-transit regional apparatus",
+    "straight-edge Fourier line current matches exact effective point-charge continuity",
+    "longitudinal field initialized from same charge; source held each interval; native endpoint charge mismatch retained",
+    "single Fourier mode energy is an algebraic mode norm, not calibrated spatial distant flux or outgoing radiation"
+  ],
+  "full_physical_criterion_met": false,
+  "source_sha256": {
+    "validation/bridges/native_maxwell_source.py": "735c83ee5e1cc8e984c595ecfb937d827b334c063754e8f38a93c51018320a5c",
+    "candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907",
+    "candidate/oph_openwave/uniform_native.py": "2416525dfd50cb7e7f38805a52c65858d51fda428b5875abc7295e52b03e3146",
+    "candidate/oph_openwave/modular_native.py": "1b6e25eb63ca190e1b5ef999b0b43cefb790e7872a58ffdb40256662ca65959a",
+    "validation/bridges/providers/seam_maxwell_continuum.py": "c1963e2b1825fc74a05f5bab200bbc9fc56d6315fae9ce8d46eeb815a09cfd87"
+  }
+}

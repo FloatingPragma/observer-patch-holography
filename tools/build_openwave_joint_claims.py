@@ -16,7 +16,8 @@ OUTPUT = ROOT/'claims/openwave_joint_model.json'
 def observable_receipt(relative):
     path=BUNDLE/relative
     result=json.loads(path.read_text())
-    if result.get('official_rows_promoted') != 0:
+    no_award=(type(result.get('official_rows_promoted')) is int and result['official_rows_promoted']==0) or ('official_rows_promoted' not in result and result.get('official_rows_changed')==[] and result.get('full_criterion_met') is False)
+    if not no_award:
         raise ValueError('observable experiment cannot award an official row')
     pins=result.get('source_sha256',{})
     if not pins:
@@ -28,6 +29,17 @@ def observable_receipt(relative):
         if hashlib.sha256(source.read_bytes()).hexdigest()!=expected:
             raise ValueError('stale observable source: '+rel)
     return result
+
+
+def c8_finite_claims():
+    """Finite mechanisms instantiated on the declared active source; no awards."""
+    return [
+      {'id':'native_pinned_charge_spectrum','statement':'A position-only E2a pinned-charge energy is added to the same uniform-fiber H_m. Complete canonical1x1 spectra and selected source-overlap eigenstates retain negative branches; a complete modular triangle checks the charge-energy lift and every native Kraus map.','domain':'Supplied source, mass .23, coupling .29 and half-transit charge. Coherent eigenstate stationarity fails under the tested native monitoring. No physical atom, scattering threshold, hydrogen series or H0=L clock substitution.'},
+      {'id':'native_position_current_readout','statement':'The same Hamiltonian supplies the exact regional continuity operator J=i[H,P]. Complete native outcomes account separately for committed regional-charge changes, and a declared complete current spectral PVM reproduces its expectation.','domain':'Whole port/transit position charge, distinct from endpoint-half energy charge. Supplied current apparatus; no C/E-only synthesis, physical electric/spin current label or reduced postmeasurement continuation inferred.'},
+      {'id':'shared_many_load_native','statement':'A complete nonnegative Bose occupation sector with shared modular half-records implements signed port/transit hopping and literal occupation-balancing C/E instruments. Its one-load cyclic control equals the original Hamiltonian and every native Kraus map; three-unit tree controls retain complete outcomes and fixed Gauss residues.','domain':'Declared Bose statistics, fixed total, finite BFS sector and modulus. Modulus greater than twice an admitted absolute charge bound gives unique signed cut decoding; a net signed load alone does not. No signed sea, independent-unit commit substitution or many-load uniform-fiber theorem.'},
+      {'id':'declared_uniform_fiber_preparation','statement':'Added dimension-N Fourier gates and reversible tree Gauss arithmetic prepare the uniform record fibers with ideal success one, including composite modulus. Complete tiny Gauss sectors and reversible work-register controls instantiate the prescription.','domain':'Additional preparation resources, not native-only C/E evolution; no hardware noise, efficient gate-count bound or general complexity lower bound asserted.'},
+      {'id':'native_current_maxwell_bridge','statement':'The actual coherent native expectation current supplies a straight-edge Fourier source for the existing Maxwell mode executor. Exact instantaneous half-transit charge continuity and held-source Gauss/work identities pass independent endpoint, quadrature and augmented-exponential checks.', 'domain':'One-way supplied linear field and embedding, zero commit rate, finite source-hold step. The endpoint native charge mismatch is retained and compared under refinement. No quantum source-field state, reciprocal backreaction, outgoing radiation, derived dispersion or physical calibration.'},
+      {'id':'continuing_record_apparatus','statement':'Individual half-record measurements retain every full poststate, including its code-complement coherence, for subsequent full native evolution. Whole-position closed-cut measurement branches intertwine with the reduced code.','domain':'Tiny complete modular apparatus controls. Code/complement weights are diagnostics rather than an extra dephasing measurement. Arbitrary terminal effects do not imply closed reduced continuation.'}]
 
 
 def generate():
@@ -53,11 +65,24 @@ def generate():
     experiment_root=BUNDLE/'validation/observables'
     modular=observable_receipt('validation/observables/modular_time/MODULAR_TIME.json')
     spatial=observable_receipt('validation/observables/spacetime/STACKED_WAVEPACKET.json')
+    energy=observable_receipt('validation/observables/energy_gev/ENERGY_GEV.json')
+    apparatus=observable_receipt('validation/observables/energy_gev/SPECTRAL_APPARATUS.json')
+    if not all(v is True for result in (energy,apparatus) for v in result['checks'].values()):
+        raise ValueError('native energy/apparatus check failed')
     if not all(v is True for v in modular['checks'].values()) or not all(v is True for v in modular['mutations'].values()):
         raise ValueError('modular observer check failed')
     archive=experiment_root/'modular_time'/modular['native_state_archive']['filename']
     if hashlib.sha256(archive.read_bytes()).hexdigest()!=modular['native_state_archive']['sha256']:
         raise ValueError('native observer state archive changed')
+    bridge_root=BUNDLE/'validation/bridges'
+    bridge=json.loads((bridge_root/'NATIVE_MAXWELL_SOURCE.json').read_text())
+    if bridge.get('full_physical_criterion_met') is not False or not bridge.get('source_sha256') or not bridge.get('checks') or not all(v is True for v in bridge['checks'].values()):
+        raise ValueError('native current/field bridge scope or checks changed')
+    for rel,expected in bridge['source_sha256'].items():
+        source=(BUNDLE/rel).resolve()
+        if not source.is_relative_to(BUNDLE.resolve()) or hashlib.sha256(source.read_bytes()).hexdigest()!=expected:
+            raise ValueError('stale or external current/field bridge source: '+rel)
+    paths += sorted(p for p in bridge_root.rglob('*') if p.is_file() and '__pycache__' not in p.parts and '.pytest_cache' not in p.parts)
     paths += sorted(p for p in experiment_root.rglob('*') if p.is_file() and '__pycache__' not in p.parts
                     and '.pytest_cache' not in p.parts)
     return {
@@ -79,6 +104,10 @@ def generate():
          'weighted_group_velocity':spatial['observables']['weighted_group_velocity'],
          'centroid_reference_max_distance':spatial['observables']['max_centroid_ray_distance'],
          'domain':'Supplied vertical edges, unit spacing/weights, periodic lattice, positive acoustic preparation, finite-grid phase convention, coarse position apparatus and flat anisotropic metric. This is an extension of the two-dimensional screen. The broad ensemble centroid is not an observed individual trajectory. No physical length/time calibration, dynamical gravity, modular/proper-time identification or transfer of the two-dimensional force kernel is asserted.',
+         'physical_rows_promoted':0},
+        {'id':'native_energy_and_declared_units','statement':'The complete canonical native spectrum and supplied interferometric projectors read positive/negative energy gaps. A separate complete sequential initial-energy/native-event/final-energy instrument retains every reference label and energy-conserving supported battery-shell column.',
+         'receipts':['code/openwave_candidate/validation/observables/energy_gev/ENERGY_GEV.json','code/openwave_candidate/validation/observables/energy_gev/SPECTRAL_APPARATUS.json'],
+         'domain':'Spectral preparation/readout and phase reference are declared resources. GeV values use a supplied511keV half-gap calibration; no electron mass prediction or vacuum/species identification. Sequential energy measurements change reference correlations and differ from the original unmeasured-reference spectral coupling. Supported battery isometry is not a reusable autonomous battery.',
          'physical_rows_promoted':0}],
       'finite_claims':[
         {'id':'additive_independent_loads','statement':'Independent prepared loads evolve under separate copies of the port/transit generator.','domain':'Product preparations; no interacting or exchange-statistics theorem.'},
@@ -95,7 +124,7 @@ def generate():
         {'id':'local_coarse_modular_instrument','statement':'The separately named modular local-coarse C/E Kraus instrument preserves trace, positivity, its Gauss residues and an external quantum reference. Its per-seam generator retains the local rate when an unoccupied remote component is added.', 'domain':'Complete finite reachable one-load modular sectors and supplied coarse grouping, transit policy and rates. Global monitoring changes the measured triangle evolution. No integer-regulator equality, many-load independence theorem, native-clock derivation or physical row award follows.'},
         {'id':'certified_canonical_native_window','statement':'A sparse local-coarse modular instrument runs on the canonical ring with explicit rejected boundary events. Exact rational Taylor arithmetic and an analytic projection bound enclose every position and classical-quantum outcome probability relative to the complete modular sector.', 'domain':'One coherent interval and Bernoulli event from the specified initial zero-record basis state, at the same modulus. The executed 55-state radius-4 ring window has combined probability-effect error below .006. The polynomial norm defect is retained. No repeated-channel, continuous per-seam scheduling, infinite-integer, or physical row transfer follows.'},
         {'id':'uniform_fiber_native_reduction','statement':'On a connected modular Gauss sector, normalized uniform record fibers define an isometry intertwining the Hamiltonian and every local-coarse C/E Kraus operator. The reduced canonical ring therefore reproduces complete native outcomes, repeated channels, external references and the per-seam generator on this preparation subspace.', 'domain':'Explicit uniform-fiber preparation, including composite modulus6; connected graph and fixed source sector. Native sector-preserving operations do not deterministically prepare it from definite records; conditional success is bounded by the initial zero-holonomy weight. Additional preparation resources are allowed but must be declared. Arbitrary terminal effects compress to V*EV; continued reduced evolution needs instrument-level preservation. Individual record measurements generally leave the code. Numerical continuous propagation is distinct from the exact operator identity. No physical charge identification follows.'},
-        {'id':'compact_native_persistence','statement':'A closed three-seam transit cycle in the reduced canonical graph lifts through the uniform-fiber isometry to an eigenstate with energy -m. Every native local endpoint event preserves its density, including supplied per-seam continuous scheduling. Canonical1x1 and2x2 controls and an explicit complete modular triangle verify persistence and reject broken-cycle, definite-record and full-monitor substitutions.', 'domain':'Spatially compact, flat nonpropagating mode with globally coherent modular record fibers and supplied transit-as-elsewhere rule. The -m eigenvalue supplies no vacuum/positive-energy electron dictionary, physical rest clock, magnetic moment or full particle-stability criterion.'}],
+        {'id':'compact_native_persistence','statement':'A closed three-seam transit cycle in the reduced canonical graph lifts through the uniform-fiber isometry to an eigenstate with energy -m. Every native local endpoint event preserves its density, including supplied per-seam continuous scheduling. Canonical1x1 and2x2 controls and an explicit complete modular triangle verify persistence and reject broken-cycle, definite-record and full-monitor substitutions.', 'domain':'Spatially compact, flat nonpropagating mode with globally coherent modular record fibers and supplied transit-as-elsewhere rule. The -m eigenvalue supplies no vacuum/positive-energy electron dictionary, physical rest clock, magnetic moment or full particle-stability criterion.'}]+c8_finite_claims(),
       'row_assessment':[{'id':r['id'],'local_status':r['local_status'],'full_criterion_met':r['full_criterion_met'],'official_status':r['official_status'],'missing_prerequisites':r['missing_prerequisites']} for r in rows],
       'physical_premises_closed':[], 'official_OpenWave_awards_added':0,
       'comparison_domains':{

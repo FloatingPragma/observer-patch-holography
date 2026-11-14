@@ -1,0 +1,109 @@
+{
+  "schema": "oph.native.energy_gev.independent_review.v1",
+  "outcome": "PASS_WITH_SCOPE_NOTES",
+  "independent_method": "Exact symbolic canonical24port characteristic polynomial; analytic \u00b1sqrt(m\u00b2+lambda)/\u2212m multiplicities; archived-state phases; independently constructed coarse C/E channel and SciPy evr degenerate-energy projectors.",
+  "exact_L_characteristic_polynomial": "x*(x - 8)**2*(x - 6)**7*(x**2 - 10*x + 20)**3*(x**2 - 10*x + 22)**2*(x**4 - 18*x**3 + 102*x**2 - 188*x + 60)",
+  "native_H_spectrum_error": 2.4424906541753444e-15,
+  "native_H_negative_m_multiplicity": 40,
+  "calibration": {
+    "benchmark_511_keV_in_GeV": 0.000511,
+    "measured_half_gap_native": 0.23000000000000076,
+    "GeV_per_native_unit": 0.002221739130434775,
+    "supplied_empirical_anchor": true
+  },
+  "errors": {
+    "interference_probabilities": 1.8041124150158794e-14,
+    "apparatus_normalization": 1.4432899320127035e-15,
+    "complete_native_energy_normalization": 4.773959005888173e-15,
+    "complete_native_record_normalization": 9.992007221626409e-16,
+    "independent_native_record_probabilities": 2.3852447794681098e-18,
+    "independent_energy_projector_probabilities": 5.88418203051333e-15,
+    "native_energy_expectation": 8.257283745649602e-15,
+    "archived_energy_basis": 2.220446049250313e-15,
+    "gap_and_GeV_conversion": 2.6645352591003757e-15
+  },
+  "selected_pair_summary": [
+    {
+      "lambda": 0,
+      "gap_native": 0.4600000000000015,
+      "half_gap_GeV": 0.000511,
+      "native_record_outcomes": 631
+    },
+    {
+      "lambda": 0.39994424530350525,
+      "gap_native": 1.3458740584519875,
+      "half_gap_GeV": 0.00149509053014992,
+      "native_record_outcomes": 631
+    },
+    {
+      "lambda": 2.763932022500208,
+      "gap_native": 3.356684091480882,
+      "half_gap_GeV": 0.0037288381972754884,
+      "native_record_outcomes": 631
+    },
+    {
+      "lambda": 2.80819654247806,
+      "gap_native": 3.3829552420793636,
+      "half_gap_GeV": 0.0037580220189185843,
+      "native_record_outcomes": 631
+    },
+    {
+      "lambda": 3.2679491924311184,
+      "gap_native": 3.644639456753505,
+      "half_gap_GeV": 0.004048719048697901,
+      "native_record_outcomes": 631
+    },
+    {
+      "lambda": 5.999999999999995,
+      "gap_native": 4.920528426907009,
+      "half_gap_GeV": 0.005466065274237985,
+      "native_record_outcomes": 631
+    },
+    {
+      "lambda": 6.265768709949471,
+      "gap_native": 5.027392449351641,
+      "half_gap_GeV": 0.005584777264388434,
+      "native_record_outcomes": 631
+    },
+    {
+      "lambda": 6.732050807568877,
+      "gap_native": 5.20958762574117,
+      "half_gap_GeV": 0.005787172340768975,
+      "native_record_outcomes": 631
+    },
+    {
+      "lambda": 7.236067977499788,
+      "gap_native": 5.399617755915614,
+      "half_gap_GeV": 0.005998271028854063,
+      "native_record_outcomes": 631
+    },
+    {
+      "lambda": 8.0,
+      "gap_native": 5.675526407303555,
+      "half_gap_GeV": 0.006304769552461101,
+      "native_record_outcomes": 631
+    },
+    {
+      "lambda": 8.52609050226896,
+      "gap_native": 5.857982759369976,
+      "half_gap_GeV": 0.006507454760952276,
+      "native_record_outcomes": 631
+    }
+  ],
+  "scope_notes": [
+    "The511keV benchmark is supplied calibration, not a predicted electron mass.",
+    "All negative/positive energies refer to a declared generator zero; gap/half-gap anchor is scalar-shift invariant.",
+    "Explicit coherent \u00b1 eigenvector superpositions and rankone probes make an interferometric gap observable; no claim that port-diagonal readout sees2m.",
+    "Per-vector energy probabilities within a degeneracy require a chosen fine basis; independent audit compares basis-invariant degenerate-energy projectors.",
+    "No physical vacuum, particle species, infinite-volume pole, relativistic mass or self-starting clock is identified.",
+    "Native C/E comparison is a separate declared Bernoulli step; no energy-conservation assertion through monitoring."
+  ],
+  "full_physical_criterion_met": false,
+  "official_rows_promoted": 0,
+  "producer_rerun": false,
+  "source_sha256": {
+    "validation/observables/energy_gev/ENERGY_GEV.json": "ebacd40494d5dbf0a5c60133b99cf7f836d22a0abe8db503c39d4bddd0b90543",
+    "validation/observables/energy_gev/review_energy_gev.py": "09f58257a929a99c6cc1e8320522c2533de1afe0ece7b54aa832c74a5885f168",
+    "candidate/oph_openwave/geometry.py": "00d6ca810b1c7430e761b3106317f288d0b3c2e722dfeedec5aa18ac7bb8e32d"
+  }
+}

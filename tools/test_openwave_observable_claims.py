@@ -40,3 +40,28 @@ class ObservableCustodyTests(unittest.TestCase):
                 for pins in ({'../external.py':'hash'},{}):
                     value['source_sha256']=pins;receipt.write_text(json.dumps(value))
                     with self.assertRaises(ValueError):claims.observable_receipt('result.json')
+
+    def test_component_authority_and_custody(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);_,receipt,value=self.fixture(root)
+            del value['official_rows_promoted'];value.update(official_rows_changed=[],full_criterion_met=False)
+            receipt.write_text(json.dumps(value))
+            with patch.object(claims,'BUNDLE',root):
+                self.assertFalse(claims.observable_receipt('result.json')['full_criterion_met'])
+                value['official_rows_changed']=[31];receipt.write_text(json.dumps(value))
+                with self.assertRaisesRegex(ValueError,'cannot award'):claims.observable_receipt('result.json')
+
+    def test_boolean_award_is_not_integer_zero(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);_,receipt,value=self.fixture(root)
+            value['official_rows_promoted']=False;receipt.write_text(json.dumps(value))
+            with patch.object(claims,'BUNDLE',root):
+                with self.assertRaisesRegex(ValueError,'cannot award'):claims.observable_receipt('result.json')
+
+    def test_C8_preserves_physical_and_preparation_domains(self):
+        values={r['id']:r for r in claims.c8_finite_claims()}
+        self.assertEqual(len(values),6)
+        self.assertIn('fails under',values['native_pinned_charge_spectrum']['domain'])
+        self.assertIn('No signed sea',values['shared_many_load_native']['domain'])
+        self.assertIn('not native-only',values['declared_uniform_fiber_preparation']['domain'])
+        self.assertIn('rather than an extra dephasing',values['continuing_record_apparatus']['domain'])
