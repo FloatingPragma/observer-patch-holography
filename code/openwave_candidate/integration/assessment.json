@@ -1,0 +1,2957 @@
+{
+  "schema": "oph.integration.assessment.v1",
+  "scope": "local supporting probes; no platform submissions or official promotions",
+  "seed": 9317,
+  "versions": {
+    "python": "3.12.6",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "supplied": {
+    "mass": 0.173,
+    "graph": "canonical twelve-port carrier; triangle joint-register control declared separately",
+    "time_unit": "inverse hop amplitude"
+  },
+  "sources": {
+    "integration/assess.py": "677cf2af994e0a5855791e137c9ee81853a8c1ec3a19544658bdfd71885ab833",
+    "candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907",
+    "platform_packet/packet.json": "2a203acaa796b7fc4fc390c3060f3dd1bb85aed211337a2b0c4668640a40d5b5",
+    "candidate/oph_openwave/quantum_records.py": "95735e200a0f7167b4efc18ad62bb0f42e1dac43277ea4defd46f5dbf3c5e34c",
+    "candidate/oph_openwave/geometry.py": "00d6ca810b1c7430e761b3106317f288d0b3c2e722dfeedec5aa18ac7bb8e32d",
+    "candidate/oph_openwave/observer_protocol.py": "75bd1ddaed574149257d525063d66175711e46e4f3404b866bd94a3b9c87bc61"
+  },
+  "rows": [
+    {
+      "id": 1,
+      "criterion": "Charge quantization",
+      "required_test": "integer topological charge; a split e \u2192 e/2 + e/2 impossible",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "partial_support",
+      "missing_prerequisites": "Topological identification with physical electric charge and no fractional charged excitations across the full state space.",
+      "measurement": {
+        "observable": "integer native charge and n+div(E) conservation",
+        "events": 2000,
+        "gauss_error": 0,
+        "broken_current_rejected": true,
+        "remaining": "Topological identification with physical electric charge and no fractional charged excitations across the full state space.",
+        "joint_record_instrument": {
+          "scope": "Bounded integer Gauss sector, monitored one-load native C-current instrument, discrete coherent/commit protocol; no continuum or fast-commit claim.",
+          "checks": {
+            "joint_hermitian": true,
+            "exact_gauss": true,
+            "native_population": true,
+            "trace": true,
+            "positive": true,
+            "ledger_complete": true
+          },
+          "mutations": {
+            "missing_half_record_detected": true
+          },
+          "full_criterion_met": false,
+          "cutoff_comparison": {
+            "graph": "oriented triangle",
+            "mass": 0.23,
+            "steps": 8,
+            "time_per_step": 0.37,
+            "commit_probability": 0.29,
+            "rows": [
+              {
+                "cutoff": 1,
+                "dimension": 13,
+                "position_probabilities": [
+                  0.16941102960506182,
+                  0.17161636652591283,
+                  0.17161636652591283,
+                  0.16159072764159915,
+                  0.16417478205991093,
+                  0.1615907276415993
+                ],
+                "trace": 0.9999999999999969,
+                "sum_expected_rejections_over_steps": 0.0057320186266434925
+              },
+              {
+                "cutoff": 2,
+                "dimension": 25,
+                "position_probabilities": [
+                  0.14851767793116538,
+                  0.1735453422320823,
+                  0.17354534223208243,
+                  0.16971853207067153,
+                  0.16495457346332168,
+                  0.1697185320706717
+                ],
+                "trace": 0.999999999999995,
+                "sum_expected_rejections_over_steps": 3.611108792594693e-07
+              }
+            ],
+            "maximum_position_probability_drift": 0.020893351673896443,
+            "scope": "Two finite cutoffs only; cumulative expected rejection count is not an error bound."
+          },
+          "supplied": {
+            "integer_cutoff": 1,
+            "states": 13,
+            "commit_monitor": "position and all half-seam records",
+            "transit_event": "retained noop",
+            "boundary": "coherent forbidden half-hops omitted (Hermitian hard wall); monitored native attempts retained as rejections",
+            "commit_probability": 0.37,
+            "time": 0.17,
+            "record_law": "equal C (coin,current) and E (coin,pre-repair contrast); separate seam-offset dynamics not implemented"
+          }
+        }
+      }
+    },
+    {
+      "id": 2,
+      "criterion": "Electron rest energy (mass)",
+      "required_test": "localized state anchored to 511 keV",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Localized charged electron eigenstate, stable rest pole and a common 511 keV dictionary.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 3,
+      "criterion": "de Broglie clock (Zitterbewegung)",
+      "required_test": "self-starting frequency-rigid internal oscillation at \u03c9 = mc\u00b2/\u210f",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "partial_support",
+      "missing_prerequisites": "Observed frequency is 2E, not the criterion rest clock; localized physical electron and native calibration remain missing.",
+      "measurement": {
+        "observable": "bare port/transit control on a nonzero Laplacian mode; no automatic spectral transfer to integer links",
+        "max_probability_error": 9.769962616701378e-15,
+        "frequency": 3.342969352237743,
+        "wrong_frequency_rejected": true,
+        "remaining": "Observed frequency is 2E, not the criterion rest clock; localized physical electron and native calibration remain missing.",
+        "joint_monitoring": {
+          "graph": "oriented triangle",
+          "mass": 0.23,
+          "cutoff": 1,
+          "steps": 8,
+          "step_time": 0.37,
+          "regimes": [
+            {
+              "commit_probability": 0.0,
+              "samples": [
+                {
+                  "step": 0,
+                  "position_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "source_port_probability": 1.0,
+                  "port_probability": 1.0,
+                  "transit_probability": 0.0,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.9999999999999999,
+                    "boundary_rejected": 0.0,
+                    "transit_noop": 0.0
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.16666666666666666,
+                    "0": 0.6666666666666666,
+                    "-1": 0.16666666666666666
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 1.0,
+                  "purity": 1.0
+                },
+                {
+                  "step": 1,
+                  "position_probabilities": [
+                    0.7535341661567483,
+                    0.004268101147418541,
+                    0.004268101147418539,
+                    0.11889837379957474,
+                    0.00013288394926484762,
+                    0.11889837379957477
+                  ],
+                  "source_port_probability": 0.7535341661567483,
+                  "port_probability": 0.7620703684515853,
+                  "transit_probability": 0.23792963154841434,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.7620703684474982,
+                    "boundary_rejected": 4.086675798711433e-12,
+                    "transit_noop": 0.2379296315484144
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.12701172807322086,
+                    "0": 0.7459765438535567,
+                    "-1": 0.12701172807322086
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.7535341661567483,
+                  "purity": 0.9999999999999993
+                },
+                {
+                  "step": 2,
+                  "position_probabilities": [
+                    0.2808970045139235,
+                    0.051365414118153714,
+                    0.05136541411815373,
+                    0.30475147309376144,
+                    0.006869221062244914,
+                    0.30475147309376166
+                  ],
+                  "source_port_probability": 0.2808970045139235,
+                  "port_probability": 0.38362783275023093,
+                  "transit_probability": 0.616372167249768,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.3836278176928061,
+                    "boundary_rejected": 1.5057424814836702e-08,
+                    "transit_noop": 0.6163721672497686
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.06393796459632609,
+                    "0": 0.8721240708073479,
+                    "-1": 0.06393796459632609
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.2808970045139235,
+                  "purity": 0.9999999999999983
+                },
+                {
+                  "step": 3,
+                  "position_probabilities": [
+                    0.03360194987567154,
+                    0.15908987188708923,
+                    0.15908987188708934,
+                    0.29700744680793306,
+                    0.0542034127342822,
+                    0.2970074468079335
+                  ],
+                  "source_port_probability": 0.03360194987567154,
+                  "port_probability": 0.3517816936498501,
+                  "transit_probability": 0.6482183063501488,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.3517800584259302,
+                    "boundary_rejected": 1.6352239198529512e-06,
+                    "transit_noop": 0.6482183063501493
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.05862946466301509,
+                    "0": 0.8827410706739693,
+                    "-1": 0.05862946466301509
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.03360194987567154,
+                  "purity": 0.9999999999999976
+                },
+                {
+                  "step": 4,
+                  "position_probabilities": [
+                    0.0993568306907361,
+                    0.2445242057192253,
+                    0.2445242057192255,
+                    0.1171342526910683,
+                    0.177326252488675,
+                    0.11713425269106865
+                  ],
+                  "source_port_probability": 0.0993568306907361,
+                  "port_probability": 0.588405242129187,
+                  "transit_probability": 0.41159475787081196,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.5883651297392213,
+                    "boundary_rejected": 4.011238996555289e-05,
+                    "transit_noop": 0.41159475787081196
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.09804748415988171,
+                    "0": 0.8039050316802356,
+                    "-1": 0.09804748415988171
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.0993568306907361,
+                  "purity": 0.9999999999999978
+                },
+                {
+                  "step": 5,
+                  "position_probabilities": [
+                    0.2001000516684916,
+                    0.22974274370578804,
+                    0.22974274370578818,
+                    0.010859024510389571,
+                    0.3186964118991523,
+                    0.010859024510389635
+                  ],
+                  "source_port_probability": 0.2001000516684916,
+                  "port_probability": 0.6595855390800678,
+                  "transit_probability": 0.3404144609199315,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.6591659550543478,
+                    "boundary_rejected": 0.0004195840257193939,
+                    "transit_noop": 0.3404144609199316
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.10972113116715161,
+                    "0": 0.7805577376656951,
+                    "-1": 0.10972113116715161
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.2001000516684916,
+                  "purity": 0.9999999999999987
+                },
+                {
+                  "step": 6,
+                  "position_probabilities": [
+                    0.1512162640317463,
+                    0.17131620368812756,
+                    0.1713162036881275,
+                    0.0852166657438821,
+                    0.33571799710423444,
+                    0.08521666574388204
+                  ],
+                  "source_port_probability": 0.1512162640317463,
+                  "port_probability": 0.49384867140800137,
+                  "transit_probability": 0.5061513285919985,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.49137341158384007,
+                    "boundary_rejected": 0.0024752598241612775,
+                    "transit_noop": 0.5061513285919986
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.08107048198925292,
+                    "0": 0.8378590360214948,
+                    "-1": 0.08107048198925292
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.1512162640317463,
+                  "purity": 0.9999999999999998
+                },
+                {
+                  "step": 7,
+                  "position_probabilities": [
+                    0.08114878517593871,
+                    0.17356413075266436,
+                    0.17356413075266428,
+                    0.19409723619865699,
+                    0.18352848092141882,
+                    0.19409723619865693
+                  ],
+                  "source_port_probability": 0.08114878517593871,
+                  "port_probability": 0.4282770466812673,
+                  "transit_probability": 0.5717229533187327,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.4187589084957312,
+                    "boundary_rejected": 0.009518138185536255,
+                    "transit_noop": 0.571722953318733
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.06662043868744309,
+                    "0": 0.8667591226251145,
+                    "-1": 0.06662043868744309
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.08114878517593871,
+                  "purity": 1.0000000000000002
+                },
+                {
+                  "step": 8,
+                  "position_probabilities": [
+                    0.170276035643173,
+                    0.21717637360452013,
+                    0.21717637360452016,
+                    0.18695811354227898,
+                    0.021454990063228895,
+                    0.18695811354227893
+                  ],
+                  "source_port_probability": 0.170276035643173,
+                  "port_probability": 0.6046287828522133,
+                  "transit_probability": 0.3953712171477868,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.5787685917230722,
+                    "boundary_rejected": 0.025860191129140574,
+                    "transit_noop": 0.3953712171477868
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.08784136824413194,
+                    "0": 0.8243172635117357,
+                    "-1": 0.08784136824413193
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.170276035643173,
+                  "purity": 1.0000000000000004
+                }
+              ],
+              "source_return_peak_to_peak": 0.7199322162810767,
+              "final_purity": 1.0000000000000004
+            },
+            {
+              "commit_probability": 0.29,
+              "samples": [
+                {
+                  "step": 0,
+                  "position_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "source_port_probability": 1.0,
+                  "port_probability": 1.0,
+                  "transit_probability": 0.0,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.9999999999999999,
+                    "boundary_rejected": 0.0,
+                    "transit_noop": 0.0
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.16666666666666666,
+                    "0": 0.6666666666666666,
+                    "-1": 0.16666666666666666
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 1.0,
+                  "purity": 1.0
+                },
+                {
+                  "step": 1,
+                  "position_probabilities": [
+                    0.6811051132070315,
+                    0.04048262762227688,
+                    0.04048262762227688,
+                    0.11889837379957474,
+                    0.0001328839492648476,
+                    0.11889837379957477
+                  ],
+                  "source_port_probability": 0.6811051132070315,
+                  "port_probability": 0.7620703684515852,
+                  "transit_probability": 0.23792963154841434,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.7620703591585871,
+                    "boundary_rejected": 9.292998434487597e-09,
+                    "transit_noop": 0.2379296315484144
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.12701172342876496,
+                    "0": 0.7459765531424687,
+                    "-1": 0.12701172342876496
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.6811051132070315,
+                  "purity": 0.6990161096463239
+                },
+                {
+                  "step": 2,
+                  "position_probabilities": [
+                    0.29402640626525034,
+                    0.0815921572630533,
+                    0.0815921572630533,
+                    0.264331658917815,
+                    0.014125961373011812,
+                    0.26433165891781524
+                  ],
+                  "source_port_probability": 0.29402640626525034,
+                  "port_probability": 0.45721072079135694,
+                  "transit_probability": 0.5427892792086421,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.4572038434129273,
+                    "boundary_rejected": 6.877378430152442e-06,
+                    "transit_noop": 0.5427892792086425
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.07619834810934441,
+                    "0": 0.84760330378131,
+                    "-1": 0.07619834810934441
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.29402640626525034,
+                  "purity": 0.4644772239571441
+                },
+                {
+                  "step": 3,
+                  "position_probabilities": [
+                    0.13390320618000573,
+                    0.13616209406447363,
+                    0.13616209406447372,
+                    0.2678008080926088,
+                    0.05817098950582731,
+                    0.2678008080926092
+                  ],
+                  "source_port_probability": 0.13390320618000573,
+                  "port_probability": 0.4062273943089531,
+                  "transit_probability": 0.5937726056910453,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.40612112482102014,
+                    "boundary_rejected": 0.00010626948793323618,
+                    "transit_noop": 0.5937726056910448
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.06765143097419223,
+                    "0": 0.8646971380516135,
+                    "-1": 0.06765143097419223
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.13390320618000573,
+                  "purity": 0.3286881268016208
+                },
+                {
+                  "step": 4,
+                  "position_probabilities": [
+                    0.15444460438477356,
+                    0.1768783996855167,
+                    0.17687839968551677,
+                    0.18208798667740728,
+                    0.1276226228893761,
+                    0.18208798667740764
+                  ],
+                  "source_port_probability": 0.15444460438477356,
+                  "port_probability": 0.508201403755807,
+                  "transit_probability": 0.491798596244191,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.5077233283377031,
+                    "boundary_rejected": 0.0004780754181043007,
+                    "transit_noop": 0.4917985962441913
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.084461196250249,
+                    "0": 0.8310776074994999,
+                    "-1": 0.084461196250249
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.15444460438477356,
+                  "purity": 0.2346582227163296
+                },
+                {
+                  "step": 5,
+                  "position_probabilities": [
+                    0.18780218699183565,
+                    0.1829158450227008,
+                    0.18291584502270092,
+                    0.12823779116938724,
+                    0.18989054062398555,
+                    0.1282377911693875
+                  ],
+                  "source_port_probability": 0.18780218699183565,
+                  "port_probability": 0.5536338770372373,
+                  "transit_probability": 0.4463661229627603,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.5521994577768478,
+                    "boundary_rejected": 0.0014344192603902876,
+                    "transit_noop": 0.44636612296276007
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.09155510320934443,
+                    "0": 0.8168897935813085,
+                    "-1": 0.09155510320934443
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.18780218699183565,
+                  "purity": 0.17747658548993892
+                },
+                {
+                  "step": 6,
+                  "position_probabilities": [
+                    0.17405648738774684,
+                    0.17216189078578578,
+                    0.17216189078578586,
+                    0.13554320988623692,
+                    0.21053331126820513,
+                    0.13554320988623705
+                  ],
+                  "source_port_probability": 0.17405648738774684,
+                  "port_probability": 0.5183802689593184,
+                  "transit_probability": 0.4816197310406791,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.515008805690785,
+                    "boundary_rejected": 0.003371463268533526,
+                    "transit_noop": 0.4816197310406791
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.08471097985895297,
+                    "0": 0.8305780402820914,
+                    "-1": 0.08471097985895297
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.17405648738774684,
+                  "purity": 0.14140538173199282
+                },
+                {
+                  "step": 7,
+                  "position_probabilities": [
+                    0.1561727986463962,
+                    0.16859615065977696,
+                    0.16859615065977707,
+                    0.1578214361578387,
+                    0.19099202771836948,
+                    0.15782143615783883
+                  ],
+                  "source_port_probability": 0.1561727986463962,
+                  "port_probability": 0.49336509996595024,
+                  "transit_probability": 0.506634900034047,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.48676333885998047,
+                    "boundary_rejected": 0.006601761105969802,
+                    "transit_noop": 0.5066349000340472
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.07892663610800679,
+                    "0": 0.8421467277839841,
+                    "-1": 0.07892663610800679
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.1561727986463962,
+                  "purity": 0.11814219539085932
+                },
+                {
+                  "step": 8,
+                  "position_probabilities": [
+                    0.16941102960506182,
+                    0.17161636652591283,
+                    0.17161636652591283,
+                    0.16159072764159915,
+                    0.16417478205991093,
+                    0.1615907276415993
+                  ],
+                  "source_port_probability": 0.16941102960506182,
+                  "port_probability": 0.5126437626568875,
+                  "transit_probability": 0.4873562373431094,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.5015802839018582,
+                    "boundary_rejected": 0.01106347875502933,
+                    "transit_noop": 0.4873562373431094
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.07990888773196658,
+                    "0": 0.8401822245360641,
+                    "-1": 0.07990888773196658
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.16941102960506182,
+                  "purity": 0.102994191550332
+                }
+              ],
+              "source_return_peak_to_peak": 0.5472019070270258,
+              "final_purity": 0.102994191550332
+            },
+            {
+              "commit_probability": 1.0,
+              "samples": [
+                {
+                  "step": 0,
+                  "position_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "source_port_probability": 1.0,
+                  "port_probability": 1.0,
+                  "transit_probability": 0.0,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.9999999999999999,
+                    "boundary_rejected": 0.0,
+                    "transit_noop": 0.0
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.16666666666666666,
+                    "0": 0.6666666666666666,
+                    "-1": 0.16666666666666666
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 1.0,
+                  "purity": 1.0
+                },
+                {
+                  "step": 1,
+                  "position_probabilities": [
+                    0.5037788111577249,
+                    0.12914577864693008,
+                    0.12914577864693008,
+                    0.11889837379957476,
+                    0.00013288394926484762,
+                    0.11889837379957477
+                  ],
+                  "source_port_probability": 0.5037788111577249,
+                  "port_probability": 0.7620703684515852,
+                  "transit_probability": 0.23792963154841437,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.7620703364167684,
+                    "boundary_rejected": 3.203481687817418e-08,
+                    "transit_noop": 0.2379296315484144
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.12701171205785572,
+                    "0": 0.745976575884287,
+                    "-1": 0.12701171205785572
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.5037788111577249,
+                  "purity": 0.31505822038939013
+                },
+                {
+                  "step": 2,
+                  "position_probabilities": [
+                    0.31072347440736664,
+                    0.16331922751820105,
+                    0.16331922751820105,
+                    0.16537280352153239,
+                    0.031892463513165256,
+                    0.1653728035215325
+                  ],
+                  "source_port_probability": 0.31072347440736664,
+                  "port_probability": 0.6373619294437687,
+                  "transit_probability": 0.36263807055623015,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.637299885347758,
+                    "boundary_rejected": 6.20440960107809e-05,
+                    "transit_noop": 0.3626380705562301
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.10619596619262274,
+                    "0": 0.787608067614753,
+                    "-1": 0.10619596619262274
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.31072347440736664,
+                  "purity": 0.19354887435487925
+                },
+                {
+                  "step": 3,
+                  "position_probabilities": [
+                    0.2328840170540914,
+                    0.16958016766978606,
+                    0.16958016766978606,
+                    0.18181693998409929,
+                    0.06432176763813599,
+                    0.18181693998409953
+                  ],
+                  "source_port_probability": 0.2328840170540914,
+                  "port_probability": 0.5720443523936636,
+                  "transit_probability": 0.4279556476063348,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.571011559441722,
+                    "boundary_rejected": 0.0010327929519420033,
+                    "transit_noop": 0.4279556476063353
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.09482432892297292,
+                    "0": 0.8103513421540531,
+                    "-1": 0.09482432892297292
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.2328840170540914,
+                  "purity": 0.15709884071218247
+                },
+                {
+                  "step": 4,
+                  "position_probabilities": [
+                    0.20127276717599749,
+                    0.16861278215019715,
+                    0.16861278215019715,
+                    0.18556241889175937,
+                    0.09037683074008693,
+                    0.18556241889175965
+                  ],
+                  "source_port_probability": 0.20127276717599749,
+                  "port_probability": 0.5384983314763918,
+                  "transit_probability": 0.46150166852360597,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.5359581462216862,
+                    "boundary_rejected": 0.0025401852547063597,
+                    "transit_noop": 0.46150166852360547
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.08847962928537878,
+                    "0": 0.8230407414292407,
+                    "-1": 0.08847962928537878
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.20127276717599749,
+                  "purity": 0.13870137884673148
+                },
+                {
+                  "step": 5,
+                  "position_probabilities": [
+                    0.18909460945142414,
+                    0.1664453160998376,
+                    0.16644531609983765,
+                    0.18410370791148314,
+                    0.10980734252593129,
+                    0.18410370791148337
+                  ],
+                  "source_port_probability": 0.18909460945142414,
+                  "port_probability": 0.5219852416510994,
+                  "transit_probability": 0.47801475834889784,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.517739098767048,
+                    "boundary_rejected": 0.004246142884051422,
+                    "transit_noop": 0.47801475834889756
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.08487446883315752,
+                    "0": 0.8302510623336825,
+                    "-1": 0.08487446883315752
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.18909460945142414,
+                  "purity": 0.12618687076437793
+                },
+                {
+                  "step": 6,
+                  "position_probabilities": [
+                    0.18539485142795958,
+                    0.1645733404218815,
+                    0.1645733404218815,
+                    0.1807698681001791,
+                    0.12391873152791572,
+                    0.18076986810017937
+                  ],
+                  "source_port_probability": 0.18539485142795958,
+                  "port_probability": 0.5145415322717226,
+                  "transit_probability": 0.48545846772827417,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.5085736448711391,
+                    "boundary_rejected": 0.005967887400583418,
+                    "transit_noop": 0.48545846772827406
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.08277297834499539,
+                    "0": 0.8344540433100068,
+                    "-1": 0.0827729783449954
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.18539485142795958,
+                  "purity": 0.11666015595520392
+                },
+                {
+                  "step": 7,
+                  "position_probabilities": [
+                    0.18548753041839477,
+                    0.1631882174877019,
+                    0.16318821748770193,
+                    0.17702933746698715,
+                    0.13407735967222315,
+                    0.17702933746698743
+                  ],
+                  "source_port_probability": 0.18548753041839477,
+                  "port_probability": 0.5118639653937986,
+                  "transit_probability": 0.4881360346061977,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.5042412285380548,
+                    "boundary_rejected": 0.007622736855743438,
+                    "transit_noop": 0.4881360346061978
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.08149929247109472,
+                    "0": 0.8370014150578066,
+                    "-1": 0.08149929247109472
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.18548753041839477,
+                  "purity": 0.1091330550659179
+                },
+                {
+                  "step": 8,
+                  "position_probabilities": [
+                    0.1872855162165944,
+                    0.1621763887980434,
+                    0.16217638879804347,
+                    0.17349571405690659,
+                    0.14137027807350108,
+                    0.1734957140569069
+                  ],
+                  "source_port_probability": 0.1872855162165944,
+                  "port_probability": 0.5116382938126813,
+                  "transit_probability": 0.48836170618731456,
+                  "monitored_attempt_outcomes": {
+                    "native": 0.502460279077228,
+                    "boundary_rejected": 0.009178014735453264,
+                    "transit_noop": 0.48836170618731467
+                  },
+                  "applied_current_probabilities": {
+                    "1": 0.08068404160105358,
+                    "0": 0.8386319167978883,
+                    "-1": 0.08068404160105358
+                  },
+                  "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                  "initial_support_probability": 0.1872855162165944,
+                  "purity": 0.10310417455936326
+                }
+              ],
+              "source_return_peak_to_peak": 0.31838395972976535,
+              "final_purity": 0.10310417455936326
+            }
+          ],
+          "scope": "finite source-return oscillations and support leakage under supplied monitoring; no rest-clock or particle-stability identification"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "criterion": "Particle stability (Derrick escape)",
+      "required_test": "the particle state persists in free evolution",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "diagnostic_only",
+      "missing_prerequisites": "The prepared localized source leaks in these finite controls. No stable physical particle preparation or stability theorem is supplied.",
+      "measurement": {
+        "observable": "source support leakage under three monitored joint protocols",
+        "regimes": [
+          {
+            "commit_probability": 0.0,
+            "samples": [
+              {
+                "step": 0,
+                "position_probabilities": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "source_port_probability": 1.0,
+                "port_probability": 1.0,
+                "transit_probability": 0.0,
+                "monitored_attempt_outcomes": {
+                  "native": 0.9999999999999999,
+                  "boundary_rejected": 0.0,
+                  "transit_noop": 0.0
+                },
+                "applied_current_probabilities": {
+                  "1": 0.16666666666666666,
+                  "0": 0.6666666666666666,
+                  "-1": 0.16666666666666666
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 1.0,
+                "purity": 1.0
+              },
+              {
+                "step": 1,
+                "position_probabilities": [
+                  0.7535341661567483,
+                  0.004268101147418541,
+                  0.004268101147418539,
+                  0.11889837379957474,
+                  0.00013288394926484762,
+                  0.11889837379957477
+                ],
+                "source_port_probability": 0.7535341661567483,
+                "port_probability": 0.7620703684515853,
+                "transit_probability": 0.23792963154841434,
+                "monitored_attempt_outcomes": {
+                  "native": 0.7620703684474982,
+                  "boundary_rejected": 4.086675798711433e-12,
+                  "transit_noop": 0.2379296315484144
+                },
+                "applied_current_probabilities": {
+                  "1": 0.12701172807322086,
+                  "0": 0.7459765438535567,
+                  "-1": 0.12701172807322086
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.7535341661567483,
+                "purity": 0.9999999999999993
+              },
+              {
+                "step": 2,
+                "position_probabilities": [
+                  0.2808970045139235,
+                  0.051365414118153714,
+                  0.05136541411815373,
+                  0.30475147309376144,
+                  0.006869221062244914,
+                  0.30475147309376166
+                ],
+                "source_port_probability": 0.2808970045139235,
+                "port_probability": 0.38362783275023093,
+                "transit_probability": 0.616372167249768,
+                "monitored_attempt_outcomes": {
+                  "native": 0.3836278176928061,
+                  "boundary_rejected": 1.5057424814836702e-08,
+                  "transit_noop": 0.6163721672497686
+                },
+                "applied_current_probabilities": {
+                  "1": 0.06393796459632609,
+                  "0": 0.8721240708073479,
+                  "-1": 0.06393796459632609
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.2808970045139235,
+                "purity": 0.9999999999999983
+              },
+              {
+                "step": 3,
+                "position_probabilities": [
+                  0.03360194987567154,
+                  0.15908987188708923,
+                  0.15908987188708934,
+                  0.29700744680793306,
+                  0.0542034127342822,
+                  0.2970074468079335
+                ],
+                "source_port_probability": 0.03360194987567154,
+                "port_probability": 0.3517816936498501,
+                "transit_probability": 0.6482183063501488,
+                "monitored_attempt_outcomes": {
+                  "native": 0.3517800584259302,
+                  "boundary_rejected": 1.6352239198529512e-06,
+                  "transit_noop": 0.6482183063501493
+                },
+                "applied_current_probabilities": {
+                  "1": 0.05862946466301509,
+                  "0": 0.8827410706739693,
+                  "-1": 0.05862946466301509
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.03360194987567154,
+                "purity": 0.9999999999999976
+              },
+              {
+                "step": 4,
+                "position_probabilities": [
+                  0.0993568306907361,
+                  0.2445242057192253,
+                  0.2445242057192255,
+                  0.1171342526910683,
+                  0.177326252488675,
+                  0.11713425269106865
+                ],
+                "source_port_probability": 0.0993568306907361,
+                "port_probability": 0.588405242129187,
+                "transit_probability": 0.41159475787081196,
+                "monitored_attempt_outcomes": {
+                  "native": 0.5883651297392213,
+                  "boundary_rejected": 4.011238996555289e-05,
+                  "transit_noop": 0.41159475787081196
+                },
+                "applied_current_probabilities": {
+                  "1": 0.09804748415988171,
+                  "0": 0.8039050316802356,
+                  "-1": 0.09804748415988171
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.0993568306907361,
+                "purity": 0.9999999999999978
+              },
+              {
+                "step": 5,
+                "position_probabilities": [
+                  0.2001000516684916,
+                  0.22974274370578804,
+                  0.22974274370578818,
+                  0.010859024510389571,
+                  0.3186964118991523,
+                  0.010859024510389635
+                ],
+                "source_port_probability": 0.2001000516684916,
+                "port_probability": 0.6595855390800678,
+                "transit_probability": 0.3404144609199315,
+                "monitored_attempt_outcomes": {
+                  "native": 0.6591659550543478,
+                  "boundary_rejected": 0.0004195840257193939,
+                  "transit_noop": 0.3404144609199316
+                },
+                "applied_current_probabilities": {
+                  "1": 0.10972113116715161,
+                  "0": 0.7805577376656951,
+                  "-1": 0.10972113116715161
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.2001000516684916,
+                "purity": 0.9999999999999987
+              },
+              {
+                "step": 6,
+                "position_probabilities": [
+                  0.1512162640317463,
+                  0.17131620368812756,
+                  0.1713162036881275,
+                  0.0852166657438821,
+                  0.33571799710423444,
+                  0.08521666574388204
+                ],
+                "source_port_probability": 0.1512162640317463,
+                "port_probability": 0.49384867140800137,
+                "transit_probability": 0.5061513285919985,
+                "monitored_attempt_outcomes": {
+                  "native": 0.49137341158384007,
+                  "boundary_rejected": 0.0024752598241612775,
+                  "transit_noop": 0.5061513285919986
+                },
+                "applied_current_probabilities": {
+                  "1": 0.08107048198925292,
+                  "0": 0.8378590360214948,
+                  "-1": 0.08107048198925292
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.1512162640317463,
+                "purity": 0.9999999999999998
+              },
+              {
+                "step": 7,
+                "position_probabilities": [
+                  0.08114878517593871,
+                  0.17356413075266436,
+                  0.17356413075266428,
+                  0.19409723619865699,
+                  0.18352848092141882,
+                  0.19409723619865693
+                ],
+                "source_port_probability": 0.08114878517593871,
+                "port_probability": 0.4282770466812673,
+                "transit_probability": 0.5717229533187327,
+                "monitored_attempt_outcomes": {
+                  "native": 0.4187589084957312,
+                  "boundary_rejected": 0.009518138185536255,
+                  "transit_noop": 0.571722953318733
+                },
+                "applied_current_probabilities": {
+                  "1": 0.06662043868744309,
+                  "0": 0.8667591226251145,
+                  "-1": 0.06662043868744309
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.08114878517593871,
+                "purity": 1.0000000000000002
+              },
+              {
+                "step": 8,
+                "position_probabilities": [
+                  0.170276035643173,
+                  0.21717637360452013,
+                  0.21717637360452016,
+                  0.18695811354227898,
+                  0.021454990063228895,
+                  0.18695811354227893
+                ],
+                "source_port_probability": 0.170276035643173,
+                "port_probability": 0.6046287828522133,
+                "transit_probability": 0.3953712171477868,
+                "monitored_attempt_outcomes": {
+                  "native": 0.5787685917230722,
+                  "boundary_rejected": 0.025860191129140574,
+                  "transit_noop": 0.3953712171477868
+                },
+                "applied_current_probabilities": {
+                  "1": 0.08784136824413194,
+                  "0": 0.8243172635117357,
+                  "-1": 0.08784136824413193
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.170276035643173,
+                "purity": 1.0000000000000004
+              }
+            ],
+            "source_return_peak_to_peak": 0.7199322162810767,
+            "final_purity": 1.0000000000000004
+          },
+          {
+            "commit_probability": 0.29,
+            "samples": [
+              {
+                "step": 0,
+                "position_probabilities": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "source_port_probability": 1.0,
+                "port_probability": 1.0,
+                "transit_probability": 0.0,
+                "monitored_attempt_outcomes": {
+                  "native": 0.9999999999999999,
+                  "boundary_rejected": 0.0,
+                  "transit_noop": 0.0
+                },
+                "applied_current_probabilities": {
+                  "1": 0.16666666666666666,
+                  "0": 0.6666666666666666,
+                  "-1": 0.16666666666666666
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 1.0,
+                "purity": 1.0
+              },
+              {
+                "step": 1,
+                "position_probabilities": [
+                  0.6811051132070315,
+                  0.04048262762227688,
+                  0.04048262762227688,
+                  0.11889837379957474,
+                  0.0001328839492648476,
+                  0.11889837379957477
+                ],
+                "source_port_probability": 0.6811051132070315,
+                "port_probability": 0.7620703684515852,
+                "transit_probability": 0.23792963154841434,
+                "monitored_attempt_outcomes": {
+                  "native": 0.7620703591585871,
+                  "boundary_rejected": 9.292998434487597e-09,
+                  "transit_noop": 0.2379296315484144
+                },
+                "applied_current_probabilities": {
+                  "1": 0.12701172342876496,
+                  "0": 0.7459765531424687,
+                  "-1": 0.12701172342876496
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.6811051132070315,
+                "purity": 0.6990161096463239
+              },
+              {
+                "step": 2,
+                "position_probabilities": [
+                  0.29402640626525034,
+                  0.0815921572630533,
+                  0.0815921572630533,
+                  0.264331658917815,
+                  0.014125961373011812,
+                  0.26433165891781524
+                ],
+                "source_port_probability": 0.29402640626525034,
+                "port_probability": 0.45721072079135694,
+                "transit_probability": 0.5427892792086421,
+                "monitored_attempt_outcomes": {
+                  "native": 0.4572038434129273,
+                  "boundary_rejected": 6.877378430152442e-06,
+                  "transit_noop": 0.5427892792086425
+                },
+                "applied_current_probabilities": {
+                  "1": 0.07619834810934441,
+                  "0": 0.84760330378131,
+                  "-1": 0.07619834810934441
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.29402640626525034,
+                "purity": 0.4644772239571441
+              },
+              {
+                "step": 3,
+                "position_probabilities": [
+                  0.13390320618000573,
+                  0.13616209406447363,
+                  0.13616209406447372,
+                  0.2678008080926088,
+                  0.05817098950582731,
+                  0.2678008080926092
+                ],
+                "source_port_probability": 0.13390320618000573,
+                "port_probability": 0.4062273943089531,
+                "transit_probability": 0.5937726056910453,
+                "monitored_attempt_outcomes": {
+                  "native": 0.40612112482102014,
+                  "boundary_rejected": 0.00010626948793323618,
+                  "transit_noop": 0.5937726056910448
+                },
+                "applied_current_probabilities": {
+                  "1": 0.06765143097419223,
+                  "0": 0.8646971380516135,
+                  "-1": 0.06765143097419223
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.13390320618000573,
+                "purity": 0.3286881268016208
+              },
+              {
+                "step": 4,
+                "position_probabilities": [
+                  0.15444460438477356,
+                  0.1768783996855167,
+                  0.17687839968551677,
+                  0.18208798667740728,
+                  0.1276226228893761,
+                  0.18208798667740764
+                ],
+                "source_port_probability": 0.15444460438477356,
+                "port_probability": 0.508201403755807,
+                "transit_probability": 0.491798596244191,
+                "monitored_attempt_outcomes": {
+                  "native": 0.5077233283377031,
+                  "boundary_rejected": 0.0004780754181043007,
+                  "transit_noop": 0.4917985962441913
+                },
+                "applied_current_probabilities": {
+                  "1": 0.084461196250249,
+                  "0": 0.8310776074994999,
+                  "-1": 0.084461196250249
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.15444460438477356,
+                "purity": 0.2346582227163296
+              },
+              {
+                "step": 5,
+                "position_probabilities": [
+                  0.18780218699183565,
+                  0.1829158450227008,
+                  0.18291584502270092,
+                  0.12823779116938724,
+                  0.18989054062398555,
+                  0.1282377911693875
+                ],
+                "source_port_probability": 0.18780218699183565,
+                "port_probability": 0.5536338770372373,
+                "transit_probability": 0.4463661229627603,
+                "monitored_attempt_outcomes": {
+                  "native": 0.5521994577768478,
+                  "boundary_rejected": 0.0014344192603902876,
+                  "transit_noop": 0.44636612296276007
+                },
+                "applied_current_probabilities": {
+                  "1": 0.09155510320934443,
+                  "0": 0.8168897935813085,
+                  "-1": 0.09155510320934443
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.18780218699183565,
+                "purity": 0.17747658548993892
+              },
+              {
+                "step": 6,
+                "position_probabilities": [
+                  0.17405648738774684,
+                  0.17216189078578578,
+                  0.17216189078578586,
+                  0.13554320988623692,
+                  0.21053331126820513,
+                  0.13554320988623705
+                ],
+                "source_port_probability": 0.17405648738774684,
+                "port_probability": 0.5183802689593184,
+                "transit_probability": 0.4816197310406791,
+                "monitored_attempt_outcomes": {
+                  "native": 0.515008805690785,
+                  "boundary_rejected": 0.003371463268533526,
+                  "transit_noop": 0.4816197310406791
+                },
+                "applied_current_probabilities": {
+                  "1": 0.08471097985895297,
+                  "0": 0.8305780402820914,
+                  "-1": 0.08471097985895297
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.17405648738774684,
+                "purity": 0.14140538173199282
+              },
+              {
+                "step": 7,
+                "position_probabilities": [
+                  0.1561727986463962,
+                  0.16859615065977696,
+                  0.16859615065977707,
+                  0.1578214361578387,
+                  0.19099202771836948,
+                  0.15782143615783883
+                ],
+                "source_port_probability": 0.1561727986463962,
+                "port_probability": 0.49336509996595024,
+                "transit_probability": 0.506634900034047,
+                "monitored_attempt_outcomes": {
+                  "native": 0.48676333885998047,
+                  "boundary_rejected": 0.006601761105969802,
+                  "transit_noop": 0.5066349000340472
+                },
+                "applied_current_probabilities": {
+                  "1": 0.07892663610800679,
+                  "0": 0.8421467277839841,
+                  "-1": 0.07892663610800679
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.1561727986463962,
+                "purity": 0.11814219539085932
+              },
+              {
+                "step": 8,
+                "position_probabilities": [
+                  0.16941102960506182,
+                  0.17161636652591283,
+                  0.17161636652591283,
+                  0.16159072764159915,
+                  0.16417478205991093,
+                  0.1615907276415993
+                ],
+                "source_port_probability": 0.16941102960506182,
+                "port_probability": 0.5126437626568875,
+                "transit_probability": 0.4873562373431094,
+                "monitored_attempt_outcomes": {
+                  "native": 0.5015802839018582,
+                  "boundary_rejected": 0.01106347875502933,
+                  "transit_noop": 0.4873562373431094
+                },
+                "applied_current_probabilities": {
+                  "1": 0.07990888773196658,
+                  "0": 0.8401822245360641,
+                  "-1": 0.07990888773196658
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.16941102960506182,
+                "purity": 0.102994191550332
+              }
+            ],
+            "source_return_peak_to_peak": 0.5472019070270258,
+            "final_purity": 0.102994191550332
+          },
+          {
+            "commit_probability": 1.0,
+            "samples": [
+              {
+                "step": 0,
+                "position_probabilities": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "source_port_probability": 1.0,
+                "port_probability": 1.0,
+                "transit_probability": 0.0,
+                "monitored_attempt_outcomes": {
+                  "native": 0.9999999999999999,
+                  "boundary_rejected": 0.0,
+                  "transit_noop": 0.0
+                },
+                "applied_current_probabilities": {
+                  "1": 0.16666666666666666,
+                  "0": 0.6666666666666666,
+                  "-1": 0.16666666666666666
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 1.0,
+                "purity": 1.0
+              },
+              {
+                "step": 1,
+                "position_probabilities": [
+                  0.5037788111577249,
+                  0.12914577864693008,
+                  0.12914577864693008,
+                  0.11889837379957476,
+                  0.00013288394926484762,
+                  0.11889837379957477
+                ],
+                "source_port_probability": 0.5037788111577249,
+                "port_probability": 0.7620703684515852,
+                "transit_probability": 0.23792963154841437,
+                "monitored_attempt_outcomes": {
+                  "native": 0.7620703364167684,
+                  "boundary_rejected": 3.203481687817418e-08,
+                  "transit_noop": 0.2379296315484144
+                },
+                "applied_current_probabilities": {
+                  "1": 0.12701171205785572,
+                  "0": 0.745976575884287,
+                  "-1": 0.12701171205785572
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.5037788111577249,
+                "purity": 0.31505822038939013
+              },
+              {
+                "step": 2,
+                "position_probabilities": [
+                  0.31072347440736664,
+                  0.16331922751820105,
+                  0.16331922751820105,
+                  0.16537280352153239,
+                  0.031892463513165256,
+                  0.1653728035215325
+                ],
+                "source_port_probability": 0.31072347440736664,
+                "port_probability": 0.6373619294437687,
+                "transit_probability": 0.36263807055623015,
+                "monitored_attempt_outcomes": {
+                  "native": 0.637299885347758,
+                  "boundary_rejected": 6.20440960107809e-05,
+                  "transit_noop": 0.3626380705562301
+                },
+                "applied_current_probabilities": {
+                  "1": 0.10619596619262274,
+                  "0": 0.787608067614753,
+                  "-1": 0.10619596619262274
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.31072347440736664,
+                "purity": 0.19354887435487925
+              },
+              {
+                "step": 3,
+                "position_probabilities": [
+                  0.2328840170540914,
+                  0.16958016766978606,
+                  0.16958016766978606,
+                  0.18181693998409929,
+                  0.06432176763813599,
+                  0.18181693998409953
+                ],
+                "source_port_probability": 0.2328840170540914,
+                "port_probability": 0.5720443523936636,
+                "transit_probability": 0.4279556476063348,
+                "monitored_attempt_outcomes": {
+                  "native": 0.571011559441722,
+                  "boundary_rejected": 0.0010327929519420033,
+                  "transit_noop": 0.4279556476063353
+                },
+                "applied_current_probabilities": {
+                  "1": 0.09482432892297292,
+                  "0": 0.8103513421540531,
+                  "-1": 0.09482432892297292
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.2328840170540914,
+                "purity": 0.15709884071218247
+              },
+              {
+                "step": 4,
+                "position_probabilities": [
+                  0.20127276717599749,
+                  0.16861278215019715,
+                  0.16861278215019715,
+                  0.18556241889175937,
+                  0.09037683074008693,
+                  0.18556241889175965
+                ],
+                "source_port_probability": 0.20127276717599749,
+                "port_probability": 0.5384983314763918,
+                "transit_probability": 0.46150166852360597,
+                "monitored_attempt_outcomes": {
+                  "native": 0.5359581462216862,
+                  "boundary_rejected": 0.0025401852547063597,
+                  "transit_noop": 0.46150166852360547
+                },
+                "applied_current_probabilities": {
+                  "1": 0.08847962928537878,
+                  "0": 0.8230407414292407,
+                  "-1": 0.08847962928537878
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.20127276717599749,
+                "purity": 0.13870137884673148
+              },
+              {
+                "step": 5,
+                "position_probabilities": [
+                  0.18909460945142414,
+                  0.1664453160998376,
+                  0.16644531609983765,
+                  0.18410370791148314,
+                  0.10980734252593129,
+                  0.18410370791148337
+                ],
+                "source_port_probability": 0.18909460945142414,
+                "port_probability": 0.5219852416510994,
+                "transit_probability": 0.47801475834889784,
+                "monitored_attempt_outcomes": {
+                  "native": 0.517739098767048,
+                  "boundary_rejected": 0.004246142884051422,
+                  "transit_noop": 0.47801475834889756
+                },
+                "applied_current_probabilities": {
+                  "1": 0.08487446883315752,
+                  "0": 0.8302510623336825,
+                  "-1": 0.08487446883315752
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.18909460945142414,
+                "purity": 0.12618687076437793
+              },
+              {
+                "step": 6,
+                "position_probabilities": [
+                  0.18539485142795958,
+                  0.1645733404218815,
+                  0.1645733404218815,
+                  0.1807698681001791,
+                  0.12391873152791572,
+                  0.18076986810017937
+                ],
+                "source_port_probability": 0.18539485142795958,
+                "port_probability": 0.5145415322717226,
+                "transit_probability": 0.48545846772827417,
+                "monitored_attempt_outcomes": {
+                  "native": 0.5085736448711391,
+                  "boundary_rejected": 0.005967887400583418,
+                  "transit_noop": 0.48545846772827406
+                },
+                "applied_current_probabilities": {
+                  "1": 0.08277297834499539,
+                  "0": 0.8344540433100068,
+                  "-1": 0.0827729783449954
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.18539485142795958,
+                "purity": 0.11666015595520392
+              },
+              {
+                "step": 7,
+                "position_probabilities": [
+                  0.18548753041839477,
+                  0.1631882174877019,
+                  0.16318821748770193,
+                  0.17702933746698715,
+                  0.13407735967222315,
+                  0.17702933746698743
+                ],
+                "source_port_probability": 0.18548753041839477,
+                "port_probability": 0.5118639653937986,
+                "transit_probability": 0.4881360346061977,
+                "monitored_attempt_outcomes": {
+                  "native": 0.5042412285380548,
+                  "boundary_rejected": 0.007622736855743438,
+                  "transit_noop": 0.4881360346061978
+                },
+                "applied_current_probabilities": {
+                  "1": 0.08149929247109472,
+                  "0": 0.8370014150578066,
+                  "-1": 0.08149929247109472
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.18548753041839477,
+                "purity": 0.1091330550659179
+              },
+              {
+                "step": 8,
+                "position_probabilities": [
+                  0.1872855162165944,
+                  0.1621763887980434,
+                  0.16217638879804347,
+                  0.17349571405690659,
+                  0.14137027807350108,
+                  0.1734957140569069
+                ],
+                "source_port_probability": 0.1872855162165944,
+                "port_probability": 0.5116382938126813,
+                "transit_probability": 0.48836170618731456,
+                "monitored_attempt_outcomes": {
+                  "native": 0.502460279077228,
+                  "boundary_rejected": 0.009178014735453264,
+                  "transit_noop": 0.48836170618731467
+                },
+                "applied_current_probabilities": {
+                  "1": 0.08068404160105358,
+                  "0": 0.8386319167978883,
+                  "-1": 0.08068404160105358
+                },
+                "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+                "initial_support_probability": 0.1872855162165944,
+                "purity": 0.10310417455936326
+              }
+            ],
+            "source_return_peak_to_peak": 0.31838395972976535,
+            "final_purity": 0.10310417455936326
+          }
+        ],
+        "remaining": "The prepared localized source leaks in these finite controls. No stable physical particle preparation or stability theorem is supplied."
+      }
+    },
+    {
+      "id": 5,
+      "criterion": "Magnetic moment \u03bc (g \u2248 2, magnetostatics)",
+      "required_test": "intrinsic magnetostatics: a stationary state sources a static dipole B from internal circulation, g \u2248 2; dipole Larmor response",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Stationary intrinsic dipole B, g near 2 and Larmor response on the electron state.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 6,
+      "criterion": "Angular momentum J (spin \u210f/2)",
+      "required_test": "field-carried J = \u210f/2 on the electron state",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Field-carried angular momentum hbar/2 of that electron state.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 7,
+      "criterion": "Spin-\u00bd statistics (720\u00b0 double cover)",
+      "required_test": "the field returns under a \u03c0 rotation while its frame needs 2\u03c0",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Physical frame/field rotation action and exchange statistics; flux-phase convention alone is insufficient.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 8,
+      "criterion": "Antimatter + annihilation",
+      "required_test": "pair annihilation to radiation; follow-on: positronium 2\u03b3/3\u03b3",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Identified particle/antiparticle pair annihilation into propagated radiation, with channel counts.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 9,
+      "criterion": "Neutrinos (neutral states)",
+      "required_test": "light charge-0 states released in decays",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Neutral light species actually emitted by candidate decay dynamics.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 10,
+      "criterion": "Neutrino oscillations (PMNS)",
+      "required_test": "3 flavors + oscillation; the PMNS angles",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Three identified neutrino flavors, coherent oscillation probabilities and PMNS angles.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 11,
+      "criterion": "Lepton mass spectrum (\u03bc, \u03c4)",
+      "required_test": "exactly 3 charged-lepton minima; ratios 1 : 207 : 3477",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Exactly three stable charged-lepton minima with shared-scale ratios 1:207:3477.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 12,
+      "criterion": "Quarks",
+      "required_test": "fractional charge as partial winding on a quark string",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Partial-winding fractional quark charge on an actual stable quark string.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 13,
+      "criterion": "Baryons: bound state (p, n)",
+      "required_test": "a stable three-quark composite",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Stable three-quark composite in the same joint dynamics.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 14,
+      "criterion": "Baryons: mass ordering + charge profile",
+      "required_test": "m_n > m_p; positive core, negative shell",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Identified proton/neutron ordering and radial electric charge profile.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 15,
+      "criterion": "Baryons: exact masses",
+      "required_test": "938.3 / 939.6 MeV from the field",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Proton and neutron field energies at 938.3/939.6 MeV under the same anchor.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 16,
+      "criterion": "Deuteron (binding + quadrupole)",
+      "required_test": "m_d < m_p + m_n; the electric quadrupole moment",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Deuteron below proton-plus-neutron threshold with electric quadrupole.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 17,
+      "criterion": "Nuclear structure (levels, halos)",
+      "required_test": "binding curve, levels, halo-nuclei lifetimes",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Nuclear binding curve, excitation levels and halo decay lifetimes.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 18,
+      "criterion": "Mesons (\u03c0, K)",
+      "required_test": "\u03c0/K states; strange decays (\u039b\u2070 \u2192 p + \u03c0\u207b)",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Identified pion/kaon states and strange-decay channels.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 19,
+      "criterion": "Dark matter candidate",
+      "required_test": "a stable neutral massive state",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Stable massive neutral physical branch without importing its mass.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 20,
+      "criterion": "Electric force (Coulomb 1/r, electrostatics)",
+      "required_test": "far-field 1/r potential at charge e; the strength (\u03b1) credited only when it follows from the model's own mechanism, never fitted",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Carrier-generated far potential 1/r for identified physical charge; coupling ancestry without fitted alpha.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 21,
+      "criterion": "Lorentz covariance (+ Coulomb = EM)",
+      "required_test": "Lorentz-invariant action, no preferred frame; boosted states contract, c-limited",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Boosted physical states, no preferred-frame observable and a common Lorentz-invariant action/limit.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 22,
+      "criterion": "Strong force: confinement",
+      "required_test": "linear inter-charge potential, ~1 GeV/fm (Cornell)",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Inter-quark linear potential and one common physical conversion near 1 GeV/fm.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 23,
+      "criterion": "Running coupling",
+      "required_test": "coupling varies with scale (onset at the core radius)",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Coupling extracted at multiple scales including core crossover on the fixed interaction law.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 24,
+      "criterion": "Weak force: muon decay",
+      "required_test": "\u03bc relaxes to e + neutral ejecta",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Identified muon evolves to electron plus neutral outgoing excitations.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 25,
+      "criterion": "Weak force: beta decay (n \u2192 p)",
+      "required_test": "n \u2192 p + e + \u03bd\u0304, parity-violating (needs a neutron)",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Identified neutron decays to proton/electron/antineutrino with parity-violating records.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 26,
+      "criterion": "Gravity: Newton limit (GEM)",
+      "required_test": "attractive 1/r\u00b2 between masses, via the GEM route; the strength (G) credited only when it follows from the model's own mechanism, never fitted",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Attractive mass-source inverse-square force with internally fixed G.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 27,
+      "criterion": "Gravity: local metric phenomena",
+      "required_test": "light bending, gravitational time dilation / Shapiro delay",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Light bending and clock/Shapiro-delay observables from the same emergent metric.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 28,
+      "criterion": "Cosmology: \u039b / cosmic acceleration",
+      "required_test": "\u039b from the model's own mechanism, never fitted; every remaining gap and a falsification named",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Internally derived cosmological Lambda, remaining gaps and explicit falsifier.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 29,
+      "criterion": "EM waves (Maxwell)",
+      "required_test": "Maxwell recovered; transverse waves at c",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Two transverse propagating physical Maxwell branches at the same matter-wave speed.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    },
+    {
+      "id": 30,
+      "criterion": "Quantum wave equation (Klein-Gordon)",
+      "required_test": "emergent \u03c9\u00b2 = k\u00b2 + m\u00b2 for matter waves",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "partial_support",
+      "missing_prerequisites": "The bare carrier Laplacian is a component control: the integer-record lift has a different spectrum. A physical row requires its actual joint dispersion, continuum limit, common spacetime dimension and matter-state identification.",
+      "measurement": {
+        "observable": "finite graph massive wave relation H\u00b2=m\u00b2+diag(BB\u1d40,B\u1d40B)",
+        "max_error": 0.0,
+        "wrong_rest_sign_rejected": true,
+        "remaining": "The bare carrier Laplacian is a component control: the integer-record lift has a different spectrum. A physical row requires its actual joint dispersion, continuum limit, common spacetime dimension and matter-state identification."
+      }
+    },
+    {
+      "id": 31,
+      "criterion": "Orbital quantization (atomic structure)",
+      "required_test": "hydrogen-like discrete levels from standing waves",
+      "official_status": "untested",
+      "full_criterion_met": false,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Hydrogen-like bound spectrum on the same physical interaction/state law; 2D toy levels alone insufficient.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ]
+    }
+  ],
+  "observer_protocol": {
+    "circulation_control": {
+      "graph": "oriented triangle",
+      "mass": 0.23,
+      "cutoff": 1,
+      "time": 0.37,
+      "bare_incidence_shape": [
+        3,
+        3
+      ],
+      "bare_exact_rank": 2,
+      "bare_transit_kernel_dimension": 1,
+      "joint_incidence_shape": [
+        7,
+        6
+      ],
+      "joint_exact_rank": 6,
+      "joint_transit_kernel_dimension": 0,
+      "joint_preparation_basis_indices": [
+        1,
+        5,
+        2
+      ],
+      "joint_preparation": "equal amplitudes on first BFS representative of each transit seam",
+      "bare_port_leakage_probability": 4.564583843206987e-32,
+      "joint_port_leakage_probability": 0.08317356178000203,
+      "joint_prepared_support_survival_probability": 0.9139145565712745,
+      "scope": "Exact finite rank and evolved preparation control; bare compact transit circulation does not transfer to this integer-record sector. No cutoff-removal or particle-stability theorem."
+    },
+    "carrier_window": {
+      "radius": 4,
+      "integer_cutoff": 1,
+      "states": 51,
+      "sparse_nonzeros": 151,
+      "time": 0.37,
+      "mass": 0.23,
+      "readout": {
+        "position_probabilities": [
+          0.46440142470755524,
+          0.0037080196289477198,
+          1.1013792902694359e-06,
+          0.0,
+          1.1013792902694359e-06,
+          0.0037080196289477198,
+          1.1013792902694359e-06,
+          0.0037080196289477198,
+          1.1013792902694359e-06,
+          1.1013792902694359e-06,
+          0.0037080196289477198,
+          0.0037080196289477198,
+          0.10316608780081248,
+          0.10316608780081248,
+          0.10316608780081248,
+          0.10316608780081248,
+          0.10316608780081248,
+          0.00012225312471924915,
+          0.00012225312471924915,
+          6.112656235962458e-05,
+          6.112656235962458e-05,
+          0.0,
+          0.0,
+          0.0,
+          6.112656235962458e-05,
+          6.112656235962458e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          6.112656235962458e-05,
+          0.0,
+          6.112656235962458e-05,
+          6.112656235962458e-05,
+          0.00012225312471924915,
+          6.112656235962458e-05,
+          0.0,
+          6.112656235962458e-05,
+          6.112656235962458e-05,
+          0.00012225312471924915,
+          0.0,
+          0.00012225312471924915
+        ],
+        "source_port_probability": 0.46440142470755524,
+        "port_probability": 0.48294702974874526,
+        "transit_probability": 0.5170529702512543,
+        "monitored_attempt_outcomes": {
+          "native": 0.4829462954958621,
+          "boundary_rejected": 7.342528601796243e-07,
+          "transit_noop": 0.5170529702512293
+        },
+        "applied_current_probabilities": {
+          "1": 0.03925625742284649,
+          "0": 0.9597551484404904,
+          "-1": 0.0009885941366887569
+        },
+        "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound"
+      },
+      "initial_coherent_state_norm_error_bound": 0.11969365941629688,
+      "scope": "initial basis-state coherent window vs full cutoff-sector bound only; no repeated-channel bound"
+    },
+    "scope": "Operational readout and sparse finite-record trajectories; finite monitoring controls only.",
+    "checks": {
+      "bare_circulation_persists": true,
+      "joint_circulation_obstruction": true,
+      "sparse_dense_agreement": true,
+      "coherent_purity": true,
+      "monitored_mixing": true,
+      "complete_readout": true
+    },
+    "mutations": {
+      "monitoring_changes_observable": true
+    },
+    "full_criterion_met": false,
+    "monitoring_experiment": {
+      "graph": "oriented triangle",
+      "mass": 0.23,
+      "cutoff": 1,
+      "steps": 8,
+      "step_time": 0.37,
+      "regimes": [
+        {
+          "commit_probability": 0.0,
+          "samples": [
+            {
+              "step": 0,
+              "position_probabilities": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "source_port_probability": 1.0,
+              "port_probability": 1.0,
+              "transit_probability": 0.0,
+              "monitored_attempt_outcomes": {
+                "native": 0.9999999999999999,
+                "boundary_rejected": 0.0,
+                "transit_noop": 0.0
+              },
+              "applied_current_probabilities": {
+                "1": 0.16666666666666666,
+                "0": 0.6666666666666666,
+                "-1": 0.16666666666666666
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 1.0,
+              "purity": 1.0
+            },
+            {
+              "step": 1,
+              "position_probabilities": [
+                0.7535341661567483,
+                0.004268101147418541,
+                0.004268101147418539,
+                0.11889837379957474,
+                0.00013288394926484762,
+                0.11889837379957477
+              ],
+              "source_port_probability": 0.7535341661567483,
+              "port_probability": 0.7620703684515853,
+              "transit_probability": 0.23792963154841434,
+              "monitored_attempt_outcomes": {
+                "native": 0.7620703684474982,
+                "boundary_rejected": 4.086675798711433e-12,
+                "transit_noop": 0.2379296315484144
+              },
+              "applied_current_probabilities": {
+                "1": 0.12701172807322086,
+                "0": 0.7459765438535567,
+                "-1": 0.12701172807322086
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.7535341661567483,
+              "purity": 0.9999999999999993
+            },
+            {
+              "step": 2,
+              "position_probabilities": [
+                0.2808970045139235,
+                0.051365414118153714,
+                0.05136541411815373,
+                0.30475147309376144,
+                0.006869221062244914,
+                0.30475147309376166
+              ],
+              "source_port_probability": 0.2808970045139235,
+              "port_probability": 0.38362783275023093,
+              "transit_probability": 0.616372167249768,
+              "monitored_attempt_outcomes": {
+                "native": 0.3836278176928061,
+                "boundary_rejected": 1.5057424814836702e-08,
+                "transit_noop": 0.6163721672497686
+              },
+              "applied_current_probabilities": {
+                "1": 0.06393796459632609,
+                "0": 0.8721240708073479,
+                "-1": 0.06393796459632609
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.2808970045139235,
+              "purity": 0.9999999999999983
+            },
+            {
+              "step": 3,
+              "position_probabilities": [
+                0.03360194987567154,
+                0.15908987188708923,
+                0.15908987188708934,
+                0.29700744680793306,
+                0.0542034127342822,
+                0.2970074468079335
+              ],
+              "source_port_probability": 0.03360194987567154,
+              "port_probability": 0.3517816936498501,
+              "transit_probability": 0.6482183063501488,
+              "monitored_attempt_outcomes": {
+                "native": 0.3517800584259302,
+                "boundary_rejected": 1.6352239198529512e-06,
+                "transit_noop": 0.6482183063501493
+              },
+              "applied_current_probabilities": {
+                "1": 0.05862946466301509,
+                "0": 0.8827410706739693,
+                "-1": 0.05862946466301509
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.03360194987567154,
+              "purity": 0.9999999999999976
+            },
+            {
+              "step": 4,
+              "position_probabilities": [
+                0.0993568306907361,
+                0.2445242057192253,
+                0.2445242057192255,
+                0.1171342526910683,
+                0.177326252488675,
+                0.11713425269106865
+              ],
+              "source_port_probability": 0.0993568306907361,
+              "port_probability": 0.588405242129187,
+              "transit_probability": 0.41159475787081196,
+              "monitored_attempt_outcomes": {
+                "native": 0.5883651297392213,
+                "boundary_rejected": 4.011238996555289e-05,
+                "transit_noop": 0.41159475787081196
+              },
+              "applied_current_probabilities": {
+                "1": 0.09804748415988171,
+                "0": 0.8039050316802356,
+                "-1": 0.09804748415988171
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.0993568306907361,
+              "purity": 0.9999999999999978
+            },
+            {
+              "step": 5,
+              "position_probabilities": [
+                0.2001000516684916,
+                0.22974274370578804,
+                0.22974274370578818,
+                0.010859024510389571,
+                0.3186964118991523,
+                0.010859024510389635
+              ],
+              "source_port_probability": 0.2001000516684916,
+              "port_probability": 0.6595855390800678,
+              "transit_probability": 0.3404144609199315,
+              "monitored_attempt_outcomes": {
+                "native": 0.6591659550543478,
+                "boundary_rejected": 0.0004195840257193939,
+                "transit_noop": 0.3404144609199316
+              },
+              "applied_current_probabilities": {
+                "1": 0.10972113116715161,
+                "0": 0.7805577376656951,
+                "-1": 0.10972113116715161
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.2001000516684916,
+              "purity": 0.9999999999999987
+            },
+            {
+              "step": 6,
+              "position_probabilities": [
+                0.1512162640317463,
+                0.17131620368812756,
+                0.1713162036881275,
+                0.0852166657438821,
+                0.33571799710423444,
+                0.08521666574388204
+              ],
+              "source_port_probability": 0.1512162640317463,
+              "port_probability": 0.49384867140800137,
+              "transit_probability": 0.5061513285919985,
+              "monitored_attempt_outcomes": {
+                "native": 0.49137341158384007,
+                "boundary_rejected": 0.0024752598241612775,
+                "transit_noop": 0.5061513285919986
+              },
+              "applied_current_probabilities": {
+                "1": 0.08107048198925292,
+                "0": 0.8378590360214948,
+                "-1": 0.08107048198925292
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.1512162640317463,
+              "purity": 0.9999999999999998
+            },
+            {
+              "step": 7,
+              "position_probabilities": [
+                0.08114878517593871,
+                0.17356413075266436,
+                0.17356413075266428,
+                0.19409723619865699,
+                0.18352848092141882,
+                0.19409723619865693
+              ],
+              "source_port_probability": 0.08114878517593871,
+              "port_probability": 0.4282770466812673,
+              "transit_probability": 0.5717229533187327,
+              "monitored_attempt_outcomes": {
+                "native": 0.4187589084957312,
+                "boundary_rejected": 0.009518138185536255,
+                "transit_noop": 0.571722953318733
+              },
+              "applied_current_probabilities": {
+                "1": 0.06662043868744309,
+                "0": 0.8667591226251145,
+                "-1": 0.06662043868744309
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.08114878517593871,
+              "purity": 1.0000000000000002
+            },
+            {
+              "step": 8,
+              "position_probabilities": [
+                0.170276035643173,
+                0.21717637360452013,
+                0.21717637360452016,
+                0.18695811354227898,
+                0.021454990063228895,
+                0.18695811354227893
+              ],
+              "source_port_probability": 0.170276035643173,
+              "port_probability": 0.6046287828522133,
+              "transit_probability": 0.3953712171477868,
+              "monitored_attempt_outcomes": {
+                "native": 0.5787685917230722,
+                "boundary_rejected": 0.025860191129140574,
+                "transit_noop": 0.3953712171477868
+              },
+              "applied_current_probabilities": {
+                "1": 0.08784136824413194,
+                "0": 0.8243172635117357,
+                "-1": 0.08784136824413193
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.170276035643173,
+              "purity": 1.0000000000000004
+            }
+          ],
+          "source_return_peak_to_peak": 0.7199322162810767,
+          "final_purity": 1.0000000000000004
+        },
+        {
+          "commit_probability": 0.29,
+          "samples": [
+            {
+              "step": 0,
+              "position_probabilities": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "source_port_probability": 1.0,
+              "port_probability": 1.0,
+              "transit_probability": 0.0,
+              "monitored_attempt_outcomes": {
+                "native": 0.9999999999999999,
+                "boundary_rejected": 0.0,
+                "transit_noop": 0.0
+              },
+              "applied_current_probabilities": {
+                "1": 0.16666666666666666,
+                "0": 0.6666666666666666,
+                "-1": 0.16666666666666666
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 1.0,
+              "purity": 1.0
+            },
+            {
+              "step": 1,
+              "position_probabilities": [
+                0.6811051132070315,
+                0.04048262762227688,
+                0.04048262762227688,
+                0.11889837379957474,
+                0.0001328839492648476,
+                0.11889837379957477
+              ],
+              "source_port_probability": 0.6811051132070315,
+              "port_probability": 0.7620703684515852,
+              "transit_probability": 0.23792963154841434,
+              "monitored_attempt_outcomes": {
+                "native": 0.7620703591585871,
+                "boundary_rejected": 9.292998434487597e-09,
+                "transit_noop": 0.2379296315484144
+              },
+              "applied_current_probabilities": {
+                "1": 0.12701172342876496,
+                "0": 0.7459765531424687,
+                "-1": 0.12701172342876496
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.6811051132070315,
+              "purity": 0.6990161096463239
+            },
+            {
+              "step": 2,
+              "position_probabilities": [
+                0.29402640626525034,
+                0.0815921572630533,
+                0.0815921572630533,
+                0.264331658917815,
+                0.014125961373011812,
+                0.26433165891781524
+              ],
+              "source_port_probability": 0.29402640626525034,
+              "port_probability": 0.45721072079135694,
+              "transit_probability": 0.5427892792086421,
+              "monitored_attempt_outcomes": {
+                "native": 0.4572038434129273,
+                "boundary_rejected": 6.877378430152442e-06,
+                "transit_noop": 0.5427892792086425
+              },
+              "applied_current_probabilities": {
+                "1": 0.07619834810934441,
+                "0": 0.84760330378131,
+                "-1": 0.07619834810934441
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.29402640626525034,
+              "purity": 0.4644772239571441
+            },
+            {
+              "step": 3,
+              "position_probabilities": [
+                0.13390320618000573,
+                0.13616209406447363,
+                0.13616209406447372,
+                0.2678008080926088,
+                0.05817098950582731,
+                0.2678008080926092
+              ],
+              "source_port_probability": 0.13390320618000573,
+              "port_probability": 0.4062273943089531,
+              "transit_probability": 0.5937726056910453,
+              "monitored_attempt_outcomes": {
+                "native": 0.40612112482102014,
+                "boundary_rejected": 0.00010626948793323618,
+                "transit_noop": 0.5937726056910448
+              },
+              "applied_current_probabilities": {
+                "1": 0.06765143097419223,
+                "0": 0.8646971380516135,
+                "-1": 0.06765143097419223
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.13390320618000573,
+              "purity": 0.3286881268016208
+            },
+            {
+              "step": 4,
+              "position_probabilities": [
+                0.15444460438477356,
+                0.1768783996855167,
+                0.17687839968551677,
+                0.18208798667740728,
+                0.1276226228893761,
+                0.18208798667740764
+              ],
+              "source_port_probability": 0.15444460438477356,
+              "port_probability": 0.508201403755807,
+              "transit_probability": 0.491798596244191,
+              "monitored_attempt_outcomes": {
+                "native": 0.5077233283377031,
+                "boundary_rejected": 0.0004780754181043007,
+                "transit_noop": 0.4917985962441913
+              },
+              "applied_current_probabilities": {
+                "1": 0.084461196250249,
+                "0": 0.8310776074994999,
+                "-1": 0.084461196250249
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.15444460438477356,
+              "purity": 0.2346582227163296
+            },
+            {
+              "step": 5,
+              "position_probabilities": [
+                0.18780218699183565,
+                0.1829158450227008,
+                0.18291584502270092,
+                0.12823779116938724,
+                0.18989054062398555,
+                0.1282377911693875
+              ],
+              "source_port_probability": 0.18780218699183565,
+              "port_probability": 0.5536338770372373,
+              "transit_probability": 0.4463661229627603,
+              "monitored_attempt_outcomes": {
+                "native": 0.5521994577768478,
+                "boundary_rejected": 0.0014344192603902876,
+                "transit_noop": 0.44636612296276007
+              },
+              "applied_current_probabilities": {
+                "1": 0.09155510320934443,
+                "0": 0.8168897935813085,
+                "-1": 0.09155510320934443
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.18780218699183565,
+              "purity": 0.17747658548993892
+            },
+            {
+              "step": 6,
+              "position_probabilities": [
+                0.17405648738774684,
+                0.17216189078578578,
+                0.17216189078578586,
+                0.13554320988623692,
+                0.21053331126820513,
+                0.13554320988623705
+              ],
+              "source_port_probability": 0.17405648738774684,
+              "port_probability": 0.5183802689593184,
+              "transit_probability": 0.4816197310406791,
+              "monitored_attempt_outcomes": {
+                "native": 0.515008805690785,
+                "boundary_rejected": 0.003371463268533526,
+                "transit_noop": 0.4816197310406791
+              },
+              "applied_current_probabilities": {
+                "1": 0.08471097985895297,
+                "0": 0.8305780402820914,
+                "-1": 0.08471097985895297
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.17405648738774684,
+              "purity": 0.14140538173199282
+            },
+            {
+              "step": 7,
+              "position_probabilities": [
+                0.1561727986463962,
+                0.16859615065977696,
+                0.16859615065977707,
+                0.1578214361578387,
+                0.19099202771836948,
+                0.15782143615783883
+              ],
+              "source_port_probability": 0.1561727986463962,
+              "port_probability": 0.49336509996595024,
+              "transit_probability": 0.506634900034047,
+              "monitored_attempt_outcomes": {
+                "native": 0.48676333885998047,
+                "boundary_rejected": 0.006601761105969802,
+                "transit_noop": 0.5066349000340472
+              },
+              "applied_current_probabilities": {
+                "1": 0.07892663610800679,
+                "0": 0.8421467277839841,
+                "-1": 0.07892663610800679
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.1561727986463962,
+              "purity": 0.11814219539085932
+            },
+            {
+              "step": 8,
+              "position_probabilities": [
+                0.16941102960506182,
+                0.17161636652591283,
+                0.17161636652591283,
+                0.16159072764159915,
+                0.16417478205991093,
+                0.1615907276415993
+              ],
+              "source_port_probability": 0.16941102960506182,
+              "port_probability": 0.5126437626568875,
+              "transit_probability": 0.4873562373431094,
+              "monitored_attempt_outcomes": {
+                "native": 0.5015802839018582,
+                "boundary_rejected": 0.01106347875502933,
+                "transit_noop": 0.4873562373431094
+              },
+              "applied_current_probabilities": {
+                "1": 0.07990888773196658,
+                "0": 0.8401822245360641,
+                "-1": 0.07990888773196658
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.16941102960506182,
+              "purity": 0.102994191550332
+            }
+          ],
+          "source_return_peak_to_peak": 0.5472019070270258,
+          "final_purity": 0.102994191550332
+        },
+        {
+          "commit_probability": 1.0,
+          "samples": [
+            {
+              "step": 0,
+              "position_probabilities": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "source_port_probability": 1.0,
+              "port_probability": 1.0,
+              "transit_probability": 0.0,
+              "monitored_attempt_outcomes": {
+                "native": 0.9999999999999999,
+                "boundary_rejected": 0.0,
+                "transit_noop": 0.0
+              },
+              "applied_current_probabilities": {
+                "1": 0.16666666666666666,
+                "0": 0.6666666666666666,
+                "-1": 0.16666666666666666
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 1.0,
+              "purity": 1.0
+            },
+            {
+              "step": 1,
+              "position_probabilities": [
+                0.5037788111577249,
+                0.12914577864693008,
+                0.12914577864693008,
+                0.11889837379957476,
+                0.00013288394926484762,
+                0.11889837379957477
+              ],
+              "source_port_probability": 0.5037788111577249,
+              "port_probability": 0.7620703684515852,
+              "transit_probability": 0.23792963154841437,
+              "monitored_attempt_outcomes": {
+                "native": 0.7620703364167684,
+                "boundary_rejected": 3.203481687817418e-08,
+                "transit_noop": 0.2379296315484144
+              },
+              "applied_current_probabilities": {
+                "1": 0.12701171205785572,
+                "0": 0.745976575884287,
+                "-1": 0.12701171205785572
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.5037788111577249,
+              "purity": 0.31505822038939013
+            },
+            {
+              "step": 2,
+              "position_probabilities": [
+                0.31072347440736664,
+                0.16331922751820105,
+                0.16331922751820105,
+                0.16537280352153239,
+                0.031892463513165256,
+                0.1653728035215325
+              ],
+              "source_port_probability": 0.31072347440736664,
+              "port_probability": 0.6373619294437687,
+              "transit_probability": 0.36263807055623015,
+              "monitored_attempt_outcomes": {
+                "native": 0.637299885347758,
+                "boundary_rejected": 6.20440960107809e-05,
+                "transit_noop": 0.3626380705562301
+              },
+              "applied_current_probabilities": {
+                "1": 0.10619596619262274,
+                "0": 0.787608067614753,
+                "-1": 0.10619596619262274
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.31072347440736664,
+              "purity": 0.19354887435487925
+            },
+            {
+              "step": 3,
+              "position_probabilities": [
+                0.2328840170540914,
+                0.16958016766978606,
+                0.16958016766978606,
+                0.18181693998409929,
+                0.06432176763813599,
+                0.18181693998409953
+              ],
+              "source_port_probability": 0.2328840170540914,
+              "port_probability": 0.5720443523936636,
+              "transit_probability": 0.4279556476063348,
+              "monitored_attempt_outcomes": {
+                "native": 0.571011559441722,
+                "boundary_rejected": 0.0010327929519420033,
+                "transit_noop": 0.4279556476063353
+              },
+              "applied_current_probabilities": {
+                "1": 0.09482432892297292,
+                "0": 0.8103513421540531,
+                "-1": 0.09482432892297292
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.2328840170540914,
+              "purity": 0.15709884071218247
+            },
+            {
+              "step": 4,
+              "position_probabilities": [
+                0.20127276717599749,
+                0.16861278215019715,
+                0.16861278215019715,
+                0.18556241889175937,
+                0.09037683074008693,
+                0.18556241889175965
+              ],
+              "source_port_probability": 0.20127276717599749,
+              "port_probability": 0.5384983314763918,
+              "transit_probability": 0.46150166852360597,
+              "monitored_attempt_outcomes": {
+                "native": 0.5359581462216862,
+                "boundary_rejected": 0.0025401852547063597,
+                "transit_noop": 0.46150166852360547
+              },
+              "applied_current_probabilities": {
+                "1": 0.08847962928537878,
+                "0": 0.8230407414292407,
+                "-1": 0.08847962928537878
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.20127276717599749,
+              "purity": 0.13870137884673148
+            },
+            {
+              "step": 5,
+              "position_probabilities": [
+                0.18909460945142414,
+                0.1664453160998376,
+                0.16644531609983765,
+                0.18410370791148314,
+                0.10980734252593129,
+                0.18410370791148337
+              ],
+              "source_port_probability": 0.18909460945142414,
+              "port_probability": 0.5219852416510994,
+              "transit_probability": 0.47801475834889784,
+              "monitored_attempt_outcomes": {
+                "native": 0.517739098767048,
+                "boundary_rejected": 0.004246142884051422,
+                "transit_noop": 0.47801475834889756
+              },
+              "applied_current_probabilities": {
+                "1": 0.08487446883315752,
+                "0": 0.8302510623336825,
+                "-1": 0.08487446883315752
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.18909460945142414,
+              "purity": 0.12618687076437793
+            },
+            {
+              "step": 6,
+              "position_probabilities": [
+                0.18539485142795958,
+                0.1645733404218815,
+                0.1645733404218815,
+                0.1807698681001791,
+                0.12391873152791572,
+                0.18076986810017937
+              ],
+              "source_port_probability": 0.18539485142795958,
+              "port_probability": 0.5145415322717226,
+              "transit_probability": 0.48545846772827417,
+              "monitored_attempt_outcomes": {
+                "native": 0.5085736448711391,
+                "boundary_rejected": 0.005967887400583418,
+                "transit_noop": 0.48545846772827406
+              },
+              "applied_current_probabilities": {
+                "1": 0.08277297834499539,
+                "0": 0.8344540433100068,
+                "-1": 0.0827729783449954
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.18539485142795958,
+              "purity": 0.11666015595520392
+            },
+            {
+              "step": 7,
+              "position_probabilities": [
+                0.18548753041839477,
+                0.1631882174877019,
+                0.16318821748770193,
+                0.17702933746698715,
+                0.13407735967222315,
+                0.17702933746698743
+              ],
+              "source_port_probability": 0.18548753041839477,
+              "port_probability": 0.5118639653937986,
+              "transit_probability": 0.4881360346061977,
+              "monitored_attempt_outcomes": {
+                "native": 0.5042412285380548,
+                "boundary_rejected": 0.007622736855743438,
+                "transit_noop": 0.4881360346061978
+              },
+              "applied_current_probabilities": {
+                "1": 0.08149929247109472,
+                "0": 0.8370014150578066,
+                "-1": 0.08149929247109472
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.18548753041839477,
+              "purity": 0.1091330550659179
+            },
+            {
+              "step": 8,
+              "position_probabilities": [
+                0.1872855162165944,
+                0.1621763887980434,
+                0.16217638879804347,
+                0.17349571405690659,
+                0.14137027807350108,
+                0.1734957140569069
+              ],
+              "source_port_probability": 0.1872855162165944,
+              "port_probability": 0.5116382938126813,
+              "transit_probability": 0.48836170618731456,
+              "monitored_attempt_outcomes": {
+                "native": 0.502460279077228,
+                "boundary_rejected": 0.009178014735453264,
+                "transit_noop": 0.48836170618731467
+              },
+              "applied_current_probabilities": {
+                "1": 0.08068404160105358,
+                "0": 0.8386319167978883,
+                "-1": 0.08068404160105358
+              },
+              "scope": "position measurement and conditional monitored-attempt distribution; no coherent boundary-loss bound",
+              "initial_support_probability": 0.1872855162165944,
+              "purity": 0.10310417455936326
+            }
+          ],
+          "source_return_peak_to_peak": 0.31838395972976535,
+          "final_purity": 0.10310417455936326
+        }
+      ],
+      "scope": "finite source-return oscillations and support leakage under supplied monitoring; no rest-clock or particle-stability identification"
+    },
+    "sparse_density_max_error": 2.2212876579839976e-16,
+    "supplied": {
+      "record_monitor": "full basis source measurement",
+      "clock": "discrete .37 inverse hop amplitude",
+      "commit_probabilities": [
+        0.0,
+        0.29,
+        1.0
+      ],
+      "one_load": true
+    }
+  },
+  "summary": {
+    "dispatched": 31,
+    "partial_support": 3,
+    "diagnostic_only": 1,
+    "blocked": 27,
+    "full_criteria_met": 0
+  }
+}

@@ -1221,6 +1221,99 @@ return probability is $643/900$, compared with $101/120$ for two classical
 attempts. Coherent information and its changed continuation are therefore
 observable properties of the specified program.
 
+\subsection{A monitored integer-record charge instrument}
+\label{sec:integer-record-instrument}
+
+A port/transit realization joins coherent propagation to explicit integer
+records on the same finite state space. Fix an oriented graph, a port
+preparation and a cutoff $K$. Each seam $e=(a,b)$ has half-seam integers
+$F_{e,a},F_{e,b}$. Retain the states $|z,F\rangle$ reachable from the
+prepared $|x_0,0\rangle$ by the following half-hops, with $|F_{e,x}|\le K$.
+An endpoint-to-transit hop increments $F_{e,x}$, with amplitude $+1$ at
+$a$ and $-1$ at $b$; its adjoint decrements that field. Omitting an
+out-of-window hop together with its reverse defines a Hermitian $D_K$.
+This hard wall is a declared regulator, with no modular wraparound.
+With $\Gamma=+1$ on ports and $-1$ on transit seams,
+\begin{equation}
+ H_{m,K}=D_K+m\Gamma,\qquad
+ \{D_K,\Gamma\}=0,\qquad H_{m,K}^2=D_K^2+m^2I.
+ \label{eq:joint-record-square}
+\end{equation}
+The square is a lifted record-space operator. The bare incidence
+Laplacian cannot replace it on a graph with recorded cycles.
+
+\begin{proposition}[Exact integer Gauss sectors and complete monitoring]
+Every half-hop preserves
+\begin{equation}
+ G_x=\mathbf1_{z=x}+\sum_{e\ni x}F_{e,x},\qquad
+ G_e=\mathbf1_{z=e}-F_{e,a}-F_{e,b}.
+ \label{eq:half-seam-gauss}
+\end{equation}
+There is a complete measured native-event instrument on the same bounded
+sector preserving these charges, including its rejected-boundary and
+transit outcomes.
+\end{proposition}
+\begin{proof}
+For $x\to e$, endpoint occupancy falls by one and $F_{e,x}$ rises by
+one, preserving $G_x$. Transit occupancy and the subtracted field each
+rise by one, preserving $G_e$. Reverse hops invert both changes; the
+mass is diagonal. Hence $[H_{m,K},G_x]=[H_{m,K},G_e]=0$.
+
+For a port input use its one-hot loads $n$, choose a seam and fair coin,
+and apply the native integer current
+\[
+ d=n_a-n_b,\quad
+ j=\frac{d-(2\,\mathrm{coin}-1)(|d|\bmod2)}2,\quad
+ n'_a=n_a-j,\ n'_b=n_b+j.
+\]
+Set $F'_{e,a}=F_{e,a}+j$ and $F'_{e,b}=F_{e,b}-j$.
+Endpoint charge changes cancel; the sum of the two fields is unchanged.
+A target outside the admitted sector gives a recorded boundary rejection
+and unchanged state. A transit input gives a retained noop. These
+identity branches also preserve all charges.
+
+The instrument measures the complete source basis $s$, selects seam,
+coin and record law $\alpha$ with probabilities $w_\alpha$, and records
+its target $f_\alpha(s)$. The two record laws retain either
+$(\mathrm{coin},j)$ or $(\mathrm{coin},d)$. Its rows are
+\[
+ K_{s,\alpha}=\sqrt{w_\alpha}|f_\alpha(s)\rangle\langle s|,\qquad
+ \sum_{s,\alpha}K_{s,\alpha}^*K_{s,\alpha}=I.
+\]
+Every source and event remains a distinct outcome even for equal targets.
+The trace-preserving completely positive map follows on arbitrary
+quantum references. Zero-current records and failed proposals are kept.
+\end{proof}
+
+The supplied monitoring dephases the source basis; this is an explicit
+apparatus choice. The discrete protocol is
+\[
+ \rho'=(1-p)U\rho U^*+p\mathcal C(U\rho U^*),\qquad
+ U=e^{-itH_{m,K}}.
+\]
+It retains the no-commit outcome with probability $1-p$. At $p=0$ it is
+coherent joint evolution. At $t=0,p=1$, an interior port input has the
+native one-event population law $I-L/(2M)$. These finite statements do
+not imply a continuous-time Poisson or fast-commit equivalence.
+
+On the oriented triangle with initial port $0$, zero fields and $m=0.23$,
+eight steps at $t=0.37,p=0.29$ give $13$ and $25$ reachable states for
+$K=1,2$. The maximum final position-probability difference is
+$0.0208933517$. Cumulative expected native rejection counts are
+$0.00573201863$ and $0.000000361110879$, respectively, with trace errors
+below $6\times10^{-15}$. Those counts measure monitored rejections;
+coherent hard-wall error requires a separate bound. Two cutoffs establish
+sensitivity, without a removal theorem.
+
+The implementation and equation map are
+\path{code/openwave_candidate/candidate/oph_openwave/quantum_records.py}
+and \path{code/openwave_candidate/candidate/methods/quantum_records.md}.
+Independent tests reconstruct every Kraus row and check charge, record
+increments and~\eqref{eq:joint-record-square}. The graph, preparation,
+fields, cutoff, mass, hop time and monitoring probability are supplied.
+Many-load exchange statistics, an unbounded-record limit and the physical
+particle and clock dictionary are outside this finite theorem.
+
 \begin{proposition}[A reference prepared by the same walk]
 \label{prop:walk-reference}
 For any finite unitary $W$ and $0<\alpha<1$, the complete two-outcome

@@ -1,0 +1,17 @@
+{
+  "scope": "local smoke checks; not platform validation or fresh acceptance",
+  "construction_sha256": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907",
+  "geometry_sha256": "00d6ca810b1c7430e761b3106317f288d0b3c2e722dfeedec5aa18ac7bb8e32d",
+  "seed": 20261114,
+  "ring_shape": [
+    2,
+    3
+  ],
+  "mass": 0.173,
+  "checks": {
+    "mass_square_error": 0.0,
+    "independent_composition_error": 1.1857187100668868e-16,
+    "native_record_gauss_error": 0.0,
+    "official_untested_rows": 31
+  }
+}

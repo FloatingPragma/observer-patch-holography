@@ -13,8 +13,8 @@ import sys
 import time
 
 RER_COMMIT = "3bcacf1276ddb3ead35be2b9adcd63b6643e2d35"
-OPENWAVE_COMMIT = "ef55175d04737e73c92f33f9f9cf3d17c593da54"
-MODULES = ("charge", "spin", "leptons", "conjugation", "dispersion")
+OPENWAVE_COMMIT = "5d686cb049b82cc55f8822210a254d5833be23a7"
+MODULES = ("charge", "spin", "leptons", "conjugation", "dispersion", "construction", "quantum_records", "observer_protocol")
 
 
 def validate_result(name: str, result: dict) -> None:
@@ -45,18 +45,19 @@ def execute(names: list[str]) -> dict:
         result = module.run()
         validate_result(name, result)
         rows.append({"task": name, "wall_seconds": time.monotonic() - started,
-                     "command": f"python -m oph_openwave.{name}", "exit_code": 0,
+                     "command": f"python -m oph_openwave.runner {name}", "exit_code": 0,
                      "verdict": "PASS_SCOPED_COMPUTATION", "result": result})
     sources = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                for p in sorted(Path(__file__).parent.glob("*.py"))}
     return {"schema": "oph.openwave_candidate.run.v1",
             "written_utc": datetime.now(timezone.utc).isoformat(),
-            "machine": "workstation", "source_basis_commit": RER_COMMIT,
+            "machine": "workstation", "legacy_source_basis_commit": RER_COMMIT,
+            "construction_source_identity": "candidate_python_sha256",
             "openwave_criteria_commit": OPENWAVE_COMMIT,
             "candidate_python_sha256": sources,
             "versions": {"python": platform.python_version(),
                          **{n: importlib.metadata.version(n) for n in ("numpy", "sympy", "mpmath")}},
-            "jobs": rows, "official_openwave_admission": False,
+            "jobs": rows, "official_model_id": "M10", "official_openwave_admission": True,
             "official_openwave_cells_awarded": 0,
             "verdict": "PASS_SCOPED_COMPUTATIONS_NO_PHYSICAL_PROMOTION"}
 

@@ -1,0 +1,441 @@
+{
+  "assessment": "code/openwave_candidate/integration/assessment.json",
+  "comparison_domains": {
+    "clock": "The port/transit probability oscillates at 2E; no physical electron rest clock or derived commit-rate calibration is identified.",
+    "continuum": "No physical particle dictionary, common relativistic continuum or complete 31-row validation follows.",
+    "records": "C and E outcome payloads are retained; separate seam-offset dynamics are not implemented.",
+    "regulator": "Two finite cutoff comparisons provide no cutoff-removal theorem.",
+    "shared_register_native_programs": "The nine claims in claims/joint_observer.json retain their authenticated finite source domains. A shared event register does not implement independent additive loads. No transfer to the separate-copy generator is asserted."
+  },
+  "construction": "Portable port/transit incidence Hamiltonian with supplied mass; bounded integer half-seam Gauss sector and monitored native event instrument.",
+  "finite_claims": [
+    {
+      "domain": "Product preparations; no interacting or exchange-statistics theorem.",
+      "id": "additive_independent_loads",
+      "statement": "Independent prepared loads evolve under separate copies of the port/transit generator."
+    },
+    {
+      "domain": "One load; bounded integer records; hard-wall coherent regulator.",
+      "id": "integer_joint_gauss",
+      "statement": "Half-seam hopping and accepted literal native currents preserve the finite Gauss sector."
+    },
+    {
+      "domain": "Position and half-seam records measured; supplied discrete time and commit probability.",
+      "id": "monitored_native_instrument",
+      "statement": "The declared measured event instrument preserves trace and positivity with complete native, transit-noop and rejected-attempt outcomes."
+    },
+    {
+      "domain": "One-load finite sector. The carrier path-window error bound concerns coherent evolution of the specified initial basis preparation against the complete sector at the same cutoff; no repeated-channel or cutoff-removal bound.",
+      "id": "observer_complete_readout",
+      "statement": "The finite observer readout retains position probabilities, monitored-attempt outcomes and applied-current probabilities; sparse evolution agrees with finite density controls."
+    },
+    {
+      "domain": "Exact finite triangle rank control and the explicitly supplied BFS preparation at time .37 and mass .23. No transfer of bare dark-mode stability or particle-stability identification.",
+      "id": "bare_dark_mode_nontransfer",
+      "statement": "The oriented triangle bare incidence has rank 2 and transit kernel dimension 1; the cutoff-1 integer-record incidence in the initial-port Gauss sector has rank 6 and transit kernel dimension 0. The declared equal-amplitude BFS transit preparation leaks to ports."
+    }
+  ],
+  "official_OpenWave_awards_added": 0,
+  "physical_premises_closed": [],
+  "row_assessment": [
+    {
+      "full_criterion_met": false,
+      "id": 1,
+      "local_status": "partial_support",
+      "missing_prerequisites": "Topological identification with physical electric charge and no fractional charged excitations across the full state space.",
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 2,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Localized charged electron eigenstate, stable rest pole and a common 511 keV dictionary.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 3,
+      "local_status": "partial_support",
+      "missing_prerequisites": "Observed frequency is 2E, not the criterion rest clock; localized physical electron and native calibration remain missing.",
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 4,
+      "local_status": "diagnostic_only",
+      "missing_prerequisites": "The prepared localized source leaks in these finite controls. No stable physical particle preparation or stability theorem is supplied.",
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 5,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Stationary intrinsic dipole B, g near 2 and Larmor response on the electron state.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 6,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Field-carried angular momentum hbar/2 of that electron state.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 7,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Physical frame/field rotation action and exchange statistics; flux-phase convention alone is insufficient.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 8,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Identified particle/antiparticle pair annihilation into propagated radiation, with channel counts.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 9,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Neutral light species actually emitted by candidate decay dynamics.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 10,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Three identified neutrino flavors, coherent oscillation probabilities and PMNS angles.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 11,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Exactly three stable charged-lepton minima with shared-scale ratios 1:207:3477.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 12,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Partial-winding fractional quark charge on an actual stable quark string.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 13,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Stable three-quark composite in the same joint dynamics.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 14,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Identified proton/neutron ordering and radial electric charge profile.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 15,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Proton and neutron field energies at 938.3/939.6 MeV under the same anchor.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 16,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Deuteron below proton-plus-neutron threshold with electric quadrupole.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 17,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Nuclear binding curve, excitation levels and halo decay lifetimes.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 18,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Identified pion/kaon states and strange-decay channels.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 19,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Stable massive neutral physical branch without importing its mass.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 20,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Carrier-generated far potential 1/r for identified physical charge; coupling ancestry without fitted alpha.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 21,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Boosted physical states, no preferred-frame observable and a common Lorentz-invariant action/limit.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 22,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Inter-quark linear potential and one common physical conversion near 1 GeV/fm.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 23,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Coupling extracted at multiple scales including core crossover on the fixed interaction law.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 24,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Identified muon evolves to electron plus neutral outgoing excitations.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 25,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Identified neutron decays to proton/electron/antineutrino with parity-violating records.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 26,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Attractive mass-source inverse-square force with internally fixed G.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 27,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Light bending and clock/Shapiro-delay observables from the same emergent metric.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 28,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Internally derived cosmological Lambda, remaining gaps and explicit falsifier.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 29,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Two transverse propagating physical Maxwell branches at the same matter-wave speed.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 30,
+      "local_status": "partial_support",
+      "missing_prerequisites": "The bare carrier Laplacian is a component control: the integer-record lift has a different spectrum. A physical row requires its actual joint dispersion, continuum limit, common spacetime dimension and matter-state identification.",
+      "official_status": "untested"
+    },
+    {
+      "full_criterion_met": false,
+      "id": 31,
+      "local_status": "blocked",
+      "missing_prerequisites": [
+        "Hydrogen-like bound spectrum on the same physical interaction/state law; 2D toy levels alone insufficient.",
+        "executable observable on frozen joint candidate",
+        "numeric tolerance and finite-size/error budget justified for this observable",
+        "supplied-input ancestry and physical state identification",
+        "genuinely unrun configuration, independently audited and filed before execution"
+      ],
+      "official_status": "untested"
+    }
+  ],
+  "schema": "oph.openwave_joint_model_claims.v1",
+  "source_sha256": {
+    "code/openwave_candidate/candidate/oph_openwave/__init__.py": "844f2f63fede8ca1b17ff2524cc380a9c1f702b92c00fde61b04368119ef06e2",
+    "code/openwave_candidate/candidate/oph_openwave/charge.py": "84f678758e7fb7e0cb60782cdfada558f72185421fe083fcf0a08debececc950",
+    "code/openwave_candidate/candidate/oph_openwave/conjugation.py": "344c5d9215318e155f8227ce83f85f89d41d678f856a68b49a57a97606e06a27",
+    "code/openwave_candidate/candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907",
+    "code/openwave_candidate/candidate/oph_openwave/dispersion.py": "ce81d78943d5580e6e7a4536ea4d7e1a5ee2bed5acee8ba06caaaa24bf765bbd",
+    "code/openwave_candidate/candidate/oph_openwave/geometry.py": "00d6ca810b1c7430e761b3106317f288d0b3c2e722dfeedec5aa18ac7bb8e32d",
+    "code/openwave_candidate/candidate/oph_openwave/leptons.py": "18ec0cc98783260de38f6bf05079b72cc8437de1973d92356ae5888b75b6703b",
+    "code/openwave_candidate/candidate/oph_openwave/observer_protocol.py": "75bd1ddaed574149257d525063d66175711e46e4f3404b866bd94a3b9c87bc61",
+    "code/openwave_candidate/candidate/oph_openwave/quantum_records.py": "95735e200a0f7167b4efc18ad62bb0f42e1dac43277ea4defd46f5dbf3c5e34c",
+    "code/openwave_candidate/candidate/oph_openwave/runner.py": "729a586a6154001c4991491181e4dab1fb394500df7ca38f577f816f3c5eeffc",
+    "code/openwave_candidate/candidate/oph_openwave/spin.py": "07875e4c23eebdfd41404eaf57a06c5d45669b0309f8d2ae270b050730d18b1b",
+    "code/openwave_candidate/integration/assess.py": "677cf2af994e0a5855791e137c9ee81853a8c1ec3a19544658bdfd71885ab833",
+    "code/openwave_candidate/integration/assessment.json": "63d007365d577ed8865d34f344955e5ea072c3dbaf880ad43fef38b227047cb4",
+    "code/openwave_candidate/platform_packet/criteria_frozen.json": "d6e36d90bc253f5af641760de2e6efc50e181f16e17c8f5334c31d0d7928085f",
+    "code/openwave_candidate/platform_packet/packet.json": "2a203acaa796b7fc4fc390c3060f3dd1bb85aed211337a2b0c4668640a40d5b5",
+    "tools/build_openwave_joint_claims.py": "2509fdbebd107051f429fd0ca95fa250c4e19d9bc604ede67b58e113cf1689bb",
+    "tools/check_openwave_assessment_replay.py": "3f8a257ebd5a74b47e476b0c0e15434fff8965728a9b8bc52109050eb83202db"
+  }
+}

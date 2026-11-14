@@ -1,4 +1,21 @@
-# Portable finite OPH computations
+# Portable OPH construction
+
+The current integration starts with one port/seam `Construction` and lifts it
+to the bounded integer-link `JointRecords` state space. The canonical carrier
+and ring torus are available in `oph_openwave.geometry` without a RER archive.
+From this directory, install with `python -m pip install .`, then run:
+
+```sh
+oph-openwave construction --output construction.json
+oph-openwave quantum_records --output quantum-records.json
+```
+
+The full 31-row dispatch and OpenWave task handoff live in `../integration/`
+and `../platform_packet/`. Only executed supporting observables receive local
+results; missing physical observables remain explicit prerequisites. M10 is
+admitted to OpenWave; the local computations award no official cells.
+
+## Earlier independent finite computations
 
 The package recomputes five finite constructions from explicit equations:
 charge weights, a gauge-singlet spin kernel, the lepton read register,
@@ -6,8 +23,8 @@ class-conjugate repair branches and a twelve-direction scalar symbol.
 Each command retains its mathematical domain and tests altered inputs.
 
 **Scope**: these are calculations on the stated finite constructions. No
-OpenWave admission, maintainer-awarded cell, complete physical particle
-criterion or empirical prediction is claimed. Installing both packages
+maintainer-awarded cell, complete physical particle criterion or empirical
+prediction is claimed. Installing both packages
 tests dependency compatibility and headless execution; it does not add an
 OpenWave model column or a Taichi field kernel.
 
@@ -83,3 +100,31 @@ matrices, direct diagonalization and resolvent solves.
 Software inherits the Apache-2.0 terms of RER software. Authored method
 notes retain the repository's documentation terms; no third-party paper
 or private planning document is included.
+
+The `construction` runner module integrates the audited finite incidence law:
+`python -m oph_openwave.runner construction`. `Construction` uses the same
+incidence matrix for cost and the massive port/transit Hamiltonian, evolves
+independent loads in separate transit spaces, and applies literal native events
+with exact signed integer current counters. The tests check the massive square,
+additive eigenphases, independence, the mean native law and the Gauss identity.
+These are local algebra checks. The coherent transit amplitudes are distinct
+from integer current counters. The joined finite instrument below supplies an
+explicit bridge; interacting-load statistics and the physical domain remain
+open. Earlier row-specific controls remain available for comparison.
+
+`python -m oph_openwave.runner quantum_records` runs the joined finite quantum
+register protocol. `JointRecords` lifts the port/transit generator to integer
+half-seam records, in the sector of a specified initial port. Its Gauss charge
+includes transit occupancy and is exactly conserved by every half-hop. Integer
+records are bounded by a declared cutoff; rejected boundary events are retained.
+The monitored native instrument has rank-one Kraus operators labelled by source,
+seam and coin, and includes noops. This makes the channel trace preserving even
+when distinct sources have the same destination. `step` composes unitary evolution
+with a supplied commit probability. It is a discrete protocol, with no asserted
+fast-commit limit. The classical one-load C-current law is recovered at zero
+coherent time away from the boundary. Transit events are explicitly retained as
+noops. Full position/record monitoring, the cutoff and transit policy are supplied
+choices. The instrument chooses C (coin,current) and E (coin,pre-repair contrast)
+records with equal probability and retains both noops and each record value.
+The separate offset-law dynamics, many-load joint register, and removal of the
+integer cutoff remain open. This does not establish all 31 physical criteria.

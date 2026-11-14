@@ -307,3 +307,11 @@ declared coherent service have different observation domains. None of these
 finite claims awards a physical criterion or changes a canonical physical
 premise. `python -m tools.build_native_execution_claims --check` authenticates
 all ten owners; the postdiction ledger projects the same source records.
+
+The finite port/transit observer construction is registered in
+[`openwave_joint_model.json`](openwave_joint_model.json). Its source hashes bind
+the portable implementation and the complete 31-row local assessment. Generate
+it with `python -m tools.build_openwave_joint_claims --write`, or verify source
+custody and numerical replay with `--check`. The shared-event-register claims
+in `joint_observer.json` retain their separate finite domains; no additive
+many-load or physical-clock transfer is inferred.

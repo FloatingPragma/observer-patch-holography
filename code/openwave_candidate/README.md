@@ -1,29 +1,39 @@
-# Finite OPH comparison computations
+# Reproduce the monitored observer construction
 
-This bundle supplies portable, headless computations and independent
-checks of explicitly declared finite OPH constructions. Its scientific
-source basis is public RER commit
-`3bcacf1276ddb3ead35be2b9adcd63b6643e2d35`. OpenWave dependency compatibility
-is tested against commit `ef55175d04737e73c92f33f9f9cf3d17c593da54`.
+From the public RER checkout, install and execute the portable observer model:
 
-Start with the [package and commands](candidate/README.md). Each method
-note starts with equations, links their implementation and lists the
-physical quantities not computed. The
-[definition-only dispersion comparison](certification/README.md) retains
-two independent implementations, full polynomial comparison and
-altered-input controls.
+```sh
+python -m pip install './code/openwave_candidate/candidate[integration,test]'
+python -m pytest code/openwave_candidate/candidate/tests
+python code/openwave_candidate/integration/assess.py --output /tmp/oph-assessment.json
+python code/openwave_candidate/integration/assess.py --verify /tmp/oph-assessment.json
+python code/openwave_candidate/platform_packet/validate.py
+```
 
-The [run receipt](evidence/portable_run.json) records the five calculations.
-The [public-clone check](evidence/clean_public_reproduction.json) records
-installation from the pinned public revision, all 19 package tests and
-exact agreement of all five scientific outputs in an isolated environment.
-Supporting audits retain the exact charge lattice, full finite spin
-kernel, original repair branches, calibration ancestry, source parity and
-negative quark-splitting result. The export manifest authenticates the
-public bundle's files.
+The bounded one-load instrument preserves its integer Gauss sector and retains
+all measured outcomes. Complete physical criteria require particle identification,
+interaction and refinement results beyond these finite checks. All 31 official
+OpenWave rows are untested. The classical native registers, bare carrier controls
+and monitored joint state retain their declared domains.
 
-**Scope**: finite mathematical computations and conditional readouts;
-no OpenWave admission or official cell, complete physical spectrum,
-physical Yukawa derivation, annihilation calculation or cosmological
-abundance prediction is inferred. The private planning/scoreboard
-documents are not part of this bundle.
+## Independent source/tag/link controls
+
+
+Run from the published RER root with its declared Python dependencies:
+
+```sh
+python3 -m model.native_charged_propagation --check
+python3 -m model.native_criterion_packet --check
+python3 -m model.native_electric_gauss --check
+python3 -m model.native_gauss_clock --check
+python3 -m model.native_gauss_walk --check
+python3 -m model.native_moving_clock --check
+python3 -m model.native_observer_program --check
+python3 -m model.native_spatial_refinement --check
+python3 -m model.native_transport_spectrum --check
+python3 -m tools.build_joint_observer_claims --check
+```
+
+Scientific commands recompute outputs from source. Receipt hashes authenticate their inputs; they do not substitute for execution. Complete finite domains and physical limitations are in [WORK_ITEMS.md](WORK_ITEMS.md), with all 31 literal obligations in [SCOREBOARD.md](SCOREBOARD.md).
+
+The published RER revision, six PDFs, ledger and live Results/status assets are authenticated. The flagship has 59 pages.
