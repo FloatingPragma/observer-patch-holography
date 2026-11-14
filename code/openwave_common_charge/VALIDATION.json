@@ -2843,5 +2843,19 @@
   "central_alternative_validation": {
     "path": "openwave-tuning/row_completion/ROW_01/COMMON_SOURCE_VALIDATION.json",
     "sha256": "d731949704b2c319cd236ff373173515acf5c16be6da83952661cae4c8091f82"
+  },
+  "authoritative_scope_clarification": {
+    "manifest_sha256": "2c8f909b27da96c30abe90327effd92cec4f8b3e8941f881b971a9e3c68a7eb8",
+    "scope_file": "SCOPE_ANNEX.md",
+    "scope_sha256": "73fec5e5473838d080630d77c8a56e9f10f901b1d97fdc4e6bb56a52586d3e0b",
+    "input_index": "SCOPE_INPUTS.json",
+    "current_central_acceptance_sha256": "67b369adae513cdeb890d9391f221ce181dda062898aa4fc419e5dceca9da1c4",
+    "additional_Fable_full_review_sha256": "c8f54c446a49f1b0bbdf8c89bfa3ab681eff2eee183d0db383a74dbb50e58119",
+    "scientific_executions_added": 0,
+    "regional_meter_addresses_occupation": true,
+    "integer_architecture_assumed": true,
+    "fractional_means_permitted": true,
+    "half_loop_is_phase_control_not_half_current": true,
+    "negative_charge_is_static_compensator": true
   }
 }

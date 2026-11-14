@@ -1,5 +1,19 @@
 {
   "all31_complete": false,
+  "authoritative_scope_clarification": {
+    "additional_Fable_full_review_sha256": "c8f54c446a49f1b0bbdf8c89bfa3ab681eff2eee183d0db383a74dbb50e58119",
+    "current_central_acceptance_sha256": "67b369adae513cdeb890d9391f221ce181dda062898aa4fc419e5dceca9da1c4",
+    "fractional_means_permitted": true,
+    "half_loop_is_phase_control_not_half_current": true,
+    "input_index": "SCOPE_INPUTS.json",
+    "integer_architecture_assumed": true,
+    "manifest_sha256": "2c8f909b27da96c30abe90327effd92cec4f8b3e8941f881b971a9e3c68a7eb8",
+    "negative_charge_is_static_compensator": true,
+    "regional_meter_addresses_occupation": true,
+    "scientific_executions_added": 0,
+    "scope_file": "SCOPE_ANNEX.md",
+    "scope_sha256": "73fec5e5473838d080630d77c8a56e9f10f901b1d97fdc4e6bb56a52586d3e0b"
+  },
   "candidate_id": "native-local12-dirac-noncompact-quadratic-v4-proposed",
   "full_criterion_met": true,
   "global_torus_bundle_claimed": false,
@@ -30,11 +44,11 @@
   "scope": "Local bounding-surface Chern and exact terminal regional-flux/clock effects on the one-charge size2 g1 source.",
   "source_occupation_integer_ancestry_declared": true,
   "source_sha256": {
-    "code/openwave_common_charge/PUBLIC_MANIFEST.json": "bd18cca0e4e347582f742d0b134ff3321ce44824d7f5d8a08abce86a6bac74a8",
+    "code/openwave_common_charge/PUBLIC_MANIFEST.json": "5231e8a374fdf84d7a3e4f4908e4122a8cb29a6568f455a0735c9802043c6471",
     "code/openwave_common_charge/RESULT.json": "918d53926221ed1410ac8d18cc279ce16f6bb9d1c707fbce2bb38850589cef8a",
     "code/openwave_common_charge/SNAPSHOT_MANIFEST.json": "6dac0df3ef90048ab145532050dd794116190adc9ca678e77e62dd23d539c6ef",
-    "code/openwave_common_charge/VALIDATION.json": "19e713dfaddc5ab68fe0521a42897ea0d25bd8367afa6da9497d75b09f7b5eb3",
-    "tools/build_openwave_common_charge_claim.py": "473fdb07cf730200f71182488fac8e2f54c5a8f0ea6da50312012f2a87fd049f"
+    "code/openwave_common_charge/VALIDATION.json": "2bf96f6bc3043732e72378ad78d05ef000b7e5936734dacc39ac70c324167f3d",
+    "tools/build_openwave_common_charge_claim.py": "5586922fa534d264aa7bd17e4b7397e6d30f9acd397d9f8f8e027798c6753835"
   },
   "terminal_annex_independent_reviews": 2,
   "terminal_observable_program_executed": true

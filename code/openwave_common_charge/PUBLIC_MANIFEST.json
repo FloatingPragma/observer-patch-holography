@@ -1,13 +1,20 @@
 {
-  "schema": "oph.common_charge.public_manifest.v1",
   "files_sha256": {
     "PLANS.json": "5aef7043f191ef4abd837bd062b9409785adcc84a35e0f26cfab9565a7ae7232",
-    "README.md": "33654764e2083f9d70f64f5a72cfea7ef5056d4e24edc26a0141640b64718076",
+    "README.md": "8d72acd81b4a8188a0f78c23e93c0bb57f21e66a659f04eecf54671f9989237b",
     "RESULT.json": "918d53926221ed1410ac8d18cc279ce16f6bb9d1c707fbce2bb38850589cef8a",
+    "SCOPE_ANNEX.md": "73fec5e5473838d080630d77c8a56e9f10f901b1d97fdc4e6bb56a52586d3e0b",
+    "SCOPE_INPUTS.json": "fc0ad411b4193bf5916d758b6d34434ce270bc9b0b5f19abfedde6b860e0ed4c",
     "SNAPSHOT_MANIFEST.json": "6dac0df3ef90048ab145532050dd794116190adc9ca678e77e62dd23d539c6ef",
-    "VALIDATION.json": "19e713dfaddc5ab68fe0521a42897ea0d25bd8367afa6da9497d75b09f7b5eb3",
+    "VALIDATION.json": "2bf96f6bc3043732e72378ad78d05ef000b7e5936734dacc39ac70c324167f3d",
     "replay.py": "ca38e01fb98e674189149ec110ce0fc9b6222e02e86980c3824fe45aa365f1a1",
     "requirements.txt": "e1839b13fb58ca434f16758f9c35cb0f4aadfb4d9f383291416c143f048fc87a",
+    "scope_inputs/2c8f909b27da96c30abe90327effd92cec4f8b3e8941f881b971a9e3c68a7eb8": "2c8f909b27da96c30abe90327effd92cec4f8b3e8941f881b971a9e3c68a7eb8",
+    "scope_inputs/67b369adae513cdeb890d9391f221ce181dda062898aa4fc419e5dceca9da1c4": "67b369adae513cdeb890d9391f221ce181dda062898aa4fc419e5dceca9da1c4",
+    "scope_inputs/73fec5e5473838d080630d77c8a56e9f10f901b1d97fdc4e6bb56a52586d3e0b": "73fec5e5473838d080630d77c8a56e9f10f901b1d97fdc4e6bb56a52586d3e0b",
+    "scope_inputs/952a5ed9205b3adbc1eef1f7db7d5a33c58ce0a06e24c0ae1814325f8cea7c49": "952a5ed9205b3adbc1eef1f7db7d5a33c58ce0a06e24c0ae1814325f8cea7c49",
+    "scope_inputs/c8f54c446a49f1b0bbdf8c89bfa3ab681eff2eee183d0db383a74dbb50e58119": "c8f54c446a49f1b0bbdf8c89bfa3ab681eff2eee183d0db383a74dbb50e58119",
+    "scope_inputs/f96d4e757b065fb2ca1ab2351d531ec15f51706e51f8d9033a0f815edba9764f": "f96d4e757b065fb2ca1ab2351d531ec15f51706e51f8d9033a0f815edba9764f",
     "test_custody.py": "36b4f15eda5a700ccd2642829b6f876b5190c0c849f0c3b7a18bcce9cf84fdfc",
     "worker.py": "864683667c5f2e0c89e6c6bd4a1bc6c344e4b20dd0497b25f0f806b259db518b",
     "workspace/openwave-push/rows_native/RF1_BRIEF.md": "901d8f5fca111071e50251f6f0374f7c82fff126738afc325e82e07ec500f6b3",
@@ -2813,5 +2820,6 @@
     "workspace/reverse-engineering-reality/model/scalar_observations/lattice.py": "3f08c67ee7c1be4ac89ba031f021a79ae308aba2dffa9ca6c296deb982ddf074",
     "workspace/reverse-engineering-reality/model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94",
     "workspace/reverse-engineering-reality/tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
-  }
+  },
+  "schema": "oph.common_charge.public_manifest.v1"
 }

@@ -1,0 +1,382 @@
+# ROW_01_COMMON_FABLE: independent full literal review of the common-source row-1 candidate
+
+Reviewer Fable/ROW_01_COMMON_FABLE, 2026-11-14. Object: `openwave-tuning/next/CHAIN5/common_charge_topology/`
+(producer: Codex, task 42, ledger C065 to C067), manifest SHA256
+`b45e64648b2379cdc0629a8789f74ca9a798a211e58e078d5c9f573e1513eb4f`. Everything written is in
+`openwave-push/reviews/ROW_01_COMMON_FABLE/`. The candidate was read; no producer code was imported or run. No
+OpenWave status is claimed; the official column is 0 of 31.
+
+## 0. Result
+
+| Clause | Verdict on the named source | Carried by | Can the gate fail |
+| --- | --- | --- | --- |
+| integer | met, by exact proof. The integer is the occupation of one root-cell mode (0 or 1 by the typing of the one-particle register) minus the declared unit background at port 0 | `bridge.exact_geometry` (B·particulars = charges, exact rationals); `topology.py` 768 exact flux sums; the operator identity k_R·E = G_R − n_R | not on the source: the identity holds for every state and for every law on (cell, spin, modes), including the law with the current coupling removed (F7). Off the source it fails: rounded Q and half average (package), half current 144 of 144 and uniform background 96 of 96 ports (this review) |
+| topological | met as a local dictionary: the charge is the degree of an explicit clutching map on every bounding surface of the embedded graph; unchanged when the surface moves across an uncharged port, changed by −1 / +1 across the particle / the reference | `PROOF.md` (curvature, charts, transition map); `embedding.py` certificate; clutching closure in `topology.py` | embedding certificate: yes (C5). Closure: only off the Gauss fiber. The package's sampled winding is a decode of the flux sum and cannot differ from it |
+| charge read from the field (the precedent's comparator) | the flux integral of the seeded field returns 0, +1, −1 with error 0 | the same gates | as for "integer" |
+| a split e → e/2 + e/2 impossible | met, by exact proof on the typed one-charge sector: charges of disjoint regions take the values 0 and 1 and are never both 1; every signed current moves one whole unit | `topology.py` line 109; `dynamics.py` (48 routes); PROOF "Regions, quantum charge and half daughters" | not on the source: the register has no fractional occupation and no law on it produces one. Off the source: a current carrying half the flux gives degree ±1/2 at two ports (144 of 144) |
+
+**`full_criterion_met`: true** for the literal words at the validated precedent's comparator, on the named
+source, under the group's rule that law, carrier, preparation and compiler are declared. Every clause is carried
+by exact proof. No clause is carried by an executed experiment on the source that could have failed: integer,
+flux and indivisibility are the typing of the occupation register, the declared unit background and the
+definition of the longitudinal field. The electric flux through a bounding surface is not an independent field
+quantity in the executed source (section 5a). If the group requires that, the "integer" and "split" clauses
+are not carried by this package; the smallest repair is in section 7.
+
+Corrections 1 to 8 (section 6) concern wording and scope. None changes a number of the package.
+
+## 1. Object, pins, files read
+
+| Item | Value | Check (`audit.py`) |
+| --- | --- | --- |
+| Candidate manifest | `b45e6464…3eb4f` | A1; 24 local files and 1,325 source pins, 1,349 of 1,349 hashes equal (A2); directory = file list (A3) |
+| Source consumed by `bridge.py` | CHAIN4 `dirac_kg_connection` manifest `398482e1…87f8` | A4; 1,318 of 1,318 pins equal (A5) |
+| Field source | CHAIN3 `native_field_connection` manifest `719036fe…779f`, model id `native-local12-dirac-noncompact-quadratic-v4-proposed` | A6 |
+| Criterion | "integer topological charge; a split e → e/2 + e/2 impossible", SHA256 `3af50af0…cb6f`, regime static | A7; verbatim in `MODELS.md` of the clone (A9) |
+| Precedent script | `m5_1_winding.py`, SHA256 `222d5d7a…21cb`, clone commit `5d686cb0` | A8: clone copy = pinned copy |
+| Producer status | `RESULT.json`: `official_validation_awarded: false`, status `PASS_CONSTRUCTIVE_LOCAL_CHARGE_CONNECTION_REQUIRES_INDEPENDENT_REVIEW` | read |
+
+Row entry in `row_completion/INTERNAL_VALIDATION.json` (id 1): literal gate as above; targeted gap "Bind native
+cut-current/topological degree to the complete observer-only charge apparatus. Prove integer charge and
+equal-half exclusion across the stated signed-sector/intervention domain. Compare the exact validated precedent;
+do not add mass or spin prerequisites." The row is counted on the literal repair law (`ROW_01`); this candidate
+is an alternative on the common coherent source.
+
+State found after the verdict was written (ledger A056, A058; C067): the alternative is bound in
+`row_completion/ROW_01/COMMON_SOURCE_VALIDATION.json` (SHA256 `d7319497…91f82`, recomputed, equal to A058) with three reviews, no
+count increment. The producer is a Codex worker (task 42, `/root/kg_complete`). Two of the three bound reviews are
+by Codex workers (`/root/coulomb_finish`, Codex root) and one is by the auditor's root. This review is the first
+from the Fable side.
+
+Files read (SHA256, first 16 hex digits; full values in `MANIFEST.json`):
+
+| File | Read | SHA256 |
+| --- | --- | --- |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/AUDIT_REQUEST.json` | complete | `315a34c724ba6821` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/TASK.md` | complete | `8cc23b3041673c27` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/README.md` | complete | `d352754dea19696b` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/PROOF.md` | complete | `5d216285cd1e6192` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/REPRODUCE.sh` | complete | `470668942c287dbd` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/RESULT.json` | complete | `2dc863cf29e81ef7` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/NATIVE_RESULT.json` | complete | `588973d22cad334c` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/DYNAMICS_RUN.log` | complete | `f30dc4d883ed4100` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/EMBEDDING_RUN.log` | complete | `713ed33c0bca7975` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/TOPOLOGY_RUN.log` | complete | `d84dd95eff48c78f` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/NATIVE_RUN.log` | complete | `2355fb52ccb4d708` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/bridge.py` | complete | `70814d6d118d7fba` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/dynamics.py` | complete | `9157c2fc9303154e` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/embedding.py` | complete | `dc7735739e3152cf` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/topology.py` | complete | `2261ccab9c38261f` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/native_flux.py` | complete | `c0bcdfdb640a5d42` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/freeze.py` | complete | `3ca1c245033290fb` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/EMBEDDING.json` | parsed, every coordinate used | `f7b81531e797e17f` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/DYNAMICS.json` | parsed, all 48 routes used | `dc083646729a14e4` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/TOPOLOGY.json` | parsed; regions, controls and examples used | `9f652967a26f50ba` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/NATIVE_PROGRAMS.json` | parsed; all 17 tapes scanned, two replayed | `f9ed1815914abe2c` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/NATIVE_RECORDS.json` | parsed; all 28 experiments and 112 laws used | `d00da17485771f5c` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/NATIVE_FIRST_FAILURES.json` | parsed; record counts and residuals | `0486cabab8b71c79` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/RUNTIME_IMPORTS.json` | parsed; compared with the pins | `c95a1da98fc5ded0` |
+| `openwave-tuning/next/CHAIN5/common_charge_topology/MANIFEST.json` | parsed; every pin verified | `b45e64648b2379cd` |
+| `openwave-tuning/next/CHAIN4/dirac_kg_connection/MANIFEST.json` | parsed; every pin verified | `398482e1a7e05fcb` |
+| `openwave-tuning/next/CHAIN4/dirac_kg_connection/connection.py` | complete | `d636156faa996aa4` |
+| `openwave-tuning/next/CHAIN4/dirac_kg_connection/native_tomography.py` | lines 1 to 80 (pointer) | `85f8c8cedd4c0893` |
+| `openwave-tuning/next/CHAIN3/native_field_connection/MANIFEST.json` | hash | `719036fe46769e68` |
+| `openwave-tuning/next/CHAIN3/native_field_connection/geometry.py` | complete | `0b78ecc9fed59f9f` |
+| `openwave-tuning/next/CHAIN3/native_field_connection/providers.py` | complete | `ccf5bdd54ab5a277` |
+| `openwave-tuning/next/CHAIN3/native_field_connection/native_oscillators.py` | lines 1 to 60 and 108 to 222 | `882de7afed56fafc` |
+| `openwave-tuning/next/CHAIN3/native_field_connection/inputs/openwave-tuning/common_dynamics/interacting_gaussian/branches.py` | complete | `47aca5df3efe248e` |
+| `openwave-tuning/next/CHAIN3/native_field_connection/inputs/openwave-tuning/common_dynamics/quadratic_field/source.py` | lines 1 to 170 | `466d5dcf6e6f9449` |
+| `openwave-tuning/next/CHAIN3/native_field_connection/inputs/openwave-tuning/common_dynamics/spin/dirac_proposal.py` | lines 102 to 142 (route) | `78b5b44bb0df1f87` |
+| `openwave-tuning/next/CHAIN3/native_field_connection/inputs/reverse-engineering-reality/code/source_selection_model/response.json` | parsed; generators used in the replay | `226ab001894f357d` |
+| `openwave-tuning/next/CHAIN3/native_field_connection/COORDINATES.json` | parsed; charge_sectors used | `236a846ff8f4409e` |
+| `openwave-tuning/common_dynamics/vector_field/cell_complex.py` | complete | `7e760f4cc0cc9df1` |
+| `openwave-tuning/common_dynamics/vector_field/CELL_COMPLEX.json` | parsed | `bedeb0f30558b991` |
+| `reverse-engineering-reality/model/native_spatial_refinement/source.py` | lines 1 to 150 (frame, links, graph) | `b4576a37b7610418` |
+| `openwave-tuning/row_completion/README.md` | complete | `5ca3fcc71483b1e2` |
+| `openwave-tuning/row_completion/ROW_01/TASK.md` | complete | `8ef343fe51db94f3` |
+| `openwave-tuning/row_completion/ROW_01/CRITERION.json` | complete | `cfe34af2570633bb` |
+| `openwave-tuning/row_completion/INTERNAL_VALIDATION.json` | row 1 entry and header | `73e82ad28b137e29` |
+| `openwave-tuning/row_completion/ROW_01/upstream/m5_1_winding.py` | complete | `222d5d7a18db1eab` |
+| `<clone>/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_1_winding.py` | complete (clone, read only) | `222d5d7a18db1eab` |
+| `<clone>/MODELS.md` | criterion line (clone, read only) | `a69895e4af4f6bc1` |
+| `openwave-push/platform/PRECEDENTS.md` | row 1 in sections 1 to 3, section 6, appendix A row 1 | `68422095c32ee55d` |
+| `openwave-push/platform/ML2_maintainer_lens/MAINTAINER_LENS.md` | summary items 9 to 14 and section C | `f5f52e4f49d68dfa` |
+| `openwave-push/packets/R01_full_row_review/REVIEW.md` | sections 0 to 7 | `a118e821f4496849` |
+| `openwave-push/reviews/REVIEW_BRIEF.md` | complete | `aaac917aff29c0b3` |
+| `openwave-tuning/sync/CODEX.md` | entries C065 to C068 | `f4728eaf5f524e71` |
+| `openwave-tuning/next/CHAIN5/WORKERS.md` | complete | `2d674d21c07b0195` |
+| `openwave-tuning/next/CHAIN4/WORKERS.json` | first 120 lines | `1e9fd376e9c78480` |
+
+The remaining pins of the manifest (about 1,300 files, most of them the frozen inputs of CHAIN3
+`species_reuse_connection` and `native_field_connection`) were verified by hash and not read.
+
+## 2. The literal criterion and the precedent's comparator
+
+Criterion: **"integer topological charge; a split e → e/2 + e/2 impossible"**. Clauses: (1) integer;
+(2) topological; (3) the quantity is the charge of the object, read from the field; (4) a split into two halves
+is impossible.
+
+Comparator of the validated precedent, separately (`openwave/xperiments/m5_liquid_crystal/research/scripts/
+m5_1_winding.py`, read, not executed; `PRECEDENTS.md` section 2 row 1 and section 3 row 1): the winding integral
+`compute_winding_number(psi, center, 5)` on a 65³ grid for four seeded director fields (vacuum, +1 hedgehog, −1
+hedgehog, a ±1 pair with one sphere round each defect); gate `abs(Q − expected) < 0.10`; `N_RELAX = 0`, no
+evolution; the contour round both defects is a placeholder (`Q_both = 0.0`); no split experiment. The seed
+installs the defect and its sign.
+
+Against that comparator the candidate: flux integrals of seeded fields with error 0 against the tolerance 0.10;
+values 0 (sector 0 and all uncharged ports), −1 (particle port), +1 (reference port), and 0 for a surface round
+both; a no-split statement, which the precedent does not have. In both cases the integer read back is the one
+the seed installs: there the hedgehog, here the tabulated field of the occupied cell.
+
+## 3. Clause by clause
+
+**Integer.** Gate: `bridge.py` line 48, `B*particulars == charges` over the rationals, where `charges[:, c] =
+δ_0 − δ_{12c}` is written on the line above from the cell index; `topology.py` lines 53 to 62 restate it port by
+port with one transverse sample added (`A[:,0]/3 − A[:,17]/5 + A[:,77]/7 + H0/11 − H1/13 + H2/17`). Of the 768
+values 14 are non-zero (ports 0 and 12c for c = 1 … 7) and 754 are zero. Supplied: the one-particle register
+(architecture), the background G = δ_0 (architecture), the longitudinal field as the minimum-energy solution of
+B p = G − n (architecture; installed electrostatics), the flux unit per particle (architecture). Evidence:
+exact theorem with proof (linear algebra over the rationals). Found beyond what is put in: nothing; the gate
+compares the typed charge with the divergence of a field built from the typed charge.
+
+**Topological.** Gates: (i) `embedding.py`: integer segment tests on the 27 nearest images, tangents pairwise
+non-parallel; seed 1, the first tried. Executed, exact, can fail. (ii) `topology.sphere_complex`: the hexagonal
+bipyramid has a one-dimensional cycle space spanned by the all-ones vector; a fixed combinatorial fact.
+(iii) `sampled_clutching`: the float winding is the sum of phase increments of a curve that runs from 0 to
+2π·Σr_e, so it equals Σr_e for any fluxes, integer or not (the half control returns −0.5000); the gate with
+content is the closure of the endpoint, `exp(2πi Σ r_e) = 1`, which is the integrality of the flux again.
+(iv) The period identity of the embedding (exact). Supplied: the embedding and the dual-curvature dictionary
+(architecture, compiler). Evidence: exact construction with proof; the degree is defined as the flux and the
+bundle exists if and only if the flux is an integer. The integer is not produced by the topology; `PROOF.md`
+says so ("It does not derive the architecture's integer occupation postulate").
+
+**Split impossible.** Gates: `topology.py` line 109 on the typed tables of two disjoint regions;
+`dynamics.py` line 31 (each route changes two ports by ±1) and line 17 (B J = δ(G − n)); the static half field
+`(p(1)+p(2))/2` whose clutching endpoint is −1; the native joint daughter readout (probability of both bits
+below 2e-11). Supplied: the typed register. Evidence: exact proof (spectrum of commuting projectors) on the
+one-charge sector. The package executes no current that carries half a unit and nothing for two charges.
+
+## 4. Independent recomputation (`audit.py`, 59 checks, 0 failed, 6.2 s of CPU, one run)
+
+Own code: the graph from the port coordinates of the receipt, incidence, exact segment tests, an exact Gauss
+solve (Gauss elimination of the 95 × 95 reduced Laplacian in Fractions), 193 fundamental cycles, clutching
+degree in exact turns, cuts of regions, crossing cochains of planes, currents from paths, an interpreter for the
+recorded native pulses (floats). Receipts are read as data and each item used is recomputed or cross-checked.
+
+| Part | Statement | Value here | Package |
+| --- | --- | --- | --- |
+| B | graph rebuilt: 30 shortest port pairs (ratio to the 31st 1.5998), two links per axis by the stated rule | 288 seams, equal to the receipt's edge list in the same order; 24 lifted edges | 288 |
+| C | segment tests, all unordered pairs, 125 images | 2,272 exact tests after the box filter: 1,440 endpoint contacts (96 × 15), 800 skew, 32 parallel disjoint, 0 crossings, 0 overlaps | 2,636 tests on 27 images, pass |
+| C | control: port 37 on the midpoint of a foreign seam | 6 crossings reported | not executed |
+| C | separation: least distance between skew supporting lines against the declared ball radius 1/(100 M² DEN), M = 16,394 | 300.2/DEN against 3.7e-11/DEN; the receipt's radius string reproduced | stated bound 1/(6 M² DEN) |
+| D | B p(c) = G − n(c), 8 sectors × 96 ports | 768 of 768 exact; denominators up to 19 bits | 768 |
+| D | own solution against the tabulated longitudinal field of the pinned source (`native_field_connection/COORDINATES.json`, `charge_sectors`) | 2,304 of 2,304 edge values and 8 of 8 Coulomb energies equal as exact rationals | the table the source and its native compiler use |
+| E | local degree and closure on every sphere, 5 transverse fields (zero and four random rational combinations of 16 fundamental cycles) | 3,840 of 3,840; 3,550 spheres have non-integer patch fluxes with integer total | 768, one transverse sample |
+| E | regional flux and deformation of the surface, 60 random port sets, 4 moves each | 300 of 300; jump 0 across an uncharged port, −1 across the particle, +1 across the reference | 6 regions |
+| E | planes x_a = 0 and x_a = DEN of the embedding | crossing cochains differ by the cut of the slab (3 axes); flux of p(c) through a plane = 1/2 for each axis in which the particle's cell differs from the reference cell (sector 7: 1/2, 1/2, 1/2) | half period of the projected winding cocycle |
+| E | closed loop of the two signed x-routes | divergence 0, plane crossings (1, 0, 0); adding t times it (t = 1/2, 3/7) leaves 96 of 96 degrees and shifts the plane flux by t | (1/2, 0, 0) |
+| E | background mutation G_v = 1/96 | degree −95/96 at the particle port, 1/96 at the other 95: no integer degree | not executed |
+| F | 48 receipt paths: root to root, one inter-cell link; own current = receipt current; B J = δ(G − n) | 48 of 48 | 48 |
+| F | independent link field: E + J on the fiber of the destination, 3 fields per route | 144 of 144 | exact decomposition, float residual 2.1e-14 |
+| F | half current E + J/2 | off both typed fibers in 144 of 144; degree −1/2 at both root ports (+1/2 at port 0 when the reference is an endpoint); closure fails at exactly those two spheres | not executed |
+| F | reversed current | Gauss residual norm² = 8 (norm 2.828) in 144 of 144 | 2.828 |
+| F | coupling dropped in the source's representation (label moves, modes not translated) | Gauss's law and all 96 degrees exact in 48 of 48; missing shift \|J_⊥\| between 1.5779356616734892 and 2.1280 | minimum 1.5779356616734892 |
+| F | the same omission with an independent link field | Gauss residual norm² = 2 in 48 of 48 | – |
+| F | size 2: both signed routes of an axis end in the same cell | 24 of 24 pairs | stated |
+| G | six receipt regions: flux from the field, 8 sectors, 5 fields | 48 of 48 table values, field-independent; boundary edges equal | table |
+| G | random disjoint daughter pairs without the reference | 3,200 cases: values {0, 1}, never both | one pair |
+| G | mean field of the admitted uniform plane | degree 7/8 at port 0, −1/8 at the seven other roots | "mean flux −1/2" for one region |
+| G | two charges, 28 sectors, background 2 at port 0 | local degrees {−1, 0, 1, 2}, regional −2 … 2, all exact | not in the package |
+| H | 28 experiments, 12,844 fine probabilities; 112 coarse laws against uniform × typed bit × clock factor | maximum deviation 1.42e-14 | 1.42e-14 |
+| H | registers addressed by the 16 meter and control tapes | bits 0 to 5 only | – |
+| H | tape `half_charge_2pi_mutant` | identical to `particle_singleton_X` (124 events) | named as a control |
+| H | own replay of `particle_singleton_X` (124 pulses) and `daughter_A+daughter_B_X` (246 pulses), all 8 cells × 2 clock inputs | probe bits = table, defect below 1.6e-29; both daughters 4.3e-30; Gram residuals 2.0e-14 and 3.7e-14 | below 2e-11; 3.6e-14 |
+| H | 120 fields off the fiber of the label | all 120 separated by the sphere fluxes of the field; the tapes have no field input | – |
+
+## 5. The points to decide
+
+**(a) Where the integer comes from.** From the occupation number of a matter mode. The matter register holds
+one particle at one of eight root cells (`branches.State.cells`, an integer array; `seed` admits one or two
+distinct cells); n_v is 1 at the root port of the occupied cell and 0 elsewhere by that construction, and G is
+declared as 1 at port 0. The Gauss flux adds a spatial reading of that number and no second integer: the
+electric operator is E = p(ĉ) + U p_co + H p_h, where p(c) is the tabulated minimum-energy solution of
+B p = G − n(c) (`branches._coulomb`, lines 49 to 54; `geometry.data`, lines 73 to 78), and the field register
+holds only the 193 modes of ker B. A bounding surface has k_R = Bᵀ1_R, which annihilates ker B, so its flux is
+k_R·p(ĉ) = G_R − n_R̂: a function of the cell label. The native compiler of the source builds each edge
+observable the same way (`native_oscillators.edge_characteristic_word`, lines 189 to 196: a cell-diagonal phase
+from `row['particular'][edge]` plus translations of the modes). The table is the one recomputed here: 2,304 of
+2,304 values equal (D1c). The 193 modes of the field register contribute zero to every bounding-surface flux.
+
+The flux is therefore not an independent field quantity that the dynamics keeps equal to the occupation. The
+constraint is solved, not conserved: with the current coupling removed, the label moves, no mode is translated,
+and Gauss's law and every local degree stay exact (F7, 48 of 48). What the 48 currents add is the transverse
+part: E_after − E_before = J exactly, a unit string along the route (F3, F4; 48 of 48 here, in a formulation
+where the 288 link values are independent data). So the source is the restriction to one Gauss fiber of a
+link-field theory in which the flux would be independent and the same omission would break Gauss's law by a
+residual of norm² 2 (F7b). In that formulation the charge would be read from the field alone and a current
+would be needed to keep the constraint; in the executed source the reading of the field returns the label.
+The charge is not read from the field alone.
+
+**(b) Topological.** Their embedding was verified, on all pairs and 125 images, not on a sample (C1 to C6).
+The degree was recomputed for all 768 surfaces and five transverse fields with an own Gauss solve: 3,840 of
+3,840. The degree is invariant when the surface moves across an uncharged port and jumps by −1 across the
+particle and by +1 across the reference (E2). The excluded harmonic flux: a divergence-free field with any real
+flux t through a nonbounding torus cross-section and zero flux through every bounding surface exists (E5, E5b);
+the three harmonic momenta of the source have a Gaussian law, so t is continuous. It breaks the existence of
+one U(1) bundle on the punctured torus (every closed surface would need an integral flux) and it shows that the
+noncompact field has no flux quantization of its own. The exclusion is a stated restriction of the domain to
+bounding surfaces (`TASK.md`, `PROOF.md`, `RESULT.json` `global_torus_line_bundle_claim: false`); no local
+statement uses an integrality of the harmonic sector, so nothing is hidden. The restriction is needed for the
+integer itself, not only for the bundle: the admitted sector fields p(c) carry exactly 1/2 through a plane
+cross-section (E3).
+
+**(c) Split.** The clause is carried by the spectrum of the typed register and by the whole-unit transfer of
+the 48 routes. The package executes a static half field and no half current. Written and run here on the actual
+graph: a current that transfers half the flux leaves both typed Gauss fibers in 144 of 144 cases and gives
+degree ±1/2 at the two root ports, where the clutching map fails to close (F5). Two further facts: the static
+half field of the package is the mean electric field of the equal superposition (|1⟩ + |2⟩)/√2 of two sector
+states, a state of the source's Hilbert space (G5), and the mean field of the admitted uniform plane has
+degrees 7/8 and −1/8 (G4); the integer belongs to the joint spectral values of E, not to the mean-field record. On the executed size both signed routes of an axis end in the same
+cell (F8), so the position evolves by a permutation and the law never divides the amplitude of a localized
+charge between two cells; delocalization enters only through the preparation. Two charges: the package shows
+nothing ("no two-particle creation implementation claimed"); the statics follow by linearity and were checked
+here for the 28 two-cell sectors (G6); 2 → 1 + 1 between two regions is allowed there, as it must be.
+
+**(d) The native meter.** The 28 experiments are 7 region sets × 2 clock settings × 1 or 2 macros. Each tape
+is: Hadamard on a probe, the controlled phase exp(iπΦ_R) compiled as the eight-term Walsh expansion of the
+typed table `flux_eigenvalues_by_cell` on the three cell bits (`native_flux.phase_word`, lines 7 to 13),
+Hadamard, then the clock analysis and the C/E pointers. The simulated space has 32 or 64 dimensions: cell bits,
+probes, clock. No tape addresses a field register (H3). The input is a supplied state, the uniform mixture over
+the eight cells times the ticked clock (lines 99 to 104). The outcome law is fixed by the typed occupation: all
+112 coarse laws equal (1/8 per cell) × (typed bit) × (clock factor) to 1.42e-14, the charge part is the same at
+one and two macros, and the 12,844 fine probabilities are the pointer's C/E records of those bits. Control: on
+120 fields that are not the Gauss field of the label, the sphere fluxes of the field differ from the label in
+120 of 120 cases (through the six receipt regions a field-reading meter would see 28 of 48 half currents and 42
+of 56 exchanged sectors); the executed tapes return the label table in each case because they have no field
+input. On the source's own Hilbert space no such state exists and exp(itΦ_R) = exp(it(G_R − n_R)) is an exact
+operator identity, so the instrument is a correct occupation readout; its records do not test the relation
+between charge and field.
+
+**(e) The unexecuted coupled prefix.** No clause of the literal criterion rests on it: the three statements
+hold for every state of the source. The sentence "Charge measurement occurs after one or two complete g=1
+macros" rests on it: the meter's input is the ideal cell marginal, confirmed on the analytic branch model (8,
+64 and 512 branches), and the stated total-variation bounds 0.0088192 and 0.0098496 are the pinned bounds of
+the unexecuted source word; the appended meter contributes at most 2.2e-15.
+
+## 6. What is put in, what is found, corrections
+
+Put in by declaration: the one-particle register with occupation 0 or 1 per root cell; the unit background at
+port 0; the longitudinal field as a function of the label; the unit string per current; the flux unit of one
+particle as the curvature normalization (with half that unit the charged degrees are ±1/2, with twice it ±2 and
+the unit is not primitive); the embedding and the bump profiles. No number is set from a target and no
+threshold was chosen after the runs; the tolerances are numerical.
+
+Found: that the declared graph has a crossing-free embedding at the first seed tried; that each of the 48
+declared routes writes exactly its integer current into the field; that the regional reading is independent of
+the 193 transverse coordinates. None of these is the integer or the indivisibility.
+
+Corrections:
+
+1. `PROOF.md`, "These controls distinguish the source transfer from a replacement occupation-label argument":
+   for the row-1 observable they do not. With the transverse translation deleted every local degree and Gauss's
+   law remain exact (F7); the control separates the full edge field only. The reversed-current control is the
+   number √8, the norm of 2·δ(G − n), for every route; no field is evaluated and it cannot fail.
+2. `TASK.md`, `README.md` ("native regional-flux instrument", "measures that same flux"): the
+   executed tapes are occupation readouts on the cell bits; the field enters through the operator identity and
+   through no register.
+3. The tape `half_charge_2pi_mutant` is the ordinary meter tape `particle_singleton_X`. As a control it shows
+   that exp(iπΦ) acts on the occupied sector; it does not exhibit a half-charged field.
+4. "768 local curvature degrees": 754 are zeros, one transverse sample is used, each value is an entry of the
+   identity already asserted in `bridge.py`, and the sampled winding decodes the flux sum. The closure of the
+   endpoint is the gate.
+5. The half-daughter control field is the mean field of a superposition of two sector states. The exclusion
+   concerns sharp values; the text should say that the mean-field record of the admitted plane has degrees 7/8
+   and −1/8.
+6. Scope to add: size 2 only, where the position dynamics is a permutation.
+7. The value −1 of the regional charge is the static background, not a second dynamical sign; sector 0 has
+   degree 0 on every surface.
+8. `bridge.py` imports the source through CHAIN4 `connection.py`, whose manifest names the candidate
+   `native-local12-dirac-noncompact-flavor-coupling-v1`; the dynamics used is the v4 source at g = 1
+   (`branches.py`). `RESULT.json` should state both.
+
+## 7. Verdict and remaining obligation
+
+`full_criterion_met`: **true** (section 0). Remaining obligation for the literal words at the precedent's
+comparator: none, apart from the corrections above.
+
+Not established, and required only if the group asks for the flux as a field quantity of its own: (i) the 48
+currents and the free field executed on independent link values (the 288-link form of which the source is one
+fiber), with B E + n − G shown conserved and with the dropped-coupling and half-current mutations failing (the
+expected numbers are in F7b and F5); (ii) a meter that addresses field registers, for which the pinned source
+already has the words (`edge_ramsey_word` on the six seams of one sphere), with a control state off the fiber.
+Outside the gate: two charges executed, a size where the two signed routes end in different cells, a dynamical
+negative charge, the derivation of the coherent source from the repair law.
+
+## 8. Reading for the platform's maintainer (a reading, not a failed gate)
+
+The present M10 cell of row 1 already describes this construction: "on an eight-cell source a transported unit
+charge arrives with one unit of Gauss flux. The hypercharge embedding and the charge normalization are declared,
+so quantization is assigned; electron indivisibility is not proved". The package makes that statement exact and
+spatial; it removes neither reason. Under the stricter note on the column the result follows from installed
+standard physics: an integer occupation and Gauss's law give an integer flux in any lattice gauge theory, and
+the bundle is a rereading of that flux. No strength comes from the model's own mechanism, since the repair law
+does not appear and the coherent source is declared, not derived from the carrier. Expected reading: untested,
+with the cell text unchanged in substance; under the favourable reading a partial whose caveat is the sentence
+already in the cell.
+
+## 9. Comparison with the literal-law candidate (`row_completion/ROW_01`, reviewed in `packets/R01_full_row_review`)
+
+What this source's result has that the literal one lacks: it sits on the source of the wave rows (the field of
+row 29 and of the static Coulomb rows 20 and 2), so row 1 no longer needs the unproved transfer from the record law to
+the field's Gauss law for a one-candidate reading; the charge has a Coulomb field in the model, each current
+lays a unit string in the same electric operator that the wave rows read, and the statement covers delocalized
+quantum states (half expectation, integer outcomes); it is exact and needs no history tape. What it lacks: the
+event-level record construction (an observer-only apparatus admitting native records, with complete laws and
+retained timeouts; here the meter reads the label and the source word is not executed); any gate that depends
+on the law (on the literal law the integer tape and the closure of the one-load sector over 720 branches fail
+under changed laws: a half law opens the tape, a random-integer law keeps the unit whole in 1,640 of 10,800
+histories; here integer and indivisibility hold for every law on the typed register); a flux
+record independent of the load (there the retained current is a separate record and continuity is a property
+of the law; here the flux is the label); more than one unit (there degrees −2 … 2 and the division 2 → 1 + 1;
+here one particle on size 2); and, as for every row on this source, the join to the repair law.
+
+## 10. Other parties' reviews (read after sections 0 to 9 and `VERDICT_EARLY.md` were written)
+
+| Review | Reviewer | Manifest SHA256 | Verdict |
+| --- | --- | --- | --- |
+| `row_completion/reviews/COMMON_CHARGE_ROOT/` | auditor root (ledger A056) | `214e6ce9…b2966` | `full_criterion_met: true` |
+| `next/CHAIN5/common_charge_native_review/` | Codex worker `/root/coulomb_finish`; contains a terminal annex written by the reviewer | `7104fb54…a2b` | true |
+| `next/CHAIN5/common_charge_terminal_review/` with `common_charge_topology_review/` | Codex root | `25abdc7b…e45a`, `3276fd14…d858` | true |
+
+Agreements:
+
+- The verdict, on the same domain: size two, one charge, bounding surfaces, static criterion, no added gate.
+- Integer occupation is declared; the topology realizes it and is not its origin (all three say so).
+- The graph and the embedding: rebuilt independently by each; 125 images; no crossing (they count 2,636
+  box-overlapping pairs, this review 2,272 unordered pairs after its own filter, with 1,440 endpoint contacts).
+- 768 local fluxes, 48 currents with E_after − E_before = J, the regional identity, the half-daughter field, the
+  harmonic obstruction and the restriction to bounding surfaces.
+- At size two a macro permutes the cells (their `U†P_cU = P_(c xor 7)`, F8 here); the large source word is not
+  executed; the recorded native laws reproduce (they recompute all 12,844 fine probabilities; this review the 112
+  coarse laws and two full tapes).
+
+Differences:
+
+1. The other reviews read the meter as a measurement of the field ("The charge meter measures the actual
+   coupled-source electric flux through a proved observable identity, so this is a substantive source connection
+   absent from the older literal-record ROW1 package"; "a native occupation-controlled Fourier meter is a native
+   field-flux meter on this source"). This review: the identity is exact because the longitudinal field is the
+   tabulated function of the label; the tapes have no field input (H3); the same records result for any field
+   (H7); with the current coupling deleted Gauss's law and every degree stay exact (F7). The connection that
+   involves the field's dynamics is E_after − E_before = J, which the row-1 observable does not read. None of
+   the three reviews states that the bounding-surface flux is not an independent field quantity.
+2. Not in the other reviews: a current carrying half the flux (F5); the uniform-background mutation (E6); the
+   mean-field degrees 7/8 and −1/8 and the fact that the half-daughter control field is the mean field of a
+   superposition of two sector states (G4, G5); the flux 1/2 of the admitted sector fields through a plane cross-section (E3); the
+   two-charge statics (G6); the identity of the tape `half_charge_2pi_mutant` with the ordinary meter tape (H4);
+   the constant √8 of the reversed-current control.
+3. The topology review writes that omitting the transverse translation "breaks this statement" (δE = J). That
+   agrees with F7 for the field shift; Gauss's law and the degrees do not break.
+4. Not repeated here: the native review's reset audit on the 78-state domain, its typed 1/3-charge table control
+   (loop probability 3/4), and the terminal annex (36 experiments), which lies outside the base manifest
+   `b45e6464…` reviewed here.

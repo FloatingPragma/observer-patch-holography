@@ -48,6 +48,16 @@ def generate():
     central = validation['central_alternative_validation']
     assert sha(PACKAGE / 'workspace' / central['path']) == central['sha256']
     assert json.loads((PACKAGE / 'workspace' / central['path']).read_text())['terminal_annex']['twice_independently_reviewed'] is True
+    scope = validation['authoritative_scope_clarification']
+    scope_pins = json.loads((PACKAGE / scope['input_index']).read_text())
+    for name, digest in scope_pins.items():
+        assert sha(PACKAGE / 'scope_inputs' / digest) == digest, name
+    assert sha(PACKAGE / scope['scope_file']) == scope['scope_sha256']
+    current = json.loads((PACKAGE / 'scope_inputs' / scope['current_central_acceptance_sha256']).read_text())
+    assert current['full_criterion_met'] is True
+    assert current['additional_full_review']['full_criterion_met'] is True
+    assert current['additional_full_review']['review_sha256'] == scope['additional_Fable_full_review_sha256']
+    assert scope['scientific_executions_added'] == 0
     return {
         'schema': 'oph.openwave.common_charge.full_criterion.v1',
         'row': 1, 'candidate_id': validation['candidate_id'],
@@ -58,6 +68,7 @@ def generate():
         'original_huge_field_prefix_executed': False,
         'terminal_observable_program_executed': True,
         'source_occupation_integer_ancestry_declared': True,
+        'authoritative_scope_clarification': scope,
         'global_torus_bundle_claimed': False,
         'official_status': 'untested', 'official_OpenWave_awards_added': 0,
         'all31_complete': False, 'one_interacting_continuum_construction_established': False,

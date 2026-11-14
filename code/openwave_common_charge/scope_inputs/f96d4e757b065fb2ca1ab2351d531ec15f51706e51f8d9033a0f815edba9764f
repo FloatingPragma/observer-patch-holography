@@ -1,0 +1,326 @@
+{
+ "schema": "fable.row_review.manifest.v1",
+ "reviewer": "Fable/ROW_01_COMMON_FABLE",
+ "row": 1,
+ "candidate_manifest": {
+  "path": "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/MANIFEST.json",
+  "sha256": "b45e64648b2379cdc0629a8789f74ca9a798a211e58e078d5c9f573e1513eb4f",
+  "pins_verified": 1349
+ },
+ "own_files_sha256": {
+  "REVIEW.md": "952a5ed9205b3adbc1eef1f7db7d5a33c58ce0a06e24c0ae1814325f8cea7c49",
+  "REVIEW.json": "c8f54c446a49f1b0bbdf8c89bfa3ab681eff2eee183d0db383a74dbb50e58119",
+  "audit.py": "6242f4284090023fa03de63428a059e52174da50164f090c790348f80e41998d",
+  "RUN.log": "8833d2eeeb5b8ca4a53825b8092ecc8cf00fe4fc431e13900d6846205f723e15",
+  "RESULT.json": "7400a8f7ca3b795c39ff4705324d1b03d3051fbc4c1cb006ef6d48286cc9fea2",
+  "VERDICT_EARLY.md": "2bec67e4341261a0c4de03948c787cfcb2d206c72c4708307cf9e572d307fdb9",
+  "files_read.json": "6227ab1a8643efd6b72ece10c66337cb82883bfbf117ff37bb9198406c142762"
+ },
+ "consumed_before_verdict": {
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/AUDIT_REQUEST.json": {
+   "sha256": "315a34c724ba6821e15e105918d0ac0e7f37381d4d93f01da403608b6c480ec3",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/TASK.md": {
+   "sha256": "8cc23b3041673c27e0b467326182cf791d4de35e0633f7df595ba391642bbad6",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/README.md": {
+   "sha256": "d352754dea19696b1dc02d0717241dc38b2f911899b1a23a1a096c4934a96322",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/PROOF.md": {
+   "sha256": "5d216285cd1e6192dbe18874f141ac19534e4d9745309e94b76593831d6f43d5",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/REPRODUCE.sh": {
+   "sha256": "470668942c287dbdefaf893e69eff8d5a99452c0cbfd9138fce65992e7dc7583",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/RESULT.json": {
+   "sha256": "2dc863cf29e81ef7f49ade745da13a8f3c972075645c674fbb71216fa70d2cb1",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/NATIVE_RESULT.json": {
+   "sha256": "588973d22cad334c8a1e3d29304aec88695440fee31fd17868abd79b8b70868d",
+   "read": "complete",
+   "used_by_audit": true
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/DYNAMICS_RUN.log": {
+   "sha256": "f30dc4d883ed410019d8ffd82dd0f4167f49054c396cd262c7c542c256712564",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/EMBEDDING_RUN.log": {
+   "sha256": "713ed33c0bca7975027ce28e11dfc04b6586657aba50466c2f18a9297b11b812",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/TOPOLOGY_RUN.log": {
+   "sha256": "d84dd95eff48c78f4d9ba6c80694fa141cbd05d1f171196d1e224ab8c122afb8",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/NATIVE_RUN.log": {
+   "sha256": "2355fb52ccb4d708b62c315dccbb59200ea90ad3a00951227f9d68aad432a8a9",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/bridge.py": {
+   "sha256": "70814d6d118d7fba83ba35d56332a81c299c42648be4b5df686bb0ebe5936894",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/dynamics.py": {
+   "sha256": "9157c2fc9303154e211bade4157cbd9d67fcb77c4816367dd7248515af79aab2",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/embedding.py": {
+   "sha256": "dc7735739e3152cf669c958062be538241ed98a6be15a30fb001410de70418ae",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/topology.py": {
+   "sha256": "2261ccab9c38261f18947f00cc0ae806cbdda58fe82efefd18b8512255dbec1c",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/native_flux.py": {
+   "sha256": "c0bcdfdb640a5d422a2dbd7cfa1f24a059b10019acbef1039ecb80cc9f46ae37",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/freeze.py": {
+   "sha256": "3ca1c245033290fbbbf34faed4d2a63b48c99f6ade732df20da562e731e789d3",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/EMBEDDING.json": {
+   "sha256": "f7b81531e797e17f4aa040e22ec6590389ffd663f4734d37e3007daa92f95759",
+   "read": "parsed, every coordinate used",
+   "used_by_audit": true
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/DYNAMICS.json": {
+   "sha256": "dc083646729a14e45e412f9a5a5c506ca3f77382d85968560523d0771e3b1384",
+   "read": "parsed, all 48 routes used",
+   "used_by_audit": true
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/TOPOLOGY.json": {
+   "sha256": "9f652967a26f50ba5969d70494c3b0a86a17cb56e960005df337ac019a805b20",
+   "read": "parsed; regions, controls and examples used",
+   "used_by_audit": true
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/NATIVE_PROGRAMS.json": {
+   "sha256": "f9ed1815914abe2c7ab6781c2eef781b0fc652d8dba88a64e8d7e88fb7808480",
+   "read": "parsed; all 17 tapes scanned, two replayed",
+   "used_by_audit": true
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/NATIVE_RECORDS.json": {
+   "sha256": "d00da17485771f5cfe679692f772ab90f379e02115787b33e6326294a397f049",
+   "read": "parsed; all 28 experiments and 112 laws used",
+   "used_by_audit": true
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/NATIVE_FIRST_FAILURES.json": {
+   "sha256": "0486cabab8b71c7956a8cf07df75c1c8e183c15f2b6ad0e2ce535822ee582c78",
+   "read": "parsed; record counts and residuals",
+   "used_by_audit": true
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/RUNTIME_IMPORTS.json": {
+   "sha256": "c95a1da98fc5ded013fa0f4ad131837a3b28236d2791d56ceed0577a771222a0",
+   "read": "parsed; compared with the pins",
+   "used_by_audit": true
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology/MANIFEST.json": {
+   "sha256": "b45e64648b2379cdc0629a8789f74ca9a798a211e58e078d5c9f573e1513eb4f",
+   "read": "parsed; every pin verified",
+   "used_by_audit": true
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN4/dirac_kg_connection/MANIFEST.json": {
+   "sha256": "398482e1a7e05fcba687cabe6056b9f870c8e364fad47abd4f8244db4a2187f8",
+   "read": "parsed; every pin verified",
+   "used_by_audit": true
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN4/dirac_kg_connection/connection.py": {
+   "sha256": "d636156faa996aa46e5e55058ae55c0c6ad5caa2d22532463ad9d7a2b098ef81",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN4/dirac_kg_connection/native_tomography.py": {
+   "sha256": "85f8c8cedd4c08939288b8320f338e27ec7be6fb8125f2228211d63ae872a56d",
+   "read": "lines 1 to 80 (pointer)"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN3/native_field_connection/MANIFEST.json": {
+   "sha256": "719036fe46769e68202731f765045dc3d75ebc8fe6e901e85319ce435776779f",
+   "read": "hash"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN3/native_field_connection/geometry.py": {
+   "sha256": "0b78ecc9fed59f9f2dc1e3f4bb02a512ace60a29a8e37a082707dfc4db3caa4d",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN3/native_field_connection/providers.py": {
+   "sha256": "ccf5bdd54ab5a2779de634f36072d2144cf667087c0d3c3cc10264cad15a7a24",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN3/native_field_connection/native_oscillators.py": {
+   "sha256": "882de7afed56fafc7149f595cbc1c2cc53fd1894bf1e58c569d041c368f20055",
+   "read": "lines 1 to 60 and 108 to 222"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN3/native_field_connection/inputs/openwave-tuning/common_dynamics/interacting_gaussian/branches.py": {
+   "sha256": "47aca5df3efe248e761a37d6a8ddf2f95bd91a89c85f07bb2788024a456f086c",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN3/native_field_connection/inputs/openwave-tuning/common_dynamics/quadratic_field/source.py": {
+   "sha256": "466d5dcf6e6f9449359baf2b16a042f9a1a4679b36aeb84c2795947c13dfeae2",
+   "read": "lines 1 to 170"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN3/native_field_connection/inputs/openwave-tuning/common_dynamics/spin/dirac_proposal.py": {
+   "sha256": "78b5b44bb0df1f87668e46bb063e1a1eea53487c37b5b7b5cbac387dbdeda42a",
+   "read": "lines 102 to 142 (route)"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN3/native_field_connection/inputs/reverse-engineering-reality/code/source_selection_model/response.json": {
+   "sha256": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
+   "read": "parsed; generators used in the replay",
+   "used_by_audit": true
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/common_dynamics/vector_field/cell_complex.py": {
+   "sha256": "7e760f4cc0cc9df1343089a6e83bc57c4d6898e072a058336e2079a755d9360a",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/common_dynamics/vector_field/CELL_COMPLEX.json": {
+   "sha256": "bedeb0f30558b99154d4353df9d33933e244457d6ec65f96b85a44d2c0f3da05",
+   "read": "parsed"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/model/native_spatial_refinement/source.py": {
+   "sha256": "b4576a37b7610418f810ab7beebf5e52a7eeab80f66c7260ace149de9c733733",
+   "read": "lines 1 to 150 (frame, links, graph)"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/README.md": {
+   "sha256": "60f95a8c9d37c51a7b800de8e21c2b6153779f3f867b23d867b91bfcd2ea2aaf",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/ROW_01/TASK.md": {
+   "sha256": "8ef343fe51db94f3b23bbf9107f2c5c6e228b0605f6c87cd165f9972f0eaa357",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/ROW_01/CRITERION.json": {
+   "sha256": "cfe34af2570633bb721303378515cd30b834b220e325b1479aea2848cc44a673",
+   "read": "complete",
+   "used_by_audit": true
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/INTERNAL_VALIDATION.json": {
+   "sha256": "6ba46e9221d4fa49fb8772920d55129f4d1d29815ddcfb890eb9e6766f54675a",
+   "read": "row 1 entry and header"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/ROW_01/upstream/m5_1_winding.py": {
+   "sha256": "222d5d7a18db1eabdb5ba251213648e84e986e6354970082091f08b2b90421cb",
+   "read": "complete",
+   "used_by_audit": true
+  },
+  "/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/71ab5137-febf-4090-a75f-a9a6a1e226dc/scratchpad/ow/repo/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_1_winding.py": {
+   "sha256": "222d5d7a18db1eabdb5ba251213648e84e986e6354970082091f08b2b90421cb",
+   "read": "complete (clone, read only)",
+   "used_by_audit": true
+  },
+  "/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/71ab5137-febf-4090-a75f-a9a6a1e226dc/scratchpad/ow/repo/MODELS.md": {
+   "sha256": "a69895e4af4f6bc180748c4e9a8ae11d745c75462650aea44c3a34bd687a139d",
+   "read": "criterion line (clone, read only)",
+   "used_by_audit": true
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-push/platform/PRECEDENTS.md": {
+   "sha256": "68422095c32ee55d81c1d92721738e1908d6a2d1e7e2fdc261068361d01991a6",
+   "read": "row 1 in sections 1 to 3, section 6, appendix A row 1"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-push/platform/ML2_maintainer_lens/MAINTAINER_LENS.md": {
+   "sha256": "f5f52e4f49d68dfaa72fbd154bb93ecde9fb5c9d69675878f0ff4243653e270b",
+   "read": "summary items 9 to 14 and section C"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-push/packets/R01_full_row_review/REVIEW.md": {
+   "sha256": "a118e821f4496849c74a3bf16f5013449a7b236dd66c0694f70fbf7e162fe049",
+   "read": "sections 0 to 7"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-push/reviews/REVIEW_BRIEF.md": {
+   "sha256": "aaac917aff29c0b31eff8036826bdaa8bec07b0c76428e1392988120eb14f5b8",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/sync/CODEX.md": {
+   "sha256": "f4728eaf5f524e71fc13eb311a59e11ce9451f9e8e6d71998d71804c90355f58",
+   "read": "entries C065 to C068"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/WORKERS.md": {
+   "sha256": "2d674d21c07b01955cc9fdec7e5fd51f57bf058f6af179fd764a7d981c5393c8",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN4/WORKERS.json": {
+   "sha256": "1e9fd376e9c7848084b0281e3ac0dfb4341c45c8171dfdaa7f6cffb9a5fd95a9",
+   "read": "first 120 lines"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN3/native_field_connection/COORDINATES.json": {
+   "sha256": "236a846ff8f4409e67b3311badde63afe8c2f45416a1a4c6898a435ef337fb01",
+   "read": "parsed; charge_sectors used",
+   "used_by_audit": true
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/ROW_01/upstream/MODELS.md": {
+   "sha256": "a69895e4af4f6bc180748c4e9a8ae11d745c75462650aea44c3a34bd687a139d",
+   "read": "hash",
+   "used_by_audit": true
+  }
+ },
+ "read_after_verdict": {
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/reviews/COMMON_CHARGE_ROOT/REVIEW.md": {
+   "sha256": "d4c9d26fe290ea015e1365cc73624fd7a7ca5b9e82b14d8430f010bc0cd7c536",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/reviews/COMMON_CHARGE_ROOT/REVIEW.json": {
+   "sha256": "24d3b4d040a26f3e04cf0b1a85e97a206025d2469fe0fe3c01a74173c92705c2",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/reviews/COMMON_CHARGE_ROOT/MANIFEST.json": {
+   "sha256": "214e6ce9e5cd8dedf44f96acee2d2bfe2d4a8a8cc60dfd049bca812a405b2966",
+   "read": "hash"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_native_review/REVIEW.json": {
+   "sha256": "e9ba5fabe3ec58086fe14e98c08d156cf7d7de61c2e24e508c851793207db774",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_native_review/README.md": {
+   "sha256": "b60624b2a534429285eca7793a304846a5b3509137f7d2534f4bb2852201b474",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_native_review/PROOF.md": {
+   "sha256": "ed66b6e226136054c699c0ab138d6c5846ebbbeaf213139edb2a74cf0f0cf03d",
+   "read": "lines 1 to 70"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_native_review/MANIFEST.json": {
+   "sha256": "7104fb54312af99ba577ed6e2a69c3bc6390954f2e4e329db3627285750a1a2b",
+   "read": "hash"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_terminal_review/REVIEW.md": {
+   "sha256": "a125fa97ad578c0f8b676ee88eb5508351bd0a400fab948711b898c5e256ab0d",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_terminal_review/REVIEW.json": {
+   "sha256": "f8dc2876a831bda916dc4a31bb2f43343e7b8e6dae5b897fc9a28c161c879ba7",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_terminal_review/MANIFEST.json": {
+   "sha256": "25abdc7ba28e7a8d0f6dd15899e9fea9ac1ddbaa72540f2bf657eb4e87ade45a",
+   "read": "hash"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology_review/PROOF_REVIEW.md": {
+   "sha256": "7ce0ba42187b3ae303fb68911968c57d20b1dc2ab5cf4e5207f2411bdc9c7083",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology_review/RESULT.json": {
+   "sha256": "ce541818dbce25c41bc0cf7777552a3be87471a1a2fbadf307ca320fb08849dd",
+   "read": "complete"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/common_charge_topology_review/MANIFEST.json": {
+   "sha256": "3276fd1485315632e13bedd58a5110f57827c84f6e3a5a6d9d2f21a73605d858",
+   "read": "hash"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/ROW_01/COMMON_SOURCE_VALIDATION.json": {
+   "sha256": "d731949704b2c319cd236ff373173515acf5c16be6da83952661cae4c8091f82",
+   "read": "header and review records"
+  },
+  "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/sync/AUDITOR.md": {
+   "sha256": "376b9df99ccf198925148750d75deda4f2429cccf4b9a7ef345901496cace033",
+   "read": "entries A056, A058, A059 (ledger grows; hash at manifest time)"
+  }
+ },
+ "notes": [
+  "openwave-tuning/sync/CODEX.md and AUDITOR.md are ledgers that grow; their hashes are the values at manifest time.",
+  "No producer code was imported or executed; no file was written outside this directory.",
+  "VERDICT_EARLY.md was written at 15:37:56 +07 before any other party's review was opened; its check count was updated afterwards."
+ ],
+ "created_at": "2026-11-14T15:49:57+07:00"
+}
