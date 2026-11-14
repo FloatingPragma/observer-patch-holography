@@ -1001,60 +1001,69 @@ coherence lost across record groups. Active logical-qubit recovery in
 Section~\ref{sec:continued-native} has its own source-encoder hypotheses.
 
 \paragraph{Spatial charge and a literal native pointer.}
-On the same twelve-port seam geometry, declare the total-one native sector,
-its known initial occupation $G$, and a zero integer current tape $F$.
-For the oriented incidence $B_{ae}=1$, $B_{be}=-1$, every native outcome
+On the same twelve-port seam geometry, declare nonnegative integer loads
+of total $L\in\{1,2\}$, known initial occupation $G$, and zero current tape
+$F$. For the oriented incidence $B_{ae}=1$, $B_{be}=-1$, every native outcome
 obeys $F_e\mapsto F_e+j$ and $n\mapsto n-jB_e$, hence
 \[
  BF=G-n,\qquad Q(A)=\sum_{v\in A}(n_v-G_v)
        =-\deg(z|_{\partial A}).
 \]
-Here $z$ is a continuous $S^1$ representative on the carrier dual, whose
-edge $e$ has $F_e$ turns and whose adjacent endpoints share their phase.
-The sphere with twelve port-face interiors removed retracts onto the dual
-graph. Exact integral lattice calculation gives
-$\ker B=\operatorname{im}\partial_2$: nineteen unit Smith factors and a
-unimodular tree minor identify its cohomology class with neutral integer
-port charge. Closed-current additions therefore change no spatial class.
-The degree formula holds on arbitrary separating regions of this one
-carrier. Free homotopies may vary the shared vertex phases and preserve
-the class; the charged port faces move with the load. An elementary class
-cannot split into two half-integer closed-loop degrees. The integer unit
-and its nonfragmentation are separately supplied by the nonnegative
-integer endpoint law. Fractional-current laws retain continuity while
-their phase curves fail to close; integer fragmenting laws retain degree
-while violating the total-one occupation domain. These executed controls
-are in \path{code/openwave_row1_protocol/law_controls.py}.
+Here $z_e(t)=\exp(2\pi i F_et)$ is the declared local circle path on each
+dual edge, with shared vertex values. Exact integral incidence and
+face-boundary minors give $\ker B=\operatorname{im}\partial_2$ and identify
+the spatial homotopy class with neutral integer port charge. Closed-current
+additions change no class, and internal boundaries cancel for every region.
+A degree-zero boundary extends across its port disk; a nonzero degree
+requires a puncture or a zero of the circle-valued field. This proves the
+faithfulness of the specified local map. The abstract lattice admits
+nontrivial unimodular changes of dictionary and supplies no uniqueness
+claim. Equal daughter degrees of a primitive unit would require
+$2d=\pm1$ with integer $d$, which is impossible. Fractional ensemble means
+are allowed. A double load splitting into whole units is an actual native
+control, while a half-current mutation breaks shared-vertex gluing.
 
-The observer updates twelve six-state counters solely from actual currents.
-Every regional degree lies in $\{-1,0,1\}$ on this total-one domain, so
-classes $0,1,5$ have the unique bounded lift $0,1,-1$. An additional native
-one-load pointer starts at an unknown port, discovers its position from
-a nonzero current, routes to a fixed six-edge carrier cycle and reads the
-signed class by native move/hold attempts. It uses no proper-code coherent
-transfer or ideal projective pointer. With $R=16$ retries, write
-$h=1-2^{-R}$ and let $p_{\rm reset}(u)$ denote the exact discovery/routing
-success from pointer input $u$. The complete apparatus law is
+A closing instrument appends one native contrast read on each of the
+thirty seams. Let $\delta=n-\widehat n$ be the discrepancy between the
+actual source and its reconstruction from received currents. Faithful
+closing currents update both equally, so $\delta$ is constant during the
+sweep. Matching contrasts impose $\delta_a=\delta_b$ on every seam.
+Connectedness and equal total load give $\delta=0$. This requires the true
+initial $G$ and faithfully received closing contrasts; it does not
+authenticate replacement of the whole channel. The sweep changes the
+source, so the reported charge refers to its final latch. Lost currents
+with zero divergence change no charge but need not preserve a historical
+attempt count.
+
+The observer updates twelve six-state counters from the currents. Every
+regional degree lies in $[-L,L]$, where reduction modulo six is injective.
+An auxiliary native one-load pointer starts at an unknown port, discovers
+its position from a nonzero current, routes to a fixed six-edge carrier
+cycle and reads the signed class through native move/hold attempts.
+For bounded retries $R$, put $h=1-2^{-R}$ and let
+$p_{\rm reset}(u)$ denote the exact discovery/routing success from input $u$.
+Its complete law is
 \[
  \Pr(\text{conclusive}\mid w,u)=p_{\rm reset}(u)h^{6|w|},\qquad
  \Pr(\text{timeout}\mid w,u)=1-p_{\rm reset}(u)h^{6|w|}.
 \]
-All discovery, routing and measurement failures retain their native tapes
-and assign no charge, including failures when $w=0$. The 132 source
-schedules retain 456 complete histories, 888 events and 564 zero-current
-attempts. The latter comprise 324 incident holds and 240 nonincident
-attempts. Joined
-execution uses at most 627 native attempts, with worst bounded apparatus
-timeout $0.00013732049$. The source idles during its terminal pointer
-service; the event clock and retained $G$ specify the measured prefix.
-The phase representative is an observer encoding of current records;
-the native pointer reads counters, not sampled phase values. A missing
-record is detected against independently retained source loads, not from
-the damaged tape alone. The portable executor and independent
-integral/probability proofs are in
-\path{code/openwave_row1_native/}. This is an executed relative-charge
-construction on a specified native sector, with no interacting-CAR transfer
-or official OpenWave validation inferred.
+Every timeout retains its tape and assigns no charge, including at $w=0$.
+The admission interface validates the complete tape before decoding and
+unions every compatible initial pointer column. Supplied final-state
+metadata is discarded. The result is a twelve-entry likelihood effect;
+an initial probability distribution, if specified, gives its weighted sum.
+There is no invented prior or success-only normalization.
+
+The portable experiment checks all $5400$ native branches and $6228$
+preparation/state pairs, and replays $171$ joined signed examples plus a
+zero-defect experiment with an actual native reset. The $768$ complete
+source/pointer laws are computed by exact finite-state recursions and
+independently recomputed, with all failures retained. Three complete
+criterion reviews bind the local topology, source and actual readout
+(\path{code/openwave_charge_quantization/PROOF.md}). The result concerns
+static relative topological charge in the stated domain. It supplies no
+unrestricted modulo-six detector, electron mass or spin identification,
+or transfer to the coherent field dynamics.
 
 \subsection{A coherent continuation and its selection boundary}
 \label{sec:coherent-continuation}
@@ -1508,7 +1517,52 @@ three-dimensional field refinement; matching a field label does not join
 its dynamics to this Hamiltonian
 (\path{code/openwave_chain_checks/provenance/PROOF.md}).
 
-Joint number/energy readout uses complete degenerate projectors and stores
+\paragraph{A shared cubic matter--field interaction.}
+A distinct finite construction retains $2048$ padded fermion modes and
+one modulus-sixteen field on the $288$ edges of eight routed carrier
+cells. Write its declared source step as
+\[
+ V_m=U_E U_B\Gamma(S)_F\Gamma(C_m),\qquad
+ C_m=\cos(hm)R-i\sin(hm)I,
+\]
+where $R$ reflects the uniform twelve-event vector, $h=1/8$, $m\in\{0,1\}$,
+and every
+occupied mode contributes its actual current to the same field. The
+electric coefficient is $\alpha=0.17$. The magnetic coefficient is
+$\beta=0.41$ on one specified face and zero on the other $207$ faces.
+These settings are inputs, distinct from homogeneous continuum settings.
+
+Two held/moving mode qubits share one prepared field with Gauss background
+$G=2\delta_0$. Inverse local mass coins are part of their preparation.
+The complete source step is followed by declared inverse transport and
+local phase analysis. The four charge branches have connected phase
+$e^{i\alpha}$, and their ideal event probabilities are
+\[
+ \left(\frac{5+3\cos\alpha}{8},
+       \frac{1-\cos\alpha}{8},
+       \frac{1-\cos\alpha}{8},
+       \frac{1-\cos\alpha}{8}\right).
+\]
+The sixteen magnetic-field labels form a common retained factor, giving
+$64$ ideal joint outcomes. Their event-law distance from the additive
+field control is $3(1-\cos\alpha)/8=0.0054057124$. Native preparation,
+source, analysis, reset and readout have complete total-variation allowance
+below $3.29647\times10^{-5}$. An independent matrix executor reconstructs
+the primitive source generators and reproduces every reference column
+and joint probability. The record law includes source and apparatus
+failures; no success renormalization is used.
+
+A separate two-mobile-charge preparation completes three source steps
+with pair-position distance $0.0004639073$ between couplings-on and
+couplings-off laws. Moving a held-dark charge while changing its prepared
+field measures a preparation susceptibility instead. The isolated replay
+in \path{code/openwave_common_dynamics/} retains the source, state, clock
+and observation domains of each experiment. These finite interactions do
+not establish a spatial Coulomb law, an interacting field limit or a
+physical mass spectrum.
+
+On the triangle construction, joint number/energy readout uses complete
+degenerate projectors and stores
 $P_{N,E}\rho P_{N,E}$ through a full complex coefficient matrix in each
 archived eigenspace. These subnormalized states continue under the same
 $H$ and native instrument. Independent projector and complex-basis

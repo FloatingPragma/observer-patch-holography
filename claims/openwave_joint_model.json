@@ -803,6 +803,19 @@
     }
   ],
   "schema": "oph.openwave_joint_model_claims.v1",
+  "separately_validated_candidates": [
+    {
+      "candidate_id": "literal-native-relative-spatial-charge-AU5-record-only-v1",
+      "ledger": "claims/openwave_native_charge.json",
+      "ledger_sha256": "76e608714e11f9f6f168d609fd86842ed7d9d5d703f93ea7a1b45ef58997369d",
+      "official_OpenWave_awards_added": 0,
+      "scope": "Relative topological charge at L1, total load1/2, true preparationG, faithful closing records, explicit localcircle map, all pointerfailures retained",
+      "transfer_to_this_canonical_source": false,
+      "validated_rows": [
+        1
+      ]
+    }
+  ],
   "source_sha256": {
     "code/openwave_candidate/candidate/oph_openwave/__init__.py": "844f2f63fede8ca1b17ff2524cc380a9c1f702b92c00fde61b04368119ef06e2",
     "code/openwave_candidate/candidate/oph_openwave/charge.py": "84f678758e7fb7e0cb60782cdfada558f72185421fe083fcf0a08debececc950",
@@ -1006,7 +1019,7 @@
     "code/openwave_candidate/validation/observables/spacetime/stacked_wavepacket.svg": "48a1f0bfe7697eb972218a68dcd6f0a7834d02eb1e09d13ece6399ea4a4f863f",
     "code/openwave_candidate/validation/observables/spacetime/test_independent_stacked.py": "2acd9b945281c894b63d48e958c1455c99c27df1bc8654f2b9fd4b8ef7f99181",
     "code/openwave_candidate/validation/observables/spacetime/test_stacked_assumptions.py": "73d3d148e3c88b82fd17b8f77345c40f345a5b11c7b93b7f7aec8dc9c9a24c74",
-    "tools/build_openwave_joint_claims.py": "c021aa05b76542f40a5f6129aed348a2ca72f227041d58b1103495838f3877e5",
+    "tools/build_openwave_joint_claims.py": "544832ae70aac0c48e853209732a18f9566ff9ba6817c8f4dc6a504882b4f8e5",
     "tools/check_openwave_assessment_replay.py": "765efb63988bb4f725426da9df1469523ec3cdd18d079684bf8f77f21416eeb9"
   }
 }
