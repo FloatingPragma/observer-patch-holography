@@ -8605,9 +8605,9 @@ anchors are not proofs. No entry silently discharges a canonical premise.
 | Canonical claims retained | 400 |
 | Claims with restricted bindings | 69 |
 | Claims with open common-model mapping | 331 |
-| Tracked Lean source modules retained | 697 |
+| Tracked Lean source modules retained | 698 |
 | Lean modules referenced by canonical evidence | 492 |
-| Public theorem/lemma declarations | 12939 |
+| Public theorem/lemma declarations | 12952 |
 | Restricted bindings / sourced connections | 141 / 69 |
 
 ### Restricted model bindings
