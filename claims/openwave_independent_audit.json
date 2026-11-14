@@ -52,13 +52,21 @@
       "statement": "The exact four-cycle regional modular gap is 8 log(3/2), while its linearized exchange replacement gives 8/3; the exact matrix logarithm and controlled growing-family error bound are required.",
       "evidence": "code/openwave_audit/modular_transfer_limit_results.json",
       "domain": "Binary exclusion transfer reference P/Tr(P), total load two, full regional partial trace, number-preserving algebra. No preparation, passive-repair implementation or physical time conversion is inferred."
+    },
+    {
+      "id": "holonomy_reduction_regulator_and_apparatus_scope",
+      "statement": "Complete modular character reduction does not extend to the 13-state hard-wall triangle or make every holonomy-commuting observable a function of position. Modulus-one coarse propagation does not provide an injective integer charge decoder.",
+      "evidence": "code/openwave_audit/holonomy_scope_results.json",
+      "domain": "One-load triangle, m=.23 and t=.37; hard wall one versus complete Z6 fibres. The valid restricted modular reduction, conditional sector states and readout/lift hypotheses are retained."
     }
   ],
   "source_sha256": {
     "code/openwave_audit/PAIR_RECORD_PROOF.md": "3b939f09efce84c4d178f5bfd85623517739fe9c612ef16095ef3965ab66a6d1",
-    "code/openwave_audit/README.md": "7986d859e92f0420e2f94510d919d2bbb6b4e7778345640338c12c5c154a0adc",
+    "code/openwave_audit/README.md": "f90c6c4029da2f62345d9de046c4c7b6591fcae96df2219405c276b8e2ac909f",
     "code/openwave_audit/energy_scale.py": "0e81c1b6320a9cd2082f17d074d8c792a033a3b498f61aff885d9ffa8db19ca0",
     "code/openwave_audit/energy_scale_results.json": "17502c146a98f3cb42db079a594262393b7d89effe3815c8760ebab379eb1f45",
+    "code/openwave_audit/holonomy_scope.py": "033d897126a8e2e563ad8388b9105bae638504dac71c497f926d84a120a28b0d",
+    "code/openwave_audit/holonomy_scope_results.json": "7427e301025d1e54022f16edd9fe33b9a4f845d4554e05736dc62f8e062ac2b9",
     "code/openwave_audit/joint_source_audit.py": "206e2791d6446213c798d96abf18aeb947dd1b42a4667b90b433a88b458a1f9d",
     "code/openwave_audit/joint_source_results.json": "bb6c7af25d98855993b841cdfd5ed973fc10039e8500d61554414ca5dea85700",
     "code/openwave_audit/modular_transfer_limit.py": "01fcce7bb2b90315d2bdba44566339f0d3b8c8da76b663bf4edda0530c8ec22e",

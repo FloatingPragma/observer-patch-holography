@@ -205,6 +205,29 @@ prepare the transfer reference nor implement its action by passive repair.
 python3 code/openwave_audit/modular_transfer_limit.py --output code/openwave_audit/modular_transfer_limit_results.json
 ```
 
+The [holonomy scope check](holonomy_scope.py) retains the hypotheses of the
+finite modular reduction. A triangle with hard wall one has 13 states and
+position-fibre sizes `3,2,2,2,2,2`. Its truncated cycle shift is not unitary;
+the Hamiltonian/shift commutator has an entry of magnitude one. The normalized
+fibre map has intertwining error `0.5773502692`, and its initial port state's
+position law differs from the bare law by `0.0782925872` at time `.37`.
+A hard-wall Gauss identity therefore does not establish the modular
+character decomposition of its dynamics.
+
+Even in the complete modular source, \((W+W^*)/2\) commutes with the
+holonomies and has expectations `+1` and `-1` in two states with identical
+position distribution. Only the specified Gauss/divergence readouts reduce
+to position data; the full commuting algebra can also read character.
+General position/sector-correlated preparations retain a conditional position
+state in each sector. Modulus one reproduces the coarse zero-character
+position channel but aliases regional charge zero and one, so it cannot
+replace the corresponding integer-flux decoder. These counterchecks preserve
+the useful reduction while excluding the broader regulator/apparatus transfer.
+
+```sh
+python3 code/openwave_audit/holonomy_scope.py --output code/openwave_audit/holonomy_scope_results.json
+```
+
 **Scope**: finite source arithmetic, complete modular records, specified
 native, energy and reservoir instruments, and a conditional one-load energy bound.
 No physical electron, winding identification, autonomous rest-energy anchor,

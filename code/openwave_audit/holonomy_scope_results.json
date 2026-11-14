@@ -1,0 +1,59 @@
+{
+  "schema": "oph.audit.holonomy_scope.v1",
+  "checks": {
+    "finite_modular_reduction_premises_hold": true,
+    "commuting_observable_not_a_position_function": true,
+    "hard_wall_cycle_group_transfer_rejected": true,
+    "hard_wall_uniform_intertwining_rejected": true,
+    "hard_wall_position_dynamics_differ": true,
+    "modulus_one_charge_lift_not_injective": true
+  },
+  "errors": {
+    "modular_cycle_unitarity": 0.0,
+    "modular_cycle_commutator": 0.0,
+    "observable_holonomy_commutator": 0.0,
+    "same_position_law": 0.0,
+    "wall_cycle_unitarity_failure": 1.0,
+    "wall_cycle_commutator": 1.0,
+    "wall_uniform_intertwiner_failure": 0.577350269189626
+  },
+  "modular_observable": {
+    "definition": "(W+W^T)/2",
+    "expectations_same_position_different_character": [
+      1.0000000000000002,
+      -1.0000000000000002
+    ],
+    "scope": "Counterexample to the general commutant assertion. It is not among the narrower listed divF readouts."
+  },
+  "hard_wall": {
+    "cutoff": 1,
+    "states": 13,
+    "fibre_sizes": [
+      3,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "bare_position_probabilities": [
+      0.7535462540422471,
+      0.0043673024339272,
+      0.004367302433927207,
+      0.11885957054494939,
+      3.1691327698168875e-34,
+      0.11885957054494939
+    ],
+    "wall_position_probabilities": [
+      0.8318388412665587,
+      0.0029453317291296974,
+      0.0029453317291296575,
+      0.08113524657534357,
+      2.124494930065983e-09,
+      0.08113524657534349
+    ],
+    "maximum_position_difference": 0.07829258722431165
+  },
+  "scope": "Complete finite modular fibres support the character reduction for the preserved apparatus. Hard-wall truncation lacks that shift-group hypothesis. A general holonomy-commuting operator can depend on character, while the listed Gauss/divergence readouts reduce to position within a fixed sector. Modulus-one coarse evolution does not implement an injective modular charge decoder. No claim is made about new physical particles or platform status.",
+  "reviewer_sha256": "033d897126a8e2e563ad8388b9105bae638504dac71c497f926d84a120a28b0d"
+}
