@@ -1,0 +1,43 @@
+{
+  "schema": "oph.c11.boundary_charge_independent_review.v1",
+  "checks": {
+    "all24576basis_cut_relations": true,
+    "all2688projectorbranches_equal_and_complete": true,
+    "same_even_parity_same_cut_Q_boundary_disturbance": true,
+    "general_Pauli_interval_bound": true
+  },
+  "zero_outcomes_retained": 1760,
+  "boundary_only_disturbance_control": {
+    "region": [
+      3
+    ],
+    "states": [
+      {
+        "mask": 0,
+        "number": 0,
+        "parity": 0,
+        "regional_charge": 0,
+        "cut_residue": 0,
+        "boundary": 3
+      },
+      {
+        "mask": 6,
+        "number": 2,
+        "parity": 0,
+        "regional_charge": 0,
+        "cut_residue": 0,
+        "boundary": 1
+      }
+    ],
+    "trace_distance": 0.5
+  },
+  "proof_scope": "Complete joint(B,cut) versus(N,Q) diagonalprojectors areidentical withknownPauliinterval; tensorswith everyexternalreference. Q-only instrumentdiffers fromaddedBmeasurement, evenwithoutcrossparity orchangedcut. No physicalelectricdictionary/topologicalelectronwinding/fractionalcharge exclusion beyonddeclaredoccupancy.",
+  "source_sha256": {
+    "next/C11/review_boundary_charge.py": "08f4480df6dff85f64d92f4c9e09ce4270ec1db7dedbc5717ccc3206f736a158",
+    "next/C11/boundary_charge.py": "14ca9135d5c7a6e51d776cc7e60df71253c3591fcd91116ba1c08a6ae84e81a1",
+    "next/C11/BOUNDARY_CHARGE.json": "0b293d1a1154e608618aefd962358e72cca6f8deeb93a45d3c12aa14e1717b17",
+    "next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e"
+  },
+  "full_criterion_met": false,
+  "official_rows_changed": []
+}

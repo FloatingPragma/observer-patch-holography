@@ -996,10 +996,53 @@ blocks of the two-event observer have sizes $46,10,9,1$ on the binary shell
 and $56,10,9,1,1,1$ on the full carrier, for both laws. Existing source
 inverse words implement the single-seam branch reversal of (i) while keeping
 the classical archive \cite{oRR,rRR}. Native current
-records thus suffice to reverse classical load transport, without restoring
-arbitrary coherence lost across record groups. The source encoder and active
-recovery of Section~\ref{sec:continued-native} instead preserve the stated
-logical qubit between events; they do not invert the whole bare-load channel.
+records reverse classical load transport, without restoring arbitrary
+coherence lost across record groups. Active logical-qubit recovery in
+Section~\ref{sec:continued-native} has its own source-encoder hypotheses.
+
+\paragraph{Spatial charge and a literal native pointer.}
+On the same twelve-port seam geometry, declare the total-one native sector,
+its known initial occupation $G$, and a zero integer current tape $F$.
+For the oriented incidence $B_{ae}=1$, $B_{be}=-1$, every native outcome
+obeys $F_e\mapsto F_e+j$ and $n\mapsto n-jB_e$, hence
+\[
+ BF=G-n,\qquad Q(A)=\sum_{v\in A}(n_v-G_v)
+       =-\deg(z|_{\partial A}).
+\]
+Here $z$ is a continuous $S^1$ representative on the carrier dual, whose
+edge $e$ has $F_e$ turns and whose adjacent endpoints share their phase.
+The sphere with twelve port-face interiors removed retracts onto the dual
+graph. Exact integral lattice calculation gives
+$\ker B=\operatorname{im}\partial_2$: nineteen unit Smith factors and a
+unimodular tree minor identify its cohomology class with neutral integer
+port charge. Closed-current additions therefore change no spatial class.
+The degree formula holds on arbitrary separating regions; continuous
+homotopies preserve it. An elementary class cannot split into two
+half-integer closed-loop degrees.
+
+The observer updates twelve six-state counters solely from actual currents.
+Every regional degree lies in $\{-1,0,1\}$ on this total-one domain, so
+classes $0,1,5$ have the unique bounded lift $0,1,-1$. An additional native
+one-load pointer starts at an unknown port, discovers its position from
+a nonzero current, routes to a fixed six-edge carrier cycle and reads the
+signed class by native move/hold attempts. It uses no proper-code coherent
+transfer or ideal projective pointer. With $R=16$ retries, write
+$h=1-2^{-R}$ and let $p_{\rm reset}(u)$ denote the exact discovery/routing
+success from pointer input $u$. The complete apparatus law is
+\[
+ \Pr(\text{conclusive}\mid w,u)=p_{\rm reset}(u)h^{6|w|},\qquad
+ \Pr(\text{timeout}\mid w,u)=1-p_{\rm reset}(u)h^{6|w|}.
+\]
+All discovery, routing and measurement failures retain their native tapes
+and assign no charge, including failures when $w=0$. The 132 source
+schedules retain 456 complete histories, 888 events and 564 holds. Joined
+execution uses at most 627 native attempts, with worst bounded apparatus
+timeout $0.00013732049$. The source idles during its terminal pointer
+service; the event clock and retained $G$ specify the measured prefix.
+The portable executor and independent integral/probability proofs are in
+\path{code/openwave_row1_native/}. This is an executed relative-charge
+construction on a specified native sector, with no interacting-CAR transfer
+or official OpenWave validation inferred.
 
 \subsection{A coherent continuation and its selection boundary}
 \label{sec:coherent-continuation}
@@ -1226,8 +1269,8 @@ observable properties of the specified program.
 
 A port/transit realization carries two half-seam fields $F_{e,a},F_{e,b}$
 for each oriented seam $e=(a,b)$. An endpoint-to-transit hop increments
-$F_{e,x}$, with sign $+1$ at $a$ and $-1$ at $b$; its adjoint reverses
-the shift. A symmetric integer hard wall gives a Hermitian $D_K$ and
+$F_{e,x}$ by $+1$ at either endpoint. The Hamiltonian amplitude
+is $+1$ at $a$ and $-1$ at $b$; the adjoint reverses the record shift. A symmetric integer hard wall gives a Hermitian $D_K$ and
 \[
  H_{m,K}=D_K+m\Gamma,\qquad
  \{D_K,\Gamma\}=0,\qquad H_{m,K}^2=D_K^2+m^2I,
@@ -1435,15 +1478,36 @@ archived eigenspace. These subnormalized states continue under the same
 $H$ and native instrument. Independent projector and complex-basis
 rotation controls preserve the state; fine-basis measurement followed by
 forgetting changes it. Source numbers are read from actual occupations,
-not inferred from insufficient modular residues. The separate fixed-three-load
-interval decoder admits $0\leq Q_R\leq3$ when the modulus exceeds three;
-it does not decode all $0,\ldots,6$ from modulus six.
+with an additional exact boundary/cut readout on the same carrier. Reading
+integer $B$ fixes total $N$. For a region of $r$ out of six Pauli orbitals,
+\[
+ \max(0,N-6+r)\leq Q_R\leq\min(N,r).
+\]
+This interval has width at most three, so modulus six and the retained
+$B$ label determine every regional integer charge. All $2688$ $(B,\mathrm{cut})$
+outcomes are retained. Coarsening them to a $Q_R$-only L\"uders instrument
+changes continuation and is not an interchangeable implementation.
 The fixed Gauss background is not automatically charge-conjugation
 invariant. No physical species, spin, vacuum, calibrated mass, continuum
 radiation or gravitational identification follows from this finite
 construction
 (\path{code/openwave_candidate/next/C10/CANONICAL_CONSTRUCTION.md};
 \path{code/openwave_candidate/next/C10/JOINT_SOURCE.md}).
+
+An external half-link phase intervention uses
+$H(A)=H(0)+\sum_h[(e^{-iA_h}-1)T_h+\mathrm{h.c.}]$ and
+$J_h=-\partial H/\partial A_h$. Its same-source regional continuity,
+phase-paired preparation, complete native outcomes and work ledger are
+gauge covariant under the external orbital phase change. The supplied
+phase is not the internal record face $W$, a dynamical Maxwell field or
+a physical magnetic moment. Complete charged spectroscopy also permits
+one explicit display calibration: the most probable addition excitation
+$0.3480195549$ is assigned $0.000511$ GeV. All $1392$ bins and original
+unconditional weights remain; the removal/addition peak ratio is
+$4.892537374$. This anchor agreement is a calibration identity, without
+particle, rest-momentum or mass identification
+(\path{code/openwave_candidate/next/C11/LINK_PHASE_PROBE.md};
+\path{code/openwave_candidate/next/C11/CHARGED_ENERGY_UNITS.md}).
 
 A separate one-load spectral-control apparatus records $(i,r,j)$ with
 probability $|\langle j|K_r|i\rangle|^2/d$ on $I/d$.
@@ -3160,14 +3224,15 @@ storage and record services are supplied. This is active protection of the
 stated qubit before readout, not arbitrary-carrier recovery, fault tolerance
 or an autonomous observer.
 
-The explicit stacked-ring extension supplies vertical seams with
+A separate zero-commit stacked-ring control supplies vertical seams with
 $L_3(k)=L_{\rm ring}(k_1,k_2)+2(1-\cos k_3)I_{24}$.
 The acoustic coefficients $(15/352,15/352,1)$ give genuine rank-three,
 anisotropic propagation in supplied lattice units. At zero commit rate a
 supplied positive-band packet evolves under this same extended incidence
 Hamiltonian. Its position distribution and centroid use a prescribed flat
-metric; they establish neither a measured particle trajectory nor derived
-gravity. The two-dimensional $L^{-1/2}$ force kernel has no automatic
+metric. The centroid law holds for translation-invariant bands generally;
+it tests neither a metric nor derived gravity. Its finite-grid observables
+do not instantiate the interacting triangle protocol. The two-dimensional $L^{-1/2}$ force kernel has no automatic
 three-dimensional transfer
 (\texttt{code/openwave\_candidate/validation/observables/spacetime/}).
 
@@ -3179,17 +3244,24 @@ regional structure from the same executed history \cite{csOBS}. The quantum
 algebra, state pairing and access choices are premises, and the Born readout of
 these instruments is a declared service (Section~\ref{sec:services}).
 
-A separate native uniform-fiber experiment conditions the canonical
-87-position state on a declared two-port $M_2$ corner. Its conditional
-probability is $0.9035519259$, with faithful numerical eigenvalues
-$0.01315235645$ and $0.98684764355$. Thus
-$\sigma_s(A)=\rho^{is}A\rho^{-is}$ has frequency
-$\log(0.98684764355/0.01315235645)=4.3179147243$.
-The full density and both terminal $P/Q$ branches are retained; conditioning
-is neither a partial trace nor a sequential native measurement history.
-The corner algebra and state-dependent apparatus are supplied, and $s$
-has no subjective-duration or native-clock identification
-(\path{code/openwave_candidate/validation/observables/modular_time/}).
+The actual interacting native output above has numerical rank $12$ and
+is not faithful on $M_{384}$. A declared two-configuration corner,
+selected after inspection of that known output, has probability
+$0.01191417158$ and conditional eigenvalues
+$0.04149975839$, $0.95850024161$. The existing finite modular/GNS
+apparatus applies on its faithful $M_2$ algebra, with
+$\sigma_s(A)=\rho^{is}A\rho^{-is}$ and frequency $3.1396822092$.
+Four ordered $A_0,A_s$ projective outcomes and the complete outside branch
+retain every subnormalized poststate and subsequent same-$H$ native record.
+At injected $s=0.37$, the real sequential correlation is $0.3977965195$;
+the complex algebraic correlation is not a classical joint probability.
+The apparatus family is frozen from the premeasurement state: a pure
+observed branch has no faithful flow on the same $M_2$ algebra. The GNS
+vector is a representation, not a supplied physical reference copy.
+Native time $0.37$ leaks $0.3622350216$ outside the corner; even compressed
+$H$ is not proportional to $-\log\rho$ modulo scalar identity. No physical,
+subjective or native-time conversion follows
+(\path{code/openwave_candidate/next/C11/INTERACTING_MODULAR_OBSERVER.md}).
 The following proposition concerns the distinct executed-history reference.
 
 \begin{proposition}[Observer representations of the executed history]

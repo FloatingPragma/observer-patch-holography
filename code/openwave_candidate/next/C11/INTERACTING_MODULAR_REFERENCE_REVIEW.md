@@ -1,0 +1,9 @@
+# Independent interacting modular observer review
+
+The review reads the actual C10 canonical poststate and reconstructs the declared corner from its two occupation/record configurations. It imports neither the observer producer nor the old modular-flow implementation. Closed-form2×2 eigenvalues and polynomial spectral projectors reproduce the conditional state, modular action, GNS representation and an independent complex-observable KMS test with the minus-i sign. The wrong sign fails.
+
+All five sequential observer branches, including the large complement, are reconstructed directly. Their full subnormalized states and every subsequent native joint outcome agree with an independent invariant-number-block exponential and explicit C/E Kraus continuation. This is exact conserved-number blocking of the same interacting H, not the invalid uniform/character compression. The real two-PVM correlation agrees with the real part of the algebraic correlation; the complex value is not treated as a classical joint probability.
+
+The full384-dimensional state is nonfaithful already because it is supported in N3. The chosen conditional M2 corner is faithful without a floor, but pure measured branches cannot inherit that faithful modular state. The corner was selected from the known output and is added coherent apparatus, not a derived unique observer. Its modular parameter is injected and dimensionless. Direct native H evolution leaves the corner, rejecting an autonomous identification with the native clock or subjective experience.
+
+The review also computes observer-measurement and subsequent native mean work from retained full states. The added measurement can exchange energy; no conservation or free apparatus is inferred. Numerical finite-matrix results have no certified enclosure. The JSON pins actual C10/C11 inputs and records all residuals. No old-source modular clock, physical species or official criterion is transferred.

@@ -1,0 +1,5 @@
+# Independent charged-energy unit review
+
+The second review imports no producer function and reruns no source diagonalization. It independently selects the most probable unconditional addition bin from the actual interacting response, then applies one positive linear calibration to all1,392 bins. Original number/energy labels, degeneracies, probabilities and exact zero bins are retained. Rational arithmetic on the stored binary64 numbers verifies the common energy/work scale and the scale-free removal/addition peak ratio. A common source-energy zero shift cancels from reference-subtracted excitations.
+
+The assigned0.000511GeV anchor is an explicit input. Agreement of its selected line with511keV is a calibration identity, not a predicted electron mass. The exact fraction in the review receipt concerns stored finite numeric records, not an exact analytic particle-mass theorem. No species, rest-momentum or particle/antiparticle identification is inferred. The JSON pins the actual source response, unit producer and displayed receipt.

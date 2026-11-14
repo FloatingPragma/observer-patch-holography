@@ -10,7 +10,7 @@ OPENBLAS_NUM_THREADS=1 python next/C10/canonical_construction.py --write
 OPENBLAS_NUM_THREADS=1 python next/C10/canonical_construction.py --check
 ```
 
-The first command reproduces the complete interacting reference, all-number spectra, charged-reservoir responses and native instrument controls. The second selects one protocol and writes its complete readouts and source contract. The third recomputes the selected protocol, compares its scientific values and poststate, and verifies the source contract. No Fable acceptance flag or grid is invoked. The runtime uses existing portable CAR providers; the explicit C10 public whitelist remains a separate pending packaging step.
+The first command reproduces the complete interacting reference, all-number spectra, charged-reservoir responses and native instrument controls. The second selects one protocol and writes its complete readouts and source contract. The third recomputes the selected protocol, compares its scientific values and poststate, and verifies the source contract. No Fable acceptance flag or grid is invoked. The runtime uses existing portable CAR providers; the public export manifest binds the complete scientific bundle.
 
 ## State, Hamiltonian and reference
 

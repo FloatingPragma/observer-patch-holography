@@ -1,0 +1,65 @@
+{
+  "schema": "oph.c11.interacting_modular_reference_review.v1",
+  "reviewer": "Independent Codex worker; no producer/provider math import",
+  "outcome": "PASS_WITH_DECLARED_CONDITIONAL_OBSERVER_SCOPE",
+  "checks": {
+    "actual_C10_poststate_corner_reconstructed": true,
+    "faithful_M2_without_floor": true,
+    "full_M384_nonfaithful_by_number_support": true,
+    "polynomial_modular_flow_and_GNS": true,
+    "independent_KMS_minus_i": true,
+    "wrong_plus_i_rejected": true,
+    "allfive_actual_PVM_poststates": true,
+    "allnative_continued_poststates": true,
+    "alljoint_record_probabilities": true,
+    "real_sequential_not_complex_probability": true,
+    "autonomous_native_corner_flow_rejected": true
+  },
+  "independent_method": "Reconstruct source configurations from actual archive; closed2x2trace/determinant eigenvalues and polynomial projectors; independent complexAB KMS; direct five Kraus maps; exact invariantN3 block of archivedH and explicit every nativeK for unnormalized continuation.",
+  "corner_probability": 0.011914171575263135,
+  "conditional_eigenvalues": [
+    0.04149975839280734,
+    0.9585002416071926
+  ],
+  "dimensionless_modular_frequency": 3.1396822091940413,
+  "errors": {
+    "modular_observable": 2.0807427796300308e-15,
+    "conditional_eigenvalues": 1.1102230246251565e-16,
+    "KMS_minus_i": 9.57647806303713e-15,
+    "KMS_wrong_plus_i": 21.507155089366808,
+    "GNS": 5.151482688479172e-15,
+    "GNS_cyclic": 6.080941944488118e-16,
+    "five_poststates": 5.3159085953172474e-18,
+    "native_continuation": 1.6683190654377175e-16,
+    "complete_joint_records": 6.938893903907228e-18,
+    "real_correlation": 2.220446049250313e-15
+  },
+  "native_clock_leakage": 0.3622350216115421,
+  "additional_work_accounting": {
+    "pre_observer_energy": -2.2100664367714975,
+    "post_observer_energy": -2.1047869876097787,
+    "observer_measurement_mean_work": 0.10527944916171883,
+    "post_native_continuation_energy": -1.6709838833227795,
+    "subsequent_native_mean_work": 0.4338031042869992,
+    "scope": "Additional ideal observer measurement can do work; no energy conservation or physicalclock interpretation asserted."
+  },
+  "scope": [
+    "Known-output selected coherent two-configuration corner is added apparatus, not unique/native observer selection.",
+    "Fullsource is nonfaithful; conditionalM2faithfulness cannot be silently reset after purePVM outcomes.",
+    "Modulars is injected dimensionless observableparameter, not nativeHtime or subjectiveexperience.",
+    "Complex algebraic correlation is distinct from real sequentialPVM outcome correlation.",
+    "Fullcomplement and unnormalized continuation retained; no oldone-load source result is transferred."
+  ],
+  "full_criterion_met": false,
+  "official_rows_changed": [],
+  "source_sha256": {
+    "next/C11/review_interacting_modular_reference.py": "067e2a96dbcdb39258714d709fcc020cb4043a5d54dc0c86fe8a034f269ffe04",
+    "next/C11/interacting_modular_observer.py": "390963046e7912588d1d590afb7f3a70f96860d55d2102821ac1732f90e2d238",
+    "next/C11/INTERACTING_MODULAR_OBSERVER.json": "5dd3cd5db85686efcdb4209d27f2b271834a19fe3a11ef9cd951d3a5c3663d93",
+    "next/C11/interacting_modular_observer_states.npz": "f4da0188c36a9a146cd65ee2eebf9a5351b1a1935aaab4c8736396e0fb161484",
+    "next/C10/CANONICAL_CONSTRUCTION.json": "87e364830daaf96e16cbbf1ed7a12b4329d896a816fffcf9194f29fdeceb7217",
+    "next/C10/canonical_states.npz": "27b18e957d2ececf5c0d54dcb0851d510ef307cef9a364372281966b3c7c96f1",
+    "next/C10/JOINT_SOURCE.json": "b9750a2e5823f15496f3915dc6a647af4cc0944dbff21d4b0fd48e27693b3546",
+    "next/C10/joint_source_states.npz": "1d75017307742e96649ea7c7e74a4a648a6d9f468e35ccd9f6ea05d202d7708b"
+  }
+}

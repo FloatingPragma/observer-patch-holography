@@ -1,0 +1,39 @@
+{
+  "schema": "oph.c11.boundary_charge_reference_review.v1",
+  "reviewer": "Second distinct Codex worker; no decoder-function import",
+  "outcome": "PASS_WITH_COMPLETE_BOUNDARY_INSTRUMENT_SCOPE",
+  "checks": {
+    "independent_dressed_incidence_Gauss": true,
+    "all_24576_basis_comparisons": true,
+    "all_2688_outcomes_including_zeros": true,
+    "Pauli_interval_width_at_most_three": true,
+    "quantum_reference_branch_equality": true,
+    "Q_only_crossN_continuation_rejected": true
+  },
+  "independent_method": "Construct six-vertex half-edge incidence; enumerate admitted regional occupancy using only cardinality/total constraints; solve modular Gauss by set intersection; compare full diagonal branch masks and tensor-idle-reference amplitudes. Producer decode/cut functions are not imported.",
+  "basis_comparisons": 24576,
+  "outcomes": 2688,
+  "external_reference_branch_error": 0.0,
+  "cross_number_control": {
+    "actual_source_basis_indices": [
+      0,
+      36
+    ],
+    "occupation_masks": [
+      0,
+      6
+    ],
+    "same_even_fermion_parity": true,
+    "idle_reference_dimension": 2,
+    "Q_only_vs_B_then_cut_trace_distance": 0.4999999999999999
+  },
+  "scope": "Equality is between complete(B,cut) and complete(N,Q) instruments with retained labels, including zero outcomes and arbitrary idle references. Q-only measurement alone preserves extra cross-number coherence and is not a continuing substitute. Integer B is supplied; no physicalspecies/chargeunit identification follows.",
+  "full_criterion_met": false,
+  "official_rows_changed": [],
+  "source_sha256": {
+    "next/C11/review_boundary_charge_reference.py": "e65b42089e873732b29f5ed97e58e7e9ca552af5f0b41f6388056651de880441",
+    "next/C11/boundary_charge.py": "14ca9135d5c7a6e51d776cc7e60df71253c3591fcd91116ba1c08a6ae84e81a1",
+    "next/C11/BOUNDARY_CHARGE.json": "0b293d1a1154e608618aefd962358e72cca6f8deeb93a45d3c12aa14e1717b17",
+    "next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e"
+  }
+}

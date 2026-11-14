@@ -1,5 +1,67 @@
 {
   "assessment": "code/openwave_candidate/integration/assessment.json",
+  "canonical_continued_observables": [
+    {
+      "checks": {
+        "Q_only_continuation_transfer_rejected": true,
+        "all_2688_boundary_cut_outcomes_retained": true,
+        "cut_only_all_number_alias_retained": true,
+        "every_regional_complete_projector_equal": true,
+        "maximum_interval_width_three": true,
+        "unsafe_or_inconsistent_intervals_rejected": true
+      },
+      "physical_rows_promoted": 0,
+      "receipt": "code/openwave_candidate/next/C11/BOUNDARY_CHARGE.json",
+      "scope": "Exact finite Gauss and Pauli occupancy instrument. Integer B is a declared additional apparatus record. It is redundant only when total N is already sharp and known. No physical charge species, electron winding, fractional charge or all31 criterion is inferred."
+    },
+    {
+      "checks": {
+        "Hamiltonian_gauge_covariance": true,
+        "J_is_minus_actual_H_derivative": true,
+        "all_native_outcome_charge_energy_covariance": true,
+        "complete_all_native_outcomes": true,
+        "every_C_E_MIX_Kraus_gauge_covariance": true,
+        "every_native_applied_current_matches_regional_charge_delta": true,
+        "nonzero_external_current_response": true,
+        "regional_continuity_expectation": true,
+        "regional_continuity_operator": true,
+        "static_ground_current_Hellmann_Feynman": true,
+        "transformed_reference_evolution_covariance": true,
+        "untransformed_preparation_control_rejected": true,
+        "zero_external_phase_exact_baseline": true
+      },
+      "physical_rows_promoted": 0,
+      "receipt": "code/openwave_candidate/next/C11/LINK_PHASE_PROBE.json",
+      "scope": "Declared external Peierls phase/current apparatus on the same interacting source. This continuous external gauge covariance does not assert an internal integerF commutator at cyclic wrap or identify a physical magnetic field, magnetostatics, spin or g=2. Per-record native dressing is a scalar phase and cancels in a classical-record branch map; it is retained for exact operator covariance, not misreported as a different classical channel."
+    },
+    {
+      "checks": {
+        "GNS_representation": true,
+        "KMS_minus_i": true,
+        "all_native_continuations_complete": true,
+        "complete_PQ_conditioning": true,
+        "complete_sequential_observer_instrument": true,
+        "corner_numerically_faithful": true,
+        "real_sequential_correlation": true,
+        "same_interacting_H": true
+      },
+      "physical_rows_promoted": 0,
+      "receipt": "code/openwave_candidate/next/C11/INTERACTING_MODULAR_OBSERVER.json",
+      "scope": "Finite source-conditioned modular algebra and complete continued apparatus. Full source and pure observed branches are not faithful M2/M384 states. Modular flow is not inherited as the postmeasurement state flow. Numerical matrix propagation has no certified enclosure. No physical species, vacuum, mass, gravity or official row award."
+    },
+    {
+      "checks": {
+        "all_original_energy_groups_retained": true,
+        "anchor_is_calibration_identity": true,
+        "complete_four_reservoir_branches": true,
+        "full_work_uses_one_common_scale": true,
+        "no_probability_conditioning_or_filter": true
+      },
+      "physical_rows_promoted": 0,
+      "receipt": "code/openwave_candidate/next/C11/CHARGED_ENERGY_UNITS.json",
+      "scope": "All interacting source-number/energy bins, zeros and original unconditional weights retained. One positive multiplicative calibration is used; no energy offset or per-species fit. Physical species, rest momentum, radiative matching and charge conjugation are not established."
+    }
+  ],
   "canonical_source": {
     "construction_id": "triangle-CAR-allN-Z6-periodic-half-record-native-MIX-v1",
     "contract": "code/openwave_candidate/next/C10/CANONICAL_SOURCE_CONTRACT.json",
@@ -168,6 +230,26 @@
       "domain": "Ideal spectral apparatus and explicit grouping tolerance. Degenerate basis rotation preserves the reconstructed state; rank-one measurement followed by forgetting is rejected by a coherent doublet control. The apparatus is not claimed synthesized by native C/E, and measured energy labels have no physical species or GeV identification.",
       "id": "continuing_degenerate_energy_instrument",
       "statement": "A complete grouped number/energy L\u00fcders instrument retains within-eigenspace coherences as compact full coefficient matrices and every zero outcome. An actually populated degenerate branch continues under the same Hamiltonian and selected native instrument with its original subnormalization."
+    },
+    {
+      "domain": "All384 basis states,64 regions and2688 joint outcomes. Reading the boundary is part of the apparatus and disturbs cross-number coherence even at fixed fermion parity; it cannot be silently replaced by charge-only readout. No physical winding or exclusion of fractional species beyond the declared occupation domain follows.",
+      "id": "all_number_boundary_charge_apparatus",
+      "statement": "On the complete interacting carrier, known total occupation bounds each regional Pauli charge in an interval of width at most3. Modulus6 and the integer boundary record therefore reconstruct every regional charge; all complete boundary/cut projectors equal the corresponding number/charge projectors."
+    },
+    {
+      "domain": "Supplied external Peierls phase and gauge-family intervention on the finite source. Native record dressing is a scalar phase per classical branch, not a new branch channel. No physical magnetic field, spin, g-factor or internal continuous gauge algebra at cyclic wrap is inferred.",
+      "id": "interacting_external_phase_current",
+      "statement": "An explicit external half-link phase probes the same interacting Hamiltonian. Its derivative current, regional continuity, static energy response and complete native charge/work ledgers satisfy the declared gauge covariance, including subnormalized continuation."
+    },
+    {
+      "domain": "The corner is chosen after inspecting the known output and is an exploratory global configuration algebra, not a local spatial partial trace or a predeclared physical observer. Full-source and pure observed-branch faithfulness are rejected. The observable family is frozen from the premeasurement state and its modular parameter is injected; no autonomous H-clock, subjective time or physical time conversion is identified.",
+      "id": "interacting_conditioned_modular_observer",
+      "statement": "The actual selected interacting output has a faithful declared two-configuration corner with nontrivial modular correlations. A complete P/Q and sequential projective apparatus realizes the real correlation and retains every branch through subsequent native evolution."
+    },
+    {
+      "domain": "The most probable addition line is assigned the supplied0.000511GeV anchor. Its agreement is a calibration identity. Other lines remain unnamed source excitations, not predicted particle masses; source charge conjugation, rest-shell and species identification remain open.",
+      "id": "complete_charged_energy_unit_display",
+      "statement": "Every already executed charged-response energy group and unconditional probability is retained under one common source-energy-to-GeV scale, with the actual interacting ground subtracted once and the complete work budget converted by that same scale."
     }
   ],
   "finite_extension_experiments": [
@@ -750,7 +832,7 @@
     "code/openwave_candidate/integration/assess.py": "4b9345c17918a919142860b9565a0c8dc9d4056a3d1798f9ab5f5ab7ca8ca906",
     "code/openwave_candidate/integration/assessment.json": "63f356b86f1267262f6c25a2e6a80d461d445dfa445fab9f7776d41add91901c",
     "code/openwave_candidate/next/C10/CANONICAL_CONSTRUCTION.json": "87e364830daaf96e16cbbf1ed7a12b4329d896a816fffcf9194f29fdeceb7217",
-    "code/openwave_candidate/next/C10/CANONICAL_CONSTRUCTION.md": "bdfb72ef0e85730f648f19f3784fb8d03fa6da9b4c9469b7a802c2bd18ff48aa",
+    "code/openwave_candidate/next/C10/CANONICAL_CONSTRUCTION.md": "a1e63557aa55be77b014d277cea866bf95ba1e72a875b764251f038497b4c1ed",
     "code/openwave_candidate/next/C10/CANONICAL_SOURCE_CONTRACT.json": "18eb795d6591ef64450211a7e4279352008e8570056e5c87d9c51dc1c504c695",
     "code/openwave_candidate/next/C10/CHARGED_RESERVOIR.json": "784e2b537690c69662963bbb0fa7d5d87f7538e3d0b0ea003d21a55c3e78855b",
     "code/openwave_candidate/next/C10/CHARGED_RESERVOIR.md": "d587cc2a5e09366a1ff24c30371066027d15ea55190ee3e364502c9f3f1e259d",
@@ -793,6 +875,42 @@
     "code/openwave_candidate/next/C10/test_modular_field_adapter.py": "3c204e85935ea8f9a71f4d1970a67c4da206c3344c6013ea004647d0cb27f07c",
     "code/openwave_candidate/next/C10/test_modular_field_independent.py": "ae3d38030e9a7aa6d46661cf3961dc54315ec969b2eb9e57e17849fab7ebcc1c",
     "code/openwave_candidate/next/C10/test_spectral_readout.py": "6bc04a6e3c05fe6d4e98b2ee2168cd12ff588b97932d452694d5d46b068b6370",
+    "code/openwave_candidate/next/C11/BOUNDARY_CHARGE.json": "0b293d1a1154e608618aefd962358e72cca6f8deeb93a45d3c12aa14e1717b17",
+    "code/openwave_candidate/next/C11/BOUNDARY_CHARGE_INDEPENDENT_REVIEW.json": "35579be3d7cf66c54c7c699db23ea0ff635788e8c3bc50da3fa52b31604abae5",
+    "code/openwave_candidate/next/C11/BOUNDARY_CHARGE_INDEPENDENT_REVIEW.md": "1ff52c565b8d2a5b22c0d558c70c3bb9b7a9e8cd0083e648ce887152d219ba29",
+    "code/openwave_candidate/next/C11/BOUNDARY_CHARGE_REFERENCE_REVIEW.json": "93266d33015068f950feacf6c1d30a9e93169fa3458c86e581c349d67a3c3f1e",
+    "code/openwave_candidate/next/C11/BOUNDARY_CHARGE_REFERENCE_REVIEW.md": "dc6b3b630552cf773ec5391d6ebde081b5760e772623a7984108ee3b2363029a",
+    "code/openwave_candidate/next/C11/CHARGED_ENERGY_UNITS.json": "223a7a0d39cd6a3041938c147c52ff592071c74f5c79b00cb3da39a9a2c98644",
+    "code/openwave_candidate/next/C11/CHARGED_ENERGY_UNITS.md": "58047011cbc06bf950e563a8792ca6a78343f4278174939472c13023f10136b0",
+    "code/openwave_candidate/next/C11/CHARGED_ENERGY_UNITS_INDEPENDENT_REVIEW.json": "b7978faaa2d22a7b9e7a3a206af2063d06cd51008d4c926c2986d95e1558ca56",
+    "code/openwave_candidate/next/C11/CHARGED_ENERGY_UNITS_INDEPENDENT_REVIEW.md": "5a37c5144aa82cf099f4bb154f481cff04a6270d6f926e35767c9463213889da",
+    "code/openwave_candidate/next/C11/CHARGED_ENERGY_UNITS_REFERENCE_REVIEW.json": "377a994155ebe63569d90775696c35a1686072f5095612f9ad735f5b150559cc",
+    "code/openwave_candidate/next/C11/CHARGED_ENERGY_UNITS_REFERENCE_REVIEW.md": "ceba4d3bf9b5ab4fc411d76534858a91e41bc15261a29710dfe826d838ca5609",
+    "code/openwave_candidate/next/C11/INTERACTING_MODULAR_INDEPENDENT_REVIEW.json": "0fed8980c163c370acfe72141ac9f5d1f54b5c4f20da6243b5f87d08a5bc9785",
+    "code/openwave_candidate/next/C11/INTERACTING_MODULAR_INDEPENDENT_REVIEW.md": "819004776352090092e9d953433ab3e7cbd7099f0b61999e5e22cec13df119d1",
+    "code/openwave_candidate/next/C11/INTERACTING_MODULAR_OBSERVER.json": "5dd3cd5db85686efcdb4209d27f2b271834a19fe3a11ef9cd951d3a5c3663d93",
+    "code/openwave_candidate/next/C11/INTERACTING_MODULAR_OBSERVER.md": "649a575bd6fd0a2fb60ec49e60b5a7de683693e2258dc99210e0805ec1d8b4d8",
+    "code/openwave_candidate/next/C11/INTERACTING_MODULAR_REFERENCE_REVIEW.json": "fe4b1cfdbc16bee129a4110ab9d6b1a84bc5b7e0a9670cfd47fbb64e4d36bb5f",
+    "code/openwave_candidate/next/C11/INTERACTING_MODULAR_REFERENCE_REVIEW.md": "17c96b1c325ac72e2f6d8a3dc6e1feeb533aecd6ce54b17cac9c26c414ce1724",
+    "code/openwave_candidate/next/C11/LINK_PHASE_INDEPENDENT_REVIEW.json": "ba79c83f535f1d007adbf70cf72028a4ca203509d010026a499d2e8565084591",
+    "code/openwave_candidate/next/C11/LINK_PHASE_INDEPENDENT_REVIEW.md": "7ed6721bae7e7b957b39370daaa27885fefaa7cc794bad454d58a62851b65422",
+    "code/openwave_candidate/next/C11/LINK_PHASE_PROBE.json": "4266db7baf82ee5f6fb3a7fc75f2a20fd3ca4d53f359ba6e129bef8bba477501",
+    "code/openwave_candidate/next/C11/LINK_PHASE_PROBE.md": "c551c3b7a4f9d5cf7f845b32bc30551b0eced24a664c7a887d64ce98787cf2cd",
+    "code/openwave_candidate/next/C11/boundary_charge.py": "14ca9135d5c7a6e51d776cc7e60df71253c3591fcd91116ba1c08a6ae84e81a1",
+    "code/openwave_candidate/next/C11/charged_energy_units.py": "7669863d03b2bd2c68ebd9bc477ab640240f82dacd58062b9342b3f79ad92df8",
+    "code/openwave_candidate/next/C11/interacting_modular_observer.py": "390963046e7912588d1d590afb7f3a70f96860d55d2102821ac1732f90e2d238",
+    "code/openwave_candidate/next/C11/interacting_modular_observer_states.npz": "f4da0188c36a9a146cd65ee2eebf9a5351b1a1935aaab4c8736396e0fb161484",
+    "code/openwave_candidate/next/C11/link_phase_probe.py": "40b40a856a47848dd89500a3bf8c400a288ae3af11c7311afd91a1e8d44acebc",
+    "code/openwave_candidate/next/C11/link_phase_states.npz": "4deb65d49e59dfed8e845b0413a8b61398b3dd9158e16af4e4af48e95c35e5c5",
+    "code/openwave_candidate/next/C11/review_boundary_charge.py": "08f4480df6dff85f64d92f4c9e09ce4270ec1db7dedbc5717ccc3206f736a158",
+    "code/openwave_candidate/next/C11/review_boundary_charge_reference.py": "e65b42089e873732b29f5ed97e58e7e9ca552af5f0b41f6388056651de880441",
+    "code/openwave_candidate/next/C11/review_charged_energy_reference.py": "9464fd8b7e95b4ae8d666daa5c3c8db64fce9d7d737b015537277896412b6853",
+    "code/openwave_candidate/next/C11/review_charged_energy_units.py": "15cedb7897d4c455232977f17f9f04377fb8d5ef913ad1ab5218ee28066e6f0d",
+    "code/openwave_candidate/next/C11/review_interacting_modular.py": "b2aaf814fb8ff9a76d39470aad8489d06b57440bd3266e1bdc0413ff0b11f310",
+    "code/openwave_candidate/next/C11/review_interacting_modular_reference.py": "067e2a96dbcdb39258714d709fcc020cb4043a5d54dc0c86fe8a034f269ffe04",
+    "code/openwave_candidate/next/C11/review_link_phase.py": "4509b4a71c69a6dc0b9e8edff7998f2dda95c1841fb0fb928b03e26ae3e8b692",
+    "code/openwave_candidate/next/C11/test_interacting_modular_observer.py": "66a4e74ed5ca9aaf57ec3a81ca578166cb13ac74886b0ce3c16f7516ff43ca36",
+    "code/openwave_candidate/next/C11/test_link_phase_probe.py": "ed2da87bc4846092345acfa8684caf68524add5e4e83c8aafcf43cd1a099c9e8",
     "code/openwave_candidate/next/C9/ANALYTIC_CHARACTER_ENERGY_REVIEW.json": "d52b06aa6a9ec9400ad7e6b7bf2fc4b286f49a36aa6dd7066a52c3c997cae472",
     "code/openwave_candidate/next/C9/CAR_CHARACTERS_INDEPENDENT_PROOF.md": "18752ab153dfcd1b2db8e43b86ddfedf5cdd3bcb4284739d4938ec9a41953ed8",
     "code/openwave_candidate/next/C9/CAR_CHARACTERS_INDEPENDENT_REVIEW.json": "3349ea8a9964ad5c054145fd24938b0db5edfa226ef0d343a5d8609dfb551bd7",
@@ -888,7 +1006,7 @@
     "code/openwave_candidate/validation/observables/spacetime/stacked_wavepacket.svg": "48a1f0bfe7697eb972218a68dcd6f0a7834d02eb1e09d13ece6399ea4a4f863f",
     "code/openwave_candidate/validation/observables/spacetime/test_independent_stacked.py": "2acd9b945281c894b63d48e958c1455c99c27df1bc8654f2b9fd4b8ef7f99181",
     "code/openwave_candidate/validation/observables/spacetime/test_stacked_assumptions.py": "73d3d148e3c88b82fd17b8f77345c40f345a5b11c7b93b7f7aec8dc9c9a24c74",
-    "tools/build_openwave_joint_claims.py": "416cef0c5e6d17ed2e1706e683b5401ff013e02e9fe3775cf2a6594680b32295",
+    "tools/build_openwave_joint_claims.py": "c021aa05b76542f40a5f6129aed348a2ca72f227041d58b1103495838f3877e5",
     "tools/check_openwave_assessment_replay.py": "765efb63988bb4f725426da9df1469523ec3cdd18d079684bf8f77f21416eeb9"
   }
 }

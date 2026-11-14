@@ -71,6 +71,22 @@ def c10_finite_claims():
        'domain':'Ideal spectral apparatus and explicit grouping tolerance. Degenerate basis rotation preserves the reconstructed state; rank-one measurement followed by forgetting is rejected by a coherent doublet control. The apparatus is not claimed synthesized by native C/E, and measured energy labels have no physical species or GeV identification.'}]
 
 
+def c11_finite_claims():
+    return [
+      {'id':'all_number_boundary_charge_apparatus',
+       'statement':'On the complete interacting carrier, known total occupation bounds each regional Pauli charge in an interval of width at most3. Modulus6 and the integer boundary record therefore reconstruct every regional charge; all complete boundary/cut projectors equal the corresponding number/charge projectors.',
+       'domain':'All384 basis states,64 regions and2688 joint outcomes. Reading the boundary is part of the apparatus and disturbs cross-number coherence even at fixed fermion parity; it cannot be silently replaced by charge-only readout. No physical winding or exclusion of fractional species beyond the declared occupation domain follows.'},
+      {'id':'interacting_external_phase_current',
+       'statement':'An explicit external half-link phase probes the same interacting Hamiltonian. Its derivative current, regional continuity, static energy response and complete native charge/work ledgers satisfy the declared gauge covariance, including subnormalized continuation.',
+       'domain':'Supplied external Peierls phase and gauge-family intervention on the finite source. Native record dressing is a scalar phase per classical branch, not a new branch channel. No physical magnetic field, spin, g-factor or internal continuous gauge algebra at cyclic wrap is inferred.'},
+      {'id':'interacting_conditioned_modular_observer',
+       'statement':'The actual selected interacting output has a faithful declared two-configuration corner with nontrivial modular correlations. A complete P/Q and sequential projective apparatus realizes the real correlation and retains every branch through subsequent native evolution.',
+       'domain':'The corner is chosen after inspecting the known output and is an exploratory global configuration algebra, not a local spatial partial trace or a predeclared physical observer. Full-source and pure observed-branch faithfulness are rejected. The observable family is frozen from the premeasurement state and its modular parameter is injected; no autonomous H-clock, subjective time or physical time conversion is identified.'},
+      {'id':'complete_charged_energy_unit_display',
+       'statement':'Every already executed charged-response energy group and unconditional probability is retained under one common source-energy-to-GeV scale, with the actual interacting ground subtracted once and the complete work budget converted by that same scale.',
+       'domain':'The most probable addition line is assigned the supplied0.000511GeV anchor. Its agreement is a calibration identity. Other lines remain unnamed source excitations, not predicted particle masses; source charge conjugation, rest-shell and species identification remain open.'}]
+
+
 def generate():
     receipt = BUNDLE/'integration/assessment.json'
     assessment = json.loads(receipt.read_text())
@@ -137,6 +153,22 @@ def generate():
         raise ValueError('interacting source archive changed')
     paths += sorted(p for p in joint_root.rglob('*') if p.is_file() and '__pycache__' not in p.parts
                     and '.pytest_cache' not in p.parts)
+    continued_root=BUNDLE/'next/C11'
+    continued_receipts={name:observable_receipt('next/C11/'+name+'.json') for name in
+                        ('BOUNDARY_CHARGE','LINK_PHASE_PROBE','INTERACTING_MODULAR_OBSERVER','CHARGED_ENERGY_UNITS')}
+    for name,result in continued_receipts.items():
+        if not result.get('checks') or not all(value is True for value in result['checks'].values()):
+            raise ValueError('continued common-source observable failed: '+name)
+        if not all(value is True for value in result.get('mutations',{}).values()):
+            raise ValueError('continued observer rejecting control failed: '+name)
+        if result.get('construction_id',contract['construction_id'])!=contract['construction_id']:
+            raise ValueError('continued observer source identity differs: '+name)
+        if 'state_archive' in result:
+            archive=continued_root/result['state_archive']['filename']
+            if hashlib.sha256(archive.read_bytes()).hexdigest()!=result['state_archive']['sha256']:
+                raise ValueError('continued observer archive changed: '+name)
+    paths += sorted(p for p in continued_root.rglob('*') if p.is_file() and '__pycache__' not in p.parts
+                    and '.pytest_cache' not in p.parts)
     return {
       'schema':'oph.openwave_joint_model_claims.v1',
       'construction':'One declared all-number shared-record CAR source with periodic half-record electric energy, cyclic face term, recomputed interacting reference, complete native instrument and boundary-dressed charged reservoir. The canonical entry point binds one selected protocol and its continued grouped spectral apparatus. Earlier one-load, zero-field, bounded-integer, spatial and modular-time experiments retain their comparison domains.',
@@ -148,6 +180,10 @@ def generate():
                           'earlier_31_row_assessment_domain':'The earlier one-load assessment is preserved below. Its measured outcomes are not reassigned to this interacting all-number source.'},
       'source_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},
       'assessment':str(receipt.relative_to(ROOT)),
+      'canonical_continued_observables':[
+        {'receipt':'code/openwave_candidate/next/C11/'+name+'.json',
+         'checks':result['checks'],'scope':result['scope'],'physical_rows_promoted':0}
+        for name,result in continued_receipts.items()],
       'finite_extension_experiments':[
         {'receipt':'code/openwave_candidate/next/C9/'+name+'.json',
          'parameters':result['parameters'],'checks':result['checks'],
@@ -193,7 +229,7 @@ def generate():
         {'id':'local_coarse_modular_instrument','statement':'The separately named modular local-coarse C/E Kraus instrument preserves trace, positivity, its Gauss residues and an external quantum reference. Its per-seam generator retains the local rate when an unoccupied remote component is added.', 'domain':'Complete finite reachable one-load modular sectors and supplied coarse grouping, transit policy and rates. Global monitoring changes the measured triangle evolution. No integer-regulator equality, many-load independence theorem, native-clock derivation or physical row award follows.'},
         {'id':'certified_canonical_native_window','statement':'A sparse local-coarse modular instrument runs on the canonical ring with explicit rejected boundary events. Exact rational Taylor arithmetic and an analytic projection bound enclose every position and classical-quantum outcome probability relative to the complete modular sector.', 'domain':'One coherent interval and Bernoulli event from the specified initial zero-record basis state, at the same modulus. The executed 55-state radius-4 ring window has combined probability-effect error below .006. The polynomial norm defect is retained. No repeated-channel, continuous per-seam scheduling, infinite-integer, or physical row transfer follows.'},
         {'id':'uniform_fiber_native_reduction','statement':'On a connected modular Gauss sector, normalized uniform record fibers define an isometry intertwining the Hamiltonian and every local-coarse C/E Kraus operator. The reduced canonical ring therefore reproduces complete native outcomes, repeated channels, external references and the per-seam generator on this preparation subspace.', 'domain':'Explicit uniform-fiber preparation, including composite modulus6; connected graph and fixed source sector. Native sector-preserving operations do not deterministically prepare it from definite records; conditional success is bounded by the initial zero-holonomy weight. Additional preparation resources are allowed but must be declared. Arbitrary terminal effects compress to V*EV; continued reduced evolution needs instrument-level preservation. Individual record measurements generally leave the code. Numerical continuous propagation is distinct from the exact operator identity. No physical charge identification follows.'},
-        {'id':'compact_native_persistence','statement':'A closed three-seam transit cycle in the reduced canonical graph lifts through the uniform-fiber isometry to an eigenstate with energy -m. Every native local endpoint event preserves its density, including supplied per-seam continuous scheduling. Canonical1x1 and2x2 controls and an explicit complete modular triangle verify persistence and reject broken-cycle, definite-record and full-monitor substitutions.', 'domain':'Spatially compact, flat nonpropagating mode with globally coherent modular record fibers and supplied transit-as-elsewhere rule. The -m eigenvalue supplies no vacuum/positive-energy electron dictionary, physical rest clock, magnetic moment or full particle-stability criterion.'}]+c8_finite_claims()+c9_finite_claims()+c10_finite_claims(),
+        {'id':'compact_native_persistence','statement':'A closed three-seam transit cycle in the reduced canonical graph lifts through the uniform-fiber isometry to an eigenstate with energy -m. Every native local endpoint event preserves its density, including supplied per-seam continuous scheduling. Canonical1x1 and2x2 controls and an explicit complete modular triangle verify persistence and reject broken-cycle, definite-record and full-monitor substitutions.', 'domain':'Spatially compact, flat nonpropagating mode with globally coherent modular record fibers and supplied transit-as-elsewhere rule. The -m eigenvalue supplies no vacuum/positive-energy electron dictionary, physical rest clock, magnetic moment or full particle-stability criterion.'}]+c8_finite_claims()+c9_finite_claims()+c10_finite_claims()+c11_finite_claims(),
       'row_assessment':[{'id':r['id'],'local_status':r['local_status'],'full_criterion_met':r['full_criterion_met'],'official_status':r['official_status'],'missing_prerequisites':r['missing_prerequisites']} for r in rows],
       'physical_premises_closed':[], 'official_OpenWave_awards_added':0,
       'comparison_domains':{

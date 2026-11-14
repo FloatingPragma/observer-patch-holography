@@ -1,0 +1,22 @@
+{
+  "schema": "oph.c11.charged_units.independent_review.v1",
+  "reviewer": "Independent Codex worker, not opposite-team Fable audit",
+  "outcome": "PASS_AS_EXPLICIT_DISPLAY_CALIBRATION",
+  "complete_bins_checked": 1392,
+  "original_response_probability": 0.9999999999999989,
+  "maximum_bin_or_work_error": 3.552713678800501e-15,
+  "source_addition_anchor": 0.3480195548854885,
+  "GeV_per_source_unit": 0.0014683082971246777,
+  "scale_free_removal_to_addition_peak_ratio": 4.8925373741259675,
+  "calibrated_mean_work_GeV": 0.001704530250336391,
+  "scope": "One supplied 0.000511 GeV anchor; all 1392 bins/zeros and original unconditional probabilities retained. Source energy shifts cancel in excitation. No particle/electron identity, physical mass prediction or charge-conjugation symmetry inferred.",
+  "source_sha256": {
+    "next/C11/review_charged_energy_units.py": "15cedb7897d4c455232977f17f9f04377fb8d5ef913ad1ab5218ee28066e6f0d",
+    "next/C11/charged_energy_units.py": "7669863d03b2bd2c68ebd9bc477ab640240f82dacd58062b9342b3f79ad92df8",
+    "next/C11/CHARGED_ENERGY_UNITS.json": "223a7a0d39cd6a3041938c147c52ff592071c74f5c79b00cb3da39a9a2c98644",
+    "next/C10/JOINT_SOURCE.json": "b9750a2e5823f15496f3915dc6a647af4cc0944dbff21d4b0fd48e27693b3546",
+    "next/C10/CANONICAL_SOURCE_CONTRACT.json": "18eb795d6591ef64450211a7e4279352008e8570056e5c87d9c51dc1c504c695"
+  },
+  "full_criterion_met": false,
+  "official_rows_changed": []
+}
