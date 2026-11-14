@@ -16,7 +16,8 @@ OUTPUT = ROOT/'claims/openwave_joint_model.json'
 def generate():
     receipt = BUNDLE/'integration/assessment.json'
     assessment = json.loads(receipt.read_text())
-    required={'integration/assess.py','candidate/oph_openwave/construction.py','candidate/oph_openwave/quantum_records.py','candidate/oph_openwave/geometry.py','platform_packet/packet.json','candidate/oph_openwave/observer_protocol.py'}
+    required={'integration/assess.py','platform_packet/packet.json'}
+    required.update(str(p.relative_to(BUNDLE)) for p in (BUNDLE/'candidate/oph_openwave').glob('*.py'))
     if set(assessment['sources']) != required:
         raise ValueError('incomplete assessment source custody')
     for rel, expected in assessment['sources'].items():
@@ -34,7 +35,7 @@ def generate():
     paths += sorted((BUNDLE/'candidate/oph_openwave').glob('*.py'))
     return {
       'schema':'oph.openwave_joint_model_claims.v1',
-      'construction':'Portable port/transit incidence Hamiltonian with supplied mass; bounded integer half-seam Gauss sector and monitored native event instrument.',
+      'construction':'Portable port/transit incidence Hamiltonian with supplied mass; bounded integer half-seam Gauss sector and supplied fully monitored native-event instrument. Explicit record-energy variants retain the same complete monitoring.',
       'source_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},
       'assessment':str(receipt.relative_to(ROOT)),
       'finite_claims':[
@@ -42,14 +43,19 @@ def generate():
         {'id':'integer_joint_gauss','statement':'Half-seam hopping and accepted literal native currents preserve the finite Gauss sector.','domain':'One load; bounded integer records; hard-wall coherent regulator.'},
         {'id':'monitored_native_instrument','statement':'The declared measured event instrument preserves trace and positivity with complete native, transit-noop and rejected-attempt outcomes.','domain':'Position and half-seam records measured; supplied discrete time and commit probability.'},
         {'id':'observer_complete_readout','statement':'The finite observer readout retains position probabilities, monitored-attempt outcomes and applied-current probabilities; sparse evolution agrees with finite density controls.', 'domain':'One-load finite sector. The carrier path-window error bound concerns coherent evolution of the specified initial basis preparation against the complete sector at the same cutoff; no repeated-channel or cutoff-removal bound.'},
-        {'id':'bare_dark_mode_nontransfer','statement':'The oriented triangle bare incidence has rank 2 and transit kernel dimension 1; the cutoff-1 integer-record incidence in the initial-port Gauss sector has rank 6 and transit kernel dimension 0. The declared equal-amplitude BFS transit preparation leaks to ports.', 'domain':'Exact finite triangle rank control and the explicitly supplied BFS preparation at time .37 and mass .23. No transfer of bare dark-mode stability or particle-stability identification.'}],
+        {'id':'bare_dark_mode_nontransfer','statement':'The oriented triangle bare incidence has rank 2 and transit kernel dimension 1; the cutoff-1 integer-record incidence in the initial-port Gauss sector has rank 6 and transit kernel dimension 0. The declared equal-amplitude BFS transit preparation leaks to ports.', 'domain':'Exact finite triangle rank control and the explicitly supplied BFS preparation at time .37 and mass .23. No transfer of bare dark-mode stability or particle-stability identification.'},
+        {'id':'bounded_preparation_nonintertwiner','statement':'Uniform bounded integer fibers are isometric but fail to intertwine the declared bare and joint generators; a distinct complete modular control intertwines exactly.', 'domain':'Declared finite triangle controls. Modular and bounded integer state spaces are distinct constructions; no cutoff-limit or state-space equivalence follows.'},
+        {'id':'integer_record_energy','statement':'The complete triangle unit-dipole integer family has quadratic minimum 1/2, above the real-flux minimum 1/3. First-order spectral energy removes cycle cost, while its massive variant charges cycles.', 'domain':'Supplied spectral quadratic forms and the declared effective half-record transit charge. No Coulomb force, physical confinement or selected interaction follows.'},
+        {'id':'selected_interacting_instrument','statement':'Explicit selected record-energy diagonals alter the same finite observer Hamiltonian. Coherent evolution preserves its energy and complete monitored outcomes account for the resulting energy change.', 'domain':'Declared one-load first-order and massive variants. Monitoring generally changes system energy; no work/heat attribution, energy-conserving environment, or free-square identity is asserted.'},
+        {'id':'static_flux_spin_nonidentification','statement':'Finite bare compact modes and antipodal-flux doublets pass direct residual controls. Rotation rephasing changes the cube without changing covariance, and adjacent flux removes the doublet.', 'domain':'Supplied bare static flux controls. No identified joint particle, physical spin, or exchange-statistics theorem.'}],
       'row_assessment':[{'id':r['id'],'local_status':r['local_status'],'full_criterion_met':r['full_criterion_met'],'official_status':r['official_status'],'missing_prerequisites':r['missing_prerequisites']} for r in rows],
       'physical_premises_closed':[], 'official_OpenWave_awards_added':0,
       'comparison_domains':{
         'shared_register_native_programs':'The nine claims in claims/joint_observer.json retain their authenticated finite source domains. A shared event register does not implement independent additive loads. No transfer to the separate-copy generator is asserted.',
         'clock':'The port/transit probability oscillates at 2E; no physical electron rest clock or derived commit-rate calibration is identified.',
         'regulator':'Two finite cutoff comparisons provide no cutoff-removal theorem.',
-        'records':'C and E outcome payloads are retained; separate seam-offset dynamics are not implemented.',
+        'records':'C and E outcome payloads are retained; global position and register monitoring is supplied. Native coarse local measurements are a different instrument. Separate seam-offset dynamics are not implemented.',
+        'interaction':'No record-energy choice is selected by default. Explicit interacting variants do not inherit the free squared-generator identity.',
         'continuum':'No physical particle dictionary, common relativistic continuum or complete 31-row validation follows.'}}
 
 

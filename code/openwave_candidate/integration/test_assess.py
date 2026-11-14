@@ -24,6 +24,12 @@ class Integrity(unittest.TestCase):
             result=subprocess.run([sys.executable, '-O', str(HERE/'assess.py'), '--verify', str(path)],capture_output=True,text=True)
             self.assertNotEqual(result.returncode,0)
 
+    def test_evidence_references_must_resolve(self):
+        a.validate_evidence_links(self.receipt)
+        r=copy.deepcopy(self.receipt)
+        r['rows'][3]['measurement']['evidence_key']='missing.scientific.output'
+        with self.assertRaises(ValueError): a.validate_evidence_links(r)
+
     def test_missing_sources(self):
         r=copy.deepcopy(self.receipt);r['sources']={};self.rejected(r)
 

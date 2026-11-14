@@ -16,10 +16,16 @@ from .quantum_records import JointRecords
 
 
 def sparse_hamiltonian(joint):
+    # Selected JointRecords variants expose their extra coherent diagonal.
+    # Readout-only uses no Hamiltonian; sparse trajectories must use the same
+    # selected generator as JointRecords.step, including this operator once.
+    extra=np.asarray(getattr(joint,'coherent_diagonal_addition',np.zeros(len(joint.states))),float)
+    if extra.shape!=(len(joint.states),) or not np.all(np.isfinite(extra)):
+        raise ValueError('invalid selected coherent diagonal')
     rows,cols,values=[],[],[]
     for col,state in enumerate(joint.states):
         rows.append(col); cols.append(col)
-        values.append(joint.construction.mass*(1 if state[0]<joint.construction.ports else -1))
+        values.append(joint.construction.mass*(1 if state[0]<joint.construction.ports else -1)+extra[col])
         for target,sign in joint.half_hops(state):
             if target in joint.index:
                 rows.append(joint.index[target]); cols.append(col); values.append(sign)

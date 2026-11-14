@@ -16,6 +16,8 @@ from oph_openwave.construction import Construction
 from oph_openwave.quantum_records import run as joint_probe
 from oph_openwave.geometry import carrier
 from oph_openwave.observer_protocol import run as observer_probe
+from oph_openwave import record_preparation, record_energy, interacting_records, flux_controls
+from oph_openwave.runner import validate_result
 
 
 def require(condition, message):
@@ -68,6 +70,24 @@ def probes():
            'remaining':'The bare carrier Laplacian is a component control: the integer-record lift has a different spectrum. A physical row requires its actual joint dispersion, continuum limit, common spacetime dimension and matter-state identification.'}}
 
 
+def validate_evidence_links(receipt):
+    """Every compact row reference resolves to retained scientific output."""
+    def visit(value):
+        if isinstance(value, dict):
+            if 'evidence_key' in value:
+                key = value['evidence_key']
+                require(isinstance(key, str) and bool(key), 'invalid evidence reference')
+                target = receipt
+                for part in key.split('.'):
+                    require(isinstance(target, dict) and part in target, 'missing evidence: '+key)
+                    target = target[part]
+                require(isinstance(target, dict) and bool(target), 'empty scientific evidence: '+key)
+            for child in value.values(): visit(child)
+        elif isinstance(value, list):
+            for child in value: visit(child)
+    visit(receipt)
+
+
 def assess():
     path = ROOT/'platform_packet/packet.json'
     criteria = [dict(r, simplest_test=r['literal_gate'], oph_official_status='untested') for r in json.loads(path.read_text())['rows']]
@@ -77,27 +97,44 @@ def assess():
     observations[1]['joint_record_instrument'] = joint
     observer = observer_probe()
     require(all(v is True for v in observer['checks'].values()) and all(v is True for v in observer['mutations'].values()), 'observer probe failed')
-    observations[3]['joint_monitoring'] = observer['monitoring_experiment']
+    observations[3]['joint_monitoring'] = {'evidence_key':'observer_protocol.monitoring_experiment'}
     observations[4] = {'observable': 'source support leakage under three monitored joint protocols',
-        'regimes': observer['monitoring_experiment']['regimes'],
+        'evidence_key': 'observer_protocol.monitoring_experiment',
         'remaining': 'The prepared localized source leaks in these finite controls. No stable physical particle preparation or stability theorem is supplied.'}
+    extensions = {name: module.run() for name, module in (
+        ('record_preparation', record_preparation), ('record_energy', record_energy),
+        ('interacting_records', interacting_records), ('flux_controls', flux_controls))}
+    for name, result in extensions.items():
+        validate_result(name, result)
+    observations[3]['record_preparation_control'] = {'evidence_key':'record_extensions.record_preparation'}
+    for ident, observable, missing in (
+        (6, 'supplied static-flux rotation and antipodal-doublet controls', 'No spatial angular momentum representation for identified joint particles.'),
+        (7, 'rotation rephasing and Z6 statistics controls', 'A rephasable rotation cube and special doublet do not identify physical spin-1/2 or exchange statistics.'),
+        (20, 'static integer record energy and selected interacting instrument', 'No calibrated two-charge force or large-distance Coulomb force has been derived on this joint instrument.'),
+        (22, 'integer string versus real-flux energy diagnostic', 'No physical confinement scale, isolated colour-charge obstruction or string-breaking observable is identified.')):
+        observations[ident] = {'observable': observable, 'remaining': missing,
+            'evidence_key': 'record_extensions.flux_controls' if ident in (6, 7) else 'record_extensions.record_energy'}
+    observations[20]['selected_interacting_instrument'] = {'evidence_key':'record_extensions.interacting_records'}
+    diagnostics = {4, 6, 7, 20, 22}
     require(sorted(r['id'] for r in criteria) == list(range(1,32)), "gate failed: sorted(r['id'] for r in criteria) == list(range(1,32))")
     rows=[]
     for criterion in criteria:
         ident=criterion['id']
         row={'id':ident, 'criterion':criterion['criterion'], 'required_test':criterion['simplest_test'],
              'official_status':criterion['oph_official_status'], 'full_criterion_met':False,
-             'local_status':'diagnostic_only' if ident == 4 else ('partial_support' if ident in observations else 'blocked'),
+             'local_status':'diagnostic_only' if ident in diagnostics else ('partial_support' if ident in observations else 'blocked'),
              'missing_prerequisites':observations[ident]['remaining'] if ident in observations else criterion['required_before_run']}
         if ident in observations: row['measurement']=observations[ident]
         rows.append(row)
-    sources=[Path(__file__).resolve(), ROOT/'candidate/oph_openwave/construction.py', path, ROOT/'candidate/oph_openwave/quantum_records.py', ROOT/'candidate/oph_openwave/geometry.py', ROOT/'candidate/oph_openwave/observer_protocol.py']
-    return {'schema':'oph.integration.assessment.v1','scope':'local supporting probes; no platform submissions or official promotions',
+    sources=[Path(__file__).resolve(), path, *sorted((ROOT/'candidate/oph_openwave').glob('*.py'))]
+    result = {'schema':'oph.integration.assessment.v1','scope':'local supporting probes; no platform submissions or official promotions',
             'seed':9317, 'versions':{'python':platform.python_version(),'numpy':np.__version__,'scipy':scipy.__version__},
             'supplied':{'mass':.173,'graph':'canonical twelve-port carrier; triangle joint-register control declared separately','time_unit':'inverse hop amplitude'},
             'sources':{str(p.relative_to(ROOT)):digest(p) for p in sources}, 'rows':rows,
-            'observer_protocol':observer,
-            'summary':{'dispatched':31,'partial_support':len(observations)-1,'diagnostic_only':1,'blocked':31-len(observations),'full_criteria_met':0}}
+            'observer_protocol':observer, 'record_extensions':extensions,
+            'summary':{'dispatched':31,'partial_support':len(observations)-len(diagnostics),'diagnostic_only':len(diagnostics),'blocked':31-len(observations),'full_criteria_met':0}}
+    validate_evidence_links(result)
+    return result
 
 
 def main():
