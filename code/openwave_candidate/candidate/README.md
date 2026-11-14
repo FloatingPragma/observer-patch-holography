@@ -153,3 +153,13 @@ conventions. A full modular sector grows exponentially with cycle rank; the
 small exact runs do not constitute canonical-screen quantum evolution.
 The native candidate remains under audit rather than silently replacing the
 published hard-wall monitoring protocol or inheriting its results.
+
+`oph-openwave sparse_native` executes the canonical-ring local-coarse channel
+on a sparse modular path window. Its exact rational Taylor certificate retains
+numerical norm defect and bounds complete outcome probabilities against the
+full modular sector for one interval from the stated basis preparation.
+See [the error certificate](methods/sparse_native.md). To retain every outcome:
+
+```sh
+python -m oph_openwave.sparse_native --full-ledger --output native-window.json
+```

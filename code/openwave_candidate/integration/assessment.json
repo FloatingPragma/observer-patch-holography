@@ -13,7 +13,7 @@
     "time_unit": "inverse hop amplitude"
   },
   "sources": {
-    "integration/assess.py": "1cef6d9a8d9bcf892a9e06a8abacd1fb04c0f22d177fa46ede4d20697f579330",
+    "integration/assess.py": "33577f9d6045f43fedb3cbbd9b985bfcf9a22ff49d4798481e28d8d4b06f8d99",
     "platform_packet/packet.json": "2a203acaa796b7fc4fc390c3060f3dd1bb85aed211337a2b0c4668640a40d5b5",
     "candidate/oph_openwave/__init__.py": "844f2f63fede8ca1b17ff2524cc380a9c1f702b92c00fde61b04368119ef06e2",
     "candidate/oph_openwave/charge.py": "84f678758e7fb7e0cb60782cdfada558f72185421fe083fcf0a08debececc950",
@@ -31,7 +31,8 @@
     "candidate/oph_openwave/record_energy.py": "6a197440eeec12fff5b4f71afe8d2ae49da29119690ccaa727716d579b49784e",
     "candidate/oph_openwave/record_preparation.py": "79c8017dd074bad20562cc95eba4bbc722700b432a8779ff33b006a9802177b4",
     "candidate/oph_openwave/regional_charge.py": "d83af3aa9e7beb72da2898cd7e0adc9bb83cefaea60d7b3c81cd129df9c0c1a9",
-    "candidate/oph_openwave/runner.py": "410480315acc498dfb4fcba485157b855828e8dbece129d9daaaa0cdff385ea8",
+    "candidate/oph_openwave/runner.py": "7f6063e9ba4ada16b8cc086ca60444a5db1b3a30aa844408c4956d18248cd7e3",
+    "candidate/oph_openwave/sparse_native.py": "8e31a296c038a3d3a3d7d41259e20adf14415e23f94452a91fb7b3fc6f48a243",
     "candidate/oph_openwave/spin.py": "07875e4c23eebdfd41404eaf57a06c5d45669b0309f8d2ae270b050730d18b1b"
   },
   "rows": [
@@ -121,6 +122,9 @@
         },
         "local_coarse_modular_control": {
           "evidence_key": "record_extensions.modular_native"
+        },
+        "canonical_native_observer": {
+          "evidence_key": "record_extensions.sparse_native"
         }
       }
     },
@@ -2529,6 +2533,95 @@
         "oph_openwave/modular_native.py": "1b6e25eb63ca190e1b5ef999b0b43cefb790e7872a58ffdb40256662ca65959a",
         "oph_openwave/quantum_records.py": "95735e200a0f7167b4efc18ad62bb0f42e1dac43277ea4defd46f5dbf3c5e34c",
         "oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907"
+      }
+    },
+    "sparse_native": {
+      "scope": "Sparse path-window local-coarse C/E instrument on canonical ring; certified one initial-basis interval against complete same-modulus sector including classical outcomes. No multi-step, continuum or stable-particle theorem.",
+      "checks": {
+        "triangle_exact_full_bound": true,
+        "finite_trace": true,
+        "ledger_complete": true,
+        "rational_tail": true,
+        "actual_ring_error_bound": true
+      },
+      "mutations": {
+        "dropping_rejection_branches_loses_trace": true,
+        "global_monitoring_changes_null_coherence": true,
+        "zero_projection_error_rejected": true
+      },
+      "full_criterion_met": false,
+      "triangle_full_comparison": [
+        {
+          "radius": 2,
+          "states": 5,
+          "actual_trace_distance": 0.010783921919720316,
+          "bound": {
+            "trace_distance_upper_bound": 0.8701541576635018,
+            "coherent_part_upper": 0.29015415766350183,
+            "commit_outer_norm_upper": 1.0000000000000002,
+            "method": "exact rational sqrt/exponential majorants, outward float conversion; trace distance = half trace norm",
+            "scope": "One interval from initial basis state, complete modular sector at same modulus; exact mathematical map, no certified floating evolution error and no multi-step bound."
+          },
+          "rejection_probability": 0.00042217256861296233
+        },
+        {
+          "radius": 4,
+          "states": 9,
+          "actual_trace_distance": 7.431167405484803e-05,
+          "bound": {
+            "trace_distance_upper_bound": 0.09219419152663715,
+            "coherent_part_upper": 0.00804948580422163,
+            "commit_outer_norm_upper": 0.14507707883175092,
+            "method": "exact rational sqrt/exponential majorants, outward float conversion; trace distance = half trace norm",
+            "scope": "One interval from initial basis state, complete modular sector at same modulus; exact mathematical map, no certified floating evolution error and no multi-step bound."
+          },
+          "rejection_probability": 5.6248583870133494e-08
+        }
+      ],
+      "actual_ring": {
+        "geometry": "flat_ring(1,1)",
+        "states": 55,
+        "sparse_h_nonzeros": 163,
+        "source_port_probability": 0.939934561255794,
+        "boundary_rejection_probability": 3.806509653619048e-12,
+        "coherent_outer_shell_probability": 6.044610894925756e-07,
+        "omitted_coherent_derivative_norm": 4.066771219309852e-05,
+        "regulator_trace_distance_bound": 0.005842811200157369,
+        "certificate": {
+          "taylor_order": 11,
+          "discarded_state_norm_tail_upper": 9.05706776042481e-15,
+          "polynomial_norm_defect": -3.5851922128567135e-16,
+          "polynomial_norm_defect_abs_upper": 3.585192212856714e-16,
+          "numerical_effect_error_upper": 9.236327371067687e-15,
+          "combined_effect_error_upper": 0.005842811200166606,
+          "scope": "Exact rational polynomial with retained norm defect; certified complete-modular event intervals from initial basis for one interval. No polynomial renormalization or normalized-CPTP claim."
+        },
+        "source_port_certified_probability": {
+          "polynomial_probability": 0.9399345612557977,
+          "conversion_abs_error_upper": 5.103867053832263e-17,
+          "full_modular_probability_interval": [
+            0.9340917500556309,
+            0.9457773724559644
+          ]
+        },
+        "native_outcome_branch_count": 410,
+        "rejected_outcome_branch_count": 126
+      },
+      "supplied": {
+        "mass": 0.23,
+        "modulus": 6,
+        "radius": 4,
+        "time": 0.1,
+        "commit_probability": 0.29,
+        "preparation": "port0 with zero modular half-seam records",
+        "instrument": "local-coarse C/E, uniform seam, fair law and coin, transit=elsewhere",
+        "window_boundary": "separate retained native-jump rejection and projected Hermitian H"
+      },
+      "source_sha256": {
+        "sparse_native.py": "8e31a296c038a3d3a3d7d41259e20adf14415e23f94452a91fb7b3fc6f48a243",
+        "modular_native.py": "1b6e25eb63ca190e1b5ef999b0b43cefb790e7872a58ffdb40256662ca65959a",
+        "construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907",
+        "geometry.py": "00d6ca810b1c7430e761b3106317f288d0b3c2e722dfeedec5aa18ac7bb8e32d"
       }
     }
   },
