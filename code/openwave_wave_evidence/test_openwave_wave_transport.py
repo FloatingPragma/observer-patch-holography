@@ -1,5 +1,6 @@
 """Mutation checks for the publication transport, independent of science."""
 import hashlib
+import importlib.util
 import os
 from pathlib import Path
 import subprocess
@@ -7,7 +8,11 @@ import sys
 import tempfile
 import unittest
 
-import reproduce as r
+spec = importlib.util.spec_from_file_location(
+    "openwave_wave_reproduce", Path(__file__).with_name("reproduce.py")
+)
+r = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(r)
 
 
 class TransportTests(unittest.TestCase):

@@ -50,7 +50,7 @@ python -B code/openwave_wave_evidence/reproduce.py independent --output /path/to
 python -B code/openwave_wave_evidence/reproduce.py replay --output /path/to/wave-run
 python -B code/openwave_wave_evidence/reproduce.py tests --run /path/to/wave-run --output /path/to/tests.json
 python -B code/openwave_wave_evidence/reproduce.py verify --run /path/to/wave-run --output /path/to/verification.json
-python -B code/openwave_wave_evidence/test_transport.py
+python -B code/openwave_wave_evidence/test_openwave_wave_transport.py
 ```
 
 The independent check reconstructs 37,908 branch records and 131,072 actual
@@ -87,10 +87,16 @@ the local literal-byte G4 requirement requires outside adjudication.
 `reproduce.py` supplies `--bundle` to the sealed replay and independent checker.
 For the sealed 21-test suite and saved-result verifier only, it replaces their
 `extract_git` function with a byte-identical local copy operation. All science,
-comparators, assertion checks and mutations are unchanged. `test_transport.py`
+comparators, assertion checks and mutations are unchanged. `test_openwave_wave_transport.py`
 checks exact input, altered bytes, extra files, manifest substitution, path
 escape and optimized entry. The transport checks are developer tests; they
 do not constitute an independent adversarial audit.
+
+Repository-wide pytest collection includes the six uniquely named transport
+tests. The package's local `conftest.py` excludes the sealed `evidence/` tree
+from automatic collection because it contains historical copies of identically
+named test modules. The explicit `reproduce.py tests` command executes the
+21-test amendment suite against the bundled source without changing any seal.
 
 ## Review boundary
 
