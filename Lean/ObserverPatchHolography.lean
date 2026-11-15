@@ -22,6 +22,7 @@ import ObserverPatchHolography.CollarModularT2
 import ObserverPatchHolography.CollarStatesBridge
 import ObservableNormalForms
 import ObserverPatchHolography.Bridges.ObservableNormalForms
+import ObserverPatchHolography.Bridges.FiniteConditionalRepair
 import ObserverPatchHolography.IcosahedralAntibridge
 import ObserverPatchHolography.IcosahedralOrbitStabilizer
 import ObserverPatchHolography.BridgeBoundaries

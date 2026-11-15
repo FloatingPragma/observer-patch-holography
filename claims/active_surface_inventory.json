@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 2428,
+  "surface_count": 2429,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -11642,6 +11642,11 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/BridgeEquivalence.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/Bridges/FiniteConditionalRepair.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },
