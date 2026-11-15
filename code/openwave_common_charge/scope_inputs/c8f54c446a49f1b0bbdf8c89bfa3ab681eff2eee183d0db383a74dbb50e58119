@@ -1,0 +1,218 @@
+{
+ "row": 1,
+ "candidate_id": "native-local12-dirac-noncompact-quadratic-v4-proposed (common-source charge topology, openwave-tuning/next/CHAIN5/common_charge_topology)",
+ "candidate_manifest_sha256": "b45e64648b2379cdc0629a8789f74ca9a798a211e58e078d5c9f573e1513eb4f",
+ "criterion": "integer topological charge; a split e → e/2 + e/2 impossible",
+ "criterion_sha256": "3af50af0955c64a0aa2019fa84af3cf0dd36e6c63a5abc76eb2c60c9b413cb6f",
+ "reviewer": "Fable/ROW_01_COMMON_FABLE",
+ "producer_independent": true,
+ "full_criterion_met": true,
+ "full_criterion_met_scope": "Literal words at the validated precedent's comparator, on the size-two one-charge member of the named source, bounding surfaces only, under the group's rule that law, carrier, preparation and compiler are declared. Every clause is carried by exact proof; none by an executed experiment on the source that could fail.",
+ "condition": "If the group requires the electric flux to be a field quantity stored and updated independently of the occupation label, the clauses 'integer' and 'split impossible' are not carried by this package: the bounding-surface flux is the tabulated longitudinal field of the cell label.",
+ "clauses": [
+  {
+   "clause": "integer",
+   "carried_by": "exact proof: k_R.E = G_R - n_R on the source Hilbert space; bridge.py line 48 (B*particulars == charges), topology.py lines 53-62 (768 exact flux sums); recomputed 768 of 768 and 3,840 of 3,840 with five transverse fields",
+   "can_fail": "not on the source (identity for every state and every law on cell, spin and modes, including the law without current coupling: 48 of 48); off the source yes: rounded Q and half average (package), half current 144 of 144 and uniform background 96 of 96 ports (this review)",
+   "verdict": "met by exact proof; the integer is the typed occupation of one root cell minus the declared unit background"
+  },
+  {
+   "clause": "topological",
+   "carried_by": "exact construction: degree of the clutching map exp(i chi) on each bounding sphere of the crossing-free embedding (embedding.py certificate, seed 1); invariance under deformation of the surface",
+   "can_fail": "embedding certificate yes (control: 6 crossings reported for a displaced port); closure of the transition map only off the Gauss fiber; the sampled winding is a decode of the flux sum",
+   "verdict": "met as a local dictionary on bounding surfaces; the degree is the flux and the bundle exists because the flux is an integer; no global bundle (stated restriction of the domain)"
+  },
+  {
+   "clause": "charge read from the field (precedent comparator |Q - integer| < 0.10 on seeded fields)",
+   "carried_by": "flux integrals of the seeded sector fields: 0, +1, -1 with error 0; jump 0 / -1 / +1 across an uncharged port / the particle / the reference (300 of 300)",
+   "can_fail": "as for 'integer'",
+   "verdict": "met at the comparator; the bounding-surface flux is not an independent field quantity in the executed source"
+  },
+  {
+   "clause": "a split e -> e/2 + e/2 impossible",
+   "carried_by": "exact proof on the typed one-charge sector: charges of disjoint regions are 0 or 1 and never both (topology.py line 109; 3,200 random pairs here); each of the 48 signed currents moves one whole unit (dynamics.py lines 17, 31)",
+   "can_fail": "not on the source (no fractional occupation in the register, no law on it produces one; at size two the position evolves by a permutation); off the source yes: a current carrying half the flux gives degree +-1/2 at two ports in 144 of 144 cases",
+   "verdict": "met by exact proof; kinematic; one charge, size two; nothing shown in the package for two charges"
+  }
+ ],
+ "remaining_obligation": "None for the literal words at the precedent's comparator, apart from corrections 1 to 8 of REVIEW.md section 6 (wording and scope; no number changes). Required only if the flux is asked for as a field quantity of its own: (i) the 48 currents and the free field executed on independent link values (the 288-link form of which the source is one Gauss fiber), with B E + n - G conserved and with the dropped-coupling and half-current mutations failing (expected residuals: norm^2 2, and degree 1/2); (ii) a meter that addresses field registers (the pinned edge_ramsey_word on the six seams of one sphere) with a control state off the fiber. Outside the gate: two charges executed, a size where the two signed routes end in different cells, a dynamical negative charge, the derivation of the coherent source from the repair law.",
+ "supplied": [
+  {
+   "item": "LOCAL12 carrier, size-two periodic routing, declared two-cells",
+   "class": "architecture (carrier)"
+  },
+  {
+   "item": "one-particle position register, occupation 0 or 1 per root cell",
+   "class": "architecture (state typing); supplies 'integer' and 'indivisible'"
+  },
+  {
+   "item": "unit background G = delta_0 at port 0",
+   "class": "architecture (preparation, reference); a uniform background leaves no integer degree"
+  },
+  {
+   "item": "noncompact quadratic field with the Gauss constraint solved: longitudinal field = tabulated minimum-energy solution for the cell label",
+   "class": "architecture (law); installed electrostatics"
+  },
+  {
+   "item": "current coupling g = 1 with one unit string per signed route",
+   "class": "architecture (law)"
+  },
+  {
+   "item": "curvature normalization 2 pi per flux of one particle; rational embedding with rounding and perturbation (seed 1); sphere patches and bump profiles",
+   "class": "architecture (compiler, dictionary)"
+  },
+  {
+   "item": "six regions and the Walsh phase tables of the meter, compiled from the typed charge table",
+   "class": "architecture (compiler)"
+  },
+  {
+   "item": "uniform plane preparation, clock tick h/8, C/E pointers and reset protocol",
+   "class": "architecture (preparation, schedule)"
+  },
+  {
+   "item": "numerical tolerances 2e-11, 3e-10, 2e-12",
+   "class": "numerical; no threshold set after the runs, no number set from a target"
+  },
+  {
+   "item": "an electric flux stored and updated independently of the occupation label",
+   "class": "unmet physical observable (only under the condition above)"
+  }
+ ],
+ "decisive_numbers": {
+  "A2_pins_checked": 1349,
+  "C1_exact_tests_after_box_filter": 2272,
+  "C1_classes": {
+   "endpoint": 1440,
+   "skew": 800,
+   "parallel_disjoint": 32
+  },
+  "E1_local_degrees_checked": 3840,
+  "E2_jump_across_uncharged_port": [
+   "0"
+  ],
+  "E2_jump_across_particle_port": [
+   "-1"
+  ],
+  "E2_jump_across_reference_port": [
+   "1"
+  ],
+  "E3_flux_of_p(c)_through_plane_axis=DEN": {
+   "0": [
+    "0",
+    "0",
+    "0"
+   ],
+   "1": [
+    "0",
+    "0",
+    "1/2"
+   ],
+   "2": [
+    "0",
+    "1/2",
+    "0"
+   ],
+   "3": [
+    "0",
+    "1/2",
+    "1/2"
+   ],
+   "4": [
+    "1/2",
+    "0",
+    "0"
+   ],
+   "5": [
+    "1/2",
+    "0",
+    "1/2"
+   ],
+   "6": [
+    "1/2",
+    "1/2",
+    "0"
+   ],
+   "7": [
+    "1/2",
+    "1/2",
+    "1/2"
+   ]
+  },
+  "F7_min_missing_shift_norm": 1.5779356616734892,
+  "G4_mean_field_degrees_uniform_plane": {
+   "port0": "7/8",
+   "root_ports": [
+    "-1/8"
+   ],
+   "other_ports": [
+    "0"
+   ]
+  },
+  "G6_two_charge_regional_degrees_seen": [
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "H2_max_deviation": 1.4210854715202004e-14,
+  "H3_register_indices_addressed_by_all_meter_tapes": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "H7_offfiber_fields": {
+   "half_current": 48,
+   "field_of_other_sector": 56,
+   "stray_dipole_ports_24_5": 8,
+   "stray_dipole_ports_5_50": 8
+  },
+  "H7_seen_by_field_fluxes_of_the_six_receipt_regions": {
+   "half_current": 28,
+   "field_of_other_sector": 42,
+   "stray_dipole_ports_24_5": 8,
+   "stray_dipole_ports_5_50": 0
+  },
+  "H5_bounds": {
+   "source_prefix_bound_1_macro": 0.008819202615799202,
+   "source_prefix_bound_2_macros": 0.00984964642065389,
+   "largest_meter_bound": 2.125036258418541e-15,
+   "largest_complete_bound": 0.009849646420656015
+  }
+ },
+ "native_meter": "28 experiments read the three cell bits through Walsh phases of the typed table; no field register is addressed; outcomes are fixed by the typed occupation and the supplied uniform input",
+ "unexecuted_prefix": "no literal clause rests on it; the statement that the charge is measured after one or two g = 1 macros does (bounds 0.0088192 and 0.0098496 are the pinned bounds of the unexecuted source word; meter share at most 2.2e-15)",
+ "other_reviews_read_after_verdict": [
+  {
+   "path": "openwave-tuning/row_completion/reviews/COMMON_CHARGE_ROOT/",
+   "manifest_sha256": "214e6ce9e5cd8dedf44f96acee2d2bfe2d4a8a8cc60dfd049bca812a405b2966",
+   "full_criterion_met": true
+  },
+  {
+   "path": "openwave-tuning/next/CHAIN5/common_charge_native_review/",
+   "manifest_sha256": "7104fb54312af99ba577ed6e2a69c3bc6390954f2e4e329db3627285750a1a2b",
+   "full_criterion_met": true
+  },
+  {
+   "path": "openwave-tuning/next/CHAIN5/common_charge_terminal_review/",
+   "manifest_sha256": "25abdc7ba28e7a8d0f6dd15899e9fea9ac1ddbaa72540f2bf657eb4e87ade45a",
+   "full_criterion_met": true
+  },
+  {
+   "path": "openwave-tuning/next/CHAIN5/common_charge_topology_review/",
+   "manifest_sha256": "3276fd1485315632e13bedd58a5110f57827c84f6e3a5a6d9d2f21a73605d858",
+   "full_criterion_met": null
+  }
+ ],
+ "audit": {
+  "script": "audit.py",
+  "checks": 59,
+  "failed": 0,
+  "cpu_seconds": 6.2
+ },
+ "official_status_claimed": false,
+ "reviewed_at": "2026-11-14T15:46:42+07:00"
+}

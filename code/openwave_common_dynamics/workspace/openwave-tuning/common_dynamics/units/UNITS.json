@@ -1,0 +1,413 @@
+{
+  "schema": "oph.local12.shared_units.v1",
+  "checks": {
+    "actual_unit_flux_geometry": true,
+    "canonical_symplectic_pair": true,
+    "electric_and_magnetic_forms_same_geometry": true,
+    "independent_static_Schur_prefactor": true,
+    "scalar_and_Dirac_shared_speed_settings": true,
+    "speed_does_not_fix_charge_coupling": true,
+    "one_mass_energy_momentum_clock_map": true,
+    "charge_unit_rescaling_invariant_coupling": true,
+    "eight_invalid_joins_rejected": true,
+    "rest_phase_and_population_beat_distinguished": true,
+    "quasienergy_branch_retained": true,
+    "source_bytes_unchanged": true
+  },
+  "geometry": {
+    "unit_flux_basis": [
+      [
+        "0",
+        "0",
+        "1/6"
+      ],
+      [
+        "1/12",
+        "0",
+        "1/12"
+      ],
+      [
+        "-1/12",
+        "0",
+        "1/12"
+      ],
+      [
+        "0",
+        "1/12",
+        "1/12"
+      ],
+      [
+        "0",
+        "-1/12",
+        "1/12"
+      ],
+      [
+        "1/12",
+        "0",
+        "-1/12"
+      ],
+      [
+        "-1/12",
+        "0",
+        "-1/12"
+      ],
+      [
+        "0",
+        "-1/12",
+        "-1/12"
+      ],
+      [
+        "0",
+        "1/12",
+        "-1/12"
+      ],
+      [
+        "0",
+        "0",
+        "-1/6"
+      ],
+      [
+        "-1/12",
+        "0",
+        "-1/12"
+      ],
+      [
+        "1/12",
+        "0",
+        "-1/12"
+      ],
+      [
+        "0",
+        "1/12",
+        "-1/12"
+      ],
+      [
+        "0",
+        "-1/12",
+        "-1/12"
+      ],
+      [
+        "-1/12",
+        "0",
+        "1/12"
+      ],
+      [
+        "1/12",
+        "0",
+        "1/12"
+      ],
+      [
+        "0",
+        "-1/12",
+        "1/12"
+      ],
+      [
+        "0",
+        "1/12",
+        "1/12"
+      ],
+      [
+        "1/6",
+        "0",
+        "0"
+      ],
+      [
+        "1/12",
+        "1/12",
+        "0"
+      ],
+      [
+        "1/12",
+        "-1/12",
+        "0"
+      ],
+      [
+        "-1/12",
+        "1/12",
+        "0"
+      ],
+      [
+        "-1/12",
+        "-1/12",
+        "0"
+      ],
+      [
+        "-1/6",
+        "0",
+        "0"
+      ],
+      [
+        "-1/12",
+        "-1/12",
+        "0"
+      ],
+      [
+        "-1/12",
+        "1/12",
+        "0"
+      ],
+      [
+        "1/12",
+        "-1/12",
+        "0"
+      ],
+      [
+        "1/12",
+        "1/12",
+        "0"
+      ],
+      [
+        "0",
+        "1/6",
+        "0"
+      ],
+      [
+        "0",
+        "-1/6",
+        "0"
+      ],
+      [
+        "1/2",
+        "0",
+        "0"
+      ],
+      [
+        "1/2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1/2",
+        "0"
+      ],
+      [
+        "0",
+        "1/2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/2"
+      ],
+      [
+        "0",
+        "0",
+        "1/2"
+      ]
+    ],
+    "cycle_Gram": "Matrix([[2/3, 0, 0], [0, 2/3, 0], [0, 0, 2/3]])",
+    "symplectic_matrix": "Matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]])",
+    "magnetic_checks": [
+      {
+        "momentum": [
+          1,
+          0,
+          0
+        ],
+        "magnetic_form": "Matrix([[0, 0, 0], [0, 1, 0], [0, 0, 1]])"
+      },
+      {
+        "momentum": [
+          0,
+          1,
+          0
+        ],
+        "magnetic_form": "Matrix([[1, 0, 0], [0, 0, 0], [0, 0, 1]])"
+      },
+      {
+        "momentum": [
+          0,
+          0,
+          1
+        ],
+        "magnetic_form": "Matrix([[1, 0, 0], [0, 1, 0], [0, 0, 0]])"
+      },
+      {
+        "momentum": [
+          1,
+          1,
+          0
+        ],
+        "magnetic_form": "Matrix([[1, -1, 0], [-1, 1, 0], [0, 0, 2]])"
+      },
+      {
+        "momentum": [
+          1,
+          0,
+          1
+        ],
+        "magnetic_form": "Matrix([[1, 0, -1], [0, 2, 0], [-1, 0, 1]])"
+      },
+      {
+        "momentum": [
+          0,
+          1,
+          1
+        ],
+        "magnetic_form": "Matrix([[2, 0, 0], [0, 1, -1], [0, -1, 1]])"
+      },
+      {
+        "momentum": [
+          1,
+          2,
+          3
+        ],
+        "magnetic_form": "Matrix([[13, -2, -3], [-2, 10, -6], [-3, -6, 5]])"
+      }
+    ],
+    "scalar_Schur_checks": [
+      {
+        "momentum": [
+          1,
+          0,
+          0
+        ],
+        "Laplacian_quadratic_coefficient": "1/8"
+      },
+      {
+        "momentum": [
+          0,
+          1,
+          0
+        ],
+        "Laplacian_quadratic_coefficient": "1/8"
+      },
+      {
+        "momentum": [
+          0,
+          0,
+          1
+        ],
+        "Laplacian_quadratic_coefficient": "1/8"
+      },
+      {
+        "momentum": [
+          1,
+          2,
+          3
+        ],
+        "Laplacian_quadratic_coefficient": "7/4"
+      }
+    ],
+    "real_static_Green_prefactor": "2/3",
+    "wrong_orthonormal_charge_crossing": "sqrt(6)/2"
+  },
+  "scalar_homogeneous": {
+    "electric": "1/12",
+    "magnetic": "1/4",
+    "speed_squared": "1/48",
+    "charge_coupling_squared": "sqrt(3)/3",
+    "fine_structure": "sqrt(3)/(12*pi)",
+    "Coulomb_pair_coefficient_in_hbar_length_over_time_units": "1/(48*pi)",
+    "per_substep_UV_stability_upper": "79/16"
+  },
+  "Dirac_homogeneous": {
+    "electric": "1/3",
+    "magnetic": "3",
+    "speed_squared": "1",
+    "charge_coupling_squared": "1/3",
+    "fine_structure": "1/(12*pi)",
+    "Coulomb_pair_coefficient_in_hbar_length_over_time_units": "1/(12*pi)",
+    "per_substep_UV_stability_upper": "237/64"
+  },
+  "equal_speed_different_coupling_control": {
+    "electric": "1/6",
+    "magnetic": "6",
+    "speed_squared": "1",
+    "charge_coupling_squared": "1/6",
+    "fine_structure": "1/(24*pi)",
+    "Coulomb_pair_coefficient_in_hbar_length_over_time_units": "1/(24*pi)",
+    "per_substep_UV_stability_upper": "237/64"
+  },
+  "conversion": {
+    "cell_length": "ell0*h",
+    "macro_time": "tau0*h",
+    "clock_relative_phase": "n*h/8",
+    "momentum": "hbar*p/ell0",
+    "energy": "-hbar*lift(Arg U)/(tau0*h)",
+    "rest_energy": "hbar*abs(m)/tau0",
+    "physical_speed_squared": "(ell0/tau0)^2*c_dimensionless^2",
+    "rest_mass": "hbar*tau0*abs(m)/(ell0^2*c_dimensionless^2)",
+    "permittivity_if_Maxwell": "q0^2*tau0/(hbar*ell0*A_e)",
+    "Coulomb_pair_if_real_static_limit": "(hbar*ell0/tau0)*A_e*q1*q2/(4*pi*r)",
+    "dimensionless_charge_coupling": "g_charge^2=A_e/c=sqrt((2/3)*alpha/beta)",
+    "fine_structure_if_Maxwell": "g_charge^2/(4*pi)"
+  },
+  "calibration_ancestry": {
+    "architectural": [
+      "routing and cycle Gram2/3",
+      "mass coefficient m",
+      "alpha,beta and field substep count",
+      "Clifford/CAR structures and source/readout words"
+    ],
+    "conversion_inputs": [
+      "ell0",
+      "tau0",
+      "hbar action unit",
+      "q0 charge unit"
+    ],
+    "empirical_if_selected": [
+      "Setting tau0=hbar*abs(m)/E_target calibrates the target rest energy.",
+      "Setting ell0=c_target*tau0/c_dimensionless calibrates a target speed."
+    ],
+    "independent_of_unit_choices": [
+      "mass ratios",
+      "matter/field speed ratio",
+      "g_charge^2",
+      "all dimensionless native outcome probabilities"
+    ],
+    "absent_claims": [
+      "no observed fine-structure constant inserted",
+      "no electron species identified",
+      "no physical ground or interacting pole inferred"
+    ]
+  },
+  "mutations": {
+    "private_field_clock": true,
+    "one_face_Maxwell_substitution": true,
+    "wrong_homogeneous_speed": true,
+    "missing_field_subcycles": true,
+    "zero_time_scale": true,
+    "NaN_mass_input": true,
+    "negative_refinement": true,
+    "fractional_macro_count": true
+  },
+  "phase_control": {
+    "phase_Fourier_bin": 63,
+    "population_nonzero_bins": [
+      2,
+      62
+    ],
+    "energy_branch_spacing_example": "352*pi/35"
+  },
+  "conditional_premises": [
+    "Canonical unwrapped field algebra and prepared-state limit on the same source.",
+    "Homogeneous field coefficients and the stated shared macro clock.",
+    "Real static Gauss minimization or an independently proved quantum effective response; integer pointwise flux is not silently relaxed.",
+    "Routed unit-charge phase and coarse unit-flux coordinates retained.",
+    "Floquet, ultraviolet, cutoff and interaction errors controlled in the claimed observable domain."
+  ],
+  "scope": "The scalar matched member and Dirac replacement are separately typed. The executed one-face(.17,.41) member is not homogeneous Maxwell. The conditional Coulomb coefficient is not an executed two-charge force or a renormalized quantum coupling. g_charge denotes gauge coupling, not magnetic Lande g.",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/units/units.py": "b5a477b1f0ec1ab68d0786ca490f8d1ebd71640b16a86272dd1ffe2b72c866a5",
+    "openwave-tuning/common_dynamics/vector_field/linear_response.py": "201b160811905ce56657b505b0395cd3ff7280c2b537a4f148a6ecea98aaeb0c",
+    "openwave-tuning/common_dynamics/vector_field/cell_complex.py": "7e760f4cc0cc9df1343089a6e83bc57c4d6898e072a058336e2079a755d9360a",
+    "reverse-engineering-reality/model/native_spatial_refinement/source.py": "b4576a37b7610418f810ab7beebf5e52a7eeab80f66c7260ace149de9c733733",
+    "openwave-tuning/common_dynamics/vector_field/MANIFEST.json": "aa4a18d89c1a8893ee86eb5e9151bc75e8a0b3a527640cee66aa25382ca55e76",
+    "openwave-tuning/common_dynamics/vector_field/LINEAR_RESPONSE.json": "33e8345f45e7df11dba021392f4e2c28b8f42e81733db44dc5f1543d5138b6c5",
+    "openwave-tuning/common_dynamics/vector_field/CLOCK_JOIN.json": "7fe08edd0e2cf17b39e64765a4a303952aa4b2c34c978443ed40a275610913d6",
+    "openwave-tuning/common_dynamics/clock/MANIFEST.json": "6f80b0fe899cdeffd59d3742c318fe627817c19685d8f164abed69721f0b0992",
+    "openwave-tuning/common_dynamics/clock/PHASE_CLOCK.json": "6ce7b2b0639e4ea50b73f07854b6be25656561fecada96b89f806d9283f60b16",
+    "openwave-tuning/common_dynamics/continuum/MANIFEST.json": "3067f7bdea43ca5137d6b115f7e1bd92b4d753ba99684ed198ba2da170240adf",
+    "openwave-tuning/common_dynamics/energy/MANIFEST.json": "dbb82e65a60c972b2cc10a8d52dea744f3a7d38d521aff7df2f1bbbe51594c21",
+    "openwave-tuning/common_dynamics/energy/PROOF.md": "7508970d195fb48fc80d2f8f38d913d7aeba91b5ed100db220ae36fce774d1c4",
+    "openwave-tuning/common_dynamics/particles/mass_coin.py": "3df8fb82196e889345b234e950d88f40755054cc69f25d7a03e78340538f8377",
+    "openwave-tuning/common_dynamics/particles/MASS_COIN.json": "149a21e0d186e3d84f68ebae766d87570387883c785dc28c94276232a45eaf50",
+    "openwave-tuning/common_dynamics/particles/MASS_PROOF.md": "0977d2e290f71027fbae513014857f246b4c412b2b1ad81169940afe13c55a39",
+    "openwave-tuning/common_dynamics/spin/MANIFEST.json": "65075e0bc14f883c5cdb877171650b08ee57c8d1bdffce281e68937bb07eb401",
+    "openwave-tuning/common_dynamics/spin/PROOF.md": "0a3b4ebe82580422f17087181072d20d9f15f6ebfcc9110b42037265d8d6b3ed"
+  },
+  "official_rows_changed": []
+}

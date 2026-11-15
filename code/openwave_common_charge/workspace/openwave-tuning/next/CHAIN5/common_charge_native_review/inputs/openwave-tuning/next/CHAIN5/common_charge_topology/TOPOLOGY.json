@@ -1,0 +1,1428 @@
+{
+  "schema": "oph.common_charge.local_electric_Chern.v1",
+  "checks": {
+    "actual_degree6_dual_sphere": true,
+    "primitive_oriented_fundamental_cycle": true,
+    "all768_local_gauss_curvature_periods_integer": true,
+    "exact_U_transverse_not_rounded_Q": true,
+    "half_charge_clutching_rejected": true,
+    "global_harmonic_bundle_claim_rejected": true,
+    "regional_flux_equals_actual_occupation_operator": true,
+    "disjoint_half_daughters_excluded": true
+  },
+  "sphere_complex": {
+    "vertices": 8,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        5,
+        7
+      ]
+    ],
+    "oriented_faces": [
+      [
+        6,
+        0,
+        1
+      ],
+      [
+        7,
+        1,
+        0
+      ],
+      [
+        6,
+        1,
+        2
+      ],
+      [
+        7,
+        2,
+        1
+      ],
+      [
+        6,
+        2,
+        3
+      ],
+      [
+        7,
+        3,
+        2
+      ],
+      [
+        6,
+        3,
+        4
+      ],
+      [
+        7,
+        4,
+        3
+      ],
+      [
+        6,
+        4,
+        5
+      ],
+      [
+        7,
+        5,
+        4
+      ],
+      [
+        6,
+        5,
+        0
+      ],
+      [
+        7,
+        0,
+        5
+      ]
+    ],
+    "Euler_characteristic": 2,
+    "boundary": [
+      [
+        1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1
+      ],
+      [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1
+      ],
+      [
+        0,
+        0,
+        1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1
+      ]
+    ],
+    "primitive_fundamental_cycle": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "examples": [
+    {
+      "cell": 0,
+      "surface_vertex": 0,
+      "patch_fluxes_exact": [
+        "17/33",
+        "-137/429",
+        "24/143",
+        "23/374",
+        "45/374",
+        "-6/11"
+      ],
+      "flux_sum_exact": "0",
+      "clutching_endpoint_real": 1.0,
+      "clutching_endpoint_imag": 0.0,
+      "sampled_winding": 8.282694482977909e-18,
+      "subdivisions_per_native_edge_patch": 17,
+      "maximum_phase_increment": 0.3771280509538042
+    },
+    {
+      "cell": 1,
+      "surface_vertex": 0,
+      "patch_fluxes_exact": [
+        "1235/1848",
+        "-659069/3843840",
+        "1213571/3843840",
+        "1086751/5026560",
+        "1382431/5026560",
+        "-1497/4928"
+      ],
+      "flux_sum_exact": "1",
+      "clutching_endpoint_real": 1.0,
+      "clutching_endpoint_imag": -2.4492935982947064e-16,
+      "sampled_winding": 1.0,
+      "subdivisions_per_native_edge_patch": 19,
+      "maximum_phase_increment": 0.41360943327390515
+    },
+    {
+      "cell": 1,
+      "surface_vertex": 12,
+      "patch_fluxes_exact": [
+        "-3879/4928",
+        "53/1848",
+        "-514691/3843840",
+        "76669/3843840",
+        "-468511/5026560",
+        "-172831/5026560"
+      ],
+      "flux_sum_exact": "-1",
+      "clutching_endpoint_real": 1.0,
+      "clutching_endpoint_imag": 2.4492935982947064e-16,
+      "sampled_winding": -1.0,
+      "subdivisions_per_native_edge_patch": 21,
+      "maximum_phase_increment": 0.4409144649736669
+    },
+    {
+      "cell": 2,
+      "surface_vertex": 0,
+      "patch_fluxes_exact": [
+        "8301/12320",
+        "-87883/549120",
+        "59879/183040",
+        "232385/1005312",
+        "291521/1005312",
+        "-223/616"
+      ],
+      "flux_sum_exact": "1",
+      "clutching_endpoint_real": 1.0,
+      "clutching_endpoint_imag": -2.4492935982947064e-16,
+      "sampled_winding": 1.0,
+      "subdivisions_per_native_edge_patch": 19,
+      "maximum_phase_increment": 0.4170087334744961
+    },
+    {
+      "cell": 2,
+      "surface_vertex": 24,
+      "patch_fluxes_exact": [
+        "857/36960",
+        "-26599/183040",
+        "1561/183040",
+        "-108737/1005312",
+        "-49601/1005312",
+        "-449/616"
+      ],
+      "flux_sum_exact": "-1",
+      "clutching_endpoint_real": 1.0,
+      "clutching_endpoint_imag": 2.4492935982947064e-16,
+      "sampled_winding": -1.0,
+      "subdivisions_per_native_edge_patch": 20,
+      "maximum_phase_increment": 0.4265014647790494
+    },
+    {
+      "cell": 3,
+      "surface_vertex": 0,
+      "patch_fluxes_exact": [
+        "1183/1760",
+        "-158329/960960",
+        "103277/320320",
+        "55763/251328",
+        "70547/251328",
+        "-117/352"
+      ],
+      "flux_sum_exact": "1",
+      "clutching_endpoint_real": 1.0,
+      "clutching_endpoint_imag": -2.4492935982947064e-16,
+      "sampled_winding": 1.0,
+      "subdivisions_per_native_edge_patch": 19,
+      "maximum_phase_increment": 0.41600401420338584
+    },
+    {
+      "cell": 3,
+      "surface_vertex": 36,
+      "patch_fluxes_exact": [
+        "-267/352",
+        "131/5280",
+        "-45037/320320",
+        "4243/320320",
+        "-24851/251328",
+        "-10067/251328"
+      ],
+      "flux_sum_exact": "-1",
+      "clutching_endpoint_real": 1.0,
+      "clutching_endpoint_imag": 2.4492935982947064e-16,
+      "sampled_winding": -1.0,
+      "subdivisions_per_native_edge_patch": 21,
+      "maximum_phase_increment": 0.42488741172249694
+    },
+    {
+      "cell": 4,
+      "surface_vertex": 0,
+      "patch_fluxes_exact": [
+        "33087/49280",
+        "-558527/3843840",
+        "1314113/3843840",
+        "365877/1675520",
+        "464437/1675520",
+        "-3583/9856"
+      ],
+      "flux_sum_exact": "1",
+      "clutching_endpoint_real": 1.0,
+      "clutching_endpoint_imag": -2.4492935982947064e-16,
+      "sampled_winding": 1.0,
+      "subdivisions_per_native_edge_patch": 19,
+      "maximum_phase_increment": 0.41553933154049694
+    },
+    {
+      "cell": 4,
+      "surface_vertex": 48,
+      "patch_fluxes_exact": [
+        "3779/147840",
+        "-615233/3843840",
+        "-23873/3843840",
+        "-14527/152320",
+        "-5567/152320",
+        "-7169/9856"
+      ],
+      "flux_sum_exact": "-1",
+      "clutching_endpoint_real": 1.0,
+      "clutching_endpoint_imag": 2.4492935982947064e-16,
+      "sampled_winding": -1.0,
+      "subdivisions_per_native_edge_patch": 20,
+      "maximum_phase_increment": 0.42561094111929304
+    },
+    {
+      "cell": 5,
+      "surface_vertex": 0,
+      "patch_fluxes_exact": [
+        "33087/49280",
+        "-152609/960960",
+        "315551/960960",
+        "90581/418880",
+        "115221/418880",
+        "-3275/9856"
+      ],
+      "flux_sum_exact": "1",
+      "clutching_endpoint_real": 1.0,
+      "clutching_endpoint_imag": -2.4492935982947064e-16,
+      "sampled_winding": 1.0,
+      "subdivisions_per_native_edge_patch": 19,
+      "maximum_phase_increment": 0.41553933154049694
+    },
+    {
+      "cell": 5,
+      "surface_vertex": 60,
+      "patch_fluxes_exact": [
+        "-7477/9856",
+        "3779/147840",
+        "-140831/960960",
+        "7009/960960",
+        "-3551/38080",
+        "-1311/38080"
+      ],
+      "flux_sum_exact": "-1",
+      "clutching_endpoint_real": 1.0,
+      "clutching_endpoint_imag": 2.4492935982947064e-16,
+      "sampled_winding": -1.0,
+      "subdivisions_per_native_edge_patch": 21,
+      "maximum_phase_increment": 0.42494424524466407
+    },
+    {
+      "cell": 6,
+      "surface_vertex": 0,
+      "patch_fluxes_exact": [
+        "33087/49280",
+        "-49977/320320",
+        "318229/960960",
+        "282521/1256640",
+        "356441/1256640",
+        "-3499/9856"
+      ],
+      "flux_sum_exact": "1",
+      "clutching_endpoint_real": 1.0,
+      "clutching_endpoint_imag": -2.4492935982947064e-16,
+      "sampled_winding": 1.0,
+      "subdivisions_per_native_edge_patch": 19,
+      "maximum_phase_increment": 0.41553933154049694
+    },
+    {
+      "cell": 6,
+      "surface_vertex": 72,
+      "patch_fluxes_exact": [
+        "3779/147840",
+        "-143509/960960",
+        "4331/960960",
+        "-127961/1256640",
+        "-54041/1256640",
+        "-7253/9856"
+      ],
+      "flux_sum_exact": "-1",
+      "clutching_endpoint_real": 1.0,
+      "clutching_endpoint_imag": 2.4492935982947064e-16,
+      "sampled_winding": -1.0,
+      "subdivisions_per_native_edge_patch": 20,
+      "maximum_phase_increment": 0.4305978736139254
+    },
+    {
+      "cell": 7,
+      "surface_vertex": 0,
+      "patch_fluxes_exact": [
+        "33087/49280",
+        "-204913/1281280",
+        "1257901/3843840",
+        "1110449/5026560",
+        "1406129/5026560",
+        "-3345/9856"
+      ],
+      "flux_sum_exact": "1",
+      "clutching_endpoint_real": 1.0,
+      "clutching_endpoint_imag": -2.4492935982947064e-16,
+      "sampled_winding": 1.0,
+      "subdivisions_per_native_edge_patch": 19,
+      "maximum_phase_increment": 0.41553933154049694
+    },
+    {
+      "cell": 7,
+      "surface_vertex": 84,
+      "patch_fluxes_exact": [
+        "-7407/9856",
+        "3779/147840",
+        "-559021/3843840",
+        "32339/3843840",
+        "-492209/5026560",
+        "-196529/5026560"
+      ],
+      "flux_sum_exact": "-1",
+      "clutching_endpoint_real": 1.0,
+      "clutching_endpoint_imag": 2.4492935982947064e-16,
+      "sampled_winding": -1.0,
+      "subdivisions_per_native_edge_patch": 21,
+      "maximum_phase_increment": 0.4209658986929555
+    }
+  ],
+  "maximum_sampled_winding_error": 1.384417871602745e-16,
+  "curvature_formula": "On six labelled edge patches, F=2pi f(phi) w(theta) dtheta wedge dphi, integral_patch F=2pi B_ve E_e. f is the normalized 30t^2(1-t)^2 patch bump; w has unit integral and vanishes near the poles.",
+  "connection_formula": "A_N=2pi f(phi) W(theta) dphi; A_S=2pi f(phi)(W(theta)-1)dphi; transition exp(i chi(phi)), chi=2pi integral_0^phi f. Its endpoint is exp(2pi i sum_e B_ve E_e).",
+  "topological_charge": "c1_v=(B E)_v=G_v-n_v; physical relative source charge n_v-G_v=-c1_v.",
+  "quantum_scope": "Joint commuting electric spectral measure on each exact Gauss fiber. The local Chern-class observable is the integer-spectrum operator G_R-n_R, not an assigned definite premeasurement field.",
+  "rounded_Q_counterexample": {
+    "vertex": 0,
+    "mode": 0,
+    "exact_BQ_entry": "-1/8796093022208",
+    "coefficient_giving_half_flux": "-4398046511104",
+    "fractional_flux_exact": "1/2",
+    "control": "Replacing U by rounded Q as the exact physical field violates Gauss and local Chern integrality. Q is only a separately bounded apparatus approximation."
+  },
+  "half_charge_counterexample": {
+    "flux_sum_exact": "-1/2",
+    "clutching_endpoint_real": -1.0,
+    "clutching_endpoint_imag": -1.2246467991473532e-16,
+    "sampled_winding": -0.5000000000000001,
+    "subdivisions_per_native_edge_patch": 16,
+    "maximum_phase_increment": 0.09847783415766713,
+    "declared_background_preserved": true,
+    "two_daughter_fluxes_exact": [
+      "-1/2",
+      "-1/2"
+    ],
+    "total_relative_charge_exact": "1"
+  },
+  "embedding_period_join": "Actual lifted-edge displacement cocycle differs from source periods by the exact vertex coboundary port_part*B. Every closed-current period and every source-face null period agrees.",
+  "global_control": {
+    "harmonic_periods_exact": [
+      "1/2",
+      "0",
+      "0"
+    ],
+    "local_chern_numbers": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "global_line_bundle_exists_for_this_curvature": false,
+    "local_bounding_surface_bundles_exist": true,
+    "nonbounding_half_flux_is_not_half_charge": true
+  },
+  "regions": {
+    "particle_singleton": {
+      "vertices": [
+        12
+      ],
+      "Gauss_reference_in_region": 0,
+      "flux_eigenvalues_by_cell": [
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "physical_relative_charge_eigenvalues_by_cell": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "oriented_boundary_edges": [
+        [
+          16,
+          -1
+        ],
+        [
+          42,
+          1
+        ],
+        [
+          43,
+          1
+        ],
+        [
+          44,
+          1
+        ],
+        [
+          45,
+          1
+        ],
+        [
+          46,
+          1
+        ]
+      ]
+    },
+    "reference_singleton": {
+      "vertices": [
+        0
+      ],
+      "Gauss_reference_in_region": 1,
+      "flux_eigenvalues_by_cell": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "physical_relative_charge_eigenvalues_by_cell": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "oriented_boundary_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ]
+      ]
+    },
+    "x_positive_roots": {
+      "vertices": [
+        48,
+        60,
+        72,
+        84
+      ],
+      "Gauss_reference_in_region": 0,
+      "flux_eigenvalues_by_cell": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "physical_relative_charge_eigenvalues_by_cell": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "oriented_boundary_edges": [
+        [
+          152,
+          1
+        ],
+        [
+          153,
+          1
+        ],
+        [
+          154,
+          1
+        ],
+        [
+          155,
+          1
+        ],
+        [
+          156,
+          1
+        ],
+        [
+          157,
+          1
+        ],
+        [
+          168,
+          -1
+        ],
+        [
+          190,
+          1
+        ],
+        [
+          191,
+          1
+        ],
+        [
+          192,
+          1
+        ],
+        [
+          193,
+          1
+        ],
+        [
+          194,
+          1
+        ],
+        [
+          224,
+          1
+        ],
+        [
+          225,
+          1
+        ],
+        [
+          226,
+          1
+        ],
+        [
+          227,
+          1
+        ],
+        [
+          228,
+          1
+        ],
+        [
+          229,
+          1
+        ],
+        [
+          240,
+          -1
+        ],
+        [
+          258,
+          1
+        ],
+        [
+          259,
+          1
+        ],
+        [
+          260,
+          1
+        ],
+        [
+          261,
+          1
+        ],
+        [
+          262,
+          1
+        ]
+      ]
+    },
+    "daughter_A": {
+      "vertices": [
+        12,
+        24,
+        36
+      ],
+      "Gauss_reference_in_region": 0,
+      "flux_eigenvalues_by_cell": [
+        0,
+        -1,
+        -1,
+        -1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "physical_relative_charge_eigenvalues_by_cell": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "oriented_boundary_edges": [
+        [
+          16,
+          -1
+        ],
+        [
+          42,
+          1
+        ],
+        [
+          43,
+          1
+        ],
+        [
+          44,
+          1
+        ],
+        [
+          45,
+          1
+        ],
+        [
+          46,
+          1
+        ],
+        [
+          80,
+          1
+        ],
+        [
+          81,
+          1
+        ],
+        [
+          82,
+          1
+        ],
+        [
+          83,
+          1
+        ],
+        [
+          84,
+          1
+        ],
+        [
+          85,
+          1
+        ],
+        [
+          96,
+          -1
+        ],
+        [
+          118,
+          1
+        ],
+        [
+          119,
+          1
+        ],
+        [
+          120,
+          1
+        ],
+        [
+          121,
+          1
+        ],
+        [
+          122,
+          1
+        ]
+      ]
+    },
+    "daughter_B": {
+      "vertices": [
+        48,
+        60,
+        72,
+        84
+      ],
+      "Gauss_reference_in_region": 0,
+      "flux_eigenvalues_by_cell": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "physical_relative_charge_eigenvalues_by_cell": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "oriented_boundary_edges": [
+        [
+          152,
+          1
+        ],
+        [
+          153,
+          1
+        ],
+        [
+          154,
+          1
+        ],
+        [
+          155,
+          1
+        ],
+        [
+          156,
+          1
+        ],
+        [
+          157,
+          1
+        ],
+        [
+          168,
+          -1
+        ],
+        [
+          190,
+          1
+        ],
+        [
+          191,
+          1
+        ],
+        [
+          192,
+          1
+        ],
+        [
+          193,
+          1
+        ],
+        [
+          194,
+          1
+        ],
+        [
+          224,
+          1
+        ],
+        [
+          225,
+          1
+        ],
+        [
+          226,
+          1
+        ],
+        [
+          227,
+          1
+        ],
+        [
+          228,
+          1
+        ],
+        [
+          229,
+          1
+        ],
+        [
+          240,
+          -1
+        ],
+        [
+          258,
+          1
+        ],
+        [
+          259,
+          1
+        ],
+        [
+          260,
+          1
+        ],
+        [
+          261,
+          1
+        ],
+        [
+          262,
+          1
+        ]
+      ]
+    },
+    "all_ports": {
+      "vertices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95
+      ],
+      "Gauss_reference_in_region": 1,
+      "flux_eigenvalues_by_cell": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "physical_relative_charge_eigenvalues_by_cell": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "oriented_boundary_edges": []
+    }
+  },
+  "half_expectation_control": {
+    "uniform_source_plane_mean_flux": "-1/2",
+    "sharp_flux_values": [
+      0,
+      -1
+    ],
+    "weights": [
+      "1/2",
+      "1/2"
+    ]
+  },
+  "source_g": 1,
+  "extra_history_register": false,
+  "extra_field_dynamics": false,
+  "official_rows_changed": []
+}

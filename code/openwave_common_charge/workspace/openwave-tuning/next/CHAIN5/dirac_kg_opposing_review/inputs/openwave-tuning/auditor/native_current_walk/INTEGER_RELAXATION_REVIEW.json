@@ -1,0 +1,748 @@
+{
+  "schema": "oph.RF1.integer_relaxation.opposing.v1",
+  "checks": {
+    "actual_oriented_icosahedral_chain_complex": true,
+    "integral_cycle_lattice_certificate_reused": true,
+    "all11_source_sink_real_minima_exact": true,
+    "integer_minima_strictly_larger": true,
+    "mean_energy_not_energy_of_mean": true,
+    "fractional_refinement_explicit": true,
+    "source_bytes_unchanged": true
+  },
+  "rows": [
+    {
+      "source": 0,
+      "sink": 1,
+      "distance": 1,
+      "integer_minimum_exact": "1/2",
+      "real_minimum_exact": "11/60",
+      "strict_gap": "19/60",
+      "integer_minimum_proof": "Any integer unit flow has squared norm at least its l1 norm, which is at least graph distance. The displayed shortest path attains distance; integral kerB=imageA reaches every other representative.",
+      "real_optimal_face_coordinates": [
+        "-2/5",
+        "7/30",
+        "-13/60",
+        "1/20",
+        "-1/12",
+        "-13/60",
+        "1/20",
+        "-1/12",
+        "-1/10",
+        "-1/15",
+        "-7/60",
+        "-1/20",
+        "-1/12",
+        "-7/60",
+        "-1/20",
+        "-1/12",
+        "-1/6",
+        "-1/6",
+        "0",
+        "0"
+      ],
+      "exact_fractional_face_denominator": 60,
+      "refinement_controls": [
+        {
+          "face_step": "1/1",
+          "energy": "1/2",
+          "gap_from_real": "19/60"
+        },
+        {
+          "face_step": "1/2",
+          "energy": "3/8",
+          "gap_from_real": "23/120"
+        },
+        {
+          "face_step": "1/4",
+          "energy": "9/32",
+          "gap_from_real": "47/480"
+        },
+        {
+          "face_step": "1/8",
+          "energy": "29/128",
+          "gap_from_real": "83/1920"
+        },
+        {
+          "face_step": "1/16",
+          "energy": "97/512",
+          "gap_from_real": "47/7680"
+        },
+        {
+          "face_step": "1/60",
+          "energy": "11/60",
+          "gap_from_real": "0"
+        }
+      ],
+      "independent_integer_mixture_mean_field_energy": "11/60",
+      "independent_integer_mixture_mean_instantaneous_energy": "1811/600"
+    },
+    {
+      "source": 0,
+      "sink": 2,
+      "distance": 2,
+      "integer_minimum_exact": "1",
+      "real_minimum_exact": "7/30",
+      "strict_gap": "23/30",
+      "integer_minimum_proof": "Any integer unit flow has squared norm at least its l1 norm, which is at least graph distance. The displayed shortest path attains distance; integral kerB=imageA reaches every other representative.",
+      "real_optimal_face_coordinates": [
+        "3/10",
+        "2/15",
+        "29/60",
+        "-1/20",
+        "43/60",
+        "17/60",
+        "3/20",
+        "13/60",
+        "3/10",
+        "2/15",
+        "29/60",
+        "-1/20",
+        "43/60",
+        "17/60",
+        "3/20",
+        "13/60",
+        "1/3",
+        "13/30",
+        "1/10",
+        "0"
+      ],
+      "exact_fractional_face_denominator": 60,
+      "refinement_controls": [
+        {
+          "face_step": "1/1",
+          "energy": "1",
+          "gap_from_real": "23/30"
+        },
+        {
+          "face_step": "1/2",
+          "energy": "3/4",
+          "gap_from_real": "31/60"
+        },
+        {
+          "face_step": "1/4",
+          "energy": "11/32",
+          "gap_from_real": "53/480"
+        },
+        {
+          "face_step": "1/8",
+          "energy": "35/128",
+          "gap_from_real": "77/1920"
+        },
+        {
+          "face_step": "1/16",
+          "energy": "63/256",
+          "gap_from_real": "49/3840"
+        },
+        {
+          "face_step": "1/60",
+          "energy": "7/30",
+          "gap_from_real": "0"
+        }
+      ],
+      "independent_integer_mixture_mean_field_energy": "7/30",
+      "independent_integer_mixture_mean_instantaneous_energy": "3029/600"
+    },
+    {
+      "source": 0,
+      "sink": 3,
+      "distance": 3,
+      "integer_minimum_exact": "3/2",
+      "real_minimum_exact": "1/4",
+      "strict_gap": "5/4",
+      "integer_minimum_proof": "Any integer unit flow has squared norm at least its l1 norm, which is at least graph distance. The displayed shortest path attains distance; integral kerB=imageA reaches every other representative.",
+      "real_optimal_face_coordinates": [
+        "-3/5",
+        "1/5",
+        "-2/5",
+        "0",
+        "-1/5",
+        "-3/5",
+        "1/5",
+        "-7/10",
+        "-3/10",
+        "-1/10",
+        "-3/10",
+        "-1/10",
+        "-1/5",
+        "-1/2",
+        "1/10",
+        "-7/10",
+        "-1/2",
+        "-2/5",
+        "1/10",
+        "0"
+      ],
+      "exact_fractional_face_denominator": 10,
+      "refinement_controls": [
+        {
+          "face_step": "1/1",
+          "energy": "3/2",
+          "gap_from_real": "5/4"
+        },
+        {
+          "face_step": "1/2",
+          "energy": "3/4",
+          "gap_from_real": "1/2"
+        },
+        {
+          "face_step": "1/4",
+          "energy": "3/8",
+          "gap_from_real": "1/8"
+        },
+        {
+          "face_step": "1/8",
+          "energy": "9/32",
+          "gap_from_real": "1/32"
+        },
+        {
+          "face_step": "1/10",
+          "energy": "1/4",
+          "gap_from_real": "0"
+        },
+        {
+          "face_step": "1/16",
+          "energy": "33/128",
+          "gap_from_real": "1/128"
+        }
+      ],
+      "independent_integer_mixture_mean_field_energy": "1/4",
+      "independent_integer_mixture_mean_instantaneous_energy": "26/5"
+    },
+    {
+      "source": 0,
+      "sink": 4,
+      "distance": 2,
+      "integer_minimum_exact": "1",
+      "real_minimum_exact": "7/30",
+      "strict_gap": "23/30",
+      "integer_minimum_proof": "Any integer unit flow has squared norm at least its l1 norm, which is at least graph distance. The displayed shortest path attains distance; integral kerB=imageA reaches every other representative.",
+      "real_optimal_face_coordinates": [
+        "1/3",
+        "3/20",
+        "-13/30",
+        "-1/60",
+        "-1/5",
+        "17/60",
+        "2/15",
+        "11/60",
+        "-1/60",
+        "0",
+        "-1/5",
+        "-1/20",
+        "-3/20",
+        "3/20",
+        "1/15",
+        "2/15",
+        "1/3",
+        "-13/30",
+        "1/15",
+        "0"
+      ],
+      "exact_fractional_face_denominator": 60,
+      "refinement_controls": [
+        {
+          "face_step": "1/1",
+          "energy": "1",
+          "gap_from_real": "23/30"
+        },
+        {
+          "face_step": "1/2",
+          "energy": "5/8",
+          "gap_from_real": "47/120"
+        },
+        {
+          "face_step": "1/4",
+          "energy": "11/32",
+          "gap_from_real": "53/480"
+        },
+        {
+          "face_step": "1/8",
+          "energy": "9/32",
+          "gap_from_real": "23/480"
+        },
+        {
+          "face_step": "1/16",
+          "energy": "123/512",
+          "gap_from_real": "53/7680"
+        },
+        {
+          "face_step": "1/60",
+          "energy": "7/30",
+          "gap_from_real": "0"
+        }
+      ],
+      "independent_integer_mixture_mean_field_energy": "7/30",
+      "independent_integer_mixture_mean_instantaneous_energy": "581/150"
+    },
+    {
+      "source": 0,
+      "sink": 5,
+      "distance": 1,
+      "integer_minimum_exact": "1/2",
+      "real_minimum_exact": "11/60",
+      "strict_gap": "19/60",
+      "integer_minimum_proof": "Any integer unit flow has squared norm at least its l1 norm, which is at least graph distance. The displayed shortest path attains distance; integral kerB=imageA reaches every other representative.",
+      "real_optimal_face_coordinates": [
+        "19/60",
+        "2/15",
+        "-19/60",
+        "0",
+        "-2/15",
+        "2/15",
+        "1/12",
+        "1/12",
+        "-1/30",
+        "-1/60",
+        "-1/12",
+        "-1/30",
+        "-1/12",
+        "0",
+        "1/60",
+        "1/30",
+        "0",
+        "-2/15",
+        "1/30",
+        "0"
+      ],
+      "exact_fractional_face_denominator": 60,
+      "refinement_controls": [
+        {
+          "face_step": "1/1",
+          "energy": "1/2",
+          "gap_from_real": "19/60"
+        },
+        {
+          "face_step": "1/2",
+          "energy": "1/2",
+          "gap_from_real": "19/60"
+        },
+        {
+          "face_step": "1/4",
+          "energy": "3/8",
+          "gap_from_real": "23/120"
+        },
+        {
+          "face_step": "1/8",
+          "energy": "7/32",
+          "gap_from_real": "17/480"
+        },
+        {
+          "face_step": "1/16",
+          "energy": "25/128",
+          "gap_from_real": "23/1920"
+        },
+        {
+          "face_step": "1/60",
+          "energy": "11/60",
+          "gap_from_real": "0"
+        }
+      ],
+      "independent_integer_mixture_mean_field_energy": "11/60",
+      "independent_integer_mixture_mean_instantaneous_energy": "167/75"
+    },
+    {
+      "source": 0,
+      "sink": 6,
+      "distance": 2,
+      "integer_minimum_exact": "1",
+      "real_minimum_exact": "7/30",
+      "strict_gap": "23/30",
+      "integer_minimum_proof": "Any integer unit flow has squared norm at least its l1 norm, which is at least graph distance. The displayed shortest path attains distance; integral kerB=imageA reaches every other representative.",
+      "real_optimal_face_coordinates": [
+        "-7/12",
+        "-23/30",
+        "-5/12",
+        "0",
+        "-7/30",
+        "-17/30",
+        "-43/60",
+        "-37/60",
+        "-13/30",
+        "-5/12",
+        "-23/60",
+        "-7/30",
+        "-17/60",
+        "-1/2",
+        "-7/12",
+        "-17/30",
+        "-1/2",
+        "-13/30",
+        "-23/30",
+        "0"
+      ],
+      "exact_fractional_face_denominator": 60,
+      "refinement_controls": [
+        {
+          "face_step": "1/1",
+          "energy": "2",
+          "gap_from_real": "53/30"
+        },
+        {
+          "face_step": "1/2",
+          "energy": "1",
+          "gap_from_real": "23/30"
+        },
+        {
+          "face_step": "1/4",
+          "energy": "5/16",
+          "gap_from_real": "19/240"
+        },
+        {
+          "face_step": "1/8",
+          "energy": "17/64",
+          "gap_from_real": "31/960"
+        },
+        {
+          "face_step": "1/16",
+          "energy": "61/256",
+          "gap_from_real": "19/3840"
+        },
+        {
+          "face_step": "1/60",
+          "energy": "7/30",
+          "gap_from_real": "0"
+        }
+      ],
+      "independent_integer_mixture_mean_field_energy": "7/30",
+      "independent_integer_mixture_mean_instantaneous_energy": "473/75"
+    },
+    {
+      "source": 0,
+      "sink": 7,
+      "distance": 1,
+      "integer_minimum_exact": "1/2",
+      "real_minimum_exact": "11/60",
+      "strict_gap": "19/60",
+      "integer_minimum_proof": "Any integer unit flow has squared norm at least its l1 norm, which is at least graph distance. The displayed shortest path attains distance; integral kerB=imageA reaches every other representative.",
+      "real_optimal_face_coordinates": [
+        "-4/15",
+        "-9/20",
+        "-2/15",
+        "11/60",
+        "0",
+        "-13/60",
+        "-4/15",
+        "-13/60",
+        "-7/60",
+        "-1/10",
+        "-1/10",
+        "-1/20",
+        "-1/20",
+        "-3/20",
+        "-2/15",
+        "-1/6",
+        "-1/6",
+        "-2/15",
+        "-2/15",
+        "0"
+      ],
+      "exact_fractional_face_denominator": 60,
+      "refinement_controls": [
+        {
+          "face_step": "1/1",
+          "energy": "1/2",
+          "gap_from_real": "19/60"
+        },
+        {
+          "face_step": "1/2",
+          "energy": "5/8",
+          "gap_from_real": "53/120"
+        },
+        {
+          "face_step": "1/4",
+          "energy": "5/16",
+          "gap_from_real": "31/240"
+        },
+        {
+          "face_step": "1/8",
+          "energy": "27/128",
+          "gap_from_real": "53/1920"
+        },
+        {
+          "face_step": "1/16",
+          "energy": "49/256",
+          "gap_from_real": "31/3840"
+        },
+        {
+          "face_step": "1/60",
+          "energy": "11/60",
+          "gap_from_real": "0"
+        }
+      ],
+      "independent_integer_mixture_mean_field_energy": "11/60",
+      "independent_integer_mixture_mean_instantaneous_energy": "1123/300"
+    },
+    {
+      "source": 0,
+      "sink": 8,
+      "distance": 2,
+      "integer_minimum_exact": "1",
+      "real_minimum_exact": "7/30",
+      "strict_gap": "23/30",
+      "integer_minimum_proof": "Any integer unit flow has squared norm at least its l1 norm, which is at least graph distance. The displayed shortest path attains distance; integral kerB=imageA reaches every other representative.",
+      "real_optimal_face_coordinates": [
+        "-29/60",
+        "17/60",
+        "-3/10",
+        "1/20",
+        "-2/15",
+        "-13/30",
+        "17/60",
+        "-29/60",
+        "-13/60",
+        "-3/20",
+        "-13/60",
+        "-1/10",
+        "-3/20",
+        "-17/60",
+        "-2/15",
+        "-3/10",
+        "-1/3",
+        "-17/60",
+        "1/20",
+        "0"
+      ],
+      "exact_fractional_face_denominator": 60,
+      "refinement_controls": [
+        {
+          "face_step": "1/1",
+          "energy": "1",
+          "gap_from_real": "23/30"
+        },
+        {
+          "face_step": "1/2",
+          "energy": "3/4",
+          "gap_from_real": "31/60"
+        },
+        {
+          "face_step": "1/4",
+          "energy": "11/32",
+          "gap_from_real": "53/480"
+        },
+        {
+          "face_step": "1/8",
+          "energy": "35/128",
+          "gap_from_real": "77/1920"
+        },
+        {
+          "face_step": "1/16",
+          "energy": "63/256",
+          "gap_from_real": "49/3840"
+        },
+        {
+          "face_step": "1/60",
+          "energy": "7/30",
+          "gap_from_real": "0"
+        }
+      ],
+      "independent_integer_mixture_mean_field_energy": "7/30",
+      "independent_integer_mixture_mean_instantaneous_energy": "3029/600"
+    },
+    {
+      "source": 0,
+      "sink": 9,
+      "distance": 2,
+      "integer_minimum_exact": "1",
+      "real_minimum_exact": "7/30",
+      "strict_gap": "23/30",
+      "integer_minimum_proof": "Any integer unit flow has squared norm at least its l1 norm, which is at least graph distance. The displayed shortest path attains distance; integral kerB=imageA reaches every other representative.",
+      "real_optimal_face_coordinates": [
+        "-17/30",
+        "1/5",
+        "-1/3",
+        "1/60",
+        "-3/20",
+        "-17/30",
+        "3/20",
+        "1/5",
+        "-2/15",
+        "-1/15",
+        "-11/60",
+        "-1/15",
+        "-2/15",
+        "-3/20",
+        "0",
+        "1/60",
+        "-1/3",
+        "-17/60",
+        "1/20",
+        "0"
+      ],
+      "exact_fractional_face_denominator": 60,
+      "refinement_controls": [
+        {
+          "face_step": "1/1",
+          "energy": "1",
+          "gap_from_real": "23/30"
+        },
+        {
+          "face_step": "1/2",
+          "energy": "5/8",
+          "gap_from_real": "47/120"
+        },
+        {
+          "face_step": "1/4",
+          "energy": "11/32",
+          "gap_from_real": "53/480"
+        },
+        {
+          "face_step": "1/8",
+          "energy": "9/32",
+          "gap_from_real": "23/480"
+        },
+        {
+          "face_step": "1/16",
+          "energy": "123/512",
+          "gap_from_real": "53/7680"
+        },
+        {
+          "face_step": "1/60",
+          "energy": "7/30",
+          "gap_from_real": "0"
+        }
+      ],
+      "independent_integer_mixture_mean_field_energy": "7/30",
+      "independent_integer_mixture_mean_instantaneous_energy": "581/150"
+    },
+    {
+      "source": 0,
+      "sink": 10,
+      "distance": 1,
+      "integer_minimum_exact": "1/2",
+      "real_minimum_exact": "11/60",
+      "strict_gap": "19/60",
+      "integer_minimum_proof": "Any integer unit flow has squared norm at least its l1 norm, which is at least graph distance. The displayed shortest path attains distance; integral kerB=imageA reaches every other representative.",
+      "real_optimal_face_coordinates": [
+        "2/15",
+        "0",
+        "4/15",
+        "-11/60",
+        "9/20",
+        "2/15",
+        "1/20",
+        "1/10",
+        "1/6",
+        "2/15",
+        "13/60",
+        "2/15",
+        "4/15",
+        "3/20",
+        "1/10",
+        "7/60",
+        "1/6",
+        "13/60",
+        "1/20",
+        "0"
+      ],
+      "exact_fractional_face_denominator": 60,
+      "refinement_controls": [
+        {
+          "face_step": "1/1",
+          "energy": "1/2",
+          "gap_from_real": "19/60"
+        },
+        {
+          "face_step": "1/2",
+          "energy": "5/8",
+          "gap_from_real": "53/120"
+        },
+        {
+          "face_step": "1/4",
+          "energy": "5/16",
+          "gap_from_real": "31/240"
+        },
+        {
+          "face_step": "1/8",
+          "energy": "27/128",
+          "gap_from_real": "53/1920"
+        },
+        {
+          "face_step": "1/16",
+          "energy": "49/256",
+          "gap_from_real": "31/3840"
+        },
+        {
+          "face_step": "1/60",
+          "energy": "11/60",
+          "gap_from_real": "0"
+        }
+      ],
+      "independent_integer_mixture_mean_field_energy": "11/60",
+      "independent_integer_mixture_mean_instantaneous_energy": "1123/300"
+    },
+    {
+      "source": 0,
+      "sink": 11,
+      "distance": 1,
+      "integer_minimum_exact": "1/2",
+      "real_minimum_exact": "11/60",
+      "strict_gap": "19/60",
+      "integer_minimum_proof": "Any integer unit flow has squared norm at least its l1 norm, which is at least graph distance. The displayed shortest path attains distance; integral kerB=imageA reaches every other representative.",
+      "real_optimal_face_coordinates": [
+        "13/60",
+        "1/12",
+        "2/5",
+        "-1/20",
+        "-7/30",
+        "1/6",
+        "1/12",
+        "7/60",
+        "1/12",
+        "1/20",
+        "1/12",
+        "0",
+        "-1/20",
+        "7/60",
+        "1/15",
+        "1/10",
+        "1/6",
+        "13/60",
+        "1/20",
+        "0"
+      ],
+      "exact_fractional_face_denominator": 60,
+      "refinement_controls": [
+        {
+          "face_step": "1/1",
+          "energy": "1/2",
+          "gap_from_real": "19/60"
+        },
+        {
+          "face_step": "1/2",
+          "energy": "3/8",
+          "gap_from_real": "23/120"
+        },
+        {
+          "face_step": "1/4",
+          "energy": "9/32",
+          "gap_from_real": "47/480"
+        },
+        {
+          "face_step": "1/8",
+          "energy": "29/128",
+          "gap_from_real": "83/1920"
+        },
+        {
+          "face_step": "1/16",
+          "energy": "97/512",
+          "gap_from_real": "47/7680"
+        },
+        {
+          "face_step": "1/60",
+          "energy": "11/60",
+          "gap_from_real": "0"
+        }
+      ],
+      "independent_integer_mixture_mean_field_energy": "11/60",
+      "independent_integer_mixture_mean_instantaneous_energy": "1811/600"
+    }
+  ],
+  "scientific_consequence": "For integer face loads x, RF1 cannot identify min_x ||F-Ax||\u00b2/2 with q^T L+ q/2. That is the real-domain minimum. Time averaging can reproduce its mean field without reproducing its energy. A face-step refinement is an explicit different domain.",
+  "scope": "Mathematical premise audit of the brief, not a run of an unavailable RF1 solver; no reserved acceptance cases.",
+  "source_pins": {
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_flux_topology/audit_spatial_lift.py": "b5bf8e326a2018058643c3cb7eb2df68b879533703c04c25010a245b54ffd765",
+    "openwave-push/rows_native/RF1_BRIEF.md": "901d8f5fca111071e50251f6f0374f7c82fff126738afc325e82e07ec500f6b3"
+  },
+  "auditor_sha256": "c4808ee406dcff284b79217e1f0207ca512cb77a6cb6757332d21e0aee3a4c8a",
+  "official_rows_changed": []
+}

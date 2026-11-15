@@ -1,0 +1,45 @@
+{
+  "schema": "oph.c10.luders_independent_review.v1",
+  "checks": {
+    "degenerate_basis_rotation_invariant": true,
+    "fine_basis_forget_counterexample_retained": true,
+    "complete_subsequent_native_outcomes": true,
+    "subsequent_native_preserves_distinction": true,
+    "all_group_probabilities_complete": true,
+    "external_reference_not_measured": true,
+    "external_reference_joint_positive": true,
+    "producer_PVM_resolution_complete": true,
+    "producer_all_compact_coefficients_reproduced": true,
+    "producer_all_terminal_probabilities": true,
+    "producer_spectral_bases_actual_H": true,
+    "actual_subnormalized_continuation": true,
+    "bad_group_tolerances_rejected": true
+  },
+  "basis_rotation_error": 4.178775652818294e-17,
+  "fine_forget_distance": 0.4999999999999995,
+  "post_native_fine_forget_distance": 0.4244359713170556,
+  "actual_doublet_indices": [
+    4,
+    5
+  ],
+  "actual_energy": -0.7613052172833566,
+  "producer_compared": true,
+  "compact_coefficient_error": 0.0,
+  "terminal_probability_error": 0.0,
+  "spectral_error": 9.124645483638005e-15,
+  "projector_resolution_error": 1.9984014443252818e-15,
+  "actual_continuation_error": 1.5759018432879275e-18,
+  "joint_native_probability_error": 8.131516293641283e-20,
+  "scope": "IndependentactualgroupedLuders/reference/nativecontinuation controls; producer compactadapter compared on every branch. No physicalapparatussynthesis or physicalrow award.",
+  "source_sha256": {
+    "next/C10/review_luders_continuation.py": "44d18a6dd4b7ae12fcfaca199e6d00e07ec411e231fc7f8d3533b8df26233a49",
+    "next/C10/spectral_readout.py": "8bd12ab27ff979ae4b92e289ebb46efb376dd13696faf6752670f44c8049d83e",
+    "next/C10/CANONICAL_CONSTRUCTION.json": "87e364830daaf96e16cbbf1ed7a12b4329d896a816fffcf9194f29fdeceb7217",
+    "next/C10/canonical_states.npz": "27b18e957d2ececf5c0d54dcb0851d510ef307cef9a364372281966b3c7c96f1",
+    "next/C10/joint_source.py": "bbedbeecff985014f60d761c4a165546383d393f8263ef46d681b346ecbc540f",
+    "next/C10/joint_source_states.npz": "1d75017307742e96649ea7c7e74a4a648a6d9f468e35ccd9f6ea05d202d7708b",
+    "next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e"
+  },
+  "full_criterion_met": false,
+  "official_rows_changed": []
+}

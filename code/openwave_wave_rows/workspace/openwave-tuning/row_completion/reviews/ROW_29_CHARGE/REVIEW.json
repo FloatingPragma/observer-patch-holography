@@ -1,0 +1,40 @@
+{
+  "schema": "oph.openwave.independent_full_criterion_review.v1",
+  "row": 29,
+  "reviewer": "/root/charge_spin_lane",
+  "producer_independent": true,
+  "candidate_id": "native-local12-dirac-noncompact-quadratic-v4-proposed",
+  "criterion": "Maxwell recovered; transverse waves at c",
+  "criterion_sha256": "0c5d2a8e4212d05f5cfde6f163ca3e3c9cf32d09e97f8c23c347e5306daf980f",
+  "producer_manifest_sha256": "993744d14c2da8d66a93dc76422f81799074febad9914ae33bb60bf455cf00b6",
+  "size3_manifest_sha256": "90178885fcaaaba405b950a6f132fd47d519d21a130a4f982ec09423db129ec2",
+  "full_criterion_met": true,
+  "scope": "Vacuum radiative Maxwell fields of the named noncompact quadratic source, two polarizations at the shared matter speed, normalized spectators, spectral-code field first-moment POVM, terminal clock schedule, stated finite native error bounds.",
+  "resolved_concerns": [
+    "Three pointer allowances are already included: one inside the clock helper and two source terms.",
+    "Stored eight-outcome arrays are initialized source/pointer component laws; the complete reset operation multiplies successful weights and retains first reset timeouts. The uniform complete-channel bound covers this composition."
+  ],
+  "limitations": [
+    "Coefficients selected to match matter speed; no independent prediction of c or observed coupling.",
+    "No interacting field, compact-register transfer, old local-edge encoder or full continuous-field spectral measurement claimed.",
+    "Huge refinement boxes enter a theorem; executed terminal instruments have three qubits.",
+    "Fixed native control precision leaves a nonzero floor; no exact native zero-error continuum at fixed precision."
+  ],
+  "evidence_files": {
+    "openwave-tuning/row_completion/reviews/ROW_29_CHARGE/AUDIT.json": "a74da48f8fb2472e0be763f262e66fe7d86a090489e47daa25672e3425635af8",
+    "openwave-tuning/row_completion/reviews/ROW_29_CHARGE/AUDIT_CORRECTED.log": "3837cf1b61359db8163401dc86254a2ce130eda89998d18efc9ef0949265f713",
+    "openwave-tuning/row_completion/reviews/ROW_29_CHARGE/AUDIT_RUN.log": "6b8a12986dd68dd90246c1fb31ad12c649076863faf01c2c64560f7c9284734e",
+    "openwave-tuning/row_completion/reviews/ROW_29_CHARGE/BUDGET_AUDIT.json": "f1bbc11804327694711793e7e4c5e485eb6d12d1c05445d1ffc50313de2e790f",
+    "openwave-tuning/row_completion/reviews/ROW_29_CHARGE/BUDGET_RUN.log": "70fd1dd5091c62f3e0dd61b080fd9f2451d35ff0fd738d002f34f23d982d27ce",
+    "openwave-tuning/row_completion/reviews/ROW_29_CHARGE/GEOMETRY_JOIN.json": "5aa3276cde07bf098607df42caa7fcf5f38cb4476c12f710dad8879a45f6f0fe",
+    "openwave-tuning/row_completion/reviews/ROW_29_CHARGE/GEOMETRY_RUN.log": "7b2a5d0490379a80288876d6004604e9dc53bef474c8784cf2e67dbdeb25b509",
+    "openwave-tuning/row_completion/reviews/ROW_29_CHARGE/REVIEW.md": "932fd42388e8ae4cfa1421105e6d8fe2d455abdaa4cf16a426061eb1d1ea3c5b",
+    "openwave-tuning/row_completion/reviews/ROW_29_CHARGE/audit.py": "969f5259594efd1b3cc1c9d9bb2fe21cc23fbc5458ae2d8eb0cafefd0705c617",
+    "openwave-tuning/row_completion/reviews/ROW_29_CHARGE/budget_audit.py": "b2cb37b0267e304eb58a91259f23e6e955e6e079a6ce0a8cafdea0ae1340193c",
+    "openwave-tuning/row_completion/reviews/ROW_29_CHARGE/freeze.py": "de6b5884eaad2116c29a23bca6027658b9d970fb1c625a035c8afcd8d57efb3a",
+    "openwave-tuning/row_completion/reviews/ROW_29_CHARGE/geometry_join.py": "0f8c9615a3b52e09d870e5edcc6834eedeac8871adeb303f677d62373e06a26f",
+    "openwave-tuning/row_completion/ROW_29/MANIFEST.json": "993744d14c2da8d66a93dc76422f81799074febad9914ae33bb60bf455cf00b6",
+    "openwave-tuning/common_dynamics/photon_size3/MANIFEST.json": "90178885fcaaaba405b950a6f132fd47d519d21a130a4f982ec09423db129ec2"
+  },
+  "official_rows_changed": []
+}

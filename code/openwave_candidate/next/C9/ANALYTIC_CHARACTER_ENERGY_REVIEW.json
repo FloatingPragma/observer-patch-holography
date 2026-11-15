@@ -1,0 +1,75 @@
+{
+  "schema": "oph.c9.analytic_character_energy_review.v1",
+  "outcome": "PASS",
+  "reviewer": "Codex coordinator; independent analytic circulant and subset-sum calculation",
+  "results": [
+    {
+      "modulus": 3,
+      "all_twenty_levels_per_character_max_error": 2.6645352591003757e-15,
+      "global_ground": -4.0106591072435975,
+      "ground_multiplicity": 2,
+      "gap_above_ground_multiplet": 0.28614912728932573,
+      "filled_CAR_minimizing_characters": [
+        1,
+        2
+      ],
+      "lowest_signed_one_load_minimizing_characters": [
+        1,
+        2
+      ],
+      "lowest_positive_one_load_minimizing_characters": [
+        0
+      ],
+      "sector_ground_energies": [
+        -3.724509979954272,
+        -4.0106591072435975,
+        -4.0106591072435975
+      ],
+      "sector_positive_edges": [
+        0.23000000000000037,
+        0.7216724421522857,
+        0.721672442152286
+      ]
+    },
+    {
+      "modulus": 6,
+      "all_twenty_levels_per_character_max_error": 3.552713678800501e-15,
+      "global_ground": -4.065399873582047,
+      "ground_multiplicity": 1,
+      "gap_above_ground_multiplet": 0.054740766338449376,
+      "filled_CAR_minimizing_characters": [
+        3
+      ],
+      "lowest_signed_one_load_minimizing_characters": [
+        3
+      ],
+      "lowest_positive_one_load_minimizing_characters": [
+        0
+      ],
+      "sector_ground_energies": [
+        -3.724509979954272,
+        -3.859214426018284,
+        -4.0106591072435975,
+        -4.065399873582047,
+        -4.0106591072435975,
+        -3.859214426018284
+      ],
+      "sector_positive_edges": [
+        0.23000000000000037,
+        0.41655102740022537,
+        0.7216724421522857,
+        1.0261091559868276,
+        0.721672442152286,
+        0.41655102740022537
+      ]
+    }
+  ],
+  "scope": "Full finite spectral comparison only. Mod6 class3 minimizes the filled CAR and lowest signed one-load energies; class0 minimizes the positive one-load edge. No dynamic cooling, character transfer, spin derivation, physical mass or independent state preparation follows. Native-accessible response gaps require actual outcome probabilities and are distinct from global spectral gaps.",
+  "full_criterion_met": false,
+  "official_rows_changed": [],
+  "source_sha256": {
+    "next/C9/review_character_energy.py": "df9a3bcd756389b04754a639cc95286d75413b658e2bfddd4d1edd70a17764e5",
+    "next/C9/CHARACTER_REFERENCE.json": "c4d056e154754cab9c7e3e8b4c1f01a8191335b2b99913500ecde7c7b1a77786",
+    "next/C9/CHARACTER_MINIMA.json": "0ac4501d6780eae51f3c1ddbe35b2a3a012b4ef843591f2989658014ad505728"
+  }
+}

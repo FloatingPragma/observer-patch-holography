@@ -1,0 +1,48 @@
+{
+  "schema": "oph.native_field.static_holding.v1",
+  "time_exact": "8",
+  "coexact_cap": 1,
+  "harmonic_cap": 65536,
+  "subdivisions": 2767264945622227353750000000,
+  "precision_bits": 239,
+  "preparation": {
+    "encoding": "190 coexact local number registers and 3 harmonic Hermite registers",
+    "coexact_cap": 1,
+    "harmonic_cap": 65536,
+    "field_qubits": 241,
+    "prepared_codeword": "all field bits zero",
+    "native_reset": {
+      "registers": 241,
+      "blocks_per_register": 2,
+      "base_uniform_failure_exact": "35/2147483648",
+      "complete_timeout_union_bound_exact": "295225/4611686018427387904",
+      "protocol": "Each register executes up to r base reset blocks, stopping at its first heralded success; retain every fine letter and final timeout. A failed block remains in the native78-state domain.",
+      "conditioning_applied": false
+    },
+    "coexact_state": "vacuum of frozen diagonal Lambda comparison source",
+    "harmonic_state": "product Gaussian Var(q)=Var(p)=1/2; exact auxiliary Hermite vacuum",
+    "charge_sector": "independent label q; physical E=B^T L^+ q+U p_co+H p_h",
+    "padding": "local n>cap is retained with zero generator; initial padding weight zero",
+    "vacuum_transfer": "transfer.geometry_transfer prices comparison vacuum versus actual K vacuum",
+    "conditioning_applied": false
+  },
+  "native_pulses_upper": 4884937950275256234016463339520000003420,
+  "native_load_export_services_upper": 9769875900550512468032926679040000006840,
+  "native_export_operator_error_exact": "23622352144335370015744985561602006490273200075974198528341606293202518079198166416474399596036063526321758635685650147964345201013734385972805976401644796815086580821600010690411156780376983145/2693189581592767235707386820034625876761773979045465016063119822371190863000105380922197266574125287028215280054363247469065949312094107577921441162573762995177074519617763634274131844036773231242902144888720064512",
+  "Trotter_operator_error_exact": "1/100000000",
+  "algebraic_rounding_operator_error_exact": "24861/110427941548649020598956093796432407239217743554726184882600387580788736",
+  "harmonic_state_transfer": {
+    "cap": 65536,
+    "time_exact": "8",
+    "moment_order": 6,
+    "state_error_upper_exact": "2696833453727662116031792740663686680537/1461501637330902918203684832716283019655932542976",
+    "vacuum_packet": "three harmonic Hermite vacua, no current kicks",
+    "retained_free_boundary_flux_exact": "944894724475544752192365079886991145351893816745353493436989808370434476632312469230075329516594896027194954098161153165197140667274235173433210348470913239502213603422013361547531325035215549910364988500530578897459820950195200787409560824495771754468518975794196931756475955005218046174764298841803185574882538027521145165499156508602041333588697127510848258382983351661629962200067404747295509/512073650888998355626612790894759078241982236374651180075174923938996636039936667675740180641583480026612485379561102518090842045377169931625534623065716962662050668136384910498436221098118139601431753685957784728485260657513640510922606260066385970766677967886932983909990548107717371173473628109873930286765979241526867301638660187615944043919922503733198619131464149139543943298081491952144353824079872"
+  },
+  "coexact_vacuum_truncation_error_exact": "0",
+  "pulse_iterator": "pulses(free_field_word(layout(coexact_cap,harmonic_cap),time,subdivisions,precision_bits,include_coulomb=False),precision_bits)",
+  "common_unitary": "all190 half-frequency phases and all3 harmonic p^2 words retained",
+  "charge_energy": "supplied separately by consuming sector word; no charge dependence in this common factor",
+  "reduced_sector_clock_law": "common ideal field unitary cancels for every initial common field state; cutoff/splitting error does not affect this reduced identity",
+  "full_state_scope": "true actual-K vacuum comparison additionally requires spectral geometry transfer; no cancellation claimed for E_edge records"
+}

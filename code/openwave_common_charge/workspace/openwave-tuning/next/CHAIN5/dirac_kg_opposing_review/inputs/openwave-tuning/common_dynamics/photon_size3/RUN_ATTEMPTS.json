@@ -1,0 +1,9 @@
+[
+  {
+    "attempt": 1,
+    "status": "interrupted_for_exact_arithmetic_optimization",
+    "scientific_gate_failure": false,
+    "reason": "Dense int64 limb GEMM was CPU-throttled; selected frame retained. Replacement uses binary64 as exact integers with guarded53bit partial sums.",
+    "retained_frame_sha256": "94a28157601fde72d3ecfd6399a52a676ca3b2a93917117ada2abc53b43652a0"
+  }
+]

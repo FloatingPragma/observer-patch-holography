@@ -1,0 +1,33 @@
+{
+  "schema": "oph.macro_generator_identity.inputs.v1",
+  "source_manifest_sha256": "8a64e3592c0775f528bf83adde5cdb8607315890c421cd6046bdac15afe00806",
+  "source_bridge_sha256": "ba8859870fbfdc0adcade7ec416e8efc34f5c3cef7d1996bb3efdd247ae00446",
+  "source_family": "native-local12-dirac-noncompact-flavor-fixed-calibrated-charge-spatial-v1",
+  "L": 3,
+  "h": "1/3",
+  "mass_midpoints_exact": [
+    "419387071970180323829192534368637677830755695680445599911453/2000000000000000000000000000000000000000000000000000000000000",
+    "24120318161769295231860167838002583369858352680729866339/400000000000000000000000000000000000000000000000000000000000",
+    "24936734253992093586850938037690301301673409072923791636413/2000000000000000000000000000000000000000000000000000000000000"
+  ],
+  "charge_sector": 0,
+  "momentum": "(2pi/3,0,0)",
+  "macro_factors": [
+    "existing beta tensor actual flavor masses",
+    "x actual route with field Weyl kick gQJ",
+    "y actual route with field Weyl kick gQJ",
+    "z actual route with field Weyl kick gQJ",
+    "unchanged all-mode free quadratic field for lattice duration1",
+    "g\u00b2 Q\u00b2 longitudinal Coulomb phase",
+    "existing clock -hZ/16"
+  ],
+  "field_lattice_time_per_macro": "1",
+  "clock_phase_per_macro": "1/24",
+  "comparison": "Continuous signed-Dirac flow with the SAME h and three mass coefficients; matching these removes additional differences with the separately declared44c mass1 source.",
+  "external_sources": {
+    "openwave-tuning/next/CHAIN9/charged_spatial_refinement/MANIFEST.json": "8a64e3592c0775f528bf83adde5cdb8607315890c421cd6046bdac15afe00806",
+    "openwave-tuning/next/CHAIN9/charged_spatial_refinement/BRIDGE.json": "ba8859870fbfdc0adcade7ec416e8efc34f5c3cef7d1996bb3efdd247ae00446",
+    "openwave-tuning/common_dynamics/autonomous_dirac/PROOF.md": "6292f06bdc08de115780ab9d64720aaf0ce7061e92496486960a9877268572c5",
+    "openwave-push/b/W8_shared_member.md": "4afe246aeb73f1bd2cdbb6920e27602b21d8b133a8875e71e80711a3bad4cb12"
+  }
+}

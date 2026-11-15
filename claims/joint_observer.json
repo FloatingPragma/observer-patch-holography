@@ -1,0 +1,732 @@
+{
+  "architecture_uniqueness_required": false,
+  "canonical_source_sha256": {
+    "claims/physical_identification_registry.json": "b801222df8be7086d1776511b4b1f155dc9f4971cd81041315e78eb847ad2113",
+    "claims/selection_ledger.json": "de12f4b3ab551379e738713120bf98738d092482db7e88ac30f86741ad13c4cd",
+    "tracking/premise_register.json": "c61cf4b128b64212797c2a92b3ff261e3cc2f3c5f256e8d4622b0652fb3cce80"
+  },
+  "claims": [
+    {
+      "id": "joint_observer_native_observer_program",
+      "independent_Nature_match_added": false,
+      "label": "Complete native observer program and compiled reflection",
+      "official_OpenWave_award_added": false,
+      "physical_rest_mass_identification_added": false,
+      "proof": "model/native_observer_program/PROOF.md",
+      "receipt": "model/native_observer_program/results.json",
+      "receipt_sha256": "63b8e5b02812532d9e6dc0e50e352270638ccb03a2e449b7f6afa97a1b793948",
+      "status": "verified_in_stated_finite_domain"
+    },
+    {
+      "id": "joint_observer_native_charged_propagation",
+      "independent_Nature_match_added": false,
+      "label": "Charged transport, contact interaction and localized apparatus modes",
+      "official_OpenWave_award_added": false,
+      "physical_rest_mass_identification_added": false,
+      "proof": "model/native_charged_propagation/PROOF.md",
+      "receipt": "model/native_charged_propagation/results.json",
+      "receipt_sha256": "948d680ef77d4f05efd9c9274118a7e3bb4138977224375d41bb6c045c9d31cd",
+      "status": "verified_in_stated_finite_domain"
+    },
+    {
+      "id": "joint_observer_native_electric_gauss",
+      "independent_Nature_match_added": false,
+      "label": "Integer boundary charge and complete electric-loop records",
+      "official_OpenWave_award_added": false,
+      "physical_rest_mass_identification_added": false,
+      "proof": "model/native_electric_gauss/PROOF.md",
+      "receipt": "model/native_electric_gauss/results.json",
+      "receipt_sha256": "cfae3b2092a8f6adf6b3d1a0da01e6548cf9a32fb554139a4a23a7fdc6e7135b",
+      "status": "verified_in_stated_finite_domain"
+    },
+    {
+      "id": "joint_observer_native_gauss_walk",
+      "independent_Nature_match_added": false,
+      "label": "One evolving charged source and integer electric field",
+      "official_OpenWave_award_added": false,
+      "physical_rest_mass_identification_added": false,
+      "proof": "model/native_gauss_walk/PROOF.md",
+      "receipt": "model/native_gauss_walk/results.json",
+      "receipt_sha256": "d5366780801e3cc60a1c6143270418f404211be290bac16db6e07d0df2bdbe99",
+      "status": "verified_in_stated_finite_domain"
+    },
+    {
+      "id": "joint_observer_native_moving_clock",
+      "independent_Nature_match_added": false,
+      "label": "Transported clock on the undressed source",
+      "official_OpenWave_award_added": false,
+      "physical_rest_mass_identification_added": false,
+      "proof": "model/native_moving_clock/PROOF.md",
+      "receipt": "model/native_moving_clock/results.json",
+      "receipt_sha256": "9b61e42e0a3bc956588be68f6c1bb98c552eeac215b0cfc00e5f77488c798ea9",
+      "status": "verified_in_stated_finite_domain"
+    },
+    {
+      "id": "joint_observer_native_gauss_clock",
+      "independent_Nature_match_added": false,
+      "label": "Complete clock observations on the same charged field state",
+      "official_OpenWave_award_added": false,
+      "physical_rest_mass_identification_added": false,
+      "proof": "model/native_gauss_clock/PROOF.md",
+      "receipt": "model/native_gauss_clock/results.json",
+      "receipt_sha256": "5d7db7ce87a5be75053087e098713c0d538d02a244a94f094a80a27884e1481c",
+      "status": "verified_in_stated_finite_domain"
+    },
+    {
+      "id": "joint_observer_native_transport_spectrum",
+      "independent_Nature_match_added": false,
+      "label": "Conditional transport energies and enlargement controls",
+      "official_OpenWave_award_added": false,
+      "physical_rest_mass_identification_added": false,
+      "proof": "model/native_transport_spectrum/PROOF.md",
+      "receipt": "model/native_transport_spectrum/results.json",
+      "receipt_sha256": "0e7874b75b6de866585e2195441c0ad97cfcc0636777a32e83b152efcc094607",
+      "status": "verified_in_stated_finite_domain"
+    },
+    {
+      "id": "joint_observer_native_spatial_refinement",
+      "independent_Nature_match_added": false,
+      "label": "Declared three-dimensional routing and fixed-mode scalar dispersion",
+      "official_OpenWave_award_added": false,
+      "physical_rest_mass_identification_added": false,
+      "proof": "model/native_spatial_refinement/PROOF.md",
+      "receipt": "model/native_spatial_refinement/results.json",
+      "receipt_sha256": "dddaa0f04bafc443789794cfe5799edcd10b920be7ccaaec09126603f0f18988",
+      "status": "verified_in_stated_finite_domain"
+    },
+    {
+      "id": "joint_observer_native_criterion_packet",
+      "independent_Nature_match_added": false,
+      "label": "Literal charge-criterion review packet",
+      "official_OpenWave_award_added": false,
+      "physical_rest_mass_identification_added": false,
+      "proof": "model/native_criterion_packet/PROOF.md",
+      "receipt": "model/native_criterion_packet/results.json",
+      "receipt_sha256": "1981e721d00a798a8a860cc34c9211d4b0b7e3817e7fd88fe8f71a58a272be28",
+      "status": "verified_in_stated_finite_domain"
+    }
+  ],
+  "common_program_sha256": "e53eff6d86fe7d63ba4d5f8d2e307cbee9538c5ad121693d11b8c8b8546fc082",
+  "complete_physical_mission_proved": false,
+  "domains": {
+    "conditional_transport_energies": "Undressed source spectrum, electron anchor and an extra declared event-time map; not joint electric-field rest masses.",
+    "cubic_routing": "Same local native law on a declared three-dimensional routing family; the controlled scalar dispersion limit holds for any finite fixed set of Fourier modes. Whole joint interacting field/clock transfer is unproved.",
+    "joint_local_program": "Two-load native source, active memory, signed tag, integer links, coherent event and declared tracking/phase apparatus."
+  },
+  "independent_Nature_matches_added": 0,
+  "mission": "One declared executable construction reproduces all compatible physical observer records.",
+  "new_independent_GeV_rest_masses": [],
+  "next_acceptance": "Identify physical particles and their rest spectrum on the joint charged field source, close the local clock and physical interaction normalization, and transfer the complete interacting observer program to its declared spatial refinement.",
+  "official_status": {
+    "authority": {
+      "all31_criteria": [
+        {
+          "criterion": "Charge quantization",
+          "id": 1,
+          "regime": "static",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "❌",
+            "M5": "✅",
+            "M6": "⚠️",
+            "M7": "⚠️",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Electron rest energy (mass)",
+          "id": 2,
+          "regime": "static",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "⚠️",
+            "M5": "✅",
+            "M6": "❌",
+            "M7": "⚠️",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "de Broglie clock (Zitterbewegung)",
+          "id": 3,
+          "regime": "dynamic",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "✅",
+            "M6": "⚠️",
+            "M7": "⚠️",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Particle stability (Derrick escape)",
+          "id": 4,
+          "regime": "dynamic",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "⚠️",
+            "M5": "✅",
+            "M6": "✅",
+            "M7": "⚠️",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Magnetic moment μ (g ≈ 2, magnetostatics)",
+          "id": 5,
+          "regime": "dynamic",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "❌",
+            "M6": "🚧",
+            "M7": "⚠️",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Angular momentum J (spin ℏ/2)",
+          "id": 6,
+          "regime": "dynamic",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "⚠️",
+            "M6": "🚧",
+            "M7": "⚠️",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Spin-½ statistics (720° double cover)",
+          "id": 7,
+          "regime": "static",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "✅",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Antimatter + annihilation",
+          "id": 8,
+          "regime": "both",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "⚠️",
+            "M5": "✅",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Neutrinos (neutral states)",
+          "id": 9,
+          "regime": "both",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "⚠️",
+            "M5": "⚠️",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Neutrino oscillations (PMNS)",
+          "id": 10,
+          "regime": "both",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "⚠️",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Lepton mass spectrum (μ, τ)",
+          "id": 11,
+          "regime": "static",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "❌",
+            "M5": "⚠️",
+            "M6": "❌",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Quarks",
+          "id": 12,
+          "regime": "static",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "🚧",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Baryons: bound state (p, n)",
+          "id": 13,
+          "regime": "static",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "⚠️",
+            "M5": "⚠️",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Baryons: mass ordering + charge profile",
+          "id": 14,
+          "regime": "static",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "⚠️",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Baryons: exact masses",
+          "id": 15,
+          "regime": "static",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "🚧",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Deuteron (binding + quadrupole)",
+          "id": 16,
+          "regime": "static",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "🚧",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Nuclear structure (levels, halos)",
+          "id": 17,
+          "regime": "both",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "🚧",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Mesons (π, K)",
+          "id": 18,
+          "regime": "static",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "🚧",
+            "M6": "❌",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Dark matter candidate",
+          "id": 19,
+          "regime": "static",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "🚧",
+            "M6": "✅",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Electric force (Coulomb 1/r, electrostatics)",
+          "id": 20,
+          "regime": "static",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "❌",
+            "M5": "✅",
+            "M6": "🚧",
+            "M7": "⚠️",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Lorentz covariance (+ Coulomb = EM)",
+          "id": 21,
+          "regime": "dynamic",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "⚠️",
+            "M6": "🚧",
+            "M7": "⚠️",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Strong force: confinement",
+          "id": 22,
+          "regime": "static",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "⚠️",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Running coupling",
+          "id": 23,
+          "regime": "static",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "⚠️",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Weak force: muon decay",
+          "id": 24,
+          "regime": "dynamic",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "⚠️",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Weak force: beta decay (n → p)",
+          "id": 25,
+          "regime": "dynamic",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "❌",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Gravity: Newton limit (GEM)",
+          "id": 26,
+          "regime": "both",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "⚠️",
+            "M5": "⚠️",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Gravity: local metric phenomena",
+          "id": 27,
+          "regime": "both",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "⚠️",
+            "M5": "🚧",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "⚠️"
+          }
+        },
+        {
+          "criterion": "Cosmology: Λ / cosmic acceleration",
+          "id": 28,
+          "regime": "static",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "🚧",
+            "M5": "🚧",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "⚠️",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "EM waves (Maxwell)",
+          "id": 29,
+          "regime": "dynamic",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "⚠️",
+            "M5": "✅",
+            "M6": "✅",
+            "M7": "⚠️",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Quantum wave equation (Klein-Gordon)",
+          "id": 30,
+          "regime": "dynamic",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "⚠️",
+            "M5": "✅",
+            "M6": "🚧",
+            "M7": "⚠️",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        },
+        {
+          "criterion": "Orbital quantization (atomic structure)",
+          "id": 31,
+          "regime": "static",
+          "upstream_status": {
+            "M10": "🚧",
+            "M4": "⚠️",
+            "M5": "🚧",
+            "M6": "🚧",
+            "M7": "🚧",
+            "M8": "🚧",
+            "M9": "🚧"
+          }
+        }
+      ],
+      "counts": {
+        "negative": 0,
+        "partial": 0,
+        "scored": 0,
+        "untested": 31,
+        "validated": 0
+      },
+      "local_receipts_change_authority": false,
+      "rank": 7,
+      "upstream_commit": "5d686cb049b82cc55f8822210a254d5833be23a7"
+    },
+    "rank": 7,
+    "untested": 31,
+    "validated": 0
+  },
+  "physical_identification_ids_closed": [],
+  "physical_premises_closed": [],
+  "proved_finite_interfaces": {
+    "charged_source_and_electric_links_evolve_in_one_state": true,
+    "declared_cubic_routing_has_fixed_Fourier_scalar_dispersion_limit": true,
+    "full_inverse_keeps_all_source_and_field_information": true,
+    "integer_charge_has_complete_boundary_readout": true,
+    "native_event_reflection_has_source_word_bounds": true,
+    "tracked_clock_has_complete_same_joint_state_records": true
+  },
+  "schema": "oph.joint_native_observer_claims.v1",
+  "shared_integer_extension": {
+    "active_memory": 6,
+    "added_registers": [
+      "transported_tag_bit",
+      "integer_charge_number",
+      "30_oriented_integer_electric_links",
+      "pair_preparation_reference",
+      "electric_phase_reference"
+    ],
+    "charge_assignment": "tagged load q, other load -q; q in Z; active character q modulo 6",
+    "declared_services": [
+      "integer controlled addition with boundary flag",
+      "vacuum-pair string swap",
+      "electric-energy controlled phase",
+      "complete orthogonal pointer readout"
+    ],
+    "electric_energy_coefficient": "1/8",
+    "event_selector": "coherent recoded bit0 identity/bit1 swap; distinct from native raw coin",
+    "finite_boundary": "admitted hop is reversible; outside-window proposal is identity with explicit overflow",
+    "gauss_convention": "G_v=sum_out E-sum_in E-rho_v",
+    "memory_embedding": 8,
+    "physical_seams": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        0,
+        10
+      ],
+      [
+        0,
+        11
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        2,
+        11
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        5,
+        11
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        10,
+        11
+      ]
+    ],
+    "schema": "oph.native_integer_electric_extension.v1",
+    "scope": "same native source/memory motion with declared integer-link and apparatus extension; no physical electric unit or continuum Maxwell claim",
+    "source": "native_H66_two_binary_loads",
+    "source_embedding": 512
+  }
+}

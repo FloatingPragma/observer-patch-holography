@@ -1,0 +1,25 @@
+{
+  "schema": "oph.chain.external_source_clock_map.v1",
+  "read_only_comparison": true,
+  "candidate_id": "native-local12-current-v0-proposed",
+  "source_contract_status": "proposed construction under implementation; no physical criterion established",
+  "source_contract_sha256": "3ec19e782656e548cbbc1791065a44616244eca22468424b7b09553a28160c72",
+  "carrier": "At size2, 96 positions times12 local event slots =1152 logical amplitudes, plus retained binary padding and apparatus outputs. LOCAL12 names slots, not total source dimension.",
+  "generator": "W=S R, R=2AA*-I; A|x>=|x> tensor uniform12; S is hold for coin0 and flip-flop neighbour/reverse-direction transport for coin1",
+  "clock_attachment_id": "local12-completed-word-clock-v1-proposed",
+  "population_comparison": "T_global=(1-6/M)I+(6/M)T_local at the one-load population level only; full original quantum records require separate recoding and cannot be transferred by this identity.",
+  "clock_scope": "Literal classical thinning is an exact same-process comparison. Repeated coherent W is a declared distinct dynamics; no raw-channel identity is inferred. Every time coordinate and failure is retained.",
+  "physical_attachment": "A common effective time coordinate is supplied. Physical seconds, spatially local processor services, and refinement scaling of hardware bandwidth/latency require explicit architecture or calibration.",
+  "source_selects_profile": false,
+  "native_pulses_per_declared_profile": 432425,
+  "C10_transfer_supplied": false,
+  "reciprocal_classical_force_transfer_supplied": false,
+  "inputs": {
+    "openwave-tuning/common_dynamics/SOURCE_CONTRACT.json": "3ec19e782656e548cbbc1791065a44616244eca22468424b7b09553a28160c72",
+    "openwave-tuning/common_dynamics/clock/CLOCK_CONTRACT.json": "56d66aaf2f438552943c6c9bbf125a243dad807564134c7e1c142f72e2e1b470",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_SOURCE_CUSTODY.json": "4d1f9c213f2dba5416dd9085f34be8082d4d65e7c3e10b8649bed27d4bab563a",
+    "openwave-tuning/auditor/native_walk_bridge/common_walk.py": "4c8b6087aab6212ae12af126640ba19bbfec63215be5234be64f016cc604d75d",
+    "openwave-tuning/auditor/native_walk_bridge/compile_walk.py": "26371a86d04d7853ab03dbccb46f89a65c809fb6d75480312b0ed61b0259ada2"
+  },
+  "scope": "Optional frozen observation of external contracts; not executed by CHAIN integration, not substituted for either admitted source, and not a validation of live external work."
+}

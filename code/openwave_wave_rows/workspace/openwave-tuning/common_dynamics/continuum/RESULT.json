@@ -1,0 +1,490 @@
+{
+  "schema": "oph.local12.controlled_continuum.v1",
+  "model_id": "native-local12-current-v0-proposed",
+  "checks": {
+    "exact_zero_bloch_projector": true,
+    "effective_generator_source_derived": true,
+    "three_gradient_vectors_Gram_is_I_over48": true,
+    "native_signed_displacement_has_bilinear_amplitude_map": true,
+    "full26sector_operator_error_bounds": true,
+    "complete_graph_Bloch_binding_L234": true,
+    "both_acoustic_branches_and24_stationary_modes_retained": true,
+    "optical_preparation_weight_bounded": true,
+    "one_common_clock_imported": true,
+    "invalid_domains_and_global_sign_rejected": true,
+    "compiled_source_error_composed_without_family_substitution": true,
+    "source_pins_unchanged": true
+  },
+  "zero_phase_sector_dimension": 26,
+  "dynamic_union_dimension": 4,
+  "exact_projector_denominator": 1152,
+  "exact_gradient_matrix_denominators": [
+    1152,
+    1152,
+    1152
+  ],
+  "generic_momentum_acoustic_eigenvalues": [
+    "+i|p|/(sqrt48*tau0)",
+    "-i|p|/(sqrt48*tau0)"
+  ],
+  "generic_momentum_zero_modes": 24,
+  "effective_field_equations": "d_t phi=(1/(sqrt48*tau0)) div chi; d_t chi=(1/(sqrt48*tau0)) grad phi; chi is a vector amplitude and22 further amplitude components are stationary",
+  "native_current_attachment": "The actual terminal signed cell-displacement observable has compressed operator -H_a. For amplitudes(phi,chi), its first moment is -2/sqrt48 Re(conj(phi)*chi_a); dividing by tau0 gives continuum probability velocity flux. chi itself is not the native edge-current record or an electromagnetic field. The equality is a finite compressed observable identity, with complete-observable evolution error retained.",
+  "complete_observable_theorem": "For initial reference-entangled states in P0 and Fourier support |p|\u221e<=K, hK<=1/2, at t=n*tau0*h, state trace distance and any complete terminal-instrument TV are bounded by min(1,(5/2)hK+(77/32)n*h\u00b2*K\u00b2). No optical or flat output is discarded.",
+  "continuum_position_bins": "Comparing native cell-position probabilities with continuum density integrated over centered cells adds at most3hK/4 to the complete terminal bound; no equality between a discrete grid measure and an unbinned continuous measure is claimed.",
+  "Bloch_controls": [
+    {
+      "momentum": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "h_exact": "1/8",
+      "steps": 8,
+      "time_exact": "1",
+      "full26sector_operator_error": 0.05090450117129426,
+      "state_error_bound_exact": "157/256",
+      "one_step_corrector_error": 0.00046150323685733983,
+      "one_step_corrector_bound_exact": "77/2048",
+      "all144_internal_event_coordinates_retained": true
+    },
+    {
+      "momentum": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "h_exact": "1/16",
+      "steps": 16,
+      "time_exact": "1",
+      "full26sector_operator_error": 0.025458823221554065,
+      "state_error_bound_exact": "157/512",
+      "one_step_corrector_error": 0.00011516085982047579,
+      "one_step_corrector_bound_exact": "77/8192",
+      "all144_internal_event_coordinates_retained": true
+    },
+    {
+      "momentum": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "h_exact": "1/32",
+      "steps": 32,
+      "time_exact": "1",
+      "full26sector_operator_error": 0.013213983667524848,
+      "state_error_bound_exact": "157/1024",
+      "one_step_corrector_error": 2.8776742710818574e-05,
+      "one_step_corrector_bound_exact": "77/32768",
+      "all144_internal_event_coordinates_retained": true
+    },
+    {
+      "momentum": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "h_exact": "1/64",
+      "steps": 64,
+      "time_exact": "1",
+      "full26sector_operator_error": 0.008481279419341818,
+      "state_error_bound_exact": "157/2048",
+      "one_step_corrector_error": 7.193343068475295e-06,
+      "one_step_corrector_bound_exact": "77/131072",
+      "all144_internal_event_coordinates_retained": true
+    },
+    {
+      "momentum": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "h_exact": "1/8",
+      "steps": 8,
+      "time_exact": "1",
+      "full26sector_operator_error": 0.06245931784238023,
+      "state_error_bound_exact": "157/256",
+      "one_step_corrector_error": 0.0007924157345567749,
+      "one_step_corrector_bound_exact": "77/2048",
+      "all144_internal_event_coordinates_retained": true
+    },
+    {
+      "momentum": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "h_exact": "1/16",
+      "steps": 16,
+      "time_exact": "1",
+      "full26sector_operator_error": 0.031244913985326066,
+      "state_error_bound_exact": "157/512",
+      "one_step_corrector_error": 0.00019430982081189232,
+      "one_step_corrector_bound_exact": "77/8192",
+      "all144_internal_event_coordinates_retained": true
+    },
+    {
+      "momentum": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "h_exact": "1/32",
+      "steps": 32,
+      "time_exact": "1",
+      "full26sector_operator_error": 0.015624364224883336,
+      "state_error_bound_exact": "157/1024",
+      "one_step_corrector_error": 4.833419052726412e-05,
+      "one_step_corrector_bound_exact": "77/32768",
+      "all144_internal_event_coordinates_retained": true
+    },
+    {
+      "momentum": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "h_exact": "1/64",
+      "steps": 64,
+      "time_exact": "1",
+      "full26sector_operator_error": 0.00851231267684086,
+      "state_error_bound_exact": "157/2048",
+      "one_step_corrector_error": 1.2068242684472189e-05,
+      "one_step_corrector_bound_exact": "77/131072",
+      "all144_internal_event_coordinates_retained": true
+    },
+    {
+      "momentum": [
+        1.0,
+        -1.0,
+        1.0
+      ],
+      "h_exact": "1/8",
+      "steps": 8,
+      "time_exact": "1",
+      "full26sector_operator_error": 0.06245931784238016,
+      "state_error_bound_exact": "157/256",
+      "one_step_corrector_error": 0.0008852679228314383,
+      "one_step_corrector_bound_exact": "77/2048",
+      "all144_internal_event_coordinates_retained": true
+    },
+    {
+      "momentum": [
+        1.0,
+        -1.0,
+        1.0
+      ],
+      "h_exact": "1/16",
+      "steps": 16,
+      "time_exact": "1",
+      "full26sector_operator_error": 0.03124491398532605,
+      "state_error_bound_exact": "157/512",
+      "one_step_corrector_error": 0.00020706284417717095,
+      "one_step_corrector_bound_exact": "77/8192",
+      "all144_internal_event_coordinates_retained": true
+    },
+    {
+      "momentum": [
+        1.0,
+        -1.0,
+        1.0
+      ],
+      "h_exact": "1/32",
+      "steps": 32,
+      "time_exact": "1",
+      "full26sector_operator_error": 0.015624364224883338,
+      "state_error_bound_exact": "157/1024",
+      "one_step_corrector_error": 5.000179066991285e-05,
+      "one_step_corrector_bound_exact": "77/32768",
+      "all144_internal_event_coordinates_retained": true
+    },
+    {
+      "momentum": [
+        1.0,
+        -1.0,
+        1.0
+      ],
+      "h_exact": "1/64",
+      "steps": 64,
+      "time_exact": "1",
+      "full26sector_operator_error": 0.008532215990935664,
+      "state_error_bound_exact": "157/2048",
+      "one_step_corrector_error": 1.2281296142538755e-05,
+      "one_step_corrector_bound_exact": "77/131072",
+      "all144_internal_event_coordinates_retained": true
+    }
+  ],
+  "development_graph_binding": [
+    {
+      "development_size": 2,
+      "mode": [
+        0,
+        0,
+        0
+      ],
+      "full_graph_symbol_error": 4.166948782366562e-17
+    },
+    {
+      "development_size": 2,
+      "mode": [
+        1,
+        0,
+        0
+      ],
+      "full_graph_symbol_error": 4.2207643840401616e-17
+    },
+    {
+      "development_size": 2,
+      "mode": [
+        1,
+        1,
+        0
+      ],
+      "full_graph_symbol_error": 4.2207643840401616e-17
+    },
+    {
+      "development_size": 3,
+      "mode": [
+        0,
+        0,
+        0
+      ],
+      "full_graph_symbol_error": 4.166948782366562e-17
+    },
+    {
+      "development_size": 3,
+      "mode": [
+        1,
+        0,
+        0
+      ],
+      "full_graph_symbol_error": 4.654751537338637e-17
+    },
+    {
+      "development_size": 3,
+      "mode": [
+        1,
+        1,
+        0
+      ],
+      "full_graph_symbol_error": 7.28583859910259e-17
+    },
+    {
+      "development_size": 4,
+      "mode": [
+        0,
+        0,
+        0
+      ],
+      "full_graph_symbol_error": 4.166948782366562e-17
+    },
+    {
+      "development_size": 4,
+      "mode": [
+        1,
+        0,
+        0
+      ],
+      "full_graph_symbol_error": 4.2207643840401616e-17
+    },
+    {
+      "development_size": 4,
+      "mode": [
+        1,
+        1,
+        0
+      ],
+      "full_graph_symbol_error": 4.2207643840401616e-17
+    }
+  ],
+  "formal_unit_torus_bounds": [
+    {
+      "formal_refinement_size": 128,
+      "enumerated": false,
+      "whole_observable_bound": {
+        "time": "1",
+        "embedding_error": "35/256",
+        "evolution_error": "3773/4096",
+        "state_vector_error": "4333/4096",
+        "trace_distance_and_terminal_TV_bound": "1",
+        "continuum_cell_bin_TV_bound": "1",
+        "native_displacement_mean_error_bound": "2",
+        "native_velocity_mean_error_bound": "2",
+        "clock_scale": "1",
+        "cell_spacing": "1/128",
+        "momentum_bound": "7"
+      },
+      "scalar_probe_bound": {
+        "optical_weight_bound": "3211264/16700651361",
+        "phase_error_bound": "5821668685/618436755456",
+        "normalized_low_band_trace_distance_bound": "620192910536129/26640400114778112",
+        "normalized_low_band_state_vector_bound": "989605799128513/26640400114778112",
+        "X_probe_TV_bound": "33732528808527214351/6885531094465780383744",
+        "Y_probe_probability_exact": "1/2",
+        "speed_squared_per_common_time": "1/48",
+        "domain": "uniform internal/event preparation, bandlimited envelope, no intervening source measurement"
+      }
+    },
+    {
+      "formal_refinement_size": 256,
+      "enumerated": false,
+      "whole_observable_bound": {
+        "time": "1",
+        "embedding_error": "35/512",
+        "evolution_error": "3773/8192",
+        "state_vector_error": "4333/8192",
+        "trace_distance_and_terminal_TV_bound": "4333/8192",
+        "continuum_cell_bin_TV_bound": "4501/8192",
+        "native_displacement_mean_error_bound": "4333/4096",
+        "native_velocity_mean_error_bound": "4333/4096",
+        "clock_scale": "1",
+        "cell_spacing": "1/256",
+        "momentum_bound": "7"
+      },
+      "scalar_probe_bound": {
+        "optical_weight_bound": "12845056/271081629025",
+        "phase_error_bound": "23287733581/9895450509312",
+        "normalized_low_band_trace_distance_bound": "47590169552989763/5152115784925839360",
+        "normalized_low_band_state_vector_bound": "83055464178363971/5152115784925839360",
+        "X_probe_TV_bound": "6567091987312359111469/5364949688001125783961600",
+        "Y_probe_probability_exact": "1/2",
+        "speed_squared_per_common_time": "1/48",
+        "domain": "uniform internal/event preparation, bandlimited envelope, no intervening source measurement"
+      }
+    },
+    {
+      "formal_refinement_size": 512,
+      "enumerated": false,
+      "whole_observable_bound": {
+        "time": "1",
+        "embedding_error": "35/1024",
+        "evolution_error": "3773/16384",
+        "state_vector_error": "4333/16384",
+        "trace_distance_and_terminal_TV_bound": "4333/16384",
+        "continuum_cell_bin_TV_bound": "4501/16384",
+        "native_displacement_mean_error_bound": "4333/8192",
+        "native_velocity_mean_error_bound": "4333/8192",
+        "clock_scale": "1",
+        "cell_spacing": "1/512",
+        "momentum_bound": "7"
+      },
+      "scalar_probe_bound": {
+        "optical_weight_bound": "51380224/4367828304225",
+        "phase_error_bound": "93151993165/158329057837056",
+        "normalized_low_band_trace_distance_bound": "443194765803770561/110299146496895877120",
+        "normalized_low_band_state_vector_bound": "821495661329109697/110299146496895877120",
+        "X_probe_TV_bound": "141047292418604842061071/461036093467980169897574400",
+        "Y_probe_probability_exact": "1/2",
+        "speed_squared_per_common_time": "1/48",
+        "domain": "uniform internal/event preparation, bandlimited envelope, no intervening source measurement"
+      }
+    },
+    {
+      "formal_refinement_size": 1024,
+      "enumerated": false,
+      "whole_observable_bound": {
+        "time": "1",
+        "embedding_error": "35/2048",
+        "evolution_error": "3773/32768",
+        "state_vector_error": "4333/32768",
+        "trace_distance_and_terminal_TV_bound": "4333/32768",
+        "continuum_cell_bin_TV_bound": "4501/32768",
+        "native_displacement_mean_error_bound": "4333/16384",
+        "native_velocity_mean_error_bound": "4333/16384",
+        "clock_scale": "1",
+        "cell_spacing": "1/1024",
+        "momentum_bound": "7"
+      },
+      "scalar_probe_bound": {
+        "optical_weight_bound": "205520896/70127610853729",
+        "phase_error_bound": "372609031501/2533272324145152",
+        "normalized_low_band_trace_distance_bound": "39437303160548297795/21214187362119787216896",
+        "normalized_low_band_state_vector_bound": "75754295199493196867/21214187362119787216896",
+        "X_probe_TV_bound": "27171461957427606610509613/355304671468345701733672943616",
+        "Y_probe_probability_exact": "1/2",
+        "speed_squared_per_common_time": "1/48",
+        "domain": "uniform internal/event preparation, bandlimited envelope, no intervening source measurement"
+      }
+    },
+    {
+      "formal_refinement_size": 2048,
+      "enumerated": false,
+      "whole_observable_bound": {
+        "time": "1",
+        "embedding_error": "35/4096",
+        "evolution_error": "3773/65536",
+        "state_vector_error": "4333/65536",
+        "trace_distance_and_terminal_TV_bound": "4333/65536",
+        "continuum_cell_bin_TV_bound": "4501/65536",
+        "native_displacement_mean_error_bound": "4333/32768",
+        "native_velocity_mean_error_bound": "4333/32768",
+        "clock_scale": "1",
+        "cell_spacing": "1/2048",
+        "momentum_bound": "7"
+      },
+      "scalar_probe_bound": {
+        "optical_weight_bound": "822083584/1123973298055521",
+        "phase_error_bound": "1490437184845/40532386781331456",
+        "normalized_low_band_trace_distance_bound": "404037520039034185409/452959028457046196355072",
+        "normalized_low_band_state_vector_bound": "791419051303812687553/452959028457046196355072",
+        "X_probe_TV_bound": "580617872593787735676871951/30371546965783413385298794512384",
+        "Y_probe_probability_exact": "1/2",
+        "speed_squared_per_common_time": "1/48",
+        "domain": "uniform internal/event preparation, bandlimited envelope, no intervening source measurement"
+      }
+    }
+  ],
+  "frozen_size2_native_error_compositions": [
+    {
+      "member_size": 2,
+      "source_word_error_exact": "95864066706036985014767851159606074061/1461501637330902918203684832716283019655932542976",
+      "source_preparation_error_exact": "16242877455742880306275869187750905/1461501637330902918203684832716283019655932542976",
+      "complete_record_TV_bound_exact": "47940154791746363947537063514396912483/730750818665451459101842416358141509827966271488",
+      "ideal_bound_input_exact": "0",
+      "instrument_error_input_exact": "0",
+      "reset_timeout_input_exact": "0",
+      "scope": "Same size2 native source; no transfer to compiled words of other sizes."
+    },
+    {
+      "member_size": 2,
+      "source_word_error_exact": "95864066706036985014767851159606074061/182687704666362864775460604089535377456991567872",
+      "source_preparation_error_exact": "16242877455742880306275869187750905/1461501637330902918203684832716283019655932542976",
+      "complete_record_TV_bound_exact": "766928776525751622998449085146036343393/1461501637330902918203684832716283019655932542976",
+      "ideal_bound_input_exact": "0",
+      "instrument_error_input_exact": "0",
+      "reset_timeout_input_exact": "0",
+      "scope": "Same size2 native source; no transfer to compiled words of other sizes."
+    },
+    {
+      "member_size": 2,
+      "source_word_error_exact": "95864066706036985014767851159606074061/22835963083295358096932575511191922182123945984",
+      "source_preparation_error_exact": "16242877455742880306275869187750905/1461501637330902918203684832716283019655932542976",
+      "complete_record_TV_bound_exact": "6135316512063822783825448750083976490809/1461501637330902918203684832716283019655932542976",
+      "ideal_bound_input_exact": "0",
+      "instrument_error_input_exact": "0",
+      "reset_timeout_input_exact": "0",
+      "scope": "Same size2 native source; no transfer to compiled words of other sizes."
+    }
+  ],
+  "implementation_refinement_condition": "For fixed effective time, n is O(1/h). Uniform physical implementation convergence requires per-step error delta_W(h)=o(h), vanishing preparation/instrument errors and retained reset timeouts with total probability tending to zero. The fixed size2 certificate does not establish these family conditions.",
+  "global_sign_mutation_operator_error": 2.000000000000002,
+  "clock_contract": {
+    "source": "openwave-tuning/common_dynamics/clock/clock_contract.py",
+    "api": "effective_time(n,h,tau0)",
+    "physical_seconds_claimed": false
+  },
+  "instrument_domain": "One complete terminal instrument, or a sequence whose intervening operations preserve Fourier bandwidth and P0 with certified error. Arbitrary sharp position interventions are excluded from that theorem; exact same-W full-state continuation is retained separately.",
+  "native_execution_scope": "The family Bloch/graph update is exact. Native pulse compilation is frozen for size2; no uniform-in-size physical pulse implementation or accumulated hardware error is inferred. Bandlimited input preparation is an explicit domain premise.",
+  "field_scope": "Free scalar/longitudinal first-order continuum on this one-load source. Stationary transverse components do not establish Maxwell radiation. No interacting manybody limit, species masses, coupling or all31 validation is inferred.",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/continuum/continuum.py": "5bb5911945c9a53041dd743f90022d057536d8026c391dcc838be9a91e069b71",
+    "reverse-engineering-reality/model/native_spatial_refinement/source.py": "b4576a37b7610418f810ab7beebf5e52a7eeab80f66c7260ace149de9c733733",
+    "openwave-tuning/auditor/native_walk_bridge/common_walk.py": "4c8b6087aab6212ae12af126640ba19bbfec63215be5234be64f016cc604d75d",
+    "openwave-tuning/common_dynamics/clock/clock_contract.py": "ee2899c4eeb765e011c2365154573a9e9e4afd6749b4f8b03be3be572c6f8dbc",
+    "reverse-engineering-reality/model/native_spatial_refinement/PROOF.md": "c411a13d5f92b38721eb6624291e01571a4363dcca9f80cb5f141da794c7bb1b",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_WALK_RECEIPT.json": "39e2d7a6dace9ff549d8e68974239c11f03316550a36f1c708302dd562048052",
+    "openwave-tuning/auditor/common_walk_particle/MANIFEST.json": "7e6c6ba851f5fd3b6aa96ee4d621bf4f09f37540d6b0da72572b483ef51b477c",
+    "openwave-tuning/auditor/common_walk_review/SOURCE_ERROR.json": "79432b4a01fa0f9234a8843d27d5a5eb20fd1483e9476c42e91a212f9df2573d"
+  },
+  "official_rows_changed": []
+}

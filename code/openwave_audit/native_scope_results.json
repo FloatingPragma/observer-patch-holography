@@ -1,0 +1,79 @@
+{
+  "schema": "oph.openwave.independent_scope_audit.v1",
+  "checks": {
+    "hamiltonian_uniform_intertwiner": true,
+    "complete_native_maps_preserve_code": true,
+    "register_readout_leaves_only_one_sixth_in_code": true,
+    "every_cut_has_modular_gauss_identity": true,
+    "native_one_load_spectrum_nonnegative": true,
+    "full_record_counterexample": true,
+    "mutations_detected": true
+  },
+  "mutations": {
+    "erase_unit_rejected": true,
+    "omit_record_rejected": true,
+    "record_measurement_as_code_preserving_rejected": true,
+    "definite_records_as_native_state_law_rejected": true,
+    "identify_survival_with_stationary_distribution_rejected": true
+  },
+  "parameters": {
+    "graph": "triangle",
+    "ports": 3,
+    "modulus": 6,
+    "mass": 0.23,
+    "time": 0.37
+  },
+  "observables": {
+    "uniform_code_weight_after_register_measurement": 0.16666666666666677,
+    "continued_position_max_change": 0.00013288394927921433,
+    "definite_record_transit_weight": 0.2379296315485776,
+    "definite_vs_native_total_variation_at_one_attempt_per_time_unit": 0.23792963154857763,
+    "native_transition_numerators": [
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        1,
+        4,
+        1
+      ],
+      [
+        1,
+        1,
+        4
+      ]
+    ],
+    "native_transition_denominator": 6,
+    "native_transition_eigenvalues": [
+      0.4999999999999999,
+      0.49999999999999994,
+      0.9999999999999999
+    ],
+    "native_map_residuals": {
+      "C": {
+        "completeness": 2.220446049250313e-16,
+        "code_leak": 3.323591426065187e-16
+      },
+      "E": {
+        "completeness": 2.220446049250313e-16,
+        "code_leak": 2.972710543246889e-16
+      }
+    },
+    "all_cut_violations": 0
+  },
+  "scope": "Independent finite development counterchecks. No reserved acceptance run, physical particle identification, infinite-register limit, or platform award.",
+  "official_rows_changed": [],
+  "native_source_comparison": {
+    "signed_endpoint_branches": 578,
+    "disagreements": 0,
+    "source_sha256": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d"
+  },
+  "versions": {
+    "python": "3.13.7",
+    "numpy": "2.3.5",
+    "scipy": "1.16.3"
+  },
+  "auditor_sha256": "07f4b81da2c55686220fdf22095bc5d0bfe09e70f19650aa5676ae1c50516b31"
+}

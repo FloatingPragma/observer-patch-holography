@@ -1,0 +1,94 @@
+{
+  "schema": "oph.chain2.refinement_apparatus.contract.v1",
+  "model_id": "native-local12-two-fourier-mode-apparatus-v1",
+  "source": "native-local12-current-v0-proposed",
+  "adapter": "native-local12-rational-refinement-adapter-v1",
+  "frozen_manifests": {
+    "openwave-tuning/next/CHAIN2/local12_limit_audit/MANIFEST.json": "997916c3b216f3006b9c88b8ef39419a213df5075e8159f47298d87ad295e2ad",
+    "openwave-tuning/common_dynamics/clock/MANIFEST.json": "6f80b0fe899cdeffd59d3742c318fe627817c19685d8f164abed69721f0b0992",
+    "openwave-tuning/common_dynamics/continuum/MANIFEST.json": "3067f7bdea43ca5137d6b115f7e1bd92b4d753ba99684ed198ba2da170240adf"
+  },
+  "family": {
+    "member": "dyadic N=2^q, q>=1",
+    "spacing": "h=1/N on unit torus",
+    "clock": "t=n*tau0*h; phase=n*h/8",
+    "continuum_admission": "N>=16; K=7; tau0>0",
+    "native_preparation": "QFT circuit along x, selector span{|0>,|1>}, uniform y/z/port/event",
+    "Fourier_support": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        "2*pi",
+        0,
+        0
+      ]
+    ],
+    "internal_state": "all144 amplitudes=1/12, e in rank26 P0",
+    "arbitrary_reference": "input selector may be reference-entangled; external_selector programme omits its reset and prescribed state preparation",
+    "general_vector_packets": false
+  },
+  "complete_instrument": {
+    "type": "terminal full padded data address plus native X/Y clock read",
+    "native_read": "two rational-native CNOTs into code2 auxiliary, actual C or E seam(0,1) repair",
+    "failure_outputs": [
+      "all first M6 export complements with prefix poststate",
+      "all native reset fine records and first timeout",
+      "all pointer C/E labels and auxiliary outputs",
+      "all source/internal/event/padding outputs"
+    ],
+    "intermediate_use": "rejected without separate P0 and bandwidth preservation proof",
+    "fine_reset_tape_scope": "fresh independent native apparatus carriers, identical fine reset environment in comparator; arbitrary initially correlated reset carriers require forgetting private reset labels"
+  },
+  "precision_and_error": {
+    "serialization": "all twelve exact rational integrated M6 coefficients retained",
+    "free_complete_TV": "min(1, (5/2)hK+(77/32)n*h^2*K^2+delta_prep+n*delta_W+delta_clock_detector+Q*q^r)",
+    "choices": "delta_prep,delta_W,delta_clock_detector,Q*q^r <= h^2",
+    "cell_integrated_density_extra": "3hK/4",
+    "current_mean_extra": "factor2; velocity factor2/tau0",
+    "native_word_resources": "O(N^3 log^2N) pulses per W; 2 proper-code services per pulse",
+    "prep_resources": "O(log^2N) pulses",
+    "readout_resources": "O(logN) pointer pulses",
+    "physical_service_seconds": false
+  },
+  "program_APIs": [
+    "native_program",
+    "preparation_template",
+    "complete_run",
+    "failure_branch",
+    "pointer_blocks",
+    "execute_reset",
+    "sample_trial",
+    "family_certificate",
+    "development_budget"
+  ],
+  "execution": {
+    "actual_development_graphs": [
+      2,
+      4
+    ],
+    "larger_graphs_executed": false,
+    "formal_bound_sizes": [
+      16,
+      64,
+      256,
+      1024,
+      4096
+    ],
+    "native_blocks": "full M6 complete prep/reflection/reversible/pointer/clock blocks",
+    "source_W": "certified compression by full16 ideal R and exact reversible source map; n*delta_W explicit",
+    "samples": "native reset and M6 apparatus trajectories on certified compressed source centre",
+    "development_continuum_domain_satisfied": false,
+    "reserved_Fable_runs": false
+  },
+  "massive_extension": "Preparation/readout compose with pinned mass_coin source if its own native word and continuum certificate match; no asymptotic massive source certificate supplied here",
+  "excluded": [
+    "transfer of free theorem to autonomous field",
+    "empirical seconds or species mass calibration",
+    "general all31 award",
+    "intermediate fine instrument continuum theorem"
+  ],
+  "official_rows_changed": []
+}

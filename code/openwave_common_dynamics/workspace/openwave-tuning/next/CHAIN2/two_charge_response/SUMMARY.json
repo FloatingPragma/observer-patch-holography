@@ -1,0 +1,34 @@
+{
+  "schema": "oph.two_charge.summary.v1",
+  "candidate_id": "native-local12-mass-fermion-plaquette-v3-proposed",
+  "mobile_pair_response": {
+    "file": "MOBILE_RESPONSE.json",
+    "sha256": "35409ce4a8bf19d392459c9c31a8024dde9231801151a14745e87e7802b1f18d",
+    "status": "executed",
+    "pair_position_TV": 0.00046390731563228447,
+    "single_random_particle_marginal_TV": 0.00020986372229233092,
+    "native_current_L1_difference": 0.0016010347419982464,
+    "interaction_changes_pair_law": true
+  },
+  "full_V_echo": {
+    "file": "FULL_V_ECHO.json",
+    "event_law_TV": 0.005405712408914715,
+    "native_TV_bounds": [
+      3.296468663140418e-05,
+      3.296468664971737e-05
+    ],
+    "native_pulses_excluding_resets": 2409184,
+    "native_reset_attempts_max": 17147234
+  },
+  "dark_preparation_counterexample": {
+    "artifact": "DARK_INVARIANT.json",
+    "sha256": "f50d1350b4318d7426193c990bebc140b9273c3ff604e802da7156e97a34de7b",
+    "fixed_field_probe_position_TV_exact": 0,
+    "reference_change_when_removing_dark_charge": "With F held fixed, Gauss G changes by-delta_y. There is no intervention changing charge at fixed F and fixed G.",
+    "classification": "The y-intervention varies the compensated field string. Its nonzero response alone supplies no mobile pair-force evidence."
+  },
+  "complete_probability_tables_validated": 14,
+  "source_state_scope": "Two genuine Fock excitations, all canonical signs, shared288edgeZ16, fixedG2delta0 with explicit field strings. Native proper-code/readout/reset complements retained in composed TV contract.",
+  "clock_and_limit_scope": "Macrosteps only; no physical clock/probe composed here, no M16-to-integer or homogeneous continuum transfer.",
+  "scope": "Finite two-charge shared-field records. The held-dark position intervention is a field-preparation susceptibility, with exact zero probe response to an added dark charge at fixed field. The two-mobile experiment uses identical complete preparations and changes field couplings, yielding a pair/current response. A separate inverse-coin preparation and charged inverse-transport/readout apparatus isolates a connected two-charge phase under the unchanged full one-face V. No Coulomb1/r, fine-structure constant, labelled reciprocal acceleration, continuum limit, physical mass or stable-matter result."
+}

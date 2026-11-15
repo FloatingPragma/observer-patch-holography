@@ -1,0 +1,39 @@
+{
+  "schema": "oph.c11.charged_energy_reference_review.v1",
+  "reviewer": "Second distinct Codex worker; no producer import/replay",
+  "outcome": "PASS_WITH_SINGLE_SUPPLIED_CALIBRATION_SCOPE",
+  "checks": {
+    "all1392_unconditional_bins_preserved": true,
+    "no_probability_or_zero_filtering": true,
+    "one_common_linear_scale": true,
+    "complete_work_mean_same_scale": true,
+    "exact_stored_number_peak_ratio": true,
+    "common_energy_zero_shift_cancels": true,
+    "anchor_not_empirical_prediction": true
+  },
+  "bins_checked": 1392,
+  "exact_zero_probability_bins_retained": 1044,
+  "maximum_energy_pushforward_error": 3.469446951953614e-18,
+  "work_pushforward_error": 9.171288388574381e-20,
+  "exact_ratio_of_stored_binary_source_excitation_numbers": "3834136568593541/783670368849966",
+  "ratio_float": 4.8925373741259675,
+  "anchor": {
+    "supplied_GeV": 0.000511,
+    "selected_source_excitation": 0.3480195548854885,
+    "unconditional_peak_probability": 0.18035069691480649,
+    "selection_independent_of_target_mass": "sort original addition bins by descending unconditional weight, then lower energy",
+    "exact_linear_scale_of_stored_numbers": "261841283935155/178328546156081152"
+  },
+  "scope": "Exact rational arithmetic checks the linear map of stored finite binary64 records, not an exact analytic mass theorem. One511keV displayanchor is supplied; all other numbers are conditional source excitations under that same scale. No physicalspecies, restmomentum, antiparticle symmetry or empiricalparticle mass follows.",
+  "producer_runs": 0,
+  "large_diagonalizations": 0,
+  "full_criterion_met": false,
+  "official_rows_changed": [],
+  "source_sha256": {
+    "next/C11/review_charged_energy_reference.py": "9464fd8b7e95b4ae8d666daa5c3c8db64fce9d7d737b015537277896412b6853",
+    "next/C11/charged_energy_units.py": "7669863d03b2bd2c68ebd9bc477ab640240f82dacd58062b9342b3f79ad92df8",
+    "next/C11/CHARGED_ENERGY_UNITS.json": "223a7a0d39cd6a3041938c147c52ff592071c74f5c79b00cb3da39a9a2c98644",
+    "next/C10/JOINT_SOURCE.json": "b9750a2e5823f15496f3915dc6a647af4cc0944dbff21d4b0fd48e27693b3546",
+    "next/C10/CANONICAL_SOURCE_CONTRACT.json": "18eb795d6591ef64450211a7e4279352008e8570056e5c87d9c51dc1c504c695"
+  }
+}

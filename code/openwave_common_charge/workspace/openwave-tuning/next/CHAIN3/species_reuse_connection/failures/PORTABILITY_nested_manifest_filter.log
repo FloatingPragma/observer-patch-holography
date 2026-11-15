@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "<string>", line 13, in <module>
+    runpy.run_path(str(package/'run.py'),run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-species-replay-bq3a9s_6/workspace/openwave-tuning/next/CHAIN3/species_reuse_connection/run.py", line 12, in <module>
+    import source as s
+  File "/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-species-replay-bq3a9s_6/workspace/openwave-tuning/next/CHAIN3/species_reuse_connection/source.py", line 16, in <module>
+    import native_oscillators as field_words
+  File "/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-species-replay-bq3a9s_6/workspace/openwave-tuning/next/CHAIN3/species_reuse_connection/inputs/openwave-tuning/next/CHAIN3/native_field_connection/native_oscillators.py", line 5, in <module>
+    from providers import native
+  File "/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-species-replay-bq3a9s_6/workspace/openwave-tuning/next/CHAIN3/species_reuse_connection/inputs/openwave-tuning/next/CHAIN3/native_field_connection/providers.py", line 18, in <module>
+    verify()
+    ~~~~~~^^
+  File "/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-species-replay-bq3a9s_6/workspace/openwave-tuning/next/CHAIN3/species_reuse_connection/inputs/openwave-tuning/next/CHAIN3/native_field_connection/providers.py", line 14, in verify
+    if hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != expected:
+                      ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/muellerberndt/.pyenv/versions/3.13.7/lib/python3.13/pathlib/_abc.py", line 625, in read_bytes
+    with self.open(mode='rb') as f:
+         ~~~~~~~~~^^^^^^^^^^^
+  File "/Users/muellerberndt/.pyenv/versions/3.13.7/lib/python3.13/pathlib/_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-species-replay-bq3a9s_6/workspace/openwave-tuning/next/CHAIN3/species_reuse_connection/inputs/openwave-tuning/next/CHAIN3/native_field_connection/inputs/openwave-tuning/common_dynamics/quadratic_field/MANIFEST.json'

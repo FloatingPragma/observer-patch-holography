@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/reviews/CHARGE_TERMINAL_ANNEX/channel.py", line 98, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/reviews/CHARGE_TERMINAL_ANNEX/channel.py", line 18, in main
+    compiler=custody();g=compiler.spatial.graph(2)
+             ^^^^^^^^^
+  File "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/reviews/CHARGE_TERMINAL_ANNEX/audit.py", line 49, in custody
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1128, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1186, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN5/dirac_kg_opposing_review/inputs/openwave-tuning/next/CHAIN2/local12_limit_audit/refinement_adapter.py'

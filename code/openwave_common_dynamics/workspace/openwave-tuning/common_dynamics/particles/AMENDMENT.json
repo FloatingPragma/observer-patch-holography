@@ -1,0 +1,41 @@
+{
+  "schema": "oph.common.particle_mass.amendment.v1",
+  "worker": "DYN09",
+  "proposals": [
+    {
+      "candidate_id": "native-local12-mass-coin-v1-proposed",
+      "base": "native-local12-current-v0-proposed",
+      "change": "W_mu = S R exp(-i h*m R), using the existing source reflection at every port",
+      "supplied_inputs": [
+        "m: one common rational architecture mass parameter",
+        "h and tau0: shared source spacing/clock inputs"
+      ],
+      "retained_sectors": "All1152 physical and896 encoded padding columns; continuum P0 has two dispersive and24 flat mass branches"
+    },
+    {
+      "candidate_id": "native-local12-mass-fermion-plaquette-v3-proposed",
+      "base": "native-local12-fermion-plaquette-v2-proposed",
+      "change": "Prepend128 native onsite Gamma(exp(-i h*m R)) words to the actual autonomous matter/current/field macro",
+      "supplied_inputs": [
+        "CAR from the predecessor manybody amendment",
+        "modulus16 finite electric field",
+        "m,alpha,beta_face and tau0 architecture parameters"
+      ],
+      "retained_sectors": "Full native Fock operator certificate on declared clean-work domain; complete finite one-particle joint laws at n<=3. No simultaneous particle/antiparticle vacuum is supplied."
+    }
+  ],
+  "independent_later_candidate": "DYN10 Dirac-Clifford source is a distinct replacement proposal; its spin, transport speed and dispersion are not attributed to this scalar/vector source.",
+  "selection": "Coordinator review required for common candidate selection; this worker does not alter predecessor receipts or select an acceptance candidate.",
+  "readouts": "Native coarse position parity flags preserve within-port event coherence; optional full electric-field read is explicit dephasing. Reset errors use uniform conditional lower bounds and union bounds, without an independence assumption.",
+  "unresolved_physical_claims": [
+    "Observed species masses",
+    "Physical-second or absolute unit attachment",
+    "Energy-ground interacting vacuum",
+    "Infinite-volume interacting particle poles",
+    "Homogeneous interacting continuum",
+    "Two-charge force law and pair creation",
+    "Spin one half for this scalar/vector source"
+  ],
+  "reserved_acceptance_runs": false,
+  "official_rows_changed": []
+}

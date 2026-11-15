@@ -1,0 +1,65 @@
+{
+  "all31_complete": false,
+  "official_OpenWave_awards_added": 0,
+  "one_interacting_continuum_construction_established": false,
+  "public_replay": "python3 code/openwave_wave_rows/replay.py --mode all",
+  "rows": [
+    {
+      "candidate_id": "native-local12-dirac-noncompact-quadratic-v4-proposed",
+      "full_criterion_met": true,
+      "independent_full_reviews": [
+        {
+          "full_criterion_met": true,
+          "producer_independent": true,
+          "review_file": "openwave-tuning/row_completion/reviews/ROW_29_ROOT/REVIEW.json",
+          "review_sha256": "c9f1ec795b81a0773a0bc7b9fb92a7c9067feb3bc6f14f992b6ac69c231b89d4",
+          "reviewer": "/root"
+        },
+        {
+          "full_criterion_met": true,
+          "producer_independent": true,
+          "review_file": "openwave-tuning/row_completion/reviews/ROW_29_CHARGE/REVIEW.json",
+          "review_sha256": "f696c0edf9fcd94b3b00a4527f69ac1b81f1ec24a2b5d0334dd13e81c39a5d7d",
+          "reviewer": "/root/charge_spin_lane"
+        }
+      ],
+      "literal_criterion": "Maxwell recovered; transverse waves at c",
+      "official_status": "untested",
+      "row": 29,
+      "scope": "Controlled vacuum radiative Maxwell limit with native terminal first-moment and common-clock instruments; coefficients/spectral encoding declared, complete reset/failure composition retained; no interacting or empirical-coupling transfer."
+    },
+    {
+      "candidate_id": "native-local12-mass-coin-rational-spectroscopy-v1",
+      "full_criterion_met": true,
+      "independent_full_reviews": [
+        {
+          "full_criterion_met": true,
+          "producer_independent": true,
+          "review_file": "openwave-tuning/next/CHAIN4/klein_gordon_root_review/REVIEW.json",
+          "review_sha256": "589babfc051f3a0d6ee42b9a789cde251097d9dc31fe32848771f73251ba0a4c",
+          "reviewer": "Codex root KG reviewer"
+        },
+        {
+          "full_criterion_met": true,
+          "producer_independent": true,
+          "review_file": "openwave-tuning/next/CHAIN4/klein_gordon_full_review/REVIEW.json",
+          "review_sha256": "21e5958d338473f7715e47a63aa8174e2f9861ce2d00aedd3941cbd5596bdd20",
+          "reviewer": "/root/species_finish"
+        }
+      ],
+      "literal_criterion": "emergent \u03c9\u00b2 = k\u00b2 + m\u00b2 for matter waves",
+      "official_status": "untested",
+      "row": 30,
+      "scope": "Scalar LOCAL12 mass-coin source; declared mass/coherent-control architecture, full rank26 slow subspace, complete native preparation/clock/readout convergence. Scalar branch c=1/sqrt48 in carrier coordinates; no Dirac-source equality, observed mass or interacting pole claim."
+    }
+  ],
+  "same_source_transfer_between_rows": false,
+  "schema": "oph.openwave.wave_rows.full_criteria.v1",
+  "source_sha256": {
+    "code/openwave_wave_rows/PUBLIC_MANIFEST.json": "cfb73fbca47f8be978c856f77a2e7184e7f474a8626503fff099717050c0825c",
+    "code/openwave_wave_rows/RESULT.json": "41db9256c99dfb446d21b00b067b9d819af79d24abe27a4116563116ca1afa08",
+    "code/openwave_wave_rows/SNAPSHOT_MANIFEST.json": "1eee442b46f13fcc1133bfb901ccaf99f2bdf3f2fc0a633f8f5973bd71c75ec1",
+    "code/openwave_wave_rows/VALIDATION.json": "92fb0bdfbfa4329bc4e2ce22de4918539b3d1587c44c3fa6f09b8729018bff6c",
+    "tools/build_openwave_wave_claims.py": "9af972a259f54ad08afb95a3c666d07cf61098563d0ad683212fbeab7f87ba6c"
+  }
+}

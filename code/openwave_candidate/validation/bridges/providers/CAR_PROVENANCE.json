@@ -1,0 +1,22 @@
+{
+  "copy_mode": "all provider files byte-identical; no numerical edits",
+  "files": {
+    "fock.py": {
+      "upstream_workspace_path": "reverse-engineering-reality/model/coherent_defect_wave/many_body_route/fock.py",
+      "sha256": "353f94ca4d09af9b3f7f33143f78a396cf3f489e8ae91b430ffb32e615ad44f9",
+      "runtime_scope": "only exported finite mathematical APIs imported"
+    },
+    "fable_candidate.py": {
+      "upstream_workspace_path": "openwave-push/kernel/candidate.py",
+      "sha256": "8e093e5ba88160abf0a471d0da4745ce1d5cd8e5fa5048623d0be5ce6334529c",
+      "runtime_scope": "only exported finite mathematical APIs imported"
+    },
+    "mass_instrument_model.py": {
+      "upstream_workspace_path": "reverse-engineering-reality/model/coherent_defect_wave/mass_instrument/model.py",
+      "sha256": "e569d5c686db5106b9cac258a1ec0c58467336d70441ebd14ddde657e1d63749",
+      "runtime_scope": "reference-only source attachment; relative dependencies/CLI not executed"
+    }
+  },
+  "RER_software_license": "Apache-2.0; LICENSE and LICENSING_NOTICE alongside providers",
+  "fable_source_custody": "user-supplied project kernel; original preserved in workspace main; no separate license header in original"
+}

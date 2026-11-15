@@ -1,0 +1,893 @@
+{
+  "model_id": "native-local12-dirac-routed-v3-proposed",
+  "replaces": "W=S R or its scalar mass coin; no unitary equivalence claimed",
+  "matter": "four co-located root-port modes per coarse cell; explicit Clifford matrices and optional explicit CAR lift",
+  "macro_order": [
+    "mass exp(-i h m beta)",
+    "axis x",
+    "axis y",
+    "axis z",
+    "declared field substeps",
+    "common clock tick"
+  ],
+  "clock": "t=n tau0 h; c_D=1/tau0; distinct from old 1/(sqrt48 tau0)",
+  "central_field_schedule": {
+    "field_substeps": 8,
+    "alpha": "1/16",
+    "beta": "3/8",
+    "alpha_beta": "3/128",
+    "uniform_curvature_norm_bound": 158,
+    "stability_product": "237/64 < 4",
+    "field_macro_speed": "8 sqrt(2 alpha beta/3) = 1",
+    "scope": "harmonic full homogeneous face response; finite one-face experiments below use separate declared diagnostic couplings"
+  },
+  "architecture_inputs": [
+    "Clifford representation",
+    "root-port code and actual routes",
+    "m",
+    "charge sign",
+    "field couplings and substeps"
+  ],
+  "spin_diagonalizers": [
+    {
+      "axis": 0,
+      "word": [
+        {
+          "kind": "Y",
+          "targets": [
+            1
+          ],
+          "angle": 0.7853981633974483
+        },
+        {
+          "kind": "Y",
+          "targets": [
+            0
+          ],
+          "angle": 0.7853981633974483
+        },
+        {
+          "kind": "H",
+          "targets": [
+            1
+          ],
+          "angle": 1.5707963267948966
+        },
+        {
+          "kind": "J",
+          "targets": [
+            0,
+            1
+          ],
+          "angle": -3.141592653589793
+        },
+        {
+          "kind": "H",
+          "targets": [
+            1
+          ],
+          "angle": 1.5707963267948966
+        }
+      ],
+      "native_pulses": 5,
+      "operator_error": 8.964196998670359e-16,
+      "export_failure_norm": 5.074242475931379e-32
+    },
+    {
+      "axis": 1,
+      "word": [
+        {
+          "kind": "X",
+          "targets": [
+            1
+          ],
+          "angle": -0.7853981633974483
+        },
+        {
+          "kind": "Y",
+          "targets": [
+            0
+          ],
+          "angle": 0.7853981633974483
+        },
+        {
+          "kind": "H",
+          "targets": [
+            1
+          ],
+          "angle": 1.5707963267948966
+        },
+        {
+          "kind": "J",
+          "targets": [
+            0,
+            1
+          ],
+          "angle": -3.141592653589793
+        },
+        {
+          "kind": "H",
+          "targets": [
+            1
+          ],
+          "angle": 1.5707963267948966
+        }
+      ],
+      "native_pulses": 5,
+      "operator_error": 1.0797655455662037e-15,
+      "export_failure_norm": 5.10403885087299e-32
+    },
+    {
+      "axis": 2,
+      "word": [
+        {
+          "kind": "Y",
+          "targets": [
+            0
+          ],
+          "angle": 0.7853981633974483
+        },
+        {
+          "kind": "H",
+          "targets": [
+            1
+          ],
+          "angle": 1.5707963267948966
+        },
+        {
+          "kind": "J",
+          "targets": [
+            0,
+            1
+          ],
+          "angle": -3.141592653589793
+        },
+        {
+          "kind": "H",
+          "targets": [
+            1
+          ],
+          "angle": 1.5707963267948966
+        }
+      ],
+      "native_pulses": 4,
+      "operator_error": 8.733356458465071e-16,
+      "export_failure_norm": 5.072425009170391e-32
+    }
+  ],
+  "mass_word_example": [
+    {
+      "kind": "Z",
+      "targets": [
+        0
+      ],
+      "angle": -0.04000000000000001
+    }
+  ],
+  "routes": [
+    {
+      "cell": 0,
+      "axis": 0,
+      "destination": 4,
+      "vertices": [
+        0,
+        5,
+        55,
+        48
+      ],
+      "edge_current": [
+        [
+          1,
+          1
+        ],
+        [
+          28,
+          1
+        ],
+        [
+          154,
+          -1
+        ]
+      ]
+    },
+    {
+      "cell": 0,
+      "axis": 1,
+      "destination": 2,
+      "vertices": [
+        0,
+        1,
+        9,
+        35,
+        24
+      ],
+      "edge_current": [
+        [
+          0,
+          1
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          38,
+          1
+        ],
+        [
+          84,
+          -1
+        ]
+      ]
+    },
+    {
+      "cell": 0,
+      "axis": 2,
+      "destination": 1,
+      "vertices": [
+        0,
+        1,
+        15,
+        14,
+        22,
+        12
+      ],
+      "edge_current": [
+        [
+          0,
+          1
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          45,
+          -1
+        ],
+        [
+          51,
+          -1
+        ],
+        [
+          54,
+          1
+        ]
+      ]
+    },
+    {
+      "cell": 1,
+      "axis": 0,
+      "destination": 5,
+      "vertices": [
+        12,
+        17,
+        67,
+        60
+      ],
+      "edge_current": [
+        [
+          43,
+          1
+        ],
+        [
+          66,
+          1
+        ],
+        [
+          192,
+          -1
+        ]
+      ]
+    },
+    {
+      "cell": 1,
+      "axis": 1,
+      "destination": 3,
+      "vertices": [
+        12,
+        13,
+        21,
+        47,
+        36
+      ],
+      "edge_current": [
+        [
+          42,
+          1
+        ],
+        [
+          50,
+          1
+        ],
+        [
+          76,
+          1
+        ],
+        [
+          122,
+          -1
+        ]
+      ]
+    },
+    {
+      "cell": 1,
+      "axis": 2,
+      "destination": 0,
+      "vertices": [
+        12,
+        13,
+        3,
+        2,
+        10,
+        0
+      ],
+      "edge_current": [
+        [
+          3,
+          -1
+        ],
+        [
+          11,
+          -1
+        ],
+        [
+          14,
+          1
+        ],
+        [
+          21,
+          -1
+        ],
+        [
+          42,
+          1
+        ]
+      ]
+    },
+    {
+      "cell": 2,
+      "axis": 0,
+      "destination": 6,
+      "vertices": [
+        24,
+        29,
+        79,
+        72
+      ],
+      "edge_current": [
+        [
+          81,
+          1
+        ],
+        [
+          108,
+          1
+        ],
+        [
+          226,
+          -1
+        ]
+      ]
+    },
+    {
+      "cell": 2,
+      "axis": 1,
+      "destination": 0,
+      "vertices": [
+        24,
+        25,
+        33,
+        11,
+        0
+      ],
+      "edge_current": [
+        [
+          4,
+          -1
+        ],
+        [
+          41,
+          -1
+        ],
+        [
+          80,
+          1
+        ],
+        [
+          89,
+          1
+        ]
+      ]
+    },
+    {
+      "cell": 2,
+      "axis": 2,
+      "destination": 3,
+      "vertices": [
+        24,
+        25,
+        39,
+        38,
+        46,
+        36
+      ],
+      "edge_current": [
+        [
+          80,
+          1
+        ],
+        [
+          90,
+          1
+        ],
+        [
+          121,
+          -1
+        ],
+        [
+          127,
+          -1
+        ],
+        [
+          130,
+          1
+        ]
+      ]
+    },
+    {
+      "cell": 3,
+      "axis": 0,
+      "destination": 7,
+      "vertices": [
+        36,
+        41,
+        91,
+        84
+      ],
+      "edge_current": [
+        [
+          119,
+          1
+        ],
+        [
+          142,
+          1
+        ],
+        [
+          260,
+          -1
+        ]
+      ]
+    },
+    {
+      "cell": 3,
+      "axis": 1,
+      "destination": 1,
+      "vertices": [
+        36,
+        37,
+        45,
+        23,
+        12
+      ],
+      "edge_current": [
+        [
+          46,
+          -1
+        ],
+        [
+          79,
+          -1
+        ],
+        [
+          118,
+          1
+        ],
+        [
+          126,
+          1
+        ]
+      ]
+    },
+    {
+      "cell": 3,
+      "axis": 2,
+      "destination": 2,
+      "vertices": [
+        36,
+        37,
+        27,
+        26,
+        34,
+        24
+      ],
+      "edge_current": [
+        [
+          83,
+          -1
+        ],
+        [
+          91,
+          -1
+        ],
+        [
+          94,
+          1
+        ],
+        [
+          101,
+          -1
+        ],
+        [
+          118,
+          1
+        ]
+      ]
+    },
+    {
+      "cell": 4,
+      "axis": 0,
+      "destination": 0,
+      "vertices": [
+        48,
+        53,
+        7,
+        0
+      ],
+      "edge_current": [
+        [
+          2,
+          -1
+        ],
+        [
+          35,
+          -1
+        ],
+        [
+          153,
+          1
+        ]
+      ]
+    },
+    {
+      "cell": 4,
+      "axis": 1,
+      "destination": 6,
+      "vertices": [
+        48,
+        49,
+        57,
+        83,
+        72
+      ],
+      "edge_current": [
+        [
+          152,
+          1
+        ],
+        [
+          161,
+          1
+        ],
+        [
+          186,
+          1
+        ],
+        [
+          228,
+          -1
+        ]
+      ]
+    },
+    {
+      "cell": 4,
+      "axis": 2,
+      "destination": 5,
+      "vertices": [
+        48,
+        49,
+        63,
+        62,
+        70,
+        60
+      ],
+      "edge_current": [
+        [
+          152,
+          1
+        ],
+        [
+          162,
+          1
+        ],
+        [
+          193,
+          -1
+        ],
+        [
+          199,
+          -1
+        ],
+        [
+          202,
+          1
+        ]
+      ]
+    },
+    {
+      "cell": 5,
+      "axis": 0,
+      "destination": 1,
+      "vertices": [
+        60,
+        65,
+        19,
+        12
+      ],
+      "edge_current": [
+        [
+          44,
+          -1
+        ],
+        [
+          73,
+          -1
+        ],
+        [
+          191,
+          1
+        ]
+      ]
+    },
+    {
+      "cell": 5,
+      "axis": 1,
+      "destination": 7,
+      "vertices": [
+        60,
+        61,
+        69,
+        95,
+        84
+      ],
+      "edge_current": [
+        [
+          190,
+          1
+        ],
+        [
+          198,
+          1
+        ],
+        [
+          220,
+          1
+        ],
+        [
+          262,
+          -1
+        ]
+      ]
+    },
+    {
+      "cell": 5,
+      "axis": 2,
+      "destination": 4,
+      "vertices": [
+        60,
+        61,
+        51,
+        50,
+        58,
+        48
+      ],
+      "edge_current": [
+        [
+          155,
+          -1
+        ],
+        [
+          163,
+          -1
+        ],
+        [
+          166,
+          1
+        ],
+        [
+          173,
+          -1
+        ],
+        [
+          190,
+          1
+        ]
+      ]
+    },
+    {
+      "cell": 6,
+      "axis": 0,
+      "destination": 2,
+      "vertices": [
+        72,
+        77,
+        31,
+        24
+      ],
+      "edge_current": [
+        [
+          82,
+          -1
+        ],
+        [
+          115,
+          -1
+        ],
+        [
+          225,
+          1
+        ]
+      ]
+    },
+    {
+      "cell": 6,
+      "axis": 1,
+      "destination": 4,
+      "vertices": [
+        72,
+        73,
+        81,
+        59,
+        48
+      ],
+      "edge_current": [
+        [
+          156,
+          -1
+        ],
+        [
+          189,
+          -1
+        ],
+        [
+          224,
+          1
+        ],
+        [
+          233,
+          1
+        ]
+      ]
+    },
+    {
+      "cell": 6,
+      "axis": 2,
+      "destination": 7,
+      "vertices": [
+        72,
+        73,
+        87,
+        86,
+        94,
+        84
+      ],
+      "edge_current": [
+        [
+          224,
+          1
+        ],
+        [
+          234,
+          1
+        ],
+        [
+          261,
+          -1
+        ],
+        [
+          267,
+          -1
+        ],
+        [
+          270,
+          1
+        ]
+      ]
+    },
+    {
+      "cell": 7,
+      "axis": 0,
+      "destination": 3,
+      "vertices": [
+        84,
+        89,
+        43,
+        36
+      ],
+      "edge_current": [
+        [
+          120,
+          -1
+        ],
+        [
+          149,
+          -1
+        ],
+        [
+          259,
+          1
+        ]
+      ]
+    },
+    {
+      "cell": 7,
+      "axis": 1,
+      "destination": 5,
+      "vertices": [
+        84,
+        85,
+        93,
+        71,
+        60
+      ],
+      "edge_current": [
+        [
+          194,
+          -1
+        ],
+        [
+          223,
+          -1
+        ],
+        [
+          258,
+          1
+        ],
+        [
+          266,
+          1
+        ]
+      ]
+    },
+    {
+      "cell": 7,
+      "axis": 2,
+      "destination": 6,
+      "vertices": [
+        84,
+        85,
+        75,
+        74,
+        82,
+        72
+      ],
+      "edge_current": [
+        [
+          227,
+          -1
+        ],
+        [
+          235,
+          -1
+        ],
+        [
+          238,
+          1
+        ],
+        [
+          245,
+          -1
+        ],
+        [
+          258,
+          1
+        ]
+      ]
+    }
+  ],
+  "edge_increment_generator": "manybody/mode_field.py:field_block(16); paired opposite rails carry nu_a-nu_b",
+  "rail_transport_factorization": "onsite plus/minus swap followed by disjoint nearest-cell minus/plus swap; internal paths require declared empty transit modes and current on every traversed seam",
+  "full_native_status": "spin words executed; route-current identities and full sparse finite logical dynamics executed; full routed matter-field native pulse tape, transit reset and aggregate error budget are not yet executed",
+  "rotation_scope": "continuum generator covariance and native spin-lift readouts; a complete finite carrier rotation apparatus must also move the spatial chart and Gauss dressing. Fixed xyz Trotter order is not exactly rotation covariant."
+}

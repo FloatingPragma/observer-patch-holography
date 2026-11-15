@@ -10,6 +10,7 @@ physical realization or discharge the papers' premise boundaries.
 
 ## Theory Overview
 
+- [OPH schematic](oph-schematic.png), the README figure: primitive observers, overlapping patches and the emergent spacetime seen from inside
 - [Reconstruction chain](prediction-chain.svg), the published reconstruction poster
 - [Unification diagram](OPH_Unification_Diagram.svg) ([PNG](OPH_Unification_Diagram.png))
 - [Science overlap map](oph_science_overlap_map.svg) ([poster PNG](oph_science_overlap_map_poster.png))

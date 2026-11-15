@@ -1,0 +1,812 @@
+{
+  "schema": "oph.controlled_native_field_limit.v1",
+  "checks": {
+    "frozen_reciprocal_source_verified": true,
+    "same_literal_native_records_replayed": true,
+    "fixed_point_rounding_has_rational_error_bound": true,
+    "local_tracking_and_Gauss_bounds": true,
+    "uniform_native_transient_bound": true,
+    "cubic_static_Fourier_refinement": true,
+    "dimension_mode_cap_mutations_rejected": true,
+    "source_bytes_unchanged": true
+  },
+  "source_pins": {
+    "openwave-push/issues/N20_native_green_field/n20lib.py": "8ff2f3ee49a5efaecb2fb308f24be551103d3fea82d91196153fe796655b3f08",
+    "openwave-tuning/auditor/native_field_bridge/BALANCED_OCCUPANCY_REVIEW.json": "85f7bd8ae6b9a0db8fa2994ef18d00f7cda66c28c00d24a848e3c21000a1b57e",
+    "openwave-tuning/auditor/native_field_bridge/BALANCED_OCCUPANCY_REVIEW.md": "77b5e09fa65312a76cfd76cf7baceb53cf652e50ed7f63f8ef545879bfff37f4",
+    "openwave-tuning/auditor/native_field_bridge/CAPPED_INSTRUMENT.md": "23a464ad08cc2476896ccf19141f96ce9058c864d23cc5c40b94a79815cf46cb",
+    "openwave-tuning/auditor/native_field_bridge/CAPPED_LAW.json": "5992b694b47b04c0b8f9b7835884f01cd3ec1562a2d0ba9d4111b8fa65668a2f",
+    "openwave-tuning/auditor/native_field_bridge/EXTERNAL_AUDIT.md": "710756b8d09c270f5ba32cde167fe69facafa7f0df6e2a9884d32d4d893bd3c5",
+    "openwave-tuning/auditor/native_field_bridge/FIELD_FEEDBACK.json": "57667cbe061215af8858c4bf62bd8cfe1db2e98075e031cd437ff09f88d277f9",
+    "openwave-tuning/auditor/native_field_bridge/FINAL_MANIFEST.json": "4597dc9c226d203d890bc3d3a929bbe1be80e2dc57ec03898c77da4fe5b954e1",
+    "openwave-tuning/auditor/native_field_bridge/MANIFEST.json": "7f05024b497694219e3ff95d708efcd2ebaf2c391ea384c48946889e9555b0a1",
+    "openwave-tuning/auditor/native_field_bridge/NATIVE_JUMP_RATES.json": "9145700594b226dc427aaf640b0cfd3b07587783f3892589f596b52d0463306e",
+    "openwave-tuning/auditor/native_field_bridge/PROOF.md": "7a0fbd48362f05758a3409cce463c407b84d63de9228fe2cad0fac3fe835393f",
+    "openwave-tuning/auditor/native_field_bridge/RECIPROCAL_FEEDBACK.json": "464a6ad36193329334f264357c648c8d6690d84f88ab452c5203e86b98ea0332",
+    "openwave-tuning/auditor/native_field_bridge/RECIPROCAL_PROOF.md": "99fe8cce8c95375e722604eb75207e831e70c7e8a182f587403e3e867cb98f20",
+    "openwave-tuning/auditor/native_field_bridge/ROOT_UNCAPPED_REVIEW.json": "895dfccfe4983199ab12d1be8047426f231f49d903c5b5ec9fdc43118b0d5525",
+    "openwave-tuning/auditor/native_field_bridge/audit_balanced_occupancy.py": "188881cea6586637913f6ea0e22ce6d9774d68f60ade09677f8e84dffc20f976",
+    "openwave-tuning/auditor/native_field_bridge/capped_law.py": "be3bd4cf6b665a88171615e240b1b7a3f80da5a107dae646c368b86245f7fb44",
+    "openwave-tuning/auditor/native_field_bridge/field_feedback.py": "7dd23f52420e689bafa6b318673b40488bd20b2f1e640ff64239b3c5f5643325",
+    "openwave-tuning/auditor/native_field_bridge/reciprocal_feedback.py": "9a3ef66b6f1dc493b983606159bdab733b0f887c775bbbc3a06b06fecf40afe9",
+    "openwave-tuning/auditor/native_field_bridge/review_field_root.py": "8d862f32ce2adfffce71eaedd5e603f1f401d23c1f7220997b8f76587ba23155",
+    "reverse-engineering-reality/Lean/Screen/DiscreteCoulombGreen.lean": "a58830d60688b7df505d2c8cbc1ff2290b057f9be055def25db7006fae7bd078",
+    "reverse-engineering-reality/model/native_spatial_refinement/PROOF.md": "c411a13d5f92b38721eb6624291e01571a4363dcca9f80cb5f141da794c7bb1b",
+    "reverse-engineering-reality/model/native_spatial_refinement/source.py": "b4576a37b7610418f810ab7beebf5e52a7eeab80f66c7260ace149de9c733733",
+    "reverse-engineering-reality/model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d"
+  },
+  "side_two_gap_certificate": {
+    "lambda2_lower_bound": "1/2",
+    "lambda_max_upper_bound": "12",
+    "proof": "Eight exact Fourier blocks; rational positive LDL; degree bound for upper edge.",
+    "blocks": [
+      {
+        "bloch_signs": [
+          -1,
+          -1,
+          -1
+        ],
+        "positive_LDL_diagonal": [
+          "11/2",
+          "117/22",
+          "1243/234",
+          "1155/226",
+          "775/154",
+          "7553/1550",
+          "10721/2158",
+          "102795/21442",
+          "947/210",
+          "53867/13258",
+          "483893/107734",
+          "44055/10874"
+        ]
+      },
+      {
+        "bloch_signs": [
+          -1,
+          -1,
+          1
+        ],
+        "positive_LDL_diagonal": [
+          "11/2",
+          "117/22",
+          "1243/234",
+          "1155/226",
+          "775/154",
+          "297/62",
+          "14779/2970",
+          "699853/147790",
+          "39267/9394",
+          "270829/78534",
+          "2242771/541658",
+          "15228345/4485542"
+        ]
+      },
+      {
+        "bloch_signs": [
+          -1,
+          1,
+          -1
+        ],
+        "positive_LDL_diagonal": [
+          "11/2",
+          "117/22",
+          "1243/234",
+          "1155/226",
+          "775/154",
+          "7553/1550",
+          "10721/2158",
+          "102795/21442",
+          "947/210",
+          "53867/13258",
+          "402037/107734",
+          "2317695/804074"
+        ]
+      },
+      {
+        "bloch_signs": [
+          -1,
+          1,
+          1
+        ],
+        "positive_LDL_diagonal": [
+          "11/2",
+          "117/22",
+          "1243/234",
+          "1155/226",
+          "775/154",
+          "297/62",
+          "14779/2970",
+          "699853/147790",
+          "39267/9394",
+          "270829/78534",
+          "1540755/541658",
+          "23485/68478"
+        ]
+      },
+      {
+        "bloch_signs": [
+          1,
+          -1,
+          -1
+        ],
+        "positive_LDL_diagonal": [
+          "11/2",
+          "117/22",
+          "1243/234",
+          "1155/226",
+          "775/154",
+          "7553/1550",
+          "69479/15106",
+          "10065/2278",
+          "87211/20130",
+          "624645/174422",
+          "5323739/1249290",
+          "37197105/10647478"
+        ]
+      },
+      {
+        "bloch_signs": [
+          1,
+          -1,
+          1
+        ],
+        "positive_LDL_diagonal": [
+          "11/2",
+          "117/22",
+          "1243/234",
+          "1155/226",
+          "775/154",
+          "297/62",
+          "137/30",
+          "1155/274",
+          "251/66",
+          "13095/5522",
+          "83609/26190",
+          "99979/167218"
+        ]
+      },
+      {
+        "bloch_signs": [
+          1,
+          1,
+          -1
+        ],
+        "positive_LDL_diagonal": [
+          "11/2",
+          "117/22",
+          "1243/234",
+          "1155/226",
+          "775/154",
+          "7553/1550",
+          "69479/15106",
+          "10065/2278",
+          "87211/20130",
+          "624645/174422",
+          "83431/27762",
+          "57365/166862"
+        ]
+      },
+      {
+        "bloch_signs": [
+          1,
+          1,
+          1
+        ],
+        "positive_LDL_diagonal": [
+          "67/12",
+          "364/67",
+          "7909/1456",
+          "3795/719",
+          "5283/1012",
+          "2970/587",
+          "353/72",
+          "5005/1059",
+          "2619/572",
+          "4320/1067",
+          "1505/384",
+          "385/129"
+        ]
+      }
+    ]
+  },
+  "local_tracking": [
+    {
+      "initial_positions": [
+        1,
+        35
+      ],
+      "source_kappa": 0.0,
+      "source_seed": 804,
+      "native_records": 269,
+      "native_holds": 262,
+      "native_moves_by_copy": [
+        5,
+        2
+      ],
+      "terminal": {
+        "kind": "no_further_event",
+        "duration": 0.003662448488741088,
+        "total_rate": 576.0,
+        "survival_probability": 0.1212900700021169
+      },
+      "local_rounds_per_record": 32,
+      "fixed_point_bits": 40,
+      "local_rounds": 8640,
+      "max_field_error_diagnostic": 0.06235396644862179,
+      "max_Gauss_residual_diagnostic": 0.04629233920027825,
+      "max_error_to_proved_bound_ratio": 0.12170350090516419,
+      "snapshot_certificates": [
+        {
+          "after_record_count": 0,
+          "actual_field_error_diagnostic": 0.06235396644862179,
+          "tracking_bound_exact_upper": "256171621953629261/500000000000000000",
+          "residual_squared_bound_exact_upper": "4285961337267236740763/1000000000000000000000000"
+        },
+        {
+          "after_record_count": 11,
+          "actual_field_error_diagnostic": 0.013438185538580226,
+          "tracking_bound_exact_upper": "256171781922476319/1000000000000000000",
+          "residual_squared_bound_exact_upper": "49403717550092219707/250000000000000000000000"
+        },
+        {
+          "after_record_count": 97,
+          "actual_field_error_diagnostic": 0.013438190646498175,
+          "tracking_bound_exact_upper": "128085811093347737/500000000000000000",
+          "residual_squared_bound_exact_upper": "197615017340119263347/1000000000000000000000000"
+        },
+        {
+          "after_record_count": 104,
+          "actual_field_error_diagnostic": 0.013437953447384347,
+          "tracking_bound_exact_upper": "256190168096457803/1000000000000000000",
+          "residual_squared_bound_exact_upper": "49402046156697472843/250000000000000000000000"
+        },
+        {
+          "after_record_count": 133,
+          "actual_field_error_diagnostic": 0.013438190645185831,
+          "tracking_bound_exact_upper": "64042905546673869/250000000000000000",
+          "residual_squared_bound_exact_upper": "12350938581139752919/62500000000000000000000"
+        },
+        {
+          "after_record_count": 143,
+          "actual_field_error_diagnostic": 0.013438187695326252,
+          "tracking_bound_exact_upper": "256171933961629291/1000000000000000000",
+          "residual_squared_bound_exact_upper": "197614932328834008851/1000000000000000000000000"
+        },
+        {
+          "after_record_count": 171,
+          "actual_field_error_diagnostic": 3.68377347108755e-05,
+          "tracking_bound_exact_upper": "256171622186695481/1000000000000000000",
+          "residual_squared_bound_exact_upper": "3764768604892997/500000000000000000000000"
+        },
+        {
+          "after_record_count": 172,
+          "actual_field_error_diagnostic": 0.013438190665951356,
+          "tracking_bound_exact_upper": "6435910440206827/20000000000000000",
+          "residual_squared_bound_exact_upper": "49403755017335385137/250000000000000000000000"
+        },
+        {
+          "after_record_count": 269,
+          "actual_field_error_diagnostic": 3.9218486448225715e-11,
+          "tracking_bound_exact_upper": "371073839/1000000000000000000",
+          "residual_squared_bound_exact_upper": "501/200000000000000000000000"
+        }
+      ],
+      "final_charge": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "initial_positions": [
+        1,
+        35
+      ],
+      "source_kappa": 1.0,
+      "source_seed": 804,
+      "native_records": 269,
+      "native_holds": 262,
+      "native_moves_by_copy": [
+        5,
+        2
+      ],
+      "terminal": {
+        "kind": "no_further_event",
+        "duration": 0.003712029997030075,
+        "total_rate": 576.0500910712262,
+        "survival_probability": 0.11785323287627919
+      },
+      "local_rounds_per_record": 32,
+      "fixed_point_bits": 40,
+      "local_rounds": 8640,
+      "max_field_error_diagnostic": 0.06235396644862179,
+      "max_Gauss_residual_diagnostic": 0.04629233920027825,
+      "max_error_to_proved_bound_ratio": 0.12170350090516419,
+      "snapshot_certificates": [
+        {
+          "after_record_count": 0,
+          "actual_field_error_diagnostic": 0.06235396644862179,
+          "tracking_bound_exact_upper": "256171621953629261/500000000000000000",
+          "residual_squared_bound_exact_upper": "4285961337267236740763/1000000000000000000000000"
+        },
+        {
+          "after_record_count": 11,
+          "actual_field_error_diagnostic": 0.013438185538580226,
+          "tracking_bound_exact_upper": "256171781922476319/1000000000000000000",
+          "residual_squared_bound_exact_upper": "49403717550092219707/250000000000000000000000"
+        },
+        {
+          "after_record_count": 97,
+          "actual_field_error_diagnostic": 0.013438190646498175,
+          "tracking_bound_exact_upper": "128085811093347737/500000000000000000",
+          "residual_squared_bound_exact_upper": "197615017340119263347/1000000000000000000000000"
+        },
+        {
+          "after_record_count": 104,
+          "actual_field_error_diagnostic": 0.013437953447384347,
+          "tracking_bound_exact_upper": "256190168096457803/1000000000000000000",
+          "residual_squared_bound_exact_upper": "49402046156697472843/250000000000000000000000"
+        },
+        {
+          "after_record_count": 133,
+          "actual_field_error_diagnostic": 0.013438190645185831,
+          "tracking_bound_exact_upper": "64042905546673869/250000000000000000",
+          "residual_squared_bound_exact_upper": "12350938581139752919/62500000000000000000000"
+        },
+        {
+          "after_record_count": 143,
+          "actual_field_error_diagnostic": 0.013438187695326252,
+          "tracking_bound_exact_upper": "256171933961629291/1000000000000000000",
+          "residual_squared_bound_exact_upper": "197614932328834008851/1000000000000000000000000"
+        },
+        {
+          "after_record_count": 171,
+          "actual_field_error_diagnostic": 3.68377347108755e-05,
+          "tracking_bound_exact_upper": "256171622186695481/1000000000000000000",
+          "residual_squared_bound_exact_upper": "3764768604892997/500000000000000000000000"
+        },
+        {
+          "after_record_count": 172,
+          "actual_field_error_diagnostic": 0.013438190665951356,
+          "tracking_bound_exact_upper": "6435910440206827/20000000000000000",
+          "residual_squared_bound_exact_upper": "49403755017335385137/250000000000000000000000"
+        },
+        {
+          "after_record_count": 269,
+          "actual_field_error_diagnostic": 3.9218486448225715e-11,
+          "tracking_bound_exact_upper": "371073839/1000000000000000000",
+          "residual_squared_bound_exact_upper": "501/200000000000000000000000"
+        }
+      ],
+      "final_charge": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "initial_positions": [
+        1,
+        35
+      ],
+      "source_kappa": 1.0,
+      "source_seed": 71,
+      "native_records": 1,
+      "native_holds": 1,
+      "native_moves_by_copy": [
+        0,
+        0
+      ],
+      "terminal": {
+        "kind": "cap_exhausted",
+        "time": 0.00019502250347880863
+      },
+      "local_rounds_per_record": 32,
+      "fixed_point_bits": 40,
+      "local_rounds": 64,
+      "max_field_error_diagnostic": 0.06235396644862179,
+      "max_Gauss_residual_diagnostic": 0.04629233920027825,
+      "max_error_to_proved_bound_ratio": 0.12170350090516419,
+      "snapshot_certificates": [
+        {
+          "after_record_count": 0,
+          "actual_field_error_diagnostic": 0.06235396644862179,
+          "tracking_bound_exact_upper": "256171621953629261/500000000000000000",
+          "residual_squared_bound_exact_upper": "4285961337267236740763/1000000000000000000000000"
+        },
+        {
+          "after_record_count": 1,
+          "actual_field_error_diagnostic": 0.014282829809573823,
+          "tracking_bound_exact_upper": "5249911999760571/40000000000000000",
+          "residual_squared_bound_exact_upper": "54702676541260617753/250000000000000000000000"
+        }
+      ],
+      "final_charge": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "uncoupled_transient": [
+    {
+      "Poisson_time": 0.5,
+      "mean_record_field_error": 0.35482697805052127,
+      "analytic_upper": 1.764993805169191,
+      "formula": "2 exp(-t/4)",
+      "kappa": 0,
+      "law": "uncapped expectation; no capped output substituted"
+    },
+    {
+      "Poisson_time": 8.0,
+      "mean_record_field_error": 0.0312484363367689,
+      "analytic_upper": 0.2706705664732254,
+      "formula": "2 exp(-t/4)",
+      "kappa": 0,
+      "law": "uncapped expectation; no capped output substituted"
+    },
+    {
+      "Poisson_time": 24.0,
+      "mean_record_field_error": 0.0004282147420459918,
+      "analytic_upper": 0.004957504353332717,
+      "formula": "2 exp(-t/4)",
+      "kappa": 0,
+      "law": "uncapped expectation; no capped output substituted"
+    }
+  ],
+  "static_refinement": [
+    {
+      "cells_per_axis": 16,
+      "matrix_order": 12,
+      "Fourier_modes": 26,
+      "diagnostic_points": 64,
+      "actual_record_filter_max_potential_error": 0.0025829256001903764,
+      "all_position_supnorm_bound_exact_upper": "53199650130479/250000000000000",
+      "actual_record_filter_max_electric_vector_error": 0.015859976849163578,
+      "all_position_electric_bound_exact_upper": "1693739628639971/1000000000000000",
+      "uniform_internal_comparison_error": 0.000586560545378062,
+      "uniform_internal_supnorm_bound_exact_upper": "4314347183733/40000000000000",
+      "wrong_dimension_rejected": true,
+      "wrong_optical_mode_rejected": true
+    },
+    {
+      "cells_per_axis": 32,
+      "matrix_order": 12,
+      "Fourier_modes": 26,
+      "diagnostic_points": 64,
+      "actual_record_filter_max_potential_error": 0.0012610511266918992,
+      "all_position_supnorm_bound_exact_upper": "50758141129971/1000000000000000",
+      "actual_record_filter_max_electric_vector_error": 0.00746872274990035,
+      "all_position_electric_bound_exact_upper": "435571768178017/1000000000000000",
+      "uniform_internal_comparison_error": 0.00014516472336019437,
+      "uniform_internal_supnorm_bound_exact_upper": "8648921665847/500000000000000",
+      "wrong_dimension_rejected": true,
+      "wrong_optical_mode_rejected": true
+    },
+    {
+      "cells_per_axis": 64,
+      "matrix_order": 12,
+      "Fourier_modes": 26,
+      "diagnostic_points": 64,
+      "actual_record_filter_max_potential_error": 0.0006218479519611853,
+      "all_position_supnorm_bound_exact_upper": "9556298044689/500000000000000",
+      "actual_record_filter_max_electric_vector_error": 0.003613189011017508,
+      "all_position_electric_bound_exact_upper": "1686249380127/10000000000000",
+      "uniform_internal_comparison_error": 3.619949628339003e-05,
+      "uniform_internal_supnorm_bound_exact_upper": "3975753521631/1000000000000000",
+      "wrong_dimension_rejected": true,
+      "wrong_optical_mode_rejected": true
+    }
+  ],
+  "complete_cap_controls": [
+    {
+      "cap": 1,
+      "native_event_rate": 576,
+      "time": 0.001,
+      "conclusive": 0.5621424451968224,
+      "cap_probability": 0.43785755480317756,
+      "omitted_cap_rejected": true
+    },
+    {
+      "cap": 2,
+      "native_event_rate": 576,
+      "time": 0.001,
+      "conclusive": 0.8859364936301922,
+      "cap_probability": 0.11406350636980778,
+      "omitted_cap_rejected": true
+    }
+  ],
+  "scope": {
+    "source": "two literal classical one-load copies, observed signed charge",
+    "clock": "frozen joint Poisson source time; local arithmetic rounds are separately counted readout work",
+    "preparation": "exact frozen known initial positions; no uniform creation prior is assumed",
+    "continuum_domain": "unit periodic three-torus; Fejer-filtered nonzero modes |m|_infinity<=1",
+    "normalization": "-Delta Phi=(2/3)rho; infinite-space fundamental coefficient 1/(6 pi)",
+    "refinement_transfer": "static charge lifting preserves physical cell coordinates and port labels; no trajectory/clock equivalence between different carrier sizes is asserted",
+    "C10_transfer": false,
+    "Maxwell_waves": false,
+    "fine_structure_constant_derived": false,
+    "closed_Hamiltonian_force_dynamics": false,
+    "official_rows_changed": []
+  }
+}

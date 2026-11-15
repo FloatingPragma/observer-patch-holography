@@ -1,0 +1,54 @@
+{
+  "schema": "oph.c9.positive_reference_independent_review.v1",
+  "checks": {
+    "finite_reference_projector": true,
+    "reference_commutes_with_same_H": true,
+    "charged_gap_matches_same_H": true,
+    "full64_fock_cost_identity": true,
+    "exact_naive_lift_diagonal_reproduced": true,
+    "both_raw_and_coin_corrected_lifts_not_TP": true
+  },
+  "reference_projector_error": 1.026831063303778e-14,
+  "same_H_commutator_error": 2.109514375493552e-14,
+  "charged_gap": 0.22999999999999354,
+  "neutral_fixed_number_gap": 0.4599999999999933,
+  "exact_naive_gram_diagonal": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "1/64",
+    "1/64",
+    "1/64",
+    "1/64",
+    "1/64",
+    "1/64",
+    "1/64",
+    "1/64",
+    "1/64",
+    "1/64",
+    "1/64",
+    "1/64",
+    "1/16",
+    "1/16",
+    "1/16",
+    "1/16"
+  ],
+  "findings": [
+    "Positive reference and excitation identity are genuine finite CAR results on unchangedH, not merely absent services.",
+    "Complete native CAR extension remains missing: neither raw wedgeK nor coin-corrected wedgeK forms a complete instrument.",
+    "One-body covariance mapping is explicitly diagnostic; it need not preserve fermionic0<=C<=I and is not a many-body channel.",
+    "No physical vacuum/species or calibrated physical electron mass follows. Select existing compatible CAR native apparatus or specify a new complete architecture before native stability claims."
+  ],
+  "full_criterion_met": false,
+  "reviewer": "Codex independent worker; not Fable opposite-team",
+  "official_rows_changed": [],
+  "source_sha256": {
+    "validation/bridges/positive_reference_attachment.py": "1e036902ea035a5d2eb07445f7b745c2fd38a3e1b1dbc78d755560193b9c8893",
+    "validation/bridges/POSITIVE_REFERENCE_ATTACHMENT.json": "5f1a14d0cb74f363bfc9e7d2908d773d17f60d6962e1a7ae32952aa164dd65c2",
+    "next/C9/review_positive_reference.py": "396bd0b1e2dc9abbccf32e0a926434711b8bcfc43660827ed3555627ea182b15",
+    "candidate/oph_openwave/uniform_native.py": "2416525dfd50cb7e7f38805a52c65858d51fda428b5875abc7295e52b03e3146",
+    "candidate/oph_openwave/geometry.py": "00d6ca810b1c7430e761b3106317f288d0b3c2e722dfeedec5aa18ac7bb8e32d",
+    "candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907"
+  }
+}

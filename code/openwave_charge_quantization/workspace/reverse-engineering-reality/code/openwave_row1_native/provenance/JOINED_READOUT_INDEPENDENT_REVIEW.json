@@ -1,0 +1,75 @@
+{
+  "schema": "oph.row1.joined_readout_independent_review.v1",
+  "checks": {
+    "all_frozen_source_histories_reconstructed_independently": true,
+    "all_holds_and_moves_retained": true,
+    "full_conditional_probability_laws_exact": true,
+    "reset_route_and_measurement_timeouts_independently_split": true,
+    "controller_runs_without_terminal_load_or_background_audit_fields": true,
+    "fine_history_coin_factors_exact": true,
+    "timeout_has_no_decoded_charge": true,
+    "source_prefix_clock_explicit": true,
+    "source_hashes_unchanged": true
+  },
+  "source_histories": 456,
+  "source_hold_events": 564,
+  "source_moving_events": 324,
+  "conditional_input_probability_budgets": 19008,
+  "mean_joint_outcomes_over_19008_fixed_input_cases": {
+    "conclusive": "4936400685569067967509429558814400894895259122823129393942877525/4936513671963618126464907547672051514948207596900739590045827072",
+    "discovery_timeout": "1/1208925819614629174706176",
+    "routing_timeout": "79228766957190383266413423275/5192296858534827628530496329220096",
+    "measurement_timeout": "37660599058690282179510265109504102722971925886850726767275/4936513671963618126464907547672051514948207596900739590045827072"
+  },
+  "adversarial_policy_cases": [
+    {
+      "source_coin": 0,
+      "region_mask": 1,
+      "degree": 1
+    },
+    {
+      "source_coin": 0,
+      "region_mask": 2,
+      "degree": -1
+    },
+    {
+      "source_coin": 1,
+      "region_mask": 1,
+      "degree": 0
+    },
+    {
+      "source_coin": 0,
+      "region_mask": 0,
+      "degree": 0
+    },
+    {
+      "source_coin": 0,
+      "region_mask": 4095,
+      "degree": 0
+    }
+  ],
+  "complete_execution_examples_checked": [
+    "positive_degree_actual_move",
+    "negative_degree_actual_move",
+    "zero_degree_actual_hold",
+    "zero_degree_empty_prefix",
+    "zero_degree_empty_region_after_move",
+    "zero_degree_full_region_after_move",
+    "discovery_failure",
+    "routing_failure",
+    "measurement_failure",
+    "full_region_zero_class_retains_reset_failure",
+    "charge_seven_alias_admission_refused"
+  ],
+  "setting_scope": "All laws are conditional on configured preparation/schedule/region and pointer input. No unstated prior over those inputs is introduced. A randomized external selector would multiply its own declared weights.",
+  "source_sha256": {
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/joined_readout.py": "1bf9bda370c20a6a23c253654f5fe60160bca20fd5d24b0548bac5e98ba6b467",
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/JOINED_READOUT.json": "f31f196e5baf5425f63806d41e854801688d24a70394230c7dcfdeaeccdaa0fe",
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/native_cycle_meter.py": "4db8d707879c416ca5002b782a70e07aa71d4d9a7fe7111b76a64828c1a05329",
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/NATIVE_CYCLE_METER.json": "66fedd579a900b478c6301c5583be9dd1e3fd7d7a79e882bc1313c41de4e72ef",
+    "openwave-tuning/next/ROW1_NATIVE/routes/spatial/NATIVE_DUAL_WINDING.json": "3e5f99ed88666485c124976df97585bbb7962dbb7df6583109238c4cd2d2927c"
+  },
+  "reviewer_sha256": "005822b4936b6be6f9c3af032814cb5959048534e8783639c2ff6f11132db9b3",
+  "no_reserved_acceptance_run": true,
+  "official_rows_changed": []
+}

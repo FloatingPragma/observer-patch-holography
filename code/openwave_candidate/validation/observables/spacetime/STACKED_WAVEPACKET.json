@@ -1,0 +1,1012 @@
+{
+  "schema": "oph.explicit_stacked_ring.wavepacket.v1",
+  "scope": "Explicit 3D graph extension, uniform-record preparation, positive acoustic band and zero commit rate. Complete position distributions; centroid and reference ray, not an observed individual trajectory or derived gravity.",
+  "supplied": {
+    "cells_per_axis": 32,
+    "mass": 0.23,
+    "momentum_center_cell_covectors": [
+      0.75,
+      0.45,
+      0.1
+    ],
+    "momentum_sigma": 0.2,
+    "native_times": [
+      0.0,
+      0.5,
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0,
+      3.5,
+      4.0
+    ],
+    "vertical_seam_weight": 1,
+    "vertical_spacing": 1,
+    "commit_rate": 0,
+    "record_preparation": "uniform modular Gauss fibers, modulus6; full-sector reduction theorem applies to connected augmented graph",
+    "band_preparation": "positive acoustic eigenvector at each momentum, with a declared finite-grid component phase convention; global phase continuity is not asserted",
+    "position_apparatus": "coarse carrier locations plus whole-seam midpoints; internal ports at their carrier center",
+    "measurement_protocol": "separate identically prepared ensemble at each time; no sequential trajectory measurement",
+    "mass_or_length_empirical_anchor": null,
+    "metric": "reference flat acoustic metric diag(-1,352/15,352/15,1), supplied interpretation of long-wavelength symbol",
+    "gravity": "none; no prescribed curvature or inferred G"
+  },
+  "geometry": {
+    "ports_per_cell": 24,
+    "horizontal_seams": 63,
+    "vertical_seams": 24,
+    "position_components_per_cell": 111,
+    "spatial_basis_columns": [
+      [
+        1.7320508075688772,
+        0.8660254037844386,
+        0.0
+      ],
+      [
+        0.0,
+        1.5,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "internal_offsets": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.4330127018922193,
+        0.25,
+        0.0
+      ],
+      [
+        -0.4330127018922193,
+        0.25,
+        0.0
+      ],
+      [
+        0.0,
+        -0.5,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.5
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.5
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.5
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.5
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.5
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.5
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.5
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.5
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.5
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.5
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.5
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.5
+      ]
+    ],
+    "port_laplacian": "L_ring(q1,q2)+2(1-cos(q3))*I24",
+    "horizontal_acoustic_speed_squared": 0.04261363636363636,
+    "vertical_acoustic_speed_squared": 1.0,
+    "speed_squared_anisotropy": 23.46666666666667,
+    "all_bands": "Full generator has24 positive/negative dispersive pairs generically and63 additional -m transit modes. Only preparation occupies positive acoustic branch."
+  },
+  "checks": {
+    "spinor_norm_max_error": 3.064215547965432e-14,
+    "full_H_residuals": [
+      {
+        "q": [
+          0.75,
+          0.45,
+          0.1
+        ],
+        "positive_energy": 0.2663022572870088,
+        "full_H_eigen_residual": 9.898798889185778e-15
+      },
+      {
+        "q": [
+          0.2,
+          -0.13,
+          0.31
+        ],
+        "positive_energy": 0.3870403793683767,
+        "full_H_eigen_residual": 1.1005082579757288e-14
+      }
+    ],
+    "probability_norm_max_error": 3.9968028886505635e-15,
+    "minimum_phase_pivot": 0.197650445266343
+  },
+  "observables": {
+    "samples": [
+      {
+        "time": 0.0,
+        "normalization": 1.000000000000004,
+        "centroid": [
+          -0.0018394688852169105,
+          0.021526781004417656,
+          -9.790240370905617e-05
+        ],
+        "position_std": [
+          4.853347712886199,
+          3.7676866465050187,
+          2.910814790712689
+        ],
+        "edge_shell_probability": 8.853229415415939e-05,
+        "weighted_group_velocity_ray": [
+          -0.0018394688852169105,
+          0.021526781004417656,
+          -9.790240370905617e-05
+        ]
+      },
+      {
+        "time": 0.5,
+        "normalization": 1.000000000000004,
+        "centroid": [
+          0.02737671886671822,
+          0.0250288441537099,
+          0.12342008973665618
+        ],
+        "position_std": [
+          4.853361011695466,
+          3.767711340631768,
+          2.9212560848406754
+        ],
+        "edge_shell_probability": 9.086824365393383e-05,
+        "weighted_group_velocity_ray": [
+          0.027376720185554176,
+          0.025028843308198302,
+          0.12329512895708059
+        ]
+      },
+      {
+        "time": 1.0,
+        "normalization": 1.000000000000004,
+        "centroid": [
+          0.0565929065887551,
+          0.02853090729859542,
+          0.24693682208713458
+        ],
+        "position_std": [
+          4.853391677818148,
+          3.767763869123873,
+          2.952351271437244
+        ],
+        "edge_shell_probability": 9.929120893390976e-05,
+        "weighted_group_velocity_ray": [
+          0.05659290925632526,
+          0.02853090561197895,
+          0.24668816031787022
+        ]
+      },
+      {
+        "time": 1.5,
+        "normalization": 1.000000000000004,
+        "centroid": [
+          0.0858090942784564,
+          0.0320329704392375,
+          0.370456979720275
+        ],
+        "position_std": [
+          4.85343971092574,
+          3.767844230817205,
+          3.0034612923869983
+        ],
+        "edge_shell_probability": 0.0001147808330307451,
+        "weighted_group_velocity_ray": [
+          0.08580909832709635,
+          0.03203296791575959,
+          0.3700811916786599
+        ]
+      },
+      {
+        "time": 2.0,
+        "normalization": 1.000000000000004,
+        "centroid": [
+          0.11502528193323641,
+          0.03553503357579485,
+          0.49398482413334455
+        ],
+        "position_std": [
+          4.853505110503397,
+          3.7679524239309212,
+          3.073591336958546
+        ],
+        "edge_shell_probability": 0.00013919360547634391,
+        "weighted_group_velocity_ray": [
+          0.11502528739786744,
+          0.03553503021954024,
+          0.4934742230394495
+        ]
+      },
+      {
+        "time": 2.5,
+        "normalization": 1.000000000000004,
+        "centroid": [
+          0.1442414695504387,
+          0.039037096708410934,
+          0.6175240207737667
+        ],
+        "position_std": [
+          4.853587875849951,
+          3.7680884460676607,
+          3.1614806208873727
+        ],
+        "edge_shell_probability": 0.00017549088666746744,
+        "weighted_group_velocity_ray": [
+          0.14424147646863852,
+          0.03903709252332088,
+          0.616867254400239
+        ]
+      },
+      {
+        "time": 3.0,
+        "normalization": 1.000000000000004,
+        "centroid": [
+          0.17345765712721573,
+          0.04253915983723697,
+          0.7410771032274296
+        ],
+        "position_std": [
+          4.85368800607797,
+          3.7682522942138115,
+          3.2657017030208433
+        ],
+        "edge_shell_probability": 0.00022808205219288245,
+        "weighted_group_velocity_ray": [
+          0.1734576655394096,
+          0.04253915482710153,
+          0.7402602857610288
+        ]
+      },
+      {
+        "time": 3.5,
+        "normalization": 1.000000000000004,
+        "centroid": [
+          0.2026738446605971,
+          0.046041222962410255,
+          0.8646443984353227
+        ],
+        "position_std": [
+          4.853805500113799,
+          3.768443964739843,
+          3.3847541331694195
+        ],
+        "edge_shell_probability": 0.00030329816883118674,
+        "weighted_group_velocity_ray": [
+          0.2026738546101807,
+          0.046041217130882175,
+          0.8636533171218184
+        ]
+      },
+      {
+        "time": 4.0,
+        "normalization": 1.000000000000004,
+        "centroid": [
+          0.23189003214746365,
+          0.04954328608405531,
+          0.9882221648568006
+        ],
+        "position_std": [
+          4.853940356697623,
+          3.768663453400707,
+          3.51714239718047
+        ],
+        "edge_shell_probability": 0.00041001203126900243,
+        "weighted_group_velocity_ray": [
+          0.23189004368095179,
+          0.04954327943466282,
+          0.987046348482608
+        ]
+      }
+    ],
+    "weighted_group_velocity": [
+      0.058432378141542174,
+      0.007004124607561292,
+      0.24678606272157927
+    ],
+    "central_group_velocity": [
+      0.06806906888923359,
+      0.007852118209805692,
+      0.37488760923354286
+    ],
+    "central_energy": 0.2663022572870088,
+    "reference_ray_anchor_time": 0.0,
+    "max_centroid_ray_distance": 0.0011758163742679845,
+    "maximum_edge_shell_probability": 0.00041001203126900243,
+    "reference_metric_speed_norm": 0.142177827622395,
+    "reference_ray_proper_parameter_rate": 0.9261868992690433,
+    "geodesic_scope": "The reference metric is flat, so its connection is zero and a constant-velocity ray is geodesic. Finite-lattice wavepacket centroid comparison is reported, not asserted exact. No modular-to-proper-time conversion."
+  },
+  "rejecting_controls": {
+    "remove_vertical_seams": "bloch_incidence(q,vertical=False) is exactly independent of q3; three-coordinate drawing alone supplies no vertical propagation",
+    "isotropic_unit_speed_rejected": true,
+    "fixed_band_is_not_full_theory": "other positive, negative and flat bands are present; local commits can mix bands"
+  },
+  "stored_spatial_apparatus": {
+    "coarse_internal_offsets": [
+      [
+        -0.4330127018922193,
+        0.25,
+        0.0
+      ],
+      [
+        0.0,
+        -0.5,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.4330127018922193,
+        0.25,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0.5
+      ]
+    ],
+    "component_to_offset_bin": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4,
+      0,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "complete_distribution": "position_distributions.npz: spatial_probability[time,cell_i,cell_j,cell_k,offset_bin]",
+    "scope": "Complete named coarse geometric-position apparatus; colocated internal port/seam labels are aggregated. Cell marginal is retained separately for plotting."
+  },
+  "official_rows_promoted": 0,
+  "source_sha256": {
+    "validation/observables/spacetime/stacked_wavepacket.py": "5a54aef32e47646a380c9f43aa142e044d481c3c2d881d5677ba2c992103ce9d",
+    "candidate/oph_openwave/geometry.py": "00d6ca810b1c7430e761b3106317f288d0b3c2e722dfeedec5aa18ac7bb8e32d",
+    "candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907",
+    "candidate/oph_openwave/uniform_native.py": "2416525dfd50cb7e7f38805a52c65858d51fda428b5875abc7295e52b03e3146"
+  }
+}

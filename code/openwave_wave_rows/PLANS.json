@@ -1,0 +1,38 @@
+{
+  "maxwell": {
+    "script": "openwave-tuning/next/CHAIN4/maxwell_full_review/review.py",
+    "outputs": [
+      "openwave-tuning/next/CHAIN4/maxwell_full_review/SOURCE_PINS.json",
+      "openwave-tuning/next/CHAIN4/maxwell_full_review/GEOMETRY.json",
+      "openwave-tuning/next/CHAIN4/maxwell_full_review/NATIVE.json",
+      "openwave-tuning/next/CHAIN4/maxwell_full_review/BOUNDS.json",
+      "openwave-tuning/next/CHAIN4/maxwell_full_review/SOURCE.json",
+      "openwave-tuning/next/CHAIN4/maxwell_full_review/IMPORTS.json",
+      "openwave-tuning/next/CHAIN4/maxwell_full_review/CHECKS.json"
+    ]
+  },
+  "size3": {
+    "script": "openwave-tuning/next/CHAIN4/maxwell_full_review/size3_check.py",
+    "outputs": [
+      "openwave-tuning/next/CHAIN4/maxwell_full_review/FRAME.json",
+      "openwave-tuning/next/CHAIN4/maxwell_full_review/SIZE3_NATIVE.json",
+      "openwave-tuning/next/CHAIN4/maxwell_full_review/SIZE3_CHECKS.json"
+    ]
+  },
+  "kg_root": {
+    "script": "openwave-tuning/next/CHAIN4/klein_gordon_root_review/review.py",
+    "outputs": [
+      "openwave-tuning/next/CHAIN4/klein_gordon_root_review/REVIEW.json"
+    ]
+  },
+  "kg_opposing": {
+    "script": "openwave-tuning/next/CHAIN4/klein_gordon_full_review/review.py",
+    "outputs": [
+      "openwave-tuning/next/CHAIN4/klein_gordon_full_review/EXACT_ALGEBRA.json",
+      "openwave-tuning/next/CHAIN4/klein_gordon_full_review/REVIEW.json",
+      "openwave-tuning/next/CHAIN4/klein_gordon_full_review/IMPORTS.json"
+    ],
+    "alias_inputs": "openwave-tuning/next/CHAIN4/klein_gordon_full_review/INPUTS.json",
+    "alias_directory": "openwave-tuning/next/CHAIN4/klein_gordon_full_review/inputs/"
+  }
+}

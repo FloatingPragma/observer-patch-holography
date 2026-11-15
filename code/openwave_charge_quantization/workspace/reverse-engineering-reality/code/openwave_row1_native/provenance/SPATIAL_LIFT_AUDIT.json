@@ -1,0 +1,746 @@
+{
+  "schema": "oph.row1.independent_spatial_lift.v1",
+  "checks": {
+    "exact_icosahedral_embedded_orientation": true,
+    "integral_lattice_isomorphism_certified": true,
+    "all132_actual_seed_records_match": true,
+    "all7920_native_branches_match_independent_repair": true,
+    "one_load_source_domain_is_native_closed": true,
+    "all_producer_complete_coin_histories_replayed": true,
+    "independent_exact_pointer_vs_producer_phase_meter": true,
+    "finite_mod6_regional_counter_decodes_injectively": true,
+    "cycle_pointer_winding_matches_every_updated_endpoint": true,
+    "all20_primal_face_boundaries_are_null_spatial_classes": true,
+    "six_class_only_counterexample_retained": true,
+    "half_loop_does_not_close": true,
+    "literal_native_cycle_pointer_complete": true,
+    "source_pins_unchanged": true
+  },
+  "lattice_certificate": {
+    "tree_minor_determinant": 1,
+    "cycle_quotient_Smith_factors": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "primal_face_rank": 19,
+    "dual_graph_H1_rank": 11,
+    "neutral_charge_lattice_rank": 11
+  },
+  "event_checks": 7920,
+  "nonzero_current_events": 660,
+  "complete_coin_histories": 456,
+  "phase_meter_max_error": 0,
+  "preparation": "Actual one-load initial_G and zero tape; every producer prescribed-schedule coin history replayed. No background2offset is substituted.",
+  "finite_class_observer": {
+    "source_domain_size_per_known_G": 12,
+    "charge_classes_across_G": 133,
+    "regional_values": [
+      -1,
+      0,
+      1
+    ],
+    "register_states": 6,
+    "decoder": {
+      "0": 0,
+      "1": 1,
+      "5": -1
+    },
+    "other_residues": "explicit domain failure, never accepted as a halfcharge",
+    "counter_update": "r <- r + (1_R(a)-1_R(b))*j mod6",
+    "regional_checks": 540672,
+    "class_memory": "Retain the known initial_G. The complete spatial class can be kept as12finite residue counters or one of133charge configurations acrossG. For each knownG only12source positions occur. No unboundedcurrenttape is needed for the class; the full tape selects a representative."
+  },
+  "largest_pointer_event_count_for_one_tested_vertex": 12,
+  "dual_face_cycles": [
+    [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    [
+      [
+        5,
+        1
+      ],
+      [
+        8,
+        1
+      ],
+      [
+        7,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        0,
+        -1
+      ]
+    ],
+    [
+      [
+        10,
+        1
+      ],
+      [
+        13,
+        1
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        11,
+        1
+      ],
+      [
+        9,
+        1
+      ]
+    ],
+    [
+      [
+        9,
+        -1
+      ],
+      [
+        15,
+        1
+      ],
+      [
+        16,
+        1
+      ],
+      [
+        17,
+        1
+      ],
+      [
+        14,
+        1
+      ]
+    ],
+    [
+      [
+        14,
+        -1
+      ],
+      [
+        19,
+        1
+      ],
+      [
+        18,
+        1
+      ],
+      [
+        20,
+        1
+      ],
+      [
+        10,
+        -1
+      ]
+    ],
+    [
+      [
+        1,
+        -1
+      ],
+      [
+        22,
+        1
+      ],
+      [
+        18,
+        -1
+      ],
+      [
+        21,
+        1
+      ],
+      [
+        5,
+        -1
+      ]
+    ],
+    [
+      [
+        11,
+        -1
+      ],
+      [
+        25,
+        1
+      ],
+      [
+        23,
+        1
+      ],
+      [
+        24,
+        1
+      ],
+      [
+        15,
+        -1
+      ]
+    ],
+    [
+      [
+        6,
+        -1
+      ],
+      [
+        26,
+        1
+      ],
+      [
+        23,
+        -1
+      ],
+      [
+        27,
+        1
+      ],
+      [
+        2,
+        -1
+      ]
+    ],
+    [
+      [
+        7,
+        -1
+      ],
+      [
+        28,
+        1
+      ],
+      [
+        16,
+        -1
+      ],
+      [
+        24,
+        -1
+      ],
+      [
+        26,
+        -1
+      ]
+    ],
+    [
+      [
+        21,
+        -1
+      ],
+      [
+        19,
+        -1
+      ],
+      [
+        17,
+        -1
+      ],
+      [
+        28,
+        -1
+      ],
+      [
+        8,
+        -1
+      ]
+    ],
+    [
+      [
+        27,
+        -1
+      ],
+      [
+        25,
+        -1
+      ],
+      [
+        12,
+        -1
+      ],
+      [
+        29,
+        1
+      ],
+      [
+        3,
+        -1
+      ]
+    ],
+    [
+      [
+        4,
+        -1
+      ],
+      [
+        29,
+        -1
+      ],
+      [
+        13,
+        -1
+      ],
+      [
+        20,
+        -1
+      ],
+      [
+        22,
+        -1
+      ]
+    ]
+  ],
+  "native_pointer_service": {
+    "carrier_cycle": [
+      0,
+      1,
+      8,
+      6,
+      2,
+      10
+    ],
+    "complete_one_attempt_transitions": [
+      {
+        "pointer_position": 0,
+        "direction": -1,
+        "seam": [
+          0,
+          10
+        ],
+        "coin": 0,
+        "record": [
+          0,
+          1
+        ],
+        "next_pointer_position": 5,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 0,
+        "direction": -1,
+        "seam": [
+          0,
+          10
+        ],
+        "coin": 1,
+        "record": [
+          1,
+          0
+        ],
+        "next_pointer_position": 0,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 0,
+        "direction": 1,
+        "seam": [
+          0,
+          1
+        ],
+        "coin": 0,
+        "record": [
+          0,
+          1
+        ],
+        "next_pointer_position": 1,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 0,
+        "direction": 1,
+        "seam": [
+          0,
+          1
+        ],
+        "coin": 1,
+        "record": [
+          1,
+          0
+        ],
+        "next_pointer_position": 0,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 1,
+        "direction": -1,
+        "seam": [
+          0,
+          1
+        ],
+        "coin": 0,
+        "record": [
+          0,
+          0
+        ],
+        "next_pointer_position": 1,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 1,
+        "direction": -1,
+        "seam": [
+          0,
+          1
+        ],
+        "coin": 1,
+        "record": [
+          1,
+          -1
+        ],
+        "next_pointer_position": 0,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 1,
+        "direction": 1,
+        "seam": [
+          1,
+          8
+        ],
+        "coin": 0,
+        "record": [
+          0,
+          1
+        ],
+        "next_pointer_position": 2,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 1,
+        "direction": 1,
+        "seam": [
+          1,
+          8
+        ],
+        "coin": 1,
+        "record": [
+          1,
+          0
+        ],
+        "next_pointer_position": 1,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 2,
+        "direction": -1,
+        "seam": [
+          1,
+          8
+        ],
+        "coin": 0,
+        "record": [
+          0,
+          0
+        ],
+        "next_pointer_position": 2,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 2,
+        "direction": -1,
+        "seam": [
+          1,
+          8
+        ],
+        "coin": 1,
+        "record": [
+          1,
+          -1
+        ],
+        "next_pointer_position": 1,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 2,
+        "direction": 1,
+        "seam": [
+          6,
+          8
+        ],
+        "coin": 0,
+        "record": [
+          0,
+          0
+        ],
+        "next_pointer_position": 2,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 2,
+        "direction": 1,
+        "seam": [
+          6,
+          8
+        ],
+        "coin": 1,
+        "record": [
+          1,
+          -1
+        ],
+        "next_pointer_position": 3,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 3,
+        "direction": -1,
+        "seam": [
+          6,
+          8
+        ],
+        "coin": 0,
+        "record": [
+          0,
+          1
+        ],
+        "next_pointer_position": 2,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 3,
+        "direction": -1,
+        "seam": [
+          6,
+          8
+        ],
+        "coin": 1,
+        "record": [
+          1,
+          0
+        ],
+        "next_pointer_position": 3,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 3,
+        "direction": 1,
+        "seam": [
+          2,
+          6
+        ],
+        "coin": 0,
+        "record": [
+          0,
+          0
+        ],
+        "next_pointer_position": 3,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 3,
+        "direction": 1,
+        "seam": [
+          2,
+          6
+        ],
+        "coin": 1,
+        "record": [
+          1,
+          -1
+        ],
+        "next_pointer_position": 4,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 4,
+        "direction": -1,
+        "seam": [
+          2,
+          6
+        ],
+        "coin": 0,
+        "record": [
+          0,
+          1
+        ],
+        "next_pointer_position": 3,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 4,
+        "direction": -1,
+        "seam": [
+          2,
+          6
+        ],
+        "coin": 1,
+        "record": [
+          1,
+          0
+        ],
+        "next_pointer_position": 4,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 4,
+        "direction": 1,
+        "seam": [
+          2,
+          10
+        ],
+        "coin": 0,
+        "record": [
+          0,
+          1
+        ],
+        "next_pointer_position": 5,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 4,
+        "direction": 1,
+        "seam": [
+          2,
+          10
+        ],
+        "coin": 1,
+        "record": [
+          1,
+          0
+        ],
+        "next_pointer_position": 4,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 5,
+        "direction": -1,
+        "seam": [
+          2,
+          10
+        ],
+        "coin": 0,
+        "record": [
+          0,
+          0
+        ],
+        "next_pointer_position": 5,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 5,
+        "direction": -1,
+        "seam": [
+          2,
+          10
+        ],
+        "coin": 1,
+        "record": [
+          1,
+          -1
+        ],
+        "next_pointer_position": 4,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 5,
+        "direction": 1,
+        "seam": [
+          0,
+          10
+        ],
+        "coin": 0,
+        "record": [
+          0,
+          0
+        ],
+        "next_pointer_position": 5,
+        "probability": "1/2"
+      },
+      {
+        "pointer_position": 5,
+        "direction": 1,
+        "seam": [
+          0,
+          10
+        ],
+        "coin": 1,
+        "record": [
+          1,
+          -1
+        ],
+        "next_pointer_position": 0,
+        "probability": "1/2"
+      }
+    ],
+    "maximum_retries_per_pointer_move": 16,
+    "move_timeout_probability": "1/65536",
+    "maximum_pointer_moves_for_tested_regional_readout": 12,
+    "worst_case_complete_success_probability": "6275952460185233415523595927247809319420162115918212890625/6277101735386680763835789423207666416102355444464034512896",
+    "worst_case_timeout_probability": "1149275201447348312193495959857096682193328545821622271/6277101735386680763835789423207666416102355444464034512896",
+    "worst_case_timeout_probability_float": 0.00018309010270908902,
+    "all_first_timeout_records_and_hold_coins_retained": true,
+    "maximum_native_pointer_attempts": 192,
+    "preparation": "Separate twelve-port native pointer carrier with one known unit at port0. This ready-pointer preparation is declared, not derived by the present audit.",
+    "measurement": "The observer follows actual native current records to track pointer position, signed wraps and timeout. Final pointer coordinate alone is not the readout."
+  },
+  "residue_only_counterexample": {
+    "all_residues_zero": true,
+    "actual_degrees": [
+      6,
+      -6,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "operational_service": "Classical finite readout of the actual committed integer current tape: on dual edge e, emit 6|F_e| signed unit shifts of a six-state cyclic pointer. The pointer shifts are implemented by the literal native rule on a declared one-unit auxiliary carrier, with finite retries and explicit timeouts. Complete signed pointer transitions determine winding; reading only its final state does not.",
+  "construction_boundary": "The spatial homotopy class is derived from the actual tape on the oriented carrier surface. The cyclic pointer is a declared classical decoder/readout, not an independently evolved field or proof of an autonomous electromagnetic interaction. Retaining the integer tape/lift is essential. The existing spectator-sensitive active-memory voltage is a different construction.",
+  "source_sha256": {
+    "openwave-tuning/next/ROW1_NATIVE/routes/spatial/NATIVE_DUAL_WINDING.json": "3e5f99ed88666485c124976df97585bbb7962dbb7df6583109238c4cd2d2927c",
+    "openwave-tuning/next/ROW1_NATIVE/routes/spatial/native_dual_winding.py": "ced04b04be7f903709efa63a7447d97fd4fb1861d39e9b62b25e52044929c477",
+    "reverse-engineering-reality/model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "openwave-tuning/candidate/oph_openwave/geometry.py": "00d6ca810b1c7430e761b3106317f288d0b3c2e722dfeedec5aa18ac7bb8e32d"
+  },
+  "auditor_sha256": "b5bf8e326a2018058643c3cb7eb2df68b879533703c04c25010a245b54ffd765",
+  "official_rows_changed": []
+}

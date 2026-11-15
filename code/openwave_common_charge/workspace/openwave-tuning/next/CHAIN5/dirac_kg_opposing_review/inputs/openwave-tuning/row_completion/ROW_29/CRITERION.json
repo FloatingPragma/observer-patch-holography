@@ -1,0 +1,34 @@
+{
+  "row": 29,
+  "name": "EM waves (Maxwell)",
+  "regime": "dynamic",
+  "literal_criterion": "Maxwell recovered; transverse waves at c",
+  "sources": [
+    {
+      "path": "MODELS.md",
+      "commit": "5d686cb049b82cc55f8822210a254d5833be23a7",
+      "url": "https://raw.githubusercontent.com/openwave-labs/openwave/5d686cb049b82cc55f8822210a254d5833be23a7/MODELS.md",
+      "sha256": "a69895e4af4f6bc180748c4e9a8ae11d745c75462650aea44c3a34bd687a139d"
+    },
+    {
+      "path": "openwave/xperiments/m5_liquid_crystal/research/scripts/m5_6_4a_hydro_em.py",
+      "commit": "5d686cb049b82cc55f8822210a254d5833be23a7",
+      "url": "https://raw.githubusercontent.com/openwave-labs/openwave/5d686cb049b82cc55f8822210a254d5833be23a7/openwave/xperiments/m5_liquid_crystal/research/scripts/m5_6_4a_hydro_em.py",
+      "sha256": "6a83465310def239f3e8b63c3d56174508c530d4b61a7664af53beae486c480d"
+    },
+    {
+      "path": "openwave/xperiments/m6_ouroboros/research/archive/0d_canonical.md",
+      "commit": "5d686cb049b82cc55f8822210a254d5833be23a7",
+      "url": "https://raw.githubusercontent.com/openwave-labs/openwave/5d686cb049b82cc55f8822210a254d5833be23a7/openwave/xperiments/m6_ouroboros/research/archive/0d_canonical.md",
+      "sha256": "63b82374d7b50f292a3478ccc7944983f4cf38acc79895a2766b880d755b6494"
+    }
+  ],
+  "precedent_interpretation": {
+    "M5": "Validated using electromagnetic field identities and evolution, with a hydrodynamic dictionary and a curvature construction.",
+    "M6": "Validated electromagnetic potential is explicitly part of the declared construction; no uniqueness proof is listed.",
+    "M7": "Partial because its measured vacuum includes a tachyonic branch rather than a pure Maxwell sector.",
+    "adopted_scope": "Recover Maxwell dynamics and transverse propagation at the common matter speed on the explicitly named construction. Retain supplied ancestry; impose no separate uniqueness or empirical-coupling requirement."
+  },
+  "candidate_id": "native-local12-dirac-noncompact-quadratic-v4-proposed",
+  "official_status_used_as_internal_verdict": false
+}

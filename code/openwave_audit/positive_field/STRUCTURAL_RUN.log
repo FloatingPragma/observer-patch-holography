@@ -1,0 +1,4 @@
+  File "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/common_dynamics/color_positive_field/structural_controls.py", line 70
+    assert floor>= (281/48 if weak==0 else91/16)-1e-12
+                    ^^^^^^^^^^^^^^^^^
+SyntaxError: expected 'else' after 'if' expression

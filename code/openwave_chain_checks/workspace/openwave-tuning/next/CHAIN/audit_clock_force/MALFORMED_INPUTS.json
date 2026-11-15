@@ -1,0 +1,45 @@
+{
+  "schema": "oph.chain.malformed_admission_fixtures.v1",
+  "clock_subject_sha256": "eee29493c0cc8a2bfdaf2868fdce82e10d055535f8ee0e6a0b4b818ef9fb38db",
+  "clock_matrix_shape": [384, 384],
+  "clock_sparse_fixtures": {
+    "negative_density": {
+      "unspecified_entries": 0,
+      "entries_row_column_real_imaginary": [[6, 6, 2, 0], [10, 10, -1, 0], [6, 10, 0, -0.5], [10, 6, 0, 0.5]],
+      "trace": 1,
+      "number_sector": 1,
+      "calls": ["CommonClock.semigroup(rho, 0, 0.8)", "CommonClock.trajectory(rho, 0, 0.8, 1.6, [])"],
+      "observed": "accepted; output remains nonpositive"
+    },
+    "nan_density": {
+      "unspecified_entries": 0,
+      "entries_row_column_real_imaginary": [[6, 6, "NaN", 0], [10, 10, 0.5, 0], [6, 10, 0, -0.5], [10, 6, 0, 0.5]],
+      "call": "CommonClock.semigroup(rho, 0, 0.8)",
+      "observed": "accepted; returned array contains NaN"
+    }
+  },
+  "clock_guard_locations": {
+    "semigroup": "Calls require_block_diagonal, which checks only entries outside number blocks and does not reject NaN comparisons.",
+    "count_split": "Calls require_block_diagonal and performs work before semigroup parameter validation.",
+    "trajectory": "Checks trace approximately one, without finite, Hermitian or positive checks.",
+    "evolve_and_native": "No density admission checks."
+  },
+  "guard_compatibility": "Positive subnormalized reservoir branches must remain admitted by semigroup, count_split, evolve and native. Trajectory requires normalized input.",
+  "force_subject_sha256": "2e77839960c2263b8d5fb9c5db76363567995a829eba580a0369b7145a827f47",
+  "force_fixture_base": "state=(0,9), actual side-two 288 seams, actual beta=4 kappa=nu=1 rates and literal native function",
+  "force_mutations": [
+    {
+      "mutation": "Set horizon=-0.001 in force_measurement.first_event",
+      "observed": "accepted",
+      "minimum_probability": -0.0007287251660018722,
+      "sum": 0.9999999999999999
+    },
+    {
+      "mutation": "Set rates[0,0]=-1 in force_measurement.first_event; retain horizon=0.001",
+      "observed": "accepted",
+      "minimum_probability": -0.00038043031401657003,
+      "sum": 0.9999999999999999
+    }
+  ],
+  "classification": "Public callable admission failures. The frozen finite members use valid densities, rates and horizons; the tested mathematical claims remain within those hypotheses."
+}

@@ -1,0 +1,52 @@
+{
+  "schema": "oph.c11.interacting_modular_independent_review.v1",
+  "checks": {
+    "explicit_global_configuration_labels": true,
+    "declared_eigenframe_phase": true,
+    "native_input_exact_C10_output": true,
+    "qubit_eigenvalues_without_floor": true,
+    "frozen_family_qubit_formula": true,
+    "independent_log_GNS_and_KMS": true,
+    "every_PQ_sequential_effect_complete": true,
+    "every_poststate_and_probability": true,
+    "every_subnormalized_native_continuation": true,
+    "pure_branch_has_no_faithful_M2_flow": true,
+    "after_inspection_corner_selection_reproduced": true,
+    "native_H_clock_identification_rejected": true,
+    "full_M384_faithfulness_structurally_impossible": true
+  },
+  "corner_probability": 0.011914171575263135,
+  "eigenvalues": [
+    0.04149975839280723,
+    0.9585002416071928
+  ],
+  "frequency": 3.1396822091940444,
+  "independent_complex_correlation": {
+    "real": 0.3977965194589213,
+    "imag": -0.8413237957095822
+  },
+  "errors": {
+    "family": 3.040977675184372e-15,
+    "GNS": 1.914128816512169e-15,
+    "KMS": 3.580361673049448e-15,
+    "poststates": 7.373597755597065e-18,
+    "probabilities": 7.589415207398531e-18,
+    "native_continuation": 4.365461982628633e-17,
+    "joint_native_probabilities": 4.336808689942018e-18
+  },
+  "H_clock_control": {
+    "leakage": 0.3622350216115421,
+    "compressed_fit_residual": 0.5004137013098838
+  },
+  "scope": "Postselectedglobaltwo-configurationM2corner, notlocalsubsystem orphysicalobserverclock. Cornerselectedafterknown-outputinspection, frozenbeforemeasurements. Fullcomplement/subnormalizedbranches retained. GNSreference algebraic; modulars injected andnotnativephysicaltime. RealPVMcorrelation only; no subjectiveexperience or physicalrowaward.",
+  "source_sha256": {
+    "next/C11/review_interacting_modular.py": "b2aaf814fb8ff9a76d39470aad8489d06b57440bd3266e1bdc0413ff0b11f310",
+    "next/C11/interacting_modular_observer.py": "390963046e7912588d1d590afb7f3a70f96860d55d2102821ac1732f90e2d238",
+    "next/C11/INTERACTING_MODULAR_OBSERVER.json": "5dd3cd5db85686efcdb4209d27f2b271834a19fe3a11ef9cd951d3a5c3663d93",
+    "next/C11/interacting_modular_observer_states.npz": "f4da0188c36a9a146cd65ee2eebf9a5351b1a1935aaab4c8736396e0fb161484",
+    "next/C10/canonical_states.npz": "27b18e957d2ececf5c0d54dcb0851d510ef307cef9a364372281966b3c7c96f1",
+    "next/C10/joint_source_states.npz": "1d75017307742e96649ea7c7e74a4a648a6d9f468e35ccd9f6ea05d202d7708b"
+  },
+  "full_criterion_met": false,
+  "official_rows_changed": []
+}

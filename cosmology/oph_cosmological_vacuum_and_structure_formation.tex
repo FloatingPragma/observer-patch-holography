@@ -222,6 +222,107 @@ finite-$k$ error bound. The exact pure-radiation and pure-dust controls give
 $\Phi=1$ and $\Phi=9/10$, respectively
 (\path{model/openwave_capacity_normalization_transfer}).
 
+\paragraph{Certified finite wavelength from a specified late preparation.}
+A different, explicitly supplied preparation begins at $N=-1$ and evolves
+to $N=0$. Put $U=U_m$, $v=U_r-U_m$, $R=\Phi+U$,
+$w=y-sU$ and $j=w_N$. These comoving variables eliminate the exact
+zero-wave-number adiabatic mode. Its finite-$k$ initial correction is
+$\Delta_m=-2Q\Phi/(3\Omega_m)$, with other comoving corrections zero;
+the full Hamiltonian constraint then vanishes. This late preparation is
+not identified with the primordial continuation described above.
+
+For $\epsilon=(k/H_0)^2$ and
+$Y=(\Delta_m,\Delta_r,4v,2w,j,U,R)$, write
+$Y'=(A_0+\epsilon B)Y$ and $Y=Y_0+\epsilon Y_1+Z$.
+Appending $10T$ gives an eight-coordinate affine equation for $Y_1$.
+The exact background bounds imply $\mu_\infty(A_0)\le4$ and
+$\|B\|_\infty<6$. Outward interval Taylor transport and the full
+variation-of-constants equation
+\[
+ Z'=(A_0+\epsilon B)Z+\epsilon^2BY_1,
+ \qquad Z(-1)=0
+\]
+give a complete $k^4$ remainder. Independent 1024- and2048-step enclosures
+overlap; the refined coefficient intervals are
+\[
+ \Phi_1\in[-0.008281806997,-0.005759370982],\qquad
+ \Delta_{m,1}\in[-1.455879943233,-1.454618725225].
+\]
+The resulting full finite-wavelength records are
+\[
+\begin{array}{c|cc}
+k/H_0&\Phi(0)&\Delta_m(0)\\\hline
+1/100&[0.734178437082,0.734256737081]&[-0.000145594911,-0.000145454956]\\
+1/50&[0.734175744790,0.734255217019]&[-0.000582462769,-0.000581736699]
+\end{array}
+\]
+These intervals include the supplied initial quadrature uncertainty,
+background evolution and every finite-$k$ state correction. The source
+retains its Einstein/scalar attachment, density fractions, horizon choice
+and physical-scale freedom. It supplies no primordial-state selection,
+particle abundances, recombination or microwave-background fit
+(\path{model/openwave_capacity_finite_wavelength}).
+
+\paragraph{Native capacity histories and the physical clock.}
+The literal C/E process has a complete memory interface: for export-oldest
+storage and a controller reading only the last committed record,
+concatenating archive and FIFO gives the same complete source instrument
+at different FIFO capacities. All $625$ raw two-event histories and all
+$66$ elementary source columns are checked, retaining zeros, exports and
+terminal outcomes. A halt-on-full controller supplies a distinct process.
+The raw two-record storage bound is $80$ bits; record entropy and the
+source Holevo bound $\log_2 66$ are separate quantities. None is an
+identified cosmological horizon area.
+
+Rescaling an assigned physical event time by $s>0$ changes no native
+record. With lengths scaled consistently, it sends $H_0$ to $H_0/s$ and
+$\Lambda$ to $\Lambda/s^2$ while leaving the dimensionless finite-wavelength
+transfer unchanged. The homogeneous perturbation equations also retain
+an independent amplitude rescaling. Thus the complete native history
+intertwiner closes a representation question, while a physical clock,
+horizon map and primordial preparation must supply the normalization
+needed for an absolute cosmological comparison
+(\path{model/openwave_native_capacity_history}).
+
+\paragraph{One native program and the cosmological state requirement.}
+The complete two-load program combines charged coherent motion, original
+raw-event commitment, repeated clock records and a declared integer-link
+extension on one source encoding. The corrected clock is read by coherent
+inverse tracking, with source, memory, event and all complementary outcomes
+retained. Its phase duration and physical unit are explicit inputs. Gauss
+law and complete link-current records likewise do not fix an electric unit
+or a cosmological metric clock.
+
+The state choice matters under enlargement. With $N=\binom{P}{2}$
+configurations, the uniform fixed-two-load reference assigns probability
+$66/N$ to both loads occupying the first cell. The corresponding bounded
+indicator has variance $(66/N)(1-66/N)\to0$. Its even-character source
+phase also obeys $D\omega_{\min}^2\le(6/N)/(1-3/(2ND))\to0$ under the
+declared event-time convention. These are exact tests of one reference and
+one enlargement, not primordial abundance or fluctuation predictions.
+A nontrivial cosmological limit requires an established density, state and
+observable scaling, together with the common photon/metric clock and
+primordial preparation used by the continuum equations above
+(\path{model/native_observer_program},\path{model/native_transport_spectrum},
+\path{model/native_electric_gauss}).
+
+The joint finite source/link state has a complete tracked-clock interface:
+canonical dressing, full inverse walk and the native clock act on the same
+state, retaining all decoder and clock complements. Its twelve source
+support columns preserve all $144$ matrix units. This controlled
+isometric apparatus makes the field/clock connection explicit, without
+selecting a cosmological reference state or a physical time unit
+(\path{model/native_gauss_clock}).
+
+A specified cubic routing has a controlled one-load scalar dispersion
+limit for fixed Fourier modes, $\Omega^2\to|p|^2/4$, with a rational fourth-order bound and all
+internal/event modes retained. Its macrogeometry, spacing and clock are
+declared. This is a useful spatial propagation interface, separate from
+the local joint charge--field experiment and from an interacting
+cosmological field state. It does not select a primordial spectrum,
+expansion history or absolute cosmological normalization
+(\path{model/native_spatial_refinement}).
+
 \section{Matter and States on a Supplied Spatial Domain}
 
 The Whitney construction on the fixed tetrahedral cone gives a controlled

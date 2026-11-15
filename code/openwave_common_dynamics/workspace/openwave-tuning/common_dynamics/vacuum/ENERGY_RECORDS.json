@@ -1,0 +1,46 @@
+{
+  "schema": "oph.dirac.dressed_reference_electric_records.v1",
+  "checks": {
+    "all193sharedcycles_marginalized_exactly": true,
+    "complete_Slater_occupation_distribution": true,
+    "integer_outward_cyclic_convolutions": true,
+    "uniform_field_energy_control": true,
+    "source_bytes_unchanged": true
+  },
+  "fixed_point_bits": 160,
+  "states": [
+    {
+      "base": 4,
+      "electric_energy_lower_exact": "377530720173527122788260768127673341572589706509853/730750818665451459101842416358141509827966271488",
+      "electric_energy_upper_exact": "755061440347054245576521536255346683145179413467527/1461501637330902918203684832716283019655932542976",
+      "energy": 516.6340023580135,
+      "interval_width": 3.0641156230097847e-43,
+      "full65536occupation_law_included": true
+    },
+    {
+      "base": 16,
+      "electric_energy_lower_exact": "924257863148098630300250867677022602108440424935683/730750818665451459101842416358141509827966271488",
+      "electric_energy_upper_exact": "1848515726296197260600501735354045204216880850319171/1461501637330902918203684832716283019655932542976",
+      "energy": 1264.8057854194997,
+      "interval_width": 3.0640061465672593e-43,
+      "full65536occupation_law_included": true
+    },
+    {
+      "base": 64,
+      "electric_energy_lower_exact": "3224784753738229118595258110119130715614202071766383/1461501637330902918203684832716283019655932542976",
+      "electric_energy_upper_exact": "806196188434557279648814527529782678903550518053487/365375409332725729550921208179070754913983135744",
+      "energy": 2206.487267183332,
+      "interval_width": 3.0623639999293787e-43,
+      "full65536occupation_law_included": true
+    }
+  ],
+  "uniform_energy_exact": "3096",
+  "native_scope": "The base16 target is the one compiled by native_preparation.py. Base4/64 are ideal finite preparation comparisons and do not inherit that native certificate.",
+  "measurement": "Read all288centeredZ16fields and compute sumF_e\u00b2/2. Bounded range0..9216 propagates complete recordTV error delta to an expectation error at most9216delta.",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/vacuum/energy_records.py": "a5adbf621f98da7aa3363889f359682cbad0cce5867a66250adf5504c9ced4a6",
+    "openwave-tuning/common_dynamics/vacuum/reference.py": "38a79b8a9ecbdc66b51559466a546d88b8ab64b4ad288de39434a5214f409582",
+    "openwave-tuning/common_dynamics/vacuum/REFERENCE.json": "91852a559fc9cbb0e971f8762564267e303c014c2c2aed1a79f2f359df4ca5f4"
+  },
+  "official_rows_changed": []
+}

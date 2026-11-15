@@ -1,0 +1,35 @@
+{
+  "schema": "oph.local12.controlled_continuum.manifest.v1",
+  "worker": "DYN05",
+  "model_id": "native-local12-current-v0-proposed",
+  "state": "bounded result frozen for opposing review",
+  "checks": {
+    "all12_result_checks_pass": true,
+    "all_source_and_artifact_pins_match": true,
+    "upstream_compiler_instrument_clock_custodies_verified": true
+  },
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/continuum/continuum.py": "5bb5911945c9a53041dd743f90022d057536d8026c391dcc838be9a91e069b71",
+    "reverse-engineering-reality/model/native_spatial_refinement/source.py": "b4576a37b7610418f810ab7beebf5e52a7eeab80f66c7260ace149de9c733733",
+    "openwave-tuning/auditor/native_walk_bridge/common_walk.py": "4c8b6087aab6212ae12af126640ba19bbfec63215be5234be64f016cc604d75d",
+    "openwave-tuning/common_dynamics/clock/clock_contract.py": "ee2899c4eeb765e011c2365154573a9e9e4afd6749b4f8b03be3be572c6f8dbc",
+    "reverse-engineering-reality/model/native_spatial_refinement/PROOF.md": "c411a13d5f92b38721eb6624291e01571a4363dcca9f80cb5f141da794c7bb1b",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_WALK_RECEIPT.json": "39e2d7a6dace9ff549d8e68974239c11f03316550a36f1c708302dd562048052",
+    "openwave-tuning/auditor/common_walk_particle/MANIFEST.json": "7e6c6ba851f5fd3b6aa96ee4d621bf4f09f37540d6b0da72572b483ef51b477c",
+    "openwave-tuning/auditor/common_walk_review/SOURCE_ERROR.json": "79432b4a01fa0f9234a8843d27d5a5eb20fd1483e9476c42e91a212f9df2573d",
+    "openwave-tuning/common_dynamics/continuum/PROOF.md": "cfefd0cc652cfb528b16c2d6ca843260acdd7de66924e0226f94e8064d66c86e",
+    "openwave-tuning/common_dynamics/continuum/README.md": "eaef1e457b0ac14963eed3a528370940072fca2fb03803464ac4e8a8a5806346",
+    "openwave-tuning/common_dynamics/continuum/RESULT.json": "e3289f599e0155f9059e6fb6a9f336462a51f851ea5de6d6b2a3ae3da8fc5510",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_SOURCE_CUSTODY.json": "4d1f9c213f2dba5416dd9085f34be8082d4d65e7c3e10b8649bed27d4bab563a",
+    "openwave-tuning/common_dynamics/clock/MANIFEST.json": "6f80b0fe899cdeffd59d3742c318fe627817c19685d8f164abed69721f0b0992"
+  },
+  "upstream_custody_file_counts": {
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_SOURCE_CUSTODY.json": 201,
+    "openwave-tuning/auditor/common_walk_particle/MANIFEST.json": 25,
+    "openwave-tuning/common_dynamics/clock/MANIFEST.json": 5
+  },
+  "scope": "Free scalar/longitudinal first-order continuum on this one-load source. Stationary transverse components do not establish Maxwell radiation. No interacting manybody limit, species masses, coupling or all31 validation is inferred.",
+  "implementation_domain": "The family Bloch/graph update is exact. Native pulse compilation is frozen for size2; no uniform-in-size physical pulse implementation or accumulated hardware error is inferred. Bandlimited input preparation is an explicit domain premise.",
+  "source_word_error_composed_for_size2_only": true,
+  "official_rows_changed": []
+}

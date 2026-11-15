@@ -1,0 +1,436 @@
+{
+  "schema": "oph.local12.common_clock.v1",
+  "candidate_id": "native-local12-current-v0-proposed",
+  "clock_attachment_id": "local12-completed-word-clock-v1-proposed",
+  "checks": {
+    "all_native_global_columns": true,
+    "exact_population_thinning": true,
+    "per_seam_clock_is_volume_consistent": true,
+    "all_capped_wait_outcomes": true,
+    "all_nonincident_native_marks_retained": true,
+    "source_control_duration_enclosed": true,
+    "rate_rescaling_control": true,
+    "whole_step_and_processor_locality_distinguished": true,
+    "coherent_and_markov_second_step_control": true,
+    "source_custody_unchanged": true
+  },
+  "native_columns_checked": 55296,
+  "per_seam_clock": [
+    {
+      "size": 2,
+      "seams": 288,
+      "per_seam_rate": "3/7",
+      "global_attempt_rate": "864/7",
+      "local_contact_rate": "18/7",
+      "generator": "-r*L_graph/2"
+    },
+    {
+      "size": 3,
+      "seams": 972,
+      "per_seam_rate": "3/7",
+      "global_attempt_rate": "2916/7",
+      "local_contact_rate": "18/7",
+      "generator": "-r*L_graph/2"
+    },
+    {
+      "size": 4,
+      "seams": 2304,
+      "per_seam_rate": "3/7",
+      "global_attempt_rate": "6912/7",
+      "local_contact_rate": "18/7",
+      "generator": "-r*L_graph/2"
+    }
+  ],
+  "complete_wait_laws": [
+    {
+      "global_attempt_cap": 1,
+      "contact_probability_per_attempt": "1/48",
+      "first_contact_attempt_probabilities": [
+        "1/48"
+      ],
+      "timeout_probability": "47/48",
+      "full_path_recipe": "Before contact retain each chosen nonincident seam, law and coin. Each fine C or E path of length n has weight (1/(2M))^n for its fixed law; an independently chosen fair law adds a factor1/2 per event. A contact may hold the load. Timeout retains all cap letters and unchanged load.",
+      "success_conditioning_applied": false
+    },
+    {
+      "global_attempt_cap": 2,
+      "contact_probability_per_attempt": "1/48",
+      "first_contact_attempt_probabilities": [
+        "1/48",
+        "47/2304"
+      ],
+      "timeout_probability": "2209/2304",
+      "full_path_recipe": "Before contact retain each chosen nonincident seam, law and coin. Each fine C or E path of length n has weight (1/(2M))^n for its fixed law; an independently chosen fair law adds a factor1/2 per event. A contact may hold the load. Timeout retains all cap letters and unchanged load.",
+      "success_conditioning_applied": false
+    },
+    {
+      "global_attempt_cap": 4,
+      "contact_probability_per_attempt": "1/48",
+      "first_contact_attempt_probabilities": [
+        "1/48",
+        "47/2304",
+        "2209/110592",
+        "103823/5308416"
+      ],
+      "timeout_probability": "4879681/5308416",
+      "full_path_recipe": "Before contact retain each chosen nonincident seam, law and coin. Each fine C or E path of length n has weight (1/(2M))^n for its fixed law; an independently chosen fair law adds a factor1/2 per event. A contact may hold the load. Timeout retains all cap letters and unchanged load.",
+      "success_conditioning_applied": false
+    },
+    {
+      "global_attempt_cap": 1,
+      "contact_probability_per_attempt": "1/162",
+      "first_contact_attempt_probabilities": [
+        "1/162"
+      ],
+      "timeout_probability": "161/162",
+      "full_path_recipe": "Before contact retain each chosen nonincident seam, law and coin. Each fine C or E path of length n has weight (1/(2M))^n for its fixed law; an independently chosen fair law adds a factor1/2 per event. A contact may hold the load. Timeout retains all cap letters and unchanged load.",
+      "success_conditioning_applied": false
+    },
+    {
+      "global_attempt_cap": 2,
+      "contact_probability_per_attempt": "1/162",
+      "first_contact_attempt_probabilities": [
+        "1/162",
+        "161/26244"
+      ],
+      "timeout_probability": "25921/26244",
+      "full_path_recipe": "Before contact retain each chosen nonincident seam, law and coin. Each fine C or E path of length n has weight (1/(2M))^n for its fixed law; an independently chosen fair law adds a factor1/2 per event. A contact may hold the load. Timeout retains all cap letters and unchanged load.",
+      "success_conditioning_applied": false
+    },
+    {
+      "global_attempt_cap": 4,
+      "contact_probability_per_attempt": "1/162",
+      "first_contact_attempt_probabilities": [
+        "1/162",
+        "161/26244",
+        "25921/4251528",
+        "4173281/688747536"
+      ],
+      "timeout_probability": "671898241/688747536",
+      "full_path_recipe": "Before contact retain each chosen nonincident seam, law and coin. Each fine C or E path of length n has weight (1/(2M))^n for its fixed law; an independently chosen fair law adds a factor1/2 per event. A contact may hold the load. Timeout retains all cap letters and unchanged load.",
+      "success_conditioning_applied": false
+    },
+    {
+      "global_attempt_cap": 1,
+      "contact_probability_per_attempt": "1/384",
+      "first_contact_attempt_probabilities": [
+        "1/384"
+      ],
+      "timeout_probability": "383/384",
+      "full_path_recipe": "Before contact retain each chosen nonincident seam, law and coin. Each fine C or E path of length n has weight (1/(2M))^n for its fixed law; an independently chosen fair law adds a factor1/2 per event. A contact may hold the load. Timeout retains all cap letters and unchanged load.",
+      "success_conditioning_applied": false
+    },
+    {
+      "global_attempt_cap": 2,
+      "contact_probability_per_attempt": "1/384",
+      "first_contact_attempt_probabilities": [
+        "1/384",
+        "383/147456"
+      ],
+      "timeout_probability": "146689/147456",
+      "full_path_recipe": "Before contact retain each chosen nonincident seam, law and coin. Each fine C or E path of length n has weight (1/(2M))^n for its fixed law; an independently chosen fair law adds a factor1/2 per event. A contact may hold the load. Timeout retains all cap letters and unchanged load.",
+      "success_conditioning_applied": false
+    },
+    {
+      "global_attempt_cap": 4,
+      "contact_probability_per_attempt": "1/384",
+      "first_contact_attempt_probabilities": [
+        "1/384",
+        "383/147456",
+        "146689/56623104",
+        "56181887/21743271936"
+      ],
+      "timeout_probability": "21517662721/21743271936",
+      "full_path_recipe": "Before contact retain each chosen nonincident seam, law and coin. Each fine C or E path of length n has weight (1/(2M))^n for its fixed law; an independently chosen fair law adds a factor1/2 per event. A contact may hold the load. Timeout retains all cap letters and unchanged load.",
+      "success_conditioning_applied": false
+    }
+  ],
+  "actual_fine_tapes": [
+    {
+      "records": [
+        {
+          "edge": 6,
+          "seam": [
+            1,
+            5
+          ],
+          "coin": 0,
+          "law": "C",
+          "label": 0,
+          "current": 0,
+          "source_before": 0,
+          "source_after": 0,
+          "contact": false,
+          "global_attempt": 1,
+          "local_contact_count": 0
+        },
+        {
+          "edge": 6,
+          "seam": [
+            1,
+            5
+          ],
+          "coin": 1,
+          "law": "C",
+          "label": 0,
+          "current": 0,
+          "source_before": 0,
+          "source_after": 0,
+          "contact": false,
+          "global_attempt": 2,
+          "local_contact_count": 0
+        },
+        {
+          "edge": 0,
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "law": "C",
+          "label": 1,
+          "current": 1,
+          "source_before": 0,
+          "source_after": 1,
+          "contact": true,
+          "global_attempt": 3,
+          "local_contact_count": 1
+        },
+        {
+          "edge": 0,
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "law": "C",
+          "label": -1,
+          "current": -1,
+          "source_before": 1,
+          "source_after": 0,
+          "contact": true,
+          "global_attempt": 4,
+          "local_contact_count": 2
+        }
+      ],
+      "final_port": 0,
+      "global_attempts": 4,
+      "local_contacts_including_holds": 2,
+      "contact_classification": "Known initial port plus preceding signed-current records; no terminal occupation is an observer input. Unknown-position or quantum inputs do not inherit this classifier.",
+      "fixed_law_path_probability_exact": "1/110075314176"
+    },
+    {
+      "records": [
+        {
+          "edge": 6,
+          "seam": [
+            1,
+            5
+          ],
+          "coin": 0,
+          "law": "E",
+          "label": 0,
+          "current": 0,
+          "source_before": 0,
+          "source_after": 0,
+          "contact": false,
+          "global_attempt": 1,
+          "local_contact_count": 0
+        },
+        {
+          "edge": 6,
+          "seam": [
+            1,
+            5
+          ],
+          "coin": 1,
+          "law": "E",
+          "label": 0,
+          "current": 0,
+          "source_before": 0,
+          "source_after": 0,
+          "contact": false,
+          "global_attempt": 2,
+          "local_contact_count": 0
+        },
+        {
+          "edge": 0,
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "law": "E",
+          "label": 1,
+          "current": 1,
+          "source_before": 0,
+          "source_after": 1,
+          "contact": true,
+          "global_attempt": 3,
+          "local_contact_count": 1
+        },
+        {
+          "edge": 0,
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "law": "E",
+          "label": -1,
+          "current": -1,
+          "source_before": 1,
+          "source_after": 0,
+          "contact": true,
+          "global_attempt": 4,
+          "local_contact_count": 2
+        }
+      ],
+      "final_port": 0,
+      "global_attempts": 4,
+      "local_contacts_including_holds": 2,
+      "contact_classification": "Known initial port plus preceding signed-current records; no terminal occupation is an observer input. Unknown-position or quantum inputs do not inherit this classifier.",
+      "fixed_law_path_probability_exact": "1/110075314176"
+    }
+  ],
+  "implementation_profile": {
+    "ideal_algebraic_control_time_interval_exact": [
+      "852893051951515192125555085652381406386093447638697544047132293021853866337809310575270012904435348858217227356405513519/1819729049293077875606804102434780743426796357365077615867802419200000000000000000000000000000000000000000000000000",
+      "5597110653431818448323955249593752979408738250128934828154854758139745116656089081429648133721119741418662827903418586971/11941971885985823558669651922228248628738351095208237411639440179200000000000000000000000000000000000000000000000000"
+    ],
+    "literal_binary64_control_time_exact": "2110802612316323713095/4503599627370496",
+    "literal_vs_ideal_duration_difference_interval_exact": [
+      "112977363815350788422199980001403494717174468548495934820843910918570351866278880258581337172096581413029/11941971885985823558669651922228248628738351095208237411639440179200000000000000000000000000000000000000000000000000",
+      "17215598295672501092906663619261488227058133114628477633662190689424729987095564651141782772643594486481/1819729049293077875606804102434780743426796357365077615867802419200000000000000000000000000000000000000000000000000"
+    ],
+    "total_duration_interval_exact": [
+      "2149751993693637447751/4503599627370496",
+      "2149751993693637447751/4503599627370496"
+    ],
+    "native_pulses": 432425,
+    "load_export_services": 864850,
+    "actual_native_attempts": 0,
+    "physical_unit": "declared profile unit",
+    "assumptions": [
+      "serial rectangular simultaneous-port controls",
+      "per-port amplitude bound is attained for each pulse",
+      "fixed common service and attempt latency",
+      "no extra idle interval or overlap"
+    ],
+    "source_selects_profile": false
+  },
+  "double_rate_half_latency_profile": {
+    "ideal_algebraic_control_time_interval_exact": [
+      "852893051951515192125555085652381406386093447638697544047132293021853866337809310575270012904435348858217227356405513519/3639458098586155751213608204869561486853592714730155231735604838400000000000000000000000000000000000000000000000000",
+      "5597110653431818448323955249593752979408738250128934828154854758139745116656089081429648133721119741418662827903418586971/23883943771971647117339303844456497257476702190416474823278880358400000000000000000000000000000000000000000000000000"
+    ],
+    "literal_binary64_control_time_exact": "2110802612316323713095/9007199254740992",
+    "literal_vs_ideal_duration_difference_interval_exact": [
+      "112977363815350788422199980001403494717174468548495934820843910918570351866278880258581337172096581413029/23883943771971647117339303844456497257476702190416474823278880358400000000000000000000000000000000000000000000000000",
+      "17215598295672501092906663619261488227058133114628477633662190689424729987095564651141782772643594486481/3639458098586155751213608204869561486853592714730155231735604838400000000000000000000000000000000000000000000000000"
+    ],
+    "total_duration_interval_exact": [
+      "2149751993693637447751/9007199254740992",
+      "2149751993693637447751/9007199254740992"
+    ],
+    "native_pulses": 432425,
+    "load_export_services": 864850,
+    "actual_native_attempts": 0,
+    "physical_unit": "declared profile unit",
+    "assumptions": [
+      "serial rectangular simultaneous-port controls",
+      "per-port amplitude bound is attained for each pulse",
+      "fixed common service and attempt latency",
+      "no extra idle interval or overlap"
+    ],
+    "source_selects_profile": false
+  },
+  "refinement_clock_examples": [
+    {
+      "clock_attachment": "local12-completed-word-clock-v1-proposed",
+      "time_per_completed_W_exact": "1/16",
+      "time_coordinate": "t=n*tau0*h",
+      "scalar_acoustic_speed_squared_exact": "1/48",
+      "source_graph_light_cone_speed_bound_exact": "1",
+      "physical_seconds_identified": false,
+      "condition": "The same h and tau0 apply to every source, field and apparatus output; actual timing needs a supplied implementation profile."
+    },
+    {
+      "clock_attachment": "local12-completed-word-clock-v1-proposed",
+      "time_per_completed_W_exact": "1/32",
+      "time_coordinate": "t=n*tau0*h",
+      "scalar_acoustic_speed_squared_exact": "1/48",
+      "source_graph_light_cone_speed_bound_exact": "1",
+      "physical_seconds_identified": false,
+      "condition": "The same h and tau0 apply to every source, field and apparatus output; actual timing needs a supplied implementation profile."
+    },
+    {
+      "clock_attachment": "local12-completed-word-clock-v1-proposed",
+      "time_per_completed_W_exact": "1/64",
+      "time_coordinate": "t=n*tau0*h",
+      "scalar_acoustic_speed_squared_exact": "1/48",
+      "source_graph_light_cone_speed_bound_exact": "1",
+      "physical_seconds_identified": false,
+      "condition": "The same h and tau0 apply to every source, field and apparatus output; actual timing needs a supplied implementation profile."
+    }
+  ],
+  "locality": {
+    "whole_step_light_cone": [
+      {
+        "steps": 1,
+        "input_position_columns": 96,
+        "outside_graph_cone_nonzero_amplitudes": 0
+      },
+      {
+        "steps": 2,
+        "input_position_columns": 96,
+        "outside_graph_cone_nonzero_amplitudes": 0
+      },
+      {
+        "steps": 3,
+        "input_position_columns": 96,
+        "outside_graph_cone_nonzero_amplitudes": 0
+      },
+      {
+        "steps": 4,
+        "input_position_columns": 96,
+        "outside_graph_cone_nonzero_amplitudes": 0
+      }
+    ],
+    "encoded_gate_prefix_counterexample": {
+      "gate_prefix": 5,
+      "gate_kind": "flip",
+      "targets": [
+        5
+      ],
+      "initial_port": 0,
+      "event": 0,
+      "intermediate_port": 3,
+      "graph_distance": 3
+    },
+    "prefixes_with_temporary_source_padding": 2920,
+    "locality_scope": "Graph-position support at complete W boundaries; encoded processor operations and coherent load/export are not a distributed graph-local implementation.",
+    "concrete_local_implementation_obligation": "Represent twelve event modes at each site; apply on-site R in parallel and transport each matched mode only to its adjacent site. Establish the same complete native service at those spatial addresses."
+  },
+  "second_step_return_control": {
+    "coherent": "25/72",
+    "Markov": "7/24",
+    "difference": "1/18"
+  },
+  "physical_attachment": "A common effective time coordinate is supplied. Physical seconds, spatially local processor services, and refinement scaling of hardware bandwidth/latency require explicit architecture or calibration.",
+  "scope": "Literal classical thinning is an exact same-process comparison. Repeated coherent W is a declared distinct dynamics; no raw-channel identity is inferred. Every time coordinate and failure is retained.",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/clock/clock_contract.py": "ee2899c4eeb765e011c2365154573a9e9e4afd6749b4f8b03be3be572c6f8dbc",
+    "openwave-tuning/auditor/native_walk_bridge/common_walk.py": "4c8b6087aab6212ae12af126640ba19bbfec63215be5234be64f016cc604d75d",
+    "openwave-tuning/auditor/native_walk_bridge/compile_walk.py": "26371a86d04d7853ab03dbccb46f89a65c809fb6d75480312b0ed61b0259ada2",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_WALK_PROGRAM.json": "0439ac27c173d074871122cf893afd2617243003906f51865490cd6e4f73d7e7",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_WALK_RECEIPT.json": "39e2d7a6dace9ff549d8e68974239c11f03316550a36f1c708302dd562048052",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_SOURCE_CUSTODY.json": "4d1f9c213f2dba5416dd9085f34be8082d4d65e7c3e10b8649bed27d4bab563a",
+    "reverse-engineering-reality/model/native_spatial_refinement/source.py": "b4576a37b7610418f810ab7beebf5e52a7eeab80f66c7260ace149de9c733733",
+    "reverse-engineering-reality/model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "reverse-engineering-reality/model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "reverse-engineering-reality/code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
+    "reverse-engineering-reality/code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49"
+  },
+  "official_rows_changed": []
+}

@@ -1,0 +1,649 @@
+{
+  "schema": "oph.local12.dirac_spin_proposal.v1",
+  "model_id": "native-local12-dirac-routed-v3-proposed",
+  "checks": {
+    "explicit_Clifford_architecture": true,
+    "native_spin_words_all_columns": true,
+    "native_two_pi_four_pi_phase_records": true,
+    "continuum_physical_rotation_covariance": true,
+    "controlled_free_Dirac_limit": true,
+    "full_Brillouin_doublers_retained": true,
+    "actual_carrier_routes_and_Gauss_current": true,
+    "finite_character_gauge_covariance": true,
+    "finite_joint_field_intervention": true,
+    "missing_intracell_current_rejected": true,
+    "Pauli_identity_with_cutoff_defect": true,
+    "spectator_g0_control": true
+  },
+  "Clifford_residual": 0.0,
+  "rotation_covariance_residuals": [
+    1.5700924586837752e-16,
+    1.182483957737094e-16,
+    0.0
+  ],
+  "gauge_residuals": [
+    1.4392617471917066e-15,
+    1.5467586376377656e-15,
+    2.3275630651628782e-15
+  ],
+  "free_continuum_cases": [
+    {
+      "h": 0.2,
+      "n": 5,
+      "error": 0.03439082772202372,
+      "operator_bound": 0.07000000000000002,
+      "terminal_TV_bound": 0.07000000000000002
+    },
+    {
+      "h": 0.1,
+      "n": 10,
+      "error": 0.017181247667034116,
+      "operator_bound": 0.03500000000000001,
+      "terminal_TV_bound": 0.03500000000000001
+    },
+    {
+      "h": 0.05,
+      "n": 20,
+      "error": 0.008588831924109752,
+      "operator_bound": 0.017500000000000005,
+      "terminal_TV_bound": 0.017500000000000005
+    }
+  ],
+  "two_pi_native_records": {
+    "native_pulses_before_pointer": 12,
+    "pointer_native_pulses": 6,
+    "laws": {
+      "C": {
+        "fine_records": [
+          {
+            "record": {
+              "coin": 0,
+              "label": -1,
+              "current": -1,
+              "bit": 1
+            },
+            "probability": 1.0637137227464576e-31
+          },
+          {
+            "record": {
+              "coin": 0,
+              "label": 0,
+              "current": 0,
+              "bit": 1
+            },
+            "probability": 0.49999999999999967
+          },
+          {
+            "record": {
+              "coin": 0,
+              "label": 1,
+              "current": 1,
+              "bit": 0
+            },
+            "probability": 7.058844227570516e-32
+          },
+          {
+            "record": {
+              "coin": 1,
+              "label": -1,
+              "current": -1,
+              "bit": 1
+            },
+            "probability": 0.49999999999999967
+          },
+          {
+            "record": {
+              "coin": 1,
+              "label": 0,
+              "current": 0,
+              "bit": 0
+            },
+            "probability": 7.058844227570516e-32
+          }
+        ],
+        "bits": [
+          1.4117688455141033e-31,
+          0.9999999999999993
+        ]
+      },
+      "E": {
+        "fine_records": [
+          {
+            "record": {
+              "coin": 0,
+              "label": -2,
+              "current": -1,
+              "bit": 1
+            },
+            "probability": 1.0637137227464576e-31
+          },
+          {
+            "record": {
+              "coin": 0,
+              "label": -1,
+              "current": 0,
+              "bit": 1
+            },
+            "probability": 0.49999999999999967
+          },
+          {
+            "record": {
+              "coin": 0,
+              "label": 0,
+              "current": 0,
+              "bit": 1
+            },
+            "probability": 4.289811368816725e-62
+          },
+          {
+            "record": {
+              "coin": 0,
+              "label": 1,
+              "current": 1,
+              "bit": 0
+            },
+            "probability": 7.058844227570516e-32
+          },
+          {
+            "record": {
+              "coin": 1,
+              "label": -2,
+              "current": -1,
+              "bit": 1
+            },
+            "probability": 1.0637137227464576e-31
+          },
+          {
+            "record": {
+              "coin": 1,
+              "label": -1,
+              "current": -1,
+              "bit": 1
+            },
+            "probability": 0.49999999999999967
+          },
+          {
+            "record": {
+              "coin": 1,
+              "label": 0,
+              "current": 0,
+              "bit": 0
+            },
+            "probability": 4.289811368816725e-62
+          },
+          {
+            "record": {
+              "coin": 1,
+              "label": 1,
+              "current": 0,
+              "bit": 0
+            },
+            "probability": 7.058844227570516e-32
+          }
+        ],
+        "bits": [
+          1.4117688455141033e-31,
+          0.9999999999999993
+        ]
+      }
+    },
+    "export_failure_trace": 7.493280060577402e-33,
+    "pointer_export_failure_trace": 5.929484665708308e-32,
+    "reset_scope": "fresh source/probe/pointer initialization needs the common native reset contract; none is conditioned away in a complete implementation"
+  },
+  "four_pi_native_records": {
+    "native_pulses_before_pointer": 12,
+    "pointer_native_pulses": 6,
+    "laws": {
+      "C": {
+        "fine_records": [
+          {
+            "record": {
+              "coin": 0,
+              "label": -1,
+              "current": -1,
+              "bit": 1
+            },
+            "probability": 8.177127927559686e-62
+          },
+          {
+            "record": {
+              "coin": 0,
+              "label": 0,
+              "current": 0,
+              "bit": 1
+            },
+            "probability": 7.043354211247918e-31
+          },
+          {
+            "record": {
+              "coin": 0,
+              "label": 1,
+              "current": 1,
+              "bit": 0
+            },
+            "probability": 0.4999999999999998
+          },
+          {
+            "record": {
+              "coin": 1,
+              "label": -1,
+              "current": -1,
+              "bit": 1
+            },
+            "probability": 3.9175274044884672e-31
+          },
+          {
+            "record": {
+              "coin": 1,
+              "label": 0,
+              "current": 0,
+              "bit": 0
+            },
+            "probability": 0.4999999999999998
+          }
+        ],
+        "bits": [
+          0.9999999999999996,
+          1.0960881615736386e-30
+        ]
+      },
+      "E": {
+        "fine_records": [
+          {
+            "record": {
+              "coin": 0,
+              "label": -2,
+              "current": -1,
+              "bit": 1
+            },
+            "probability": 8.177127927559686e-62
+          },
+          {
+            "record": {
+              "coin": 0,
+              "label": -1,
+              "current": 0,
+              "bit": 1
+            },
+            "probability": 3.9175274044884672e-31
+          },
+          {
+            "record": {
+              "coin": 0,
+              "label": 0,
+              "current": 0,
+              "bit": 1
+            },
+            "probability": 3.1258268067594516e-31
+          },
+          {
+            "record": {
+              "coin": 0,
+              "label": 1,
+              "current": 1,
+              "bit": 0
+            },
+            "probability": 0.4999999999999998
+          },
+          {
+            "record": {
+              "coin": 1,
+              "label": -2,
+              "current": -1,
+              "bit": 1
+            },
+            "probability": 8.177127927559686e-62
+          },
+          {
+            "record": {
+              "coin": 1,
+              "label": -1,
+              "current": -1,
+              "bit": 1
+            },
+            "probability": 3.9175274044884672e-31
+          },
+          {
+            "record": {
+              "coin": 1,
+              "label": 0,
+              "current": 0,
+              "bit": 0
+            },
+            "probability": 3.1258268067594516e-31
+          },
+          {
+            "record": {
+              "coin": 1,
+              "label": 1,
+              "current": 0,
+              "bit": 0
+            },
+            "probability": 0.4999999999999998
+          }
+        ],
+        "bits": [
+          0.9999999999999996,
+          1.0960881615736386e-30
+        ]
+      }
+    },
+    "export_failure_trace": 1.1239920090866103e-32,
+    "pointer_export_failure_trace": 5.929484665708308e-32,
+    "reset_scope": "fresh source/probe/pointer initialization needs the common native reset contract; none is conditioned away in a complete implementation"
+  },
+  "doublers": [
+    {
+      "momentum": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "Floquet_sign": 1
+    },
+    {
+      "momentum": [
+        0.0,
+        0.0,
+        3.141592653589793
+      ],
+      "Floquet_sign": -1
+    },
+    {
+      "momentum": [
+        0.0,
+        3.141592653589793,
+        0.0
+      ],
+      "Floquet_sign": -1
+    },
+    {
+      "momentum": [
+        0.0,
+        3.141592653589793,
+        3.141592653589793
+      ],
+      "Floquet_sign": 1
+    },
+    {
+      "momentum": [
+        3.141592653589793,
+        0.0,
+        0.0
+      ],
+      "Floquet_sign": -1
+    },
+    {
+      "momentum": [
+        3.141592653589793,
+        0.0,
+        3.141592653589793
+      ],
+      "Floquet_sign": 1
+    },
+    {
+      "momentum": [
+        3.141592653589793,
+        3.141592653589793,
+        0.0
+      ],
+      "Floquet_sign": 1
+    },
+    {
+      "momentum": [
+        3.141592653589793,
+        3.141592653589793,
+        3.141592653589793
+      ],
+      "Floquet_sign": -1
+    }
+  ],
+  "finite_joint_experiments": [
+    {
+      "alpha": 0.0,
+      "beta_face0": 0.0,
+      "other_face_couplings": 0.0,
+      "charge": 1,
+      "records": [
+        {
+          "norm_squared": 1.0,
+          "root_cell_probabilities": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "electric_energy": 0.0,
+          "spin_expectation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "basis_blocks": 1,
+          "modular_Gauss": true,
+          "discarded_probability": 0.0,
+          "success_normalization": false
+        },
+        {
+          "norm_squared": 0.9999999999999982,
+          "root_cell_probabilities": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.9999999999999982
+          ],
+          "electric_energy": 5.749999999999989,
+          "spin_expectation": [
+            5.724587470723463e-17,
+            -7.632783294297951e-17,
+            1.7694179454963432e-16
+          ],
+          "basis_blocks": 128,
+          "modular_Gauss": true,
+          "discarded_probability": 0.0,
+          "success_normalization": false
+        },
+        {
+          "norm_squared": 0.9999999999999967,
+          "root_cell_probabilities": [
+            0.9999999999999967,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "electric_energy": 11.49999999999996,
+          "spin_expectation": [
+            1.0326801037880333e-16,
+            -6.505213034913027e-17,
+            1.7997756063259374e-16
+          ],
+          "basis_blocks": 1024,
+          "modular_Gauss": true,
+          "discarded_probability": 0.0,
+          "success_normalization": false
+        }
+      ]
+    },
+    {
+      "alpha": 0.17,
+      "beta_face0": 0.41,
+      "other_face_couplings": 0.0,
+      "charge": 1,
+      "records": [
+        {
+          "norm_squared": 1.0,
+          "root_cell_probabilities": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "electric_energy": 0.0,
+          "spin_expectation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "basis_blocks": 1,
+          "modular_Gauss": true,
+          "discarded_probability": 0.0,
+          "success_normalization": false
+        },
+        {
+          "norm_squared": 0.999999999999999,
+          "root_cell_probabilities": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.999999999999999
+          ],
+          "electric_energy": 5.876074999999991,
+          "spin_expectation": [
+            5.5244558976913674e-17,
+            -7.135118843269702e-17,
+            1.6495721208694935e-16
+          ],
+          "basis_blocks": 128,
+          "modular_Gauss": true,
+          "discarded_probability": 0.0,
+          "success_normalization": false
+        },
+        {
+          "norm_squared": 1.0000000000000047,
+          "root_cell_probabilities": [
+            1.0000000000000047,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "electric_energy": 11.98274074066863,
+          "spin_expectation": [
+            1.1924398619487217e-16,
+            -7.786966244759282e-17,
+            1.8226211026333244e-16
+          ],
+          "basis_blocks": 1024,
+          "modular_Gauss": true,
+          "discarded_probability": 0.0,
+          "success_normalization": false
+        }
+      ]
+    },
+    {
+      "alpha": 0.17,
+      "beta_face0": 0.41,
+      "other_face_couplings": 0.0,
+      "charge": -1,
+      "records": [
+        {
+          "norm_squared": 1.0,
+          "root_cell_probabilities": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "electric_energy": 0.0,
+          "spin_expectation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "basis_blocks": 1,
+          "modular_Gauss": true,
+          "discarded_probability": 0.0,
+          "success_normalization": false
+        },
+        {
+          "norm_squared": 0.9999999999999991,
+          "root_cell_probabilities": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.9999999999999991
+          ],
+          "electric_energy": 5.876074999999991,
+          "spin_expectation": [
+            5.479527464899449e-17,
+            -7.126859195887589e-17,
+            1.651765311647978e-16
+          ],
+          "basis_blocks": 128,
+          "modular_Gauss": true,
+          "discarded_probability": 0.0,
+          "success_normalization": false
+        },
+        {
+          "norm_squared": 1.0000000000000064,
+          "root_cell_probabilities": [
+            1.0000000000000064,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "electric_energy": 11.98274074066863,
+          "spin_expectation": [
+            1.1775052213082946e-16,
+            -8.141367248262552e-17,
+            1.7554411314382704e-16
+          ],
+          "basis_blocks": 1024,
+          "modular_Gauss": true,
+          "discarded_probability": 0.0,
+          "success_normalization": false
+        }
+      ]
+    }
+  ],
+  "Pauli_identity_error": 1.924052328474732e-15,
+  "conditional_magnetic_moment": "If the same routed gauge field converges to a canonical covariant derivative, H_D squared = Pi squared +m squared -q Sigma dot B, hence g=2 at leading positive-energy weak-field order. That interacting limit is not established by this finite Z16 experiment.",
+  "spectator_control": "An independently supplied SU2 spin lift with spin-independent scalar dynamics has no intrinsic spin-field splitting; its g is zero.",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/spin/dirac_proposal.py": "78b5b44bb0df1f87668e46bb063e1a1eea53487c37b5b7b5cbac387dbdeda42a",
+    "openwave-tuning/common_dynamics/spin/spin.py": "1d97b6259aa9271197935a01e3f58654c4f32dee69640e2185f0df03f9764c56",
+    "openwave-tuning/common_dynamics/vector_field/autonomous.py": "b700b466092e256416d8d461f907d1713cbdd398f99bfb595d0cab51810b633a",
+    "openwave-tuning/common_dynamics/manybody/mode_field.py": "e7f481b64aaf005874b3c42f8ed9d73891c334ee34d8cc6f603c30e9ba5d45c3",
+    "openwave-tuning/common_dynamics/continuum/MANIFEST.json": "3067f7bdea43ca5137d6b115f7e1bd92b4d753ba99684ed198ba2da170240adf",
+    "openwave-tuning/common_dynamics/manybody/MANIFEST.json": "230a908ce84bab53de63dc6db6b99adc57b0bafa336bb30c611af1f6af7b27bf",
+    "openwave-tuning/common_dynamics/clock/MANIFEST.json": "6f80b0fe899cdeffd59d3742c318fe627817c19685d8f164abed69721f0b0992",
+    "openwave-tuning/common_dynamics/energy/MANIFEST.json": "dbb82e65a60c972b2cc10a8d52dea744f3a7d38d521aff7df2f1bbbe51594c21"
+  },
+  "official_rows_changed": []
+}

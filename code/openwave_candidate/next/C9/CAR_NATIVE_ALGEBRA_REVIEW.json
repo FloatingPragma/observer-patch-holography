@@ -1,0 +1,39 @@
+{
+  "schema": "oph.c9.car_native_algebra_review.v1",
+  "checked_outcome_arrows": 2808,
+  "checks": {
+    "each_group_partial_bijection": true,
+    "four_quarter_weights_complete": true,
+    "fixed_number_and_Pauli_preserved": true,
+    "modular_Gauss_preserved": true,
+    "one_load_JW_phase_is_identity": true,
+    "nontrivial_fermion_sign_exercised": true,
+    "continuous_integer_representative_gauge_rejected": true
+  },
+  "wrap_control": {
+    "before_integer_gauss": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "after_integer_gauss": [
+      3,
+      1,
+      0,
+      -3,
+      0,
+      0
+    ],
+    "continuous_representative_phase_difference": 0.5910404133226793,
+    "discrete_phase_difference": 2.4492935982947064e-16
+  },
+  "scope": "Exact local algebra for arbitrary unmodified spectator bits/records; no physical species, sea preservation or continuumU1 claim.",
+  "full_criterion_met": false,
+  "official_rows_changed": [],
+  "source_sha256": {
+    "next/C9/audit_car_native_algebra.py": "266d6e55bacad7143e07306f4a6a8db9719a3ce9e510e88edc8dc5e1625068c0"
+  }
+}

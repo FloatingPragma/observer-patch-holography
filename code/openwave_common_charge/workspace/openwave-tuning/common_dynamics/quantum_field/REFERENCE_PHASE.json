@@ -1,0 +1,66 @@
+{
+  "schema": "oph.local12.explicit_field_reference_phase.v1",
+  "checks": {
+    "literal_global_phase_compiled": true,
+    "full_native_columns_checked": true,
+    "operator_error_certified": true,
+    "source_bytes_unchanged": true
+  },
+  "cases": [
+    {
+      "epsilon_squared": "1/3",
+      "substeps": 8,
+      "source_scalar_phase": "3",
+      "native_counterphase_word": [
+        {
+          "kind": "I",
+          "targets": [
+            0
+          ],
+          "angle": -3.0
+        }
+      ],
+      "native_error_exact": "21018959635151982151270812566257/182687704666362864775460604089535377456991567872",
+      "numeric_full_column_residual": 4.440892098500626e-16
+    },
+    {
+      "epsilon_squared": "1/12",
+      "substeps": 8,
+      "source_scalar_phase": "12",
+      "native_counterphase_word": [
+        {
+          "kind": "I",
+          "targets": [
+            0
+          ],
+          "angle": -12.0
+        }
+      ],
+      "native_error_exact": "672606708324863428840666002120221/1461501637330902918203684832716283019655932542976",
+      "numeric_full_column_residual": 1.8477793714103673e-15
+    },
+    {
+      "epsilon_squared": "1/192",
+      "substeps": 64,
+      "source_scalar_phase": "192",
+      "native_counterphase_word": [
+        {
+          "kind": "I",
+          "targets": [
+            0
+          ],
+          "angle": -192.0
+        }
+      ],
+      "native_error_exact": "10761707333197814861450656033923531/1461501637330902918203684832716283019655932542976",
+      "numeric_full_column_residual": 2.8392637944122228e-14
+    }
+  ],
+  "scope": "Optional explicit reference intervention. Original cosine-source records and controlled phase retain exp(i sum beta). Appending this native word implements the stated reference phase; its error and pulse/service duration are additional. It is not silently dropped from any preceding receipt.",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/quantum_field/reference_phase.py": "e8a11d8cf869416eb20501fe99fedf078dcd1e9618ecec5e1b95970bb709666c",
+    "reverse-engineering-reality/model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "reverse-engineering-reality/model/certified_reference/certificate.py": "5f40516d46d9d17ccb093727d4aec64ae455e6a549a615001a2c4d737da0a9e3"
+  },
+  "official_rows_changed": []
+}

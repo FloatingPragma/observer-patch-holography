@@ -1,0 +1,5248 @@
+{
+  "schema": "oph.native.spectral_apparatus.v1",
+  "dimension": 6,
+  "checks": {
+    "complete_joint_records": true,
+    "supported_shell_isometry": true,
+    "energy_work_balance": true
+  },
+  "complete_records": [
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 0,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.03688100704190631,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 1,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0005678125430836454,
+      "source_energy_change": 4.440892098500626e-16,
+      "battery_energy_change": -4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 2,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 5.135813185032629e-34,
+      "source_energy_change": 1.5172549899771353,
+      "battery_energy_change": -1.5172549899771353
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 3,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0008219304450968317,
+      "source_energy_change": 1.977254989977135,
+      "battery_energy_change": -1.977254989977135
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 4,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 1.6540306567717726e-07,
+      "source_energy_change": 3.4945099799542696,
+      "battery_energy_change": -3.4945099799542696
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 5,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0009299598982236914,
+      "source_energy_change": 3.4945099799542705,
+      "battery_energy_change": -3.4945099799542705
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 0,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0005678125430836454,
+      "source_energy_change": -4.440892098500626e-16,
+      "battery_energy_change": 4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 1,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.024686460424452248,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 2,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 1.2839532962581572e-34,
+      "source_energy_change": 1.5172549899771348,
+      "battery_energy_change": -1.5172549899771348
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 3,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0031982776513719397,
+      "source_energy_change": 1.9772549899771346,
+      "battery_energy_change": -1.9772549899771346
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 4,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 6.436127674545164e-07,
+      "source_energy_change": 3.4945099799542687,
+      "battery_energy_change": -3.4945099799542687
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 5,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.003618639480875503,
+      "source_energy_change": 3.49450997995427,
+      "battery_energy_change": -3.49450997995427
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 0,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 5.135813185032629e-34,
+      "source_energy_change": -1.5172549899771353,
+      "battery_energy_change": 1.5172549899771353
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 1,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 1.2839532962581572e-34,
+      "source_energy_change": -1.5172549899771348,
+      "battery_energy_change": 1.5172549899771348
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 2,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.04166666666666663,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 3,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 2.435676849841197e-34,
+      "source_energy_change": 0.45999999999999963,
+      "battery_energy_change": -0.45999999999999963
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 4,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 5.135813185032629e-34,
+      "source_energy_change": 1.9772549899771341,
+      "battery_energy_change": -1.9772549899771341
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 5,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 4.364688890893208e-34,
+      "source_energy_change": 1.9772549899771352,
+      "battery_energy_change": -1.9772549899771352
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 0,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0008219304450968317,
+      "source_energy_change": -1.977254989977135,
+      "battery_energy_change": 1.977254989977135
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 1,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0031982776513719397,
+      "source_energy_change": -1.9772549899771346,
+      "battery_energy_change": 1.9772549899771346
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 2,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 2.435676849841197e-34,
+      "source_energy_change": -0.45999999999999963,
+      "battery_energy_change": 0.45999999999999963
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 3,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.018518518518518542,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 4,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 9.316541785972453e-07,
+      "source_energy_change": 1.5172549899771344,
+      "battery_energy_change": -1.5172549899771344
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 5,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0052381195086118925,
+      "source_energy_change": 1.5172549899771355,
+      "battery_energy_change": -1.5172549899771355
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 0,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 1.654030656771764e-07,
+      "source_energy_change": -3.4945099799542696,
+      "battery_energy_change": 3.4945099799542696
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 1,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 6.436127674545183e-07,
+      "source_energy_change": -3.4945099799542687,
+      "battery_energy_change": 3.4945099799542687
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 2,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 2.018511540466209e-34,
+      "source_energy_change": -1.9772549899771341,
+      "battery_energy_change": 1.9772549899771341
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 3,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 9.316541785972347e-07,
+      "source_energy_change": -1.5172549899771344,
+      "battery_energy_change": 1.5172549899771344
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 4,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.04166107692907856,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 5,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 1.0541050404891027e-06,
+      "source_energy_change": 1.1102230246251565e-15,
+      "battery_energy_change": -1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 0,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0009299598982236918,
+      "source_energy_change": -3.4945099799542705,
+      "battery_energy_change": 3.4945099799542705
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 1,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.003618639480875503,
+      "source_energy_change": -3.49450997995427,
+      "battery_energy_change": 3.49450997995427
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 2,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 9.238699299864613e-35,
+      "source_energy_change": -1.9772549899771352,
+      "battery_energy_change": 1.9772549899771352
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 3,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0052381195086118925,
+      "source_energy_change": -1.5172549899771355,
+      "battery_energy_change": 1.5172549899771355
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 4,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 1.0541050404891027e-06,
+      "source_energy_change": -1.1102230246251565e-15,
+      "battery_energy_change": 1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 5,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.01616453514807947,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 0,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0002130557893807181,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 1,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0005006797995235738,
+      "source_energy_change": 4.440892098500626e-16,
+      "battery_energy_change": -4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 2,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 2.5327687302647665e-36,
+      "source_energy_change": 1.5172549899771353,
+      "battery_energy_change": -1.5172549899771353
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 3,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0008219304450968315,
+      "source_energy_change": 1.977254989977135,
+      "battery_energy_change": -1.977254989977135
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 4,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.000708252022247645,
+      "source_energy_change": 3.4945099799542696,
+      "battery_energy_change": -3.4945099799542696
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 5,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.00022187327904172306,
+      "source_energy_change": 3.4945099799542705,
+      "battery_energy_change": -3.4945099799542705
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 0,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.00082903799675103,
+      "source_energy_change": -4.440892098500626e-16,
+      "battery_energy_change": 4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 1,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0019482342123499075,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 2,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 9.855453918786513e-36,
+      "source_energy_change": 1.5172549899771348,
+      "battery_energy_change": -1.5172549899771348
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 3,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.00319827765137195,
+      "source_energy_change": 1.9772549899771346,
+      "battery_energy_change": -1.9772549899771346
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 4,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.002755934675259256,
+      "source_energy_change": 3.4945099799542687,
+      "battery_energy_change": -3.4945099799542687
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 5,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.000863348418383694,
+      "source_energy_change": 3.49450997995427,
+      "battery_energy_change": -3.49450997995427
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 0,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 3.495258671338258e-35,
+      "source_energy_change": -1.5172549899771353,
+      "battery_energy_change": 1.5172549899771353
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 1,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 8.213836460090346e-35,
+      "source_energy_change": -1.5172549899771348,
+      "battery_energy_change": 1.5172549899771348
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 2,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 4.155100357837775e-67,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 3,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 1.3484071584311581e-34,
+      "source_energy_change": 0.45999999999999963,
+      "battery_energy_change": -0.45999999999999963
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 4,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 1.1619135201392359e-34,
+      "source_energy_change": 1.9772549899771341,
+      "battery_energy_change": -1.9772549899771341
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 5,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 3.6399128358021507e-35,
+      "source_energy_change": 1.9772549899771352,
+      "battery_energy_change": -1.9772549899771352
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 0,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0012000643134284907,
+      "source_energy_change": -1.977254989977135,
+      "battery_energy_change": 1.977254989977135
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 1,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.002820143783040282,
+      "source_energy_change": -1.9772549899771346,
+      "battery_energy_change": 1.9772549899771346
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 2,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 1.4266147736201412e-35,
+      "source_energy_change": -0.45999999999999963,
+      "battery_energy_change": 0.45999999999999963
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 3,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.004629629629629632,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 4,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.003989321197436007,
+      "source_energy_change": 1.5172549899771344,
+      "battery_energy_change": -1.5172549899771344
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 5,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0012497299653544665,
+      "source_energy_change": 1.5172549899771355,
+      "battery_energy_change": -1.5172549899771355
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 0,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 2.414977053532852e-07,
+      "source_energy_change": -3.4945099799542696,
+      "battery_energy_change": 3.4945099799542696
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 1,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 5.675181277783608e-07,
+      "source_energy_change": -3.4945099799542687,
+      "battery_energy_change": 3.4945099799542687
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 2,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 2.8708810885983404e-39,
+      "source_energy_change": -1.9772549899771341,
+      "battery_energy_change": 1.9772549899771341
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 3,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 9.316541785972853e-07,
+      "source_energy_change": -1.5172549899771344,
+      "battery_energy_change": 1.5172549899771344
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 4,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 8.028002368853238e-07,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 5,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 2.5149228717759737e-07,
+      "source_energy_change": 1.1102230246251565e-15,
+      "battery_energy_change": -1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 0,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0013577933430198802,
+      "source_energy_change": -3.4945099799542705,
+      "battery_energy_change": 3.4945099799542705
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 1,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0031908060360793067,
+      "source_energy_change": -3.49450997995427,
+      "battery_energy_change": 3.49450997995427
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 2,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 1.6141201942262957e-35,
+      "source_energy_change": -1.9772549899771352,
+      "battery_energy_change": 1.9772549899771352
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 3,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.005238119508611889,
+      "source_energy_change": -1.5172549899771355,
+      "battery_energy_change": 1.5172549899771355
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 4,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.004513652897128232,
+      "source_energy_change": -1.1102230246251565e-15,
+      "battery_energy_change": 1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 5,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0014139867409963386,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 0,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0002130557893807181,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 1,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.00082903799675103,
+      "source_energy_change": 4.440892098500626e-16,
+      "battery_energy_change": -4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 2,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 3.495258671338258e-35,
+      "source_energy_change": 1.5172549899771353,
+      "battery_energy_change": -1.5172549899771353
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 3,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0012000643134284907,
+      "source_energy_change": 1.977254989977135,
+      "battery_energy_change": -1.977254989977135
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 4,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 2.414977053532852e-07,
+      "source_energy_change": 3.4945099799542696,
+      "battery_energy_change": -3.4945099799542696
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 5,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0013577933430198802,
+      "source_energy_change": 3.4945099799542705,
+      "battery_energy_change": -3.4945099799542705
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 0,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0005006797995235738,
+      "source_energy_change": -4.440892098500626e-16,
+      "battery_energy_change": 4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 1,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0019482342123499075,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 2,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 8.213836460090346e-35,
+      "source_energy_change": 1.5172549899771348,
+      "battery_energy_change": -1.5172549899771348
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 3,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.002820143783040282,
+      "source_energy_change": 1.9772549899771346,
+      "battery_energy_change": -1.9772549899771346
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 4,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 5.675181277783608e-07,
+      "source_energy_change": 3.4945099799542687,
+      "battery_energy_change": -3.4945099799542687
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 5,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0031908060360793067,
+      "source_energy_change": 3.49450997995427,
+      "battery_energy_change": -3.49450997995427
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 0,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 2.5327687302647665e-36,
+      "source_energy_change": -1.5172549899771353,
+      "battery_energy_change": 1.5172549899771353
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 1,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 9.855453918786513e-36,
+      "source_energy_change": -1.5172549899771348,
+      "battery_energy_change": 1.5172549899771348
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 2,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 4.155100357837775e-67,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 3,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 1.4266147736201412e-35,
+      "source_energy_change": 0.45999999999999963,
+      "battery_energy_change": -0.45999999999999963
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 4,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 2.8708810885983404e-39,
+      "source_energy_change": 1.9772549899771341,
+      "battery_energy_change": -1.9772549899771341
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 5,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 1.6141201942262957e-35,
+      "source_energy_change": 1.9772549899771352,
+      "battery_energy_change": -1.9772549899771352
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 0,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0008219304450968315,
+      "source_energy_change": -1.977254989977135,
+      "battery_energy_change": 1.977254989977135
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 1,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.00319827765137195,
+      "source_energy_change": -1.9772549899771346,
+      "battery_energy_change": 1.9772549899771346
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 2,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 1.3484071584311581e-34,
+      "source_energy_change": -0.45999999999999963,
+      "battery_energy_change": 0.45999999999999963
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 3,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.004629629629629632,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 4,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 9.316541785972853e-07,
+      "source_energy_change": 1.5172549899771344,
+      "battery_energy_change": -1.5172549899771344
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 5,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.005238119508611889,
+      "source_energy_change": 1.5172549899771355,
+      "battery_energy_change": -1.5172549899771355
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 0,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.000708252022247645,
+      "source_energy_change": -3.4945099799542696,
+      "battery_energy_change": 3.4945099799542696
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 1,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.002755934675259256,
+      "source_energy_change": -3.4945099799542687,
+      "battery_energy_change": 3.4945099799542687
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 2,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 1.1619135201392359e-34,
+      "source_energy_change": -1.9772549899771341,
+      "battery_energy_change": 1.9772549899771341
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 3,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.003989321197436007,
+      "source_energy_change": -1.5172549899771344,
+      "battery_energy_change": 1.5172549899771344
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 4,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 8.028002368853238e-07,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 5,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.004513652897128232,
+      "source_energy_change": 1.1102230246251565e-15,
+      "battery_energy_change": -1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 0,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.00022187327904172306,
+      "source_energy_change": -3.4945099799542705,
+      "battery_energy_change": 3.4945099799542705
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 1,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.000863348418383694,
+      "source_energy_change": -3.49450997995427,
+      "battery_energy_change": 3.49450997995427
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 2,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 3.6399128358021507e-35,
+      "source_energy_change": -1.9772549899771352,
+      "battery_energy_change": 1.9772549899771352
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 3,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0012497299653544665,
+      "source_energy_change": -1.5172549899771355,
+      "battery_energy_change": 1.5172549899771355
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 4,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 2.5149228717759737e-07,
+      "source_energy_change": -1.1102230246251565e-15,
+      "battery_energy_change": 1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 5,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0014139867409963386,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 0,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.034777354127070455,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 1,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0007310204451569934,
+      "source_energy_change": 4.440892098500626e-16,
+      "battery_energy_change": -4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 2,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 1.1555579666323415e-33,
+      "source_energy_change": 1.5172549899771353,
+      "battery_energy_change": -1.5172549899771353
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 3,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0012000643134284926,
+      "source_energy_change": 1.977254989977135,
+      "battery_energy_change": -1.977254989977135
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 4,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0010340874728309041,
+      "source_energy_change": 3.4945099799542696,
+      "battery_energy_change": -3.4945099799542696
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 5,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.00032394736789433023,
+      "source_energy_change": 3.4945099799542705,
+      "battery_energy_change": -3.4945099799542705
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 0,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0007310204451569934,
+      "source_energy_change": -4.440892098500626e-16,
+      "battery_energy_change": 4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 1,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.026463697535141426,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 2,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 3.209883240645393e-35,
+      "source_energy_change": 1.5172549899771348,
+      "battery_energy_change": -1.5172549899771348
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 3,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.002820143783040291,
+      "source_energy_change": 1.9772549899771346,
+      "battery_energy_change": -1.9772549899771346
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 4,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0024300992246759994,
+      "source_energy_change": 3.4945099799542687,
+      "battery_energy_change": -3.4945099799542687
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 5,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0007612743295310875,
+      "source_energy_change": 3.49450997995427,
+      "battery_energy_change": -3.49450997995427
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 0,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 1.1555579666323415e-33,
+      "source_energy_change": -1.5172549899771353,
+      "battery_energy_change": 1.5172549899771353
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 1,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 3.209883240645393e-35,
+      "source_energy_change": -1.5172549899771348,
+      "battery_energy_change": 1.5172549899771348
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 2,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.04166666666666663,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 3,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 6.039803181408163e-35,
+      "source_energy_change": 0.45999999999999963,
+      "battery_energy_change": -0.45999999999999963
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 4,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 5.135813185032629e-34,
+      "source_energy_change": 1.9772549899771341,
+      "battery_energy_change": -1.9772549899771341
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 5,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 8.024708101613482e-36,
+      "source_energy_change": 1.9772549899771352,
+      "battery_energy_change": -1.9772549899771352
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 0,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0012000643134284926,
+      "source_energy_change": -1.977254989977135,
+      "battery_energy_change": 1.977254989977135
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 1,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.002820143783040291,
+      "source_energy_change": -1.9772549899771346,
+      "battery_energy_change": 1.9772549899771346
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 2,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 6.039803181408163e-35,
+      "source_energy_change": -0.45999999999999963,
+      "battery_energy_change": 0.45999999999999963
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 3,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.018518518518518528,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 4,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.003989321197436013,
+      "source_energy_change": 1.5172549899771344,
+      "battery_energy_change": -1.5172549899771344
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 5,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0012497299653544635,
+      "source_energy_change": 1.5172549899771355,
+      "battery_energy_change": -1.5172549899771355
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 0,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0010340874728309046,
+      "source_energy_change": -3.4945099799542696,
+      "battery_energy_change": 3.4945099799542696
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 1,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0024300992246759994,
+      "source_energy_change": -3.4945099799542687,
+      "battery_energy_change": 3.4945099799542687
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 2,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 2.018511540466209e-34,
+      "source_energy_change": -1.9772549899771341,
+      "battery_energy_change": 1.9772549899771341
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 3,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.003989321197436013,
+      "source_energy_change": -1.5172549899771344,
+      "battery_energy_change": 1.5172549899771344
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 4,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.021168311143174,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 5,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0010768840362416613,
+      "source_energy_change": 1.1102230246251565e-15,
+      "battery_energy_change": -1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 0,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.00032394736789433023,
+      "source_energy_change": -3.4945099799542705,
+      "battery_energy_change": 3.4945099799542705
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 1,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0007612743295310875,
+      "source_energy_change": -3.49450997995427,
+      "battery_energy_change": 3.49450997995427
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 2,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 2.9561679120481366e-36,
+      "source_energy_change": -1.9772549899771352,
+      "battery_energy_change": 1.9772549899771352
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 3,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0012497299653544635,
+      "source_energy_change": -1.5172549899771355,
+      "battery_energy_change": 1.5172549899771355
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 4,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0010768840362416613,
+      "source_energy_change": -1.1102230246251565e-15,
+      "battery_energy_change": 1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 5,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "C",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.03450564107158175,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 0,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.00031107334097475243,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 1,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0007310204451569945,
+      "source_energy_change": 4.440892098500626e-16,
+      "battery_energy_change": -4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 2,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 3.697983674275817e-36,
+      "source_energy_change": 1.5172549899771353,
+      "battery_energy_change": -1.5172549899771353
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 3,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0012000643134284913,
+      "source_energy_change": 1.977254989977135,
+      "battery_energy_change": -1.977254989977135
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 4,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0010340874728309015,
+      "source_energy_change": 3.4945099799542696,
+      "battery_energy_change": -3.4945099799542696
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 5,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.00032394736789432985,
+      "source_energy_change": 3.4945099799542705,
+      "battery_energy_change": -3.4945099799542705
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 0,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0007310204451569945,
+      "source_energy_change": -4.440892098500626e-16,
+      "battery_energy_change": 4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 1,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0017178935667164837,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 2,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 8.690238974775447e-36,
+      "source_energy_change": 1.5172549899771348,
+      "battery_energy_change": -1.5172549899771348
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 3,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0028201437830402843,
+      "source_energy_change": 1.9772549899771346,
+      "battery_energy_change": -1.9772549899771346
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 4,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0024300992246759946,
+      "source_energy_change": 3.4945099799542687,
+      "battery_energy_change": -3.4945099799542687
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 5,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0007612743295310862,
+      "source_energy_change": 3.49450997995427,
+      "battery_energy_change": -3.49450997995427
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 0,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 3.697983674275817e-36,
+      "source_energy_change": -1.5172549899771353,
+      "battery_energy_change": 1.5172549899771353
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 1,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 8.690238974775447e-36,
+      "source_energy_change": -1.5172549899771348,
+      "battery_energy_change": 1.5172549899771348
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 2,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 4.396096178592296e-68,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 3,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 1.4266147736201428e-35,
+      "source_energy_change": 0.45999999999999963,
+      "battery_energy_change": -0.45999999999999963
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 4,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 1.229304504307292e-35,
+      "source_energy_change": 1.9772549899771341,
+      "battery_energy_change": -1.9772549899771341
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 5,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 3.851027780278615e-36,
+      "source_energy_change": 1.9772549899771352,
+      "battery_energy_change": -1.9772549899771352
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 0,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0012000643134284913,
+      "source_energy_change": -1.977254989977135,
+      "battery_energy_change": 1.977254989977135
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 1,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0028201437830402843,
+      "source_energy_change": -1.9772549899771346,
+      "battery_energy_change": 1.9772549899771346
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 2,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 1.4266147736201428e-35,
+      "source_energy_change": -0.45999999999999963,
+      "battery_energy_change": 0.45999999999999963
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 3,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0046296296296296354,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 4,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.00398932119743601,
+      "source_energy_change": 1.5172549899771344,
+      "battery_energy_change": -1.5172549899771344
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 5,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0012497299653544674,
+      "source_energy_change": 1.5172549899771355,
+      "battery_energy_change": -1.5172549899771355
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 0,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0010340874728309015,
+      "source_energy_change": -3.4945099799542696,
+      "battery_energy_change": 3.4945099799542696
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 1,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0024300992246759946,
+      "source_energy_change": -3.4945099799542687,
+      "battery_energy_change": 3.4945099799542687
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 2,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 1.229304504307292e-35,
+      "source_energy_change": -1.9772549899771341,
+      "battery_energy_change": 1.9772549899771341
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 3,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.00398932119743601,
+      "source_energy_change": -1.5172549899771344,
+      "battery_energy_change": 1.5172549899771344
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 4,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0034375716611234498,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 5,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0010768840362416609,
+      "source_energy_change": 1.1102230246251565e-15,
+      "battery_energy_change": -1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 0,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.00032394736789432985,
+      "source_energy_change": -3.4945099799542705,
+      "battery_energy_change": 3.4945099799542705
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 1,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0007612743295310862,
+      "source_energy_change": -3.49450997995427,
+      "battery_energy_change": 3.49450997995427
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 2,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 3.851027780278615e-36,
+      "source_energy_change": -1.9772549899771352,
+      "battery_energy_change": 1.9772549899771352
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 3,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0012497299653544674,
+      "source_energy_change": -1.5172549899771355,
+      "battery_energy_change": 1.5172549899771355
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 4,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.0010768840362416609,
+      "source_energy_change": -1.1102230246251565e-15,
+      "battery_energy_change": 1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 5,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": -1
+      },
+      "probability": 0.00033735419704185315,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 0,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.030417806081071558,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 1,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 1.029493601132122e-05,
+      "source_energy_change": 4.440892098500626e-16,
+      "battery_energy_change": -4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 2,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 5.135813185032629e-34,
+      "source_energy_change": 1.5172549899771353,
+      "battery_energy_change": -1.5172549899771353
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 3,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.004008317386177844,
+      "source_energy_change": 1.977254989977135,
+      "battery_energy_change": -1.977254989977135
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 4,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0010080963288626448,
+      "source_energy_change": 3.4945099799542696,
+      "battery_energy_change": -3.4945099799542696
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 5,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.00015616765896732054,
+      "source_energy_change": 3.4945099799542705,
+      "battery_energy_change": -3.4945099799542705
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 0,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 1.029493601132122e-05,
+      "source_energy_change": -4.440892098500626e-16,
+      "battery_energy_change": 4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 1,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.013379959717626858,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 2,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 1.2839532962581572e-34,
+      "source_energy_change": 1.5172549899771348,
+      "battery_energy_change": -1.5172549899771348
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 3,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 1.1890710290933907e-05,
+      "source_energy_change": 1.9772549899771346,
+      "battery_energy_change": -1.9772549899771346
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 4,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0025098388016181854,
+      "source_energy_change": 3.4945099799542687,
+      "battery_energy_change": -3.4945099799542687
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 5,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.007699418197882657,
+      "source_energy_change": 3.49450997995427,
+      "battery_energy_change": -3.49450997995427
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 0,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 5.135813185032629e-34,
+      "source_energy_change": -1.5172549899771353,
+      "battery_energy_change": 1.5172549899771353
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 1,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 1.2839532962581572e-34,
+      "source_energy_change": -1.5172549899771348,
+      "battery_energy_change": 1.5172549899771348
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 2,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.04166666666666663,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 3,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 3.757282359419842e-34,
+      "source_energy_change": 0.45999999999999963,
+      "battery_energy_change": -0.45999999999999963
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 4,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 5.135813185032629e-34,
+      "source_energy_change": 1.9772549899771341,
+      "battery_energy_change": -1.9772549899771341
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 5,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 9.140644071994108e-35,
+      "source_energy_change": 1.9772549899771352,
+      "battery_energy_change": -1.9772549899771352
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 0,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.004008317386177844,
+      "source_energy_change": -1.977254989977135,
+      "battery_energy_change": 1.977254989977135
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 1,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 1.1890710290933907e-05,
+      "source_energy_change": -1.9772549899771346,
+      "battery_energy_change": 1.9772549899771346
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 2,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 3.757282359419842e-34,
+      "source_energy_change": -0.45999999999999963,
+      "battery_energy_change": 0.45999999999999963
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 3,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0046296296296296354,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 4,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0038683238925711085,
+      "source_energy_change": 1.5172549899771344,
+      "battery_energy_change": -1.5172549899771344
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 5,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0013707272702193748,
+      "source_energy_change": 1.5172549899771355,
+      "battery_energy_change": -1.5172549899771355
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 0,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0010080963288626452,
+      "source_energy_change": -3.4945099799542696,
+      "battery_energy_change": 3.4945099799542696
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 1,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0025098388016181854,
+      "source_energy_change": -3.4945099799542687,
+      "battery_energy_change": 3.4945099799542687
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 2,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 2.018511540466209e-34,
+      "source_energy_change": -1.9772549899771341,
+      "battery_energy_change": 1.9772549899771341
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 3,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0038683238925711085,
+      "source_energy_change": -1.5172549899771344,
+      "battery_energy_change": 1.5172549899771344
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 4,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.02116432700605976,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 5,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0011453220827110865,
+      "source_energy_change": 1.1102230246251565e-15,
+      "battery_energy_change": -1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 0,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.00015616765896732054,
+      "source_energy_change": -3.4945099799542705,
+      "battery_energy_change": 3.4945099799542705
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 1,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.007699418197882657,
+      "source_energy_change": -3.49450997995427,
+      "battery_energy_change": 3.49450997995427
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 2,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 9.238699299864613e-35,
+      "source_energy_change": -1.9772549899771352,
+      "battery_energy_change": 1.9772549899771352
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 3,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0013707272702193748,
+      "source_energy_change": -1.5172549899771355,
+      "battery_energy_change": 1.5172549899771355
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 4,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.0011453220827110865,
+      "source_energy_change": -1.1102230246251565e-15,
+      "battery_energy_change": 1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 5,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 0
+      },
+      "probability": 0.011831483034987197,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 0,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0002130557893807181,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 1,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0005006797995235738,
+      "source_energy_change": 4.440892098500626e-16,
+      "battery_energy_change": -4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 2,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 2.5327687302647665e-36,
+      "source_energy_change": 1.5172549899771353,
+      "battery_energy_change": -1.5172549899771353
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 3,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0008219304450968315,
+      "source_energy_change": 1.977254989977135,
+      "battery_energy_change": -1.977254989977135
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 4,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.000708252022247645,
+      "source_energy_change": 3.4945099799542696,
+      "battery_energy_change": -3.4945099799542696
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 5,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.00022187327904172306,
+      "source_energy_change": 3.4945099799542705,
+      "battery_energy_change": -3.4945099799542705
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 0,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.00082903799675103,
+      "source_energy_change": -4.440892098500626e-16,
+      "battery_energy_change": 4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 1,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0019482342123499075,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 2,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 9.855453918786513e-36,
+      "source_energy_change": 1.5172549899771348,
+      "battery_energy_change": -1.5172549899771348
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 3,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.00319827765137195,
+      "source_energy_change": 1.9772549899771346,
+      "battery_energy_change": -1.9772549899771346
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 4,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.002755934675259256,
+      "source_energy_change": 3.4945099799542687,
+      "battery_energy_change": -3.4945099799542687
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 5,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.000863348418383694,
+      "source_energy_change": 3.49450997995427,
+      "battery_energy_change": -3.49450997995427
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 0,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 3.495258671338258e-35,
+      "source_energy_change": -1.5172549899771353,
+      "battery_energy_change": 1.5172549899771353
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 1,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 8.213836460090346e-35,
+      "source_energy_change": -1.5172549899771348,
+      "battery_energy_change": 1.5172549899771348
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 2,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 4.155100357837775e-67,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 3,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 1.3484071584311581e-34,
+      "source_energy_change": 0.45999999999999963,
+      "battery_energy_change": -0.45999999999999963
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 4,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 1.1619135201392359e-34,
+      "source_energy_change": 1.9772549899771341,
+      "battery_energy_change": -1.9772549899771341
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 5,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 3.6399128358021507e-35,
+      "source_energy_change": 1.9772549899771352,
+      "battery_energy_change": -1.9772549899771352
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 0,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0012000643134284907,
+      "source_energy_change": -1.977254989977135,
+      "battery_energy_change": 1.977254989977135
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 1,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.002820143783040282,
+      "source_energy_change": -1.9772549899771346,
+      "battery_energy_change": 1.9772549899771346
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 2,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 1.4266147736201412e-35,
+      "source_energy_change": -0.45999999999999963,
+      "battery_energy_change": 0.45999999999999963
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 3,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.004629629629629632,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 4,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.003989321197436007,
+      "source_energy_change": 1.5172549899771344,
+      "battery_energy_change": -1.5172549899771344
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 5,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0012497299653544665,
+      "source_energy_change": 1.5172549899771355,
+      "battery_energy_change": -1.5172549899771355
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 0,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 2.414977053532852e-07,
+      "source_energy_change": -3.4945099799542696,
+      "battery_energy_change": 3.4945099799542696
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 1,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 5.675181277783608e-07,
+      "source_energy_change": -3.4945099799542687,
+      "battery_energy_change": 3.4945099799542687
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 2,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 2.8708810885983404e-39,
+      "source_energy_change": -1.9772549899771341,
+      "battery_energy_change": 1.9772549899771341
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 3,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 9.316541785972853e-07,
+      "source_energy_change": -1.5172549899771344,
+      "battery_energy_change": 1.5172549899771344
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 4,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 8.028002368853238e-07,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 5,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 2.5149228717759737e-07,
+      "source_energy_change": 1.1102230246251565e-15,
+      "battery_energy_change": -1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 0,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0013577933430198802,
+      "source_energy_change": -3.4945099799542705,
+      "battery_energy_change": 3.4945099799542705
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 1,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0031908060360793067,
+      "source_energy_change": -3.49450997995427,
+      "battery_energy_change": 3.49450997995427
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 2,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 1.6141201942262957e-35,
+      "source_energy_change": -1.9772549899771352,
+      "battery_energy_change": 1.9772549899771352
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 3,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.005238119508611889,
+      "source_energy_change": -1.5172549899771355,
+      "battery_energy_change": 1.5172549899771355
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 4,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.004513652897128232,
+      "source_energy_change": -1.1102230246251565e-15,
+      "battery_energy_change": 1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 5,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 0,
+        "record_value": 1
+      },
+      "probability": 0.0014139867409963386,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 0,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0002130557893807181,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 1,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.00082903799675103,
+      "source_energy_change": 4.440892098500626e-16,
+      "battery_energy_change": -4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 2,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 3.495258671338258e-35,
+      "source_energy_change": 1.5172549899771353,
+      "battery_energy_change": -1.5172549899771353
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 3,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0012000643134284907,
+      "source_energy_change": 1.977254989977135,
+      "battery_energy_change": -1.977254989977135
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 4,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 2.414977053532852e-07,
+      "source_energy_change": 3.4945099799542696,
+      "battery_energy_change": -3.4945099799542696
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 5,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0013577933430198802,
+      "source_energy_change": 3.4945099799542705,
+      "battery_energy_change": -3.4945099799542705
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 0,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0005006797995235738,
+      "source_energy_change": -4.440892098500626e-16,
+      "battery_energy_change": 4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 1,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0019482342123499075,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 2,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 8.213836460090346e-35,
+      "source_energy_change": 1.5172549899771348,
+      "battery_energy_change": -1.5172549899771348
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 3,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.002820143783040282,
+      "source_energy_change": 1.9772549899771346,
+      "battery_energy_change": -1.9772549899771346
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 4,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 5.675181277783608e-07,
+      "source_energy_change": 3.4945099799542687,
+      "battery_energy_change": -3.4945099799542687
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 5,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0031908060360793067,
+      "source_energy_change": 3.49450997995427,
+      "battery_energy_change": -3.49450997995427
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 0,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 2.5327687302647665e-36,
+      "source_energy_change": -1.5172549899771353,
+      "battery_energy_change": 1.5172549899771353
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 1,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 9.855453918786513e-36,
+      "source_energy_change": -1.5172549899771348,
+      "battery_energy_change": 1.5172549899771348
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 2,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 4.155100357837775e-67,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 3,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 1.4266147736201412e-35,
+      "source_energy_change": 0.45999999999999963,
+      "battery_energy_change": -0.45999999999999963
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 4,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 2.8708810885983404e-39,
+      "source_energy_change": 1.9772549899771341,
+      "battery_energy_change": -1.9772549899771341
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 5,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 1.6141201942262957e-35,
+      "source_energy_change": 1.9772549899771352,
+      "battery_energy_change": -1.9772549899771352
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 0,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0008219304450968315,
+      "source_energy_change": -1.977254989977135,
+      "battery_energy_change": 1.977254989977135
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 1,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.00319827765137195,
+      "source_energy_change": -1.9772549899771346,
+      "battery_energy_change": 1.9772549899771346
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 2,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 1.3484071584311581e-34,
+      "source_energy_change": -0.45999999999999963,
+      "battery_energy_change": 0.45999999999999963
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 3,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.004629629629629632,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 4,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 9.316541785972853e-07,
+      "source_energy_change": 1.5172549899771344,
+      "battery_energy_change": -1.5172549899771344
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 5,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.005238119508611889,
+      "source_energy_change": 1.5172549899771355,
+      "battery_energy_change": -1.5172549899771355
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 0,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.000708252022247645,
+      "source_energy_change": -3.4945099799542696,
+      "battery_energy_change": 3.4945099799542696
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 1,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.002755934675259256,
+      "source_energy_change": -3.4945099799542687,
+      "battery_energy_change": 3.4945099799542687
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 2,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 1.1619135201392359e-34,
+      "source_energy_change": -1.9772549899771341,
+      "battery_energy_change": 1.9772549899771341
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 3,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.003989321197436007,
+      "source_energy_change": -1.5172549899771344,
+      "battery_energy_change": 1.5172549899771344
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 4,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 8.028002368853238e-07,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 5,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.004513652897128232,
+      "source_energy_change": 1.1102230246251565e-15,
+      "battery_energy_change": -1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 0,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.00022187327904172306,
+      "source_energy_change": -3.4945099799542705,
+      "battery_energy_change": 3.4945099799542705
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 1,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.000863348418383694,
+      "source_energy_change": -3.49450997995427,
+      "battery_energy_change": 3.49450997995427
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 2,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 3.6399128358021507e-35,
+      "source_energy_change": -1.9772549899771352,
+      "battery_energy_change": 1.9772549899771352
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 3,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0012497299653544665,
+      "source_energy_change": -1.5172549899771355,
+      "battery_energy_change": 1.5172549899771355
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 4,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 2.5149228717759737e-07,
+      "source_energy_change": -1.1102230246251565e-15,
+      "battery_energy_change": 1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 5,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": -1
+      },
+      "probability": 0.0014139867409963386,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 0,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.030417806081071558,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 1,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 1.029493601132122e-05,
+      "source_energy_change": 4.440892098500626e-16,
+      "battery_energy_change": -4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 2,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 5.135813185032629e-34,
+      "source_energy_change": 1.5172549899771353,
+      "battery_energy_change": -1.5172549899771353
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 3,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.004008317386177844,
+      "source_energy_change": 1.977254989977135,
+      "battery_energy_change": -1.977254989977135
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 4,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0010080963288626448,
+      "source_energy_change": 3.4945099799542696,
+      "battery_energy_change": -3.4945099799542696
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 5,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.00015616765896732054,
+      "source_energy_change": 3.4945099799542705,
+      "battery_energy_change": -3.4945099799542705
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 0,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 1.029493601132122e-05,
+      "source_energy_change": -4.440892098500626e-16,
+      "battery_energy_change": 4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 1,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.013379959717626858,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 2,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 1.2839532962581572e-34,
+      "source_energy_change": 1.5172549899771348,
+      "battery_energy_change": -1.5172549899771348
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 3,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 1.1890710290933907e-05,
+      "source_energy_change": 1.9772549899771346,
+      "battery_energy_change": -1.9772549899771346
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 4,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0025098388016181854,
+      "source_energy_change": 3.4945099799542687,
+      "battery_energy_change": -3.4945099799542687
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 5,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.007699418197882657,
+      "source_energy_change": 3.49450997995427,
+      "battery_energy_change": -3.49450997995427
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 0,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 5.135813185032629e-34,
+      "source_energy_change": -1.5172549899771353,
+      "battery_energy_change": 1.5172549899771353
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 1,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 1.2839532962581572e-34,
+      "source_energy_change": -1.5172549899771348,
+      "battery_energy_change": 1.5172549899771348
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 2,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.04166666666666663,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 3,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 3.757282359419842e-34,
+      "source_energy_change": 0.45999999999999963,
+      "battery_energy_change": -0.45999999999999963
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 4,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 5.135813185032629e-34,
+      "source_energy_change": 1.9772549899771341,
+      "battery_energy_change": -1.9772549899771341
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 5,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 9.140644071994108e-35,
+      "source_energy_change": 1.9772549899771352,
+      "battery_energy_change": -1.9772549899771352
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 0,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.004008317386177844,
+      "source_energy_change": -1.977254989977135,
+      "battery_energy_change": 1.977254989977135
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 1,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 1.1890710290933907e-05,
+      "source_energy_change": -1.9772549899771346,
+      "battery_energy_change": 1.9772549899771346
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 2,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 3.757282359419842e-34,
+      "source_energy_change": -0.45999999999999963,
+      "battery_energy_change": 0.45999999999999963
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 3,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0046296296296296354,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 4,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0038683238925711085,
+      "source_energy_change": 1.5172549899771344,
+      "battery_energy_change": -1.5172549899771344
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 5,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0013707272702193748,
+      "source_energy_change": 1.5172549899771355,
+      "battery_energy_change": -1.5172549899771355
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 0,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0010080963288626452,
+      "source_energy_change": -3.4945099799542696,
+      "battery_energy_change": 3.4945099799542696
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 1,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0025098388016181854,
+      "source_energy_change": -3.4945099799542687,
+      "battery_energy_change": 3.4945099799542687
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 2,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 2.018511540466209e-34,
+      "source_energy_change": -1.9772549899771341,
+      "battery_energy_change": 1.9772549899771341
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 3,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0038683238925711085,
+      "source_energy_change": -1.5172549899771344,
+      "battery_energy_change": 1.5172549899771344
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 4,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.02116432700605976,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 5,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0011453220827110865,
+      "source_energy_change": 1.1102230246251565e-15,
+      "battery_energy_change": -1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 0,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.00015616765896732054,
+      "source_energy_change": -3.4945099799542705,
+      "battery_energy_change": 3.4945099799542705
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 1,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.007699418197882657,
+      "source_energy_change": -3.49450997995427,
+      "battery_energy_change": 3.49450997995427
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 2,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 9.238699299864613e-35,
+      "source_energy_change": -1.9772549899771352,
+      "battery_energy_change": 1.9772549899771352
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 3,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0013707272702193748,
+      "source_energy_change": -1.5172549899771355,
+      "battery_energy_change": 1.5172549899771355
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 4,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.0011453220827110865,
+      "source_energy_change": -1.1102230246251565e-15,
+      "battery_energy_change": 1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 5,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 0
+      },
+      "probability": 0.011831483034987197,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 0,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 0.00014592304582064812,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 1,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 0.0005678125430836446,
+      "source_energy_change": 4.440892098500626e-16,
+      "battery_energy_change": -4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 2,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 2.39392129514632e-35,
+      "source_energy_change": 1.5172549899771353,
+      "battery_energy_change": -1.5172549899771353
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 3,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 0.0008219304450968307,
+      "source_energy_change": 1.977254989977135,
+      "battery_energy_change": -1.977254989977135
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 4,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 1.6540306567721032e-07,
+      "source_energy_change": 3.4945099799542696,
+      "battery_energy_change": -3.4945099799542696
+    },
+    {
+      "initial_energy_index": 0,
+      "final_energy_index": 5,
+      "reference_energy_label": 0,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 0.0009299598982236922,
+      "source_energy_change": 3.4945099799542705,
+      "battery_energy_change": -3.4945099799542705
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 0,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 0.0005678125430836446,
+      "source_energy_change": -4.440892098500626e-16,
+      "battery_energy_change": 4.440892098500626e-16
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 1,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 0.002209459666017296,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 2,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 9.315173836282298e-35,
+      "source_energy_change": 1.5172549899771348,
+      "battery_energy_change": -1.5172549899771348
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 3,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 0.003198277651371947,
+      "source_energy_change": 1.9772549899771346,
+      "battery_energy_change": -1.9772549899771346
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 4,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 6.436127674544365e-07,
+      "source_energy_change": 3.4945099799542687,
+      "battery_energy_change": -3.4945099799542687
+    },
+    {
+      "initial_energy_index": 1,
+      "final_energy_index": 5,
+      "reference_energy_label": 1,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 0.0036186394808755003,
+      "source_energy_change": 3.49450997995427,
+      "battery_energy_change": -3.49450997995427
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 0,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 2.39392129514632e-35,
+      "source_energy_change": -1.5172549899771353,
+      "battery_energy_change": 1.5172549899771353
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 1,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 9.315173836282298e-35,
+      "source_energy_change": -1.5172549899771348,
+      "battery_energy_change": 1.5172549899771348
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 2,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 3.9273160282021186e-66,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 3,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 1.3484071584311568e-34,
+      "source_energy_change": 0.45999999999999963,
+      "battery_energy_change": -0.45999999999999963
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 4,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 2.7134981933822174e-38,
+      "source_energy_change": 1.9772549899771341,
+      "battery_energy_change": -1.9772549899771341
+    },
+    {
+      "initial_energy_index": 2,
+      "final_energy_index": 5,
+      "reference_energy_label": 2,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 1.5256334539001148e-34,
+      "source_energy_change": 1.9772549899771352,
+      "battery_energy_change": -1.9772549899771352
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 0,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 0.0008219304450968307,
+      "source_energy_change": -1.977254989977135,
+      "battery_energy_change": 1.977254989977135
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 1,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 0.003198277651371947,
+      "source_energy_change": -1.9772549899771346,
+      "battery_energy_change": 1.9772549899771346
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 2,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 1.3484071584311568e-34,
+      "source_energy_change": -0.45999999999999963,
+      "battery_energy_change": 0.45999999999999963
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 3,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 0.004629629629629629,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 4,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 9.316541785972847e-07,
+      "source_energy_change": 1.5172549899771344,
+      "battery_energy_change": -1.5172549899771344
+    },
+    {
+      "initial_energy_index": 3,
+      "final_energy_index": 5,
+      "reference_energy_label": 3,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 0.005238119508611884,
+      "source_energy_change": 1.5172549899771355,
+      "battery_energy_change": -1.5172549899771355
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 0,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 1.6540306567721032e-07,
+      "source_energy_change": -3.4945099799542696,
+      "battery_energy_change": 3.4945099799542696
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 1,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 6.436127674544365e-07,
+      "source_energy_change": -3.4945099799542687,
+      "battery_energy_change": 3.4945099799542687
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 2,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 2.7134981933822174e-38,
+      "source_energy_change": -1.9772549899771341,
+      "battery_energy_change": 1.9772549899771341
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 3,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 9.316541785972847e-07,
+      "source_energy_change": -1.5172549899771344,
+      "battery_energy_change": 1.5172549899771344
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 4,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 1.8748357383552073e-10,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    },
+    {
+      "initial_energy_index": 4,
+      "final_energy_index": 5,
+      "reference_energy_label": 4,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 1.054105040489087e-06,
+      "source_energy_change": 1.1102230246251565e-15,
+      "battery_energy_change": -1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 0,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 0.0009299598982236922,
+      "source_energy_change": -3.4945099799542705,
+      "battery_energy_change": 3.4945099799542705
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 1,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 0.0036186394808755003,
+      "source_energy_change": -3.49450997995427,
+      "battery_energy_change": 3.49450997995427
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 2,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 1.5256334539001148e-34,
+      "source_energy_change": -1.9772549899771352,
+      "battery_energy_change": 1.9772549899771352
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 3,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 0.005238119508611884,
+      "source_energy_change": -1.5172549899771355,
+      "battery_energy_change": 1.5172549899771355
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 4,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 1.054105040489087e-06,
+      "source_energy_change": -1.1102230246251565e-15,
+      "battery_energy_change": 1.1102230246251565e-15
+    },
+    {
+      "initial_energy_index": 5,
+      "final_energy_index": 5,
+      "reference_energy_label": 5,
+      "native_record": {
+        "seam": 0,
+        "law": "E",
+        "coin": 1,
+        "record_value": 1
+      },
+      "probability": 0.00592658553308409,
+      "source_energy_change": 0.0,
+      "battery_energy_change": -0.0
+    }
+  ],
+  "total_probability": 0.9999999999999991,
+  "mean_source_energy_change": -1.1702916863244174e-21,
+  "mean_battery_energy_change": 1.1702916863244174e-21,
+  "shell_gram_error": 0.0,
+  "unmeasured_initial_energy_alternative_spectral_coupling": {
+    "energies": [
+      -1.7472549899771366,
+      -1.747254989977135,
+      -0.22999999999999993,
+      0.23000000000000043,
+      1.7472549899771352,
+      1.7472549899771361
+    ],
+    "initial_weights": [
+      0.16666666666666655,
+      0.16666666666666674,
+      0.16666666666666663,
+      0.1666666666666668,
+      0.1666666666666667,
+      0.16666666666666682
+    ],
+    "joint_original_weights": [
+      [
+        2.312996741308167e-06,
+        0.0001774055572331498,
+        1.1845139987427251e-66,
+        0.00020696200855999726,
+        2.2688120587691193e-05,
+        0.00021151734255784568
+      ],
+      [
+        0.0001774055572331496,
+        0.013606907080813366,
+        9.08515616319331e-65,
+        0.01587387037731515,
+        0.0017401661677896789,
+        0.016223261948794122
+      ],
+      [
+        1.1845139987427246e-66,
+        9.085156163193315e-65,
+        6.066041461104436e-127,
+        1.0598778284857359e-64,
+        1.161886480915827e-65,
+        1.0832062525731314e-64
+      ],
+      [
+        0.00020696200855999694,
+        0.015873870377315146,
+        1.0598778284857349e-64,
+        0.018518518518518542,
+        0.002030084575313452,
+        0.018926120075848506
+      ],
+      [
+        2.2688120587691173e-05,
+        0.0017401661677896793,
+        1.1618864809158264e-65,
+        0.002030084575313453,
+        0.0002225471426779821,
+        0.0020747677195715555
+      ],
+      [
+        0.00021151734255784533,
+        0.016223261948794115,
+        1.08320625257313e-64,
+        0.018926120075848506,
+        0.0020747677195715537,
+        0.019342693140773512
+      ]
+    ],
+    "energy_transfers": [
+      [
+        0.0,
+        -1.5543122344752192e-15,
+        -1.5172549899771366,
+        -1.977254989977137,
+        -3.494509979954272,
+        -3.4945099799542727
+      ],
+      [
+        1.5543122344752192e-15,
+        0.0,
+        -1.517254989977135,
+        -1.9772549899771354,
+        -3.4945099799542705,
+        -3.4945099799542714
+      ],
+      [
+        1.5172549899771366,
+        1.517254989977135,
+        0.0,
+        -0.46000000000000035,
+        -1.9772549899771352,
+        -1.9772549899771361
+      ],
+      [
+        1.977254989977137,
+        1.9772549899771354,
+        0.46000000000000035,
+        0.0,
+        -1.5172549899771348,
+        -1.5172549899771357
+      ],
+      [
+        3.494509979954272,
+        3.4945099799542705,
+        1.9772549899771352,
+        1.5172549899771348,
+        0.0,
+        -8.881784197001252e-16
+      ],
+      [
+        3.4945099799542727,
+        3.4945099799542714,
+        1.9772549899771361,
+        1.5172549899771357,
+        8.881784197001252e-16,
+        0.0
+      ]
+    ],
+    "final_excitations": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.5543122344752192e-15,
+        1.5543122344752192e-15,
+        1.5543122344752192e-15,
+        1.5543122344752192e-15,
+        1.5543122344752192e-15,
+        1.5543122344752192e-15
+      ],
+      [
+        1.5172549899771366,
+        1.5172549899771366,
+        1.5172549899771366,
+        1.5172549899771366,
+        1.5172549899771366,
+        1.5172549899771366
+      ],
+      [
+        1.977254989977137,
+        1.977254989977137,
+        1.977254989977137,
+        1.977254989977137,
+        1.977254989977137,
+        1.977254989977137
+      ],
+      [
+        3.494509979954272,
+        3.494509979954272,
+        3.494509979954272,
+        3.494509979954272,
+        3.494509979954272,
+        3.494509979954272
+      ],
+      [
+        3.4945099799542727,
+        3.4945099799542727,
+        3.4945099799542727,
+        3.4945099799542727,
+        3.4945099799542727,
+        3.4945099799542727
+      ]
+    ],
+    "original_mass": 0.16666666666666702,
+    "initial_ground_excess": 1.7472549899771366,
+    "transport_cost": 0.3295424983295235,
+    "transport_cost_upper": 1.7472549899771366,
+    "success_probability_division": false,
+    "reference_counterevolution_used": false,
+    "physical_mass_identified": false
+  },
+  "resources": {
+    "source": "actual modular uniform-fiber triangle H_m and every localcoarse Kraus at seam0",
+    "initial_density": "I/d, stationary; retained conjugate purification vec(I)/sqrt(d)",
+    "reference": "initial spectral label i retained after initial-energy PVM; actual measurement changes its correlations",
+    "battery": "declared energy labels B0+Ei\u2212Ej, all initial-supported shell columns; no autonomous finite reusable battery implementation claimed",
+    "apparatus": "complete initial H eigenbasis, native C/E outcome, final H eigenbasis; degenerate basis resolution supplied",
+    "preparation_work": "stationary maximally mixed source/reference preparation supplied, not claimed free",
+    "mass_instrument_reuse": "same energy-shell isometry method; original CAR reservoir law and36outcome probabilities are not transplanted"
+  },
+  "scope": "Complete sequential experiment distinct from original unmeasured-reference spectral response and from energy_gev separate marginals. No species, vacuum or GeV calibration inferred.",
+  "full_criterion_met": false,
+  "official_rows_changed": [],
+  "source_sha256": {
+    "validation/observables/energy_gev/spectral_apparatus.py": "4f894b6e657d1e1282fdf538028b5728b5b615ca4437a3200228049e5857af5d",
+    "validation/observables/energy_gev/finite_spectral_adapter.py": "64ae60a2e52bf0b556695f8ebe778a29e44f26a342a0ddf67813a65dff34d115",
+    "candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907",
+    "candidate/oph_openwave/uniform_native.py": "2416525dfd50cb7e7f38805a52c65858d51fda428b5875abc7295e52b03e3146"
+  }
+}

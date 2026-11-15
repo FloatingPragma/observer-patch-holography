@@ -1,0 +1,162 @@
+{
+  "openwave_commit": "5d686cb049b82cc55f8822210a254d5833be23a7",
+  "models_sha256": "a69895e4af4f6bc180748c4e9a8ae11d745c75462650aea44c3a34bd687a139d",
+  "upstream_url": "https://github.com/openwave-labs/openwave/blob/5d686cb049b82cc55f8822210a254d5833be23a7/MODELS.md",
+  "criteria": [
+    {
+      "id": 1,
+      "criterion": "Charge quantization",
+      "simplest_test": "integer topological charge; a split e → e/2 + e/2 impossible"
+    },
+    {
+      "id": 2,
+      "criterion": "Electron rest energy (mass)",
+      "simplest_test": "localized state anchored to 511 keV"
+    },
+    {
+      "id": 3,
+      "criterion": "de Broglie clock (Zitterbewegung)",
+      "simplest_test": "self-starting frequency-rigid internal oscillation at ω = mc²/ℏ"
+    },
+    {
+      "id": 4,
+      "criterion": "Particle stability (Derrick escape)",
+      "simplest_test": "the particle state persists in free evolution"
+    },
+    {
+      "id": 5,
+      "criterion": "Magnetic moment μ (g ≈ 2, magnetostatics)",
+      "simplest_test": "intrinsic magnetostatics: a stationary state sources a static dipole B from internal circulation, g ≈ 2; dipole Larmor response"
+    },
+    {
+      "id": 6,
+      "criterion": "Angular momentum J (spin ℏ/2)",
+      "simplest_test": "field-carried J = ℏ/2 on the electron state"
+    },
+    {
+      "id": 7,
+      "criterion": "Spin-½ statistics (720° double cover)",
+      "simplest_test": "the field returns under a π rotation while its frame needs 2π"
+    },
+    {
+      "id": 8,
+      "criterion": "Antimatter + annihilation",
+      "simplest_test": "pair annihilation to radiation; follow-on: positronium 2γ/3γ"
+    },
+    {
+      "id": 9,
+      "criterion": "Neutrinos (neutral states)",
+      "simplest_test": "light charge-0 states released in decays"
+    },
+    {
+      "id": 10,
+      "criterion": "Neutrino oscillations (PMNS)",
+      "simplest_test": "3 flavors + oscillation; the PMNS angles"
+    },
+    {
+      "id": 11,
+      "criterion": "Lepton mass spectrum (μ, τ)",
+      "simplest_test": "exactly 3 charged-lepton minima; ratios 1 : 207 : 3477"
+    },
+    {
+      "id": 12,
+      "criterion": "Quarks",
+      "simplest_test": "fractional charge as partial winding on a quark string"
+    },
+    {
+      "id": 13,
+      "criterion": "Baryons: bound state (p, n)",
+      "simplest_test": "a stable three-quark composite"
+    },
+    {
+      "id": 14,
+      "criterion": "Baryons: mass ordering + charge profile",
+      "simplest_test": "m_n > m_p; positive core, negative shell"
+    },
+    {
+      "id": 15,
+      "criterion": "Baryons: exact masses",
+      "simplest_test": "938.3 / 939.6 MeV from the field"
+    },
+    {
+      "id": 16,
+      "criterion": "Deuteron (binding + quadrupole)",
+      "simplest_test": "m_d < m_p + m_n; the electric quadrupole moment"
+    },
+    {
+      "id": 17,
+      "criterion": "Nuclear structure (levels, halos)",
+      "simplest_test": "binding curve, levels, halo-nuclei lifetimes"
+    },
+    {
+      "id": 18,
+      "criterion": "Mesons (π, K)",
+      "simplest_test": "π/K states; strange decays (Λ⁰ → p + π⁻)"
+    },
+    {
+      "id": 19,
+      "criterion": "Dark matter candidate",
+      "simplest_test": "a stable neutral massive state"
+    },
+    {
+      "id": 20,
+      "criterion": "Electric force (Coulomb 1/r, electrostatics)",
+      "simplest_test": "far-field 1/r potential at charge e; the strength (α) credited only when it follows from the model's own mechanism, never fitted"
+    },
+    {
+      "id": 21,
+      "criterion": "Lorentz covariance (+ Coulomb = EM)",
+      "simplest_test": "Lorentz-invariant action, no preferred frame; boosted states contract, c-limited"
+    },
+    {
+      "id": 22,
+      "criterion": "Strong force: confinement",
+      "simplest_test": "linear inter-charge potential, ~1 GeV/fm (Cornell)"
+    },
+    {
+      "id": 23,
+      "criterion": "Running coupling",
+      "simplest_test": "coupling varies with scale (onset at the core radius)"
+    },
+    {
+      "id": 24,
+      "criterion": "Weak force: muon decay",
+      "simplest_test": "μ relaxes to e + neutral ejecta"
+    },
+    {
+      "id": 25,
+      "criterion": "Weak force: beta decay (n → p)",
+      "simplest_test": "n → p + e + ν̄, parity-violating (needs a neutron)"
+    },
+    {
+      "id": 26,
+      "criterion": "Gravity: Newton limit (GEM)",
+      "simplest_test": "attractive 1/r² between masses, via the GEM route; the strength (G) credited only when it follows from the model's own mechanism, never fitted"
+    },
+    {
+      "id": 27,
+      "criterion": "Gravity: local metric phenomena",
+      "simplest_test": "light bending, gravitational time dilation / Shapiro delay"
+    },
+    {
+      "id": 28,
+      "criterion": "Cosmology: Λ / cosmic acceleration",
+      "simplest_test": "Λ from the model's own mechanism, never fitted; every remaining gap and a falsification named"
+    },
+    {
+      "id": 29,
+      "criterion": "EM waves (Maxwell)",
+      "simplest_test": "Maxwell recovered; transverse waves at c"
+    },
+    {
+      "id": 30,
+      "criterion": "Quantum wave equation (Klein-Gordon)",
+      "simplest_test": "emergent ω² = k² + m² for matter waves"
+    },
+    {
+      "id": 31,
+      "criterion": "Orbital quantization (atomic structure)",
+      "simplest_test": "hydrogen-like discrete levels from standing waves"
+    }
+  ]
+}

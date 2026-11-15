@@ -1,0 +1,36 @@
+{
+  "schema": "oph.lepton_comparison_inputs.v1",
+  "selection": "Frozen CODATA 2022 direct muon/electron ratio and electron energy; PDG 2024 tau average. Retrospective comparison, not a prospective test.",
+  "muon_electron_ratio": {
+    "value": "206.7682827",
+    "standard_uncertainty": "0.0000046",
+    "unit": "1",
+    "edition": "2022 CODATA adjustment",
+    "source": "https://physics.nist.gov/cuu/Constants/Table/allascii.txt",
+    "locator": "muon-electron mass ratio",
+    "role": "comparison only; published direct ratio includes its adjustment uncertainty"
+  },
+  "electron_MeV": {
+    "value": "0.51099895069",
+    "standard_uncertainty": "0.00000000016",
+    "unit": "MeV",
+    "edition": "2022 CODATA adjustment",
+    "source": "https://physics.nist.gov/cuu/pdf/all.pdf",
+    "locator": "page 2, electron mass energy equivalent",
+    "role": "reference denominator and optional calibrated energy display only"
+  },
+  "tau_MeV": {
+    "value": "1776.93",
+    "standard_uncertainty": "0.09",
+    "unit": "MeV",
+    "edition": "S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024)",
+    "source": "https://pdg.lbl.gov/2024/listings/rpp2024-list-tau.pdf",
+    "locator": "page 1, tau mass OUR AVERAGE",
+    "role": "comparison only"
+  },
+  "covariance": {
+    "tau_MeV_electron_MeV": null,
+    "two_comparison_ratios": null,
+    "availability": "These selected primary tables provide marginal uncertainties, not a cross-edition joint covariance for the two comparison ratios. No zero covariance or joint likelihood is assumed."
+  }
+}

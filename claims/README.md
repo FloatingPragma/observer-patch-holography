@@ -285,3 +285,33 @@ evidence and supplies no new hardware measurement. The older Stage 1 summaries
 remain archived, without a claim that their measured numbers survived a
 recalculation. Validation and exact reviewed heads are recorded in the
 [standing audit](https://github.com/FloatingPragma/observer-patch-holography/issues/1033).
+
+## Source-record implementation claims
+
+[native_process_bridge.json](native_process_bridge.json) binds ten complete
+source/review records to their exact producer receipts and the canonical
+premise, physical-identification and selection registers. It records no
+physical-premise closure or independent particle mass. The OpenWave M10
+column is admitted with 31 untested rows; its exact arithmetic certification
+awards no criterion cell. `python -m tools.build_native_process_bridge --check`
+verifies this claim surface through each original owner’s source inventory.
+
+## Literal native execution claims
+
+[native_execution.json](native_execution.json) binds the executed C/E process,
+its response, conserved current, clock correlations, packet propagation and
+exclusion interaction. It also binds the rest-energy obstruction, explicit
+coherent readout extension, archive/FIFO capacity identity and author-run
+OpenWave reproduction. The exact minimal repair process and the separately
+declared coherent service have different observation domains. None of these
+finite claims awards a physical criterion or changes a canonical physical
+premise. `python -m tools.build_native_execution_claims --check` authenticates
+all ten owners; the postdiction ledger projects the same source records.
+
+The finite port/transit observer construction is registered in
+[`openwave_joint_model.json`](openwave_joint_model.json). Its source hashes bind
+the portable implementation and the complete 31-row local assessment. Generate
+it with `python -m tools.build_openwave_joint_claims --write`, or verify source
+custody and numerical replay with `--check`. The shared-event-register claims
+in `joint_observer.json` retain their separate finite domains; no additive
+many-load or physical-clock transfer is inferred.

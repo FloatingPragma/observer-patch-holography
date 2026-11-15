@@ -1,0 +1,884 @@
+{
+  "schema": "oph.common.dynamics.opposing_integration.v1",
+  "candidate_id": "native-local12-mass-fermion-plaquette-v3-proposed",
+  "checks": {
+    "frozen_custody": true,
+    "independent_full_mass_field_replay": true,
+    "all_archived_probabilities": true,
+    "same_source_clock_joint_law": true,
+    "disjoint_native_wire_allocation": true,
+    "ordered_full_native_block_program": true,
+    "conditional_reset_and_export_bounds": true,
+    "one_particle_detector_domain": true,
+    "independent_cutoff_review": true,
+    "independent_Dirac_scope_review": true,
+    "adversarial_controls_reject": true,
+    "final_source_hashes_unchanged": true
+  },
+  "source_replay": {
+    "all_event_outcomes_compared": 83352,
+    "maximum_state_amplitude_error": 5.561946577567963e-17,
+    "maximum_archived_probability_error": 1.3877787807814457e-17,
+    "complete_weights": [
+      1.0000000000000002,
+      1.0000000000000007,
+      1.0000000000000009,
+      1.0000000000000016,
+      1.0000000000000002,
+      1.0000000000000004,
+      1.0000000000000004,
+      1.0000000000000009
+    ],
+    "mass_position_response_TV": 0.012424427792955493
+  },
+  "clock_laws": {
+    "XC": {
+      "fine_clock_law": [
+        {
+          "record": {
+            "coin": 0,
+            "label": -1,
+            "current": -1,
+            "bit": 1
+          },
+          "probability": 5.842084159487532e-35
+        },
+        {
+          "record": {
+            "coin": 0,
+            "label": 0,
+            "current": 0,
+            "bit": 1
+          },
+          "probability": 0.00027460791538928104
+        },
+        {
+          "record": {
+            "coin": 0,
+            "label": 1,
+            "current": 1,
+            "bit": 0
+          },
+          "probability": 0.49972539208461014
+        },
+        {
+          "record": {
+            "coin": 1,
+            "label": -1,
+            "current": -1,
+            "bit": 1
+          },
+          "probability": 0.00027460791538928104
+        },
+        {
+          "record": {
+            "coin": 1,
+            "label": 0,
+            "current": 0,
+            "bit": 0
+          },
+          "probability": 0.49972539208461014
+        }
+      ],
+      "bits": [
+        0.9994507841692203,
+        0.0005492158307785621
+      ],
+      "contrast": 0.9989015683384417,
+      "phase": "3/64",
+      "time_over_tau0": "3/8"
+    },
+    "XE": {
+      "fine_clock_law": [
+        {
+          "record": {
+            "coin": 0,
+            "label": -2,
+            "current": -1,
+            "bit": 1
+          },
+          "probability": 5.842084159487532e-35
+        },
+        {
+          "record": {
+            "coin": 0,
+            "label": -1,
+            "current": 0,
+            "bit": 1
+          },
+          "probability": 0.00027460791538928104
+        },
+        {
+          "record": {
+            "coin": 0,
+            "label": 0,
+            "current": 0,
+            "bit": 1
+          },
+          "probability": 3.1241100531929056e-31
+        },
+        {
+          "record": {
+            "coin": 0,
+            "label": 1,
+            "current": 1,
+            "bit": 0
+          },
+          "probability": 0.49972539208461014
+        },
+        {
+          "record": {
+            "coin": 1,
+            "label": -2,
+            "current": -1,
+            "bit": 1
+          },
+          "probability": 5.842084159487532e-35
+        },
+        {
+          "record": {
+            "coin": 1,
+            "label": -1,
+            "current": -1,
+            "bit": 1
+          },
+          "probability": 0.00027460791538928104
+        },
+        {
+          "record": {
+            "coin": 1,
+            "label": 0,
+            "current": 0,
+            "bit": 0
+          },
+          "probability": 3.1241100531929056e-31
+        },
+        {
+          "record": {
+            "coin": 1,
+            "label": 1,
+            "current": 0,
+            "bit": 0
+          },
+          "probability": 0.49972539208461014
+        }
+      ],
+      "bits": [
+        0.9994507841692203,
+        0.0005492158307785621
+      ],
+      "contrast": 0.9989015683384417,
+      "phase": "3/64",
+      "time_over_tau0": "3/8"
+    },
+    "YC": {
+      "fine_clock_law": [
+        {
+          "record": {
+            "coin": 0,
+            "label": -1,
+            "current": -1,
+            "bit": 1
+          },
+          "probability": 5.069351999214833e-32
+        },
+        {
+          "record": {
+            "coin": 0,
+            "label": 0,
+            "current": 0,
+            "bit": 1
+          },
+          "probability": 0.238285541062966
+        },
+        {
+          "record": {
+            "coin": 0,
+            "label": 1,
+            "current": 1,
+            "bit": 0
+          },
+          "probability": 0.26171445893703327
+        },
+        {
+          "record": {
+            "coin": 1,
+            "label": -1,
+            "current": -1,
+            "bit": 1
+          },
+          "probability": 0.238285541062966
+        },
+        {
+          "record": {
+            "coin": 1,
+            "label": 0,
+            "current": 0,
+            "bit": 0
+          },
+          "probability": 0.26171445893703327
+        }
+      ],
+      "bits": [
+        0.5234289178740665,
+        0.476571082125932
+      ],
+      "contrast": 0.04685783574813451,
+      "phase": "3/64",
+      "time_over_tau0": "3/8"
+    },
+    "YE": {
+      "fine_clock_law": [
+        {
+          "record": {
+            "coin": 0,
+            "label": -2,
+            "current": -1,
+            "bit": 1
+          },
+          "probability": 5.069351999214833e-32
+        },
+        {
+          "record": {
+            "coin": 0,
+            "label": -1,
+            "current": 0,
+            "bit": 1
+          },
+          "probability": 0.238285541062966
+        },
+        {
+          "record": {
+            "coin": 0,
+            "label": 0,
+            "current": 0,
+            "bit": 1
+          },
+          "probability": 1.6361481429238497e-31
+        },
+        {
+          "record": {
+            "coin": 0,
+            "label": 1,
+            "current": 1,
+            "bit": 0
+          },
+          "probability": 0.26171445893703327
+        },
+        {
+          "record": {
+            "coin": 1,
+            "label": -2,
+            "current": -1,
+            "bit": 1
+          },
+          "probability": 5.069351999214833e-32
+        },
+        {
+          "record": {
+            "coin": 1,
+            "label": -1,
+            "current": -1,
+            "bit": 1
+          },
+          "probability": 0.238285541062966
+        },
+        {
+          "record": {
+            "coin": 1,
+            "label": 0,
+            "current": 0,
+            "bit": 0
+          },
+          "probability": 1.6361481429238497e-31
+        },
+        {
+          "record": {
+            "coin": 1,
+            "label": 1,
+            "current": 0,
+            "bit": 0
+          },
+          "probability": 0.26171445893703327
+        }
+      ],
+      "bits": [
+        0.5234289178740665,
+        0.476571082125932
+      ],
+      "contrast": 0.04685783574813451,
+      "phase": "3/64",
+      "time_over_tau0": "3/8"
+    }
+  },
+  "clock_export_failure_trace": 4.033581440769017e-33,
+  "complete_joint_laws": [
+    {
+      "mass": "0",
+      "setting_and_native_law": "XC",
+      "source_field_blocks": 2800,
+      "fine_joint_outcomes": 14000,
+      "complete_probability": 1.0000000000000004,
+      "factorization": "P(position,field,clockfine)=sum_event|psi(position,field,event)|\u00b2 * P(clockfine); ideal product clock preparation only"
+    },
+    {
+      "mass": "0",
+      "setting_and_native_law": "XE",
+      "source_field_blocks": 2800,
+      "fine_joint_outcomes": 22400,
+      "complete_probability": 1.0000000000000004,
+      "factorization": "P(position,field,clockfine)=sum_event|psi(position,field,event)|\u00b2 * P(clockfine); ideal product clock preparation only"
+    },
+    {
+      "mass": "0",
+      "setting_and_native_law": "YC",
+      "source_field_blocks": 2800,
+      "fine_joint_outcomes": 14000,
+      "complete_probability": 1.0,
+      "factorization": "P(position,field,clockfine)=sum_event|psi(position,field,event)|\u00b2 * P(clockfine); ideal product clock preparation only"
+    },
+    {
+      "mass": "0",
+      "setting_and_native_law": "YE",
+      "source_field_blocks": 2800,
+      "fine_joint_outcomes": 22400,
+      "complete_probability": 1.0,
+      "factorization": "P(position,field,clockfine)=sum_event|psi(position,field,event)|\u00b2 * P(clockfine); ideal product clock preparation only"
+    },
+    {
+      "mass": "1",
+      "setting_and_native_law": "XC",
+      "source_field_blocks": 2800,
+      "fine_joint_outcomes": 14000,
+      "complete_probability": 0.9999999999999998,
+      "factorization": "P(position,field,clockfine)=sum_event|psi(position,field,event)|\u00b2 * P(clockfine); ideal product clock preparation only"
+    },
+    {
+      "mass": "1",
+      "setting_and_native_law": "XE",
+      "source_field_blocks": 2800,
+      "fine_joint_outcomes": 22400,
+      "complete_probability": 0.9999999999999998,
+      "factorization": "P(position,field,clockfine)=sum_event|psi(position,field,event)|\u00b2 * P(clockfine); ideal product clock preparation only"
+    },
+    {
+      "mass": "1",
+      "setting_and_native_law": "YC",
+      "source_field_blocks": 2800,
+      "fine_joint_outcomes": 14000,
+      "complete_probability": 0.9999999999999994,
+      "factorization": "P(position,field,clockfine)=sum_event|psi(position,field,event)|\u00b2 * P(clockfine); ideal product clock preparation only"
+    },
+    {
+      "mass": "1",
+      "setting_and_native_law": "YE",
+      "source_field_blocks": 2800,
+      "fine_joint_outcomes": 22400,
+      "complete_probability": 0.9999999999999994,
+      "factorization": "P(position,field,clockfine)=sum_event|psi(position,field,event)|\u00b2 * P(clockfine); ideal product clock preparation only"
+    }
+  ],
+  "joined_complete_error": {
+    "X": {
+      "complete_TV_upper_exact": "2211715985484651161231563034262417859499382223364609751590376754333840726788560219590613488064436255679422307785202223546218180647827676052754675196567290006435186363814082375118085524639921940004230807294567070433009064224703495/99361157907245371849534687261600163536440705095468583112899330433667260971928120725176218165033374588831214764616388685194981122823348121052434385602635592909085118465334393955216978280422300468816831948397854000057142198644227702784",
+      "complete_TV_upper": 2.2259362029066835e-05,
+      "source_and_position_field_bound_exact": "17685543214245377728868420803664719400439054831931235151107863896076424173001433345671654597674032987921253220839675423672771569645648655616501881135827177458794178120337450602047762399711518799791635322577968143954869130163705865/794889263257962974796277498092801308291525640763748664903194643469338087775424965801409745320266996710649718116931109481559848982586784968419475084821084743272680947722675151641735826243378403750534655587182832000457137589153821622272",
+      "additional_clock_native_word_and_pointer_error_exact": "1539757699470865808993707255141279/730750818665451459101842416358141509827966271488",
+      "additional_clock_reset_bound_exact": "8184667956928390073632665346066081647773825661904379113101421332000443467668108683258364841007930533824244613024762630544796586095406954527212422147869759503729141935372122681718512514039572317268686587588305952206963649103919/794889263257962974796277498092801308291525640763748664903194643469338087775424965801409745320266996710649718116931109481559848982586784968419475084821084743272680947722675151641735826243378403750534655587182832000457137589153821622272",
+      "blank_native_resets": 3211,
+      "ready_native_resets": 1160,
+      "native_terminal_attempts": 1160,
+      "source_clock_tensor_rule": "V_m tensor exp(-i h Z/16), one tick after the complete mass/field macro",
+      "reference_domain": "arbitrary initialized source references; arbitrary coherent/correlated raw reset inputs through rank-one fine reset Kraus and conditional union bounds",
+      "clock_preparation": "declared separate plus state; source-correlated input is not a clock calibration",
+      "comparison_boundary": "private reset labels/tapes retained in the full instrument and marginalized only in comparison to the ideal source/clock law",
+      "not_included": [
+        "spectral controlled-V probe",
+        "physical seconds calibration",
+        "finite-shot phase confidence",
+        "two-particle position interpretation"
+      ]
+    },
+    "Y": {
+      "complete_TV_upper_exact": "2211715985490468052363888250559403661851773131374474290149593096482239715678988078621554673014862439613636472375129513815853563554440752249023948927897321579550057268961157400028156690250137067002943486963431874678708670507467783/99361157907245371849534687261600163536440705095468583112899330433667260971928120725176218165033374588831214764616388685194981122823348121052434385602635592909085118465334393955216978280422300468816831948397854000057142198644227702784",
+      "complete_TV_upper": 2.225936202912538e-05,
+      "source_and_position_field_bound_exact": "17685543214245377728868420803664719400439054831931235151107863896076424173001433345671654597674032987921253220839675423672771569645648655616501881135827177458794178120337450602047762399711518799791635322577968143954869130163705865/794889263257962974796277498092801308291525640763748664903194643469338087775424965801409745320266996710649718116931109481559848982586784968419475084821084743272680947722675151641735826243378403750534655587182832000457137589153821622272",
+      "additional_clock_native_word_and_pointer_error_exact": "1582537977464430714104397858949045/730750818665451459101842416358141509827966271488",
+      "additional_clock_reset_bound_exact": "8184667956928390073632665346066081647773825661904379113101421332000443467668108683258364841007930533824244613024762630544796586095406954527212422147869759503729141935372122681718512514039572317268686587588305952206963649103919/794889263257962974796277498092801308291525640763748664903194643469338087775424965801409745320266996710649718116931109481559848982586784968419475084821084743272680947722675151641735826243378403750534655587182832000457137589153821622272",
+      "blank_native_resets": 3211,
+      "ready_native_resets": 1160,
+      "native_terminal_attempts": 1160,
+      "source_clock_tensor_rule": "V_m tensor exp(-i h Z/16), one tick after the complete mass/field macro",
+      "reference_domain": "arbitrary initialized source references; arbitrary coherent/correlated raw reset inputs through rank-one fine reset Kraus and conditional union bounds",
+      "clock_preparation": "declared separate plus state; source-correlated input is not a clock calibration",
+      "comparison_boundary": "private reset labels/tapes retained in the full instrument and marginalized only in comparison to the ideal source/clock law",
+      "not_included": [
+        "spectral controlled-V probe",
+        "physical seconds calibration",
+        "finite-shot phase confidence",
+        "two-particle position interpretation"
+      ]
+    }
+  },
+  "program": {
+    "program_form": "ordered repeated blocks; complete_program exposes the full primitive expansion",
+    "counts": {
+      "pulse": 4384181,
+      "native_configuration_reset": 4371,
+      "native_commit": 1160,
+      "macro_completed": 3
+    },
+    "pulse_counts_by_phase": {
+      "source_preparation": 904,
+      "clock_preparation": 2,
+      "mass_field_clock_macro": 4333305,
+      "position_compute": 21504,
+      "position_uncompute": 21504,
+      "pointer": 6960,
+      "clock_analysis": 2
+    },
+    "ordered_block_program_sha256": "df3bb5268e01fb6853b26d484dec71c1b29c06bddea505e707c59e8bbaa80129",
+    "max_wire": 3212,
+    "repetition_proof": "Exact ordered concatenation; the same frozen mass/V/tick body repeats without an intervening hidden state reset. The block program preserves every scalar phase and current word."
+  },
+  "allocation": {
+    "source": [
+      0,
+      3202
+    ],
+    "position_flags": [
+      3203,
+      3204,
+      3205,
+      3206,
+      3207,
+      3208,
+      3209
+    ],
+    "clock": 3210,
+    "pointer_auxiliary_code": [
+      3211,
+      3212
+    ],
+    "spectral_probe": null
+  },
+  "cutoff_review": {
+    "exact_tail_brackets": [
+      {
+        "Lambda": "0",
+        "distance": 5,
+        "independent_upper_float": 0.0,
+        "producer_upper_float": 0.0
+      },
+      {
+        "Lambda": "1/5",
+        "distance": 1,
+        "independent_upper_float": 0.22140275816016983,
+        "producer_upper_float": 0.2222222222222222
+      },
+      {
+        "Lambda": "22157710166662839/18014398509481984",
+        "distance": 5,
+        "independent_upper_float": 0.029265602539673564,
+        "producer_upper_float": 0.029510541764150935
+      },
+      {
+        "Lambda": "22157710166662839/18014398509481984",
+        "distance": 13,
+        "independent_upper_float": 2.5951427266588344e-09,
+        "producer_upper_float": 2.5967089256195544e-09
+      },
+      {
+        "Lambda": "22157710166662839/18014398509481984",
+        "distance": 29,
+        "independent_upper_float": 4.773812275842966e-29,
+        "producer_upper_float": 4.7740922249599344e-29
+      },
+      {
+        "Lambda": "288050232166616907/1125899906842624",
+        "distance": 509,
+        "independent_upper_float": 3.479941698550059e+67,
+        "producer_upper_float": 3.486762322563781e+67
+      }
+    ],
+    "prefix_boundary_controls": 90,
+    "face_entries_bounded_by_one": true,
+    "cyclic_boundary_control_norm": 1.4142135623730951,
+    "verdict": "The stated state/support-dependent integer-rotor theorem is valid. Its finite-time terminal-instrument and arbitrary-reference scope is preserved; quantum Maxwell and native modulus-cost transfer are absent."
+  },
+  "spin_review": {
+    "Clifford_relations": true,
+    "free_limit_cases": [
+      {
+        "h": 0.2,
+        "steps": 5,
+        "error": 0.034366094062249275,
+        "bound": 0.06999999999999999
+      },
+      {
+        "h": 0.1,
+        "steps": 10,
+        "error": 0.017178125412104107,
+        "bound": 0.034999999999999996
+      },
+      {
+        "h": 0.05,
+        "steps": 20,
+        "error": 0.008588440673741682,
+        "bound": 0.017499999999999998
+      }
+    ],
+    "actual_signed_route_cases": 48,
+    "no_transfer_to_scalar_candidate": true,
+    "retained_obligations": [
+      "complete native Dirac reset/evolution error",
+      "full-field preparation for the compressed cycle probe",
+      "full spatial rotation apparatus",
+      "interacting canonical-field limit",
+      "species/doubler control"
+    ]
+  },
+  "mutations": {
+    "rejected_controls": {
+      "clock_on_position_flag": true,
+      "clock_on_source": true,
+      "auxiliary_alias": true,
+      "wrong_source_candidate": true,
+      "wrong_modulus": true,
+      "two_particles_as_one_position": true,
+      "unfrozen_mass": true,
+      "unfrozen_clock_spacing": true,
+      "success_renormalization": true,
+      "controlled_bare_walk_missing_current": true,
+      "one_byte_source_mutation": true
+    },
+    "missing_current_Gauss_violation_probability": "1/4"
+  },
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/vector_field/MANIFEST.json": "aa4a18d89c1a8893ee86eb5e9151bc75e8a0b3a527640cee66aa25382ca55e76",
+    "openwave-tuning/common_dynamics/vector_field/AMENDMENT.json": "93b1e40fe16da0c6316407d9420c7a0eba8799a3034cc0a95e04a6d27af37a57",
+    "openwave-tuning/common_dynamics/vector_field/AUTONOMOUS.json": "4f5187e487e96f2a177d75e9089998b5d2016dcaae8fbde8b141ee26a3cf4f5e",
+    "openwave-tuning/common_dynamics/vector_field/CELL_COMPLEX.json": "bedeb0f30558b99154d4353df9d33933e244457d6ec65f96b85a44d2c0f3da05",
+    "openwave-tuning/common_dynamics/vector_field/CELL_COMPLEX_PROOF.md": "b3dff498ffba0c78a6a07866353cd02ea30ba9ffa3d9d0db5c64fc5bc2745736",
+    "openwave-tuning/common_dynamics/vector_field/CLOCK_JOIN.json": "7fe08edd0e2cf17b39e64765a4a303952aa4b2c34c978443ed40a275610913d6",
+    "openwave-tuning/common_dynamics/vector_field/COMPOSITION.json": "94679493e9d7fc6672350e4e83fd9b7249c55783793b4017c449ab2f9dd1b927",
+    "openwave-tuning/common_dynamics/vector_field/FIELD_PROGRAM.json": "f04a9a3011d8f5f58156162cb7ac937455ab3c56a8aa82d3ecd669822ae9e456",
+    "openwave-tuning/common_dynamics/vector_field/JOINT_RECORDS.json": "3e4d4c54b47d4efb04dd6f7b063b76bd5008d330618ad6b4ba34171ebdfdb547",
+    "openwave-tuning/common_dynamics/vector_field/LINEAR_RESPONSE.json": "33e8345f45e7df11dba021392f4e2c28b8f42e81733db44dc5f1543d5138b6c5",
+    "openwave-tuning/common_dynamics/vector_field/NATIVE_FIELD.json": "814112982b4ad75c314265854fb45bb7ea28dae1f13457dadf5a513ff84ec0a9",
+    "openwave-tuning/common_dynamics/vector_field/OBSERVABLES.json": "59058e7786a43628e7e88f6fc87754bb79739c04856825b3a5c95e03c2591b15",
+    "openwave-tuning/common_dynamics/vector_field/PREPARATION_PROGRAM.json": "75048d78f0482bacb14426c73e3093e07efbbefcce4e8530790f0cf27f9d81f3",
+    "openwave-tuning/common_dynamics/vector_field/PROOF.md": "5bafbd6595c678aa0990e2ecae655cf6a9f5c14c948b7fc155198731c8f998df",
+    "openwave-tuning/common_dynamics/vector_field/RESET_DOMAIN.json": "4c3d77f22730e171e9181445468fa47473c0c2f0f3363f94b6c91012c9f0c063",
+    "openwave-tuning/common_dynamics/vector_field/RESET_DOMAIN.md": "05906953a86577bdb6bc26b1bd41404f8d0afaff1a46413f9a88bf6fba43ab81",
+    "openwave-tuning/common_dynamics/vector_field/autonomous.py": "b700b466092e256416d8d461f907d1713cbdd398f99bfb595d0cab51810b633a",
+    "openwave-tuning/common_dynamics/vector_field/cell_complex.py": "7e760f4cc0cc9df1343089a6e83bc57c4d6898e072a058336e2079a755d9360a",
+    "openwave-tuning/common_dynamics/vector_field/clock_join.py": "c862585183f25402f5d9341d5dbbcf28dd50439726ad4d6aaeb8575062324045",
+    "openwave-tuning/common_dynamics/vector_field/composition.py": "75b41497128f8c5e270441fd1e3019a2040b8cb340f39f708c10b8f800f5cbdb",
+    "openwave-tuning/common_dynamics/vector_field/freeze.py": "c4ce2524ec26158b2ac8068fe00e6b583ba528de9c5d1869ed1c0cdddd9379a6",
+    "openwave-tuning/common_dynamics/vector_field/linear_response.py": "201b160811905ce56657b505b0395cd3ff7280c2b537a4f148a6ecea98aaeb0c",
+    "openwave-tuning/common_dynamics/vector_field/native_field.py": "158144c7d9b7bcdfbcc8e60e56a9e957ee1e0ff51b08ba1a585d42bfd5b6446a",
+    "openwave-tuning/common_dynamics/vector_field/observables.py": "d6943be1360a7fe17396b9847d38a33da58732cd9e94c6cc32d24d0b0c5c9a00",
+    "openwave-tuning/common_dynamics/vector_field/reset_domain.py": "726b5f7559064ffadc9cece4e1bdd20b0b55a76f320d43f0d8dce8e06bb69dfe",
+    "reverse-engineering-reality/model/native_spatial_refinement/source.py": "b4576a37b7610418f810ab7beebf5e52a7eeab80f66c7260ace149de9c733733",
+    "openwave-tuning/common_dynamics/manybody/manybody.py": "15e7463ed8c7087b79f8962f961216972a8c34876751360f89e6d84ef3f32fff",
+    "openwave-tuning/common_dynamics/manybody/mode_field.py": "e7f481b64aaf005874b3c42f8ed9d73891c334ee34d8cc6f603c30e9ba5d45c3",
+    "openwave-tuning/auditor/native_current_walk/current_walk.py": "3057fa13b0455c7d814ac96fd4c9cab82b3941cca2f7a8a0cbd2b600abe820a9",
+    "openwave-tuning/auditor/native_walk_bridge/common_walk.py": "4c8b6087aab6212ae12af126640ba19bbfec63215be5234be64f016cc604d75d",
+    "openwave-tuning/common_dynamics/manybody/MANIFEST.json": "230a908ce84bab53de63dc6db6b99adc57b0bafa336bb30c611af1f6af7b27bf",
+    "reverse-engineering-reality/model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "reverse-engineering-reality/model/certified_reference/certificate.py": "5f40516d46d9d17ccb093727d4aec64ae455e6a549a615001a2c4d737da0a9e3",
+    "reverse-engineering-reality/model/certified_reference/interval.py": "9309359ad336ca95c478499fa12cb66389809ffb0104ff3e6ec64623cf032bb1",
+    "openwave-tuning/auditor/common_walk_review/source_error.py": "611f6352a23e5b6c40006ec058886070a9efe38d9886972d21d67c5e55d7fb6c",
+    "openwave-tuning/auditor/common_walk_review/SOURCE_ERROR.json": "79432b4a01fa0f9234a8843d27d5a5eb20fd1483e9476c42e91a212f9df2573d",
+    "openwave-tuning/common_dynamics/manybody/MODE_FIELD.json": "b878d7d909a7503812fc50c5a064793aef8ff09748aa4477bc9024f68a0eeb74",
+    "openwave-tuning/common_dynamics/manybody/MODE_CURRENT_PROGRAMS.json": "c018be68d9c7ce4f15402afe81d9d74195f48a512517ce83720d7f445cb1aa2f",
+    "reverse-engineering-reality/model/native_clock/configuration.py": "f5d5b7ac614a5a1080015a1b1fa16e4d450fbb95a1ee4a2633f844823cdeeae9",
+    "reverse-engineering-reality/model/native_interface/pointer.py": "30485fdee1d221460c67b9791a34b7fa24b4dece718ab91bdfc3cbb24ca591ac",
+    "openwave-tuning/common_dynamics/clock/phase_clock.py": "31f37c4a6beed62e157343e9b50704b5b9010a57200f61c796fff4416276ec5a",
+    "openwave-tuning/common_dynamics/clock/MANIFEST.json": "6f80b0fe899cdeffd59d3742c318fe627817c19685d8f164abed69721f0b0992",
+    "openwave-tuning/common_dynamics/energy/MANIFEST.json": "dbb82e65a60c972b2cc10a8d52dea744f3a7d38d521aff7df2f1bbbe51594c21",
+    "openwave-tuning/common_dynamics/particles/MANIFEST.json": "678983fa40a2a97b8eb399d6b5ad4ab6ace77a5f441baf448cb0c00bc8a6f9a9",
+    "openwave-tuning/common_dynamics/particles/MASSIVE_COUPLED.json": "f58bf673b2f94b6b4fa8584a81b9236f07a9057e7a5bd46f38dbe0867258f474",
+    "openwave-tuning/common_dynamics/particles/PROOF.md": "de72536b2f77b61f1498d9d6c54dd7019cbb796f3ef460db65f340c48ca3c4d8",
+    "openwave-tuning/common_dynamics/particles/MASS_PROOF.md": "0977d2e290f71027fbae513014857f246b4c412b2b1ad81169940afe13c55a39",
+    "openwave-tuning/common_dynamics/particles/massive_coupled.py": "d883b01ed1ef1734ec71b330724f0305345e6129041ee247ccd569666b5ac0cf",
+    "openwave-tuning/common_dynamics/particles/particle_records.py": "eccdc870034388f486ba6ba6ee7e89ea7e0edaa10bebdfe2ee1b8b8ca4411d9e",
+    "openwave-tuning/common_dynamics/particles/mass_coin.py": "3df8fb82196e889345b234e950d88f40755054cc69f25d7a03e78340538f8377",
+    "openwave-tuning/common_dynamics/particles/MASSIVE_JOINT_LAWS.json.gz": "4f36d9dc8d803df8a2f656b3030b78c0081b75ba88dafbc7860f7a387a9402a4",
+    "openwave-tuning/common_dynamics/particles/MASS_COIN.json": "149a21e0d186e3d84f68ebae766d87570387883c785dc28c94276232a45eaf50",
+    "openwave-tuning/common_dynamics/particles/freeze.py": "f0ebf55f532118c5efaa6d77a6cd39da0f7e5d43ad594f64a0abf968fd218870",
+    "openwave-tuning/common_dynamics/particles/coupled_response.py": "b19ea87744619ca257359e66b3207533b9b7118280a0a0479e489d24f44b387b",
+    "openwave-tuning/common_dynamics/particles/COUPLED_RESPONSE.json": "60d6b1187180fd8e951599a1652a03edfbc383075a9537856f8dc4ec235f4056",
+    "openwave-tuning/common_dynamics/particles/MASSIVE_KICK_PROGRAM.json": "17d499b52ef5d9ca053eec41de02958c751909231b086608f06199ef5321b758",
+    "openwave-tuning/common_dynamics/particles/PARTICLE_RECORDS.json": "ef3147d36d3cafa14642f5e45b7b529f5f6689e7a21e6d7c0bafdac5750ebd2a",
+    "openwave-tuning/common_dynamics/particles/COUPLED_JOINT_LAWS.json.gz": "6abdcc4cb2c4f20c1e387c8a48c2dc0b9944ebd7a83cd5ba0b0aa41ab5281d5b",
+    "openwave-tuning/common_dynamics/particles/AMENDMENT.json": "f4c11bfd057ffcdd5f37e28a689f172b6e60e23031e8703122b99744e948633b",
+    "openwave-push/rows_native/RF1_BRIEF.md": "901d8f5fca111071e50251f6f0374f7c82fff126738afc325e82e07ec500f6b3",
+    "openwave-tuning/auditor/common_walk_particle/INSTRUMENT_CONTRACT.json": "06f8f46a8576403612d0be262203ba29656b8dfbf40a76509802e530bba19046",
+    "openwave-tuning/auditor/common_walk_particle/MANIFEST.json": "7e6c6ba851f5fd3b6aa96ee4d621bf4f09f37540d6b0da72572b483ef51b477c",
+    "openwave-tuning/auditor/common_walk_particle/METHOD.md": "f6e5b7d20b2cb7fddd44ab439ace8d0759e2a7497908612c0da245ccf2c3b504",
+    "openwave-tuning/auditor/common_walk_particle/NATIVE_PHASE_PROBE.json": "9f4855cb8699b920cb64b7b34fdadef5b4fb327a36a6c86ec8972220f6e3deda",
+    "openwave-tuning/auditor/common_walk_particle/SAME_WALK_RECORDS.json": "4de67ee8aa99dce100277e9a8358e44cdc47b096ef7380f9fc21c801a9bc02f7",
+    "openwave-tuning/auditor/common_walk_particle/freeze_manifest.py": "cef55231c947a2bc83fecafea599708a0777a5cadabbb5e1d064ffad7ce5952d",
+    "openwave-tuning/auditor/common_walk_particle/instrument_contract.py": "3e573ede6513cb3ee09ad819936436fe5f21501571825e2ed2bab2fbf946597c",
+    "openwave-tuning/auditor/common_walk_particle/native_phase_probe.py": "88ad96d5889363406c56545857d8a45a82e652a0acb7eaa4361c68ab93de4970",
+    "openwave-tuning/auditor/common_walk_particle/same_walk_records.py": "0c5d512428f9d372e1644d20162ccb68e83c21929b3e44058621c7e52e6811e2",
+    "openwave-tuning/auditor/common_walk_review/KINEMATIC_REVIEW.json": "a94e78e5de0aeda5f7cdaf7d41f6c15ceacf3a49dc19bcb63b99070b48acfbce",
+    "openwave-tuning/auditor/common_walk_review/kinematic_review.py": "c0cb14b6cd4bfecd77745d2a3ee935bddbcdc2ff5c82d0095981eba753346903",
+    "openwave-tuning/auditor/native_current_walk/CURRENT_PROGRAM.json": "4e9f2effafcb3cd260e86c069a104cc154d52130d6847bbd8a0f75951a7d2767",
+    "openwave-tuning/auditor/native_current_walk/CURRENT_WALK.json": "900886c6f93bd63ee757913ce184a73cfc71dbb1884516c76fcf0867a2ea460d",
+    "openwave-tuning/auditor/native_current_walk/INTEGER_DOMAIN.md": "138688e2444ded17e0a32e6e637e1f6cb5adec5dd6c928a68f0a182f2388d89e",
+    "openwave-tuning/auditor/native_current_walk/INTEGER_RELAXATION_REVIEW.json": "259c0a19794730cb06debcdee54296ea6b2d6758b35167f75585f8703a052220",
+    "openwave-tuning/auditor/native_current_walk/MANIFEST.json": "c1593c4894388ec7834f93100375938a0cf009b95f5aada7c4d5e4a563e2df27",
+    "openwave-tuning/auditor/native_current_walk/PROOF.md": "a76370dcda51e475e94638820589adb4aa12b07f2dd6aa59a90159195e0ff464",
+    "openwave-tuning/auditor/native_current_walk/audit_integer_relaxation.py": "c4808ee406dcff284b79217e1f0207ca512cb77a6cb6757332d21e0aee3a4c8a",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_SOURCE_API.md": "9afcb5f70fd9d9519a2ec715a9ce2d054ce9bf56a29faa75993e10cd4e7dfb3b",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_SOURCE_CUSTODY.json": "4d1f9c213f2dba5416dd9085f34be8082d4d65e7c3e10b8649bed27d4bab563a",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_WALK_PROGRAM.json": "0439ac27c173d074871122cf893afd2617243003906f51865490cd6e4f73d7e7",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_WALK_RECEIPT.json": "39e2d7a6dace9ff549d8e68974239c11f03316550a36f1c708302dd562048052",
+    "openwave-tuning/auditor/native_walk_bridge/compile_walk.py": "26371a86d04d7853ab03dbccb46f89a65c809fb6d75480312b0ed61b0259ada2",
+    "openwave-tuning/auditor/native_walk_bridge/pin_source_closure.py": "01b2c2b3035f007dc51fd5267c246c48c1e003c4d5d74b87d10d73c10ebe851e",
+    "openwave-tuning/common_dynamics/clock/CLOCK_CONTRACT.json": "56d66aaf2f438552943c6c9bbf125a243dad807564134c7e1c142f72e2e1b470",
+    "openwave-tuning/common_dynamics/clock/PHASE_CLOCK.json": "6ce7b2b0639e4ea50b73f07854b6be25656561fecada96b89f806d9283f60b16",
+    "openwave-tuning/common_dynamics/clock/PROOF.md": "74ac01ce5f5c2da5ccc34c12ef758275c61d4cc158fb8c84ef62dc070561e6e5",
+    "openwave-tuning/common_dynamics/clock/clock_contract.py": "ee2899c4eeb765e011c2365154573a9e9e4afd6749b4f8b03be3be572c6f8dbc",
+    "openwave-tuning/common_dynamics/continuum/MANIFEST.json": "3067f7bdea43ca5137d6b115f7e1bd92b4d753ba99684ed198ba2da170240adf",
+    "openwave-tuning/common_dynamics/continuum/PROOF.md": "cfefd0cc652cfb528b16c2d6ca843260acdd7de66924e0226f94e8064d66c86e",
+    "openwave-tuning/common_dynamics/continuum/README.md": "eaef1e457b0ac14963eed3a528370940072fca2fb03803464ac4e8a8a5806346",
+    "openwave-tuning/common_dynamics/continuum/RESULT.json": "e3289f599e0155f9059e6fb6a9f336462a51f851ea5de6d6b2a3ae3da8fc5510",
+    "openwave-tuning/common_dynamics/continuum/continuum.py": "5bb5911945c9a53041dd743f90022d057536d8026c391dcc838be9a91e069b71",
+    "openwave-tuning/common_dynamics/energy/ENERGY_CONTRACT.json": "d5d0add5672c9e2dc9c75e82827bcde5654990779c656889a48f1582f4e81321",
+    "openwave-tuning/common_dynamics/energy/PROOF.md": "7508970d195fb48fc80d2f8f38d913d7aeba91b5ed100db220ae36fce774d1c4",
+    "openwave-tuning/common_dynamics/energy/README.md": "46ce109a6df715458fbd1d4386e70392076a5f42dac3bad44dfba4583624d7ea",
+    "openwave-tuning/common_dynamics/energy/energy.py": "2a12b1de2f99b3794f3915804643153f9318ae0a8f7a45c1e860050e60e1c64b",
+    "openwave-tuning/common_dynamics/energy/freeze.py": "c8fdc4b31298669f15ebef54254c96a3a0a12a2b4606f96fa0b8999d41608b54",
+    "openwave-tuning/common_dynamics/manybody/AMENDMENT.json": "b151e933b4f34d0a7524498ed7e87b07c4d0191162520a0f8ae92aa4fc562182",
+    "openwave-tuning/common_dynamics/manybody/HOLE_SECTOR.json": "f70105cd69a268c37b83d76269ddaa77388c6b298a5c5018a44cd2d899a30b37",
+    "openwave-tuning/common_dynamics/manybody/MANYBODY.json": "ae815b98c36f17ad980dcb072d61c2e1120fc8525493241db8bc0d876ef4c32f",
+    "openwave-tuning/common_dynamics/manybody/MANYBODY_PROGRAMS.json": "f87ad8823a06153656cd526a1faae969bc4c0b194a4779e1c4bf878d208515e3",
+    "openwave-tuning/common_dynamics/manybody/PROOF.md": "74658c0d1e0f7b8948d0eacacf9443389fff62c5e3d4ca3999ea99a97abe151c",
+    "openwave-tuning/common_dynamics/manybody/hole_sector.py": "cd16a650e0a56ee836e45cdf3b837639016121fb28342b011ea919b9348de7b4",
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_flux_topology/audit_spatial_lift.py": "b5bf8e326a2018058643c3cb7eb2df68b879533703c04c25010a245b54ffd765",
+    "reverse-engineering-reality/Lean/EventAlgebra/InstrumentSelectionByCertainStates.lean": "14c45c9598979d795dad9bcc9b6cfbf35ef0057de8c8ba56af104b8cdc8550a8",
+    "reverse-engineering-reality/Lean/Geometry/SourceRepairInstrument.lean": "72f2083e76f852a413aee346cfaac8dc061a99dbed2d2df807aaf60baa6c32c0",
+    "reverse-engineering-reality/Lean/QFT/ConjugationGauge.lean": "a0382a1cf3d8fab9fd341438eb74c31b2856f89921540c0bd8ee4c776e49aabc",
+    "reverse-engineering-reality/Lean/QFT/SourcePhaseLiftBridge.lean": "930375b7d6138be8266bf9245fb9d91be3ed4fcf588de0044d603410b82967c6",
+    "reverse-engineering-reality/Lean/SourceLaw/ReflectionPositivity.lean": "e7fc6361cfbc57fb53fdfe24b188bda4615896a234cb4f0e849b222204a4e11e",
+    "reverse-engineering-reality/code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
+    "reverse-engineering-reality/code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
+    "reverse-engineering-reality/docs/research/COHERENT_SOURCE_CLOCKS.md": "3daa10fa2fe85979c55e72e8dee18649d80d276b85db4654fa2d5097c98b5557",
+    "reverse-engineering-reality/evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/__init__.py": "3ceeb20c7231ce9f8d3002529c5416523986dd9c79ea963b2e314bd13364726e",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/__init__.py": "7f72d89ca6a367344b39089fbf24163e3eb6c742476ee5db3c813b12ff73617e",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/claims.py": "962a829a454f8909773d818b96b656fc971aa9d1579cc4c53bbe6cde3cabfe14",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/constants/__init__.py": "bc732866538c149253d0e72723ef8891e5ed68fd676b46dfaec237875540f6aa",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/constants/oph_pixel.py": "9ab43098d6648010b6bd17cbfa7382d4355619a92fe2d32d3339d79af615ec9f",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/__init__.py": "56d3d5e684d53b61f38b24f32111728866fc5dc0151495dece8702d3c591d161",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/array_geometry.py": "e9b0d0c20c8598cb6e49a4965d892c8323b513b36a47dbb53b0cd49a6f873cb8",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/echosahedral_dynamics.py": "a20b928552bb51257bcc7b976f513fe227f5f36158b6e3b4786c315477c862da",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/echosahedral_federation.py": "ead1a96812ac1b243bbe2c1d175a368cd23d5c7b29a179e8718a82baf2edeec1",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/graph.py": "533bb11fc2f53600d4f3bfec25c5781ddd2d1b31f41e3fbadbb73a6a219f8667",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/icosahedral.py": "89fac4f2d24bb4d85c4a84624b3c826e99cb717df68060dd23a4b26c6cfe9adc",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/patch_state.py": "85b7c4b9fe8b983571ca1944b5871c959e198ac4970c2412e85b195d4f34221f",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/patchnet.py": "4664fe5717aac6e1433ab8ec618786cf7fbbd381b421632153ebf9ae78918dc7",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/pixel_scale.py": "0c6ce1b055df4334abba2a8b150905b4bb551e8b7f18fb2674cb6bcbb06963e5",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/screen_microphysics.py": "8fe76b1b9bde24060afa6adcbb51e925865799866d1884490c26e4b172d59cf9",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/screen_ports.py": "37b79a8a949fad2d18f17e850533c6ef33581f64c8f1a72dd94e45da93cef68e",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/__init__.py": "0f8ea883cedb9b67cb2c6af038ebdcb9fc332b0a0d62a5ea1c5cc87d0b22794c",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/anneal.py": "ff008ea37005cf667825a8cd8c7b2c5c6a2110523722da5ab089f8422dd366eb",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/consensus_certificate.py": "e6d282be435e41269ac8d581997508e5559d558ab8ffdc9e5756e3030cd7fc0f",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/kernel_dispatcher.py": "5ecb419adbdd7a341359a8aab13bef3c2feb4490130c20defadc7a196f01e500",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/modular.py": "8978134a5846ad215c7a69205401c479a02019b7902e31bef283f18a6290ef9e",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/positive_geometry.py": "b87cfb52bdc1e1d5762fa65259a026b50072d54d4e1c68bdbcac0159b05bf435",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/repair.py": "fdc6326cdbac39c86e00e9ad314a2d9fd6cf06714a2e06f0470b298177d80949",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py": "7e7cda89350be6330c7425df69bf9647549e6e1890a64eaaf28289be6c640b2f",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/__init__.py": "1875a81eb0bbac4cedfd2c3df77cabe06270b2ce8313e781b1af43174cdc04f3",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/bundle.py": "b84548c3f62187ecc19b64fa11a5dc24915bc1b9a05066b3a6496524c5f61a71",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/cross_repo_artifacts.py": "f026e8653752e5bcb1c703ed253861d3444d7beff2fe572863b09508d7efbff6",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/hashes.py": "e4a7ada049fa1137e2d53c8eadd36a574f03fca25793322906e854d8ef04773f",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/particle_input_policy.py": "8d3683c8a3b6d249c484d253e08fd8425899c71a8d69ab5c78ee34780a7e06d3",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/production_envelope.py": "f34f03314efae563a3b42cae6646164354c74e7bf062f5091790a584d08c6d1e",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/verifier.py": "4997bb27fe34846b9c2a4fff14f8a8b9a6b238f4029e2ec0273f8e1f7de60f45",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/finite_groups.py": "1329f07ef90beb9d4be1efa5cd0cb76e323014670d8e90c8f7945eba54e401f6",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/__init__.py": "ede5295ec9dac5c42571287b5971c61a24647c3c9dee0b8b7187b7f195c9bb54",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/a5_sm_certificate.py": "8d7a99cc1ae093bc570bbb3b1677a028d23b82be23e90de4635a76380bde92f1",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/covariant_overlap.py": "f03127e7314b0be60ba18b0a0b4cc934aa8d314785636258796c68baae374aa9",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/higgs_carrier.py": "c150b9850364a4948995eca273e3571a9808960e840ad9fa361801c2beec5958",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/mar_sieve.py": "0043cc7d784f1be263dca5e3882b3d1698b8b91d75a8f2ba28beee516086a366",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/physical_a5_sm_requirements.py": "6e4b35bdf56d025793973d6dcc15cb34d0e60b5e7e5796926fdf96fa2cd03015",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/repair_projection.py": "e2fdd6165ae39006e3b83c0376137162d423adeabec293ab5c06c6fe0b2b0cec",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/source_to_eft.py": "6414f00bda171fad6e8e6c77295cab106fb163eae9f00a6656e0e89db4f87562",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/yang_mills_gap.py": "29d4bb3ba2ee6e25365196c48c6e6f96a61aee00325de0acde470a577098bc4c",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/__init__.py": "8e99c23175f57934eecaf9103dabd7b3d20d56ed55fe38174571290b3ef2b815",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/base.py": "8c3e34417a51c60fc2b3a6c7b9611a9ea476d90fd1e7c5e7816604855a90d2b2",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/clock.py": "15434d1fc409eb29d585bc4d5feefd8819279276e082d9ed711de3b598de19bc",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/registry.py": "7876a6087be4ca9ef4314625799a165e396f269fffbf51b7f6984805057f434f",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/s3.py": "65d34b9ec87c46a1befeb4a1945e1827fb1987a61493e890bb4b3c9ba384a675",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/z2.py": "a32eb994598592ba9f9b763eee455a1e13720b0a8311a4d46c299794466a3624",
+    "reverse-engineering-reality/model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "reverse-engineering-reality/model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
+    "reverse-engineering-reality/model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
+    "reverse-engineering-reality/model/certified_reference/source.py": "f01634916ee9a2cc82c29521f240ddf9ae889eadd67227202c2d7de3cb9078c4",
+    "reverse-engineering-reality/model/coherent_defect_wave/__init__.py": "15a75539d1ccf3de058e5c5a23a0cb9d656dca7ad9fcc25b4d6c46ab64afbf54",
+    "reverse-engineering-reality/model/coherent_defect_wave/chiral_higgs/__init__.py": "a463d1386a1ef3c4dbb6363dc7300f15956e9d710eff76fe3ce63a1c0b2f4cc0",
+    "reverse-engineering-reality/model/coherent_defect_wave/chiral_higgs/model.py": "eb1a89b1b747adf7e87a7f5f8122d1501a039d804eced30eeca509b23ad97bb2",
+    "reverse-engineering-reality/model/coherent_defect_wave/model.py": "51531e26722d3b09ce525ce22d5677de4a17a48f0ea4492908dee9a72e053f4d",
+    "reverse-engineering-reality/model/coherent_defect_wave/physical_attachment/__init__.py": "00edb1860bb586f9696a329c93e2731c1b724022533bac164acbd612a3e4d98d",
+    "reverse-engineering-reality/model/coherent_defect_wave/physical_attachment/chiral.py": "05d52fb0f8f7d65687a020d2864583546ed32f154b4cfb1e57849a0a0283b6ef",
+    "reverse-engineering-reality/model/coherent_seam_repair/__init__.py": "c63891b72256135bc8ba4824a67b620f1faad917a504291f59231410d438bb4d",
+    "reverse-engineering-reality/model/coherent_seam_repair/program.py": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+    "reverse-engineering-reality/model/coherent_seam_repair/protection.py": "1bf9afa27e8749e08514a56c65c65ff11b60656b68944f7db7cc0b54a9f2b715",
+    "reverse-engineering-reality/model/coherent_seam_repair/session.py": "4e7bc7ee7eec0d1374f1e5194bcbd5db2be7365267bf5c9c2058b7cf0bccff00",
+    "reverse-engineering-reality/model/common_source/__init__.py": "becb29d889d8b0712a6b2d36734793bcb22575fc8999e80026e5c3e2f7a39ab5",
+    "reverse-engineering-reality/model/common_source/chiral_candidate/__init__.py": "10a17df74de08c2eb6e84954e825d30997cfa3c1f7d22e1e144491621a09b977",
+    "reverse-engineering-reality/model/common_source/chiral_candidate/action.py": "a9872ed067c39981c0b06e7af42cd200e0b700a4b0292ca923e09e504437b933",
+    "reverse-engineering-reality/model/common_source/composition.py": "0da19f182d52049e1521ff4f6ae85184af8f993a66373fbf228716149472d6cc",
+    "reverse-engineering-reality/model/common_source/continuation_bounds.py": "138454651b9afca881f9b08f47dd27027bbd26f5410503293f654b35e0bdfd6c",
+    "reverse-engineering-reality/model/common_source/encoded_memory.py": "9833f762df6a62be658db182a9a1b3ec61ed28ae462d6e58da5d972371627060",
+    "reverse-engineering-reality/model/common_source/encoded_observer.py": "3b187d8d2be3594b522f3b713ff3e9e54f1ab71ab7661d8421100cdc078b7fbe",
+    "reverse-engineering-reality/model/common_source/exact_output.py": "996e4eb3023e5fc56044f20f381931594e9f2aed31bba071a83f32ded7cdbb39",
+    "reverse-engineering-reality/model/common_source/experiment.py": "10b9040d1d2f870f6d4a5e72df2848bbc0f55c136be0be3bacd2fbda28ff4ab8",
+    "reverse-engineering-reality/model/common_source/gauge_matter.py": "5ae518551305352707d30f27568df549ab057e13a3a734d9eddc6410b84161bc",
+    "reverse-engineering-reality/model/common_source/infinite_history.py": "b579a3facd773f447796191ec1dc9f9e12b4473d129d4890164ddb8b3dd9becc",
+    "reverse-engineering-reality/model/common_source/native_join.py": "5103e163bfec42ea0a5c87647c4ff8998846cbdbc6fde8c33cb4a89581c38be0",
+    "reverse-engineering-reality/model/common_source/native_routing.py": "bece6c1d39a4cf1a444e8bdc2d24dc42abaa4d16ada8d1174b246c9dd6f10f6a",
+    "reverse-engineering-reality/model/common_source/open_bounds.py": "3e3af0e789ae21c5393acf45abe5a83ae6ad11e1755567175e8a1e0f8d187538",
+    "reverse-engineering-reality/model/common_source/open_environment.py": "ba8c33750ed256b457927ca3e8903a7fcb01de9629a99db3682c6d657ff80963",
+    "reverse-engineering-reality/model/common_source/open_native.py": "164a17f0392e16eda69babcffdef9da90a8f0afc26a2a678a9951816e41104f1",
+    "reverse-engineering-reality/model/common_source/open_observer.py": "73efcb678b65bfcdfd35f2ba4321a66f661a42d6c08983a7dbd1e9ca9aba7a0c",
+    "reverse-engineering-reality/model/common_source/open_protocol.py": "936120dedfa4624ac0aa3117e3f1f2db2864ff229e53352c635e5a180fcbd852",
+    "reverse-engineering-reality/model/common_source/operational.py": "d12e5bcf1f3f34e1f3076e7ad74e8eae0d324996d22d47c7f8d0983dd967e0c1",
+    "reverse-engineering-reality/model/common_source/output_certificate.py": "175e6c7f105c5e9e2dbe6385993bf9745d1e276f4ebd8123fc0210fe90f48ff1",
+    "reverse-engineering-reality/model/common_source/particle_identification/__init__.py": "2c4e2f313c769ba55d203887a92ba14e65bbe7145287c89c95614dcf667a9683",
+    "reverse-engineering-reality/model/common_source/particle_identification/family_attachment.py": "ce52592e0fc50d1d24e903e34e7baeb450089d4ef4f3146088b10fe1dd9b1ef0",
+    "reverse-engineering-reality/model/common_source/protocol.py": "4339a070f39f2ddbc958e83041e9b8935dd8efd50acfca80519c4d92ea6cfac2",
+    "reverse-engineering-reality/model/common_source/quantum_native.py": "a15d8767c11cc62f3ea8fecb832e120fb998ca8a37142b61dd63a98206ecb594",
+    "reverse-engineering-reality/model/common_source/records.py": "7ff9a1a68b4b94c018364b73e0b9c651c9154f7e9b2ede21c51f17be79c1dafa",
+    "reverse-engineering-reality/model/common_source/refinement.py": "40b81ca6aa10bc4aba900cd7f6ff3f536176c1be736a40c28922f1b404ef13f3",
+    "reverse-engineering-reality/model/common_source/scalar_coupling.py": "90e4000b0e48e4429e69891c0274966701cd59951f79d151dbe98a66e61ba0cf",
+    "reverse-engineering-reality/model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "reverse-engineering-reality/model/common_source/smooth_history.py": "2f25d0781527f609c414c111132faf3189b20cf3581c2e2f2ffa9d821aeaa1fb",
+    "reverse-engineering-reality/model/common_source/smooth_protocol.py": "b3e9f706d6e239900f36c300deb7d83faba2b39e02d3c6ecc5b3a806d9316480",
+    "reverse-engineering-reality/model/common_source/thermal_clock.py": "da6f53334510bea63fe2dc3ce641f0dcfb358439af3873b4ebdae94cdfabaa68",
+    "reverse-engineering-reality/model/compiled_native_interface/__init__.py": "9b9bec2055ecd83075cd546f3f697519c7da32837c35dbd489bd79a09398b8a6",
+    "reverse-engineering-reality/model/compiled_native_interface/__main__.py": "55d7864ce8a72e2c7278123e1595d13105adc4f492821a551d84f5c5c67bc7d5",
+    "reverse-engineering-reality/model/compiled_native_interface/construction.py": "72549c34bf1e1d315f3ab422d438f710d9fde980fb7e990b5490b03469f125cf",
+    "reverse-engineering-reality/model/event_circulation/__init__.py": "d65a8cf85671e0bebddd416d7efc65fca572c81f8b79f7a503ab32e963bb795c",
+    "reverse-engineering-reality/model/event_circulation/construction.py": "b3a53c02034fab7a24e77a35313257bc321dda1c4a52ef2a25f9b70616edf2ba",
+    "reverse-engineering-reality/model/federated_observer/__init__.py": "f2352d90abb18dc526972cc1b849a049fdbe2993d379e711ed03c991130a077e",
+    "reverse-engineering-reality/model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
+    "reverse-engineering-reality/model/laboratory_clock/__init__.py": "ed84862b1b7acf3f1b63feabb8207105b22e99b70c930d79bc5e0c94bd499f94",
+    "reverse-engineering-reality/model/laboratory_clock/event_geometry.py": "937174335bd528ed1beee023d9b32166a957320f80a00d658c8eb36a29001a15",
+    "reverse-engineering-reality/model/local_repair_family/__init__.py": "66020f42442bef5fb6a1af13b74f96d9cc7fee99f0792216b6b0fbfa734450a9",
+    "reverse-engineering-reality/model/local_repair_family/local_bias.py": "4902174ac8b27c1d8111bc3942cf5cd1024a07999d77f272cbfa1f1242876755",
+    "reverse-engineering-reality/model/native_circulation/__init__.py": "f202d73c2d0428ff7e8d18c2957999d3de107e0c6fea9157b28ad335177a26e1",
+    "reverse-engineering-reality/model/native_circulation/construction.py": "8588e337a2f45090b7dee53388593c1aea01d0ce4f6c5fe330bbc388c6a1e2bb",
+    "reverse-engineering-reality/model/native_clock/__init__.py": "36ba1715e850fb28de6d8a8467d9c925abed2de1782514e3ff4b283640b19319",
+    "reverse-engineering-reality/model/native_clock/clock.py": "0a05dcd38f748fff119229f40672ff03540ed5e8c5a829fc3430bc66ed2338a4",
+    "reverse-engineering-reality/model/native_clock/regional_preparation.py": "46a137e362c57f01c367e027edb11094e644dcc8b76bcd3c9398baa8f6d4c855",
+    "reverse-engineering-reality/model/native_equilibration/__init__.py": "4a2543e0f885af867373d718184c433c1a5c3d5006f12dda5eb01cbb08ab0ad5",
+    "reverse-engineering-reality/model/native_equilibration/construction.py": "381dc258389bcb930b9e075d66d5a7c167eb2ced01176cf7a209eb7dd9c5aca2",
+    "reverse-engineering-reality/model/native_equilibration/cut_completion.py": "283b764685f21cc19f5ad9c1ff82371256c55f463fafe99ab3ea460458ead8ad",
+    "reverse-engineering-reality/model/native_interface/__init__.py": "01a785b3666e979ff77d44b3eabf4f59573238a470f23bca172ed01032ec1205",
+    "reverse-engineering-reality/model/native_interface/__main__.py": "545d8153b7fa2af349b01b8c1b8f488e957ed2d8ec5d1638bff3f44727d3dcb0",
+    "reverse-engineering-reality/model/native_interface/construction.py": "9406eba34986f27d47f7be10d3a155d6e37e5123854ff3db40c305cf4bc391fb",
+    "reverse-engineering-reality/model/native_modular_reference/__init__.py": "e3008596e022bdcfb81b8c3dcaeefdfc9d8dfade97cff2256234402dec6860c6",
+    "reverse-engineering-reality/model/native_modular_reference/common_caps.py": "a2807d204ac094690d743cca187e31f9a4ca3568a7725040921087089367ea20",
+    "reverse-engineering-reality/model/native_modular_reference/completed_clock.py": "0a681d1957a28b3de755be7c0b1cb68812925b495f144bd414116479101cee16",
+    "reverse-engineering-reality/model/native_modular_reference/construction.py": "4c3ce7e8cfe111b8f4d6fc260976416b14118d62bcea6fc9cf276055ef208a1f",
+    "reverse-engineering-reality/model/native_modular_reference/full_flow.py": "1ce0c90ce278a518886a7c8a1e1e1c34efd9e760ad6ca1ff1b2da51318671ed6",
+    "reverse-engineering-reality/model/native_modular_reference/local_preparation.py": "9346f5a018dc7bb50a899c25b64d00c3a08ffa788ecc500608dcd21b2271360d",
+    "reverse-engineering-reality/model/native_modular_reference/preparation.py": "2a68a6b98068232787468842b16572a4cd3bba82233440b187e5e9bb596b7db8",
+    "reverse-engineering-reality/model/native_modular_reference/regional.py": "8a824526c3af4bddb7af151d78852eb74cbdd02ee237d56b91f209caa96a4f91",
+    "reverse-engineering-reality/model/native_program/__init__.py": "daedcdc14150d8e259d6a6e9205258c98ba9c947cfc7aa6fef154026f490a454",
+    "reverse-engineering-reality/model/native_program/interpreter.py": "312dfd30f67e27dbb697bcd5419d9c00ae1be1631c112570954e39091fbc27e8",
+    "reverse-engineering-reality/model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
+    "reverse-engineering-reality/model/native_quantum_history/__main__.py": "d815f6536d1d7be6d3ee50205f31a6328b95ba055070c1dc88e10f9d9521a54a",
+    "reverse-engineering-reality/model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
+    "reverse-engineering-reality/model/native_quantum_service_bridge/__init__.py": "e1718059338d758a7984bf332b0104ea18aefd3a20ed8b9dda41d6459bac4f81",
+    "reverse-engineering-reality/model/native_quantum_service_bridge/construction.py": "c0c9c22daf22ee7f9965a5b5f1da4ebb7fed3e7d04fcad66a2fc063d80234a2d",
+    "reverse-engineering-reality/model/native_relational_readout/__init__.py": "baf460e26918fea66b2b254d60e00b102e7e98577f2f97bdd760e4d946476e70",
+    "reverse-engineering-reality/model/native_relational_readout/construction.py": "3f01d15a3b199ea80957f4894c506f9dfb6cf5520bbe300fdff07c949c0089b8",
+    "reverse-engineering-reality/model/native_spatial_refinement/PROOF.md": "c411a13d5f92b38721eb6624291e01571a4363dcca9f80cb5f141da794c7bb1b",
+    "reverse-engineering-reality/model/native_spatial_refinement/__init__.py": "c4f65f507953db2bdc753a6545b45f16d2419a5888b5348b57c0cdca2b7cce0e",
+    "reverse-engineering-reality/model/observer/QUANTUM_MIXING.md": "853e2a6352615a3a63e3a84efdb67b784b8dcbaabcad0a8cc7cb3ab286d303e1",
+    "reverse-engineering-reality/model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
+    "reverse-engineering-reality/model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "reverse-engineering-reality/model/observer/p_response/__init__.py": "12283bebf1bb3465a7184dac216f9a569b98b911308416f22f6cb80f238b98a5",
+    "reverse-engineering-reality/model/observer/p_response/experiment.py": "44049e5702af83ab8a62e40f8f7d3b25b088ed24e47078a0b412c3b2400ed61e",
+    "reverse-engineering-reality/model/observer/quantum_memory.py": "be5f6b9d46d016e24046ac49dd5eb04029fda4018f26ca1376d9687e67ef81d6",
+    "reverse-engineering-reality/model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+    "reverse-engineering-reality/model/observer/record_recovery.py": "0ad1c23cac53bbcf00c32ada6ce01660466b4e9c71e5e58a0226a0bf5609a193",
+    "reverse-engineering-reality/model/observer/scalar_response/__init__.py": "d58d04679545f488798fee6962710741ec695f20bc73e6a70fb29475219d0b93",
+    "reverse-engineering-reality/model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
+    "reverse-engineering-reality/model/observer/source_discrimination/__init__.py": "c94ec6992b410eddd212eeff1875744e8419e0819d8fa947411e0698bbfeae11",
+    "reverse-engineering-reality/model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+    "reverse-engineering-reality/model/observer/source_discrimination/experiment.py": "3f7bacf7f99b93b7d7a72b3d3e97c9a7fb9de1b37311c48366e1be07a0d4095c",
+    "reverse-engineering-reality/model/observer/source_scalar/__init__.py": "d3dcf546c13e23ceb9a58c19481e2e3f04134013d8047d83b020ec836d8e1e86",
+    "reverse-engineering-reality/model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
+    "reverse-engineering-reality/model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
+    "reverse-engineering-reality/model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
+    "reverse-engineering-reality/model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
+    "reverse-engineering-reality/model/observer_reconstruction/__init__.py": "56826b3217ce1e18df3c5dbdbcb8ba7c2482be087a68de6f14e5440bce090a0f",
+    "reverse-engineering-reality/model/observer_reconstruction/native_geometry.py": "42c8d5cb0c02789ec4ba46d79a23dd4c76bf72fd3b11c28003abc75c136b9854",
+    "reverse-engineering-reality/model/openwave_coherent_native_architecture/__init__.py": "8a49f1c150f3c6f65a38d8aaf5d65d30b40f70d416dfba0c7c452da61b79c005",
+    "reverse-engineering-reality/model/openwave_coherent_native_architecture/source.py": "27e179a5d827244423c02f7b30ee45c3ac441cc05aad835397a5d619f2d738ed",
+    "reverse-engineering-reality/model/openwave_coherent_native_propagation/__init__.py": "b2393f133b750269c6514d47f084be20dd3935333ba6e804e85690d8d94ca104",
+    "reverse-engineering-reality/model/openwave_coherent_native_propagation/source.py": "bb70d82727c96bbaab86b120a56ca0f4c1309b16ac78d0f7f912230880f8d56b",
+    "reverse-engineering-reality/model/openwave_native_process/__init__.py": "44685892b8377324c5c18d2dc5beb0424f393695a6ed2df30b37b721a04303af",
+    "reverse-engineering-reality/model/openwave_native_process/source.py": "6e94e34872c27b5120b5f802b02484a9dbfc3828d4e77eb10b8522d1d69abfff",
+    "reverse-engineering-reality/model/predictions/__init__.py": "868d8eae184116b4ad35d61843c5b2f7951fe690d322ad7e38acece1add37a51",
+    "reverse-engineering-reality/model/predictions/observer_instrument.py": "4a136febf813609f704224669c22b7cba9735d7456d7046d577d03bfa4b8e56b",
+    "reverse-engineering-reality/model/predictions/protocol.py": "65ebbd8169359011a2b83ead003243bc72a35b8ade5c511781b0cc944018bd3e",
+    "reverse-engineering-reality/model/predictions/repair_response.py": "2dce01e471eece85ef67838f7d56bc5b23ca68f202f097f4eca3edbb1ca9f0e3",
+    "reverse-engineering-reality/model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
+    "reverse-engineering-reality/model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
+    "reverse-engineering-reality/model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
+    "reverse-engineering-reality/model/record_laws/__init__.py": "1b66289fa4160260460fa4e947b1f7339fe0e8d7382fe6848c0029896c02bd19",
+    "reverse-engineering-reality/model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5",
+    "reverse-engineering-reality/model/record_laws/family.py": "ac615e49101faa9a7b0b42d07f01ff44f342c20195ea5f6e5f88743bd11b4919",
+    "reverse-engineering-reality/model/reference_recovery/recovery.py": "dbb1cb54026558a16dea67ed8e2ceb9b5000033a92e65074327666c4e3d6d15b",
+    "reverse-engineering-reality/model/relativistic_scalar/__init__.py": "90c288752c5928c5401abcc8f74102f789ff2c2ce3a4054136581da92a0a3bf1",
+    "reverse-engineering-reality/model/relativistic_scalar/lattice.py": "1c8699de003afc0c7d51af488f2ad49e28db3bd0c1fb83fc8c73469783d89663",
+    "reverse-engineering-reality/model/repair_identification/__init__.py": "8f437d05b775590a935367956f706e4e1d9bdcdcc224f8790a2a7ff6db1fafa8",
+    "reverse-engineering-reality/model/repair_identification/core.py": "15b705391cde6a051d5ddeec98b6c0a7712088679be0ebfa88cf168c78205eeb",
+    "reverse-engineering-reality/model/repair_scheduler/__init__.py": "7e241f87b902e72de6e154b3f307dfbef44f6dab3eefdb4905a1b849e82ac4c0",
+    "reverse-engineering-reality/model/repair_scheduler/coins.py": "c6f76f1dacf05b030479911cd07147ebcaa7e555c2223a3661f94e98657c98cb",
+    "reverse-engineering-reality/model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
+    "reverse-engineering-reality/model/scalar_observations/__init__.py": "aca05029c4326bba3c7ac0237284dbe87c8ac5011769cd5bdf68152b443c21ae",
+    "reverse-engineering-reality/model/scalar_observations/experimental_readout/__init__.py": "4fe571d3440bea33028288fa3314a6712962f8c8b1bb629ed828084d8e0460cd",
+    "reverse-engineering-reality/model/scalar_observations/experimental_readout/canonical_source.py": "399445016aacf94db537a69427bf6bc9035633ba740fc4005be764b7a03bdc9e",
+    "reverse-engineering-reality/model/scalar_observations/experimental_readout/executable_source.py": "94d8bfd9858632b9f900d5ede34992e3083e029a9b5622f6f86a75f53ba75a15",
+    "reverse-engineering-reality/model/scalar_observations/lattice.py": "3f08c67ee7c1be4ac89ba031f021a79ae308aba2dffa9ca6c296deb982ddf074",
+    "reverse-engineering-reality/model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94",
+    "reverse-engineering-reality/tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89",
+    "openwave-tuning/common_dynamics/spin/MANIFEST.json": "65075e0bc14f883c5cdb877171650b08ee57c8d1bdffce281e68937bb07eb401",
+    "openwave-tuning/common_dynamics/spin/CYCLE_PROBE.json": "2b8f95c253dbdc92845c4d95b5b149ec73e6d9e95d3b585086ba2401f5a6e6f5",
+    "openwave-tuning/common_dynamics/spin/CYCLE_PROBE_PROGRAM.json": "7a78ab6e2372af4f9da2930f77dd05aacd86f86cd14dc3346d752f4a09d99713",
+    "openwave-tuning/common_dynamics/spin/DIRAC_NATIVE.json": "e08f66da3da4c69bd6304bb6f26e52a1e5f3eb65dd9b8a15497c4ac583269f70",
+    "openwave-tuning/common_dynamics/spin/DIRAC_NATIVE_PROGRAM.json": "d2ce85994697c0b160794b9cd9dd83a9ef3e4cf42098f86a5c87f2587422987c",
+    "openwave-tuning/common_dynamics/spin/DIRAC_SOURCE_PROPOSAL.json": "7e2ff2769ac30789d0b12e44ba04378ca204ebd1341d1e974e80128650835105",
+    "openwave-tuning/common_dynamics/spin/DIRAC_SPIN.json": "2ce455f60ab3553e87a06e569c5b6c65f546b7c67a45ee383dc25f7e3d2765b4",
+    "openwave-tuning/common_dynamics/spin/PROOF.md": "0a3b4ebe82580422f17087181072d20d9f15f6ebfcc9110b42037265d8d6b3ed",
+    "openwave-tuning/common_dynamics/spin/ROTATION_EXCHANGE.json": "0b188459f12ef0fafc8a95af74822685a6e1a75abdeeeafb362d61770751de86",
+    "openwave-tuning/common_dynamics/spin/ROTATION_PROGRAM.json": "5d1972cc8b25f4ab7b60c598133e6a8be8bd84ac0f651a5676c2a2cd54b117b2",
+    "openwave-tuning/common_dynamics/spin/ROUTE_CUTOFF.json": "34ea03d11e0526f701e8308b59e46b1333e5a384c3695b169bf7bb3bf904ced1",
+    "openwave-tuning/common_dynamics/spin/cycle_probe.py": "7b182e9bc93c9e316f0a5eeae30662fec5fd9ac67c596753f4a1a40472f56074",
+    "openwave-tuning/common_dynamics/spin/dirac_native.py": "8f3c9e86ad1801a4f0025a47ef30f96c6104433a68376e3137220c48f3a3bde8",
+    "openwave-tuning/common_dynamics/spin/dirac_proposal.py": "78b5b44bb0df1f87668e46bb063e1a1eea53487c37b5b7b5cbac387dbdeda42a",
+    "openwave-tuning/common_dynamics/spin/freeze_manifest.py": "9b69253420aee457bfe7c5044e0da118437a0b757a0de9a9ef3f657ea4333926",
+    "openwave-tuning/common_dynamics/spin/spin.py": "1d97b6259aa9271197935a01e3f58654c4f32dee69640e2185f0df03f9764c56",
+    "openwave-tuning/auditor/field_cutoff/MANIFEST.json": "326994c7a0b2a972540b25662a0215ad0bf5caef78afa5730d7b55fa920df998",
+    "openwave-tuning/auditor/field_cutoff/PROOF.md": "ba54a880357e71525c54fff3f7c376c5938e8cf6d2bdcea720158289873d15fb",
+    "openwave-tuning/auditor/field_cutoff/cutoff.py": "6ffc81a191e00db57d9baa262abec75a4ecbdc9cdd77cbecfb7f8921267c3eed",
+    "openwave-tuning/auditor/field_cutoff/FIELD_CUTOFF.json": "563b232c0fcd7ad075851acb1ea0993636e4a9d4db772ccb7df9cb26f97c5030",
+    "openwave-tuning/common_dynamics/integration/audit.py": "81a70f397fc28175698fe5271b9bd2840ad7dc3a7ee4877207f67360405f91fc",
+    "openwave-tuning/common_dynamics/integration/joint_program.py": "21ed60c7e42dd5e1745ae6b51ee9406385270dd4a898b12ecd80cc969f54489e",
+    "openwave-tuning/common_dynamics/SOURCE_CONTRACT.json": "f140a928d8150225795a0d323bb0f904acbddd0b36e2f2d864fe4296214ca132",
+    "openwave-tuning/platform_packet/criteria_frozen.json": "d6e36d90bc253f5af641760de2e6efc50e181f16e17c8f5334c31d0d7928085f"
+  },
+  "official_rows_changed": [],
+  "scope": "Independent finite-source and complete native-instrument join. The source is an explicitly supplied mass/field architecture; an interacting continuum, physical vacuum, species dictionary and official validation are not inferred."
+}

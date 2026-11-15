@@ -26,7 +26,25 @@ PACKAGES = (
     'lambda_spectral_measure', 'finite_phase_clock', 'localized_quark_record',
     'nuclear_em_transfer', 'fock_field_transport', 'energy_schur',
     'collective_finite_strength', 'gravity_noise_normalization', 'capacity_normalization_transfer',
+    'lambda_narrow_weight', 'repeated_native_clock', 'quark_string_transport',
+    'nuclear_field_attraction', 'matter_flux_source', 'local_gauge_memory',
+    'stress_curvature_instruments', 'geometry_covariance_protocol',
+    'capacity_finite_wavelength', 'm10_review_gate',
+    'native_process','native_response','native_defect_records','native_event_clock',
+    'native_packet_propagation','native_interaction','native_rest_energy',
+    'native_geometry_readout','native_capacity_history','native_platform_gate',
+    'coherent_native_architecture','coherent_native_propagation','active_native_charge',
+    'native_charge_readout','native_coherent_clock','native_calibrated_energy','native_euclidean_transfer',
 )
+
+from tools.joint_observer_results import NAMES as JOINT_PACKAGES
+PACKAGES = PACKAGES + JOINT_PACKAGES
+
+def package_module(name):
+    return name if name in JOINT_PACKAGES else 'openwave_'+name
+
+def receipt_path(name):
+    return 'model/'+package_module(name)+'/results.json'
 
 
 def decimal(value, upper=False, places=12):
@@ -54,9 +72,9 @@ def difference_with_error(value, error):
 def collect(root):
     root=Path(root).resolve(); data={}; receipts={}
     for name in PACKAGES:
-        relative=f'model/openwave_{name}/results.json'; path=root/relative
+        relative=receipt_path(name); path=root/relative
         value=json.loads(path.read_text())
-        owner=importlib.import_module(f'model.openwave_{name}.__main__')
+        owner=importlib.import_module('model.'+package_module(name)+'.__main__')
         expected=owner.pins()
         if not expected or value.get('source_sha256') != expected:
             raise ValueError('physical result inventory changed: '+name)
@@ -108,6 +126,10 @@ def collect(root):
         'normalizable_particles_and_spatial_fields': normalizable_particles_and_spatial_fields(data),
         'complete_dynamics_and_constraints': complete_dynamics_and_constraints(data),
         'operational_source_certificates': __import__('tools.native_operational_results',fromlist=['project']).project(data),
+        'source_record_attachment_certificates': __import__('tools.native_bridge_results',fromlist=['project']).project(data),
+        'native_execution_certificates': __import__('tools.native_execution_results',fromlist=['project']).project(data),
+        'coherent_integration_certificates': __import__('tools.coherent_integration_results',fromlist=['project']).project(data),
+        'joint_observer_certificates': __import__('tools.joint_observer_results',fromlist=['project']).project(data),
         'all_sources_identified_as_one_physical_theory':False,
     }
 
@@ -249,7 +271,14 @@ def render(value):
     lines += render_complete_dynamics_and_constraints(value['complete_dynamics_and_constraints'])
     from tools.native_operational_results import render as render_operational
     lines += render_operational(value['operational_source_certificates'],interval,decimal)
-    return lines
+    from tools.native_bridge_results import render as render_bridge
+    lines += render_bridge(value['source_record_attachment_certificates'],interval,decimal)
+    from tools.native_execution_results import render as render_execution
+    lines += render_execution(value['native_execution_certificates'])
+    from tools.coherent_integration_results import render as render_coherent
+    lines += render_coherent(value['coherent_integration_certificates'])
+    from tools.joint_observer_results import render as render_joint
+    return render_joint(value['joint_observer_certificates'])+lines
 
 
 def render_propagation_and_nuclei(value):

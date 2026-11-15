@@ -1,0 +1,131 @@
+{
+  "schema": "oph.chain.source_clock_map.v1",
+  "sources": [
+    {
+      "id": "C10_interacting_allnumber384_Z6",
+      "carrier": "complex384 density",
+      "regulator": "periodicZ6",
+      "H_array_sha256": "32dfd62f776c28e532419b3c4cd61ef50bd43914e0c8cb52408f0678995c6834",
+      "preparation_array_sha256": "8a99dd2d77937e5e750212cc47f397a1e6699e35f6c2d40115bb2fdd1114014b",
+      "preparation": "Recomputed global interacting ground reference followed by complete fair-0/1 charged reservoir instrument; all four branches retained",
+      "clock_id": "C10_complete_marked_Poisson_v1",
+      "clock": {
+        "duration": 0.37,
+        "native_attempt_rate": 0.8,
+        "uniformization_rate": 1.6,
+        "law": "MIX",
+        "dimension": 384,
+        "Hamiltonian_inputs": {
+          "mass": 0.23,
+          "kappa": 0.37,
+          "face_coefficient": 0.61
+        },
+        "preparation": "Recomputed global interacting ground reference followed by complete fair-0/1 charged reservoir instrument; all four branches retained",
+        "source_pulse_cost": "One native commit pulse per native attempt, including every zero-current branch",
+        "coherent_service_cost": "One exp(-i H delta) service per marked waiting interval; native compilation cost unspecified"
+      },
+      "apparatus_source_schedule": "paused during proper-code regional detector",
+      "coherent_transfer": "Explicit finite Gauss-code reindexing |mask,F> to |occupation bits> tensor |cycle>; declared reference-preserving proper-code load/export and routing service. No fine F or B measurement is performed.",
+      "energy_observable": "actual grouped global-Q/H Luders",
+      "finite_particle_join": true,
+      "physical_seconds": false
+    },
+    {
+      "id": "C10_integer_field_family_M42",
+      "carrier": "complex2688 columns or density",
+      "regulator": "periodicZ42",
+      "generator_family": "BoundarySource(M) + ModularField(kappa=.37, face_coefficient=.61), all 64M states",
+      "preparation": {
+        "baseline": "recomputed M6 global interacting ground projector and all four fair-reservoir outcomes",
+        "family_map": "source tree chord3, k=centered(Fmod6[3]), retain mask/k and reservoir label",
+        "support": "all 384 baseline labels have max_h abs(integer F_h)<=5",
+        "member_ground_preparation": false,
+        "postselection": false,
+        "outside_weight_removed": 0,
+        "reference": "retain the full purification/record labels; theorem allows arbitrary extra quantum references"
+      },
+      "clock": {
+        "contract": "../clock/CLOCK_CONTRACT.json",
+        "unitary": "exp(-i t H_M)",
+        "T": "37/100",
+        "native_attempt_rate": "4/5",
+        "idle_mark_rate": "4/5",
+        "law": "MIX",
+        "every_no_current_attempt_retained": true,
+        "Poisson_tail_discarded": false,
+        "native_H_compiler_supplied": false,
+        "physical_seconds_identified": false
+      },
+      "error": {
+        "exact_rational_upper": "93753279508426363003963011955651990110285670218267309894376338482897/22399989424312500000000000000000000000000000000000000000000000000000000000",
+        "outward_float_upper": 4.185416239825026e-06
+      },
+      "particle_detector_transferred": false
+    },
+    {
+      "id": "frozen-reciprocal-two-mobile-literal-C-side2-96ports",
+      "carrier": "classical9216 probability",
+      "preparation": {
+        "positive_copy": {
+          "0": "1/2",
+          "1": "1/2"
+        },
+        "negative_copy": 9,
+        "preparation_label_retained": true,
+        "reference": "known initial pair and current-record reconstruction"
+      },
+      "clock": {
+        "parameter": "one common continuous Poisson source time t",
+        "nu_units": "inverse source time per baseline seam",
+        "uncoupled_total_attempt_rate": "576*nu",
+        "uncoupled_total_transfer_rate": "6*nu",
+        "controller_arithmetic_rounds": "separate work count, no supplied latency",
+        "physical_seconds": null,
+        "C10_clock_transfer": false
+      },
+      "observable": {
+        "seam": [
+          0,
+          1
+        ],
+        "score": "j_e/g_s, g_s=(1-exp(-Lambda_s*T))/Lambda_s; zero on no event",
+        "score_absolute_bound": 1315.6081655038138,
+        "force": "F=U_K(0,y)-U_K(1,y), declared unit seam length",
+        "drift": "J=E(score)=(nu/2)*sinh(beta*F/2)",
+        "linear_response": "J=beta*D0*F+R, D0=nu/4",
+        "remainder_bound": "nu*abs(beta*F/2)^3*cosh(abs(beta*F/2))/12",
+        "measured_force": 0.034922889610389585,
+        "measured_drift": 0.03495129136610145
+      },
+      "source_manifest_sha256": "4597dc9c226d203d890bc3d3a929bbe1be80e2dc57ec03898c77da4fe5b954e1",
+      "C10_transfer": false,
+      "physical_seconds": false
+    },
+    {
+      "id": "static_smoothed_cubic_Coulomb",
+      "carrier": "classicalneutralchargefield on cubic torus refinements",
+      "clock": null,
+      "observable": "static smoothed electric field",
+      "dynamic_force_transfer": false
+    },
+    {
+      "id": "native-local12-current-v0-proposed",
+      "carrier": "At size2, 96 positions times12 local event slots =1152 logical amplitudes, plus retained binary padding and apparatus outputs. LOCAL12 names slots, not total source dimension.",
+      "generator": "W=S R, R=2AA*-I; A|x>=|x> tensor uniform12; S is hold for coin0 and flip-flop neighbour/reverse-direction transport for coin1",
+      "clock_attachment_id": "local12-completed-word-clock-v1-proposed",
+      "clock_scope": "Literal classical thinning is an exact same-process comparison. Repeated coherent W is a declared distinct dynamics; no raw-channel identity is inferred. Every time coordinate and failure is retained.",
+      "C10_transfer": false,
+      "reciprocal_force_transfer": false,
+      "optional_read_only_comparison": true
+    }
+  ],
+  "forbidden_identifications": [
+    "Hamiltonian duration equals native commit count",
+    "native commit count equals coherent compile/service cost",
+    "static source refinement equals dynamic clock transfer",
+    "C10Z6 particle instrument equals C10Z42 particle instrument",
+    "LOCAL12 slot label equals C10 or reciprocal classical source"
+  ],
+  "official_rows_changed": [],
+  "common_physical_chain_complete": false
+}

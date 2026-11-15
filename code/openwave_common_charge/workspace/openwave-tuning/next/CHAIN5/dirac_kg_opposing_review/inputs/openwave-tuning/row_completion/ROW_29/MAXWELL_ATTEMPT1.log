@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/ROW_29/maxwell.py", line 56, in <module>
+    if __name__=='__main__':run()
+                            ^^^^^
+  File "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/ROW_29/maxwell.py", line 40, in run
+    assert (W*curl*Vt)*(W*curl*Vt).T==W*(k.dot(k)*s.eye(3)-k*k.T)*W.T
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

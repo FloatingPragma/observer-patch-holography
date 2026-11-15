@@ -1,0 +1,14 @@
+{
+  "schema": "oph.c10.dynamical_field_regeneration.v1",
+  "independent_review": false,
+  "checks": {
+    "all_source_and_dynamics_checks": true,
+    "result_regenerated": true,
+    "complete_archived_states_regenerated": true,
+    "exact_contract_regenerated": true,
+    "manifest_verified": true,
+    "source_preparation_clock_mutations_rejected": true
+  },
+  "manifest_sha256": "2aa4fe69b85d389949d4bbaed733b5cd69aafab4760cb4a2a8cf68019c5fe2cc",
+  "scope": "Producer regeneration and rejecting mutations; no independent-auditor claim."
+}

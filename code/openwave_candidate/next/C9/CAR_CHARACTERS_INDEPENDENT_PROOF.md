@@ -1,0 +1,9 @@
+# Complete character reference: independent audit
+
+Use a spanning tree and free cycle record c. For every occupation u and character χ∈Z_N^β define Vχ|u⟩=N^(−β/2) Σ_c exp(2πiχ·c/N)|u,F(u,c)⟩. Character orthogonality and the unimodular tree solve give an orthogonal complete direct sum of all fixed-Gauss fibers, including composite N. This is an algebraic Fourier decomposition, not an energetic background-selection rule.
+
+A record translation changes c by Δc. Relabelling the uniform sum produces the factor exp(−2πiχ·Δc/N). CAR signs depend only on occupations. Thus a coherent half-edge hop and every native outcome intertwine separately within each χ, with the explicit translation phase; no χ mixing or unrecorded complement is discarded. The full Hamiltonian and complete classical-quantum instrument are their direct sums. External references follow from the operator equalities.
+
+The independent driver uses F5 as cycle coordinate rather than the producer's F4. It reconstructs the entire60×60 Fourier unitary, each20-dimensional Hχ and each C/E/MIX outcome from record translations and orbital parity. It reproduces the full60-level spectrum and the producer's complete global-ground multiplet density. The actual globalground is a doublet at−4.010659107243598; its spectral gap excludes both ground states and equals.2861491272893275. Both nonuniform characters contain a ground state. The uniform-code Slater ground is higher, and its attempted promotion to global vacuum is explicitly rejected.
+
+The global multiplet projector divided by rank is a declared passive finite reference. Native monitoring can heat it; no monitored-vacuum stationarity, unique physical vacuum, character selection, physical spin/species or continuum gap follows. Ideal spectral preparation and all previous finite regulator/statistical apparatus choices remain supplied.

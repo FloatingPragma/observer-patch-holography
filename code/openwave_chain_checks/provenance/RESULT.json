@@ -1,0 +1,1956 @@
+{
+  "schema": "oph.chain.checked_integration.v1",
+  "status": "PASS_SCOPED_FINITE_COMPOSITIONS",
+  "quantum_composition": {
+    "source_dimension": 384,
+    "actual_preparation_branches": 4,
+    "exact_number_block_inputs_inspected": 31,
+    "maximum_actual_off_number_block_entry": 0.0,
+    "clock_intervals": 2,
+    "T_per_interval": 0.37,
+    "native_rate": 0.8,
+    "count_classes": [
+      "N=0",
+      "N=1",
+      "N>=2 complete complement"
+    ],
+    "first_count_probabilities": [
+      0.7437874280201786,
+      0.220161078693973,
+      0.03605149328584732
+    ],
+    "second_count_probabilities_before_detector": [
+      0.7437874127786873,
+      0.2201610741824916,
+      0.03605149254709003
+    ],
+    "detector1_stops": {
+      "reset_timeout": 2.04917278550428e-08,
+      "oracle": 2.4068478842398376e-31,
+      "pointer_first": 2.9346673467202394e-32,
+      "pointer_second": 2.979250564547316e-32
+    },
+    "detector2_stops": {
+      "reset_timeout": 2.0491727435131848e-08,
+      "oracle": 2.4719669615716467e-31,
+      "pointer_first": 2.940509466711169e-32,
+      "pointer_second": 3.10426481636246e-32
+    },
+    "terminal_group_probabilities": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.01907058391727495,
+      0.010994321707234012,
+      0.03403983822433957,
+      0.012107267223067134,
+      0.003490520256208614,
+      0.006295627541566717,
+      0.00027167154821391173,
+      0.0006929283196514345,
+      0.00046239044017275184,
+      0.0002678307060894741,
+      0.0005957986429047652,
+      0.0027805817741773345,
+      0.011957009435849902,
+      0.0047666786188946585,
+      0.009760775259097377,
+      0.005291508965869126,
+      0.0005952620590818185,
+      0.0004481989909871472,
+      4.5888632222837266e-05,
+      0.00020473760385994341,
+      0.0003283270948313004,
+      0.00011206679887639596,
+      0.00032213768592947143,
+      0.0029282857680867484,
+      0.002540045469797367,
+      0.0009184474993912906,
+      0.003586469614371835,
+      0.0009436286856927173,
+      0.0009066051212383262,
+      0.0009948538631301962,
+      0.005481524854031118,
+      0.00031840783654337124,
+      0.00011008025393438803,
+      0.00010531176850442092,
+      0.0002157125607130109,
+      0.0005711651799426854,
+      8.301751458833025e-05,
+      0.00043450664325262497,
+      0.00047845134336153367,
+      8.660487554640225e-05,
+      0.00020545662012124384,
+      1.862191528783607e-05,
+      1.216673179313366e-05,
+      0.00020099880942033306,
+      6.742920019862415e-05,
+      4.619263175781708e-05,
+      0.003358120990166664,
+      7.656516498957747e-05,
+      5.7484114889006715e-05,
+      7.571928880696238e-05,
+      5.034587165037868e-05,
+      1.3794679069818206e-06,
+      2.3782662969853817e-06,
+      1.104826452863531e-05,
+      3.752638629589325e-05,
+      7.717055211644297e-06,
+      2.9763412111446622e-05,
+      0.00011861657207735195,
+      1.699968397937069e-05,
+      2.234760004679373e-06,
+      9.842946665306627e-06,
+      9.576642171052882e-06,
+      1.0662680931881443e-06,
+      2.4739249307471743e-06,
+      3.2773356093626144e-07,
+      1.2269885910578647e-06,
+      1.3786507268197812e-06,
+      4.196788608561799e-06,
+      4.2072979786156325e-06,
+      7.452553387016938e-07,
+      6.800227250251171e-07,
+      1.7620480781668659e-06,
+      4.8112621240902235e-08,
+      3.2991859207013264e-07,
+      8.227889028605965e-08,
+      7.016358555957402e-07,
+      6.651401784900942e-08,
+      1.7664342264315336e-07,
+      4.456652872016408e-08,
+      1.808183692836072e-07,
+      4.233066474419554e-08,
+      3.047750353154092e-08,
+      5.262356847801985e-08,
+      2.9676684547310313e-08,
+      2.450656564667947e-08,
+      2.8927497864764323e-08,
+      1.0150107284439885e-08,
+      1.2344016278394323e-08,
+      2.089821021883911e-08,
+      4.7297637977197e-09,
+      0.13534476139426144,
+      0.01332478452942218,
+      0.0032045555067500573,
+      0.0025739596535882168,
+      0.02843755080210096,
+      0.1002003101647019,
+      0.00017134329178658417,
+      0.0016052573196677841,
+      0.002198849805254811,
+      0.014010581802817432,
+      0.035059180890375255,
+      0.002027873616178062,
+      0.039777956663724204,
+      0.004739529599033578,
+      0.02235625634890826,
+      0.004936913190533938,
+      0.015599348872185255,
+      0.001173555828137677,
+      0.004069939716552705,
+      0.002961366123917553,
+      0.0013500311537841733,
+      0.001365478905231751,
+      0.00024088614635609087,
+      0.0014870344301080064,
+      0.0016698065022062144,
+      0.0007613663613043441,
+      0.01654819039290656,
+      0.021817795616711506,
+      0.0012101051165161916,
+      0.00032218234140883123,
+      0.00014761049473068427,
+      0.00038537117081272965,
+      0.00015892164360327532,
+      0.0002602175690610616,
+      0.001148830291347562,
+      0.0005342488428647879,
+      5.367802221943126e-05,
+      4.996232254572333e-05,
+      0.0073302225558983,
+      2.0026622530722594e-05,
+      0.000885243532885417,
+      0.0029066298849487826,
+      0.00011134756957113929,
+      0.0030001806016482654,
+      0.00017185032265496902,
+      0.00012751292188428043,
+      0.00034806148555800736,
+      0.0003903081884871426,
+      6.934323103264177e-05,
+      0.0003076609074783558,
+      4.496585393219709e-05,
+      0.0005464254869085644,
+      2.866236504435804e-05,
+      1.6371742111881332e-05,
+      1.636490171833845e-05,
+      8.847783497506462e-06,
+      1.0047816735482368e-05,
+      0.00025576130966926605,
+      2.2251570310716412e-05,
+      5.078734015388342e-06,
+      4.104376553640539e-06,
+      3.073333032708545e-05,
+      4.06753688456325e-05,
+      1.8278583700463546e-06,
+      4.7389241168169416e-07,
+      4.855663323623039e-06,
+      1.4694854536018596e-07,
+      8.178106097541668e-07,
+      2.8018869767251076e-06,
+      1.4562647445451512e-06,
+      5.200360036856119e-07,
+      2.3387687804717971e-07,
+      6.732413464770864e-08,
+      9.836345055085665e-07,
+      1.998052636470228e-07,
+      5.739286007269703e-07,
+      8.196764797249033e-08,
+      1.44027489220941e-07,
+      3.261052189573137e-07,
+      4.3523681640009936e-08,
+      6.867097630514559e-08,
+      4.9669194371252796e-08,
+      2.2295076077617692e-08,
+      1.3410751869834566e-08,
+      0.09329399285650818,
+      0.0018321697501946222,
+      0.07972781083105614,
+      0.021413730856332754,
+      0.02128667029601316,
+      0.010895489183266709,
+      0.002562422898246622,
+      0.002495487156862972,
+      0.001049086240414522,
+      0.001486756569451873,
+      0.0007748920043086246,
+      0.029591656115134982,
+      0.012119658372174172,
+      0.009185018388085033,
+      0.013770919095780406,
+      0.007104942742285556,
+      0.00035084945874299756,
+      0.0007384976587875548,
+      0.00024628543283894096,
+      0.0009001974712923157,
+      0.0004684357025685413,
+      0.00059973906874291,
+      0.0005667587109725828,
+      0.0006075096054796916,
+      0.011593875829185548,
+      0.0017155206203230899,
+      0.0009870987801241942,
+      0.005117599223247224,
+      0.002629020017604153,
+      0.002764183325592928,
+      0.000655175560306783,
+      0.0017539986112837336,
+      0.00020620293222080018,
+      0.00018069284864028149,
+      0.0007993913871842859,
+      0.00011456473778887697,
+      5.296376251268373e-05,
+      0.000571246538209102,
+      7.699415022719496e-05,
+      0.00040566796764404927,
+      0.0003942178138537966,
+      0.0002807792444699772,
+      0.00027846869514130815,
+      0.00021376030069747475,
+      7.163155503271368e-05,
+      0.005054627137698472,
+      8.9989728334557e-06,
+      6.558588915550574e-06,
+      0.0001318400089103759,
+      0.00012513876398102878,
+      6.089028987658343e-05,
+      3.71128488078734e-05,
+      2.2833209281183227e-05,
+      6.572377917043312e-05,
+      4.806270551572247e-05,
+      5.030840737210683e-05,
+      0.0002805903292973353,
+      1.7140255046574075e-06,
+      1.549858691627003e-05,
+      1.224535789922831e-05,
+      1.6289342760829548e-06,
+      1.8919429074770475e-05,
+      1.2019812380301594e-05,
+      1.7663296546265324e-05,
+      1.6733135472375502e-05,
+      1.5260936962795165e-05,
+      4.755601695160804e-06,
+      7.379736480658742e-06,
+      2.3242392112693164e-06,
+      3.3563331429076677e-07,
+      6.42731035200856e-07,
+      7.214812891155286e-07,
+      1.925432759690524e-06,
+      6.46513269207322e-07,
+      1.4067086293398017e-07,
+      1.393048923755649e-06,
+      1.802564840809127e-07,
+      1.8186106368261023e-07,
+      6.938329121334429e-07,
+      7.157454947997478e-08,
+      1.1811363677542107e-07,
+      5.508606422529637e-08,
+      2.0151580701137616e-07,
+      2.0948036515031602e-07,
+      6.029067839932913e-08,
+      7.329744108413185e-08,
+      1.4799185749402016e-07,
+      5.940640834932964e-08,
+      3.012805893359434e-08,
+      2.5434206843549035e-08,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "full_detector_Kraus_families_compared": 598,
+    "full_detector_Kraus_map_max_error": 5.551115123125783e-16,
+    "terminal_group_count": 348,
+    "complete_probability": 0.9999999999999942,
+    "frozen_576_by_348_poststate_coarsening_error": 3.330669087167815e-16,
+    "frozen_stop_probability_error": 2.6469779601696886e-23,
+    "complete_mass_error": 5.773159728050814e-15,
+    "detector_completeness_errors": [
+      2.220446049250313e-15,
+      2.55351295663786e-15
+    ],
+    "coarsening": "Sum all four reservoir labels, both complete count partitions and regional histories only after their linear maps; retain each apparatus stop family and all 348 terminal energy groups. Full fine record custody is pinned.",
+    "proper_code_transfer": "Declared reference-preserving coherent Gauss-code load/export and routing service; no fine F or B measurement.",
+    "energy_apparatus": "Declared grouped spectral Luders instrument; no native spectral compiler."
+  },
+  "classical_composition": {
+    "source_dimension": 9216,
+    "quantum": false,
+    "source_witness": {
+      "seams": 288,
+      "ports": 96,
+      "joint_positions": 9216,
+      "edge_order_sha256": "760d1e5a0b4a8c19970b4685fb17bd2c4fd27fbdc135466c3cf5bae93e255acb",
+      "native_function": "Exact compiled frozen native AST, with the canonical globals namespace.",
+      "source_regenerated": true
+    },
+    "law_shapes": [
+      [
+        1153,
+        9
+      ],
+      [
+        1153,
+        9
+      ]
+    ],
+    "complete_probability": [
+      0.9999999999999998,
+      1.0
+    ],
+    "native_holds_retained": [
+      0.43330812884887576,
+      0.43333114831825753
+    ],
+    "cap_probabilities": [
+      0.43789294143748064,
+      0.4379632243834818
+    ],
+    "drift": 0.03495129136610145,
+    "force": 0.034922889610389585,
+    "controlled_field_to_rate_transfer": {
+      "variant": "direct-pair-zero-start512-fixedpoint40-electric-scheduler",
+      "same_native_rule_preparation_and_clock_parameter": true,
+      "frozen_scheduler_replaced": false,
+      "comparison_domain": "beta=4, kappa=1, nu=1, horizon=1/1000; any finite native attempt cap",
+      "zero_start_field_error_upper": "33093/31250000000000",
+      "unit_energy_difference_to_ideal_frozen_upper": "1746877/1000000000000000",
+      "log_seam_rate_ratio_absolute_upper": "1746877/250000000000000",
+      "complete_marked_capped_path_TV_upper": "670801/1000000000000000",
+      "measured_first_event_TV": [
+        8.598373749113541e-15,
+        1.0969740740773837e-14
+      ],
+      "measured_frozen_score_error": 1.4705591727159305e-13,
+      "frozen_score_error_upper": 1.7650218608977452e-06,
+      "compiled_pair_count": 22,
+      "compiled_pairs": [
+        {
+          "state": [
+            0,
+            1
+          ],
+          "exact_energy": "42951532253/274877906944",
+          "residual_field_error_squared_upper": "7/9444732965739290427392",
+          "frozen_energy_difference": -7.338851748528441e-13
+        },
+        {
+          "state": [
+            0,
+            3
+          ],
+          "exact_energy": "445784138045/2199023255552",
+          "residual_field_error_squared_upper": "373/302231454903657293676544",
+          "frozen_energy_difference": -9.862388683501422e-13
+        },
+        {
+          "state": [
+            0,
+            4
+          ],
+          "exact_energy": "106482651309/549755813888",
+          "residual_field_error_squared_upper": "97/37778931862957161709568",
+          "frozen_energy_difference": -1.2854994846378531e-12
+        },
+        {
+          "state": [
+            0,
+            5
+          ],
+          "exact_energy": "21820897427/137438953472",
+          "residual_field_error_squared_upper": "373/151115727451828646838272",
+          "frozen_energy_difference": -1.139061067689795e-12
+        },
+        {
+          "state": [
+            0,
+            8
+          ],
+          "exact_energy": "425930605235/2199023255552",
+          "residual_field_error_squared_upper": "99/37778931862957161709568",
+          "frozen_energy_difference": -1.7402468355243172e-12
+        },
+        {
+          "state": [
+            0,
+            9
+          ],
+          "exact_energy": "425930605235/2199023255552",
+          "residual_field_error_squared_upper": "99/37778931862957161709568",
+          "frozen_energy_difference": -1.7402468355243172e-12
+        },
+        {
+          "state": [
+            0,
+            35
+          ],
+          "exact_energy": "542285173791/2199023255552",
+          "residual_field_error_squared_upper": "799/302231454903657293676544",
+          "frozen_energy_difference": -3.2074343181420772e-12
+        },
+        {
+          "state": [
+            1,
+            1
+          ],
+          "exact_energy": "0",
+          "residual_field_error_squared_upper": "0",
+          "frozen_energy_difference": 0.0
+        },
+        {
+          "state": [
+            1,
+            3
+          ],
+          "exact_energy": "211431385727/1099511627776",
+          "residual_field_error_squared_upper": "149/151115727451828646838272",
+          "frozen_energy_difference": -1.0102751968332768e-12
+        },
+        {
+          "state": [
+            1,
+            4
+          ],
+          "exact_energy": "106482651309/549755813888",
+          "residual_field_error_squared_upper": "97/37778931862957161709568",
+          "frozen_energy_difference": -1.2854994846378531e-12
+        },
+        {
+          "state": [
+            1,
+            5
+          ],
+          "exact_energy": "21820897427/137438953472",
+          "residual_field_error_squared_upper": "373/151115727451828646838272",
+          "frozen_energy_difference": -1.139061067689795e-12
+        },
+        {
+          "state": [
+            1,
+            8
+          ],
+          "exact_energy": "349134358831/2199023255552",
+          "residual_field_error_squared_upper": "357/151115727451828646838272",
+          "frozen_energy_difference": -1.593808418576259e-12
+        },
+        {
+          "state": [
+            1,
+            9
+          ],
+          "exact_energy": "349134358831/2199023255552",
+          "residual_field_error_squared_upper": "357/151115727451828646838272",
+          "frozen_energy_difference": -1.593808418576259e-12
+        },
+        {
+          "state": [
+            1,
+            35
+          ],
+          "exact_energy": "262418783193/1099511627776",
+          "residual_field_error_squared_upper": "711/302231454903657293676544",
+          "frozen_energy_difference": -3.1849800574690335e-12
+        },
+        {
+          "state": [
+            5,
+            9
+          ],
+          "exact_energy": "21820897427/137438953472",
+          "residual_field_error_squared_upper": "373/151115727451828646838272",
+          "frozen_energy_difference": -1.139061067689795e-12
+        },
+        {
+          "state": [
+            7,
+            9
+          ],
+          "exact_energy": "106482651309/549755813888",
+          "residual_field_error_squared_upper": "97/37778931862957161709568",
+          "frozen_energy_difference": -1.2854994846378531e-12
+        },
+        {
+          "state": [
+            8,
+            9
+          ],
+          "exact_energy": "42951532253/274877906944",
+          "residual_field_error_squared_upper": "7/9444732965739290427392",
+          "frozen_energy_difference": -7.338851748528441e-13
+        },
+        {
+          "state": [
+            9,
+            9
+          ],
+          "exact_energy": "0",
+          "residual_field_error_squared_upper": "0",
+          "frozen_energy_difference": 0.0
+        },
+        {
+          "state": [
+            10,
+            9
+          ],
+          "exact_energy": "445784138045/2199023255552",
+          "residual_field_error_squared_upper": "373/302231454903657293676544",
+          "frozen_energy_difference": -9.862666239257578e-13
+        },
+        {
+          "state": [
+            11,
+            9
+          ],
+          "exact_energy": "211431385727/1099511627776",
+          "residual_field_error_squared_upper": "149/151115727451828646838272",
+          "frozen_energy_difference": -1.0103029524088925e-12
+        },
+        {
+          "state": [
+            14,
+            9
+          ],
+          "exact_energy": "539830906765/2199023255552",
+          "residual_field_error_squared_upper": "701/302231454903657293676544",
+          "frozen_energy_difference": -3.0775104686853183e-12
+        },
+        {
+          "state": [
+            15,
+            9
+          ],
+          "exact_energy": "527291833413/2199023255552",
+          "residual_field_error_squared_upper": "89/37778931862957161709568",
+          "frozen_energy_difference": -2.860184311614944e-12
+        }
+      ],
+      "rounding_scope": "Integer controller arithmetic is exact. The coupling certificate compares exact-real exponentials and the exact-arithmetic frozen local stencil. Floating-library evaluation error is separately unproved."
+    },
+    "scope": "Exact integer arithmetic controller and exact-real rate coupling certificate; library exponential roundoff lacks a separate certified enclosure."
+  },
+  "transfer_gates": {
+    "M6_actual_H_error": 0.0,
+    "M6_actual_MIX_error": 0.0,
+    "M6_complete_clock_TV_upper": "1",
+    "preparation_radius_all384_labels": 5,
+    "M42_extra_terminal_MIX_TV_upper": 2.2869711523097274e-05,
+    "M42_dimension": 2688,
+    "M42_complete_clock_TV_upper_exact": "93753279508426363003963011955651990110285670218267309894376338482897/22399989424312500000000000000000000000000000000000000000000000000000000000",
+    "M42_complete_clock_TV_upper": 4.185416239825026e-06,
+    "M42_coherent_lift_norm_error": 3.2862601528904634e-14,
+    "M42_preparation": "All four M6 reservoir columns isometrically lifted; no M42 ground-state substitution.",
+    "particle_instrument_regulator": 6,
+    "useful_bound_regulator": 42,
+    "M42_particle_transfer": false,
+    "static_3D_refinement_trajectory_transfer": false,
+    "closed_quantum_links": [
+      "actual C10 native instrument to declared common Poisson/H clock",
+      "same C10 clock to complete operational regional detector and actual-H energy records",
+      "actual M6 source/preparation/clock into periodic integer-field family with vacuous M6 bound",
+      "lifted preparation and same supplied clock into M42 integer-field comparison with explicit bound"
+    ],
+    "closed_classical_links": [
+      "signed-pair native current to integer field controller",
+      "controller energy to reciprocal rate law with complete marked-path TV certificate",
+      "same classical native force instrument to unconditional current score"
+    ],
+    "missing_transfers": [
+      "Reference-preserving M42 proper-code detector and particle instrument under its actual H/reference, with bounded comparison to integer-field observables.",
+      "A common source/preparation/clock map between the C10 quantum family and the reciprocal classical force construction.",
+      "A dynamic spatial refinement theorem carrying complete records and force observables into a three-dimensional Maxwell/Lorentz limit.",
+      "A native compilation/resource-time theorem for coherent H services, proper-code routing and spectral apparatus, or an explicit common architecture retaining these services.",
+      "Physical species, calibrated time, masses beyond supplied anchors and full literal all31 observer criteria."
+    ]
+  },
+  "guard_mutations": {
+    "negative_density_evolve": {
+      "rejected": true,
+      "reason": "density: positive input required"
+    },
+    "negative_density_native": {
+      "rejected": true,
+      "reason": "density: positive input required"
+    },
+    "negative_density_semigroup": {
+      "rejected": true,
+      "reason": "density: positive input required"
+    },
+    "negative_density_count_split": {
+      "rejected": true,
+      "reason": "density: positive input required"
+    },
+    "negative_density_trajectory": {
+      "rejected": true,
+      "reason": "density: positive input required"
+    },
+    "nan_density_evolve": {
+      "rejected": true,
+      "reason": "density: finite numeric entries required"
+    },
+    "nan_density_native": {
+      "rejected": true,
+      "reason": "density: finite numeric entries required"
+    },
+    "nan_density_semigroup": {
+      "rejected": true,
+      "reason": "density: finite numeric entries required"
+    },
+    "nan_density_count_split": {
+      "rejected": true,
+      "reason": "density: finite numeric entries required"
+    },
+    "nan_density_trajectory": {
+      "rejected": true,
+      "reason": "density: finite numeric entries required"
+    },
+    "cumulative_small_offblock_negative_evolve": {
+      "rejected": true,
+      "reason": "density: positive input required"
+    },
+    "cumulative_small_offblock_negative_native": {
+      "rejected": true,
+      "reason": "density: positive input required"
+    },
+    "cumulative_small_offblock_negative_semigroup": {
+      "rejected": true,
+      "reason": "density: exact number-block-diagonal input required"
+    },
+    "cumulative_small_offblock_negative_count_split": {
+      "rejected": true,
+      "reason": "density: exact number-block-diagonal input required"
+    },
+    "cumulative_small_offblock_negative_trajectory": {
+      "rejected": true,
+      "reason": "trajectory: normalized density required"
+    },
+    "wrong_shape_evolve": {
+      "rejected": true,
+      "reason": "density: exact square ndarray shape required"
+    },
+    "wrong_shape_native": {
+      "rejected": true,
+      "reason": "density: exact square ndarray shape required"
+    },
+    "wrong_shape_semigroup": {
+      "rejected": true,
+      "reason": "density: exact square ndarray shape required"
+    },
+    "wrong_shape_count_split": {
+      "rejected": true,
+      "reason": "density: exact square ndarray shape required"
+    },
+    "wrong_shape_trajectory": {
+      "rejected": true,
+      "reason": "density: exact square ndarray shape required"
+    },
+    "nonhermitian_evolve": {
+      "rejected": true,
+      "reason": "density: Hermitian input required"
+    },
+    "nonhermitian_native": {
+      "rejected": true,
+      "reason": "density: Hermitian input required"
+    },
+    "nonhermitian_semigroup": {
+      "rejected": true,
+      "reason": "density: Hermitian input required"
+    },
+    "nonhermitian_count_split": {
+      "rejected": true,
+      "reason": "density: Hermitian input required"
+    },
+    "nonhermitian_trajectory": {
+      "rejected": true,
+      "reason": "density: Hermitian input required"
+    },
+    "supernormalized_evolve": {
+      "rejected": true,
+      "reason": "density: subnormalized trace required"
+    },
+    "supernormalized_native": {
+      "rejected": true,
+      "reason": "density: subnormalized trace required"
+    },
+    "supernormalized_semigroup": {
+      "rejected": true,
+      "reason": "density: subnormalized trace required"
+    },
+    "supernormalized_count_split": {
+      "rejected": true,
+      "reason": "density: subnormalized trace required"
+    },
+    "supernormalized_trajectory": {
+      "rejected": true,
+      "reason": "density: subnormalized trace required"
+    },
+    "infinite_evolve": {
+      "rejected": true,
+      "reason": "density: finite numeric entries required"
+    },
+    "infinite_native": {
+      "rejected": true,
+      "reason": "density: finite numeric entries required"
+    },
+    "infinite_semigroup": {
+      "rejected": true,
+      "reason": "density: finite numeric entries required"
+    },
+    "infinite_count_split": {
+      "rejected": true,
+      "reason": "density: finite numeric entries required"
+    },
+    "infinite_trajectory": {
+      "rejected": true,
+      "reason": "density: finite numeric entries required"
+    },
+    "negative_count_duration": {
+      "rejected": true,
+      "reason": "duration: finite nonnegative value required"
+    },
+    "nan_count_rate": {
+      "rejected": true,
+      "reason": "rate: finite nonnegative value required"
+    },
+    "negative_evolve_scale": {
+      "rejected": true,
+      "reason": "h_scale: finite nonnegative value required"
+    },
+    "negative_semigroup_rate": {
+      "rejected": true,
+      "reason": "rate: finite nonnegative value required"
+    },
+    "infinite_idle_rate": {
+      "rejected": true,
+      "reason": "idle_rate: finite nonnegative value required"
+    },
+    "attempt_mark_above_one": {
+      "rejected": true,
+      "reason": "attempt_mark: exceeds 1"
+    },
+    "negative_move_mark": {
+      "rejected": true,
+      "reason": "move_mark: finite nonnegative value required"
+    },
+    "nan_idle_mark": {
+      "rejected": true,
+      "reason": "idle_mark: finite nonnegative value required"
+    },
+    "nan_trajectory_duration": {
+      "rejected": true,
+      "reason": "duration: finite nonnegative value required"
+    },
+    "negative_trajectory_duration": {
+      "rejected": true,
+      "reason": "duration: finite nonnegative value required"
+    },
+    "zero_native_trajectory_rate": {
+      "rejected": true,
+      "reason": "rate: finite positive value required"
+    },
+    "subnormalized_trajectory": {
+      "rejected": true,
+      "reason": "trajectory: normalized density required"
+    },
+    "invalid_event_time": {
+      "rejected": true,
+      "reason": "event time: finite positive value required"
+    },
+    "unordered_events": {
+      "rejected": true,
+      "reason": "strictly ordered interior event times required"
+    },
+    "invalid_native_mark": {
+      "rejected": true,
+      "reason": "invalid native mark"
+    },
+    "zero_probability_idle": {
+      "rejected": true,
+      "reason": "zero probability idle path"
+    },
+    "cross_number_semigroup": {
+      "rejected": true,
+      "reason": "density: exact number-block-diagonal input required"
+    },
+    "particle_negative_density": {
+      "rejected": true,
+      "reason": "density: positive input required"
+    },
+    "particle_nan_density": {
+      "rejected": true,
+      "reason": "density: finite numeric entries required"
+    },
+    "particle_cumulative_small_offblock_negative": {
+      "rejected": true,
+      "reason": "density: exact number-block-diagonal input required"
+    },
+    "particle_wrong_shape": {
+      "rejected": true,
+      "reason": "density: exact square ndarray shape required"
+    },
+    "particle_nonhermitian": {
+      "rejected": true,
+      "reason": "density: Hermitian input required"
+    },
+    "particle_supernormalized": {
+      "rejected": true,
+      "reason": "density: subnormalized trace required"
+    },
+    "particle_infinite": {
+      "rejected": true,
+      "reason": "density: finite numeric entries required"
+    },
+    "PSD_tiny_cross_number_semigroup": {
+      "rejected": true,
+      "reason": "density: exact number-block-diagonal input required"
+    },
+    "PSD_tiny_cross_number_count_split": {
+      "rejected": true,
+      "reason": "density: exact number-block-diagonal input required"
+    },
+    "PSD_tiny_cross_number_particle": {
+      "rejected": true,
+      "reason": "density: exact number-block-diagonal input required"
+    },
+    "classical_wrong_native": {
+      "rejected": true,
+      "reason": "actual frozen literal native endpoint function required"
+    },
+    "classical_wrong_seam_order": {
+      "rejected": true,
+      "reason": "actual frozen source seam order required"
+    },
+    "force_negative_rate": {
+      "rejected": true,
+      "reason": "rates: finite nonnegative array of shape (2,288) required"
+    },
+    "force_nan_rate": {
+      "rejected": true,
+      "reason": "rates: finite nonnegative array of shape (2,288) required"
+    },
+    "force_wrong_rate_shape": {
+      "rejected": true,
+      "reason": "rates: finite nonnegative array of shape (2,288) required"
+    },
+    "force_negative_horizon": {
+      "rejected": true,
+      "reason": "horizon: finite nonnegative value required"
+    },
+    "force_nan_horizon": {
+      "rejected": true,
+      "reason": "horizon: finite nonnegative value required"
+    },
+    "force_all_zero_rate_outside_raw_domain": {
+      "rejected": true,
+      "reason": "total rate: finite positive value required"
+    },
+    "force_wrong_state": {
+      "rejected": true,
+      "reason": "state: two integer positions in the 96-port source required"
+    },
+    "force_wrong_edges": {
+      "rejected": true,
+      "reason": "edges: 288 seam domain required"
+    },
+    "join_wrong_source": {
+      "rejected": true,
+      "reason": "source/preparation/clock/observable/complement join mismatch"
+    },
+    "join_wrong_source_array": {
+      "rejected": true,
+      "reason": "source/preparation/clock/observable/complement join mismatch"
+    },
+    "join_wrong_carrier": {
+      "rejected": true,
+      "reason": "source/preparation/clock/observable/complement join mismatch"
+    },
+    "join_wrong_clock": {
+      "rejected": true,
+      "reason": "source/preparation/clock/observable/complement join mismatch"
+    },
+    "join_wrong_preparation": {
+      "rejected": true,
+      "reason": "source/preparation/clock/observable/complement join mismatch"
+    },
+    "join_wrong_regulator": {
+      "rejected": true,
+      "reason": "source/preparation/clock/observable/complement join mismatch"
+    },
+    "join_wrong_observable": {
+      "rejected": true,
+      "reason": "source/preparation/clock/observable/complement join mismatch"
+    },
+    "join_zero_tail": {
+      "rejected": true,
+      "reason": "source/preparation/clock/observable/complement join mismatch"
+    },
+    "join_refusal_removed": {
+      "rejected": true,
+      "reason": "source/preparation/clock/observable/complement join mismatch"
+    },
+    "contract_clock_id": {
+      "rejected": true,
+      "reason": "particle and actual clock identifiers differ"
+    },
+    "contract_count_tail": {
+      "rejected": true,
+      "reason": "particle contract must retain the complete count complement"
+    },
+    "contract_stop_family": {
+      "rejected": true,
+      "reason": "particle contract must retain all stop and fine-flag families"
+    },
+    "join_labels_only": {
+      "rejected": true,
+      "reason": "labels alone do not supply an executed source/preparation witness"
+    },
+    "join_matching_wrong_clock": {
+      "rejected": true,
+      "reason": "regenerated clock mismatch"
+    },
+    "actual_wrong_clock": {
+      "rejected": true,
+      "reason": "actual declared complete MIX common-clock parameters required"
+    },
+    "join_matching_false_arrays": {
+      "rejected": true,
+      "reason": "regenerated source or preparation mismatch"
+    },
+    "actual_reference_for_preparation": {
+      "rejected": true,
+      "reason": "actual complete reservoir preparation required"
+    },
+    "M6_nonvacuous_field_bound": {
+      "rejected": true,
+      "reason": "complete-history error bound exceeds observable tolerance"
+    },
+    "M42_automatic_particle_transfer": {
+      "rejected": true,
+      "reason": "changed regulator has no transferred particle instrument"
+    },
+    "dynamical_zero_tail_bound": {
+      "rejected": true,
+      "reason": "claimed bound differs from complete Poisson/Dyson tail"
+    },
+    "C10_to_classical_force": {
+      "rejected": true,
+      "reason": "different native carriers/generators/regulators require an explicit transfer"
+    },
+    "C10_to_external_LOCAL12": {
+      "rejected": true,
+      "reason": "different native carriers/generators/regulators require an explicit transfer"
+    },
+    "static_field_trajectory_clock": {
+      "rejected": true,
+      "reason": "static field refinement supplies no trajectory clock"
+    }
+  },
+  "mutation_count": 95,
+  "numerical_domain_witnesses": {
+    "PSD_tiny_cross_number": {
+      "minimum_eigenvalue": 0.00260416665681753,
+      "maximum_offblock_entry": 9e-14,
+      "raw_zero_time_discarded_trace_norm": 5.405166151257245e-11,
+      "checked_compressed_apis_reject": true,
+      "full_space_apis_remain_cross_number_capable": true
+    }
+  },
+  "frozen_valid_input_comparison_max_errors": {
+    "normalized_evolve": 0.0,
+    "normalized_native": 0.0,
+    "normalized_semigroup": 0.0,
+    "normalized_count_split": 0.0,
+    "subnormalized_reservoir_evolve": 0.0,
+    "subnormalized_reservoir_native": 0.0,
+    "subnormalized_reservoir_semigroup": 0.0,
+    "subnormalized_reservoir_count_split": 0.0,
+    "zero_evolve": 0.0,
+    "zero_native": 0.0,
+    "zero_semigroup": 0.0,
+    "zero_count_split": 0.0,
+    "cross_number_evolve": 0.0,
+    "cross_number_native": 0.0,
+    "trajectory_state": 0.0,
+    "particle_measure": 0.0,
+    "force_endpoint_0": 0.0,
+    "force_endpoint_1": 0.0,
+    "force_zero_horizon": 0.0,
+    "force_zero_individual_rate": 0.0
+  },
+  "admission_audit_closure": {
+    "clock_matrix_preconditions": "Checked facade before raw calls; original frozen helper bytes preserved.",
+    "force_rate_horizon_preconditions": "Checked facade before raw calls; original frozen helper bytes preserved.",
+    "state_numerical_tolerance": 2e-12,
+    "number_offblock_tolerance": 0.0,
+    "no_projection_clipping_or_renormalization": true,
+    "raw_helpers_untrusted_input_safe": false,
+    "checked_facade_mutation_audit_pass": true
+  },
+  "row1_scope": {
+    "schema": "oph.chain.row1_scope.v1",
+    "development_only": true,
+    "inputs": {
+      "reverse-engineering-reality/code/openwave_row1_protocol/LAW_CONTROLS.json": "756a15690f0b720d215323757fed1ddf0c9f123979f81bdf66b9526c042054ce",
+      "reverse-engineering-reality/code/openwave_row1_protocol/law_controls.py": "27842accc12759e0a60a84a01d94fe780eea27c58c50a75ed0e075aac4ed18c0",
+      "reverse-engineering-reality/code/openwave_row1_native/native_kernel.py": "b84e5ecdfbb8727a91571ac1b3ec6614f88ebf64b72fab0e8d35c338f08b1cff",
+      "reverse-engineering-reality/code/openwave_row1_native/native_charge_winding.py": "8526fbf0cb417172d5df320a8ed75a9dea3fe1ceaaefc4591a5f478344b8dbec",
+      "reverse-engineering-reality/code/openwave_row1_native/source_packet.json": "07ecff52d11e4f7fcdf907b17488603b0d0a5ff1644b01c583a86ddbbd0ec2ea",
+      "reverse-engineering-reality/code/openwave_row1_native/manifest.json": "d5e692b0597dbbeafabb88e6f7d417da8f7d7d1fd39a334c08fa73ffe40e8d90"
+    },
+    "declared_protocol": "12-port native histories, fixed32 phase samples per edge, absolute turn bound3",
+    "C10_joint_instrument_transfer_from_this_addendum": false,
+    "executed_checks": {
+      "native_histories_enumerated_from_law": true,
+      "native_whole_unit_at_every_step": true,
+      "native_all_regional_bounds_at_every_step": true,
+      "native_fixed_sample_contours": true,
+      "half_law_preserves_continuity_but_fails_closure": true,
+      "integer_fragmenting_law_passes_topology_but_fails_unit_gate": true,
+      "integer_fragmenting_law_can_exceed_regional_domain": true,
+      "omission_detected_against_loads_for_every_affected_history": true,
+      "damaged_integer_tape_still_has_valid_spatial_degree": true
+    },
+    "arms": {
+      "native": {
+        "histories": 456,
+        "continuity": 456,
+        "closed_curves": 456,
+        "degree_equals_current": 456,
+        "one_unit_every_step": 456,
+        "regional_bound_every_step": 456,
+        "missing_record_against_loads": 0,
+        "histories_with_omission": 0,
+        "maximum_phase_error": 2.220446049250313e-16,
+        "maximum_gluing_defect": 2.4492935982947064e-16
+      },
+      "half_current": {
+        "histories": 456,
+        "continuity": 456,
+        "closed_curves": 0,
+        "degree_equals_current": 0,
+        "one_unit_every_step": 0,
+        "regional_bound_every_step": 0,
+        "missing_record_against_loads": 0,
+        "histories_with_omission": 0,
+        "maximum_phase_error": 0.0,
+        "maximum_gluing_defect": 2.0
+      },
+      "random_integer": {
+        "histories": 1368,
+        "continuity": 1368,
+        "closed_curves": 1368,
+        "degree_equals_current": 1368,
+        "one_unit_every_step": 504,
+        "regional_bound_every_step": 1069,
+        "missing_record_against_loads": 0,
+        "histories_with_omission": 0,
+        "maximum_phase_error": 4.440892098500626e-16,
+        "maximum_gluing_defect": 2.4492935982947064e-16
+      },
+      "omitted_record": {
+        "histories": 456,
+        "continuity": 456,
+        "closed_curves": 456,
+        "degree_equals_current": 456,
+        "one_unit_every_step": 456,
+        "regional_bound_every_step": 456,
+        "missing_record_against_loads": 228,
+        "histories_with_omission": 228,
+        "maximum_phase_error": 2.220446049250313e-16,
+        "maximum_gluing_defect": 2.4492935982947064e-16
+      }
+    },
+    "interpretation": "Topology diagnoses integer record classes; the separate native integer-unit law supplies nonfragmentation. Fixed phase samples test an observer encoding. The pointer reads counters, not these samples. Missing records are detected against source loads, not internally from the tape.",
+    "physical_row1_admission": "partial-at-most; finite mechanism evidence and physical interpretation are separate",
+    "native_law_uniqueness_inferred": false,
+    "sampled_phase_is_pointer_readout": false,
+    "omission_detectable_from_tape_alone": false,
+    "independent_all31_physics_validation": false,
+    "official_rows_changed": []
+  },
+  "independent_audits": {
+    "audit_clock_force": {
+      "path": "openwave-tuning/next/CHAIN/audit_clock_force/AUDIT_CONTRACT.json",
+      "sha256": "29a13872ef044163302ae576037b929bdce5aeccf7f48fb6d877f098cc8f1671",
+      "admission": "PASS_SCOPED; two raw admission gaps assigned to checked facade",
+      "contract": {
+        "schema": "oph.chain.opposing_audit_contract.v1",
+        "reviewer": "worker7",
+        "independent_of_producer": true,
+        "result": "PASS_SCOPED_WITH_ADMISSION_GAPS",
+        "valid_member_scientific_claims_pass": true,
+        "general_untrusted_input_admission_pass": false,
+        "scientific_blockers": [],
+        "findings": [
+          {
+            "claim": "clock.general_density_input_validation",
+            "status": "FAIL",
+            "evidence": {
+              "classification": "API hardening gap; positivity and finiteness are mathematical input preconditions, not a false finite-member theorem",
+              "tests": {
+                "negative_density": {
+                  "rejected": false,
+                  "nonfinite_output": false
+                },
+                "negative_density_trajectory": {
+                  "rejected": false,
+                  "nonfinite_output": false
+                },
+                "nan_density": {
+                  "rejected": false,
+                  "nonfinite_output": true
+                }
+              }
+            }
+          },
+          {
+            "claim": "force.general_rate_horizon_input_validation",
+            "status": "FAIL",
+            "evidence": {
+              "classification": "API hardening gap outside frozen beta/kappa/nu/T member",
+              "tests": {
+                "negative_horizon": {
+                  "rejected": false,
+                  "minimum_probability": -0.0007287251660018722,
+                  "sum": 0.9999999999999999
+                },
+                "negative_rate": {
+                  "rejected": false,
+                  "minimum_probability": -0.00038043031401657003,
+                  "sum": 0.9999999999999999
+                }
+              }
+            }
+          }
+        ],
+        "subjects": {
+          "clock": {
+            "source_id": "C10_interacting_allnumber384_Z6",
+            "source_file_sha256": "eee29493c0cc8a2bfdaf2868fdce82e10d055535f8ee0e6a0b4b818ef9fb38db",
+            "contract_sha256": "885233455b5402be39c8612266a0ec735fe435b01d076be8df9ff08689a86be7",
+            "source_H_sha256_le_float64": "32dfd62f776c28e532419b3c4cd61ef50bd43914e0c8cb52408f0678995c6834",
+            "preparation_sha256_le_complex128": "8a99dd2d77937e5e750212cc47f397a1e6699e35f6c2d40115bb2fdd1114014b",
+            "independently_rebuilt_MIX_operators_sha256": "bdd43a97ecd0456bab7dadba6e885c42c137f9a7dd4e3e683daf29a0135b17d0",
+            "frozen_source_copy": "frozen_common_clock.py"
+          },
+          "force": {
+            "source_id": "frozen-reciprocal-two-mobile-literal-C-side2-96ports",
+            "manifest_sha256": "f4f2f6b490aef1a87eb0fd6b5c07c429d5f394baf4414e0f39b7dc309babba1e",
+            "contract_sha256": "fd3087e4164f309daa41bc4c819cdf9ce63c69cc53d88cd9c9521dfbaea24844",
+            "source_manifest_sha256": "4597dc9c226d203d890bc3d3a929bbe1be80e2dc57ec03898c77da4fe5b954e1",
+            "field_manifest_sha256": "612aedd40f13faea2b80b5c31d4afbb19cb2332ff22db5b459ac2ae936879008",
+            "preparation": {
+              "x": [
+                0,
+                1
+              ],
+              "probabilities": [
+                "1/2",
+                "1/2"
+              ],
+              "y": 9,
+              "labels_retained": true
+            },
+            "finite_clock": {
+              "horizon": "1/1000",
+              "nu": 1,
+              "beta": 4,
+              "kappa": 1
+            },
+            "frozen_source_copy": "frozen_force_measurement.py"
+          }
+        },
+        "admitted_handoffs": {
+          "clock_to_matching_C10_typed_consumer": "valid densities, exact source H/preparation and full no-op/count complement contract required",
+          "classical_field_to_force": "same signed-pair source; named 512-round 40-bit scheduler variant and exact-real rate comparison domain"
+        },
+        "forbidden_transfers": {
+          "C10_clock_equals_classical_force_clock": false,
+          "C10_source_equals_two_copy_classical_source": false,
+          "static_field_bound_implies_dynamic_continuum_force": false,
+          "physical_time_seconds_derived": false,
+          "coherent_H_service_compiled_to_native_commits": false
+        },
+        "guard_rebind_policy": "Valid-member scientific checks bind the frozen subjects above. A hardened source requires a separate guard mutation audit and an explicit valid-member equivalence/rebind; this report does not claim that changed bytes were tested.",
+        "evidence_files": {
+          "audit.py": "c52cc8fce4ab94f7bfd87fd6fee88fa5f29daf351626a36e2a38af3c239b82fa",
+          "AUDIT.json": "dce18bcd688d80d6238bedde6663f0a73b829359bef07e592bd781f636c42d20",
+          "MALFORMED_INPUTS.json": "9f5a3393dab9f90e7e8fd8320f89ee01ee1f8db7ee0e05903cf03768006fb7a3",
+          "PROOF.md": "297f9fcd968388503780b57366936f5eaa5b7021bbf5ac078d822d214b705efc",
+          "frozen_common_clock.py": "eee29493c0cc8a2bfdaf2868fdce82e10d055535f8ee0e6a0b4b818ef9fb38db",
+          "frozen_force_measurement.py": "2e77839960c2263b8d5fb9c5db76363567995a829eba580a0369b7145a827f47",
+          "run.log": "f4756d36617307e95b7f0290808982eecd39d0828d92a543557c3d681cc58640"
+        },
+        "official_rows_changed": [],
+        "producer_files_modified": []
+      }
+    },
+    "audit_field": {
+      "path": "openwave-tuning/next/CHAIN/audit_field/AUDIT_CONTRACT.json",
+      "sha256": "7daf9eb0dcdfc01c932be751344147885eb77219e3a17e758567f636791b23d8",
+      "admission": "PASS_SCOPED; five unsupported transfers remain refused",
+      "contract": {
+        "schema": "oph.chain.field_audit_contract.v1",
+        "independent_review": true,
+        "scope": "Independent audit of frozen field-limit, C10 integer-field and classical arithmetic force-adapter claims.",
+        "audited_manifests": {
+          "field_limit/MANIFEST.json": "612aedd40f13faea2b80b5c31d4afbb19cb2332ff22db5b459ac2ae936879008",
+          "dynamical_field/MANIFEST.json": "2aa4fe69b85d389949d4bbaed733b5cd69aafab4760cb4a2a8cf68019c5fe2cc",
+          "force/MANIFEST.json": "f4f2f6b490aef1a87eb0fd6b5c07c429d5f394baf4414e0f39b7dc309babba1e"
+        },
+        "claims": [
+          {
+            "claim": "fixed_point_tracking",
+            "status": "PASS",
+            "finding": "Exact integer rounding, energy-norm contraction, every recorded move and residual certificate independently reconstructed."
+          },
+          {
+            "claim": "static_smoothed_3D_Coulomb",
+            "status": "PASS",
+            "finding": "All twelve Bloch branches and 26 Fejer modes retained; localized O(h), internally averaged O(h^2), electric vector bounds on the unit torus."
+          },
+          {
+            "claim": "actual_C10_M6_baseline",
+            "status": "PASS",
+            "finding": "Actual H, complete MIX matrices, global reference, all four reservoir outcomes and clock pins independently compared."
+          },
+          {
+            "claim": "interacting_integer_register_limit",
+            "status": "PASS",
+            "finding": "Exact Gauss fiber, bounded Dyson support and all-count convolution give the complete marked-law bound; M42 TV below 4.185417e-6."
+          },
+          {
+            "claim": "extra_terminal_MIX",
+            "status": "PASS",
+            "finding": "One extra support increment is charged; M42 TV below 2.286972e-5."
+          },
+          {
+            "claim": "classical_fixedpoint_energy_rate_adapter",
+            "status": "PASS",
+            "finding": "Exact energy and logarithmic-rate allowances imply complete capped-path TV; exact-real evaluation domain retained."
+          },
+          {
+            "claim": "M6_small_full_clock_limit_error",
+            "status": "FAIL",
+            "finding": "The support theorem yields TV<=1 at actual M6; passive numerical discrepancy is not a full-clock certificate."
+          },
+          {
+            "claim": "M6_integer_chart_equals_periodic_electric_energy",
+            "status": "FAIL",
+            "finding": "The maximal electric-energy discrepancy is 13.32 and the full actual preparation has positive defect weight."
+          },
+          {
+            "claim": "classical_force_to_C10_join",
+            "status": "FAIL",
+            "finding": "No map identifies classical reciprocal scheduler, C10 Hamiltonian, full preparation and clock; labels do not supply a transfer."
+          },
+          {
+            "claim": "static_charge_lift_is_dynamic_refinement",
+            "status": "FAIL",
+            "finding": "The same physical coordinate charge lift does not intertwine a coarse edge hop or clock with the fine source."
+          },
+          {
+            "claim": "Maxwell_mechanical_force_or_physical_seconds",
+            "status": "FAIL",
+            "finding": "No common spatial quantum refinement, transverse electromagnetic modes, mechanical inertia, calibrated force units or native coherent clock compiler is supplied."
+          }
+        ],
+        "supported_claims_pass": true,
+        "excluded_physical_claims_are_failed_transfers": true,
+        "exact_remaining_physical_gap": "An executable common source, preparation and clock transfer connecting the classical cubic Coulomb/feedback instrument to C10, together with a spatial dynamical quantum field refinement with transverse electromagnetic observables and a calibrated mechanical force/inertia dictionary. The proved C10 limit changes flux-register capacity on a fixed one-cycle triangle; it supplies no spatial Maxwell limit. Coherent H services have no supplied native compiler or physical-second identification.",
+        "numeric_certification_boundary": "Analytic rational certificates are independent of floating propagation diagnostics. General floating-library exponential/eigensolver error is unproved. Ground preparation follows the declared source prescription and is compared numerically.",
+        "audit_artifacts": {
+          "audit.py": "b34f1e660e2f3eef90bc05d4a2ec76988850287508ee4d9c81f1845b6102f1e3",
+          "PROOF.md": "d25820ceb03672024d21a06b25a1c6f643a8d6b3aee55baae717a38d67c718ec",
+          "AUDIT_RESULT.json": "b7f4d996954a04e98a139890053446bfa41cf2e38fcc42c4b3fb4c1af2db4523"
+        },
+        "producer_mutations": [],
+        "official_rows_changed": []
+      }
+    },
+    "audit_particle": {
+      "path": "openwave-tuning/next/CHAIN/audit_particle/AUDIT_CONTRACT.json",
+      "sha256": "b834f44f11d5d1afc329929724660bb3a7d31833aa2323fd8c06bc5d41f08ba1",
+      "admission": "PASS_FINITE_DECLARED_SOURCE_STATE_CLOCK_PARTICLE_INSTRUMENT",
+      "contract": {
+        "schema": "oph.independent_particle_audit_contract.v1",
+        "audit_id": "worker09_C10_particle_measurement_independent_v1",
+        "audit_author": "worker09_independent_particle_measurement_auditor",
+        "reviewed_producer": "worker04_particle_chain",
+        "admission": "PASS_FINITE_DECLARED_SOURCE_STATE_CLOCK_PARTICLE_INSTRUMENT",
+        "independence": {
+          "separate_author_from_particle_producer": true,
+          "producer_verify_used_as_independent_evidence": false,
+          "producer_run_or_measurement_helpers_imported": false,
+          "CommonClock_imported": false,
+          "shared_declared_primitives": [
+            "JointNativeSource",
+            "M6 source pulse response",
+            "literal native C/E event",
+            "native reset policy"
+          ]
+        },
+        "source_id": "C10_interacting_allnumber384_Z6",
+        "source_dimension": 384,
+        "source_H_array_sha256_le_float64": "32dfd62f776c28e532419b3c4cd61ef50bd43914e0c8cb52408f0678995c6834",
+        "preparation_id": "C10_global_reference_complete_fair_reservoir_v1",
+        "preparation_array_sha256_le_complex128": "8a99dd2d77937e5e750212cc47f397a1e6699e35f6c2d40115bb2fdd1114014b",
+        "reference_id": "actual_C10_allnumber_global_interacting_ground",
+        "clock_id": "C10_complete_marked_Poisson_v1",
+        "particle_instrument_id": "C10_ordered_regional_energy_transport_v1",
+        "particle_contract": "openwave-tuning/next/CHAIN/particle/PARTICLE_CONTRACT.json",
+        "particle_contract_sha256": "67c406d20f796193d2a88f3c8e30f463fbda1cf7ce8a93cf75f353bf8a8f6cf4",
+        "particle_result_sha256": "9bcce002927e744b8cf2e37d78f2f26ceb0e442a36a2058a6d78541291c171b1",
+        "particle_state_archive_sha256": "ac92811538d191e14c40cd95da4a89f1ec6f8d4572961b8fa5c8b37035f19b00",
+        "operational_readout_receipt_sha256": "8e7b32459b12e1dc099e5233b9ec1f230087073d3ea17993e5a283df6c050d4e",
+        "result": "AUDIT_RESULT.json",
+        "result_sha256": "ae6048aeb1ab0b03aa87268e520b6dd1fb1dadb0a84f8c72f607881f85231deb",
+        "source_sha256": {
+          "openwave-tuning/candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907",
+          "openwave-tuning/candidate/oph_openwave/fiber_preparation.py": "d3585fb28eab66b3186376e5f60674f2ba13256d8c6057964089ad5fcf83bacb",
+          "openwave-tuning/candidate/oph_openwave/geometry.py": "00d6ca810b1c7430e761b3106317f288d0b3c2e722dfeedec5aa18ac7bb8e32d",
+          "openwave-tuning/candidate/oph_openwave/modular_native.py": "1b6e25eb63ca190e1b5ef999b0b43cefb790e7872a58ffdb40256662ca65959a",
+          "openwave-tuning/candidate/oph_openwave/quantum_records.py": "95735e200a0f7167b4efc18ad62bb0f42e1dac43277ea4defd46f5dbf3c5e34c",
+          "openwave-tuning/candidate/oph_openwave/uniform_native.py": "2416525dfd50cb7e7f38805a52c65858d51fda428b5875abc7295e52b03e3146",
+          "openwave-tuning/next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e",
+          "openwave-tuning/next/C10/joint_source.py": "bbedbeecff985014f60d761c4a165546383d393f8263ef46d681b346ecbc540f",
+          "openwave-tuning/next/C10/joint_source_states.npz": "1d75017307742e96649ea7c7e74a4a648a6d9f468e35ccd9f6ea05d202d7708b",
+          "openwave-tuning/next/C10/modular_field_adapter.py": "f964dd6225af37267af8293f3a380524520e3ab83f77e30198f9126fa4c9dc32",
+          "openwave-tuning/next/C10/spectral_readout.py": "8bd12ab27ff979ae4b92e289ebb46efb376dd13696faf6752670f44c8049d83e",
+          "openwave-tuning/next/C11/CHARGED_ENERGY_UNITS.json": "223a7a0d39cd6a3041938c147c52ff592071c74f5c79b00cb3da39a9a2c98644",
+          "openwave-tuning/next/C9/fermionic_shared_records.py": "623b2f3a18f3c30530bc0cc222a3062cb9cb893c35a80076c9775cef9c487e72",
+          "openwave-tuning/next/C9/fermionic_uniform_reference.py": "c409ba7b3396a73b5fb4c97d0f07aedc4e1921a4750d394a38d7cbbd570c3388",
+          "openwave-tuning/next/CHAIN/audit_particle/PROOF.md": "fb6699351719f0b197f283fe61b2cb83e7012dc91656f6f641fa186fc1b9397f",
+          "openwave-tuning/next/CHAIN/audit_particle/README.md": "9cb52b07fe1334b375975c4fbca41c26388714af08be7f66fdf832add83758cf",
+          "openwave-tuning/next/CHAIN/audit_particle/audit_particle.py": "ef877d86fdf0ae6e965ce443b1ee889aeda58f0b031d4fa08b87a04f23bb8b03",
+          "openwave-tuning/next/CHAIN/clock/CLOCK_CONTRACT.json": "885233455b5402be39c8612266a0ec735fe435b01d076be8df9ff08689a86be7",
+          "openwave-tuning/next/CHAIN/clock/common_clock.py": "eee29493c0cc8a2bfdaf2868fdce82e10d055535f8ee0e6a0b4b818ef9fb38db",
+          "openwave-tuning/next/CHAIN/clock/common_clock_states.npz": "8e85b24b28dee4894bda4095a93eb8a5219c45290b43c8a22b5d022508989077",
+          "openwave-tuning/next/CHAIN/particle/PARTICLE_CONTRACT.json": "67c406d20f796193d2a88f3c8e30f463fbda1cf7ce8a93cf75f353bf8a8f6cf4",
+          "openwave-tuning/next/CHAIN/particle/RESULT.json": "9bcce002927e744b8cf2e37d78f2f26ceb0e442a36a2058a6d78541291c171b1",
+          "openwave-tuning/next/CHAIN/particle/particle_chain.py": "d4e95c65d51b3254dd305b3f7df3af4b70451b363c9820fa5052728d45b6ced3",
+          "openwave-tuning/next/CHAIN/particle/particle_states.npz": "ac92811538d191e14c40cd95da4a89f1ec6f8d4572961b8fa5c8b37035f19b00",
+          "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/NATIVE_POINTER_BRIDGE.json": "78eb37ba9a25af45e2c5d421c99a28f87bc461cdeab1ceeb12c30ae9ea77bfc5",
+          "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/native_pointer_bridge.py": "22c599f27f9fa1b0c0d5d0b83284367457ef2aa68f96ce3879f018f2e832f538",
+          "openwave-tuning/next/ROW1_NATIVE/routes/quantum_energy/JOINT_CHARGE_ENERGY.json": "6f37a1d861c7ba148aac4db653a1340577a417c5a4d89eac7e60b3c4f6b407d9",
+          "openwave-tuning/next/ROW1_NATIVE/routes/quantum_operational/OPERATIONAL_QUANTUM_REVIEW.json": "8e7b32459b12e1dc099e5233b9ec1f230087073d3ea17993e5a283df6c050d4e",
+          "openwave-tuning/next/ROW1_NATIVE/routes/quantum_operational/operational_readout.py": "21efed751a46b4ddfaa63116d1eef7b235f799c2894e21081fa327132b48c42d",
+          "openwave-tuning/next/ROW1_NATIVE/routes/quantum_operational/operational_states.npz": "5a4b2e3473755b9c4299301b1bcfef74fe2103fc9353e111acff9aa0c699b38d",
+          "openwave-tuning/next/ROW1_NATIVE/routes/quantum_operational/review_operational.py": "9949d637881c25a6bd16bc4213eae0b91e0e890f5e4ae71f7a78d04d24719595",
+          "openwave-tuning/next/ROW1_NATIVE/routes/quantum_spatial/QUANTUM_SPATIAL.json": "b61c8b021703b899157f7f7cb4518a58c4d93731d15e0871fc7f0957143f777e",
+          "openwave-tuning/next/ROW1_NATIVE/routes/quantum_spatial/quantum_spatial.py": "6968432ace53971bf7e05c13be5dbcbbca99c4bde0452a382bad50c6a11f64fd",
+          "openwave-tuning/next/ROW1_NATIVE/routes/quantum_spatial/quantum_spatial_states.npz": "441fdc68073e438b6a04577f5632b2f0f80b4d2daa11652c7fac5bebdbb78d86",
+          "openwave-tuning/validation/bridges/providers/fock.py": "353f94ca4d09af9b3f7f33143f78a396cf3f489e8ae91b430ffb32e615ad44f9",
+          "reverse-engineering-reality/code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
+          "reverse-engineering-reality/code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
+          "reverse-engineering-reality/model/native_clock/configuration.py": "f5d5b7ac614a5a1080015a1b1fa16e4d450fbb95a1ee4a2633f844823cdeeae9",
+          "reverse-engineering-reality/model/native_interface/pointer.py": "30485fdee1d221460c67b9791a34b7fa24b4dece718ab91bdfc3cbb24ca591ac",
+          "reverse-engineering-reality/model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+          "reverse-engineering-reality/model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+          "reverse-engineering-reality/model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+          "reverse-engineering-reality/model/reference_recovery/recovery.py": "dbb1cb54026558a16dea67ed8e2ceb9b5000033a92e65074327666c4e3d6d15b"
+        },
+        "checks": {
+          "frozen_source_preparation_reference_clock_join": true,
+          "literal_native_pulse_replay": true,
+          "complete_first_failure_maps_and_reset_law": true,
+          "arbitrary_reference_coarse_instrument": true,
+          "all12_clock_inputs_and144_continuations": true,
+          "all576_regional_and200448_energy_states": true,
+          "whole_degenerate_Luders_coherences": true,
+          "complete_failure_zero_and_tail_outcomes": true,
+          "actual_selected_poststate_same_clock_continuation": true,
+          "regional_energy_noncommutation": true,
+          "charged_and_whole_spectrum_gaps_distinguished": true,
+          "no_mass_stability_or_clock_award": true
+        },
+        "mutation_rejections": {
+          "fine_local_measurement_then_forget": true,
+          "rank_one_energy_then_forget": true,
+          "drop_export_flag_even_when_tiny": true,
+          "drop_reset_timeout_probability": true,
+          "zero_rectangular_abort_map": true,
+          "drop_complete_count_tail": true,
+          "success_only_renormalization": true,
+          "wrong_clock_identifier": true,
+          "wrong_clock_actual_half_rate": true,
+          "MeV_GeV_factor1000_mismatch": true
+        },
+        "admissible_domain": {
+          "source": "actual full384 C10 source and complete fair-reservoir preparation",
+          "clock": "same supplied T=.37 and lambda=.8 complete marked Poisson law, all zero-current attempts counted",
+          "detector": "replayed 114-pulse regional population count and two literal C-pointer readouts, exact reset and all abort flags",
+          "energy": "declared grouped joint global-Q/H Luders apparatus retaining whole degeneracies",
+          "records": "all 12 initial count states, 144 continuations, 576 regional records, 200448 grouped energy states",
+          "transport": "finite ordered regional count change; no tagged worldline or individual particle trajectory"
+        },
+        "claim_boundary": {
+          "finite_measured_regional_transport": true,
+          "positive_global_reference_excitation": true,
+          "actual_selected_excitation_poststate_continued": true,
+          "stable_particle_from_probability_conservation": false,
+          "asymptotic_lifetime_bound": false,
+          "physical_particle_species_identified": false,
+          "predicted_mass": false,
+          "physical_clock_calibrated": false,
+          "continuum_limit_transferred": false
+        },
+        "official_rows_changed": []
+      }
+    }
+  },
+  "external_source_map": {
+    "schema": "oph.chain.external_source_clock_map.v1",
+    "read_only_comparison": true,
+    "candidate_id": "native-local12-current-v0-proposed",
+    "source_contract_status": "proposed construction under implementation; no physical criterion established",
+    "source_contract_sha256": "3ec19e782656e548cbbc1791065a44616244eca22468424b7b09553a28160c72",
+    "carrier": "At size2, 96 positions times12 local event slots =1152 logical amplitudes, plus retained binary padding and apparatus outputs. LOCAL12 names slots, not total source dimension.",
+    "generator": "W=S R, R=2AA*-I; A|x>=|x> tensor uniform12; S is hold for coin0 and flip-flop neighbour/reverse-direction transport for coin1",
+    "clock_attachment_id": "local12-completed-word-clock-v1-proposed",
+    "population_comparison": "T_global=(1-6/M)I+(6/M)T_local at the one-load population level only; full original quantum records require separate recoding and cannot be transferred by this identity.",
+    "clock_scope": "Literal classical thinning is an exact same-process comparison. Repeated coherent W is a declared distinct dynamics; no raw-channel identity is inferred. Every time coordinate and failure is retained.",
+    "physical_attachment": "A common effective time coordinate is supplied. Physical seconds, spatially local processor services, and refinement scaling of hardware bandwidth/latency require explicit architecture or calibration.",
+    "source_selects_profile": false,
+    "native_pulses_per_declared_profile": 432425,
+    "C10_transfer_supplied": false,
+    "reciprocal_classical_force_transfer_supplied": false,
+    "inputs": {
+      "openwave-tuning/common_dynamics/SOURCE_CONTRACT.json": "3ec19e782656e548cbbc1791065a44616244eca22468424b7b09553a28160c72",
+      "openwave-tuning/common_dynamics/clock/CLOCK_CONTRACT.json": "56d66aaf2f438552943c6c9bbf125a243dad807564134c7e1c142f72e2e1b470",
+      "openwave-tuning/auditor/native_walk_bridge/COMMON_SOURCE_CUSTODY.json": "4d1f9c213f2dba5416dd9085f34be8082d4d65e7c3e10b8649bed27d4bab563a",
+      "openwave-tuning/auditor/native_walk_bridge/common_walk.py": "4c8b6087aab6212ae12af126640ba19bbfec63215be5234be64f016cc604d75d",
+      "openwave-tuning/auditor/native_walk_bridge/compile_walk.py": "26371a86d04d7853ab03dbccb46f89a65c809fb6d75480312b0ed61b0259ada2"
+    },
+    "scope": "Optional frozen observation of external contracts; not executed by CHAIN integration, not substituted for either admitted source, and not a validation of live external work."
+  },
+  "input_pins": {
+    "openwave-push/issues/N20_native_green_field/n20lib.py": "8ff2f3ee49a5efaecb2fb308f24be551103d3fea82d91196153fe796655b3f08",
+    "openwave-push/issues/N3D_cubic_routing/n3dlib.py": "6459c6f096c97922d4905c0318ca32c4a26fb35854f8154d18008d20e636b7ac",
+    "openwave-tuning/auditor/native_field_bridge/BALANCED_OCCUPANCY_REVIEW.json": "85f7bd8ae6b9a0db8fa2994ef18d00f7cda66c28c00d24a848e3c21000a1b57e",
+    "openwave-tuning/auditor/native_field_bridge/BALANCED_OCCUPANCY_REVIEW.md": "77b5e09fa65312a76cfd76cf7baceb53cf652e50ed7f63f8ef545879bfff37f4",
+    "openwave-tuning/auditor/native_field_bridge/CAPPED_INSTRUMENT.md": "23a464ad08cc2476896ccf19141f96ce9058c864d23cc5c40b94a79815cf46cb",
+    "openwave-tuning/auditor/native_field_bridge/CAPPED_LAW.json": "5992b694b47b04c0b8f9b7835884f01cd3ec1562a2d0ba9d4111b8fa65668a2f",
+    "openwave-tuning/auditor/native_field_bridge/EXTERNAL_AUDIT.md": "710756b8d09c270f5ba32cde167fe69facafa7f0df6e2a9884d32d4d893bd3c5",
+    "openwave-tuning/auditor/native_field_bridge/FIELD_FEEDBACK.json": "57667cbe061215af8858c4bf62bd8cfe1db2e98075e031cd437ff09f88d277f9",
+    "openwave-tuning/auditor/native_field_bridge/FINAL_MANIFEST.json": "4597dc9c226d203d890bc3d3a929bbe1be80e2dc57ec03898c77da4fe5b954e1",
+    "openwave-tuning/auditor/native_field_bridge/MANIFEST.json": "7f05024b497694219e3ff95d708efcd2ebaf2c391ea384c48946889e9555b0a1",
+    "openwave-tuning/auditor/native_field_bridge/NATIVE_JUMP_RATES.json": "9145700594b226dc427aaf640b0cfd3b07587783f3892589f596b52d0463306e",
+    "openwave-tuning/auditor/native_field_bridge/PROOF.md": "7a0fbd48362f05758a3409cce463c407b84d63de9228fe2cad0fac3fe835393f",
+    "openwave-tuning/auditor/native_field_bridge/RECIPROCAL_FEEDBACK.json": "464a6ad36193329334f264357c648c8d6690d84f88ab452c5203e86b98ea0332",
+    "openwave-tuning/auditor/native_field_bridge/RECIPROCAL_PROOF.md": "99fe8cce8c95375e722604eb75207e831e70c7e8a182f587403e3e867cb98f20",
+    "openwave-tuning/auditor/native_field_bridge/ROOT_UNCAPPED_REVIEW.json": "895dfccfe4983199ab12d1be8047426f231f49d903c5b5ec9fdc43118b0d5525",
+    "openwave-tuning/auditor/native_field_bridge/audit_balanced_occupancy.py": "188881cea6586637913f6ea0e22ce6d9774d68f60ade09677f8e84dffc20f976",
+    "openwave-tuning/auditor/native_field_bridge/capped_law.py": "be3bd4cf6b665a88171615e240b1b7a3f80da5a107dae646c368b86245f7fb44",
+    "openwave-tuning/auditor/native_field_bridge/field_feedback.py": "7dd23f52420e689bafa6b318673b40488bd20b2f1e640ff64239b3c5f5643325",
+    "openwave-tuning/auditor/native_field_bridge/reciprocal_feedback.py": "9a3ef66b6f1dc493b983606159bdab733b0f887c775bbbc3a06b06fecf40afe9",
+    "openwave-tuning/auditor/native_field_bridge/review_field_root.py": "8d862f32ce2adfffce71eaedd5e603f1f401d23c1f7220997b8f76587ba23155",
+    "openwave-tuning/auditor/row1_public_integration/BALANCED_OCCUPANCY.json": "055fae416cb3c598e3137c4f63af7fc464ce7e58864981adec27ad5ab4ec656a",
+    "openwave-tuning/auditor/row1_public_integration/audit_public.py": "e22f0e3ee6729a4e5ac9124e0efc8d2d5ac110237b390adb4329f755a1a73f09",
+    "openwave-tuning/auditor/row1_public_integration/balanced_occupancy.py": "a23385a0bdea821ec47b41c353ddbcbc45088ffb99ae6b78d259e782105b9732",
+    "openwave-tuning/candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907",
+    "openwave-tuning/candidate/oph_openwave/fiber_preparation.py": "d3585fb28eab66b3186376e5f60674f2ba13256d8c6057964089ad5fcf83bacb",
+    "openwave-tuning/candidate/oph_openwave/geometry.py": "00d6ca810b1c7430e761b3106317f288d0b3c2e722dfeedec5aa18ac7bb8e32d",
+    "openwave-tuning/candidate/oph_openwave/modular_native.py": "1b6e25eb63ca190e1b5ef999b0b43cefb790e7872a58ffdb40256662ca65959a",
+    "openwave-tuning/candidate/oph_openwave/quantum_records.py": "95735e200a0f7167b4efc18ad62bb0f42e1dac43277ea4defd46f5dbf3c5e34c",
+    "openwave-tuning/candidate/oph_openwave/uniform_native.py": "2416525dfd50cb7e7f38805a52c65858d51fda428b5875abc7295e52b03e3146",
+    "openwave-tuning/next/C10/CANONICAL_CONSTRUCTION.json": "87e364830daaf96e16cbbf1ed7a12b4329d896a816fffcf9194f29fdeceb7217",
+    "openwave-tuning/next/C10/CANONICAL_SOURCE_CONTRACT.json": "18eb795d6591ef64450211a7e4279352008e8570056e5c87d9c51dc1c504c695",
+    "openwave-tuning/next/C10/JOINT_SOURCE.json": "b9750a2e5823f15496f3915dc6a647af4cc0944dbff21d4b0fd48e27693b3546",
+    "openwave-tuning/next/C10/canonical_construction.py": "130c65d30050e6ae7f52b9d4bd53528e4abbc2b2cb2638de1ebc305f47192902",
+    "openwave-tuning/next/C10/canonical_states.npz": "27b18e957d2ececf5c0d54dcb0851d510ef307cef9a364372281966b3c7c96f1",
+    "openwave-tuning/next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e",
+    "openwave-tuning/next/C10/joint_source.py": "bbedbeecff985014f60d761c4a165546383d393f8263ef46d681b346ecbc540f",
+    "openwave-tuning/next/C10/joint_source_states.npz": "1d75017307742e96649ea7c7e74a4a648a6d9f468e35ccd9f6ea05d202d7708b",
+    "openwave-tuning/next/C10/modular_field_adapter.py": "f964dd6225af37267af8293f3a380524520e3ab83f77e30198f9126fa4c9dc32",
+    "openwave-tuning/next/C10/spectral_readout.py": "8bd12ab27ff979ae4b92e289ebb46efb376dd13696faf6752670f44c8049d83e",
+    "openwave-tuning/next/C11/CHARGED_ENERGY_UNITS.json": "223a7a0d39cd6a3041938c147c52ff592071c74f5c79b00cb3da39a9a2c98644",
+    "openwave-tuning/next/C11/boundary_charge.py": "14ca9135d5c7a6e51d776cc7e60df71253c3591fcd91116ba1c08a6ae84e81a1",
+    "openwave-tuning/next/C11/charged_energy_units.py": "7669863d03b2bd2c68ebd9bc477ab640240f82dacd58062b9342b3f79ad92df8",
+    "openwave-tuning/next/C9/fermionic_shared_records.py": "623b2f3a18f3c30530bc0cc222a3062cb9cb893c35a80076c9775cef9c487e72",
+    "openwave-tuning/next/C9/fermionic_uniform_reference.py": "c409ba7b3396a73b5fb4c97d0f07aedc4e1921a4750d394a38d7cbbd570c3388",
+    "openwave-tuning/next/CHAIN/audit_clock_force/AUDIT.json": "dce18bcd688d80d6238bedde6663f0a73b829359bef07e592bd781f636c42d20",
+    "openwave-tuning/next/CHAIN/audit_clock_force/AUDIT_CONTRACT.json": "29a13872ef044163302ae576037b929bdce5aeccf7f48fb6d877f098cc8f1671",
+    "openwave-tuning/next/CHAIN/audit_clock_force/MALFORMED_INPUTS.json": "9f5a3393dab9f90e7e8fd8320f89ee01ee1f8db7ee0e05903cf03768006fb7a3",
+    "openwave-tuning/next/CHAIN/audit_clock_force/PROOF.md": "297f9fcd968388503780b57366936f5eaa5b7021bbf5ac078d822d214b705efc",
+    "openwave-tuning/next/CHAIN/audit_clock_force/audit.py": "c52cc8fce4ab94f7bfd87fd6fee88fa5f29daf351626a36e2a38af3c239b82fa",
+    "openwave-tuning/next/CHAIN/audit_clock_force/frozen_common_clock.py": "eee29493c0cc8a2bfdaf2868fdce82e10d055535f8ee0e6a0b4b818ef9fb38db",
+    "openwave-tuning/next/CHAIN/audit_clock_force/frozen_force_measurement.py": "2e77839960c2263b8d5fb9c5db76363567995a829eba580a0369b7145a827f47",
+    "openwave-tuning/next/CHAIN/audit_field/AUDIT_CONTRACT.json": "7daf9eb0dcdfc01c932be751344147885eb77219e3a17e758567f636791b23d8",
+    "openwave-tuning/next/CHAIN/audit_field/AUDIT_RESULT.json": "b7f4d996954a04e98a139890053446bfa41cf2e38fcc42c4b3fb4c1af2db4523",
+    "openwave-tuning/next/CHAIN/audit_field/PROOF.md": "d25820ceb03672024d21a06b25a1c6f643a8d6b3aee55baae717a38d67c718ec",
+    "openwave-tuning/next/CHAIN/audit_field/audit.py": "b34f1e660e2f3eef90bc05d4a2ec76988850287508ee4d9c81f1845b6102f1e3",
+    "openwave-tuning/next/CHAIN/audit_particle/AUDIT_CONTRACT.json": "b834f44f11d5d1afc329929724660bb3a7d31833aa2323fd8c06bc5d41f08ba1",
+    "openwave-tuning/next/CHAIN/audit_particle/AUDIT_RESULT.json": "ae6048aeb1ab0b03aa87268e520b6dd1fb1dadb0a84f8c72f607881f85231deb",
+    "openwave-tuning/next/CHAIN/audit_particle/PROOF.md": "fb6699351719f0b197f283fe61b2cb83e7012dc91656f6f641fa186fc1b9397f",
+    "openwave-tuning/next/CHAIN/audit_particle/README.md": "9cb52b07fe1334b375975c4fbca41c26388714af08be7f66fdf832add83758cf",
+    "openwave-tuning/next/CHAIN/audit_particle/audit_particle.py": "ef877d86fdf0ae6e965ce443b1ee889aeda58f0b031d4fa08b87a04f23bb8b03",
+    "openwave-tuning/next/CHAIN/clock/CLOCK_CONTRACT.json": "885233455b5402be39c8612266a0ec735fe435b01d076be8df9ff08689a86be7",
+    "openwave-tuning/next/CHAIN/clock/COMMON_CLOCK.json": "c0b2c5b364d78c100b19cf112e3b459a559c23550ea8fde8e20969b1fbd4c6f8",
+    "openwave-tuning/next/CHAIN/clock/PROOF.md": "b0f1dd6c204703e389d84aa6b1dc5cbbf6c01a4f129cde9286d5d976bd91bd97",
+    "openwave-tuning/next/CHAIN/clock/README.md": "00942f86679ae55057014adcd50254915c9ecb8e79b7920ab81fca625b2b5781",
+    "openwave-tuning/next/CHAIN/clock/REFERENCE_REVIEW.json": "fbcbce899d7cb62bf471d19f93342835d2575ed58d14ee29c49ec127de6c41a8",
+    "openwave-tuning/next/CHAIN/clock/common_clock.py": "eee29493c0cc8a2bfdaf2868fdce82e10d055535f8ee0e6a0b4b818ef9fb38db",
+    "openwave-tuning/next/CHAIN/clock/common_clock_states.npz": "8e85b24b28dee4894bda4095a93eb8a5219c45290b43c8a22b5d022508989077",
+    "openwave-tuning/next/CHAIN/clock/reference_review.py": "5316d511f155df7db26b3575a1573a739ab4fca0f338274b8a9241b37c4c9190",
+    "openwave-tuning/next/CHAIN/clock/test_clock_contract.py": "2e0c6c02b682fc772f032626269959503e96688079407cb42a892df541d66bc0",
+    "openwave-tuning/next/CHAIN/coordination/INTEGER_FIELD_CONTROL.json": "abc9a72412d9d786c636350084c306771b8c3cded09ea21f874817a4626864e4",
+    "openwave-tuning/next/CHAIN/coordination/integer_field_control.py": "ecf1e7100af3e398202b5eb236baacd3f64a13edb9b46aaef0716841b45e7896",
+    "openwave-tuning/next/CHAIN/dynamical_field/DYNAMICAL_FIELD_CONTRACT.json": "3fa9c7774e87500db01855440a566f0b9cc7cdfa1f3bc65ff385ace9251a10d6",
+    "openwave-tuning/next/CHAIN/dynamical_field/MANIFEST.json": "2aa4fe69b85d389949d4bbaed733b5cd69aafab4760cb4a2a8cf68019c5fe2cc",
+    "openwave-tuning/next/CHAIN/dynamical_field/PROOF.md": "0c6070770ea3fb4dec3d44f9a8f3386c9495d5a2b5b9a9b2a595255be07ca7f1",
+    "openwave-tuning/next/CHAIN/dynamical_field/README.md": "d3f3d2b3d75b90cfef57052ffd4e95c87250ee8b056ead38f36a95190f9198d5",
+    "openwave-tuning/next/CHAIN/dynamical_field/RESULT.json": "12565db2d569d491044bb118c13658409ecb54f756ca336ab928fda6d7eb6735",
+    "openwave-tuning/next/CHAIN/dynamical_field/REVIEW.json": "9670f8c4b1e4ce5d18afb98b0c0d39efceb67c09361b7ae9f53b94ea775bfc0a",
+    "openwave-tuning/next/CHAIN/dynamical_field/dynamical_field.py": "365a2f37ac37aa119626a961f8a27c44d0f127d21991d1532d3879cecd19d179",
+    "openwave-tuning/next/CHAIN/dynamical_field/dynamical_field_states.npz": "02928b60bc5b0a203791e457ba0a1e2723ea1520761f70734c51895fdb1bb922",
+    "openwave-tuning/next/CHAIN/dynamical_field/verify.py": "c4c4c87be84fc0c879ce5307195f082d0670069e16c9c5c8c63e1bf2ff1750d7",
+    "openwave-tuning/next/CHAIN/field_limit/MANIFEST.json": "612aedd40f13faea2b80b5c31d4afbb19cb2332ff22db5b459ac2ae936879008",
+    "openwave-tuning/next/CHAIN/field_limit/PROOF.md": "fcebbfb419d7b72ce420f503495fad614552da46ac92659a25a411b8af0052fc",
+    "openwave-tuning/next/CHAIN/field_limit/README.md": "3f3a4c0c30224430f38c2b27a9a6366be2e1224c21740546fb9c65e252aab58c",
+    "openwave-tuning/next/CHAIN/field_limit/RESULT.json": "7908b7da1790574c950ac0a78bb89ba6cdf5370d6f5268aaa7296b7b108d984a",
+    "openwave-tuning/next/CHAIN/field_limit/REVIEW.json": "6602e49ce871da8215e6b381835b4428b0ffd7019ce1d5d68815f5f23f545c69",
+    "openwave-tuning/next/CHAIN/field_limit/controlled_field.py": "e9bd6f9a97d0094c4f9dd3ec95a0fcfe0f596684f1bc0d472e99c95dad3ad0aa",
+    "openwave-tuning/next/CHAIN/field_limit/verify.py": "dee3c8d1b3492dcc496f21f76e1ee835f24c448ae9917a681286643f58a13ea7",
+    "openwave-tuning/next/CHAIN/force/FIRST_EVENT_OUTCOMES.npz": "d3cba7187470690905bc2657e0b72f9444658a1f60e0d2ce75761e61fd131239",
+    "openwave-tuning/next/CHAIN/force/FORCE_CONTRACT.json": "fd3087e4164f309daa41bc4c819cdf9ce63c69cc53d88cd9c9521dfbaea24844",
+    "openwave-tuning/next/CHAIN/force/MANIFEST.json": "f4f2f6b490aef1a87eb0fd6b5c07c429d5f394baf4414e0f39b7dc309babba1e",
+    "openwave-tuning/next/CHAIN/force/PROOF.md": "289349d586b601d6462ecf84d266d493501bb227bc3b56f2a4cf9bc6670c634f",
+    "openwave-tuning/next/CHAIN/force/README.md": "0d77fd5a94ffdbd54fbb04fc0398c14398572f10f489af2e65e5796f4f7a0a29",
+    "openwave-tuning/next/CHAIN/force/RESULT.json": "8d62b031a2725335e50a09211ac0b22d677686263e1f2591ca13b4dcb49f146c",
+    "openwave-tuning/next/CHAIN/force/REVIEW.json": "35e86d5454126f05eb59150dda8d660364f422cc4a4ff5ee0d62e44aed0ff52e",
+    "openwave-tuning/next/CHAIN/force/finalize.py": "7bb2f81de8748fe9dcf573b8f21d9a46aef3fc296fdef87577f63bca8df22527",
+    "openwave-tuning/next/CHAIN/force/force_measurement.py": "2e77839960c2263b8d5fb9c5db76363567995a829eba580a0369b7145a827f47",
+    "openwave-tuning/next/CHAIN/force/verify.py": "be34261bb0ae43a6d118687a914d236a61a0bdfa49cf985fb156f1653aab4321",
+    "openwave-tuning/next/CHAIN/integration/EXTERNAL_SOURCE_MAP.json": "fae9f0bca323e4aebccb6c3ff4c1e540a52f839fde34b00418a54cfcb0a5900b",
+    "openwave-tuning/next/CHAIN/integration/ROW1_SCOPE.json": "8b11bf5de14a9b3f67821cfd161f9094636203cd1fe979a3a03654e5a11a183e",
+    "openwave-tuning/next/CHAIN/integration/SOURCE_CLOCK_MAP.json": "4a0dfff375808ec41e086060a2f5ea8799813630fd4632dc2884bb045906d763",
+    "openwave-tuning/next/CHAIN/particle/PARTICLE_CONTRACT.json": "67c406d20f796193d2a88f3c8e30f463fbda1cf7ce8a93cf75f353bf8a8f6cf4",
+    "openwave-tuning/next/CHAIN/particle/PROOF.md": "ae1edc1a28667b9fd108e011f6a996eff6c41ce44d1dec7ffd321d6f1016c3e0",
+    "openwave-tuning/next/CHAIN/particle/README.md": "71ea3bda48586c47b17d722767de644c024949aed4ad24e3beea5d6d76288d58",
+    "openwave-tuning/next/CHAIN/particle/RESULT.json": "9bcce002927e744b8cf2e37d78f2f26ceb0e442a36a2058a6d78541291c171b1",
+    "openwave-tuning/next/CHAIN/particle/VERIFY.json": "fdc1334092ae23965a004fd417fbdcf60ebf9441c859b3fb9c86edb1d5f3d9f2",
+    "openwave-tuning/next/CHAIN/particle/particle_chain.py": "d4e95c65d51b3254dd305b3f7df3af4b70451b363c9820fa5052728d45b6ced3",
+    "openwave-tuning/next/CHAIN/particle/particle_states.npz": "ac92811538d191e14c40cd95da4a89f1ec6f8d4572961b8fa5c8b37035f19b00",
+    "openwave-tuning/next/CHAIN/particle/verify.py": "bafacf89deba56eb44a64b2897aeb92432fdf2fa5cf8ff2b30bd198567add1fa",
+    "openwave-tuning/next/ROW1_NATIVE/ALL31_READY.json": "c4565a22a2e8adcceab28a4c2b5d87e16c116c83acd8ae738826ee544f38fd04",
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/NATIVE_POINTER_BRIDGE.json": "78eb37ba9a25af45e2c5d421c99a28f87bc461cdeab1ceeb12c30ae9ea77bfc5",
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/joined_readout.py": "1bf9bda370c20a6a23c253654f5fe60160bca20fd5d24b0548bac5e98ba6b467",
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/native_cycle_meter.py": "4db8d707879c416ca5002b782a70e07aa71d4d9a7fe7111b76a64828c1a05329",
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/native_pointer_bridge.py": "22c599f27f9fa1b0c0d5d0b83284367457ef2aa68f96ce3879f018f2e832f538",
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_flux_topology/audit_cycle_pointer.py": "d9e803ed3d1c21f7d22b087b7f4afe307100c0b39af094813748b18cefcc9ccd",
+    "openwave-tuning/next/ROW1_NATIVE/routes/gauge_loop/GAUGE_LOOP.json": "f9b0b1648f8a9dc06fdc861ca89d587d336ce08ed134f55130fce1007228ee4d",
+    "openwave-tuning/next/ROW1_NATIVE/routes/gauge_loop/gauge_loop.py": "b3367e587869f328cd99031004e11c1c1f0ece20df6f57bf790c448bc1629daa",
+    "openwave-tuning/next/ROW1_NATIVE/routes/quantum_energy/JOINT_CHARGE_ENERGY.json": "6f37a1d861c7ba148aac4db653a1340577a417c5a4d89eac7e60b3c4f6b407d9",
+    "openwave-tuning/next/ROW1_NATIVE/routes/quantum_energy/joint_charge_energy.py": "ec625a873083c0b0805afb3b6e21639fa857ae00ac03389e20f33d132d9c22a2",
+    "openwave-tuning/next/ROW1_NATIVE/routes/quantum_operational/OPERATIONAL_QUANTUM_REVIEW.json": "8e7b32459b12e1dc099e5233b9ec1f230087073d3ea17993e5a283df6c050d4e",
+    "openwave-tuning/next/ROW1_NATIVE/routes/quantum_operational/operational_readout.py": "21efed751a46b4ddfaa63116d1eef7b235f799c2894e21081fa327132b48c42d",
+    "openwave-tuning/next/ROW1_NATIVE/routes/quantum_operational/operational_states.npz": "5a4b2e3473755b9c4299301b1bcfef74fe2103fc9353e111acff9aa0c699b38d",
+    "openwave-tuning/next/ROW1_NATIVE/routes/quantum_operational/review_operational.py": "9949d637881c25a6bd16bc4213eae0b91e0e890f5e4ae71f7a78d04d24719595",
+    "openwave-tuning/next/ROW1_NATIVE/routes/quantum_spatial/QUANTUM_SPATIAL.json": "b61c8b021703b899157f7f7cb4518a58c4d93731d15e0871fc7f0957143f777e",
+    "openwave-tuning/next/ROW1_NATIVE/routes/quantum_spatial/quantum_spatial.py": "6968432ace53971bf7e05c13be5dbcbbca99c4bde0452a382bad50c6a11f64fd",
+    "openwave-tuning/next/ROW1_NATIVE/routes/quantum_spatial/quantum_spatial_states.npz": "441fdc68073e438b6a04577f5632b2f0f80b4d2daa11652c7fac5bebdbb78d86",
+    "openwave-tuning/next/ROW1_NATIVE/routes/spatial/NATIVE_DUAL_WINDING.json": "3e5f99ed88666485c124976df97585bbb7962dbb7df6583109238c4cd2d2927c",
+    "openwave-tuning/next/ROW1_NATIVE/routes/spatial/native_dual_winding.py": "ced04b04be7f903709efa63a7447d97fd4fb1861d39e9b62b25e52044929c477",
+    "openwave-tuning/validation/bridges/providers/fock.py": "353f94ca4d09af9b3f7f33143f78a396cf3f489e8ae91b430ffb32e615ad44f9",
+    "reverse-engineering-reality/Lean/Screen/DiscreteCoulombGreen.lean": "a58830d60688b7df505d2c8cbc1ff2290b057f9be055def25db7006fae7bd078",
+    "reverse-engineering-reality/code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
+    "reverse-engineering-reality/code/openwave_row1_native/manifest.json": "d5e692b0597dbbeafabb88e6f7d417da8f7d7d1fd39a334c08fa73ffe40e8d90",
+    "reverse-engineering-reality/code/openwave_row1_native/native_charge_winding.py": "8526fbf0cb417172d5df320a8ed75a9dea3fe1ceaaefc4591a5f478344b8dbec",
+    "reverse-engineering-reality/code/openwave_row1_native/native_kernel.py": "b84e5ecdfbb8727a91571ac1b3ec6614f88ebf64b72fab0e8d35c338f08b1cff",
+    "reverse-engineering-reality/code/openwave_row1_native/source_packet.json": "07ecff52d11e4f7fcdf907b17488603b0d0a5ff1644b01c583a86ddbbd0ec2ea",
+    "reverse-engineering-reality/code/openwave_row1_protocol/LAW_CONTROLS.json": "756a15690f0b720d215323757fed1ddf0c9f123979f81bdf66b9526c042054ce",
+    "reverse-engineering-reality/code/openwave_row1_protocol/law_controls.py": "27842accc12759e0a60a84a01d94fe780eea27c58c50a75ed0e075aac4ed18c0",
+    "reverse-engineering-reality/code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
+    "reverse-engineering-reality/model/native_clock/configuration.py": "f5d5b7ac614a5a1080015a1b1fa16e4d450fbb95a1ee4a2633f844823cdeeae9",
+    "reverse-engineering-reality/model/native_interface/pointer.py": "30485fdee1d221460c67b9791a34b7fa24b4dece718ab91bdfc3cbb24ca591ac",
+    "reverse-engineering-reality/model/native_spatial_refinement/PROOF.md": "c411a13d5f92b38721eb6624291e01571a4363dcca9f80cb5f141da794c7bb1b",
+    "reverse-engineering-reality/model/native_spatial_refinement/source.py": "b4576a37b7610418f810ab7beebf5e52a7eeab80f66c7260ace149de9c733733",
+    "reverse-engineering-reality/model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "reverse-engineering-reality/model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+    "reverse-engineering-reality/model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "reverse-engineering-reality/model/reference_recovery/recovery.py": "dbb1cb54026558a16dea67ed8e2ceb9b5000033a92e65074327666c4e3d6d15b"
+  },
+  "snapshot_execution": {
+    "schema": "oph.chain.historical_source_snapshot.v1",
+    "original_live_root": "/Users/muellerberndt/Projects/oph-meta",
+    "scope": "The declared audited source versions are executed in an isolated original-relative-path workspace. This result does not validate the concurrently edited live tree.",
+    "original_reviewed_input_count": 145,
+    "additional_discovered_local_files": 172,
+    "substitution": {
+      "logical_path": "openwave-push/issues/N3D_cubic_routing/n3dlib.py",
+      "archived_origin": "openwave-push/issues/N3D_cubic_routing/consumed/n3dlib.py",
+      "executed_sha256": "6459c6f096c97922d4905c0318ca32c4a26fb35854f8154d18008d20e636b7ac",
+      "live_sha256_observed_at_packaging": "f26cbb112c23e554609e5bcbe65d3dd09e33d7a66bc921740b8859d48245318f",
+      "content_rewritten": false
+    },
+    "source_layout_preserved": true,
+    "symlink_fallback": false,
+    "mutable_root_fallback": false,
+    "independent_audit_pins_changed": false,
+    "runtime_isolation": {
+      "historical_workspace": true,
+      "all_successful_project_reads_inside_snapshot": true,
+      "mutable_source_read_probe_rejected": true,
+      "blocked_mutable_reads": [
+        "/Users/muellerberndt/Projects/oph-meta/openwave-push/issues/N3D_cubic_routing/n3dlib.py"
+      ],
+      "snapshot_files_read": 526,
+      "snapshot_module_files": [
+        "openwave-tuning/auditor/native_field_bridge/field_feedback.py",
+        "openwave-tuning/auditor/native_field_bridge/reciprocal_feedback.py",
+        "openwave-tuning/candidate/oph_openwave/__init__.py",
+        "openwave-tuning/candidate/oph_openwave/construction.py",
+        "openwave-tuning/candidate/oph_openwave/fiber_preparation.py",
+        "openwave-tuning/candidate/oph_openwave/geometry.py",
+        "openwave-tuning/candidate/oph_openwave/modular_native.py",
+        "openwave-tuning/candidate/oph_openwave/quantum_records.py",
+        "openwave-tuning/candidate/oph_openwave/uniform_native.py",
+        "openwave-tuning/next/C10/charged_reservoir.py",
+        "openwave-tuning/next/C10/joint_source.py",
+        "openwave-tuning/next/C10/modular_field_adapter.py",
+        "openwave-tuning/next/C10/spectral_readout.py",
+        "openwave-tuning/next/C11/boundary_charge.py",
+        "openwave-tuning/next/C9/fermionic_shared_records.py",
+        "openwave-tuning/next/C9/fermionic_uniform_reference.py",
+        "openwave-tuning/next/CHAIN/audit_clock_force/frozen_common_clock.py",
+        "openwave-tuning/next/CHAIN/audit_clock_force/frozen_force_measurement.py",
+        "openwave-tuning/next/CHAIN/clock/common_clock.py",
+        "openwave-tuning/next/CHAIN/dynamical_field/dynamical_field.py",
+        "openwave-tuning/next/CHAIN/field_limit/controlled_field.py",
+        "openwave-tuning/next/CHAIN/force/force_measurement.py",
+        "openwave-tuning/next/CHAIN/integration/gates.py",
+        "openwave-tuning/next/CHAIN/integration/integrate.py",
+        "openwave-tuning/next/CHAIN/integration/snapshot_guard.py",
+        "openwave-tuning/next/CHAIN/integration/strict_facade.py",
+        "openwave-tuning/next/CHAIN/particle/particle_chain.py",
+        "openwave-tuning/next/ROW1_NATIVE/routes/quantum_operational/operational_readout.py",
+        "openwave-tuning/next/ROW1_NATIVE/routes/quantum_spatial/quantum_spatial.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/__init__.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/__init__.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/claims.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/constants/__init__.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/constants/oph_pixel.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/__init__.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/array_geometry.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/echosahedral_dynamics.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/echosahedral_federation.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/graph.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/icosahedral.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/patch_state.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/patchnet.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/pixel_scale.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/screen_microphysics.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/screen_ports.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/__init__.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/anneal.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/consensus_certificate.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/kernel_dispatcher.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/modular.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/positive_geometry.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/repair.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/__init__.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/bundle.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/cross_repo_artifacts.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/hashes.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/particle_input_policy.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/production_envelope.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/verifier.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/finite_groups.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/__init__.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/a5_sm_certificate.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/covariant_overlap.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/higgs_carrier.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/mar_sieve.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/physical_a5_sm_requirements.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/repair_projection.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/source_to_eft.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/yang_mills_gap.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/__init__.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/base.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/clock.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/registry.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/s3.py",
+        "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/z2.py",
+        "reverse-engineering-reality/model/__init__.py",
+        "reverse-engineering-reality/model/anharmonic_transfer/__init__.py",
+        "reverse-engineering-reality/model/anharmonic_transfer/environment.py",
+        "reverse-engineering-reality/model/common_source/__init__.py",
+        "reverse-engineering-reality/model/common_source/chiral_candidate/__init__.py",
+        "reverse-engineering-reality/model/common_source/chiral_candidate/gaussian_source.py",
+        "reverse-engineering-reality/model/common_source/composition.py",
+        "reverse-engineering-reality/model/common_source/continuation_bounds.py",
+        "reverse-engineering-reality/model/common_source/encoded_memory.py",
+        "reverse-engineering-reality/model/common_source/encoded_observer.py",
+        "reverse-engineering-reality/model/common_source/exact_output.py",
+        "reverse-engineering-reality/model/common_source/experiment.py",
+        "reverse-engineering-reality/model/common_source/gauge_matter.py",
+        "reverse-engineering-reality/model/common_source/infinite_history.py",
+        "reverse-engineering-reality/model/common_source/mass_response/__init__.py",
+        "reverse-engineering-reality/model/common_source/mass_response/model.py",
+        "reverse-engineering-reality/model/common_source/native_join.py",
+        "reverse-engineering-reality/model/common_source/native_routing.py",
+        "reverse-engineering-reality/model/common_source/open_bounds.py",
+        "reverse-engineering-reality/model/common_source/open_environment.py",
+        "reverse-engineering-reality/model/common_source/open_native.py",
+        "reverse-engineering-reality/model/common_source/open_observer.py",
+        "reverse-engineering-reality/model/common_source/open_protocol.py",
+        "reverse-engineering-reality/model/common_source/operational.py",
+        "reverse-engineering-reality/model/common_source/output_certificate.py",
+        "reverse-engineering-reality/model/common_source/protocol.py",
+        "reverse-engineering-reality/model/common_source/quantum_native.py",
+        "reverse-engineering-reality/model/common_source/records.py",
+        "reverse-engineering-reality/model/common_source/refinement.py",
+        "reverse-engineering-reality/model/common_source/scalar_coupling.py",
+        "reverse-engineering-reality/model/common_source/slow_geometry.py",
+        "reverse-engineering-reality/model/common_source/smooth_history.py",
+        "reverse-engineering-reality/model/common_source/smooth_protocol.py",
+        "reverse-engineering-reality/model/common_source/thermal_clock.py",
+        "reverse-engineering-reality/model/compiled_native_interface/__init__.py",
+        "reverse-engineering-reality/model/compiled_native_interface/construction.py",
+        "reverse-engineering-reality/model/event_circulation/__init__.py",
+        "reverse-engineering-reality/model/event_circulation/construction.py",
+        "reverse-engineering-reality/model/federated_observer/__init__.py",
+        "reverse-engineering-reality/model/federated_observer/source.py",
+        "reverse-engineering-reality/model/field_regions/__init__.py",
+        "reverse-engineering-reality/model/field_regions/regions.py",
+        "reverse-engineering-reality/model/field_thermal/__init__.py",
+        "reverse-engineering-reality/model/field_thermal/thermal.py",
+        "reverse-engineering-reality/model/full_fock_field/__init__.py",
+        "reverse-engineering-reality/model/full_fock_field/bounds.py",
+        "reverse-engineering-reality/model/full_fock_field/field.py",
+        "reverse-engineering-reality/model/interacting_field/__init__.py",
+        "reverse-engineering-reality/model/interacting_field/lattice.py",
+        "reverse-engineering-reality/model/interacting_field/source.py",
+        "reverse-engineering-reality/model/laboratory_clock/__init__.py",
+        "reverse-engineering-reality/model/laboratory_clock/event_geometry.py",
+        "reverse-engineering-reality/model/local_repair_family/__init__.py",
+        "reverse-engineering-reality/model/local_repair_family/local_bias.py",
+        "reverse-engineering-reality/model/native_circulation/__init__.py",
+        "reverse-engineering-reality/model/native_circulation/construction.py",
+        "reverse-engineering-reality/model/native_clock/__init__.py",
+        "reverse-engineering-reality/model/native_clock/clock.py",
+        "reverse-engineering-reality/model/native_clock/configuration.py",
+        "reverse-engineering-reality/model/native_clock/regional_preparation.py",
+        "reverse-engineering-reality/model/native_equilibration/__init__.py",
+        "reverse-engineering-reality/model/native_equilibration/construction.py",
+        "reverse-engineering-reality/model/native_equilibration/cut_completion.py",
+        "reverse-engineering-reality/model/native_interface/__init__.py",
+        "reverse-engineering-reality/model/native_interface/construction.py",
+        "reverse-engineering-reality/model/native_interface/pointer.py",
+        "reverse-engineering-reality/model/native_modular_reference/__init__.py",
+        "reverse-engineering-reality/model/native_modular_reference/common_caps.py",
+        "reverse-engineering-reality/model/native_modular_reference/completed_clock.py",
+        "reverse-engineering-reality/model/native_modular_reference/construction.py",
+        "reverse-engineering-reality/model/native_modular_reference/full_flow.py",
+        "reverse-engineering-reality/model/native_modular_reference/local_preparation.py",
+        "reverse-engineering-reality/model/native_modular_reference/preparation.py",
+        "reverse-engineering-reality/model/native_modular_reference/regional.py",
+        "reverse-engineering-reality/model/native_program/__init__.py",
+        "reverse-engineering-reality/model/native_program/interpreter.py",
+        "reverse-engineering-reality/model/native_quantum_history/__init__.py",
+        "reverse-engineering-reality/model/native_quantum_history/construction.py",
+        "reverse-engineering-reality/model/native_relational_readout/__init__.py",
+        "reverse-engineering-reality/model/native_relational_readout/construction.py",
+        "reverse-engineering-reality/model/observer/__init__.py",
+        "reverse-engineering-reality/model/observer/native.py",
+        "reverse-engineering-reality/model/observer/p_response/__init__.py",
+        "reverse-engineering-reality/model/observer/p_response/experiment.py",
+        "reverse-engineering-reality/model/observer/quantum_memory.py",
+        "reverse-engineering-reality/model/observer/quantum_mixing.py",
+        "reverse-engineering-reality/model/observer/record_recovery.py",
+        "reverse-engineering-reality/model/observer/scalar_response/__init__.py",
+        "reverse-engineering-reality/model/observer/scalar_response/experiment.py",
+        "reverse-engineering-reality/model/observer/source_discrimination/__init__.py",
+        "reverse-engineering-reality/model/observer/source_discrimination/circuit.py",
+        "reverse-engineering-reality/model/observer/source_discrimination/experiment.py",
+        "reverse-engineering-reality/model/observer/source_scalar/__init__.py",
+        "reverse-engineering-reality/model/observer/source_scalar/bounds.py",
+        "reverse-engineering-reality/model/observer/source_scalar/compiler.py",
+        "reverse-engineering-reality/model/observer/source_scalar/cutoff.py",
+        "reverse-engineering-reality/model/observer/source_scalar/experiment.py",
+        "reverse-engineering-reality/model/observer/source_scalar/field.py",
+        "reverse-engineering-reality/model/observer_reconstruction/__init__.py",
+        "reverse-engineering-reality/model/observer_reconstruction/native_geometry.py",
+        "reverse-engineering-reality/model/predictions/__init__.py",
+        "reverse-engineering-reality/model/predictions/observer_instrument.py",
+        "reverse-engineering-reality/model/predictions/protocol.py",
+        "reverse-engineering-reality/model/predictions/repair_response.py",
+        "reverse-engineering-reality/model/primitive_observer/__init__.py",
+        "reverse-engineering-reality/model/primitive_observer/runtime.py",
+        "reverse-engineering-reality/model/primitive_observer/transfer.py",
+        "reverse-engineering-reality/model/record_laws/__init__.py",
+        "reverse-engineering-reality/model/record_laws/burn_in.py",
+        "reverse-engineering-reality/model/record_laws/family.py",
+        "reverse-engineering-reality/model/reference_observation/__init__.py",
+        "reverse-engineering-reality/model/reference_observation/observation.py",
+        "reverse-engineering-reality/model/reference_recovery/__init__.py",
+        "reverse-engineering-reality/model/reference_recovery/recovery.py",
+        "reverse-engineering-reality/model/relativistic_scalar/__init__.py",
+        "reverse-engineering-reality/model/relativistic_scalar/lattice.py",
+        "reverse-engineering-reality/model/repair_identification/__init__.py",
+        "reverse-engineering-reality/model/repair_identification/core.py",
+        "reverse-engineering-reality/model/repair_scheduler/__init__.py",
+        "reverse-engineering-reality/model/repair_scheduler/coins.py",
+        "reverse-engineering-reality/model/scalar_observations/__init__.py",
+        "reverse-engineering-reality/model/scalar_observations/experimental_readout/__init__.py",
+        "reverse-engineering-reality/model/scalar_observations/experimental_readout/canonical_source.py",
+        "reverse-engineering-reality/model/scalar_observations/experimental_readout/executable_source.py",
+        "reverse-engineering-reality/model/scalar_observations/lattice.py",
+        "reverse-engineering-reality/model/scalar_observations/source.py",
+        "reverse-engineering-reality/tools/strict_json.py"
+      ],
+      "python_version": "3.13.7 (main, Sep 20 2025, 15:59:55) [Clang 17.0.0 (clang-1700.0.13.5)]",
+      "numerical_library_versions": {
+        "numpy": "2.3.5",
+        "scipy": "1.16.3",
+        "sympy": "1.14.0",
+        "mpmath": "1.3.0"
+      },
+      "site_startup_disabled": true,
+      "environment_pythonpath_ignored": true
+    }
+  },
+  "source_sha256": {
+    "integrate.py": "970c82a40dd8e7ebae168547fc1768e1173c87addb63c9592aca77c6fd12b03c",
+    "strict_facade.py": "3a7e68dc014cd0679fba5c2f24e7d5d073b59938562113da9f006e0a974afab9",
+    "gates.py": "6d0c024525d2055e116193ed063a17aeac8ca5e607bb329bb0ca3f13c30d5e9e",
+    "seal.py": "44a159ed3f22bc4f78e7fa009cbf0b1b847105a7537c331c1abead60b894ec7a",
+    "run.py": "0aa07252d8a4ddbd03ac62798aeac80add09f056f3cac26e3e56abf43f4ca0bd",
+    "snapshot_guard.py": "45e1e5ec6a3fef78c3e0ae1b992349cb804fc798d2685fb9b5f2bb30fa1a1875",
+    "build_snapshot.py": "e319c39fefc0b2176bf20866851d52c7f1800fc33010c2b65412357208cda259"
+  },
+  "official_rows_changed": [],
+  "all31_physical_complete": false,
+  "common_physics_complete": false,
+  "producer_files_modified": []
+}

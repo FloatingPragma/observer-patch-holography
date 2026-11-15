@@ -1,0 +1,22 @@
+{
+  "schema": "oph.openwave.native_jump_record_scope.v1",
+  "checks": {
+    "native_completeness_exact": true,
+    "same_unconditional_generator_exact": true,
+    "actual_producer_Kraus_matrices_match": true,
+    "different_conditional_count_rates": true,
+    "source_unchanged": true
+  },
+  "degree_six_port_rates_per_unit_seam_rate": {
+    "literal_nonzero_C_or_E_record": 4.5,
+    "literal_load_transfer": 3.0,
+    "recycling_unravelling_jump": 9.0
+  },
+  "all_scheduled_native_events_rate": "M times the per-seam Poisson rate",
+  "interpretation": "H_eff=H-i(9r/2)P_port is the no-jump term of the recycling unravelling on a degree-six graph. Its norm is not the probability of no scheduled native event, no nonzero recorded value, or no load transfer under the declared C/E/MIX records.",
+  "producer_sha256": "6459c6f096c97922d4905c0318ca32c4a26fb35854f8154d18008d20e636b7ac",
+  "producer": "issues/N3D_cubic_routing/n3dlib.py",
+  "auditor_sha256": "6744e300c9e3ef45c054cbcea367217801a2fd91e34230fd2501ba5d65037c72",
+  "scope": "Exact one-seam superoperator identity extended by summing seams. No native full-state evolution is disputed. Conditional jump records require an instrument specification beyond the unconditional generator.",
+  "official_rows_changed": []
+}

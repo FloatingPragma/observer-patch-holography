@@ -1,0 +1,32 @@
+{
+  "schema": "oph.common_source.native_integer_flux.v1",
+  "all_checks_pass": true,
+  "g": 1,
+  "source_preparation": "Existing uniform8 root-cell plane, spin00, all190 coexact vacuum and3 normalized harmonic Gaussians.",
+  "source_clock": "Existing h=1/8 and h/8 phase tick after completed g=1 macro.",
+  "source_prefix_native_whole_iterator_executed": false,
+  "native_appended_meter_all_columns_executed": true,
+  "complete_meter_experiments": 28,
+  "fine_probabilities_evaluated": 12844,
+  "maximum_complete_Gram_residual": 3.595388805950714e-14,
+  "maximum_law_diagnostic_error": 1.4210854715202004e-14,
+  "pointer_Gram_residual": 1.3426564440196915e-15,
+  "wrong_reference_operator_separation": 1.999999999999993,
+  "maximum_complete_common_source_TV_bound": 0.009849646420656015,
+  "actual_joint_daughter_readout": true,
+  "extra_history_register": false,
+  "source_success_normalized": false,
+  "native_2pi_integer_vs_half_control": {
+    "integer_loop_wrong_bit_probability": 1.1556530814651731e-30,
+    "half_mutant_wrong_bit_probability": 0.9999999999999922,
+    "integer_loop_native_error_exact": "15954782756679108675853366597359771/100433627766186892221372630771322662657637687111424552206336",
+    "half_mutant_native_error_exact": "15879638055723394256389938597672303/100433627766186892221372630771322662657637687111424552206336",
+    "complete_Gram_residuals": [
+      1.8590526470397047e-14,
+      2.1226566201861063e-14
+    ],
+    "scope": "Half mutation is a rejected source/curvature control, not an admitted preparation."
+  },
+  "field_Fourier_equivalence": "exp(i t Phi_R)=exp(i t (G_R-n_R))=product_e exp(i t (B^T1_R)_e E_e) on the exact U Gauss fiber. This compiles the exact cancelled observable, not the rounded-Q edge implementation.",
+  "new_state_measurement": "Only named terminal regional fluxes and source clock; no reconstruction of unmeasured intermediate currents."
+}

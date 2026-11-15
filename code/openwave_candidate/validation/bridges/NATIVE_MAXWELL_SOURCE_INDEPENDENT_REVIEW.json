@@ -1,0 +1,17 @@
+{
+  "schema": "oph.native.maxwell.independent_review.v1",
+  "reviewer": "Independent Codex worker; not Fable opposite-team review",
+  "outcome": "PASS_WITH_ONE_WAY_SUPPLIED_FIELD_SCOPE",
+  "endpoint_charge_central_difference_error": 4.615086091064313e-11,
+  "independent_line_quadrature_current_error": 1.2412670766236366e-16,
+  "finite_difference_Fourier_continuity_error": 2.8326925829936707e-11,
+  "augmented_exponential_field_error": 4.0645870398106566e-17,
+  "independent_Gauss_Legendre_work_energy_error": 2.168404344971009e-18,
+  "scope": "Actual coherent native expectation current, half-transit effective charge and supplied straight-line embedding feed existing linear continuum mode. No joint quantum source/field, reciprocal backreaction, finite-volume radiation or derived field dispersion/clock. Held source error and anisotropy/embedding are declared assumptions.",
+  "full_criterion_met": false,
+  "source_sha256": {
+    "validation/bridges/review_native_maxwell_source.py": "dff22cff991c83fe92b83e60d8eb706f56caa6c628a965460f1cdecdd16d8c7d",
+    "validation/bridges/native_maxwell_source.py": "735c83ee5e1cc8e984c595ecfb937d827b334c063754e8f38a93c51018320a5c",
+    "validation/bridges/providers/seam_maxwell_continuum.py": "c1963e2b1825fc74a05f5bab200bbc9fc56d6315fae9ce8d46eeb815a09cfd87"
+  }
+}

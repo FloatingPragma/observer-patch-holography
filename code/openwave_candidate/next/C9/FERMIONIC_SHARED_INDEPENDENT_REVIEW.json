@@ -1,0 +1,66 @@
+{
+  "schema": "oph.c9.fermionic_shared_independent_review.v1",
+  "checks": {
+    "independent_actual_H": true,
+    "every_C_E_MIX_K": true,
+    "complete_poststates": true,
+    "complete_event_probabilities": true,
+    "complete_event_energy": true,
+    "external_reference_retained": true,
+    "external_reference_joint_positive": true,
+    "dropping_CAR_phases_changes_output": true
+  },
+  "algebra": {
+    "schema": "oph.c9.car_native_algebra_review.v1",
+    "checked_outcome_arrows": 2808,
+    "checks": {
+      "each_group_partial_bijection": true,
+      "four_quarter_weights_complete": true,
+      "fixed_number_and_Pauli_preserved": true,
+      "modular_Gauss_preserved": true,
+      "one_load_JW_phase_is_identity": true,
+      "nontrivial_fermion_sign_exercised": true,
+      "continuous_integer_representative_gauge_rejected": true
+    },
+    "wrap_control": {
+      "before_integer_gauss": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "after_integer_gauss": [
+        3,
+        1,
+        0,
+        -3,
+        0,
+        0
+      ],
+      "continuous_representative_phase_difference": 0.5910404133226793,
+      "discrete_phase_difference": 2.4492935982947064e-16
+    },
+    "scope": "Exact local algebra for arbitrary unmodified spectator bits/records; no physical species, sea preservation or continuumU1 claim.",
+    "full_criterion_met": false,
+    "official_rows_changed": [],
+    "source_sha256": {
+      "next/C9/audit_car_native_algebra.py": "266d6e55bacad7143e07306f4a6a8db9719a3ce9e510e88edc8dc5e1625068c0"
+    }
+  },
+  "dimension": 60,
+  "phase_omission_trace_distance": 0.09920515577407539,
+  "Hamiltonian_error": 0.0,
+  "every_Kraus_error": 0.0,
+  "complete_output_error": 1.3985787785349405e-17,
+  "scope": "Exact finite fixed-number CAR source/instrument attachment. Local discreteZ3 covariance; continuous integer-representative gauge rejected. Positive physical sea/species and monitoring stationarity are not established.",
+  "official_rows_changed": [],
+  "source_sha256": {
+    "next/C9/review_fermionic_shared.py": "d677090f36a2861270628d5834880d60ec23213ee3dfeea9ab6ce4b9b989a22b",
+    "next/C9/fermionic_shared_records.py": "623b2f3a18f3c30530bc0cc222a3062cb9cb893c35a80076c9775cef9c487e72",
+    "next/C9/FERMIONIC_SHARED_RECORDS.json": "ee60b58d6cc73a85deaa4047906b842527024c84ae2f85a2ba33406614fb5eba",
+    "next/C9/audit_car_native_algebra.py": "266d6e55bacad7143e07306f4a6a8db9719a3ce9e510e88edc8dc5e1625068c0"
+  },
+  "full_criterion_met": false
+}

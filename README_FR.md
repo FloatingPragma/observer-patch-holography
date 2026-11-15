@@ -7,7 +7,7 @@
 </p>
 <p align="center"><b>▶ <a href="https://particles.floatingpragma.ai/">Ouvrir la simulation en direct</a></b> · <a href="https://particles.floatingpragma.ai/?page=matches">Tous les accords avec notre univers</a> · <a href="https://particles.floatingpragma.ai/?page=journey">Des observateurs aux particules</a></p>
 
-[**Simulation en direct**](https://particles.floatingpragma.ai/) · [Article principal](https://philpapers.org/rec/MUEFOC) · [Livre](https://oph-book.floatingpragma.ai/) · [Carnet](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) · [Bibliothèque Lean](Lean/) · [Reproduire](REPRODUCE.md) · [Pragma Research](https://floatingpragma.ai/) · [English](README.md)
+[**Simulation en direct**](https://particles.floatingpragma.ai/) · [Article principal](https://philpapers.org/rec/MUEFOC) · [Livre](https://oph-book.floatingpragma.ai/) · [FAQ sur la réalité (en anglais)](https://floatingpragma.ai/faq/) · [Carnet](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) · [Bibliothèque Lean](Lean/) · [Reproduire](REPRODUCE.md) · [Pragma Research](https://floatingpragma.ai/) · [English](README.md)
 
 [![Mandatory Suite](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml)
 [![Lean CI](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml)

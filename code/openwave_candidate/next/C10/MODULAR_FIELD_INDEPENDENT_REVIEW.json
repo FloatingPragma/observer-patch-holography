@@ -1,0 +1,90 @@
+{
+  "schema": "oph.c10.modular_field_independent_review.v1",
+  "checks": {
+    "source_snapshot_unchanged": true,
+    "both_fullsource_experiments_pass": true
+  },
+  "experiments": [
+    {
+      "domain": "oneLoadN3",
+      "checks": {
+        "independent_sourceH": true,
+        "complete_state_reproduced": true,
+        "fieldgain_reproduced": true,
+        "field_feedback_on_source": true,
+        "uniform_compression_rejected": true,
+        "closed_total_energy": true,
+        "actual_exchange_power": true,
+        "every_native_probability_energy_reproduced": true,
+        "exact_periodic_Faraday": true
+      },
+      "feedback_position_difference": 0.0031923782970457795,
+      "uniform_code_electric_leak": 0.9188126395879993,
+      "state_error": 3.3307566446503927e-16,
+      "ledger_error": 1.3877787807814457e-16,
+      "field_gain": 0.10999292726054755,
+      "field_exchange_power": 0.164962618253144,
+      "power_finite_difference_error": 9.9744101866861e-12,
+      "native_work": {
+        "C": {
+          "total_probability": 1.0000000000000002,
+          "work": -0.03295495055162467
+        },
+        "E": {
+          "total_probability": 1.0000000000000002,
+          "work": -0.08667869170734255
+        },
+        "MIX": {
+          "total_probability": 1.0,
+          "work": -0.05981682112948383
+        }
+      }
+    },
+    {
+      "domain": "CAR3N6",
+      "checks": {
+        "independent_sourceH": true,
+        "complete_state_reproduced": true,
+        "fieldgain_reproduced": true,
+        "field_feedback_on_source": true,
+        "uniform_compression_rejected": true,
+        "closed_total_energy": true,
+        "actual_exchange_power": true,
+        "every_native_probability_energy_reproduced": true,
+        "exact_periodic_Faraday": true
+      },
+      "feedback_position_difference": 0.0026508644593173872,
+      "uniform_code_electric_leak": 12.936778965414847,
+      "state_error": 9.912240908045469e-17,
+      "ledger_error": 1.6653345369377348e-16,
+      "field_gain": 0.3451557269797323,
+      "field_exchange_power": 0.5737457214410304,
+      "power_finite_difference_error": 5.267808411701935e-11,
+      "native_work": {
+        "C": {
+          "total_probability": 0.9999999999999973,
+          "work": -0.11753332300347807
+        },
+        "E": {
+          "total_probability": 0.9999999999999974,
+          "work": -0.27365889184309
+        },
+        "MIX": {
+          "total_probability": 0.9999999999999976,
+          "work": -0.1955961074232837
+        }
+      }
+    }
+  ],
+  "source_sha256": {
+    "next/C10/review_modular_field.py": "a1602a62a31b4e1474efb1bef654b9337065449a30ad2665e8f3d7be328f6fbe",
+    "next/C10/modular_field_adapter.py": "f964dd6225af37267af8293f3a380524520e3ab83f77e30198f9126fa4c9dc32",
+    "next/C10/MODULAR_FIELD_ADAPTER.json": "4b45213c2b162b97f7b9a2a2c2a51274cfe70da0f96b3c05d21c379419b35268",
+    "next/C9/fermionic_shared_records.py": "623b2f3a18f3c30530bc0cc222a3062cb9cb893c35a80076c9775cef9c487e72",
+    "candidate/oph_openwave/modular_native.py": "1b6e25eb63ca190e1b5ef999b0b43cefb790e7872a58ffdb40256662ca65959a",
+    "candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907"
+  },
+  "scope": "Actualfull18/120state reciprocal modularfield extension. Periodic half-record energy is a declared replacement of integerL05halfF\u00b2; +2g magnetic scalar included. Fullstate nativework retained. No uniform/character compression, Maxwell3D, physicalalpha/spin/species or outgoingradiation claim.",
+  "full_criterion_met": false,
+  "official_rows_changed": []
+}

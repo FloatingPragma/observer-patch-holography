@@ -1,0 +1,63 @@
+{
+  "schema": "oph.energy_gev.adversarial_review.v1",
+  "source_sha256": {
+    "run_energy_gev.py": "3467d24655823445769115c25324b13af07d714417bcbcf1bb9f9fc9ef41ac05",
+    "ENERGY_GEV.json": "ebacd40494d5dbf0a5c60133b99cf7f836d22a0abe8db503c39d4bddd0b90543",
+    "review_energy_gev.py": "1e8edfd5cc1c6e7554a7fe29b7f9451f6f61fb1311580fdc4b82d67e1d260388"
+  },
+  "povm": {
+    "basis_overlap": 8.828007716005884e-19,
+    "complement_min_eigenvalue": -1.550438389734337e-16,
+    "dimension": 87,
+    "scope": "Rank-one cross-branch superposition apparatus, not a port/current measurement."
+  },
+  "one_pair_native_probe": {
+    "joint_shape": [
+      631,
+      87
+    ],
+    "normalization": 0.9999999999999999,
+    "joint_vs_channel_spectral_marginal_error": 5.662137425588298e-15,
+    "joint_vs_product_of_marginals_max_difference": 0.012153819444448544,
+    "scope": "A complete sequential native-record plus spectral apparatus has a joint law; two separate marginals do not determine it."
+  },
+  "calibration_input_probes": [
+    {
+      "inputs": [
+        1e-300,
+        1e+300
+      ],
+      "status": "rejected",
+      "type": "ValueError"
+    },
+    {
+      "inputs": [
+        1e+300,
+        1e-300
+      ],
+      "status": "rejected",
+      "type": "ValueError"
+    },
+    {
+      "inputs": [
+        true,
+        0.000511
+      ],
+      "status": "rejected",
+      "type": "ValueError"
+    }
+  ],
+  "producer_scope_supported": [
+    "GeV outputs explicitly calibrated",
+    "negative branches retained",
+    "vacuum/species/mass prediction not claimed"
+  ],
+  "unresolved_resources": [
+    "Uniform modular-fiber preparation",
+    "relative positive/negative branch coherence",
+    "complete nonlocal spectral-basis or energy-projector apparatus",
+    "physical vacuum-to-particle and common clock/length dictionary"
+  ],
+  "official_rows_promoted": 0,
+  "full_producer_run_repeated": false
+}

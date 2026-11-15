@@ -1,0 +1,70 @@
+{
+  "cases": [
+    {
+      "size": 2,
+      "routes": 48,
+      "maximum_seams": 5,
+      "all_integer_Bj": true,
+      "all_reverse_routes": true,
+      "source_currents_sha256": "01638cc128ff4e378cf1706ab0a0a90ba9ebb00fdd4d6c1bdfc27b2f880f8116"
+    },
+    {
+      "size": 3,
+      "routes": 162,
+      "maximum_seams": 5,
+      "all_integer_Bj": true,
+      "all_reverse_routes": true,
+      "source_currents_sha256": "655fe617c86edee4ae0a35c6cd6eb7fc35ed92be9e3b2bede43205bc433b94a7"
+    },
+    {
+      "size": 4,
+      "routes": 384,
+      "maximum_seams": 5,
+      "all_integer_Bj": true,
+      "all_reverse_routes": true,
+      "source_currents_sha256": "8189159889df076ccb4528d36ab0af709060e8ecc82fc56f2bae73333be3ebf1"
+    }
+  ],
+  "native_signed_shift": {
+    "integer_cases": [
+      {
+        "coordinate_bits": 1,
+        "all_reversible_columns": 4,
+        "logical_gates": 4,
+        "clean_scratch_return": true,
+        "dirty_scratch_defined_bijection": true,
+        "all_momentum_rail_intertwiners": 4
+      },
+      {
+        "coordinate_bits": 2,
+        "all_reversible_columns": 8,
+        "logical_gates": 10,
+        "clean_scratch_return": true,
+        "dirty_scratch_defined_bijection": true,
+        "all_momentum_rail_intertwiners": 8
+      },
+      {
+        "coordinate_bits": 3,
+        "all_reversible_columns": 32,
+        "logical_gates": 22,
+        "clean_scratch_return": true,
+        "dirty_scratch_defined_bijection": true,
+        "all_momentum_rail_intertwiners": 16
+      },
+      {
+        "coordinate_bits": 4,
+        "all_reversible_columns": 128,
+        "logical_gates": 40,
+        "clean_scratch_return": true,
+        "dirty_scratch_defined_bijection": true,
+        "all_momentum_rail_intertwiners": 32
+      }
+    ],
+    "native_size4_all_columns": 8,
+    "native_pulses": 98,
+    "native_operator_residual": 5.767102613054847e-15,
+    "first_export_Gram_trace": 1.1989248096923832e-31,
+    "complete_Gram_residual": 1.1084476686549111e-14,
+    "native_operator_error_bound_exact": "695420982517153576583007351089997/6277101735386680763835789423207666416102355444464034512896"
+  }
+}

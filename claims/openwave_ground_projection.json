@@ -1,0 +1,39 @@
+{
+  "schema": "oph.openwave.ground_energy_projection.v1",
+  "claims": [
+    {
+      "id": "finite_ground_energy_projection",
+      "status": "independently_reviewed_component",
+      "statement": "For the declared N16 compact-fiber source and |lambda|<=4, the exact free-field energy projection has 0<=E_lambda,Lambda-E_lambda<=384*sqrt(358/(Lambda-358)) for Lambda>358.",
+      "premises": [
+        "Declared autonomous full CAR source at h=1/8,m=1,a=1/2,b=3,N16,kappa0.",
+        "Translation-invariant Gauss reference and the exact interacting variational upper E0<-50.",
+        "The projection compresses the actual Weyl operators; it does not exponentiate truncated coordinates."
+      ],
+      "native_ground_preparation_generated": false,
+      "full_OpenWave_criterion_met": false
+    }
+  ],
+  "proof": "code/openwave_audit/GROUND_ENERGY_PROJECTION_PROOF.md",
+  "code": "code/openwave_audit/ground_projection_bounds.py",
+  "source_manifest": "openwave-tuning/common_dynamics/autonomous_ground_projection/MANIFEST.json",
+  "source_manifest_sha256": "cbf02ae85edaa0adf29d3b83075afc3d107b0406945954979af5f45819282fa1",
+  "proof_sha256": "06df1f7f1f66d51bcb0a8f2abf42b4eac0a19b6c41a997181ea873406497cb49",
+  "code_sha256": "6a00005f7ecf0e70689620e94672a412ad3d53cb71d02fb147fd5276e4b2bba3",
+  "independent_reviews": [
+    {
+      "manifest": "openwave-tuning/next/CHAIN6/autonomous_ground_projection_review/MANIFEST.json",
+      "sha256": "640ed163834af306e02a6279a5afa4152c01582e11d917ea59b7356200da6c22",
+      "scope": "Complete declared source component; no physical-row award or full giant-word execution."
+    }
+  ],
+  "internal_rows_added": 0,
+  "official_OpenWave_awards_added": 0,
+  "public_source_closure": false,
+  "nonclaims": [
+    "No executed interacting-ground preparation.",
+    "No interacting continuum, running-coupling onset or physical-row validation."
+  ],
+  "results": "code/openwave_audit/ground_projection_bounds.json",
+  "results_sha256": "ebed5cb2ba835c8b9ded3d7a7bb7e2214f1159292863c116301307584816e44b"
+}

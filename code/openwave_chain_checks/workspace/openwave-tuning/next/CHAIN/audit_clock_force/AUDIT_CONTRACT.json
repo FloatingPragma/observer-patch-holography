@@ -1,0 +1,111 @@
+{
+  "schema": "oph.chain.opposing_audit_contract.v1",
+  "reviewer": "worker7",
+  "independent_of_producer": true,
+  "result": "PASS_SCOPED_WITH_ADMISSION_GAPS",
+  "valid_member_scientific_claims_pass": true,
+  "general_untrusted_input_admission_pass": false,
+  "scientific_blockers": [],
+  "findings": [
+    {
+      "claim": "clock.general_density_input_validation",
+      "status": "FAIL",
+      "evidence": {
+        "classification": "API hardening gap; positivity and finiteness are mathematical input preconditions, not a false finite-member theorem",
+        "tests": {
+          "negative_density": {
+            "rejected": false,
+            "nonfinite_output": false
+          },
+          "negative_density_trajectory": {
+            "rejected": false,
+            "nonfinite_output": false
+          },
+          "nan_density": {
+            "rejected": false,
+            "nonfinite_output": true
+          }
+        }
+      }
+    },
+    {
+      "claim": "force.general_rate_horizon_input_validation",
+      "status": "FAIL",
+      "evidence": {
+        "classification": "API hardening gap outside frozen beta/kappa/nu/T member",
+        "tests": {
+          "negative_horizon": {
+            "rejected": false,
+            "minimum_probability": -0.0007287251660018722,
+            "sum": 0.9999999999999999
+          },
+          "negative_rate": {
+            "rejected": false,
+            "minimum_probability": -0.00038043031401657003,
+            "sum": 0.9999999999999999
+          }
+        }
+      }
+    }
+  ],
+  "subjects": {
+    "clock": {
+      "source_id": "C10_interacting_allnumber384_Z6",
+      "source_file_sha256": "eee29493c0cc8a2bfdaf2868fdce82e10d055535f8ee0e6a0b4b818ef9fb38db",
+      "contract_sha256": "885233455b5402be39c8612266a0ec735fe435b01d076be8df9ff08689a86be7",
+      "source_H_sha256_le_float64": "32dfd62f776c28e532419b3c4cd61ef50bd43914e0c8cb52408f0678995c6834",
+      "preparation_sha256_le_complex128": "8a99dd2d77937e5e750212cc47f397a1e6699e35f6c2d40115bb2fdd1114014b",
+      "independently_rebuilt_MIX_operators_sha256": "bdd43a97ecd0456bab7dadba6e885c42c137f9a7dd4e3e683daf29a0135b17d0",
+      "frozen_source_copy": "frozen_common_clock.py"
+    },
+    "force": {
+      "source_id": "frozen-reciprocal-two-mobile-literal-C-side2-96ports",
+      "manifest_sha256": "f4f2f6b490aef1a87eb0fd6b5c07c429d5f394baf4414e0f39b7dc309babba1e",
+      "contract_sha256": "fd3087e4164f309daa41bc4c819cdf9ce63c69cc53d88cd9c9521dfbaea24844",
+      "source_manifest_sha256": "4597dc9c226d203d890bc3d3a929bbe1be80e2dc57ec03898c77da4fe5b954e1",
+      "field_manifest_sha256": "612aedd40f13faea2b80b5c31d4afbb19cb2332ff22db5b459ac2ae936879008",
+      "preparation": {
+        "x": [
+          0,
+          1
+        ],
+        "probabilities": [
+          "1/2",
+          "1/2"
+        ],
+        "y": 9,
+        "labels_retained": true
+      },
+      "finite_clock": {
+        "horizon": "1/1000",
+        "nu": 1,
+        "beta": 4,
+        "kappa": 1
+      },
+      "frozen_source_copy": "frozen_force_measurement.py"
+    }
+  },
+  "admitted_handoffs": {
+    "clock_to_matching_C10_typed_consumer": "valid densities, exact source H/preparation and full no-op/count complement contract required",
+    "classical_field_to_force": "same signed-pair source; named 512-round 40-bit scheduler variant and exact-real rate comparison domain"
+  },
+  "forbidden_transfers": {
+    "C10_clock_equals_classical_force_clock": false,
+    "C10_source_equals_two_copy_classical_source": false,
+    "static_field_bound_implies_dynamic_continuum_force": false,
+    "physical_time_seconds_derived": false,
+    "coherent_H_service_compiled_to_native_commits": false
+  },
+  "guard_rebind_policy": "Valid-member scientific checks bind the frozen subjects above. A hardened source requires a separate guard mutation audit and an explicit valid-member equivalence/rebind; this report does not claim that changed bytes were tested.",
+  "evidence_files": {
+    "audit.py": "c52cc8fce4ab94f7bfd87fd6fee88fa5f29daf351626a36e2a38af3c239b82fa",
+    "AUDIT.json": "dce18bcd688d80d6238bedde6663f0a73b829359bef07e592bd781f636c42d20",
+    "MALFORMED_INPUTS.json": "9f5a3393dab9f90e7e8fd8320f89ee01ee1f8db7ee0e05903cf03768006fb7a3",
+    "PROOF.md": "297f9fcd968388503780b57366936f5eaa5b7021bbf5ac078d822d214b705efc",
+    "frozen_common_clock.py": "eee29493c0cc8a2bfdaf2868fdce82e10d055535f8ee0e6a0b4b818ef9fb38db",
+    "frozen_force_measurement.py": "2e77839960c2263b8d5fb9c5db76363567995a829eba580a0369b7145a827f47",
+    "run.log": "f4756d36617307e95b7f0290808982eecd39d0828d92a543557c3d681cc58640"
+  },
+  "official_rows_changed": [],
+  "producer_files_modified": []
+}

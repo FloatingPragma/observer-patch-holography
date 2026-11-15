@@ -1,0 +1,104 @@
+{
+  "schema": "oph.actual_carrier.quadratic_photon_refinement.v1",
+  "checks": {
+    "exact_optical_pseudoinverse_gap": true,
+    "exact_two_transverse_leading_singular_values": true,
+    "exact_static_conductance_dual_to_harmonic_Gram": true,
+    "uniform_Taylor_constants_from_actual_faces": true,
+    "unitary_block_elimination_bound": true,
+    "controlled_fixed_coupling_photon_frequency_limit": true,
+    "nonzero_onephoton_spectral_weight": true,
+    "zero_mode_not_a_gapped_oscillator": true,
+    "source_bytes_unchanged": true
+  },
+  "constants": {
+    "C1": "11",
+    "C2": "17/2",
+    "pinv": "4",
+    "A_norm": "10",
+    "derivative_frobenius_square": "117",
+    "twice_remainder_frobenius_square": "281"
+  },
+  "pseudoinverse_Frobenius_squared": "3383/240",
+  "static_leading_symbol": {
+    "cell_conductance_Gram": "(3/2) I3",
+    "root_Green_pole_coefficient": "2/3",
+    "electric_times_Green_pole": "(1/2)*(2/3)=1/3",
+    "scope": "Exact cell variational conductance and leading Fourier pole; a quantitative real-space large-volume Coulomb/force measurement is separate."
+  },
+  "numerical_finite_Bloch_controls": [
+    {
+      "k": [
+        0.05,
+        0.0,
+        0.0
+      ],
+      "two_frequencies": [
+        0.049937171837462206,
+        0.04996666066418562
+      ],
+      "continuum_frequency": 0.05,
+      "positive_vacuum_to_onephoton_weight": 1.0
+    },
+    {
+      "k": [
+        0.025,
+        0.0,
+        0.0
+      ],
+      "two_frequencies": [
+        0.02499214622553206,
+        0.024995831613196805
+      ],
+      "continuum_frequency": 0.025,
+      "positive_vacuum_to_onephoton_weight": 1.0
+    },
+    {
+      "k": [
+        0.01,
+        0.02,
+        0.03
+      ],
+      "two_frequencies": [
+        0.0374028464546641,
+        0.037403704843352654
+      ],
+      "continuum_frequency": 0.03741657386773942,
+      "positive_vacuum_to_onephoton_weight": 1.0
+    }
+  ],
+  "rigorous_refinement_cases": [
+    {
+      "h": "1/262144",
+      "physical_momentum_norm": 1,
+      "frequency_error_upper_exact": "1625975295/8589934592",
+      "frequency_error_upper": 0.18928843725007027,
+      "onephoton_time1_state_norm_error_upper": 0.18928843725007027
+    },
+    {
+      "h": "1/1048576",
+      "physical_momentum_norm": 1,
+      "frequency_error_upper_exact": "6503881215/137438953472",
+      "frequency_error_upper": 0.0473219640480238,
+      "onephoton_time1_state_norm_error_upper": 0.0473219640480238
+    },
+    {
+      "h": "1/4194304",
+      "physical_momentum_norm": 1,
+      "frequency_error_upper_exact": "26015504895/2199023255552",
+      "frequency_error_upper": 0.01183048193297509,
+      "onephoton_time1_state_norm_error_upper": 0.01183048193297509
+    }
+  ],
+  "theorem": "For nonzero k=hp satisfying the explicit admission inequalities, the two transverse frequencies of the quadratic source obey |omega(k)/h-|p||<=C(h|p|)/h with C from frequency_bound. At fixed T and bounded lowmomentum photon number r, after matching the same source vacuum scalar phase on both sides, the excitation phase-evolution norm error is at most T*r*max frequency_error. Every other coexact oscillator remains in its actual vacuum factor; the 3 global modes retain their own Gaussian packet. This is not an absolute continuum vacuum-energy convergence theorem; the finite native source retains its actual vacuum phase.",
+  "prepared_domain": "Finite occupation states in the two actual small singular-value modes, with all optical/UV modes in the source-defined coexact vacuum. The mode identification is an explicit spectral-code dictionary; local field quadrature/native preparation costs are separate from a phase-frequency theorem.",
+  "native_execution_scope": "Large-refinement examples evaluate the exact uniform analytic bound, not a dense field circuit on millions of cells.",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/quadratic_field/photons.py": "7b04b5d337a10f7a65baf4040d3c4c742c1c4010c8d80434674c32abf5866387",
+    "openwave-tuning/common_dynamics/quadratic_field/source.py": "466d5dcf6e6f9449359baf2b16a042f9a1a4679b36aeb84c2795947c13dfeae2",
+    "openwave-tuning/common_dynamics/vector_field/linear_response.py": "201b160811905ce56657b505b0395cd3ff7280c2b537a4f148a6ecea98aaeb0c",
+    "openwave-tuning/common_dynamics/vector_field/LINEAR_RESPONSE.json": "33e8345f45e7df11dba021392f4e2c28b8f42e81733db44dc5f1543d5138b6c5",
+    "openwave-tuning/common_dynamics/units/MANIFEST.json": "fd3abf81be6147577b31e36a00f339664ad8f287e44052ccbc3adafc07e3876f"
+  },
+  "official_rows_changed": []
+}

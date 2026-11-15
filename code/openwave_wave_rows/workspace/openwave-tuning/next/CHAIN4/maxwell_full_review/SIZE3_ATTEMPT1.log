@@ -1,0 +1,13 @@
+frame limb 0 done
+frame limb 1 done
+frame limb 2 done
+frame limb 3 done
+FRAME PASS
+Traceback (most recent call last):
+  File "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN4/maxwell_full_review/size3_check.py", line 95, in <module>
+    pins=pincheck();fixed_frame();selected_native();assert pincheck()==pins
+                                  ~~~~~~~~~~~~~~~^^
+  File "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN4/maxwell_full_review/size3_check.py", line 61, in selected_native
+    word=program['diagonal_word'];phases,frequencies,E0=native_member.targets()
+                                  ^^^^^^^^^
+ValueError: too many values to unpack (expected 2)

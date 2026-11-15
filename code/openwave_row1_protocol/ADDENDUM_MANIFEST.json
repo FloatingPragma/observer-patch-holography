@@ -1,0 +1,24 @@
+{
+  "schema": "oph.native_row1.law_addendum.v1",
+  "original_primary_manifest_sha256": "d5e692b0597dbbeafabb88e6f7d417da8f7d7d1fd39a334c08fa73ffe40e8d90",
+  "files_sha256": {
+    "LAW_CONTROLS.json": "756a15690f0b720d215323757fed1ddf0c9f123979f81bdf66b9526c042054ce",
+    "METHOD_NOTE.md": "5a2a091ddd26c74b5a25a651fa30e4940c5199cd4b6cef0185e1294316c22286",
+    "SCHEDULER.md": "2749e0eaf503a6a72c65229939d6fb16eb5e3b663b62f22b9214da1ca7965cc9",
+    "TASK_PACKET.md": "c4af9237815dab27817f14faeab7fa28a5d53db165c86170e45ec8d68de94e83",
+    "law_controls.py": "27842accc12759e0a60a84a01d94fe780eea27c58c50a75ed0e075aac4ed18c0",
+    "provenance/AUDIT_RESULT.json": "fa13a57076c00c0a34603c8e488f634b72453cfc569edfeaa41c1df9f232595a",
+    "provenance/CONTRACT.json": "07d8f611a21fb10bba7ebbce1590607d58f2453b482c7536bfe51be2349beab5",
+    "provenance/ORACLE.json": "26ec778a0bd32580444211f3912b9a95d48d117c0856dc07fa4757a79ee4b01f",
+    "provenance/ORIGINS.json": "8e283716b300487f3c0057bed1e0b23ed029b2fed27081b2f917852ff483091a",
+    "provenance/PROOF.md": "c3b9f57718a1f39a18bec533fd5741f34453273da20ef119d4c061afe45ca918",
+    "provenance/audit.original.py": "70e6b6d349d8bd4e8cea040b22e82b0d4a66888980ca1320d85f1e9c23bb136a",
+    "provenance/prior/openwave-push/bridgework/BR6_dual_winding/AUDIT.md": "3449a77a54ede3118ddfc0c28af6ef35bb1c46e578121ab943de8baf62e7c90a",
+    "provenance/prior/openwave-push/bridgework/BR6_dual_winding/REVIEW_FOR_CODEX.md": "5fd2abd90e3eb5d5b9c616c1b7ec002e07e55ea8f66b7c442ef342cd8c8a3658",
+    "provenance/prior/openwave-push/bridgework/BR9_precedent_replication/AUDIT.md": "652067cdcd8fbe509b6bfe4312c4fb6a36a0bcbe8e584702b5b353620835794e",
+    "provenance/prior/openwave-push/bridgework/BR9_precedent_replication/REVIEW_FOR_CODEX.md": "64208207cc947404409f36ba1e15e873925d6bae031976aaf2555540b5d6e28b",
+    "replay_independent_audit.py": "a6b93f2db1ef210b6e4292e38b8576d2c699dccaefcc4e8d453757780b161d28"
+  },
+  "official_rows_changed": [],
+  "scope": "Executed source-law and encoding controls plus separate independent development audit; no official acceptance."
+}

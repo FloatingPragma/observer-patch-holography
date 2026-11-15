@@ -1,0 +1,48 @@
+{
+  "schema": "oph.chain2.particle_field_limit_audit.manifest.v1",
+  "producer_manifest": "45807e2a6c37b89171775e2d1fabcdab5d814997e12ff6f395567523ad681a2d",
+  "producer_result": "57f23654f6a3ea0bfa46c7cab16ff66e0cb1e400f8962a358bc3d5c165804241",
+  "files_sha256": {
+    "audit.py": "3fb71cade6223c385f6c1e57a5ca7cf3bc2b942c67dafd8de59d67b12f8f5b47",
+    "strict_certificate.py": "36c63bdeb58f185e79d1297dcd9c037580a2689e0d8676b25f707724371071f9",
+    "finalize.py": "a6b1fb0c095ceb945f437607f1b92655971022b7f5311a2209083dc23eff8a09",
+    "INPUTS.json": "8a9c01485c8e36d02153b13ad11ee49a82a8da0ca079b916ab6f684893d57e3b",
+    "CONTRACT.json": "44712027cd7c8157d6f1501624611327ffda2504ac6c6539f5c07a0ec91aad15",
+    "PROOF.md": "aea09eafeeb822ed0228ae0e93f26ed57bede12031127f32d58093ae02fb42c3",
+    "README.md": "2f3bec41a7a45e421a716a407de0c660399637bb9a9684dfa1460f413add5252",
+    "AUDIT_RESULT.json": "f3e4b90a4dc060b0ab7341d7ba6cc4bfe087035cb2200a48c6e0a6f585762c91",
+    "STRICT_PROGRAM.json": "731760ba6a6da2bff2d0687f1833d7318e5492db985c0d4a9d2b3640f7c63f61"
+  },
+  "checks": {
+    "pins_verified": true,
+    "native_two_column_isometry": true,
+    "arbitrary_reference_coherence": true,
+    "fine_native_pointer_and_export_complements": true,
+    "ideal_source_compression_subnormalization": true,
+    "all_complete_law_terms": true,
+    "resource_counts_and_two_services_per_pulse": true,
+    "frozen_macro_regenerated": true,
+    "opposing_mutations": true,
+    "domain_and_field_boundaries": true,
+    "selector_budget_gap_detected": true,
+    "strict_all_settings_facade_verified": true
+  },
+  "producer_findings": [
+    {
+      "finding": "plus_i-only preparation envelope undercounts supported minus setting",
+      "affected_APIs": [
+        "family_certificate",
+        "development_budget",
+        "generate.build budget"
+      ],
+      "effect": "compositional error accounting gap; no numerical contradiction to convergence or native circuit behavior",
+      "external_selector_reference_affected": false,
+      "producer_bytes_changed": false,
+      "resolution": "strict_certificate.py recomputes max over all six settings and external selector, replacing delta_prep and complete totals",
+      "original_reported_bound_accepted_for_all_prescribed_settings": false
+    }
+  ],
+  "original_all_settings_preparation_bound_accepted": false,
+  "strict_facade": "strict_certificate.py",
+  "official_rows_changed": []
+}

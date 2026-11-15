@@ -1,0 +1,82 @@
+{
+  "schema": "oph.local12.fermion_mode_field.v1",
+  "candidate_id": "native-local12-fermion-modes-v1-proposed",
+  "checks": {
+    "complete_mode_transport_involution": true,
+    "fermion_phase_and_all_spectator_signs_retained": true,
+    "shared_native_current_and_Gauss": true,
+    "integer_affine_cycle_identity": true,
+    "modular_field_block_full_dirty_extension": true,
+    "dropped_current_mutation_rejected": true,
+    "source_pins_unchanged": true
+  },
+  "full_matter_field_cases": 3648,
+  "moduli": [
+    6,
+    13,
+    16
+  ],
+  "known_reference_minimum_local_decoder_modulus": 13,
+  "native_field_blocks": [
+    {
+      "modulus": 6,
+      "field_bits": 3,
+      "pair_control_bits": [
+        3,
+        4
+      ],
+      "compiler_strategy": "complete finite permutation compiler with fixed field padding",
+      "clean_columns": 32,
+      "all_dirty_columns": 128,
+      "native_pulses_per_edge": 3800,
+      "native_pulses_all288_edges": 1094400,
+      "padding_labels": [
+        6,
+        7
+      ]
+    },
+    {
+      "modulus": 13,
+      "field_bits": 4,
+      "pair_control_bits": [
+        4,
+        5
+      ],
+      "compiler_strategy": "complete finite permutation compiler with fixed field padding",
+      "clean_columns": 64,
+      "all_dirty_columns": 512,
+      "native_pulses_per_edge": 18832,
+      "native_pulses_all288_edges": 5423616,
+      "padding_labels": [
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "modulus": 16,
+      "field_bits": 4,
+      "pair_control_bits": [
+        4,
+        5
+      ],
+      "compiler_strategy": "controlled binary increment/decrement with descending targets",
+      "clean_columns": 64,
+      "all_dirty_columns": 512,
+      "native_pulses_per_edge": 1336,
+      "native_pulses_all288_edges": 384768,
+      "padding_labels": []
+    }
+  ],
+  "scope": "Finite current word generators and exact basis checks. Fermionic statistics and mode carrier are declared amendments. Full matter-field preparation/reset, aggregate pulse-error bound and autonomous field energy are not executed here.",
+  "shared_state_api": "mode_transport(occupied_modes,field288,modulus) -> modes,field,CAR_sign,current288",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/manybody/mode_field.py": "e7f481b64aaf005874b3c42f8ed9d73891c334ee34d8cc6f603c30e9ba5d45c3",
+    "openwave-tuning/common_dynamics/manybody/manybody.py": "15e7463ed8c7087b79f8962f961216972a8c34876751360f89e6d84ef3f32fff",
+    "openwave-tuning/auditor/native_current_walk/current_walk.py": "3057fa13b0455c7d814ac96fd4c9cab82b3941cca2f7a8a0cbd2b600abe820a9",
+    "openwave-tuning/auditor/native_walk_bridge/common_walk.py": "4c8b6087aab6212ae12af126640ba19bbfec63215be5234be64f016cc604d75d",
+    "reverse-engineering-reality/model/openwave_coherent_native_architecture/source.py": "27e179a5d827244423c02f7b30ee45c3ac441cc05aad835397a5d619f2d738ed",
+    "reverse-engineering-reality/model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8"
+  },
+  "official_rows_changed": []
+}

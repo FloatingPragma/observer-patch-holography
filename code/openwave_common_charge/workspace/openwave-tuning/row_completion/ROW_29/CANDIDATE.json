@@ -1,0 +1,30 @@
+{
+  "schema": "oph.openwave.full_criterion_candidate.v1",
+  "row": 29,
+  "candidate_id": "native-local12-dirac-noncompact-quadratic-v4-proposed",
+  "literal_criterion": "Maxwell recovered; transverse waves at c",
+  "criterion_sha256": "0c5d2a8e4212d05f5cfde6f163ca3e3c9cf32d09e97f8c23c347e5306daf980f",
+  "producer_claim_full_criterion": true,
+  "independent_review_status": "pending; no self-approval",
+  "construction_inputs": [
+    "actual translated LOCAL12 oriented faces and incidence",
+    "noncompact quadratic Hamiltonian with a=1/2,b=3",
+    "spectral-code preparation and terminal native apparatus",
+    "common h/8 phase clock"
+  ],
+  "derived": [
+    "exact oriented curl factorization with rho=2/3",
+    "Faraday and Ampere vacuum equations with physical field normalization",
+    "two transverse polarizations in every direction",
+    "controlled finite periodic physical-field and frequency limit",
+    "complete native field/quadrature and common clock records"
+  ],
+  "ancestry": "Speed matching is an explicit coefficient choice; neither empirical coupling nor uniquely forced architecture is claimed. No continuum Maxwell stencil enters the microscopic face matrix.",
+  "scope": "Vacuum radiative Maxwell fields and their first-moment instruments on the declared spectral-code source; fixed-native-precision TV floor retained.",
+  "max_refinement_TV": [
+    5.704365680711995e-05,
+    1.428408158452809e-05,
+    3.594187782812731e-06
+  ],
+  "official_rows_changed": []
+}

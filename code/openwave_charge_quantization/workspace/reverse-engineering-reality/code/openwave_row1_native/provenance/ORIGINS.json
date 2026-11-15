@@ -1,0 +1,120 @@
+{
+  "native_cycle_meter": {
+    "original_path": "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/native_cycle_meter.py",
+    "sha256": "4db8d707879c416ca5002b782a70e07aa71d4d9a7fe7111b76a64828c1a05329",
+    "attribution": "External auditor bridge worker; public import adaptation by Codex integration worker.",
+    "adaptation": "Local kernel/packet imports; workspace-only receipt-builder run() removed. All retained function bodies byte-identical.",
+    "retained_function_sha256": {
+      "route": "50e4b8653066fad470b3b760a2561603efaa451c962e170a9090a3efa09a8e0e",
+      "execute": "3986da36cd7b8bfe3cc7302d879ff8f1f8c678ee1542795e34590576f38891c1",
+      "reset_success": "1e4dc622cb1d57bb8690fdc06340c4b671e232ef2ced077041bc275ff158f9b1",
+      "execute_class": "43d439eeaec3d2fafa500c5bd69a8594fe9a903a06d4c3c2bbce8c736748d3f0",
+      "independent_reset_distribution": "eff413d6e8db7704e8e9b1ab1492d7be5630345728d4817b0ed01a9632b7e9f5",
+      "favorable_coins": "e87bc796dffda421acba2bff7d3d2412ea508c9d8727b48d779b42f388255599",
+      "bounded_source_counter": "683a0bf1eb0cb612b7c77de3fc672a8e02dc438ff32049006900ba2f9b65fa3b"
+    }
+  },
+  "comparators": {
+    "SPATIAL_INDEPENDENT_REVIEW.json": {
+      "original_path": "openwave-tuning/next/ROW1_NATIVE/reviews/SPATIAL_INDEPENDENT_REVIEW.json",
+      "sha256": "1bd3dec835dcdff51702c32d8352a1b7bbbb4a032bd72d8777a6a7018236406b"
+    },
+    "SPATIAL_INDEPENDENT_REVIEW.md": {
+      "original_path": "openwave-tuning/next/ROW1_NATIVE/reviews/SPATIAL_INDEPENDENT_REVIEW.md",
+      "sha256": "fda8afc94cb03ffb21bb23d3bcf8d135860cbdd8226c9842184a62f5ef252a0c"
+    },
+    "NATIVE_CYCLE_INDEPENDENT_REVIEW.json": {
+      "original_path": "openwave-tuning/next/ROW1_NATIVE/reviews/NATIVE_CYCLE_INDEPENDENT_REVIEW.json",
+      "sha256": "441d4e6a7f358678e54e8181766cef7b4745fa302f46cfa925628712e6a7df42"
+    },
+    "NATIVE_CYCLE_INDEPENDENT_REVIEW.md": {
+      "original_path": "openwave-tuning/next/ROW1_NATIVE/reviews/NATIVE_CYCLE_INDEPENDENT_REVIEW.md",
+      "sha256": "2408e89cc2b77d07411bec717b5d08d219e6e4df68c53fc2da653e2255683e24"
+    },
+    "SPATIAL_LIFT_AUDIT.json": {
+      "original_path": "openwave-tuning/next/ROW1_NATIVE/routes/auditor_flux_topology/SPATIAL_LIFT_AUDIT.json",
+      "sha256": "98f4e81256f86fc1f6dbb5cda4f60cd00aade1ec7f7f6749694e46b67fae5eeb"
+    },
+    "SPATIAL_LIFT_PROOF.md": {
+      "original_path": "openwave-tuning/next/ROW1_NATIVE/routes/auditor_flux_topology/SPATIAL_LIFT_PROOF.md",
+      "sha256": "717d23fa661be830d8a8b61c149c8a2996b634d7f5e8b72afa07903d12858e91"
+    },
+    "CYCLE_POINTER_REVIEW.json": {
+      "original_path": "openwave-tuning/next/ROW1_NATIVE/routes/auditor_flux_topology/CYCLE_POINTER_REVIEW.json",
+      "sha256": "653cf546cc7fc34c36d517a598a582c5464b417dffda69ad7aa2149bf048c32d"
+    },
+    "CYCLE_POINTER_REVIEW.md": {
+      "original_path": "openwave-tuning/next/ROW1_NATIVE/routes/auditor_flux_topology/CYCLE_POINTER_REVIEW.md",
+      "sha256": "e975ca7b199858698fd3f97acb8929d80c5cdf74e7a03295dc2bead4e2c48c07"
+    },
+    "JOINED_READOUT_INDEPENDENT_REVIEW.json": {
+      "original_path": "openwave-tuning/next/ROW1_NATIVE/routes/auditor_phase/JOINED_READOUT_INDEPENDENT_REVIEW.json",
+      "sha256": "753505051d6a8f0d0c1eef3b7635dbee3d896ed2b8b6b3f8454a26310d2b75a8"
+    },
+    "JOINED_PHASE_INDEPENDENT_REVIEW.md": {
+      "original_path": "openwave-tuning/next/ROW1_NATIVE/routes/auditor_phase/JOINED_READOUT_REVIEW.md",
+      "sha256": "a711fa71e12d9de7ed5ce4a35ec2eb8fe6bf17c3c76a8e58ae77fdb40838a96a"
+    },
+    "JOINED_READOUT_REVIEW.json": {
+      "original_path": "openwave-tuning/next/ROW1_NATIVE/routes/auditor_flux_topology/JOINED_READOUT_REVIEW.json",
+      "sha256": "d42ab50179606841785881b3d8cf5e2efd81f2d63ec33fbe50279d5c9fc3c6d6"
+    },
+    "JOINED_LATTICE_INDEPENDENT_REVIEW.md": {
+      "original_path": "openwave-tuning/next/ROW1_NATIVE/routes/auditor_flux_topology/JOINED_READOUT_REVIEW.md",
+      "sha256": "505a65256c45a2a2120369a13e8ff2167445afe4183ef5a1e6cd16c90fe54fb5"
+    }
+  },
+  "joined_readout": {
+    "original_path": "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/joined_readout.py",
+    "sha256": "1bf9bda370c20a6a23c253654f5fe60160bca20fd5d24b0548bac5e98ba6b467",
+    "attribution": "External auditor bridge worker; public import adaptation by Codex integration worker.",
+    "adaptation": "Local kernel/packet imports; workspace-only receipt-builder run() removed. All retained function bodies byte-identical.",
+    "retained_function_sha256": {
+      "source_prefix": "f0c61c6338816caa630b27450710f5dfb56205c76d7889628e9d16ee53fe4e04",
+      "execute_joined": "9404f7ccfc397427bf7bf20624cadea4566061f1b0f4318414809369abdf09ab",
+      "discovery_hold_coins": "48c5790a487d6b692076d853d45664004b01324b7156347169c17953261fde59"
+    }
+  },
+  "pinned_source_custody": {
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/joined_readout.py": {
+      "bundled_path": "provenance/joined_readout.original.py",
+      "sha256": "1bf9bda370c20a6a23c253654f5fe60160bca20fd5d24b0548bac5e98ba6b467"
+    },
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/native_cycle_meter.py": {
+      "bundled_path": "provenance/native_cycle_meter.original.py",
+      "sha256": "4db8d707879c416ca5002b782a70e07aa71d4d9a7fe7111b76a64828c1a05329"
+    },
+    "openwave-tuning/next/ROW1_NATIVE/routes/spatial/NATIVE_DUAL_WINDING.json": {
+      "bundled_path": "provenance/NATIVE_DUAL_WINDING.json",
+      "sha256": "3e5f99ed88666485c124976df97585bbb7962dbb7df6583109238c4cd2d2927c"
+    },
+    "reverse-engineering-reality/model/observer/native.py": {
+      "bundled_path": "provenance/native.original.py",
+      "sha256": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d"
+    },
+    "openwave-tuning/candidate/oph_openwave/geometry.py": {
+      "bundled_path": "provenance/geometry.original.py",
+      "sha256": "00d6ca810b1c7430e761b3106317f288d0b3c2e722dfeedec5aa18ac7bb8e32d"
+    },
+    "openwave-tuning/next/ROW1_NATIVE/routes/spatial/native_dual_winding.py": {
+      "bundled_path": "provenance/native_dual_winding.original.py",
+      "sha256": "ced04b04be7f903709efa63a7447d97fd4fb1861d39e9b62b25e52044929c477"
+    },
+    "openwave-tuning/next/ROW1_NATIVE/reviews/review_spatial_independent.py": {
+      "bundled_path": "provenance/review_spatial_independent.original.py",
+      "sha256": "cefd2365372be39ead54d5a4c99160d50859b24f61f1ce64ced240f06378b791"
+    },
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/JOINED_READOUT.json": {
+      "bundled_path": "provenance/JOINED_READOUT.json",
+      "sha256": "f31f196e5baf5425f63806d41e854801688d24a70394230c7dcfdeaeccdaa0fe"
+    },
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/NATIVE_CYCLE_METER.json": {
+      "bundled_path": "provenance/NATIVE_CYCLE_METER.json",
+      "sha256": "66fedd579a900b478c6301c5583be9dd1e3fd7d7a79e882bc1313c41de4e72ef"
+    },
+    "openwave-tuning/next/ROW1_NATIVE/reviews/review_native_cycle_independent.py": {
+      "bundled_path": "provenance/review_native_cycle_independent.original.py",
+      "sha256": "127765c2a6bc8f8268b47621d73e4a354115c09477cec8dd30f9e26134378701"
+    }
+  }
+}

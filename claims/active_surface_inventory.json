@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 2333,
+  "surface_count": 2428,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -551,6 +551,11 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/NATIVE_COHERENT_ARCHITECTURE_AND_OBSERVABLES.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/NATIVE_COMPLETIONS_AND_COMPOSITE_RESPONSE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
@@ -602,6 +607,21 @@
     },
     {
       "path": "paper/tex_fragments/NATIVE_REPAIR_RECORD_SPECTRUM.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/NATIVE_REPAIR_RESPONSE_AND_RECORDS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/NATIVE_SHARED_SOURCE_FIELD_RECORDS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/NATIVE_SOURCE_ACQUISITION_AND_REFINEMENT.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -4696,6 +4716,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_charged_propagation/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_charged_propagation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_circulation/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4831,6 +4861,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_criterion_packet/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_criterion_packet/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_dilute_ground_limit/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4862,6 +4902,16 @@
     },
     {
       "path": "model/native_effective_fields/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_electric_gauss/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_electric_gauss/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -5007,6 +5057,26 @@
     },
     {
       "path": "model/native_gauge_strings/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_gauss_clock/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_gauss_clock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_gauss_walk/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_gauss_walk/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -5166,12 +5236,32 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_moving_clock/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_moving_clock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_noncentral_reference/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/native_noncentral_reference/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_observer_program/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_observer_program/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -5401,6 +5491,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_spatial_refinement/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_spatial_refinement/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_spatial_scaling/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -5472,6 +5572,16 @@
     },
     {
       "path": "model/native_transfer_control/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_transport_spectrum/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_transport_spectrum/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -5786,6 +5896,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_active_native_charge/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_active_native_charge/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_admission_packet/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -5971,6 +6091,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_capacity_finite_wavelength/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_capacity_finite_wavelength/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_capacity_normalization_transfer/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -6052,6 +6182,26 @@
     },
     {
       "path": "model/openwave_cluster_weyl_sequence/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_coherent_native_architecture/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_coherent_native_architecture/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_coherent_native_propagation/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_coherent_native_propagation/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6406,6 +6556,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_geometry_covariance_protocol/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_geometry_covariance_protocol/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_geometry_refinement/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -6561,6 +6721,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_lambda_narrow_weight/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_lambda_narrow_weight/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_lambda_spectral_measure/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -6651,6 +6821,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_local_gauge_memory/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_local_gauge_memory/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_local_gauss_quantum/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -6677,6 +6857,31 @@
     },
     {
       "path": "model/openwave_localized_rest_packet/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_m10_review_gate/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_m10_review_gate/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_macro_generator_identity/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_macro_generator_identity/inputs/AUTONOMOUS_SOURCE_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_macro_generator_identity/inputs/W8_shared_member.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6717,6 +6922,16 @@
     },
     {
       "path": "model/openwave_mass_catalogue/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_matter_flux_source/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_matter_flux_source/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6776,6 +6991,26 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_native_calibrated_energy/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_calibrated_energy/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_capacity_history/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_capacity_history/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_native_centre_string/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -6801,12 +7036,62 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_native_charge_readout/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_charge_readout/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_coherent_clock/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_coherent_clock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_native_composites/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/openwave_native_composites/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_defect_records/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_defect_records/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_euclidean_transfer/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_euclidean_transfer/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_event_clock/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_event_clock/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6826,12 +7111,82 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_native_geometry_readout/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_geometry_readout/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_interaction/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_interaction/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_packet_propagation/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_packet_propagation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_platform_gate/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_platform_gate/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_process/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_process/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_native_quantum_charge/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/openwave_native_quantum_charge/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_rest_energy/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_rest_energy/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6996,6 +7351,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_nuclear_field_attraction/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_nuclear_field_attraction/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_nuclear_isospin/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -7146,6 +7511,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_quark_string_transport/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_quark_string_transport/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_quark_strings/PAPER_RESULT.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -7242,6 +7617,16 @@
     },
     {
       "path": "model/openwave_relational_clock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_repeated_native_clock/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_repeated_native_clock/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -7407,6 +7792,16 @@
     },
     {
       "path": "model/openwave_strange_shell_current/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_stress_curvature_instruments/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_stress_curvature_instruments/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -9386,6 +9781,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/repair_sector_bridge/OPERATIONAL_OBSERVER.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/repair_sector_bridge/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -10301,6 +10701,11 @@
       "allowlisted": false
     },
     {
+      "path": "claims/coherent_integration.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
       "path": "claims/completion_program.json",
       "glob": "claims/*.json",
       "allowlisted": false
@@ -10324,6 +10729,76 @@
       "path": "claims/frozen_prediction_register.json",
       "glob": "claims/*.json",
       "allowlisted": true
+    },
+    {
+      "path": "claims/joint_observer.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/native_execution.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/native_process_bridge.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/openwave_autonomous_car_native.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/openwave_calibrated_static.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/openwave_common_charge.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/openwave_ground_projection.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/openwave_independent_audit.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/openwave_joint_model.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/openwave_native_charge.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/openwave_native_row1.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/openwave_positive_field_native.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/openwave_positive_field_stability.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/openwave_wave_rows.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
     },
     {
       "path": "claims/physical_identification_registry.json",

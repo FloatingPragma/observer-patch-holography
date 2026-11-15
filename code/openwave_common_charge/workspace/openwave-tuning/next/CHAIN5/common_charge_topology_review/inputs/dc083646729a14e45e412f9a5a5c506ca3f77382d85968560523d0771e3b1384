@@ -1,0 +1,2125 @@
+{
+  "all_checks_pass": true,
+  "signed_native_routes": 48,
+  "g": 1,
+  "maximum_full_field_current_shift_residual": 2.143298149570129e-14,
+  "routes": [
+    {
+      "cell": 0,
+      "axis": 0,
+      "signed_rail": -1,
+      "destination": 4,
+      "native_path": [
+        0,
+        7,
+        53,
+        48
+      ],
+      "integer_current_nonzero": [
+        [
+          2,
+          1
+        ],
+        [
+          35,
+          1
+        ],
+        [
+          153,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          0,
+          1
+        ],
+        [
+          48,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 6.465817259422084e-15,
+      "drop_current_translation_operator_shift_error": 1.5779356616734892,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 0,
+      "axis": 0,
+      "signed_rail": 1,
+      "destination": 4,
+      "native_path": [
+        0,
+        5,
+        55,
+        48
+      ],
+      "integer_current_nonzero": [
+        [
+          1,
+          1
+        ],
+        [
+          28,
+          1
+        ],
+        [
+          154,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          0,
+          1
+        ],
+        [
+          48,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 6.150009265573011e-15,
+      "drop_current_translation_operator_shift_error": 1.5779356616734892,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 0,
+      "axis": 1,
+      "signed_rail": -1,
+      "destination": 2,
+      "native_path": [
+        0,
+        11,
+        33,
+        25,
+        24
+      ],
+      "integer_current_nonzero": [
+        [
+          4,
+          1
+        ],
+        [
+          41,
+          1
+        ],
+        [
+          80,
+          -1
+        ],
+        [
+          89,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          0,
+          1
+        ],
+        [
+          24,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 7.684169704420774e-15,
+      "drop_current_translation_operator_shift_error": 1.866818368912954,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 0,
+      "axis": 1,
+      "signed_rail": 1,
+      "destination": 2,
+      "native_path": [
+        0,
+        1,
+        9,
+        35,
+        24
+      ],
+      "integer_current_nonzero": [
+        [
+          0,
+          1
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          38,
+          1
+        ],
+        [
+          84,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          0,
+          1
+        ],
+        [
+          24,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 7.431018967321313e-15,
+      "drop_current_translation_operator_shift_error": 1.866818368912954,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 0,
+      "axis": 2,
+      "signed_rail": -1,
+      "destination": 1,
+      "native_path": [
+        0,
+        10,
+        2,
+        3,
+        13,
+        12
+      ],
+      "integer_current_nonzero": [
+        [
+          3,
+          1
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          14,
+          -1
+        ],
+        [
+          21,
+          1
+        ],
+        [
+          42,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          0,
+          1
+        ],
+        [
+          12,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 1.8954671144399852e-14,
+      "drop_current_translation_operator_shift_error": 2.1280408596718488,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 0,
+      "axis": 2,
+      "signed_rail": 1,
+      "destination": 1,
+      "native_path": [
+        0,
+        1,
+        15,
+        14,
+        22,
+        12
+      ],
+      "integer_current_nonzero": [
+        [
+          0,
+          1
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          45,
+          -1
+        ],
+        [
+          51,
+          -1
+        ],
+        [
+          54,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          0,
+          1
+        ],
+        [
+          12,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 2.143298149570129e-14,
+      "drop_current_translation_operator_shift_error": 2.1280408596718488,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 1,
+      "axis": 0,
+      "signed_rail": -1,
+      "destination": 5,
+      "native_path": [
+        12,
+        19,
+        65,
+        60
+      ],
+      "integer_current_nonzero": [
+        [
+          44,
+          1
+        ],
+        [
+          73,
+          1
+        ],
+        [
+          191,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          12,
+          1
+        ],
+        [
+          60,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.222406863810295e-15,
+      "drop_current_translation_operator_shift_error": 1.5779356616734892,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 1,
+      "axis": 0,
+      "signed_rail": 1,
+      "destination": 5,
+      "native_path": [
+        12,
+        17,
+        67,
+        60
+      ],
+      "integer_current_nonzero": [
+        [
+          43,
+          1
+        ],
+        [
+          66,
+          1
+        ],
+        [
+          192,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          12,
+          1
+        ],
+        [
+          60,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.346138725293424e-15,
+      "drop_current_translation_operator_shift_error": 1.5779356616734892,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 1,
+      "axis": 1,
+      "signed_rail": -1,
+      "destination": 3,
+      "native_path": [
+        12,
+        23,
+        45,
+        37,
+        36
+      ],
+      "integer_current_nonzero": [
+        [
+          46,
+          1
+        ],
+        [
+          79,
+          1
+        ],
+        [
+          118,
+          -1
+        ],
+        [
+          126,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          12,
+          1
+        ],
+        [
+          36,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.8163533594188305e-15,
+      "drop_current_translation_operator_shift_error": 1.866818368912954,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 1,
+      "axis": 1,
+      "signed_rail": 1,
+      "destination": 3,
+      "native_path": [
+        12,
+        13,
+        21,
+        47,
+        36
+      ],
+      "integer_current_nonzero": [
+        [
+          42,
+          1
+        ],
+        [
+          50,
+          1
+        ],
+        [
+          76,
+          1
+        ],
+        [
+          122,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          12,
+          1
+        ],
+        [
+          36,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.604445746868575e-15,
+      "drop_current_translation_operator_shift_error": 1.866818368912954,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 1,
+      "axis": 2,
+      "signed_rail": -1,
+      "destination": 0,
+      "native_path": [
+        12,
+        22,
+        14,
+        15,
+        1,
+        0
+      ],
+      "integer_current_nonzero": [
+        [
+          0,
+          -1
+        ],
+        [
+          10,
+          -1
+        ],
+        [
+          45,
+          1
+        ],
+        [
+          51,
+          1
+        ],
+        [
+          54,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          0,
+          -1
+        ],
+        [
+          12,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 2.143298149570129e-14,
+      "drop_current_translation_operator_shift_error": 2.1280408596718488,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 1,
+      "axis": 2,
+      "signed_rail": 1,
+      "destination": 0,
+      "native_path": [
+        12,
+        13,
+        3,
+        2,
+        10,
+        0
+      ],
+      "integer_current_nonzero": [
+        [
+          3,
+          -1
+        ],
+        [
+          11,
+          -1
+        ],
+        [
+          14,
+          1
+        ],
+        [
+          21,
+          -1
+        ],
+        [
+          42,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          0,
+          -1
+        ],
+        [
+          12,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 1.8954671144399852e-14,
+      "drop_current_translation_operator_shift_error": 2.1280408596718488,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 2,
+      "axis": 0,
+      "signed_rail": -1,
+      "destination": 6,
+      "native_path": [
+        24,
+        31,
+        77,
+        72
+      ],
+      "integer_current_nonzero": [
+        [
+          82,
+          1
+        ],
+        [
+          115,
+          1
+        ],
+        [
+          225,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          24,
+          1
+        ],
+        [
+          72,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 4.668111030581746e-15,
+      "drop_current_translation_operator_shift_error": 1.5779356616734892,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 2,
+      "axis": 0,
+      "signed_rail": 1,
+      "destination": 6,
+      "native_path": [
+        24,
+        29,
+        79,
+        72
+      ],
+      "integer_current_nonzero": [
+        [
+          81,
+          1
+        ],
+        [
+          108,
+          1
+        ],
+        [
+          226,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          24,
+          1
+        ],
+        [
+          72,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 4.940043220546259e-15,
+      "drop_current_translation_operator_shift_error": 1.5779356616734892,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 2,
+      "axis": 1,
+      "signed_rail": -1,
+      "destination": 0,
+      "native_path": [
+        24,
+        35,
+        9,
+        1,
+        0
+      ],
+      "integer_current_nonzero": [
+        [
+          0,
+          -1
+        ],
+        [
+          9,
+          -1
+        ],
+        [
+          38,
+          -1
+        ],
+        [
+          84,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          0,
+          -1
+        ],
+        [
+          24,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 7.431018967321313e-15,
+      "drop_current_translation_operator_shift_error": 1.866818368912954,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 2,
+      "axis": 1,
+      "signed_rail": 1,
+      "destination": 0,
+      "native_path": [
+        24,
+        25,
+        33,
+        11,
+        0
+      ],
+      "integer_current_nonzero": [
+        [
+          4,
+          -1
+        ],
+        [
+          41,
+          -1
+        ],
+        [
+          80,
+          1
+        ],
+        [
+          89,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          0,
+          -1
+        ],
+        [
+          24,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 7.684169704420774e-15,
+      "drop_current_translation_operator_shift_error": 1.866818368912954,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 2,
+      "axis": 2,
+      "signed_rail": -1,
+      "destination": 3,
+      "native_path": [
+        24,
+        34,
+        26,
+        27,
+        37,
+        36
+      ],
+      "integer_current_nonzero": [
+        [
+          83,
+          1
+        ],
+        [
+          91,
+          1
+        ],
+        [
+          94,
+          -1
+        ],
+        [
+          101,
+          1
+        ],
+        [
+          118,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          24,
+          1
+        ],
+        [
+          36,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 1.0920413466012907e-14,
+      "drop_current_translation_operator_shift_error": 2.1280408596718488,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 2,
+      "axis": 2,
+      "signed_rail": 1,
+      "destination": 3,
+      "native_path": [
+        24,
+        25,
+        39,
+        38,
+        46,
+        36
+      ],
+      "integer_current_nonzero": [
+        [
+          80,
+          1
+        ],
+        [
+          90,
+          1
+        ],
+        [
+          121,
+          -1
+        ],
+        [
+          127,
+          -1
+        ],
+        [
+          130,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          24,
+          1
+        ],
+        [
+          36,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 1.0865740804794902e-14,
+      "drop_current_translation_operator_shift_error": 2.1280408596718488,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 3,
+      "axis": 0,
+      "signed_rail": -1,
+      "destination": 7,
+      "native_path": [
+        36,
+        43,
+        89,
+        84
+      ],
+      "integer_current_nonzero": [
+        [
+          120,
+          1
+        ],
+        [
+          149,
+          1
+        ],
+        [
+          259,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          36,
+          1
+        ],
+        [
+          84,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 4.939940249210435e-15,
+      "drop_current_translation_operator_shift_error": 1.5779356616734892,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 3,
+      "axis": 0,
+      "signed_rail": 1,
+      "destination": 7,
+      "native_path": [
+        36,
+        41,
+        91,
+        84
+      ],
+      "integer_current_nonzero": [
+        [
+          119,
+          1
+        ],
+        [
+          142,
+          1
+        ],
+        [
+          260,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          36,
+          1
+        ],
+        [
+          84,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.572304796197074e-15,
+      "drop_current_translation_operator_shift_error": 1.5779356616734892,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 3,
+      "axis": 1,
+      "signed_rail": -1,
+      "destination": 1,
+      "native_path": [
+        36,
+        47,
+        21,
+        13,
+        12
+      ],
+      "integer_current_nonzero": [
+        [
+          42,
+          -1
+        ],
+        [
+          50,
+          -1
+        ],
+        [
+          76,
+          -1
+        ],
+        [
+          122,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          12,
+          -1
+        ],
+        [
+          36,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.604445746868575e-15,
+      "drop_current_translation_operator_shift_error": 1.866818368912954,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 3,
+      "axis": 1,
+      "signed_rail": 1,
+      "destination": 1,
+      "native_path": [
+        36,
+        37,
+        45,
+        23,
+        12
+      ],
+      "integer_current_nonzero": [
+        [
+          46,
+          -1
+        ],
+        [
+          79,
+          -1
+        ],
+        [
+          118,
+          1
+        ],
+        [
+          126,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          12,
+          -1
+        ],
+        [
+          36,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.8163533594188305e-15,
+      "drop_current_translation_operator_shift_error": 1.866818368912954,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 3,
+      "axis": 2,
+      "signed_rail": -1,
+      "destination": 2,
+      "native_path": [
+        36,
+        46,
+        38,
+        39,
+        25,
+        24
+      ],
+      "integer_current_nonzero": [
+        [
+          80,
+          -1
+        ],
+        [
+          90,
+          -1
+        ],
+        [
+          121,
+          1
+        ],
+        [
+          127,
+          1
+        ],
+        [
+          130,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          24,
+          -1
+        ],
+        [
+          36,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 1.0865740804794902e-14,
+      "drop_current_translation_operator_shift_error": 2.1280408596718488,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 3,
+      "axis": 2,
+      "signed_rail": 1,
+      "destination": 2,
+      "native_path": [
+        36,
+        37,
+        27,
+        26,
+        34,
+        24
+      ],
+      "integer_current_nonzero": [
+        [
+          83,
+          -1
+        ],
+        [
+          91,
+          -1
+        ],
+        [
+          94,
+          1
+        ],
+        [
+          101,
+          -1
+        ],
+        [
+          118,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          24,
+          -1
+        ],
+        [
+          36,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 1.0920413466012907e-14,
+      "drop_current_translation_operator_shift_error": 2.1280408596718488,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 4,
+      "axis": 0,
+      "signed_rail": -1,
+      "destination": 0,
+      "native_path": [
+        48,
+        55,
+        5,
+        0
+      ],
+      "integer_current_nonzero": [
+        [
+          1,
+          -1
+        ],
+        [
+          28,
+          -1
+        ],
+        [
+          154,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          0,
+          -1
+        ],
+        [
+          48,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 6.150009265573011e-15,
+      "drop_current_translation_operator_shift_error": 1.5779356616734892,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 4,
+      "axis": 0,
+      "signed_rail": 1,
+      "destination": 0,
+      "native_path": [
+        48,
+        53,
+        7,
+        0
+      ],
+      "integer_current_nonzero": [
+        [
+          2,
+          -1
+        ],
+        [
+          35,
+          -1
+        ],
+        [
+          153,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          0,
+          -1
+        ],
+        [
+          48,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 6.465817259422084e-15,
+      "drop_current_translation_operator_shift_error": 1.5779356616734892,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 4,
+      "axis": 1,
+      "signed_rail": -1,
+      "destination": 6,
+      "native_path": [
+        48,
+        59,
+        81,
+        73,
+        72
+      ],
+      "integer_current_nonzero": [
+        [
+          156,
+          1
+        ],
+        [
+          189,
+          1
+        ],
+        [
+          224,
+          -1
+        ],
+        [
+          233,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          48,
+          1
+        ],
+        [
+          72,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.204436557748425e-15,
+      "drop_current_translation_operator_shift_error": 1.866818368912954,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 4,
+      "axis": 1,
+      "signed_rail": 1,
+      "destination": 6,
+      "native_path": [
+        48,
+        49,
+        57,
+        83,
+        72
+      ],
+      "integer_current_nonzero": [
+        [
+          152,
+          1
+        ],
+        [
+          161,
+          1
+        ],
+        [
+          186,
+          1
+        ],
+        [
+          228,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          48,
+          1
+        ],
+        [
+          72,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.1475930417700445e-15,
+      "drop_current_translation_operator_shift_error": 1.866818368912954,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 4,
+      "axis": 2,
+      "signed_rail": -1,
+      "destination": 5,
+      "native_path": [
+        48,
+        58,
+        50,
+        51,
+        61,
+        60
+      ],
+      "integer_current_nonzero": [
+        [
+          155,
+          1
+        ],
+        [
+          163,
+          1
+        ],
+        [
+          166,
+          -1
+        ],
+        [
+          173,
+          1
+        ],
+        [
+          190,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          48,
+          1
+        ],
+        [
+          60,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 1.2213082261345583e-14,
+      "drop_current_translation_operator_shift_error": 2.1280408596718488,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 4,
+      "axis": 2,
+      "signed_rail": 1,
+      "destination": 5,
+      "native_path": [
+        48,
+        49,
+        63,
+        62,
+        70,
+        60
+      ],
+      "integer_current_nonzero": [
+        [
+          152,
+          1
+        ],
+        [
+          162,
+          1
+        ],
+        [
+          193,
+          -1
+        ],
+        [
+          199,
+          -1
+        ],
+        [
+          202,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          48,
+          1
+        ],
+        [
+          60,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 9.532518392408961e-15,
+      "drop_current_translation_operator_shift_error": 2.1280408596718488,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 5,
+      "axis": 0,
+      "signed_rail": -1,
+      "destination": 1,
+      "native_path": [
+        60,
+        67,
+        17,
+        12
+      ],
+      "integer_current_nonzero": [
+        [
+          43,
+          -1
+        ],
+        [
+          66,
+          -1
+        ],
+        [
+          192,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          12,
+          -1
+        ],
+        [
+          60,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.346138725293424e-15,
+      "drop_current_translation_operator_shift_error": 1.5779356616734892,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 5,
+      "axis": 0,
+      "signed_rail": 1,
+      "destination": 1,
+      "native_path": [
+        60,
+        65,
+        19,
+        12
+      ],
+      "integer_current_nonzero": [
+        [
+          44,
+          -1
+        ],
+        [
+          73,
+          -1
+        ],
+        [
+          191,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          12,
+          -1
+        ],
+        [
+          60,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.222406863810295e-15,
+      "drop_current_translation_operator_shift_error": 1.5779356616734892,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 5,
+      "axis": 1,
+      "signed_rail": -1,
+      "destination": 7,
+      "native_path": [
+        60,
+        71,
+        93,
+        85,
+        84
+      ],
+      "integer_current_nonzero": [
+        [
+          194,
+          1
+        ],
+        [
+          223,
+          1
+        ],
+        [
+          258,
+          -1
+        ],
+        [
+          266,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          60,
+          1
+        ],
+        [
+          84,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.330609809153298e-15,
+      "drop_current_translation_operator_shift_error": 1.866818368912954,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 5,
+      "axis": 1,
+      "signed_rail": 1,
+      "destination": 7,
+      "native_path": [
+        60,
+        61,
+        69,
+        95,
+        84
+      ],
+      "integer_current_nonzero": [
+        [
+          190,
+          1
+        ],
+        [
+          198,
+          1
+        ],
+        [
+          220,
+          1
+        ],
+        [
+          262,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          60,
+          1
+        ],
+        [
+          84,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.052539944858659e-15,
+      "drop_current_translation_operator_shift_error": 1.866818368912954,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 5,
+      "axis": 2,
+      "signed_rail": -1,
+      "destination": 4,
+      "native_path": [
+        60,
+        70,
+        62,
+        63,
+        49,
+        48
+      ],
+      "integer_current_nonzero": [
+        [
+          152,
+          -1
+        ],
+        [
+          162,
+          -1
+        ],
+        [
+          193,
+          1
+        ],
+        [
+          199,
+          1
+        ],
+        [
+          202,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          48,
+          -1
+        ],
+        [
+          60,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 9.532518392408961e-15,
+      "drop_current_translation_operator_shift_error": 2.1280408596718488,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 5,
+      "axis": 2,
+      "signed_rail": 1,
+      "destination": 4,
+      "native_path": [
+        60,
+        61,
+        51,
+        50,
+        58,
+        48
+      ],
+      "integer_current_nonzero": [
+        [
+          155,
+          -1
+        ],
+        [
+          163,
+          -1
+        ],
+        [
+          166,
+          1
+        ],
+        [
+          173,
+          -1
+        ],
+        [
+          190,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          48,
+          -1
+        ],
+        [
+          60,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 1.2213082261345583e-14,
+      "drop_current_translation_operator_shift_error": 2.1280408596718488,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 6,
+      "axis": 0,
+      "signed_rail": -1,
+      "destination": 2,
+      "native_path": [
+        72,
+        79,
+        29,
+        24
+      ],
+      "integer_current_nonzero": [
+        [
+          81,
+          -1
+        ],
+        [
+          108,
+          -1
+        ],
+        [
+          226,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          24,
+          -1
+        ],
+        [
+          72,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 4.940043220546259e-15,
+      "drop_current_translation_operator_shift_error": 1.5779356616734892,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 6,
+      "axis": 0,
+      "signed_rail": 1,
+      "destination": 2,
+      "native_path": [
+        72,
+        77,
+        31,
+        24
+      ],
+      "integer_current_nonzero": [
+        [
+          82,
+          -1
+        ],
+        [
+          115,
+          -1
+        ],
+        [
+          225,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          24,
+          -1
+        ],
+        [
+          72,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 4.668111030581746e-15,
+      "drop_current_translation_operator_shift_error": 1.5779356616734892,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 6,
+      "axis": 1,
+      "signed_rail": -1,
+      "destination": 4,
+      "native_path": [
+        72,
+        83,
+        57,
+        49,
+        48
+      ],
+      "integer_current_nonzero": [
+        [
+          152,
+          -1
+        ],
+        [
+          161,
+          -1
+        ],
+        [
+          186,
+          -1
+        ],
+        [
+          228,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          48,
+          -1
+        ],
+        [
+          72,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.1475930417700445e-15,
+      "drop_current_translation_operator_shift_error": 1.866818368912954,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 6,
+      "axis": 1,
+      "signed_rail": 1,
+      "destination": 4,
+      "native_path": [
+        72,
+        73,
+        81,
+        59,
+        48
+      ],
+      "integer_current_nonzero": [
+        [
+          156,
+          -1
+        ],
+        [
+          189,
+          -1
+        ],
+        [
+          224,
+          1
+        ],
+        [
+          233,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          48,
+          -1
+        ],
+        [
+          72,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.204436557748425e-15,
+      "drop_current_translation_operator_shift_error": 1.866818368912954,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 6,
+      "axis": 2,
+      "signed_rail": -1,
+      "destination": 7,
+      "native_path": [
+        72,
+        82,
+        74,
+        75,
+        85,
+        84
+      ],
+      "integer_current_nonzero": [
+        [
+          227,
+          1
+        ],
+        [
+          235,
+          1
+        ],
+        [
+          238,
+          -1
+        ],
+        [
+          245,
+          1
+        ],
+        [
+          258,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          72,
+          1
+        ],
+        [
+          84,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 1.0807285731878795e-14,
+      "drop_current_translation_operator_shift_error": 2.1280408596718488,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 6,
+      "axis": 2,
+      "signed_rail": 1,
+      "destination": 7,
+      "native_path": [
+        72,
+        73,
+        87,
+        86,
+        94,
+        84
+      ],
+      "integer_current_nonzero": [
+        [
+          224,
+          1
+        ],
+        [
+          234,
+          1
+        ],
+        [
+          261,
+          -1
+        ],
+        [
+          267,
+          -1
+        ],
+        [
+          270,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          72,
+          1
+        ],
+        [
+          84,
+          -1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 8.991047921102732e-15,
+      "drop_current_translation_operator_shift_error": 2.1280408596718488,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 7,
+      "axis": 0,
+      "signed_rail": -1,
+      "destination": 3,
+      "native_path": [
+        84,
+        91,
+        41,
+        36
+      ],
+      "integer_current_nonzero": [
+        [
+          119,
+          -1
+        ],
+        [
+          142,
+          -1
+        ],
+        [
+          260,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          36,
+          -1
+        ],
+        [
+          84,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.572304796197074e-15,
+      "drop_current_translation_operator_shift_error": 1.5779356616734892,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 7,
+      "axis": 0,
+      "signed_rail": 1,
+      "destination": 3,
+      "native_path": [
+        84,
+        89,
+        43,
+        36
+      ],
+      "integer_current_nonzero": [
+        [
+          120,
+          -1
+        ],
+        [
+          149,
+          -1
+        ],
+        [
+          259,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          36,
+          -1
+        ],
+        [
+          84,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 4.939940249210435e-15,
+      "drop_current_translation_operator_shift_error": 1.5779356616734892,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 7,
+      "axis": 1,
+      "signed_rail": -1,
+      "destination": 5,
+      "native_path": [
+        84,
+        95,
+        69,
+        61,
+        60
+      ],
+      "integer_current_nonzero": [
+        [
+          190,
+          -1
+        ],
+        [
+          198,
+          -1
+        ],
+        [
+          220,
+          -1
+        ],
+        [
+          262,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          60,
+          -1
+        ],
+        [
+          84,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.052539944858659e-15,
+      "drop_current_translation_operator_shift_error": 1.866818368912954,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 7,
+      "axis": 1,
+      "signed_rail": 1,
+      "destination": 5,
+      "native_path": [
+        84,
+        85,
+        93,
+        71,
+        60
+      ],
+      "integer_current_nonzero": [
+        [
+          194,
+          -1
+        ],
+        [
+          223,
+          -1
+        ],
+        [
+          258,
+          1
+        ],
+        [
+          266,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          60,
+          -1
+        ],
+        [
+          84,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 5.330609809153298e-15,
+      "drop_current_translation_operator_shift_error": 1.866818368912954,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 7,
+      "axis": 2,
+      "signed_rail": -1,
+      "destination": 6,
+      "native_path": [
+        84,
+        94,
+        86,
+        87,
+        73,
+        72
+      ],
+      "integer_current_nonzero": [
+        [
+          224,
+          -1
+        ],
+        [
+          234,
+          -1
+        ],
+        [
+          261,
+          1
+        ],
+        [
+          267,
+          1
+        ],
+        [
+          270,
+          -1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          72,
+          -1
+        ],
+        [
+          84,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 8.991047921102732e-15,
+      "drop_current_translation_operator_shift_error": 2.1280408596718488,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    },
+    {
+      "cell": 7,
+      "axis": 2,
+      "signed_rail": 1,
+      "destination": 6,
+      "native_path": [
+        84,
+        85,
+        75,
+        74,
+        82,
+        72
+      ],
+      "integer_current_nonzero": [
+        [
+          227,
+          -1
+        ],
+        [
+          235,
+          -1
+        ],
+        [
+          238,
+          1
+        ],
+        [
+          245,
+          -1
+        ],
+        [
+          258,
+          1
+        ]
+      ],
+      "exact_charge_changes": [
+        [
+          72,
+          -1
+        ],
+        [
+          84,
+          1
+        ]
+      ],
+      "source_full_field_shift_reconstruction_residual": 1.0807285731878795e-14,
+      "drop_current_translation_operator_shift_error": 2.1280408596718488,
+      "reverse_current_Gauss_error": 2.8284271247461903
+    }
+  ],
+  "exact_transfer": "E_after\u2212E_before=delta_particular+P_kerB J=J; B J=delta(G\u2212n). Free quadratic field, Coulomb, mass and spin terms preserve the Gauss identity.",
+  "numerical_frame_boundary": "Full-shift numerical residual is a diagnostic. Exact longitudinal/transverse decomposition and polar-frame range prove the identity without using the rounded frame as physical E.",
+  "no_retained_current_history": true,
+  "dropped_current_control_minimum_error": 1.5779356616734892,
+  "reversed_current_control_minimum_Gauss_error": 2.8284271247461903
+}

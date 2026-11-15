@@ -1,0 +1,36 @@
+{
+  "schema": "oph.fiber_preparation.independent_review.v1",
+  "reviewer": "Independent Codex worker; not an opposite-team Fable audit",
+  "outcome": "PASS_WITH_DECLARED_RESOURCES",
+  "controls": [
+    {
+      "modulus": 4,
+      "all_Gauss_fibers_enumerated": true,
+      "Fourier_tree_isometry_error": 0.0,
+      "arbitrary_register_inverse_error": 0,
+      "complete_record_branch_error": 0.0,
+      "all64_closed_cut_branch_intertwiner_error": 0.0,
+      "retained_code_complement_crossblock_norm": 0.10825317547305481,
+      "full_native_continuation_error": 6.661918658640637e-16
+    },
+    {
+      "modulus": 6,
+      "all_Gauss_fibers_enumerated": true,
+      "Fourier_tree_isometry_error": 0.0,
+      "arbitrary_register_inverse_error": 0,
+      "complete_record_branch_error": 0.0,
+      "all64_closed_cut_branch_intertwiner_error": 0.0,
+      "retained_code_complement_crossblock_norm": 0.06211299937499418,
+      "full_native_continuation_error": 6.6616531277009295e-16
+    }
+  ],
+  "scope": "Ideal added modular Fourier and reversible arithmetic gates. Composite modulus works via unit-coefficient tree elimination. Full branch state retains code/complement crossblocks; weights are diagnostics, not another P/Q measurement. No general efficient gate-count or native-only preparation claim.",
+  "full_criterion_met": false,
+  "source_sha256": {
+    "validation/review_fiber_preparation.py": "df3e3927260f46effd73ba81e1dfd02f450e28a931230cb180c58573c553dacd",
+    "candidate/oph_openwave/fiber_preparation.py": "d3585fb28eab66b3186376e5f60674f2ba13256d8c6057964089ad5fcf83bacb",
+    "candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907",
+    "candidate/oph_openwave/uniform_native.py": "2416525dfd50cb7e7f38805a52c65858d51fda428b5875abc7295e52b03e3146",
+    "candidate/oph_openwave/modular_native.py": "1b6e25eb63ca190e1b5ef999b0b43cefb790e7872a58ffdb40256662ca65959a"
+  }
+}

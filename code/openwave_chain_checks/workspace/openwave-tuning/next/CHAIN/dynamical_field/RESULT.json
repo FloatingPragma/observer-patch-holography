@@ -1,0 +1,2322 @@
+{
+  "schema": "oph.c10.dynamical_integer_field.v1",
+  "checks": {
+    "actual384_H_recovered": true,
+    "actual_complete_MIX_recovered": true,
+    "complete_MIX_isometry": true,
+    "actual_global_reference_reservoir_preparation_recovered": true,
+    "actual_common_clock_H_preparation_and_parameters_recovered": true,
+    "exact_integer_Gauss_all_retained_labels": true,
+    "actual_spatial_and_boundary_degrees_preserved": true,
+    "all_terminal_probabilities_retained": true,
+    "complete_one_event_histories_retained": true,
+    "interacting_field_matter_commutator_nonzero": true,
+    "actual_M6_integer_chart_energy_identification_rejected": true,
+    "drop_electric_generator_mutation_rejected": true,
+    "source_preparation_clock_mutations_rejected": true,
+    "full_carrier_coordinate_commutator_transfer_rejected": true,
+    "uniform_fiber_invariance_transfer_rejected": true,
+    "all_passive_errors_below_proved_bounds": true,
+    "complete_marked_clock_refinement_nonvacuous": true
+  },
+  "parameters": {
+    "mass": 0.23,
+    "kappa": 0.37,
+    "face_coefficient": 0.61,
+    "duration": "37/100",
+    "native_attempt_rate": "4/5",
+    "uniformization_rate": "8/5",
+    "bounded_hopping_norm_upper": "361/50",
+    "initial_integer_record_radius_all384": 5
+  },
+  "baseline": {
+    "dimension": 384,
+    "H_max_difference": 0.0,
+    "H_sha256_le_float64": "32dfd62f776c28e532419b3c4cd61ef50bd43914e0c8cb52408f0678995c6834",
+    "instrument_max_difference": 0.0,
+    "instrument_completeness_error": 2.220446049250313e-16,
+    "preparation_max_difference": 1.6653345369377348e-16,
+    "global_reference_energy": -2.7262233938630343,
+    "common_clock_preparation_archive_max_difference": 0.0,
+    "common_clock_H_duration_and_rates_match": true
+  },
+  "preparation_outcomes": [
+    {
+      "reservoir_initial": 0,
+      "reservoir_final": 0,
+      "source_charge_change": 0,
+      "boundary_record_change": 0,
+      "probability": 0.3499587866244224
+    },
+    {
+      "reservoir_initial": 0,
+      "reservoir_final": 1,
+      "source_charge_change": -1,
+      "boundary_record_change": 1,
+      "probability": 0.15004121337557783
+    },
+    {
+      "reservoir_initial": 1,
+      "reservoir_final": 0,
+      "source_charge_change": 1,
+      "boundary_record_change": -1,
+      "probability": 0.3499587866244224
+    },
+    {
+      "reservoir_initial": 1,
+      "reservoir_final": 1,
+      "source_charge_change": 0,
+      "boundary_record_change": 0,
+      "probability": 0.15004121337557783
+    }
+  ],
+  "actual_preparation_chart": {
+    "exact_lift": "source tree chord3; k=centered(Fmod6[3]); exact integer B=3-N",
+    "spatial_chord5_chart_difference_max": 6,
+    "spatial_chart_degree_difference": 0,
+    "spatial_chart_residue_difference": 0,
+    "outside_support_diagnostics": [
+      {
+        "radius": 0,
+        "outside_probability_diagnostic": 1.0000000000000004,
+        "marked_clock_good_part_bound": {
+          "exact_rational_upper": "1",
+          "outward_float_upper": 1.0
+        },
+        "full_preparation_comparison_formula": "min(1, delta_good + 2 sqrt(p_outside)); no conditioning or branch removal"
+      },
+      {
+        "radius": 1,
+        "outside_probability_diagnostic": 0.03983858753154724,
+        "marked_clock_good_part_bound": {
+          "exact_rational_upper": "1",
+          "outward_float_upper": 1.0
+        },
+        "full_preparation_comparison_formula": "min(1, delta_good + 2 sqrt(p_outside)); no conditioning or branch removal"
+      },
+      {
+        "radius": 2,
+        "outside_probability_diagnostic": 0.0003358525493507174,
+        "marked_clock_good_part_bound": {
+          "exact_rational_upper": "1",
+          "outward_float_upper": 1.0
+        },
+        "full_preparation_comparison_formula": "min(1, delta_good + 2 sqrt(p_outside)); no conditioning or branch removal"
+      },
+      {
+        "radius": 3,
+        "outside_probability_diagnostic": 0.00012798910949037568,
+        "marked_clock_good_part_bound": {
+          "exact_rational_upper": "1",
+          "outward_float_upper": 1.0
+        },
+        "full_preparation_comparison_formula": "min(1, delta_good + 2 sqrt(p_outside)); no conditioning or branch removal"
+      },
+      {
+        "radius": 4,
+        "outside_probability_diagnostic": 1.0471999036054318e-05,
+        "marked_clock_good_part_bound": {
+          "exact_rational_upper": "1",
+          "outward_float_upper": 1.0
+        },
+        "full_preparation_comparison_formula": "min(1, delta_good + 2 sqrt(p_outside)); no conditioning or branch removal"
+      },
+      {
+        "radius": 5,
+        "outside_probability_diagnostic": 0.0,
+        "marked_clock_good_part_bound": {
+          "exact_rational_upper": "1",
+          "outward_float_upper": 1.0
+        },
+        "full_preparation_comparison_formula": "min(1, delta_good + 2 sqrt(p_outside)); no conditioning or branch removal"
+      }
+    ],
+    "periodic_vs_integer_electric_energy_max_difference": 13.32,
+    "periodic_vs_integer_electric_energy_preparation_mean_difference": 0.000907614586425429,
+    "nonzero_energy_chart_defect_preparation_probability": 0.00012798910949037568,
+    "M6_full_preparation_complete_clock_bound": {
+      "exact_rational_upper": "1",
+      "outward_float_upper": 1.0
+    }
+  },
+  "integer_diagnostic_cutoff": {
+    "cycle_cutoff": 26,
+    "dimension": 3392,
+    "passive_error_to_infinite_TV_bound": {
+      "exact_rational_upper": "54734432855244021982226853188515748485478424734367701988077229132202029800450358562491978847857979/869207895614022339375000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "outward_float_upper": 6.297047361331061e-14
+    },
+    "boundary_handling": "Hermitian Dirichlet cut only in diagnostic; omitted infinite amplitude bounded, never renormalized"
+  },
+  "members": [
+    {
+      "modulus": 6,
+      "dimension": 384,
+      "same_preparation_label_probabilities": [
+        0.3499587866244224,
+        0.15004121337557788,
+        0.3499587866244224,
+        0.15004121337557788
+      ],
+      "norm_diagnostic": 1.0000000000000009,
+      "passive_purified_vector_error_vs_integer_cutoff26": 0.024342503841186417,
+      "passive_TV_theorem_bound": {
+        "exact_rational_upper": "1",
+        "outward_float_upper": 1.0
+      },
+      "complete_marked_clock_TV_theorem_bound": {
+        "exact_rational_upper": "1",
+        "outward_float_upper": 1.0
+      },
+      "marked_clock_plus_terminal_MIX_TV_bound": {
+        "exact_rational_upper": "1",
+        "outward_float_upper": 1.0
+      },
+      "field_energy_change": 0.007536230410911671,
+      "complete_terminal_occupation_probabilities": [
+        0.0,
+        4.286270130210285e-34,
+        4.270684564109942e-34,
+        1.3666283411741853e-05,
+        5.3827248361764355e-37,
+        1.366628341174208e-05,
+        0.0021296441333617726,
+        0.00250865911699175,
+        2.7318323292984602e-33,
+        3.802363256905794e-05,
+        0.010119768293883346,
+        0.012327677828646693,
+        0.011579018805904166,
+        0.01382404577064495,
+        0.013638897898253583,
+        0.011500223218733684,
+        1.5280212180747195e-35,
+        6.337906642551279e-05,
+        0.011573019799764323,
+        0.013950643085692091,
+        0.0115730197997643,
+        0.013950643085692077,
+        0.012754218320661035,
+        0.010373806954759982,
+        0.04032806320461146,
+        0.048986571594726955,
+        0.0028243895768062144,
+        0.0015595419975322341,
+        0.0390330751696816,
+        0.03797638050326961,
+        0.0013360000716269391,
+        0.0,
+        1.5338630131413743e-35,
+        3.8023632569058e-05,
+        0.011579018805904163,
+        0.013824045770644944,
+        0.010119768293883318,
+        0.012327677828646667,
+        0.013638897898253578,
+        0.011500223218733664,
+        0.0005450701355025393,
+        0.000645082648483355,
+        0.03365865397415779,
+        0.037855238756763845,
+        0.033658653974157786,
+        0.03785523875676383,
+        0.005155496229613227,
+        0.0,
+        0.04032806320461142,
+        0.04898657159472691,
+        0.03903307516968155,
+        0.03797638050326957,
+        0.0028243895768062122,
+        0.0015595419975322341,
+        0.001336000071626939,
+        0.0,
+        0.12760413011664462,
+        0.1438443285208224,
+        0.005065192911687175,
+        0.0,
+        0.005065192911687175,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "complete_terminal_MIX_records": [
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.05332423542364305
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.030009097909690367
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.01365352276294014
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.0696798105703933
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.01365352276294014
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.03967071266070291
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.030009097909690367
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.01365352276294014
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.03967071266070291
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.030009097909690367
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.06405330727017962
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.01928002606315381
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.019280026063153804
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.06405330727017962
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.019280026063153804
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.04477328120702582
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.01928002606315381
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.019280026063153804
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.04477328120702582
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.01928002606315381
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.0696798105703933
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.01365352276294014
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.030009097909690377
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.05332423542364305
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.030009097909690377
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.03967071266070291
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.01365352276294014
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.030009097909690377
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.03967071266070291
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.01365352276294014
+        }
+      ],
+      "terminal_probability_sum": 1.000000000000001
+    },
+    {
+      "modulus": 12,
+      "dimension": 768,
+      "same_preparation_label_probabilities": [
+        0.3499587866244224,
+        0.15004121337557788,
+        0.3499587866244224,
+        0.15004121337557788
+      ],
+      "norm_diagnostic": 1.0000000000000009,
+      "passive_purified_vector_error_vs_integer_cutoff26": 1.9446531865474903e-05,
+      "passive_TV_theorem_bound": {
+        "exact_rational_upper": "1",
+        "outward_float_upper": 1.0
+      },
+      "complete_marked_clock_TV_theorem_bound": {
+        "exact_rational_upper": "1",
+        "outward_float_upper": 1.0
+      },
+      "marked_clock_plus_terminal_MIX_TV_bound": {
+        "exact_rational_upper": "1",
+        "outward_float_upper": 1.0
+      },
+      "field_energy_change": 0.0075644345007059854,
+      "complete_terminal_occupation_probabilities": [
+        0.0,
+        4.289908349816274e-34,
+        4.269716476145157e-34,
+        1.3733449120233518e-05,
+        5.135286660512125e-37,
+        1.3743300489865138e-05,
+        0.0021318675659054726,
+        0.002511332408669521,
+        2.731840301585273e-33,
+        3.800366291573618e-05,
+        0.01012062099335647,
+        0.012328883829240564,
+        0.011581775253685492,
+        0.013826709470940186,
+        0.013623058057619236,
+        0.011486612530523332,
+        1.5203077258054643e-35,
+        6.352164201421106e-05,
+        0.011573781888936416,
+        0.013952401242711538,
+        0.01157241775740581,
+        0.01395041086799252,
+        0.012754854353278245,
+        0.010374203425488917,
+        0.04032391525223361,
+        0.048982182702764596,
+        0.0028353555189205223,
+        0.0015699599488004103,
+        0.039036257660508056,
+        0.037979609651737814,
+        0.0013362949094975426,
+        0.0,
+        1.5165523420738409e-35,
+        3.799465129413606e-05,
+        0.011577930044668035,
+        0.01382331915268744,
+        0.0101199542513812,
+        0.012327773912780112,
+        0.013637481959279451,
+        0.011501152279319665,
+        0.000545579486966263,
+        0.0006456505856648398,
+        0.033661949483619155,
+        0.037859332587574,
+        0.03366069024449733,
+        0.03785721914675531,
+        0.00515108690624978,
+        0.0,
+        0.040326374175205015,
+        0.0489850854906987,
+        0.03903048442257065,
+        0.037974118207962856,
+        0.002823678240526904,
+        0.0015584739687207142,
+        0.00133606031098165,
+        0.0,
+        0.12760244039503094,
+        0.14384239173367747,
+        0.0050664327515538305,
+        0.0,
+        0.0050658382655794105,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "complete_terminal_MIX_records": [
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.05332426910096293
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.030009064232370524
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.013653104930536375
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.06968022840279707
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.013653104930536375
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.03967116417042655
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.030009064232370524
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.013653104930536375
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.03967116417042655
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.030009064232370524
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.06405097470652327
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.019282358626810183
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.0192812126660834
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.06405212066725005
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.0192812126660834
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.04476976204043987
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.019282358626810183
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.0192812126660834
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.04476976204043987
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.019282358626810183
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.06968072368863383
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.013652609644699637
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.03000971490726057
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.05332361842607289
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.03000971490726057
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.03967100878137325
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.013652609644699637
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.03000971490726057
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.03967100878137325
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.013652609644699637
+        }
+      ],
+      "terminal_probability_sum": 1.0000000000000016
+    },
+    {
+      "modulus": 18,
+      "dimension": 1152,
+      "same_preparation_label_probabilities": [
+        0.3499587866244224,
+        0.15004121337557788,
+        0.3499587866244224,
+        0.15004121337557788
+      ],
+      "norm_diagnostic": 0.9999999999999991,
+      "passive_purified_vector_error_vs_integer_cutoff26": 2.7339303886404826e-11,
+      "passive_TV_theorem_bound": {
+        "exact_rational_upper": "1",
+        "outward_float_upper": 1.0
+      },
+      "complete_marked_clock_TV_theorem_bound": {
+        "exact_rational_upper": "1",
+        "outward_float_upper": 1.0
+      },
+      "marked_clock_plus_terminal_MIX_TV_bound": {
+        "exact_rational_upper": "1",
+        "outward_float_upper": 1.0
+      },
+      "field_energy_change": 0.007564434660999986,
+      "complete_terminal_occupation_probabilities": [
+        0.0,
+        4.2899083505271225e-34,
+        4.269716478056006e-34,
+        1.3733449126723939e-05,
+        5.135284327977252e-37,
+        1.3743300493980583e-05,
+        0.0021318675657000775,
+        0.002511332409905246,
+        2.7318403013358285e-33,
+        3.800366291135227e-05,
+        0.010120620993401882,
+        0.012328883829233087,
+        0.01158177525383772,
+        0.013826709471080884,
+        0.013623058056922557,
+        0.011486612531068448,
+        1.5203077274396947e-35,
+        6.35216420377578e-05,
+        0.011573781888935198,
+        0.013952401254916171,
+        0.011572417757477955,
+        0.013950410868190086,
+        0.012754854353106948,
+        0.010374203428852303,
+        0.040323915252219206,
+        0.0489821827028876,
+        0.0028353555086838645,
+        0.001569959950450395,
+        0.03903625766076519,
+        0.03797960965139993,
+        0.0013362949066391217,
+        0.0,
+        1.516552362493022e-35,
+        3.799465129727104e-05,
+        0.01157793004477431,
+        0.013823319152906719,
+        0.010119954251353118,
+        0.012327773912753696,
+        0.013637481959212442,
+        0.011501152281342904,
+        0.0005455794868286623,
+        0.0006456505855066589,
+        0.03366194948373834,
+        0.037859332587684216,
+        0.03366069024439525,
+        0.037857219146532034,
+        0.0051510869044805955,
+        0.0,
+        0.04032637417518222,
+        0.04898508549066939,
+        0.03903048442028452,
+        0.03797411822076534,
+        0.002823678240350966,
+        0.0015584739686994374,
+        0.0013360603110099427,
+        0.0,
+        0.12760244039449053,
+        0.1438423917331617,
+        0.005066432736933569,
+        0.0,
+        0.005065838265401884,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "complete_terminal_MIX_records": [
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.05332426910103147
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.030009064232301826
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.013653104927818613
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.06968022840551473
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.013653104927818613
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.039671164173212856
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.030009064232301826
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.013653104927818613
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.039671164173212856
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.030009064232301826
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.06405097470651377
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.019282358626819526
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.019281212666061014
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.06405212066727227
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.019281212666061014
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.04476976204045276
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.019282358626819526
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.019281212666061014
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.04476976204045276
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.019282358626819526
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.06968072368911217
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.013652609644221153
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.030009714909462873
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.053323618423870414
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.030009714909462873
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.03967100877964928
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.013652609644221153
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.030009714909462873
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.03967100877964928
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.013652609644221153
+        }
+      ],
+      "terminal_probability_sum": 0.9999999999999997
+    },
+    {
+      "modulus": 30,
+      "dimension": 1920,
+      "same_preparation_label_probabilities": [
+        0.3499587866244224,
+        0.15004121337557788,
+        0.3499587866244224,
+        0.15004121337557788
+      ],
+      "norm_diagnostic": 0.9999999999999927,
+      "passive_purified_vector_error_vs_integer_cutoff26": 4.315385711699817e-14,
+      "passive_TV_theorem_bound": {
+        "exact_rational_upper": "1988300148203129561455569401216433181744739/147572381250000000000000000000000000000000000",
+        "outward_float_upper": 0.013473389338583502
+      },
+      "complete_marked_clock_TV_theorem_bound": {
+        "exact_rational_upper": "5686612718431252393239013383783375642752339/142327631250000000000000000000000000000000000",
+        "outward_float_upper": 0.03995438319663072
+      },
+      "marked_clock_plus_terminal_MIX_TV_bound": {
+        "exact_rational_upper": "34842946187548649219941628629797592277/249217762500000000000000000000000000000",
+        "outward_float_upper": 0.13980924087442867
+      },
+      "field_energy_change": 0.007564434660992658,
+      "complete_terminal_occupation_probabilities": [
+        0.0,
+        4.289908350527114e-34,
+        4.269716478055987e-34,
+        1.373344912672294e-05,
+        5.135284327977246e-37,
+        1.3743300493980117e-05,
+        0.0021318675657000683,
+        0.002511332409905205,
+        2.7318403013358196e-33,
+        3.800366291135241e-05,
+        0.010120620993401837,
+        0.012328883829233042,
+        0.011581775253837552,
+        0.013826709471080915,
+        0.013623058056922523,
+        0.011486612531068485,
+        1.5203077274396912e-35,
+        6.352164203776204e-05,
+        0.011573781888935198,
+        0.013952401254916137,
+        0.011572417757477865,
+        0.013950410868189888,
+        0.012754854353106785,
+        0.010374203428852126,
+        0.040323915252219594,
+        0.04898218270288706,
+        0.0028353555086838506,
+        0.0015699599504503782,
+        0.03903625766076489,
+        0.037979609651399515,
+        0.001336294906639115,
+        0.0,
+        1.5165523624930205e-35,
+        3.799465129727148e-05,
+        0.01157793004477407,
+        0.013823319152906823,
+        0.01011995425135297,
+        0.012327773912753703,
+        0.013637481959212171,
+        0.011501152281342908,
+        0.0005455794868286561,
+        0.0006456505855066603,
+        0.033661949483737984,
+        0.03785933258768459,
+        0.03366069024439529,
+        0.03785721914653191,
+        0.00515108690448063,
+        0.0,
+        0.040326374175181715,
+        0.048985085490669315,
+        0.03903048442028411,
+        0.03797411822076514,
+        0.0028236782403509614,
+        0.0015584739686994367,
+        0.0013360603110099353,
+        0.0,
+        0.12760244039448917,
+        0.1438423917331602,
+        0.005066432736933509,
+        0.0,
+        0.005065838265401879,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "complete_terminal_MIX_records": [
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.05332426910103115
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.030009064232301586
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.013653104927818486
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.06968022840551431
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.013653104927818486
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.03967116417321269
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.030009064232301586
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.013653104927818486
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.03967116417321269
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.030009064232301586
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.06405097470651329
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.019282358626819457
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.0192812126660609
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.06405212066727185
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.0192812126660609
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.04476976204045241
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.019282358626819457
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.0192812126660609
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.04476976204045241
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.019282358626819457
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.06968072368911173
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.01365260964422106
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.03000971490946271
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.05332361842387004
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.03000971490946271
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.039671008779649
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.01365260964422106
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.03000971490946271
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.039671008779649
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.01365260964422106
+        }
+      ],
+      "terminal_probability_sum": 0.9999999999999931
+    },
+    {
+      "modulus": 42,
+      "dimension": 2688,
+      "same_preparation_label_probabilities": [
+        0.3499587866244224,
+        0.15004121337557788,
+        0.3499587866244224,
+        0.15004121337557788
+      ],
+      "norm_diagnostic": 0.9999999999999676,
+      "passive_purified_vector_error_vs_integer_cutoff26": 4.223512171318931e-14,
+      "passive_TV_theorem_bound": {
+        "exact_rational_upper": "17449851561062516562061256866143070294997076486860870734003930804817/22872488951812500000000000000000000000000000000000000000000000000000000000",
+        "outward_float_upper": 7.629187884985175e-07
+      },
+      "complete_marked_clock_TV_theorem_bound": {
+        "exact_rational_upper": "93753279508426363003963011955651990110285670218267309894376338482897/22399989424312500000000000000000000000000000000000000000000000000000000000",
+        "outward_float_upper": 4.185416239825026e-06
+      },
+      "marked_clock_plus_terminal_MIX_TV_bound": {
+        "exact_rational_upper": "371699049310056983946980767301349131583940269430824012680446493/16252896278759765625000000000000000000000000000000000000000000000000",
+        "outward_float_upper": 2.2869711523097274e-05
+      },
+      "field_energy_change": 0.007564434660966679,
+      "complete_terminal_occupation_probabilities": [
+        0.0,
+        4.289908350527007e-34,
+        4.2697164780558835e-34,
+        1.3733449126723886e-05,
+        5.135284327977177e-37,
+        1.3743300493981022e-05,
+        0.002131867565699939,
+        0.0025113324099051305,
+        2.7318403013357604e-33,
+        3.8003662911351655e-05,
+        0.010120620993401684,
+        0.01232888382923288,
+        0.011581775253837487,
+        0.013826709471080612,
+        0.013623058056922195,
+        0.011486612531068028,
+        1.520307727439668e-35,
+        6.352164203775325e-05,
+        0.011573781888934879,
+        0.013952401254915769,
+        0.011572417757477782,
+        0.013950410868189465,
+        0.012754854353106783,
+        0.010374203428852261,
+        0.04032391525221843,
+        0.04898218270288575,
+        0.002835355508683809,
+        0.001569959950450346,
+        0.03903625766076347,
+        0.037979609651399404,
+        0.0013362949066391158,
+        0.0,
+        1.5165523624929863e-35,
+        3.799465129726919e-05,
+        0.011577930044774108,
+        0.013823319152906188,
+        0.010119954251352915,
+        0.012327773912753314,
+        0.01363748195921181,
+        0.011501152281342488,
+        0.0005455794868286391,
+        0.0006456505855066274,
+        0.03366194948373657,
+        0.03785933258768306,
+        0.03366069024439415,
+        0.037857219146531104,
+        0.005151086904480368,
+        0.0,
+        0.04032637417518025,
+        0.04898508549066834,
+        0.03903048442028344,
+        0.037974118220764325,
+        0.002823678240350882,
+        0.0015584739686993912,
+        0.0013360603110099164,
+        0.0,
+        0.12760244039448573,
+        0.14384239173315652,
+        0.005066432736933395,
+        0.0,
+        0.005065838265401776,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "complete_terminal_MIX_records": [
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.05332426910102973
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.030009064232300913
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.013653104927818169
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.0696802284055125
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.013653104927818169
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.03967116417321157
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.030009064232300913
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.013653104927818169
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.03967116417321157
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.030009064232300913
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.06405097470651172
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.01928235862681894
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.019281212666060484
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.06405212066727017
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.019281212666060484
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.04476976204045123
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.01928235862681894
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.019281212666060484
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.04476976204045123
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.01928235862681894
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.06968072368910995
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.013652609644220721
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.03000971490946192
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.053323618423868735
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.03000971490946192
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.03967100877964802
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.013652609644220721
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.03000971490946192
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.03967100877964802
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.013652609644220721
+        }
+      ],
+      "terminal_probability_sum": 0.9999999999999679
+    }
+  ],
+  "complete_one_event_executions": [
+    {
+      "modulus": 6,
+      "attempt_time": 0.17,
+      "continuation_duration": 0.2,
+      "number_of_native_marks": 30,
+      "column_order": "native mark outer, four reservoir labels inner, both in source iteration order",
+      "native_marks": [
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1
+        }
+      ],
+      "retained_branch_probabilities": [
+        0.028149179585890863,
+        0.012500679605083208,
+        0.009805077204021875,
+        0.00348844702154195,
+        0.0010140526328110105,
+        2.754842881616786e-06,
+        0.019358155014679992,
+        0.009014987426422882,
+        0.009398228226603071,
+        0.0029510438706632403,
+        0.00023294981193468792,
+        0.00016905107445232476,
+        0.019765003992098802,
+        0.009552390577301584,
+        0.028930282406767174,
+        0.012334383373512503,
+        0.009398228226603071,
+        0.002951043870663241,
+        0.00023294981193468792,
+        0.00016905107445232476,
+        0.018750951359287792,
+        0.009549635734419967,
+        0.009572127392087187,
+        0.003319395947089625,
+        0.0010140526328110105,
+        2.754842881616786e-06,
+        0.019358155014679992,
+        0.009014987426422882,
+        0.009398228226603071,
+        0.0029510438706632403,
+        0.00023294981193468792,
+        0.00016905107445232476,
+        0.018750951359287792,
+        0.009549635734419967,
+        0.009572127392087187,
+        0.003319395947089625,
+        0.0010140526328110105,
+        2.754842881616786e-06,
+        0.019358155014679992,
+        0.00901498742642288,
+        0.022366635290211063,
+        0.009728886180589565,
+        0.022365625088057166,
+        0.009728388405763932,
+        0.006796596928490812,
+        0.0027745482673752625,
+        0.006797607130644701,
+        0.0027750460422008936,
+        0.0067965969284908105,
+        0.002774548267375258,
+        0.006797607130644698,
+        0.0027750460422008892,
+        0.022366635290211063,
+        0.009728886180589572,
+        0.022365625088057173,
+        0.009728388405763937,
+        0.0067965969284908105,
+        0.002774548267375258,
+        0.006797607130644698,
+        0.00277504604220089,
+        0.01557003836172025,
+        0.006954337913214309,
+        0.015568017957412474,
+        0.006953342363563045,
+        0.006796596928490812,
+        0.0027745482673752625,
+        0.006797607130644701,
+        0.0027750460422008936,
+        0.0067965969284908105,
+        0.002774548267375258,
+        0.006797607130644698,
+        0.0027750460422008892,
+        0.01557003836172025,
+        0.006954337913214309,
+        0.015568017957412474,
+        0.006953342363563045,
+        0.006796596928490808,
+        0.0027745482673752625,
+        0.006797607130644698,
+        0.0027750460422008936,
+        0.01976500399209881,
+        0.009552390577301593,
+        0.028930282406767174,
+        0.012334383373512505,
+        0.009398228226603068,
+        0.002951043870663237,
+        0.00023294981193468787,
+        0.00016905107445232455,
+        0.001014052632811011,
+        2.7548428816167813e-06,
+        0.019358155014679992,
+        0.009014987426422885,
+        0.028149179585890863,
+        0.012500679605083212,
+        0.009805077204021875,
+        0.003488447021541947,
+        0.001014052632811011,
+        2.7548428816167805e-06,
+        0.019358155014679992,
+        0.009014987426422882,
+        0.018750951359287792,
+        0.009549635734419974,
+        0.009572127392087185,
+        0.003319395947089621,
+        0.009398228226603068,
+        0.002951043870663237,
+        0.00023294981193468787,
+        0.00016905107445232455,
+        0.001014052632811011,
+        2.7548428816167813e-06,
+        0.019358155014679992,
+        0.009014987426422885,
+        0.018750951359287792,
+        0.009549635734419974,
+        0.009572127392087185,
+        0.003319395947089621,
+        0.009398228226603073,
+        0.002951043870663237,
+        0.00023294981193468792,
+        0.00016905107445232455
+      ],
+      "probability_sum": 1.0000000000000009,
+      "same_clock_one_event_TV_bound": {
+        "exact_rational_upper": "1",
+        "outward_float_upper": 1.0
+      }
+    },
+    {
+      "modulus": 42,
+      "attempt_time": 0.17,
+      "continuation_duration": 0.2,
+      "number_of_native_marks": 30,
+      "column_order": "native mark outer, four reservoir labels inner, both in source iteration order",
+      "native_marks": [
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1
+        }
+      ],
+      "retained_branch_probabilities": [
+        0.028149184153762153,
+        0.012500679041148544,
+        0.009804973368022543,
+        0.0034884871931005956,
+        0.0010140480649395453,
+        2.7554068161658254e-06,
+        0.019358258850678888,
+        0.00901494725486419,
+        0.009398105101322924,
+        0.0029510869878335917,
+        0.0002329339549657866,
+        0.00016905321398579613,
+        0.019765127117378573,
+        0.009552347460131097,
+        0.028930298263735537,
+        0.012334381233979003,
+        0.009398105101322912,
+        0.0029510869878336243,
+        0.00023293395496578362,
+        0.00016905321398579621,
+        0.01875107905243911,
+        0.009549592053314822,
+        0.009572039413056711,
+        0.0033194339791148006,
+        0.0010140480649395453,
+        2.7554068161658254e-06,
+        0.019358258850678888,
+        0.00901494725486419,
+        0.009398105101322924,
+        0.0029510869878335917,
+        0.0002329339549657866,
+        0.00016905321398579613,
+        0.01875107905243911,
+        0.009549592053314822,
+        0.009572039413056711,
+        0.0033194339791148006,
+        0.0010140480649395475,
+        2.7554068161658584e-06,
+        0.019358258850678794,
+        0.009014947254864156,
+        0.022366259153925698,
+        0.009728838387323725,
+        0.022365248445859576,
+        0.009728340387841296,
+        0.006796973064775883,
+        0.002774596060640961,
+        0.0067979837728418865,
+        0.0027750940601234124,
+        0.0067967912227007415,
+        0.0027746432041307195,
+        0.00679780192638037,
+        0.002775141203637971,
+        0.02236644099600077,
+        0.009728791243833888,
+        0.022365430292320996,
+        0.00972829324432685,
+        0.006796791222700796,
+        0.002774643204130726,
+        0.006797801926380409,
+        0.002775141203637964,
+        0.015569467931224863,
+        0.006954195183192879,
+        0.01556744651947907,
+        0.006953199184203376,
+        0.006796973064775883,
+        0.002774596060640961,
+        0.0067979837728418865,
+        0.0027750940601234124,
+        0.0067967912227007415,
+        0.0027746432041307195,
+        0.00679780192638037,
+        0.002775141203637971,
+        0.015569467931224863,
+        0.006954195183192879,
+        0.01556744651947907,
+        0.006953199184203376,
+        0.00679697306477582,
+        0.002774596060640993,
+        0.006797983772841967,
+        0.002775094060123431,
+        0.019765302282515673,
+        0.009552300322200205,
+        0.0289302978352563,
+        0.012334378672195369,
+        0.009397929936185857,
+        0.0029511341257645,
+        0.00023293438344518494,
+        0.00016905577576957004,
+        0.0010140547418775615,
+        2.7554012573023333e-06,
+        0.019358441125619845,
+        0.009014902673133485,
+        0.028149177476824213,
+        0.012500679046707323,
+        0.009804791093081612,
+        0.0034885317748313523,
+        0.0010140547418775495,
+        2.755401257302331e-06,
+        0.0193584411256197,
+        0.009014902673133474,
+        0.018751247540638304,
+        0.009549544920942893,
+        0.009571856709636447,
+        0.003319475999061799,
+        0.009397929936185857,
+        0.0029511341257645,
+        0.00023293438344518494,
+        0.00016905577576957004,
+        0.0010140547418775615,
+        2.7554012573023333e-06,
+        0.019358441125619845,
+        0.009014902673133485,
+        0.018751247540638304,
+        0.009549544920942893,
+        0.009571856709636447,
+        0.003319475999061799,
+        0.009397929936185826,
+        0.002951134125764456,
+        0.00023293438344518545,
+        0.00016905577576956966
+      ],
+      "probability_sum": 0.9999999999999851,
+      "same_clock_one_event_TV_bound": {
+        "exact_rational_upper": "76848233625296788914652624823921672685382313247783144039934693/16622036534619140625000000000000000000000000000000000000000000000000",
+        "outward_float_upper": 4.6232742579552765e-06
+      }
+    }
+  ],
+  "obstructions": {
+    "field_matter_commutator_Frobenius": 21.447237584360373,
+    "drop_electric_mutation_vector_distance": 0.29368480497919075,
+    "admission_mutations_rejected": {
+      "electric_term_removed": true,
+      "reference_substituted_for_reservoir_output": true,
+      "clock_duration_changed": true
+    },
+    "periodic_coordinate_commutator_wrap_defect_operator_norm": 6,
+    "uniform_fiber_electric_leak_operator_norm": 3.355596072235155,
+    "spatial_cycle_rank": 1,
+    "integer_energy_minimization_used": false
+  },
+  "scope": "Actual C10 M6 source and full marked-clock preparation extend by a declared modulus family to an interacting integer-flux field on the same finite triangle. All four reservoir labels, native no-current outcomes, integer boundary B, and Poisson count tails retained. No oscillator, spatial Maxwell, physical clock, or particle-force identification.",
+  "official_rows_changed": []
+}

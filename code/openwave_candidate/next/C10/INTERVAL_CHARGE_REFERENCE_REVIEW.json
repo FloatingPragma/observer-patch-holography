@@ -1,0 +1,17 @@
+{
+  "schema": "oph.c10.interval_charge_independent_review.v1",
+  "outcome": "PASS_WITH_KNOWN_NONNEGATIVE_INTERVAL_SCOPE",
+  "independent_method": "Independent six-vertex oriented half-edge incidence; exhaustive all64masks/all120states; unique residue intersection with0..3; entangled two-dimensional idle-reference branch vectors",
+  "basis_comparisons": 7680,
+  "external_reference_branch_error": 0.0,
+  "known_interval_condition": "N>L; arbitrary signed[-L,L] remains differentdomain",
+  "Z3_alias_independent": true,
+  "full_criterion_met": false,
+  "official_rows_changed": [],
+  "source_sha256": {
+    "next/C10/review_interval_charge_decoder.py": "51f18387dc7e92637c70b292db839b197a9b56d78e2b26eae6f8afd4b4507ef2",
+    "next/C10/interval_charge_decoder.py": "3f0d26c485dc5b5b89cb462f4cabc784fcd591290cf1173f8fc98f571f12d295",
+    "next/C10/INTERVAL_CHARGE_DECODER.json": "837f9194a541026d5d31ea83482a47c45dad3b04dd1fb8d4388af5eb065bcee0",
+    "next/C9/fermionic_shared_records.py": "623b2f3a18f3c30530bc0cc222a3062cb9cb893c35a80076c9775cef9c487e72"
+  }
+}

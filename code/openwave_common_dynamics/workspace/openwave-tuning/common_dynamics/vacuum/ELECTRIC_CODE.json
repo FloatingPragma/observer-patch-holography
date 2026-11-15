@@ -1,0 +1,38 @@
+{
+  "schema": "oph.dirac.uniform_fibre_native_code_test.v1",
+  "checks": {
+    "all_two_edge_deletions_leave_connected_graph": true,
+    "exact_uniform_fibre_mean_and_variance": true,
+    "operator_leakage_lower_bound": true,
+    "full_affine_decode_and_native_projector_readout": true,
+    "complete_native_error_below_signal": true,
+    "full_native_word_streamed": true,
+    "source_bytes_unchanged": true
+  },
+  "electric_alpha_exact": "1/4096",
+  "uniform_fibre_mean_exact": "3096",
+  "uniform_fibre_variance_exact": "27234",
+  "electric_energy_range_exact": "9216",
+  "ideal_code_complement_probability_lower_exact": "503829/536870912",
+  "ideal_code_complement_probability_lower": 0.0009384546428918839,
+  "complete_native_record_TV_bound_exact": "149513030879235859489124968148684488237573165699003906869530766421549558590253808682173625611909443053406780393766251333425499855822233196030298164015020726939916393937104864576935135302449932571394144125914186545164055841032539/12420144738405671481191835907700020442055088136933572889112416304208407621491015090647027270629171823603901845577048585649372640352918515131554298200329449113635639808166799244402122285052787558602103993549731750007142774830528462848",
+  "complete_native_record_TV_bound": 1.2037945936081602e-05,
+  "native_conclusive_nonzero_field_record_probability_lower_exact": "11506229464266768729221767034025189292616795418425563257515451957568938872878718460960181486251228731053016521145131076482944942684321537081871944578414999429327985058151382090938875840047730527313419754985401044991069252139136677/12420144738405671481191835907700020442055088136933572889112416304208407621491015090647027270629171823603901845577048585649372640352918515131554298200329449113635639808166799244402122285052787558602103993549731750007142774830528462848",
+  "native_conclusive_nonzero_field_record_probability_lower": 0.0009264166969558022,
+  "native_word_pulses": 1538828,
+  "maximum_wire": 1188,
+  "native_word_sha256": "16359628e8497ada3dc336b856cdb18ba77dc1e929cd8418a0f0213d496381bf",
+  "instrument": "Prepare the actual Slater sea and uniform193cycle Gauss state, apply actualelectric kick, inverseGaussencoder, Hadamards on772chordbits, readall1152fieldbits with complete nativeC/E pointers. Any nonzero data bit witnesses leaving the originaluniformfibre code. All reset/export/finepointer outcomes retained.",
+  "proof": "For each matter configuration, code survival is |E exp(\u2212i alphaH)|\u00b2 on its uniform affine fibre. Independent H,Hprime give leakage E[1\u2212cos(alpha(H\u2212Hprime))] >= alpha\u00b2Var(H)\u2212alpha\u2074Range(H)\u00b2Var(H)/12. The same conditional moments give the lower bound for arbitrary matter/reference states. Here the factor is37/64.",
+  "scope": "An executed native-word and analytic complete-instrument certificate for an electric intervention on the free-reference code. It is not an interacting-vacuum or fullFock-evolution certificate.",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/vacuum/electric_code.py": "86efa465542e031c8a60a3b03e920404f414eb2717c4c6340a6e1be17bed33d7",
+    "openwave-tuning/common_dynamics/vacuum/native_preparation.py": "76fec1b3ac05c717a3dc908452a6c7cbbf631dd51178fc90fc3c17c2f06826ba",
+    "openwave-tuning/common_dynamics/vacuum/reference.py": "38a79b8a9ecbdc66b51559466a546d88b8ab64b4ad288de39434a5214f409582",
+    "reverse-engineering-reality/model/native_interface/pointer.py": "30485fdee1d221460c67b9791a34b7fa24b4dece718ab91bdfc3cbb24ca591ac",
+    "openwave-tuning/common_dynamics/vacuum/NATIVE_PREPARATION.json": "b15f505d6a6a54f205df7f67670b37021ea824635320dc7d74ab750d44d75c85",
+    "openwave-tuning/common_dynamics/vacuum/REFERENCE.json": "91852a559fc9cbb0e971f8762564267e303c014c2c2aed1a79f2f359df4ca5f4",
+    "openwave-tuning/auditor/common_walk_review/SOURCE_ERROR.json": "79432b4a01fa0f9234a8843d27d5a5eb20fd1483e9476c42e91a212f9df2573d"
+  },
+  "official_rows_changed": []
+}

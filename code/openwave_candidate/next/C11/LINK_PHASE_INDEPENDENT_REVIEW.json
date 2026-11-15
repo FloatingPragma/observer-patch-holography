@@ -1,0 +1,53 @@
+{
+  "schema": "oph.c11.link_phase_independent_review.v1",
+  "checks": {
+    "independent_H_and_signed_halfhops": true,
+    "Krylov_matches_independent_dense_evolution": true,
+    "regional_current_sign_identity": true,
+    "continuous_external_probe_gauge_family": true,
+    "every_native_K_gauge_covariance": true,
+    "every_native_probability_charge_energy_ledger": true,
+    "every_applied_current_conditional_charge_delta": true,
+    "static_Hellmann_Feynman_fivepoint": true,
+    "subnormalized_branch_no_commit_probability": true
+  },
+  "errors": {
+    "H": 0.0,
+    "state": 2.2359577527984214e-16,
+    "current_sign": 0.0,
+    "H_gauge": 1.8330860838649983e-15,
+    "K_gauge": 1.6711069443220838e-16,
+    "ledgers": 1.1102230246251565e-15,
+    "poststates": 2.093702352798208e-16,
+    "charge_delta": 6.938893903907228e-18,
+    "HF": 2.7341198749475382e-11,
+    "subnormalization": 2.7755575615628914e-16
+  },
+  "static_current": 0.07542184878680883,
+  "static_ground_number": 3,
+  "native": {
+    "C": {
+      "mean_work": 0.3456861259866632,
+      "sum_probability": 0.9999999999999997
+    },
+    "E": {
+      "mean_work": 0.6803839355661034,
+      "sum_probability": 0.9999999999999997
+    },
+    "MIX": {
+      "mean_work": 0.5130350307763831,
+      "sum_probability": 0.9999999999999998
+    }
+  },
+  "scope": "DeclaredexternalPeierlsprobe on frozenfullC10source, orbitalgaugefamily notinternalcontinuousGaussgenerator atmodwrap. Nativeperrecordphase cancelsdensitybranch. Idealstaticperturbedground preparation differs fromquenchedoriginalground; no physicalB/spin/g2/alpha/radiation/physicalclock claim.",
+  "source_sha256": {
+    "next/C11/review_link_phase.py": "4509b4a71c69a6dc0b9e8edff7998f2dda95c1841fb0fb928b03e26ae3e8b692",
+    "next/C11/link_phase_probe.py": "40b40a856a47848dd89500a3bf8c400a288ae3af11c7311afd91a1e8d44acebc",
+    "next/C11/LINK_PHASE_PROBE.json": "4266db7baf82ee5f6fb3a7fc75f2a20fd3ca4d53f359ba6e129bef8bba477501",
+    "next/C11/link_phase_states.npz": "4deb65d49e59dfed8e845b0413a8b61398b3dd9158e16af4e4af48e95c35e5c5",
+    "next/C10/joint_source_states.npz": "1d75017307742e96649ea7c7e74a4a648a6d9f468e35ccd9f6ea05d202d7708b",
+    "next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e"
+  },
+  "full_criterion_met": false,
+  "official_rows_changed": []
+}

@@ -1,0 +1,1150 @@
+{
+  "schema": "oph.c11.external_link_phase_probe.v1",
+  "checks": {
+    "zero_external_phase_exact_baseline": true,
+    "J_is_minus_actual_H_derivative": true,
+    "regional_continuity_operator": true,
+    "regional_continuity_expectation": true,
+    "every_native_applied_current_matches_regional_charge_delta": true,
+    "Hamiltonian_gauge_covariance": true,
+    "transformed_reference_evolution_covariance": true,
+    "every_C_E_MIX_Kraus_gauge_covariance": true,
+    "all_native_outcome_charge_energy_covariance": true,
+    "untransformed_preparation_control_rejected": true,
+    "static_ground_current_Hellmann_Feynman": true,
+    "nonzero_external_current_response": true,
+    "complete_all_native_outcomes": true
+  },
+  "parameters": {
+    "construction": "same full384state C10 interacting allN source",
+    "external_half_link_phases": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.17,
+      0.0
+    ],
+    "cycle_flux": 0.17,
+    "time": 0.37,
+    "native_probability": 0.29,
+    "selected_native_law": "MIX; C/E separate controls",
+    "initial_reference_energy": -2.7262233938630343,
+    "initial_reference_multiplicity": 1,
+    "region_whole_orbitals": [
+      0,
+      3
+    ],
+    "reservoir_used": false,
+    "gauge_rule": "G=exp(i sum lambda_z n_z); A_hprime=A_h+lambda_port\u2212lambda_transit",
+    "native_phase_rule": "K_record(A)=exp(\u2212i j(A_ea\u2212A_eb)) K_record(0)"
+  },
+  "currents": {
+    "after_quench_coherent": [
+      -0.000811149826255424,
+      0.00036150544768186893,
+      -0.000811149826255524,
+      0.016552212662215463,
+      -0.05470295443414616,
+      0.016552212662215335
+    ],
+    "static_perturbed_ground_energy": -2.7328289153148715,
+    "static_perturbed_ground_number": 3,
+    "static_persistent_current": 0.0754218487868088,
+    "quench_work": 0.00836718041995015,
+    "regional_coherent_charge_derivative": 0.01619070721453346
+  },
+  "native": {
+    "C": {
+      "complete_outcomes": [
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.03216605719121536,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.037191579684188236,
+          "unnormalized_regional_charge": 0.03216605719121536,
+          "unnormalized_energy": -0.07260727201951864
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "applied_current": 1,
+          "proposed_current": 1,
+          "half_record_delta": [
+            1,
+            -1
+          ],
+          "conditional_input_regional_charge_weight": 0.01627602582856519,
+          "applied_regional_charge_delta": -0.011141753649145054,
+          "probability": 0.011141753649145054,
+          "unnormalized_regional_charge": 0.005134272179420133,
+          "unnormalized_energy": -0.00020467351266454238
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "applied_current": -1,
+          "proposed_current": -1,
+          "half_record_delta": [
+            -1,
+            1
+          ],
+          "conditional_input_regional_charge_weight": 0.005037709550821657,
+          "applied_regional_charge_delta": 0.011033003962697801,
+          "probability": 0.011033003962697801,
+          "unnormalized_regional_charge": 0.016070713513519456,
+          "unnormalized_energy": 0.00014163556893889945
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.043404373468958896,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.03730032937063549,
+          "unnormalized_regional_charge": 0.043404373468958896,
+          "unnormalized_energy": -0.07334067777264355
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.0400235771370697,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.036830442905077546,
+          "unnormalized_regional_charge": 0.0400235771370697,
+          "unnormalized_energy": -0.07212389778352446
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "applied_current": 1,
+          "proposed_current": 1,
+          "half_record_delta": [
+            1,
+            -1
+          ],
+          "conditional_input_regional_charge_weight": 0.008418505882710849,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.011502890428255742,
+          "unnormalized_regional_charge": 0.008418505882710849,
+          "unnormalized_energy": -0.00027083053331052433
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "applied_current": -1,
+          "proposed_current": -1,
+          "half_record_delta": [
+            -1,
+            1
+          ],
+          "conditional_input_regional_charge_weight": 0.011249097278700564,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.01014376112195468,
+          "unnormalized_regional_charge": 0.011249097278700566,
+          "unnormalized_energy": -0.0006914140880687826
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.03719298574107999,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.038189572211378614,
+          "unnormalized_regional_charge": 0.03719298574107999,
+          "unnormalized_energy": -0.07571368047409358
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.04045289800566626,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.03840301037179102,
+          "unnormalized_regional_charge": 0.04045289800566627,
+          "unnormalized_energy": -0.0760111407954703
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "applied_current": 1,
+          "proposed_current": 1,
+          "half_record_delta": [
+            1,
+            -1
+          ],
+          "conditional_input_regional_charge_weight": 0.007989185014114287,
+          "applied_regional_charge_delta": 0.009930322961542268,
+          "probability": 0.009930322961542268,
+          "unnormalized_regional_charge": 0.017919507975656553,
+          "unnormalized_energy": 0.0001664949130682511
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "applied_current": -1,
+          "proposed_current": -1,
+          "half_record_delta": [
+            -1,
+            1
+          ],
+          "conditional_input_regional_charge_weight": 0.016396909895868107,
+          "applied_regional_charge_delta": -0.011398201954290586,
+          "probability": 0.011398201954290586,
+          "unnormalized_regional_charge": 0.004998707941577515,
+          "unnormalized_energy": -0.00012191331510785558
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.03204517312391245,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.0369351313790427,
+          "unnormalized_regional_charge": 0.032045173123912446,
+          "unnormalized_energy": -0.07171480609943678
+        },
+        {
+          "status": "no_commit",
+          "probability": 0.7099999999999995,
+          "unnormalized_regional_charge": 0.711597495394018,
+          "unnormalized_energy": -1.9296779115445915
+        }
+      ],
+      "charge_before": 1.0022499935127014,
+      "charge_after": 1.0006733648335056,
+      "energy_before": -2.7178562134430866,
+      "energy_after": -2.3721700874564235,
+      "mean_native_work": 0.3456861259866632
+    },
+    "E": {
+      "complete_outcomes": [
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.005037709550821657,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.011033003962697801,
+          "unnormalized_regional_charge": 0.005037709550821657,
+          "unnormalized_energy": -0.0017136155549617542
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.027128347640393697,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.026158575721490433,
+          "unnormalized_regional_charge": 0.027128347640393704,
+          "unnormalized_energy": -0.014584899475746385
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "applied_current": 1,
+          "proposed_current": 1,
+          "half_record_delta": [
+            1,
+            -1
+          ],
+          "conditional_input_regional_charge_weight": 0.01627602582856519,
+          "applied_regional_charge_delta": -0.011141753649145054,
+          "probability": 0.011141753649145054,
+          "unnormalized_regional_charge": 0.005134272179420133,
+          "unnormalized_energy": -0.00020467351266454238
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "applied_current": -1,
+          "proposed_current": -1,
+          "half_record_delta": [
+            -1,
+            1
+          ],
+          "conditional_input_regional_charge_weight": 0.005037709550821657,
+          "applied_regional_charge_delta": 0.011033003962697801,
+          "probability": 0.011033003962697801,
+          "unnormalized_regional_charge": 0.016070713513519456,
+          "unnormalized_energy": 0.00014163556893889945
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.027128347640393697,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.026158575721490433,
+          "unnormalized_regional_charge": 0.027128347640393704,
+          "unnormalized_energy": -0.014584899475746385
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.01627602582856519,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.011141753649145054,
+          "unnormalized_regional_charge": 0.016276025828565188,
+          "unnormalized_energy": -0.0020882393881656905
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.011249097278700564,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.01014376112195468,
+          "unnormalized_regional_charge": 0.011249097278700566,
+          "unnormalized_energy": -0.0022186386790516988
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.02877447985836913,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.02668668178312287,
+          "unnormalized_regional_charge": 0.02877447985836913,
+          "unnormalized_energy": -0.016474527941202216
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "applied_current": 1,
+          "proposed_current": 1,
+          "half_record_delta": [
+            1,
+            -1
+          ],
+          "conditional_input_regional_charge_weight": 0.008418505882710849,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.011502890428255742,
+          "unnormalized_regional_charge": 0.008418505882710849,
+          "unnormalized_energy": -0.00027083053331052433
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "applied_current": -1,
+          "proposed_current": -1,
+          "half_record_delta": [
+            -1,
+            1
+          ],
+          "conditional_input_regional_charge_weight": 0.011249097278700564,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.01014376112195468,
+          "unnormalized_regional_charge": 0.011249097278700566,
+          "unnormalized_energy": -0.0006914140880687826
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.02877447985836913,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.02668668178312287,
+          "unnormalized_regional_charge": 0.02877447985836913,
+          "unnormalized_energy": -0.016474527941202216
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.008418505882710849,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.011502890428255742,
+          "unnormalized_regional_charge": 0.00841850588271085,
+          "unnormalized_energy": -0.0021949872050025404
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.0163969098958681,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.011398201954290584,
+          "unnormalized_regional_charge": 0.0163969098958681,
+          "unnormalized_energy": -0.0020656813270004334
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.024055988109798167,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.02700480841750044,
+          "unnormalized_regional_charge": 0.024055988109798164,
+          "unnormalized_energy": -0.01636289657849129
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "applied_current": 1,
+          "proposed_current": 1,
+          "half_record_delta": [
+            1,
+            -1
+          ],
+          "conditional_input_regional_charge_weight": 0.007989185014114287,
+          "applied_regional_charge_delta": 0.009930322961542268,
+          "probability": 0.009930322961542268,
+          "unnormalized_regional_charge": 0.017919507975656553,
+          "unnormalized_energy": 0.0001664949130682511
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "applied_current": -1,
+          "proposed_current": -1,
+          "half_record_delta": [
+            -1,
+            1
+          ],
+          "conditional_input_regional_charge_weight": 0.016396909895868107,
+          "applied_regional_charge_delta": -0.011398201954290586,
+          "probability": 0.011398201954290586,
+          "unnormalized_regional_charge": 0.004998707941577515,
+          "unnormalized_energy": -0.00012191331510785558
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.024055988109798167,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.02700480841750044,
+          "unnormalized_regional_charge": 0.024055988109798164,
+          "unnormalized_energy": -0.01636289657849129
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.007989185014114284,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.009930322961542268,
+          "unnormalized_regional_charge": 0.007989185014114285,
+          "unnormalized_energy": -0.0016878552201851423
+        },
+        {
+          "status": "no_commit",
+          "probability": 0.7099999999999995,
+          "unnormalized_regional_charge": 0.711597495394018,
+          "unnormalized_energy": -1.9296779115445915
+        }
+      ],
+      "charge_before": 1.0022499935127014,
+      "charge_after": 1.0006733648335056,
+      "energy_before": -2.7178562134430866,
+      "energy_after": -2.037472277876983,
+      "mean_native_work": 0.6803839355661034
+    },
+    "MIX": {
+      "complete_outcomes": [
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.016083028595607684,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.01859578984209412,
+          "unnormalized_regional_charge": 0.016083028595607684,
+          "unnormalized_energy": -0.03630363600975932
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "applied_current": 1,
+          "proposed_current": 1,
+          "half_record_delta": [
+            1,
+            -1
+          ],
+          "conditional_input_regional_charge_weight": 0.008138012914282596,
+          "applied_regional_charge_delta": -0.005570876824572529,
+          "probability": 0.005570876824572529,
+          "unnormalized_regional_charge": 0.002567136089710067,
+          "unnormalized_energy": -0.00010233675633227054
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "applied_current": -1,
+          "proposed_current": -1,
+          "half_record_delta": [
+            -1,
+            1
+          ],
+          "conditional_input_regional_charge_weight": 0.002518854775410829,
+          "applied_regional_charge_delta": 0.005516501981348901,
+          "probability": 0.005516501981348901,
+          "unnormalized_regional_charge": 0.00803535675675973,
+          "unnormalized_energy": 7.081778446944994e-05
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.021702186734479448,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.018650164685317747,
+          "unnormalized_regional_charge": 0.021702186734479448,
+          "unnormalized_energy": -0.03667033888632179
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.002518854775410829,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.005516501981348901,
+          "unnormalized_regional_charge": 0.0025188547754108294,
+          "unnormalized_energy": -0.0008568077774808772
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.013564173820196855,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.01307928786074522,
+          "unnormalized_regional_charge": 0.013564173820196854,
+          "unnormalized_energy": -0.007292449737873195
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "applied_current": 1,
+          "proposed_current": 1,
+          "half_record_delta": [
+            1,
+            -1
+          ],
+          "conditional_input_regional_charge_weight": 0.008138012914282596,
+          "applied_regional_charge_delta": -0.005570876824572529,
+          "probability": 0.005570876824572529,
+          "unnormalized_regional_charge": 0.002567136089710067,
+          "unnormalized_energy": -0.00010233675633227054
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "applied_current": -1,
+          "proposed_current": -1,
+          "half_record_delta": [
+            -1,
+            1
+          ],
+          "conditional_input_regional_charge_weight": 0.002518854775410829,
+          "applied_regional_charge_delta": 0.005516501981348901,
+          "probability": 0.005516501981348901,
+          "unnormalized_regional_charge": 0.00803535675675973,
+          "unnormalized_energy": 7.081778446944994e-05
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.013564173820196855,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.01307928786074522,
+          "unnormalized_regional_charge": 0.013564173820196854,
+          "unnormalized_energy": -0.007292449737873195
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.008138012914282596,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.005570876824572529,
+          "unnormalized_regional_charge": 0.008138012914282596,
+          "unnormalized_energy": -0.001044119694082845
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.020011788568534854,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.01841522145253878,
+          "unnormalized_regional_charge": 0.020011788568534854,
+          "unnormalized_energy": -0.03606194889176224
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "applied_current": 1,
+          "proposed_current": 1,
+          "half_record_delta": [
+            1,
+            -1
+          ],
+          "conditional_input_regional_charge_weight": 0.004209252941355426,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.005751445214127871,
+          "unnormalized_regional_charge": 0.004209252941355425,
+          "unnormalized_energy": -0.0001354152666552625
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "applied_current": -1,
+          "proposed_current": -1,
+          "half_record_delta": [
+            -1,
+            1
+          ],
+          "conditional_input_regional_charge_weight": 0.005624548639350285,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.00507188056097734,
+          "unnormalized_regional_charge": 0.005624548639350283,
+          "unnormalized_energy": -0.0003457070440343922
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.018596492870539997,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.019094786105689307,
+          "unnormalized_regional_charge": 0.018596492870539993,
+          "unnormalized_energy": -0.03785684023704679
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.005624548639350285,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.00507188056097734,
+          "unnormalized_regional_charge": 0.005624548639350283,
+          "unnormalized_energy": -0.0011093193395258502
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.014387239929184571,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.013343340891561438,
+          "unnormalized_regional_charge": 0.01438723992918457,
+          "unnormalized_energy": -0.008237263970601108
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "applied_current": 1,
+          "proposed_current": 1,
+          "half_record_delta": [
+            1,
+            -1
+          ],
+          "conditional_input_regional_charge_weight": 0.004209252941355426,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.005751445214127871,
+          "unnormalized_regional_charge": 0.004209252941355425,
+          "unnormalized_energy": -0.0001354152666552625
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "applied_current": -1,
+          "proposed_current": -1,
+          "half_record_delta": [
+            -1,
+            1
+          ],
+          "conditional_input_regional_charge_weight": 0.005624548639350285,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.00507188056097734,
+          "unnormalized_regional_charge": 0.005624548639350283,
+          "unnormalized_energy": -0.0003457070440343922
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.014387239929184571,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.013343340891561438,
+          "unnormalized_regional_charge": 0.01438723992918457,
+          "unnormalized_energy": -0.008237263970601108
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.004209252941355426,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.005751445214127872,
+          "unnormalized_regional_charge": 0.004209252941355426,
+          "unnormalized_energy": -0.0010974936025012706
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.020226449002833137,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.019201505185895515,
+          "unnormalized_regional_charge": 0.020226449002833137,
+          "unnormalized_energy": -0.03800557039773516
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "applied_current": 1,
+          "proposed_current": 1,
+          "half_record_delta": [
+            1,
+            -1
+          ],
+          "conditional_input_regional_charge_weight": 0.0039945925070571445,
+          "applied_regional_charge_delta": 0.004965161480771136,
+          "probability": 0.004965161480771136,
+          "unnormalized_regional_charge": 0.008959753987828278,
+          "unnormalized_energy": 8.324745653412685e-05
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "applied_current": -1,
+          "proposed_current": -1,
+          "half_record_delta": [
+            -1,
+            1
+          ],
+          "conditional_input_regional_charge_weight": 0.008198454947934057,
+          "applied_regional_charge_delta": -0.005699100977145295,
+          "probability": 0.005699100977145295,
+          "unnormalized_regional_charge": 0.0024993539707887586,
+          "unnormalized_energy": -6.095665755392649e-05
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.016022586561956226,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.018467565689521355,
+          "unnormalized_regional_charge": 0.016022586561956226,
+          "unnormalized_energy": -0.0358574030497184
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.008198454947934052,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.005699100977145294,
+          "unnormalized_regional_charge": 0.008198454947934052,
+          "unnormalized_energy": -0.0010328406635002167
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.012027994054899085,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.013502404208750221,
+          "unnormalized_regional_charge": 0.012027994054899084,
+          "unnormalized_energy": -0.008181448289245646
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "applied_current": 1,
+          "proposed_current": 1,
+          "half_record_delta": [
+            1,
+            -1
+          ],
+          "conditional_input_regional_charge_weight": 0.0039945925070571445,
+          "applied_regional_charge_delta": 0.004965161480771136,
+          "probability": 0.004965161480771136,
+          "unnormalized_regional_charge": 0.008959753987828278,
+          "unnormalized_energy": 8.324745653412685e-05
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "applied_current": -1,
+          "proposed_current": -1,
+          "half_record_delta": [
+            -1,
+            1
+          ],
+          "conditional_input_regional_charge_weight": 0.008198454947934057,
+          "applied_regional_charge_delta": -0.005699100977145295,
+          "probability": 0.005699100977145295,
+          "unnormalized_regional_charge": 0.0024993539707887586,
+          "unnormalized_energy": -6.095665755392649e-05
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.012027994054899085,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.013502404208750221,
+          "unnormalized_regional_charge": 0.012027994054899084,
+          "unnormalized_energy": -0.008181448289245646
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "applied_current": 0,
+          "proposed_current": 0,
+          "half_record_delta": [
+            0,
+            0
+          ],
+          "conditional_input_regional_charge_weight": 0.003994592507057143,
+          "applied_regional_charge_delta": 0.0,
+          "probability": 0.004965161480771135,
+          "unnormalized_regional_charge": 0.003994592507057143,
+          "unnormalized_energy": -0.0008439276100925717
+        },
+        {
+          "status": "no_commit",
+          "probability": 0.7099999999999995,
+          "unnormalized_regional_charge": 0.711597495394018,
+          "unnormalized_energy": -1.9296779115445915
+        }
+      ],
+      "charge_before": 1.0022499935127014,
+      "charge_after": 1.0006733648335058,
+      "energy_before": -2.7178562134430866,
+      "energy_after": -2.204821182666703,
+      "mean_native_work": 0.5130350307763832
+    }
+  },
+  "errors": {
+    "current_finite_difference": 7.649915059124764e-12,
+    "continuity_operator": 0.0,
+    "continuity_expectation": 1.2824173894695448e-17,
+    "H_gauge": 1.8330860838649983e-15,
+    "state_gauge": 2.503468088427477e-16,
+    "Kraus_gauge": 1.6711069443220838e-16,
+    "outcome_gauge": 1.1102230246251565e-16,
+    "native_poststate_gauge": 3.0560869304222555e-16,
+    "untransformed_preparation_distance": 0.42205318719241736,
+    "Hellmann_Feynman": 9.346271756527358e-09
+  },
+  "scope": "Declared external Peierls phase/current apparatus on the same interacting source. This continuous external gauge covariance does not assert an internal integerF commutator at cyclic wrap or identify a physical magnetic field, magnetostatics, spin or g=2. Per-record native dressing is a scalar phase and cancels in a classical-record branch map; it is retained for exact operator covariance, not misreported as a different classical channel.",
+  "full_criterion_met": false,
+  "official_rows_changed": [],
+  "source_sha256": {
+    "next/C11/link_phase_probe.py": "40b40a856a47848dd89500a3bf8c400a288ae3af11c7311afd91a1e8d44acebc",
+    "next/C10/joint_source.py": "bbedbeecff985014f60d761c4a165546383d393f8263ef46d681b346ecbc540f",
+    "next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e",
+    "next/C10/modular_field_adapter.py": "f964dd6225af37267af8293f3a380524520e3ab83f77e30198f9126fa4c9dc32",
+    "candidate/oph_openwave/native_currents.py": "d6bcea2178104711b1bfe4df1a1d516f86b4b18c0d56a9ca8c3c739b82956d6d"
+  },
+  "state_archive": {
+    "filename": "link_phase_states.npz",
+    "sha256": "4deb65d49e59dfed8e845b0413a8b61398b3dd9158e16af4e4af48e95c35e5c5"
+  }
+}

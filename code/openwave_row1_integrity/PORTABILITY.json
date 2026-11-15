@@ -1,0 +1,61 @@
+{
+  "isolated_standard_library_import_and_execution": true,
+  "workspace_runtime_dependencies": false,
+  "frozen_inputs_unchanged": true,
+  "frozen_audit": {
+    "frozen_signatures_checked": true,
+    "pointer_policy_AST_identical_functions": [
+      "execute",
+      "route",
+      "reset_success",
+      "favorable_coins",
+      "independent_reset_distribution"
+    ],
+    "native_branch_equivalences": 5400,
+    "source_preparations": 90,
+    "strict_validate_scope": "total two; final_n is required by frozen schema",
+    "adapter_boundary": "final_n is synthetic reconstruction from G and received records; closing E records provide integrity",
+    "observer_has_source_state_parameter": false
+  },
+  "executions": [
+    {
+      "total": 1,
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "compatible_pointer_initials": [
+          11
+        ],
+        "charge_read_at": "L1",
+        "readout": -1,
+        "outcome": "complete_closed_pointer_word",
+        "record_attempts": 46
+      },
+      "combined_attempts": 46
+    },
+    {
+      "total": 2,
+      "admission": {
+        "admitted": true,
+        "reasons": [],
+        "compatible_pointer_initials": [
+          11
+        ],
+        "charge_read_at": "L1",
+        "readout": -2,
+        "outcome": "complete_closed_pointer_word",
+        "record_attempts": 52
+      },
+      "combined_attempts": 52
+    }
+  ],
+  "runtime_files_sha256": {
+    "integrity.py": "323de3e3b5f9f89525dd17ff693755da071df06aeee9a8d58f38c15af06501c2",
+    "run.py": "86b0711a34637105f3c0202d79383060fd4b6310414175ae59c85eecc8da6de7",
+    "native_cycle_meter.py": "30195451af6091a032472f78db769a0483d4f3b3c2862532e25220203ba0034c",
+    "native_kernel.py": "b84e5ecdfbb8727a91571ac1b3ec6614f88ebf64b72fab0e8d35c338f08b1cff",
+    "strict_tape_validator.py": "6c2f1501a4596ba1a09e1e203ea9c0f2411f33286e8b77cc8467aaeacd0c576a",
+    "closing_sweep.py": "0f1ff01daf8aa2afa1c351eb93cdc6243bb1cbb6cced82b9be950baff47155ce",
+    "source_packet.json": "07ecff52d11e4f7fcdf907b17488603b0d0a5ff1644b01c583a86ddbbd0ec2ea"
+  }
+}

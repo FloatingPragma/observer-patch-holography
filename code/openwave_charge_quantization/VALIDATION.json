@@ -1,0 +1,34 @@
+{
+  "all31_complete": false,
+  "candidate_id": "literal-native-relative-spatial-charge-AU5-record-only-v1",
+  "criterion_sha256": "3af50af0955c64a0aa2019fa84af3cf0dd36e6c63a5abc76eb2c60c9b413cb6f",
+  "different_candidate_results_combined": false,
+  "evidence_root": "workspace",
+  "full_criterion_met": true,
+  "independent_reviews": [
+    {
+      "full_criterion_met": true,
+      "manifest": "openwave-tuning/row_completion/reviews/ROW_01_ROOT/MANIFEST.json",
+      "manifest_sha256": "83ea48b948f8935cf33bcf16e7beb018b1a89542d257f7dc82a842a9c62c4448",
+      "producer_independent": true,
+      "reviewer": "/root"
+    },
+    {
+      "full_criterion_met": true,
+      "manifest": "openwave-tuning/row_completion/reviews/ROW_01_DYN17/MANIFEST.json",
+      "manifest_sha256": "566af981c5493d1c328d0250e6ecd9b154657b19a3e1b08ad9b9b903adb07a98",
+      "producer_independent": true,
+      "reviewer": "DYN17"
+    },
+    {
+      "full_criterion_met": true,
+      "manifest": "openwave-tuning/next/CHAIN3/row1_full_criterion_review/MANIFEST.json",
+      "manifest_sha256": "6432809bc1d802a0f95f6a5dea103f746b1b0233a0913afbabf0a4b67b6859c3",
+      "producer_independent": true,
+      "reviewer": "Codex root"
+    }
+  ],
+  "official_status": "untested",
+  "row": 1,
+  "scope": "Relative topological charge at L1, total load1/2, true preparationG, faithful closing records, explicit localcircle map, all pointerfailures retained"
+}

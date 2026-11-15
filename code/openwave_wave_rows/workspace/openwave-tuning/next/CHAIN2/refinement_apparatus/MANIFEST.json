@@ -1,0 +1,37 @@
+{
+  "schema": "oph.chain2.refinement_apparatus.manifest.v1",
+  "model_id": "native-local12-two-fourier-mode-apparatus-v1",
+  "files_sha256": {
+    "apparatus.py": "0166ec62f8c7bc39b374930d53c74dd28ee495a50a74fe3a120340ed6c3afa07",
+    "test_apparatus.py": "3918af1bd5bb8ee47136ef9107cddbdf6844a177ddaeaec30f0f3cdbf4a27d17",
+    "generate.py": "21de9e840e3ffd3c47cc3f0b1a59f8fcbc4d33f467cad01745c1b4dd28a472e7",
+    "freeze_inputs.py": "89604e182ecb4a17b4d8a46d99627a2e34a9c786876b381593812226b3448fb7",
+    "INPUTS.json": "27e7b21f9677c40c346be97e6b8a52cb731dd02c886f1da930961567f4fbfe96",
+    "CONTRACT.json": "f6a3988ab4eab39f613352cc91ef6cd3ae9460214c1b2c51d3a77e1eeb31ab5c",
+    "PROOF.md": "bad0b26acf2e8e50c350dfe1bd965f0d43dccafeccc6bfce8c213fb55381ca7e",
+    "README.md": "20c59dd582f6f339db426e09109eb4798197ee5c20c70d64a397e6355b1653bf",
+    "RESULT.json": "57f23654f6a3ea0bfa46c7cab16ff66e0cb1e400f8962a358bc3d5c165804241",
+    "PROGRAM.json": "b695d17a2f6658092a7890385c20fabf6699619684e49ceef13dd131d3aaf03e",
+    "NATIVE_RECORDS.json": "4870e48fc727812d08ad25c6c25068011867d71c45079e5cdf4b860db410ee24"
+  },
+  "frozen_upstream_manifests": {
+    "openwave-tuning/next/CHAIN2/local12_limit_audit/MANIFEST.json": "997916c3b216f3006b9c88b8ef39419a213df5075e8159f47298d87ad295e2ad",
+    "openwave-tuning/common_dynamics/clock/MANIFEST.json": "6f80b0fe899cdeffd59d3742c318fe627817c19685d8f164abed69721f0b0992",
+    "openwave-tuning/common_dynamics/continuum/MANIFEST.json": "3067f7bdea43ca5137d6b115f7e1bd92b4d753ba99684ed198ba2da170240adf"
+  },
+  "checks": {
+    "immutable_source_closure": true,
+    "native_two_mode_arbitrary_reference_isometry": true,
+    "full_M6_small_blocks_executed": true,
+    "complete_native_C_E_pointer": true,
+    "nonuniform_density_and_phase_controls": true,
+    "source_all_clean_columns_sizes2_and4": true,
+    "terminal_current_sign": true,
+    "native_reset_success_and_timeout_executed": true,
+    "missing_failure_and_domain_rejected": true,
+    "general_family_error_tends_to_zero": true,
+    "dephased_selector_uniform_density_control": true
+  },
+  "execution_scope": "M6 preparation/clock/pointer and actual native reset trajectories; W certified block compression. The compressed-law samples have explicit native source TV enclosure. No larger graph execution.",
+  "official_rows_changed": []
+}

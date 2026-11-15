@@ -1,0 +1,33 @@
+name: Portable Joint Observer Model
+on:
+  push:
+    branches: [main]
+    paths: ['code/openwave_candidate/**', 'claims/openwave_joint_model.json', 'tools/build_openwave_joint_claims.py', 'tools/check_openwave_assessment_replay.py', 'tools/test_openwave_joint_claims.py', '.github/workflows/openwave-joint-model.yml']
+  pull_request:
+    paths: ['code/openwave_candidate/**', 'claims/openwave_joint_model.json', 'tools/build_openwave_joint_claims.py', 'tools/check_openwave_assessment_replay.py', 'tools/test_openwave_joint_claims.py', '.github/workflows/openwave-joint-model.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  finite-model:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install './code/openwave_candidate/candidate[integration,test]'
+      - name: Candidate scientific and broken-control tests
+        run: python -m pytest -q code/openwave_candidate/candidate/tests tools/test_openwave_joint_claims.py
+      - name: Portable preparation gates
+        run: |
+          python code/openwave_candidate/platform_packet/validate.py
+          python -m unittest discover -s code/openwave_candidate/platform_packet -p 'test_validate.py'
+          python -m unittest discover -s code/openwave_candidate/integration -p 'test_assess.py'
+          python code/openwave_candidate/integration/run.py
+      - name: Recompute source-bound assessment and claims
+        run: |
+          python code/openwave_candidate/integration/assess.py --output /tmp/openwave-assessment.json
+          python code/openwave_candidate/integration/assess.py --verify /tmp/openwave-assessment.json
+          python tools/check_openwave_assessment_replay.py code/openwave_candidate/integration/assessment.json /tmp/openwave-assessment.json
+          python tools/build_openwave_joint_claims.py --check

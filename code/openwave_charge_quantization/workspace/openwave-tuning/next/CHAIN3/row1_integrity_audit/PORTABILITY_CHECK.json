@@ -1,0 +1,100 @@
+{
+  "executions": [
+    {
+      "admission": {
+        "admitted": true,
+        "charge_read_at": "L1",
+        "compatible_initial_indicator": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "compatible_pointer_initials": [
+          11
+        ],
+        "fine_record_weight_conditional_on_compatible_initial": "1/70368744177664",
+        "outcome": "complete_closed_pointer_word",
+        "pointer_initial_classical_effect": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1/70368744177664"
+        ],
+        "probability_interpretation": "Effect entries are complete emitted fine-record likelihoods conditional on each initial column; an explicit prior gives their weighted sum. No initial prior is assumed.",
+        "readout": -1,
+        "reasons": [],
+        "record_attempts": 46
+      },
+      "total": 1
+    },
+    {
+      "admission": {
+        "admitted": true,
+        "charge_read_at": "L1",
+        "compatible_initial_indicator": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "compatible_pointer_initials": [
+          11
+        ],
+        "fine_record_weight_conditional_on_compatible_initial": "1/4503599627370496",
+        "outcome": "complete_closed_pointer_word",
+        "pointer_initial_classical_effect": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1/4503599627370496"
+        ],
+        "probability_interpretation": "Effect entries are complete emitted fine-record likelihoods conditional on each initial column; an explicit prior gives their weighted sum. No initial prior is assumed.",
+        "readout": -2,
+        "reasons": [],
+        "record_attempts": 52
+      },
+      "total": 2
+    }
+  ],
+  "isolated_standard_library_execution": true,
+  "producer_manifest_sha256": "1f8c91d4820fa2fe5f439f0a8e344645b4c29b11e3541ac32b7c52a71f1d73c4",
+  "python_flags": [
+    "-I",
+    "-B",
+    "-S"
+  ],
+  "workspace_imports": false
+}

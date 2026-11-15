@@ -1,0 +1,46 @@
+{
+  "all31_complete": false,
+  "candidate_id": "literal-native-relative-spatial-charge-AU5-record-only-v1",
+  "complete_internal_rows_on_this_candidate": [
+    1
+  ],
+  "criterion": "integer topological charge; a split e \u2192 e/2 + e/2 impossible",
+  "full_criterion_met": true,
+  "independent_full_reviews": [
+    {
+      "full_criterion_met": true,
+      "manifest": "openwave-tuning/row_completion/reviews/ROW_01_ROOT/MANIFEST.json",
+      "manifest_sha256": "83ea48b948f8935cf33bcf16e7beb018b1a89542d257f7dc82a842a9c62c4448",
+      "producer_independent": true,
+      "reviewer": "/root"
+    },
+    {
+      "full_criterion_met": true,
+      "manifest": "openwave-tuning/row_completion/reviews/ROW_01_DYN17/MANIFEST.json",
+      "manifest_sha256": "566af981c5493d1c328d0250e6ecd9b154657b19a3e1b08ad9b9b903adb07a98",
+      "producer_independent": true,
+      "reviewer": "DYN17"
+    },
+    {
+      "full_criterion_met": true,
+      "manifest": "openwave-tuning/next/CHAIN3/row1_full_criterion_review/MANIFEST.json",
+      "manifest_sha256": "6432809bc1d802a0f95f6a5dea103f746b1b0233a0913afbabf0a4b67b6859c3",
+      "producer_independent": true,
+      "reviewer": "Codex root"
+    }
+  ],
+  "official_OpenWave_awards_added": 0,
+  "official_status": "untested",
+  "public_replay": "python3 code/openwave_charge_quantization/replay.py",
+  "row": 1,
+  "schema": "oph.openwave.native_charge.full_criterion.v1",
+  "scope": "Relative topological charge at L1, total load1/2, true preparationG, faithful closing records, explicit localcircle map, all pointerfailures retained",
+  "source_sha256": {
+    "code/openwave_charge_quantization/PUBLIC_MANIFEST.json": "d293ba591e5af3b9ebd0f9f83c9de46189b2f839f6a3419d699fe56ac3740342",
+    "code/openwave_charge_quantization/RESULT.json": "93747381a2b758efe06cd2e18d53820e215f1fe51bde534651c88e994b5794a3",
+    "code/openwave_charge_quantization/SNAPSHOT_MANIFEST.json": "86c990ef3c5f051b656aa45c1d4dfb037c72772419fe9862df9b9ec098c86d7c",
+    "code/openwave_charge_quantization/VALIDATION.json": "8e204630d7a0d7bba0b03d4311e05292df87652fc785219e2dd2053b9bb8c8db",
+    "tools/build_openwave_charge_claim.py": "453f07b48fae192429ddab7c661c013fe9433738001d68aa98b8db291511eab4"
+  },
+  "transfer_to_canonical_CAR_or_coherent_Dirac_field_source": false
+}

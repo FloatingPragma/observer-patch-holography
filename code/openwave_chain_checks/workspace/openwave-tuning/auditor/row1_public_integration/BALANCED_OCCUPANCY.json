@@ -1,0 +1,3668 @@
+{
+  "schema": "oph.native.balanced_occupancy.v1",
+  "checks": {
+    "six_actual_measurement_hops_for_every_class": true,
+    "zero_path_has_zero_retained_winding": true,
+    "all_unknown_pointer_inputs_and_three_retry_caps": true,
+    "equal_conclusive_efficiency_and_complete_stage_laws": true,
+    "all5472_source_occupancy_reads_exact": true,
+    "all19008_complete_joint_laws_and_unbiased_conditional_outputs": true,
+    "all_source_states_and_spatial_degrees_unchanged": true,
+    "zero_full_regions_and_all_timeouts_retained": true,
+    "counter_alias_and_legacy_selection_bias_rejected": true,
+    "source_pins_unchanged": true
+  },
+  "pointer_success_replays": 108,
+  "source_occupancy_replays": 5472,
+  "complete_joint_laws": 19008,
+  "source_holds": 564,
+  "source_moves": 324,
+  "maximum_pointer_attempts_R16": 624,
+  "maximum_joined_attempts_frozen_source": 627,
+  "exact_laws": [
+    {
+      "initial_pointer_port": 0,
+      "retries": 1,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "31/64",
+        "measurement_timeout": "1953/4096",
+        "success": "31/4096"
+      }
+    },
+    {
+      "initial_pointer_port": 0,
+      "retries": 2,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "1023/4096",
+        "measurement_timeout": "10333323/16777216",
+        "success": "2237301/16777216"
+      }
+    },
+    {
+      "initial_pointer_port": 0,
+      "retries": 16,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "1208925819614629174706175/79228162514264337593543950336",
+        "measurement_timeout": "574655137070838545097864638997122240513129439899877375/6277101735386680763835789423207666416102355444464034512896",
+        "success": "6276431299278305807237038969661842027224501950926212890625/6277101735386680763835789423207666416102355444464034512896"
+      }
+    },
+    {
+      "initial_pointer_port": 1,
+      "retries": 1,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "33/128",
+        "measurement_timeout": "5733/8192",
+        "success": "91/8192"
+      }
+    },
+    {
+      "initial_pointer_port": 1,
+      "retries": 2,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "1065/16384",
+        "measurement_timeout": "51525201/67108864",
+        "success": "11155887/67108864"
+      }
+    },
+    {
+      "initial_pointer_port": 1,
+      "retries": 16,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "1208925819896099856318465/5192296858534827628530496329220096",
+        "measurement_timeout": "37661173718211545728037169680840542527703971258359162077185/411376139330301510538742295639337626245683966408394965837152256",
+        "success": "411338478060802327666595459634113987853633361181040449147109375/411376139330301510538742295639337626245683966408394965837152256"
+      }
+    },
+    {
+      "initial_pointer_port": 2,
+      "retries": 1,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "49/64",
+        "measurement_timeout": "819/4096",
+        "success": "13/4096"
+      }
+    },
+    {
+      "initial_pointer_port": 2,
+      "retries": 2,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "2211/4096",
+        "measurement_timeout": "6333327/16777216",
+        "success": "1371249/16777216"
+      }
+    },
+    {
+      "initial_pointer_port": 2,
+      "retries": 16,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "3626703672712009026174975/79228162514264337593543950336",
+        "measurement_timeout": "574637600255390662531303438879706896306419496846360575/6277101735386680763835789423207666416102355444464034512896",
+        "success": "6276239760718452666780886359973898769730191136385412890625/6277101735386680763835789423207666416102355444464034512896"
+      }
+    },
+    {
+      "initial_pointer_port": 3,
+      "retries": 1,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "93/128",
+        "measurement_timeout": "1953/8192",
+        "success": "31/8192"
+      }
+    },
+    {
+      "initial_pointer_port": 3,
+      "retries": 2,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "7161/16384",
+        "measurement_timeout": "30999969/67108864",
+        "success": "6711903/67108864"
+      }
+    },
+    {
+      "initial_pointer_port": 3,
+      "retries": 16,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "158455116102709060557913063425/5192296858534827628530496329220096",
+        "measurement_timeout": "37660024407937404052988559116676406032027937843838463770625/411376139330301510538742295639337626245683966408394965837152256",
+        "success": "411325925198203771077279348876788817254157735353949361787109375/411376139330301510538742295639337626245683966408394965837152256"
+      }
+    },
+    {
+      "initial_pointer_port": 4,
+      "retries": 1,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "23/32",
+        "measurement_timeout": "63/256",
+        "success": "1/256"
+      }
+    },
+    {
+      "initial_pointer_port": 4,
+      "retries": 2,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "465/1024",
+        "measurement_timeout": "939393/2097152",
+        "success": "203391/2097152"
+      }
+    },
+    {
+      "initial_pointer_port": 4,
+      "retries": 16,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "36893488130239561725/1208925819614629174706176",
+        "measurement_timeout": "4384203860439507281481730760377290100054080126975/47890485652059026823698344598447161988085597568237568",
+        "success": "47884639946561936965251838141606440357192103812890625/47890485652059026823698344598447161988085597568237568"
+      }
+    },
+    {
+      "initial_pointer_port": 5,
+      "retries": 1,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "9/32",
+        "measurement_timeout": "693/1024",
+        "success": "11/1024"
+      }
+    },
+    {
+      "initial_pointer_port": 5,
+      "retries": 2,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "75/1024",
+        "measurement_timeout": "797979/1048576",
+        "success": "172773/1048576"
+      }
+    },
+    {
+      "initial_pointer_port": 5,
+      "retries": 16,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "281479271612415/1208925819614629174706176",
+        "measurement_timeout": "133799367028371605431236953594019624606171135/1461501637330902918203684832716283019655932542976",
+        "success": "1461367837623586987459684759985950199696772890625/1461501637330902918203684832716283019655932542976"
+      }
+    },
+    {
+      "initial_pointer_port": 6,
+      "retries": 1,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "23/32",
+        "measurement_timeout": "63/256",
+        "success": "1/256"
+      }
+    },
+    {
+      "initial_pointer_port": 6,
+      "retries": 2,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "465/1024",
+        "measurement_timeout": "939393/2097152",
+        "success": "203391/2097152"
+      }
+    },
+    {
+      "initial_pointer_port": 6,
+      "retries": 16,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "36893488130239561725/1208925819614629174706176",
+        "measurement_timeout": "4384203860439507281481730760377290100054080126975/47890485652059026823698344598447161988085597568237568",
+        "success": "47884639946561936965251838141606440357192103812890625/47890485652059026823698344598447161988085597568237568"
+      }
+    },
+    {
+      "initial_pointer_port": 7,
+      "retries": 1,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "9/32",
+        "measurement_timeout": "693/1024",
+        "success": "11/1024"
+      }
+    },
+    {
+      "initial_pointer_port": 7,
+      "retries": 2,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "75/1024",
+        "measurement_timeout": "797979/1048576",
+        "success": "172773/1048576"
+      }
+    },
+    {
+      "initial_pointer_port": 7,
+      "retries": 16,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "281479271612415/1208925819614629174706176",
+        "measurement_timeout": "133799367028371605431236953594019624606171135/1461501637330902918203684832716283019655932542976",
+        "success": "1461367837623586987459684759985950199696772890625/1461501637330902918203684832716283019655932542976"
+      }
+    },
+    {
+      "initial_pointer_port": 8,
+      "retries": 1,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "79/128",
+        "measurement_timeout": "2835/8192",
+        "success": "45/8192"
+      }
+    },
+    {
+      "initial_pointer_port": 8,
+      "retries": 2,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "5253/16384",
+        "measurement_timeout": "37424205/67108864",
+        "success": "8102835/67108864"
+      }
+    },
+    {
+      "initial_pointer_port": 8,
+      "retries": 16,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "79230580292117153511303348225/5192296858534827628530496329220096",
+        "measurement_timeout": "37660599045537659445692613282420370036747685088079168077825/411376139330301510538742295639337626245683966408394965837152256",
+        "success": "411332201437964489552243812607293157742216938874340964987109375/411376139330301510538742295639337626245683966408394965837152256"
+      }
+    },
+    {
+      "initial_pointer_port": 9,
+      "retries": 1,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "79/128",
+        "measurement_timeout": "2835/8192",
+        "success": "45/8192"
+      }
+    },
+    {
+      "initial_pointer_port": 9,
+      "retries": 2,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "5253/16384",
+        "measurement_timeout": "37424205/67108864",
+        "success": "8102835/67108864"
+      }
+    },
+    {
+      "initial_pointer_port": 9,
+      "retries": 16,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "79230580292117153511303348225/5192296858534827628530496329220096",
+        "measurement_timeout": "37660599045537659445692613282420370036747685088079168077825/411376139330301510538742295639337626245683966408394965837152256",
+        "success": "411332201437964489552243812607293157742216938874340964987109375/411376139330301510538742295639337626245683966408394965837152256"
+      }
+    },
+    {
+      "initial_pointer_port": 10,
+      "retries": 1,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "21/64",
+        "measurement_timeout": "2583/4096",
+        "success": "41/4096"
+      }
+    },
+    {
+      "initial_pointer_port": 10,
+      "retries": 2,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "435/4096",
+        "measurement_timeout": "12313119/16777216",
+        "success": "2665953/16777216"
+      }
+    },
+    {
+      "initial_pointer_port": 10,
+      "retries": 16,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "36893206668147490815/79228162514264337593543950336",
+        "measurement_timeout": "574663905478561465635290382886529107534463686356238335/6277101735386680763835789423207666416102355444464034512896",
+        "success": "6276527068558221228793818809447001313602909473859972890625/6277101735386680763835789423207666416102355444464034512896"
+      }
+    },
+    {
+      "initial_pointer_port": 11,
+      "retries": 1,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/32",
+        "routing_timeout": "21/64",
+        "measurement_timeout": "2583/4096",
+        "success": "41/4096"
+      }
+    },
+    {
+      "initial_pointer_port": 11,
+      "retries": 2,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1024",
+        "routing_timeout": "435/4096",
+        "measurement_timeout": "12313119/16777216",
+        "success": "2665953/16777216"
+      }
+    },
+    {
+      "initial_pointer_port": 11,
+      "retries": 16,
+      "each_class_stage_probabilities": {
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "36893206668147490815/79228162514264337593543950336",
+        "measurement_timeout": "574663905478561465635290382886529107534463686356238335/6277101735386680763835789423207666416102355444464034512896",
+        "success": "6276527068558221228793818809447001313602909473859972890625/6277101735386680763835789423207666416102355444464034512896"
+      }
+    }
+  ],
+  "complete_examples": [
+    {
+      "case": "complete_degree_0",
+      "success": true,
+      "reason": "complete_balanced_native_winding",
+      "records": [
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            5
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 1,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 1,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 1,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": -1
+        }
+      ],
+      "winding": 0,
+      "final_loads": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "retained_signed_cycle_steps": 0,
+      "fine_history_probability": "1/8388608"
+    },
+    {
+      "case": "measurement_timeout_degree_0",
+      "success": false,
+      "reason": "measurement_timeout",
+      "records": [
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            5
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        }
+      ],
+      "winding": null,
+      "final_loads": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "retained_signed_cycle_steps": 0,
+      "fine_history_probability": "1/8589934592"
+    },
+    {
+      "case": "complete_degree_1",
+      "success": true,
+      "reason": "complete_balanced_native_winding",
+      "records": [
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            5
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 1,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            1,
+            8
+          ],
+          "coin": 0,
+          "current": 1,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            6,
+            8
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            2,
+            6
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            2,
+            10
+          ],
+          "coin": 0,
+          "current": 1,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": 1
+        }
+      ],
+      "winding": 1,
+      "final_loads": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "retained_signed_cycle_steps": 6,
+      "fine_history_probability": "1/8388608"
+    },
+    {
+      "case": "measurement_timeout_degree_1",
+      "success": false,
+      "reason": "measurement_timeout",
+      "records": [
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            5
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": 1
+        }
+      ],
+      "winding": null,
+      "final_loads": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "retained_signed_cycle_steps": 0,
+      "fine_history_probability": "1/8589934592"
+    },
+    {
+      "case": "complete_degree_-1",
+      "success": true,
+      "reason": "complete_balanced_native_winding",
+      "records": [
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            5
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 0,
+          "current": 1,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            2,
+            10
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            2,
+            6
+          ],
+          "coin": 0,
+          "current": 1,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            6,
+            8
+          ],
+          "coin": 0,
+          "current": 1,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            1,
+            8
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": -1
+        }
+      ],
+      "winding": -1,
+      "final_loads": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "retained_signed_cycle_steps": -6,
+      "fine_history_probability": "1/8388608"
+    },
+    {
+      "case": "measurement_timeout_degree_-1",
+      "success": false,
+      "reason": "measurement_timeout",
+      "records": [
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            5
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": -1
+        },
+        {
+          "stage": "balanced_measure",
+          "seam": [
+            0,
+            10
+          ],
+          "coin": 1,
+          "current": 0,
+          "requested_cycle_direction": -1
+        }
+      ],
+      "winding": null,
+      "final_loads": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "retained_signed_cycle_steps": 0,
+      "fine_history_probability": "1/8589934592"
+    },
+    {
+      "case": "routing_timeout",
+      "success": false,
+      "reason": "routing_timeout",
+      "records": [
+        {
+          "stage": "discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 1,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "reset_route",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "reset_route",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "reset_route",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "reset_route",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "reset_route",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "reset_route",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "reset_route",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "reset_route",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "reset_route",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "reset_route",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "reset_route",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "reset_route",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "reset_route",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "reset_route",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "reset_route",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        },
+        {
+          "stage": "reset_route",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null
+        }
+      ],
+      "final_loads": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "retained_signed_cycle_steps": 0,
+      "winding": null,
+      "fine_history_probability": "1/131072"
+    },
+    {
+      "case": "empty_region",
+      "success": true,
+      "reason": "complete_balanced_native_winding",
+      "source": {
+        "admitted": true,
+        "initial_G": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "counter": [
+          1,
+          5,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "records": [
+          {
+            "stage": "source",
+            "event": 0,
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 1,
+            "counter_after": [
+              1,
+              5,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "source_final_loads_for_audit_only": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "source_history_probability": "1/2"
+      },
+      "pointer_executed": true,
+      "pointer": {
+        "success": true,
+        "reason": "complete_balanced_native_winding",
+        "records": [
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              5
+            ],
+            "coin": 1,
+            "current": -1,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "balanced_measure",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 1,
+            "requested_cycle_direction": 1
+          },
+          {
+            "stage": "balanced_measure",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 1,
+            "current": -1,
+            "requested_cycle_direction": -1
+          },
+          {
+            "stage": "balanced_measure",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 1,
+            "requested_cycle_direction": 1
+          },
+          {
+            "stage": "balanced_measure",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 1,
+            "current": -1,
+            "requested_cycle_direction": -1
+          },
+          {
+            "stage": "balanced_measure",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 1,
+            "requested_cycle_direction": 1
+          },
+          {
+            "stage": "balanced_measure",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 1,
+            "current": -1,
+            "requested_cycle_direction": -1
+          }
+        ],
+        "winding": 0,
+        "final_loads": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_signed_cycle_steps": 0,
+        "fine_history_probability": "1/8388608"
+      },
+      "region_mask": 0,
+      "observer_regional_class": 0,
+      "spatial_degree": 0,
+      "relative_charge": 0,
+      "occupancy": 0,
+      "combined_native_tape": [
+        {
+          "stage": "source",
+          "event": 0,
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 1,
+          "counter_after": [
+            1,
+            5,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 1
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 2
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 3
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 4
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 5
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 6
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 7
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 8
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 9
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 10
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 11
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 12
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 13
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 14
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 15
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 16
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            5
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": null,
+          "event": 17
+        },
+        {
+          "stage": "pointer_balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 1,
+          "requested_cycle_direction": 1,
+          "event": 18
+        },
+        {
+          "stage": "pointer_balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": -1,
+          "event": 19
+        },
+        {
+          "stage": "pointer_balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 1,
+          "requested_cycle_direction": 1,
+          "event": 20
+        },
+        {
+          "stage": "pointer_balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": -1,
+          "event": 21
+        },
+        {
+          "stage": "pointer_balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 1,
+          "requested_cycle_direction": 1,
+          "event": 22
+        },
+        {
+          "stage": "pointer_balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": -1,
+          "event": 23
+        }
+      ],
+      "combined_history_probability": "1/16777216",
+      "clock": {
+        "source_prefix_attempts": 1,
+        "pointer_attempts": 23,
+        "total_native_attempts": 24,
+        "source_during_pointer": "idle under the declared addressed scheduler",
+        "reported_occupancy_time": "end of retained source prefix; unchanged during terminal meter"
+      }
+    },
+    {
+      "case": "full_region",
+      "success": true,
+      "reason": "complete_balanced_native_winding",
+      "source": {
+        "admitted": true,
+        "initial_G": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "counter": [
+          1,
+          5,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "records": [
+          {
+            "stage": "source",
+            "event": 0,
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 1,
+            "counter_after": [
+              1,
+              5,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "source_final_loads_for_audit_only": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "source_history_probability": "1/2"
+      },
+      "pointer_executed": true,
+      "pointer": {
+        "success": true,
+        "reason": "complete_balanced_native_winding",
+        "records": [
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 0,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "discover",
+            "seam": [
+              0,
+              5
+            ],
+            "coin": 1,
+            "current": -1,
+            "requested_cycle_direction": null
+          },
+          {
+            "stage": "balanced_measure",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 1,
+            "requested_cycle_direction": 1
+          },
+          {
+            "stage": "balanced_measure",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 1,
+            "current": -1,
+            "requested_cycle_direction": -1
+          },
+          {
+            "stage": "balanced_measure",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 1,
+            "requested_cycle_direction": 1
+          },
+          {
+            "stage": "balanced_measure",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 1,
+            "current": -1,
+            "requested_cycle_direction": -1
+          },
+          {
+            "stage": "balanced_measure",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 0,
+            "current": 1,
+            "requested_cycle_direction": 1
+          },
+          {
+            "stage": "balanced_measure",
+            "seam": [
+              0,
+              1
+            ],
+            "coin": 1,
+            "current": -1,
+            "requested_cycle_direction": -1
+          }
+        ],
+        "winding": 0,
+        "final_loads": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_signed_cycle_steps": 0,
+        "fine_history_probability": "1/8388608"
+      },
+      "region_mask": 4095,
+      "observer_regional_class": 0,
+      "spatial_degree": 0,
+      "relative_charge": 0,
+      "occupancy": 1,
+      "combined_native_tape": [
+        {
+          "stage": "source",
+          "event": 0,
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 1,
+          "counter_after": [
+            1,
+            5,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 1
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 2
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 3
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 4
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 5
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 6
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 7
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 8
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 9
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 10
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 11
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 12
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 13
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 14
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 15
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 0,
+          "requested_cycle_direction": null,
+          "event": 16
+        },
+        {
+          "stage": "pointer_discover",
+          "seam": [
+            0,
+            5
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": null,
+          "event": 17
+        },
+        {
+          "stage": "pointer_balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 1,
+          "requested_cycle_direction": 1,
+          "event": 18
+        },
+        {
+          "stage": "pointer_balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": -1,
+          "event": 19
+        },
+        {
+          "stage": "pointer_balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 1,
+          "requested_cycle_direction": 1,
+          "event": 20
+        },
+        {
+          "stage": "pointer_balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": -1,
+          "event": 21
+        },
+        {
+          "stage": "pointer_balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 0,
+          "current": 1,
+          "requested_cycle_direction": 1,
+          "event": 22
+        },
+        {
+          "stage": "pointer_balanced_measure",
+          "seam": [
+            0,
+            1
+          ],
+          "coin": 1,
+          "current": -1,
+          "requested_cycle_direction": -1,
+          "event": 23
+        }
+      ],
+      "combined_history_probability": "1/16777216",
+      "clock": {
+        "source_prefix_attempts": 1,
+        "pointer_attempts": 23,
+        "total_native_attempts": 24,
+        "source_during_pointer": "idle under the declared addressed scheduler",
+        "reported_occupancy_time": "end of retained source prefix; unchanged during terminal meter"
+      }
+    }
+  ],
+  "selection_bias_control": {
+    "source_true_survival_probability": "1/2",
+    "legacy_meter_conclusive_survival_R1": "64/65",
+    "balanced_meter_conclusive_survival_R1": "1/2"
+  },
+  "probability_contract": "Conditional on each configured source protocol and fixed initial pointer x, all source histories have identical apparatus efficiency eta_x=p_reset(x)*(1-2^-R)^6. Thus conclusive normalization recovers the source distribution. Averaging unknown pointer inputs requires a pointer preparation independent of the source history; correlated preparations are outside that inference. All unconditional flags remain retained.",
+  "scope": "Native classical one-load regional occupancy and prefix survival. Source idles during apparatus service. No coherent spectral, spin, fermionic, field or physical particle theorem is transferred.",
+  "source_sha256": {
+    "openwave-tuning/auditor/row1_public_integration/balanced_occupancy.py": "a23385a0bdea821ec47b41c353ddbcbc45088ffb99ae6b78d259e782105b9732",
+    "openwave-tuning/auditor/row1_public_integration/audit_public.py": "e22f0e3ee6729a4e5ac9124e0efc8d2d5ac110237b390adb4329f755a1a73f09",
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/native_cycle_meter.py": "4db8d707879c416ca5002b782a70e07aa71d4d9a7fe7111b76a64828c1a05329",
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/joined_readout.py": "1bf9bda370c20a6a23c253654f5fe60160bca20fd5d24b0548bac5e98ba6b467",
+    "openwave-tuning/next/ROW1_NATIVE/routes/spatial/NATIVE_DUAL_WINDING.json": "3e5f99ed88666485c124976df97585bbb7962dbb7df6583109238c4cd2d2927c",
+    "reverse-engineering-reality/model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "openwave-tuning/candidate/oph_openwave/geometry.py": "00d6ca810b1c7430e761b3106317f288d0b3c2e722dfeedec5aa18ac7bb8e32d"
+  },
+  "reviewer_sha256": "277c2aac3b8c8b4a902a7eaeede70b63cf47f429f1a37a0badbf0350c1ff1fa9",
+  "official_rows_changed": []
+}

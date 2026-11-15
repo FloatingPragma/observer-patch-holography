@@ -1,279 +1,84 @@
 # Observer Patch Holography
 
-**OPH develops an executable theory of a self-referential observer universe, combining proved finite constructions with quantitative tests of its physical interpretation.**
+**OPH proposes that the Universe is what its observers agree on, and builds that idea as a program you can run.**
 
 <p align="center">
-  <a href="https://particles.floatingpragma.ai/"><img src="assets/particles-banner.gif" alt="Explore the executable observers, flux defects and declared particle constructions. Open the live simulation and its checked results at particles.floatingpragma.ai." width="100%"></a>
+  <img src="assets/oph-schematic.png" alt="Observer Patch Holography schematic. Primitive observers on an icosahedral carrier read, record and act. Overlapping observer patches on a holographic screen agree on shared records, which become shared facts. From inside, one patch encodes a whole history: an emergent spacetime with three space dimensions and one time, where gravity appears as geometry." width="100%">
 </p>
-<p align="center"><b>▶ <a href="https://particles.floatingpragma.ai/">Open the live simulation</a></b> · <a href="https://particles.floatingpragma.ai/?page=matches">All matches with our universe</a> · <a href="https://particles.floatingpragma.ai/?page=journey">The journey from observers to particles</a></p>
+<p align="center"><b><a href="https://philpapers.org/rec/MUEFOC">Synthesis paper</a> · <a href="https://oph-book.floatingpragma.ai/">Book</a> · <a href="https://floatingpragma.ai/faq/">Reality FAQ</a> · <a href="https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a">Notebook</a> · <a href="https://particles.floatingpragma.ai/">Simulation</a></b></p>
 
-[**Live simulation**](https://particles.floatingpragma.ai/) · [Main paper](https://philpapers.org/rec/MUEFOC) · [Book](https://oph-book.floatingpragma.ai/) · [Notebook](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) · [Lean library](Lean/) · [Reproduce](REPRODUCE.md) · [Pragma Research](https://floatingpragma.ai/) · [Français](README_FR.md)
-
-[![Mandatory Suite](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml)
-[![Lean CI](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml)
-[![Runnable observer model](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml)
-
-## Mission
-
-The mission of Observer Patch Holography (OPH) is to construct an executable
-process whose native observers have experiences indistinguishable, in every
-physical regard, from those of observers in our Universe: the same effective
-three-dimensional continuum fields, gravity, particles, rest masses and
-other observable phenomena. Observers recover and realize the hardware and
-software of that same self-referential history. There is no independent
-background spacetime or external global clock. Computational events have a
-partial order; spacetime and mutually calibrated local clocks are effective
-descriptions of compatible observer records.
-
-The hardware and software may be reverse-engineered. They need neither a
-uniqueness proof nor an a priori derivation from observer or communication
-rules; different implementations could produce the same observable universe.
-The test is that one fully specified implementation runs and reproduces the
-complete observations, with mathematical consistency and explicit input ancestry.
-That closed-loop theory has to meet four conditions.
-
-1. **Consistent.** The loop closes. Its fixed point exists, constructed
-   explicitly and machine-checked, and a theory with a model contains no
-   contradiction.
-2. **Determinate.** Once the executable construction is fixed, its native
-   dynamics and readouts determine every claimed dimensionless observable.
-   Reverse-engineered design choices are permitted. Empirical calibration
-   and independent predictions are distinguished; a common measured value
-   can set the units.
-3. **Complete**, in the sense
-   [Einstein, Podolsky and Rosen](https://doi.org/10.1103/PhysRev.47.777) gave
-   the word in 1935. Every element of physical reality has a counterpart in
-   the theory, and every measured quantity is derived.
-4. **Correct.** Derived values agree with measurement, and new predictions are
-   frozen before they are tested.
-
-OPH does not claim to be the only theory with these properties.
+<p align="center">
+<a href="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml"><img src="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml/badge.svg" alt="Mandatory Suite"></a>
+<a href="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml"><img src="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml/badge.svg" alt="Lean CI"></a>
+<a href="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml"><img src="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml/badge.svg" alt="Runnable observer model"></a>
+</p>
 
 ## The idea
 
-OPH proposes that physics is what bounded
-observers can establish together. Finite observers compare records on shared
-boundaries, repair their disagreements, and treat as real whatever survives
-every comparison. Three problems that resist a classical account motivate the
-programme: quantum measurement, correlations that no local classical model
-reproduces, and the origin of an apparent spacetime. OPH seeks one explanation
-for all three in the consistency of observers' records and operations, and it
-pursues that explanation as an executable observer, machine-checked
-mathematics and predictions fixed in advance.
+Small observers keep local records, compare them with their neighbours and
+repair every disagreement with one local rule. Whatever survives every
+comparison is public fact. OPH asks whether such a process, fully specified
+and executed, produces observers whose shared records look like our world:
+three-dimensional space, quantum measurement, the Standard Model's forces and
+particles, and gravity.
 
-**The Universe reads itself into existence.** OPH has one hypothesis, the
-closure hypothesis: the Universe is a timeless, self-referential structure
-whose observers recover the specification of their own world from their
-records and build hardware that realizes that same history, including its
-builders. Nothing lies outside this loop, so the recovered specification owes
-no further justification. It has to run and reproduce what observers measure.
-Space, time and matter are effective descriptions of the records, and "our
-Universe" is the public record, what survives every comparison between
-observers. The [basis](docs/BASIS.md) states the hypothesis, the no-outside
-rule, the agreement condition and the executable specification; the
-[working terms](docs/INTERPRETATION_AND_TERMS.md) explain the timeless view
-and the clocks inside it.
+The Universe reads itself into existence. Observers recover the rules behind
+their records and build the process that realizes that same history, so
+nothing lies outside the loop. The [basis](docs/BASIS.md) states this closure
+hypothesis in full.
 
-## The executable hypothesis
+## What comes out
 
-The concrete bet is a program. One local repair and memory law on a network
-of twelve-port carriers should produce observers whose records look like our
-world: quantum fields in 3+1 dimensions, and gravity. The program creates
-flux defects and quantum field records. Identifying their excitations with
-observed quarks and leptons is part of the physical test.
+One declared observer architecture, a network of twelve-port carriers with a
+single repair and memory law, yields:
 
-The [hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md) says
-what would count as success, and the
-[completion program](docs/COMPLETION_PROGRAM.md) splits the work into gates
-with stopping rules. Either the pieces join up on one running process, or a
-proof shows that the whole class of laws cannot work.
+- **Spacetime and fields as effective descriptions.** Coarse-grained, the
+  observers' shared records are described by relativistic field theories in
+  three space dimensions and one time, together with gravity. The carrier's
+  slow response is exactly three-dimensional, and a Lorentzian (1+3)-dimensional
+  field theory reproduces the observers' joint readouts.
+- **The rules of quantum measurement.** Completed records obey the Born rule,
+  repeatable measurement and the Tsirelson bound on Bell correlations.
+- **The Standard Model's forces.** Under stated premises the gauge structure
+  is that of the Standard Model.
+- **Quarks and leptons.** Each generation of matter comes out with exactly the
+  observed charges: three colours of up and down quarks, the electron and its
+  neutrino. A generation register gives the charged-lepton mass ratios
+  206.770316 and 3477.4728, within 0.001 and 0.003 per cent of measurement, so
+  the muon and tau masses follow from the electron's. The Koide relation
+  follows from the carrier's face symmetry.
+- **The early-universe transitions.** Lattice runs of the same model reproduce
+  the electroweak crossover near 161 GeV and colour deconfinement.
+- **Gravity.** A realized balance of records gives the Einstein equation.
 
-## Highlights
+Each result keeps its calibrated inputs and the conditions of its physical
+identification. The [matches page](https://particles.floatingpragma.ai/?page=matches)
+lists every comparison with nature, partial matches and open items included.
 
-- **Exact particle quantum-number records.** A declared fermion construction
-  realizes the fifteen internal weights of a Standard Model generation.
-  Its six flux classes match hypercharge modulo the centre. Complete
-  calibrated readouts retain charge, colour, helicity, momentum and energy,
-  including the quantum references that compensate charge. Connecting these
-  fields to observed particles requires their physical source and dynamics.
-  [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
-- **The muon and tau masses from the electron mass.** A generation register
-  with fixed phase gives ratios 206.770316 and 3477.4728. One electron anchor
-  converts them to free coefficients 105.6594 and 1776.985 MeV. The
-  retrospective comparison has a muon residual of +9.83 ppm and a tau
-  discrepancy of 0.61 standard deviations. A full fermion compiler realizes
-  these coefficients; the interacting physical mass identification is separate.
-- **Calibrated neutrino masses and oscillations.** A declared Dirac tensor
-  uses six measured oscillation inputs and a chosen lightest mass of
-  0.001 eV. Its three masses are 0.001, 0.00871206 and 0.05013980 eV.
-  The actual native weak current and complete active/sterile readouts
-  reproduce the corresponding vacuum oscillation law within 4.1×10⁻⁹
-  total variation on the stated phase interval. These are calibrated
-  finite records, with no independent mass prediction or physical beam
-  identification.
-  [Native neutral records](model/openwave_neutrino_calibration/PROOF.md).
-- **Exact populations and thermal particle counts.** The native closed cell
-  has complete class-absorption laws. A calibrated quantum source supplies
-  complete particle-count records under a declared thermal preparation;
-  its separate ideal-gas extension has relativistic energy count 106.75.
-  Independent Euclidean lattice comparisons give an electroweak crossover
-  near 161 GeV, colour deconfinement and hadron binding. These results retain
-  their supplied inputs and do not constitute a shared cosmic cooling history.
-  [Particle and cosmology results](model/particle_cosmology_results/README.md),
-  [Interactive viewer](https://particles.floatingpragma.ai/).
-- **The gauge group and native currents.** Under the stated complete-current
-  premises, the oriented carrier supports (SU(3)×SU(2)×U(1))/Z6 and an
-  anomaly-free matter representation. Exact native charge, spin and Gauss
-  instruments retain their complete outputs. Empirical coupling values and
-  an interacting chiral continuum require the same-source physical mapping.
-  A refined SU(2) cube has 54 Haar links and 36 coupled plaquettes, certified
-  source gaps and complete control of omitted representations. Energy-dependent
-  full-complement bounds enclose the coarse and refined gaps in
-  [96.00000060968, 96.00000069820] and [47.99403921427, 48.00529277681]
-  source units. Their enclosure widths improve by factors above 361 and 5.36.
-  Distant loops prevent a volume-uniform global-norm shortcut; these finite
-  graphs supply no four-dimensional Yang–Mills continuum or physical glueball mass.
-  [Gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
-  [Refined gauge source](model/openwave_refined_haar_source/PROOF.md),
-  [Full-complement spectral certificate](model/openwave_energy_schur/PROOF.md).
-- **Exact transport of the complete fermion source.** Twenty-four local even
-  pair transformations act on all 192 fermion modes while preserving every
-  Hamiltonian term, current, charge, reference and measurement work. The
-  proof replaces an enumeration of 2¹⁹² states with exact local identities.
-  An independent rotor extension retains its field-momentum connection and
-  every integer flux; it has a different carrier and supplies no additional
-  physical particle mass.
-  [Complete Fock and field transport](model/openwave_fock_field_transport/PROOF.md).
-- **An observer that runs.** A twelve-port observer keeps its records and
-  uses them to choose its next repair. Overlapping observers read a common
-  reference and its clock, a finite quantum process joins electric flux,
-  charged matter and a scalar field, and refining screens give Gaussian
-  field limits and waves of finite speed.
-- **A Lorentzian scalar field from the observers' records.** On a declared
-  radial extension of the refining screen, one action fixes correlations,
-  response and a modular clock, and a smooth (1+3)-dimensional scalar field
-  theory reproduces any finite set of joint readouts. The radial direction
-  and the physical units are inputs.
-  [Integrated verdict](model/CONSTRUCTION.md#integrated-effective-description).
-- **Standard physics from finite agreement.** Under stated premises, finite
-  theorems give public records that do not depend on the order of repairs,
-  the Born rule and the Tsirelson bound, a carrier that is three-dimensional
-  in its slow response, the Standard Model gauge Lie algebra with an
-  anomaly-free matter representation, a (1+3)-dimensional causal order and the Einstein equation from null
-  balance.
-- **Hadron masses and axial response on one source.** Seven disclosed inputs
-  fit proton 0.93827208943, neutron 0.93956542194, charged pion 0.13957039,
-  neutral rho 0.77526, Delta 1.232 and deuteron 1.87561294497 GeV, with native
-  axial magnitude 1.2753. Complete spectra retain all breakup thresholds and
-  no extra bound nuclear channel. A common calibrated length gives the
-  quadrupole and linear string tension; unused neutral-pion and charge-radius
-  comparisons fail. The infinite-chain extension has isolated proton and neutron
-  source poles over the full momentum circle and normalizable packet records.
-  Its exact band filter is a declared nonlocal service; physical relativistic
-  particle identification and autonomous decay lifetimes require a transfer.
-  [Common hyperfine source](model/openwave_common_hyperfine_spectrum/PROOF.md),
-  [Normalizable particle records](model/openwave_normalizable_particle_records/PROOF.md),
-  [Native charge profiles](model/openwave_baryon_form_factors/PROOF.md).
-- **A normalizable Lambda and its breakup spectrum.** The calibrated source
-  has a Lambda-assigned rest pole between 1.115684628607 and 1.115684878081 GeV.
-  A localized packet has complete current records without an exact band filter.
-  Full interacting evolution gives a positive separated-field response, and
-  normalizable proton–pion states place the Lambda energy in the breakup
-  spectrum. Their outgoing weak overlap and physical lifetime require a
-  scattering calculation. These results retain the strong and mass inputs.
-  [Lambda packet](model/openwave_lambda_wavepacket/PROOF.md),
-  [Complete strong current](model/openwave_full_strong_current/PROOF.md),
-  [Breakup spectrum](model/openwave_cluster_weyl_sequence/PROOF.md).
-- **Native emission and clocks.** Complete source calculations certify a
-  parity-odd beta momentum statistic and a finite meson emission window.
-  Two clock factors of the native eight-level source have a common
-  weak-probe limit. These results retain preparation failures, work and
-  source backreaction; finite records do not identify physical lifetimes
-  or Einstein proper time.
-  [Outgoing current](model/openwave_beta_outgoing/PROOF.md),
-  [Native clocks](model/openwave_joint_native_clocks/PROOF.md).
-- **Finite gravitational response and its measurement resources.** A complete
-  collective geometry controls all 49 positive native source/probe energy pairs.
-  Two spin-sector matrices determine its geometry-sector gap, and exact
-  fluctuation–response and readout-work identities connect the weak strength
-  to its covariance. The chosen register count uses measured Newton gravity;
-  its fluctuations are conditional, without a physical metric-noise match or
-  an Einstein continuum identification.
-  [Finite-strength bounds](model/openwave_collective_finite_strength/PROOF.md),
-  [Response, noise and work](model/openwave_gravity_noise_normalization/PROOF.md).
-- **Certified conditional cosmological transfer.** An exact adiabatic identity
-  reduces seven supplied Einstein/dust/radiation/scalar equations to one
-  positive integral. Outward bounds give the present normalized metric
-  coefficient [0.734179279095, 0.734257299186], compared with
-  [0.709108311479, 0.709181069590] for the same-density constant-Lambda control.
-  The strict zero-wavenumber mode has zero comoving density; this is not a
-  measured growth or microwave-background fit. Absolute density, primordial
-  amplitude and the native field-to-cosmology mapping remain inputs or open
-  requirements.
-  [Exact normalization and transfer](model/openwave_capacity_normalization_transfer/PROOF.md).
-- **Continuum fields and their measurements.** The ordered-spin construction has
-  three continuous spatial dimensions, time, positive energy and finite propagation.
-  Its position observable is conjugate to the same spatial momentum, with complete
-  finite detectors and ordered source limits. Spectral measurements retain all outcomes.
-  Proving Lorentz symmetry and surviving interactions on that same state is the
-  central field requirement. A separate scaling gives free massless Weyl fields
-  and the matter stress response used by the conditional gravity derivation.
-  [Field constructions](docs/research/OPH_FIELD_RECONSTRUCTION.md#the-three-field-constructions-and-their-source-boundaries),
-  [spectral readout](model/spin_shell_readout/README.md),
-  [ten common-theory requirements](model/particle_joint_reconstruction/DEPENDENCIES.md).
-- **Interacting fields and actual position records.** A declared
-  [gauge-field construction](model/particle_observer_outputs/PROOF.md)
-  has controlled local detector records and a causal bound uniform in
-  physical refinement, including quantum links and all fermion occupations. A
-  [joint field/reference instrument](model/particle_joint_translation_readout/PROOF.md)
-  supplies conserved crystal momentum, position backaction and finite
-  uncertainty. Physical chiral refinement and particle mass identification
-  require their own same-state derivations. The
-  [illustrated field atlas](docs/research/OPH_FINITE_FIELD_RECORDS.svg) explains
-  these finite measurements and the remaining physical connections.
-- **Thermal records, work and pressure.** One interacting quantum-flux
-  control has a [certified thermal preparation](model/particle_field_state_response/PROOF.md)
-  and complete two-time records, with every occupation and reference retained.
-  Its [spatial strain response](model/particle_geometric_response/PROOF.md)
-  calculates work and pressure from a declared geometry coupling on the
-  same state and clock. The proper geometric interpretation and regional
-  entropy and area premises required for Einstein dynamics are separate
-  physical requirements.
-- **One source, state, reference and clock.** The selected Wilson construction
-  has a [common observable algebra](model/particle_primary_field_algebra/PROOF.md),
-  a stationary limiting state, positive energy and convergent finite detector
-  histories on one subsequence. Its energy currents obey exact finite
-  conservation. A [controlled energy pulse](model/particle_primary_energy_response/PROOF.md)
-  produces a nonzero original current response and positive cyclic work;
-  its Ward identity includes the work supplied by the pulse.
-  [Selected energy moments](model/particle_primary_weighted_spectral_tail/PROOF.md)
-  obey a bound of 4000000/a, independent of link degree, where a is the source spacing.
-  The positive finite-window probability deteriorates with capacity. An
-  [equal-work control](model/particle_primary_equal_work_control/PROOF.md)
-  on the same source has an elastic limit, so mean work alone cannot prove
-  particle survival.
-  The [native chirality audit](model/particle_primary_odd_sum_rules/PROOF.md)
-  identifies a paired response that a physical chiral assignment must resolve.
-  Lorentz covariance, surviving interacting particles and proper geometric
-  stress remain requirements on this same source and state. The
-  [ten-step dependency map](model/particle_joint_reconstruction/DEPENDENCIES.md)
-  records the precise remaining physical requirements.
-- **Mathematics you can check.** The [Lean library](Lean/) contains more than
-  12900 public theorems and lemmas with no admitted proofs. Computational
-  receipts bind their source inputs and include replay checks.
-- **Tests fixed in advance.** Predictions and their rejection rules enter the
-  [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md) before the
-  eligible comparison data, with OpenTimestamps proofs, most of them anchored in
-  Bitcoin; the
-  dispersion prediction for the primitive port orbit is one of them. The
-  [postdiction ledger](docs/POSTDICTION_LEDGER.md), the
-  [falsification programme](docs/OPH_FALSIFICATION_PROGRAM.md) and the
-  [cross-scale audit](docs/EMPIRICAL_STATUS.md) keep comparisons with
-  measurements apart from tests of the mathematics.
+## How it works
 
-**Agreement with the full range of observed measurement statistics has not
-been established.** The theorems hold under stated premises, and the
-executable observer is a candidate judged by declared acceptance criteria.
+The concrete bet is a program: one local repair law on a network of
+twelve-port carriers. The [executable hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md)
+says what counts as success, and the [completion program](docs/COMPLETION_PROGRAM.md)
+splits the remaining work into gates with stopping rules. The design choices
+may be reverse-engineered; the test is that one fully specified program runs
+and reproduces what observers measure.
+
+## Mathematics you can check
+
+The [Lean library](Lean/) holds more than 12900 public theorems and lemmas
+with no admitted proofs, covering consensus, quantum records, the gauge
+structure, thermodynamics and the Koide identity. Every computational result
+ships with a receipt that binds its inputs and replays.
+
+## Tests fixed in advance
+
+Predictions and their rejection rules are frozen before the data, with
+OpenTimestamps proofs anchored in Bitcoin, in the
+[frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md). The
+[postdiction ledger](docs/POSTDICTION_LEDGER.md) and the
+[falsification programme](docs/OPH_FALSIFICATION_PROGRAM.md) state how the
+construction can fail.
 
 ## Run the observer
 
@@ -286,103 +91,41 @@ python3 -m model.observer run --trials 10000 --seed 42
 This runs the minimal record-and-feedback experiment and prints forecast
 scores and a result hash. The [model guide](model/README.md) covers the rest.
 
-## Mathematical results
-
-- **Agreement and stable records.** Under explicit termination and consistency
-  conditions, local repairs reach one shared public result whatever their order.
-  [Consensus paper](paper/reality_as_consensus_protocol.pdf).
-- **Quantum observations.** Within the stated finite quantum algebra, verified
-  results cover repeatable measurements, classical records that later
-  operations cannot disturb, uncertainty and the Bell correlation bound, with
-  a state that attains it. Native repair histories reconstruct a positive
-  functional on the full 66-state matrix algebra, where the Born trace rule
-  holds; native evolution does not prepare that state.
-  [Finite quantum event algebras](extra/machine_checked_finite_event_algebras.pdf),
-  [native reconstruction](model/native_quantum_reconstruction/PROOF.md).
-- **Three spatial directions.** Optimal readout of a supplied three-dimensional
-  response selects the twelve-port incidence, and the carrier's mean repair rule
-  gives an exact three-dimensional slow response with Euclidean geometry, which
-  an observer's current records recover.
-  [Carrier construction](code/a5_closure/README.md).
-- **Gauge symmetry.** Under stated premises on complete reversible response
-  and observer transport, the twelve-port response algebra has the Standard
-  Model gauge Lie type, and a specified matter representation gives an
-  anomaly-free generation. Port phases realize the global group, and six of
-  its central elements form the flux alphabet of the particle defects.
-  [Gauge derivation](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf).
-- **Thermodynamics.** Finite repair theorems give a Clausius inequality,
-  fluctuation relations and an information Landauer inequality under a stated
-  reference and energy calibration. Fair-coin seam repair is exact conditional
-  resampling, so entropy never falls on binary populations while the complete
-  tape keeps every bit. A native memory refresh realizes the machine-checked
-  finite four-law core in internal cost units.
-  [Thermodynamics account](paper/observers_are_all_you_need.pdf).
-- **Information capacity.** Exact results count which records stay
-  distinguishable after the allowed operations, bound that count by the
-  available carrier, and follow it through refinement.
-  [Record capacity](code/capacity_readback/README.md).
-- **Entangled-pair coupling candidate.**
-  [Alex Wissner-Gross](https://alexwg.org/publications/ChainTheoryAlpha.pdf)
-  derives a finite spectral expression with inverse `137.035999189566`.
-  The [independent OPH reconstruction](model/observer_particles/README.md)
-  credits that construction and tests its complete-outcome and normalization
-  assumptions. Its identification with the physical electromagnetic coupling
-  and its proposed attachment to the screen-grain equation are conditional.
-- **Matter and fields.** A supplied charged-scalar and Maxwell action with its
-  geometry and quantization give an interacting Hamiltonian after gauge
-  reduction, and controlled scalar refinement connects classical detector
-  readouts to a nonlinear field equation. Gauge invariance, face locality and
-  carrier rotations select the Maxwell action on the seams.
-  A common metric dictionary is constructed.
-  [Matter continuum](paper/observers_are_all_you_need.pdf).
-
-These are conditional mathematical results. Making their premises hold for
-the observations of one common model is the central construction problem.
-The [premise map](model/PREMISES.md) records which premises the executable
-specification supplies and which it takes as inputs.
-
 ## Papers
 
 - **[Observers Who Read Their Universe into Existence](flagship/from_observer_consensus_to_standard_physics.pdf)**
-  is the main synthesis: the closure hypothesis, the executable-model hypothesis and the tower of results built on it. Cite its released version, the
+  is the main paper. Cite its released version, the
   [PhilPapers record](https://philpapers.org/rec/MUEFOC).
-- **[An Executable Observer for Observer Patch Holography](paper/executable_observer_construction.pdf)**
-  states the specification, the executed components and the ordered joins
-  that remain.
-- **The theorem library** holds the long proofs, from
-  [consensus](paper/reality_as_consensus_protocol.pdf) and
-  [observers and records](paper/observers_are_all_you_need.pdf) to
-  [spacetime and Einstein dynamics](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
+- **[An Executable Observer](paper/executable_observer_construction.pdf)**
+  specifies the program and its executed components.
+- **The theorem library** holds the long proofs:
+  [consensus](paper/reality_as_consensus_protocol.pdf),
+  [observers and records](paper/observers_are_all_you_need.pdf),
+  [spacetime and Einstein dynamics](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
+  [gauge structure](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf)
   and [particles](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
-  The [paper index](paper/README.md) and the [paper set](docs/PAPER_SET.md)
-  list every paper and its role.
-- **Companion papers** carry focused results. A lepton-mass relation, the
-  Koide relation, holds exactly under a stated balance premise. The capacity
-  programme asks whether the public capacity assigned to the Universe agrees
-  with the one reconstructed from inside. These constant calculations,
-  including the fine-structure root, have diagnostic status.
+  The [paper index](paper/README.md) lists every paper.
 
 ## Where things are
 
 | Path | What it holds |
 | --- | --- |
-| [model/](model/README.md) | The executable observer: implementation, tests, retained receipts and protocol records |
-| [flagship/](flagship/) | The synthesis paper |
-| [paper/](paper/README.md) | The construction paper and the theorem library, with archived papers under [paper/archive/](paper/archive/README.md) |
+| [model/](model/README.md) | The executable observer: implementation, tests and receipts |
+| [flagship/](flagship/) | The main paper |
+| [paper/](paper/README.md) | The construction paper and the theorem library |
 | [extra/](extra/README.md), [cosmology/](cosmology/) | Companion papers |
 | [Lean/](Lean/) | The machine-checked library |
-| [code/](code/README.md) | Exact calculations, lane verifiers and receipts behind the papers |
-| [evidence/](evidence/README.md) | Retained evidence packets and custody records |
-| [claims/](claims/README.md) | Established claims and their dependency views |
+| [code/](code/README.md) | Exact calculations and verifiers behind the papers |
+| [evidence/](evidence/README.md) | Retained evidence packets |
+| [claims/](claims/README.md) | Claims and their dependencies |
 | [tracking/](tracking/) | Premise, observation, prediction and instrument registers |
-| [docs/](docs/README.md) | The basis, the working terms, policies and registers |
+| [docs/](docs/README.md) | The basis, working terms, policies and ledgers |
 | [book/](book/) | The book |
 
 ## Reproduce and verify
 
-The [reproduction guide](REPRODUCE.md) runs the verification suite from a
-clean clone. The model verifier replays the receipt inventory declared in `model/verify.py`;
-the regression suite also checks adversarial cases:
+The [reproduction guide](REPRODUCE.md) runs the full verification suite from
+a clean clone:
 
 ```sh
 python -m pip install -r model/requirements.txt
@@ -390,29 +133,21 @@ python -m model.verify
 python -m pytest -q -W error model
 ```
 
-The guide also lists the standalone particle and source-field checks used by
-the [observer workflow](.github/workflows/observer-model.yml).
-
-The [Lean library](Lean/) builds with Lake, the [documentation index](docs/README.md)
-lists the registers and policies, and the [book](book/) gives a longer road
-in. The textbooks at [learn.floatingpragma.ai](https://learn.floatingpragma.ai/)
-and the interactive simulation at
-[simulation.floatingpragma.io](https://simulation.floatingpragma.io/) are
+The [book](book/), the textbooks at [learn.floatingpragma.ai](https://learn.floatingpragma.ai/)
+and the [interactive simulation](https://simulation.floatingpragma.io/) are
 the gentlest introductions.
 
 ## Contributing
 
-The task is to make one observation-and-repair process supply the effective
-physics: the observer's clock, spatial interpretation and field measurements
-on the same histories, compared with independent observations.
-Contributions should resolve a named connection or expose a failure in the
-shared model; the [construction guide](model/CONSTRUCTION.md), the
+Contributions should connect one more piece of observed physics to the
+running observer, or expose a failure in it. The
+[construction guide](model/CONSTRUCTION.md), the
 [repair-law guide](model/CANDIDATES.md) and the
 [research issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+is%3Aopen+label%3Aprogram%3Aphysics)
-set out that work. Paper releases follow the
-[release policy](model/CONSTRUCTION.md#research-programme-and-paper-release-hold);
-main-branch PDFs are source previews, and deposited releases retain their
-original bytes.
+set out the work. Main-branch PDFs are source previews; deposited releases
+keep their original bytes.
+
+Ce README existe aussi [en français](README_FR.md).
 
 ## License
 

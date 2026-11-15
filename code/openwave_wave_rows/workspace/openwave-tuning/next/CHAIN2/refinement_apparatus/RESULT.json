@@ -1,0 +1,3115 @@
+{
+  "schema": "oph.chain2.refinement_apparatus.result.v1",
+  "model_id": "native-local12-two-fourier-mode-apparatus-v1",
+  "checks": {
+    "immutable_source_closure": true,
+    "native_two_mode_arbitrary_reference_isometry": true,
+    "full_M6_small_blocks_executed": true,
+    "complete_native_C_E_pointer": true,
+    "nonuniform_density_and_phase_controls": true,
+    "source_all_clean_columns_sizes2_and4": true,
+    "terminal_current_sign": true,
+    "native_reset_success_and_timeout_executed": true,
+    "missing_failure_and_domain_rejected": true,
+    "general_family_error_tends_to_zero": true,
+    "dephased_selector_uniform_density_control": true
+  },
+  "input_file_count": 263,
+  "source_execution": [
+    {
+      "size": 2,
+      "clean_data_law_columns": 4096,
+      "reversible_gates": 72041,
+      "all_column_outputs_match": true,
+      "memory_bits": 26
+    },
+    {
+      "size": 4,
+      "clean_data_law_columns": 32768,
+      "reversible_gates": 634601,
+      "all_column_outputs_match": true,
+      "memory_bits": 32
+    }
+  ],
+  "development": [
+    {
+      "size": 2,
+      "steps": 2,
+      "h_exact": "1/2",
+      "time_exact": "1",
+      "K_bound": 7,
+      "hK_window_satisfied": false,
+      "preparation_isometry_error_diagnostic": 1.6029548377191346e-15,
+      "complete_gram_error_diagnostic": 1.974175528254108e-14,
+      "source_certificate": {
+        "adapter_id": "native-local12-rational-refinement-adapter-v1",
+        "size": 2,
+        "layout": {
+          "size": 2,
+          "data_bits": 11,
+          "source": [
+            11,
+            12,
+            13
+          ],
+          "raw": [
+            14,
+            15,
+            16
+          ],
+          "law": 17,
+          "scratch": [
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25
+          ],
+          "memory_bits": 26
+        },
+        "precision_bits": 55,
+        "native_pulses": 1765741,
+        "load_export_services": 3531482,
+        "reversible_gate_counts": {
+          "flip": 29370,
+          "ccx": 42670,
+          "cx": 1
+        },
+        "component_gate_counts": {
+          "extraction": 16320,
+          "native_event": 3258,
+          "recoder": 11438,
+          "routing": 24704
+        },
+        "whole_W_operator_error_exact": "2332577612799859995229707/40564819207303340847894502572032",
+        "requested_step_tolerance_exact": "1/4",
+        "preparation_uniform12_error_exact": "296433270640128672177/324518553658426726783156020576256",
+        "complete_stinespring_error_bound": "2332577612799859995229707/40564819207303340847894502572032",
+        "complete_channel_TV_and_half_diamond_upper": "2332577612799859995229707/40564819207303340847894502572032",
+        "physical_duration_claimed": false,
+        "serialization": "twelve exact rational integrated native controls per pulse; not the frozen binary64 API"
+      },
+      "emitted_program_budget": {
+        "precision_bits": 64,
+        "delta_preparation_exact": "341036309476951040704779/85070591730234615865843651857942052864",
+        "delta_W_exact": "2409776091189328970524653315/21267647932558653966460912964485513216",
+        "n_delta_W_exact": "2409776091189328970524653315/10633823966279326983230456482242756608",
+        "clock_and_detector_exact": "263697844425597748686375/42535295865117307932921825928971026432",
+        "reset": {
+          "blank_carriers": 27,
+          "ready_carriers": 12,
+          "registers": 39,
+          "blocks_per_register": 1,
+          "uniform_q_exact": "35/2147483648",
+          "timeout_bound_exact": "1365/2147483648",
+          "native_attempts_max": 104442,
+          "base_attempts_max": 2678,
+          "fine_records": "every attempt seam, coin, current and final configuration; first register timeout halts"
+        },
+        "native_vs_ideal_complete_law_TV_exact": "54092499993146923367504481408369/85070591730234615865843651857942052864",
+        "source_compression_TV_exact": "2409776091189328970524653315/10633823966279326983230456482242756608",
+        "scope": "full logical/record law certificate; binary64 development arithmetic residuals are diagnostic"
+      },
+      "settings": {
+        "plus": {
+          "density": [
+            0.22453703703703765,
+            0.22453703703703756,
+            0.2245370370370376,
+            0.22453703703703753,
+            0.025462962962963045,
+            0.025462962962963034,
+            0.025462962962963034,
+            0.025462962962963014
+          ],
+          "density_change_from_preparation_TV": 0.10185185185185107,
+          "current_mean": [
+            2.6020852139652106e-18,
+            8.673617379884019e-19,
+            2.60208521396521e-18
+          ],
+          "full_address_continuum_comparison_TV_diagnostic": 0.2253026812771205,
+          "continuum_theorem_applies_to_this_small_member": false,
+          "laws": {
+            "C": {
+              "address_total": 1.0000000000000009,
+              "first_detector_export_failures": [
+                1.2488800100962365e-33,
+                1.2488800100962358e-33,
+                1.2488800100962353e-33,
+                1.2488800100962348e-33,
+                1.2488800100962343e-33,
+                1.2488800100962336e-33,
+                1.2488800100962331e-33,
+                1.2488800100962324e-33,
+                1.2488800100962319e-33,
+                1.2488800100962312e-33,
+                1.2488800100962309e-33
+              ],
+              "fine_records_per_bit": [
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 1,
+                  "current": 1,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 1
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 2
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 3
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 4
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 5
+                }
+              ],
+              "density": [
+                0.22453703703703648,
+                0.22453703703703642,
+                0.22453703703703642,
+                0.22453703703703637,
+                0.02546296296296292,
+                0.02546296296296291,
+                0.02546296296296291,
+                0.025462962962962896
+              ],
+              "current_mean": [
+                2.6020852139652106e-18,
+                8.67361737988402e-19,
+                2.6020852139652106e-18
+              ],
+              "padded_output_probability": 6.6259594511588565e-31
+            },
+            "E": {
+              "address_total": 1.0000000000000009,
+              "first_detector_export_failures": [
+                1.2488800100962365e-33,
+                1.2488800100962358e-33,
+                1.2488800100962353e-33,
+                1.2488800100962348e-33,
+                1.2488800100962343e-33,
+                1.2488800100962336e-33,
+                1.2488800100962331e-33,
+                1.2488800100962324e-33,
+                1.2488800100962319e-33,
+                1.2488800100962312e-33,
+                1.2488800100962309e-33
+              ],
+              "fine_records_per_bit": [
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -2,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -1,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 1,
+                  "current": 1,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -2,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 1,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 1
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 2
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 3
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 4
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 5
+                }
+              ],
+              "density": [
+                0.22453703703703648,
+                0.22453703703703642,
+                0.22453703703703642,
+                0.22453703703703637,
+                0.02546296296296292,
+                0.02546296296296291,
+                0.02546296296296291,
+                0.025462962962962896
+              ],
+              "current_mean": [
+                2.6020852139652106e-18,
+                8.67361737988402e-19,
+                2.6020852139652106e-18
+              ],
+              "padded_output_probability": 6.6259594511588565e-31
+            }
+          },
+          "preparation_export_failure_probability": 1.4179225873072262e-32
+        },
+        "minus": {
+          "density": [
+            0.02546296296296304,
+            0.025462962962963038,
+            0.025462962962963038,
+            0.02546296296296303,
+            0.22453703703703762,
+            0.2245370370370376,
+            0.22453703703703756,
+            0.2245370370370375
+          ],
+          "density_change_from_preparation_TV": 0.10185185185185103,
+          "current_mean": [
+            -2.168404344971009e-19,
+            -7.15573433840433e-18,
+            -3.686287386450715e-18
+          ],
+          "full_address_continuum_comparison_TV_diagnostic": 0.2253026812771205,
+          "continuum_theorem_applies_to_this_small_member": false,
+          "laws": {
+            "C": {
+              "address_total": 0.9999999999999932,
+              "first_detector_export_failures": [
+                1.2488800100962364e-33,
+                1.2488800100962357e-33,
+                1.2488800100962353e-33,
+                1.2488800100962348e-33,
+                1.2488800100962341e-33,
+                1.2488800100962334e-33,
+                1.2488800100962331e-33,
+                1.2488800100962324e-33,
+                1.2488800100962319e-33,
+                1.2488800100962312e-33,
+                1.2488800100962305e-33
+              ],
+              "fine_records_per_bit": [
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 1,
+                  "current": 1,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 1
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 2
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 3
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 4
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 5
+                }
+              ],
+              "density": [
+                0.02546296296296292,
+                0.025462962962962913,
+                0.025462962962962913,
+                0.0254629629629629,
+                0.22453703703703648,
+                0.22453703703703642,
+                0.22453703703703642,
+                0.22453703703703637
+              ],
+              "current_mean": [
+                -2.168404344971009e-19,
+                -7.15573433840433e-18,
+                -3.686287386450715e-18
+              ],
+              "padded_output_probability": 6.583348251139286e-31
+            },
+            "E": {
+              "address_total": 0.9999999999999932,
+              "first_detector_export_failures": [
+                1.2488800100962364e-33,
+                1.2488800100962357e-33,
+                1.2488800100962353e-33,
+                1.2488800100962348e-33,
+                1.2488800100962341e-33,
+                1.2488800100962334e-33,
+                1.2488800100962331e-33,
+                1.2488800100962324e-33,
+                1.2488800100962319e-33,
+                1.2488800100962312e-33,
+                1.2488800100962305e-33
+              ],
+              "fine_records_per_bit": [
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -2,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -1,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 1,
+                  "current": 1,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -2,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 1,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 1
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 2
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 3
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 4
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 5
+                }
+              ],
+              "density": [
+                0.02546296296296292,
+                0.025462962962962913,
+                0.025462962962962913,
+                0.0254629629629629,
+                0.22453703703703648,
+                0.22453703703703642,
+                0.22453703703703642,
+                0.22453703703703637
+              ],
+              "current_mean": [
+                -2.168404344971009e-19,
+                -7.15573433840433e-18,
+                -3.686287386450715e-18
+              ],
+              "padded_output_probability": 6.583348251139286e-31
+            }
+          },
+          "preparation_export_failure_probability": 1.3867005870548205e-32
+        },
+        "plus_i": {
+          "density": [
+            0.1250000000000003,
+            0.12500000000000028,
+            0.12500000000000028,
+            0.12500000000000022,
+            0.12500000000000033,
+            0.12500000000000028,
+            0.12500000000000028,
+            0.12500000000000025
+          ],
+          "density_change_from_preparation_TV": 1.1518563880486e-15,
+          "current_mean": [
+            5.204170427930421e-18,
+            -2.3852447794681098e-18,
+            -8.673617379884035e-19
+          ],
+          "full_address_continuum_comparison_TV_diagnostic": 0.25314735821089374,
+          "continuum_theorem_applies_to_this_small_member": false,
+          "laws": {
+            "C": {
+              "address_total": 1.0000000000000022,
+              "first_detector_export_failures": [
+                1.2488800100962364e-33,
+                1.2488800100962357e-33,
+                1.248880010096235e-33,
+                1.2488800100962343e-33,
+                1.2488800100962336e-33,
+                1.248880010096233e-33,
+                1.2488800100962326e-33,
+                1.2488800100962319e-33,
+                1.2488800100962312e-33,
+                1.2488800100962305e-33,
+                1.2488800100962299e-33
+              ],
+              "fine_records_per_bit": [
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 1,
+                  "current": 1,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 1
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 2
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 3
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 4
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 5
+                }
+              ],
+              "density": [
+                0.12499999999999961,
+                0.12499999999999958,
+                0.12499999999999958,
+                0.12499999999999954,
+                0.12499999999999961,
+                0.12499999999999958,
+                0.12499999999999958,
+                0.12499999999999956
+              ],
+              "current_mean": [
+                5.204170427930421e-18,
+                -2.3852447794681098e-18,
+                -8.673617379884035e-19
+              ],
+              "padded_output_probability": 6.204421534581099e-31
+            },
+            "E": {
+              "address_total": 1.0000000000000022,
+              "first_detector_export_failures": [
+                1.2488800100962364e-33,
+                1.2488800100962357e-33,
+                1.248880010096235e-33,
+                1.2488800100962343e-33,
+                1.2488800100962336e-33,
+                1.248880010096233e-33,
+                1.2488800100962326e-33,
+                1.2488800100962319e-33,
+                1.2488800100962312e-33,
+                1.2488800100962305e-33,
+                1.2488800100962299e-33
+              ],
+              "fine_records_per_bit": [
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -2,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -1,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 1,
+                  "current": 1,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -2,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 1,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 1
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 2
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 3
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 4
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 5
+                }
+              ],
+              "density": [
+                0.12499999999999961,
+                0.12499999999999958,
+                0.12499999999999958,
+                0.12499999999999954,
+                0.12499999999999961,
+                0.12499999999999958,
+                0.12499999999999958,
+                0.12499999999999956
+              ],
+              "current_mean": [
+                5.204170427930421e-18,
+                -2.3852447794681098e-18,
+                -8.673617379884035e-19
+              ],
+              "padded_output_probability": 6.204421534581099e-31
+            }
+          },
+          "preparation_export_failure_probability": 1.3802342990803389e-32
+        },
+        "minus_i": {
+          "density": [
+            0.12500000000000044,
+            0.12500000000000042,
+            0.12500000000000042,
+            0.1250000000000004,
+            0.12500000000000017,
+            0.12500000000000017,
+            0.12500000000000017,
+            0.1250000000000001
+          ],
+          "density_change_from_preparation_TV": 1.186550857568136e-15,
+          "current_mean": [
+            0.0,
+            6.179952383167375e-18,
+            -1.5178830414797062e-18
+          ],
+          "full_address_continuum_comparison_TV_diagnostic": 0.25314735821089385,
+          "continuum_theorem_applies_to_this_small_member": false,
+          "laws": {
+            "C": {
+              "address_total": 1.0000000000000056,
+              "first_detector_export_failures": [
+                1.2488800100962364e-33,
+                1.2488800100962357e-33,
+                1.248880010096235e-33,
+                1.2488800100962343e-33,
+                1.2488800100962338e-33,
+                1.248880010096233e-33,
+                1.2488800100962326e-33,
+                1.2488800100962319e-33,
+                1.2488800100962312e-33,
+                1.2488800100962305e-33,
+                1.2488800100962299e-33
+              ],
+              "fine_records_per_bit": [
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 1,
+                  "current": 1,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 1
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 2
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 3
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 4
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 5
+                }
+              ],
+              "density": [
+                0.12499999999999974,
+                0.12499999999999972,
+                0.12499999999999972,
+                0.12499999999999971,
+                0.1249999999999995,
+                0.12499999999999944,
+                0.12499999999999944,
+                0.12499999999999942
+              ],
+              "current_mean": [
+                0.0,
+                6.179952383167375e-18,
+                -1.5178830414797062e-18
+              ],
+              "padded_output_probability": 6.378718194548146e-31
+            },
+            "E": {
+              "address_total": 1.0000000000000056,
+              "first_detector_export_failures": [
+                1.2488800100962364e-33,
+                1.2488800100962357e-33,
+                1.248880010096235e-33,
+                1.2488800100962343e-33,
+                1.2488800100962338e-33,
+                1.248880010096233e-33,
+                1.2488800100962326e-33,
+                1.2488800100962319e-33,
+                1.2488800100962312e-33,
+                1.2488800100962305e-33,
+                1.2488800100962299e-33
+              ],
+              "fine_records_per_bit": [
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -2,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -1,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 1,
+                  "current": 1,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -2,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 1,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 1
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 2
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 3
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 4
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 5
+                }
+              ],
+              "density": [
+                0.12499999999999974,
+                0.12499999999999972,
+                0.12499999999999972,
+                0.12499999999999971,
+                0.1249999999999995,
+                0.12499999999999944,
+                0.12499999999999944,
+                0.12499999999999942
+              ],
+              "current_mean": [
+                0.0,
+                6.179952383167375e-18,
+                -1.5178830414797062e-18
+              ],
+              "padded_output_probability": 6.378718194548146e-31
+            }
+          },
+          "preparation_export_failure_probability": 1.4243888752817072e-32
+        }
+      }
+    },
+    {
+      "size": 4,
+      "steps": 4,
+      "h_exact": "1/4",
+      "time_exact": "1",
+      "K_bound": 7,
+      "hK_window_satisfied": false,
+      "preparation_isometry_error_diagnostic": 3.3183087145461465e-15,
+      "complete_gram_error_diagnostic": 1.6431800898520284e-13,
+      "source_certificate": {
+        "adapter_id": "native-local12-rational-refinement-adapter-v1",
+        "size": 4,
+        "layout": {
+          "size": 4,
+          "data_bits": 14,
+          "source": [
+            14,
+            15,
+            16
+          ],
+          "raw": [
+            17,
+            18,
+            19
+          ],
+          "law": 20,
+          "scratch": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "memory_bits": 32
+        },
+        "precision_bits": 60,
+        "native_pulses": 16223085,
+        "load_export_services": 32446170,
+        "reversible_gate_counts": {
+          "flip": 241082,
+          "ccx": 393518,
+          "cx": 1
+        },
+        "component_gate_counts": {
+          "extraction": 172032,
+          "native_event": 3258,
+          "recoder": 11438,
+          "routing": 275840
+        },
+        "whole_W_operator_error_exact": "13480207715465436459742493715/664613997892457936451903530140172288",
+        "requested_step_tolerance_exact": "1/16",
+        "preparation_uniform12_error_exact": "23246537496197878608309/664613997892457936451903530140172288",
+        "complete_stinespring_error_bound": "13480207715465436459742493715/664613997892457936451903530140172288",
+        "complete_channel_TV_and_half_diamond_upper": "13480207715465436459742493715/664613997892457936451903530140172288",
+        "physical_duration_claimed": false,
+        "serialization": "twelve exact rational integrated native controls per pulse; not the frozen binary64 API"
+      },
+      "emitted_program_budget": {
+        "precision_bits": 64,
+        "delta_preparation_exact": "14805787228299616715235/2658455991569831745807614120560689152",
+        "delta_W_exact": "22168313047434183382056658563/21267647932558653966460912964485513216",
+        "n_delta_W_exact": "22168313047434183382056658563/5316911983139663491615228241121378304",
+        "clock_and_detector_exact": "327604654135199492991873/42535295865117307932921825928971026432",
+        "reset": {
+          "blank_carriers": 33,
+          "ready_carriers": 15,
+          "registers": 48,
+          "blocks_per_register": 1,
+          "uniform_q_exact": "35/2147483648",
+          "timeout_bound_exact": "105/134217728",
+          "native_attempts_max": 128544,
+          "base_attempts_max": 2678,
+          "fine_records": "every attempt seam, coin, current and final configuration; first register timeout halts"
+        },
+        "native_vs_ideal_complete_law_TV_exact": "33453175324867745044338272845257/42535295865117307932921825928971026432",
+        "source_compression_TV_exact": "22168313047434183382056658563/5316911983139663491615228241121378304",
+        "scope": "full logical/record law certificate; binary64 development arithmetic residuals are diagnostic"
+      },
+      "settings": {
+        "plus": {
+          "density": [
+            0.0260657793209878,
+            0.026065779320987793,
+            0.02606577932098779,
+            0.02606577932098779,
+            0.026065779320987796,
+            0.02606577932098779,
+            0.02606577932098779,
+            0.026065779320987786,
+            0.02606577932098779,
+            0.026065779320987786,
+            0.026065779320987786,
+            0.026065779320987782,
+            0.02606577932098779,
+            0.026065779320987782,
+            0.026065779320987782,
+            0.026065779320987782,
+            0.01562500000000007,
+            0.015625000000000062,
+            0.015625000000000062,
+            0.01562500000000006,
+            0.015625000000000062,
+            0.015625000000000062,
+            0.015625000000000062,
+            0.015625000000000056,
+            0.015625000000000062,
+            0.015625000000000062,
+            0.01562500000000006,
+            0.015625000000000056,
+            0.01562500000000006,
+            0.015625000000000056,
+            0.01562500000000006,
+            0.015625000000000056,
+            0.005184220679012355,
+            0.005184220679012353,
+            0.005184220679012353,
+            0.005184220679012351,
+            0.005184220679012353,
+            0.005184220679012351,
+            0.005184220679012351,
+            0.0051842206790123505,
+            0.005184220679012353,
+            0.005184220679012351,
+            0.005184220679012351,
+            0.0051842206790123505,
+            0.005184220679012351,
+            0.005184220679012351,
+            0.005184220679012351,
+            0.005184220679012348,
+            0.01562500000000006,
+            0.01562500000000006,
+            0.015625000000000056,
+            0.015625000000000056,
+            0.015625000000000062,
+            0.015625000000000056,
+            0.015625000000000056,
+            0.015625000000000052,
+            0.01562500000000006,
+            0.015625000000000056,
+            0.015625000000000056,
+            0.01562500000000005,
+            0.015625000000000056,
+            0.015625000000000052,
+            0.01562500000000005,
+            0.01562500000000005
+          ],
+          "density_change_from_preparation_TV": 0.082947530864198,
+          "current_mean": [
+            7.410521848938423e-17,
+            -3.889575293791747e-18,
+            2.2768245622195593e-18
+          ],
+          "full_address_continuum_comparison_TV_diagnostic": 0.14838859145522368,
+          "continuum_theorem_applies_to_this_small_member": false,
+          "laws": {
+            "C": {
+              "address_total": 1.000000000000028,
+              "first_detector_export_failures": [
+                1.2488800100962386e-33,
+                1.2488800100962379e-33,
+                1.2488800100962376e-33,
+                1.2488800100962369e-33,
+                1.2488800100962365e-33,
+                1.2488800100962358e-33,
+                1.2488800100962353e-33,
+                1.2488800100962348e-33,
+                1.2488800100962343e-33,
+                1.2488800100962334e-33,
+                1.2488800100962331e-33,
+                1.2488800100962326e-33,
+                1.2488800100962319e-33,
+                1.2488800100962316e-33
+              ],
+              "fine_records_per_bit": [
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 1,
+                  "current": 1,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 1
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 2
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 3
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 4
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 5
+                }
+              ],
+              "density": [
+                0.026065779320987647,
+                0.02606577932098763,
+                0.02606577932098763,
+                0.02606577932098763,
+                0.026065779320987637,
+                0.02606577932098763,
+                0.02606577932098763,
+                0.026065779320987623,
+                0.02606577932098763,
+                0.026065779320987626,
+                0.026065779320987626,
+                0.026065779320987623,
+                0.026065779320987633,
+                0.026065779320987623,
+                0.026065779320987626,
+                0.026065779320987623,
+                0.015624999999999969,
+                0.015624999999999965,
+                0.015624999999999965,
+                0.015624999999999962,
+                0.015624999999999965,
+                0.015624999999999964,
+                0.015624999999999964,
+                0.01562499999999996,
+                0.015624999999999962,
+                0.015624999999999962,
+                0.01562499999999996,
+                0.015624999999999958,
+                0.015624999999999962,
+                0.015624999999999962,
+                0.01562499999999996,
+                0.015624999999999958,
+                0.005184220679012325,
+                0.005184220679012324,
+                0.005184220679012324,
+                0.005184220679012323,
+                0.005184220679012324,
+                0.005184220679012323,
+                0.005184220679012323,
+                0.005184220679012322,
+                0.0051842206790123245,
+                0.005184220679012323,
+                0.005184220679012322,
+                0.005184220679012321,
+                0.005184220679012323,
+                0.005184220679012321,
+                0.005184220679012321,
+                0.005184220679012319,
+                0.015624999999999964,
+                0.01562499999999996,
+                0.01562499999999996,
+                0.015624999999999958,
+                0.015624999999999965,
+                0.01562499999999996,
+                0.015624999999999958,
+                0.015624999999999955,
+                0.01562499999999996,
+                0.015624999999999958,
+                0.015624999999999958,
+                0.015624999999999951,
+                0.015624999999999958,
+                0.015624999999999955,
+                0.015624999999999951,
+                0.015624999999999951
+              ],
+              "current_mean": [
+                1.3796472644878044e-16,
+                -3.889575293791747e-18,
+                2.2768245622195593e-18
+              ],
+              "padded_output_probability": 6.520889692307527e-31
+            },
+            "E": {
+              "address_total": 1.000000000000028,
+              "first_detector_export_failures": [
+                1.2488800100962386e-33,
+                1.2488800100962379e-33,
+                1.2488800100962376e-33,
+                1.2488800100962369e-33,
+                1.2488800100962365e-33,
+                1.2488800100962358e-33,
+                1.2488800100962353e-33,
+                1.2488800100962348e-33,
+                1.2488800100962343e-33,
+                1.2488800100962334e-33,
+                1.2488800100962331e-33,
+                1.2488800100962326e-33,
+                1.2488800100962319e-33,
+                1.2488800100962316e-33
+              ],
+              "fine_records_per_bit": [
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -2,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -1,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 1,
+                  "current": 1,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -2,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 1,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 1
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 2
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 3
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 4
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 5
+                }
+              ],
+              "density": [
+                0.026065779320987647,
+                0.02606577932098763,
+                0.02606577932098763,
+                0.02606577932098763,
+                0.026065779320987637,
+                0.02606577932098763,
+                0.02606577932098763,
+                0.026065779320987623,
+                0.02606577932098763,
+                0.026065779320987626,
+                0.026065779320987626,
+                0.026065779320987623,
+                0.026065779320987633,
+                0.026065779320987623,
+                0.026065779320987626,
+                0.026065779320987623,
+                0.015624999999999969,
+                0.015624999999999965,
+                0.015624999999999965,
+                0.015624999999999962,
+                0.015624999999999965,
+                0.015624999999999964,
+                0.015624999999999964,
+                0.01562499999999996,
+                0.015624999999999962,
+                0.015624999999999962,
+                0.01562499999999996,
+                0.015624999999999958,
+                0.015624999999999962,
+                0.015624999999999962,
+                0.01562499999999996,
+                0.015624999999999958,
+                0.005184220679012325,
+                0.005184220679012324,
+                0.005184220679012324,
+                0.005184220679012323,
+                0.005184220679012324,
+                0.005184220679012323,
+                0.005184220679012323,
+                0.005184220679012322,
+                0.0051842206790123245,
+                0.005184220679012323,
+                0.005184220679012322,
+                0.005184220679012321,
+                0.005184220679012323,
+                0.005184220679012321,
+                0.005184220679012321,
+                0.005184220679012319,
+                0.015624999999999964,
+                0.01562499999999996,
+                0.01562499999999996,
+                0.015624999999999958,
+                0.015624999999999965,
+                0.01562499999999996,
+                0.015624999999999958,
+                0.015624999999999955,
+                0.01562499999999996,
+                0.015624999999999958,
+                0.015624999999999958,
+                0.015624999999999951,
+                0.015624999999999958,
+                0.015624999999999955,
+                0.015624999999999951,
+                0.015624999999999951
+              ],
+              "current_mean": [
+                1.3796472644878044e-16,
+                -3.889575293791747e-18,
+                2.2768245622195593e-18
+              ],
+              "padded_output_probability": 6.520889692307527e-31
+            }
+          },
+          "preparation_export_failure_probability": 1.892164159257794e-32
+        },
+        "minus": {
+          "density": [
+            0.005184220679012358,
+            0.005184220679012356,
+            0.0051842206790123566,
+            0.005184220679012354,
+            0.0051842206790123566,
+            0.005184220679012354,
+            0.005184220679012354,
+            0.005184220679012354,
+            0.005184220679012356,
+            0.005184220679012354,
+            0.005184220679012354,
+            0.005184220679012354,
+            0.005184220679012354,
+            0.005184220679012354,
+            0.005184220679012354,
+            0.005184220679012352,
+            0.01562500000000007,
+            0.01562500000000007,
+            0.015625000000000066,
+            0.015625000000000066,
+            0.01562500000000007,
+            0.015625000000000066,
+            0.015625000000000062,
+            0.015625000000000062,
+            0.01562500000000007,
+            0.015625000000000066,
+            0.015625000000000062,
+            0.015625000000000062,
+            0.015625000000000066,
+            0.015625000000000062,
+            0.015625000000000062,
+            0.015625000000000062,
+            0.026065779320987748,
+            0.026065779320987748,
+            0.026065779320987744,
+            0.02606577932098774,
+            0.026065779320987744,
+            0.02606577932098774,
+            0.02606577932098774,
+            0.026065779320987734,
+            0.026065779320987744,
+            0.02606577932098774,
+            0.026065779320987734,
+            0.026065779320987737,
+            0.02606577932098774,
+            0.026065779320987734,
+            0.026065779320987734,
+            0.026065779320987734,
+            0.015625000000000045,
+            0.01562500000000004,
+            0.01562500000000004,
+            0.015625000000000038,
+            0.01562500000000004,
+            0.015625000000000038,
+            0.015625000000000038,
+            0.015625000000000035,
+            0.015625000000000035,
+            0.015625000000000038,
+            0.015625000000000038,
+            0.015625000000000035,
+            0.015625000000000035,
+            0.015625000000000035,
+            0.015625000000000035,
+            0.01562500000000003
+          ],
+          "density_change_from_preparation_TV": 0.08294753086419757,
+          "current_mean": [
+            3.187554387107383e-17,
+            -2.778268066994105e-18,
+            -6.2341624917916505e-19
+          ],
+          "full_address_continuum_comparison_TV_diagnostic": 0.14838859145522348,
+          "continuum_theorem_applies_to_this_small_member": false,
+          "laws": {
+            "C": {
+              "address_total": 1.0000000000000633,
+              "first_detector_export_failures": [
+                1.2488800100962374e-33,
+                1.2488800100962367e-33,
+                1.2488800100962364e-33,
+                1.2488800100962358e-33,
+                1.2488800100962353e-33,
+                1.2488800100962346e-33,
+                1.2488800100962341e-33,
+                1.2488800100962336e-33,
+                1.248880010096233e-33,
+                1.2488800100962324e-33,
+                1.2488800100962319e-33,
+                1.2488800100962314e-33,
+                1.2488800100962309e-33,
+                1.2488800100962302e-33
+              ],
+              "fine_records_per_bit": [
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 1,
+                  "current": 1,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 1
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 2
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 3
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 4
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 5
+                }
+              ],
+              "density": [
+                0.005184220679012329,
+                0.005184220679012327,
+                0.005184220679012325,
+                0.0051842206790123245,
+                0.005184220679012325,
+                0.005184220679012325,
+                0.005184220679012325,
+                0.005184220679012324,
+                0.005184220679012325,
+                0.0051842206790123245,
+                0.0051842206790123245,
+                0.005184220679012323,
+                0.005184220679012325,
+                0.005184220679012324,
+                0.005184220679012324,
+                0.005184220679012322,
+                0.015624999999999976,
+                0.015624999999999976,
+                0.015624999999999972,
+                0.015624999999999969,
+                0.015624999999999972,
+                0.015624999999999969,
+                0.015624999999999967,
+                0.015624999999999965,
+                0.015624999999999972,
+                0.015624999999999969,
+                0.015624999999999965,
+                0.015624999999999964,
+                0.015624999999999969,
+                0.015624999999999965,
+                0.015624999999999965,
+                0.015624999999999964,
+                0.026065779320987588,
+                0.02606577932098759,
+                0.026065779320987588,
+                0.02606577932098758,
+                0.026065779320987584,
+                0.026065779320987588,
+                0.02606577932098758,
+                0.026065779320987574,
+                0.02606577932098758,
+                0.02606577932098758,
+                0.026065779320987578,
+                0.026065779320987578,
+                0.02606577932098758,
+                0.026065779320987574,
+                0.026065779320987574,
+                0.026065779320987574,
+                0.015624999999999948,
+                0.015624999999999946,
+                0.015624999999999943,
+                0.015624999999999941,
+                0.015624999999999944,
+                0.015624999999999941,
+                0.015624999999999941,
+                0.015624999999999941,
+                0.015624999999999941,
+                0.015624999999999941,
+                0.01562499999999994,
+                0.015624999999999938,
+                0.015624999999999938,
+                0.01562499999999994,
+                0.01562499999999994,
+                0.015624999999999936
+              ],
+              "current_mean": [
+                6.483528991463317e-17,
+                -2.778268066994105e-18,
+                -6.2341624917916505e-19
+              ],
+              "padded_output_probability": 6.572528255288594e-31
+            },
+            "E": {
+              "address_total": 1.0000000000000633,
+              "first_detector_export_failures": [
+                1.2488800100962374e-33,
+                1.2488800100962367e-33,
+                1.2488800100962364e-33,
+                1.2488800100962358e-33,
+                1.2488800100962353e-33,
+                1.2488800100962346e-33,
+                1.2488800100962341e-33,
+                1.2488800100962336e-33,
+                1.248880010096233e-33,
+                1.2488800100962324e-33,
+                1.2488800100962319e-33,
+                1.2488800100962314e-33,
+                1.2488800100962309e-33,
+                1.2488800100962302e-33
+              ],
+              "fine_records_per_bit": [
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -2,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -1,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 1,
+                  "current": 1,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -2,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 1,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 1
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 2
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 3
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 4
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 5
+                }
+              ],
+              "density": [
+                0.005184220679012329,
+                0.005184220679012327,
+                0.005184220679012325,
+                0.0051842206790123245,
+                0.005184220679012325,
+                0.005184220679012325,
+                0.005184220679012325,
+                0.005184220679012324,
+                0.005184220679012325,
+                0.0051842206790123245,
+                0.0051842206790123245,
+                0.005184220679012323,
+                0.005184220679012325,
+                0.005184220679012324,
+                0.005184220679012324,
+                0.005184220679012322,
+                0.015624999999999976,
+                0.015624999999999976,
+                0.015624999999999972,
+                0.015624999999999969,
+                0.015624999999999972,
+                0.015624999999999969,
+                0.015624999999999967,
+                0.015624999999999965,
+                0.015624999999999972,
+                0.015624999999999969,
+                0.015624999999999965,
+                0.015624999999999964,
+                0.015624999999999969,
+                0.015624999999999965,
+                0.015624999999999965,
+                0.015624999999999964,
+                0.026065779320987588,
+                0.02606577932098759,
+                0.026065779320987588,
+                0.02606577932098758,
+                0.026065779320987584,
+                0.026065779320987588,
+                0.02606577932098758,
+                0.026065779320987574,
+                0.02606577932098758,
+                0.02606577932098758,
+                0.026065779320987578,
+                0.026065779320987578,
+                0.02606577932098758,
+                0.026065779320987574,
+                0.026065779320987574,
+                0.026065779320987574,
+                0.015624999999999948,
+                0.015624999999999946,
+                0.015624999999999943,
+                0.015624999999999941,
+                0.015624999999999944,
+                0.015624999999999941,
+                0.015624999999999941,
+                0.015624999999999941,
+                0.015624999999999941,
+                0.015624999999999941,
+                0.01562499999999994,
+                0.015624999999999938,
+                0.015624999999999938,
+                0.01562499999999994,
+                0.01562499999999994,
+                0.015624999999999936
+              ],
+              "current_mean": [
+                6.483528991463317e-17,
+                -2.778268066994105e-18,
+                -6.2341624917916505e-19
+              ],
+              "padded_output_probability": 6.572528255288594e-31
+            }
+          },
+          "preparation_export_failure_probability": 1.836186446727464e-32
+        },
+        "plus_i": {
+          "density": [
+            0.015625000000000076,
+            0.015625000000000076,
+            0.015625000000000076,
+            0.015625000000000076,
+            0.015625000000000076,
+            0.015625000000000076,
+            0.015625000000000073,
+            0.01562500000000007,
+            0.015625000000000076,
+            0.015625000000000076,
+            0.01562500000000007,
+            0.01562500000000007,
+            0.015625000000000076,
+            0.01562500000000007,
+            0.01562500000000007,
+            0.01562500000000007,
+            0.005184220679012361,
+            0.00518422067901236,
+            0.00518422067901236,
+            0.005184220679012359,
+            0.00518422067901236,
+            0.005184220679012359,
+            0.005184220679012359,
+            0.005184220679012357,
+            0.00518422067901236,
+            0.005184220679012359,
+            0.005184220679012359,
+            0.005184220679012357,
+            0.005184220679012359,
+            0.005184220679012357,
+            0.005184220679012358,
+            0.005184220679012357,
+            0.01562500000000004,
+            0.01562500000000004,
+            0.01562500000000004,
+            0.015625000000000038,
+            0.015625000000000045,
+            0.01562500000000004,
+            0.01562500000000004,
+            0.015625000000000038,
+            0.01562500000000004,
+            0.015625000000000038,
+            0.015625000000000038,
+            0.015625000000000038,
+            0.01562500000000004,
+            0.015625000000000038,
+            0.015625000000000038,
+            0.015625000000000035,
+            0.026065779320987734,
+            0.02606577932098773,
+            0.026065779320987734,
+            0.02606577932098773,
+            0.026065779320987734,
+            0.026065779320987734,
+            0.026065779320987723,
+            0.026065779320987727,
+            0.026065779320987734,
+            0.026065779320987734,
+            0.026065779320987723,
+            0.026065779320987723,
+            0.026065779320987734,
+            0.026065779320987727,
+            0.026065779320987727,
+            0.02606577932098772
+          ],
+          "density_change_from_preparation_TV": 0.08294753086419734,
+          "current_mean": [
+            1.1102230246251565e-16,
+            -1.3010426069826053e-18,
+            5.963111948670274e-19
+          ],
+          "full_address_continuum_comparison_TV_diagnostic": 0.14838859145522343,
+          "continuum_theorem_applies_to_this_small_member": false,
+          "laws": {
+            "C": {
+              "address_total": 1.000000000000018,
+              "first_detector_export_failures": [
+                1.2488800100962374e-33,
+                1.2488800100962369e-33,
+                1.2488800100962365e-33,
+                1.2488800100962358e-33,
+                1.2488800100962353e-33,
+                1.2488800100962346e-33,
+                1.2488800100962343e-33,
+                1.2488800100962338e-33,
+                1.2488800100962333e-33,
+                1.2488800100962326e-33,
+                1.2488800100962322e-33,
+                1.2488800100962316e-33,
+                1.2488800100962309e-33,
+                1.2488800100962302e-33
+              ],
+              "fine_records_per_bit": [
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 1,
+                  "current": 1,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 1
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 2
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 3
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 4
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 5
+                }
+              ],
+              "density": [
+                0.015624999999999981,
+                0.015624999999999981,
+                0.01562499999999998,
+                0.01562499999999998,
+                0.015624999999999983,
+                0.01562499999999998,
+                0.01562499999999998,
+                0.015624999999999976,
+                0.01562499999999998,
+                0.015624999999999976,
+                0.015624999999999976,
+                0.015624999999999972,
+                0.01562499999999998,
+                0.015624999999999976,
+                0.015624999999999974,
+                0.015624999999999972,
+                0.005184220679012331,
+                0.0051842206790123305,
+                0.0051842206790123305,
+                0.00518422067901233,
+                0.005184220679012331,
+                0.005184220679012329,
+                0.00518422067901233,
+                0.005184220679012327,
+                0.0051842206790123305,
+                0.00518422067901233,
+                0.005184220679012329,
+                0.005184220679012327,
+                0.005184220679012329,
+                0.005184220679012328,
+                0.005184220679012328,
+                0.005184220679012327,
+                0.015624999999999948,
+                0.015624999999999944,
+                0.015624999999999944,
+                0.015624999999999944,
+                0.015624999999999948,
+                0.015624999999999946,
+                0.015624999999999943,
+                0.01562499999999994,
+                0.015624999999999946,
+                0.015624999999999944,
+                0.01562499999999994,
+                0.01562499999999994,
+                0.015624999999999944,
+                0.015624999999999944,
+                0.01562499999999994,
+                0.015624999999999943,
+                0.026065779320987574,
+                0.02606577932098757,
+                0.02606577932098757,
+                0.026065779320987574,
+                0.026065779320987574,
+                0.026065779320987574,
+                0.02606577932098757,
+                0.026065779320987567,
+                0.02606577932098757,
+                0.026065779320987574,
+                0.026065779320987564,
+                0.02606577932098756,
+                0.026065779320987574,
+                0.02606577932098757,
+                0.026065779320987564,
+                0.026065779320987564
+              ],
+              "current_mean": [
+                1.1438332919722072e-16,
+                -1.3010426069826053e-18,
+                5.963111948670274e-19
+              ],
+              "padded_output_probability": 6.642186447622094e-31
+            },
+            "E": {
+              "address_total": 1.000000000000018,
+              "first_detector_export_failures": [
+                1.2488800100962374e-33,
+                1.2488800100962369e-33,
+                1.2488800100962365e-33,
+                1.2488800100962358e-33,
+                1.2488800100962353e-33,
+                1.2488800100962346e-33,
+                1.2488800100962343e-33,
+                1.2488800100962338e-33,
+                1.2488800100962333e-33,
+                1.2488800100962326e-33,
+                1.2488800100962322e-33,
+                1.2488800100962316e-33,
+                1.2488800100962309e-33,
+                1.2488800100962302e-33
+              ],
+              "fine_records_per_bit": [
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -2,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -1,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 1,
+                  "current": 1,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -2,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 1,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 1
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 2
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 3
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 4
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 5
+                }
+              ],
+              "density": [
+                0.015624999999999981,
+                0.015624999999999981,
+                0.01562499999999998,
+                0.01562499999999998,
+                0.015624999999999983,
+                0.01562499999999998,
+                0.01562499999999998,
+                0.015624999999999976,
+                0.01562499999999998,
+                0.015624999999999976,
+                0.015624999999999976,
+                0.015624999999999972,
+                0.01562499999999998,
+                0.015624999999999976,
+                0.015624999999999974,
+                0.015624999999999972,
+                0.005184220679012331,
+                0.0051842206790123305,
+                0.0051842206790123305,
+                0.00518422067901233,
+                0.005184220679012331,
+                0.005184220679012329,
+                0.00518422067901233,
+                0.005184220679012327,
+                0.0051842206790123305,
+                0.00518422067901233,
+                0.005184220679012329,
+                0.005184220679012327,
+                0.005184220679012329,
+                0.005184220679012328,
+                0.005184220679012328,
+                0.005184220679012327,
+                0.015624999999999948,
+                0.015624999999999944,
+                0.015624999999999944,
+                0.015624999999999944,
+                0.015624999999999948,
+                0.015624999999999946,
+                0.015624999999999943,
+                0.01562499999999994,
+                0.015624999999999946,
+                0.015624999999999944,
+                0.01562499999999994,
+                0.01562499999999994,
+                0.015624999999999944,
+                0.015624999999999944,
+                0.01562499999999994,
+                0.015624999999999943,
+                0.026065779320987574,
+                0.02606577932098757,
+                0.02606577932098757,
+                0.026065779320987574,
+                0.026065779320987574,
+                0.026065779320987574,
+                0.02606577932098757,
+                0.026065779320987567,
+                0.02606577932098757,
+                0.026065779320987574,
+                0.026065779320987564,
+                0.02606577932098756,
+                0.026065779320987574,
+                0.02606577932098757,
+                0.026065779320987564,
+                0.026065779320987564
+              ],
+              "current_mean": [
+                1.1438332919722072e-16,
+                -1.3010426069826053e-18,
+                5.963111948670274e-19
+              ],
+              "padded_output_probability": 6.642186447622094e-31
+            }
+          },
+          "preparation_export_failure_probability": 1.8453311588791854e-32
+        },
+        "minus_i": {
+          "density": [
+            0.015625000000000076,
+            0.015625000000000073,
+            0.015625000000000073,
+            0.01562500000000007,
+            0.015625000000000076,
+            0.01562500000000007,
+            0.01562500000000007,
+            0.01562500000000007,
+            0.015625000000000073,
+            0.01562500000000007,
+            0.01562500000000007,
+            0.01562500000000007,
+            0.01562500000000007,
+            0.01562500000000007,
+            0.01562500000000007,
+            0.015625000000000066,
+            0.02606577932098779,
+            0.026065779320987782,
+            0.02606577932098778,
+            0.026065779320987775,
+            0.026065779320987782,
+            0.026065779320987782,
+            0.02606577932098778,
+            0.026065779320987775,
+            0.026065779320987775,
+            0.026065779320987775,
+            0.026065779320987775,
+            0.026065779320987775,
+            0.02606577932098778,
+            0.026065779320987775,
+            0.02606577932098777,
+            0.02606577932098777,
+            0.015625000000000056,
+            0.015625000000000056,
+            0.015625000000000056,
+            0.015625000000000056,
+            0.015625000000000056,
+            0.015625000000000056,
+            0.015625000000000056,
+            0.015625000000000052,
+            0.015625000000000056,
+            0.015625000000000056,
+            0.015625000000000056,
+            0.015625000000000052,
+            0.015625000000000056,
+            0.015625000000000056,
+            0.01562500000000005,
+            0.01562500000000005,
+            0.005184220679012358,
+            0.0051842206790123566,
+            0.0051842206790123566,
+            0.005184220679012356,
+            0.0051842206790123566,
+            0.005184220679012356,
+            0.005184220679012356,
+            0.005184220679012355,
+            0.0051842206790123566,
+            0.005184220679012356,
+            0.005184220679012356,
+            0.005184220679012355,
+            0.005184220679012356,
+            0.005184220679012355,
+            0.005184220679012355,
+            0.005184220679012351
+          ],
+          "density_change_from_preparation_TV": 0.08294753086419779,
+          "current_mean": [
+            9.020562075079397e-17,
+            4.3194445145233046e-18,
+            1.4556261198565151e-18
+          ],
+          "full_address_continuum_comparison_TV_diagnostic": 0.14838859145522382,
+          "continuum_theorem_applies_to_this_small_member": false,
+          "laws": {
+            "C": {
+              "address_total": 1.0000000000000082,
+              "first_detector_export_failures": [
+                1.2488800100962386e-33,
+                1.248880010096238e-33,
+                1.2488800100962377e-33,
+                1.248880010096237e-33,
+                1.2488800100962365e-33,
+                1.2488800100962358e-33,
+                1.2488800100962353e-33,
+                1.2488800100962348e-33,
+                1.2488800100962341e-33,
+                1.2488800100962336e-33,
+                1.2488800100962331e-33,
+                1.2488800100962326e-33,
+                1.248880010096232e-33,
+                1.2488800100962316e-33
+              ],
+              "fine_records_per_bit": [
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 1,
+                  "current": 1,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 1
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 2
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 3
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 4
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 5
+                }
+              ],
+              "density": [
+                0.01562499999999998,
+                0.01562499999999998,
+                0.015624999999999974,
+                0.015624999999999974,
+                0.01562499999999998,
+                0.015624999999999974,
+                0.015624999999999972,
+                0.015624999999999972,
+                0.015624999999999976,
+                0.015624999999999976,
+                0.015624999999999972,
+                0.015624999999999972,
+                0.015624999999999972,
+                0.015624999999999974,
+                0.015624999999999972,
+                0.015624999999999967,
+                0.026065779320987626,
+                0.026065779320987623,
+                0.02606577932098762,
+                0.026065779320987616,
+                0.02606577932098762,
+                0.026065779320987623,
+                0.026065779320987623,
+                0.026065779320987616,
+                0.02606577932098762,
+                0.026065779320987616,
+                0.026065779320987616,
+                0.026065779320987612,
+                0.026065779320987616,
+                0.026065779320987612,
+                0.02606577932098761,
+                0.02606577932098761,
+                0.015624999999999958,
+                0.015624999999999958,
+                0.015624999999999958,
+                0.015624999999999958,
+                0.015624999999999958,
+                0.015624999999999958,
+                0.015624999999999955,
+                0.015624999999999957,
+                0.015624999999999958,
+                0.015624999999999958,
+                0.015624999999999955,
+                0.015624999999999955,
+                0.015624999999999955,
+                0.015624999999999957,
+                0.015624999999999953,
+                0.015624999999999953,
+                0.005184220679012329,
+                0.005184220679012328,
+                0.005184220679012327,
+                0.005184220679012327,
+                0.005184220679012327,
+                0.005184220679012327,
+                0.005184220679012326,
+                0.005184220679012324,
+                0.005184220679012328,
+                0.005184220679012327,
+                0.005184220679012326,
+                0.005184220679012324,
+                0.005184220679012325,
+                0.005184220679012324,
+                0.005184220679012324,
+                0.005184220679012323
+              ],
+              "current_mean": [
+                1.1514227071796057e-16,
+                4.3194445145233046e-18,
+                1.4556261198565151e-18
+              ],
+              "padded_output_probability": 7.446716416432879e-31
+            },
+            "E": {
+              "address_total": 1.0000000000000082,
+              "first_detector_export_failures": [
+                1.2488800100962386e-33,
+                1.248880010096238e-33,
+                1.2488800100962377e-33,
+                1.248880010096237e-33,
+                1.2488800100962365e-33,
+                1.2488800100962358e-33,
+                1.2488800100962353e-33,
+                1.2488800100962348e-33,
+                1.2488800100962341e-33,
+                1.2488800100962336e-33,
+                1.2488800100962331e-33,
+                1.2488800100962326e-33,
+                1.248880010096232e-33,
+                1.2488800100962316e-33
+              ],
+              "fine_records_per_bit": [
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -2,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": -1,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 0,
+                  "label": 1,
+                  "current": 1,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -2,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": -1,
+                  "current": -1,
+                  "bit": 1
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 0,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "native",
+                  "coin": 1,
+                  "label": 1,
+                  "current": 0,
+                  "bit": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 0
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 1
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 2
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 3
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 4
+                },
+                {
+                  "kind": "export_failure",
+                  "pulse": 5
+                }
+              ],
+              "density": [
+                0.01562499999999998,
+                0.01562499999999998,
+                0.015624999999999974,
+                0.015624999999999974,
+                0.01562499999999998,
+                0.015624999999999974,
+                0.015624999999999972,
+                0.015624999999999972,
+                0.015624999999999976,
+                0.015624999999999976,
+                0.015624999999999972,
+                0.015624999999999972,
+                0.015624999999999972,
+                0.015624999999999974,
+                0.015624999999999972,
+                0.015624999999999967,
+                0.026065779320987626,
+                0.026065779320987623,
+                0.02606577932098762,
+                0.026065779320987616,
+                0.02606577932098762,
+                0.026065779320987623,
+                0.026065779320987623,
+                0.026065779320987616,
+                0.02606577932098762,
+                0.026065779320987616,
+                0.026065779320987616,
+                0.026065779320987612,
+                0.026065779320987616,
+                0.026065779320987612,
+                0.02606577932098761,
+                0.02606577932098761,
+                0.015624999999999958,
+                0.015624999999999958,
+                0.015624999999999958,
+                0.015624999999999958,
+                0.015624999999999958,
+                0.015624999999999958,
+                0.015624999999999955,
+                0.015624999999999957,
+                0.015624999999999958,
+                0.015624999999999958,
+                0.015624999999999955,
+                0.015624999999999955,
+                0.015624999999999955,
+                0.015624999999999957,
+                0.015624999999999953,
+                0.015624999999999953,
+                0.005184220679012329,
+                0.005184220679012328,
+                0.005184220679012327,
+                0.005184220679012327,
+                0.005184220679012327,
+                0.005184220679012327,
+                0.005184220679012326,
+                0.005184220679012324,
+                0.005184220679012328,
+                0.005184220679012327,
+                0.005184220679012326,
+                0.005184220679012324,
+                0.005184220679012325,
+                0.005184220679012324,
+                0.005184220679012324,
+                0.005184220679012323
+              ],
+              "current_mean": [
+                1.1514227071796057e-16,
+                4.3194445145233046e-18,
+                1.4556261198565151e-18
+              ],
+              "padded_output_probability": 7.446716416432879e-31
+            }
+          },
+          "preparation_export_failure_probability": 1.8830194471060735e-32
+        }
+      }
+    }
+  ],
+  "local_blocks": [
+    {
+      "template": "flip",
+      "all_input_columns": 2,
+      "pulses": 2,
+      "complete_gram_residual": 5.360630966617864e-16,
+      "exact_operator_error_bound": "3580484493118207963815/42535295865117307932921825928971026432",
+      "ideal_target_operator_residual": 7.652615381847386e-16
+    },
+    {
+      "template": "hadamard",
+      "all_input_columns": 2,
+      "pulses": 2,
+      "complete_gram_residual": 3.842568772845471e-16,
+      "exact_operator_error_bound": "7760942063461629153999/85070591730234615865843651857942052864",
+      "ideal_target_operator_residual": 6.274270376109181e-16
+    },
+    {
+      "template": "cx",
+      "all_input_columns": 4,
+      "pulses": 3,
+      "complete_gram_residual": 7.423082324432263e-16,
+      "exact_operator_error_bound": "5322341814094633459725/21267647932558653966460912964485513216",
+      "ideal_target_operator_residual": 1.1524909940084982e-15
+    },
+    {
+      "template": "ccx",
+      "all_input_columns": 8,
+      "pulses": 40,
+      "complete_gram_residual": 6.533449603246891e-15,
+      "exact_operator_error_bound": "27618115522592879807373/10633823966279326983230456482242756608",
+      "ideal_target_operator_residual": 3.4261368865216128e-15
+    },
+    {
+      "template": "reflection",
+      "all_input_columns": 16,
+      "pulses": 198,
+      "complete_gram_residual": 2.6237796131848706e-14,
+      "exact_operator_error_bound": "261375367997629181358495/21267647932558653966460912964485513216",
+      "ideal_target_operator_residual": 1.316534101321257e-14
+    },
+    {
+      "template": "uniform",
+      "all_input_columns": 16,
+      "pulses": 40,
+      "complete_gram_residual": 3.859628144058713e-15,
+      "exact_operator_error_bound": "76506244331331222059247/42535295865117307932921825928971026432",
+      "ideal_target_operator_residual": null
+    },
+    {
+      "template": "pointer",
+      "all_input_columns": 8,
+      "pulses": 6,
+      "complete_gram_residual": 1.330468028714229e-15,
+      "exact_operator_error_bound": "5322341814094633459725/10633823966279326983230456482242756608",
+      "ideal_target_operator_residual": 1.939488516466778e-15
+    }
+  ],
+  "pointer": [
+    {
+      "law": "C",
+      "bit": 0,
+      "full_matrix_unit_error": 4.440892098500626e-16
+    },
+    {
+      "law": "C",
+      "bit": 1,
+      "full_matrix_unit_error": 4.440892098500626e-16
+    },
+    {
+      "law": "E",
+      "bit": 0,
+      "full_matrix_unit_error": 4.440892098500626e-16
+    },
+    {
+      "law": "E",
+      "bit": 1,
+      "full_matrix_unit_error": 4.440892098500626e-16
+    }
+  ],
+  "clock": [
+    {
+      "size": 2,
+      "quadrature": "X",
+      "law": "C",
+      "probabilities": [
+        0.9960988336146641,
+        0.0039011663853355054
+      ],
+      "contrast": 0.9921976672293286,
+      "clock_phase_radians_exact": "1/8",
+      "physical_seconds": false
+    },
+    {
+      "size": 2,
+      "quadrature": "X",
+      "law": "E",
+      "probabilities": [
+        0.9960988336146641,
+        0.0039011663853355054
+      ],
+      "contrast": 0.9921976672293286,
+      "clock_phase_radians_exact": "1/8",
+      "physical_seconds": false
+    },
+    {
+      "size": 2,
+      "quadrature": "Y",
+      "law": "C",
+      "probabilities": [
+        0.5623373666926139,
+        0.4376626333073855
+      ],
+      "contrast": 0.12467473338522844,
+      "clock_phase_radians_exact": "1/8",
+      "physical_seconds": false
+    },
+    {
+      "size": 2,
+      "quadrature": "Y",
+      "law": "E",
+      "probabilities": [
+        0.5623373666926139,
+        0.4376626333073855
+      ],
+      "contrast": 0.12467473338522844,
+      "clock_phase_radians_exact": "1/8",
+      "physical_seconds": false
+    },
+    {
+      "size": 4,
+      "quadrature": "X",
+      "law": "C",
+      "probabilities": [
+        0.9960988336146638,
+        0.0039011663853355054
+      ],
+      "contrast": 0.9921976672293282,
+      "clock_phase_radians_exact": "1/8",
+      "physical_seconds": false
+    },
+    {
+      "size": 4,
+      "quadrature": "X",
+      "law": "E",
+      "probabilities": [
+        0.9960988336146638,
+        0.0039011663853355054
+      ],
+      "contrast": 0.9921976672293282,
+      "clock_phase_radians_exact": "1/8",
+      "physical_seconds": false
+    },
+    {
+      "size": 4,
+      "quadrature": "Y",
+      "law": "C",
+      "probabilities": [
+        0.5623373666926139,
+        0.4376626333073855
+      ],
+      "contrast": 0.12467473338522844,
+      "clock_phase_radians_exact": "1/8",
+      "physical_seconds": false
+    },
+    {
+      "size": 4,
+      "quadrature": "Y",
+      "law": "E",
+      "probabilities": [
+        0.5623373666926139,
+        0.4376626333073855
+      ],
+      "contrast": 0.12467473338522844,
+      "clock_phase_radians_exact": "1/8",
+      "physical_seconds": false
+    }
+  ],
+  "formal_bounds_only": [
+    {
+      "size": 16,
+      "h_exact": "1/16",
+      "tau0_exact": "1",
+      "steps": 16,
+      "time_exact": "1",
+      "bandwidth_bound_exact": "7",
+      "support": "{(0,0,0),(2*pi,0,0)} on unit torus",
+      "precision_bits": 83,
+      "delta_preparation_exact": "514029479037202961498474675613/23384026197294446691258957323460528314494920687616",
+      "delta_W_exact": "130328450145313710336066071513174606901/46768052394588893382517914646921056628989841375232",
+      "n_delta_W_exact": "130328450145313710336066071513174606901/2923003274661805836407369665432566039311865085952",
+      "clock_and_terminal_detector_error_exact": "580959449500493867851744424919/23384026197294446691258957323460528314494920687616",
+      "continuum_error_exact": "4333/512",
+      "complete_record_TV_upper_exact": "1",
+      "uncapped_TV_upper_exact": "49474120308638190916511604300966601097011980670151/5846006549323611672814739330865132078623730171904",
+      "cell_integral_extra_exact": "21/64",
+      "reset": {
+        "blank_carriers": 45,
+        "ready_carriers": 21,
+        "registers": 66,
+        "blocks_per_register": 1,
+        "uniform_q_exact": "35/2147483648",
+        "timeout_bound_exact": "1155/1073741824",
+        "native_attempts_max": 176748,
+        "base_attempts_max": 2678,
+        "fine_records": "every attempt seam, coin, current and final configuration; first register timeout halts"
+      },
+      "native_pulses_upper": 296242615341,
+      "memory_bits": 87,
+      "development_executed": false,
+      "arbitrary_reference": true,
+      "physical_seconds": false
+    },
+    {
+      "size": 64,
+      "h_exact": "1/64",
+      "tau0_exact": "1",
+      "steps": 64,
+      "time_exact": "1",
+      "bandwidth_bound_exact": "7",
+      "support": "{(0,0,0),(2*pi,0,0)} on unit torus",
+      "precision_bits": 93,
+      "delta_preparation_exact": "2207136607150164524220545549174385/49039857307708443467467104868809893875799651909875269632",
+      "delta_W_exact": "9357383380898698262407505697541976521954665/24519928653854221733733552434404946937899825954937634816",
+      "n_delta_W_exact": "9357383380898698262407505697541976521954665/383123885216472214589586756787577295904684780545900544",
+      "clock_and_terminal_detector_error_exact": "983957099889835229525475841717785/24519928653854221733733552434404946937899825954937634816",
+      "continuum_error_exact": "4333/2048",
+      "complete_record_TV_upper_exact": "1",
+      "uncapped_TV_upper_exact": "103754804304115091574654476982702869915707307068030691107/49039857307708443467467104868809893875799651909875269632",
+      "cell_integral_extra_exact": "21/256",
+      "reset": {
+        "blank_carriers": 57,
+        "ready_carriers": 27,
+        "registers": 84,
+        "blocks_per_register": 1,
+        "uniform_q_exact": "35/2147483648",
+        "timeout_bound_exact": "735/536870912",
+        "native_attempts_max": 224952,
+        "base_attempts_max": 2678,
+        "fine_records": "every attempt seam, coin, current and final configuration; first register timeout halts"
+      },
+      "native_pulses_upper": 128889321835920,
+      "memory_bits": 111,
+      "development_executed": false,
+      "arbitrary_reference": true,
+      "physical_seconds": false
+    },
+    {
+      "size": 256,
+      "h_exact": "1/256",
+      "tau0_exact": "1",
+      "steps": 256,
+      "time_exact": "1",
+      "bandwidth_bound_exact": "7",
+      "support": "{(0,0,0),(2*pi,0,0)} on unit torus",
+      "precision_bits": 104,
+      "delta_preparation_exact": "304941186462410656541146402979466005/6427752177035961102167848369364650410088811975131171341205504",
+      "delta_W_exact": "663704639978025942271545076803397276257148493691/25711008708143844408671393477458601640355247900524685364822016",
+      "n_delta_W_exact": "663704639978025942271545076803397276257148493691/100433627766186892221372630771322662657637687111424552206336",
+      "clock_and_terminal_detector_error_exact": "3508334518305079923329563354753150201/102844034832575377634685573909834406561420991602098741459288064",
+      "continuum_error_exact": "4333/8192",
+      "complete_record_TV_upper_exact": "54397534608574386901464218696887417480608416546101764179020361/102844034832575377634685573909834406561420991602098741459288064",
+      "uncapped_TV_upper_exact": "54397534608574386901464218696887417480608416546101764179020361/102844034832575377634685573909834406561420991602098741459288064",
+      "cell_integral_extra_exact": "21/1024",
+      "reset": {
+        "blank_carriers": 69,
+        "ready_carriers": 33,
+        "registers": 102,
+        "blocks_per_register": 1,
+        "uniform_q_exact": "35/2147483648",
+        "timeout_bound_exact": "1785/1073741824",
+        "native_attempts_max": 273156,
+        "base_attempts_max": 2678,
+        "fine_records": "every attempt seam, coin, current and final configuration; first register timeout halts"
+      },
+      "native_pulses_upper": 50139791961436555,
+      "memory_bits": 135,
+      "development_executed": false,
+      "arbitrary_reference": true,
+      "physical_seconds": false
+    },
+    {
+      "size": 1024,
+      "h_exact": "1/1024",
+      "tau0_exact": "1",
+      "steps": 1024,
+      "time_exact": "1",
+      "bandwidth_bound_exact": "7",
+      "support": "{(0,0,0),(2*pi,0,0)} on unit torus",
+      "precision_bits": 114,
+      "delta_preparation_exact": "17807872074883484401350648162526369117195/431359146674410236714672241392314090778194310760649159697657763987456",
+      "delta_W_exact": "153346263970033859633821525674929085169611658210232955/107839786668602559178668060348078522694548577690162289924414440996864",
+      "n_delta_W_exact": "153346263970033859633821525674929085169611658210232955/105312291668557186697918027683670432318895095400549111254310977536",
+      "clock_and_terminal_detector_error_exact": "1337901302275865152692311668844106784485/53919893334301279589334030174039261347274288845081144962207220498432",
+      "continuum_error_exact": "4333/32768",
+      "complete_record_TV_upper_exact": "57039769975624142349885119596393673633882665992715206261788838992691/431359146674410236714672241392314090778194310760649159697657763987456",
+      "uncapped_TV_upper_exact": "57039769975624142349885119596393673633882665992715206261788838992691/431359146674410236714672241392314090778194310760649159697657763987456",
+      "cell_integral_extra_exact": "21/4096",
+      "reset": {
+        "blank_carriers": 81,
+        "ready_carriers": 39,
+        "registers": 120,
+        "blocks_per_register": 2,
+        "uniform_q_exact": "35/2147483648",
+        "timeout_bound_exact": "18375/576460752303423488",
+        "native_attempts_max": 642720,
+        "base_attempts_max": 2678,
+        "fine_records": "every attempt seam, coin, current and final configuration; first register timeout halts"
+      },
+      "native_pulses_upper": 18136664203092868974,
+      "memory_bits": 159,
+      "development_executed": false,
+      "arbitrary_reference": true,
+      "physical_seconds": false
+    },
+    {
+      "size": 4096,
+      "h_exact": "1/4096",
+      "tau0_exact": "1",
+      "steps": 4096,
+      "time_exact": "1",
+      "bandwidth_bound_exact": "7",
+      "support": "{(0,0,0),(2*pi,0,0)} on unit torus",
+      "precision_bits": 125,
+      "delta_preparation_exact": "61258441907856676204621101321722980409630585/1809251394333065553493296640760748560207343510400633813116524750123642650624",
+      "delta_W_exact": "8342595872855919626805535785632396532280993594621512672823/113078212145816597093331040047546785012958969400039613319782796882727665664",
+      "n_delta_W_exact": "8342595872855919626805535785632396532280993594621512672823/27606985387162255149739023449108101809804435888681546220650096895197184",
+      "clock_and_terminal_detector_error_exact": "8049232614650627798613424611154820229598833/452312848583266388373324160190187140051835877600158453279131187530910662656",
+      "continuum_error_exact": "4333/131072",
+      "complete_record_TV_upper_exact": "59810533841900087648056024750193888049179552779844843332264807953949169981/1809251394333065553493296640760748560207343510400633813116524750123642650624",
+      "uncapped_TV_upper_exact": "59810533841900087648056024750193888049179552779844843332264807953949169981/1809251394333065553493296640760748560207343510400633813116524750123642650624",
+      "cell_integral_extra_exact": "21/16384",
+      "reset": {
+        "blank_carriers": 93,
+        "ready_carriers": 45,
+        "registers": 138,
+        "blocks_per_register": 2,
+        "uniform_q_exact": "35/2147483648",
+        "timeout_bound_exact": "84525/2305843009213693952",
+        "native_attempts_max": 739128,
+        "base_attempts_max": 2678,
+        "fine_records": "every attempt seam, coin, current and final configuration; first register timeout halts"
+      },
+      "native_pulses_upper": 6233477280242185991289,
+      "memory_bits": 183,
+      "development_executed": false,
+      "arbitrary_reference": true,
+      "physical_seconds": false
+    }
+  ],
+  "current_compression_residuals": [
+    4.9324351310344006e-17,
+    4.932435131034398e-17,
+    4.9324351310344043e-17
+  ],
+  "negative_controls": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "full_native_trial_record_file": "NATIVE_RECORDS.json",
+  "native_trials": 2,
+  "forced_reset_timeout_attempts": 95,
+  "execution_scope": "M6 preparation/clock/pointer and actual native reset trajectories; W certified block compression. The compressed-law samples have explicit native source TV enclosure. No larger graph execution.",
+  "theorem": "fixed two-mode scalar preparation; all144 internal modes and padded addresses retained; terminal-only detector",
+  "official_rows_changed": [],
+  "program_sha256": "b695d17a2f6658092a7890385c20fabf6699619684e49ceef13dd131d3aaf03e"
+}

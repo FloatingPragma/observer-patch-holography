@@ -1,0 +1,40 @@
+{
+  "schema": "oph.common_source.local_charge_connection.v1",
+  "status": "PASS_CONSTRUCTIVE_LOCAL_CHARGE_CONNECTION_REQUIRES_INDEPENDENT_REVIEW",
+  "official_validation_awarded": false,
+  "all_packet_checks_pass": true,
+  "candidate_source": "native-local12-dirac-noncompact-quadratic-v4-proposed",
+  "g": 1,
+  "source_manifest_sha256": "719036fe46769e68202731f765045dc3d75ebc8fe6e901e85319ce435776779f",
+  "criterion": {
+    "criterion": "integer topological charge; a split e \u2192 e/2 + e/2 impossible",
+    "criterion_sha256": "3af50af0955c64a0aa2019fa84af3cf0dd36e6c63a5abc76eb2c60c9b413cb6f",
+    "hash_rule": "SHA256 of the exact UTF-8 criterion string, without appended newline",
+    "regime": "static",
+    "upstream_file_sha256": "a69895e4af4f6bc180748c4e9a8ae11d745c75462650aea44c3a34bd687a139d",
+    "precedent_sha256": "222d5d7a18db1eabdb5ba251213648e84e986e6354970082091f08b2b90421cb",
+    "no_added_mass_spin_or_exchange_gate": true
+  },
+  "scope": "Local bounding-surface Chern charge on actual size2 common electric Gauss fiber; physical Q=n\u2212G=\u2212c1.",
+  "same_source_preparation_clock": true,
+  "extra_retained_history_register": false,
+  "extra_dynamical_field": false,
+  "global_torus_line_bundle_claim": false,
+  "all_768_local_surface_checks": true,
+  "signed_native_route_checks": 48,
+  "maximum_full_field_shift_diagnostic_residual": 2.143298149570129e-14,
+  "native_meter_experiments": 28,
+  "native_fine_probabilities": 12844,
+  "maximum_complete_native_Gram_residual": 3.595388805950714e-14,
+  "complete_source_meter_record_TV_upper": 0.009849646420656015,
+  "all_small_appended_native_columns_executed": true,
+  "complete_large_native_source_iterator_executed": false,
+  "review_gate": "Two independent complete criterion reviews; no automatic row award from producer checks.",
+  "limitations": [
+    "One-particle native source; no two-particle creation implementation claimed.",
+    "Local bundles only; continuous harmonic spectral support forbids a generic global compact bundle.",
+    "Declared integer occupation and curvature normalization are architecture; uniqueness is not proved.",
+    "Full source native word is constructive and bounded, not literally executed.",
+    "No interacting spatial continuum, empirical coupling or charge-mass theorem."
+  ]
+}

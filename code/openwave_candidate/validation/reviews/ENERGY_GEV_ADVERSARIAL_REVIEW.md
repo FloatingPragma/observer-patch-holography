@@ -1,0 +1,7 @@
+# Independent adversarial GeV apparatus review
+
+The supplied rank-one ±energy interference apparatus is a valid complete POVM, with an explicit complement. It measures cross-branch gaps, using a supplied phase reference and nonlocal spectral projectors; it does not establish that a port detector oscillates at 2m or identify a particle/vacuum mass. The 511 keV anchor fixes units rather than predicting that mass.
+
+The independent one-pair native calculation retained all 631 event outcomes and all 87 energy-basis labels. Normalization was 0.9999999999999999; the energy marginal agrees with the native channel to 5.7e-15. The joint law differs from the product of its marginals by 0.01215. Consequently separate energy and event marginals cannot be advertised as a complete sequential joint experiment. Producer now explicitly declares separate marginals, and archives the full energy eigenbasis, including the additional apparatus choice resolving degeneracy. These resolve the original declaration/custody findings without pretending that a joint law was supplied.
+
+Extreme finite unit inputs causing overflow/underflow and boolean mass inputs are rejected with ValueError. The machine review records the tested source snapshot; later producer changes require separate custody refresh. This is an independent component audit, not a literal OpenWave physical row completion or opposite-team review.

@@ -1,0 +1,49 @@
+{
+  "candidate_id": "native-local12-fermion-plaquette-v2-proposed",
+  "status": "construction proposal for coordinator selection; no automatic replacement of frozen primary",
+  "parent_candidate": "native-local12-fermion-modes-v1-proposed",
+  "source_state": {
+    "matter_mode_bits": 2048,
+    "physical_modes": 1152,
+    "edge_modulus": 16,
+    "edge_count": 288,
+    "field_bits": 1152,
+    "arithmetic_work_bits": 3,
+    "total_bits": 3203
+  },
+  "evolution": "V=U_E(alpha) U_B(beta_f) Gamma(W)_F",
+  "couplings": "declared finite real inputs; positive alpha and nonnegative beta_f define the weak-field vacuum-response branch",
+  "geometry": "CELL_COMPLEX.json; actual carrier graph unchanged",
+  "Gauss": "n+B F=G modulo16; localn0..12 decoded uniquely",
+  "native_program": "native_field.complete_word(alpha,face_couplings208,clock_spacing=None)",
+  "initialization": "composition.preparation_word(charge=1 or-1), all field bits0; separate exact native reset contract",
+  "numerical_member": {
+    "alpha": 0.17,
+    "beta0": 0.41,
+    "other_207_beta": 0,
+    "initial_charge_location": 0,
+    "initial_event": "uniform12",
+    "steps": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "clock": "completedV word mayappendnativephase tickonfresh3203; t=n*tau0*h is declared, fullwordduration/resources separate",
+  "measurement": "complete native occupation/field bit instrument; coarseposition instrument can preserveeventcoherence via DYN09",
+  "physical_premises": [
+    "fermionicmodecarrier andCAR signs declared",
+    "coherent M6 code load/export services",
+    "finiteZ16 Weyl field; integerU1 needscutofftransfer",
+    "fieldkickcouplings areinputs",
+    "oneparticle andonehole tests separatepreparations; no pairedvacuum"
+  ],
+  "transfer_boundaries": [
+    "freeoneparticlecontinuum applies only under its own preparation and free-source conditions",
+    "old affine uniform field code is not an invariant code of the electric kick",
+    "thermalmeanfield, C10energy and192CAR masses not substituted",
+    "Dirac/mass-coin amendments requiretheir explicit composedsource andclock"
+  ],
+  "official_rows_changed": []
+}

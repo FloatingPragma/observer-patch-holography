@@ -1,0 +1,18 @@
+{
+  "schema": "oph.many_load.independent_review.v1",
+  "outcome": "PASS_WITH_DECLARED_SCOPE",
+  "derivation": "Independent all35 occupation compositions; unique tree half-records; direct second-quantized signed hopping; balanced endpoint arithmetic for every C/E/MIX Kraus group; all32 regional cuts.",
+  "Hamiltonian_max_error": 0.0,
+  "every_Kraus_max_error": 0.0,
+  "Kraus_groups_checked": 88,
+  "cut_integer_max_error": 0,
+  "scope": "Nonnegative Bose fixedtotal3, modulus7, tree; no signedsea or manyload uniformfiber theorem. Cyclic one-load reduction is producer-tested and not independently rerun here. No physical species/statistics inference.",
+  "full_criterion_met": false,
+  "source_sha256": {
+    "validation/review_many_load_native.py": "2535a8425f0aa8cff2ff67396c3cfd93733e4c5cf28c01f83cf87032ae5d59df",
+    "candidate/oph_openwave/many_load_native.py": "8dcb8fb30b1986eb506905b45d98b93a5fc796fcffe46c2f3108559cc161fd3f",
+    "candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907",
+    "candidate/oph_openwave/uniform_native.py": "2416525dfd50cb7e7f38805a52c65858d51fda428b5875abc7295e52b03e3146",
+    "candidate/oph_openwave/modular_native.py": "1b6e25eb63ca190e1b5ef999b0b43cefb790e7872a58ffdb40256662ca65959a"
+  }
+}

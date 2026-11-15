@@ -1,0 +1,69 @@
+{
+  "schema": "oph.c10.interval_charge_independent_review.v1",
+  "checks": {
+    "minimal_N4_and_N6_all_projectors_equal": true,
+    "general_shifted_interval_injectivity": true,
+    "unsafe_inputs_rejected": true
+  },
+  "executed": [
+    {
+      "modulus": 4,
+      "states": 80,
+      "all_cut_basis_checks": 5120,
+      "exact_diagonal_projector_equalities": 256
+    },
+    {
+      "modulus": 6,
+      "states": 120,
+      "all_cut_basis_checks": 7680,
+      "exact_diagonal_projector_equalities": 256
+    }
+  ],
+  "rejections": [
+    {
+      "inputs": [
+        0,
+        0,
+        3,
+        3
+      ],
+      "rejected": true
+    },
+    {
+      "inputs": [
+        true,
+        0,
+        3,
+        6
+      ],
+      "rejected": true
+    },
+    {
+      "inputs": [
+        0,
+        0,
+        -1,
+        6
+      ],
+      "rejected": true
+    },
+    {
+      "inputs": [
+        0,
+        1,
+        0,
+        6
+      ],
+      "rejected": true
+    }
+  ],
+  "proof_scope": "Knownintegerinterval[a,b] decodesresidueuniquelyiffN>b\u2212a. WithnonnegativefixedtotalL theintervalis[0,L], soN>L. Diagonalprojectorequality impliesfullbranch equalitywitharbitrarycoherences/references. No electric/spin/species dictionary.",
+  "source_sha256": {
+    "next/C10/review_interval_charge.py": "9dec219b43eea54c9797111473d2b72ff38643e355ffdefee4e888732da3bbeb",
+    "next/C10/interval_charge_decoder.py": "3f0d26c485dc5b5b89cb462f4cabc784fcd591290cf1173f8fc98f571f12d295",
+    "next/C10/INTERVAL_CHARGE_DECODER.json": "837f9194a541026d5d31ea83482a47c45dad3b04dd1fb8d4388af5eb065bcee0",
+    "next/C9/fermionic_shared_records.py": "623b2f3a18f3c30530bc0cc222a3062cb9cb893c35a80076c9775cef9c487e72"
+  },
+  "full_criterion_met": false,
+  "official_rows_changed": []
+}

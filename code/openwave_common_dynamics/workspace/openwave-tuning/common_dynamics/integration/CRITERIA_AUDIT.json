@@ -1,0 +1,357 @@
+{
+  "schema": "oph.common_dynamics.criteria_audit.v1",
+  "upstream_commit": "5d686cb049b82cc55f8822210a254d5833be23a7",
+  "upstream_MODELS_sha256": "a69895e4af4f6bc180748c4e9a8ae11d745c75462650aea44c3a34bd687a139d",
+  "scope": "Criterion map, not platform adjudication. Finite source checks and conditional theorems retain candidate/state/clock domains.",
+  "criteria": [
+    {
+      "id": 1,
+      "criterion": "Charge quantization",
+      "simplest_test": "integer topological charge; a split e \u2192 e/2 + e/2 impossible",
+      "support": "Exact native current/Gauss attachment and integer Fock occupations; finite modular and bounded integer-field readouts.",
+      "required_common_source_connection": "Show the admitted common-source charge/contour observable, sector preparation and complete-record split control on the platform domain. Modular residues and occupancy expectations are not unrestricted integer winding.",
+      "supporting_packages": [
+        "manybody",
+        "vector_field",
+        "field_cutoff"
+      ],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 2,
+      "criterion": "Electron rest energy (mass)",
+      "simplest_test": "localized state anchored to 511 keV",
+      "support": "Free massive-coin and Dirac dispersions have a declared mass coefficient.",
+      "required_common_source_connection": "Identify the localized charged state and its physical rest-energy readout in the same interacting reference; state any511keV calibration explicitly.",
+      "supporting_packages": [
+        "particles",
+        "spin"
+      ],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 3,
+      "criterion": "de Broglie clock (Zitterbewegung)",
+      "simplest_test": "self-starting frequency-rigid internal oscillation at \u03c9 = mc\u00b2/\u210f",
+      "support": "Completed-source native clock and source quasienergy probes have complete records.",
+      "required_common_source_connection": "Demonstrate a self-starting frequency-rigid internal mass oscillation. The extra clock tick is a supplied apparatus; a2E population beat is a different observable.",
+      "supporting_packages": [
+        "clock",
+        "particles"
+      ],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 4,
+      "criterion": "Particle stability (Derrick escape)",
+      "simplest_test": "the particle state persists in free evolution",
+      "support": "Exact compact/dark source modes and finite three-step interacting survival controls.",
+      "required_common_source_connection": "Establish the identified particle state and its free evolution/persistence on the admitted timescale, with thresholds and radiation channels. A dark flat mode is not automatically the electron.",
+      "supporting_packages": [
+        "particles"
+      ],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 5,
+      "criterion": "Magnetic moment \u03bc (g \u2248 2, magnetostatics)",
+      "simplest_test": "intrinsic magnetostatics: a stationary state sources a static dipole B from internal circulation, g \u2248 2; dipole Larmor response",
+      "support": "Supplied Dirac covariant-derivative algebra gives a conditional Pauli g=2 identity; native cycle character changes a spin bit.",
+      "required_common_source_connection": "Measure stationary same-state dipole field and Larmor response with controlled canonical-field transfer; the cycle probe is not a magnetic-moment instrument.",
+      "supporting_packages": [
+        "spin"
+      ],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 6,
+      "criterion": "Angular momentum J (spin \u210f/2)",
+      "simplest_test": "field-carried J = \u210f/2 on the electron state",
+      "support": "Scalar source has geometric scalar+vector action; replacement has intrinsic spin matrices S\u00b2=3/4.",
+      "required_common_source_connection": "Attach the full physical rotation and field-carried angular momentum to the same electron state and complete native apparatus.",
+      "supporting_packages": [
+        "spin"
+      ],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 7,
+      "criterion": "Spin-\u00bd statistics (720\u00b0 double cover)",
+      "simplest_test": "the field returns under a \u03c0 rotation while its frame needs 2\u03c0",
+      "support": "Controlled native spin words distinguish2pi and4pi in the replacement; scalar source is single-valued.",
+      "required_common_source_connection": "Complete the physical carrier/frame/reference rotation intervention and admitted double-cover measurement; supplied internal spin words do not establish the old geometric claim.",
+      "supporting_packages": [
+        "spin"
+      ],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 8,
+      "criterion": "Antimatter + annihilation",
+      "simplest_test": "pair annihilation to radiation; follow-on: positronium 2\u03b3/3\u03b3",
+      "support": "Same field source admits separate one-particle and one-hole opposite-current preparations.",
+      "required_common_source_connection": "Prepare a common particle-antiparticle reference and measure annihilation into radiation, including photon multiplicities and retained branches.",
+      "supporting_packages": [
+        "manybody",
+        "vector_field",
+        "particles"
+      ],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 9,
+      "criterion": "Neutrinos (neutral states)",
+      "simplest_test": "light charge-0 states released in decays",
+      "support": "No source-derived neutral lepton species or decay ejectum.",
+      "required_common_source_connection": "Construct and identify light neutral states in the common dynamics and their release in actual decays.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 10,
+      "criterion": "Neutrino oscillations (PMNS)",
+      "simplest_test": "3 flavors + oscillation; the PMNS angles",
+      "support": "No source-derived three-flavor mixing experiment.",
+      "required_common_source_connection": "Specify one neutrino sector and derive three-flavor oscillation probabilities/PMNS observables with declared input ancestry.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 11,
+      "criterion": "Lepton mass spectrum (\u03bc, \u03c4)",
+      "simplest_test": "exactly 3 charged-lepton minima; ratios 1 : 207 : 3477",
+      "support": "The tested common mass coefficient is a supplied parameter.",
+      "required_common_source_connection": "Derive exactly three charged-lepton minima and their mass ratios from one source and reference; separate empirical inputs from predictions.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 12,
+      "criterion": "Quarks",
+      "simplest_test": "fractional charge as partial winding on a quark string",
+      "support": "No common-source quark string with the required fractional-charge readout.",
+      "required_common_source_connection": "Construct a gauge-compatible quark-string sector and demonstrate its partial-winding/charge observable with complete native records.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 13,
+      "criterion": "Baryons: bound state (p, n)",
+      "simplest_test": "a stable three-quark composite",
+      "support": "No same-source three-quark bound composite.",
+      "required_common_source_connection": "Identify quark states and compute stable three-body binding from the common interaction.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 14,
+      "criterion": "Baryons: mass ordering + charge profile",
+      "simplest_test": "m_n > m_p; positive core, negative shell",
+      "support": "No identified proton/neutron states or internal charge profiles.",
+      "required_common_source_connection": "Compute neutron/proton ordering and resolved charge profiles on the same baryon preparation and instrument.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 15,
+      "criterion": "Baryons: exact masses",
+      "simplest_test": "938.3 / 939.6 MeV from the field",
+      "support": "No physical baryon mass extraction.",
+      "required_common_source_connection": "Extract proton/neutron rest energies in the common units and state calibration ancestry.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 16,
+      "criterion": "Deuteron (binding + quadrupole)",
+      "simplest_test": "m_d < m_p + m_n; the electric quadrupole moment",
+      "support": "No common-source deuteron state.",
+      "required_common_source_connection": "Derive proton/neutron interaction, binding energy and quadrupole record.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 17,
+      "criterion": "Nuclear structure (levels, halos)",
+      "simplest_test": "binding curve, levels, halo-nuclei lifetimes",
+      "support": "No common-source nuclear structure calculation.",
+      "required_common_source_connection": "Compute the admitted binding, excitation, halo and lifetime records from identified nuclear sectors.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 18,
+      "criterion": "Mesons (\u03c0, K)",
+      "simplest_test": "\u03c0/K states; strange decays (\u039b\u2070 \u2192 p + \u03c0\u207b)",
+      "support": "No common-source meson/strange-decay identification.",
+      "required_common_source_connection": "Identify pion/kaon and strange sectors and compute the requested decay channels from one process.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 19,
+      "criterion": "Dark matter candidate",
+      "simplest_test": "a stable neutral massive state",
+      "support": "No identified stable neutral massive species in the common interacting reference.",
+      "required_common_source_connection": "Construct a neutral massive state, its interactions and stability criterion; a neutral label or supplied mass alone is insufficient.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 20,
+      "criterion": "Electric force (Coulomb 1/r, electrostatics)",
+      "simplest_test": "far-field 1/r potential at charge e; the strength (\u03b1) credited only when it follows from the model's own mechanism, never fitted",
+      "support": "Actual shared field/matter response and exact local field geometry; finite homogeneous harmonic symbol.",
+      "required_common_source_connection": "Measure the two-charge force/potential and its controlled1/r range on this source, with coupling derived from declared mechanism rather than fitted. Codex owns the two-charge execution.",
+      "supporting_packages": [
+        "vector_field"
+      ],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 21,
+      "criterion": "Lorentz covariance (+ Coulomb = EM)",
+      "simplest_test": "Lorentz-invariant action, no preferred frame; boosted states contract, c-limited",
+      "support": "Controlled free low-momentum dispersion; homogeneous field/matter speed adapters.",
+      "required_common_source_connection": "Prove the interacting shared-clock Lorentz/action and boosted-state comparison, with lattice/preferred-frame errors and no mixed candidate speeds.",
+      "supporting_packages": [
+        "continuum",
+        "particles",
+        "spin"
+      ],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 22,
+      "criterion": "Strong force: confinement",
+      "simplest_test": "linear inter-charge potential, ~1 GeV/fm (Cornell)",
+      "support": "No source-derived color confinement observable.",
+      "required_common_source_connection": "Add or identify the color/gauge sector and derive its inter-charge potential and physical scale from the common process.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 23,
+      "criterion": "Running coupling",
+      "simplest_test": "coupling varies with scale (onset at the core radius)",
+      "support": "No same-source renormalized coupling-versus-scale measurement.",
+      "required_common_source_connection": "Define and measure the coupling in one scheme across scales with finite/cutoff/volume errors.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 24,
+      "criterion": "Weak force: muon decay",
+      "simplest_test": "\u03bc relaxes to e + neutral ejecta",
+      "support": "No identified muon/electron/neutral decay process.",
+      "required_common_source_connection": "Derive the relevant species and actual relaxation/decay with common dynamics and complete ejecta records.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 25,
+      "criterion": "Weak force: beta decay (n \u2192 p)",
+      "simplest_test": "n \u2192 p + e + \u03bd\u0304, parity-violating (needs a neutron)",
+      "support": "No common neutron/proton beta-decay or parity-violating current identification.",
+      "required_common_source_connection": "Construct the stated baryon/lepton states and a parity-violating decay instrument on the same source.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 26,
+      "criterion": "Gravity: Newton limit (GEM)",
+      "simplest_test": "attractive 1/r\u00b2 between masses, via the GEM route; the strength (G) credited only when it follows from the model's own mechanism, never fitted",
+      "support": "No source-derived same-state gravitational force in this common field source.",
+      "required_common_source_connection": "Attach stress/energy and geometric dynamics, then measure the attractive inverse-square law and derive G from the mechanism.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 27,
+      "criterion": "Gravity: local metric phenomena",
+      "simplest_test": "light bending, gravitational time dilation / Shapiro delay",
+      "support": "Operational phase clock is present; no same-source proper metric identified.",
+      "required_common_source_connection": "Construct the metric/clock/light dictionary and demonstrate bending, dilation and Shapiro observables with propagated errors.",
+      "supporting_packages": [
+        "clock"
+      ],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 28,
+      "criterion": "Cosmology: \u039b / cosmic acceleration",
+      "simplest_test": "\u039b from the model's own mechanism, never fitted; every remaining gap and a falsification named",
+      "support": "No common-source cosmological constant or acceleration calculation.",
+      "required_common_source_connection": "Derive the large-scale geometry/state and acceleration with unfitted cosmological coefficient, explicit gaps and falsification.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 29,
+      "criterion": "EM waves (Maxwell)",
+      "simplest_test": "Maxwell recovered; transverse waves at c",
+      "support": "Actual local field face complex has two transverse harmonic branches and an explicit speed/stability adapter.",
+      "required_common_source_connection": "Control the prepared quantum field state, register/spatial/clock refinement, leakage and interacting limit so the complete measured field law recovers Maxwell. A one-face response is not a homogeneous wave experiment.",
+      "supporting_packages": [
+        "vector_field",
+        "field_cutoff"
+      ],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 30,
+      "criterion": "Quantum wave equation (Klein-Gordon)",
+      "simplest_test": "emergent \u03c9\u00b2 = k\u00b2 + m\u00b2 for matter waves",
+      "support": "Mass coin gives free E\u00b2=m\u00b2+|p|\u00b2/48; replacement Dirac gives free E\u00b2=m\u00b2+|p|\u00b2 with bounded-momentum errors.",
+      "required_common_source_connection": "Select one candidate and complete its native refinement/preparation/readout gate. The free theorem does not prove an interacting mass pole or remove all lattice species.",
+      "supporting_packages": [
+        "particles",
+        "spin",
+        "continuum"
+      ],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    },
+    {
+      "id": 31,
+      "criterion": "Orbital quantization (atomic structure)",
+      "simplest_test": "hydrogen-like discrete levels from standing waves",
+      "support": "No common-source hydrogenic spectrum.",
+      "required_common_source_connection": "Establish the Coulomb interaction, charged particle reference and bound-state spectrum with discrete standing-wave records and one energy scale.",
+      "supporting_packages": [],
+      "local_criterion_status": "not established by this integration audit",
+      "official_status_change": false
+    }
+  ],
+  "validated_rows_awarded": 0,
+  "official_rows_changed": []
+}

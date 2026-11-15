@@ -1,0 +1,22 @@
+{
+  "schema": "oph.two_charge.native_inverse_transport.v1",
+  "candidate_id": "native-local12-mass-fermion-plaquette-v3-proposed",
+  "generator": "inverse_transport.native_inverse_transport_word",
+  "literal_JSONL_encoding": "json.dumps(event,sort_keys=True,separators=(comma,colon))+newline in chronological order",
+  "native_pulse_count": 938112,
+  "native_pulse_kind_counts": {
+    "Y": 1152,
+    "X": 9216,
+    "H": 569344,
+    "J": 275456,
+    "Z": 65376,
+    "I": 17568
+  },
+  "largest_source_wire": 3202,
+  "source_wires": 3203,
+  "emitted_word_sha256": "b7f0e4271dd3e87efefff3ee88280f29825c41f9a14cf67cd8914da4fcb1b392",
+  "construction": "Reverse all288frozen transport pairs. For each pair emit inverse full-CAR swap, then reverse and invert every native primitive of its shared Z16current block. This is the literal inverse of native_field.complete_word transport segment, with all phase pulses retained.",
+  "error_binding": "At most the frozen COMPOSITION complete_matter_current_layer_error_exact, which conservatively includes the omitted onsite reflection error.",
+  "quantum_reference": "Full-Fock source domain and arbitrary spectator references; clean source work and all complements as frozen composition.",
+  "clock": "No clock word or clock work wires used."
+}

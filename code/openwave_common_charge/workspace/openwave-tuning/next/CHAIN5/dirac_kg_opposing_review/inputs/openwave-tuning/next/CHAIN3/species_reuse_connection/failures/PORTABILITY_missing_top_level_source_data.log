@@ -1,0 +1,38 @@
+frozen field provider verified
+actual432register and complete weak instruments passed
+Traceback (most recent call last):
+  File "<string>", line 13, in <module>
+    runpy.run_path(str(package/'run.py'),run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-species-replay-vqtvlpu5/workspace/openwave-tuning/next/CHAIN3/species_reuse_connection/run.py", line 316, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-species-replay-vqtvlpu5/workspace/openwave-tuning/next/CHAIN3/species_reuse_connection/run.py", line 287, in main
+    native=native_mass_certificate(boxes['mass_midpoints']);print('native flavor mass and common clock passed',flush=True)
+  File "/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-species-replay-vqtvlpu5/workspace/openwave-tuning/next/CHAIN3/species_reuse_connection/run.py", line 83, in native_mass_certificate
+    events=list(s.field_words.pulses(template,s.PRECISION))
+  File "/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-species-replay-vqtvlpu5/workspace/openwave-tuning/next/CHAIN3/species_reuse_connection/inputs/openwave-tuning/next/CHAIN3/native_field_connection/native_oscillators.py", line 219, in pulses
+    yield native.certified_pulse(kind,targets,angle,bits)
+          ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-species-replay-vqtvlpu5/workspace/openwave-tuning/next/CHAIN3/species_reuse_connection/inputs/openwave-tuning/next/CHAIN3/native_field_connection/inputs/openwave-tuning/next/CHAIN2/local12_limit_audit/refinement_adapter.py", line 238, in certified_pulse
+    coefficients,norms=source_constants(bits)
+                       ~~~~~~~~~~~~~~~~^^^^^^
+  File "/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-species-replay-vqtvlpu5/workspace/openwave-tuning/next/CHAIN3/species_reuse_connection/inputs/openwave-tuning/next/CHAIN3/native_field_connection/inputs/openwave-tuning/next/CHAIN2/local12_limit_audit/refinement_adapter.py", line 208, in source_constants
+    certified_source.specification()  # exact all-ten control identities
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-species-replay-vqtvlpu5/workspace/openwave-tuning/next/CHAIN3/species_reuse_connection/inputs/reverse-engineering-reality/model/certified_reference/source.py", line 54, in specification
+    packet = json.loads((ROOT/compiler.RESPONSE).read_text())
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/muellerberndt/.pyenv/versions/3.13.7/lib/python3.13/pathlib/_local.py", line 546, in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/muellerberndt/.pyenv/versions/3.13.7/lib/python3.13/pathlib/_abc.py", line 632, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/muellerberndt/.pyenv/versions/3.13.7/lib/python3.13/pathlib/_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-species-replay-vqtvlpu5/workspace/openwave-tuning/next/CHAIN3/species_reuse_connection/inputs/reverse-engineering-reality/code/source_selection_model/response.json'

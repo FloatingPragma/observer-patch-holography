@@ -1,0 +1,23 @@
+{
+  "schema": "oph.local12.dirac_native_macro.v1",
+  "model_id": "native-local12-dirac-routed-v3-proposed",
+  "checks": {
+    "all_edge_clean_columns": true,
+    "all_edge_dirty_columns_and_scratch_return": true,
+    "native_word_complete_factorization": true,
+    "source_current_route_match": true
+  },
+  "clean_columns": 49152,
+  "dirty_columns": 1572864,
+  "matter_native_pulses": 254243,
+  "field_edges": 288,
+  "encoded_data_qubits": 1157,
+  "fresh_scratch_qubits": 5,
+  "scope": "Exact reversible truth tables plus source-native primitive words. Full1157-qubit exponential execution, coherent preparation/reset, aggregate physical error certificate and locally Gauss-preserving gate-prefix routing are not supplied by this factorization.",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/spin/dirac_native.py": "8f3c9e86ad1801a4f0025a47ef30f96c6104433a68376e3137220c48f3a3bde8",
+    "openwave-tuning/common_dynamics/spin/dirac_proposal.py": "78b5b44bb0df1f87668e46bb063e1a1eea53487c37b5b7b5cbac387dbdeda42a",
+    "openwave-tuning/auditor/native_walk_bridge/compile_walk.py": "26371a86d04d7853ab03dbccb46f89a65c809fb6d75480312b0ed61b0259ada2"
+  },
+  "official_rows_changed": []
+}

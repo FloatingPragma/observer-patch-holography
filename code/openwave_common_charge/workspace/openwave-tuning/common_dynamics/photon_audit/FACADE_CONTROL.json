@@ -1,0 +1,15 @@
+{
+  "schema": "oph.quadratic_photon.frozen_facade_control.v1",
+  "checks": {
+    "all_eigensolvers_disabled_during_replay": true,
+    "caller_frame_mutation_isolated": true,
+    "caller_word_mutation_isolated": true,
+    "frozen_phase_word_and_targets_agree": true,
+    "analytic_time_does_not_authorize_native_time": true,
+    "all_input_bytes_unchanged": true
+  },
+  "provider_manifest": "43fca237a676954e4a213b0888e2cdfee70bb9d8cefd8fbf113f5d2a60cbc81e",
+  "native_time_rejections": 3,
+  "diagonal_pulses": 4870,
+  "official_rows_changed": []
+}

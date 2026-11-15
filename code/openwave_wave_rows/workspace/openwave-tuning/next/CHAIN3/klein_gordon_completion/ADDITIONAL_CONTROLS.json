@@ -1,0 +1,305 @@
+{
+  "all_provider_pins_unchanged": true,
+  "controlled_scalar_phase_omission_observable_difference": 0.36161543196496176,
+  "finite_native_budgets": [
+    {
+      "clock_wire": 27,
+      "complete_failures": "All first M6 export complements, reset attempts/timeouts, native C/E labels and retained source poststates.",
+      "control_wire": 26,
+      "controlled_source_pulses_upper": 184965048,
+      "delta_clock_and_readout_exact": "140813189622765737357352910920467/392318858461667547739736838950479151006397215279002157056",
+      "delta_controlled_step_exact": "5417334514937235199665856745451368374223/1569275433846670190958947355801916604025588861116008628224",
+      "delta_preparation_exact": "3866460863112943038630409267151477/3138550867693340381917894711603833208051177722232017256448",
+      "finite_vs_continuum_vector_upper_exact": null,
+      "h_exact": "1/2",
+      "large_word_executed": false,
+      "load_export_services_upper": 1479720612,
+      "mass_exact": "0",
+      "mode": [
+        1,
+        0,
+        0
+      ],
+      "native_vs_continuum_complete_TV_upper_exact": null,
+      "native_vs_continuum_uncapped_exact": null,
+      "native_vs_finite_complete_TV_upper_exact": "1534576719240786745226333336044492962091572671633797/3138550867693340381917894711603833208051177722232017256448",
+      "native_vs_finite_uncapped_exact": "1534576719240786745226333336044492962091572671633797/3138550867693340381917894711603833208051177722232017256448",
+      "precision_bits": 96,
+      "reset": {
+        "base_failure_exact": "35/2147483648",
+        "blank_carriers": 28,
+        "blocks_per_register": 1,
+        "fine_reset_records_retained": true,
+        "native_attempts_max": 80340,
+        "postselection": false,
+        "ready_carriers": 2,
+        "timeout_bound_exact": "525/1073741824"
+      },
+      "services": "Declared coherent proper-code load/export; finite native reset and pointer. No ideal controlled-unitary or terminal projector service.",
+      "size": 2,
+      "source_memory_bits": 26,
+      "source_time_in_tau0_exact": "2",
+      "squared_frequency_error_upper_exact": null,
+      "steps": 4,
+      "total_memory_bits": 32,
+      "whole_experiment_pulses_upper": 739860306
+    },
+    {
+      "clock_wire": 27,
+      "complete_failures": "All first M6 export complements, reset attempts/timeouts, native C/E labels and retained source poststates.",
+      "control_wire": 26,
+      "controlled_source_pulses_upper": 184965048,
+      "delta_clock_and_readout_exact": "140813189622765737357352910920467/392318858461667547739736838950479151006397215279002157056",
+      "delta_controlled_step_exact": "5417334509949755047737908550976058660393/1569275433846670190958947355801916604025588861116008628224",
+      "delta_preparation_exact": "3866460863112943038630409267151477/3138550867693340381917894711603833208051177722232017256448",
+      "finite_vs_continuum_vector_upper_exact": null,
+      "h_exact": "1/2",
+      "large_word_executed": false,
+      "load_export_services_upper": 1479720612,
+      "mass_exact": "1/2",
+      "mode": [
+        1,
+        0,
+        0
+      ],
+      "native_vs_continuum_complete_TV_upper_exact": null,
+      "native_vs_continuum_uncapped_exact": null,
+      "native_vs_finite_complete_TV_upper_exact": "1534576719240786745186433494829069376535770193923157/3138550867693340381917894711603833208051177722232017256448",
+      "native_vs_finite_uncapped_exact": "1534576719240786745186433494829069376535770193923157/3138550867693340381917894711603833208051177722232017256448",
+      "precision_bits": 96,
+      "reset": {
+        "base_failure_exact": "35/2147483648",
+        "blank_carriers": 28,
+        "blocks_per_register": 1,
+        "fine_reset_records_retained": true,
+        "native_attempts_max": 80340,
+        "postselection": false,
+        "ready_carriers": 2,
+        "timeout_bound_exact": "525/1073741824"
+      },
+      "services": "Declared coherent proper-code load/export; finite native reset and pointer. No ideal controlled-unitary or terminal projector service.",
+      "size": 2,
+      "source_memory_bits": 26,
+      "source_time_in_tau0_exact": "2",
+      "squared_frequency_error_upper_exact": null,
+      "steps": 4,
+      "total_memory_bits": 32,
+      "whole_experiment_pulses_upper": 739860306
+    },
+    {
+      "clock_wire": 27,
+      "complete_failures": "All first M6 export complements, reset attempts/timeouts, native C/E labels and retained source poststates.",
+      "control_wire": 26,
+      "controlled_source_pulses_upper": 184965048,
+      "delta_clock_and_readout_exact": "140813189622765737357352910920467/392318858461667547739736838950479151006397215279002157056",
+      "delta_controlled_step_exact": "1354333627445876427335077569456720417483/392318858461667547739736838950479151006397215279002157056",
+      "delta_preparation_exact": "3866460863112943038630409267151477/3138550867693340381917894711603833208051177722232017256448",
+      "finite_vs_continuum_vector_upper_exact": null,
+      "h_exact": "1/2",
+      "large_word_executed": false,
+      "load_export_services_upper": 1479720612,
+      "mass_exact": "1",
+      "mode": [
+        1,
+        0,
+        0
+      ],
+      "native_vs_continuum_complete_TV_upper_exact": null,
+      "native_vs_continuum_uncapped_exact": null,
+      "native_vs_finite_complete_TV_upper_exact": "1534576719240786745185103500121888590350576777999469/3138550867693340381917894711603833208051177722232017256448",
+      "native_vs_finite_uncapped_exact": "1534576719240786745185103500121888590350576777999469/3138550867693340381917894711603833208051177722232017256448",
+      "precision_bits": 96,
+      "reset": {
+        "base_failure_exact": "35/2147483648",
+        "blank_carriers": 28,
+        "blocks_per_register": 1,
+        "fine_reset_records_retained": true,
+        "native_attempts_max": 80340,
+        "postselection": false,
+        "ready_carriers": 2,
+        "timeout_bound_exact": "525/1073741824"
+      },
+      "services": "Declared coherent proper-code load/export; finite native reset and pointer. No ideal controlled-unitary or terminal projector service.",
+      "size": 2,
+      "source_memory_bits": 26,
+      "source_time_in_tau0_exact": "2",
+      "squared_frequency_error_upper_exact": null,
+      "steps": 4,
+      "total_memory_bits": 32,
+      "whole_experiment_pulses_upper": 739860306
+    },
+    {
+      "clock_wire": 33,
+      "complete_failures": "All first M6 export complements, reset attempts/timeouts, native C/E labels and retained source poststates.",
+      "control_wire": 32,
+      "controlled_source_pulses_upper": 2312526456,
+      "delta_clock_and_readout_exact": "140813189622765737357352910920467/392318858461667547739736838950479151006397215279002157056",
+      "delta_controlled_step_exact": "67730276343612806884127762156919226069679/1569275433846670190958947355801916604025588861116008628224",
+      "delta_preparation_exact": "1932316060195284728812884160128203/784637716923335095479473677900958302012794430558004314112",
+      "finite_vs_continuum_vector_upper_exact": null,
+      "h_exact": "1/4",
+      "large_word_executed": false,
+      "load_export_services_upper": 18500212002,
+      "mass_exact": "0",
+      "mode": [
+        1,
+        0,
+        0
+      ],
+      "native_vs_continuum_complete_TV_upper_exact": null,
+      "native_vs_continuum_uncapped_exact": null,
+      "native_vs_finite_complete_TV_upper_exact": "460373015894694974135328775514700879033047185145935/784637716923335095479473677900958302012794430558004314112",
+      "native_vs_finite_uncapped_exact": "460373015894694974135328775514700879033047185145935/784637716923335095479473677900958302012794430558004314112",
+      "precision_bits": 96,
+      "reset": {
+        "base_failure_exact": "35/2147483648",
+        "blank_carriers": 34,
+        "blocks_per_register": 1,
+        "fine_reset_records_retained": true,
+        "native_attempts_max": 96408,
+        "postselection": false,
+        "ready_carriers": 2,
+        "timeout_bound_exact": "315/536870912"
+      },
+      "services": "Declared coherent proper-code load/export; finite native reset and pointer. No ideal controlled-unitary or terminal projector service.",
+      "size": 4,
+      "source_memory_bits": 32,
+      "source_time_in_tau0_exact": "1",
+      "squared_frequency_error_upper_exact": null,
+      "steps": 4,
+      "total_memory_bits": 38,
+      "whole_experiment_pulses_upper": 9250106001
+    },
+    {
+      "clock_wire": 33,
+      "complete_failures": "All first M6 export complements, reset attempts/timeouts, native C/E labels and retained source poststates.",
+      "control_wire": 32,
+      "controlled_source_pulses_upper": 2312526456,
+      "delta_clock_and_readout_exact": "140813189622765737357352910920467/392318858461667547739736838950479151006397215279002157056",
+      "delta_controlled_step_exact": "67730276340952817469766189786532394222303/1569275433846670190958947355801916604025588861116008628224",
+      "delta_preparation_exact": "1932316060195284728812884160128203/784637716923335095479473677900958302012794430558004314112",
+      "finite_vs_continuum_vector_upper_exact": null,
+      "h_exact": "1/4",
+      "large_word_executed": false,
+      "load_export_services_upper": 18500212002,
+      "mass_exact": "1/2",
+      "mode": [
+        1,
+        0,
+        0
+      ],
+      "native_vs_continuum_complete_TV_upper_exact": null,
+      "native_vs_continuum_uncapped_exact": null,
+      "native_vs_finite_complete_TV_upper_exact": "460373015894694974130008796685977734292273521451183/784637716923335095479473677900958302012794430558004314112",
+      "native_vs_finite_uncapped_exact": "460373015894694974130008796685977734292273521451183/784637716923335095479473677900958302012794430558004314112",
+      "precision_bits": 96,
+      "reset": {
+        "base_failure_exact": "35/2147483648",
+        "blank_carriers": 34,
+        "blocks_per_register": 1,
+        "fine_reset_records_retained": true,
+        "native_attempts_max": 96408,
+        "postselection": false,
+        "ready_carriers": 2,
+        "timeout_bound_exact": "315/536870912"
+      },
+      "services": "Declared coherent proper-code load/export; finite native reset and pointer. No ideal controlled-unitary or terminal projector service.",
+      "size": 4,
+      "source_memory_bits": 32,
+      "source_time_in_tau0_exact": "1",
+      "squared_frequency_error_upper_exact": null,
+      "steps": 4,
+      "total_memory_bits": 38,
+      "whole_experiment_pulses_upper": 9250106001
+    },
+    {
+      "clock_wire": 33,
+      "complete_failures": "All first M6 export complements, reset attempts/timeouts, native C/E labels and retained source poststates.",
+      "control_wire": 32,
+      "controlled_source_pulses_upper": 2312526456,
+      "delta_clock_and_readout_exact": "140813189622765737357352910920467/392318858461667547739736838950479151006397215279002157056",
+      "delta_controlled_step_exact": "67730276338625326732199813962443916355849/1569275433846670190958947355801916604025588861116008628224",
+      "delta_preparation_exact": "1932316060195284728812884160128203/784637716923335095479473677900958302012794430558004314112",
+      "finite_vs_continuum_vector_upper_exact": null,
+      "h_exact": "1/4",
+      "large_word_executed": false,
+      "load_export_services_upper": 18500212002,
+      "mass_exact": "1",
+      "mode": [
+        1,
+        0,
+        0
+      ],
+      "native_vs_continuum_complete_TV_upper_exact": null,
+      "native_vs_continuum_uncapped_exact": null,
+      "native_vs_finite_complete_TV_upper_exact": "460373015894694974125353815210844982644096565718275/784637716923335095479473677900958302012794430558004314112",
+      "native_vs_finite_uncapped_exact": "460373015894694974125353815210844982644096565718275/784637716923335095479473677900958302012794430558004314112",
+      "precision_bits": 96,
+      "reset": {
+        "base_failure_exact": "35/2147483648",
+        "blank_carriers": 34,
+        "blocks_per_register": 1,
+        "fine_reset_records_retained": true,
+        "native_attempts_max": 96408,
+        "postselection": false,
+        "ready_carriers": 2,
+        "timeout_bound_exact": "315/536870912"
+      },
+      "services": "Declared coherent proper-code load/export; finite native reset and pointer. No ideal controlled-unitary or terminal projector service.",
+      "size": 4,
+      "source_memory_bits": 32,
+      "source_time_in_tau0_exact": "1",
+      "squared_frequency_error_upper_exact": null,
+      "steps": 4,
+      "total_memory_bits": 38,
+      "whole_experiment_pulses_upper": 9250106001
+    }
+  ],
+  "missing_export_accounting_rejected": true,
+  "retained_flat_cycle": {
+    "cases": [
+      {
+        "k": [
+          0.2,
+          0,
+          0
+        ],
+        "mass_coin_angle": 0.25,
+        "phase": 0.25,
+        "residual": 5.594615123918155e-17
+      },
+      {
+        "k": [
+          0.1,
+          0.2,
+          0.3
+        ],
+        "mass_coin_angle": 0.25,
+        "phase": 0.25,
+        "residual": 5.6068854980957e-17
+      }
+    ],
+    "not_a_propagating_KG_branch": true,
+    "triangle": [
+      0,
+      1,
+      5
+    ]
+  },
+  "sharp_fresh_event_every_step": {
+    "actual_native_transfer_residual": 1.1102230246251565e-16,
+    "all_initial_ports": 96,
+    "coherent_KG_transfer_claimed": false,
+    "eigenvalue_interval": [
+      0.2303276685416838,
+      1.0000000000000004
+    ],
+    "mass_independence_residual": 1.1102230246251565e-16,
+    "masses": [
+      "0",
+      "1/2",
+      "1"
+    ],
+    "real_symmetric_transfer": true
+  }
+}

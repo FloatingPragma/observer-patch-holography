@@ -1,0 +1,82 @@
+{
+  "schema": "oph.chain.row1_scope.v1",
+  "development_only": true,
+  "inputs": {
+    "reverse-engineering-reality/code/openwave_row1_protocol/LAW_CONTROLS.json": "756a15690f0b720d215323757fed1ddf0c9f123979f81bdf66b9526c042054ce",
+    "reverse-engineering-reality/code/openwave_row1_protocol/law_controls.py": "27842accc12759e0a60a84a01d94fe780eea27c58c50a75ed0e075aac4ed18c0",
+    "reverse-engineering-reality/code/openwave_row1_native/native_kernel.py": "b84e5ecdfbb8727a91571ac1b3ec6614f88ebf64b72fab0e8d35c338f08b1cff",
+    "reverse-engineering-reality/code/openwave_row1_native/native_charge_winding.py": "8526fbf0cb417172d5df320a8ed75a9dea3fe1ceaaefc4591a5f478344b8dbec",
+    "reverse-engineering-reality/code/openwave_row1_native/source_packet.json": "07ecff52d11e4f7fcdf907b17488603b0d0a5ff1644b01c583a86ddbbd0ec2ea",
+    "reverse-engineering-reality/code/openwave_row1_native/manifest.json": "d5e692b0597dbbeafabb88e6f7d417da8f7d7d1fd39a334c08fa73ffe40e8d90"
+  },
+  "declared_protocol": "12-port native histories, fixed32 phase samples per edge, absolute turn bound3",
+  "C10_joint_instrument_transfer_from_this_addendum": false,
+  "executed_checks": {
+    "native_histories_enumerated_from_law": true,
+    "native_whole_unit_at_every_step": true,
+    "native_all_regional_bounds_at_every_step": true,
+    "native_fixed_sample_contours": true,
+    "half_law_preserves_continuity_but_fails_closure": true,
+    "integer_fragmenting_law_passes_topology_but_fails_unit_gate": true,
+    "integer_fragmenting_law_can_exceed_regional_domain": true,
+    "omission_detected_against_loads_for_every_affected_history": true,
+    "damaged_integer_tape_still_has_valid_spatial_degree": true
+  },
+  "arms": {
+    "native": {
+      "histories": 456,
+      "continuity": 456,
+      "closed_curves": 456,
+      "degree_equals_current": 456,
+      "one_unit_every_step": 456,
+      "regional_bound_every_step": 456,
+      "missing_record_against_loads": 0,
+      "histories_with_omission": 0,
+      "maximum_phase_error": 2.220446049250313e-16,
+      "maximum_gluing_defect": 2.4492935982947064e-16
+    },
+    "half_current": {
+      "histories": 456,
+      "continuity": 456,
+      "closed_curves": 0,
+      "degree_equals_current": 0,
+      "one_unit_every_step": 0,
+      "regional_bound_every_step": 0,
+      "missing_record_against_loads": 0,
+      "histories_with_omission": 0,
+      "maximum_phase_error": 0.0,
+      "maximum_gluing_defect": 2.0
+    },
+    "random_integer": {
+      "histories": 1368,
+      "continuity": 1368,
+      "closed_curves": 1368,
+      "degree_equals_current": 1368,
+      "one_unit_every_step": 504,
+      "regional_bound_every_step": 1069,
+      "missing_record_against_loads": 0,
+      "histories_with_omission": 0,
+      "maximum_phase_error": 4.440892098500626e-16,
+      "maximum_gluing_defect": 2.4492935982947064e-16
+    },
+    "omitted_record": {
+      "histories": 456,
+      "continuity": 456,
+      "closed_curves": 456,
+      "degree_equals_current": 456,
+      "one_unit_every_step": 456,
+      "regional_bound_every_step": 456,
+      "missing_record_against_loads": 228,
+      "histories_with_omission": 228,
+      "maximum_phase_error": 2.220446049250313e-16,
+      "maximum_gluing_defect": 2.4492935982947064e-16
+    }
+  },
+  "interpretation": "Topology diagnoses integer record classes; the separate native integer-unit law supplies nonfragmentation. Fixed phase samples test an observer encoding. The pointer reads counters, not these samples. Missing records are detected against source loads, not internally from the tape.",
+  "physical_row1_admission": "partial-at-most; finite mechanism evidence and physical interpretation are separate",
+  "native_law_uniqueness_inferred": false,
+  "sampled_phase_is_pointer_readout": false,
+  "omission_detectable_from_tape_alone": false,
+  "independent_all31_physics_validation": false,
+  "official_rows_changed": []
+}

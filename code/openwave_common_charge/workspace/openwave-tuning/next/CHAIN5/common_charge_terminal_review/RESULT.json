@@ -1,0 +1,236 @@
+{
+  "schema": "oph.common_charge.terminal_opposing_review.v1",
+  "experiments": 36,
+  "native_pulses_executed": 8000,
+  "unique_exact_pulse_certificates": 67,
+  "fine_C_E_probabilities_recomputed": 54756,
+  "maximum_operator_residual": 2.330015835130386e-14,
+  "maximum_Gram_residual": 4.6424746338282643e-14,
+  "maximum_fine_probability_difference": 0.0,
+  "maximum_first_export_probability_difference": 0.0,
+  "complete_terminal_TV_exact": "320137650835624685296664093320833758239487997/100433627766186892221372630771322662657637687111424552206336",
+  "complete_terminal_TV_display": 3.187554387469869e-15,
+  "all_reset_timeout_bounds_checked": true,
+  "reset_fine_law_proof_review": "Separate exact 78-state reset review consumed; not a second execution of its 45385 records.",
+  "original_huge_field_tape_executed": false,
+  "terminal_observable_annex_pass": true,
+  "cases": [
+    {
+      "name": "fresh_alternating_and_daughter_X_n1_uniform_plane",
+      "all_columns": 64,
+      "operator_residual": 2.1234009661435196e-14,
+      "Gram_residual": 4.2166819920500936e-14
+    },
+    {
+      "name": "fresh_alternating_and_daughter_X_n1_basis_cell2",
+      "all_columns": 64,
+      "operator_residual": 2.3292899748870658e-14,
+      "Gram_residual": 4.6290339964308247e-14
+    },
+    {
+      "name": "fresh_alternating_and_daughter_X_n1_nonuniform_entanglement_sensitive",
+      "all_columns": 64,
+      "operator_residual": 2.0803052868883684e-14,
+      "Gram_residual": 4.1106645044769534e-14
+    },
+    {
+      "name": "fresh_alternating_and_daughter_X_n2_uniform_plane",
+      "all_columns": 64,
+      "operator_residual": 2.0632334609989392e-14,
+      "Gram_residual": 4.055287844079964e-14
+    },
+    {
+      "name": "fresh_alternating_and_daughter_X_n2_basis_cell2",
+      "all_columns": 64,
+      "operator_residual": 2.2506403430636326e-14,
+      "Gram_residual": 4.435935444670514e-14
+    },
+    {
+      "name": "fresh_alternating_and_daughter_X_n2_nonuniform_entanglement_sensitive",
+      "all_columns": 64,
+      "operator_residual": 2.048055198492967e-14,
+      "Gram_residual": 4.022572616827527e-14
+    },
+    {
+      "name": "fresh_alternating_and_daughter_Y_n1_uniform_plane",
+      "all_columns": 64,
+      "operator_residual": 2.126660229097817e-14,
+      "Gram_residual": 4.2252726284669367e-14
+    },
+    {
+      "name": "fresh_alternating_and_daughter_Y_n1_basis_cell2",
+      "all_columns": 64,
+      "operator_residual": 2.330015835130386e-14,
+      "Gram_residual": 4.6424746338282643e-14
+    },
+    {
+      "name": "fresh_alternating_and_daughter_Y_n1_nonuniform_entanglement_sensitive",
+      "all_columns": 64,
+      "operator_residual": 2.0754345224176877e-14,
+      "Gram_residual": 4.100498324462238e-14
+    },
+    {
+      "name": "fresh_alternating_and_daughter_Y_n2_uniform_plane",
+      "all_columns": 64,
+      "operator_residual": 2.0590884782989334e-14,
+      "Gram_residual": 4.0559319425763007e-14
+    },
+    {
+      "name": "fresh_alternating_and_daughter_Y_n2_basis_cell2",
+      "all_columns": 64,
+      "operator_residual": 2.2583663676558698e-14,
+      "Gram_residual": 4.4538218259140824e-14
+    },
+    {
+      "name": "fresh_alternating_and_daughter_Y_n2_nonuniform_entanglement_sensitive",
+      "all_columns": 64,
+      "operator_residual": 2.0505345757231165e-14,
+      "Gram_residual": 4.041458119217281e-14
+    },
+    {
+      "name": "original_daughters_X_n1_uniform_plane",
+      "all_columns": 64,
+      "operator_residual": 1.8575439744715456e-14,
+      "Gram_residual": 3.708962672897576e-14
+    },
+    {
+      "name": "original_daughters_X_n1_basis_cell2",
+      "all_columns": 64,
+      "operator_residual": 1.942917400644197e-14,
+      "Gram_residual": 3.8841595756020706e-14
+    },
+    {
+      "name": "original_daughters_X_n1_nonuniform_entanglement_sensitive",
+      "all_columns": 64,
+      "operator_residual": 1.8482475145229343e-14,
+      "Gram_residual": 3.6743121801210576e-14
+    },
+    {
+      "name": "original_daughters_X_n2_uniform_plane",
+      "all_columns": 64,
+      "operator_residual": 1.8224122842828874e-14,
+      "Gram_residual": 3.6045529938910433e-14
+    },
+    {
+      "name": "original_daughters_X_n2_basis_cell2",
+      "all_columns": 64,
+      "operator_residual": 1.9538065635248292e-14,
+      "Gram_residual": 3.8527745916738044e-14
+    },
+    {
+      "name": "original_daughters_X_n2_nonuniform_entanglement_sensitive",
+      "all_columns": 64,
+      "operator_residual": 1.8424987895037368e-14,
+      "Gram_residual": 3.6458997727780877e-14
+    },
+    {
+      "name": "original_daughters_Y_n1_uniform_plane",
+      "all_columns": 64,
+      "operator_residual": 1.862642854479143e-14,
+      "Gram_residual": 3.716767020357377e-14
+    },
+    {
+      "name": "original_daughters_Y_n1_basis_cell2",
+      "all_columns": 64,
+      "operator_residual": 1.9438753698707405e-14,
+      "Gram_residual": 3.903799410905486e-14
+    },
+    {
+      "name": "original_daughters_Y_n1_nonuniform_entanglement_sensitive",
+      "all_columns": 64,
+      "operator_residual": 1.861787389391775e-14,
+      "Gram_residual": 3.697969437344202e-14
+    },
+    {
+      "name": "original_daughters_Y_n2_uniform_plane",
+      "all_columns": 64,
+      "operator_residual": 1.8129396315790416e-14,
+      "Gram_residual": 3.6024620900736145e-14
+    },
+    {
+      "name": "original_daughters_Y_n2_basis_cell2",
+      "all_columns": 64,
+      "operator_residual": 1.9639158249014464e-14,
+      "Gram_residual": 3.867853580975403e-14
+    },
+    {
+      "name": "original_daughters_Y_n2_nonuniform_entanglement_sensitive",
+      "all_columns": 64,
+      "operator_residual": 1.851654826847665e-14,
+      "Gram_residual": 3.668026613471913e-14
+    },
+    {
+      "name": "single_particle_X_n1_uniform_plane",
+      "all_columns": 32,
+      "operator_residual": 1.1008787482324823e-14,
+      "Gram_residual": 2.1304855805944292e-14
+    },
+    {
+      "name": "single_particle_X_n1_basis_cell2",
+      "all_columns": 32,
+      "operator_residual": 1.1012889467344016e-14,
+      "Gram_residual": 2.1795181805162557e-14
+    },
+    {
+      "name": "single_particle_X_n1_nonuniform_entanglement_sensitive",
+      "all_columns": 32,
+      "operator_residual": 1.0865377182895553e-14,
+      "Gram_residual": 2.1111701509755055e-14
+    },
+    {
+      "name": "single_particle_X_n2_uniform_plane",
+      "all_columns": 32,
+      "operator_residual": 1.0639585091837128e-14,
+      "Gram_residual": 2.0159967592862988e-14
+    },
+    {
+      "name": "single_particle_X_n2_basis_cell2",
+      "all_columns": 32,
+      "operator_residual": 1.1375176245829993e-14,
+      "Gram_residual": 2.211131507737173e-14
+    },
+    {
+      "name": "single_particle_X_n2_nonuniform_entanglement_sensitive",
+      "all_columns": 32,
+      "operator_residual": 1.0741845454828937e-14,
+      "Gram_residual": 2.066250472303492e-14
+    },
+    {
+      "name": "single_particle_Y_n1_uniform_plane",
+      "all_columns": 32,
+      "operator_residual": 1.1024699141510675e-14,
+      "Gram_residual": 2.1395283027084583e-14
+    },
+    {
+      "name": "single_particle_Y_n1_basis_cell2",
+      "all_columns": 32,
+      "operator_residual": 1.108118472491116e-14,
+      "Gram_residual": 2.2104214841162598e-14
+    },
+    {
+      "name": "single_particle_Y_n1_nonuniform_entanglement_sensitive",
+      "all_columns": 32,
+      "operator_residual": 1.0833036076669867e-14,
+      "Gram_residual": 2.1134999689571786e-14
+    },
+    {
+      "name": "single_particle_Y_n2_uniform_plane",
+      "all_columns": 32,
+      "operator_residual": 1.0575049482876225e-14,
+      "Gram_residual": 2.0183954189840008e-14
+    },
+    {
+      "name": "single_particle_Y_n2_basis_cell2",
+      "all_columns": 32,
+      "operator_residual": 1.1473037021198551e-14,
+      "Gram_residual": 2.232582090959494e-14
+    },
+    {
+      "name": "single_particle_Y_n2_nonuniform_entanglement_sensitive",
+      "all_columns": 32,
+      "operator_residual": 1.0791874666100677e-14,
+      "Gram_residual": 2.0917926981307722e-14
+    }
+  ],
+  "official_rows_changed": []
+}
