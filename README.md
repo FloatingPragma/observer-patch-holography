@@ -30,19 +30,21 @@ hypothesis in full.
 One declared observer architecture, a network of twelve-port carriers with a
 single repair and memory law, yields:
 
-- **Three dimensions of space.** The carrier's slow response is exactly
-  three-dimensional, with Euclidean geometry that observers recover from
-  their own records.
+- **Spacetime and fields as effective descriptions.** Coarse-grained, the
+  observers' shared records are described by relativistic field theories in
+  three space dimensions and one time, together with gravity. The carrier's
+  slow response is exactly three-dimensional, and a Lorentzian (1+3)-dimensional
+  field theory reproduces the observers' joint readouts.
 - **The rules of quantum measurement.** Completed records obey the Born rule,
   repeatable measurement and the Tsirelson bound on Bell correlations.
 - **The Standard Model's forces.** Under stated premises the gauge structure
-  is that of the Standard Model, with an anomaly-free generation of matter
-  carrying exactly the observed charges.
-- **The muon and tau from the electron.** A generation register gives the
-  lepton mass ratios 206.770316 and 3477.4728, within 0.001 and 0.003 per cent
-  of measurement. The Koide relation follows from the carrier's face symmetry.
-- **Protons, neutrons and nuclei.** A native strong action with seven declared
-  inputs fits the proton, neutron, pion, rho, Delta and the deuteron binding.
+  is that of the Standard Model.
+- **Quarks and leptons.** Each generation of matter comes out with exactly the
+  observed charges: three colours of up and down quarks, the electron and its
+  neutrino. A generation register gives the charged-lepton mass ratios
+  206.770316 and 3477.4728, within 0.001 and 0.003 per cent of measurement, so
+  the muon and tau masses follow from the electron's. The Koide relation
+  follows from the carrier's face symmetry.
 - **The early-universe transitions.** Lattice runs of the same model reproduce
   the electroweak crossover near 161 GeV and colour deconfinement.
 - **Gravity.** A realized balance of records gives the Einstein equation.
