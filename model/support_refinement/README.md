@@ -131,8 +131,7 @@ The average `(a+b)/2` is fixed by the interchange, which is why this chain
 construction avoids that obstruction. Its two coefficients cannot be
 silently replaced by a chosen endpoint or interpreted as a simplicial
 vertex image. The algebra establishes a natural rational chain interface;
-a pointwise geometric attachment and its physical realization remain
-separate requirements.
+a pointwise geometric attachment and its physical realization are separate requirements.
 
 ## Replay
 

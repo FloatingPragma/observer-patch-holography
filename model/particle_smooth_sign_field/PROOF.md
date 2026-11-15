@@ -306,7 +306,7 @@ as `b_delta=180` at a=1 before quoting any same-action roughness bound.
 It does not reuse the old regulator's kinetic constant silently.
 The record comparison itself is state independent and uses no roughness
 bound. The maximally mixed full Fock input is not a Lorentz vacuum,
-and its conjugate charged reference remains part of the preparation.
+and its conjugate charged reference is part of the preparation.
 
 The positive delta action avoids the discontinuity by an explicit
 change of architecture. Exact Ginsparg–Wilson or chiral-projector

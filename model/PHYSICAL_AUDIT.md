@@ -16,7 +16,7 @@ shell scale `L`; it supplies a matter input to the existing Einstein theorem
 stack, without supplying responsive area, Newton normalization or stationarity.
 The [mass and energy table](completion/PARTICLE_MASS_TABLE.md) keeps these
 results separate from measured particle identities and calibrated rest masses,
-which remain open.
+which are open.
 
 The [matter and geometry witnesses](observer_particles/README.md) give exact
 internal charge decoding and one-Higgs invariant tensors, conditional shared
@@ -25,7 +25,7 @@ controls. A static screen-dependent radial product has zero radial-null
 Einstein contraction while an admitted scalar excitation has positive
 relative null stress. With the reference and other sources fixed, that
 attachment cannot balance both states. A responsive geometry and physical
-fixed-proper-volume generalized-entropy stationarity remain independent
+fixed-proper-volume generalized-entropy stationarity are independent
 requirements. Neither a transfer relaxation gap nor a cavity frequency is
 identified with an observed particle rest mass by these witnesses. The
 tested mass prescriptions fail the charged-lepton hierarchy: the declared
@@ -43,7 +43,7 @@ measurable Lorentz-signature density. A smooth full action density gives a smoot
 a finite interacting projection on that product has complete source readouts.
 Its radial domain, interaction and observer services are supplied.
 Observed spacetime, interacting continuum QFT, Einstein dynamics and laboratory clock
-identification remain unproved; larger carrier counts alone do not establish them.
+identification are unproved; larger carrier counts alone do not establish them.
 
 The new [thermal certificate](interacting_band_extension/README.md#quantitative-preparation-and-complete-history-certificate)
 closes a numerical occupation gap for one declared interacting observer,
@@ -98,8 +98,8 @@ overturned by successful finite native-carrier calculations or by this audit.
 
 | Requested bridge | Achieved mathematical content | Additional physical obligation |
 | --- | --- | --- |
-| Space and fields | A declared spectral filter of the native Green operator applied to whitened consecutive long-record blocks synthesizes a radial product of spectral dimension three; the radial slices are consecutive blocks of one history and carry no native information beyond the spectrum of `A`. Its thermal covariance and local wave action share one operator; the chosen hyperbolic action has a measurable Lorentz-signature metric density and admits smooth 1+3 effective descriptions of finite admissible measurement menus to arbitrary tolerance. A projected quartic example has interacting source readouts on that product. | Radial topology, boundary conditions, interaction, filters and access remain supplied. Distinct radial graphs share the complete radial-average angular law. Smoothness of the source limit, physical transport and length calibration are unproved. |
-| Time | Complete stopped instruments compare native clocks. Incident-triggered angular/radial pulses give a joint product clock with controlled splitting error; when the preparation is the Gibbs state of the compiled Hamiltonian, the finite KMS identity makes its modular flow the rescaled Hamiltonian flow. Finite-word and precision bounds provide a constructive growing angular clock family. | Preparation, protected controls and carrier pauses are declared. Growing execution and arbitrarily accurate source services remain obligations. Passive repair, spatial-patch modular flow and laboratory duration are not identified with this active clock; the interacting projection has its own complete native-incident attachment and declared model-time conversion. |
+| Space and fields | A declared spectral filter of the native Green operator applied to whitened consecutive long-record blocks synthesizes a radial product of spectral dimension three; the radial slices are consecutive blocks of one history and carry no native information beyond the spectrum of `A`. Its thermal covariance and local wave action share one operator; the chosen hyperbolic action has a measurable Lorentz-signature metric density and admits smooth 1+3 effective descriptions of finite admissible measurement menus to arbitrary tolerance. A projected quartic example has interacting source readouts on that product. | Radial topology, boundary conditions, interaction, filters and access are supplied. Distinct radial graphs share the complete radial-average angular law. Smoothness of the source limit, physical transport and length calibration are unproved. |
+| Time | Complete stopped instruments compare native clocks. Incident-triggered angular/radial pulses give a joint product clock with controlled splitting error; when the preparation is the Gibbs state of the compiled Hamiltonian, the finite KMS identity makes its modular flow the rescaled Hamiltonian flow. Finite-word and precision bounds provide a constructive growing angular clock family. | Preparation, protected controls and carrier pauses are declared. Growing execution and arbitrarily accurate source services are obligations. Passive repair, spatial-patch modular flow and laboratory duration are not identified with this active clock; the interacting projection has its own complete native-incident attachment and declared model-time conversion. |
 | Action from repair | C/E give a local positive Liouville form. A positive classical transfer gives a Euclidean logarithm. A dilation gives a dimensionless Hermitian history action. | These are distinct constructions. None alone selects a physical Lorentzian action, its units or its observable field interpretation. |
 | Laboratory clock | Exact calibration regions constrain separate native-attempt and source-pulse durations. Complete counted histories predict joint timing/detector events; held-out endpoints test the same calibration. | Identification of the timing law and detector operations with measured processes, independently justified uncertainty and calibration provenance. The retained timing example is synthetic. |
 
@@ -118,8 +118,7 @@ including references and padding. Both timeout flags remain; the finite
 complete error is below `3.4e-8`, with 5357 native attempts, 2050 source
 pulses and 4100 proper-code service events charged. This removes the native
 basis-blank and projective work-read services for this apparatus. Coherent
-code routing, its service ancillas and physical control accuracy remain
-explicit. The construction does not identify modular phase with physical
+code routing, its service ancillas and physical control accuracy are explicit. The construction does not identify modular phase with physical
 time or establish that this finite observer describes our Universe.
 
 The [space/time calculation](physical_space_time/README.md) adds an exact
@@ -178,7 +177,7 @@ limits the physical claim.
 The [exact transfer residuals](anharmonic_transfer/README.md) compare matching
 deposited times with independent occupation/evaluator certificates for that
 same supplied apparatus. At 0.4 ms and 2 ms, additional absolute allowances
-of at least `0.0469004584` and `0.1743174846` remain necessary. This retains
+of at least `0.0469004584` and `0.1743174846` are necessary. This retains
 all data and both refinements, without a new fit. Missing experimental and
 calibration uncertainty prevents converting these floors into a statistical
 rejection or claiming agreement within full uncertainties.
@@ -364,7 +363,7 @@ premise. A different smooth dictionary needs proof. Smooth form
 approximations do not establish this property of the native limit. Three
 radial graph controls share every radial-average angular observation but
 differ in radial response. The interval, filters, preparation and controls
-remain supplied; growing execution and observed identification are unproved.
+are supplied; growing execution and observed identification are unproved.
 The dual conductance graph also obeys a uniform isotropic
 reference sandwich with relative allowance `5/43`; it proves no homogenization.
 Restoring the constant mode gives the full-space generator `Abar`.
@@ -447,7 +446,7 @@ The [same-register continuation](predictions/README.md#prepared-reference-clock)
 executes its positive-log clock and complete pair detectors. Its single density
 also fixes eleven algebraic fluctuation pairs, with three source-read band
 representatives and a finite-copy ordered-Weyl bound. Independent successful
-copies remain a declared preparation. The joint copy/band estimate charges
+copies are a declared preparation. The joint copy/band estimate charges
 partition-function growth, herald success and complete source error; frequency
 normalization fixes the field covariance and sine response from the same clock.
 A cell-visible nonconstant native packet has an executed source encoder and
@@ -458,12 +457,12 @@ native lazy-weight constraint. The unchanged zero-request branch provides a
 global logarithm floor, with imperfect input preparation included. Native
 spectral bounds derive the partition and positive-gap controls used by the
 copy limit. Growing execution, spectral tails and arbitrarily accurate
-load/export services remain obligations.
+load/export services are obligations.
 Native conditional increments recover the angular tensor in ordered limits.
 That tensor's intrinsic distance is the exact first possible operator response
 of the declared product wave; a single detector need not see its front.
 Physical collars, source-selected interactions, observational identification
-and the growing product Fock preparation remain unproved.
+and the growing product Fock preparation are unproved.
 
 The [source-selection assessment](SOURCE_SELECTION.md) separates the sphere's
 Lorentz/celestial role from physical realization. A declared seam-midpoint

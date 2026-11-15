@@ -53,7 +53,7 @@ For all nine family entries, `H_G W=W H_G`; for each of the six additions,
 electric operator, loop and loop adjoint. Every `W` entry raises scalar
 occupation by one. Consequently the scalar parity `(-1)^N_H` conjugates
 `g` to `-g`, without changing the spectrum. All scalar and complementary
-states in the finite join remain included.
+states in the finite join are included.
 
 Fix a normalized vacuum gauge eigenvector of energy `E_G`. Its cyclic
 Higgs subspace has matrix

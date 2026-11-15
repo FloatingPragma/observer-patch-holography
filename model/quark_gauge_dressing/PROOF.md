@@ -123,7 +123,7 @@ explicit transfer proof. It adds no source occupation cutoff and does not
 copy their distinct four-unit reference energy: this extension declares
 zero intrinsic compensator energy and derives its field energy explicitly.
 The original success weight one half and failure weight one half are
-retained; the failure source and all quantum references remain outputs.
+retained; the failure source and all quantum references are outputs.
 
 For up-singlet removal, down-singlet removal and quark-doublet removal,
 the charges are `2/3,-1/3,-1/6`. Thus all corresponding up and down lines

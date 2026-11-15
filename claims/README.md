@@ -315,3 +315,12 @@ it with `python -m tools.build_openwave_joint_claims --write`, or verify source
 custody and numerical replay with `--check`. The shared-event-register claims
 in `joint_observer.json` retain their separate finite domains; no additive
 many-load or physical-clock transfer is inferred.
+
+[`openwave_signed_source.json`](openwave_signed_source.json) records three results
+on one signed source of the twelve-port carrier: charge in whole units (integer
+face certificate and a law-dependent stopped flow), a positive rest energy of a
+compact charged state with 511 keV as the unit calibration, and a measured
+current covariance that returns under the executed half-turn while the nonzero
+mean reverses. `python3 tools/build_openwave_signed_source_claim.py --check`
+recomputes all three from the carrier graph and the native rule and checks the
+sealed evidence in [`code/openwave_signed_source/`](../code/openwave_signed_source/).

@@ -5,7 +5,7 @@ spectral weight in a finite source-energy band. A fixed time filter and complete
 source clocks retain a measured event with probability greater than 3/80.
 The same two-cell bond enters the regular observation algebra and its
 canonical energy/momentum readout with explicit finite apparatus errors.
-Its compensator remains part of the observable; a surviving charged
+Its compensator is part of the observable; a surviving charged
 particle branch and a rest mass require further spectral identification.
 
 See the [proof](PROOF.md) and [receipt](results.json).

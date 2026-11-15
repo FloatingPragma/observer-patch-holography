@@ -6,7 +6,7 @@ state, an initially independent auxiliary, or repeated auxiliary resets.
 This packet constructs those operations from the existing C/E instruments,
 executes complete continuing observation histories, and accounts for their
 errors and finite resources. The fair native instrument, two carriers,
-classical control and the existing coherent mixer remain specified inputs.
+classical control and the existing coherent mixer are specified inputs.
 
 Two results do different jobs. A deterministic sweep prepares the working
 carrier. A separate auxiliary carrier's coarse coin records implement the
@@ -160,7 +160,7 @@ mixer, three unread repairs, second mixer and native coin/current pointer.
 Each of the three random seams is selected by (3) with M=7. A selector
 timeout halts that trial at its actual disturbed state; the next trial
 starts from that state and applies the same preparation. Failed heralds
-also remain trials. No initial state is replaced between trials.
+also are trials. No initial state is replaced between trials.
 
 The public record is `(herald, stage, bit)`: failed heralds have stage zero;
 stages one through three mark the corresponding selector timeout; stage
@@ -240,7 +240,7 @@ unused buffer preserves these identities and error bounds. This supplies
 these particular finite channel/record interfaces, not all premises in the
 paper library or a spatial/continuum refinement theorem.
 
-The empirical obligation remains separate. The existing
+The empirical obligation is separate. The existing
 [public-data audit](../../docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md)
 retains actual measured discrepancies and supplied physical dictionaries.
 Its oscillator preparation uses a capped Fock mixture, not the native

@@ -83,7 +83,7 @@ thirty seams and two coins: `983040` native columns.
 A two-configuration equal superposition has initial coherence norm one.
 After 26 full repair ticks its retained fixed-number coherence is bounded by
 `(5/6)^26 < 0.01`. With repair probability `p`, use `(1-p/6)^t`, not the full
-repair rate. The extremal full/empty cat remains an explicit zero-decay
+repair rate. The extremal full/empty cat is an explicit zero-decay
 countercontrol; it is outside the fixed-total-number observer class and has
 the one-port fragility proved in the occupation package.
 

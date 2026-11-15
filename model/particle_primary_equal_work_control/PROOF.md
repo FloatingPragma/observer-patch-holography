@@ -65,8 +65,7 @@ For the unit tent the three directional sums coincide. With
 
 The2R edges of a one-dimensional tent have slope magnitude1/R.
 The transverse tent values u/R have multiplicities m_u, proving (5),
-including the wrapped coefficient list at R=1. The source bonds remain
-open. At n=0, (5) gives exactly p_0=1. At n>=1, the exact tent sums and
+including the wrapped coefficient list at R=1. The source bonds are open. At n=0, (5) gives exactly p_0=1. At n>=1, the exact tent sums and
 `pi^2<10` give
 
     0<p_n <= (5/12)a^2 D2 <=(45/32)a<=45/64<1.             (6)

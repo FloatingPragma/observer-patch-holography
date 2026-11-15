@@ -3,7 +3,7 @@
 This construction executes quantum operations, complete classical records,
 feedback and continuation through one finite instrument runtime. The native
 repair observer and the laboratory anharmonic apparatus use this runtime.
-Their states, interactions and physical interpretations remain separately
+Their states, interactions and physical interpretations are separately
 declared programs. Sharing an interpreter establishes a common operational
 interface; agreement with nature has to be measured for each physical model.
 
@@ -12,8 +12,7 @@ shared runtime's native/work output against its exact finite and infinite
 prepared-history targets. It covers both native laws, active and passive
 logical memory, all raw records and arbitrary logical/reference inputs.
 The comparison includes the computed encoder, repair and recovery maps;
-physical service errors and initially correlated native/work states remain
-outside this prepared-work contract.
+physical service errors and initially correlated native/work states are outside this prepared-work contract.
 
 The retained comparison covers all **125 positive-time observations and five
 zero-time endpoints** of the existing anharmonic experiment. Its position
@@ -205,7 +204,7 @@ identical effects and repeatable labels but changes a certain state by
 trace distance one: repeatability alone is insufficient.
 That restriction determines an instrument only after its projectors and
 nondisturbance requirements are given. Selecting the pointer basis and
-providing blank pointers remain separate premises. These conditional
+providing blank pointers are separate premises. These conditional
 attachments must not be substituted for a source-derived physical action
 or a unique physically realized measurement interface.
 
@@ -255,8 +254,7 @@ the stated path interpretation. The construction makes no claim that
 fractional powers of `K` are classical transition kernels, or that
 `exp(-i*t*H)` is native evolution or evolution in physical time. C and E
 share this classical sector, so it does not select their full quantum law.
-A local field limit, physical clock and empirical identification remain
-separate obligations.
+A local field limit, physical clock and empirical identification are separate obligations.
 
 ## What the empirical comparison measures
 
@@ -298,7 +296,7 @@ nominal coordinate `steps * 4 * pulse_duration`. Actual scheduled drive
 duration additionally includes the finite carrier gaps. Both coordinates
 are retained, and neither is inferred from solver time or pulse counts.
 Preparation, pulse parameters, dephasing and detector/clock calibration
-remain supplied. No positive-time observations fit their values here.
+are supplied. No positive-time observations fit their values here.
 
 Each endpoint represents a separately prepared experiment with one final
 destructive read. The host reuses unread computed prefixes when evaluating

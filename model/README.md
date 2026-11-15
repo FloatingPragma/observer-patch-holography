@@ -84,7 +84,7 @@ actual physical preparation without an extra ground projection. It bounds
 the complete twenty-bit detector's conditional source-energy mean by
 `[0.6916566792649, 0.6916566826119]`, retaining preparation failures,
 the charged reference and the explicit neutral-energy baseline error.
-Admission to the narrow bin remains a declared spectral service. The mean
+Admission to the narrow bin is a declared spectral service. The mean
 does not identify a single pole or a GeV mass.
 
 The [weak-current interface](native_weak_current_interface/PROOF.md)
@@ -124,7 +124,7 @@ All three have positive shared-bin interference on the same interacting
 Hamiltonian, with every reference and failed preparation retained.
 Their admitted elementary/composite states give common subsequent detector
 histories within `5.193e-6`, including the retained preparation environment;
-the original setting labels and unequal success rates remain distinct.
+the original setting labels and unequal success rates are distinct.
 
 The [native Wilson–Maxwell source](native_wilson_maxwell/PROOF.md) couples
 a complete charged spinor code to a finite transverse field on one
@@ -143,7 +143,7 @@ The [uniform ground refinement](native_wilson_maxwell_ground_refinement/PROOF.md
 keeps that completion at every photon cap and bounds the complete actual
 preparation and field/count histories. It supplies a fixed-cube oscillator
 comparison, with explicit large-cap and control-resource budgets; spatial
-refinement and observed mass identification remain distinct.
+refinement and observed mass identification are distinct.
 
 A separate [free Dirac construction](native_block_dirac/PROOF.md) uses
 the actual odd native states in a complete fermionic occupation code.
@@ -340,9 +340,9 @@ explicit filtered-packet success and error budgets, and the current-correlation
 tail needed for the first spin energy moment. The
 [mass and energy table](completion/PARTICLE_MASS_TABLE.md) retains all physical
 identification limits. Focused proof checks and broad repository validation
-are reported separately; physical species and joint Einstein realization remain open.
+are reported separately; physical species and joint Einstein realization are open.
 
-The [same-action energy and work](defect_field_energy/README.md) and [faithful modular reference](defect_field_modular/README.md) attach finite currents, source work, full-Fock Gibbs preparation, compatible regional observations and quantum entropy to that field law. The explicit reference, abort-component and geometric limits remain part of the result.
+The [same-action energy and work](defect_field_energy/README.md) and [faithful modular reference](defect_field_modular/README.md) attach finite currents, source work, full-Fock Gibbs preparation, compatible regional observations and quantum entropy to that field law. The explicit reference, abort-component and geometric limits are part of the result.
 
 The [complete collision repair](defect_field_bridge/FULL_DOMAIN.md), [finite ring propagation](defect_field_propagation/README.md), [common source clock](defect_field_clock/README.md), and [external Higgs drive](defect_field_interactions/README.md) extend this same designed field law. A [bounded direct common experiment](defect_field_bridge/joint.py) retains every four-mode occupation, native record and clock outcome. The finite one-dimensional domain, explicit collision-policy dependence, calibrated inputs and remaining physical 3+1/matched-particle obligations stay explicit.
 
@@ -420,10 +420,10 @@ work under the [shared interface conditions](completion/SAME_PROCESS_INTERFACES.
 | Owner | Current construction and remaining join |
 | --- | --- |
 | [#1033](https://github.com/FloatingPragma/observer-patch-holography/issues/1033) | [Evidence replay maintenance](../tools/replay_model_receipts.py) rebuilds live receipts in dependency order and runs their cold checkers, with backups and scientific-change review. |
-| [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) | [Native joint spectroscopy](native_joint_spin_spectroscopy/README.md) joins finite ground preparation to complete energy/symmetry observations. An effective infinite-marginal approximation rate and continuing invariant reference remain open. |
-| [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) | [Regular spin continuum fields](spin_canonical_field/README.md) have a positive-energy Weyl net and finite propagation. A sharp shell, Lorentz covariance and surviving continuum interaction remain open. |
+| [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) | [Native joint spectroscopy](native_joint_spin_spectroscopy/README.md) joins finite ground preparation to complete energy/symmetry observations. An effective infinite-marginal approximation rate and continuing invariant reference are open. |
+| [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) | [Regular spin continuum fields](spin_canonical_field/README.md) have a positive-energy Weyl net and finite propagation. A sharp shell, Lorentz covariance and surviving continuum interaction are open. |
 | [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | [Complete joint detector bins](native_joint_spin_spectroscopy/README.md) and the [power-law charged free boundary](ballistic_free_boundary/README.md) constrain the particle search. Measured species require relativistic poles, physical charges and independent units. |
-| [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145) | [Actual finite entropy limits](shrinking_modular_entropy/README.md) give a common shrinking matter/stress response and invertible nine-frame matrix. Area, Newton normalization and geometric stationarity/response remain open. |
+| [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145) | [Actual finite entropy limits](shrinking_modular_entropy/README.md) give a common shrinking matter/stress response and invertible nine-frame matrix. Area, Newton normalization and geometric stationarity/response are open. |
 
 The [earlier particle transport](charged_dynamics/README.md) and
 [actual-data replay](particle_comparison/README.md) retain their own
@@ -476,7 +476,7 @@ subdivision intertwines all sixty actions, while only the identity commutes
 with the declared `max(edge)` endpoint coarsening at each tested transition.
 The endpoint-selector obstruction and the rational chain retract concern
 different map categories. A source-selected relative map, compatible local
-incidence tower and common oriented sphere comparison remain required.
+incidence tower and common oriented sphere comparison are required.
 The [continuous degree argument](../code/a5_closure/continuous_equivariant_degree_proof.md)
 retains proof-candidate status; its independent finite character and
 polynomial controls do not certify that universal theorem or select a
@@ -494,7 +494,7 @@ resource ceilings and the carrier/refinement boundary.
 The [theorem map](completion/THEOREM_MAP.md),
 [finite theorem applications](clock_defect_energy/THEOREM_JOINS.md) and scoped obstruction
 review accompany all three lanes. The reviewed finite map resolves #1137;
-physical clock, mass spectrum and gravitational realization remain open.
+physical clock, mass spectrum and gravitational realization are open.
 The [exact native-history evaluator](compiled_native_history/README.md),
 [reduced full-field schedule](band_clock_budget/README.md),
 [energy identifiability](energy_identifiability/README.md) and
@@ -509,7 +509,7 @@ from declared response operators, and tests scalar, CAR and vector
 constructions against shared spatial and metric contracts. Its
 [finite premise witnesses](observer_particles/results/premise_witnesses.json)
 state which theorem inputs are constructed and which physical identifications
-remain separate.
+are separate.
 
 The [operational triplet-attachment result](../docs/research/MARKED_TRIPLET_OPERATIONAL_ATTACHMENT_AUDIT.md)
 covers native preparation, continuing instruments, bare-cap clocks and full
@@ -570,7 +570,7 @@ For the interacting product, the [admitted pointer and control menu](common_sour
 derive a noncommutative, parity-restricted work algebra and connect its
 measurement effects to durable records. Its fixed Gibbs reference joins
 complete modular histories and detector response, while preparation,
-temperature and physical identification remain explicit inputs.
+temperature and physical identification are explicit inputs.
 
 The construction admits smooth static `1+3` scalar-field effective
 descriptions for any specified finite Weyl/Ramsey measurement menu and
@@ -586,7 +586,7 @@ has source-executed interacting Gibbs readouts, an active native event clock,
 and convergent unrestricted-occupation histories within its two spatial
 modes. The [integrated verdict](CONSTRUCTION.md#integrated-effective-description)
 connects these contracts and their limits. **A physical identification with
-our Universe, including interacting relativistic spacetime, remains open.**
+our Universe, including interacting relativistic spacetime, is open.**
 The [recovery assessment](OBSERVER_RELATIVE_RECOVERY.md) states the current
 results and remaining obligations. The
 [construction specification](CONSTRUCTION.md#completion-target-and-acceptance-criteria)
@@ -662,7 +662,7 @@ has a nonzero, exponentially bounded disjoint-support tail at every positive
 scaled selection-slot time. It has no exact finite signal cone under that
 support/control/time dictionary. Physical locality of these services is
 unproved. Causal microscopic theories with diffusive limits are not excluded;
-the separate wave processor and coherent parameter remain declared.
+the separate wave processor and coherent parameter are declared.
 A [specified random-length return reference](observer_time_fields/README.md#a-native-return-reference-for-the-coherent-wave-generator)
 has modular generator `arccos(K)`, matching those wave phases. Finite caps
 have explicit state and generator error bounds. The length sampler and
@@ -719,7 +719,7 @@ dictionary fails that premise. Smooth approximants do not prove regularity
 of the source limit or select an alternative smooth dictionary.
 Three distinct radial graphs have identical complete radial-average angular
 readouts and different radial responses, so those readouts do not select the
-radial architecture. Preparation, controls and physical units remain supplied.
+radial architecture. Preparation, controls and physical units are supplied.
 The [finite edge-generator bridge](observer/COHERENT_CONTINUATION.md#a-finite-edge-generator-representation-from-native-repair)
 realizes the edge theorem's generator and ranks. An [executed lazy filter](predictions/README.md#preparing-the-finite-edge-reference-from-source-pulses)
 prepares Gibbs approximants of `L` with all failures retained, nonzero
@@ -740,10 +740,10 @@ keeps the native filter realizable while increasing caps, copy count and
 precision. Its retained zero-request branch supplies a global logarithm
 bound for the actual prepared marginal, including input preparation errors.
 Growing word execution, increasingly accurate source services and controlled
-spectral tails remain obligations; no radial architecture is selected by this
+spectral tails are obligations; no radial architecture is selected by this
 angular result. These states are central on the represented group algebra;
 nontrivial modular flow uses the full logical algebra. Preparation, independent
-copies and control remain supplied; physical collars, sewing and geometric
+copies and control are supplied; physical collars, sewing and geometric
 entropy stationarity are unproved.
 Complete endpoint records also give
 a forward-cone placement in the registered response geometry; a four-event
@@ -810,7 +810,7 @@ as a nontrivial modular automorphism. The
 [inverse clock prediction](predictions/README.md) recovers its two nontrivial frequencies
 from four movement-bit covariances on the complete attempt tape and predicts
 its coherent quadratures without a separate frequency fit. This supplies a
-joint observation test; seconds and atomic transitions remain unidentified.
+joint observation test; seconds and atomic transitions are unidentified.
 
 The [native response prediction](predictions/README.md#native-repair-response-from-passive-clock-and-field-records)
 links a record-triggered repair to passive clock/field correlations without
@@ -880,7 +880,7 @@ effective instrument for local outputs. A positive mixture of native repairs
 implements it. Its one-particle coherent/reference experiment retains all 81
 outputs in the shared runtime, with error and resource budgets. Distinct C/E
 phase predictions show why agreeing classical currents do not fix the quantum
-field response. Coherent preparation and readout remain declared services.
+field response. Coherent preparation and readout are declared services.
 
 ## Architecture and execution
 
@@ -979,10 +979,10 @@ count. The counter norm has radial generator `(2/99)(d_r^2+2/r d_r)`;
 its polar angular term is `(2/99)r^-2 Delta_S2`. This derives a radius for
 the retained current record, without adding radial sites. Finite radial
 increments depend on the hidden carrier state. Physical translation
-and the separate radial field remain unidentified. In one port's movement
+and the separate radial field are unidentified. In one port's movement
 clock, the Palm-prepared triangle variance is `3m/5` and the cycle-space
 action coefficient is `5/2`. Current access, uniform scheduling and growing
-record capacity remain declared; stationary preparation is required for
+record capacity are declared; stationary preparation is required for
 the stated exact finite covariances.
 
 The [native quantum transfer](native_quantum_history/README.md) and
@@ -1003,7 +1003,7 @@ supplied cell-centre/local-tangent-frame convention (`source_derived: false`);
 the local carrier Gram itself is record-derived. Exact native-hop balls give
 finite dimensionless distance data, with roughly quadratic growth over part of
 the tested range, but this does not establish a three-dimensional physical
-bulk or path-independent global frames; continuum spacetime remains open.
+bulk or path-independent global frames; continuum spacetime is open.
 
 The [native causal-cone check](common_source/CAUSALITY.md) adds one exact
 space/time relation at this finite level: for a fixed seam schedule and shared
@@ -1053,7 +1053,7 @@ removes independent product preparation: the stationary law follows from
 native repair conditional on a conserved total. At totals 5,120 and 81,920,
 the two screens retain density `1/3`, the feedback effect and their distinct
 finite-number correlations. Density selection and a preparation service
-remain inputs; no large-screen relaxation time is inferred.
+are inputs; no large-screen relaxation time is inferred.
 
 [Temporal field records](relative_observer_geometry/README.md#temporal-hilbert-space-reconstructed-from-field-records)
 also reconstruct a seven-dimensional cyclic positive transfer from exact
@@ -1105,7 +1105,7 @@ incident attempts, with no auxiliary time coordinate. At fixed density
 `1/3`, a certified two-time field covariance remains above `0.15332581621`;
 full-source histories execute native feedback and checkpoint continuation.
 All-level routing compatibility, Lorentz symmetry and an
-interacting spacetime scaling limit remain open.
+interacting spacetime scaling limit are open.
 
 ## Native measurement predictions
 
@@ -1135,7 +1135,7 @@ preparations from current-only repair and its continuing work-bit readout
 from six source pulses plus one native pointer. Both reset timeouts and all
 work addresses remain, with complete error below `3.4e-8` and costs of
 5357 native attempts and 2050 pulses. Coherent code services and their
-ancillas remain architecture inputs. Other protocols retain their own
+ancillas are architecture inputs. Other protocols retain their own
 preparation, record-access and clock contracts. No public laboratory
 dataset is identified with these native protocols.
 
@@ -1154,7 +1154,7 @@ The public oscillator comparisons execute a **supplied experimental model**
 through the source interface. Their agreement tests that conditional model;
 it does not derive its oscillator action or apparatus from native repair.
 Measurement coordinates, preparation assumptions, accepted-trial information
-and physical service errors remain explicit limitations.
+and physical service errors are explicit limitations.
 
 The [executable Gaussian readout comparison](scalar_observations/experimental_readout/EXECUTABLE_READOUT.md)
 uses two calibrated displaced-thermal preparation parameters and executes
@@ -1251,7 +1251,7 @@ apparatus or establishes agreement of every proposed physical attachment.
 [coupled calibration](coupled_reconstruction/README.md) recover parameters
 and geometry within supplied action families, then predict complete
 measurement histories with disturbance and feedback. Basis, preparation,
-instrument access and calibrated clock hypotheses remain explicit.
+instrument access and calibrated clock hypotheses are explicit.
 Identification of the reconstructed field geometry with native observer
 geometry is unresolved.
 
@@ -1323,7 +1323,7 @@ physical detector/clock identifications and discriminating data with justified
 errors. Existing public observations can test this construction without a
 physical emulator. The [complete-output criterion](CONSTRUCTION.md#the-observable-correspondence-to-establish)
 specifies what it means for the native and effective descriptions to agree.
-Supplied benchmark structure remains a premise until its connection is
+Supplied benchmark structure is a premise until its connection is
 demonstrated.
 
 - [Observer-relative recovery](OBSERVER_RELATIVE_RECOVERY.md): current native

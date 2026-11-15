@@ -130,8 +130,8 @@ the archived variance ratio and the simple and joint normal equations
 recover their absolute covariance matrix. All rows satisfy the retained
 positive-semidefinite and regression checks; 256 independently retained
 parent variances agree to maximum relative error \(4.15\times10^{-13}\).
-Fresh arrays were not independently hashed at production, so that part of
-the reconstruction remains conditional on the pinned producer and random
+Fresh arrays carry no independent production hash, so that part of
+the reconstruction is conditional on the pinned producer and random
 number generator semantics, including the shuffled-control permutation.
 
 For unshuffled level-eight to level-nine chains, the mean inherited-only

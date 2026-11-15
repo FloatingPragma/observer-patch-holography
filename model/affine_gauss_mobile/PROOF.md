@@ -93,7 +93,7 @@ canonical commutators for the truncated transverse coordinates. A local
 untruncated Ampere law with a canonical current requires additional cutoff
 control and is not asserted.
 
-The compensated charge pump is still D_y/2 on the actual neutral ground.
+The compensated charge pump is D_y/2 on the actual neutral ground.
 It has success probability 1/4 and failure probability 3/4, with every
 branch physical. Its successful state is
 `psi_y=|one charge at y, matched reference and longitudinal bits> tensor |0_ph>`.

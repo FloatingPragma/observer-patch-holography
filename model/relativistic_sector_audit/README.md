@@ -29,7 +29,7 @@ The scaling choice is `c=v/a`, with positive fixed model speed `v`; each
 There is **no scalar subtraction, chemical-potential
 shift, mass term or time reversal**. In particular, this is a different
 comparison from the reflected, critically tuned [moving pair](../moving_bound_pair/README.md).
-The local action and its native implementation remain declared simulator
+The local action and its native implementation are declared simulator
 inputs, not inferred physical constants.
 This is a growing-lattice scaling branch, distinct from the fixed eight-site
 protected-cube experiment. The same local formula does not prove that these

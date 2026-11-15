@@ -36,7 +36,7 @@ Neither it nor the ordered-memory object is silently identified with the
 [M15 field/current attachment](../standard_model_source_map/FERMION_ATTACHMENT.md).
 The [complete charged-link transport](../gauge_defect_transport/PROOF.md)
 preserves its independent endpoint currents and original move/hold records;
-its extra matter/link registers and clock remain declared architecture.
+its extra matter/link registers and clock are declared architecture.
 
 There is also a substantive source-to-field map to reuse without inventing
 an internal representation: the catalogue's selected spin charge acts on

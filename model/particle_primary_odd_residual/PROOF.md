@@ -274,7 +274,7 @@ The final interval in (16) lies within the broad excitation enclosure
 from (8), but this overlap supplies no spectral identification. The
 coherent probe has cubic operator type \(A_{1u}\); a mixed input state
 does not force its output to have that state irrep. The trial spectrum
-and the selected response therefore remain separate consequences of one
+and the selected response therefore are separate consequences of one
 Hamiltonian. An isolated component and its original residue require a
 spectral projection or excluded-complement estimate joining them. Rest
 energy also requires physical momentum and controlled dispersion of that

@@ -5,7 +5,7 @@ supplied coherent service class. The analytic target is exactly local as an
 observable action. The literal binary64 source word approximates its complete
 channel with a certified operator error below `10^-9` per request. Physical
 apparatus accuracy is a separate premise. CP-02, dimensional time/energy
-normalization, field and gravity joins remain open.
+normalization, field and gravity joins are open.
 
 The [typed contract](contract.json) freezes upstream
 `1f14865fe560f5788a990a1b25884d6f91d12858`, the accepted V2

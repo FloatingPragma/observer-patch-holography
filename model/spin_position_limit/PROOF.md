@@ -66,7 +66,7 @@ on every fixed density matrix, including any fixed untouched reference:
 first verify this for finite-rank trace-class operators, then use
 contraction and trace-norm density. This is pointwise convergence, not
 uniform diamond-norm convergence on the infinite-dimensional space.
-At every finite n the dark branch remains necessary.
+At every finite n the dark branch is necessary.
 
 ## 2. Bounded source probes give the finite Gram matrices
 
@@ -173,7 +173,7 @@ including their preparation and approximation errors. Their algebraic
 existence can be combined with (1)--(7) to obtain an ordered-limit
 readout. The host interpreter's resource cap, exponential circuit cost,
 unknown effective ground/scaling modulus, and growing-time accuracy
-remain distinct limits on running a prescribed continuum experiment.
+are distinct limits on running a prescribed continuum experiment.
 The source state, translation action and clock are not replaced in this
 comparison.
 

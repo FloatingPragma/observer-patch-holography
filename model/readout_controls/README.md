@@ -46,7 +46,7 @@ product's representation error or floating density propagation. To state a
 normalized mathematical comparison, it bounds the canonical completion
 `K_b (sum K_b* K_b)^(-1/2)`. That completion is not executed, and no runtime
 state or raw source matrix is normalized or repaired here. Physical coherent
-services and readout errors remain separate obligations.
+services and readout errors are separate obligations.
 
 The empirical rule retains all 46 origin measurements and all 240 nominal
 opposite-coordinate pairs, without fitting an offset, gain or action. All
@@ -141,8 +141,7 @@ it is not a projection of the raw source matrix. The comparison extends
 native operations as CPTP maps on the padding and retains a failed record
 there. Raw rounded source matrices are not assumed exactly trace preserving.
 The statistical design applies to the exact ideal candidate laws, while
-source representation diagnostics and physical implementation errors remain
-separate. For independent physical trials, a trace-preserving trial law within
+source representation diagnostics and physical implementation errors are separate. For independent physical trials, a trace-preserving trial law within
 total variation `epsilon` of its candidate gives the conservative bound
 `0.01 + 3579*epsilon`. The same bound holds without independence if every
 actual conditional trial law, given its past, is uniformly within `epsilon`

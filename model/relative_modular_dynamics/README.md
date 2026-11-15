@@ -123,8 +123,7 @@ probability stays `1/2` after every integer number `n` of native repair
 attempts. The executable boundary test checks `n=0,...,8` against the actual
 primitive runtime for both laws C and E; real-linearity proves the same result
 for every `n`. At a modular quarter turn, the ideal target instead gives
-`69/140` for C and `109/220` for E. Thus the ideal modular intervention remains
-an input, and replacing it with the current native repair dynamics would erase
+`69/140` for C and `109/220` for E. Thus the ideal modular intervention is an input, and replacing it with the current native repair dynamics would erase
 the phase signal. This is an obstruction for the committed finite observer
 implementation, not a theorem that no other OPH construction could generate
 modular evolution.

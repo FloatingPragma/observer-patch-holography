@@ -11,8 +11,7 @@ The retained field is the open `2 x 2 x 1` plaquette, `c=1/8`, `U=1`:
 eight CAR modes and all 256 occupation states. The region contains the
 first two sites, or modes `(0,1,2,3)`, with all sixteen regional states.
 No number sector, boundary bond, thermal eigenvalue or detector outcome
-is removed. The action, spatial lattice and inverse temperature remain
-declared simulator parameters. The existing source implements its field
+is removed. The action, spatial lattice and inverse temperature are declared simulator parameters. The existing source implements its field
 action, but this package does **not** execute preparation of its full
 plaquette Gibbs reference. That would exceed the smaller, already executed
 [two-site Gibbs preparation](../field_thermal/README.md).

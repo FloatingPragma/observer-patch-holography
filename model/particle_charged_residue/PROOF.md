@@ -217,5 +217,5 @@ Subtracting the certified source ground-energy interval translates the
 final-energy readout into excitation energy, with the ground interval's
 width retained. It neither inserts a chemical potential nor selects a
 different clock. A relativistic dispersion relation, spatial localization,
-physical spin, scattering and measured mass remain separate source
+physical spin, scattering and measured mass are separate source
 requirements.

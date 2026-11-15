@@ -144,8 +144,7 @@ The complete X probe has probabilities `(1+/-r)/2`, where
 `r=(3/5)cos(t)`. Assigning its two records the values
 `-log((1+/-r)/2)` implements the spectral readout of the fixed reference
 `K_A(t)`. Both records are used. The four reserved outcomes of the six-level
-pointer have zero ideal probability; native complement records remain
-explicit outcomes with their own error budget.
+pointer have zero ideal probability; native complement records are explicit outcomes with their own error budget.
 
 Pulse the bond coefficient by `1+lambda` for duration `t`, keeping
 `Omega_B`, the energy origin and the observation clock fixed. The resulting

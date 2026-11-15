@@ -198,7 +198,7 @@ perturbative evolution is conditional on these inputs. The beta function
 cannot select its own integration constant: at one loop,
 \(\alpha_s(\mu)^{-1}=\alpha_s(\mu_0)^{-1}+2b_0\log(\mu/\mu_0)\),
 where \(b_0=(33-2n_f)/(12\pi)\) in the stated PDG convention.
-Distinct positive input couplings remain distinct wherever both solutions
+Distinct positive input couplings are distinct wherever both solutions
 exist.
 
 At \(\mu=m_h(m_h)\), the high-flavor to low-flavor matching is

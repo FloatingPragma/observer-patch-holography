@@ -17,7 +17,7 @@ functions, hence in Haar L². Products give the same result for all links.
 Because P_l commutes with E, `P_l psi -> psi` in the electric form norm for
 every psi in D(sqrt(E)). Thus their union is a form core for H. This covers
 both total-degree and product-per-link spaces, while their finite matrices
-and states remain distinct. For general form convergence background, see
+and states are distinct. For general form convergence background, see
 [Simon, J. Functional Analysis28 (1978),377–385](https://doi.org/10.1016/0022-1236(78)90094-0).
 Here commutation with E supplies the form-core approximation directly.
 

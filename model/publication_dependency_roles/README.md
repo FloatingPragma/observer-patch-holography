@@ -14,7 +14,7 @@ is no general document exemption. [The exact register](roles.json) and
 [checker](check.py) state the complete scope.
 
 The Yang–Mills presentation has one-way publication custody. Its scientific
-criterion, code, Lean proofs and data remain inputs of the original owners;
+criterion, code, Lean proofs and data are inputs of the original owners;
 the paper binds those accepted outputs without becoming an input to their
 calculations. Run `python3 -m model.publication_dependency_roles.paper_check
 --write`, then `--check`, after editing the paper. Repeated binding edges are

@@ -128,7 +128,7 @@ eigenvalues nor the controller's attempted-repair rate is a measured
 kinetic mass. Assigning kilograms or seconds requires an independent common
 observer-clock and energy dictionary. `E=mc²` remains a subsequent
 same-candidate check against independently measured rest action, moving
-response and conserved stress. CP-04 remains open.
+response and conserved stress. CP-04 is open.
 
 ```sh
 python -m model.screened_transport.transport --check

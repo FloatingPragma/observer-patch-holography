@@ -241,7 +241,7 @@ The [existing charged-string experiment](../particle_primary_charged_string/PROO
 supplies opposite regional Q6 increments plus6 and minus6 on
 this source. Its pair operator is even, retains its compensating endpoint,
 and is not itself a single fermion. Attaching a spin-resolved charged
-regional excitation to its energy and dispersion remains a separate join.
+regional excitation to its energy and dispersion is a separate join.
 Nothing here assigns a trion to an electron, muon, tau or quark. A singlet
 transformation alone also neither establishes nor excludes a dressed
 neutrino interpretation; its currents and physical dynamics would have

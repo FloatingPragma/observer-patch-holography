@@ -218,7 +218,7 @@ the recorded site coordinate is at least Var(X_i), since its additional
 noise is `sum_x (a x_i)² F_x-X_i²>=0`; this follows directly from the
 complete position isometry and its positive orthogonal complement.
 Consequently (7) also lower-bounds the product using the actual position
-record variance and momentum variance. Vacuum records remain included.
+record variance and momentum variance. Vacuum records are included.
 
 Finite trace gives `Tr[X_i,P_j]=0`, excluding `[X_i,P_j]=i hbar I`
 for nonzero hbar. The initial canonical state has zero momentum variance

@@ -36,7 +36,7 @@ The unconditioned field density is `Q8^2/Tr(Q8^2)` in the original Weyl
 frame. Its extension retains a **classical column record**. It is not a
 pure thermofield purification, and a selected record's conditional field
 is not claimed to be Gibbs. The native word is run for every one of the
-256 branches; failures remain separate outputs and are never normalized
+256 branches; failures are separate outputs and are never normalized
 away. The full source snapshots and lazy failure vectors are available
 from `prepare()`. A trajectory uses at most 10,855 native pulses, eight
 readouts, eight initialized field bits and eight retained record bits.

@@ -1,0 +1,10 @@
+{
+  "omitted_cache": "openwave/shared/paired_source_moments/__pycache__/run.cpython-313.pyc",
+  "omitted_cache_sha256": "28e96245186391365441d7f4d86e8d3741bbec55d50dc39a2e6d280f8f43bff3",
+  "original_artifact_modified": false,
+  "prereg": "openwave/shared/static_candidate_join/PREREG.json",
+  "prereg_sha256": "f86a30c715fd44b62e4c7b552d3ce64bfd09f482c69e4b270e120f5d44945acb",
+  "reason": "CPython bytecode is interpreter- and location-dependent; the matching Python source is included and hash-verified.",
+  "schema": "oph.static.portability.v1",
+  "scratch_change": "Remove exactly the omitted cache entry from PREREG.json in the temporary execution copy. Preserve every other preregistration field, code byte, input and expected result."
+}

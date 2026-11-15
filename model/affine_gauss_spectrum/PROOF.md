@@ -185,7 +185,7 @@ nonzero transverse-field contribution.
 These statements refer to the same source, state preparation, reference
 and evolution clock. Subtracting the known reference energy1 reports the
 source contribution to the transition energy. The compensator stays at
-one vertex, so the construction still describes a finite boundary problem.
+one vertex, so the construction describes a finite boundary problem.
 Its thirteen spatial levels are not thirteen particle species. Neither a
 translation-invariant mass shell, Lorentz spin, GeV mass nor Standard Model
 identity follows from these bounds.

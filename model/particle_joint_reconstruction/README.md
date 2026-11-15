@@ -89,7 +89,7 @@ Together with `H(p)<=ell b log(451)` and `S_edge<=ell b log(6)`, this
 bounds full source mutual information by a boundary count plus `r`.
 A noninteracting polynomial control proves that `r` cannot be omitted.
 The coefficient diverges along refinement; proper area, a geometric
-modular kernel and Einstein dynamics remain separate premises.
+modular kernel and Einstein dynamics are separate premises.
 
 The next shared physical acceptance is a nontrivial finite-energy field
 on this common subsequence, with effective correlation and apparatus errors
@@ -241,8 +241,7 @@ give a distinct even-sector result: complete Walsh first moments are
 `s tau/7200`, `s=0,1,2,3`, with `tau>0.2373`. The constant row is
 elastic and the others are inelastic; complete clocks preserve their
 ordered means. The four original odd spectral measures, their normalized
-energy-shape dependence, a resolved branch and conserved momentum remain
-separate inputs.
+energy-shape dependence, a resolved branch and conserved momentum are separate inputs.
 
 The [full odd resolvent](../particle_primary_odd_resolvent/PROOF.md)
 is bounded at interaction coefficient one, including the entire physical
@@ -276,7 +275,7 @@ with 18 named elementary targets. Exact gauge weights motivate family
 hypotheses; they do not assign flavors, Lorentz spin or particle masses.
 The actual `Q6=+6`, `G1` endpoint is a charged-lepton-conjugate-singlet-type
 lead, shared by the electron, muon and tau hypotheses. The protected
-catalogue and source-excitation identifiers remain distinct. The
+catalogue and source-excitation identifiers are distinct. The
 [common-ground ratio calculation](../standard_model_source_map/candidates/FINITE_SECTOR_RATIOS.md)
 bounds every ordered ratio of the three member-zero neutral sector
 thresholds below21.16, and the two odd-family ratios below15.31.
