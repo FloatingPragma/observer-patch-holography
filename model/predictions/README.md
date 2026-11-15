@@ -261,9 +261,9 @@ confidence bounds on physical resources; the sample Allan value is not a
 certified population upper bound. No continuum refinement level follows.
 The refining source has `M_l=630*4^l` seams and `a_l=1260*16^l` attempts per
 density-coordinate unit, hence a fixed degree-d port has **expected**
-`a_l*d/M_l=2*d*4^l` incidents. Its seconds calibration remains free, and the
+`a_l*d/M_l=2*d*4^l` incidents. Its seconds calibration is free, and the
 thirty-seam regional floor does not transfer to arbitrary refined regions.
-Identical regional event sets satisfy `B(N)=N` and remain outside the test.
+Identical regional event sets satisfy `B(N)=N` and are outside the test.
 
 The clock and field comparison also reuses the existing
 [pair-incidence reconstruction](../relative_observer_geometry/README.md#inferring-nonuniform-scheduling-from-clock-comparisons)
@@ -525,7 +525,7 @@ Nor is `sqrt(L)` the exact finite native-walk frequency:
 dispersion error; its band gaps converge only under the stated scaling.
 The continuation below compiles the spectral-pair detector and square-root
 comparison unitary on this logical register. Positive-phase encoding of the
-native arc walk remains separate. This is neither a prepared
+native arc walk is separate. This is neither a prepared
 Fock state nor a radial product state. The ideal densities are central on
 the represented group algebra, where modular flow is trivial; source
 approximation errors have separate guards. Nontrivial gaps concern the
@@ -641,7 +641,7 @@ are separate supplied service calls, with ideal mean `2*Psuccess`. Exact
 uniform selection among thirty possibilities has no fixed finite fair-bit
 implementation, so no such worst-case bit budget is claimed.
 Preparation blanks, protected storage, coherent source services,
-herald/readout and the controller's paused-carrier schedule remain supplied.
+herald/readout and the controller's paused-carrier schedule are supplied.
 Physical duration, drift and service fidelity are not bounded.
 
 This completes the finite preparation-to-clock-and-detector connection.
@@ -691,7 +691,7 @@ Since `Re C=Tr(rho(sum A_k)^2)/2>=0`, the exponential remainder is at most
 `|C|^2/(2N^2)`. Telescoping between two contractions gives the bound above.
 This directly proves the ordered Gaussian/CCR limit without assigning
 separate polarized states to the modes. Independent copies and their
-preparation remain premises.
+preparation are premises.
 
 The executed witness uses representatives of all three nonconstant bands,
 one prepared work register, and a source-compiled pointer. All 32 joint

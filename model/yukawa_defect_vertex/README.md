@@ -10,8 +10,7 @@ a nonzero pair-pointer response while retaining its quantum charge reference.
 The measured scalar spectral moment is `14/5`, whereas the fermion spectral
 sum is the identity. Normalizing those complete responses gives the finite
 contact coefficient `sqrt(14/5)`. Its normalization comes from the source
-records. The primitive unit interaction and the finite source clock remain
-declared construction data. This is a one-family onsite result, with a
+records. The primitive unit interaction and the finite source clock are declared construction data. This is a one-family onsite result, with a
 separate [proof](PROOF.md) of what the coefficient measures; it supplies no
 on-shell particle masses or three-family hierarchy.
 

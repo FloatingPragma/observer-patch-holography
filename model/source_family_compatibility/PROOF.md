@@ -175,7 +175,7 @@ ground is invariant as a state. The stated ordered limits preserve this
 action. The producer checks all24 rotations on the complete side-four
 source graph: all64 sites, all192 bonds and every selection sign remain.
 This is an exact graph/operator argument, not a diagonalization of2^64
-states. The inherited positive-field uniqueness premise remains explicit.
+states. The inherited positive-field uniqueness premise is explicit.
 
 Site rotations satisfy alpha_R beta_x alpha_R^(-1)=beta_(Rx), because
 coordinate parity is preserved and the internal pi rotation in beta acts

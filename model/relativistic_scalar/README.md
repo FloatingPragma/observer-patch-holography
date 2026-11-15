@@ -6,7 +6,7 @@ measurement records and their feedback, and compares the **complete history**
 with eight unrestricted oscillators using exact rational certificates.
 The untruncated field has a finite-volume spectral gap bounded below by its
 supplied mass. Its free spatial refinement approaches Klein--Gordon.
-A controlled **interacting relativistic** observation domain remains open.
+A controlled **interacting relativistic** observation domain is open.
 
 ```sh
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 -m model.relativistic_scalar --check model/relativistic_scalar/results.json
@@ -126,5 +126,5 @@ model-time schedule are apparatus choices. Their success does not select
 them from native repair or constitute an independent prediction of nature.
 
 Blank initialization, coherent code services, storage, routing and pointer
-readout remain specified apparatus. Source resource counts do not include
+readout are specified apparatus. Source resource counts do not include
 those physical preparation/readout costs or establish efficient hardware.

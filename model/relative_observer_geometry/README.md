@@ -21,8 +21,7 @@ the loads by
 n_i(k)-n_i(k-1)=j_k(\mathbf1_{i=b_k}-\mathbf1_{i=a_k}).
 \]
 
-The rule, carrier, preparation service, record access and scheduler remain
-premises. The packet first checks this equality on **all 3,960** native
+The rule, carrier, preparation service, record access and scheduler are premises. The packet first checks this equality on **all 3,960** native
 configuration/seam/coin branches. Summing these one-step identities gives an
 exact reconstruction for every finite prefix, without importing a field action:
 
@@ -174,7 +173,7 @@ zero-count probability is `4/5` rather than `4/9` for ports 0 and 1.
 Temporal independence therefore remains testable with further interval
 records. Finite data also cannot distinguish an absent seam from an
 arbitrarily rare one without an exposure bound. Local initial-bit disclosure and
-incident-current readback remain necessary for the field observation. A
+incident-current readback are necessary for the field observation. A
 physical clock or Lorentzian geometry is not inferred from this probability
 normalization.
 
@@ -249,7 +248,7 @@ is exactly zero for these known even preparations, so empirical exposure
 weights introduce no sampling error in the declared native model. Tests also
 run every setting with coin zero alone and coin one alone, and with unequal
 repetition counts. Known preparations, authenticated records and complete seam
-coverage remain required. A missing seam does not inherit the carrier
+coverage are required. A missing seam does not inherit the carrier
 certificate; contradictory currents are rejected. This is a noiseless native
 model result. Laboratory preparation and detector errors need a separate
 error model; no experimental accuracy claim follows from the 360-shot result.
@@ -321,7 +320,7 @@ There are 250 deterministic settings and 110 two-outcome settings. The latter
 have a cap of 24 native attempts each. If every fresh coin is fair conditional
 on the past, the probability of any timeout is at most
 `110 * 2^(1-24) = 55/4194304`; at most 2,890 attempts execute. A failed setting
-remains an explicit timeout and supplies no calibrated geometry. The retained
+is an explicit timeout and supplies no calibrated geometry. The retained
 seeded execution uses **578 attempts**, succeeds, and retains its entire
 current transcript. The seed reproduces software branches; it does not certify
 independent laboratory entropy. The estimator checks current support and
@@ -618,7 +617,7 @@ the stronger joint result.
 The port can count its own ticks; this does not grant it the complete spatial
 record access needed for an arbitrary field smearing. Initial local field
 disclosure, complete incident currents, any admitted regional aggregation,
-the uniform independent scheduler and the source refinement remain explicit.
+the uniform independent scheduler and the source refinement are explicit.
 The normalization connects native incident clocks to the density continuum
 parameter. It does not identify that parameter with modular flow, Lorentzian
 proper time, or atomic-clock seconds.
@@ -628,7 +627,7 @@ proper time, or atomic-clock seconds.
 The fixed-port requirement can be removed for the path correspondence.
 Before attempt `j`, choose a port `v_j` using any earlier available records,
 including density records. Its degree `d_j` is five or six and is disclosed.
-The fresh seam remains independent and uniform on the same `M_l` seams.
+The fresh seam is independent and uniform on the same `M_l` seams.
 This is passive access: choosing the port changes neither the preparation
 nor the repair law. The path and any access needed to change ports are
 supplied; autonomous motion or a physical worldline is not constructed.
@@ -811,7 +810,7 @@ measure and clock therefore carry information absent from the slow-band rank.
 
 This establishes a **measurable Lorentz-signature description of the declared
 product wave**. The radial domain, boundary condition and active wave
-protocol remain construction inputs. No smooth native coefficient field,
+protocol are construction inputs. No smooth native coefficient field,
 unique whole-sequence limit, curvature, Einstein dynamics, interacting QFT
 or physical radial transport follows. If the **whole coefficient density**
 `C=mu diag(-1,a)` has a smooth nondegenerate representative in a fixed
@@ -852,8 +851,7 @@ converging uniformly to `rho`, with uniformly bounded gradients and
 gradient convergence almost everywhere along a subsequence. Smooth
 `a_epsilon=diag(1,a_screen_epsilon)` converge almost everywhere to `a`
 with common ellipticity bounds. Both choices preserve the radial domain
-and Dirichlet boundary condition, and their screen coefficients remain
-independent of `r`. Set
+and Dirichlet boundary condition, and their screen coefficients are independent of `r`. Set
 `H_epsilon=L2(rho_epsilon dnu)`, `H=L2(rho dnu)` and identify them by
 the explicit unitary `U_epsilon f=sqrt(rho_epsilon/rho) f`.
 The corresponding smooth-theory smearing is `U_epsilon^-1 f`; this local
@@ -1014,7 +1012,7 @@ an exact Lorentz-signature **comparison metric for those averaged
 coefficients**. A metric of an average is not an average of the metric.
 The limiting metric uses (NR) and the subsequent shrinking-chart limit
 before the nonlinear density-to-metric map. The radial domain and active
-wave law remain supplied; neither native density time nor this calibration
+wave law are supplied; neither native density time nor this calibration
 is identified with wave time, a modular parameter or laboratory seconds.
 
 ### Intrinsic distance is the product wave's first response
@@ -1325,8 +1323,7 @@ an explicit preparation/access contract, compatible local restrictions,
 complete continuing records, and a testable clock comparison domain. The
 single-carrier structural Gram is invariant under the admitted changes of
 calibration exposure; the native dynamical slow band need not be. Connecting
-these field and clock readouts to one effective spacetime description remains
-an open obligation, with the joint observable laws and their premises held
+these field and clock readouts to one effective spacetime description is an open obligation, with the joint observable laws and their premises held
 fixed. These are finite model results without an empirical comparison.
 
 ## Reproduce

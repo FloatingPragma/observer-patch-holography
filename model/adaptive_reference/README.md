@@ -1,7 +1,7 @@
 # Native feedback with a stationary finite controller
 
-This closes a finite CP-02 scheduler premise that the earlier
-`continuing_reference` construction left open. The new policy genuinely
+This closes a finite CP-02 scheduler premise that the separate
+`continuing_reference` construction leaves open. The policy genuinely
 changes the next repair according to the current raw native record. Its
 two classical working bits and the quantum field have a stationary joint
 marginal. The complete growing archive is retained and is **not** stationary.
@@ -57,8 +57,8 @@ after tracing source readouts, seed records, and subsequent archive records.
 The modular generator on the successful CQ algebra is
 `-gamma N-M log(a)+log(4)`. Its automorphism is implemented by
 `exp(i t gamma N)` in every memory sector. Each complete adaptive instrument
-intertwines that charge flow, including its output archive; the earlier
-literal clock-word bounds apply. This remains a charge clock, scalar on each
+intertwines that charge flow, including its output archive; the parent's
+literal clock-word bounds apply. This is a charge clock, scalar on each
 fixed-number sector, and supplies no physical energy-temperature identity.
 
 ## Exact native initialization, finite memory, growing archive
@@ -76,9 +76,9 @@ The two working bits are reused reversibly; the archive is not reused.
 After `n` proper ticks there are `17^n` formal repair words, including zeros,
 plus the repeated bypass word on initial abort sectors. Five bits per tick
 suffice to store the 18-symbol union alphabet. Seed raw records require at
-most six more bits. The field preparation still has all `6^M` local readout
+most six more bits. The field preparation has all `6^M` local readout
 records. A local-region bound traces complete outside outputs before local
-proper-code projection, retaining the earlier volume-independent bounds.
+proper-code projection, retaining the parent's volume-independent bounds.
 The full literal preparation error does not accumulate under ideal balanced
 adaptive evolution. Any implemented per-tick complete-isometry errors
 `epsilon_j` add at most `2 sum epsilon_j` in output trace norm; no hardware

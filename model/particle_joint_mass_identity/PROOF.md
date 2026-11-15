@@ -177,6 +177,6 @@ guard give conditional GeV intervals for these three free coefficients.
 Only the electron value fixes the empirical unit. The phase and family
 dictionary retain the parent's retrospective ancestry, and anchor
 uncertainty, finite-shot error, source-to-laboratory time and interacting
-pole matching remain outside the finite construction. The calibrated
+pole matching are outside the finite construction. The calibrated
 17-target table has its own supplied Yukawa and gauge inputs and is
 reported separately.

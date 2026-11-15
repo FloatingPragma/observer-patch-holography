@@ -106,7 +106,7 @@ distance at least `4/9` from the transported reference. It needs recovery
 and core reanchoring after every attempted native event. No autonomous
 localized state/observable, invariant bond, statistics phase, measured rest
 energy, gravitational stress, or observer-clock lifetime is identified.
-CP-03 remains open. The service does give a concrete component for testing
+CP-03 is open. The service does give a concrete component for testing
 future candidate particle dynamics and cost/energy hypotheses.
 
 ```sh

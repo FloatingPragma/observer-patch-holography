@@ -30,7 +30,7 @@ reduction for arbitrary states in that subspace, arbitrary untouched
 references, and any finite sequence of complete contact/complement reads.
 
 The remaining 113 states of the 120-dimensional physical fiber are contact
-dark and invariant under this protocol. They remain necessary for other
+dark and invariant under this protocol. They are necessary for other
 inputs and observables. In particular, this reduction is not a license to
 remove scattering states, Weyl pockets, other momentum fibers, or the
 many-site occupation pointers used by `band_clock`. All seven reduced
@@ -102,8 +102,7 @@ A common scalar shift changes a unitary by a global phase, so the same
 record-derived rate confidence event `|beta_hat-beta|<=3/80` gives the
 optional rate-error half-diamond bound `77|s|/2560`, for `|s|<=1`, uniformly
 with arbitrary untouched references. This improves the prior conservative
-`9|s|/256` term by 14.4%. The splitting and statistical failure terms remain
-separate, and no new preparation, physical clock, or reference claim is
+`9|s|/256` term by 14.4%. The splitting and statistical failure terms are separate, and no new preparation, physical clock, or reference claim is
 made. The existing `band_clock` receipt retains its valid original bound.
 
 The helper checks the rational edge inequalities exactly. Tests also inspect

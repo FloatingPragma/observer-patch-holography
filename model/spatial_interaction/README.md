@@ -6,7 +6,7 @@ twelve-port source compiler, and retains its complete measurement/feedback
 histories. Exact comparison bounds control evolution-step error and the
 infinite-volume limit. The model is a repulsive **nonrelativistic lattice
 Bose field at fixed spacing**. A relativistic continuum description and
-selection of this action or geometry by native repair remain open.
+selection of this action or geometry by native repair are open.
 
 ```sh
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 -m model.spatial_interaction --check model/spatial_interaction/results.json
@@ -101,7 +101,7 @@ After both 16-step splitting errors, the ideal executed contrast remains
 at least 1802221/393216000, approximately 0.00458328. This positive bound
 comes from the analytic response theorem, not a fitted numerical signal.
 
-## What is characterized, and what remains supplied
+## What is characterized, and what is supplied
 
 The infinite lattice has one bosonic species, conserved particle number,
 repulsive on-site contact interaction and one-particle dispersion
@@ -120,7 +120,7 @@ The completed milestone is a spatially extended interacting construction
 whose records admit a controlled lattice-field description. It supplies a
 concrete step toward the [effective QFT target](../CONSTRUCTION.md), while
 relativistic propagation, a controlled spatial continuum/EFT domain,
-physical clocks and comparison with nature remain additional work. It is
+physical clocks and comparison with nature are additional work. It is
 a separate spatial branch sharing the carrier controls, not yet the spatial
 extension of the existing charged matter/flux/scalar common action.
 Reproducing the deliberately compiled target is an implementation and
@@ -135,8 +135,7 @@ pulses, then checks them against independent target matrices on **every**
 local input, including padding. The target matrices never replace source
 execution. Preparation, feedback and both binary pointer instruments also
 use emitted source words. Blank pointers, initial doublon preparation,
-coherent code load/export, register routing and pointer readout remain
-declared services. Ideal proper-code service-failure probability is zero
+coherent code load/export, register routing and pointer readout are declared services. Ideal proper-code service-failure probability is zero
 by the inherited compiler identities; no nonzero outcome is discarded.
 
 Six disjoint edge matchings make each symmetric step local and give a

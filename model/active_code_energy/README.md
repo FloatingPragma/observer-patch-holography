@@ -1,8 +1,8 @@
 # Same-code current and sector-action ambiguity
 
 This CP-04/#1140 packet tests the native repair records against the sharp
-`q=1` code and the [screened successor](../particle_screening/README.md)
-proposed in the particle lane. It
+`q=1` code and the [screened code](../particle_screening/README.md)
+of the particle lane. It
 replays the unchanged C and E laws on the binary total-two shell. Its
 [campaign](campaign.json), [source-bound receipt](energy_bridge_results.json),
 [implementation](energy_bridge.py) and [independent checks](test_energy_bridge.py)
@@ -14,14 +14,14 @@ No CP-04 physical-energy gate is accepted.
 For a uniformly chosen native seam and coin, the complete population kernel
 has probability `1/60` on each allowed directed movement edge. Its other
 outcomes, including all zero-current flags, are holds. Every basis pair in
-the **prior source-executed code**
+the **two-support source-executed code**
 
 ```text
 |0_L> = (|{0,2}> + |{1,3}>)/sqrt(2)
 |1_L> = (|{0,3}> + |{1,2}>)/sqrt(2)
 ```
 
-has degree ten. The **screened successor** has four supports per column,
+has degree ten. The **screened code** has four supports per column,
 
 ```text
 |0_S> = (|{0,2}> + |{1,3}> + |{0,4}> + |{1,6}>)/2
@@ -33,18 +33,18 @@ code check is owned by [the particle source](../particle_screening/screening.py)
 The nonzero-current
 effect is diagonal on these supports, so **every logical input in either
 code** has rate `10/60 = 1/6` per attempted uniform-seam repair for C and E.
-This supplies the same candidate's native activity for the new screened
+This supplies the same candidate's native activity for the screened
 particle lane. This packet's recovery implementation below belongs to the
-prior code. At its recorded boundary, screened-code recovery was an algebraic
-existence result. The subsequent [screened recovery](../screened_recovery/README.md)
+two-support code; in this packet screened-code recovery is an algebraic
+existence result. The separate [screened recovery](../screened_recovery/README.md)
 executes the screened encoder and all 208 positive source-recovery branches;
 [screened transport](../screened_transport/README.md) joins that recovery to
 the same uniform-seam schedule and an explicit core-label reset.
 The screened code's transported core changes value on `1/15` of uniformly
 selected seam/coin attempts and leaves the native seam set on `1/30`, for
 either law and either logical input. These are native metadata probabilities,
-not an energy cost. The successor supplies the reset protocol and compiler
-resource counts; a physical rest-energy interpretation remains open.
+not an energy cost. The screened packets supply the reset protocol and compiler
+resource counts; a physical rest-energy interpretation is open.
 
 The charge-matched stationary co-moving `q=1` reference has uniform source
 marginal, so its current rate is `5/33`; the code excess is exactly `1/66`
@@ -86,7 +86,7 @@ a stationary law. Every
 movement edge and its reverse have equal probability, and both endpoints
 have the same `q`. Self-loops add no constraint. The receipt checks all
 `300 × 66 = 19,800` edge/core pairs for `f=(1,1,1)` and `f=(1,2,1)`,
-plus the complete raw-record charge premise from the predecessor. The
+plus the complete raw-record charge premise from the reference-balance packet. The
 second factor changes sector probabilities to `(9/35,5/7,1/35)` while the
 conditional distribution, and all native records, inside sharp `q=1` stay
 the same. For any `U(q)`, the native gradient form is zero because
@@ -106,17 +106,17 @@ that reference or identify its energy with an action.
 This is the actual-model reason the normalized symmetrizer result in
 [SourceActionMeasure](../../Lean/Geometry/SourceActionMeasure.lean) must be
 applied **within each connected `q` sector**: the full joint graph is
-disconnected, so sector weights remain free. The formal Gibbs identity in
+disconnected, so sector weights are free. The formal Gibbs identity in
 [GibbsReferenceEnergyIdentification](../../Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean)
 requires the declared `H` and `beta`; it cannot select them from native
-stationarity. These statements coexist with the previously specified
-transported clock reference, whose original sector weights remain one
+stationarity. These statements coexist with the separately specified
+transported clock reference, whose sector weights are one
 possible declared choice.
 
 ## Corrected-code work and the missing inertia test
 
 The source-executed recovery and counted routing below belong **only to the
-prior two-support logical code** on seam `{0,5}`. All positive raw flags are
+two-support logical code** on seam `{0,5}`. All positive raw flags are
 retained; the code has zero abort probability. Source encoder cost is
 `28,635` native pulses once per preparation. The repair word and
 record-selected recovery have these exact per-attempt counts:
@@ -134,18 +134,18 @@ The classical core value changes on reset with probability `1/4` after
 recovery. One 15-bit status/old/new core entry is appended per non-abort
 attempt, including entries with no value change. These are source compiler
 resource counts, not action, joules, dissipated work or an energy per
-calibrated observer-clock interval. The prior packet also shows that omitting
+calibrated observer-clock interval. The two-support code's source packet also shows that omitting
 the explicit core reset leaves only `7/8` in sharp `q=1` after correction.
-These older one-seam counts remain the boundary of this diagnostic. The
-subsequent screened-code protocol executes its own encoder, routing, recovery
+These one-seam counts are the boundary of this diagnostic. The
+separate screened-code protocol executes its own encoder, routing, recovery
 and core reset, with uniform-seam mean native-plus-recovery counts
 `37,499,681/60` for C and `36,870,437/60` for E per attempted repair.
 Its [resource ledger](../screened_recovery/README.md#core-transport-and-service-cost)
 and [full corrected cycle](../screened_transport/README.md#the-full-corrected-cycle-has-a-flat-logical-channel)
-belong to that successor and do not replace the one-seam values above.
+belong to that screened protocol and are separate from the one-seam values above.
 The retained `source_pulse_recovery_executed: false` field describes this
 packet's screened-code implementation boundary, rather than the status of
-the later construction. Neither packet assigns rest energy to pulse counts.
+the screened construction. Neither packet assigns rest energy to pulse counts.
 
 The separate 240-port product-field control has an ideal rest gap and an
 independently differentiated radial-symbol curvature satisfying its own
@@ -160,8 +160,8 @@ form. Neither premise follows from counted pulses. Recorded occupation
 currents satisfy the finite continuity map of
 [RegionalContinuity](../../Lean/Screen/RegionalContinuity.lean), but the
 stress realization and refinement in
-[WardLimitManifest](../../Lean/Dynamics/WardLimitManifest.lean) remain open.
-Thus `E=mc^2` remains a same-candidate test after energy, kinetic response,
+[WardLimitManifest](../../Lean/Dynamics/WardLimitManifest.lean) are open.
+Thus `E=mc^2` is a same-candidate test after energy, kinetic response,
 stress and a common calibrated observer clock have been independently
 specified; it cannot be used to define the code's mass from these counts.
 

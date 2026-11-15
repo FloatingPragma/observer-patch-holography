@@ -30,7 +30,7 @@ subspace becomes less concentrated on the boundary, but two volumes do
 not establish its limiting energies or interacting particles. At mass 4,
 the odd-degree cases satisfy the exact two-zero strong-mass theorem.
 
-Degree, mass, texture dynamics and interactions remain inputs. This
+Degree, mass, texture dynamics and interactions are inputs. This
 calculation supplies neither an action-selection rule nor a current
 intertwiner assigning these modes to quarks or leptons. A protected
 single-particle zero mode is not a calculated massive-defect rest energy.

@@ -120,7 +120,7 @@ not an eigenvalue of a selected photon compression. Its energy is in
 ```
 
 The receipt retains finer outward rational endpoints; the displayed
-decimal endpoints above are also outward. The full reference is still
+decimal endpoints above are also outward. The full reference is
 present. Subtracting its known energy1 gives the source transition
 contribution near0.873809754966. No GeV conversion or relativistic rest
 mass follows from this finite boundary problem.
@@ -172,6 +172,6 @@ services; an efficient native gate implementation is not established.
 
 All these records use the same source Hamiltonian, actual neutral initial
 state, retained reference and clock. The source's finite boundary, photon
-cutoff and spinless CAR architecture remain explicit. The result does
+cutoff and spinless CAR architecture are explicit. The result does
 not identify a Lorentz representation, an asymptotic charged particle,
 a translation-invariant mass shell or a Standard Model species.

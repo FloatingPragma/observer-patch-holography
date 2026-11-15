@@ -174,4 +174,4 @@ readout block. It supplies neither an autonomous readout under simultaneous
 Hamiltonian/repair evolution, a reconstructed Gram matrix from one preparation,
 a thermalization theorem, a source-selected radial texture, a continuum
 interacting field theory, nor Einstein dynamics. Fresh apparatus, source
-preparation and the stated control interval remain explicit inputs.
+preparation and the stated control interval are explicit inputs.

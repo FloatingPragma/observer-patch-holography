@@ -218,7 +218,7 @@ geometric readout is held equal to the flat ball area 4pi R^2, its state
 derivative is zero, whereas the established shell entropy first derivative
 is positive. No choice of positive constant Newton coefficient makes
 that fixed-area variation stationary. A compensating, source-derived
-area response remains necessary. We do not impose it as a new law.
+area response is necessary. We do not impose it as a new law.
 
 This package does not derive a nonzero-U entropy limit, an interacting
 relativistic sector, sharply boosted lattice algebras, a native entropy

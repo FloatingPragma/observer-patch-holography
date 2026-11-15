@@ -267,6 +267,6 @@ register plans is described as an efficient execution.
 This supplies actual bounded spatial fluctuations with uniform original
 energy tightness and certified finite response. A nonzero limiting
 excitation residue, a common momentum attachment, an isolated branch,
-and its rest-energy identification remain separate physical premises.
+and its rest-energy identification are separate physical premises.
 The declared SI conversion can convert an admitted energy interval;
 the construction supplies no source-derived particle mass in GeV.

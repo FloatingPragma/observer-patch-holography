@@ -130,8 +130,7 @@ Each has conditional error below.000258393828. Every interval is positive
 and contains the independent exact weight. This closes full weight
 resolution on the supplied support in the certified emulator. Native
 hardware execution, blind support discovery, relativistic mass shells,
-physical charge/spin and Standard Model species identification remain
-separate questions.
+physical charge/spin and Standard Model species identification are separate questions.
 
 ```sh
 .venv/bin/python -W error -m pytest model/resolved_particle_spectrum -q

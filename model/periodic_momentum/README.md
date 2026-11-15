@@ -235,7 +235,7 @@ The finite global conservation premise is closed for the supplied
 periodic action. Local momentum Ward columns, a symmetric Lorentz stress,
 a physical chart/time and scaling law, geometric modular weights,
 entropy/area stationarity, Newton normalization and an Einstein-register
-inhabitant remain separate. The supplied action and boundary are explicit
+inhabitant are separate. The supplied action and boundary are explicit
 model data, not unexplained assumptions being claimed as discoveries.
 
 ```sh

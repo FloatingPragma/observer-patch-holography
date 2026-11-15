@@ -1,0 +1,48 @@
+{
+  "carrier_occupancies": [
+    1,
+    6
+  ],
+  "decision_scope": "Fixed-geometry repair cannot generate a nonconstant geometry-only scalar; local equivariant load readouts do not identify geometric source shape even at equal one-point variance.",
+  "federation_levels": [
+    0,
+    1
+  ],
+  "geometry_scalar": "q_i=(1/3)log(V_i/V_i_reference), fixed supplied cell cone volume",
+  "native_commit": "14d16994b12adb2320b994044bc75db02378b8b1",
+  "nonclaims": [
+    "No primordial curvature identification",
+    "No source amplitude or tilt derivation",
+    "No continuum or physical-clock identification",
+    "No physical admissibility proof for attached conformal-volume countermodels",
+    "No observational target consulted"
+  ],
+  "preparations": [
+    "uniform_fixed_total",
+    "clustered_fixed_total"
+  ],
+  "readouts": [
+    "load",
+    "local_drive",
+    "local_mismatch"
+  ],
+  "record_attempt_counts": [
+    1,
+    2,
+    4
+  ],
+  "schema": "oph.native-geometric-source.spec.v1",
+  "seed": 20260925,
+  "source_selection": "No physical metric-volume law is added. Load, drive and mismatch are diagnostic alternatives.",
+  "source_sha256": {
+    "oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
+    "oph_exact/federation.py": "29b0bb7a1e4d8a2077f16dbb508b7e08e794a7191a4a9f51e6c1b471e726ca1d",
+    "oph_fpe/core/icosahedral.py": "89fac4f2d24bb4d85c4a84624b3c826e99cb717df68060dd23a4b26c6cfe9adc",
+    "oph_fpe/core/screen_ports.py": "37b79a8a949fad2d18f17e850533c6ef33581f64c8f1a72dd94e45da93cef68e",
+    "oph_fpe/dynamics/self_readback_repair_closure.py": "7e7cda89350be6330c7425df69bf9647549e6e1890a64eaaf28289be6c640b2f",
+    "oph_fpe/finite_groups.py": "1329f07ef90beb9d4be1efa5cd0cb76e323014670d8e90c8f7945eba54e401f6",
+    "oph_fpe/gauge/covariant_overlap.py": "f03127e7314b0be60ba18b0a0b4cc934aa8d314785636258796c68baae374aa9"
+  },
+  "trace_attempts": 64,
+  "units": "Dimensionless load and chart volumes; one clock tick is one uniformly selected seam attempt with fair coin."
+}

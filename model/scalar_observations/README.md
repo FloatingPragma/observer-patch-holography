@@ -56,7 +56,7 @@ The [derivation](DERIVATION.md) proves two different spatial comparisons.
 
 | Comparison | Target and scope |
 | --- | --- |
-| Source execution at fixed occupation | The same finite-code observations with exact spatial gradients. Rational bounds cover temporal splitting and spatial discretization; numerical and physical service errors remain separate. |
+| Source execution at fixed occupation | The same finite-code observations with exact spatial gradients. Rational bounds cover temporal splitting and spatial discretization; numerical and physical service errors are separate. |
 | Seven unrestricted interacting oscillators | The same fixed-band observations with exact gradients. A finite-energy bound includes measurement backreaction and conditional feedback and decreases as `O(n^-2)`. |
 | Finite occupation to unrestricted observations | The [occupation certificate](OCCUPATION_DERIVATION.md) bounds the entire principal history, including preparation, both instruments and conditional feedback. Exact residuals and counted rounding give an ideal source-to-unrestricted record TV bound below 0.054 at the finest retained grid. |
 
@@ -139,7 +139,7 @@ readouts through native source operations. A two-parameter axis fit supplies
 the preparation; the full 64-level detector supplies the predicted binary
 probabilities. Its occupation certificate covers finite preparation and both
 measurement outcomes, while statistical calibration and apparatus errors
-remain separate. This direct execution has a separate factorization
+are separate. This direct execution has a separate factorization
 analysis and its distinct uncertainty calculation.
 
 The next dynamical observation obligation is parameter identification on

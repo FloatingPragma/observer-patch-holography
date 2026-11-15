@@ -163,7 +163,7 @@ demanding the same global stationary space.
 The interference column uses the existing coherent preparation/detection
 protocol at phase `pi/2`; its probability is `3/8+Im(g)/2`. Such a coherent
 experiment distinguishes laws that classical records cannot. Its preparation
-and readout services remain declared apparatus premises.
+and readout services are declared apparatus premises.
 
 ## What this resolves and what remains
 

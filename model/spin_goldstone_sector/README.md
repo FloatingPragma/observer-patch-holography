@@ -306,7 +306,7 @@ This closes nonzero internal Néel order and a genuine gapless spectral sector
 for this fixed-spacing interacting branch. It supplies neither a sharp
 one-particle pole nor Lorentz invariance, scattering completeness, a physical
 photon, a measured particle species, a relativistic rest mass, or Einstein
-dynamics. The earlier bounded-U continuum branch remains distinct.
+dynamics. The earlier bounded-U continuum branch is distinct.
 
 From the repository root:
 

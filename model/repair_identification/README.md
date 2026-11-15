@@ -39,7 +39,7 @@ coherent dilations from coarse current observations.
 | Refinement | Narrowing admissible probability tubes narrows the complete-history bound. Enlarging the finite call cap spends that bound linearly. This is statistical/operational refinement, not a claim of spatial or continuum refinement. |
 
 The coherent proper-code load/export operations, blank preparations,
-addressing and classical read services remain declared apparatus. The source
+addressing and classical read services are declared apparatus. The source
 controls are the existing six-level generators; the implementation executes
 their pulse words. Exact target operators are used only as comparison oracles.
 The apparatus is not a derivation of an autonomous physical clock or a QFT.
@@ -233,8 +233,7 @@ preparation or this independent-trial guarantee.
 
 The analysis reports compatible/excluded locked candidates and the diameter
 bound for any two admissible tables in the tubes. An empty candidate list
-does not rule out the whole family; full-family feasibility then remains
-undecided. No physical observations are fabricated in this packet.
+does not rule out the whole family; full-family feasibility then is undecided. No physical observations are fabricated in this packet.
 
 ## Reproduction and remaining obligations
 

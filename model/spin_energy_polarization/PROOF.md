@@ -251,7 +251,7 @@ A complete-output TV error epsilon changes its mean by at most
 mean-error bounds; the scalar reference cancels. This is the same complete
 source readout principle as `source_energy_effort`, with actual spatial
 weights. The construction needs finite preparation/control precision,
-which remains explicit; no growing native experiment is claimed executed.
+which is explicit; no growing native experiment is claimed executed.
 
 The source supplies weighted work, exact spatial affine covariance,
 cutoff and mesh control, and the explicit current residual. Physical boost

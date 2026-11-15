@@ -1,0 +1,108 @@
+{
+  "construction": "One signed source on the twelve-port carrier under the native repair law, with a complete quantum instrument and current pointer; the same work register is prepared, evolved and read.",
+  "declared_architecture": [
+    "positive-amplitude memory lift of the repair branches",
+    "finite carrier graph (240 ports, 630 seams; twelve-port cell)",
+    "preparation and pointer services",
+    "physical dictionary: boundary source as charge, transfer spectrum as energy, first-current moments as frame and field"
+  ],
+  "evidence": {
+    "full_replay": "python3 -B code/openwave_static_signed_source/replay.py",
+    "proof": "code/openwave_signed_source/PROOF.md",
+    "published_evidence_files_verified": 316,
+    "published_package": "code/openwave_static_signed_source",
+    "recompute": "python3 code/openwave_signed_source/verify.py",
+    "recomputed": {
+      "charge": {
+        "bellman_sources_checked": 132,
+        "boundary_rank": 11,
+        "cell_faces": 20,
+        "cell_seams": 30,
+        "changed_law_controls_absorbed": 0,
+        "face_smith": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "kernel_equals_face_image_over_Z": true,
+        "native_trials_absorbed": 264
+      },
+      "frame": {
+        "C_parallel": 0.15355177902778946,
+        "C_transverse": 0.24120226591665966,
+        "branches": 720,
+        "covariance_axis_dependent": true,
+        "half_turn_returns_covariance": true,
+        "half_turn_reverses_mean": true,
+        "mean_coefficient": -0.09213106741667368,
+        "second_half_turn_returns_mean": true
+      },
+      "rest_energy": {
+        "E12": 12.057508280349891,
+        "E6": 6.014331228348674,
+        "calibration_keV": 511,
+        "constant_mode_energy": 0,
+        "lower_mode_rayleigh_quotient_witness": "1/3",
+        "pair_excess_keV": 2.4508487023415455,
+        "pair_keV": 1024.4508487023415,
+        "ports": 240,
+        "seams": 630,
+        "transfer": "T = I - L/1260"
+      }
+    },
+    "sealed_native_calls": 435080
+  },
+  "official_OpenWave_awards_added": 0,
+  "rows": [
+    {
+      "criterion": "Charge quantization",
+      "criterion_met_on_construction": true,
+      "official_status": "untested",
+      "result": "A primitive integer source on the twelve-port cell: the integer face certificate ker B = im D excludes two sharp half-charge daughters of one signed pair, and the law-dependent stopped flow E[F] = B^T L^+ q is measured: 264 native trials absorb, 48 changed-law controls do not, a planted half-current is detected.",
+      "row": 1,
+      "scope": "A probabilistic alternative between two integer outcomes is distinguished from a fractional charge. The charge dictionary reads the primitive boundary source as electric charge."
+    },
+    {
+      "criterion": "Electron rest energy (mass)",
+      "criterion_met_on_construction": true,
+      "official_status": "untested",
+      "result": "A compact four-port charged ray has positive energy E6 = -1260 log(209/210) = 6.014331228348673 from the full 630-seam transfer operator of the same source; the disjoint pair has E12 = 12.057508280349891, which is 1024.4508487 keV in the unit fixed by 511 keV.",
+      "row": 2,
+      "scope": "511 keV is the permitted calibration of the energy unit, not a predicted number. Lower nonconstant modes and the complementary energy-pointer outcomes are retained."
+    },
+    {
+      "criterion": "Spin-1/2 statistics (720 degree double cover)",
+      "criterion_met_on_construction": true,
+      "official_status": "untested",
+      "result": "Independently measured first-current mean m = ((phi-3)/15) v_p and covariance C_parallel = (3-phi)/9, C_transverse = (phi+2)/15 over 720 branches: the executed proper half-turn returns the covariance and reverses the nonzero mean; the second half-turn returns both. Fixed-seam and off-axis controls discriminate.",
+      "row": 7,
+      "scope": "The executed rotation is a finite symmetry of the addressed cell, distinct from a continuous interpolation; no exchange-statistics claim is made."
+    }
+  ],
+  "schema": "oph.openwave.signed_source.v1",
+  "source_sha256": {
+    "code/openwave_signed_source/PROOF.md": "3e68a1b35ab02c7131f4ff506a0c746464efef730757d2d0f4767fe78faec486",
+    "code/openwave_signed_source/recompute.py": "72e7b560bfc292c5b3d1eec1866f15634498573ecce6637b8c98b2ae71224398",
+    "code/openwave_signed_source/verify.py": "4c5bb6470e9ef9e601710323f669d5b9409c56c37c9ba28d654a68a8ba91b7f4",
+    "code/openwave_static_signed_source/MANIFEST.json": "9ee104176a49d52bb0d2f9f86a4370978edd9d068eefb11460db9b59f223b46e",
+    "code/openwave_static_signed_source/replay.py": "f725471d161f9d25efdfb420b079024a2ffecdae9e7cfe044fe252456c1b7c19",
+    "tools/build_openwave_signed_source_claim.py": "ab329773ad09c469cffc04e39359a9ab80249beab797168b8a487e3de70d2d19"
+  }
+}

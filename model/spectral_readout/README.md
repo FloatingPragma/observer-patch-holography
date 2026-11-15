@@ -288,7 +288,7 @@ It supplies no convergence rate beyond the explicit dynamics terms and
 the retained unknown state discrepancy. Together with the exact positive
 kernels and calculated finite distributions, it closes a controlled
 finite-resolution energy-readout interface; the continuum particle and
-gravity identifications remain separate requirements.
+gravity identifications are separate requirements.
 
 ## Replay
 

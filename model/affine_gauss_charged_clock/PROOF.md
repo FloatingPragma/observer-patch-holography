@@ -281,7 +281,7 @@ three aggregate records are `3/4`, `p_accept/4` and
 aggregates and the exact full 14M-label law.
 
 The actual unconditional false-positive probability is at most b/4.
-Conditional on acceptance, with the phase outcome still retained, the
+Conditional on acceptance, with the phase outcome retained, the
 source ground fidelity is at least `g/(g+b)`. This bounds the source
 marginal of the accepted joint state; it does not assert an exactly pure
 ground or an erased phase record. The bounds give

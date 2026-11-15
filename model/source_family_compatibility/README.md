@@ -28,8 +28,7 @@ source/reference/archive error by occupation-defect expectations along the
 same ideal Hubbard evolution. The positive interaction energy controls
 those expectations, including actual doublon--hole creation, without a
 global strong-coupling projection premise. Energy-changing controls require
-their own work budget. The action, initial state and physical clock remain
-separate selection premises.
+their own work budget. The action, initial state and physical clock are separate selection premises.
 
 At fixed couplings, the [local full-source construction](LOCAL_MATTER_READOUT.md)
 retains odd fermion probes and interacting spin observables on one centered
@@ -124,7 +123,7 @@ The [actual locality comparison](NODAL_LOCALITY.md) turns a positive nodal
 atom into positive original weight in a bounded physical-energy window
 for packets supported within O(a) of a node on the fixed-reference ballistic family. A certified atom floor supplies
 computable spacing and score-error budgets. The converse follows from the
-necessary-atom theorem; actual atom positivity and dispersion remain open.
+necessary-atom theorem; actual atom positivity and dispersion are open.
 The [full-CAR spin/eta star](NODAL_MOMENT_BOUNDS.md) uses eight mutually
 canonical orbitals and retains every occupation sector. The two signs of
 the weak couplings bound both endpoints of the affine force Gram, giving

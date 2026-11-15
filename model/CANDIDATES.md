@@ -552,7 +552,7 @@ owns complete source execution. They replace the coordination in #1076 and
 #1077. The original q=3 scalar preparation and five retained-pointer
 histories remain an unexecuted benchmark. CP-00/CP-13 must explicitly decide
 whether to complete or retire it from the active path without relabeling
-its status. Its large common-code word remains unexecuted. Later complete
+its status. Its large common-code word is unexecuted. Later complete
 native and two-site programs establish their own finite milestones and do
 not silently replace that deliverable. No entry closes a physical premise by
 renaming it. Completion requires the simplest shared rule to satisfy the

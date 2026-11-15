@@ -100,7 +100,7 @@ at most `min(1,|t|B)`, including untouched references and subsequent complete
 instruments. Add the inherited simultaneous statistical failure probability
 for an unconditional channel bound against an oracle using the same
 record-determined stop decisions. This does not bound distance to a protocol
-that always proceeds. Stops remain outputs, not postselection.
+that always proceeds. Stops are outputs, not postselection.
 Here `t` is a **new declared parent-action parameter**. It is not automatically
 the modular parameter, native event count or physical duration.
 
@@ -123,7 +123,7 @@ degrees of freedom, a non-Gibbs operational clock comparison or refinement.
 Each surviving route requires its own complete state/action/clock mapping.
 The existing positive modular-clock result remains intact. Common physical
 normalization, a localized particle, independent kinetic dispersion and
-conserved stress/Ward identities remain open. No integrated gate is accepted.
+conserved stress/Ward identities are open. No integrated gate is accepted.
 
 ```sh
 python -m model.record_action.action --write

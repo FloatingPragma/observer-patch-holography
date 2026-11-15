@@ -53,7 +53,7 @@ linear-algebra proof, not an enumeration to a finite copy cutoff. All 30
 proper nonempty binary truncations have retained nonzero trace witnesses.
 For arbitrary left/right copies of these same representations, replace `n`
 by `n_left − n_right`: arbitrary vectorlike additions survive, and the
-complete signed generation number remains free. Anomaly cancellation does
+complete signed generation number is free. Anomaly cancellation does
 not select three generations.
 
 There are four weak doublets per complete generation (three from the color
@@ -67,7 +67,7 @@ established mathematics; see [Bilal, sections 4–7](https://arxiv.org/abs/0802.
 and [Wang, Wen and Witten's account of the original SU(2) anomaly](https://arxiv.org/abs/1810.00844).
 The mathematical result here is the exact source-current attachment.
 Physical Weyl chirality, local gauging, a regulator and a complete quantum
-measure remain separate requirements. The classification requires these
+measure are separate requirements. The classification requires these
 fermionic contributions to vanish by themselves: additional charged states,
 Green–Schwarz cancellation or anomaly inflow change the system being tested. In particular, four left and four
 right lattice nodes can cancel these traces while having zero net chirality;

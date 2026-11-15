@@ -3,7 +3,7 @@
 The centered source has a controlled interacting **spin** limit on every
 fixed finite graph. The result includes an isometry into its actual Fock
 space, a uniform-in-input real-time error, and a charged-sector gap. The
-same source's continuum charged fields remain free for the larger coupling
+same source's continuum charged fields are free for the larger coupling
 class `U(c)=o((log c)^(3/2))`, `c=v/a -> infinity`. These are different
 limits. Neither result constructs a massive interacting relativistic
 continuum sector or identifies a measured particle.

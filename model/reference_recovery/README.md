@@ -80,5 +80,5 @@ python -m model.reference_recovery.recovery
 
 The result supplies CP-02's bounded source implementation of the reference
 map. Common native full-field reference selection, scalable compilation,
-physical initialization and clock calibration remain open. No canonical
+physical initialization and clock calibration are open. No canonical
 physical premise is discharged by this package.

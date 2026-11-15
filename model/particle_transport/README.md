@@ -294,7 +294,7 @@ merely because both constructions use source operations.
 
 Physical electromagnetic charge, Lorentz spin, autonomous selection of the
 action, a protected defect sector and a common physical rest/propagation
-clock remain additional requirements. The conditional electron/positron
+clock are additional requirements. The conditional electron/positron
 calibration is unchanged; equal gaps are not new absolute mass predictions.
 
 ## Reproduction and evidence scope

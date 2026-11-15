@@ -5,7 +5,7 @@ modular flow can be executed through the existing coherent source compiler.
 No oscillator action, mass or external clock calibration enters the phase
 generator. A native incident record can trigger one fixed modular step through
 the same compiler. The coherent code, preparation and event-to-probe coupling
-remain apparatus choices. This is a finite operational connection, without a
+are apparatus choices. This is a finite operational connection, without a
 claim that native dissipative waiting is unitary evolution or that a continuum
 spacetime has been recovered.
 
@@ -235,7 +235,7 @@ The marked transfer matrices are **not POVM effects**; their measurement
 semantics remain the native current instrument. The new coherent probes
 measure spectral phases in the reconstructed code. Analytic continuation
 plus its executable simulation is a supported correspondence, while agreement
-of that interpretation with independent physical observations remains open.
+of that interpretation with independent physical observations is open.
 
 ## Clock and energy scale
 
