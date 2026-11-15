@@ -1,0 +1,1 @@
+Initial freeze b237522de26700c33de9b4ac222d8e8a990530fac0991568db7350d4decd494d was sent for registration but not executed. Before execution, cross-BLAS replay comparison was corrected to use absolute tolerance1e-10 for floating service arrays and floating receipt fields; exact records and integer values remain exact. No gate or source result was observed or changed.
