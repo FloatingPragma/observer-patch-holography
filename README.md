@@ -15,6 +15,12 @@
 
 ## The idea
 
+The core intuition behind OPH is that reality is the self-answering question:
+“What would a universe that creates itself consistently be like?” The key word
+is *consistently*: mathematical and logical consistency, free of contradiction.
+OPH aims to show that the universe it constructs on this basis is precisely
+the one we inhabit.
+
 Small observers keep local records, compare them with their neighbours and
 repair every disagreement with one local rule. Whatever survives every
 comparison is public fact. OPH asks whether such a process, fully specified
