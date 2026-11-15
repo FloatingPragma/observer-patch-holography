@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy/mutated_origin/replay.py", line 84, in <module>
+    main()
+  File "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy/mutated_origin/replay.py", line 32, in main
+    assert digest(manifest) == origin['manifest_sha256'], name
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: free

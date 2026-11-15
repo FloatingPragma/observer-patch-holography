@@ -1,0 +1,264 @@
+{
+  "actual_native_calls_in_this_bundle_replay": 1009734,
+  "ancestor_replay_native_calls": 516897,
+  "boost_new_native_calls": 0,
+  "byte_replay": {
+    "boost/RECEIPT.json": false,
+    "unified/CONTROL_RECORDS.json.gz": false,
+    "unified/RECEIPT.json": false
+  },
+  "candidate": "MFR-unified-native-field-v1",
+  "copied_evidence_leaves": 409,
+  "custody": "pass",
+  "elapsed_seconds": 7.144057199999224,
+  "new_scientific_thresholds": false,
+  "official": "untested",
+  "replays": {
+    "boost": {
+      "all_registered_analysis_checks": "pass",
+      "candidate": "MFR-common-native-field-v1",
+      "iid_source_control": "zero separated OS covariance has no nonzero normalized packet",
+      "kind": "derived-state analysis; no new native calls or prepared-packet tapes",
+      "native_mass_squared": [
+        2.7639320225002098,
+        5.999999999999998,
+        7.236067977499789
+      ],
+      "official": "untested",
+      "quadrature_comparison_is_rigorous_error_bound": false,
+      "quadrature_order_comparison": 1.199040866595169e-14,
+      "retained_source_record_sha256": "0f142024ff3b18ffc3ff5bc6f48d2e452b15a248da34fe07a7fb1b99955a607b",
+      "unboosted_control": "width ratio1 fails each 1% contraction gate",
+      "verified_source_branches": 37908
+    },
+    "free": {
+      "actual_native_calls": 169364,
+      "byte_replay": {
+        "RECEIPT.json": false,
+        "RECORDS.json.gz": false
+      },
+      "candidate": "MFR-common-native-field-v1",
+      "clock_ticks": [
+        4,
+        5,
+        3,
+        0
+      ],
+      "elapsed_seconds": 1.2326322000008076,
+      "first_tick_censor_tail": 0.07477076427429247,
+      "interpretation": "finite source replay plus separately bound full-limit theorem",
+      "official": "untested",
+      "population_block_length": 100000000,
+      "population_is_actual_tape": false,
+      "row": "both",
+      "row29": {
+        "electric_magnetic_relative_error": 0.00046080512554176443,
+        "full_two_polarization_causal_limit": "bound written proof; not inferred from curl null eigenvalue",
+        "negative_finite_contact_eigenvalues_retained": [
+          -3.254948401382185e-05,
+          -3.722948401385304e-05,
+          -3.83994840139866e-05
+        ],
+        "source_changed_iid_separated_covariance": [
+          -2.2587545260114674e-21,
+          -2.2587545260114674e-21,
+          -2.2587545260114674e-21
+        ]
+      },
+      "row30": {
+        "full_common_speed_KG_limit": "bound written proof; finite N=3 is not the continuum",
+        "max_covariance_relative_error": 6.763001222132026e-05,
+        "max_first_hit_population_error": 4.1744385725905886e-14,
+        "max_source_eigenvector_residual": 1.5690840605759493e-14,
+        "native_internal_bands": [
+          [
+            1.0269562977782698e-15,
+            1
+          ],
+          [
+            2.7639320225002098,
+            3
+          ],
+          [
+            5.999999999999998,
+            5
+          ],
+          [
+            7.23606797749979,
+            3
+          ]
+        ]
+      },
+      "unfinished_clock_intervals": 4
+    },
+    "orbital": {
+      "actual_censors": [
+        [
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [],
+          [],
+          []
+        ]
+      ],
+      "actual_clock_ticks": [
+        [
+          5,
+          2,
+          2,
+          3
+        ],
+        [
+          3,
+          1,
+          1,
+          2
+        ]
+      ],
+      "actual_inner_calls": 2613,
+      "actual_native_calls": 347533,
+      "auxiliary_holds": 9,
+      "byte_replay": {
+        "RECEIPT.json": false,
+        "RECORDS.json.gz": false
+      },
+      "candidate": "MFR-native-probe-binding",
+      "disabled_standing_ground_energies": [
+        1.5137756729244927,
+        2.06343706889556,
+        2.2111819310550707
+      ],
+      "elapsed_seconds": 3.4197148000239395,
+      "final_open_intervals": [
+        [
+          5251,
+          18363,
+          1203,
+          8281
+        ],
+        [
+          6686,
+          23319,
+          8944,
+          204
+        ]
+      ],
+      "hydrogenic_shells": "bound written controlled-limit theorem; not measured by this small run",
+      "max_clock_error": 4.213296378452469e-14,
+      "max_covariance_relative_error": 7.957406017222723e-05,
+      "official": "untested",
+      "population_is_actual_long_tape": false,
+      "source_standing_ground_energies": [
+        1.3921440890513381,
+        1.800671286508059,
+        1.8652378371442007
+      ],
+      "unchanged_massless_sector_error": 6.554099219475955e-16
+    },
+    "unified": {
+      "all_registered_checks": "pass",
+      "biased_absorbing_internal_ports": [
+        9,
+        11
+      ],
+      "biased_censors": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "biased_census_native_calls": 12636,
+      "biased_clock_ticks": [
+        7,
+        3,
+        2,
+        6
+      ],
+      "biased_final_open_intervals": [
+        191,
+        1180,
+        2850,
+        10175
+      ],
+      "biased_internal_generator_eigenvalues": [
+        0,
+        0,
+        2,
+        2,
+        4,
+        4,
+        6,
+        6,
+        8,
+        8,
+        10,
+        10
+      ],
+      "biased_observed_downward_port_moves": 0,
+      "biased_observed_internal_moves": 4,
+      "biased_tape_native_calls": 132668,
+      "candidate": "MFR-unified-native-field-v1",
+      "changed_law_same_F12_population": [
+        {
+          "biased_F12_covariance": 0.7497625830958907,
+          "biased_cell_eigenvalue": [
+            0.9995251661918328,
+            0.0002741454269656468
+          ],
+          "biased_covariance": 0.12496043051598181,
+          "biased_formula": 0.12496043051598607,
+          "contact_adjusted_ratio": 0.7499999999999744,
+          "fair_F12_covariance": 0.9997625830959164,
+          "fair_covariance": 0.16662709718265276,
+          "momentum": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "biased_F12_covariance": 0.9997625830956599,
+          "biased_cell_eigenvalue": [
+            0.9995251661918327,
+            1.734723475976807e-18
+          ],
+          "biased_covariance": 0.16662709718261,
+          "biased_formula": 0.16662709718265276,
+          "contact_adjusted_ratio": 0.9999999999997435,
+          "fair_F12_covariance": 0.9997625830959164,
+          "fair_covariance": 0.16662709718265276,
+          "momentum": [
+            1,
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "changed_population_is_actual_precision_estimate": false,
+      "control_raw_uncompressed_sha256": "e14c170b807624c1a24325414ea869aa892505ed29ce5a40c1e252e67b59b248",
+      "corrected_projector_polynomial_error": 7.327471962526033e-15,
+      "fair_observed_downward_port_moves": 59,
+      "initial_decoder_failure_retained_in_ancestor": true,
+      "minimal_electric_coupling_established": false,
+      "moving_target_covariance_established": false,
+      "official": "untested",
+      "source_comparison_native_calls": 347533,
+      "source_graphs_and_all_events_identical": true,
+      "source_macro_histories_exactly_reproduced": 262144,
+      "source_preparation_bits": [
+        true,
+        false
+      ],
+      "total_native_calls": 492837
+    }
+  },
+  "reused_ancestor_histories_are_independent_evidence": false,
+  "unified_candidate_native_calls": 492837
+}

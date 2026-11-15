@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "C:\Users\Mario\AppData\Local\Temp\opencode\oph_wave_review_mq5ljp0k\committed\shared\unified_wave_submission_20261115\replay.py", line 84, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Mario\AppData\Local\Temp\opencode\oph_wave_review_mq5ljp0k\committed\shared\unified_wave_submission_20261115\replay.py", line 53, in main
+    output = subprocess.run([sys.executable, str(work / name / script)],
+                            cwd=work / name, text=True, check=True,
+                            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+  File "C:\Python313\Lib\subprocess.py", line 579, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['C:\\Python313\\python.exe', 'C:\\Users\\Mario\\AppData\\Local\\Temp\\opencode\\oph_wave_review_mq5ljp0k\\oph_unified_submission_nxdsxik1\\free\\scripts\\task_common.py']' returned non-zero exit status 1.

@@ -1,0 +1,2214 @@
+{
+  "environments": {
+    "linux_numpy235": {
+      "actual_receipt_sha256": "45d3f2f96ea2c983fa1aac74188d37d55ef38247d8e0678772b77896032dc16b",
+      "all_large_differences_are_sign_only": false,
+      "expected_receipt_sha256": "36d2829573ff06ac8145d0753917f65b48b9c5274aebcd663df933d270bc028a",
+      "large_differences": [
+        {
+          "actual": -0.15921237047697012,
+          "expected": 0.15921237047697057,
+          "magnitude_difference": 4.440892098500626e-16,
+          "path": "/population/0/bands/0/ground/profile/0",
+          "signed_difference": 0.3184247409539407
+        },
+        {
+          "actual": -0.17865163982875953,
+          "expected": 0.17865163982875945,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/0/bands/0/ground/profile/1",
+          "signed_difference": 0.35730327965751896
+        },
+        {
+          "actual": -0.15921237047697034,
+          "expected": 0.15921237047697062,
+          "magnitude_difference": 2.7755575615628914e-16,
+          "path": "/population/0/bands/0/ground/profile/2",
+          "signed_difference": 0.31842474095394097
+        },
+        {
+          "actual": -0.17865163982875948,
+          "expected": 0.17865163982875942,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/0/bands/0/ground/profile/3",
+          "signed_difference": 0.3573032796575189
+        },
+        {
+          "actual": -0.21958771744425745,
+          "expected": 0.21958771744425748,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/0/bands/0/ground/profile/4",
+          "signed_difference": 0.43917543488851496
+        },
+        {
+          "actual": -0.17865163982875998,
+          "expected": 0.17865163982875984,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/0/bands/0/ground/profile/5",
+          "signed_difference": 0.35730327965751985
+        },
+        {
+          "actual": -0.15921237047697032,
+          "expected": 0.15921237047697037,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/0/bands/0/ground/profile/6",
+          "signed_difference": 0.3184247409539407
+        },
+        {
+          "actual": -0.1786516398287599,
+          "expected": 0.17865163982875973,
+          "magnitude_difference": 1.6653345369377348e-16,
+          "path": "/population/0/bands/0/ground/profile/7",
+          "signed_difference": 0.3573032796575196
+        },
+        {
+          "actual": -0.15921237047697065,
+          "expected": 0.1592123704769705,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/0/bands/0/ground/profile/8",
+          "signed_difference": 0.31842474095394113
+        },
+        {
+          "actual": -0.1786516398287596,
+          "expected": 0.17865163982875956,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/0/bands/0/ground/profile/9",
+          "signed_difference": 0.3573032796575192
+        },
+        {
+          "actual": -0.21958771744425742,
+          "expected": 0.21958771744425729,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/0/bands/0/ground/profile/10",
+          "signed_difference": 0.43917543488851474
+        },
+        {
+          "actual": -0.17865163982875992,
+          "expected": 0.17865163982875976,
+          "magnitude_difference": 1.6653345369377348e-16,
+          "path": "/population/0/bands/0/ground/profile/11",
+          "signed_difference": 0.3573032796575197
+        },
+        {
+          "actual": -0.21958771744425748,
+          "expected": 0.21958771744425734,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/0/bands/0/ground/profile/12",
+          "signed_difference": 0.43917543488851485
+        },
+        {
+          "actual": -0.35341459197449493,
+          "expected": 0.353414591974495,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/0/bands/0/ground/profile/13",
+          "signed_difference": 0.70682918394899
+        },
+        {
+          "actual": -0.21958771744425748,
+          "expected": 0.21958771744425756,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/0/bands/0/ground/profile/14",
+          "signed_difference": 0.43917543488851507
+        },
+        {
+          "actual": -0.17865163982875995,
+          "expected": 0.1786516398287597,
+          "magnitude_difference": 2.498001805406602e-16,
+          "path": "/population/0/bands/0/ground/profile/15",
+          "signed_difference": 0.3573032796575196
+        },
+        {
+          "actual": -0.2195877174442575,
+          "expected": 0.21958771744425762,
+          "magnitude_difference": 1.1102230246251565e-16,
+          "path": "/population/0/bands/0/ground/profile/16",
+          "signed_difference": 0.4391754348885151
+        },
+        {
+          "actual": -0.17865163982875998,
+          "expected": 0.17865163982876003,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/0/bands/0/ground/profile/17",
+          "signed_difference": 0.35730327965752
+        },
+        {
+          "actual": -0.15921237047697032,
+          "expected": 0.15921237047697034,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/0/bands/0/ground/profile/18",
+          "signed_difference": 0.3184247409539407
+        },
+        {
+          "actual": -0.17865163982875992,
+          "expected": 0.17865163982875967,
+          "magnitude_difference": 2.498001805406602e-16,
+          "path": "/population/0/bands/0/ground/profile/19",
+          "signed_difference": 0.3573032796575196
+        },
+        {
+          "actual": -0.15921237047697062,
+          "expected": 0.15921237047697048,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/0/bands/0/ground/profile/20",
+          "signed_difference": 0.31842474095394113
+        },
+        {
+          "actual": -0.17865163982875995,
+          "expected": 0.1786516398287597,
+          "magnitude_difference": 2.498001805406602e-16,
+          "path": "/population/0/bands/0/ground/profile/21",
+          "signed_difference": 0.3573032796575196
+        },
+        {
+          "actual": -0.21958771744425748,
+          "expected": 0.21958771744425762,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/0/bands/0/ground/profile/22",
+          "signed_difference": 0.43917543488851507
+        },
+        {
+          "actual": -0.17865163982875998,
+          "expected": 0.17865163982876,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/0/bands/0/ground/profile/23",
+          "signed_difference": 0.35730327965751996
+        },
+        {
+          "actual": -0.15921237047697068,
+          "expected": 0.15921237047697046,
+          "magnitude_difference": 2.220446049250313e-16,
+          "path": "/population/0/bands/0/ground/profile/24",
+          "signed_difference": 0.31842474095394113
+        },
+        {
+          "actual": -0.17865163982876,
+          "expected": 0.17865163982876006,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/0/bands/0/ground/profile/25",
+          "signed_difference": 0.35730327965752007
+        },
+        {
+          "actual": -0.1592123704769708,
+          "expected": 0.15921237047697082,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/0/bands/0/ground/profile/26",
+          "signed_difference": 0.3184247409539416
+        },
+        {
+          "actual": -0.12527977146764702,
+          "expected": 0.12527977146764718,
+          "magnitude_difference": 1.6653345369377348e-16,
+          "path": "/population/0/bands/0/actual_ground_mode_record_readouts/0",
+          "signed_difference": 0.2505595429352942
+        },
+        {
+          "actual": 1.2735107895152542,
+          "expected": -1.2735107895152544,
+          "magnitude_difference": 2.220446049250313e-16,
+          "path": "/population/0/bands/0/actual_ground_mode_record_readouts/1",
+          "signed_difference": 2.547021579030509
+        },
+        {
+          "actual": -0.33070256326938524,
+          "expected": 0.33070256326938446,
+          "magnitude_difference": 7.771561172376096e-16,
+          "path": "/population/0/bands/0/actual_ground_mode_record_readouts/2",
+          "signed_difference": 0.6614051265387697
+        },
+        {
+          "actual": 0.08573935317090739,
+          "expected": -0.08573935317090639,
+          "magnitude_difference": 9.992007221626409e-16,
+          "path": "/population/0/bands/0/actual_ground_mode_record_readouts/3",
+          "signed_difference": 0.17147870634181378
+        },
+        {
+          "actual": -0.07363218450654584,
+          "expected": 0.07363218450654553,
+          "magnitude_difference": 3.0531133177191805e-16,
+          "path": "/population/0/bands/1/ground/profile/0",
+          "signed_difference": 0.14726436901309137
+        },
+        {
+          "actual": -0.11065383058051731,
+          "expected": 0.11065383058051763,
+          "magnitude_difference": 3.191891195797325e-16,
+          "path": "/population/0/bands/1/ground/profile/1",
+          "signed_difference": 0.22130766116103495
+        },
+        {
+          "actual": -0.07363218450654546,
+          "expected": 0.07363218450654545,
+          "magnitude_difference": 1.3877787807814457e-17,
+          "path": "/population/0/bands/1/ground/profile/2",
+          "signed_difference": 0.14726436901309092
+        },
+        {
+          "actual": -0.11065383058051746,
+          "expected": 0.11065383058051732,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/0/bands/1/ground/profile/3",
+          "signed_difference": 0.22130766116103479
+        },
+        {
+          "actual": -0.21604004771621294,
+          "expected": 0.21604004771621252,
+          "magnitude_difference": 4.163336342344337e-16,
+          "path": "/population/0/bands/1/ground/profile/4",
+          "signed_difference": 0.4320800954324254
+        },
+        {
+          "actual": -0.11065383058051763,
+          "expected": 0.11065383058051748,
+          "magnitude_difference": 1.5265566588595902e-16,
+          "path": "/population/0/bands/1/ground/profile/5",
+          "signed_difference": 0.22130766116103512
+        },
+        {
+          "actual": -0.0736321845065458,
+          "expected": 0.07363218450654534,
+          "magnitude_difference": 4.579669976578771e-16,
+          "path": "/population/0/bands/1/ground/profile/6",
+          "signed_difference": 0.14726436901309115
+        },
+        {
+          "actual": -0.11065383058051767,
+          "expected": 0.11065383058051746,
+          "magnitude_difference": 2.0816681711721685e-16,
+          "path": "/population/0/bands/1/ground/profile/7",
+          "signed_difference": 0.22130766116103512
+        },
+        {
+          "actual": -0.07363218450654556,
+          "expected": 0.07363218450654553,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/0/bands/1/ground/profile/8",
+          "signed_difference": 0.1472643690130911
+        },
+        {
+          "actual": -0.11065383058051727,
+          "expected": 0.1106538305805175,
+          "magnitude_difference": 2.3592239273284576e-16,
+          "path": "/population/0/bands/1/ground/profile/9",
+          "signed_difference": 0.22130766116103479
+        },
+        {
+          "actual": -0.21604004771621269,
+          "expected": 0.21604004771621244,
+          "magnitude_difference": 2.498001805406602e-16,
+          "path": "/population/0/bands/1/ground/profile/10",
+          "signed_difference": 0.4320800954324251
+        },
+        {
+          "actual": -0.11065383058051755,
+          "expected": 0.11065383058051752,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/0/bands/1/ground/profile/11",
+          "signed_difference": 0.22130766116103506
+        },
+        {
+          "actual": -0.21604004771621274,
+          "expected": 0.21604004771621232,
+          "magnitude_difference": 4.163336342344337e-16,
+          "path": "/population/0/bands/1/ground/profile/12",
+          "signed_difference": 0.4320800954324251
+        },
+        {
+          "actual": -0.7277742474622952,
+          "expected": 0.7277742474622966,
+          "magnitude_difference": 1.3322676295501878e-15,
+          "path": "/population/0/bands/1/ground/profile/13",
+          "signed_difference": 1.4555484949245918
+        },
+        {
+          "actual": -0.21604004771621207,
+          "expected": 0.2160400477162126,
+          "magnitude_difference": 5.273559366969494e-16,
+          "path": "/population/0/bands/1/ground/profile/14",
+          "signed_difference": 0.43208009543242465
+        },
+        {
+          "actual": -0.11065383058051766,
+          "expected": 0.11065383058051745,
+          "magnitude_difference": 2.0816681711721685e-16,
+          "path": "/population/0/bands/1/ground/profile/15",
+          "signed_difference": 0.22130766116103512
+        },
+        {
+          "actual": -0.21604004771621213,
+          "expected": 0.21604004771621257,
+          "magnitude_difference": 4.440892098500626e-16,
+          "path": "/population/0/bands/1/ground/profile/16",
+          "signed_difference": 0.4320800954324247
+        },
+        {
+          "actual": -0.11065383058051736,
+          "expected": 0.11065383058051755,
+          "magnitude_difference": 1.8041124150158794e-16,
+          "path": "/population/0/bands/1/ground/profile/17",
+          "signed_difference": 0.2213076611610349
+        },
+        {
+          "actual": -0.07363218450654573,
+          "expected": 0.07363218450654546,
+          "magnitude_difference": 2.636779683484747e-16,
+          "path": "/population/0/bands/1/ground/profile/18",
+          "signed_difference": 0.1472643690130912
+        },
+        {
+          "actual": -0.11065383058051761,
+          "expected": 0.11065383058051748,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/0/bands/1/ground/profile/19",
+          "signed_difference": 0.2213076611610351
+        },
+        {
+          "actual": -0.07363218450654553,
+          "expected": 0.0736321845065456,
+          "magnitude_difference": 6.938893903907228e-17,
+          "path": "/population/0/bands/1/ground/profile/20",
+          "signed_difference": 0.14726436901309115
+        },
+        {
+          "actual": -0.11065383058051768,
+          "expected": 0.11065383058051752,
+          "magnitude_difference": 1.6653345369377348e-16,
+          "path": "/population/0/bands/1/ground/profile/21",
+          "signed_difference": 0.2213076611610352
+        },
+        {
+          "actual": -0.2160400477162121,
+          "expected": 0.2160400477162126,
+          "magnitude_difference": 4.996003610813204e-16,
+          "path": "/population/0/bands/1/ground/profile/22",
+          "signed_difference": 0.4320800954324247
+        },
+        {
+          "actual": -0.11065383058051736,
+          "expected": 0.11065383058051755,
+          "magnitude_difference": 1.8041124150158794e-16,
+          "path": "/population/0/bands/1/ground/profile/23",
+          "signed_difference": 0.2213076611610349
+        },
+        {
+          "actual": -0.07363218450654559,
+          "expected": 0.07363218450654554,
+          "magnitude_difference": 4.163336342344337e-17,
+          "path": "/population/0/bands/1/ground/profile/24",
+          "signed_difference": 0.14726436901309115
+        },
+        {
+          "actual": -0.11065383058051736,
+          "expected": 0.11065383058051753,
+          "magnitude_difference": 1.6653345369377348e-16,
+          "path": "/population/0/bands/1/ground/profile/25",
+          "signed_difference": 0.2213076611610349
+        },
+        {
+          "actual": -0.07363218450654543,
+          "expected": 0.07363218450654559,
+          "magnitude_difference": 1.5265566588595902e-16,
+          "path": "/population/0/bands/1/ground/profile/26",
+          "signed_difference": 0.14726436901309103
+        },
+        {
+          "actual": -0.1786990185476935,
+          "expected": -0.2296121555041733,
+          "magnitude_difference": 0.05091313695647981,
+          "path": "/population/0/bands/1/actual_ground_mode_record_readouts/0",
+          "signed_difference": 0.05091313695647981
+        },
+        {
+          "actual": -0.46707010588817516,
+          "expected": -0.08326199233603421,
+          "magnitude_difference": 0.38380811355214095,
+          "path": "/population/0/bands/1/actual_ground_mode_record_readouts/1",
+          "signed_difference": 0.38380811355214095
+        },
+        {
+          "actual": 0.15192171476406696,
+          "expected": 0.1066599078315891,
+          "magnitude_difference": 0.04526180693247786,
+          "path": "/population/0/bands/1/actual_ground_mode_record_readouts/2",
+          "signed_difference": 0.04526180693247786
+        },
+        {
+          "actual": 0.15652012120027317,
+          "expected": 0.8059537648223112,
+          "magnitude_difference": 0.649433643622038,
+          "path": "/population/0/bands/1/actual_ground_mode_record_readouts/3",
+          "signed_difference": 0.649433643622038
+        },
+        {
+          "actual": 0.04496764960915591,
+          "expected": -0.044967649609155544,
+          "magnitude_difference": 3.677613769070831e-16,
+          "path": "/population/0/bands/2/ground/profile/0",
+          "signed_difference": 0.08993529921831145
+        },
+        {
+          "actual": 0.07936527683669498,
+          "expected": -0.079365276836695,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/0/bands/2/ground/profile/1",
+          "signed_difference": 0.15873055367338998
+        },
+        {
+          "actual": 0.04496764960915578,
+          "expected": -0.04496764960915555,
+          "magnitude_difference": 2.2898349882893854e-16,
+          "path": "/population/0/bands/2/ground/profile/2",
+          "signed_difference": 0.08993529921831134
+        },
+        {
+          "actual": 0.07936527683669486,
+          "expected": -0.07936527683669427,
+          "magnitude_difference": 5.967448757360216e-16,
+          "path": "/population/0/bands/2/ground/profile/3",
+          "signed_difference": 0.15873055367338912
+        },
+        {
+          "actual": 0.19177550736682977,
+          "expected": -0.1917755073668296,
+          "magnitude_difference": 1.6653345369377348e-16,
+          "path": "/population/0/bands/2/ground/profile/4",
+          "signed_difference": 0.3835510147336594
+        },
+        {
+          "actual": 0.07936527683669507,
+          "expected": -0.07936527683669478,
+          "magnitude_difference": 2.914335439641036e-16,
+          "path": "/population/0/bands/2/ground/profile/5",
+          "signed_difference": 0.15873055367338984
+        },
+        {
+          "actual": 0.044967649609155676,
+          "expected": -0.04496764960915552,
+          "magnitude_difference": 1.5265566588595902e-16,
+          "path": "/population/0/bands/2/ground/profile/6",
+          "signed_difference": 0.0899352992183112
+        },
+        {
+          "actual": 0.07936527683669486,
+          "expected": -0.07936527683669493,
+          "magnitude_difference": 6.938893903907228e-17,
+          "path": "/population/0/bands/2/ground/profile/7",
+          "signed_difference": 0.15873055367338978
+        },
+        {
+          "actual": 0.04496764960915561,
+          "expected": -0.04496764960915564,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/0/bands/2/ground/profile/8",
+          "signed_difference": 0.08993529921831125
+        },
+        {
+          "actual": 0.07936527683669493,
+          "expected": -0.07936527683669484,
+          "magnitude_difference": 9.71445146547012e-17,
+          "path": "/population/0/bands/2/ground/profile/9",
+          "signed_difference": 0.15873055367338978
+        },
+        {
+          "actual": 0.19177550736683002,
+          "expected": -0.19177550736682977,
+          "magnitude_difference": 2.498001805406602e-16,
+          "path": "/population/0/bands/2/ground/profile/10",
+          "signed_difference": 0.3835510147336598
+        },
+        {
+          "actual": 0.07936527683669499,
+          "expected": -0.07936527683669492,
+          "magnitude_difference": 6.938893903907228e-17,
+          "path": "/population/0/bands/2/ground/profile/11",
+          "signed_difference": 0.1587305536733899
+        },
+        {
+          "actual": 0.19177550736683002,
+          "expected": -0.1917755073668296,
+          "magnitude_difference": 4.163336342344337e-16,
+          "path": "/population/0/bands/2/ground/profile/12",
+          "signed_difference": 0.3835510147336596
+        },
+        {
+          "actual": 0.8291984361694216,
+          "expected": -0.8291984361694202,
+          "magnitude_difference": 1.3322676295501878e-15,
+          "path": "/population/0/bands/2/ground/profile/13",
+          "signed_difference": 1.6583968723388418
+        },
+        {
+          "actual": 0.19177550736682994,
+          "expected": -0.19177550736682994,
+          "magnitude_difference": 0.0,
+          "path": "/population/0/bands/2/ground/profile/14",
+          "signed_difference": 0.3835510147336599
+        },
+        {
+          "actual": 0.07936527683669493,
+          "expected": -0.07936527683669492,
+          "magnitude_difference": 1.3877787807814457e-17,
+          "path": "/population/0/bands/2/ground/profile/15",
+          "signed_difference": 0.15873055367338984
+        },
+        {
+          "actual": 0.19177550736682988,
+          "expected": -0.19177550736683005,
+          "magnitude_difference": 1.6653345369377348e-16,
+          "path": "/population/0/bands/2/ground/profile/16",
+          "signed_difference": 0.38355101473365993
+        },
+        {
+          "actual": 0.07936527683669496,
+          "expected": -0.07936527683669523,
+          "magnitude_difference": 2.636779683484747e-16,
+          "path": "/population/0/bands/2/ground/profile/17",
+          "signed_difference": 0.15873055367339017
+        },
+        {
+          "actual": 0.044967649609155634,
+          "expected": -0.044967649609155606,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/0/bands/2/ground/profile/18",
+          "signed_difference": 0.08993529921831124
+        },
+        {
+          "actual": 0.07936527683669489,
+          "expected": -0.07936527683669495,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/0/bands/2/ground/profile/19",
+          "signed_difference": 0.15873055367338984
+        },
+        {
+          "actual": 0.04496764960915566,
+          "expected": -0.04496764960915565,
+          "magnitude_difference": 1.3877787807814457e-17,
+          "path": "/population/0/bands/2/ground/profile/20",
+          "signed_difference": 0.08993529921831131
+        },
+        {
+          "actual": 0.07936527683669493,
+          "expected": -0.07936527683669482,
+          "magnitude_difference": 1.1102230246251565e-16,
+          "path": "/population/0/bands/2/ground/profile/21",
+          "signed_difference": 0.15873055367338976
+        },
+        {
+          "actual": 0.1917755073668298,
+          "expected": -0.19177550736682997,
+          "magnitude_difference": 1.6653345369377348e-16,
+          "path": "/population/0/bands/2/ground/profile/22",
+          "signed_difference": 0.38355101473365977
+        },
+        {
+          "actual": 0.07936527683669489,
+          "expected": -0.07936527683669517,
+          "magnitude_difference": 2.7755575615628914e-16,
+          "path": "/population/0/bands/2/ground/profile/23",
+          "signed_difference": 0.15873055367339006
+        },
+        {
+          "actual": 0.044967649609155586,
+          "expected": -0.04496764960915562,
+          "magnitude_difference": 3.469446951953614e-17,
+          "path": "/population/0/bands/2/ground/profile/24",
+          "signed_difference": 0.0899352992183112
+        },
+        {
+          "actual": 0.07936527683669478,
+          "expected": -0.07936527683669528,
+          "magnitude_difference": 4.996003610813204e-16,
+          "path": "/population/0/bands/2/ground/profile/25",
+          "signed_difference": 0.15873055367339006
+        },
+        {
+          "actual": 0.0449676496091555,
+          "expected": -0.04496764960915597,
+          "magnitude_difference": 4.649058915617843e-16,
+          "path": "/population/0/bands/2/ground/profile/26",
+          "signed_difference": 0.08993529921831148
+        },
+        {
+          "actual": -0.19914310372512725,
+          "expected": -0.09777826286422461,
+          "magnitude_difference": 0.10136484086090264,
+          "path": "/population/0/bands/2/actual_ground_mode_record_readouts/0",
+          "signed_difference": 0.10136484086090264
+        },
+        {
+          "actual": -0.06079074340382361,
+          "expected": -0.27234688984090066,
+          "magnitude_difference": 0.21155614643707704,
+          "path": "/population/0/bands/2/actual_ground_mode_record_readouts/1",
+          "signed_difference": 0.21155614643707704
+        },
+        {
+          "actual": -0.10933425489683113,
+          "expected": 0.15382280652548164,
+          "magnitude_difference": 0.04448855162865051,
+          "path": "/population/0/bands/2/actual_ground_mode_record_readouts/2",
+          "signed_difference": 0.26315706142231277
+        },
+        {
+          "actual": -0.3397960713159404,
+          "expected": -0.6449251454499709,
+          "magnitude_difference": 0.3051290741340305,
+          "path": "/population/0/bands/2/actual_ground_mode_record_readouts/3",
+          "signed_difference": 0.3051290741340305
+        },
+        {
+          "actual": -0.19245008972987535,
+          "expected": 0.1924500897298752,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/1/bands/0/ground/profile/0",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": -0.1924500897298751,
+          "expected": 0.19245008972987487,
+          "magnitude_difference": 2.220446049250313e-16,
+          "path": "/population/1/bands/0/ground/profile/1",
+          "signed_difference": 0.38490017945974997
+        },
+        {
+          "actual": -0.1924500897298753,
+          "expected": 0.19245008972987507,
+          "magnitude_difference": 2.220446049250313e-16,
+          "path": "/population/1/bands/0/ground/profile/2",
+          "signed_difference": 0.38490017945975036
+        },
+        {
+          "actual": -0.19245008972987532,
+          "expected": 0.1924500897298753,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/1/bands/0/ground/profile/3",
+          "signed_difference": 0.38490017945975064
+        },
+        {
+          "actual": -0.19245008972987518,
+          "expected": 0.1924500897298753,
+          "magnitude_difference": 1.1102230246251565e-16,
+          "path": "/population/1/bands/0/ground/profile/4",
+          "signed_difference": 0.38490017945975047
+        },
+        {
+          "actual": -0.19245008972987532,
+          "expected": 0.19245008972987526,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/1/bands/0/ground/profile/5",
+          "signed_difference": 0.3849001794597506
+        },
+        {
+          "actual": -0.1924500897298753,
+          "expected": 0.19245008972987526,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/1/bands/0/ground/profile/6",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": -0.19245008972987526,
+          "expected": 0.1924500897298752,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/1/bands/0/ground/profile/7",
+          "signed_difference": 0.38490017945975047
+        },
+        {
+          "actual": -0.19245008972987526,
+          "expected": 0.19245008972987526,
+          "magnitude_difference": 0.0,
+          "path": "/population/1/bands/0/ground/profile/8",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": -0.1924500897298753,
+          "expected": 0.19245008972987523,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/1/bands/0/ground/profile/9",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": -0.19245008972987512,
+          "expected": 0.1924500897298752,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/1/bands/0/ground/profile/10",
+          "signed_difference": 0.3849001794597503
+        },
+        {
+          "actual": -0.1924500897298752,
+          "expected": 0.19245008972987526,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/1/bands/0/ground/profile/11",
+          "signed_difference": 0.38490017945975047
+        },
+        {
+          "actual": -0.19245008972987523,
+          "expected": 0.1924500897298754,
+          "magnitude_difference": 1.6653345369377348e-16,
+          "path": "/population/1/bands/0/ground/profile/12",
+          "signed_difference": 0.38490017945975064
+        },
+        {
+          "actual": -0.19245008972987493,
+          "expected": 0.1924500897298753,
+          "magnitude_difference": 3.608224830031759e-16,
+          "path": "/population/1/bands/0/ground/profile/13",
+          "signed_difference": 0.3849001794597502
+        },
+        {
+          "actual": -0.192450089729875,
+          "expected": 0.19245008972987532,
+          "magnitude_difference": 3.0531133177191805e-16,
+          "path": "/population/1/bands/0/ground/profile/14",
+          "signed_difference": 0.3849001794597503
+        },
+        {
+          "actual": -0.19245008972987512,
+          "expected": 0.1924500897298754,
+          "magnitude_difference": 2.7755575615628914e-16,
+          "path": "/population/1/bands/0/ground/profile/15",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": -0.192450089729875,
+          "expected": 0.19245008972987532,
+          "magnitude_difference": 3.0531133177191805e-16,
+          "path": "/population/1/bands/0/ground/profile/16",
+          "signed_difference": 0.3849001794597503
+        },
+        {
+          "actual": -0.19245008972987504,
+          "expected": 0.19245008972987532,
+          "magnitude_difference": 2.7755575615628914e-16,
+          "path": "/population/1/bands/0/ground/profile/17",
+          "signed_difference": 0.38490017945975036
+        },
+        {
+          "actual": -0.19245008972987518,
+          "expected": 0.19245008972987523,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/1/bands/0/ground/profile/18",
+          "signed_difference": 0.3849001794597504
+        },
+        {
+          "actual": -0.19245008972987515,
+          "expected": 0.19245008972987526,
+          "magnitude_difference": 1.1102230246251565e-16,
+          "path": "/population/1/bands/0/ground/profile/19",
+          "signed_difference": 0.3849001794597504
+        },
+        {
+          "actual": -0.19245008972987526,
+          "expected": 0.19245008972987526,
+          "magnitude_difference": 0.0,
+          "path": "/population/1/bands/0/ground/profile/20",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": -0.1924500897298752,
+          "expected": 0.1924500897298754,
+          "magnitude_difference": 1.942890293094024e-16,
+          "path": "/population/1/bands/0/ground/profile/21",
+          "signed_difference": 0.38490017945975064
+        },
+        {
+          "actual": -0.192450089729875,
+          "expected": 0.19245008972987535,
+          "magnitude_difference": 3.3306690738754696e-16,
+          "path": "/population/1/bands/0/ground/profile/22",
+          "signed_difference": 0.38490017945975036
+        },
+        {
+          "actual": -0.19245008972987498,
+          "expected": 0.19245008972987532,
+          "magnitude_difference": 3.3306690738754696e-16,
+          "path": "/population/1/bands/0/ground/profile/23",
+          "signed_difference": 0.3849001794597503
+        },
+        {
+          "actual": -0.1924500897298752,
+          "expected": 0.1924500897298754,
+          "magnitude_difference": 1.942890293094024e-16,
+          "path": "/population/1/bands/0/ground/profile/24",
+          "signed_difference": 0.38490017945975064
+        },
+        {
+          "actual": -0.19245008972987496,
+          "expected": 0.19245008972987532,
+          "magnitude_difference": 3.608224830031759e-16,
+          "path": "/population/1/bands/0/ground/profile/25",
+          "signed_difference": 0.3849001794597503
+        },
+        {
+          "actual": -0.19245008972987507,
+          "expected": 0.19245008972987532,
+          "magnitude_difference": 2.498001805406602e-16,
+          "path": "/population/1/bands/0/ground/profile/26",
+          "signed_difference": 0.3849001794597504
+        },
+        {
+          "actual": -1.1902659094319596,
+          "expected": 1.1902659094319599,
+          "magnitude_difference": 2.220446049250313e-16,
+          "path": "/population/1/bands/0/actual_ground_mode_record_readouts/0",
+          "signed_difference": 2.3805318188639193
+        },
+        {
+          "actual": -0.2987315248884622,
+          "expected": 0.298731524888462,
+          "magnitude_difference": 2.220446049250313e-16,
+          "path": "/population/1/bands/0/actual_ground_mode_record_readouts/1",
+          "signed_difference": 0.5974630497769242
+        },
+        {
+          "actual": -0.39758125109431397,
+          "expected": 0.39758125109431375,
+          "magnitude_difference": 2.220446049250313e-16,
+          "path": "/population/1/bands/0/actual_ground_mode_record_readouts/2",
+          "signed_difference": 0.7951625021886277
+        },
+        {
+          "actual": -0.7309057300752814,
+          "expected": 0.7309057300752819,
+          "magnitude_difference": 5.551115123125783e-16,
+          "path": "/population/1/bands/0/actual_ground_mode_record_readouts/3",
+          "signed_difference": 1.4618114601505634
+        },
+        {
+          "actual": 0.1924500897298756,
+          "expected": -0.1924500897298748,
+          "magnitude_difference": 8.049116928532385e-16,
+          "path": "/population/1/bands/1/ground/profile/0",
+          "signed_difference": 0.3849001794597504
+        },
+        {
+          "actual": 0.19245008972987482,
+          "expected": -0.19245008972987468,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/1/bands/1/ground/profile/1",
+          "signed_difference": 0.3849001794597495
+        },
+        {
+          "actual": 0.1924500897298754,
+          "expected": -0.19245008972987568,
+          "magnitude_difference": 2.7755575615628914e-16,
+          "path": "/population/1/bands/1/ground/profile/2",
+          "signed_difference": 0.3849001794597511
+        },
+        {
+          "actual": 0.19245008972987593,
+          "expected": -0.19245008972987568,
+          "magnitude_difference": 2.498001805406602e-16,
+          "path": "/population/1/bands/1/ground/profile/3",
+          "signed_difference": 0.38490017945975163
+        },
+        {
+          "actual": 0.19245008972987526,
+          "expected": -0.19245008972987543,
+          "magnitude_difference": 1.6653345369377348e-16,
+          "path": "/population/1/bands/1/ground/profile/4",
+          "signed_difference": 0.3849001794597507
+        },
+        {
+          "actual": 0.1924500897298754,
+          "expected": -0.19245008972987562,
+          "magnitude_difference": 2.220446049250313e-16,
+          "path": "/population/1/bands/1/ground/profile/5",
+          "signed_difference": 0.384900179459751
+        },
+        {
+          "actual": 0.19245008972987535,
+          "expected": -0.19245008972987518,
+          "magnitude_difference": 1.6653345369377348e-16,
+          "path": "/population/1/bands/1/ground/profile/6",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": 0.19245008972987512,
+          "expected": -0.19245008972987532,
+          "magnitude_difference": 1.942890293094024e-16,
+          "path": "/population/1/bands/1/ground/profile/7",
+          "signed_difference": 0.3849001794597504
+        },
+        {
+          "actual": 0.19245008972987532,
+          "expected": -0.1924500897298755,
+          "magnitude_difference": 1.942890293094024e-16,
+          "path": "/population/1/bands/1/ground/profile/8",
+          "signed_difference": 0.38490017945975086
+        },
+        {
+          "actual": 0.1924500897298753,
+          "expected": -0.1924500897298751,
+          "magnitude_difference": 1.942890293094024e-16,
+          "path": "/population/1/bands/1/ground/profile/9",
+          "signed_difference": 0.3849001794597504
+        },
+        {
+          "actual": 0.19245008972987515,
+          "expected": -0.19245008972987526,
+          "magnitude_difference": 1.1102230246251565e-16,
+          "path": "/population/1/bands/1/ground/profile/10",
+          "signed_difference": 0.3849001794597504
+        },
+        {
+          "actual": 0.1924500897298753,
+          "expected": -0.1924500897298754,
+          "magnitude_difference": 1.1102230246251565e-16,
+          "path": "/population/1/bands/1/ground/profile/11",
+          "signed_difference": 0.3849001794597507
+        },
+        {
+          "actual": 0.19245008972987548,
+          "expected": -0.19245008972987548,
+          "magnitude_difference": 0.0,
+          "path": "/population/1/bands/1/ground/profile/12",
+          "signed_difference": 0.38490017945975097
+        },
+        {
+          "actual": 0.192450089729875,
+          "expected": -0.19245008972987515,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/1/bands/1/ground/profile/13",
+          "signed_difference": 0.3849001794597502
+        },
+        {
+          "actual": 0.19245008972987507,
+          "expected": -0.19245008972987515,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/1/bands/1/ground/profile/14",
+          "signed_difference": 0.3849001794597502
+        },
+        {
+          "actual": 0.19245008972987532,
+          "expected": -0.19245008972987535,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/1/bands/1/ground/profile/15",
+          "signed_difference": 0.38490017945975064
+        },
+        {
+          "actual": 0.19245008972987496,
+          "expected": -0.192450089729875,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/1/bands/1/ground/profile/16",
+          "signed_difference": 0.38490017945974997
+        },
+        {
+          "actual": 0.19245008972987504,
+          "expected": -0.1924500897298751,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/1/bands/1/ground/profile/17",
+          "signed_difference": 0.38490017945975014
+        },
+        {
+          "actual": 0.19245008972987532,
+          "expected": -0.1924500897298751,
+          "magnitude_difference": 2.220446049250313e-16,
+          "path": "/population/1/bands/1/ground/profile/18",
+          "signed_difference": 0.3849001794597504
+        },
+        {
+          "actual": 0.1924500897298752,
+          "expected": -0.1924500897298753,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/1/bands/1/ground/profile/19",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": 0.19245008972987537,
+          "expected": -0.1924500897298754,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/1/bands/1/ground/profile/20",
+          "signed_difference": 0.38490017945975075
+        },
+        {
+          "actual": 0.19245008972987548,
+          "expected": -0.19245008972987548,
+          "magnitude_difference": 0.0,
+          "path": "/population/1/bands/1/ground/profile/21",
+          "signed_difference": 0.38490017945975097
+        },
+        {
+          "actual": 0.19245008972987498,
+          "expected": -0.19245008972987507,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/1/bands/1/ground/profile/22",
+          "signed_difference": 0.3849001794597501
+        },
+        {
+          "actual": 0.19245008972987512,
+          "expected": -0.19245008972987515,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/1/bands/1/ground/profile/23",
+          "signed_difference": 0.3849001794597503
+        },
+        {
+          "actual": 0.1924500897298754,
+          "expected": -0.19245008972987535,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/1/bands/1/ground/profile/24",
+          "signed_difference": 0.38490017945975075
+        },
+        {
+          "actual": 0.19245008972987498,
+          "expected": -0.192450089729875,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/1/bands/1/ground/profile/25",
+          "signed_difference": 0.38490017945974997
+        },
+        {
+          "actual": 0.19245008972987512,
+          "expected": -0.1924500897298751,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/1/bands/1/ground/profile/26",
+          "signed_difference": 0.3849001794597502
+        },
+        {
+          "actual": 0.5419970127386986,
+          "expected": -0.013396072513498197,
+          "magnitude_difference": 0.5286009402252004,
+          "path": "/population/1/bands/1/actual_ground_mode_record_readouts/0",
+          "signed_difference": 0.5553930852521968
+        },
+        {
+          "actual": -0.4765085561587911,
+          "expected": -0.8032670488140239,
+          "magnitude_difference": 0.32675849265523277,
+          "path": "/population/1/bands/1/actual_ground_mode_record_readouts/1",
+          "signed_difference": 0.32675849265523277
+        },
+        {
+          "actual": -0.13775265285341906,
+          "expected": -0.22981568483713452,
+          "magnitude_difference": 0.09206303198371546,
+          "path": "/population/1/bands/1/actual_ground_mode_record_readouts/2",
+          "signed_difference": 0.09206303198371546
+        },
+        {
+          "actual": 0.6810240019565122,
+          "expected": 0.27510124783520074,
+          "magnitude_difference": 0.4059227541213115,
+          "path": "/population/1/bands/1/actual_ground_mode_record_readouts/3",
+          "signed_difference": 0.4059227541213115
+        },
+        {
+          "actual": 0.10269966538899848,
+          "expected": 0.0626138810696942,
+          "magnitude_difference": 0.04008578431930428,
+          "path": "/population/1/bands/2/actual_ground_mode_record_readouts/0",
+          "signed_difference": 0.04008578431930428
+        },
+        {
+          "actual": -0.30211635397743525,
+          "expected": 0.13233476187405635,
+          "magnitude_difference": 0.1697815921033789,
+          "path": "/population/1/bands/2/actual_ground_mode_record_readouts/1",
+          "signed_difference": 0.4344511158514916
+        },
+        {
+          "actual": 0.2943855274268068,
+          "expected": 0.1590561031257969,
+          "magnitude_difference": 0.1353294243010099,
+          "path": "/population/1/bands/2/actual_ground_mode_record_readouts/2",
+          "signed_difference": 0.1353294243010099
+        },
+        {
+          "actual": -0.024312907142499614,
+          "expected": -0.09398879228035716,
+          "magnitude_difference": 0.06967588513785754,
+          "path": "/population/1/bands/2/actual_ground_mode_record_readouts/3",
+          "signed_difference": 0.06967588513785754
+        }
+      ],
+      "note": "Diagnostic threshold only. Ground signs and roundoff-sensitive argmax reference ports vary; original byte gate remains failed.",
+      "original_records_sha256": "f36f7e8e7b1c179632fb70fdc17de0571431ee423842e4e5f9705fc49121a001",
+      "profiles": [
+        {
+          "actual_internal_reference": {
+            "max_readout_error": 4.163336342344337e-16,
+            "port": 7
+          },
+          "band": 0,
+          "energy_difference": 8.881784197001252e-16,
+          "exact_projector_diagonal": "1/4",
+          "expected_internal_reference": {
+            "max_readout_error": 1.3322676295501878e-15,
+            "port": 7
+          },
+          "opposite_sign_error": 4.440892098500626e-16,
+          "population": 0,
+          "projector_error": 1.6653345369377348e-16,
+          "same_sign_error": 0.70682918394899
+        },
+        {
+          "actual_internal_reference": {
+            "max_readout_error": 1.1102230246251565e-15,
+            "port": 7
+          },
+          "band": 1,
+          "energy_difference": 4.440892098500626e-16,
+          "exact_projector_diagonal": "5/12",
+          "expected_internal_reference": {
+            "max_readout_error": 7.494005416219807e-16,
+            "port": 5
+          },
+          "opposite_sign_error": 1.3322676295501878e-15,
+          "population": 0,
+          "projector_error": 1.887379141862766e-15,
+          "same_sign_error": 1.4555484949245918
+        },
+        {
+          "actual_internal_reference": {
+            "max_readout_error": 3.608224830031759e-16,
+            "port": 2
+          },
+          "band": 2,
+          "energy_difference": 6.661338147750939e-16,
+          "exact_projector_diagonal": "1/4",
+          "expected_internal_reference": {
+            "max_readout_error": 1.1102230246251565e-15,
+            "port": 6
+          },
+          "opposite_sign_error": 1.3322676295501878e-15,
+          "population": 0,
+          "projector_error": 2.220446049250313e-15,
+          "same_sign_error": 1.6583968723388418
+        },
+        {
+          "actual_internal_reference": {
+            "max_readout_error": 6.661338147750939e-16,
+            "port": 7
+          },
+          "band": 0,
+          "energy_difference": 1.3322676295501878e-15,
+          "exact_projector_diagonal": "1/4",
+          "expected_internal_reference": {
+            "max_readout_error": 9.43689570931383e-16,
+            "port": 7
+          },
+          "opposite_sign_error": 3.608224830031759e-16,
+          "population": 1,
+          "projector_error": 1.3877787807814457e-16,
+          "same_sign_error": 0.38490017945975064
+        },
+        {
+          "actual_internal_reference": {
+            "max_readout_error": 1.1102230246251565e-15,
+            "port": 7
+          },
+          "band": 1,
+          "energy_difference": 4.440892098500626e-16,
+          "exact_projector_diagonal": "5/12",
+          "expected_internal_reference": {
+            "max_readout_error": 9.71445146547012e-16,
+            "port": 5
+          },
+          "opposite_sign_error": 8.049116928532385e-16,
+          "population": 1,
+          "projector_error": 3.0531133177191805e-16,
+          "same_sign_error": 0.38490017945975163
+        },
+        {
+          "actual_internal_reference": {
+            "max_readout_error": 5.863365348801608e-16,
+            "port": 2
+          },
+          "band": 2,
+          "energy_difference": 4.440892098500626e-16,
+          "exact_projector_diagonal": "1/4",
+          "expected_internal_reference": {
+            "max_readout_error": 2.4424906541753444e-15,
+            "port": 6
+          },
+          "opposite_sign_error": 0.3849001794597507,
+          "population": 1,
+          "projector_error": 3.122502256758253e-16,
+          "same_sign_error": 8.049116928532385e-16
+        }
+      ],
+      "reproduction_sha256": "74d380886e8fef4f0e079db4633f11c493f9e72cf900f6554f9836311bdafcbe"
+    },
+    "windows": {
+      "actual_receipt_sha256": "131718936165d506b6744dbff8048fa7de2154db1df15dc04cb62ab3812518f0",
+      "all_large_differences_are_sign_only": false,
+      "expected_receipt_sha256": "36d2829573ff06ac8145d0753917f65b48b9c5274aebcd663df933d270bc028a",
+      "large_differences": [
+        {
+          "actual": -0.07363218450654563,
+          "expected": 0.07363218450654553,
+          "magnitude_difference": 9.71445146547012e-17,
+          "path": "/population/0/bands/1/ground/profile/0",
+          "signed_difference": 0.14726436901309115
+        },
+        {
+          "actual": -0.11065383058051761,
+          "expected": 0.11065383058051763,
+          "magnitude_difference": 1.3877787807814457e-17,
+          "path": "/population/0/bands/1/ground/profile/1",
+          "signed_difference": 0.22130766116103523
+        },
+        {
+          "actual": -0.07363218450654573,
+          "expected": 0.07363218450654545,
+          "magnitude_difference": 2.7755575615628914e-16,
+          "path": "/population/0/bands/1/ground/profile/2",
+          "signed_difference": 0.14726436901309117
+        },
+        {
+          "actual": -0.11065383058051717,
+          "expected": 0.11065383058051732,
+          "magnitude_difference": 1.5265566588595902e-16,
+          "path": "/population/0/bands/1/ground/profile/3",
+          "signed_difference": 0.2213076611610345
+        },
+        {
+          "actual": -0.21604004771621263,
+          "expected": 0.21604004771621252,
+          "magnitude_difference": 1.1102230246251565e-16,
+          "path": "/population/0/bands/1/ground/profile/4",
+          "signed_difference": 0.43208009543242515
+        },
+        {
+          "actual": -0.11065383058051756,
+          "expected": 0.11065383058051748,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/0/bands/1/ground/profile/5",
+          "signed_difference": 0.22130766116103504
+        },
+        {
+          "actual": -0.07363218450654577,
+          "expected": 0.07363218450654534,
+          "magnitude_difference": 4.3021142204224816e-16,
+          "path": "/population/0/bands/1/ground/profile/6",
+          "signed_difference": 0.1472643690130911
+        },
+        {
+          "actual": -0.11065383058051752,
+          "expected": 0.11065383058051746,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/0/bands/1/ground/profile/7",
+          "signed_difference": 0.22130766116103498
+        },
+        {
+          "actual": -0.07363218450654549,
+          "expected": 0.07363218450654553,
+          "magnitude_difference": 4.163336342344337e-17,
+          "path": "/population/0/bands/1/ground/profile/8",
+          "signed_difference": 0.14726436901309103
+        },
+        {
+          "actual": -0.11065383058051745,
+          "expected": 0.1106538305805175,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/0/bands/1/ground/profile/9",
+          "signed_difference": 0.22130766116103495
+        },
+        {
+          "actual": -0.2160400477162123,
+          "expected": 0.21604004771621244,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/0/bands/1/ground/profile/10",
+          "signed_difference": 0.43208009543242476
+        },
+        {
+          "actual": -0.11065383058051746,
+          "expected": 0.11065383058051752,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/0/bands/1/ground/profile/11",
+          "signed_difference": 0.22130766116103498
+        },
+        {
+          "actual": -0.21604004771621224,
+          "expected": 0.21604004771621232,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/0/bands/1/ground/profile/12",
+          "signed_difference": 0.43208009543242454
+        },
+        {
+          "actual": -0.7277742474622947,
+          "expected": 0.7277742474622966,
+          "magnitude_difference": 1.887379141862766e-15,
+          "path": "/population/0/bands/1/ground/profile/13",
+          "signed_difference": 1.4555484949245914
+        },
+        {
+          "actual": -0.21604004771621232,
+          "expected": 0.2160400477162126,
+          "magnitude_difference": 2.7755575615628914e-16,
+          "path": "/population/0/bands/1/ground/profile/14",
+          "signed_difference": 0.4320800954324249
+        },
+        {
+          "actual": -0.11065383058051745,
+          "expected": 0.11065383058051745,
+          "magnitude_difference": 0.0,
+          "path": "/population/0/bands/1/ground/profile/15",
+          "signed_difference": 0.2213076611610349
+        },
+        {
+          "actual": -0.21604004771621232,
+          "expected": 0.21604004771621257,
+          "magnitude_difference": 2.498001805406602e-16,
+          "path": "/population/0/bands/1/ground/profile/16",
+          "signed_difference": 0.43208009543242487
+        },
+        {
+          "actual": -0.11065383058051777,
+          "expected": 0.11065383058051755,
+          "magnitude_difference": 2.220446049250313e-16,
+          "path": "/population/0/bands/1/ground/profile/17",
+          "signed_difference": 0.2213076611610353
+        },
+        {
+          "actual": -0.07363218450654578,
+          "expected": 0.07363218450654546,
+          "magnitude_difference": 3.191891195797325e-16,
+          "path": "/population/0/bands/1/ground/profile/18",
+          "signed_difference": 0.14726436901309126
+        },
+        {
+          "actual": -0.1106538305805175,
+          "expected": 0.11065383058051748,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/0/bands/1/ground/profile/19",
+          "signed_difference": 0.22130766116103498
+        },
+        {
+          "actual": -0.07363218450654549,
+          "expected": 0.0736321845065456,
+          "magnitude_difference": 1.1102230246251565e-16,
+          "path": "/population/0/bands/1/ground/profile/20",
+          "signed_difference": 0.1472643690130911
+        },
+        {
+          "actual": -0.11065383058051736,
+          "expected": 0.11065383058051752,
+          "magnitude_difference": 1.5265566588595902e-16,
+          "path": "/population/0/bands/1/ground/profile/21",
+          "signed_difference": 0.2213076611610349
+        },
+        {
+          "actual": -0.21604004771621232,
+          "expected": 0.2160400477162126,
+          "magnitude_difference": 2.7755575615628914e-16,
+          "path": "/population/0/bands/1/ground/profile/22",
+          "signed_difference": 0.4320800954324249
+        },
+        {
+          "actual": -0.11065383058051773,
+          "expected": 0.11065383058051755,
+          "magnitude_difference": 1.8041124150158794e-16,
+          "path": "/population/0/bands/1/ground/profile/23",
+          "signed_difference": 0.22130766116103529
+        },
+        {
+          "actual": -0.07363218450654545,
+          "expected": 0.07363218450654554,
+          "magnitude_difference": 9.71445146547012e-17,
+          "path": "/population/0/bands/1/ground/profile/24",
+          "signed_difference": 0.14726436901309098
+        },
+        {
+          "actual": -0.11065383058051773,
+          "expected": 0.11065383058051753,
+          "magnitude_difference": 1.942890293094024e-16,
+          "path": "/population/0/bands/1/ground/profile/25",
+          "signed_difference": 0.22130766116103526
+        },
+        {
+          "actual": -0.07363218450654585,
+          "expected": 0.07363218450654559,
+          "magnitude_difference": 2.636779683484747e-16,
+          "path": "/population/0/bands/1/ground/profile/26",
+          "signed_difference": 0.14726436901309142
+        },
+        {
+          "actual": -0.17869901854769263,
+          "expected": -0.2296121555041733,
+          "magnitude_difference": 0.05091313695648067,
+          "path": "/population/0/bands/1/actual_ground_mode_record_readouts/0",
+          "signed_difference": 0.05091313695648067
+        },
+        {
+          "actual": -0.46707010588817527,
+          "expected": -0.08326199233603421,
+          "magnitude_difference": 0.38380811355214106,
+          "path": "/population/0/bands/1/actual_ground_mode_record_readouts/1",
+          "signed_difference": 0.38380811355214106
+        },
+        {
+          "actual": 0.15192171476406713,
+          "expected": 0.1066599078315891,
+          "magnitude_difference": 0.04526180693247803,
+          "path": "/population/0/bands/1/actual_ground_mode_record_readouts/2",
+          "signed_difference": 0.04526180693247803
+        },
+        {
+          "actual": 0.15652012120027245,
+          "expected": 0.8059537648223112,
+          "magnitude_difference": 0.6494336436220387,
+          "path": "/population/0/bands/1/actual_ground_mode_record_readouts/3",
+          "signed_difference": 0.6494336436220387
+        },
+        {
+          "actual": 0.0449676496091557,
+          "expected": -0.044967649609155544,
+          "magnitude_difference": 1.5265566588595902e-16,
+          "path": "/population/0/bands/2/ground/profile/0",
+          "signed_difference": 0.08993529921831124
+        },
+        {
+          "actual": 0.07936527683669484,
+          "expected": -0.079365276836695,
+          "magnitude_difference": 1.6653345369377348e-16,
+          "path": "/population/0/bands/2/ground/profile/1",
+          "signed_difference": 0.15873055367338984
+        },
+        {
+          "actual": 0.04496764960915566,
+          "expected": -0.04496764960915555,
+          "magnitude_difference": 1.1102230246251565e-16,
+          "path": "/population/0/bands/2/ground/profile/2",
+          "signed_difference": 0.08993529921831121
+        },
+        {
+          "actual": 0.07936527683669507,
+          "expected": -0.07936527683669427,
+          "magnitude_difference": 8.049116928532385e-16,
+          "path": "/population/0/bands/2/ground/profile/3",
+          "signed_difference": 0.15873055367338934
+        },
+        {
+          "actual": 0.19177550736682952,
+          "expected": -0.1917755073668296,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/0/bands/2/ground/profile/4",
+          "signed_difference": 0.38355101473365916
+        },
+        {
+          "actual": 0.07936527683669517,
+          "expected": -0.07936527683669478,
+          "magnitude_difference": 3.885780586188048e-16,
+          "path": "/population/0/bands/2/ground/profile/5",
+          "signed_difference": 0.15873055367338995
+        },
+        {
+          "actual": 0.044967649609155384,
+          "expected": -0.04496764960915552,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/0/bands/2/ground/profile/6",
+          "signed_difference": 0.08993529921831091
+        },
+        {
+          "actual": 0.0793652768366949,
+          "expected": -0.07936527683669493,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/0/bands/2/ground/profile/7",
+          "signed_difference": 0.15873055367338984
+        },
+        {
+          "actual": 0.04496764960915585,
+          "expected": -0.04496764960915564,
+          "magnitude_difference": 2.0816681711721685e-16,
+          "path": "/population/0/bands/2/ground/profile/8",
+          "signed_difference": 0.08993529921831149
+        },
+        {
+          "actual": 0.07936527683669488,
+          "expected": -0.07936527683669484,
+          "magnitude_difference": 4.163336342344337e-17,
+          "path": "/population/0/bands/2/ground/profile/9",
+          "signed_difference": 0.15873055367338973
+        },
+        {
+          "actual": 0.19177550736682972,
+          "expected": -0.19177550736682977,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/0/bands/2/ground/profile/10",
+          "signed_difference": 0.3835510147336595
+        },
+        {
+          "actual": 0.07936527683669502,
+          "expected": -0.07936527683669492,
+          "magnitude_difference": 9.71445146547012e-17,
+          "path": "/population/0/bands/2/ground/profile/11",
+          "signed_difference": 0.15873055367338995
+        },
+        {
+          "actual": 0.1917755073668297,
+          "expected": -0.1917755073668296,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/0/bands/2/ground/profile/12",
+          "signed_difference": 0.38355101473365927
+        },
+        {
+          "actual": 0.8291984361694212,
+          "expected": -0.8291984361694202,
+          "magnitude_difference": 9.992007221626409e-16,
+          "path": "/population/0/bands/2/ground/profile/13",
+          "signed_difference": 1.6583968723388414
+        },
+        {
+          "actual": 0.19177550736682977,
+          "expected": -0.19177550736682994,
+          "magnitude_difference": 1.6653345369377348e-16,
+          "path": "/population/0/bands/2/ground/profile/14",
+          "signed_difference": 0.3835510147336597
+        },
+        {
+          "actual": 0.07936527683669493,
+          "expected": -0.07936527683669492,
+          "magnitude_difference": 1.3877787807814457e-17,
+          "path": "/population/0/bands/2/ground/profile/15",
+          "signed_difference": 0.15873055367338984
+        },
+        {
+          "actual": 0.19177550736682963,
+          "expected": -0.19177550736683005,
+          "magnitude_difference": 4.163336342344337e-16,
+          "path": "/population/0/bands/2/ground/profile/16",
+          "signed_difference": 0.3835510147336597
+        },
+        {
+          "actual": 0.07936527683669473,
+          "expected": -0.07936527683669523,
+          "magnitude_difference": 4.996003610813204e-16,
+          "path": "/population/0/bands/2/ground/profile/17",
+          "signed_difference": 0.15873055367338995
+        },
+        {
+          "actual": 0.04496764960915532,
+          "expected": -0.044967649609155606,
+          "magnitude_difference": 2.8449465006019636e-16,
+          "path": "/population/0/bands/2/ground/profile/18",
+          "signed_difference": 0.08993529921831092
+        },
+        {
+          "actual": 0.07936527683669488,
+          "expected": -0.07936527683669495,
+          "magnitude_difference": 6.938893903907228e-17,
+          "path": "/population/0/bands/2/ground/profile/19",
+          "signed_difference": 0.15873055367338984
+        },
+        {
+          "actual": 0.044967649609155766,
+          "expected": -0.04496764960915565,
+          "magnitude_difference": 1.1796119636642288e-16,
+          "path": "/population/0/bands/2/ground/profile/20",
+          "signed_difference": 0.08993529921831142
+        },
+        {
+          "actual": 0.07936527683669489,
+          "expected": -0.07936527683669482,
+          "magnitude_difference": 6.938893903907228e-17,
+          "path": "/population/0/bands/2/ground/profile/21",
+          "signed_difference": 0.15873055367338973
+        },
+        {
+          "actual": 0.19177550736682952,
+          "expected": -0.19177550736682997,
+          "magnitude_difference": 4.440892098500626e-16,
+          "path": "/population/0/bands/2/ground/profile/22",
+          "signed_difference": 0.3835510147336595
+        },
+        {
+          "actual": 0.07936527683669461,
+          "expected": -0.07936527683669517,
+          "magnitude_difference": 5.551115123125783e-16,
+          "path": "/population/0/bands/2/ground/profile/23",
+          "signed_difference": 0.15873055367338978
+        },
+        {
+          "actual": 0.044967649609155703,
+          "expected": -0.04496764960915562,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/0/bands/2/ground/profile/24",
+          "signed_difference": 0.08993529921831132
+        },
+        {
+          "actual": 0.07936527683669453,
+          "expected": -0.07936527683669528,
+          "magnitude_difference": 7.494005416219807e-16,
+          "path": "/population/0/bands/2/ground/profile/25",
+          "signed_difference": 0.1587305536733898
+        },
+        {
+          "actual": 0.04496764960915531,
+          "expected": -0.04496764960915597,
+          "magnitude_difference": 6.591949208711867e-16,
+          "path": "/population/0/bands/2/ground/profile/26",
+          "signed_difference": 0.08993529921831128
+        },
+        {
+          "actual": 0.14233737007903,
+          "expected": -0.09777826286422461,
+          "magnitude_difference": 0.04455910721480538,
+          "path": "/population/0/bands/2/actual_ground_mode_record_readouts/0",
+          "signed_difference": 0.2401156329432546
+        },
+        {
+          "actual": -0.17497476111484317,
+          "expected": -0.27234688984090066,
+          "magnitude_difference": 0.0973721287260575,
+          "path": "/population/0/bands/2/actual_ground_mode_record_readouts/1",
+          "signed_difference": 0.0973721287260575
+        },
+        {
+          "actual": 0.3190157337598145,
+          "expected": 0.15382280652548164,
+          "magnitude_difference": 0.16519292723433288,
+          "path": "/population/0/bands/2/actual_ground_mode_record_readouts/2",
+          "signed_difference": 0.16519292723433288
+        },
+        {
+          "actual": -0.3156595517081203,
+          "expected": -0.6449251454499709,
+          "magnitude_difference": 0.3292655937418506,
+          "path": "/population/0/bands/2/actual_ground_mode_record_readouts/3",
+          "signed_difference": 0.3292655937418506
+        },
+        {
+          "actual": 0.19245008972987493,
+          "expected": -0.1924500897298748,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/1/bands/1/ground/profile/0",
+          "signed_difference": 0.38490017945974975
+        },
+        {
+          "actual": 0.19245008972987487,
+          "expected": -0.19245008972987468,
+          "magnitude_difference": 1.942890293094024e-16,
+          "path": "/population/1/bands/1/ground/profile/1",
+          "signed_difference": 0.3849001794597495
+        },
+        {
+          "actual": 0.19245008972987548,
+          "expected": -0.19245008972987568,
+          "magnitude_difference": 1.942890293094024e-16,
+          "path": "/population/1/bands/1/ground/profile/2",
+          "signed_difference": 0.3849001794597512
+        },
+        {
+          "actual": 0.19245008972987568,
+          "expected": -0.19245008972987568,
+          "magnitude_difference": 0.0,
+          "path": "/population/1/bands/1/ground/profile/3",
+          "signed_difference": 0.38490017945975136
+        },
+        {
+          "actual": 0.19245008972987532,
+          "expected": -0.19245008972987543,
+          "magnitude_difference": 1.1102230246251565e-16,
+          "path": "/population/1/bands/1/ground/profile/4",
+          "signed_difference": 0.38490017945975075
+        },
+        {
+          "actual": 0.19245008972987554,
+          "expected": -0.19245008972987562,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/1/bands/1/ground/profile/5",
+          "signed_difference": 0.3849001794597512
+        },
+        {
+          "actual": 0.19245008972987526,
+          "expected": -0.19245008972987518,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/1/bands/1/ground/profile/6",
+          "signed_difference": 0.3849001794597504
+        },
+        {
+          "actual": 0.19245008972987526,
+          "expected": -0.19245008972987532,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/1/bands/1/ground/profile/7",
+          "signed_difference": 0.3849001794597506
+        },
+        {
+          "actual": 0.19245008972987535,
+          "expected": -0.1924500897298755,
+          "magnitude_difference": 1.6653345369377348e-16,
+          "path": "/population/1/bands/1/ground/profile/8",
+          "signed_difference": 0.38490017945975086
+        },
+        {
+          "actual": 0.19245008972987523,
+          "expected": -0.1924500897298751,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/1/bands/1/ground/profile/9",
+          "signed_difference": 0.3849001794597503
+        },
+        {
+          "actual": 0.19245008972987526,
+          "expected": -0.19245008972987526,
+          "magnitude_difference": 0.0,
+          "path": "/population/1/bands/1/ground/profile/10",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": 0.19245008972987543,
+          "expected": -0.1924500897298754,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/1/bands/1/ground/profile/11",
+          "signed_difference": 0.38490017945975086
+        },
+        {
+          "actual": 0.19245008972987543,
+          "expected": -0.19245008972987548,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/1/bands/1/ground/profile/12",
+          "signed_difference": 0.3849001794597509
+        },
+        {
+          "actual": 0.192450089729875,
+          "expected": -0.19245008972987515,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/1/bands/1/ground/profile/13",
+          "signed_difference": 0.3849001794597502
+        },
+        {
+          "actual": 0.19245008972987507,
+          "expected": -0.19245008972987515,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/1/bands/1/ground/profile/14",
+          "signed_difference": 0.3849001794597502
+        },
+        {
+          "actual": 0.19245008972987535,
+          "expected": -0.19245008972987535,
+          "magnitude_difference": 0.0,
+          "path": "/population/1/bands/1/ground/profile/15",
+          "signed_difference": 0.3849001794597507
+        },
+        {
+          "actual": 0.19245008972987496,
+          "expected": -0.192450089729875,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/1/bands/1/ground/profile/16",
+          "signed_difference": 0.38490017945974997
+        },
+        {
+          "actual": 0.192450089729875,
+          "expected": -0.1924500897298751,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/1/bands/1/ground/profile/17",
+          "signed_difference": 0.3849001794597501
+        },
+        {
+          "actual": 0.19245008972987523,
+          "expected": -0.1924500897298751,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/1/bands/1/ground/profile/18",
+          "signed_difference": 0.3849001794597503
+        },
+        {
+          "actual": 0.1924500897298752,
+          "expected": -0.1924500897298753,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/1/bands/1/ground/profile/19",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": 0.19245008972987537,
+          "expected": -0.1924500897298754,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/1/bands/1/ground/profile/20",
+          "signed_difference": 0.38490017945975075
+        },
+        {
+          "actual": 0.19245008972987546,
+          "expected": -0.19245008972987548,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/1/bands/1/ground/profile/21",
+          "signed_difference": 0.38490017945975097
+        },
+        {
+          "actual": 0.192450089729875,
+          "expected": -0.19245008972987507,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/1/bands/1/ground/profile/22",
+          "signed_difference": 0.3849001794597501
+        },
+        {
+          "actual": 0.1924500897298751,
+          "expected": -0.19245008972987515,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/1/bands/1/ground/profile/23",
+          "signed_difference": 0.38490017945975025
+        },
+        {
+          "actual": 0.19245008972987535,
+          "expected": -0.19245008972987535,
+          "magnitude_difference": 0.0,
+          "path": "/population/1/bands/1/ground/profile/24",
+          "signed_difference": 0.3849001794597507
+        },
+        {
+          "actual": 0.19245008972987496,
+          "expected": -0.192450089729875,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/1/bands/1/ground/profile/25",
+          "signed_difference": 0.38490017945974997
+        },
+        {
+          "actual": 0.19245008972987504,
+          "expected": -0.1924500897298751,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/1/bands/1/ground/profile/26",
+          "signed_difference": 0.38490017945975014
+        },
+        {
+          "actual": 0.5419970127386986,
+          "expected": -0.013396072513498197,
+          "magnitude_difference": 0.5286009402252004,
+          "path": "/population/1/bands/1/actual_ground_mode_record_readouts/0",
+          "signed_difference": 0.5553930852521968
+        },
+        {
+          "actual": -0.47650855615879045,
+          "expected": -0.8032670488140239,
+          "magnitude_difference": 0.32675849265523343,
+          "path": "/population/1/bands/1/actual_ground_mode_record_readouts/1",
+          "signed_difference": 0.32675849265523343
+        },
+        {
+          "actual": -0.13775265285341906,
+          "expected": -0.22981568483713452,
+          "magnitude_difference": 0.09206303198371546,
+          "path": "/population/1/bands/1/actual_ground_mode_record_readouts/2",
+          "signed_difference": 0.09206303198371546
+        },
+        {
+          "actual": 0.6810240019565117,
+          "expected": 0.27510124783520074,
+          "magnitude_difference": 0.40592275412131096,
+          "path": "/population/1/bands/1/actual_ground_mode_record_readouts/3",
+          "signed_difference": 0.40592275412131096
+        },
+        {
+          "actual": -0.19245008972987518,
+          "expected": 0.19245008972987487,
+          "magnitude_difference": 3.0531133177191805e-16,
+          "path": "/population/1/bands/2/ground/profile/0",
+          "signed_difference": 0.3849001794597501
+        },
+        {
+          "actual": -0.1924500897298752,
+          "expected": 0.1924500897298745,
+          "magnitude_difference": 6.938893903907228e-16,
+          "path": "/population/1/bands/2/ground/profile/1",
+          "signed_difference": 0.38490017945974975
+        },
+        {
+          "actual": -0.19245008972987507,
+          "expected": 0.19245008972987532,
+          "magnitude_difference": 2.498001805406602e-16,
+          "path": "/population/1/bands/2/ground/profile/2",
+          "signed_difference": 0.3849001794597504
+        },
+        {
+          "actual": -0.1924500897298753,
+          "expected": 0.19245008972987493,
+          "magnitude_difference": 3.608224830031759e-16,
+          "path": "/population/1/bands/2/ground/profile/3",
+          "signed_difference": 0.3849001794597502
+        },
+        {
+          "actual": -0.19245008972987532,
+          "expected": 0.19245008972987518,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/1/bands/2/ground/profile/4",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": -0.19245008972987518,
+          "expected": 0.19245008972987537,
+          "magnitude_difference": 1.942890293094024e-16,
+          "path": "/population/1/bands/2/ground/profile/5",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": -0.1924500897298752,
+          "expected": 0.19245008972987493,
+          "magnitude_difference": 2.7755575615628914e-16,
+          "path": "/population/1/bands/2/ground/profile/6",
+          "signed_difference": 0.38490017945975014
+        },
+        {
+          "actual": -0.19245008972987532,
+          "expected": 0.19245008972987518,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/1/bands/2/ground/profile/7",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": -0.19245008972987523,
+          "expected": 0.19245008972987537,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/1/bands/2/ground/profile/8",
+          "signed_difference": 0.38490017945975064
+        },
+        {
+          "actual": -0.1924500897298752,
+          "expected": 0.192450089729875,
+          "magnitude_difference": 1.942890293094024e-16,
+          "path": "/population/1/bands/2/ground/profile/9",
+          "signed_difference": 0.3849001794597502
+        },
+        {
+          "actual": -0.1924500897298753,
+          "expected": 0.1924500897298752,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/1/bands/2/ground/profile/10",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": -0.19245008972987526,
+          "expected": 0.1924500897298754,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/1/bands/2/ground/profile/11",
+          "signed_difference": 0.38490017945975064
+        },
+        {
+          "actual": -0.19245008972987523,
+          "expected": 0.19245008972987537,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/1/bands/2/ground/profile/12",
+          "signed_difference": 0.38490017945975064
+        },
+        {
+          "actual": -0.19245008972987518,
+          "expected": 0.19245008972987523,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/1/bands/2/ground/profile/13",
+          "signed_difference": 0.3849001794597504
+        },
+        {
+          "actual": -0.192450089729875,
+          "expected": 0.19245008972987532,
+          "magnitude_difference": 3.0531133177191805e-16,
+          "path": "/population/1/bands/2/ground/profile/14",
+          "signed_difference": 0.3849001794597503
+        },
+        {
+          "actual": -0.19245008972987518,
+          "expected": 0.19245008972987537,
+          "magnitude_difference": 1.942890293094024e-16,
+          "path": "/population/1/bands/2/ground/profile/15",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": -0.1924500897298752,
+          "expected": 0.19245008972987526,
+          "magnitude_difference": 5.551115123125783e-17,
+          "path": "/population/1/bands/2/ground/profile/16",
+          "signed_difference": 0.38490017945975047
+        },
+        {
+          "actual": -0.19245008972987507,
+          "expected": 0.19245008972987537,
+          "magnitude_difference": 3.0531133177191805e-16,
+          "path": "/population/1/bands/2/ground/profile/17",
+          "signed_difference": 0.3849001794597504
+        },
+        {
+          "actual": -0.19245008972987515,
+          "expected": 0.19245008972987496,
+          "magnitude_difference": 1.942890293094024e-16,
+          "path": "/population/1/bands/2/ground/profile/18",
+          "signed_difference": 0.3849001794597501
+        },
+        {
+          "actual": -0.1924500897298753,
+          "expected": 0.19245008972987518,
+          "magnitude_difference": 1.1102230246251565e-16,
+          "path": "/population/1/bands/2/ground/profile/19",
+          "signed_difference": 0.38490017945975047
+        },
+        {
+          "actual": -0.1924500897298752,
+          "expected": 0.19245008972987537,
+          "magnitude_difference": 1.6653345369377348e-16,
+          "path": "/population/1/bands/2/ground/profile/20",
+          "signed_difference": 0.3849001794597506
+        },
+        {
+          "actual": -0.19245008972987523,
+          "expected": 0.19245008972987532,
+          "magnitude_difference": 8.326672684688674e-17,
+          "path": "/population/1/bands/2/ground/profile/21",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": -0.19245008972987526,
+          "expected": 0.19245008972987523,
+          "magnitude_difference": 2.7755575615628914e-17,
+          "path": "/population/1/bands/2/ground/profile/22",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": -0.1924500897298751,
+          "expected": 0.19245008972987535,
+          "magnitude_difference": 2.498001805406602e-16,
+          "path": "/population/1/bands/2/ground/profile/23",
+          "signed_difference": 0.3849001794597504
+        },
+        {
+          "actual": -0.19245008972987518,
+          "expected": 0.19245008972987532,
+          "magnitude_difference": 1.3877787807814457e-16,
+          "path": "/population/1/bands/2/ground/profile/24",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": -0.19245008972987526,
+          "expected": 0.19245008972987526,
+          "magnitude_difference": 0.0,
+          "path": "/population/1/bands/2/ground/profile/25",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": -0.19245008972987515,
+          "expected": 0.19245008972987535,
+          "magnitude_difference": 1.942890293094024e-16,
+          "path": "/population/1/bands/2/ground/profile/26",
+          "signed_difference": 0.3849001794597505
+        },
+        {
+          "actual": 0.22921813493201296,
+          "expected": 0.0626138810696942,
+          "magnitude_difference": 0.16660425386231875,
+          "path": "/population/1/bands/2/actual_ground_mode_record_readouts/0",
+          "signed_difference": 0.16660425386231875
+        },
+        {
+          "actual": -0.26512316382261486,
+          "expected": 0.13233476187405635,
+          "magnitude_difference": 0.1327884019485585,
+          "path": "/population/1/bands/2/actual_ground_mode_record_readouts/1",
+          "signed_difference": 0.3974579256966712
+        },
+        {
+          "actual": 0.3916771874803702,
+          "expected": 0.1590561031257969,
+          "magnitude_difference": 0.23262108435457332,
+          "path": "/population/1/bands/2/actual_ground_mode_record_readouts/2",
+          "signed_difference": 0.23262108435457332
+        },
+        {
+          "actual": 0.058470623529122405,
+          "expected": -0.09398879228035716,
+          "magnitude_difference": 0.03551816875123475,
+          "path": "/population/1/bands/2/actual_ground_mode_record_readouts/3",
+          "signed_difference": 0.15245941580947955
+        }
+      ],
+      "note": "Diagnostic threshold only. Ground signs and roundoff-sensitive argmax reference ports vary; original byte gate remains failed.",
+      "original_records_sha256": "f36f7e8e7b1c179632fb70fdc17de0571431ee423842e4e5f9705fc49121a001",
+      "profiles": [
+        {
+          "actual_internal_reference": {
+            "max_readout_error": 1.6653345369377348e-15,
+            "port": 7
+          },
+          "band": 0,
+          "energy_difference": 4.440892098500626e-16,
+          "exact_projector_diagonal": "1/4",
+          "expected_internal_reference": {
+            "max_readout_error": 1.3322676295501878e-15,
+            "port": 7
+          },
+          "opposite_sign_error": 0.7068291839489904,
+          "population": 0,
+          "projector_error": 3.0531133177191805e-16,
+          "same_sign_error": 4.440892098500626e-16
+        },
+        {
+          "actual_internal_reference": {
+            "max_readout_error": 6.938893903907228e-16,
+            "port": 7
+          },
+          "band": 1,
+          "energy_difference": 0.0,
+          "exact_projector_diagonal": "5/12",
+          "expected_internal_reference": {
+            "max_readout_error": 7.494005416219807e-16,
+            "port": 5
+          },
+          "opposite_sign_error": 1.887379141862766e-15,
+          "population": 0,
+          "projector_error": 2.7755575615628914e-15,
+          "same_sign_error": 1.4555484949245914
+        },
+        {
+          "actual_internal_reference": {
+            "max_readout_error": 3.885780586188048e-16,
+            "port": 10
+          },
+          "band": 2,
+          "energy_difference": 6.661338147750939e-16,
+          "exact_projector_diagonal": "1/4",
+          "expected_internal_reference": {
+            "max_readout_error": 1.1102230246251565e-15,
+            "port": 6
+          },
+          "opposite_sign_error": 9.992007221626409e-16,
+          "population": 0,
+          "projector_error": 1.6653345369377348e-15,
+          "same_sign_error": 1.6583968723388414
+        },
+        {
+          "actual_internal_reference": {
+            "max_readout_error": 1.0547118733938987e-15,
+            "port": 7
+          },
+          "band": 0,
+          "energy_difference": 1.1102230246251565e-15,
+          "exact_projector_diagonal": "1/4",
+          "expected_internal_reference": {
+            "max_readout_error": 9.43689570931383e-16,
+            "port": 7
+          },
+          "opposite_sign_error": 0.38490017945975086,
+          "population": 1,
+          "projector_error": 9.71445146547012e-17,
+          "same_sign_error": 2.498001805406602e-16
+        },
+        {
+          "actual_internal_reference": {
+            "max_readout_error": 1.2212453270876722e-15,
+            "port": 7
+          },
+          "band": 1,
+          "energy_difference": 0.0,
+          "exact_projector_diagonal": "5/12",
+          "expected_internal_reference": {
+            "max_readout_error": 9.71445146547012e-16,
+            "port": 5
+          },
+          "opposite_sign_error": 1.942890293094024e-16,
+          "population": 1,
+          "projector_error": 7.632783294297951e-17,
+          "same_sign_error": 0.38490017945975136
+        },
+        {
+          "actual_internal_reference": {
+            "max_readout_error": 2.248201624865942e-15,
+            "port": 10
+          },
+          "band": 2,
+          "energy_difference": 8.881784197001252e-16,
+          "exact_projector_diagonal": "1/4",
+          "expected_internal_reference": {
+            "max_readout_error": 2.4424906541753444e-15,
+            "port": 6
+          },
+          "opposite_sign_error": 6.938893903907228e-16,
+          "population": 1,
+          "projector_error": 2.706168622523819e-16,
+          "same_sign_error": 0.38490017945975064
+        }
+      ],
+      "reproduction_sha256": "2b01ae410b52ea2741222fcb356d15d1dcf27658bb3a2873c739d48a278405d0"
+    }
+  },
+  "script_sha256": "14f1d43491a9df6f17e641cb1df6fa89a511d9cea5538d759899205f9119ba16"
+}

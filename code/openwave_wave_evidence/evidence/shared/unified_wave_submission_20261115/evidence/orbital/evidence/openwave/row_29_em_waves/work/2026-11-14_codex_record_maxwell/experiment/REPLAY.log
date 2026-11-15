@@ -1,0 +1,31 @@
+{
+  "actual_native_calls": 167008,
+  "actual_tape_events": 65536,
+  "actual_tape_nonzero_currents": 29,
+  "checks": "all preregistered checks pass",
+  "compressed_population_block_lengths": [
+    10000000,
+    1000000000
+  ],
+  "endpoint_branch_calls": 101088,
+  "full_vector_checks": 384,
+  "graph": {
+    "cells": 216,
+    "seams": 16848,
+    "shape": [
+      3,
+      3,
+      3,
+      8
+    ],
+    "vertices": 2592
+  },
+  "macro_lumping_equal_for_all_ports": true,
+  "official_row_status": "untested",
+  "physical_time_identified": false,
+  "population_blocks_are_actual_long_tapes": false,
+  "population_compression": "finite-block covariance geometric sum from branch-derived transfer",
+  "raw_uncompressed_sha256": "e95e6da048ae5de663b9d8f10386ce0dfaa9098926c0970e62663e846dd0acce",
+  "record_only_replay": true,
+  "schema": "oph.record_maxwell.finite.v1"
+}

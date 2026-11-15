@@ -1,0 +1,401 @@
+{
+  "checked_utc": "2026-11-15T10:27:20.907181+00:00",
+  "cross_environment": {
+    "0_vs_1/boost": {
+      "artifacts": {
+        "RECEIPT.json": {
+          "actual_sha256": "8a7208797be70f3ab69b2677ccf495157d29f5e278588d0f3dbe40bade5caf55",
+          "byte_equal": false,
+          "original_sha256": "0b818bfa8a8cd97fd804e4f6d47ce1614a9421f86dee7e9fc99278e6bab9c1e4"
+        }
+      },
+      "native_calls": 0,
+      "receipt": {
+        "changed_floats": 27,
+        "exact_scalars": 153,
+        "float_scalars": 256,
+        "max_absolute_error": 1.7763568394002505e-15,
+        "max_budget_fraction": 0.00025376526277146434,
+        "max_error_path": "/native_mass_squared/1"
+      }
+    },
+    "0_vs_1/free": {
+      "artifacts": {
+        "RECEIPT.json": {
+          "actual_sha256": "c04d687e64a2f858f6544d8660840029b496614940363d87bc46c4ae121d4417",
+          "byte_equal": false,
+          "original_sha256": "6f95cc574047e1c6334e2dad273e7ce2d7421cafb0f71d559ad24ed2329095b6"
+        },
+        "RECORDS.json.gz": {
+          "actual_raw_sha256": "5947ab98c2184133a5df27bf5561e920a3ad3d89a26c105e64c64dc0aa6d7095",
+          "actual_sha256": "abb33684c1aa8b1d4b21b2fdf50b713f0e6ccdae28d95d42e43a1aab6e591767",
+          "byte_equal": false,
+          "embedded_hashes_verified": true,
+          "original_raw_sha256": "da25273723f8f19287409884936e64c6c6085593c656c3d4b44938ff3e980f26",
+          "original_sha256": "2e588bed62fd5915cab8ea7747b473b33ac9d0c27ba42b227aea8ec5445811cd",
+          "uncompressed_byte_equal": false
+        }
+      },
+      "native_calls": 169364,
+      "receipt": {
+        "changed_floats": 151,
+        "exact_scalars": 89,
+        "float_scalars": 284,
+        "max_absolute_error": 6.8860580849988215e-15,
+        "max_budget_fraction": 0.006886058084998666,
+        "max_error_path": "/max_source_eigenvector_residual"
+      },
+      "records": {
+        "changed_floats": 15514,
+        "exact_scalars": 605962,
+        "float_scalars": 16038,
+        "max_absolute_error": 5.10702591327572e-15,
+        "max_budget_fraction": 0.003990661018008768,
+        "max_error_path": "/internal_band_readouts/1/2/54/11"
+      }
+    },
+    "0_vs_1/orbital": {
+      "artifacts": {
+        "RECEIPT.json": {
+          "actual_sha256": "562b242dad3c0c7f71486920707b99fc58385db0b16ceb7fe933c597d45b1f89",
+          "byte_equal": false,
+          "original_sha256": "c48e2cb41cca7a99f553865e31acfef7017c64ffaeb87c3e5a2049b160873196"
+        },
+        "RECORDS.json.gz": {
+          "actual_raw_sha256": "02b458a0fd0a182ace9fe48733944a8723243dee6db82c72094766ccb4bb4b51",
+          "actual_sha256": "a58abf565e3e12b0002da7158dabd7d637f120224eab06ea9bc88f4b899bf06d",
+          "byte_equal": false,
+          "embedded_hashes_verified": true,
+          "original_raw_sha256": "525b393f71373494cd8f28b235dcb4b0634fbba12e1fbd032e403c42e27061fa",
+          "original_sha256": "a210c2e4ebd6c7045d5228edb80d22c2226a03d274afcc25ef9c3385116fbfb4",
+          "uncompressed_byte_equal": false
+        }
+      },
+      "native_calls": 347533,
+      "receipt": {
+        "changed_floats": 352,
+        "exact_scalars": 55,
+        "float_scalars": 418,
+        "max_absolute_error": 2.4868995751603507e-14,
+        "max_budget_fraction": 0.0029496362261284513,
+        "max_error_path": "/population/1/bands/2/spatial_squared_levels/6"
+      },
+      "records": {
+        "changed_floats": 30712,
+        "exact_scalars": 2826747,
+        "float_scalars": 32740,
+        "max_absolute_error": 4.3298697960381105e-15,
+        "max_budget_fraction": 0.0023437524487553516,
+        "max_error_path": "/runs/0/channels/3/band_readouts/3/13/10"
+      }
+    },
+    "0_vs_1/unified": {
+      "artifacts": {
+        "CONTROL_RECORDS.json.gz": {
+          "actual_raw_sha256": "e14c170b807624c1a24325414ea869aa892505ed29ce5a40c1e252e67b59b248",
+          "actual_sha256": "0b0d49822f7685e6ffb1f4fae775bda55658a430f305344f71103137a8916e7e",
+          "byte_equal": false,
+          "embedded_hashes_verified": true,
+          "original_raw_sha256": "e14c170b807624c1a24325414ea869aa892505ed29ce5a40c1e252e67b59b248",
+          "original_sha256": "7f6514993a6a98e49511bfe9e5008068c562bed5a7c26869b4cc08cb7efd3cce",
+          "uncompressed_byte_equal": true
+        },
+        "RECEIPT.json": {
+          "actual_sha256": "5c449693020b1d0091f1d1233a3945e20fe67e0acc1d4a506b6d3447db0a75fc",
+          "byte_equal": false,
+          "original_sha256": "02742ef7831eabd05ae5881a7a638c0a46a4896e1af148da1caee02b7afb86b8"
+        }
+      },
+      "native_calls": 492837,
+      "receipt": {
+        "changed_floats": 7,
+        "exact_scalars": 49,
+        "float_scalars": 17,
+        "max_absolute_error": 9.603429163007604e-14,
+        "max_budget_fraction": 0.054884184036076825,
+        "max_error_path": "/changed_law_same_F12_population/0/biased_F12_covariance"
+      },
+      "records": {
+        "changed_floats": 0,
+        "exact_scalars": 1188433,
+        "float_scalars": 486,
+        "max_absolute_error": 0.0,
+        "max_budget_fraction": 0.0,
+        "max_error_path": null
+      }
+    }
+  },
+  "custody": {
+    "ancestor_manifests": {
+      "boost": 21,
+      "boost_review": 3,
+      "free": 149,
+      "orbital": 193,
+      "unified": 31,
+      "unified_review": 6
+    },
+    "copied_pins": 409,
+    "outer_manifest_entries": 420
+  },
+  "runs": {
+    "0": {
+      "leaves": {
+        "boost": {
+          "artifacts": {
+            "RECEIPT.json": {
+              "actual_sha256": "0b818bfa8a8cd97fd804e4f6d47ce1614a9421f86dee7e9fc99278e6bab9c1e4",
+              "byte_equal": false,
+              "original_sha256": "44c88ac63980fb53f52988ca1b9da8dbc3e696b40a27f72c23a942489c88f1f6"
+            }
+          },
+          "native_calls": 0,
+          "receipt": {
+            "changed_floats": 89,
+            "exact_scalars": 153,
+            "float_scalars": 256,
+            "max_absolute_error": 6.217248937900877e-15,
+            "max_budget_fraction": 0.003774758283725473,
+            "max_error_path": "/rows/4/width_ratios/1"
+          }
+        },
+        "free": {
+          "artifacts": {
+            "RECEIPT.json": {
+              "actual_sha256": "6f95cc574047e1c6334e2dad273e7ce2d7421cafb0f71d559ad24ed2329095b6",
+              "byte_equal": false,
+              "original_sha256": "64549d2e4346e1b66de43acbdd2c04543a592490e46d8e26d7e08fc03fe5727f"
+            },
+            "RECORDS.json.gz": {
+              "actual_raw_sha256": "da25273723f8f19287409884936e64c6c6085593c656c3d4b44938ff3e980f26",
+              "actual_sha256": "2e588bed62fd5915cab8ea7747b473b33ac9d0c27ba42b227aea8ec5445811cd",
+              "byte_equal": false,
+              "embedded_hashes_verified": true,
+              "original_raw_sha256": "bc27b949942d87e7ed1915c680d69c524288101e38e0eae22fe2a78ddf3c539f",
+              "original_sha256": "0f142024ff3b18ffc3ff5bc6f48d2e452b15a248da34fe07a7fb1b99955a607b",
+              "uncompressed_byte_equal": false
+            }
+          },
+          "native_calls": 169364,
+          "receipt": {
+            "changed_floats": 155,
+            "exact_scalars": 89,
+            "float_scalars": 284,
+            "max_absolute_error": 9.864776096685235e-15,
+            "max_budget_fraction": 0.009861471743193925,
+            "max_error_path": "/population/1/electric_magnetic_relative_error_including_contact"
+          },
+          "records": {
+            "changed_floats": 15438,
+            "exact_scalars": 605962,
+            "float_scalars": 16038,
+            "max_absolute_error": 3.1086244689504383e-15,
+            "max_budget_fraction": 0.0015171108002347414,
+            "max_error_path": "/internal_band_readouts/2/2/39/0"
+          }
+        },
+        "orbital": {
+          "artifacts": {
+            "RECEIPT.json": {
+              "actual_sha256": "c48e2cb41cca7a99f553865e31acfef7017c64ffaeb87c3e5a2049b160873196",
+              "byte_equal": false,
+              "original_sha256": "36d2829573ff06ac8145d0753917f65b48b9c5274aebcd663df933d270bc028a"
+            },
+            "RECORDS.json.gz": {
+              "actual_raw_sha256": "525b393f71373494cd8f28b235dcb4b0634fbba12e1fbd032e403c42e27061fa",
+              "actual_sha256": "a210c2e4ebd6c7045d5228edb80d22c2226a03d274afcc25ef9c3385116fbfb4",
+              "byte_equal": false,
+              "embedded_hashes_verified": true,
+              "original_raw_sha256": "58d53a9b5f30b7ec75210f039bf80fc0d3873e89209d1277c73d19f14b4c6bec",
+              "original_sha256": "f36f7e8e7b1c179632fb70fdc17de0571431ee423842e4e5f9705fc49121a001",
+              "uncompressed_byte_equal": false
+            }
+          },
+          "native_calls": 347533,
+          "receipt": {
+            "changed_floats": 350,
+            "exact_scalars": 55,
+            "float_scalars": 418,
+            "max_absolute_error": 1.9539925233402755e-14,
+            "max_budget_fraction": 0.005144920115524397,
+            "max_error_path": "/population/0/bands/2/spatial_squared_levels/9"
+          },
+          "records": {
+            "changed_floats": 30713,
+            "exact_scalars": 2826747,
+            "float_scalars": 32740,
+            "max_absolute_error": 1.2656542480726785e-14,
+            "max_budget_fraction": 0.0043870238143369255,
+            "max_error_path": "/runs/0/channels/3/band_readouts/3/13/6"
+          }
+        },
+        "unified": {
+          "artifacts": {
+            "CONTROL_RECORDS.json.gz": {
+              "actual_raw_sha256": "e14c170b807624c1a24325414ea869aa892505ed29ce5a40c1e252e67b59b248",
+              "actual_sha256": "7f6514993a6a98e49511bfe9e5008068c562bed5a7c26869b4cc08cb7efd3cce",
+              "byte_equal": false,
+              "embedded_hashes_verified": true,
+              "original_raw_sha256": "80ea8f1ab702ac7ec5497e11107bf47892c7e7812f783e02a2f085618fa7feca",
+              "original_sha256": "6d1f37566679caef2493a85e9cd7de12f769f3c68d9165f1e59f6c8c242b0beb",
+              "uncompressed_byte_equal": false
+            },
+            "RECEIPT.json": {
+              "actual_sha256": "02742ef7831eabd05ae5881a7a638c0a46a4896e1af148da1caee02b7afb86b8",
+              "byte_equal": false,
+              "original_sha256": "7e56241d002627df1bf210bb545aa7af854b75046210e86695753c8f47539739"
+            }
+          },
+          "native_calls": 492837,
+          "receipt": {
+            "changed_floats": 7,
+            "exact_scalars": 49,
+            "float_scalars": 17,
+            "max_absolute_error": 1.0902390101819037e-13,
+            "max_budget_fraction": 0.062307825113788955,
+            "max_error_path": "/changed_law_same_F12_population/0/biased_F12_covariance"
+          },
+          "records": {
+            "changed_floats": 174,
+            "exact_scalars": 1188433,
+            "float_scalars": 486,
+            "max_absolute_error": 4.440892098500626e-16,
+            "max_budget_fraction": 0.0002935937278064446,
+            "max_error_path": "/field_strength_readouts/0/0/0/0/0"
+          }
+        }
+      },
+      "path": "shared\\unified_wave_replay_amendment_20261115\\results\\windows_final",
+      "report_sha256": "8f809274afed25bdc5f7be68d0622c3900819075c187a61379f6298e27879c1e"
+    },
+    "1": {
+      "leaves": {
+        "boost": {
+          "artifacts": {
+            "RECEIPT.json": {
+              "actual_sha256": "8a7208797be70f3ab69b2677ccf495157d29f5e278588d0f3dbe40bade5caf55",
+              "byte_equal": false,
+              "original_sha256": "44c88ac63980fb53f52988ca1b9da8dbc3e696b40a27f72c23a942489c88f1f6"
+            }
+          },
+          "native_calls": 0,
+          "receipt": {
+            "changed_floats": 89,
+            "exact_scalars": 153,
+            "float_scalars": 256,
+            "max_absolute_error": 6.217248937900877e-15,
+            "max_budget_fraction": 0.003774758283725473,
+            "max_error_path": "/rows/4/width_ratios/1"
+          }
+        },
+        "free": {
+          "artifacts": {
+            "RECEIPT.json": {
+              "actual_sha256": "c04d687e64a2f858f6544d8660840029b496614940363d87bc46c4ae121d4417",
+              "byte_equal": false,
+              "original_sha256": "64549d2e4346e1b66de43acbdd2c04543a592490e46d8e26d7e08fc03fe5727f"
+            },
+            "RECORDS.json.gz": {
+              "actual_raw_sha256": "5947ab98c2184133a5df27bf5561e920a3ad3d89a26c105e64c64dc0aa6d7095",
+              "actual_sha256": "abb33684c1aa8b1d4b21b2fdf50b713f0e6ccdae28d95d42e43a1aab6e591767",
+              "byte_equal": false,
+              "embedded_hashes_verified": true,
+              "original_raw_sha256": "bc27b949942d87e7ed1915c680d69c524288101e38e0eae22fe2a78ddf3c539f",
+              "original_sha256": "0f142024ff3b18ffc3ff5bc6f48d2e452b15a248da34fe07a7fb1b99955a607b",
+              "uncompressed_byte_equal": false
+            }
+          },
+          "native_calls": 169364,
+          "receipt": {
+            "changed_floats": 169,
+            "exact_scalars": 89,
+            "float_scalars": 284,
+            "max_absolute_error": 1.032144205173613e-14,
+            "max_budget_fraction": 0.010316688068995222,
+            "max_error_path": "/population/2/electric_magnetic_relative_error_including_contact"
+          },
+          "records": {
+            "changed_floats": 15663,
+            "exact_scalars": 605962,
+            "float_scalars": 16038,
+            "max_absolute_error": 5.329070518200751e-15,
+            "max_budget_fraction": 0.0031397597430945015,
+            "max_error_path": "/internal_band_readouts/2/2/54/11"
+          }
+        },
+        "orbital": {
+          "artifacts": {
+            "RECEIPT.json": {
+              "actual_sha256": "562b242dad3c0c7f71486920707b99fc58385db0b16ceb7fe933c597d45b1f89",
+              "byte_equal": false,
+              "original_sha256": "36d2829573ff06ac8145d0753917f65b48b9c5274aebcd663df933d270bc028a"
+            },
+            "RECORDS.json.gz": {
+              "actual_raw_sha256": "02b458a0fd0a182ace9fe48733944a8723243dee6db82c72094766ccb4bb4b51",
+              "actual_sha256": "a58abf565e3e12b0002da7158dabd7d637f120224eab06ea9bc88f4b899bf06d",
+              "byte_equal": false,
+              "embedded_hashes_verified": true,
+              "original_raw_sha256": "58d53a9b5f30b7ec75210f039bf80fc0d3873e89209d1277c73d19f14b4c6bec",
+              "original_sha256": "f36f7e8e7b1c179632fb70fdc17de0571431ee423842e4e5f9705fc49121a001",
+              "uncompressed_byte_equal": false
+            }
+          },
+          "native_calls": 347533,
+          "receipt": {
+            "changed_floats": 371,
+            "exact_scalars": 55,
+            "float_scalars": 418,
+            "max_absolute_error": 1.5987211554602254e-14,
+            "max_budget_fraction": 0.0059705170088621305,
+            "max_error_path": "/population/0/bands/2/spatial_squared_levels/9"
+          },
+          "records": {
+            "changed_floats": 30645,
+            "exact_scalars": 2826747,
+            "float_scalars": 32740,
+            "max_absolute_error": 1.176836406102666e-14,
+            "max_budget_fraction": 0.0050352672597732415,
+            "max_error_path": "/runs/0/channels/3/band_readouts/3/13/6"
+          }
+        },
+        "unified": {
+          "artifacts": {
+            "CONTROL_RECORDS.json.gz": {
+              "actual_raw_sha256": "e14c170b807624c1a24325414ea869aa892505ed29ce5a40c1e252e67b59b248",
+              "actual_sha256": "0b0d49822f7685e6ffb1f4fae775bda55658a430f305344f71103137a8916e7e",
+              "byte_equal": false,
+              "embedded_hashes_verified": true,
+              "original_raw_sha256": "80ea8f1ab702ac7ec5497e11107bf47892c7e7812f783e02a2f085618fa7feca",
+              "original_sha256": "6d1f37566679caef2493a85e9cd7de12f769f3c68d9165f1e59f6c8c242b0beb",
+              "uncompressed_byte_equal": false
+            },
+            "RECEIPT.json": {
+              "actual_sha256": "5c449693020b1d0091f1d1233a3945e20fe67e0acc1d4a506b6d3447db0a75fc",
+              "byte_equal": false,
+              "original_sha256": "7e56241d002627df1bf210bb545aa7af854b75046210e86695753c8f47539739"
+            }
+          },
+          "native_calls": 492837,
+          "receipt": {
+            "changed_floats": 5,
+            "exact_scalars": 49,
+            "float_scalars": 17,
+            "max_absolute_error": 1.2989609388114332e-14,
+            "max_budget_fraction": 0.007423641077712533,
+            "max_error_path": "/changed_law_same_F12_population/0/biased_F12_covariance"
+          },
+          "records": {
+            "changed_floats": 174,
+            "exact_scalars": 1188433,
+            "float_scalars": 486,
+            "max_absolute_error": 4.440892098500626e-16,
+            "max_budget_fraction": 0.0002935937278064446,
+            "max_error_path": "/field_strength_readouts/0/0/0/0/0"
+          }
+        }
+      },
+      "path": "shared\\unified_wave_replay_amendment_20261115\\results\\linux_final",
+      "report_sha256": "b949c998c66e48ccb153937c0a045b079da52ee3bc08ae598381be9c6a16eea9"
+    }
+  },
+  "status": "pass"
+}

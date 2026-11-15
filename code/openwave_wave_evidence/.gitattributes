@@ -1,0 +1,4 @@
+# Every imported evidence file retains its sealed bytes on every platform.
+* -text -eol
+# Frozen logs include original CRLF and whitespace covered by their seals.
+evidence/** -whitespace

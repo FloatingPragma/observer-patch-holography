@@ -1,0 +1,132 @@
+{
+  "actual_native_calls": 305157,
+  "all_registered_checks": "pass",
+  "candidate": "MFR-native-probe-binding",
+  "capped_escape": [
+    0.7727272727263838,
+    0.9090909090900775,
+    0.9545454545447876
+  ],
+  "capped_hit": [
+    0.22727272727261244,
+    0.0909090909089835,
+    0.04545454545445933
+  ],
+  "census_calls": 44100,
+  "class_": "N+",
+  "confidence_family_coverage": 0.99,
+  "hydrogen_levels_established": false,
+  "official": "untested",
+  "physical_charge_assigned": false,
+  "preparation_censor_bound": 7.346839692639297e-38,
+  "probe_censor_bound": 2.532051878034809e-11,
+  "probe_mean_calls": [
+    "31/3",
+    "10",
+    "26/3"
+  ],
+  "raw_uncompressed_sha256": "e5d29d9c8ec9b06e0028cd87dccaa203d19f43da1b9b30e542773d56cc44ba4a",
+  "record_only_replay": true,
+  "schema": "oph.native_probe_binding.v1",
+  "source_hit_probabilities": [
+    "5/22",
+    "1/11",
+    "1/22"
+  ],
+  "summaries": [
+    {
+      "actual_native_calls": 4096,
+      "censors": 0,
+      "feedback": true,
+      "hit_mean": 1.0,
+      "hit_target": 1.0,
+      "move_mean": 0.0,
+      "move_target": 0.0,
+      "simultaneous_halfwidth": 0.031819133103492415,
+      "x": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "actual_native_calls": 65015,
+      "censors": 0,
+      "feedback": true,
+      "hit_mean": 0.2236328125,
+      "hit_target": 0.22727272727261244,
+      "move_mean": 0.384521484375,
+      "move_target": 0.3863636363631919,
+      "simultaneous_halfwidth": 0.031819133103492415,
+      "x": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "actual_native_calls": 66052,
+      "censors": 0,
+      "feedback": true,
+      "hit_mean": 0.09765625,
+      "hit_target": 0.0909090909089835,
+      "move_mean": 0.45751953125,
+      "move_target": 0.45454545454503875,
+      "simultaneous_halfwidth": 0.031819133103492415,
+      "x": [
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "actual_native_calls": 59187,
+      "censors": 0,
+      "feedback": true,
+      "hit_mean": 0.0498046875,
+      "hit_target": 0.04545454545445933,
+      "move_mean": 0.47216796875,
+      "move_target": 0.4772727272723938,
+      "simultaneous_halfwidth": 0.031819133103492415,
+      "x": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "actual_native_calls": 66707,
+      "censors": 0,
+      "feedback": false,
+      "hit_mean": 0.224853515625,
+      "hit_target": 0.22727272727261244,
+      "move_mean": 0.509521484375,
+      "move_target": 0.5,
+      "simultaneous_halfwidth": 0.031819133103492415,
+      "x": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "supplied_gamma": false,
+  "supplied_numeric_potential": false,
+  "transient_Q": [
+    [
+      "8/11",
+      "2/11",
+      "0"
+    ],
+    [
+      "1/11",
+      "8/11",
+      "1/11"
+    ],
+    [
+      "0",
+      "3/22",
+      "8/11"
+    ]
+  ]
+}

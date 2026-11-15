@@ -1,0 +1,2581 @@
+{
+  "ancestor_manifests": {
+    "boost": 21,
+    "boost_review": 3,
+    "free": 149,
+    "orbital": 193,
+    "unified": 31,
+    "unified_review": 6
+  },
+  "bundle": "shared/unified_wave_submission_20261115",
+  "copied_pins_verified": 409,
+  "custody": {
+    "command": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--",
+      "env",
+      "-u",
+      "PYTHONOPTIMIZE",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "PYTHONUTF8=1",
+      "PYTHONIOENCODING=utf-8",
+      "OPENBLAS_NUM_THREADS=1",
+      "OMP_NUM_THREADS=1",
+      "TMPDIR=/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy",
+      "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/wave-review-20261115-venv/bin/python",
+      "-B",
+      "-X",
+      "utf8",
+      "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy/committed/shared/unified_wave_submission_20261115/replay.py",
+      "--custody-only"
+    ],
+    "elapsed_seconds": 4.241218899987871,
+    "exit_code": 0,
+    "json": {
+      "candidate": "MFR-unified-native-field-v1",
+      "copied_evidence_leaves": 409,
+      "custody": "pass",
+      "new_scientific_thresholds": false,
+      "official": "untested"
+    },
+    "optimization_requested": false,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "dcce8db57c581adf72621ab4d9319bc1f5bb8bb98a662cf6273e1561f383d2f2"
+  },
+  "environment": {
+    "command": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--",
+      "env",
+      "-u",
+      "PYTHONOPTIMIZE",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "PYTHONUTF8=1",
+      "PYTHONIOENCODING=utf-8",
+      "OPENBLAS_NUM_THREADS=1",
+      "OMP_NUM_THREADS=1",
+      "TMPDIR=/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy",
+      "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/wave-review-20261115-venv/bin/python",
+      "-B",
+      "-X",
+      "utf8",
+      "-c",
+      "import sys,platform,json,numpy,zlib; print(json.dumps(dict(python=sys.version,numpy=numpy.__version__,platform=platform.platform(),optimize=sys.flags.optimize,zlib=zlib.ZLIB_RUNTIME_VERSION)))"
+    ],
+    "elapsed_seconds": 0.8865650999941863,
+    "exit_code": 0,
+    "json": {
+      "numpy": "2.3.5",
+      "optimize": 0,
+      "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "zlib": "1.3"
+    },
+    "optimization_requested": false,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "9142611b588d905b2d0d94ed83dea9e0d4dba7edb2926b58e4baad12ad565e63"
+  },
+  "git_archive_sha256": "995c469f405c042fef806acbdbfeb3cd193dfac4301daa3bc17eb6ee64e2e6ff",
+  "leaf_diagnostics": {
+    "boost": {
+      "artifacts": {
+        "RECEIPT.json": {
+          "actual_sha256": "8a7208797be70f3ab69b2677ccf495157d29f5e278588d0f3dbe40bade5caf55",
+          "byte_equal": false,
+          "expected_sha256": "44c88ac63980fb53f52988ca1b9da8dbc3e696b40a27f72c23a942489c88f1f6",
+          "json_diagnostic": {
+            "above_1e_minus_10": 0,
+            "changed_float_values": 89,
+            "exact_mismatch_count": 0,
+            "exact_mismatch_examples": [],
+            "float_values": 256,
+            "max_absolute_difference": 6.217248937900877e-15,
+            "max_difference_path": "/rows/4/width_ratios/1"
+          }
+        }
+      },
+      "command": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--",
+        "env",
+        "-u",
+        "PYTHONOPTIMIZE",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "PYTHONUTF8=1",
+        "PYTHONIOENCODING=utf-8",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "TMPDIR=/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy",
+        "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/wave-review-20261115-venv/bin/python",
+        "-B",
+        "-X",
+        "utf8",
+        "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy/leaf_runs/boost/headline.py"
+      ],
+      "elapsed_seconds": 2.973093299980974,
+      "exit_code": 0,
+      "json": {
+        "all_registered_analysis_checks": "pass",
+        "candidate": "MFR-common-native-field-v1",
+        "iid_source_control": "zero separated OS covariance has no nonzero normalized packet",
+        "kind": "derived-state analysis; no new native calls or prepared-packet tapes",
+        "native_mass_squared": [
+          2.763932022500209,
+          6.0,
+          7.236067977499789
+        ],
+        "official": "untested",
+        "quadrature_comparison_is_rigorous_error_bound": false,
+        "quadrature_order_comparison": 1.199040866595169e-14,
+        "retained_source_record_sha256": "0f142024ff3b18ffc3ff5bc6f48d2e452b15a248da34fe07a7fb1b99955a607b",
+        "unboosted_control": "width ratio1 fails each 1% contraction gate",
+        "verified_source_branches": 37908
+      },
+      "optimization_requested": false,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "081c195ce162d0b80cef94b4f595f452cf67445bdaaec50681b7588f104b3ea4"
+    },
+    "free": {
+      "artifacts": {
+        "RECEIPT.json": {
+          "actual_sha256": "c04d687e64a2f858f6544d8660840029b496614940363d87bc46c4ae121d4417",
+          "byte_equal": false,
+          "expected_sha256": "64549d2e4346e1b66de43acbdd2c04543a592490e46d8e26d7e08fc03fe5727f",
+          "json_diagnostic": {
+            "above_1e_minus_10": 0,
+            "changed_float_values": 169,
+            "exact_mismatch_count": 1,
+            "exact_mismatch_examples": [
+              {
+                "actual": "5947ab98c2184133a5df27bf5561e920a3ad3d89a26c105e64c64dc0aa6d7095",
+                "expected": "bc27b949942d87e7ed1915c680d69c524288101e38e0eae22fe2a78ddf3c539f",
+                "path": "/raw_uncompressed_sha256"
+              }
+            ],
+            "float_values": 284,
+            "max_absolute_difference": 1.032144205173613e-14,
+            "max_difference_path": "/population/2/electric_magnetic_relative_error_including_contact"
+          }
+        },
+        "RECORDS.json.gz": {
+          "actual_sha256": "abb33684c1aa8b1d4b21b2fdf50b713f0e6ccdae28d95d42e43a1aab6e591767",
+          "byte_equal": false,
+          "expected_sha256": "0f142024ff3b18ffc3ff5bc6f48d2e452b15a248da34fe07a7fb1b99955a607b",
+          "json_diagnostic": {
+            "above_1e_minus_10": 0,
+            "changed_float_values": 15663,
+            "exact_mismatch_count": 0,
+            "exact_mismatch_examples": [],
+            "float_values": 16038,
+            "max_absolute_difference": 5.329070518200751e-15,
+            "max_difference_path": "/internal_band_readouts/2/2/54/11"
+          },
+          "uncompressed_byte_equal": false
+        }
+      },
+      "command": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--",
+        "env",
+        "-u",
+        "PYTHONOPTIMIZE",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "PYTHONUTF8=1",
+        "PYTHONIOENCODING=utf-8",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "TMPDIR=/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy",
+        "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/wave-review-20261115-venv/bin/python",
+        "-B",
+        "-X",
+        "utf8",
+        "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy/leaf_runs/free/probe.py"
+      ],
+      "elapsed_seconds": 1.8996875000011642,
+      "exit_code": 0,
+      "json": {
+        "actual_native_calls": 169364,
+        "actual_tape_calls": 131072,
+        "all_registered_checks": "pass",
+        "branch_calls": 37908,
+        "candidate": "MFR-common-native-field-v1",
+        "class_": "N+",
+        "exact_expected_clock_attempts": 12636,
+        "final_open_clock_intervals_retained": 4,
+        "first_clock_tail_at_tape_cap": 0.07477076427429247,
+        "full_vector_checks": 384,
+        "max_covariance_relative_error": 6.76300122215423e-05,
+        "max_first_hit_population_error": 4.168887457467463e-14,
+        "max_source_eigenvector_residual": 2.2576898690758315e-14,
+        "member": {
+          "N": 3,
+          "a": 1,
+          "protocol": "occupation-only",
+          "seams": 6318,
+          "vertices": 972
+        },
+        "native_internal_bands": [
+          [
+            6.217248937900877e-15,
+            1
+          ],
+          [
+            2.7639320225002106,
+            3
+          ],
+          [
+            5.9999999999999964,
+            5
+          ],
+          [
+            7.236067977499789,
+            3
+          ]
+        ],
+        "official": "untested",
+        "population_block_is_an_actual_long_tape": false,
+        "population_block_length": 100000000,
+        "raw_uncompressed_sha256": "5947ab98c2184133a5df27bf5561e920a3ad3d89a26c105e64c64dc0aa6d7095",
+        "record_only_field_and_clock_replay": true,
+        "same_tape_completed_clock_ticks": [
+          4,
+          5,
+          3,
+          0
+        ],
+        "schema": "oph.common_native_field.cubic.v1",
+        "unchanged_clock_and_field_decoder_on_iid_control": "nonconstant clock and separated field both zero"
+      },
+      "optimization_requested": false,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4bcec273d44ba26f5732ac111dcf333ea875d777ec3e9162ec81dd31172029ce"
+    },
+    "orbital": {
+      "artifacts": {
+        "RECEIPT.json": {
+          "actual_sha256": "45d3f2f96ea2c983fa1aac74188d37d55ef38247d8e0678772b77896032dc16b",
+          "byte_equal": false,
+          "expected_sha256": "36d2829573ff06ac8145d0753917f65b48b9c5274aebcd663df933d270bc028a",
+          "json_diagnostic": {
+            "above_1e_minus_10": 159,
+            "changed_float_values": 376,
+            "exact_mismatch_count": 1,
+            "exact_mismatch_examples": [
+              {
+                "actual": "02b458a0fd0a182ace9fe48733944a8723243dee6db82c72094766ccb4bb4b51",
+                "expected": "58d53a9b5f30b7ec75210f039bf80fc0d3873e89209d1277c73d19f14b4c6bec",
+                "path": "/raw_uncompressed_sha256"
+              }
+            ],
+            "float_values": 418,
+            "max_absolute_difference": 2.547021579030509,
+            "max_difference_path": "/population/0/bands/0/actual_ground_mode_record_readouts/1"
+          }
+        },
+        "RECORDS.json.gz": {
+          "actual_sha256": "a58abf565e3e12b0002da7158dabd7d637f120224eab06ea9bc88f4b899bf06d",
+          "byte_equal": false,
+          "expected_sha256": "f36f7e8e7b1c179632fb70fdc17de0571431ee423842e4e5f9705fc49121a001",
+          "json_diagnostic": {
+            "above_1e_minus_10": 0,
+            "changed_float_values": 30645,
+            "exact_mismatch_count": 0,
+            "exact_mismatch_examples": [],
+            "float_values": 32740,
+            "max_absolute_difference": 1.176836406102666e-14,
+            "max_difference_path": "/runs/0/channels/3/band_readouts/3/13/6"
+          },
+          "uncompressed_byte_equal": false
+        }
+      },
+      "command": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--",
+        "env",
+        "-u",
+        "PYTHONOPTIMIZE",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "PYTHONUTF8=1",
+        "PYTHONIOENCODING=utf-8",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "TMPDIR=/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy",
+        "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/wave-review-20261115-venv/bin/python",
+        "-B",
+        "-X",
+        "utf8",
+        "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy/leaf_runs/orbital/probe.py"
+      ],
+      "elapsed_seconds": 3.2237927000096533,
+      "exit_code": 0,
+      "json": {
+        "actual_active_proposals": [
+          [
+            33,
+            25,
+            18,
+            17
+          ],
+          [
+            27,
+            18,
+            43,
+            17
+          ]
+        ],
+        "actual_censors": [
+          [
+            [],
+            [],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            [],
+            []
+          ]
+        ],
+        "actual_clock_ticks": [
+          [
+            5,
+            2,
+            2,
+            3
+          ],
+          [
+            3,
+            1,
+            1,
+            2
+          ]
+        ],
+        "actual_final_open_intervals": [
+          [
+            5251,
+            18363,
+            1203,
+            8281
+          ],
+          [
+            6686,
+            23319,
+            8944,
+            204
+          ]
+        ],
+        "actual_inner_calls": 2613,
+        "actual_outer_macro_calls": 262144,
+        "all_registered_checks": "pass",
+        "auxiliary_holds": 9,
+        "candidate": "MFR-native-probe-binding",
+        "capped_escape": [
+          0.7727272727263835,
+          0.9090909090900774,
+          0.9545454545447877
+        ],
+        "capped_hit": [
+          0.2272727272726124,
+          0.09090909090898347,
+          0.045454545454459316
+        ],
+        "census_calls": 82008,
+        "exact_population_scope": "exact preparation with capped probe; fully capped conditional history error bounded separately",
+        "first_tick_cap_tail": 0.07477076427429247,
+        "full_vector_checks": 768,
+        "hydrogen_ladder_numerically_tested": false,
+        "kind": "actual global production source, finite field and clock join",
+        "massless_sector_change": 6.554099219475955e-16,
+        "max_clock_error": 4.135580766728708e-14,
+        "max_covariance_relative_error": 7.957406017211621e-05,
+        "max_source_eigen_residual": 2.9696686737927955e-14,
+        "member": {
+          "a": 1,
+          "channels_per_law": 4,
+          "inner_boundary_radius": 2,
+          "macro_attempts_per_channel": 32768,
+          "outer_cells": [
+            3,
+            3,
+            3,
+            3
+          ]
+        },
+        "native_calls": 347533,
+        "official": "untested",
+        "outer_history_preparation_error_bound": 9.244463733058732e-33,
+        "population_block_length": 100000000,
+        "population_is_actual_long_tape": false,
+        "preparation_error_per_active_attempt": 3.5264830524668625e-38,
+        "probe_tail": [
+          1.0040004604836673e-12,
+          9.391564348232881e-13,
+          7.530003453627505e-13
+        ],
+        "raw_uncompressed_sha256": "02b458a0fd0a182ace9fe48733944a8723243dee6db82c72094766ccb4bb4b51"
+      },
+      "optimization_requested": false,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "502ed1b0b365a00d8b125ce8016381cf195e1ca39e072152c1a71721114d019a"
+    },
+    "unified": {
+      "artifacts": {
+        "CONTROL_RECORDS.json.gz": {
+          "actual_sha256": "0b0d49822f7685e6ffb1f4fae775bda55658a430f305344f71103137a8916e7e",
+          "byte_equal": false,
+          "expected_sha256": "6d1f37566679caef2493a85e9cd7de12f769f3c68d9165f1e59f6c8c242b0beb",
+          "json_diagnostic": {
+            "above_1e_minus_10": 0,
+            "changed_float_values": 174,
+            "exact_mismatch_count": 0,
+            "exact_mismatch_examples": [],
+            "float_values": 486,
+            "max_absolute_difference": 4.440892098500626e-16,
+            "max_difference_path": "/field_strength_readouts/0/0/0/0/0"
+          },
+          "uncompressed_byte_equal": false
+        },
+        "RECEIPT.json": {
+          "actual_sha256": "5c449693020b1d0091f1d1233a3945e20fe67e0acc1d4a506b6d3447db0a75fc",
+          "byte_equal": false,
+          "expected_sha256": "7e56241d002627df1bf210bb545aa7af854b75046210e86695753c8f47539739",
+          "json_diagnostic": {
+            "above_1e_minus_10": 0,
+            "changed_float_values": 5,
+            "exact_mismatch_count": 1,
+            "exact_mismatch_examples": [
+              {
+                "actual": "e14c170b807624c1a24325414ea869aa892505ed29ce5a40c1e252e67b59b248",
+                "expected": "80ea8f1ab702ac7ec5497e11107bf47892c7e7812f783e02a2f085618fa7feca",
+                "path": "/control_raw_uncompressed_sha256"
+              }
+            ],
+            "float_values": 17,
+            "max_absolute_difference": 1.2989609388114332e-14,
+            "max_difference_path": "/changed_law_same_F12_population/0/contact_adjusted_ratio"
+          }
+        }
+      },
+      "command": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--",
+        "env",
+        "-u",
+        "PYTHONOPTIMIZE",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "PYTHONUTF8=1",
+        "PYTHONIOENCODING=utf-8",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "TMPDIR=/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy",
+        "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/wave-review-20261115-venv/bin/python",
+        "-B",
+        "-X",
+        "utf8",
+        "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy/leaf_runs/unified/headline.py"
+      ],
+      "elapsed_seconds": 2.464575199992396,
+      "exit_code": 0,
+      "json": {
+        "all_registered_checks": "pass",
+        "biased_absorbing_internal_ports": [
+          9,
+          11
+        ],
+        "biased_censors": [
+          [],
+          [],
+          [],
+          []
+        ],
+        "biased_census_native_calls": 12636,
+        "biased_clock_ticks": [
+          7,
+          3,
+          2,
+          6
+        ],
+        "biased_final_open_intervals": [
+          191,
+          1180,
+          2850,
+          10175
+        ],
+        "biased_internal_generator_eigenvalues": [
+          0,
+          0,
+          2,
+          2,
+          4,
+          4,
+          6,
+          6,
+          8,
+          8,
+          10,
+          10
+        ],
+        "biased_observed_downward_port_moves": 0,
+        "biased_observed_internal_moves": 4,
+        "biased_tape_native_calls": 132668,
+        "candidate": "MFR-unified-native-field-v1",
+        "changed_law_same_F12_population": [
+          {
+            "biased_F12_covariance": 0.7497625830957947,
+            "biased_cell_eigenvalue": [
+              0.9995251661918327,
+              0.0002741454269656529
+            ],
+            "biased_covariance": 0.1249604305159658,
+            "biased_formula": 0.12496043051598607,
+            "contact_adjusted_ratio": 0.7499999999998783,
+            "fair_F12_covariance": 0.9997625830959164,
+            "fair_covariance": 0.16662709718265276,
+            "momentum": [
+              1,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "biased_F12_covariance": 0.9997625830956599,
+            "biased_cell_eigenvalue": [
+              0.9995251661918327,
+              6.938893903907228e-18
+            ],
+            "biased_covariance": 0.16662709718261,
+            "biased_formula": 0.16662709718265276,
+            "contact_adjusted_ratio": 0.9999999999997435,
+            "fair_F12_covariance": 0.9997625830959164,
+            "fair_covariance": 0.16662709718265276,
+            "momentum": [
+              1,
+              -1,
+              0,
+              0
+            ]
+          }
+        ],
+        "changed_population_is_actual_precision_estimate": false,
+        "control_raw_uncompressed_sha256": "e14c170b807624c1a24325414ea869aa892505ed29ce5a40c1e252e67b59b248",
+        "corrected_projector_polynomial_error": 9.769962616701378e-15,
+        "fair_observed_downward_port_moves": 59,
+        "initial_decoder_failure_retained_in_ancestor": true,
+        "minimal_electric_coupling_established": false,
+        "moving_target_covariance_established": false,
+        "official": "untested",
+        "source_comparison_native_calls": 347533,
+        "source_graphs_and_all_events_identical": true,
+        "source_macro_histories_exactly_reproduced": 262144,
+        "source_preparation_bits": [
+          true,
+          false
+        ],
+        "total_native_calls": 492837
+      },
+      "optimization_requested": false,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "8cf50ce7d455209744512ac3cdf1a9f8ce04fea6ddfc0644bc5852ff741c8dd4"
+    }
+  },
+  "optimized_original_replay": {
+    "command": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--",
+      "env",
+      "-u",
+      "PYTHONOPTIMIZE",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "PYTHONUTF8=1",
+      "PYTHONIOENCODING=utf-8",
+      "OPENBLAS_NUM_THREADS=1",
+      "OMP_NUM_THREADS=1",
+      "TMPDIR=/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy",
+      "PYTHONOPTIMIZE=1",
+      "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/wave-review-20261115-venv/bin/python",
+      "-B",
+      "-X",
+      "utf8",
+      "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy/committed/shared/unified_wave_submission_20261115/replay.py"
+    ],
+    "elapsed_seconds": 24.852542000007816,
+    "exit_code": 0,
+    "json": {
+      "actual_native_calls_in_this_bundle_replay": 1009734,
+      "ancestor_replay_native_calls": 516897,
+      "boost_new_native_calls": 0,
+      "byte_replay": {
+        "boost/RECEIPT.json": false,
+        "unified/CONTROL_RECORDS.json.gz": false,
+        "unified/RECEIPT.json": false
+      },
+      "candidate": "MFR-unified-native-field-v1",
+      "copied_evidence_leaves": 409,
+      "custody": "pass",
+      "elapsed_seconds": 22.7232408,
+      "new_scientific_thresholds": false,
+      "official": "untested",
+      "replays": {
+        "boost": {
+          "all_registered_analysis_checks": "pass",
+          "candidate": "MFR-common-native-field-v1",
+          "iid_source_control": "zero separated OS covariance has no nonzero normalized packet",
+          "kind": "derived-state analysis; no new native calls or prepared-packet tapes",
+          "native_mass_squared": [
+            2.763932022500209,
+            6.0,
+            7.236067977499789
+          ],
+          "official": "untested",
+          "quadrature_comparison_is_rigorous_error_bound": false,
+          "quadrature_order_comparison": 1.199040866595169e-14,
+          "retained_source_record_sha256": "0f142024ff3b18ffc3ff5bc6f48d2e452b15a248da34fe07a7fb1b99955a607b",
+          "unboosted_control": "width ratio1 fails each 1% contraction gate",
+          "verified_source_branches": 37908
+        },
+        "free": {
+          "actual_native_calls": 169364,
+          "byte_replay": {
+            "RECEIPT.json": false,
+            "RECORDS.json.gz": false
+          },
+          "candidate": "MFR-common-native-field-v1",
+          "clock_ticks": [
+            4,
+            5,
+            3,
+            0
+          ],
+          "elapsed_seconds": 2.2102696359999996,
+          "first_tick_censor_tail": 0.07477076427429247,
+          "interpretation": "finite source replay plus separately bound full-limit theorem",
+          "official": "untested",
+          "population_block_length": 100000000,
+          "population_is_actual_tape": false,
+          "row": "both",
+          "row29": {
+            "electric_magnetic_relative_error": 0.0004608051255410978,
+            "full_two_polarization_causal_limit": "bound written proof; not inferred from curl null eigenvalue",
+            "negative_finite_contact_eigenvalues_retained": [
+              -3.254948401393287e-05,
+              -3.722948401364834e-05,
+              -3.839948401393109e-05
+            ],
+            "source_changed_iid_separated_covariance": [
+              -2.2587545260114674e-21,
+              -2.2587545260114674e-21,
+              -2.2587545260114674e-21
+            ]
+          },
+          "row30": {
+            "full_common_speed_KG_limit": "bound written proof; finite N=3 is not the continuum",
+            "max_covariance_relative_error": 6.76300122215423e-05,
+            "max_first_hit_population_error": 4.168887457467463e-14,
+            "max_source_eigenvector_residual": 2.2576898690758315e-14,
+            "native_internal_bands": [
+              [
+                6.217248937900877e-15,
+                1
+              ],
+              [
+                2.7639320225002106,
+                3
+              ],
+              [
+                5.9999999999999964,
+                5
+              ],
+              [
+                7.236067977499789,
+                3
+              ]
+            ]
+          },
+          "unfinished_clock_intervals": 4
+        },
+        "orbital": {
+          "actual_censors": [
+            [
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              []
+            ]
+          ],
+          "actual_clock_ticks": [
+            [
+              5,
+              2,
+              2,
+              3
+            ],
+            [
+              3,
+              1,
+              1,
+              2
+            ]
+          ],
+          "actual_inner_calls": 2613,
+          "actual_native_calls": 347533,
+          "auxiliary_holds": 9,
+          "byte_replay": {
+            "RECEIPT.json": false,
+            "RECORDS.json.gz": false
+          },
+          "candidate": "MFR-native-probe-binding",
+          "disabled_standing_ground_energies": [
+            1.513775672924495,
+            2.0634370688955603,
+            2.21118193105507
+          ],
+          "elapsed_seconds": 4.357355333000008,
+          "final_open_intervals": [
+            [
+              5251,
+              18363,
+              1203,
+              8281
+            ],
+            [
+              6686,
+              23319,
+              8944,
+              204
+            ]
+          ],
+          "hydrogenic_shells": "bound written controlled-limit theorem; not measured by this small run",
+          "max_clock_error": 4.135580766728708e-14,
+          "max_covariance_relative_error": 7.957406017211621e-05,
+          "official": "untested",
+          "population_is_actual_long_tape": false,
+          "source_standing_ground_energies": [
+            1.3921440890513377,
+            1.8006712865080594,
+            1.8652378371442007
+          ],
+          "unchanged_massless_sector_error": 6.554099219475955e-16
+        },
+        "unified": {
+          "all_registered_checks": "pass",
+          "biased_absorbing_internal_ports": [
+            9,
+            11
+          ],
+          "biased_censors": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "biased_census_native_calls": 12636,
+          "biased_clock_ticks": [
+            7,
+            3,
+            2,
+            6
+          ],
+          "biased_final_open_intervals": [
+            191,
+            1180,
+            2850,
+            10175
+          ],
+          "biased_internal_generator_eigenvalues": [
+            0,
+            0,
+            2,
+            2,
+            4,
+            4,
+            6,
+            6,
+            8,
+            8,
+            10,
+            10
+          ],
+          "biased_observed_downward_port_moves": 0,
+          "biased_observed_internal_moves": 4,
+          "biased_tape_native_calls": 132668,
+          "candidate": "MFR-unified-native-field-v1",
+          "changed_law_same_F12_population": [
+            {
+              "biased_F12_covariance": 0.7497625830957947,
+              "biased_cell_eigenvalue": [
+                0.9995251661918327,
+                0.0002741454269656529
+              ],
+              "biased_covariance": 0.1249604305159658,
+              "biased_formula": 0.12496043051598607,
+              "contact_adjusted_ratio": 0.7499999999998783,
+              "fair_F12_covariance": 0.9997625830959164,
+              "fair_covariance": 0.16662709718265276,
+              "momentum": [
+                1,
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "biased_F12_covariance": 0.9997625830956599,
+              "biased_cell_eigenvalue": [
+                0.9995251661918327,
+                6.938893903907228e-18
+              ],
+              "biased_covariance": 0.16662709718261,
+              "biased_formula": 0.16662709718265276,
+              "contact_adjusted_ratio": 0.9999999999997435,
+              "fair_F12_covariance": 0.9997625830959164,
+              "fair_covariance": 0.16662709718265276,
+              "momentum": [
+                1,
+                -1,
+                0,
+                0
+              ]
+            }
+          ],
+          "changed_population_is_actual_precision_estimate": false,
+          "control_raw_uncompressed_sha256": "e14c170b807624c1a24325414ea869aa892505ed29ce5a40c1e252e67b59b248",
+          "corrected_projector_polynomial_error": 9.769962616701378e-15,
+          "fair_observed_downward_port_moves": 59,
+          "initial_decoder_failure_retained_in_ancestor": true,
+          "minimal_electric_coupling_established": false,
+          "moving_target_covariance_established": false,
+          "official": "untested",
+          "source_comparison_native_calls": 347533,
+          "source_graphs_and_all_events_identical": true,
+          "source_macro_histories_exactly_reproduced": 262144,
+          "source_preparation_bits": [
+            true,
+            false
+          ],
+          "total_native_calls": 492837
+        }
+      },
+      "reused_ancestor_histories_are_independent_evidence": false,
+      "unified_candidate_native_calls": 492837
+    },
+    "optimization_requested": true,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "ce6af20cda58c4b96778ec7e5ccfa7b95c7aff85280d2e432f097b8f9cf1ca20"
+  },
+  "origin_mutation_normal": {
+    "command": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--",
+      "env",
+      "-u",
+      "PYTHONOPTIMIZE",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "PYTHONUTF8=1",
+      "PYTHONIOENCODING=utf-8",
+      "OPENBLAS_NUM_THREADS=1",
+      "OMP_NUM_THREADS=1",
+      "TMPDIR=/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy",
+      "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/wave-review-20261115-venv/bin/python",
+      "-B",
+      "-X",
+      "utf8",
+      "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy/mutated_origin/replay.py",
+      "--custody-only"
+    ],
+    "elapsed_seconds": 4.575202200008789,
+    "exit_code": 1,
+    "optimization_requested": false,
+    "stderr_sha256": "078727c84956c183737f46ea978f0c096eb25cf69de59af80a295d0dd994184d",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "origin_mutation_optimized": {
+    "command": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--",
+      "env",
+      "-u",
+      "PYTHONOPTIMIZE",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "PYTHONUTF8=1",
+      "PYTHONIOENCODING=utf-8",
+      "OPENBLAS_NUM_THREADS=1",
+      "OMP_NUM_THREADS=1",
+      "TMPDIR=/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy",
+      "PYTHONOPTIMIZE=1",
+      "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/wave-review-20261115-venv/bin/python",
+      "-B",
+      "-X",
+      "utf8",
+      "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy/mutated_origin/replay.py",
+      "--custody-only"
+    ],
+    "elapsed_seconds": 2.408901299990248,
+    "exit_code": 0,
+    "json": {
+      "candidate": "MFR-unified-native-field-v1",
+      "copied_evidence_leaves": 409,
+      "custody": "pass",
+      "new_scientific_thresholds": false,
+      "official": "untested"
+    },
+    "optimization_requested": true,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "dcce8db57c581adf72621ab4d9319bc1f5bb8bb98a662cf6273e1561f383d2f2"
+  },
+  "original_manifest_sha256": "1f8ac01dc06b2180ee565a4c7aa926a921220b6232758838d9ee102c7dd644a6",
+  "original_replay": {
+    "command": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--",
+      "env",
+      "-u",
+      "PYTHONOPTIMIZE",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "PYTHONUTF8=1",
+      "PYTHONIOENCODING=utf-8",
+      "OPENBLAS_NUM_THREADS=1",
+      "OMP_NUM_THREADS=1",
+      "TMPDIR=/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy",
+      "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/wave-review-20261115-venv/bin/python",
+      "-B",
+      "-X",
+      "utf8",
+      "/mnt/c/Users/Mario/AppData/Local/Temp/opencode/oph_wave_review_9v2md3oy/committed/shared/unified_wave_submission_20261115/replay.py"
+    ],
+    "elapsed_seconds": 23.071772499999497,
+    "exit_code": 1,
+    "optimization_requested": false,
+    "stderr_sha256": "145234f8888d962208bfab6332128a3689e6fb80c856f5f81e3ca6748f411bee",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "outer_manifest_entries": 420,
+  "outer_manifest_entries_after": 420,
+  "review_finished_utc": "2026-11-15T09:36:15.448523+00:00",
+  "review_started_utc": "2026-11-15T09:34:56.940615+00:00",
+  "reviewer_script_sha256": "ba2d0062d054d42e629dbcd60fb93518c973fa7ec642a4b2d1c4aa55e69a8578",
+  "scratch": "C:\\Users\\Mario\\AppData\\Local\\Temp\\opencode\\oph_wave_review_9v2md3oy",
+  "subject_commit": "60519f4d50cd4b16f7eeaad1a2d1e92544a037dd",
+  "subject_unchanged": true,
+  "working_tree_pin_mismatches": [
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/CELL.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/CONTROLS.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/METHOD_NOTE.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/PIN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/PREREG.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/RECEIPT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/RESULT.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/REVIEW_LINK.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/SOURCE_PINS.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/STATE_VELOCITY.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/TASK.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/check_boost.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/headline.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/inputs/COMMON_MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/inputs/COMMON_NATIVE_FIELD_V1.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/inputs/CONTINUUM_PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost/inputs/FlatLorentzVolume.lean"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost_review/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost_review/REVIEW.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost_review/REVIEW.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/boost_review/review.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/ASSEMBLY_CHECK.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/CELL_29.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/CELL_30.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/CONTROLS.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/ENVIRONMENT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/EVIDENCE_MAP.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/METHOD_NOTE.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/OWNER_PIN_DIFF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/PREREG.txt"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/PREREG_ANCESTRY.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/README.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/REPRODUCTION.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/SOURCE_PINS.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/TASK.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave-push/results_nov14/platform/m10_theory_canonical.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/INTERPRETATION_AUDIT_20261114.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/THEOREMS.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/reviews/2026-11-14_codex_occupation_samegroup/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/reviews/2026-11-14_codex_occupation_samegroup/REVIEW.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/reviews/2026-11-14_codex_occupation_samegroup/REVIEW.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/reviews/20261114_codex_root_maxwell/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/reviews/20261114_codex_root_maxwell/RESULT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/reviews/20261114_codex_root_maxwell/REVIEW.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/reviews/20261114_codex_root_maxwell/check.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/CELL.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/CONTROLS.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/METHOD_NOTE.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/PIN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/PREREG.txt"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/SOURCE_MAP.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/TASK.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/CANDIDATE.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/PREREG.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/PREREG.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/RECEIPT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/REPLAY.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/REPLAY.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/RUN.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/inputs/OCCUPATION_PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/inputs/native.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/probe.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/headline.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/COMMON_NATIVE_FIELD_V1.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/THEOREMS.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/reviews/20261114_codex_read_order_common_cubic/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/reviews/20261114_codex_read_order_common_cubic/REVIEW.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/reviews/20261114_codex_read_order_common_cubic/VERIFICATION.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/reviews/20261114_codex_read_order_common_cubic/verify.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/reviews/20261114_codex_read_order_first_hit/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/reviews/20261114_codex_read_order_first_hit/RECEIPT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/reviews/20261114_codex_read_order_first_hit/REVIEW.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/reviews/20261114_codex_read_order_first_hit/REVIEW.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/reviews/20261114_codex_read_order_first_hit/verify.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/reviews/20261114_codex_root_continuum/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/reviews/20261114_codex_root_continuum/REVIEW.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/reviews/20261114_codex_root_slice_refinement/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/reviews/20261114_codex_root_slice_refinement/REVIEW.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/reviews/20261114_codex_root_slice_refinement/REVIEW.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/CELL.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/CONTROLS.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/METHOD_NOTE.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/PIN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/PREREG.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/PREREG.txt"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/RECEIPT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/REPLAY.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/REPLAY.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/RUN.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/SOURCE_MAP.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/TASK.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/headline.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/inputs/COMMON_NATIVE_FIELD_V1.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/inputs/native.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/probe.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_continuum_reconstruction/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_continuum_reconstruction/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_continuum_reconstruction/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_continuum_reconstruction/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_continuum_reconstruction/SOURCE_CLOCK_JOIN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_continuum_reconstruction/SOURCE_MAP.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/CELL.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/CONTROLS.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/METHOD_NOTE.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/PIN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/PREREG.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/PREREG.txt"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/RECEIPT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/REPLAY.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/REPLAY.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/RUN.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/SOURCE_MAP.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/TASK.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/headline.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/inputs/native.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/probe.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_slice_refinement/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_slice_refinement/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_slice_refinement/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_slice_refinement/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_slice_refinement/SOURCE_MAP.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/CELL.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/CONTROLS.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/METHOD_NOTE.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/PIN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/PREREG.txt"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/README.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/RECEIPT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/REPLAY.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/REPLAY.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/REVIEWS.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/SOURCE_PINS.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/TASK.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/PREREG.txt"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/RECEIPT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/SOURCE_PINS.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/TASK.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/headline.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/inputs/faces.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/inputs/native.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/probe.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/headline.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/inputs/faces.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/inputs/native.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/evidence/openwave/shared/native_occupation_fluctuation_limit/probe.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/requirements.txt"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/free/scripts/task_common.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/ASSEMBLY_CHECK.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/CELL.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/CONTROLS.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/CUSTODY_CHECK.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/ENVIRONMENT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/EVIDENCE_MAP.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/METHOD_NOTE.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/OWNER_PIN_DIFF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/PREREG.txt"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/PREREG_ANCESTRY.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/README.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/REPRODUCTION.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/SOURCE_PINS.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/TASK.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/CELL.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/CONTROLS.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/METHOD_NOTE.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/PIN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/PREREG.txt"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/SOURCE_MAP.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/TASK.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/CANDIDATE.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/PREREG.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/PREREG.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/RECEIPT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/REPLAY.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/REPLAY.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/RUN.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/inputs/OCCUPATION_PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/inputs/native.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/experiment/probe.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_29_em_waves/work/2026-11-14_codex_record_maxwell/headline.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/COMMON_NATIVE_FIELD_V1.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_continuum_reconstruction/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_continuum_reconstruction/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_continuum_reconstruction/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_continuum_reconstruction/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_continuum_reconstruction/SOURCE_CLOCK_JOIN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_continuum_reconstruction/SOURCE_MAP.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/CELL.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/CONTROLS.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/METHOD_NOTE.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/PIN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/PREREG.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/PREREG.txt"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/RECEIPT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/REPLAY.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/REPLAY.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/RUN.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/SOURCE_MAP.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/TASK.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/headline.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/inputs/native.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_first_hit_clock/probe.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_slice_refinement/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_slice_refinement/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_slice_refinement/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_slice_refinement/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_slice_refinement/SOURCE_MAP.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/THEOREMS.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/reviews/20261114_codex_read_order_probe_binding/INPUT_HASHES.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/reviews/20261114_codex_read_order_probe_binding/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/reviews/20261114_codex_read_order_probe_binding/REVIEW.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/reviews/20261114_codex_read_order_probe_binding/VERIFICATION.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/reviews/20261114_codex_read_order_probe_binding/verify.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/reviews/20261114_codex_read_order_production_field/CORRECTION_VERIFICATION.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/reviews/20261114_codex_read_order_production_field/CORRECT_BAND_READOUTS.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/reviews/20261114_codex_read_order_production_field/INPUT_HASHES.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/reviews/20261114_codex_read_order_production_field/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/reviews/20261114_codex_read_order_production_field/REVIEW.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/reviews/20261114_codex_read_order_production_field/VERIFICATION.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/reviews/20261114_codex_read_order_production_field/verify.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/reviews/20261114_codex_read_order_production_field/verify_correction.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/reviews/20261115_codex_root_coulomb_limit/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/reviews/20261115_codex_root_coulomb_limit/REVIEW.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/reviews/20261115_codex_root_coulomb_limit/SOURCE_PINS.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_coulomb_limit/CELL.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_coulomb_limit/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_coulomb_limit/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_coulomb_limit/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_coulomb_limit/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_coulomb_limit/README.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_coulomb_limit/SOURCE_PINS.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/CELL.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/CONTROLS.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/METHOD_NOTE.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/PIN_REQUEST.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/PREREG.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/PREREG.txt"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/RECEIPT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/REPLAY.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/REPLAY.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/RUN.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/SCOPE_ADDENDUM.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/SOURCE_MAP.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/TASK.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/headline.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/inputs/native.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/probe.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/CELL.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/CONTROLS.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/CORRECTION_COMPARISON.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/INITIAL_FAILURE.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/METHOD_NOTE.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/PIN_REQUEST.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/PREREG.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/PREREG.txt"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/README.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/RECEIPT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/REPLAY.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/REPLAY.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/REVIEW_BINDING.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/RUN.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/SOURCE_MAP.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/TASK.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/CELL.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/CONTROLS.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/METHOD_NOTE.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/PIN_REQUEST.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/PREREG.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/PREREG.txt"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/RECEIPT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/REPLAY.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/REPLAY.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/REVIEW_FAILURE.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/RUN.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/SOURCE_MAP.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/TASK.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/headline.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/inputs/native.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/failed_initial/probe.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/headline.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/inputs/native.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/probe.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/CELL.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/CONTROLS.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/METHOD_NOTE.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/PIN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/PREREG.txt"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/README.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/RECEIPT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/REPLAY.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/REPLAY.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/REVIEWS.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/SOURCE_PINS.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/TASK.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/PREREG.txt"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/RECEIPT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/SOURCE_PINS.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/TASK.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/headline.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/inputs/faces.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/inputs/native.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/attempts/01_window_512/probe.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/headline.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/inputs/faces.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/inputs/native.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/evidence/openwave/shared/native_occupation_fluctuation_limit/probe.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/requirements.txt"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/orbital/scripts/task_orbital.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/CELL_29_30.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/CELL_31.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/CLAIM_MAP.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/CLAUSES.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/CONTROLS.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/DESIGN.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/METHOD_NOTE.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/PIN_SPEC.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/PORT_ISOMORPHISM.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/PREREG.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/PREREG.txt"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/PROOF.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/README.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/READOUT_SPEC.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/RECEIPT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/REPLAY.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/REPLAY.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/REVIEW_BINDING.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/RUN.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/SOURCE_PINS.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/TASK.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/compare.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/headline.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/inputs/DiscreteCoulombGreen.lean"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/inputs/FlatLorentzVolume.lean"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/inputs/NativeRepairSemanticPlacement.lean"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/inputs/PRODUCTION_RECEIPT.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/inputs/native.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified/instrument.py"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified_review/MANIFEST.sha256"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified_review/PRODUCER_REPLAY.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified_review/PRODUCER_REPLAY.log"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified_review/REVIEW.md"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified_review/SOURCES.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified_review/VERIFICATION.json"
+    },
+    {
+      "crlf_only": true,
+      "path": "evidence/unified_review/verify.py"
+    }
+  ]
+}

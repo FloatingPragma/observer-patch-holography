@@ -1,0 +1,30 @@
+{
+  "checked_utc": "2026-11-15T10:29:56.522063+00:00",
+  "cross_environment_verification_sha256": "538f6d8a7906ee774795d56ea6b4e06cdab37fa35860cfdffb6aaaf5c1540e66",
+  "documentation_links": "pass",
+  "environments": [
+    {
+      "environment": "windows_final",
+      "exact_discrete_scalars": 4621142,
+      "scientific_replay": "pass",
+      "tests": 21
+    },
+    {
+      "environment": "linux_final",
+      "exact_discrete_scalars": 4621142,
+      "scientific_replay": "pass",
+      "tests": 21
+    }
+  ],
+  "git_diff_check": "pass",
+  "original_bundle_diff_empty": true,
+  "original_review": {
+    "manifest_entries": 60,
+    "review_receipt_checks": 100
+  },
+  "registration_sha256": "ce6316f1218d0250ffbea6c24bc857200e6d3d6f01706800a44384c1f8300b43",
+  "repository_gate_unchanged": true,
+  "repository_gate_violations": 335,
+  "root_gitattributes_sha256": "c7303ec216354745229820bff5bf43629cd84e0de5ccfa8ff864e2bc4f36fc24",
+  "status": "pass"
+}

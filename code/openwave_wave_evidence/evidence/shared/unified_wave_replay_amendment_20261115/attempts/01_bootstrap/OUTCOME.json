@@ -1,0 +1,9 @@
+{
+  "stage": "preflight regression tests; no amended scientific replay yet",
+  "tests_run": 19,
+  "errors": 1,
+  "skipped": 4,
+  "failure": "Isolated Python (-I) hides the existing Windows user-site NumPy installation; child startup failed before producing an environment receipt. The error parser then raised JSONDecodeError.",
+  "next_change": "Use -E to ignore Python environment overrides while preserving installed packages; always retain a child process receipt, including initialization failures.",
+  "raw_test_log_captured": false
+}

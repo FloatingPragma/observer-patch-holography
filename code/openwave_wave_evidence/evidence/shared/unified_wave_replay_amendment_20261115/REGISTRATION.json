@@ -1,0 +1,17 @@
+{
+  "amendment": "wave-replay-amendment-v1",
+  "frozen_utc": "2026-11-15T10:25:23.200693+00:00",
+  "inputs": {
+    "AMENDMENT.md": "8f8498a1227e34d2c587bb2430bce15b9752c05de32567825b5d95e86242fcc5",
+    "POLICY.json": "26c767310f6eab30fe5a880da4e369feb1fa02466f1ee17b4474673d5cb510b3",
+    "replay.py": "e7d0e4cb8e062fd7b6b1f44d56becb818feea630c2b99fffe5ff26589c7600b7",
+    "run_tests.py": "2da3e26775a4d3a7459a9afe497636508e298712befc421bb74a5dc0bdd8e1e0",
+    "test_replay.py": "35d9fcc3d91a619e08dedf5996db5be3b2dccf7418500d11d64f9441a04ad3d0",
+    "verify_results.py": "e6a846440337d4297529e2ac94b69d5173e534654bab6a844501bea43365575c"
+  },
+  "kind": "local software validation freeze, not platform preregistration",
+  "prior_attempts": [
+    "attempts/01_bootstrap",
+    "attempts/02_source_inventory"
+  ]
+}

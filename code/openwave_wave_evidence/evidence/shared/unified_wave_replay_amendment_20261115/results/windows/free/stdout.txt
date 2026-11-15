@@ -1,0 +1,53 @@
+{
+  "actual_native_calls": 169364,
+  "actual_tape_calls": 131072,
+  "all_registered_checks": "pass",
+  "branch_calls": 37908,
+  "candidate": "MFR-common-native-field-v1",
+  "class_": "N+",
+  "exact_expected_clock_attempts": 12636,
+  "final_open_clock_intervals_retained": 4,
+  "first_clock_tail_at_tape_cap": 0.07477076427429247,
+  "full_vector_checks": 384,
+  "max_covariance_relative_error": 6.763001222132026e-05,
+  "max_first_hit_population_error": 4.1744385725905886e-14,
+  "max_source_eigenvector_residual": 1.5690840605759493e-14,
+  "member": {
+    "N": 3,
+    "a": 1,
+    "protocol": "occupation-only",
+    "seams": 6318,
+    "vertices": 972
+  },
+  "native_internal_bands": [
+    [
+      1.0269562977782698e-15,
+      1
+    ],
+    [
+      2.7639320225002098,
+      3
+    ],
+    [
+      5.999999999999998,
+      5
+    ],
+    [
+      7.23606797749979,
+      3
+    ]
+  ],
+  "official": "untested",
+  "population_block_is_an_actual_long_tape": false,
+  "population_block_length": 100000000,
+  "raw_uncompressed_sha256": "da25273723f8f19287409884936e64c6c6085593c656c3d4b44938ff3e980f26",
+  "record_only_field_and_clock_replay": true,
+  "same_tape_completed_clock_ticks": [
+    4,
+    5,
+    3,
+    0
+  ],
+  "schema": "oph.common_native_field.cubic.v1",
+  "unchanged_clock_and_field_decoder_on_iid_control": "nonconstant clock and separated field both zero"
+}

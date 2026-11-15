@@ -1,0 +1,24 @@
+test_changed_float_fails (__main__.ComparatorTests.test_changed_float_fails) ... ok
+test_discrete_records_and_types_are_exact (__main__.ComparatorTests.test_discrete_records_and_types_are_exact) ... ok
+test_invalid_json_fails (__main__.ComparatorTests.test_invalid_json_fails) ... ok
+test_nonfinite_values_fail_in_either_operand (__main__.ComparatorTests.test_nonfinite_values_fail_in_either_operand) ... ok
+test_path_escape_fails (__main__.ComparatorTests.test_path_escape_fails) ... ok
+test_roundoff_is_allowed (__main__.ComparatorTests.test_roundoff_is_allowed) ... ok
+test_structure_is_exact (__main__.ComparatorTests.test_structure_is_exact) ... ok
+test_changed_record_fails_even_with_updated_hash (__main__.GeneratedArtifactTests.test_changed_record_fails_even_with_updated_hash) ... skipped 'Pass --run DIRECTORY for generated-artifact probes'
+test_receipt_mutations_fail (__main__.GeneratedArtifactTests.test_receipt_mutations_fail) ... skipped 'Pass --run DIRECTORY for generated-artifact probes'
+test_recompressed_archive_passes (__main__.GeneratedArtifactTests.test_recompressed_archive_passes) ... skipped 'Pass --run DIRECTORY for generated-artifact probes'
+test_wrong_embedded_hash_fails (__main__.GeneratedArtifactTests.test_wrong_embedded_hash_fails) ... skipped 'Pass --run DIRECTORY for generated-artifact probes'
+test_canonical_reference_has_no_sign_ambiguity (__main__.SourceTests.test_canonical_reference_has_no_sign_ambiguity) ... ok
+test_child_assertion_survives_inherited_optimization (__main__.SourceTests.test_child_assertion_survives_inherited_optimization) ... ok
+test_crlf_and_corruption_fail (__main__.SourceTests.test_crlf_and_corruption_fail) ... ok
+test_exact_blob_custody (__main__.SourceTests.test_exact_blob_custody) ... ok
+test_historical_orbital_reference_is_rejected (__main__.SourceTests.test_historical_orbital_reference_is_rejected) ... ok
+test_optimized_entry_rejected (__main__.SourceTests.test_optimized_entry_rejected) ... ok
+test_origin_mutation_fails (__main__.SourceTests.test_origin_mutation_fails) ... ok
+test_patch_is_narrow_and_cannot_reapply (__main__.SourceTests.test_patch_is_narrow_and_cannot_reapply) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 6.136s
+
+OK (skipped=4)

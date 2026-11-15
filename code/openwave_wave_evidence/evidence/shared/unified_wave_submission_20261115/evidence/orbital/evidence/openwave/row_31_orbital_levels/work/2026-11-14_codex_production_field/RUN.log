@@ -1,0 +1,107 @@
+{
+  "actual_active_proposals": [
+    [
+      33,
+      25,
+      18,
+      17
+    ],
+    [
+      27,
+      18,
+      43,
+      17
+    ]
+  ],
+  "actual_censors": [
+    [
+      [],
+      [],
+      [],
+      []
+    ],
+    [
+      [],
+      [],
+      [],
+      []
+    ]
+  ],
+  "actual_clock_ticks": [
+    [
+      5,
+      2,
+      2,
+      3
+    ],
+    [
+      3,
+      1,
+      1,
+      2
+    ]
+  ],
+  "actual_final_open_intervals": [
+    [
+      5251,
+      18363,
+      1203,
+      8281
+    ],
+    [
+      6686,
+      23319,
+      8944,
+      204
+    ]
+  ],
+  "actual_inner_calls": 2613,
+  "actual_outer_macro_calls": 262144,
+  "all_registered_checks": "pass",
+  "auxiliary_holds": 9,
+  "candidate": "MFR-native-probe-binding",
+  "capped_escape": [
+    0.7727272727263835,
+    0.9090909090900774,
+    0.9545454545447877
+  ],
+  "capped_hit": [
+    0.2272727272726124,
+    0.09090909090898347,
+    0.045454545454459316
+  ],
+  "census_calls": 82008,
+  "exact_population_scope": "exact preparation with capped probe; fully capped conditional history error bounded separately",
+  "first_tick_cap_tail": 0.07477076427429247,
+  "full_vector_checks": 768,
+  "hydrogen_ladder_numerically_tested": false,
+  "kind": "actual global production source, finite field and clock join",
+  "massless_sector_change": 6.554099219475955e-16,
+  "max_clock_error": 4.1799896877137144e-14,
+  "max_covariance_relative_error": 7.957406017211621e-05,
+  "max_source_eigen_residual": 2.3465658384306448e-14,
+  "member": {
+    "a": 1,
+    "channels_per_law": 4,
+    "inner_boundary_radius": 2,
+    "macro_attempts_per_channel": 32768,
+    "outer_cells": [
+      3,
+      3,
+      3,
+      3
+    ]
+  },
+  "native_calls": 347533,
+  "official": "untested",
+  "outer_history_preparation_error_bound": 9.244463733058732e-33,
+  "population_block_length": 100000000,
+  "population_is_actual_long_tape": false,
+  "preparation_error_per_active_attempt": 3.5264830524668625e-38,
+  "probe_tail": [
+    1.0040004604836673e-12,
+    9.391564348232881e-13,
+    7.530003453627505e-13
+  ],
+  "raw_uncompressed_sha256": "58d53a9b5f30b7ec75210f039bf80fc0d3873e89209d1277c73d19f14b4c6bec"
+}

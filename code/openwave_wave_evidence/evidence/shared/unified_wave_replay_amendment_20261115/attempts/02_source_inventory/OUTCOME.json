@@ -1,0 +1,22 @@
+{
+  "earlier_cross_environment_comparison": "results/CROSS_ENVIRONMENT.json",
+  "earlier_runs_passed": true,
+  "earlier_scientific_runs": [
+    "results/windows",
+    "results/linux_numpy235"
+  ],
+  "issue": "Optional provided-bundle custody accepted an extra unsealed file. No injected code was executed. Default raw Git extraction is unaffected.",
+  "probe_custody": {
+    "ancestor_manifests": {
+      "boost": 21,
+      "boost_review": 3,
+      "free": 149,
+      "orbital": 193,
+      "unified": 31,
+      "unified_review": 6
+    },
+    "copied_pins": 409,
+    "outer_manifest_entries": 420
+  },
+  "repair": "Reject extra files and symlinks before execution; retain passed earlier runs and refreeze."
+}

@@ -1,0 +1,98 @@
+{
+  "all_registered_checks": "pass",
+  "biased_absorbing_internal_ports": [
+    9,
+    11
+  ],
+  "biased_censors": [
+    [],
+    [],
+    [],
+    []
+  ],
+  "biased_census_native_calls": 12636,
+  "biased_clock_ticks": [
+    7,
+    3,
+    2,
+    6
+  ],
+  "biased_final_open_intervals": [
+    191,
+    1180,
+    2850,
+    10175
+  ],
+  "biased_internal_generator_eigenvalues": [
+    0,
+    0,
+    2,
+    2,
+    4,
+    4,
+    6,
+    6,
+    8,
+    8,
+    10,
+    10
+  ],
+  "biased_observed_downward_port_moves": 0,
+  "biased_observed_internal_moves": 4,
+  "biased_tape_native_calls": 132668,
+  "candidate": "MFR-unified-native-field-v1",
+  "changed_law_same_F12_population": [
+    {
+      "biased_F12_covariance": 0.7497625830958907,
+      "biased_cell_eigenvalue": [
+        0.9995251661918328,
+        0.0002741454269656468
+      ],
+      "biased_covariance": 0.12496043051598181,
+      "biased_formula": 0.12496043051598607,
+      "contact_adjusted_ratio": 0.7499999999999744,
+      "fair_F12_covariance": 0.9997625830959164,
+      "fair_covariance": 0.16662709718265276,
+      "momentum": [
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "biased_F12_covariance": 0.9997625830956599,
+      "biased_cell_eigenvalue": [
+        0.9995251661918327,
+        1.734723475976807e-18
+      ],
+      "biased_covariance": 0.16662709718261,
+      "biased_formula": 0.16662709718265276,
+      "contact_adjusted_ratio": 0.9999999999997435,
+      "fair_F12_covariance": 0.9997625830959164,
+      "fair_covariance": 0.16662709718265276,
+      "momentum": [
+        1,
+        -1,
+        0,
+        0
+      ]
+    }
+  ],
+  "changed_population_is_actual_precision_estimate": false,
+  "control_raw_uncompressed_sha256": "e14c170b807624c1a24325414ea869aa892505ed29ce5a40c1e252e67b59b248",
+  "corrected_projector_polynomial_error": 7.327471962526033e-15,
+  "fair_observed_downward_port_moves": 59,
+  "initial_decoder_failure_retained_in_ancestor": true,
+  "minimal_electric_coupling_established": false,
+  "moving_target_covariance_established": false,
+  "official": "untested",
+  "source_comparison_native_calls": 347533,
+  "source_graphs_and_all_events_identical": true,
+  "source_macro_histories_exactly_reproduced": 262144,
+  "source_preparation_bits": [
+    true,
+    false
+  ],
+  "total_native_calls": 492837
+}

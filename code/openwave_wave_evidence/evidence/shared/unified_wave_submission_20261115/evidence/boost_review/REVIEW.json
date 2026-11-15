@@ -1,0 +1,39 @@
+{
+  "kind": "same-group mathematical and independent Cartesian quadrature review",
+  "no_new_native_calls": true,
+  "comparisons": [
+    {
+      "epsilon": 0.5,
+      "cartesian": [
+        0.6108376177642132,
+        1.0041543218815254,
+        1.0041543218815254
+      ],
+      "producer": [
+        0.6108376177642136,
+        1.0041543218815097
+      ],
+      "max_error": 1.5765166949677223e-14,
+      "order_change": 1.9984014443252818e-15
+    },
+    {
+      "epsilon": 0.0625,
+      "cartesian": [
+        0.6001685968068806,
+        1.000064922020105,
+        1.000064922020105
+      ],
+      "producer": [
+        0.6001685968068805,
+        1.000064922020089
+      ],
+      "max_error": 1.5987211554602254e-14,
+      "order_change": 2.220446049250313e-16
+    }
+  ],
+  "quadrature_is_interval_certificate": false,
+  "proof_sha256": "aecc8fed7939e093a99e703ca49196cca2708bca413a558399a046b90a1f492d",
+  "receipt_sha256": "44c88ac63980fb53f52988ca1b9da8dbc3e696b40a27f72c23a942489c88f1f6",
+  "blocking_findings": [],
+  "G6": "open"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "wave-replay-amendment-v1",
+  "source_commit": "60519f4d50cd4b16f7eeaad1a2d1e92544a037dd",
+  "bundle": "shared/unified_wave_submission_20261115",
+  "outer_manifest_sha256": "1f8ac01dc06b2180ee565a4c7aa926a921220b6232758838d9ee102c7dd644a6",
+  "float_absolute_tolerance": 1e-12,
+  "float_relative_tolerance": 1e-12,
+  "orbital_reference_port": 0,
+  "orbital_ground_sign": "positive first spatial coordinate",
+  "discrete_and_structure_comparison": "exact including JSON scalar types",
+  "compressed_artifact_comparison": "strict decoded JSON with receipt hash bound to actual decompressed bytes",
+  "optimized_python": "reject at entry; sanitize children and check their optimization flag",
+  "original_scientific_assertions": "required without changed thresholds",
+  "historical_byte_gate": "unchanged; previously failed; not awarded by this amendment"
+}

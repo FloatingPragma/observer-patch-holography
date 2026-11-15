@@ -1,0 +1,161 @@
+{
+  "actual_native_calls": 405755,
+  "all_registered_checks": "pass",
+  "branch_calls": 48600,
+  "candidate": "MFR-first-hit-clock",
+  "class_": "N+",
+  "clock": "native first-hit Euclidean transfer",
+  "control_tail_at_cap": 2.839399584562731e-124,
+  "lorentzian_description": "effective reconstruction, not primitive attempt evolution",
+  "official": "untested",
+  "population": [
+    {
+      "absorption": [
+        0.0,
+        0.0,
+        0.038461538461538464
+      ],
+      "capped_transform": 0.20879120879120844,
+      "hit_transform": 0.20879120879120844,
+      "index": [
+        1,
+        0,
+        0
+      ],
+      "infinite_depth_transfer": 0.20871215252208003,
+      "kernel": [
+        [
+          0.833333333333333,
+          0.041666666666666664,
+          0.0
+        ],
+        [
+          0.038461538461538464,
+          0.8076923076923074,
+          0.038461538461538464
+        ],
+        [
+          0.0,
+          0.038461538461538464,
+          0.8076923076923074
+        ]
+      ],
+      "relative_depth_error": 0.0003787813415419006,
+      "slice_energy": 1.5667992369724109,
+      "target_reflecting_strip": 0.20879120879120885
+    },
+    {
+      "absorption": [
+        0.0,
+        0.0,
+        0.038461538461538464
+      ],
+      "capped_transform": 0.12702078521939944,
+      "hit_transform": 0.12702078521939944,
+      "index": [
+        1,
+        1,
+        0
+      ],
+      "infinite_depth_transfer": 0.12701665379258315,
+      "kernel": [
+        [
+          0.7083333333333331,
+          0.041666666666666664,
+          0.0
+        ],
+        [
+          0.038461538461538464,
+          0.6923076923076921,
+          0.038461538461538464
+        ],
+        [
+          0.0,
+          0.038461538461538464,
+          0.6923076923076921
+        ]
+      ],
+      "relative_depth_error": 3.252665452069259e-05,
+      "slice_energy": 2.0634370688955603,
+      "target_reflecting_strip": 0.1270207852193995
+    },
+    {
+      "absorption": [
+        0.0,
+        0.0,
+        0.038461538461538464
+      ],
+      "capped_transform": 0.0916736753574432,
+      "hit_transform": 0.0916736753574432,
+      "index": [
+        1,
+        1,
+        1
+      ],
+      "infinite_depth_transfer": 0.09167308680401608,
+      "kernel": [
+        [
+          0.5833333333333333,
+          0.041666666666666664,
+          0.0
+        ],
+        [
+          0.038461538461538464,
+          0.5769230769230768,
+          0.038461538461538464
+        ],
+        [
+          0.0,
+          0.038461538461538464,
+          0.5769230769230768
+        ]
+      ],
+      "relative_depth_error": 6.420133188855814e-06,
+      "slice_energy": 2.3895264345742184,
+      "target_reflecting_strip": 0.09167367535744324
+    }
+  ],
+  "raw_uncompressed_sha256": "da5deca0267a3f7fb14708db84ed0d3151c7fce8e1d937fc4cd9d2b546baf087",
+  "record_only_replay": true,
+  "schema": "oph.native_first_hit_clock.v1",
+  "source_exact_mean_attempts": 75.99999999999649,
+  "source_tail_at_cap": 3.525955791380154e-15,
+  "summaries": {
+    "incident": {
+      "actual_attempts": 316803,
+      "censored": 0,
+      "max_attempts": 1017,
+      "mean_attempts": 77.344482421875,
+      "population_targets": [
+        0.20879120879120844,
+        0.12702078521939944,
+        0.0916736753574432
+      ],
+      "sample_means": [
+        0.221435546875,
+        0.1470947265625,
+        0.0958251953125
+      ],
+      "simultaneous_coverage_lower_bound": 0.99,
+      "simultaneous_hoeffding_halfwidth": 0.04412876345120546
+    },
+    "vertical_only_control": {
+      "actual_attempts": 40352,
+      "censored": 0,
+      "max_attempts": 109,
+      "mean_attempts": 9.8515625,
+      "population_targets": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sample_means": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "simultaneous_coverage_lower_bound": 0.99,
+      "simultaneous_hoeffding_halfwidth": 0.04412876345120546
+    }
+  }
+}

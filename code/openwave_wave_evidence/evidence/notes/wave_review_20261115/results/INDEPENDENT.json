@@ -1,0 +1,94 @@
+{
+  "all_review_checks_pass": true,
+  "changed_law": {
+    "exact_F12_contrast": "1/4",
+    "measured_precision_claim": false,
+    "ratios": [
+      "3/4",
+      "1"
+    ]
+  },
+  "clock": {
+    "cases": 20,
+    "max_mean_attempt_error": 1.1641532182693481e-10,
+    "max_multiplier_error": 3.0531133177191805e-16
+  },
+  "dispersion": {
+    "max_group_speed": 0.99952167509321,
+    "note": "Finite corroboration; analytic inequalities reviewed separately.",
+    "sampled_cases": 2000
+  },
+  "finished_utc": "2026-11-15T09:30:02.346937+00:00",
+  "free_tapes": {
+    "actual_current_records": 131072,
+    "band_readout_max_error": 3.3306690738754696e-15,
+    "branches": 37908,
+    "clock_ticks": [
+      4,
+      5,
+      3,
+      0
+    ],
+    "field_max_error": 8.881784197001252e-16,
+    "graph_seams": 6318,
+    "graph_vertices": 972,
+    "isolated_primitive_cases": 6,
+    "spectrum_max_error": 4.440892098500626e-15
+  },
+  "manifest_entries": 420,
+  "manifest_sha256": "1f8ac01dc06b2180ee565a4c7aa926a921220b6232758838d9ee102c7dd644a6",
+  "maxwell_quotient": {
+    "cases": 3,
+    "max_factorization_error": 1.7763568394002505e-15,
+    "rank": 2,
+    "wrong_sign_control_min_eigenvalue": -19.798989873223338
+  },
+  "moment_diagnostics": [
+    {
+      "fourth_moment": 0.5184030060209002,
+      "fourth_target": 0.36750000000000005,
+      "n": 64,
+      "variance": 0.28442497582175186,
+      "variance_target": 0.35000000000000003
+    },
+    {
+      "fourth_moment": 0.4745329204230863,
+      "fourth_target": 0.36750000000000005,
+      "n": 256,
+      "variance": 0.3332031712007362,
+      "variance_target": 0.35000000000000003
+    },
+    {
+      "fourth_moment": 0.39940127372740547,
+      "fourth_target": 0.36750000000000005,
+      "n": 1024,
+      "variance": 0.3458007812499923,
+      "variance_target": 0.35000000000000003
+    },
+    {
+      "fourth_moment": 0.3757967776059666,
+      "fourth_target": 0.36750000000000005,
+      "n": 4096,
+      "variance": 0.3489501953124684,
+      "variance_target": 0.35000000000000003
+    }
+  ],
+  "numpy": "2.5.1",
+  "population": {
+    "actual_tape": false,
+    "block_length": 100000000,
+    "max_covariance_difference": 2.480654570646834e-14,
+    "max_hitting_difference": 4.1744385725905886e-14,
+    "modes": 15
+  },
+  "scope": "Independent finite arithmetic and tape review, not a formal proof or G6.",
+  "script_sha256": "b243eb54e27a8833430121246f61ec7f6849b5f134bcfbf2ca6e2ae0ba024bf9",
+  "source_inputs_sha256": {
+    "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/RECEIPT.json": "64549d2e4346e1b66de43acbdd2c04543a592490e46d8e26d7e08fc03fe5727f",
+    "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/RECORDS.json.gz": "0f142024ff3b18ffc3ff5bc6f48d2e452b15a248da34fe07a7fb1b99955a607b",
+    "evidence/free/evidence/openwave/row_30_klein_gordon/work/2026-11-14_codex_common_cubic/inputs/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "evidence/unified/RECEIPT.json": "7e56241d002627df1bf210bb545aa7af854b75046210e86695753c8f47539739"
+  },
+  "started_utc": "2026-11-15T09:30:01.793132+00:00",
+  "subject_commit": "60519f4d50cd4b16f7eeaad1a2d1e92544a037dd"
+}
