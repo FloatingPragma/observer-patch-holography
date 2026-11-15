@@ -1,8 +1,8 @@
 # Native nucleon current calculation
 
 The calibrated common hadron source has exact vector charge normalization
-`g_V=1`. Its native axial ratio lies in `[1.665734201267,1.667599132066]`,
-which excludes the measured magnitude `1.2753 +/- 0.0013`. Calibration of
+`g_V=1`. Its native axial ratio lies in `[1.665734201267,1.667599132066]`
+and is not identified with the physical axial ratio. Calibration of
 the masses does not calibrate the weak current. The complete colour-sector
 current has nonzero excited-baryon leakage.
 

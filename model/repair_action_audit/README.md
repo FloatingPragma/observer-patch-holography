@@ -35,7 +35,7 @@ This is a concrete finite instance of the completely positive generator
 framework of [Lindblad (1976)](https://doi.org/10.1007/BF01608499). No general
 semigroup theorem is needed for the calculation: the Poisson sum proves
 complete positivity, and Kraus completeness rewrites `Phi-I` directly in
-Lindblad form. The new result here is the native record-table classification,
+Lindblad form. The result here is the native record-table classification,
 its commutator criterion, and the attached exact source controls.
 
 ## Exact action classification
@@ -165,9 +165,9 @@ protocol at phase `pi/2`; its probability is `3/8+Im(g)/2`. Such a coherent
 experiment distinguishes laws that classical records cannot. Its preparation
 and readout services are declared apparatus premises.
 
-## What this resolves and what remains
+## What this resolves and what is open
 
-There is already a derivation of a local dissipative action from the **full**
+There is a derivation of a local dissipative action from the **full**
 C/E instruments. Their source-reduced process cannot be autonomous unitary
 evolution: every admissible table sends the pure `|10><10|` to
 `(E11+E22)/2`, reducing purity from one to one half. Keeping a dilation
@@ -182,8 +182,7 @@ seconds. An independently specified coherent observation can constrain
 `theta`; a physical realization must additionally identify the accessible
 fields, clock and refinement regime with controlled errors. Enlarging the
 observer into a federation supplies none of these missing identifications
-merely by adding ports. Federations remain useful for locality and scaling
-tests, after the local law and observation contract are explicit.
+merely by adding ports. Federations are useful for locality and scaling tests, after the local law and observation contract are explicit.
 
 ```sh
 python -m model.repair_action_audit --check model/repair_action_audit/results.json

@@ -230,7 +230,7 @@ bit of each flux register, encoding p_phi=0 as labelM. It prepares clock|+>.
 The actual reset retains every fine native letter, success location and
 terminal timeout, together with the remaining reference. Conditional on
 a conclusive blank outcome the prepared code state is exact. The reference
-and classical reset transcript remain part of the output, not discarded.
+and classical reset transcript are part of the output, not discarded.
 The ideal comparison uses that same reset instrument/transcript and the
 specified physical preparation; timeout branches are included in the bound.
 No arbitrary input-reference correlations are assumed erased from records.
@@ -301,7 +301,7 @@ These are finite diagnostic residuals, not the full physical budget.
 The sign-erased Jordan-Wigner and omitted-W controls differ from the target
 by nonzero operator distances. The Gamma(T) substitution fails separately.
 Padding, flux wraps, CAR number conservation, exact G=2 Coulomb and the
-physical clock remain explicit. Tagged full-flow checks exercise the actual
+physical clock are explicit. Tagged full-flow checks exercise the actual
 outer iterator with short replacement segment markers; they are labeled
 as control-flow checks, not unexecuted native bodies counted as executions.
 

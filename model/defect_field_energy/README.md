@@ -3,7 +3,7 @@
 This package supplies local energy operators, currents, drive power and
 complete-record energy accounting on the **same** twelve-port,
 1,080-mode ring and channel-correct Higgs action. It does not borrow an
-energy law from the earlier unrelated full-Fock geometry. The 36 closed
+energy law from the unrelated full-Fock geometry. The 36 closed
 internal components keep the largest Nambu calculation at dimension144;
 all 2,160 Nambu directions and all CAR occupation sectors are retained.
 

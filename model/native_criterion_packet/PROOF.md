@@ -28,7 +28,7 @@ with the observed electron. A physical charge unit q_star is declared.
 Choosing an architecture, its registers, connectivity and services is
 permitted; uniqueness or a priori inevitability of that hardware is not a
 premise of this result. Matching the physical electron and the submitted
-platform process remains a separate test of its observable consequences.
+platform process is a separate test of its observable consequences.
 
 The exact pinned OpenWave criterion asks for integer topological charge
 and the impossibility of an equal electron half-charge split. The finite

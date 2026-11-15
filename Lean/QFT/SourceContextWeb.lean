@@ -61,7 +61,7 @@ computations exactly from `sqrt3 ^ 2 = 3`.
 
 ## Receipts
 
-* `gaugeIrrep_unitary` and the legacy-named `realized_images_unitary`:
+* `gaugeIrrep_unitary` and `realized_images_unitary`:
   every declared representation image whose label occurs in the source
   census is exactly orthogonal, so unitary as a real matrix.
 * `rotationPlus_order_three` with `s3Perm_threeCycles_order_three`: the
@@ -74,7 +74,7 @@ computations exactly from `sqrt3 ^ 2 = 3`.
   `conjProjector_four_noncommuting`: the exact commutators of the
   order-3 conjugated projectors against the record projector, with the
   nonvanishing certificates.
-* `realizedWeb_contains_noncommuting_context` (legacy API name): an
+* `realizedWeb_contains_noncommuting_context` (API name): an
   occurring label has a declared conjugated context that fails to
   commute with the diagonal context.
 * `conjProjector_one_eq_record`, `conjProjector_two_eq_three`,

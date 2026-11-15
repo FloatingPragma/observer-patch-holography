@@ -83,7 +83,7 @@ P(I−Φ)P on centered linear loads = α L_ico/60.
 ```
 
 Here P is the orthogonal projection onto linear occupations. The last line
-is a compression, not yet an invariant-subspace claim. Direct expansion of
+is a compression, not an invariant-subspace claim. Direct expansion of
 the endpoint joint law gives `E[ΔX ΔXᵀ]=2K`; hence `60K/Tr K=L_ico`.
 Four times its smallest-positive-eigenvalue projector is the source Gram
 `v_p·v_q/||v_p||²`, of rank three. Selecting this band is the existing finite
@@ -175,7 +175,7 @@ b_local = ||(I−P) A f||²_τ / ||f||²_τ
 
 This is a corollary of the existing compression and leakage proof. The
 uncorrected `c_2−c_1²` contains `α²/1210` from mixing carrier bands;
-native repair already gives `1/1210`, despite closed mean dynamics. The
+native repair alone gives `1/1210`, despite closed mean dynamics. The
 corrected statistic is zero for native repair and the one-term controls.
 The certified edge bound `B≥mI`, together with `||∂e_p||²=5`, gives
 `b_local≥m/100`. Its certified lower bounds are `186661676/10¹⁴` at θ=1/16
@@ -187,9 +187,9 @@ trial. If E_a is its outcome projector and P_x the full load-pattern
 projectors, then `Σ_{x:x_p=a} P_x τ P_x = E_a τ E_a = τ E_a`. Thus local
 endpoint measurements give the same marginal joint law as the all-load
 protocol. No other port's record, intermediate measurement, private reset or
-postselection is needed. Preparation and measurement access remain inputs.
+postselection is needed. Preparation and measurement access are inputs.
 
-The stopping rule is still one or two **global IID attempts**. Stopping at
+The stopping rule is one or two **global IID attempts**. Stopping at
 observer-local pulses, delayed messages or state-dependent events defines
 another instrument and requires its own null calculation. With a supplied
 constant Poisson rate ν>0, `c(t)=τ[f exp(−νAt)f]/τ[f²]` instead gives
@@ -200,7 +200,7 @@ c″(0)/c′(0)² − 11/10 = b_local/r².
 ```
 
 The ratio is invariant under a common constant change of time units, not
-arbitrary retiming. It does not calibrate physical duration. C and E still
+arbitrary retiming. It does not calibrate physical duration. C and E
 give the same first two moments, so this local statistic cannot select their
 completion or uniquely identify N4 among larger-state laws.
 
@@ -208,7 +208,7 @@ A measured test must propagate preparation, readout, scheduling and sampling
 errors through the complete corrected statistic. Its quadratic terms make a
 finite-sample plug-in estimate biased; a positive point estimate alone is not
 evidence of leakage. Trial allocation, shared uncertainty, confidence rule and
-adequate power remain prospective obligations. The regressions evaluate
+adequate power are prospective obligations. The regressions evaluate
 unprojected incident-edge moments independently of the leakage formula and
 retain the exact native false-positive control; they are finite-model checks.
 

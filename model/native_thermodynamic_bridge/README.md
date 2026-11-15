@@ -15,7 +15,7 @@ coin/current tape retain the initial classical information.
 
 The binary-sector restriction matters: one source repair of the uniform
 78-state startup law decreases entropy by `log(3)/26`. Physical energy,
-temperature, time, erasure costs and cooling remain separate. The uniform
+temperature, time, erasure costs and cooling are separate. The uniform
 reference has constant modular energy.
 
 ```sh

@@ -192,8 +192,7 @@ interior smooth spinor. Thus
     -<F,k(C)F> = 2pi integral_B w_R(x) delta T00(x) dx.     (13)
 
 The minus sign is the hole covariance tangent. The right side is exactly
-the normal-ordered stress response already derived in FA91, not a newly
-chosen classical stress or a finite entropy assumed to obey a first law.
+the normal-ordered stress response derived in FA91, not a separately chosen classical stress or a finite entropy assumed to obey a first law.
 
 ## 5. Actual finite entropy differences and the shrinking limit
 
@@ -246,7 +245,7 @@ sheets the momentum magnitude changes by factors in [1/2,2], so
 Indeed the transformed initial surface samples |t|+|x|<=2|y| and
 |x|-|t|>=|y|/2. The original shell solution vanishes if |x|+|t|<L or
 |x|-|t|>2L. Thus these are genuinely exterior unit Cauchy spinors, and B=6
-still suffices after scaling with rho<=1/8. The same proof applies to all
+suffices after scaling with rho<=1/8. The same proof applies to all
 81 pairs with one common eta, epsilon, theta.
 
 Their normalized actual finite entropy matrix converges entrywise to
@@ -261,7 +260,7 @@ in the same source vacuum but distinct observer-frame shell preparations.
 We do NOT identify a sharp boosted continuum algebra with a lattice lens,
 nor establish a finite lattice boost symmetry or common geometric graph.
 
-The geometric modular input is the one already used in FA87:
+The geometric modular input is the one used in FA87:
 [La Piana--Morsella, Theorems 3.4/4.1](https://arxiv.org/html/2405.07888v2).
 The CAR modular description is the existing FA96 import of
 [Araki (1970/71), Corollary 4.10, Lemma 4.11 and Theorem 3](https://doi.org/10.2977/prims/1195193913).
@@ -285,6 +284,6 @@ matrix is nevertheless a definite, finite object of the source, not a new
 postulated continuum state.
 
 The receipts bind the actual mathematical sources narrowly. They neither
-rewrite predecessor receipts nor attest to a new full-repository CI replay.
+rewrite parent receipts nor attest to a full-repository CI replay.
 Run `python -W error -m pytest -q model/shrinking_modular_entropy`, then
 `python -m model.shrinking_modular_entropy --write` and `--check`.

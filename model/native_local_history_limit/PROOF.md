@@ -34,7 +34,7 @@ partition is required across capacities. The evaluator rejects unaligned
 boundaries rather than silently rounding them.
 
 The native memory convention is export-oldest, so a finite FIFO does not
-halt the experiment. A host resource stop remains a distinct outcome.
+halt the experiment. A host resource stop is a distinct outcome.
 The theorem concerns the ideal finite kernel; admission of a program and
 expansion of its complete branch tree are separate checks. Record-adaptive
 global selectors are outside the independent-selector hypothesis.

@@ -22,7 +22,7 @@ map. This is the Heisenberg observable convention. It does not assert that
 the kernel is doubly stochastic or that a Schrödinger-picture state map uses
 the same row convention.
 
-`Dynamics/PublicAutomorphism.lean` strengthens the original supplied-flow
+`Dynamics/PublicAutomorphism.lean` strengthens the supplied-flow
 obstruction in two steps. `publicStarAutomorphism_is_labelPermutation` proves
 that every star-algebra automorphism of the finite public function algebra is
 uniquely pullback by a permutation of the active labels. The proof classifies
@@ -73,7 +73,7 @@ modules decompose every unital finite-dimensional matrix star subalgebra into
 full central blocks and prove the finite Stone converse: a pointwise-continuous
 automorphism group has a coherent unitary lift and one time-independent
 self-adjoint generator per block, unique up to central scalar shifts. The
-non-unital case and source selection of a physical flow remain outside this
+non-unital case and source selection of a physical flow are outside this
 bounded package.
 
 No source rule selects a stochastic kernel, Hamiltonian, time scale, or
@@ -87,4 +87,4 @@ classification and continuity obstruction, finite central-block decomposition,
 simple private-block innerness theorem, continuous-flow Stone converse,
 fixed-Hamiltonian unitary flow, and von Neumann differential equation are
 attained without admissions. Source selection of dynamics, rate, and physical
-clock remains part of the current quantum-composition work.
+clock is open quantum-composition work.

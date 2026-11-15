@@ -189,7 +189,7 @@ An independent Jordan-Wigner occupation construction forms the complete
 256-by-256 plaquette source matrices and all 120 quadratic generators.
 Its matrix-entry commutator ranks agree at 116 and 114. All 65,536
 input/output entries and all number sectors enter these checks. Integer
-sparse products use the predecessor's checked overflow bounds. The cube
+sparse products use the parent package's checked overflow bounds. The cube
 certificate is symbolic coverage of the full 65,536-state algebra, not
 execution of every state amplitude or a native readout experiment.
 

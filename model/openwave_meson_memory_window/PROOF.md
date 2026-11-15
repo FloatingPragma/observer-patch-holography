@@ -111,7 +111,7 @@ light-channel probability at t=1/100 and t=1/10.
 
 ## Complete observations and work
 
-The preparation success is `c^2/4>6/25`. Its failed quantum branch remains
+The preparation success is `c^2/4>6/25`. Its failed quantum branch is
 an outcome. The terminal instrument distinguishes no pair, the selected
 light pair and every other emitted family; all source complements are
 retained. Multiplication by6/25 gives an original-input lower bound.

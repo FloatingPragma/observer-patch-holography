@@ -747,7 +747,7 @@ The structural record contains no direct fiber, positive, almost-sure,
 selection, or endpoint-law pushforward fields. Exact-time, fixed-horizon, and
 limit pushforward are derived from kernel lumping and target reflection;
 target coverage derives fiber nonemptiness. Observation commutation and the
-`RealizedBehavior`/`BehaviorCut` consumer remain separate interfaces.
+`RealizedBehavior`/`BehaviorCut` consumer are separate interfaces.
 -/
 
 namespace ObservableNormalForms.ProtectedObstructions.NonidentityExactness

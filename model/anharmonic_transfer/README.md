@@ -20,7 +20,7 @@ payloads.
 Here a positive finite classical draw selects one of sixteen phase rotations,
 and **every phase rotation is contracted from native source words**. Averaging
 these executed branches yields the finite environment channel. The Gaussian
-noise family, rate and independent draws remain supplied; execution does not
+noise family, rate and independent draws are supplied; execution does not
 infer the laboratory's noise mechanism or correlation time.
 
 For each requested trial the computation is:
@@ -78,7 +78,7 @@ it was not chosen from the trajectories. The paper's caption and prose agree
 on the case mapping. The deposited README swaps d/e; its zero-time row
 independently identifies d as the centred preparation.
 
-A second provenance issue remains unresolved: the zero-time printed values
+A second provenance issue is unresolved: the zero-time printed values
 have quantization compatible with integer hundredths divided by `.636`,
 whereas the paper specifies `h=.4`. This does not authenticate another
 probe coordinate, gain, shot count or correction. The protocol preserves the
@@ -103,15 +103,15 @@ These five preparation calibrations are disclosed; one datum cannot identify
 thermal occupation or non-Gaussian preparation errors.
 
 The transferred preparation is read from the compressed
-[original calibration receipt](data/calibration_receipt.json.gz). Decompression
-must reproduce the original receipt SHA-256 `80504ae1e92e94de0e5f50484da4a5dbbdb0981389c5733066468b36e961f215`
+[frozen calibration receipt](data/calibration_receipt.json.gz). Decompression
+must reproduce the frozen receipt SHA-256 `80504ae1e92e94de0e5f50484da4a5dbbdb0981389c5733066468b36e961f215`
 before its parameters are read. This frozen input preserves the reviewed fit
 when the live anharmonic receipt is regenerated to refresh source custody;
-it does not replace the live source execution or its current bindings.
+it is separate from the live source execution and its source bindings.
 
 Other fixed controls retain the initial state, or remove the anharmonic drive
 while preserving the same elapsed schedule. In the harmonic control the
-opposite carrier rotations cancel, but their durations still advance the
+opposite carrier rotations cancel, but their durations advance the
 harmonic phase and dephasing. All controls are reported, regardless of score.
 
 Primary execution uses occupation dimension 32 and 128 subdivisions per
@@ -134,13 +134,13 @@ This is an **ideal finite-model** certificate. Floating contractions,
 quadrature rounding, acceptance roundoff, occupation removal, preparation
 uncertainty and apparatus errors are not covered. The quadrature remainder
 is far below floating precision; no corresponding numerical precision claim
-is made. Numerical refinement diagnostics and physical residuals remain
+is made. Numerical refinement diagnostics and physical residuals are
 separate from this mathematical statement.
 
 ## Results and analysis
 
 RMSE below is in **dimensionless two-point position-estimator units**. It is
-not the binary-probability RMSE reported by the earlier packet.
+not the binary-probability RMSE reported by the [anharmonic observation test](../anharmonic_observations/README.md).
 
 | Fixed comparison | a | b | c | d | e | All 125 |
 |---|---:|---:|---:|---:|---:|---:|
@@ -161,7 +161,7 @@ measurement.
 
 The largest primary discrepancy is case a at 8.4 ms: prediction `-0.579113`
 versus deposited `+0.503145`, an estimator residual of `-1.082258`. Several
-extrema have appreciable amplitude errors. Every such row remains in the
+extrema have appreciable amplitude errors. Every such row is retained in the
 receipt; there is no exclusion or later-trajectory refit.
 
 The separately declared zero-time adjustment **worsens** aggregate RMSE from
@@ -182,17 +182,17 @@ changes an estimator by at most `2.46650e-7`; the occupation refinement changes
 one by at most `0.00449740` (binary probability change `0.00127206`). These are
 small relative to the empirical discrepancies. The ideal splitting and
 finite-quadrature approximation within the declared finite model cannot
-account for those discrepancies. The cutoff comparison remains a diagnostic,
-and floating execution and physical errors remain outside the ideal bound.
+account for those discrepancies. The cutoff comparison is a diagnostic,
+and floating execution and physical errors are outside the ideal bound.
 
-The receipt now also attaches the independent
+The receipt also attaches the independent
 [unrestricted-apparatus certificate](../occupation_control/README.md) before
 opening later observations in each replay. This attachment is a retrospective
-analysis added after the trajectories and earlier receipts were known. The
-protocol's date and original selection order refer to the earlier apparatus
+analysis made with the trajectories and the parent receipts known. The
+protocol's date and selection order refer to the parent test's apparatus
 choices; the attachment changes no apparatus parameter or numerical setting.
 It verifies the same binary preparation, pulse,
-dephasing, detector and time parameters, and binds the certificate's original
+dephasing, detector and time parameters, and binds the certificate's
 source and result bytes. This evaluator includes occupation removal,
 integration, preparation, detector evaluation and arithmetic error. It does
 not certify native compilation or physical services.
@@ -210,9 +210,9 @@ exact rationals. The 64-level certificate gives these case-a comparisons:
 
 Thus certified occupation and numerical errors cannot cover the early
 discrepancies under the fixed apparatus. The zero at 10 ms means its wide
-interval gives no positive correction floor. Both existing cutoffs remain
+interval gives no positive correction floor. Both cutoffs are
 visible: dimension 32 has two eligible certified observations and dimension
-64 has three. Every other one of the 125 held-out observations remains
+64 has three. Every other one of the 125 held-out observations is
 explicitly unavailable in this sparse attachment; the certificate's 5 ms endpoint has no matching
 measurement and is not interpolated. The separate zero-time case-a value
 requires at least `0.34054967` beyond its certified numerical interval. It is
@@ -225,7 +225,7 @@ position point, but its two postselections and aggregate deposition do not
 authenticate per-point accepted counts, raw trials, preparation covariance
 or the unresolved estimator conversion. No experimental confidence band is
 inferred from the printed values. Agreement within a complete physical
-uncertainty budget remains unestablished; no parameter or datum is corrected.
+uncertainty budget is not established; no parameter or datum is corrected.
 
 The [complete occupation-controlled comparison](../occupation_control/README.md#complete-changed-potential-comparison)
 separately encloses the same unrestricted apparatus at every deposited
@@ -233,8 +233,8 @@ endpoint in all five cases. It retains the fixed preparation and apparatus,
 and improves the conditional error bound using the computed trace defect.
 Its exact remaining-discrepancy floors quantify which residuals numerical
 and occupation error cannot explain. The native execution receipt and its
-scores above are unchanged; physical calibration and experimental
-uncertainties remain separate.
+scores above are those stated; physical calibration and experimental
+uncertainties are separate.
 
 The package tests include independent unsplit master-equation comparisons,
 the finite-occupation boundary counterexample, full spin continuation, native
@@ -246,17 +246,16 @@ execution/comparison contract success, not an empirical acceptance threshold.
 
 ## What it means and next steps
 
-This adds an executed open-system component and a stricter empirical transfer
-test to the model. It reduces an implementation shortcut and gives an explicit
-finite evolution error budget. The single-mode Hamiltonian, preparation
-family, apparatus, noise law and calibrated durations remain premises. Their
+This packet supplies an executed open-system component, a stricter empirical
+transfer test and an explicit finite evolution error budget. The single-mode Hamiltonian, preparation
+family, apparatus, noise law and calibrated durations are premises. Their
 selection from OPH, the spatially coupled model's empirical comparison and
-an interacting relativistic continuum remain separate open work.
+an interacting relativistic continuum are separate open work.
 
 The comparison is retrospective and tests a supplied quantum-mechanical
 apparatus model compiled through the OPH source interface. It does not
 distinguish OPH from ordinary quantum mechanics. Preparation adjustments,
-phase-duration sensitivities and metadata ambiguities must remain visible
+phase-duration sensitivities and metadata ambiguities must be visible
 when interpreting agreement or disagreement.
 
 The next empirical priority is authenticated probe-coordinate, carrier-phase
@@ -321,7 +320,7 @@ compared in units of the rigorous finite operator bound
 finite-difference estimator. The five exact-rational strings derived from
 floating acceptance are omitted only after their own-input verification.
 Fixed splitting/quadrature certificates, source word hashes, data/protocol
-bindings, counts and all other strings remain exact. These replay checks
+bindings, counts and all other strings are compared exactly. These replay checks
 are numerical consistency controls, not physical precision certificates.
 
 Short Hamiltonian subpulses use a stable evaluation of their ideal inverse
@@ -334,7 +333,7 @@ against the independent finite Hamiltonian target, and caps their
 representation difference at the fixed `2e-10` native numerical scale.
 The final increment matrix also passes the compiler's existing guarded polar
 representation. This prevents its residual nonunitarity from accumulating
-through repeated applications. The raw product and increment checks remain
+through repeated applications. The raw product and increment checks are
 mandatory; the corrected matrix is checked against the independent target
 and against the raw product. The correction receives no state or observed
 outcome, and does not replace an operation with its target. The retained

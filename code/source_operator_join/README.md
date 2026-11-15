@@ -32,7 +32,7 @@ command for the general intersection, generation and readout proofs.
 The operator embedding adjoins an identity spectator. Its reverse normalized
 partial trace is a linear retraction, not a multiplicative homomorphism. The
 empirical diagonal state uses unnormalized partial traces for its marginals
-and remains distinct from the supplied uniform tower states. The shared hinge
+and is distinct from the supplied uniform tower states. The shared hinge
 is the full 13-by-13 matrix algebra; the two overlapping pair algebras do not
 commute. Only the exclusive observer-88 and observer-247 factors commute.
 

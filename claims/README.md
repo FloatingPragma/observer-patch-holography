@@ -135,7 +135,7 @@ calibration. Local tape capacity is not cosmic N closure;
 the native current recorder does not implement the N4 occupation apparatus.
 Uniqueness of a designed rule is not required for these implementation claims.
 The scalar adapter's conditional detector protocol is independently testable
-in software. Its scalar action, vacuum, apparatus and model clock remain
+in software. Its scalar action, vacuum, apparatus and model clock are
 declared; it establishes no new physical prediction or laboratory verdict.
 
 ## Continuing-observer construction
@@ -157,7 +157,7 @@ on one prepared work state:
 
 The two executed occupation cutoffs have complete-output occupation budgets
 of one. Physical services, observer-clock calibration, interacting spatial
-refinement and independent observations remain open. Sharp and smooth
+refinement and independent observations are open. Sharp and smooth
 readouts have different contracts; the smooth bound does not certify the
 sharp-readout clock probes.
 
@@ -203,7 +203,7 @@ selected to define that construction:
 The source-discrimination construction compares two complete finite
 measurement channels and implements their difference as a recorded parity
 bit. Its executed trial counts are synthetic, and coherent preparation,
-readout and load-to-code identification remain declared inputs. It supplies no
+readout and load-to-code identification are declared inputs. It supplies no
 independent physical data and changes no canonical premise disposition.
 
 The [repair-observability controls](../model/identifiability_checks/README.md#repair-and-consensus-in-an-empirical-comparison)
@@ -231,7 +231,7 @@ and record laws under its stated interventions. The
 complete local outputs across one actual pair of refinement levels. Neither
 result derives the observer region, preparation or scheduler, identifies this
 clock with modular flow or physical duration, or establishes a continuum
-spacetime. Modular flow and the incident-attempt clock remain distinct
+spacetime. Modular flow and the incident-attempt clock are distinct
 constructions with distinct inputs.
 
 The [native field derivation](../model/common_source/NATIVE_FIELDS.md) excludes

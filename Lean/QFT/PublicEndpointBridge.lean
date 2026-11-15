@@ -66,7 +66,7 @@ source produces the adaptor, the repair system, or the refinement maps;
 no physical world, cross-regulator continuum endpoint, or
 schedule-independent consistency claim beyond the stated conditional
 theorems is made; and the C2, CP/CPTP, and full obligation-2 packets
-remain open E2 scope.
+are open E2 scope.
 -/
 
 namespace OPH.QFT

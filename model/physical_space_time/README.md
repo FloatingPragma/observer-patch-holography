@@ -35,8 +35,7 @@ gives a positive local weighted dual graph with Green error at most
 `(38/43) G_l^iso <= G_l^w <= (48/43) G_l^iso` (relative Green error at most
 `5/43`) against the harmonic-mean isotropic reference conductance `30/43`.
 Its coefficients use the actual routed ports, so it has
-the same continuum limits; their uniqueness remains a conductance
-convergence obligation. Full-port harmonic lifts give Mosco energy convergence
+the same continuum limits; their uniqueness is a conductance convergence obligation. Full-port harmonic lifts give Mosco energy convergence
 and a conservative strongly local Dirichlet form. A native six-triangle
 interpolation identifies its domain with `H1` of the auxiliary flat surface
 and supplies a regular continuous piecewise-affine core. Explicit ancestral tents
@@ -52,7 +51,7 @@ native Green covariance `G_l` through the unbounded spectral filter
 `A_l^(1/4)`. A [positive mixture of native lag records](OCCUPATION_FIELD.md#the-poisson-extension-as-a-native-lag-record-readout)
 implements the Poisson extension with an explicit omitted-mass bound:
 the complete 66-state check uses lags at most 512 with error below `0.036`.
-Its mixture parameter remains a chosen readout setting, without a physical
+Its mixture parameter is a chosen readout setting, without a physical
 radial identification. An [independent-record extension](OCCUPATION_FIELD.md#independent-native-records-give-a-radial-product-field)
 fills its missing radial innovations: independent long-block limits of the
 same native history, including one encoded constant angular mode, synthesize
@@ -61,7 +60,7 @@ give consistent cross-radius laws, positive innovations and block tridiagonal
 radial precision. Complete 96-event tapes execute the readout on the actual
 twenty- and eighty-cell sources. The declared interval product has spectral
 dimension three and a free-wave comparison cone; its radial domain,
-boundary conditions and processing remain observer choices. Finite adjacent
+boundary conditions and processing are observer choices. Finite adjacent
 native blocks retain nonzero covariance, so the Gaussian construction
 requires the stated count limit. The [thermal product join](OCCUPATION_FIELD.md#thermal-product-covariance-and-the-shared-wave-operator)
 derives separate filters for sampled bridges, the classical inverse and the
@@ -106,11 +105,11 @@ The carrier's seam support is reconstructed by the existing
 That calibration supplies labelled known preparations, seam addressing and
 faithful current records. Removing seam-exposure weights gives its unweighted
 Laplacian `L`. Neither coordinates nor a metric array enter the estimator.
-The carrier incidence is still an input to the source, disclosed operationally
+The carrier incidence is an input to the source, disclosed operationally
 through those seam records; reconstruction does not derive its architecture
 from self-reference.
 
-The new passage experiment prepares **one** native unit at sender `u` and
+The passage experiment prepares **one** native unit at sender `u` and
 zero elsewhere. This is an explicitly changed preparation of the same native
 integer-load rule, whose total-one sector is invariant. It is not the retained
 66-state binary total-two experiment. With two indistinguishable units a
@@ -156,7 +155,7 @@ Consequently the sum over every unrecorded remote word converges absolutely:
 `K_v = sum_(r>=0) B_v A_v^r = B_v (I-A_v)^(-1)`.
 
 This is the completed transition for one receiver incident tick. It is the
-same stopped-clock construction already used for the
+same stopped-clock construction used for the
 [two-port total-two field law](../observer_time_fields/README.md), applied
 here to a different, disclosed signal preparation and one receiver. No new
 general Markov-chain theorem is claimed.
@@ -203,18 +202,17 @@ explicit native **arrival-record protocol**, local-clock interpretation,
 complete stopped laws and stopping-error control. Its rank eleven and the
 existing slow-band rank three refer to different operational dictionaries
 on the same carrier. Neither rank alone selects the dimension of physical
-space. A three-dimensional effective description could still be valid for
+space. A three-dimensional effective description could be valid for
 an appropriately justified restricted observable regime.
 
 ## A clock-dependent causal obstruction
 
 In native-attempt count the exact support satisfies
 `(P^n)_vu > 0` iff `dist(u,v) <= n`, with waiting allowed. The underlying
-fixed-word dependence has the stronger time-ordered-path bound already
-proved in [native causal cones](../common_source/CAUSALITY.md).
+fixed-word dependence has the stronger time-ordered-path bound proved in [native causal cones](../common_source/CAUSALITY.md).
 
 In receiver incident ticks, the arrival probability from the opposite port
-at distance three is already `1/222` at tick one. There is no violation of
+at distance three is `1/222` at tick one. There is no violation of
 native locality: remote path edges occurred before the first recorded
 receiver event. They are absent from this clock's count.
 
@@ -233,7 +231,7 @@ remote edges before a receiver edge, the same construction rules out a
 size-independent distance bound per receiver tick unless additional clock or
 schedule constraints are supplied.
 
-Counting only receiver **movements** is still a different clock: before
+Counting only receiver **movements** is a different clock: before
 first arrival the receiver is empty, so first arrival is always movement
 tick one for every distinct sender. It loses all passage-distance information
 in this experiment. Conversely, independent identity holding slots leave
@@ -244,12 +242,12 @@ interchanging attempt, incident and movement parameters.
 
 ## Acceptance and the federation question
 
-The finite source now supplies a defensible positive connection: native
+The finite source supplies a defensible positive connection: native
 propagation, current-defined arrival records, a local clock, and an inferred
 finite metric can be derived together. This does not require federation.
 Single-carrier action and clock work can likewise be pursued without one.
 
-What remains for physical space and time is an operational description of
+What is open for physical space and time is an operational description of
 the relevant *joint* measurements, with a spatial extension or other
 controlled observable limit; its dimensional and propagation regime;
 compatible clock comparisons; and independently tested physical readouts.
@@ -265,5 +263,4 @@ among signal records, clocks and other measurements, including their
 uncertainties. Choosing a unit conversion cannot establish those relations.
 The current packet establishes conditional model laws, without claiming
 that native loads are laboratory particles or that native clock ticks are
-seconds. The supplied preparation and schedule must remain visible in any
-later physical identification.
+seconds. The supplied preparation and schedule must be visible in any subsequent physical identification.

@@ -44,7 +44,7 @@ impulse/readback producer instead derives the non-monomial operator `R = -J`
 on the full port module.  The A1/A2 response theorem fixes the abstract
 compact Lie-algebra type when its complete-response and endogenous-holonomy
 premises hold.  Ordered source-current tomography, the concrete matrix
-realization, and laboratory gauge-current attachment remain separate.
+realization, and laboratory gauge-current attachment are separate.
 -/
 
 namespace OPH

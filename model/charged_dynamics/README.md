@@ -174,8 +174,8 @@ margin after subtracting errors from the **amplitude** lower bound.
 Encoder control synthesis uses a fixed 12-decimal convention and `1e-12`
 empty-pivot threshold, retaining every pulse and service request. This avoids
 arbitrary rotations generated from roundoff at empty elimination pivots.
-The resulting complete source instrument is still checked against the
-original analytic encoder; quantum states and outcome weights are never
+The resulting complete source instrument is checked against the
+analytic encoder; quantum states and outcome weights are never
 rounded into agreement. Fresh receipt replay reloads the bound source-control
 data and recomputes cached primitive and encoder matrices.
 
@@ -198,12 +198,12 @@ every native C/E repair branch. The [native conservation obstruction](
 ../completion/defect_algebra.md) and the separate actively recovered memory
 constructions keep their own domains.
 
-The existing [periodic dispersion benchmark](../particle_comparison/README.md)
-still fails under its fixed particle dictionary. The [isolated-dimer
-family exclusion](../dimer_family/README.md) also remains in force: the
+The [periodic dispersion benchmark](../particle_comparison/README.md)
+fails under its fixed particle dictionary. The [isolated-dimer
+family exclusion](../dimer_family/README.md) also holds: the
 four-site construction does not supply a three-generation lepton spectrum
 or repair that dimer dictionary. This open-chain result
 neither changes that benchmark nor establishes electromagnetic charge,
 Lorentz spin, a chiral continuum, native passive protection or a physical
-electron/positron assignment. Those are explicit remaining joins in the
+electron/positron assignment. Those are explicit open joins in the
 [completion program](../../docs/COMPLETION_PROGRAM.md).

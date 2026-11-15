@@ -59,7 +59,7 @@ B_b(t)=J*exp(-tH)J. Exactly,
 B_b(s+t)-B_b(s)B_b(t)=J*exp(-sH)Q_b exp(-tH)J.
 At equal times this is a positive Gram operator. Take the coarse Haar-constant
 probe Omega (its fine image is Haar constant), not the interacting ground state.
-The earlier exact spatial Haar integration gives J*S J=0. Together with the
+The exact spatial Haar integration gives J*S J=0. Together with the
 executed full-source moments <S²>=9,<S³>=0,<S⁴>=963/4 and E S Omega=3 S Omega,
 
 ||Q_b H Omega||=3 beta,
@@ -80,7 +80,7 @@ boundary-only lower bound, an actual controlled improvement from retaining
 interior modes. The exact discarded second-step norm is
 ||Q H²Omega||²=beta⁴·303/2=303/512>0. No exact autonomy follows. The O(t⁴)
 improvement is for this specified vacuum probe; arbitrary retained states can
-still have O(t²) defects, and no interacting-vacuum or operator-norm improvement
+have O(t²) defects, and no interacting-vacuum or operator-norm improvement
 is inferred from this one vector.
 
 These results close a finite interior-memory premise with an actual generated

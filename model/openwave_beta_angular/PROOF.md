@@ -59,9 +59,8 @@ would require a transfer theorem.
 The named PDG 2025 neutron table provides zero-recoil a0 and A comparisons
 and the B comparison. The axial calibration has shared experimental ancestry
 with that table. These comparisons are conditional checks, without an
-independent-fit or statistical-significance claim. The code reports the
-differences, including the a0 and B discrepancies, rather than declaring
-all three measured coefficients matched.
+independent-fit or statistical-significance claim; no measured
+coefficient is declared matched.
 
 ## A strict parity-odd record for the full Fock source
 

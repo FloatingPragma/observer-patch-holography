@@ -18,7 +18,7 @@ import Geometry.SourceOrderEinsteinComposition
 # Einstein-branch theorem audit
 
 This file is the machine-checked counterpart of `EINSTEIN_BRANCH_INDEX.md`.
-Every public result in the corrected Einstein-branch kernel is checked for
+Every public result in the Einstein-branch kernel is checked for
 `sorryAx`, and the per-theorem `#print axioms` receipts below expose any
 remaining logical dependencies to CI and human review.
 -/

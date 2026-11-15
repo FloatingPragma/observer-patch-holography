@@ -6,8 +6,7 @@ logarithms of the graded translations, generally nonquadratic on Fock space.
 This supplies an interacting conserved quantity beyond the quadratic
 classification in [lattice_momentum_balance](../lattice_momentum_balance/README.md).
 It does not supply local conserved momentum columns or an Einstein stress
-tensor. Periodic boundary conditions are an explicit input; the previous
-open-box action does not acquire translation symmetry.
+tensor. Periodic boundary conditions are an explicit input; the open-box action does not acquire translation symmetry.
 
 There is also a constructive local approximation on an initially smooth,
 bounded-number sector, with a finite-time error including interaction
@@ -140,7 +139,7 @@ symbolic integer n_j, performs the polynomial remainder, and checks odd
 prime periods 3,5,7,11,17,31,97. It does not replace all branches by a finite
 branch search.
 
-Now define a range-R density sum precisely as `A_R=sum_X a_X`, where every
+Define a range-R density sum precisely as `A_R=sum_X a_X`, where every
 a_X is supported in a set of sites of torus graph diameter at most R.
 Arbitrary many-body terms, number-changing terms and coefficients are
 allowed. If sites x,y have distance greater than R, no summand contains
@@ -196,7 +195,7 @@ quadratic S_j=dGamma(sin(p_j)) then satisfies
 ```
 
 using `|k-sin k|<=|k|^3/6`. Its sign follows the translation convention;
-it is the negative of the D_j lift in the previous momentum package.
+it is the negative of the D_j lift in the separate momentum package.
 H0 preserves Omega, but the contact generally does not. On N<=Nmax,
 `||V||<=U floor(Nmax/2)` for U>=0. Duhamel comparison with the free
 evolution yields, for every finite model time t,
@@ -223,7 +222,7 @@ momenta alone do not justify projecting the interacting action.
 ## Scope and replay
 
 The complete ring also rejects deleting Fock permutation signs or using
-the periodic charge on the old open action: their squared commutator
+the periodic charge on the open-box action: their squared commutator
 Hilbert--Schmidt norms are exactly 4 and 2 at c=1/8,U=1. Twelve ideal
 adjacent FSWAPs implement its T on all 256 occupation columns. They use
 the existing FSWAP primitive; this exact word identity is **not** a new

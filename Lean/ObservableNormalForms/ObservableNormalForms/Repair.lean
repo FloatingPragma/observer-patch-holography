@@ -3,11 +3,11 @@ import Mathlib
 /-!
 # Strong local repair and projection
 
-This module formalizes the collar-section criterion.  The audit exposed a missing
-edge-case hypothesis in the prose statement: the write space must be
+This module formalizes the collar-section criterion.  The criterion needs the
+edge-case hypothesis that the write space is
 nonempty.  Without it the repair domain `X_W × X_D` can be empty, so a repair
 exists vacuously even when the collar projection is not surjective.  We prove
-both the corrected theorem (in a form stronger than the manuscript because
+the theorem with that hypothesis (in a form stronger than the manuscript because
 no finiteness is needed classically) and the empty-write-space counterexample.
 -/
 

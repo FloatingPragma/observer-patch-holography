@@ -152,7 +152,7 @@ every complex effect, or identify stochastic native waiting with the unitary
 continuation of H. In particular the unconditioned stationary open observer
 has the ground functional of this transfer, whose finite-beta KMS boundary
 fails by at least `min(beta,1)*25/594` on the retained local field. The return
-condition changes the ensemble and its failures remain part of the record.
+condition changes the ensemble and its failures are part of the record.
 
 ## Separate complete-attempt variant
 

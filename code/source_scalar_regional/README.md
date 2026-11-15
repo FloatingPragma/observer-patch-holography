@@ -25,4 +25,4 @@ The observer-like software patches in the parent execution have local
 field state, boundaries, versioned readback, records and feedback. The
 present certificate states which additional field-observable access is
 needed for a regional canonical algebra. Native availability of these
-operations, physical regions and clock calibration remain separate inputs.
+operations, physical regions and clock calibration are separate inputs.

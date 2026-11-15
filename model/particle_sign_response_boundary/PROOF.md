@@ -189,7 +189,7 @@ rare-switch probability is at least `delta/60`. The unit-electric pulse
 length is `4u<=8delta`; dividing that switch probability by the squared
 pulse length gives a lower bound `1/(3840delta)`. This divergence is a
 susceptibility statement. The original unconditioned switch probability
-still tends to zero, and all probabilities remain bounded by one.
+tends to zero, and all probabilities remain bounded by one.
 
 For each fixed delta, the complete pulse experiment can be approximated
 on normalizable finite word states and a sufficiently large finite code
@@ -235,7 +235,7 @@ A smooth regulator offers a different declared route. For
 `||D f_mu,H(V)||_HS<=||V||_HS/mu` holds without a gap. This statement alone
 is not an operator-norm bound or a full interacting time-evolution result.
 Taking mu to zero again needs a controlled local comparison on the same
-state. A polynomial action already has bounded coordinate derivatives at
+state. A polynomial action has bounded coordinate derivatives at
 each fixed degree, with constants that must be tracked under refinement.
 
 The counterfamily does not invalidate the proved local spectral-weight

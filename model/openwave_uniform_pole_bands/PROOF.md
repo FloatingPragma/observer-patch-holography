@@ -11,8 +11,8 @@ GeV conversion, supplied physical speed and strong length are inherited.
 Split the compact frame into L=(0,2,4) and R=(1,3). The two R coordinates
 have diagonal c and mutual native entry -t/2; the added inverse-rest term
 is positive. Their source restriction is therefore at least c-t/2.
-The old infinite Q has lower bound C and its coupling to R is at most
-sqrt(5)t. Thus the complete new high block on R plus Q has lower bound
+The infinite Q has lower bound C and its coupling to R is at most
+sqrt(5)t. Thus the complete high block on R plus Q has lower bound
 
     D=min(c-t/2,C)-sqrt(5)t.
 

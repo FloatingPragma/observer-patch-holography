@@ -12,7 +12,7 @@ An explicit short-ball addition closes this defect. For
 
 take all m-spaced radius-K displacements, all shorter dyadic axis steps,
 and every integer vector in the radius-r ball. Every unordered crossing
-still contributes one nat. Bounded normalized crossing entropy now gives
+contributes one nat. Bounded normalized crossing entropy gives
 strong compactness of binary partitions. The complete perimeter Gamma limit
 holds, with binary recovery and exact finite volume constraints. Finite
 minima and near-minimizers converge; inside a cube with sufficient room,
@@ -91,7 +91,7 @@ audits. The universal BV, isoperimetric and spectral proofs are analytic.
 
 The spaced-ball stencil is defined in full here; nothing is imported from
 `code/m1_necessity`, which introduces the same stencil in its own comparison.
-The existing fixed-section area and source-causal claims keep their complete
-original statements and physical premise classifications. This work proves
+The fixed-section area and source-causal claims keep their complete
+statements and physical premise classifications. This work proves
 a stronger interface and field comparison without asserting that the
 coordinate cut problem is a physical horizon law.

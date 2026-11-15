@@ -34,7 +34,7 @@ equations also permit y->A y, so their power scales by A^2. A physical clock,
 horizon map and amplitude/preparation rule must break these symmetries before
 an absolute cosmological prediction follows.
 
-The FIFO intertwiner closes a finite representation issue. It supplies
+The FIFO intertwiner resolves a finite representation question. It supplies
 neither Einstein dynamics nor a Lambda or primordial-amplitude measurement.
 Declared architecture is permitted; this is an explicit missing observation
 map, not a demand that the hardware be unique.

@@ -7,7 +7,7 @@ exactly. Capacity, prepared-state entropy, correctable record capacity and
 classical simulation memory are different quantities.
 
 `capacity.py` authenticates the source and uses its complete degree-one
-119-state link space. All higher-cutoff values remain bounds. No mass
+119-state link space. All higher-cutoff values are bounds. No mass
 capacity law or cosmological capacity is inferred.
 
 ```sh

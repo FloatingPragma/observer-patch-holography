@@ -1,8 +1,8 @@
 # One scale for native composite energies
 
 One empirical electron energy converts the declared native-current source
-energies to GeV. The inherited lepton family values are preserved, while
-its light baryon and meson assignments fail the physical mass comparison.
+energies to GeV. The inherited lepton family values are preserved; no physical
+light baryon or meson mass is claimed.
 The [proof](PROOF.md) identifies exact flavour degeneracy and cancellation
 of binding corrections in meson family differences. The [receipt](results.json)
 separates finite stationary energies from physical rest-mass predictions.

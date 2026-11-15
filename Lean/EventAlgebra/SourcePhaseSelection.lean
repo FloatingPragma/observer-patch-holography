@@ -70,7 +70,7 @@ theorem current_first_labelled_effect_eq_sourcePhaseLift :
   fin_cases i <;> fin_cases j <;>
     norm_num [effectMatrix, OPH.QFT.rhoYPlus] <;> ring
 
-/-- Legacy compatibility theorem name.  The effect is the current
+/-- The theorem name says `source_selected`; the effect is the current
 first-labelled member, not a source-forced orientation. -/
 theorem source_selected_generated_effect_eq_sourcePhaseLift :
     sourceSelectedGeneratedEffect = OPH.QFT.sourcePhaseLift := by
@@ -85,7 +85,7 @@ theorem current_first_labelled_effect_eq_declared_lueders_effect :
   rw [current_first_labelled_effect_eq_sourcePhaseLift]
   rfl
 
-/-- Legacy compatibility theorem name; no source-forced orientation is
+/-- The theorem name says `source_selected`; no source-forced orientation is
 asserted. -/
 theorem source_selected_generated_effect_eq_declared_lueders_effect :
     sourceSelectedGeneratedEffect =

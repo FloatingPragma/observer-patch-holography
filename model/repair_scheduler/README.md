@@ -67,7 +67,7 @@ law-only feedback from earlier coarse currents is covered, provided the
 seam order stays fixed and its controller and preparation tape are
 discarded. That law-selecting controller starts fixed and independent of
 the source/reference. Arbitrary coherent environment feedback is outside
-this grammar; it is distinct from the later auxiliary coin construction.
+this grammar; it is distinct from the auxiliary coin construction.
 
 Write c=2^-10 for C, c=0 for E, or c=1/32 for the whole family. For every
 binary input rho_AR and arbitrary untouched reference R,
@@ -148,7 +148,7 @@ product-output claim. The auxiliary must also be disjoint from the work:
 repairing the work itself generally changes it. An auxiliary whose fixed
 seam is empty can supply fair coins while making no movements at all;
 coin counts therefore do not supply a movement-clock rate or physical time.
-The native fair instrument already contains stochasticity. This result does
+The native fair instrument contains stochasticity. This result does
 not derive it from the deterministic endpoint function alone, or remove
 the blank/service requirements of its separate source compilation.
 
@@ -209,8 +209,7 @@ the fixed total are mandatory. The wrong-candidate probability is bounded by
 
 The scheduler-timeout probability has the separate union bound
 `3927*3/16^7 < 0.000044`. The complete campaign is a proved resource/error
-schedule, not 3927 executed or measured trials, and not a new frozen test.
-The former design's minimum-cost claim is not transferred to this apparatus.
+schedule, not 3927 executed or measured trials, and not an additional frozen test. No minimum-cost claim of another design is transferred to this apparatus.
 
 The worst-case campaign uses 2,434,740 native attempts, counting both
 carriers, and the same 267,036 mixer pulses and 534,072 proper-code
@@ -224,7 +223,7 @@ physical service fidelity. No hardware accuracy or duration is certified.
 
 ## Which finite premises this supplies
 
-| Existing interface | Concrete realization here | What remains |
+| Existing interface | Concrete realization here | What is open |
 | --- | --- | --- |
 | Native state and quantum channel | Actual full total-two input, native Kraus maps, exact absorbing support map and reference-uniform preparation bound | Total-two architecture and selected native instrument |
 | Stationary-preparation input to complete observation bounds | Finite deterministic sweep, (1), then arbitrary complete readout by trace-distance contraction | Preparation records must be discarded; the finite state is approximately stationary |

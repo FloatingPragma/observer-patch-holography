@@ -46,7 +46,7 @@ give, for fixed f,g in H,
 R_a(f):=A_a T_a f-T_a C f -> 0 in H_a.                          (2)
 ```
 
-Here is a direct proof of the new regional part. Begin with smooth probes
+Here is a direct proof of the regional part. Begin with smooth probes
 compactly contained in D; the input cell averages then lie in D_a once a
 is small. FA94 controls each full-space projector intertwiner. Multiplying
 its output by E_a is a contraction. The remaining difference is
@@ -81,8 +81,8 @@ Its Fourier transform is entire. Fix real transverse momenta with
 point. The entire left side and F are unchanged, while the square root
 changes sign. Hence F vanishes, first on this complex line and then for
 all momenta by analyticity. Apply this to every valley independently.
-This is the compact-support argument already used for FA82's outside
-cyclicity, now applied to the regional covariance.
+This is the compact-support argument of FA82's outside
+cyclicity, applied here to the regional covariance.
 
 The lattice argument is equally explicit, and includes all doubler zeroes.
 A finite-support lattice spinor has a trigonometric-polynomial Fourier
@@ -233,7 +233,7 @@ The 1/2 eigenspace has doubled, hence even or infinite, multiplicity;
 Lemma 4.11 supplies the factor condition in Theorem 3. Equivalently, Wick
 contraction verifies the KMS condition on spectrally compact analytic
 CAR words, whose norm-dense continuation determines the group. This is
-the same regional Weyl vacuum as FA87, not a new thermal state.
+the same regional Weyl vacuum as FA87, not a different thermal state.
 
 The CAR identity `||c(f)||=||f||` turns (9)--(10) into the precise comparison
 `||c_a(exp(-it k(A_a))T_a f)-c_a(T_a exp(-it k(C))f)||->0`.
@@ -287,8 +287,8 @@ interacting/massive particle identification are separate requirements.
 
 Run `python -W error -m pytest model/lattice_modular_limit -q`, and
 `python -m model.lattice_modular_limit --write` / `--check`.
-The receipt binds only the new package and the narrow mathematical inputs;
+The receipt binds only this package and the narrow mathematical inputs;
 inherited broad custody is recorded separately and is not silently repaired.
-The exact historical FA94 receipt at checkpoint `ba312dbf0` is bundled under
+The exact FA94 receipt at checkpoint `ba312dbf0` is bundled under
 `historical/`, checked against its fixed SHA-256, and source-pinned. Replay
 therefore works in shallow checkouts without consulting Git history.

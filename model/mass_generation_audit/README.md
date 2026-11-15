@@ -2,15 +2,15 @@
 
 The existing repulsive contact interaction generates a positive thermodynamic
 charge gap in the **half-filled canonical one-dimensional ground sector**. No
-Dirac mass, measured particle mass, or new hopping coefficient is inserted.
+Dirac mass, measured particle mass, or additional hopping coefficient is inserted.
 At the existing source values `c=1/8,U=1`, the gap is
 
 \[
 \Delta_c=0.7715517157380375\ldots .
 \]
 
-This is a material join beyond `common_source/mass_response`: that earlier
-alternative Hamiltonian assigned its hopping and repulsion from logarithmic
+This is a material join beyond `common_source/mass_response`: that
+alternative Hamiltonian assigns its hopping and repulsion from logarithmic
 reference statistics. Here the original `periodic_momentum` Weyl/contact
 operator itself is transformed exactly. The positive result concerns a
 specified many-body reference in one spatial dimension. It is not a massive
@@ -43,7 +43,7 @@ the original matrices on lengths 4,8,12,16, and independently checks the full
 and link proof establishes the whole `L=4m` family; matrices for every length
 are not enumerated. At `U=0` its four exact zero modes and chiral pairing give
 zero half-filled charge gap. Contact vanishes identically in the one-particle
-sector, so this mechanism does not gap the previously measured Weyl modes.
+sector, so this mechanism does not gap the one-particle Weyl modes.
 
 ## Imported theorem and exact numerical enclosure
 
@@ -81,8 +81,8 @@ nonnegative finite-difference coefficients lie in `[0,1]` by the integral
 of `exp(-x)(1-exp(-x))^n x^(s-1)/Gamma(s)`; the omitted Euler tail after
 96 terms is at most `2^-96`. The resulting exact interval has width below
 `1.67e-25`. Floating quadrature is only an independent test, not a premise
-of the enclosure. Existing rational elementary-function utilities are
-reused; the old alternative Hamiltonian's couplings are not consumed.
+of the enclosure. Rational elementary-function utilities are
+reused; the alternative Hamiltonian's couplings are not consumed.
 
 | Quantity in original model units | Value | Reference convention |
 |---|---:|---|
@@ -149,5 +149,5 @@ and `.venv/bin/python -W error -m model.mass_generation_audit --check`.
 The cold receipt binds this proof, code, tests, imported source manifests
 and the focused paper fragment. Its exact intervals are rational strings;
 displayed decimals are informational. The imported thermodynamic theorem
-is identified explicitly and is not presented as a new machine-checked
+is identified explicitly and is not presented as a machine-checked
 proof of Bethe ansatz completeness.

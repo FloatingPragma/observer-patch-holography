@@ -87,7 +87,7 @@ used to eliminate them here.
 For finite-energy states and fully conjugated instruments, W preserves
 every joint state/reference probability and work expectation. A kinematic
 apparatus first has the complete outcomes G and I-G. On G it uses the
-specified physical instrument; I-G remains a retained failure. Matter and
+specified physical instrument; I-G is a retained failure. Matter and
 flux labels form a complete countable instrument. Spectral windows of H
 have zero mean source-energy work. Preparing the probes, references and
 apparatus labels is supplied; no autonomous detector or free erasure is
@@ -216,4 +216,4 @@ with exact Gauss, charge, reference and work identities. The complete
 one-lepton sectors quantify precisely why a declared spatial extension
 need not preserve calibrated charged rest values. A native-process
 compilation, physical particle identification, continuum Yang-Mills
-construction, Clay gap and Einstein limit remain separate premises.
+construction, Clay gap and Einstein limit are separate premises.

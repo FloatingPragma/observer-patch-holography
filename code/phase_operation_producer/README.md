@@ -3,8 +3,8 @@
 Register row PR-04 carries a recorded decision dated 2026-08-18: the exact
 phase lift `I/2 - (2*sqrt(3)/3)*i*(Q*P - P*Q)` of
 `code/born_context_phase_lift` is a declared phase-sensitive effect under the
-row's axiomatize disposition. This directory retains legacy filenames while
-holding the deterministic calculator for that effect table, the committed receipt
+row's axiomatize disposition. This directory holds
+the deterministic calculator for that effect table, the committed receipt
 `PHASE_OPERATION_RECEIPT.v1.json`, and an independent verifier.
 
 The integer pairs are generated expected-frequency numerators: each pair is
@@ -27,4 +27,4 @@ Boundary: an effect is not a state transition or an instrument. These values
 are calculated, never measured, and provide semantic conformance rather than
 validation. CP outcome maps and a trace-preserving summed channel remain
 PR-64; common source preparation, public outcomes, provenance, and custody
-remain PR-65; cross-context additivity remains PR-03.
+are PR-65; cross-context additivity is PR-03.

@@ -229,7 +229,7 @@ def control (s : Fin 66) (r : Fin 120) : Option (Fin 66) :=
   if h : n < 66 then some ⟨n,h⟩ else none
 
 theorem source_control_binding : ∀ s : Fin 66, ∀ b : Fin 60,
-    control s (eventRecord s b) = some (sourceNext s b) := by native_decide
+    control s (eventRecord s b) = some (sourceNext s b) := by decide +kernel
 
 structure Trace where
   state : Fin 66
@@ -255,6 +255,6 @@ def generator (f : Fin 66 → ℚ) (s : Fin 66) : ℚ :=
   (∑ b : Fin 60, f (sourceNext s b) - f s) / 60
 
 theorem actual_generator_nonzero :
-    generator (fun s => if s.val = 0 then 1 else 0) 0 ≠ 0 := by native_decide
+    generator (fun s => if s.val = 0 then 1 else 0) 0 ≠ 0 := by decide +kernel
 
 end OPH.Tower.RepairRecordObserver

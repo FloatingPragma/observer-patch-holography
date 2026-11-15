@@ -115,8 +115,7 @@ free-Fock ground.
 
 The original physical origin probe `v=c†_(0,down)G` has unit norm.
 `spectrum.py` resolves **all 78 distinct positive lines** in this probe's
-spectral measure; the previously unresolved weight `4/5` is now accounted
-for. This resolves its cyclic response, not the entire 560-state block or
+spectral measure; the weight `4/5` is accounted for. This resolves its cyclic response, not the entire 560-state block or
 its degeneracies. There is no new executed preparation or detector history.
 
 The retained exact monic polynomial `p` has degree 78 over `Q(sqrt(3))`.
@@ -227,7 +226,7 @@ density `C=mu diag(-w,a)` with positive `mu,w` and positive definite spatial
 constructs a coframe and proves common scalar, Weyl, Dirac and Maxwell
 principal-symbol relations for its supplied comparison density.
 
-The new output is the actual source response from which a candidate effective
+This output is the actual source response from which a candidate effective
 principal symbol must be extracted, including its memory and state dependence.
 The next join requires controlled spatial and low-energy limits of the
 **inverse** response, its normalization and a common coefficient across the
@@ -241,13 +240,13 @@ Fixed microscopic geometry is compatible with such emergent response
 geometry. A new fundamental metric register is not required by this route.
 After the common response/action-density join, the actual modular, area,
 stress, coarse-graining and null-balance hypotheses of `EinsteinRegisterData`
-still require proof on the same family. None of G1--G6 is marked complete here.
+require proof on the same family. None of G1--G6 is marked complete here.
 
 ## Replay
 
 Run `python -W error -m pytest model/retarded_matter_response` and
 `python -W error -m model.retarded_matter_response --check` from the repository
-environment. The receipt binds the earlier global-ground proof and receipt;
+environment. The receipt binds the global-ground proof and receipt;
 its costly all-number Gram proposal is not rerun as part of this package.
 New moment, isometry and memory identities are replayed exactly. Independent
 floating-point resolvent tests are diagnostics, not admission criteria.

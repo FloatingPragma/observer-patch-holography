@@ -2,7 +2,7 @@
 
 This packet closes a specific observer-access gap: on a **known diagonal native
 preparation**, absolute occupation fields can be read from retained signed
-currents. They need not remain simulator-only variables. Two regional observers
+currents. They need not be simulator-only variables. Two regional observers
 can reconstruct compatible parts of the same field history, continue from
 their own checkpoints, and compare local event clocks on shared records.
 
@@ -129,7 +129,7 @@ These computations use the exact two-anchor/third-event algebra isolated in
 [`Time/ClockComparison`](../../Lean/Time/ClockComparison.lean). That Lean
 interface additionally assumes timelike histories; no such geometric
 assumption is instantiated here. The relation of these native local tick
-records to observer-relative modular flow remains to be established. A
+records to observer-relative modular flow is open. A
 preferred universal physical clock is not required.
 
 ## Inferring nonuniform scheduling from clock comparisons
@@ -170,7 +170,7 @@ clock records fails the control.
 This identifies an IID scheduler from exact ensemble laws. A stationary
 cyclic control has the same pair means and terminal coincidences, but its
 zero-count probability is `4/5` rather than `4/9` for ports 0 and 1.
-Temporal independence therefore remains testable with further interval
+Temporal independence therefore is testable with further interval
 records. Finite data also cannot distinguish an absent seam from an
 arbitrarily rare one without an exposure bound. Local initial-bit disclosure and
 incident-current readback are necessary for the field observation. A
@@ -207,13 +207,13 @@ Port relabeling preserves the exact shell census; a symmetric change to one
 edge entry is rejected. Together with
 [`native_effective_fields`](../native_effective_fields/README.md), this means
 the source-derived hard-core exchange terms are local on this reconstructed
-finite metric. The logarithm of the transfer can still contain longer-range
+finite metric. The logarithm of the transfer can contain longer-range
 configuration couplings.
 
 This is an exact spatial interpretation of one finite twelve-port carrier,
 not a measurement of the dimension of physical space. It supplies no
 physical length unit, global spacetime, Lorentz cone, signal-speed law or
-continuum limit. The time readouts below remain record parameters, and the
+continuum limit. The time readouts below are record parameters, and the
 metric reconstruction uses a separately disclosed calibration preparation.
 
 ### What one carrier establishes without a federation
@@ -266,7 +266,7 @@ the normalized long-attempt response has rank two. This is checked for each
 of the thirty possible doubled seams. Thus arbitrary positive exposure does
 not establish a three-dimensional slow response. A native slow-band claim
 needs the spectral certificate for its actual scheduler. Exposure removal
-still recovers the original structural rank-three Gram from those records.
+recovers the original structural rank-three Gram from those records.
 
 The meaning of “spatial readout” also matters. All modes of the same recovered
 response give the exact inverse-response Gram
@@ -429,7 +429,7 @@ cyclic field space**. Its eighth-vector Schur remainder is exactly zero. If
 ||T^7 f - sum_(j=0)^6 a_j T^j f||^2 = c_14 - a^T G a = 0.
 ```
 
-Under the already established positive-transfer representation, this proves
+Under the established positive-transfer representation, this proves
 closure and the recurrence for every later lag. It is stronger than fitting
 a finite window. The reconstructed transfer has characteristic polynomial
 
@@ -610,7 +610,7 @@ function. Thus these centered clock fluctuations and the density snapshots
 are **asymptotically independent**, despite the finite two-time-field
 dependence above. This statement concerns finite vectors; it does not extend
 to clocks selected by accepted repairs, currents or other state-dependent
-events. The single linear endpoint field already has zero covariance with
+events. The single linear endpoint field has zero covariance with
 the clock mark at finite level; its zero covariance alone would not prove
 the stronger joint result.
 
@@ -697,7 +697,7 @@ The wave register receives no passive timing-source repair between steps.
 Consequently its continuing operation is exactly `W_l^N` after `N` ticks;
 interleaved passive repairs on that register would define a different law.
 The coherent preparation, reflection, protected storage, common amplitude
-and Ramsey readout remain the stated apparatus contract. Service events
+and Ramsey readout are the stated apparatus contract. Service events
 are charged separately from timing-carrier incidents.
 
 Set `Q_l=M_l 4^l=630*16^l`, `D_l=4^l L_l` and
@@ -718,8 +718,7 @@ existing walk's compressed amplitude. Indeed its random wave parameter
 differs from `beta tau` by at most `beta eta`; its frequency error costs at
 most `beta(T+eta)sqrt(Lambda)e_l`. The cosine Lipschitz bound proves (WC1)
 for each retained clock history. Independence of clocks and fields is
-unnecessary. Along the same spatial subsequence, the previously proved
-bounded-band wave convergence and the clock LLN therefore give
+unnecessary. Along the same spatial subsequence, the proved bounded-band wave convergence and the clock LLN therefore give
 `cos(beta tau sqrt(A))` in probability, uniformly on compact parameter
 intervals. This closes the independent wave-counter requirement within
 this active protocol; it does not select the continuation from passive repair.
@@ -884,7 +883,7 @@ compactness of the limiting resolvent then gives the norm assertion.
 The angular constant is retained, and the common Dirichlet radial gap
 `B_epsilon,B >= (pi/L)^2` prevents an infrared singularity.
 
-Functional calculus now gives operator-norm convergence of
+Functional calculus gives operator-norm convergence of
 `q_b(Btilde_epsilon)` and of the ordered field covariance and sine
 response, uniformly on compact wave-time intervals. These spectral
 functions vanish at infinite energy. Cosine evolution converges strongly,
@@ -1031,8 +1030,7 @@ u bounded in the local form domain, Gamma_B(u)<=1 almost everywhere.
 
 Use the local domain on compact interior exhaustions, not globally
 boundary-zero test functions. This matters at Dirichlet endpoints.
-The strongly local regular form and its uniform ellipticity are already
-proved; (NR) determines its angular energy density. The radial factor is
+The strongly local regular form and its uniform ellipticity are proved; (NR) determines its angular energy density. The radial factor is
 the declared one. No smooth coefficients or pointwise heat kernel are needed.
 
 The form chain rule gives
@@ -1107,8 +1105,7 @@ line has volume measure zero. Yet a naive length integral along that
 line is halved. This control excludes an unsupported identification with
 smooth null geodesics. The achieved join is native weak energy readout,
 intrinsic distance and optimal response of the **declared product wave**.
-Radial geometry, active dynamics and clock/readout access remain its
-contracts; fastest primitive transport and observed spacetime are not
+Radial geometry, active dynamics and clock/readout access are its contracts; fastest primitive transport and observed spacetime are not
 identified by (OF2).
 
 The existing angular record menu does not select that radial extension.
@@ -1302,12 +1299,10 @@ non-derivation control, take an actual inter-carrier seam at the level-3 root
 and additionally require its endpoint distance to equal the local
 shortest-shell length. Two independent orientations of its neighboring
 carrier can satisfy that same link-length constraint, preserve both carriers'
-exact internal Gram matrices, and still change other cross-carrier Gram
-entries. This equality is used only in the control; it is not a model input.
+exact internal Gram matrices, while changing other cross-carrier Gram entries. This equality is used only in the control; it is not a model input.
 The current repair records identify the seam endpoints but do not record the
 missing cross-carrier inner products. So the substrate supplies exact
-native-hop neighborhoods and a local unitless carrier metric; it does not yet
-supply a global physical space, inter-carrier ruler, or continuum geometry.
+native-hop neighborhoods and a local unitless carrier metric; it does not supply a global physical space, inter-carrier ruler, or continuum geometry.
 
 The source-order/frame packet in
 [`Geometry/SourceOrderFrameCompatibilityPacket`](../../Lean/Geometry/SourceOrderFrameCompatibilityPacket.lean)

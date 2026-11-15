@@ -62,10 +62,10 @@ be another ground in a different charge sector. Hence the ground has eta
 zero as well.
 
 The packet checks current source symmetries and the imported theorem's
-finite source hypotheses directly. It separately reports historical
+finite source hypotheses directly. It separately reports parent
 receipt pin discrepancies. Such discrepancies are not silently repaired,
-and historical receipt authentication is not included in this packet's
-`all_pass` scope. The old all-number operator theorem and Lieb theorem are
+and parent receipt authentication is not included in this packet's
+`all_pass` scope. The all-number operator theorem and the Lieb theorem are
 identified mathematical inputs, with their source/proof files bound.
 
 ## Exact spatial and spin/eta reductions

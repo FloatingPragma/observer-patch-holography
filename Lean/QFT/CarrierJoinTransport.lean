@@ -10,7 +10,7 @@ committed 86/247 carrier (ambient dimension 169); `QFT.TripleCarrierJoin`
 supplies a common product carrier with marginal channels.  Neither module
 constructs a typed object into which **both** committed carriers embed at
 their diagonal (record) function layer.  This module constructs one, and
-settles the region-family question of the corrected
+settles the region-family question of the transport-aware
 one-step evolution interface of `QFT.PathTimeSliceInterface`.
 
 **Part 1: the hinge-fibered join (finite linear algebra on committed data
@@ -45,8 +45,8 @@ the two hinge sections.
   restriction (`joinStep_embed88`, `joinStep_embed247`,
   `hingeRestrict_joinStep`).
 
-**Part 2: evolved-data time slices on the corrected interface.**  The
-corrected `TimeIndexedNetEvolution` interface generates the next regional
+**Part 2: evolved-data time slices on the transport-aware interface.**  The
+transport-aware `TimeIndexedNetEvolution` interface generates the next regional
 algebra from the evolved admitted data.  Two exact results delimit and then
 inhabit its region-family freedom:
 
@@ -58,21 +58,21 @@ inhabit its region-family freedom:
   bottom and top regions are rigid at every step, so a region family can
   change only by exchanging the two slot regions
   (`slice_change_forces_slot_exchange`).
-* **Existence.**  `slotAlternatingEvolution` inhabits the corrected interface
+* **Existence.**  `slotAlternatingEvolution` inhabits the transport-aware interface
   with a genuinely time-dependent region family: the slice alternates between
   the left and right slot regions, the per-step automorphism is the committed
   walk-step evolution composed with the committed internal `slotSwap`, and the
   admitted slice data are the committed source generators of observer 86
   (left slot, even steps) and observer 247 (right slot, odd steps).  The
-  transport-aware generation clause holds at every step.  The former
-  forced-step-invariance reading is therefore wrong in both directions: it
+  transport-aware generation clause holds at every step.  Step invariance
+  is therefore not forced: it
   fails for slot-exchanging evolutions and holds exactly for region-preserving
   ones.
 
 **What is NOT claimed.**  The join is a finite typed linear object on the
 diagonal layer: no star-algebra amalgamation, free product, or C*-pushout is
 constructed, the quotient carries no order or positivity structure, and the
-transported counted states remain source-produced data of their own carriers.
+transported counted states are source-produced data of their own carriers.
 The join is not spacetime covariance, not a physical Cauchy surface, and not a
 continuum limit; no uniqueness of the join is claimed.  The hinge sections are
 the fiber-uniform lifts, a declared normalization.  In Part 2 the slot
@@ -859,7 +859,7 @@ theorem starEquiv_map_eq_top_iff {γ : Type*} [Fintype γ] [DecidableEq γ]
     exact starEquiv_map_top e
 
 /-- **Region-preserving evolutions force step-invariant regions.**  If
-every step automorphism of an inhabitant of the corrected interface over
+every step automorphism of an inhabitant of the transport-aware interface over
 the committed 86/247 diamond maps each regional algebra onto itself,
 then the region family cannot depend on time along the step map. -/
 theorem region_preserving_forces_slice_invariance
@@ -883,7 +883,7 @@ theorem region_preserving_forces_slice_invariance
 /-- **The committed walk evolution forces a constant region family.**
 Any slice family over cyclic time `Fin 32` that is net-compatible with
 the committed walk-step evolution is constant.  The constant-region
-inhabitant of the corrected interface is therefore the only region shape
+inhabitant of the transport-aware interface is therefore the only region shape
 the committed walk evolution admits. -/
 theorem stepEvolve_slice_constant
     (slice : Fin 32 → TwoSlotRegion)
@@ -957,7 +957,7 @@ theorem timeSlice_top_rigid
     rfl
 
 /-- **A time-dependent region family can only exchange the two slots.**
-If the region changes across one step of any inhabitant of the corrected
+If the region changes across one step of any inhabitant of the transport-aware
 interface, the change is from one slot region to the other. -/
 theorem slice_change_forces_slot_exchange
     (E : TimeIndexedNetEvolution PairIndex247 twoSlotNet247) (t : E.Time)
@@ -1094,14 +1094,14 @@ theorem alternatingAdmitted_generates (t : Fin 32) :
     rw [hs]
     exact alternatingEvolve_map t TwoSlotRegion.right
 
-/-- **The slot-alternating inhabitant.**  The corrected one-step
+/-- **The slot-alternating inhabitant.**  The transport-aware one-step
 interface is inhabited over the committed 86/247 diamond with a
 genuinely time-dependent region family: cyclic time `Fin 32`, the
 alternating left/right slice, the walk-step-plus-exchange evolution, and
 the committed per-observer source generators as admitted slice data.
 Generation is proved only after applying each one-step automorphism.
-This proves the possibility the withdrawn forced-step-invariance no-go
-left open; the delimitation theorems above prove its exact boundary. -/
+This proves that step invariance is not forced; the delimitation theorems
+above prove its exact boundary. -/
 def slotAlternatingEvolution :
     TimeIndexedNetEvolution PairIndex247 twoSlotNet247 where
   Time := Fin 32
@@ -1152,7 +1152,7 @@ theorem slotAlternatingEvolution_not_step_invariant :
   exact TwoSlotRegion.noConfusion h'
 
 /-- **The evolved-data time-slice result, in one receipt.**  The
-corrected interface admits a genuinely time-dependent region family
+transport-aware interface admits a genuinely time-dependent region family
 (the slot-alternating inhabitant); every net-compatible slice family
 over the committed walk evolution is constant; and any one-step region
 change of any inhabitant is an exchange of the two slot regions. -/

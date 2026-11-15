@@ -43,7 +43,7 @@ it reuses positivity, not a new axiom about observers. A primary reference
 for Weyl relations and quantum Bochner positivity is Lami, Sabapathy and
 Winter, [*All phase-space linear bosonic channels are approximately Gaussian
 dilatable*, Lemma 2 and Appendix A](https://arxiv.org/pdf/1806.11042).
-The finite algebra prerequisite is already represented by
+The finite algebra prerequisite is represented by
 [StateExpectation](../../Lean/EventAlgebra/StateExpectation.lean). This
 packet supplies a mathematical attachment and executable checks, not a new
 Lean formalization of the continuous Weyl theorem.
@@ -86,7 +86,7 @@ inputs. This two-dimensional demonstration verifies the general unitary
 instrument construction. It does **not** implement the exact continuous
 Weyl relations: finite matrices cannot represent the oscillator canonical
 commutation relation exactly. The laboratory Weyl identification therefore
-remains an explicit apparatus premise; it is not derived from this qubit
+is an explicit apparatus premise; it is not derived from this qubit
 experiment. No physical service-fidelity certificate is available here.
 
 ## Public data and results analysis
@@ -104,7 +104,7 @@ mathematics; they do not replace the noisy origin measurement.
 For each extent, predictions consume only the axes and coordinate indices;
 their output is sealed before the scorer consumes interior responses.
 This is a retrospective split by a declared rule. The public values were
-already available and inspected during development, so this is not a
+available and inspected during development, so this is not a
 preregistered or prospective validation. No outcome is fitted and no
 coordinate extent is selected by its score.
 
@@ -177,7 +177,7 @@ retained, including an entangled reference; checkpoint replay is exact at
 the reported floating precision. Conditional second-trial witness means
 are positive despite varying with the first record. A control choosing
 preparation *after* the setting gives a mean near **-2.833**. This demonstrates
-why fresh setting independence remains a real premise.
+why fresh setting independence is a real premise.
 
 The exact binary source detector arrays are additionally compared with a positive
 square `A* A`, where `A = v0 I + v1 U* + v2 V`. Rational matrix
@@ -212,7 +212,7 @@ rejecting one does not select or reject the other.
 
 No such test is applied to the deposited means: they lack authenticated
 ordered random-setting records, complete accepted counts, and the required
-conditional service bounds. They remain descriptive evidence only.
+conditional service bounds. They are descriptive evidence only.
 
 ## What it means and next steps
 

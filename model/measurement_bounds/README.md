@@ -6,8 +6,8 @@ after arbitrary dynamics. It separates a declared detector-gain problem from
 the preparation-family problem examined by the
 [six-probe diagnostic](../empirical_diagnostics/README.md).
 
-There are no new experimental outcomes. The old anharmonic comparison and its
-score remain unchanged. The new content is a state-independent calibration
+This packet uses no additional experimental outcomes. The anharmonic comparison and its
+score are those of the anharmonic packet. The content here is a state-independent calibration
 control, a necessary relation between two characteristic-function reads, and
 an outward bound on the relation's defect for the actual finite Kraus matrices.
 
@@ -43,7 +43,7 @@ allowed interval; it also passes. These numbers illustrate the bound with
 source-generated expectations, not measured frequencies. Real finite-shot
 readings require the uncertainty allowance below.
 
-The new bound is weaker than the exact Gaussian identity
+This bound is weaker than the exact Gaussian identity
 `chi(2ih)=|chi(ih)|^2 chi(ih)^2`, but it requires much less knowledge of the
 preparation. Failure of the Gaussian identity can indicate an inadequate
 preparation family. Failure of the universal bound, after justified errors,
@@ -60,7 +60,7 @@ The existing
 supply positivity and normalization of the finite trace functional. Positivity
 of `<X*X>` implies Cauchy-Schwarz for its Gram form. With
 `X=U*-conj(z)I` and `Y=U-zI`, it yields the displayed moment inequality.
-This short specialization is a direct mathematical argument; no new Lean
+This short specialization is a direct mathematical argument; no Lean
 theorem is claimed.
 
 The executable does **not** assume its floating source matrices satisfy the
@@ -151,8 +151,8 @@ that setting dependence without changing preparation or dynamics.
 This identifies an affine binary-readout gain and offset under the stated
 conditions. It does **not** identify the physical displacement scale. Replacing
 `h` by `s*h` preserves both the unitary moment inequality and its doubling
-relation. The earlier probe-scale gauge and the archived `.636` versus
-`sqrt(2)*.4` provenance issue therefore remain unresolved. Raw counts, phase
+relation. The probe-scale gauge and the archived `.636` versus
+`sqrt(2)*.4` provenance issue are therefore unresolved. Raw counts, phase
 settings and independently authenticated coordinate metadata are needed.
 
 ## What executes
@@ -168,7 +168,7 @@ oscillator pointer. The supplied bit-error channel is implemented by summing
 its Kraus alternatives as CP branches. The common primitive runtime retains
 all four `(spin, observed detector bit)` outcomes and their terminal quantum
 states. There is no postselection. The non-Gaussian example is the same fixed
-positive mixture used by the earlier diagnostic; no target values or later
+positive mixture used by the [empirical diagnostic](../empirical_diagnostics/README.md); no target values or later
 trajectory observations enter its construction.
 
 The host computes complete instrument laws rather than fabricating shots.
@@ -203,10 +203,10 @@ needs its own additional allowance.
 
 With `k=9`, `alpha=.01` and observed gain `.85`, the corrected complex radii
 are approximately `1.367`, `.4321` and `.1367` at 200, 2,000 and 20,000 trials
-per setting. The original stated 200 shots would be insufficient for a useful
+per setting. The paper's stated 200 shots would be insufficient for a useful
 confidence-level version of this conservative calibration-and-bound test,
 even if authenticated counts were available. This is a different, more
-model-independent task than choosing between the previous two locked
+model-independent task than choosing between the two locked
 preparation candidates.
 
 For complex estimates `z_hat,w_hat` with justified radii `epsilon1,epsilon2`,
@@ -226,7 +226,7 @@ made from source-generated expectations or the deposited derived positions.
 The next useful measurement is the complete null/phase-reversal calibration
 and both complex probes on contemporaneous, identically prepared trials.
 Passing these checks supports a consistent measurement interface. It does
-not recover the physical action, derive the prepared state, explain the old
+not recover the physical action, derive the prepared state, explain the anharmonic
 trajectory discrepancy or distinguish OPH from ordinary quantum mechanics.
 
 ## Reproduction

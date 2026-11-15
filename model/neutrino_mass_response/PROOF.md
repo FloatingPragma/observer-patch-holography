@@ -83,7 +83,7 @@ by `t^3 ||H^3 psi||/6`. Exact algebra proves this is smaller than the
 receiver amplitude and retains radical probability endpoints. The yes
 probability lies approximately between `2.5920e-18` and `2.9700e-18`;
 the no probability is the exact complementary interval. The quantum
-reference remains part of every output. These are genuine neutral
+reference is part of every output. These are genuine neutral
 transport records of the full finite source, without a lightcone,
 asymptotic particle or rest-mass inference.
 

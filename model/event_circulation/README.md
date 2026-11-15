@@ -11,10 +11,10 @@ E[S_N] = 0,                  Var(S_N) = N/10.
 
 Here `N` counts nonzero native movements and `S_N` sums their signed currents
 around the chosen triangular face. A movement away from that face has score
-zero but still advances `N`. These are event counts, not seconds. The result
+zero but advances `N`. These are event counts, not seconds. The result
 assumes the event-stationary preparation described below, the binary total-two
 carrier, uniform seam selection, fair coins and access to seam/current records.
-It supplies no new laboratory observation.
+It supplies no laboratory observation.
 
 ## The exact join
 
@@ -63,7 +63,7 @@ E_mu[J J^T] = I30/30,         E_mu[(PJ)(PJ)^T] = P/30.
 Thus `PJ` remains a bounded martingale difference in the complete event history.
 Unequal-event covariances vanish without independence. The triangular weights
 are in `ker B` and have squared norm 3, giving the exact variance `N/10`.
-Gradient currents still telescope to a bounded endpoint load change.
+Gradient currents telescope to a bounded endpoint load change.
 
 The finite, irreducible event chain satisfies the ergodic hypothesis used in
 the existing bounded-martingale limit argument. In rescaled event count,
@@ -78,11 +78,11 @@ increment density has quadratic action
 The coefficient 15 is the event-parameter version of the existing attempt
 coefficient 99: the stationary conversion is `5/33` events per attempt.
 This reparameterizes the same source-derived fluctuation law. Its relation to
-the observer's modular flow and effective interacting field description remains
-to be established; no universal physical clock or fundamental field is required.
+the observer's modular flow and effective interacting field description is
+not established; no universal physical clock or fundamental field is required.
 Rank 19 counts cycle
 coordinates, not spatial dimensions. The imported martingale limit theorem is
-the one discussed in the prior packet; no new Lean limit proof or finite-count
+the one discussed in the parent packet; no Lean limit proof or finite-count
 Gaussian error estimate is claimed.
 
 ## What this simplifies, and what it does not
@@ -106,7 +106,7 @@ The nearest existing finite results are
 [`GreenKubo.lean`](../../Lean/Thermodynamics/GreenKubo.lean),
 [`NativeRepairFourCycle.lean`](../../Lean/Thermodynamics/NativeRepairFourCycle.lean)
 and [`SourceRecurrenceClock.lean`](../../Lean/QFT/SourceRecurrenceClock.lean).
-The prior packets already map their transport and count hypotheses. This
+The parent packets map their transport and count hypotheses. This
 packet adds the actual marked event-chain attachment, its Palm preparation and
 event covariance; it does not substitute a different finite witness or a
 two-state waiting theorem for the actual 66-state source.
@@ -122,7 +122,7 @@ and full 66-dimensional terminal density matrices are compared with independent
 exact native counts. A serialized checkpoint is continued and compared with
 uninterrupted execution. First-event prefixes give nine stopped records plus
 the timeout state and preparation failure. The receipt gives both conditional
-and unconditional masses. These are extracted from actual executed prefixes; no new
+and unconditional masses. These are extracted from actual executed prefixes; no
 physical halt apparatus is implemented.
 
 Conditional on preparation success, longer predictions use an exact integer recursion for the joint counter and

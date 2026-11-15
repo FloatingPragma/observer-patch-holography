@@ -37,7 +37,7 @@ B_U,n = span{|b>: b subset U^c, |b|=2-n}
 M_U = direct_sum_n (B(A_U,n) tensor I_B_U,n).
 ```
 
-This is the occupation embedding already used by the native bare regional
+This is the occupation embedding used by the native bare regional
 algebra; no CAR sign or new fermionic transfer is substituted. Its matrix
 unit `e_ab` is `sum_bext |a,bext><b,bext|`, with every allowed exterior
 configuration. On two ports the sector dimensions are `(1*45,2*10,1*1)`;
@@ -64,7 +64,7 @@ FIFO slot; it preserves the training tape and preexisting quantum reference.
 The joint source/preparation FIFO reference cannot be replaced by pi_theta
 tensor an independent archive.
 
-The older [supported source/FIFO reference](../completion/observer_reference.py)
+The [supported source/FIFO reference](../completion/observer_reference.py)
 is a different H78 feedback observer and stationary finite marginal. Its
 positive record blocks are faithful only on their declared positive supports;
 the growing archive is not stationary. Neither its density nor its supported
@@ -119,7 +119,7 @@ emits the existing 2042-pulse Walsh/parity schedule; every zero coefficient,
 global I phase and parity uncompute is retained. `native_program.source_word`
 freshly admits its exact dyadic angle payloads. There is no matrix primitive
 or new regional loader. The source word uses exactly the encoding/proper-code
-service already admitted for the accepted record_clock member.
+service admitted for the accepted record_clock member.
 
 One pulse is supplied proper-code load into the existing M6 processor,
 `exp(sum c_p D_p)`, and complete export, with sender reset and receiver
@@ -150,7 +150,7 @@ quantum reference and its full off-diagonal entries; no survivor is
 normalized. `address_export` aggregates only these equivalent classical
 padding labels by tracing the escaped address; the complete row formula
 retains them individually. Receiver junk/reset and the complement
-environment remain outcomes of the supplied service.
+environment are outcomes of the supplied service.
 
 Invalid regions, unadmitted angles or a failed analytic cap produce a
 `COMPILER_STOP` before source action, with identity on source/R. Unresolved
@@ -158,7 +158,7 @@ inference retains its existing stop. These flags, failure ordinals and final
 status are not conditioned away. This standalone actuator makes no native
 FIFO writes: the prior FIFO/timeout/export channel is tensored with identity.
 If a native continuation or overflow policy is attached, its complete
-instrument and timeout are still required from the existing interpreter.
+instrument and timeout are required from the existing interpreter.
 
 ## Rigorous errors and exact versus approximate locality
 
@@ -178,7 +178,7 @@ and telescoping the complete export isometries bound the emitted-control
 instrument by the sum of these costs, delta. This bounds successful words,
 all first failures and arbitrary R together. Exact source algebra identities
 introduce zero ideal-generator error; finite control rounding is paid above.
-Physical coefficient delivery/transfer errors remain a distinct premise.
+Physical coefficient delivery/transfer errors are a distinct premise.
 
 Consequently complete half-diamond error is at most delta. Address-abort
 probability is at most delta squared; the total first-processor-failure
@@ -237,8 +237,7 @@ commuting-square assertion is imposed on these expectation maps.
 
 ## Learned and prepared references; resources
 
-The inherited fixed-design confidence failure bound remains
-`381169/10^12`; it is not a posterior confidence conditioned on acceptance.
+The inherited fixed-design confidence failure bound is `381169/10^12`; it is not a posterior confidence conditioned on acceptance.
 On that event the oscillation of port log-weight errors is at most `3/32`.
 In the fixed port-7 gauge, each two-port lift's generator, after subtracting
 a scalar, has norm error at most `3/32`: its four subset sums have range
@@ -255,8 +254,7 @@ The inherited preparation cap `10^-5` and `pi_min>=1/1056` give
 most `|s| eta/(1-eta)=|s| 33/3092`. Add inference and compilation by triangle
 inequality. This is after restriction, for a fixed marginal and arbitrary
 probe/R; it proves neither exact invariance of M_U under rho_h's global clock
-nor a full-H66 equality of central gauges. On bad-confidence histories retain
-the old exact faithfulness bound and at most unit channel distance. Average
+nor a full-H66 equality of central gauges. On bad-confidence histories retain the exact faithfulness bound and at most unit channel distance. Average
 comparison adds the design failure probability, without successful-output
 conditioning. For a product-reference state comparison also add the inherited
 preparation error, with the same archive qualifications. The prior record
@@ -272,12 +270,11 @@ admitted words. Two requests cost 4084 pulses and 8168 calls. The prior
 31,458,883 native attempts, 314,588,830 record-bit bound and supplied
 15,938,607,203,238-pulse realization belong to the existing complete protocol,
 not free preparation. Appending both requests costs at most
-15,938,607,207,322 pulses and 31,877,214,414,644 calls, plus the new literal
-program/status storage. Reusing the existing address register needs no fresh
+15,938,607,207,322 pulses and 31,877,214,414,644 calls, plus the additional literal program/status storage. Reusing the existing address register needs no fresh
 source reset; fresh invocation must supply its declared blanks/encoding.
 No 31-million-event acquisition, trillion-pulse realization or preparation
 is rerun by this package. The generic interpreter's six-work-bit evaluator
-still resource-stops this nine-bit word; the existing nine-bit source compiler
+resource-stops this nine-bit word; the existing nine-bit source compiler
 executes its full512 array. A RESOURCE_STOP is not a successful actuator run.
 
 ## Reproduction
@@ -289,6 +286,6 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 -B -m model.regional_clock.veri
 
 `verify --write` is the sole owner of this package's results.json. It checks
 the prior record receipt's live source hashes, uses its counts through the
-existing inference owner, and generates only this new receipt. Frozen
+existing inference owner, and generates only this receipt. Frozen
 receipts, acceptance registries and papers are unchanged. Host seconds and
 source pulse ordinals are not physical time.

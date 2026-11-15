@@ -28,7 +28,7 @@ This is a finite abstract-log compiler, not a source-selection theorem.  It
 does not derive `R`, a rank, physical event identity, a signal relation,
 manifoldlikeness, density, or a continuum.  Nor does it prove that the
 compiled per-commit snapshots arise from one particular sequential executor;
-that stronger history-custody condition remains a separate interface.
+that stronger history-custody condition is a separate interface.
 -/
 
 namespace OPH.Provenance.FiniteCausetCompiler

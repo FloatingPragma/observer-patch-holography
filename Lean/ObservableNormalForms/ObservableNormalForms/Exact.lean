@@ -217,7 +217,7 @@ theorem singleton_fiber_forces_normalForm
   simpa using this
 
 /-- Empty/singleton corollary, clause (iii): weak normalization plus a singleton
-consistent fiber implies confluence on that fiber.  This is the corrected
+consistent fiber implies confluence on that fiber.  This is the
 fiberwise version; weak normalization is not assumed on an empty fiber. -/
 theorem singleton_fiber_weakNormalization_confluent
     {r : Q → Q → Prop} {C : Set Q} {B : Q → 𝓑} {b : 𝓑} {c : Q}

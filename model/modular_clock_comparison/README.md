@@ -1,6 +1,6 @@
 # Comparing the actual interacting regional clocks
 
-The same two-site Weyl/contact field now has source-executed comparisons
+The same two-site Weyl/contact field has source-executed comparisons
 between its global modular clock and both one-site modular clocks. A
 comparison between the two regional clocks costs **20 supplied native
 pulses**. Each global-to-regional comparison at parameter `s=1/2` uses
@@ -190,9 +190,9 @@ contracts. The receipt retains the exact frequency intervals and all
 source resources.
 
 The source action, Gibbs preparation, inverse temperature, access to
-initialized coherent work bits and interpretation of the parameter remain
+initialized coherent work bits and interpretation of the parameter are
 declared specification inputs. These are permitted readout/service data in
 the executable hypothesis, but they are not physical clock calibration.
 Common native reference selection, scalable preparation and interaction,
 physical energy/time normalization and geometric modular/Einstein premises
-remain open. No canonical physical premise or integrated gate is promoted.
+are open. No canonical physical premise or integrated gate is promoted.

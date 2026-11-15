@@ -30,8 +30,7 @@ problem and is **untouched, unassumed, unclaimed**.
 
 ## Integration
 
-Extracted verbatim from the retired single-file artifact `RepairGap.lean`
-(Part I; consolidated into these modules, see git history).  The assembly
+The assembly
 module `ObserverPatchHolography.YangMillsGap` re-exports this theorem by direct
 import:
 ```
@@ -46,7 +45,7 @@ SCOPE: machine-checked here is the conditional uniform-fiber statement
 `D = c_F (I - E_F)` with `c_F > 0`.  The separate commuting-projection assembly
 proves a finite representation gap from directly assumed positive collar rates;
 no Lean theorem connects this `c_F` to those rates.  The continuum reduction
-also remains conditional on Assumption 9.2, which is not touched here.
+is also conditional on Assumption 9.2, which is not touched here.
 -/
 
 open scoped Matrix

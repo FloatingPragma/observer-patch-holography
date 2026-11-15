@@ -9,7 +9,7 @@ band-only Hamiltonian, fitted spectral isometry, removed scattering state or
 selected Weyl taste enters execution. A coherent 64-momentum pair packet is
 entangled with an untouched reference qubit; every pointer output is retained.
 
-This extends source execution from the earlier stationary eta-pair/dark M2
+This extends source execution from the stationary eta-pair/dark M2
 corner to a moving packet of the same isolated band. It supplies an operational
 rate-transfer protocol **under an additional common-reference premise**. It
 does not extend the native product reference by an intertwining isometry.
@@ -80,11 +80,11 @@ probabilities, sparse-action and Fourier-band comparisons, deleted-contact
 and zero-clock controls. Costs include every evolution route and pointer,
 with the 31,457,280 training attempts counted separately. Preparation of the
 band packet, field-register initialization, coherent load/export services,
-analogue control precision and the new Gibbs reference remain supplied.
+analogue control precision and the Gibbs reference are supplied.
 
 This is a finite fixed-spacing interacting field calculation. It establishes
 no physical seconds, electronvolt mass, nontrivial defect charge, Lorentz or
-chiral continuum field theory. CP04 and CP06 still require the corresponding
+chiral continuum field theory. CP04 and CP06 require the corresponding
 native-reference, physical calibration and continuum joins.
 
 Run:

@@ -106,7 +106,7 @@ the source range `R` can depend measurably on momentum and need not reduce
 
     U(a) E_resp(B) U(a)*=E_resp(B+a).                        (7)
 
-It also proves agreement with the earlier field position as a sharp
+It also proves agreement with the separately defined field position as a sharp
 measure on that subspace. Since every `f e_0` lies in `R` and `E_0`
 acts componentwise,
 

@@ -46,7 +46,7 @@ versions, read/write sets and dependency categories:
   current. The selected seam is checked against the actual `_outcomes`
   branch. The controller is not allowed to inspect the hidden density.
 * Every completed repair or hold calls `_commit`, reads and updates the
-  shared FIFO, and reads the archive even when it is still empty. Overflow
+  shared FIFO, and reads the archive even when it is empty. Overflow
   appends the oldest record and stamps a new archive writer.
 
 The selector read is retained even where its two alternatives coincide or
@@ -58,7 +58,7 @@ random-bit service of [`repair_scheduler`](../repair_scheduler/README.md).
 
 An earlier event is an authenticated parent precisely when it wrote a
 register in the current read support, its identifier is the current
-last-writer version, and its written value is the value now read. These are
+last-writer version, and its written value is the value read. These are
 the clauses of `ReadAfterWriteAt` in
 [`SemanticEventProvenance.lean`](../../Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean).
 All writers initially have no event identifier. Event `j` receives the fresh
@@ -71,7 +71,7 @@ is not presented as a new Lean formalization.
 
 Every event after the first reads the FIFO written by its predecessor.
 Consequently the **full** logged order is the total emitted order, with
-height `j` at event `j`. Endpoint edges alone can still form a sparse DAG;
+height `j` at event `j`. Endpoint edges alone can form a sparse DAG;
 that projection omits controller and storage dependencies and is a
 different relation.
 
@@ -132,11 +132,11 @@ controller is an additional communication path. Applying the fixed-schedule
 endpoint cone of [`common_source/CAUSALITY.md`](../common_source/CAUSALITY.md)
 to this adaptive program would omit that path.
 
-## The spacetime premises still needed
+## The spacetime premises it needs
 
 The finite authenticated order is useful without a spacetime interpretation.
 The existing exact source Gram has rank three, and the finite Lorentz-carrier
-construction adjoins a time axis. It still needs a physical spatial readback,
+construction adjoins a time axis. It needs a physical spatial readback,
 a clock, an edge-speed bound, and the converse from cone membership to
 actual ancestry. The small native diamonds in
 [`physical_space_time`](../physical_space_time/causal_placement.py) supply
@@ -144,7 +144,7 @@ explicit examples, while arbitrary tapes fail that converse.
 
 The stronger golden-population order-limit theorems use their specified
 three-dimensional population, all-neighbour read rule and layer duration.
-They are not yet a theorem that this native controller realizes those
+They are not a theorem that this native controller realizes those
 premises. A count-volume relation, local refinements, actual observer
 communication costs, and identification with the same field propagator's
 clock and metric are also required. In particular, the S2/null-ray

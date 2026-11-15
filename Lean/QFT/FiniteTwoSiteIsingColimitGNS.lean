@@ -30,7 +30,7 @@ that explicit incompatibility prevents this finite bridge from being read as
 a state-compatible physical regional QFT.
 
 The state, Hamiltonian, regulator, slot factorization, and real flow parameter
-remain declared rather than source-selected or physically calibrated.  The
+are declared rather than source-selected or physically calibrated.  The
 ground sector is degenerate.  No Lorentzian localization, spectrum condition,
 continuum or infinite-volume limit, renormalization group, fields, particles,
 scattering, detector readback, or physical time-slice theorem is claimed.

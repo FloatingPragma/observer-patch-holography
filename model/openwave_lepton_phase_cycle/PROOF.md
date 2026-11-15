@@ -99,10 +99,10 @@ gives energy error at most 4 epsilon at t=1. Applying its certified electron
 denominator floor 1/20000 gives guarded mass-ratio and electron-calibrated
 GeV intervals. No empirical muon or tau value selects this compiler.
 
-The three target coefficients and their approximate calibrated values are
-unchanged: 0.00051099895069, 0.105659414496 and 1.776984970813 GeV. The first
+The three target coefficients have the approximate calibrated values
+0.00051099895069, 0.105659414496 and 1.776984970813 GeV. The first
 is an empirical anchor. Finite-shot noise, anchor uncertainty, a selected
-Higgs vacuum, passive clock attachment, interacting lepton identification
-and the physical muon discrepancy are separate from the compiler bound.
+Higgs vacuum, passive clock attachment and interacting lepton identification
+are separate from the compiler bound.
 This rest-site result does not assert a kinetic propagation theorem or an
 exact finite-cycle Hamiltonian spectrum.

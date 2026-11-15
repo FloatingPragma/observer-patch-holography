@@ -45,7 +45,7 @@ Its radial domain, interaction and observer services are supplied.
 Observed spacetime, interacting continuum QFT, Einstein dynamics and laboratory clock
 identification are unproved; larger carrier counts alone do not establish them.
 
-The new [thermal certificate](interacting_band_extension/README.md#quantitative-preparation-and-complete-history-certificate)
+The [thermal certificate](interacting_band_extension/README.md#quantitative-preparation-and-complete-history-certificate)
 closes a numerical occupation gap for one declared interacting observer,
 including preparation, disturbance, feedback and the quantum reference.
 It does not add empirical data. The separate central-weight calibration and
@@ -54,7 +54,7 @@ and sample budgets do not establish a new laboratory comparison.
 Existing public oscillator agreement keeps
 its calibration, accepted-shot and coordinate limitations; the conditional
 tilt comparison retains its tension; rejected direct optical and
-factorized-Bell attachments remain rejected. There is no evidence that all
+factorized-Bell attachments are rejected. There is no evidence that all
 observer measurements agree with known data under one common physical
 dictionary. The [native-only preparation floor](native_interface/README.md#quantitative-preparation-floors-for-the-native-only-grammar)
 also shows that deriving every coherent service from the committed C/E
@@ -90,7 +90,7 @@ specifying the needed observable correspondence would leave the physical
 question unchanged.
 
 The separate [OL-A1 signature replication instrument](../code/instrument_specs/OL_A1_SIGNATURE_REPLICATION_SPEC.md)
-also remains `FAILED`. Its threshold-sensitive inertia and nondiscriminating
+also has status `FAILED`. Its threshold-sensitive inertia and nondiscriminating
 ancestry control do not establish physical signature. That result is not
 overturned by successful finite native-carrier calculations or by this audit.
 
@@ -169,8 +169,7 @@ checks implementation without making that distinction observable.
 
 The [preparation diagnostics](empirical_diagnostics/README.md) retain the
 125-point comparison's RMSE `0.287643` and unresolved readout normalization.
-A constructed alternative preparation reproduces the old read while
-predicting different additional probes. Those new probes are predictions,
+A constructed alternative preparation reproduces the recorded read while predicting different additional probes. Those additional probes are predictions,
 not collected measurements. This supports experimental design and
 limits the physical claim.
 
@@ -199,7 +198,7 @@ instrument error `delta` gives complete ideal-output error at most
 added separately to compare the executed nominal-C compiler with an
 alternative ideal history; no raw alternative-law execution is asserted.
 The raw maps are not silently normalized. The fixed
-intervention response remains resolved under the retained probability tubes.
+intervention response is resolved under the retained probability tubes.
 No measured calibration counts or empirical law selection are supplied.
 
 The [resource clock](laboratory_clock/README.md) refines this same ideal
@@ -266,7 +265,7 @@ increment and maximal spatial-tail bounds then give path tightness along
 the same spatial subsequence. Post-repair incident selection supplies a
 reverse-martingale difference on the actual history, so the two normalized
 clocks have a joint coupling with vanishing difference, beyond agreement of
-their separate covariances. The time parameter remains rescaled count; this
+their separate covariances. The time parameter is rescaled count; this
 iterated limit supplies no simultaneous finite-count approximation rate.
 
 The [dynamic Schur comparison](observer_time_fields/spatial_dynamics.py)

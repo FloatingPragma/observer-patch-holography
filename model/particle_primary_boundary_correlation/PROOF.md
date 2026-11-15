@@ -53,7 +53,7 @@ immediately gives
     I_ambient = H(p)+2 S_edge+X.                               (2)
 
 There is no assumption of zero conditional correlations or zero center
-coherence. The source already supplies a strictly positive finite C for
+coherence. The source supplies a strictly positive finite C for
 the two-site cut.
 
 ## 2. Exact polynomial free-energy comparison

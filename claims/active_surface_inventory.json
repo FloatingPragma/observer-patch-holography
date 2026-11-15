@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 2429,
+  "surface_count": 2430,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -10782,6 +10782,11 @@
     },
     {
       "path": "claims/openwave_native_row1.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/openwave_partial_records.json",
       "glob": "claims/*.json",
       "allowlisted": false
     },

@@ -26,7 +26,7 @@ walk, the full slow subspace, native preparation/readout and a controlled
 massive scalar limit. Its carrier-coordinate speed is1/sqrt(48). Coordinate
 rescaling does not prove a shared physical speed or an interacting Dirac
 transfer. Architecture, mass, preparation, coherent control and clock inputs
-remain explicit. Finite enormous source words are certified compositionally;
+are explicit. Finite enormous source words are certified compositionally;
 they are not described as literally executed histories.
 
 These are internal full-criterion decisions. No official OpenWave status is

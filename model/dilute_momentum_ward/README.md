@@ -1,9 +1,9 @@
 # Collision-suppressed local momentum Ward cells
 
-The same interacting periodic Weyl/contact action now has a controlled
+The same interacting periodic Weyl/contact action has a controlled
 **local** momentum-conservation defect on a specified initial-state domain.
 The bound uses the small contact weight of a dilute momentum band; it
-improves the previous full interaction-norm estimate. Exact face currents
+improves the full interaction-norm estimate. Exact face currents
 and spatial coarse-graining retain the contact force. The result is an
 approximate Ward theorem with an explicit error, not an exactly conserved
 local stress or a completed Einstein premise.
@@ -11,9 +11,9 @@ local stress or a completed Einstein premise.
 No projection, filter or effective Hamiltonian is inserted during evolution.
 The band projector below describes the allowed initial states, including
 their arbitrary untouched reference correlations. Preparing these states
-and measuring the currents remain separate source tasks.
+and measuring the currents are separate source tasks.
 
-## Same local columns, now on the periodic source
+## Same local columns on the periodic source
 
 Retain the action and graded boundary convention of
 [periodic_momentum](../periodic_momentum/README.md),
@@ -21,7 +21,7 @@ Retain the action and graded boundary convention of
 least three; a side of length one is inactive. Let t_j be the one-particle
 positive shift and `q_j=(t_j-t_j^*)/(2i)`. Its symbol in the retained
 `exp(-ikx)` convention is sin(k_j). Thus q_j is the **negative** of the
-central difference in the earlier open-box momentum attachment.
+central difference in the open-box momentum attachment.
 
 With Q_x the one-particle site projector, define
 
@@ -156,7 +156,7 @@ of its constituent site budgets (at most |C| times the uniform bound).
 Successive spatial pushforwards compose. `Lean/QFT/DiluteMomentumWard.lean`
 checks the finite-sum error transport, the coarse forced Ward bound and
 merged error bound. The state-domain and CAR estimates are supplied by
-the proof above and the exact Python certificate, not encoded as new
+the proof above and the exact Python certificate, not encoded as
 Lean axioms.
 
 These operator bounds imply the same absolute expectation error for
@@ -187,7 +187,7 @@ cubic polynomial and squared trace in all four L=4 momentum sectors;
 the norm squares are `0,1,2,1` in U-squared units. At K=0 this **total**
 force vanishes while the local forces need not vanish.
 
-Now assume initially `|k_j|<=kappa` for each particle and `2kappa<pi`.
+Assume initially `|k_j|<=kappa` for each particle and `2kappa<pi`.
 The conserved principal total P_j=K_j then stays in `|K_j|<=2kappa`,
 even for scattered relative momenta outside B. On that entire total-K
 subspace, `||P_j-S_j||<=4kappa`; initially the sine remainder improves
@@ -210,7 +210,7 @@ The finite counting example uses a `64^3` torus and B=`{-1,0,1}^3`:
 f=27/262144, 125 possible contact total-momentum sectors, Nmax=2,
 t=1/8, U=1 and `kappa=pi/32<11/112`. Exact outward rational bounds give
 
-* outside-band leakage below 0.00127, compared with the old 0.125 bound;
+* outside-band leakage below 0.00127, compared with the full interaction-norm bound 0.125;
 * one-site Ward defect below 0.000132;
 * eight-site block defect below 0.00105;
 * rescaled local momentum error below 0.0083.

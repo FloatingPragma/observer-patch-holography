@@ -10,25 +10,23 @@ python code/edge_sectors/heat_kernel_holdout_validation.py
 python -W error -m pytest -q code/edge_sectors
 ```
 
-## Reproduced defects
+## Precision controls
 
-At main `b8714c98`, the original-input controls produced six scientific
-failures and six passes before the implementation changed:
+The original-input controls reproduce the failures of an absolute-error
+eigensolver and a clipped Fourier difference:
 
-| Input | Old result | Independent result |
+| Input | Absolute-error or clipped result | Independent result |
 | --- | --- | --- |
 | S3, `h=1e12`, sign sector | `1.204775757793917e-53` | `1.2056327160495836e-53` |
 | S3, `h=1e15`, sign sector | zero; the printed comparison then crashed | `1.205632716049383e-65` |
 | Z2, `h=1e6`, nontrivial sector | `3.125277814319816e-14` | `3.125000000000879e-14` |
 | Z2, `h=1e7` and `1e8` | roundoff-scale Fourier differences | approximately `3.125e-16` and `3.125e-18` |
 
-The S3 eigensolver controlled absolute vector error, which did not resolve
-the tiny sign component. The Z2 Fourier transform subtracted overlaps near
-one and clipped negative results. Neither operation preserved positive rare
-probabilities. The live S3 paper table also disagreed with its declared
-Hamiltonian at ordinary couplings: at `h=.5` it printed
-`(.909,.0013,.089)` instead of approximately
-`(.962927,.00024760,.036825)`. The corrected table is checked against the
+An eigensolver that controls absolute vector error does not resolve the tiny
+S3 sign component, and a Z2 Fourier transform that subtracts overlaps near
+one and clips negative results does not preserve positive rare
+probabilities. At `h=.5` the S3 table is approximately
+`(.962927,.00024760,.036825)`; it is checked against the
 original three-by-three matrix, independently of the producer.
 
 ## Exact abelian reduction
@@ -90,25 +88,25 @@ choose a ground state silently. Normalized printed comparisons additionally
 refuse a log-gap of magnitude at most `1e-8`, where the nearly uniform
 numerical weights do not justify that normalization. Even above that cutoff,
 the held-out numerator can be a roundoff-dominated subtraction: at
-`h=5.708163265306122e-9`, the former report printed a positive residual while
-an independent 65-digit original-incidence calculation gave approximately
-`-1.09016217468756855e-9`. Reporting now also requires the difference of the
+`h=5.708163265306122e-9`, a binary64 report prints a positive residual while
+an independent 65-digit original-incidence calculation gives approximately
+`-1.09016217468756855e-9`. Reporting therefore also requires the difference of the
 fitted and measured log gaps to exceed
 `64 eps (1 + abs(fitted_gap) + abs(measured_gap))` in magnitude, where eps is
 binary64 machine epsilon. This numerical cancellation guard refuses both
 unresolved signs and apparent zero mismatches. It is not an interval bound
-for the upstream solve; the probability API remains available independently.
+for the upstream solve; the probability API is available independently.
 Resolved small residuals use scientific notation instead of printing zero
 percent at the ordinary display precision.
 
 The generic fitted-time and held-out prediction helpers also evaluate the
 original binary64 inputs in private 100-digit arithmetic and require final
 conversion to relative `1e-12`. A nonzero subnormal is not automatically a
-resolved result: the audit reproduced a 6.2% rounded Z5 held-out prediction
+resolved result: a 6.2% rounded Z5 held-out prediction
 at `h=1e61`, and an 11% rounded fitted time for nearly equal weights divided
-by `1e308`. These comparisons now refuse insufficient output precision;
-the Z5 sector probabilities remain separately available. Resolved subnormal
-predictions, including the Z5 report at `h=1e59`, still work. This conversion
+by `1e308`, are examples. These comparisons refuse insufficient output precision;
+the Z5 sector probabilities are separately available. Resolved subnormal
+predictions, including the Z5 report at `h=1e59`, are reported. This conversion
 check does not certify upstream eigensolver accuracy or logarithms by intervals.
 
 ## Complete S3 comparison within the declared model

@@ -85,7 +85,7 @@ Let tau=2^-20 source units and apply V=G/tau on the admitted pump/bin branch.
 The success projector acts on retained zero-energy apparatus flags and
 commutes with Hext. All other branches have V=0 and continue freely for the
 same duration. The complete elapsed clock is 3+tau; the parent's exact-time 4
-instrument and receipt remain separate.
+instrument and receipt are separate.
 
 The actual unitary is exp[-i tau(Hext+V)]. For any finite Hermitian H and G,
 a double Duhamel integral and unitary norm one give

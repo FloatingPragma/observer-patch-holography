@@ -1,6 +1,6 @@
 # Interior-resolved spatial Haar refinement
 
-The complete27-vertex,54-link,36-face SU(2) source now includes every interior
+The complete27-vertex,54-link,36-face SU(2) source includes every interior
 Gauss channel. Its201-dimensional low-electric-energy proof frame has a proved
 full-complement floor; it is not a representation cutoff. Every nonzero Wilson
 successor and intertwiner multiplicity is retained in residual computations.

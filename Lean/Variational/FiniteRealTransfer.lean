@@ -33,7 +33,7 @@ fail.
 The undercut receipt is a named input.  Nothing here derives it from
 OPH source data.  The separate committed packet proves existence and a unique
 positive exponential parameter at its declared empirical target; issue B7
-remains open on prospective source selection of that constraint observable and
+is open on prospective source selection of that constraint observable and
 level, on the undercut-receipt derivation, and on physical attachment.
 -/
 

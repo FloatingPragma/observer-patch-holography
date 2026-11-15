@@ -25,7 +25,7 @@ physical beta spectrum.
 The charged masses are the native analyzer ratios in electron units.
 The neutral tensor is exactly the empirical calibration construction in
 `openwave_neutrino_calibration`: its six stated oscillation inputs, chosen
-lightest mass and normal ordering remain inputs. The tensor is installed
+lightest mass and normal ordering are inputs. The tensor is installed
 in the native active/sterile pairing coordinates and contracted against
 the unchanged native weak current. No current form factor is fitted in
 this extension. No physical weak coupling or lifetime calibration enters
@@ -40,7 +40,7 @@ explicitly. The filled-neutral scalar source used in
 `openwave_dressed_baryon_lines` is a different reference. Its contact energy
 shifts are not transferred to this Gaussian reference.
 
-The full interaction remains the local native semileptonic current at
+The full interaction is the local native semileptonic current at
 cells0 and1. Its exact64-state one-quark/one-family Fock norm is6. Summing
 three quarks and three lepton families gives the bound54 on the entire
 admitted lepton Fock space. This includes every multipair state; no pair

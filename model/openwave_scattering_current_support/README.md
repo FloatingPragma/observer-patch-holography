@@ -8,7 +8,7 @@ Cabibbo factor. All orthogonal outputs and probe failure are retained.
 This improves particle-field identification within the declared source.
 It does not execute an interacting on-shell Lambda decay: the rest result
 is a k=0 fibre statement, and the outgoing H5 scattering wave operator
-remains open. An exact bare-support zero explains why directly projecting
+is open. An exact bare-support zero explains why directly projecting
 onto already-separated clusters cannot replace that calculation.
 
 Run `python -m model.openwave_scattering_current_support --write`, then a

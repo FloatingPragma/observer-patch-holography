@@ -4,7 +4,7 @@ The carrier, native energy operator, geometry coordinate and source preparation
 are those of `openwave_universal_energy_geometry`. No new physical mass or
 Newton-strength input is introduced. This result derives a clock response and
 finite difference identities. The assignment of that response to a physical
-metric remains a separate hypothesis.
+metric is a separate hypothesis.
 
 ## The actual clock response
 

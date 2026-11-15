@@ -67,6 +67,6 @@ the entire six-level universal machine.
 Reliable runtime classical control is retained only in the separate
 fixed-per-operation-error and common-bath variants, not in that combined
 fixed-rate result. The static schedule, source/CCG capability and accounting
-reference remain declared. Extra diagnostic histories and raw counts need
+reference are declared. Extra diagnostic histories and raw counts need
 not match the ideal experiment. Unknown raw-input encoding, autonomous clocks
 and physical energy or source selection are not claimed.

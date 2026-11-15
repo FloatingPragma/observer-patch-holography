@@ -23,7 +23,7 @@ permutation matrices and checks that every row
 
 The finite port-map range and bijectivity checks are closed by kernel
 evaluation.  The larger exact rational matrix tables use native
-evaluation; their exported axiom receipts therefore remain outside the
+evaluation; their exported axiom receipts therefore are outside the
 kernel-only trust profile.  The range restriction and isometry statements are
 theorem proofs over the real counting space, but inherit those table receipts
 where they consume them.  The name `A5` follows the registered port-action

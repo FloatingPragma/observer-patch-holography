@@ -7,7 +7,7 @@ set_option relaxedAutoImplicit false
 /-!
 # A source-counted overlapping-window action statistic
 
-WHAT IS PROVED.  The legacy-named structure `SourceClockCandidate`
+WHAT IS PROVED.  The structure `SourceClockCandidate`
 packages a histogram and counting observables from the committed
 source-history packet, together with exact rational averages.  It does
 not construct an ordered clock process.
@@ -42,7 +42,7 @@ duration; it does not reduce the empirical calibration burden using the
 histogram.  `wallOnlyClockCandidate` is an alternative observable on the
 same histogram, not a second observed subprocess.  Nothing here gives
 window order, successor data, cadence, periodicity, a physical seconds
-value, a source-selected observable, or a clock.  The retained legacy
+value, a source-selected observable, or a clock.  The `SourceClockCandidate`
 names record the intended calibration proposal, not a theorem that the
 proposal is physically realized.
 -/
@@ -58,7 +58,7 @@ open OPH.QFT.SourceHistoryThreeSlotLocalGNS
 
 /-! ## (1) The candidate: a source-counted window statistic -/
 
-/-- A legacy-named package for a committed window histogram, a chosen
+/-- A package for a committed window histogram, a chosen
 counting observable, and its exact empirical averages.  The histogram
 contains no ordering or successor relation and hence is not itself a
 tick process.  The identification field `windowIdentification` is only a
@@ -123,7 +123,7 @@ theorem SourceClockCandidate.source_fixed_receipt (c : SourceClockCandidate) :
       ∧ 0 < c.ratePerWindow :=
   ⟨c.tick_committed, c.rate_committed, c.wall_split, c.rate_pos⟩
 
-/-- The legacy-named repair statistic on the committed window histogram.
+/-- The repair statistic on the committed window histogram.
 It counts the two domain-wall incidences inside each overlapping window,
 with exact mean `197/1754` and position split `94/1754 + 103/1754`.
 Thus `197` is an overlapping two-edge incidence total, not the number of
@@ -352,8 +352,8 @@ theorem reduction_to_single_identification (c c' : SourceClockCandidate)
   exact ⟨hcal, fun x => by rw [hcal], fun m => by rw [hcal]⟩
 
 /-- Accurate public alias: the generated conversion dictionary depends only
-on the declared duration.  The legacy theorem name above is retained for API
-stability and does not express a reduction of the empirical calibration
+on the declared duration.  The theorem name above
+does not express a reduction of the empirical calibration
 premise. -/
 theorem conversion_dictionary_depends_only_on_declared_duration
     (c c' : SourceClockCandidate) (t t' : ℝ) (h : 0 < t) (h' : 0 < t')
@@ -463,7 +463,7 @@ theorem candidate_choice_changes_lab_rate (cal : ClockCalibration) :
 
 /-! ## Bundled receipt -/
 
-/-- **Legacy source-clock-candidate receipt.**  The bundled statement
+/-- **Source-clock-candidate receipt.**  The bundled statement
 contains a `1754`-window histogram, `197` overlapping two-edge action
 incidences (not `197` distinct repair events), the exact mean and wall
 split, conditional quotients under an arbitrary declared calibration,

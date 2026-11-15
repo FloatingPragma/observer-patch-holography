@@ -50,7 +50,7 @@ It is a reproduction of a conditional observer distribution and measurement
 comparison, not a source-dynamics derivation of these inputs. Plot images are
 not required by this numerical package. Exact finite-chain identities,
 numerical receipts, retained large-run observations and compiled Lean witnesses
-remain distinct evidence types.
+are distinct evidence types.
 
 ## Retained scale and angular consistency
 
@@ -61,15 +61,15 @@ original settlement receipt; and checks their derived statistics independently
 of the archived scale producer. It does not import that producer to calculate
 the expected answers. The new controls run through `verify.py` in CI.
 
-Two previously accepted corruptions explain why the extra checks are needed.
+Two corruptions that pass the ratio checks alone show why the extra checks are needed.
 Doubling the L8 `ancestor_1` equilibrium denominator while halving all 16
-normalized variances changed their mean from **1.32427 to 0.66214**. Every old
-ratio identity still passed, reversing enhancement versus suppression. Setting
-schedule noise to zero and common power to total power also passed, although
+normalized variances changed their mean from **1.32427 to 0.66214**. Every
+ratio identity passes, reversing enhancement versus suppression. Setting
+schedule noise to zero and common power to total power also passes, although
 the retained unequal responses alone require noise at least
 **7.02851e-6**. The unchanged archived data pass the independent checks; these
 are defects in the scientific cross-check, not discovered errors in the frozen
-observations. The outer archive manifest already rejects changed frozen bytes.
+observations. The outer archive manifest rejects changed frozen bytes.
 
 For `P` ports, `R` raised ports and disjoint groups with `c_i` cells, let
 `a_i` be their normalized estimator weights. Exchangeable fixed-total binary

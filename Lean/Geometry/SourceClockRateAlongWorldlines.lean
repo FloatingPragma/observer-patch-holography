@@ -114,7 +114,7 @@ slope selection; its `restPath` is the unit-`1` rest worldline.
 `Geometry/WorldlineHopTransport.lean` proves `clockAction_generated` (the
 quadratic functional, `τ² - 4` per crossing) and
 `seam_step_timelike_iff`; the proper-length functional of a generated
-path appears here for the first time.  `QFT/SourceRecurrenceClock.lean`
+path is introduced here.  `QFT/SourceRecurrenceClock.lean`
 proves `meanReturn_values` on the abstract step index and
 `returnCount_block_additive`; the crossing count below is the same
 distinct-event count on a step sequence.

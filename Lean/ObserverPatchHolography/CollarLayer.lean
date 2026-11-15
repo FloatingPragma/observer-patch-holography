@@ -5,7 +5,7 @@ import ObserverPatchHolography.CollarClause
 # Issue #544, operator layer: the collar clause made expressible and proved
 # independent of the algebraic core of the stated laws
 
-The previous module (`CollarClause.lean`) proved the central-interface collar
+The module `CollarClause.lean` proves the central-interface collar
 clause is invisible to the overlap-consistency layer: repair factors through
 the constraint family, which cannot express centrality. This module supplies
 the **minimal abstract algebraic interface** on which the clause *is*
@@ -56,8 +56,8 @@ generates nothing outside the retained span).
    below: `XX` swaps the two sector blocks on the invariant subspace, so
    it violates the paper's clause directly, and refuting `XX ∈ Z(K)` is
    the model shadow of that violation; `uu` lands in both flux sets. The
-   independence verdict survives; the reading of `Flux` as a superset of
-   the paper's set is withdrawn.
+   independence verdict holds; `Flux` is not a superset of
+   the paper's set.
 2. Only the **algebraic core** of the declared density and cross-scale
    interfaces is shadowed. The state-side and analytic content (A3
    information projection, closure-defect trace norms,

@@ -1,7 +1,7 @@
 # Correctable Public-Record Capacity
 
 Exact finite contracts, controls, and archived candidate audits for the OPH
-capacity map. The canonical producer (historical label Pro5) is
+capacity map. The canonical producer (label Pro5) is
 
 ```text
 N = log M_0(U_N),
@@ -127,7 +127,7 @@ second physical packet or a cosmic selector.
   result in the direct global proposal and records that no numeric cosmic
   value or cosmological comparison is permitted.
 - [`public_record_capacity.py`](public_record_capacity.py) and its tests retain
-  the superseded checkpoint-fixed projection branch (historical label Pro4)
+  the checkpoint-fixed projection branch (label Pro4)
   as a control. A cyclic
   permutation proves that it is not the canonical capacity definition.
 
@@ -179,7 +179,7 @@ invalidates the comparison.
 ## Downstream bridges
 
 These bridges consume a unique-zero direct closure. The bounded
-generation-register packet does not supply one, so they remain contracts with
+generation-register packet does not supply one, so they are contracts with
 no evaluable capacity-side carrier:
 
 - identifying the correctable record carrier with the de Sitter horizon may
@@ -195,7 +195,7 @@ carrier.
 
 ## Archived lanes
 
-The dated construction notes and `F_candidate_*.py` files preserve historical
+The construction notes and `F_candidate_*.py` files preserve
 count, affine, and Banach candidates. They have diagnostic value only. The
 `CP*` and `G2_GAP_1` notes likewise do not supply the exact finite-size
 selector.

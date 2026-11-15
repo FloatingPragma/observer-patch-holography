@@ -14,14 +14,14 @@ A=A^T, A^2=3I,                  c=1/8, U=1.
 ```
 
 Energies use this source clock with hbar=1. The reference is its unique
-N=8, hidden-spin-zero, eta-zero ground. It is different from the original
+N=8, hidden-spin-zero, eta-zero ground. It is different from the
 uncentered N=4 ground. The [charged-spectrum proof](../centered_particle_spectrum/README.md)
 provides its exact source, finite symmetry representation, singlet
 selection and integer ground witness. The [centered-ground proof](../centered_source_ground/README.md)
 provides the applicable Lieb uniqueness theorem and an all-other-charge
 energy separation strictly greater than 1/8. These are explicit imported
-mathematical inputs; the new packet separately reports historical receipt
-custody instead of claiming to rerun the prior experiments.
+mathematical inputs; this packet reports the parent receipt
+custody separately instead of claiming to rerun the parent experiments.
 
 ## Complete neutral-sector coverage
 
@@ -105,10 +105,10 @@ level in that block. Complete interval comparisons give
 ```
 
 Its multiplicity in N=8 is exactly **three**, the spin triplet; its
-spatial character is k=111. Since every N unequal to 8 is already proved
+spatial character is k=111. Since every N unequal to 8 is proved
 to lie more than 1/8 above the ground, this same interval certifies the
-**global spectral gap of the full 65536-state source**. This closes the
-previous missing *finite* quantitative neutral-gap premise. It is not a
+**global spectral gap of the full 65536-state source**. This supplies the
+*finite* quantitative neutral-gap premise. It is not a
 volume-independent or continuum mass-gap theorem.
 
 For any bounded finite-source operators A,B of zero ground mean and

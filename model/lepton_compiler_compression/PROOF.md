@@ -113,7 +113,7 @@ P V² P−(P V P)²
 ```
 
 Its four eigenvalues are 1−e², 1−e, 1−e and (1−e)². In particular, the
-fully occupied physical pair still admits ancillary pair creation. The
+fully occupied physical pair admits ancillary pair creation. The
 largest eigenvalue is 1−e², attained on the physical pair vacuum.
 
 Different pair blocks and sites emit into mutually orthogonal nonvacuum
@@ -170,4 +170,4 @@ The receipt computes conservative integer round counts for tolerance
 10^−12 and keeps every exported ancillary mode and flag in the resource
 account. These large campaigns are not executed. Finite-shot noise,
 hardware error, empirical-scale uncertainty and physical-model error
-remain separate; no observed particle identification is promoted.
+are separate; no observed particle identification is promoted.

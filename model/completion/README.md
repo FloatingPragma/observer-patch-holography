@@ -11,12 +11,12 @@ native geometry, see [the source-specific construction](DEFECT_GEOMETRY.md).
 For the current continuum spin fields, native joint spectroscopy and finite
 entropy/stress limits, see [the integrated construction summary](CONTINUUM_FIELD_AND_ENTROPY.md).
 The [mass and energy table](PARTICLE_MASS_TABLE.md) links the certified spectral
-readouts and states which physical identifications remain open.
+readouts and states which physical identifications are open.
 The [radial excitation catalogue](../../code/particles/RADIAL_EXCITATION_CATALOGUE.md)
 separates localized kernel states, finite interacting charged poles and exterior
 bulk packets. The [exterior dispersion theorem](../source_mass_shell/README.md)
 gives explicit packet errors and conditional conversion to physical units.
-The contract below retains the scope of the original bounded campaign.
+The contract below retains the scope of the bounded campaign.
 
 28 October 2026. This directory advances CP-00, CP-01, CP-13, CP-02 and
 CP-03 under the [completion program](../../docs/COMPLETION_PROGRAM.md).
@@ -25,15 +25,15 @@ This bounded campaign accepts no integrated gate; the directory retains the
 accepted CP-00, CP-01 and CP-13 evidence.
 
 The [versioned campaign contract](campaign.json) fixes the first **finite
-component family**. The full program boundary remains unfrozen: a carrier
-composition/refinement family and the common physical interpretation still
+component family**. The full program boundary is not frozen: a carrier
+composition/refinement family and the common physical interpretation
 need their CP-00 contract. A finite-source obstruction is not a rejection of
 all histories, refinements, or OPH.
 
 ## Admitted changes and common interface
 
 The source is the existing 78-state total-two twelve-port carrier. C and E
-remain separate endpoints. A classical tagged mixture may select either
+are separate endpoints. A classical tagged mixture may select either
 complete instrument; an identity-hold branch may delay a repair. Repair and
 uniform seam-exploration probabilities are at least `1/16`. Declared rational
 probabilities have denominator at most 256. These bounds define a research
@@ -43,7 +43,7 @@ A finite classical controller reads its own records and selects future
 seams. One to eight complete records occupy a FIFO; overflow either exports
 the oldest record to an accounted environment or emits an explicit halt.
 The family allows at most 256 additional controller states. It supplies no
-coherent recovery, hidden source-state read, new field, link phase or
+coherent recovery, hidden source-state read, additional field, link phase or
 species-dependent mass conversion. The chosen memory policy, probability
 tables, services and initial state must accompany each candidate.
 
@@ -72,7 +72,7 @@ source/reference/current-record marginals. It does not claim to materialize
 the whole tree. Bounded working memory with growing exports is not unlimited
 closed finite-resource operation.
 
-The old uniform binary reference is stationary under each seam and under
+The uniform binary reference is stationary under each seam and under
 fixed source-independent mixtures. It cannot simply be imported into an
 adaptive source/controller process: the retained two-attempt counterexample
 changes 30 source probabilities, with maximum difference `1/960` from
@@ -95,9 +95,9 @@ It has 128 positive record blocks for C and 192 for E, each with 4,218
 positive source/record diagonal entries overall. This is a stationary finite
 source/FIFO marginal with previous records exported, not a stationary growing
 history. These reference constructions cover repair probability one; the
-delayed mixed observer still needs its own joint stationary solve.
+delayed mixed observer needs its own joint stationary solve.
 
-The new defect certificate is support-based and needs no IID schedule or
+The defect certificate is support-based and needs no IID schedule or
 stationary reference. Record effects separate all source basis states, and
 native transitions connect them. Their generated *-algebra therefore contains
 every matrix unit. Its scalar commutant rules out a fixed nontrivial Hermitian
@@ -136,10 +136,10 @@ obstruction; the separating observable is a mathematical witness, not an
 admitted native detector. Other algebras, encodings, coherent resources and
 refinements retain their own open contracts.
 
-The original q=3 scalar preparation/history remains unexecuted with its prior
+The q=3 scalar preparation/history is not executed and keeps its own
 bounds. This campaign neither adopts it as executed evidence nor retires it
 from the parent program. All prior empirical exposure and negative controls
-retain their original scope.
+retain their own scope.
 
 ## Reproduce
 
@@ -158,8 +158,9 @@ the retained receipts. Source hashes bind each result to this campaign;
 changed contracts need a new version rather than a reset of prior evidence.
 
 The current completion interface uses `tools/build_completion_program_current.py`.
-The original builder remains byte-identical for retained scientific source closures;
-the successor adds the typed joint dependency owner without accepting any gate.
+The retained builder `tools/build_completion_program.py` is byte-identical for retained
+scientific source closures; the current builder adds the typed joint dependency owner
+without accepting any gate.
 The r2063 custody record retains both dated predecessor authorities and records.
 It authenticates the accepted-main pointer schema and reverses only the reviewed
 descriptions, evidence links and architecture-assumption unions before checking

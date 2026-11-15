@@ -54,7 +54,7 @@ For each native charge occupation, that dressing has the unique labels
 Every matter occupation has integral labels. All integer rotor and quantum
 reference spaces remain in the kinematic carrier. The physical constraint
 kernel is unitarily equivalent to the entire native Fock space. Its
-orthogonal constraint-failure projector remains an outcome with zero
+orthogonal constraint-failure projector is an outcome with zero
 probability on a physical preparation. H, each dressed current, the electric
 square and its declared self-energy subtraction all transform by the same
 unitary. Because the native pair transform is field independent, its
@@ -139,5 +139,5 @@ relativistic particle theory.
 All inherited longitudinal source energies and calibration ancestry are
 unchanged by the exact native unitary. No additional interacting pole or
 physical GeV mass is identified by the diagnostic. A common transverse
-interacting source and its continuum/particle transfer remain separate
+interacting source and its continuum/particle transfer are separate
 mathematical requirements.

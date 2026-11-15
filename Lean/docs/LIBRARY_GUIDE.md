@@ -18,7 +18,7 @@ rank-three projector and all sixty rotations. The
 [native selector](../../model/common_source/native_family_selection.py)
 computes and source-executes this protected band using a chosen
 incidence-defined cooling rule. The rule and its physical family
-interpretation remain explicit; this does not retire the canonical
+interpretation are explicit; this leaves in place the canonical
 single-band and cost-selection premises of `SMThreeFamilyPremiseData`
 or identify measured masses.
 
@@ -63,7 +63,7 @@ surface for the OPH consensus layer. Contents:
 - Constructed, admission-free asynchronous repair machinery:
   `localRepair`, `Repair`, and `repair_respects_gauge`, with descent,
   termination, reachability, and normal-form receipts. Confluence and
-  completeness remain explicit carrier properties and are not universal.
+  completeness are explicit carrier properties and are not universal.
 - A sorry-free scalar completed-repair theorem in
   `ObserverPatchHolography/ScalarSeamRepair.lean`. Seam support, endpoint
   agreement, and endpoint-sum preservation force pair averaging. Uniform
@@ -102,7 +102,7 @@ surface for the OPH consensus layer. Contents:
   the masses of any externally supplied orbit partition, plus prefix
   consistency without a geometric transitivity premise. Completeness of the
   alphabet, its orbit classification, source counting, and temporal freedom
-  remain explicit conditional inputs rather than conclusions of the current
+  are explicit conditional inputs rather than conclusions of the
   basis.
 - Typed premise interfaces in `ObserverPatchHolography/CoreAxioms.lean`: the
   decided A1 boundary packet (twenty oriented faces, thirty edges, port degree
@@ -112,11 +112,10 @@ surface for the OPH consensus layer. Contents:
   inhabitants are trivial instances in `EqualSeamSelection.lean` (at `Unit`
   and `Bool` types), `FederationSupportShadow` has none, and
   `InfoProjectionSpec` carries existence and uniqueness of the projection as
-  fields. The header's "three-axiom basis" wording, and the matching phrases
-  in `RepairWordSchedule.lean` and `CapacityNonidentifiability.lean`, predate
-  `docs/BASIS.md`, under which A1 to A3 are theorem-library premise labels.
-  Retained receipts pin the three files byte for byte, so the wording is
-  superseded here rather than edited in place.
+  fields. The "three-axiom basis" wording in the header and in
+  `RepairWordSchedule.lean` and `CapacityNonidentifiability.lean` refers to
+  A1 to A3, which `docs/BASIS.md` treats as theorem-library premise labels;
+  retained receipts pin the three files byte for byte.
 - A sorry-free V2 A1 ontology ledger in `Time/TimeOrderLedger.lean`.
   Universe closure, repair execution order, observer record order, modular
   parameter, worldline realization, clock readout, proper-time interval, and
@@ -175,7 +174,7 @@ surface for the OPH consensus layer. Contents:
   theorem retains its separate no-cancellation premise. The formal amplified-
   positivity predicate certifies averaging, pinching, and nonnegative-rate,
   nonnegative-time relaxation as CPTP, with a transpose Choi negative control.
-  Source selection, physical rate and clock calibration remain open. See
+  Source selection, physical rate and clock calibration are open. See
   `B2_PUBLICIZATION_DYNAMICS.md`.
 - A sorry-free bounded B3 public/private dynamics package in
   `Dynamics/PublicMarkov.lean` and `Dynamics/PrivateInner.lean`. Positive
@@ -188,7 +187,7 @@ surface for the OPH consensus layer. Contents:
   a fixed self-adjoint Hamiltonian gives a unitary real-parameter von Neumann
   flow. The finite central-block
   decomposition and converse continuous-group-to-Hamiltonian theorem are also
-  attained; source selection of dynamics, rate, and physical clock remains
+  attained; source selection of dynamics, rate, and physical clock is
   outside the bounded package. See `B3_PUBLIC_PRIVATE_DYNAMICS.md`.
 - A sorry-free integer completion bridge in
   `ObserverPatchHolography/DirectedSeamRepair.lean`. It proves total-sector
@@ -199,7 +198,7 @@ surface for the OPH consensus layer. Contents:
   concrete carrier path bound, the exact minimum-shell characterization for
   arbitrary signed fixed-total loads, local nonincrease, neutral transport,
   and strict descent along one-, two-, and three-seam progress words.
-  Schedule selection and the probabilistic hitting statement remain separate.
+  Schedule selection and the probabilistic hitting statement are separate.
 - A sorry-free **#304 boundary-fiber carrier witness** in
   `ObserverPatchHolography/Rule90.lean` (PR #385): the linear Rule 90 carrier
   discharges the `Hfib` binder of `boundary_fiber_observer_unique` on a proper
@@ -217,7 +216,7 @@ surface for the OPH consensus layer. Contents:
   outside the formalised set. Numeric interval enclosures stay in the Python
   certificates (`code/capacity_readback/`, `code/P_derivation/`); no
   floating-point numerics enter Lean. See `PROOF_INDEX.md`.
-- A sorry-free **#578 corrected Einstein-branch kernel** under
+- A sorry-free **#578 Einstein-branch kernel** under
   `ObserverPatchHolography/EinsteinBranch/`: bare finite-tower
   non-entailment, typed common-domain and boundary-fibre composition,
   explicit nine-direction null tomography, finite bulk/edge entropy and
@@ -239,7 +238,7 @@ surface for the OPH consensus layer. Contents:
   `Tower/AdaptiveFixedPointEndpoint.lean`.  Arbitrary attempt streams become
   constant after finitely many genuine changes; pathwise weak fairness makes
   the stable record normal, while work conservation gives an
-  initial-mismatch horizon.  Completeness and confluence remain required for
+  initial-mismatch horizon.  Completeness and confluence are required for
   one consistent canonical public endpoint.  The package selects no
   scheduler and supplies no stochastic law, rate, clock, or continuum claim.
 - A cumulative attempt-capacity classification in
@@ -300,7 +299,7 @@ surface for the OPH consensus layer. Contents:
   defines only the source-native `SourceDerivedCausalChartInterface`: semantic
   events are the carrier and generated ancestry is the order, with no separate
   population map or free precedence field. The finite atlas, visibility, and
-  order/cone attachment remain explicit; exact base order/cone agreement and
+  order/cone attachment are explicit; exact base order/cone agreement and
   source-order antisymmetry derive separation, which propagates through the
   overlap cocycle.
   The provenance core packages reflexive generated ancestry as a partial
@@ -323,7 +322,7 @@ surface for the OPH consensus layer. Contents:
   increasing-height nonancestor derives the explicit cone-support converse.
   From that converse the module derives exact two-way order/cone agreement,
   event separation, exact interval transport, and the one-chart source-native
-  interface. The geometric conditions remain supplied. Its Boolean-diamond
+  interface. The geometric conditions are supplied. Its Boolean-diamond
   control is fully non-chain: every parent edge is null and the two independent
   responses are spacelike.
   `Geometry/SourceOrderFrameCompatibilityPacket.lean` composes that route
@@ -332,7 +331,7 @@ surface for the OPH consensus layer. Contents:
   packet without a free frame field, while explicitly making no physical
   event-frame claim. The Boolean diamond inhabits this packet and all its
   finite consequences. The source-unit/celestial/future-null-ray equivalences
-  and transported Gram/rest-metric bridge remain algebraic; no theorem
+  and transported Gram/rest-metric bridge are algebraic; no theorem
   identifies them with a physical sky or proves physical causality, a volume
   law, manifoldlikeness, a refinement limit, or a continuum.
   `Geometry/SourceOrderEinsteinComposition.lean` maps the existing
@@ -442,7 +441,7 @@ surface for the OPH consensus layer. Contents:
   `beta/delta` in `[1/50, 6]` selects `G` uniquely, `F` wins in a nonempty
   region across the exact three-scale tie surface with witness `(8,1,1)`, and Galois
   conjugation with the sector swap exchanges the two mirror families. The
-  nearest-point rule and carrier-induced class remain declared; nothing here
+  nearest-point rule and carrier-induced class are declared; nothing here
   is source selection. See `B14_ORIENTED_FACE_SELECTOR.md`.
 - A sorry-free abstract **A2 holonomy bridge** in
   `Screen/A2HolonomyBridge.lean`: the projective implementer group, the
@@ -461,7 +460,7 @@ surface for the OPH consensus layer. Contents:
   centreless four-factor fixed-space description. Construction of the actual
   projective unitary group and response flow, source extraction, the two
   Lie-theory adapters, reductive decomposition, and compact-simple
-  classification remain explicit inputs.
+  classification are explicit inputs.
   The executable comparisons in `model/common_source/native_persistent_response.py`
   and `native_sm_current.py` distinguish a seventeen-current exchange law
   from a specified twelve-current law on the same native geometric object.
@@ -481,7 +480,7 @@ surface for the OPH consensus layer. Contents:
   operational identity $L=2|E|(I-R)$. Explicit two-coordinate and copy-space
   counterexamples show why finite positivity and scalar transfer cancellation
   do not supply a continuum inverse or remove radial multiplicity. Uniform
-  coercivity, quotient control, and a physical intervention/readout remain
+  coercivity, quotient control, and a physical intervention/readout are
   separate premises.
 - A sorry-free frame-quotient theorem in
   `Screen/BipoSHFrameInvariant.lean`. A coherent orthogonal or unitary frame
@@ -504,7 +503,7 @@ surface for the OPH consensus layer. Contents:
   packet yields the frozen fourth- and sixth-order coefficients. Derivation of
   the frame and moment packet, canonical source selection, the positive length
   scale, physical time evolution, sector identification, frame and boost
-  physics, nuisance isolation, and exclusivity remain outside the theorem.
+  physics, nuisance isolation, and exclusivity are outside the theorem.
   The abstract shifts do not define a locally finite spatial lattice.
 - A sorry-free primitive-port scale boundary in
   `Screen/PrimitivePortScaleBoundary.lean`. It proves exact rescaling laws for
@@ -550,7 +549,7 @@ surface for the OPH consensus layer. Contents:
   active vacuum-scale changes can move threshold ratios inside the normalized
   corrections. Its exact unconstrained factored-coordinate counterfamily
   displays the algebraic freedom; it is not an accepted consumer packet.
-  Source-selected coupling and self-energy inputs remain necessary for a
+  Source-selected coupling and self-energy inputs are necessary for a
   numerical ratio.
 - A sorry-free conditional photon-lepton threshold packet in
   `Screen/SeamCurrentPhotonLeptonThreshold.lean`. It proves the exact global
@@ -702,7 +701,7 @@ surface for the OPH consensus layer. Contents:
   private algebra. The two slot expectations are not jointly injective: a
   nonzero off-diagonal correlation matrix unit has both partial traces zero.
   Coverage therefore does not reconstruct a joint element from these two
-  expectations. The later correlation capstone
+  expectations. The correlation capstone
   supplies the exact support-disjoint counted state that the expectations
   erase. Source justification of the factor reading and a nonconstant
   realization are open (historical issues #728 and #712, both closed; the
@@ -805,12 +804,9 @@ of 13 compiler-trusted `native_decide` proofs.
 
 ## Provenance
 
-- PR #299 (closed 2026-05-18 unmerged) shipped the abstract-rewriting
-  skeleton as a claimed Proposition 4.2 formalisation. Audit verdict: the
-  proofs are sorry-free but generic; they do not reach OPH-specific
-  structure.
-- This scaffold ports those proofs into a properly-built Lake project,
-  applies accurate labels, and lays out the gap to be closed.
+- The abstract-rewriting skeleton comes from PR #299 (Aristotle output). Its
+  proofs are sorry-free and generic; they do not reach OPH-specific
+  structure, and this library labels them as a skeleton.
 - Jonathan Hill contributed the substantive Lean formalisation and proof-audit
   work that closed concrete carrier/reconstruction subclaims, added non-vacuity
   witnesses, separated confluence from observer-facing uniqueness, and exposed

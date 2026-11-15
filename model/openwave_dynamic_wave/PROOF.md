@@ -149,6 +149,6 @@ cap-independent limit certificate.
 The certificate supplies actual wave bending and an operational delay on
 an autonomous quantum geometry, sharing one source, retained reference
 domain and time unit. It does not import the31³ static lapse profile or
-the earlier two-cell geometry state. Physical G, laboratory time, observed
+the separate two-cell geometry state. Physical G, laboratory time, observed
 lensing, Einstein dynamics, a full photon spectrum and irreversibility are
 not inferred from the finite construction.

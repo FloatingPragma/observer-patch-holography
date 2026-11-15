@@ -120,7 +120,7 @@ The law is an ensemble clock candidate on the monotone window
 `0 <= s log(5/4) <= pi`; one bit is not an exact clock reading, and sign and
 period aliases remain. A noncommuting prepared probe is necessary: the
 reference itself is stationary under its modular flow. Coherent services,
-the probe design and selected phase settings remain supplied. Calling `s`
+the probe design and selected phase settings are supplied. Calling `s`
 an observer's candidate time needs no universal clock or conversion to SI
 seconds. What remains is to establish consistency with continuing clock
 records, other accessible correlations and interventions, and effective
@@ -133,7 +133,7 @@ construction uses explicit finite spectral calculus. The prior native
 interface supplies the exact herald and pointer laws, while
 [`compiled_native_interface`](../compiled_native_interface/README.md) supplies
 the complete source mixer and its numerical comparison theorem. No additional
-axiom or newly claimed abstract theorem is needed.
+axiom or further abstract theorem is needed.
 
 ## Finite preparation of the faithful reference
 
@@ -149,7 +149,7 @@ One subsequent **global random-seam movement herald**, the same CP success
 map for C and E, sends `I66/66` to `q sigma`, with `q=5/33`. The complete
 success/failure instrument gives `|p-q|<=delta` and conditional work-reference
 distance at most `delta/q`. Its source effect also bounds `2/15<=p<=1/6`.
-Failure remains part of the experiment and its resource cost. This full
+Failure is part of the experiment and its resource cost. This full
 Palm herald is distinct from the fixed-seam probe herald, whose successful
 support has dimension 20 and cannot prepare a faithful full-algebra state.
 
@@ -324,7 +324,7 @@ columns. Minimality proves `C_R subset C_S` whenever `R subset S`; the one
 ambient modular group agrees on every common observable. For the cap
 `R=(0,1,5,7)`, the algebra dimension grows from 53 to 149. This supplies
 finite regional modular compatibility, with explicit additional context.
-Its implementation by local records and coherent controls remains an access
+Its implementation by local records and coherent controls is an access
 obligation. Disjoint completed regions can fail to commute; the receipt
 exhibits a nonzero commutator for `(0,1)` and `(2,8)`.
 
@@ -354,7 +354,7 @@ eigenvalues `5/336, 19/1200, 37/2400, 1/75, 1/60`. It is the unique entropy
 maximum at the retained Palm cap marginal. Its distance from Palm is `8/175`;
 the tracial entropy completion and Palm-preserving expectation are distinct.
 
-Now `bar_sigma` factors with a uniform complement in each charge block, so
+Here `bar_sigma` factors with a uniform complement in each charge block, so
 its modular flow **does preserve the original 53-dimensional cap algebra**.
 The same counted state gives its cap modular gaps:
 
@@ -393,7 +393,7 @@ half-diamond(source_bar(s), actual_completed_modular(s))
 At **369 warm-up attempts, one global movement herald, then 7440 complement
 attempts on success**, this is below `0.001` for each certified word in the
 window. The cap-only comparison uses `t` instead of `r`: every complement
-attempt already preserves the complete cap marginal. The complete flagged
+attempt preserves the complete cap marginal. The complete flagged
 single-trial preparation/source error is `delta + (5/33) eta + p_max delta_word`.
 All failed herald outcomes remain records. Repeating failed Palm trials and
 then running one successful complement stage costs fewer than 9882.015
@@ -423,7 +423,7 @@ This supplies the finite faithful-state/inner-flow hypotheses used in
 [`PrivateInner`](../../Lean/Dynamics/PrivateInner.lean) and the finite Gibbs/KMS
 identity in [`StructuralInheritance`](../../Lean/QFT/StructuralInheritance.lean)
 for the selected native entropy completion. The cut schedule, discarded
-records, coherent services and cap choice remain explicit. Passive cut repair
+records, coherent services and cap choice are explicit. Passive cut repair
 is not the modular unitary. Exact regional invariance belongs to the ideal
 completed reference; actual finite-prepared flows have the stated error
 bound. No boost, area, smooth spacetime or laboratory-clock identification
@@ -497,7 +497,7 @@ two-cap schedule has a connected 28-seam union and uniquely selects
 
 These are a constructive protected-core family and an exact boundary for
 the indicated regional algebras. The protected core and preparation protocol
-remain specified choices. No arbitrary spacetime region net, physical boost,
+are specified choices. No arbitrary spacetime region net, physical boost,
 laboratory time or continuum geometry is inferred.
 
 ## A common observer from two local stopping clocks
@@ -608,7 +608,7 @@ state's modular action has a separate bound below `8.437e-5`. The source-array
 enclosures and analytic preparation bounds are certificates; intermediate
 floating state propagation and its reported residuals are diagnostics.
 
-Coherent proper-code load/export and source controls remain specified
+Coherent proper-code load/export and source controls are specified
 architecture. Selecting these two address pairs requires exterior context;
 this is not a derivation of cap-local coherent control on arbitrary
 spectators. No projective work-bit read or independently selected pure probe
@@ -787,7 +787,7 @@ stops and the same carrier. The complete joint protocol uses the fixed cap
 `G*B+q*(1/10-G*2B/(q-B))` plus `6*2^-k*(G+1)/2`, below `0.021011`;
 both comparison protocols keep the same training
 transcript. The confidence failure probability is not conditioned on admission
-or successful preparation. Preparation conditioning is already charged by
+or successful preparation. Preparation conditioning is charged by
 `2B/(q-B)`; it does not grant a postselected statistical guarantee.
 
 The retained census run gives a successful two-read history allowance below
@@ -805,9 +805,9 @@ finite Gibbs/KMS interfaces on the same core-containing cap algebras. The
 source-derived family supplies the state/algebra compatibility premise; its
 inferred moments specify the entropy family. These are analytic finite
 connections with executable certificates, not new Lean formalizations.
-Identification needs native records; clock enactment still uses declared
+Identification needs native records; clock enactment uses declared
 coherent services. Physical service fidelity, intermediate-pulse locality,
-laboratory seconds and a field or particle dictionary remain separate.
+laboratory seconds and a field or particle dictionary are separate.
 
 ## Infer an oriented clock parameter from complete native records
 
@@ -925,7 +925,7 @@ excludes program storage, private tapes, stream hashes and arithmetic
 workspace from that counter subtotal.
 
 The completed ideal analyzer and native reads belong to the cap algebra;
-locality of each intermediate encoded pulse remains unproved. The result
+locality of each intermediate encoded pulse is unproved. The result
 is a blind inverse measurement of an actively programmed coherent source
 word. It does not derive autonomous native time, strictly monotone
 individual records, laboratory seconds, or physical source fidelity.
@@ -943,13 +943,13 @@ occupation eigenspaces on this shell are one-dimensional, forcing `H` and
 `sigma` to be diagonal. This includes `N=3`, where the intersection need
 not be only `span(I,N_i)`.
 
-Spectator-independent modular ratios now give exactly the positive product
-weights `w_ij=lambda*r_i*r_j` already characterized above. Consequently
+Spectator-independent modular ratios give exactly the positive product
+weights `w_ij=lambda*r_i*r_j` characterized above. Consequently
 **every faithful reference**, not only a preselected diagonal one, preserves
 all bare two-port algebras precisely in that product family. The executable
 certificate supplies forbidden-entry witnesses for every native
 off-diagonal Hamiltonian entry and exact independent constraints for the
-remaining diagonal energies. Connected symmetric repair still selects only
+remaining diagonal energies. Connected symmetric repair selects only
 the tracial member at equilibrium. Coherences cannot evade this specified
 all-region boundary; protected regional families and changed observable
 algebras are different contracts.
@@ -1073,15 +1073,15 @@ The [adaptive coherence bound](../observer/RECORD_RECOVERY.md#persistent-explora
 also prevents interpreting formal corner clocks as indefinitely recoverable
 quantum memory under exploring record-only control. Active recovery,
 restricted exploration and refinement require their own compatible joins.
-Completion-program gate acceptance still requires its declared predecessor
+Completion-program gate acceptance requires its declared predecessor
 contracts; this component does not discharge CP01, CP02 or CP13 as a whole.
 
-The [finite native-only campaign](../completion/README.md) has a different
+The [finite native-only construction](../completion/README.md) has a different
 access contract. Its [stationary-reference obstruction](../completion/MODULAR_ACCESS.md)
 excludes nontrivial modular implementation on the tested fixed full algebra
 using its real operations alone. The compiled complex phase services here
 are additional declared controls, so this continuation does not discharge
-that obstruction or implement that campaign's joint stationary reference.
+that obstruction or implement that construction's joint stationary reference.
 The adaptive coherence bound applies to its actual repair events when the
 exploration floor is retained; identity holds do not count as repair events.
 The same repair count must be guaranteed on every compared branch. Halted

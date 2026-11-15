@@ -6,5 +6,5 @@ differences then give exact linearized Bianchi and gauge identities, with
 all boundary cells retained. The nearest-neighbour Poisson and curvature
 stencils have an explicit nonzero correction.
 
-The metric interpretation and a nonlinear physical Einstein limit remain
+The metric interpretation and a nonlinear physical Einstein limit are
 separate requirements. See [the proof](PROOF.md).

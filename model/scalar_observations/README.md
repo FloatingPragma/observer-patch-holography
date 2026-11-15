@@ -9,7 +9,7 @@ Every classical record remains in the comparison.
 It extends the [canonical scalar regulator](../relativistic_scalar/README.md)
 and the [smooth instrument](../common_source/SMOOTH_REFINEMENT.md). The change
 is a common physical observation contract across grids, with interacting
-spatial error bounds. The earlier eight-site packet remains intact.
+spatial error bounds. The separate eight-site packet keeps its own scope.
 
 ## The observation contract
 
@@ -60,7 +60,7 @@ The [derivation](DERIVATION.md) proves two different spatial comparisons.
 | Seven unrestricted interacting oscillators | The same fixed-band observations with exact gradients. A finite-energy bound includes measurement backreaction and conditional feedback and decreases as `O(n^-2)`. |
 | Finite occupation to unrestricted observations | The [occupation certificate](OCCUPATION_DERIVATION.md) bounds the entire principal history, including preparation, both instruments and conditional feedback. Exact residuals and counted rounding give an ideal source-to-unrestricted record TV bound below 0.054 at the finest retained grid. |
 
-The quartic spatial integral is exact already at grid size five. Only the
+The quartic spatial integral is exact at grid size five. Only the
 gradient coefficient `kappa_n=[sin(pi/n)/(pi/n)]^2` changes. A four-point
 counterexample in the tests shows why smaller grids can alias the quartic.
 
@@ -118,14 +118,14 @@ are evaluated with rational enclosures for their Gaussian matrix elements.
 After both error budgets, the event probability is greater under `g=1` than
 under `g=0` by **more than 0.00008**. The first native current is positive with
 exact probability `5/66`, so a positive separation also holds for the full
-native record law. Every branch remains in this comparison; conditioning here
+native record law. Every branch is in this comparison; conditioning here
 specifies a retained event and does not alter the principal protocol.
 
 These auxiliary codes are proof calculations, not additional source executions.
 The four-level source-to-unrestricted bound is larger than the interaction
 signal: it does not by itself certify that signal. The separate event
 calculation proves it directly for the unrestricted target. The torus, seven
-modes and action are still supplied, and no measured physical data is used.
+modes and action are supplied, and no measured physical data is used.
 
 The [published oscillator comparison](experimental_readout/README.md) provides a physical readout test: 21 complex axis observations
 calibrate the Gaussian response relation, which predicts 100 withheld complex
@@ -152,8 +152,7 @@ pair at momentum `(3,0,0)`, derives the induced low-mode mass-squared shift
 the continued, disturbed history on its finite occupation code. The remaining
 omitted modes, repeated enlargement with an unrestricted occupation limit, and
 relativistic locality are open.
-The [native source-selection obligation](../SOURCE_SELECTION.md) also remains:
-compiling a supplied scalar action does not select its physical law or values.
+The [native source-selection obligation](../SOURCE_SELECTION.md) is also open: compiling a supplied scalar action does not select its physical law or values.
 
 ## Reproduce
 

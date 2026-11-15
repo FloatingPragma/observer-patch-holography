@@ -74,8 +74,8 @@ protected subspace of the time evolution.
 
 The existing [bound-pair pole](../bound_pair/README.md) obeys exactly the
 same denominator equation `1-U g0(E_B)=0` outside the free band. Its
-scattering residue is `Res_(E_B) tau=U^2 Z_B`, where Z_B is the previously
-constructed contact weight. An independent complete physical eigensystem
+scattering residue is `Res_(E_B) tau=U^2 Z_B`, where Z_B is the
+[bound-pair](../bound_pair/README.md) contact weight. An independent complete physical eigensystem
 checks that relation. The isolated pair and this interaction response
 therefore use one Hamiltonian, contact vector and pole. The routines also
 admit weak U outside the separate strong-coupling bound-pair hypothesis;

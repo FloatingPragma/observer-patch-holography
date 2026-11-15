@@ -103,7 +103,7 @@ extended record type is uninhabited over the committed inhabitant.
 WHAT IS NOT PROVED HERE.  The step dictionary stays a declared calibration:
 `stepDuration` is a positive real with no unit, the join identifies no
 physical time and no physical space, and no clock is calibrated (PR-15
-open).  At least the following named attachment categories remain: no physical
+open).  At least the following named attachment categories are open: no physical
 common action across carriers, interaction, or relative normalization joining
 the screen action of the scaled Maxwell island to the kinematic flow of the
 Lorentz module (PR-54 open); no port,
@@ -357,8 +357,8 @@ join's event component depends only on the record's frame and step duration,
 and its value component only on the certified bundle.  Their independence is
 evidence that this formal product contains no carrier map; this proposition
 does not quantify over, and therefore cannot exclude, carrier maps supplied by
-an enriched future structure.  The legacy definition name is retained for API
-stability. -/
+an enriched future structure.  The definition name refers to this formal
+product only. -/
 def JoinSuppliesNoCarrierMap (J : MaxwellClockJoinedArchitecture) : Prop :=
   (∀ n : ℕ, (J.join n).2 = frameWorldline J.frame (stepTime J.stepDuration n)) ∧
   (∀ K : MaxwellClockJoinedArchitecture, K.frame = J.frame →
@@ -372,8 +372,8 @@ theorem joinSuppliesNoCarrierMap (J : MaxwellClockJoinedArchitecture) :
   · rw [K.join_event, J.join_event, hf, hδ]
   · rw [K.join_energy, J.join_energy, hs]
 
-/-- Accurate public alias for the component-dependence equalities.  The legacy
-`JoinSuppliesNoCarrierMap` name is retained above, but the proposition proves
+/-- Accurate public alias for the component-dependence equalities.  The
+`JoinSuppliesNoCarrierMap` proposition above proves
 independence of the two packaged components rather than a universal no-go for
 future carrier-map enrichments. -/
 def JoinComponentIndependence (J : MaxwellClockJoinedArchitecture) : Prop :=

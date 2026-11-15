@@ -30,7 +30,7 @@ bimodule projection would force equality.
 This theorem does not rule out ordinary AQFT inclusions with state
 restriction, a different or enlarged target algebra, boundary memory or
 ancillas, generalized expectations, or non-bimodule positive/completely
-positive channels.  Those remain viable enriched routes.  Slots are
+positive channels.  Those are viable enriched routes.  Slots are
 retained-window positions with no calibrated physical clock; no Lorentzian
 localization, spectrum condition, continuum limit, fields, particles,
 scattering, or detector readback is constructed here.
@@ -359,7 +359,7 @@ theorem recordMean_regionalExpectation (S : Finset (Fin 3)) (f : Fin 8 → ℚ) 
 
 /-! ## The bundled net and its inhabitant -/
 
-/-- A legacy-named bundle for the finite-probability record-conditioning
+/-- A bundle for the finite-probability record-conditioning
 net on `Fin 8 → ℚ`: the maps are rational-linear, unital, pointwise
 positive, localized, tower-compatible, and preserve the empirical mean. -/
 structure StatePreservingRegionalNet where

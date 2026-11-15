@@ -1,15 +1,15 @@
 # Complete-field modular histories
 
-The same finite interacting field now has a source-operated modular flow on
+The same finite interacting field has a source-operated modular flow on
 its **complete Fock algebra**, together with complete observation histories.
 The construction uses the existing [Gibbs preparation](../field_thermal/README.md),
 [field action](../full_fock_field/README.md), source compiler and
 [complete export executor](../reference_recovery/README.md). It extends the
-earlier two-level clock attachment to the actual one/two-site prepared field.
+two-level clock attachment to the actual one/two-site prepared field.
 No particle-number sector is selected.
 
 The supplied action, inverse temperature, initialized work bits, coherent
-controls and source services remain explicit inputs. This is a finite
+controls and source services are explicit inputs. This is a finite
 implementation result for CP-02, not physical clock calibration, passive
 repair dynamics or an accepted integrated completion gate.
 
@@ -114,7 +114,7 @@ Floating eigensolvers can nevertheless assign different phases to its
 numerically tiny entries. Compiling those entries produces slightly
 different pulse angles and unitary completions away from the prepared
 input. Both the complete prepared-output error and the actual source
-resource cost must still be checked. Equality of the angle cost across
+resource cost must be checked. Equality of the angle cost across
 linear-algebra platforms is not an invariant of this preparation.
 
 The report retains each executed word's actual sum of absolute pulse
@@ -122,7 +122,7 @@ angles. The executor independently recomputes that sum from its immutable
 source tape and rejects inconsistent resource accounting. Portable replay
 checks this sum against a compiler-derived certificate, rather than
 loosening the numerical comparisons of states, probabilities or errors.
-Pulse, service and memory counts still compare exactly.
+Pulse, service and memory counts compare exactly.
 
 For b preparation bits and D=2^b amplitudes, split the preparation word
 into fixed scaffold rotations and variable Walsh rotations. Fixed
@@ -157,7 +157,7 @@ The [reference observation tower](../reference_observation/README.md)
 does not in general intertwine the global modular flow with the modular
 flow of a correlated reduced state. The tests retain a counterexample on
 this same interacting Gibbs state. The exact
-[regional retraction obstruction](../regional_modular/README.md) remains
+[regional retraction obstruction](../regional_modular/README.md) holds
 intact. Implementing the global automorphism therefore does not supply
 geometric modular diamonds, a common physical clock, arbitrary regional
 modular covariance, a continuum limit or the Einstein premises.

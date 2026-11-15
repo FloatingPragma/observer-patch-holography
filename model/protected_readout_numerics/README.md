@@ -26,8 +26,5 @@ exports its complete fresh JSON/NPZ pair. The original command
 backend-sensitive comparison and can reject the same replay. No physical gate,
 particle identification or hardware accuracy is inferred from this validator.
 
-`--check --renew-live` renews only the two enumerated parent hashes in the
-legacy live receipt after the complete producer and numerical checks pass. Its
-original scientific fields and NPZ remain exact. `retained.json` preserves the
-original JSON bytes. The current full-suite entry point is
-`python -m model.verify_current`; the original verifier remains available.
+`--check --renew-live` renews only the two enumerated parent hashes in the live receipt after the complete producer and numerical checks pass. Its scientific fields and NPZ are exact. `retained.json` preserves the
+original JSON bytes. The full-suite entry point is `python -m model.verify_current`; the package verifier is also available.

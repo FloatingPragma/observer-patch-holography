@@ -30,4 +30,4 @@ jobs:
           python code/openwave_candidate/integration/assess.py --output /tmp/openwave-assessment.json
           python code/openwave_candidate/integration/assess.py --verify /tmp/openwave-assessment.json
           python tools/check_openwave_assessment_replay.py code/openwave_candidate/integration/assessment.json /tmp/openwave-assessment.json
-          python tools/build_openwave_joint_claims.py --check
+          python -m tools.build_openwave_joint_claims --check

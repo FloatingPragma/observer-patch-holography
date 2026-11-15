@@ -178,7 +178,4 @@ python -m model.repair_coherence_lifetime --write
 python -m model.repair_coherence_lifetime --check
 ```
 
-The new receipt binds actual source bytes through the existing many-body
-source closure. It does not assert that every older release receipt has been
-regenerated. The endpoint table, cut witnesses and rate calculator are
-recomputed independently of those older numerical receipts.
+The receipt binds actual source bytes through the many-body source closure. It does not assert that every release receipt is regenerated. The endpoint table, cut witnesses and rate calculator are recomputed independently of those numerical receipts.

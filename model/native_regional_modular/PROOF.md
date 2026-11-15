@@ -138,7 +138,7 @@ W*W+sum_f F_f*F_f=I                                   (4)
 ```
 
 follows by telescoping the per-pulse resolutions. The exact ideal code
-has zero failure amplitudes; these zero slots remain part of the common
+has zero failure amplitudes; these zero slots are part of the common
 comparison channel. Isometric telescoping bounds the entire literal
 word, including every failure and arbitrary untouched reference, by
 `d_lit`. In particular its mathematical total abort probability is at

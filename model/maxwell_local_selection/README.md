@@ -8,7 +8,7 @@ allowed Hessian coefficients; no action menu or numerical fit is used.
 Among real linear autonomous laws, Faraday evolution, a supplied positive
 electric/magnetic energy and the specified time reversal force Ampere
 evolution. Electric and magnetic normalizations, physical time and native
-implementation remain inputs.
+implementation are inputs.
 The proof distinguishes this finite result from a physical Maxwell or
 photon derivation and supplies counterexamples when assumptions are dropped.
 

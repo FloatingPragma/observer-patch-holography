@@ -14,13 +14,13 @@ stationarity, or instantiate the complete Einstein register.
 
 ## Existing target and source
 
-`Lean/ObserverPatchHolography/EinsteinBranch/Tensor.lean` already proves null
+`Lean/ObserverPatchHolography/EinsteinBranch/Tensor.lean` proves null
 and timelike tensor determination. We do not reprove that tensor theorem.
-`RegisterSurface.lean` still requires an actual variation space, a common
+`RegisterSurface.lean` requires an actual variation space, a common
 stress for entropy and directional responses, the geometric null balance,
 and the other named supplies. This package constructs the former matter
-data; the geometric balance remains a distinct premise. `SmallBall.lean`
-already fixes the coefficient `8*pi^2*R^4/15`; FA87 identifies its continuum
+data; the geometric balance is a distinct premise. `SmallBall.lean`
+fixes the coefficient `8*pi^2*R^4/15`; FA87 identifies its continuum
 matter kernel. Here the kernel acts on an explicit, nondegenerate family.
 
 The input is the complete centered free eight-Weyl continuum hierarchy,
@@ -251,7 +251,7 @@ There is also a finite entropy estimator. Use
 `[Delta S_i(rho_(epsilon e_j))-Delta S_i(rho_(-epsilon e_j))]/(2epsilon)`
 with `epsilon=(R/L)^6`. Taking `r0=1/2` in (11) bounds its error from the
 modular derivative by `2epsilon/3`. Its normalized error is at most
-`[5/(4249388/150088295)](R/L)^2`. Including this term still gives a
+`[5/(4249388/150088295)](R/L)^2`. Including this term gives a
 Neumann budget below `1/4` at `R/L=2^-28`. Thus nine finite, positive-state,
 vacuum-relative entropy differences also have full rank. Along, for
 example, `R_m=L/(2^28(m+1))`, both error channels vanish as `O(R_m^2/L^2)`.
@@ -269,6 +269,6 @@ Those fields of `EinsteinRegisterData` are not filled by this calculation.
 
 Run `python -m pytest -q -W error model/weyl_gravity_response`, followed by
 `python -m model.weyl_gravity_response --write` and `--check`.
-The new receipt recomputes exact shell, frame, positivity-control and error
+The receipt recomputes exact shell, frame, positivity-control and error
 certificates. It distinguishes its direct checks from the inherited
-custody status of FA87; no old receipt or ledger is rewritten.
+custody status of FA87; no other receipt or ledger is rewritten.

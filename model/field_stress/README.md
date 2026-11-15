@@ -10,7 +10,7 @@ declaring that the conditional Einstein theorem has been instantiated.
 The retained open cube has 27 sites, 54 CAR modes and the complete
 1,431-dimensional two-particle sector. Its action is
 `H=dGamma(h)+sum_x D_x`, `h(k)=-(1/8) sigma.sin(k)`,
-`D_x=n_(x,0)n_(x,1)`. The spatial lattice, action and CAR statistics remain
+`D_x=n_(x,0)n_(x,1)`. The spatial lattice, action and CAR statistics are
 supplied. Every time derivative below uses Hamiltonian **model time** with
 the supplied convention `hbar=1`. No physical energy scale is inferred.
 
@@ -132,8 +132,8 @@ The nearest existing result is
 which proves the finite classical package on its own simplex tangent
 space, conditional on its reference split. This component supplies an
 explicit **noncommutative** matrix-algebra attachment to the same
-interacting action used for the particles. It does not claim a new general
-entropy theorem or a new Lean proof. Defining a formal bulk pairing as
+interacting action used for the particles. It does not claim a general
+entropy theorem or a Lean proof. Defining a formal bulk pairing as
 `beta Tr(delta H)/(2*pi)` would not identify a geometric cap modular charge
 or an edge entropy, so we do not use that relabeling to discharge gravity.
 
@@ -149,13 +149,13 @@ zero weight.
 On this positive support, compute `K_A=-log(tau_A)` and compare it with
 the bare internal regional Hamiltonian `H_A`, which contains no crossing
 bonds. Even the best affine fit `a I+b H_A+mu N_A` fails. Allowing an
-additional `N_A^2` term for canonical number constraints still leaves a
+additional `N_A^2` term for canonical number constraints leaves a
 nonzero residual. A nonzero `[K_A,H_A]` directly excludes an affine bare
 energy/number identification. These are numerical finite-model controls,
 not a universal regional modular no-go. Fixed total number, boundary
 couplings and the chosen region matter; no claim attributes the entire
 mismatch to the contact interaction alone. Other references, corrected
-regional generators and scaling limits remain possible.
+regional generators and scaling limits are possible.
 
 ## The remaining Einstein premises
 
@@ -164,7 +164,7 @@ The actual consumer is
 Its fields require much more than conservation of a finite Hamiltonian or
 the Gibbs identity. The field-to-theorem attachment here is:
 
-| Premise | Advance here | Still required |
+| Premise | Supplied here | Open requirement |
 | --- | --- | --- |
 | PR-23 / G2, G4 | Same-action quantum modular first law on its declared full-sector Gibbs algebra. | Geometric cap modular flow, diamond kernel, edge-center split and a justified native reference map. |
 | PR-24 / G3 | Exact local energy continuity, including interaction energy and boundary currents. | One symmetric Lorentz stress tensor and its Ward identity under the theorem's four chart steps; half-sided inclusion/null translations. |
@@ -173,7 +173,7 @@ the Gibbs identity. The field-to-theorem attachment here is:
 | PR-27 / G1, G5 | The supplied finite cubic domain is stated. | Lorentzian/geodesic geometry, Bianchi identity, enough observer directions and one controlled shrinking-ball family. |
 | PR-28 / G6 | No physical normalization added. | One common physical refinement tower, vacuum residue, universal coupling and an independent positive Newton scale. |
 
-Thus CP-09 and CP-10 remain open. In particular, `EinsteinRegisterData`
+Thus CP-09 and CP-10 are open. In particular, `EinsteinRegisterData`
 has not been constructed and the Einstein conclusion is not invoked.
 The energy continuity identities and the same-action entropy map are
 reusable concrete inputs for that further construction. No physical

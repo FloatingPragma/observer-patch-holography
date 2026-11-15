@@ -6,12 +6,12 @@ and predict the later binary spin measurements. The observations come from
 McGarry et al., [*Programmable quantum simulation of anharmonic dynamics*](https://arxiv.org/html/2603.04744v1),
 with raw data deposited under [DOI 10.5281/zenodo.18752287](https://zenodo.org/records/18752287).
 
-The earlier [source-executed preparation/readout comparison](../scalar_observations/experimental_readout/EXECUTABLE_READOUT.md)
+The separate [source-executed preparation/readout comparison](../scalar_observations/experimental_readout/EXECUTABLE_READOUT.md)
 has no intervening evolution. Here the state evolves through the entire
 spin–oscillator pulse history, including continuous detuning, a supplied
 dephasing channel and the final spin-selection condition. All positive-duration
 measurements are excluded from calibration. This is retrospective: the paper
-and its qualitative results were already known.
+and its qualitative results were known when the test was designed.
 
 ## What is measured
 
@@ -62,7 +62,7 @@ source's declared quantum operations; it is not a new laboratory execution.
 Cached operation matrices save host work while the resource ledger counts
 their full word on every application. The preparation family, coherent
 services, apparatus Hamiltonian, environment, detector and clock calibration
-remain supplied. The [derivation](DERIVATION.md) gives the maps and selection
+are supplied. The [derivation](DERIVATION.md) gives the maps and selection
 semantics, including the paper's sign/phase convention issues.
 
 ## Results and analysis
@@ -96,12 +96,12 @@ evolution with the same dephasing, or execute the complete pulse sequence
 without dephasing. They are fixed comparisons, not alternatives selected by
 their scores.
 
-Material discrepancies remain. The imaginary component of the 4 ms scan is
+The comparison has material discrepancies. The imaginary component of the 4 ms scan is
 overpredicted in part of its central hump, and the later time series has
 zero-crossing and amplitude mismatches. The largest individual probability
 residual is 0.21618: at 13.6 ms and `Im(beta)=0.2828427`, the prediction is
 `P0=0.44382` and the deposited frequency is `0.66000`. The separate zero-duration
-position scan, which was not fitted, already has spin-mean RMSE 0.07462;
+position scan, which was not fitted, has spin-mean RMSE 0.07462;
 differences across preparation/readout scans therefore also need assessment.
 
 Increasing occupation 32 to 64 changes an individual predicted probability
@@ -128,12 +128,12 @@ preparation–evolution–selection–readout model, with substantially lower er
 than its frozen and harmonic controls. It is not a precise fit to every
 measurement. It does not distinguish OPH from ordinary quantum mechanics:
 the anharmonic action and apparatus have not been selected by OPH. The
-discrepancies remain in the receipt; no withheld trajectory was refitted.
+discrepancies are retained in the receipt; no withheld trajectory was refitted.
 
-Useful next steps are a calibrated preparation uncertainty region, an
+The open requirements are a calibrated preparation uncertainty region, an
 authenticated detector/selection error budget, and transport to independently
 specified changed-potential experiments. Native action selection and the
-connection between native geometry and field propagation remain separate
+connection between native geometry and field propagation are separate
 construction obligations.
 
 ## Reproduce
@@ -156,13 +156,13 @@ A cold full replay can take several minutes because it compiles and executes
 the source words at both occupation cutoffs. The CLI can also save a complete
 prediction payload with `--predictions-write PATH` before scoring. Raw data,
 license, byte counts and published checksums are retained in
-[provenance](provenance.json). All earlier evidence packets remain unchanged.
+[provenance](provenance.json).
 
 Replay checks each receipt's own exact pre-scoring prediction hash, then
 compares floating diagnostics with tolerance `2e-9`. Fresh Linux and Windows
 executions of the macOS receipt differ from it by about `1.6e-10` on one
 runner and by more than `2e-10` on another; the tolerance is not a physical
 error bound. Source words, protocol and data hashes, counts and other strings
-remain exact. The hash of a full
+are compared exactly. The hash of a full
 floating payload can differ between valid platform runs; it is validated
 individually rather than used as a cross-platform numerical equality test.

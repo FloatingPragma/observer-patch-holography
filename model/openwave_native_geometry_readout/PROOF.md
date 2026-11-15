@@ -39,4 +39,4 @@ statistics, conditional on the declared coherent load and response service.
 It neither realizes that service by repair alone nor compiles the full
 stress/curvature stencil. Its source pulse and blank-memory costs are counted;
 physical energy, photon length, independently normalized Newton strength and
-the Einstein continuum remain separate obligations.
+the Einstein continuum are separate obligations.

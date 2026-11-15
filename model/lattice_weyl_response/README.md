@@ -29,11 +29,11 @@ divided by `v`. Modulation by `(-1)^(n1+n2+n3)` makes its symbol
 Its undefined values at the finitely many zeroes are irrelevant to the
 L2 operator and to the unique free filled-sea state.
 
-`EinsteinBranch/Tensor.lean` already proves conditional tensor completion;
-we do not replace it. `SmallBall.lean` supplies the target `R^4`
+`EinsteinBranch/Tensor.lean` proves conditional tensor completion;
+this packet does not replace it. `SmallBall.lean` supplies the target `R^4`
 normalization and requires common limit control. `RegisterSurface.lean`
 also requires geometric null balance, area, stationarity and other supplies.
-Here the new input is a concrete source-bound realization of the same
+Here the input is a concrete source-bound realization of the same
 matter variation space, with a joint lattice/radius limit. It is not the
 whole register, nor the full G5 geometric/collar hypothesis.
 
@@ -43,7 +43,7 @@ from FA87. Its primary modular import is La Piana and Morsella,
 Communications in Mathematical Physics 406, 81 (2025),
 [DOI](https://doi.org/10.1007/s00220-025-05253-1).
 The signed CAR Cauchy generator and opposite particle/hole convention are
-exactly those recorded there by FA87. No new modular theorem is assumed.
+exactly those recorded there by FA87. No additional modular theorem is assumed.
 The estimates below are proved directly.
 
 ## A gapless projection estimate without aliasing assumptions
@@ -268,7 +268,7 @@ normalization, all-valley source mapping and a uniform finite inverse.
 It closes the free-sector source-realization gap left explicitly open in
 FA91 for these averaged stress responses. Equal-time correlations of
 other valley smearings have zero cross-valley limit by the oscillatory
-cell estimate in `continuum_field_net`; the new projection estimate also
+cell estimate in `continuum_field_net`; the projection estimate here also
 controls their source filled-sea contractions. Wick's rule then shows
 that the shell perturbation changes only the selected continuum sector.
 
@@ -276,11 +276,11 @@ This is not a theorem about nonzero-U composite stress convergence,
 regional lattice modular logarithms, boosted modular caps, or a regulator-
 independent area/edge entropy. No Newton coefficient, geometric null
 balance, generalized-entropy stationarity, or interacting/massive matter
-sector is obtained. The original G1--G6 geometry theorem stack remains
+sector is obtained. The G1--G6 geometry theorem stack is
 the target. A stress detector approaching a modular form at rest does
 not by itself produce a geometry equation.
 
 Run the strict package tests and `python -m model.lattice_weyl_response
 --write` / `--check`. The retained receipt binds current mathematical
-inputs narrowly, checks the new exact controls, and separately reports
+inputs narrowly, checks this packet's exact controls, and separately reports
 inherited broad-custody status. It does not rewrite frozen prior receipts.

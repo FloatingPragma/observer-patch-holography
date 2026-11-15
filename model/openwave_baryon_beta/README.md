@@ -12,7 +12,7 @@ shifts of about minus/plus7.984keV for neutron/proton preparations, so
 the fitted strong masses are not identified with its interacting poles.
 The weak contact and outgoing box are declared inputs.
 This finite coherent conversion has recurrence and supplies no measured
-neutron lifetime. The native axial-ratio mismatch is retained.
+neutron lifetime or physical axial ratio.
 
 Run `python3 -m model.openwave_baryon_beta` to regenerate the complete
 position/momentum laws, preparation failures, work and independent

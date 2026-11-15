@@ -162,4 +162,4 @@ Hamiltonian, energy unit, temperature, heat transport, physical clock, cooling
 protocol or zero-temperature law. It proves an exact source-level finite
 information-thermodynamic attachment, with sector, probability measure and
 schedule premises explicit. Carrier refinement and physical identification
-remain separate obligations.
+are separate obligations.

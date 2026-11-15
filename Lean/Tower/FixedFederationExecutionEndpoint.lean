@@ -6,7 +6,7 @@ import ObserverPatchHolography.Execution.RankedAttemptCapacity
 
 The Tower boundary consumes the exact fairness classification, explicit
 mathematical scheduler, sharp accepted-step infrastructure, and the shared
-bounded-waste provider.  Attempt bounds remain conditional and carry no
+bounded-waste provider.  Attempt bounds are conditional and carry no
 physical unit.
 -/
 

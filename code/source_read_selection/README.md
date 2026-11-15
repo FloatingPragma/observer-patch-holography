@@ -40,7 +40,7 @@ never crosses the source cut, the selected complete-history KL optimizer
 cannot guarantee the remote read under both source interventions. Conversely,
 a guaranteed read forces **every feasible schedule** to exclude every such
 word. This is a necessary source-grammar condition, not sufficient routing.
-Unlike the earlier uniform-word bound, it permits correlated schedules and
+Unlike the uniform-word bound, it permits correlated schedules and
 nonuniform references; it asserts positive obstruction mass, not the same
 numerical 29% bound for all these families.
 
@@ -202,7 +202,7 @@ insufficient. An accepted-record stopping/publication policy is another open
 route whose correctness and cost must be proved. A policy merely declared
 to accept successful routes retains the M1 premise.
 The current theorem does not choose between these alternatives, and the
-axioms' entailment or non-entailment of the full M1 law remains unresolved.
+axioms' entailment or non-entailment of the full M1 law is unresolved.
 
 [Temporal acceptance](../source_temporal_acceptance/README.md) derives the
 complete linear observation grammar from native prefixes. It characterizes

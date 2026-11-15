@@ -49,7 +49,7 @@ on every source operator and after tensoring an arbitrary reference. Q is
 not discarded. Conditional routing and coherent loading are supplied
 services; no source measurement or apparatus reset is free. The numerical
 pulse test covers the two-dimensional response. Full chart synthesis and its
-physical accuracy are distinct from that test and remain declared premises.
+physical accuracy are distinct from that test and are declared premises.
 
 ## Two consecutive records and their error
 
@@ -84,7 +84,7 @@ Every native record and timeout remains in the instrument definition.
 Finite matrix contraction computes marginals without expanding the entire
 record tree. The number of fresh record registers grows with N. Preparation,
 coherent chart, phase reference, conditioned recovery and readout/reset
-resources remain explicit. The diagonal phase commutes with H2, so correction
+resources are explicit. The diagonal phase commutes with H2, so correction
 work and measurement work telescope to the source energy change over both
 blocks. The code records those complete nonselective source-energy changes;
 it does not assign an energy to the apparatus or a laboratory second.

@@ -63,8 +63,8 @@ field, coordinate speed `1/8`, contact `U=1`, and the faithful Gibbs reference
 348,697 native pulses. `reference_preparation` also compiles the regional
 reference purification, recovery and a global-mode pointer, retaining the
 regional purifier and recovery environment on nine initialized bits. Thus
-this route does not assume an already prepared correlated global input.
-The preparation, design parameters and initialization are still supplied
+this route does not assume a prepared correlated global input.
+The preparation, design parameters and initialization are supplied
 resources. This faithful reference is distinct from the pure half-filled
 ground used for the conditional particle candidates.
 

@@ -45,7 +45,7 @@ receiver acted on once. Consequently
 
     <receiver|(PHP)^3|initial> = <receiver|H^3|initial>
 
-for these minimum-length transport contributions: both outer actions already
+for these minimum-length transport contributions: both outer actions
 lie in P. The fully transferred gauge-singlet polynomial is independent of
 the group element. Haar integration preserves the coefficient. The argument
 also applies to a path of distinct links because its first action lies in

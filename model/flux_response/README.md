@@ -11,7 +11,7 @@ loop phase and field action are supplied observer operations.
 No source pulse execution is added here. The calculation does not identify
 a dynamical photon, laboratory electromagnetic flux, Lorentz spin, physical
 clock or thermodynamic conductivity. The three-dimensional and physical
-identification requirements of the particle programme remain separate.
+identification requirements of the particle programme are separate.
 
 ## Same action and an actual loop
 
@@ -97,7 +97,7 @@ Energy comparisons allow two eleven-decimal serialization units; group-weight
 comparisons allow the sum of the two lists' rounding budgets plus two units
 for floating reconstruction. No bound on individual basis-dependent residues
 is relaxed. Nonspectral fields, aggregate current/curvature, source hashes
-and claim flags remain exact comparisons, with exact JSON types and finite
+and claim flags are exact comparisons, with exact JSON types and finite
 values required throughout. The CLI rejects duplicate keys at every depth.
 Tests rotate complete degenerate
 eigenspaces by random complex unitaries and reject shifted interlevel weight,

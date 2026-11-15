@@ -89,7 +89,7 @@ nonidentifiability theorem, not a positive end-to-end physical postdiction.
 Physical curvature/stress matching and the Einstein branch, selection of the
 source's spatial response or a justified exterior vacuum/null-stress
 condition, mass/clock/unit calibration, their common physical history and the
-source/outcome interpretation are open obligations (historical issues #729,
-#779, #736, #740 and #730, closed). This result discharges none of them and
+source/outcome interpretation are open obligations (issues #729,
+#779, #736, #740 and #730). This result discharges none of them and
 does not falsify their additional physical Einstein premises. It establishes that more clock-only sampling on
 this source cannot resolve the remaining spatial-response coefficient.

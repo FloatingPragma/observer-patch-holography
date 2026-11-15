@@ -2,7 +2,7 @@
 
 The input is the retained 32-stream, 128-configuration quenched Wilson
 table on the 12³×24 source at beta 5.7. No gauge configurations are
-regenerated. All four kappas, two sink choices and the original primary
+regenerated. All four kappas, two sink choices and the parent primary
 and alternate time windows are retained: 48 fits, each with 32 outer
 delete-one-stream refits. Pion and rho fits use one periodic cosh;
 nucleon fits use one exponential. These are finite fit models, not
@@ -44,20 +44,20 @@ For model vector f(m), the conditional best amplitude is
     chi²(m) = (y-A(m)f(m))^T C^-1 (y-A(m)f(m)).
 
 The positive metric proves this amplitude is the unique least-squares
-minimum at fixed m. The mass search keeps the original interval [0.02,3],
+minimum at fixed m. The mass search keeps the parent interval [0.02,3],
 uses 150 grid points and refines every grid-bracketed local minimum, with
 both endpoints retained. This is a deterministic bounded numerical
 optimization, not a proof of a global continuous minimum. Boundary and
 nonpositive-amplitude replicas are explicitly listed. No chi-square
 confidence or goodness-of-fit distribution is asserted for the estimated
-covariance. Original alternate windows and sinks give fit sensitivity;
+covariance. Parent alternate windows and sinks give fit sensitivity;
 they are not selected by agreement with experimental masses.
 
 ## Common mass and scale chain
 
-The original pion-positive, relative-error-at-most-25% admission determines
-the chiral fit points. Every original kappa fit remains in the receipt,
-including the inherited unresolved lightest nucleon. The original chiral
+The parent pion-positive, relative-error-at-most-25% admission determines
+the chiral fit points. Every parent kappa fit is retained in the receipt,
+including the inherited unresolved lightest nucleon. The parent chiral
 forms and their diagonal mass-error weighting are retained as a distinct
 approximation. They do not become fully correlated errors-in-variables
 regressions merely because the first-stage time fits are correlated.
@@ -76,7 +76,7 @@ With the alternative conventional string anchor S=0.44 GeV,
 The receipt retains the joint six-output replica covariance for both
 calibrations. Zero conditional pion/rho variance under the rho anchor is
 algebraic shared-scale cancellation, not zero physical uncertainty.
-Crossing every admitted hadron variant with the original potential variants
+Crossing every admitted hadron variant with the parent potential variants
 gives a finite fit-sensitivity envelope. The unchanged diagonal-time chain
 is independently recomputed and compared with its frozen receipt.
 

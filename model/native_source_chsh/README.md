@@ -3,7 +3,7 @@
 This package executes the versioned coherent occupation controls and actual
 native E instruments on the literal level-zero federation. It certifies a
 complete unconditioned CHSH score greater than 12/5. All herald failures output
-the fixed pair (+1,+1), independently of the later settings, and remain in the
+the fixed pair (+1,+1), independently of the later settings, and are part of the
 record law. No acceptance normalization is used.
 
 The known initial A0 B1 state, coherent M1 load/export access and setting

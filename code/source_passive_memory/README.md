@@ -229,7 +229,7 @@ this table; it does not claim that the present scalar model covers them.
 | Protected export, overwrite, readback, factor-two decoding and cleanup | One reset-error contribution is identified; the supplied feedback grammar is not implemented by the scalar mean word |
 | Local controller, program, interleaving rules and intervention-compatible scheduling | A declared finite word is checked; scheduling, controller storage and physical causal equivalence are not selected |
 | Bounded amplitudes, finite precision, hardware noise and accumulated route error | Exact arithmetic and an input-dependent residual; no hardware error or scalar bit-capacity bound |
-| Physical clock, units, event measure and logical-to-raw history comparison | No conversion of repair counts into time or geometric volume; the earlier raw-count obstruction remains |
+| Physical clock, units, event measure and logical-to-raw history comparison | No conversion of repair counts into time or geometric volume; the raw-count obstruction holds |
 | Same-family field action, matter/current, preparation, quantum instruments and detector realization | No common-world or quantum join; the prepared scalar controls are separate from those obligations |
 
 A next constructive step must specify an admissible memory encoding or a

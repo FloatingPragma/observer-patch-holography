@@ -27,7 +27,7 @@ twelve generated phase events are not the eight public instrument contexts,
 and no instrument implementation, public outcome, readback, run binding,
 provenance, custody, cross-context additivity, or physical attachment is
 constructed here.  In particular, PR-03, PR-64's public-readback clause,
-PR-65, and PR-52 remain open.
+PR-65, and PR-52 are open.
 -/
 
 namespace EventAlgebra.SourcePhaseCommonPreparationHull

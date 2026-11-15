@@ -262,7 +262,7 @@ its value on A is ell(DAD). The diagonal sign is an explicit function of
 the native occupation record. Forming this linear count functional does
 not execute a phase gate, prepare rho' on a native quantum working carrier,
 or establish that its full effect algebra is operationally measurable.
-Those attachment obligations remain distinct from positivity, exterior
+Those attachment obligations are distinct from positivity, exterior
 localization and the derived energy bounds. No supplied coherent service
 is used in the construction.
 
@@ -278,7 +278,7 @@ separate results; none is generalized to every quantum or history observer.
 The one-port positive-energy functional supplies a local perturbation of a
 nonvacuum reference with a quantified contrast decay. Approximate localization,
 relational source/controller charges, memory-dependent protection and
-explicit active recovery remain distinct possibilities. Different carriers,
+explicit active recovery are distinct possibilities. Different carriers,
 refining limits and alternative admitted references require their own
 compatible state, record and dynamics maps. No mass scale, calibrated
 dispersion, gauge charge or localized physical particle is established.

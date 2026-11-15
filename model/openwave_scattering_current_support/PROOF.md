@@ -1,6 +1,6 @@
 # Native proton–pion channel support
 
-The declared CAR source already has a nonzero weak output in its complete
+The declared CAR source has a nonzero weak output in its complete
 four-quark/one-antiquark sector. Particle identification needs more than
 that total norm: the output must actually couple to the native composite
 fields. This package computes that projection without a mass-fit vector.
@@ -39,7 +39,7 @@ weight by q. Every normalized full Lambda rest pole therefore obeys
 
     c² a(1-q) <= ||Pi_C W Psi||² <= c² b,
 
-where a,b are the exact rational bounds on M relative to G. This remains a
+where a,b are the exact rational bounds on M relative to G. This is a
 k=0 fibre statement. No normalizable Lambda packet is asserted. The
 normalizable nucleon packet in the separate package does not change that
 domain automatically.
@@ -109,6 +109,6 @@ propagation into disjoint one-cell-separated composite supports on the
 full infinite kinetic carrier. It neither omits those supports from the
 strong interacting space nor claims that the full autonomous strong
 Hamiltonian has this derivative: correlated propagation and every other
-strong term must still be included in the actual scattering calculation.
+strong term must be included in the actual scattering calculation.
 The separated-field projection generally performs work; no zero-work
 claim is made for that readout or for switching the kinetic substep.

@@ -13,7 +13,7 @@ first two sites, or modes `(0,1,2,3)`, with all sixteen regional states.
 No number sector, boundary bond, thermal eigenvalue or detector outcome
 is removed. The action, spatial lattice and inverse temperature are declared simulator parameters. The existing source implements its field
 action, but this package does **not** execute preparation of its full
-plaquette Gibbs reference. That would exceed the smaller, already executed
+plaquette Gibbs reference. That would exceed the smaller, executed
 [two-site Gibbs preparation](../field_thermal/README.md).
 
 ## Exact construction and uniform remainder

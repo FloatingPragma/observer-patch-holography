@@ -74,11 +74,11 @@ cross-checks the exact Lean modules it names (`A5Commutant`, `A5SixAxes`,
 
 | Object | Statement |
 |---|---|
-| **Echosahedral counting and incidence selector (#565, #625, #628)** | On the declared federation-of-twelve-port-echosahedra branch, twelve primitive central atoms of trace `1/12`, an additional integer atom-counting grammar on the total-12 fiber, and the normalized central-readback Hilbert-Schmidt cost give the unique all-one split with exact quadratic gap `2`. The complete #625 diagram classification fixes additive counting up to one positive unit scale, so the half-unit readback is a units rescaling rather than a half-event implementation. The #628 patch machine generates integer event counts, applies register-level conservative repairs, and derives its move-count settling cost from those dynamics. Every move lowers the load-square Lyapunov function by the exact amount `2(d-1)`; the seam quadratic and the A3 Hessian remain separate comparison objects. Oriented edge/face incidence and the refinement lineage independently give the unique graph-distance-three antipode, `Aut+ = A5` by a faithful conjugation action on five Klein-four subgroups, six axes, and the exact rank-three Gram frame `G^2=4G`. |
+| **Echosahedral counting and incidence selector (#565, #625, #628)** | On the declared federation-of-twelve-port-echosahedra branch, twelve primitive central atoms of trace `1/12`, an additional integer atom-counting grammar on the total-12 fiber, and the normalized central-readback Hilbert-Schmidt cost give the unique all-one split with exact quadratic gap `2`. The complete #625 diagram classification fixes additive counting up to one positive unit scale, so the half-unit readback is a units rescaling rather than a half-event implementation. The #628 patch machine generates integer event counts, applies register-level conservative repairs, and derives its move-count settling cost from those dynamics. Every move lowers the load-square Lyapunov function by the exact amount `2(d-1)`; the seam quadratic and the A3 Hessian are separate comparison objects. Oriented edge/face incidence and the refinement lineage independently give the unique graph-distance-three antipode, `Aut+ = A5` by a faithful conjugation action on five Klein-four subgroups, six axes, and the exact rank-three Gram frame `G^2=4G`. |
 | **A1/A2 Lie-type theorem and conditional current witness (#566, #599)** | The twelve-port module is `1+3+3'+5`. A faithful compact commutator-closed response tangent with endogenous proper-`A5` holonomy has centre dimension at most one; its one fixed line excludes the centreless `su(2)^4` branch, so compact classification forces `u(1)+su(2)+su(3)`. The source artifact independently derives `R=-J`, its four sector signs, the oriented frame, and carrier persistence. It does not select a matrix current or reconstruct a bracket. The declared charged-double-triplet fixture realizes the forced Lie type exactly as `u(3)+so(3)`. Its physical source gate is false until ordered current tomography and same-current overlap holonomy are produced. Twenty-four negative controls fail closed. Lean bridge: `Lean/Screen/A2HolonomyBridge.lean`; executable theorem and fixture: `port_current_inner_certificate.py`. |
 | **Source-current tomography Stage 2 bounded inventory (#734)** | A pinned audit of 33 source, runtime, algebraic, refinement, formal, and physical-current packets finds zero objects that jointly provide twelve reversible source-native W12 perturbation families, both mixed composition orders as raw histories, target freedom, and refinement provenance. The icosahedral adjacency-response candidate is four-dimensional and commutative; the logged W12/refinement packet is irreversible and order-erasing; the full-family routed read compiler retains regenerated q=13/q=21 histories with refinement provenance but executes resets and destructive means in every hop and proves its readouts schedule-independent. Facts from those distinct packets are not composited. A canonical content snapshot records the path, byte count, and SHA-256 digest of all 851 included files below the 35 audited directories, including the runtime packages, production receipts, and physical-current packages that join the scope at the audited baseline, so path and byte drift fail closed. The verdict `SOURCE_CURRENT_ORDER_SENSITIVE_OBJECT_NOT_PRESENT` applies only to the enumerated reviewed source scope and authorizes no positive tomography stage or physical-current claim. Producer, independent verifier, mutation gates, and detailed boundary: `source_current_order_sensitive_inventory.py`, `verify_source_current_order_sensitive_inventory.py`, and `source_current_tomography_stage2.md`. |
 | **Conditional super-Tannakian matter lift (#314)** | Given the declared charged-double-triplet current fixture, the finite packet checks the non-split binary-icosahedral lift, the faithful action on `V=C (+) W`, the rank-15 exterior projector `Lambda^2 V + Lambda^4 V`, the Standard Model hypercharge multiset, chirality, anomaly traces, Witten parity, three invariant Yukawa lines, and the common central kernel. The exhaustive 1024-subset scan leaves the unordered conjugate rank-15 pair as the unique nonempty chiral anomaly-free selection inside the declared exterior menu. The finite Spin artifact fixes odd-Weyl typing inside this construction. It does not source-select the current representation, the physical matter action, one conjugate representative, a scalar sector, or a continuum Spin attachment. The conditional algebraic gate passes and the physical matter-source gate fails closed. Twenty typed controls pass. |
-| **Conditional axis-centre descent (#567)** | On the declared matter table, exhaustive central enumeration gives the diagonal common kernel generated by `(omega_3 I_3, -I_2, e^{i pi/3})` and the maximal effective image `(SU(3) x SU(2) x U(1))/Z6`. Local tensors also descend through the cover and the `Z2` and `Z3` quotients, so they do not select a global form. The six-axis calculation has Smith residue six only after diagonal and zero-sum coefficient relations are declared. The exact generator intertwiner and line-polarization calculations are conditional on that relation system. A complete source character category, a same-source loop-to-kernel theorem, source-selected matter, and laboratory attachment remain open. The physical global-form gate fails closed. Lean: `Z6Descent.lean`, `ExteriorSelection.lean`; executable receipt schema v4. |
+| **Conditional axis-centre descent (#567)** | On the declared matter table, exhaustive central enumeration gives the diagonal common kernel generated by `(omega_3 I_3, -I_2, e^{i pi/3})` and the maximal effective image `(SU(3) x SU(2) x U(1))/Z6`. Local tensors also descend through the cover and the `Z2` and `Z3` quotients, so they do not select a global form. The six-axis calculation has Smith residue six only after diagonal and zero-sum coefficient relations are declared. The exact generator intertwiner and line-polarization calculations are conditional on that relation system. A complete source character category, a same-source loop-to-kernel theorem, source-selected matter, and laboratory attachment are open. The physical global-form gate fails closed. Lean: `Z6Descent.lean`, `ExteriorSelection.lean`; executable receipt schema v4. |
 | **Coset carrier from a supplied binary icosahedral source (discussion #769)** | Taking `SL(2, F_5)` as the supplied source, the coset geometry of its central quotient `G` (vertices `G/C5`, faces `G/C3`, edges `G/C2`, incidence by nonempty coset intersection) is classified for all 900 placements of the three cyclic subgroups. All 900 have the same local incidence counts. Exactly 120, the placements admitting generators with `xyz = 1`, close into a coherently oriented triangulated surface and relabel onto the committed `PortFrameGram` adjacency, `CoreAxioms.orientedFaces`, and the sixty `A5PortAction` rows; they form one orbit under the exhaustively enumerated `Aut(G)`. A further 180 share the committed edge graph and face vertex sets and fail the coset edge-face incidence. The result is conditional on the supplied group. Receipt, fifteen typed controls, and tests: `coset_carrier_certificate.py`; theorem note: `coset_carrier_certificate.md`. |
 | **Explicit `SL(2,F5)` / `PORT-SPIN-LIFT` bridge** | Starting from the supplied `SL(2,F5)` source and the independently reconstructed conditional `PORT-SPIN-LIFT`, the bridge derives an orientation-preserving carrier relabelling, matches a presentation triple satisfying `a^2 = b^3 = c^5 = abc = -I`, exhausts the eight lift-sign choices, extends the selected generator map to all 120 elements, verifies all 14,400 products and all 120 quotient-square identities, and fixes `+I -> +I2` and `-I -> -I2`. The companion Lean module `SL2F5PortCover.lean` formalizes the canonical surjective `SL2F5 -> PortGroup` map with kernel equal to the scalar center. This does not invoke McKay/E8, select `φ`, state a mass relation, or source-select the current fixture. |
 | **Exact McKay graph of the certified spin doublet** | From the faithful two-dimensional representation supplied by the bridge above, exact characters over `Q(sqrt(5), i)` recover all nine irreducibles of `SL(2,F5)` (dimensions `1,2,2,3,3,4,4,5,6`, squared sum `120`) from the symmetric powers `Sym^0`..`Sym^7` and one tensor product, with no hard-coded character table, on nine conjugacy classes derived from the source. The fusion matrix `N_ij = <chi_2 chi_i, chi_j>` is a simply-laced tree with `A d = 2 d` and is isomorphic to affine `E8` by a dimension-preserving map; `-I` splits the irreducibles five center-trivial and four spinorial. The `sqrt(5) -> -sqrt(5)` conjugate doublet is again faithful and again gives affine `E8`, so the graph type does not select `φ` over its conjugate. This does not state a mass relation, identify the finite spin action with physical rotations, source-select the current fixture, or formalize McKay or `E8` in Lean. |
@@ -122,7 +122,7 @@ checks one exact charged-double-triplet matrix witness with four signed
 coefficients and an oriented frame. The semantic response artifact derives
 the response involution, sector signs, frame, and persistence maps. It does
 not reconstruct the matrix generators, their bracket, or same-current
-overlap holonomy, so the physical source gate remains false.
+overlap holonomy, so the physical source gate is false.
 
 `super_tannakian_matter_lift_certificate.py` verifies the exact non-split
 SU(2) double cover, the unordered rank-15 pair selected by the exhaustive
@@ -132,7 +132,7 @@ charge pair, scalar and channel compatibility, and the emitted action
 kernel inside declared current, exterior, and scalar fixtures. Source
 selection of the matrix current and physical matter action, scalar
 existence and economy, extra-light-sector completeness, continuum Spin
-attachment, and laboratory matter identification remain open.
+attachment, and laboratory matter identification are open.
 The #567 descent certificate
 (`axis_center_descent_certificate.py`) computes the common kernel on every
 declared tensor and the character/cocharacter arithmetic of its maximal
@@ -140,7 +140,7 @@ effective quotient. The six-axis class group, flux-sector menu, line
 polarization, and refinement checks are exact inside a declared diagonal
 and zero-sum relation system. The carrier does not select those relations
 or identify its order-six loop class with the complete current and matter
-kernel. The physical global-form gate therefore remains false, alongside
+kernel. The physical global-form gate therefore is false, alongside
 the open four-dimensional and laboratory attachments.
 
 `native_defect_stability_gate.py` checks the executable observer against this
@@ -275,14 +275,13 @@ arbitrary OPH carriers must have this type.
   at finite source scope; the remaining receipts are four-dimensional
   instanton sectors with topological action normalization (before any theta
   periodicity statement), monopole dynamics, and laboratory flux
-  measurement (historical issue #569, closed).
+  measurement (issue #569).
 - **EXTERIOR-PACKAGE-SELECTION**: the exhaustive 1024-subset anomaly scan
   proves the unordered conjugate pair is the unique nonempty chiral
   anomaly-free selection at exterior-module scope
   (`Lean/Screen/ExteriorSelection.lean`). The MGFC-grade exclusion of light
   sectors beyond the exterior module (direct sums, inert doublets,
-  vectorlike matter, neutral singlets) is open (historical issue #609,
-  closed).
+  vectorlike matter, neutral singlets) is open (issue #609).
 - **PORT-WEAK-INTERTWINER** and **PORT-LOAD-TRACE**: identify a physical
   four-dimensional screen invariant with the four weak-doublet copies and
   prove that its normalized additive load is the physical `4P` readout.
@@ -444,14 +443,14 @@ proofs on top of that packet. A Lean port of those
 complete finite packets remains available work; the Python receipts are not
 being relabelled as Lean theorems. `Phi`, `Theta`, the trace-balanced group,
 and physical descent retain their separate support boundaries (the
-compact-Lie trichotomy's finite steps are now Lean-checked in `A5OPH.lean`,
-with the former paper steps #604/#605 discharged in `A5SixAxes.lean`,
+compact-Lie trichotomy's finite steps are Lean-checked in `A5OPH.lean`,
+with the paper steps #604/#605 discharged in `A5SixAxes.lean`,
 `A5PortModule.lean`, and `A5CharacterField.lean`, leaving the Lie-theoretic
 classical inputs (compact-simple classification, reductive decomposition,
 exponential surjectivity, torus/cocharacter step) as the declared
 remainder); only the conditional current algebra and the conditional matter
 lift are certified here. Source reconstruction of the current and matter
-actions remains open.
+actions is open.
 
 ## Novelty boundary
 

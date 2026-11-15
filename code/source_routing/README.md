@@ -56,7 +56,7 @@ quadratic decrements), temporary decoding arithmetic, identifiers, hashes
 and machine representation overhead; no bounded
 physical precision, bandwidth or clock is inferred. Repeated old-version
 reads, a full metric-neighbor routing/refinement, population selection and
-count-volume attachment remain separate requirements.
+count-volume attachment are separate requirements.
 
 The analytic observation-map condition number for every path length is
 `g_d = ((1+sqrt(2))^(d+1) + (1-sqrt(2))^(d+1))/2`, with

@@ -206,7 +206,7 @@ readout at time 1/2 gives `F0=9/25`, `ReF=0`, `ImF=9/50`. The eight-label
 selector/contraction Ramsey instrument and four-label direct instrument
 have identical blank Kraus maps and these original scores.
 
-On source input |0>, the old aggregated filter failure state is
+On source input |0>, the aggregated filter failure state is
 `(16/25)|1><1|`, while the compact failure is `(16/25)|0><0|`.
 This explicitly excludes complete failure-channel equality. Exact
 matrix completeness, both Ramsey phases, zero/involution limits and

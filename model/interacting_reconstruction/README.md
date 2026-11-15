@@ -6,7 +6,7 @@ two-read history. It extends the [free-field reconstruction](../observer_reconst
 and uses the existing [canonical scalar regulator](../relativistic_scalar/README.md).
 The interaction, coupling graph and bare coefficients are hidden from the
 estimator. The oscillator/action family, isolation controls, preparations,
-detectors and clock calibration remain supplied.
+detectors and clock calibration are supplied.
 
 This is conditional finite-field identification, not full interacting
 spacetime recovery or an empirical comparison. The inference arithmetic runs
@@ -79,7 +79,7 @@ first-bit-controlled feedback to level 4, continues for another `1/128`, and
 reads again. The disturbed field is retained throughout. Every one of the
 four bit histories is kept, and the native preparation/actuation attachment
 retains all 1,056 joint histories at each cutoff. This is the existing
-classical native attachment, not a new coherent native encoding.
+classical native attachment, not a coherent native encoding.
 
 ## Results
 
@@ -126,8 +126,8 @@ budget at both cutoffs. This rejects that matched finite deletion, not every
 possible Gaussian description, classical simulator or alternative field
 theory. The present occupation budgets are larger than that contrast:
 **this particular discriminator is not certified after occupation removal**.
-The earlier regulator's separate bounded interaction witness retains its own
-scope and is not being replaced by this comparison.
+The parent regulator's separate bounded interaction witness retains its own
+scope.
 
 ## Error and access boundaries
 
@@ -137,7 +137,7 @@ by a cube automorphism moving the hidden read site to the certificate's
 origin, preserving all seven equal spectator cutoffs, preparation, pointer,
 feedback and interval lengths. It compares with eight unrestricted
 oscillators at fixed spatial volume, not an infinite spatial or continuum
-limit. No old retained result is overwritten.
+limit. No retained result is overwritten.
 
 The estimator is granted isolated onsite/pair controls and a trusted
 oscillator basis. Cross-cutoff predictions rely on the same supplied
@@ -151,7 +151,7 @@ the four-level calibration is essential. The probe generator norm caps
 `16` and `2` are declared before inference and independently checked later.
 
 The receipt also propagates a hypothetical simultaneous `1e-7` error per
-calibration probability. It still resolves positive `g`, conditional on
+calibration probability. It resolves positive `g`, conditional on
 exact clock readings. A simple independent-Bernoulli/Hoeffding guarantee
 would require about `4.43e14` shots per law, or `7.80e16` total, for 95%
 simultaneous coverage. **No such sampling was run.** This deliberately
@@ -172,9 +172,9 @@ sampling cost, then maintain identifiable interacting observables over a common
 spatial, occupation and energy refinement domain. Renormalized parameters,
 interacting propagation/Lorentz-error estimates, and a state/clock correspondence
 must be controlled on that same domain. Native selection of the action and
-identification of native and field geometry remain separate unfinished steps.
+identification of native and field geometry are separate open steps.
 Physical spacetime, gravity, the Standard Model, an interacting continuum QFT
-and new agreement with nature are not established by this finite receipt.
+and agreement with nature are not established by this finite receipt.
 
 ## Reproduce
 

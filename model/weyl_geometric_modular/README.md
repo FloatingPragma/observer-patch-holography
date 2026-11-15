@@ -7,7 +7,7 @@ for every round double cone. They belong to the **same eight-valley field,
 vacuum and clock**. This is a matter-sector attachment to the existing Einstein
 theorem, not a derivation of an interacting theory or a dynamical metric.
 
-The new mathematical content includes the explicit source-frame map, the
+The mathematical content of this package includes the explicit source-frame map, the
 identification of the fermionic modular generator with the appropriate Wick
 stress charge, its required spinor correction, and a controlled small-ball
 stress expansion. The modular-group existence and its Cauchy-data generator
@@ -42,7 +42,7 @@ Pair the four negative with the four positive chiralities to obtain four
 independent massless Dirac fields. This is a unitary reorganization of all
 sixteen complex Cauchy components. It neither deletes valleys nor identifies
 four measured species. The vacuum is the tensor/graded-product vacuum fixed
-by the FA82 hierarchy; it is not a newly chosen reference.
+by the FA82 hierarchy; it is not a separately chosen reference.
 
 Use `alpha_j=diag(-sigma_j,sigma_j)`, the off-diagonal identity `beta`, and
 `gamma^0=beta, gamma^j=beta alpha_j`. Then
@@ -353,17 +353,12 @@ deleted valleys, the wrong spinor coefficient, wrong units, and promotions
 of the remaining gravity premises. They certify these finite identities;
 the analytic proof and named imported theorem carry the continuum claims.
 
-The new receipt binds its own proof/code, the precise current FA82 proof
-inputs, and the existing geometry theorem sources. It also reports the
-staleness of the older broad FA82 custody map after maintenance changes.
-`prior_full_source_replay=false` is deliberate. Neither a stale old map nor
-an `all_pass` flag is substituted for the historical mathematical theorem,
+The receipt binds its own proof/code, the precise FA82 proof inputs, and the geometry theorem sources. It also reports whether the broad FA82 custody map matches those sources. `prior_full_source_replay=false` is deliberate. Neither a stale map nor an `all_pass` flag is substituted for the mathematical theorem,
 and no prior receipt or global ledger is edited by this package.
 
 `new_checks_pass` records this package's exact replay. `dependency_custody_pass`
 records whether the current broad FA82 source map matches; `all_pass` is their
-conjunction. A false broad-custody flag remains visible even when the new
-identities pass. The historical checkpoint's 512 source bindings were separately
+conjunction. A false broad-custody flag is visible even when this package's identities pass. The historical checkpoint's 512 source bindings were separately
 checked against their Git objects, with zero mismatches.
 
 Run `python -m pytest -q -W error model/weyl_geometric_modular`, then

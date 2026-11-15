@@ -13,7 +13,7 @@ spectra retain every channel. The ground-projector distance from the five-input 
 so charge profiles require their own seven-input calculation. Native
 weak-current records and complete transfer error bounds are retained; all-Fock count and SU3 fusion bounds test
 the common quadrupole/string scale without dropping coloured occupations.
-The neutral-pion discrepancy is an explicit held-out control.
+The neutral pion is a held-out control.
 
 Run `python -m model.openwave_common_hyperfine_spectrum --write`, then a fresh
 `python -m model.openwave_common_hyperfine_spectrum --check`.

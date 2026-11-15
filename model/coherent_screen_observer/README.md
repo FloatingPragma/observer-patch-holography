@@ -245,7 +245,7 @@ gate. The exact expected scheduled attempt count is
 and the expected phase-gate count is `q pi_1`. These expectations follow
 from geometric waiting and the public mask law; they do not replace the
 worst-branch cap in an arbitrary error-composition theorem. Initial
-logical/reference and product-state preparation costs remain explicit
+logical/reference and product-state preparation costs are explicit
 services. A final measurement, if chosen, contributes its own cost.
 
 The physical pair output has dimension four; the Bell instance has joint

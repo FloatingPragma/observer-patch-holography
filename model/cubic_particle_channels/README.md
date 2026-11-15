@@ -131,14 +131,14 @@ The lowest full-Fock excitation, at source-clock energy
 spatial rotations. The complete gap certificate shows that these three
 visible states exhaust that first eigenspace. It is not a spatial vector
 merely because its hidden spin is one. The first density line at
-`[0.81180294910720,0.81180294910723]` is T1. The first charged line remains
+`[0.81180294910720,0.81180294910723]` is T1. The first charged line is
 `[0.36168271180597,0.36168271180599]`, with G1+G2+H visible channels.
 The machine-readable output retains every line's original energy enclosure,
 weight enclosure, representation and complete-probe trace fractions.
 
 ## Scope, reproducibility and physical identification
 
-All energies remain source-clock gaps of one finite open cube. Cubic
+All energies are source-clock gaps of one finite open cube. Cubic
 rotations supply genuine spatial quantum numbers, but neither boost
 symmetry nor relativistic dispersion, continuum spin, mass calibration,
 gauge charge, a stable asymptotic particle or an empirical species follows.
@@ -149,6 +149,6 @@ dictionary input, not the physical particle identification requirement.
 Run `python -W error -m pytest -q model/cubic_particle_channels`, then
 `python -m model.cubic_particle_channels --write` and `--check`.
 The cold replay recomputes the group, commutants, central projectors and
-classification. FA85/88 supply their already-certified spectral intervals;
+classification. FA85/88 supply their certified spectral intervals;
 their expensive eigensolver witnesses are not silently rerun or replaced.
 Direct source hashes and inherited custody are reported separately.

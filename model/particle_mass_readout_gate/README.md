@@ -150,6 +150,7 @@ unread C repair changes this dimer's centered ground: its exact ground-return
 probability is `33/34` at the retained `t=1/16,U=1`. Consequently this charge
 intertwiner does not transfer the Hamiltonian vacuum to an uncontrolled
 repair schedule or prove a sharp relativistic particle. Finite preparation,
-complete native detector synthesis and the same-history limit are separate requirements.
+complete native detector synthesis and the same-history limit remain
+separate requirements.
 
 Run `python -m model.particle_mass_readout_gate --check model/particle_mass_readout_gate/table.json`.

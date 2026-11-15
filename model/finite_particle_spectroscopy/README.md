@@ -7,7 +7,7 @@ and unresolved family coherence. Its mass confidence sets have ideal
 coverage at least 65/72 on normalized one-excitation inputs. On the full
 source the bad-phase effect is bounded by (7/72) times the one-excitation
 projector; vacuum and many-excitation records remain terminal without a
-mass interval. Source calibration errors and hardware errors remain separate.
+mass interval. Source calibration errors and hardware errors are separate.
 
 An exactly equivalent adaptive implementation uses one reusable quantum
 qubit, five retained classical bits and five sequential source evolutions.

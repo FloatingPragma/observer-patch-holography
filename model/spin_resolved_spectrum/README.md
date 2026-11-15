@@ -18,10 +18,10 @@ The source is unchanged: the open `2x2x2` Weyl/contact cube at `c=1/8,U=1`,
 zero chemical potential, and ground energy `E_G=-sqrt(3)/4`. All arrays use
 the exactly equivalent hidden-spin frame. The actual onsite Fock frame
 transports the result back to the original physical source, including
-intersite spin coherences. The previous [matrix response](../matrix_spectral_response/README.md)
+intersite spin coherences. The [matrix response](../matrix_spectral_response/README.md)
 and [ground theorem](../interacting_vacuum/README.md) supply the authenticated
 78 residues and complete spin-two ground space. Their source bytes are
-checked before the new result is admitted.
+checked before this result is admitted.
 
 ## Separating the two reachable spin sectors
 
@@ -137,8 +137,7 @@ Its four spatial modes generate sixteen spin-`3/2` states. The complete
 Take the normalized full-ground projector `rho_G=P_G/5`. Averaging the
 preceding table gives high coefficient `3/5` and low coefficient `1/2`
 for either spin. Cross-spin entries vanish in the hidden frame by spin
-invariance. With `G_down` the previous highest-ground down-addition
-matrix, the exact averaged addition and retarded responses are
+invariance. With `G_down` the highest-ground down-addition matrix, the exact averaged addition and retarded responses are
 
 ```
 G_add_bar(z) = [G_down(z)+P_plus/(z-lambda)]/2 tensor I_spin,
@@ -179,13 +178,11 @@ only the same-site block stays proportional to the spin identity.
 
 ## What this closes in the particle search
 
-Every positive single-addition energy from any ground choice lies inside
-the previously certified envelope. Ground choice, polarization, linear
+Every positive single-addition energy from any ground choice lies inside the certified envelope. Ground choice, polarization, linear
 probe choice, and conditioning on a nonzero addition outcome cannot
-increase its maximum-to-minimum ratio. Thus the previous exact
-common-positive-scale charged-lepton dictionary rejection applies to
+increase its maximum-to-minimum ratio. Thus the exact common-positive-scale charged-lepton dictionary rejection applies to
 this entire ground family. The invariant mixed reference also shows that
-no previously retained line disappears from the full family readout.
+no retained line disappears from the full family readout.
 
 This conclusion does not turn the finite gaps into relativistic masses,
 exclude nonlinear composite probes or other reference states, or rule out

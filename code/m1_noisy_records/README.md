@@ -51,4 +51,4 @@ Five constant quantum protection levels and logarithmic
 classical words yield joint operational error O(q^-20 log^16 q), with paid
 cofinal controls. Bare terminal bits, unprotected external controllers and
 unknown raw-input encoders do not inherit that bound. The fixed source and
-external circuit clock remain specified capabilities, not A1--A3 deductions.
+external circuit clock are specified capabilities, not A1--A3 deductions.

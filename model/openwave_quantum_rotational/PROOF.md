@@ -35,7 +35,7 @@ cutoff commutes with rotations.
 The field angular momentum is the actual mode Noether generator
 Jf_i=-i epsilon_ijk a_j* a_k. It obeys the exact rotation algebra and makes
 b a vector even at the cutoff. The projected free Maxwell energy, with its
-vacuum constant subtracted, is Hf=Nf. Squaring already-truncated canonical
+vacuum constant subtracted, is Hf=Nf. Squaring truncated canonical
 coordinates instead omits a boundary term. Precisely,
 
     eta² sum pi_i² + sum b_i²/(4 eta²) -3I/2
@@ -230,10 +230,10 @@ the GeV-per-native-energy unit. The cap-one and cap-three records use that
 same unit; none is separately retuned. Energy and current intervals are
 subtracted to bound finite changes between the complete carriers. Every
 field occupation, boundary completion, native block and fermion sector
-remains specified in each construction.
+is specified in each construction.
 
 These comparisons do not prove an infinite-photon, spatial-continuum or
 Lorentzian limit. They supply neither a local longitudinal gauge completion,
 observed electron identity, source-selected fine-structure constant, nor
-muon and tau branches. The declared global charge and empirical unit remain
+muon and tau branches. The declared global charge and empirical unit are
 inputs to the simulation-generated particle interpretation.

@@ -6,7 +6,7 @@ This package executes two finite field services through the existing twelve-port
 * **Compensated U(1) link:** all 491,520 CAR/Gauss columns are checked. Fifteen source-X pulses reproduce the parent's complete 32,768-amplitude Cayley state.
 * **Finite matrix compiler:** exact Pauli decomposition, emitted source words, retained padding and an explicit product-formula error/cost bound. The executable checks the native five-state block in an eight-state memory and a complex state preparation.
 
-The [proof and service ledger](PROOF.md) separates exact identities, rational precision bounds and binary64 diagnostics. Coherent load/export, signed analog port control, memory routing and physical service accuracy remain explicit architecture premises. Real Observer repair alone and the passive classical simulator do not implement this program. A general nonabelian spatial program is not executed here.
+The [proof and service ledger](PROOF.md) separates exact identities, rational precision bounds and binary64 diagnostics. Coherent load/export, signed analog port control, memory routing and physical service accuracy are explicit architecture premises. Real Observer repair alone and the passive classical simulator do not implement this program. A general nonabelian spatial program is not executed here.
 
 The finite-precision replay retains all export failures and feeds the unnormalized success branch to the native pointer. Native reset successes and timeouts retain their tapes and final work; an explicit finite recipe represents the complete record tree.
 

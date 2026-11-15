@@ -49,8 +49,8 @@ including vacuum and double occupation, satisfy the same gauge covariance.
 The contact word and occupation pointer commute with local number phases.
 Consequently every finite split evolution and every complete occupation
 history is gauge covariant, with arbitrary untouched reference factors.
-This uses the existing fermionic routes and source compiler; it does not
-introduce a new source primitive or discard zero outcomes. Link phases
+This uses the existing fermionic routes and source compiler; it introduces
+no additional source primitive and discards no zero outcomes. Link phases
 change the supplied word parameters. The emitted primitive counts, loads,
 exports and fermionic routes are unchanged for the same bond schedule.
 Their floating residual and hardware errors retain the existing separate
@@ -177,7 +177,7 @@ control demonstrates.
 This attaches a concrete interaction-dependent gauge response to the same
 finite pair. Selection of the link field and action, preparation and clock
 calibration, a native localized protection mechanism and a controlled
-physical continuum remain additional obligations.
+physical continuum are additional obligations.
 
 ## Reproduction
 

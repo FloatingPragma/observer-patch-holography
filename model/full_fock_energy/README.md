@@ -1,8 +1,8 @@
 # Energy transport on the complete field algebra
 
-The same [full-Fock Weyl/contact action](../full_fock_field/README.md) now has
+The same [full-Fock Weyl/contact action](../full_fock_field/README.md) has
 local energies, oriented energy currents and a complete native readout energy
-ledger. This closes the finite carrier mismatch between the previous
+ledger. This closes the finite carrier mismatch between the
 [two-particle energy calculation](../field_stress/README.md) and the
 all-number reference and charged-excitation calculations. It supplies no
 physical maintenance-to-rest-energy law or gravitational stress tensor.

@@ -78,7 +78,7 @@ required L2 and spatial L1 norms, so the FA92 packet inequality extends to it
 by operator-norm convergence of A_p. No new infrared estimate is imported.
 
 For the finite cutoff `|px|_infinity<=R`, with `R>=2`, denote the truncated
-operator by `A_(p,R)`. The same cell estimate, now using the weight and
+operator by `A_(p,R)`. The same cell estimate, using the weight and
 `|X|_infinity>=R-1` on omitted cells, gives
 
 ```
@@ -128,8 +128,7 @@ a=m0/8, b=32/m0^2, d=m0/16.
 ```
 
 Then `Cg=28`; the support is positive and contained in
-`(m0/16,64/m0^2)` up to harmless endpoints. Since G is one on the already
-certified band, the actual ground vector satisfies
+`(m0/16,64/m0^2)` up to harmless endpoints. Since G is one on the certified band, the actual ground vector satisfies
 
 ```
 Psi_p=G(K/(Jp)) A_p Omega,
@@ -355,8 +354,7 @@ The receipt includes complementary rejection probabilities and a finite
 quadrature/control plan giving conditional trace error below 1/100, provided
 the finite ground input has trace error at most 10^-8. FA98's terminating
 preparation supplies that finite input accuracy. This is a certified target
-calculation and resource construction; the new large native tape has not
-been executed. These are selected finite-source excitation energies, not
+calculation and resource construction; the large native tape is unexecuted. These are selected finite-source excitation energies, not
 relativistic rest masses or measured particle assignments.
 
 ## Verification and remaining boundary
@@ -367,7 +365,7 @@ The current runtime import closure, original integer witness and named proof
 inputs are bound. Complete historical receipt chains are not falsely claimed
 replayed. Both Boolean/numeric type substitutions and scope changes are rejected.
 
-The new p^4 success and error budgets address observer access to the proved
+The p^4 success and error budgets address observer access to the proved
 packets. They do not supply a computable volume/field-selection rate for the
 particular infinite ordered state, suppress its multiparticle continuum,
 identify FA92's variational packet with a FA100 Stone vector, or derive a

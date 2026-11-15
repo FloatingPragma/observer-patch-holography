@@ -38,7 +38,7 @@ independent CMI and acquired counts when recovery is numerically unavailable.
 The [fixed-point and relaxation results](REPAIR_FIXED_POINTS.md) prevent almost coincident
 repair algebras from manufacturing protected observables and an artificially
 large relaxation gap. Intersections use exact retained input spans; channel
-and gap calculations remain numerical diagnostics. The note derives the
+and gap calculations are numerical diagnostics. The note derives the
 complete decay law of the counterexample and separates permanent records
 from records whose drift stays small over a finite observation time.
 
@@ -156,7 +156,7 @@ precision is refused before taking its logarithm; ordinary Hermitian
 roundoff remains admissible. When cancellation makes `D-Tr(rho-sigma)`
 unreliable, that remainder is evaluated before either term is rounded. For
 `rho=(.5+3*2^-53) I` against `I/2`, subtracting correctly rounded terms had
-understates the remainder by one ninth. The logarithm remains a numerical
+understates the remainder by one ninth. The logarithm is a numerical
 calculation.
 
 Near a subnormal rounding midpoint, two precision levels can agree while
@@ -175,7 +175,7 @@ and qubit characteristic roots. They check variance and both derivatives,
 complex state coherences, opposite signs, changed energy units, exact zeros,
 support boundaries and lost-output refusals. Public MaxEnt and serialized
 finite-entropy-balance consumers exercise the same defects. Existing fixed
-receipt producers remain subject to their numerical tolerances. These numerical
+receipt producers are subject to their numerical tolerances. These numerical
 checks do not promote an experimental or physical claim.
 
 ## One normal form for the finite A3 objective

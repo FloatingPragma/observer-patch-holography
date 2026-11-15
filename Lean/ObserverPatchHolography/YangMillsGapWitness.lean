@@ -4,7 +4,7 @@ import ObserverPatchHolography.YangMillsGap
 # Yang–Mills finite repair-gap: witnesses and a noncommuting countermodel
 
 `thm_7_3_finite_gap` (in `ObserverPatchHolography.YangMillsGap`) is a
-legacy/special **commuting-projection conditional**:
+special **commuting-projection conditional**:
 IF a finite nonempty collar family consists of mutually commuting star projections
 whose non-commutative product is `P₀`, and the relaxation rates are strictly positive,
 THEN the repair generator dominates `c_* · (I − P₀)` with `c_* > 0` (the finite-stage
@@ -91,7 +91,7 @@ theorem whrate : ∀ a ∈ wS, 0 < wRate a := by
   intro b _
   cases b <;> norm_num [wRate]
 
-/-- **NON-VACUITY WITNESS for the legacy commuting Theorem 7.3.** The
+/-- **NON-VACUITY WITNESS for the commuting Theorem 7.3.** The
     finite-repair-gap theorem `thm_7_3_finite_gap` fires on a concrete complete real
     inner-product space: there is a strictly positive `c_*` with
     `c_* · (I − P₀) ≤ L_r^rep`. The premise bundle (nonempty collar family, commuting

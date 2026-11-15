@@ -3,7 +3,7 @@
 This package reproduces finite mathematical controls for the fixed source
 formulation identified in `provenance/fixed_sources.json`. It checks scoped
 attachment and non-entailment cases; the supplied analytic scalar-seam source
-remains an abstract witness under its declared typed interpretation. These
+is an abstract witness under its declared typed interpretation. These
 controls do not determine a physical model, establish an empirical exclusion,
 or replace the analytic proof.
 

@@ -21,7 +21,7 @@ interface without adding a source or laboratory identification.
   kernel.
 
 The finite product, partition, component map, weights, and selection mask
-remain supplied finite data.  No edge object or edge-to-partition map is part
+are supplied finite data.  No edge object or edge-to-partition map is part
 of the interface.  Nothing here selects the data as physical matter,
 constructs a source-produced instrument, derives the action by conjugation on
 an ambient module, or identifies the character action with a laboratory gauge

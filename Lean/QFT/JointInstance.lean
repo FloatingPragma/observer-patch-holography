@@ -52,7 +52,7 @@ The instance certifies finite joint inhabitation only: one explicit
 tower carries all listed interfaces at once.  Source production of the
 tower data, CP or CPTP structure for the declared maps, adaptive
 measurement scheduling, C2 realization, and every continuum statement
-remain open E2 scope.  No uniqueness, canonicity, or physical
+are open E2 scope.  No uniqueness, canonicity, or physical
 attachment is claimed for any component.
 -/
 

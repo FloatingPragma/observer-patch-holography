@@ -54,7 +54,7 @@ forward-step connectivity premise of the existing theorem.
 The actual finite native-profile curvature from `openwave_source_ward`
 supplies four exact reconstruction examples, including a boundary halo.
 These are conditional finite metric records. Their source-to-physical-metric
-assignment, physical stress identification and continuum errors remain open.
+assignment, physical stress identification and continuum errors are open.
 Null records alone never determine c: any constant multiple of eta has
-zero null-null charges. A vacuum/trace input is still required to determine
+zero null-null charges. A vacuum/trace input is required to determine
 the cosmological term.

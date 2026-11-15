@@ -1,6 +1,6 @@
 # Elementary-observer federations and their observable limits
 
-The elementary observer remains twelve-port. This construction reuses the
+The elementary observer is twelve-port. This construction reuses the
 retained screen federation: 20, 80 and 320 identical elementary carriers,
 with their original thirty internal seams and the existing `port_pair`
 connections between neighbouring screen cells. It executes the native
@@ -38,7 +38,7 @@ The [correlation computation](correlations.py) predicts the records of
 detectors that sum their incident signed currents. It retains the supplied
 uniform fixed-number preparation and the declared attempt windows. These
 increment reads require no access to an initial hidden occupation. Absolute
-occupation reads still require an initial local preparation record.
+occupation reads require an initial local preparation record.
 
 The [refinement calculation](REFINEMENT.md) checks actual parent/child
 screen maps, static restrictions and dynamical defects. The derived
@@ -110,9 +110,9 @@ specified detector protocol, not a comparison with laboratory data.
 The refinement and scaling notes identify their further theorem mappings.
 Exact integer identities, analytic bounds, numerical diagnostics and the
 existing formally checked special cases are labelled separately. This packet
-adds no new Lean theorem and preserves the old receipts.
+adds no Lean theorem and does not rewrite the parent receipts.
 
-## What a spacetime description must still reproduce
+## What a spacetime description must reproduce
 
 A literal infinite screen need not be a physical constituent of OPH. A
 sequence of federations can be a mathematical approximation tool. On one
@@ -133,8 +133,8 @@ The next constructive test is to find a jointly compatible observable
 sector and state whose *own* correlation and intervention laws satisfy the
 existing relativistic reconstruction hypotheses. Changing a mode's
 frequency by hand, or renaming the attempt counter as modular time, would
-not supply that connection. Observer-relative modular time remains the
+not supply that connection. Observer-relative modular time is the
 intended type of description; no preferred universal clock is required.
 
-These are model predictions, not new empirical matches. The retained
+These are model predictions, not empirical matches. The retained
 anharmonic comparison is unchanged.

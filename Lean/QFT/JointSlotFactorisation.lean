@@ -31,9 +31,9 @@ E1 scientific boundary:
   certificate), preserves positive semidefiniteness and the trace,
   fixes the right slot pointwise, scalarises the left slot, and is
   idempotent.  This is the trace- and positivity-preserving restriction
-  map that replaces the impossible scalar-character restriction
+  map used in place of the impossible scalar-character restriction
   interface; its packaging through the committed `CMat`-typed CPTP
-  predicate is left to the net-integration step.
+  predicate is not part of this module.
 
 Step-census receipts mirror the payload literals for the designated
 pair: of the 31 counted joint steps, 4 change only the left label, 4

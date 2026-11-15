@@ -20,7 +20,7 @@ is the declared equal-phase preparation at event zero; its four active
 probabilities are1/2,1/4,0,1/4.
 
 Let v₀,v₁ be the environment amplitudes of the two native clock branches,
-with the external1/sqrt(2) already accounted for. In active order
+with the external1/sqrt(2) included. In active order
 X+,Y+,X−,Y−, the conditional-field probabilities at every environment
 coordinate are
 
@@ -128,7 +128,7 @@ arrival/sign frequencies within eta has failure probability at most
 
 Because the original field mixture contributes a factor1/2,
 Z=4[(q_X+−q_X−)+i(q_Y+−q_Y−)]. Thus frequency errors bounded by eta imply
-an overlap-disk radius at most12eta. The enlarged phase enclosure still has
+an overlap-disk radius at most12eta. The enlarged phase enclosure has a
 strictly positive lower endpoint. This proves a finite statistical
 separation for the declared preparation and setting service. The large
 repetition experiment is not executed; it is an analytic resource bound.

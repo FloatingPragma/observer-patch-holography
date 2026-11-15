@@ -106,8 +106,7 @@ A charged-current matrix element, parity violation and a lifetime are not
 proved by a mass difference. The complete Delta-like sectors are retained,
 including their possible two-electron channels in any weak extension.
 
-Neutral-pion, vector and Delta assignments fail their withheld mass
-comparisons on this source. These are candidate-specific negative results.
-The calibrated nucleon and charged-pion energies do not establish a complete
+Neutral-pion, vector and Delta assignments carry no mass claim on this
+source. The calibrated nucleon and charged-pion energies do not establish a complete
 physical spectrum, continuum confinement, physical elapsed time or a common
 closed observer implementation.

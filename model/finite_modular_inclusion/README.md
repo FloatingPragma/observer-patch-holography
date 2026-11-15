@@ -107,7 +107,7 @@ The checker verifies the inherited certificate's source hashes, independently
 recomputes this logarithm bound from its rational complete-output error and
 the polynomial design theorem, and retains the exact rational value of `d`.
 It does not repeat the 65,535-node native control proof; that proof and its
-replay command remain with the bound source certificate.
+replay command belong to the bound source certificate.
 
 Duhamel's identity for two self-adjoint generators gives
 

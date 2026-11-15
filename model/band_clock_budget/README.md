@@ -29,7 +29,7 @@ ideal-word bound.
 The original ceiling at `|s|=1` is approximately `0.03856403003`. The improved
 estimate is approximately `0.03799047087` with 21 steps, while 20 steps give
 `0.03880144725`. Thus 21 is the smallest positive integer certified by this
-particular bound under the previous uniform ceiling. This is not optimality
+particular bound under the original uniform ceiling. This is not optimality
 over all source programs, other splitting formulas, or tighter estimates.
 `minimum_steps` uses exact rational arithmetic and integer square roots;
 it can also exploit a smaller declared `|s|`. It does not fit output data.
@@ -37,8 +37,8 @@ it can also exploit a smaller declared `|s|`. It does not fit output data.
 At `|s|=1`, the complete evolution and the two pointer services require
 17,219,334 supplied pulses instead of 26,238,982, saving 9,019,648 pulses
 (about 34.4 percent). Routing and every proper-code load/export operation
-remain counted. Preparation of the band packet and global Gibbs reference,
-and the retained native record acquisition, remain separate supplied costs.
+are counted. Preparation of the band packet and global Gibbs reference,
+and the retained native record acquisition, are separate supplied costs.
 No pulse count is interpreted as energy or physical time.
 
 The implementation calls the same full-field source evolution with the

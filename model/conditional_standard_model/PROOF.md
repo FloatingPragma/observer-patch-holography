@@ -248,7 +248,7 @@ Color is unbroken because H is a color singlet. With canonical real
 radial coordinate `H=(0,(vSM+h)/sqrt2)`, the scalar Hessian gives
 `mH^2=2 lambda vSM^2`. The three zero scalar Hessian directions are
 gauge-orbit directions, not three additional physical massless scalars.
-The generator-dependent gauge couplings and Yukawas remain supplied.
+The generator-dependent gauge couplings and Yukawas are supplied.
 
 This resolves the normalization difference between the finite Lean
 shell radius, the executable neutral Higgs norm and the conventional

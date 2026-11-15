@@ -291,7 +291,7 @@ classical--quantum states
 \]
 Their block relative entropy is exactly
 \(D(\Omega_{CQ}\|\tau_{CQ})=\sum_rp_rD(U_r\rho U_r^\dagger\|\rho)\).
-The already source-derived local-phase mean satisfies
+The source-derived local-phase mean satisfies
 \(0<m_*\le\sum_rp_rW(U_r)\le M_*\), where
 \(m_*=(16/9)h_*>0.06149\) and \(M_*=14175/32\). Equations (16)--(17)
 therefore supply the capacity-uniform finite response

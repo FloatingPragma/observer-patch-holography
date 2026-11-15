@@ -91,20 +91,18 @@ changes the caller's ordinary or interval mpmath context. These numerical
 enclosures rely on mpmath's directed arithmetic; they are not additional Lean
 proofs or a certification of the physical source model.
 
-The retained original-input controls reproduce failures on main commit
-`0660c945`: both old paths erased second-order production at tick `10^-40`,
-including an ordinary total of `1.5625` after multiplicity weighting. The
-fourth-order producer reported a value about `2.56e23` times too large at
-tick `10^-20`, while the checker reported zero. Near a step-32 revival both
-were wrong by many orders of magnitude. The checker also accepted an exact
-tick just above the certified upper boundary. Exact rational second-order
-controls and independent elementary-gate covariance evolution cover these
+The retained original-input controls cover failure modes of uncompensated
+floating paths: erased second-order production at tick `10^-40`,
+including an ordinary total of `1.5625` after multiplicity weighting; a
+fourth-order value about `2.56e23` times too large at tick `10^-20` against a
+zero check; errors of many orders of magnitude near a step-32 revival; and
+acceptance of an exact tick just above the certified upper boundary. Exact
+rational second-order controls and independent elementary-gate covariance evolution cover these
 cases, both orders, compensated units, mixed spectra and the retained catalog.
-Canonical regeneration preserves the complete existing numerical evidence
-and parent-claim hashes exactly; only source pins change. The four registered
-vacuum, sparse-tick, polynomial-obstruction and signal-clock claims retain
-their stated mathematical scope. No frozen acquisition, paper theorem,
-physical classification or claim-registry payload changes.
+Canonical regeneration reproduces the numerical evidence and parent-claim
+hashes exactly. The four registered vacuum, sparse-tick,
+polynomial-obstruction and signal-clock claims retain their stated
+mathematical scope.
 
 The supplemental binary64 spatial covariance check uses relative
 tolerance 0.002 and absolute tolerance 1e-24 for the very small produced

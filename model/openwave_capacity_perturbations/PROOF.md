@@ -95,4 +95,4 @@ It uses the parent's density amplitudes and horizon choice, with no extra
 empirical fit. It does not derive a scalar particle from native observers,
 prove its transfer from the finite capacity register, establish a quantum
 ultraviolet completion, or validate a CMB/structure likelihood. Those source
-and physical identifications remain explicit completion requirements.
+and physical identifications are explicit completion requirements.

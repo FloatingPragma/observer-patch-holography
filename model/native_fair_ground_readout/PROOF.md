@@ -239,7 +239,7 @@ additional r|q/V-p|. Since all blocks in (8) are orthogonal,
 The limiting states are compatible under all finite-region restrictions.
 They equal the uniform phase average of product spin-coherent states with
 occupation p. Thus the state refinement is explicit and independent of
-any guessed third spatial coordinate. Both p and the global sector remain
+any guessed third spatial coordinate. Both p and the global sector are
 declared source choices; passive repair conserves q and does not select p.
 Limits p=0 or 1 are allowed but can make the accessible number-preserving
 ground response trivial.

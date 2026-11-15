@@ -3,22 +3,21 @@
 The positive spectral measure of the original interacting ground admits a
 complete, positive, finite-resolution energy measurement. Finite Fourier
 samples determine all its outcome probabilities. The source calculation
-below evaluates this measurement on the **actual previously certified
-78-line cube measure**, retaining every outcome. It does not replace the
+below evaluates this measurement on the **actual certified 78-line cube measure**, retaining every outcome. It does not replace the
 measure by fitted poles, label filter centers as masses, or infer the
 infinite-ground numerical spectrum from the cube.
 
 For the selected infinite ground, the same construction has weak spectral
 convergence and strong convergence of its **compressed resolvents** at
 fixed spacing. Exact sum rules give numerical energy-tail bounds. A
-finite-to-infinite numerical comparison still requires the ground-state
+finite-to-infinite numerical comparison requires the ground-state
 discrepancy that the existing compactness construction does not compute.
 The code leaves that term unknown unless explicitly supplied as a
 conditional premise.
 
 ## Positive spectral measure and exact sum rules
 
-Use the already proved isometry `V`, signed doubled generator
+Use the proved isometry `V`, signed doubled generator
 `L=L_omega directsum -conjugate(L_omega)`, and contact map `J` from
 [the spatial response theorem](../retarded_spatial_locality/README.md).
 For a unit vector `f` in the one-particle lattice space define
@@ -201,7 +200,7 @@ alias term here because all its energy is below `1.85<3-Delta`.
 Negative reported centers are finite-filter leakage from this positive
 source; the bin centered at zero does not prove a zero-energy particle.
 
-The already executed complete native Ramsey experiment at time one
+The executed complete native Ramsey experiment at time one
 agrees with the first harmonic used here, within its retained error.
 Higher harmonics through times `7,15,63` are source calculations in this
 packet. There are no new native long-time executions or finite-shot
@@ -220,7 +219,7 @@ probabilities. The bound capped by one applies to two actual probability
 laws, or to a scalar event estimate after clipping it to `[0,1]` using
 `clip_event_estimate`. Clipping cannot increase its error from the true
 event probability. The code does not assert that a raw noisy Fourier sum
-is already a probability law, or normalize away any native failure outcome.
+is a probability law, or normalize away any native failure outcome.
 The complement bound uses the exact Fourier identity that all raw bins
 sum to one before this scalar clipping.
 

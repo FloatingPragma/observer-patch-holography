@@ -108,7 +108,7 @@ CPT theorem's hypotheses and its action on the chosen fields. If that
 derivation supplies (2), the obstruction applies. The existing finite
 propagation cone, positive energy, and canonical CAR by themselves are
 not asserted to supply that derivation. Nonlinear/dressed fields or a
-different ground need a new calculation of their spectral moments.
+different ground need their own calculation of spectral moments.
 
 ## A bounded observable detects the asymmetry
 
@@ -140,7 +140,7 @@ Every reflection-symmetric law gives zero for this odd observable.
 The same witness reproduces (3), with the stated TV convention.
 The bounded Lipschitz spectral readout estimates from `spectral_readout`
 apply to `f_R`; actual native realization and ground-state error bounds
-are still needed before claiming measured infinite-volume values.
+are needed before claiming measured infinite-volume values.
 
 For `phi_l=(pi l^2)^(-3/4) exp(-|x|^2/(2l^2))`,
 `||gradient phi_l||^2=3/(2l^2)`. At `v=1/8,U0=1` the exact bounds are:
@@ -176,16 +176,16 @@ kappa=U0/2.                                                    (5)
 
 This is only a necessary condition. A constant added to the Hamiltonian
 would cancel from excitation energies and cannot perform (5). A charge
-subtraction changes the charged dynamics. Moreover, positivity of the
-new generator requires the joint energy/charge support to satisfy
+subtraction changes the charged dynamics. Positivity of the
+shifted generator requires the joint energy/charge support to satisfy
 `E-kappa q>=0` for **every** excitation; original positivity `E>=0`
-does not imply this. The old ground may cease to be a ground, and the
+does not imply this. The original ground may cease to be a ground, and the
 shifted law need not become symmetric or Lorentz covariant.
 
 An exact full-Fock counterexample uses two empty fermion modes with
 `H=n0+3 n1`, its empty ground, and `kappa=2`. Its averaged signed response
 is `(delta_1+delta_3)/2`, with first moment two. After centering it is
-`(delta_-1+delta_1)/2`, but the original empty vector is no longer a
+`(delta_-1+delta_1)/2`, but the original empty vector is not a
 ground: `H-2N` has eigenvalues `0,-1,1,0`. This excludes inferring ground
 positivity even when centering happens to make the response symmetric.
 
@@ -196,7 +196,7 @@ derived Lorentz-invariant mass and is not removed in any source receipt.
 
 ## Free and massive controls
 
-For `U(a)->0`, the already proved full-CAR limit is free, with
+For `U(a)->0`, the proved full-CAR limit is free, with
 `h_b(p)=-v sum_j (-1)^b_j sigma_j p_j`. Its signed spectral matrix is
 
 ```

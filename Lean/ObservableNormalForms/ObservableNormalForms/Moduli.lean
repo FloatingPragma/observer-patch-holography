@@ -3,8 +3,8 @@ import ObservableNormalForms.Stability
 /-!
 # Intrinsic finite stability moduli
 
-This module replaces the *assumed* certificates of `Stability.lean`
-(`ErrorBoundWitness`, `InverseObservationBound`) with *defined* finite
+This module defines the certificates that `Stability.lean` assumes
+(`ErrorBoundWitness`, `InverseObservationBound`) as finite
 maxima on a finite metric state space, and proves the manuscript's
 `prop:minimal-moduli`, `cor:rate-transfer`, and `thm:sharpness`
 (`extra/observable_normal_forms.tex`, Section "Observational stability

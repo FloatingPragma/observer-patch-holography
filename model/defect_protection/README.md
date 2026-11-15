@@ -3,7 +3,7 @@
 This construction joins the [native exchange topology](../exchange_sector/STATISTICS.md)
 to the complete C/E repair instrument and an explicit one-bit memory law. It
 obtains a nonconstant protected **quantum** charge on the enlarged system.
-The charge has not yet been embedded in a spatially localized source defect.
+The charge is not embedded here in a spatially localized source defect.
 
 The source is the existing binary total-two carrier, with 66 unordered pairs
 of distinct native ports. Its ordered double cover has 132 states. A bit `r`
@@ -49,7 +49,7 @@ exactly `M66 tensor span{I,X}`, or `M66 direct_sum M66`, of complex dimension
 the channel is bistochastic on all 132 states. The usual finite
 Hilbert-Schmidt sum-of-squared-commutators identity then identifies its
 Heisenberg fixed space with this commutant. These are discrete constructive
-certificates, not numerical rank estimates or new Lean proofs.
+certificates, not numerical rank estimates or Lean proofs.
 
 In contrast, the classical 132-state ordered-cover transition graph is
 connected. It has no nonconstant classical configuration invariant. The
@@ -103,7 +103,7 @@ either memory character with one Y pulse and reads it after complete C/E
 continuation with one Y pulse and both computational outcomes. Each attempt
 adds three C tape bits or four E tape bits; the protected orientation bit is
 one persistent bit, not a hidden growing history. Physical initialization,
-storage-error and energy costs remain uncalibrated.
+storage-error and energy costs are uncalibrated.
 
 ```
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.defect_protection --check

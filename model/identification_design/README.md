@@ -69,10 +69,10 @@ occupation is accessed. The global-energy gauge is relative to this
 unconditionally evolved preparation/read interface; coherent control over
 an entire evolution versus a bypass would be a different interface.
 
-The previous packet's actual probes are not replaced or claimed to have this
+The parent packet's actual probes are not replaced or claimed to have this
 rank. Rather, even the stronger hypothetical complete access to its entire
 four-level code cannot see the compressed `c4,c5` terms: both operators are
-exactly zero there. The new probes identify a concrete way out of that
+exactly zero there. The probes here identify a concrete way out of that
 obstruction. A local noncommuting `N+Q^4/24` background also passes the
 derivative identity in an independent commutator check. That check executes
 no complete coupled field and supplies no long-time error guarantee.
@@ -102,7 +102,7 @@ runtime, or a source-derived observer clock. The complete computation is:
 
 The compiler builds these pulses from the existing twelve-port source
 controls and coherent proper-code load/export services. Its blank register,
-analogue control angles and final computational read remain supplied
+analogue control angles and final computational read are supplied
 apparatus. The receipt binds the actual word hashes, source inputs, resource
 counts, and full-phase evolution residuals. The latter are floating numerical
 checks, not outward arithmetic certificates.
@@ -176,14 +176,14 @@ Coupled-field identification requires applying the coherent local preparations
 and phase reads while the full supplied field evolves, and compare candidate
 laws at times with controlled bias and sampling cost. The 19-trial guarantee
 above belongs only to the displayed commuting component pair. It cannot be
-transferred to the noncommuting field without its new predicted laws and
+transferred to the noncommuting field without its own predicted laws and
 error budget.
 
 This makes the action-selection obligation testable; it does not resolve it
-from A1--A3. A source-derived result still needs a source/interface condition
+from A1--A3. A source-derived result needs a source/interface condition
 that excludes an alternative, with a counterexample when that condition is
 removed. The [native source-selection tests](../SOURCE_SELECTION.md) are the
 appropriate lane for that attachment. The planar cube realization
-also remains a valid metric negative control: the energy probes do not
+is also a valid metric negative control: the energy probes do not
 derive three spatial dimensions or identify the physical meaning of graph
 distance. The counterexample and detector laws have distinct scopes.

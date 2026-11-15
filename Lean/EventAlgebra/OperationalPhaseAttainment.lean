@@ -27,9 +27,9 @@ effect/readback compatibility theorem.
   Nothing here derives that effect from source data.
 * PR-02 (committed): the record-diagonal state of the committed run
   literals `(111, 68)` is read on the committed algebra-state surface.
-* PR-03 remains the separate cross-context valuation-additivity premise.
+* PR-03 is the separate cross-context valuation-additivity premise.
   Per-context binary POVM completeness does not supply it.
-* PR-64 and PR-65 remain open for an operational instrument realization
+* PR-64 and PR-65 are open for an operational instrument realization
   and source-produced preparation/readback provenance, respectively.
 
 **Count semantics.**  The count literals are a deterministic semantic
@@ -71,9 +71,9 @@ open.  The synthetic-inhabitant boundary of the base module is
 unchanged: the type system cannot distinguish this inhabitant from a
 synthetic one, and the declared-effect decision lives outside the type
 system.
-Register row PR-04 is consumed, never discharged: the row remains on the
+Register row PR-04 is consumed, never discharged: the row is on the
 register under its axiomatize disposition.  Operational realization and
-source provenance remain open under PR-64 and PR-65.
+source provenance are open under PR-64 and PR-65.
 -/
 
 open Matrix
@@ -132,7 +132,7 @@ theorem produced_born_phase :
     producedPhaseCounts, Matrix.trace, Matrix.diag, Matrix.mul_apply,
     Fin.sum_univ_two]
 
-/-! ## The static fit inhabitant (legacy `attained` names) -/
+/-! ## The static fit inhabitant (declarations named `attained`) -/
 
 /-- The fit-data package of the recorded decision: the declared diagonal
 state, the rotated and phase count literals, and exact Born-fit equations.
@@ -293,7 +293,7 @@ def recordedDecisionBundle : PhaseEffectDecisionBundle where
   prep := committedRunState
   prep_eq_run_state := rfl
 
-/-- **The composed static conformance theorem (legacy OL-C5 name).**  From the
+/-- **The composed static conformance theorem (OL-C5 name).**  From the
 one antecedent bundle of the recorded decision, the conjunction:
 
 1. the static inhabitant lives over the committed algebraic core;
@@ -308,7 +308,7 @@ one antecedent bundle of the recorded decision, the conjunction:
 8. the phase counts are `(179, 179)` and satisfy the committed integer
    receipt window.
 
-Boundary: this legacy-named receipt certifies static algebraic conformance
+Boundary: this receipt certifies static algebraic conformance
 only.  It does not certify an operational instrument, generation semantics,
 receipt custody, or laboratory validation. -/
 theorem operationalPhaseAttainment_receipt (D : PhaseEffectDecisionBundle) :

@@ -6,7 +6,7 @@ joint tests determine its effects and Lüders state update; approximate tests
 give an explicit bound valid with arbitrary untouched references and adaptive
 continuations. The construction replaces an all-state invariance requirement
 by a finite calibration contract. Quantum probability semantics and trusted
-preparation/readback remain assumptions.
+preparation/readback are assumptions.
 
 [Proof and error bound](PROOF.md) · [Exact controls](results.json)
 

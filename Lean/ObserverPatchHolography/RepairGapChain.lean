@@ -18,17 +18,17 @@
       Discharging them is the genuine open frontier (constructive QFT); this file does not
       touch it and does not claim to.
     * The finite gap is a HYPOTHESIS here (`Lrep_gap`), not an unconditional
-      result of this file.  In the current paper it is intended to be supplied
+      result of this file.  In the paper it is intended to be supplied
       by the noncommuting Dobrushin/approximate-tensorisation theorem.  The
       sibling Mathlib modules (`YangMillsLemma72`, `YangMillsProp81`,
-      `YangMillsGap`) instead prove a legacy/special pairwise-commuting branch.
+      `YangMillsGap`) instead prove a special pairwise-commuting branch.
     * `spec_eq` is likewise a HYPOTHESIS.  This file proves neither continuum
       convergence nor compatibility between any finite-gap theorem and that
       spectral identification.
-    * Consequently the legacy commuting theorem cannot be inserted into the
-      current continuum receipt automatically.  A separate source proof of
+    * Consequently the commuting theorem cannot be inserted into the
+      continuum receipt automatically.  A separate source proof of
       commutation and certificate compatibility would be required, and would
-      define a different conditional branch from the current Dobrushin one.
+      define a different conditional branch from the Dobrushin one.
 
   What this file buys: a machine check of the elementary implication from the
   explicitly bundled hypotheses.  It does not machine-check that the current
@@ -69,9 +69,9 @@ def GapAtLeast (O : Op α) (c : α) : Prop := ∀ x, O.nonzeroSpec x → le c x
 structure Certificate (H Lrep : Op α) (c_star zero : α) : Prop where
   /-- Lemma 7.4 (uniform active-collar rate floor): the repair rate is strictly positive. -/
   c_star_pos : lt zero c_star
-  /-- Assumed repair-generator gap `Δ_rep ≥ c_*`.  On the current paper's
+  /-- Assumed repair-generator gap `Δ_rep ≥ c_*`.  On the paper's
       branch this is intended to come from the noncommuting Dobrushin argument;
-      this field does not prove that theorem or transport any legacy
+      this field does not prove that theorem or transport any
       commuting-projection result to the continuum. -/
   Lrep_gap : GapAtLeast Lrep c_star
   /-- Assumed exact spectral accounting: `H` and `Lrep` share their nonzero

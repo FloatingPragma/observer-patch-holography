@@ -1,7 +1,6 @@
 # Full resolution on the protected eight-line support
 
-This successor performs the previously prospective sixteen-setting spectral
-experiment by **certified accelerated emulation**. Counts at times0,39,...,273
+This package performs the sixteen-setting spectral experiment by **certified accelerated emulation**. Counts at times0,39,...,273
 and pointer phases0,pi/2 recover all eight weights on the source-specified
 support. Every inferred interval is strictly positive and contains its
 independent exact source residue. The calculation does not infer arbitrary

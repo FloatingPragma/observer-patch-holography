@@ -55,11 +55,11 @@ def currentFirstLabelledEvent : PhaseEvent := sourcePairOrder[0]
 def currentFirstLabelledGeneratedEffect : Matrix (Fin 2) (Fin 2) ℂ :=
   generatedEffect currentFirstLabelledEvent
 
-/-- Legacy compatibility alias. No source theorem forces this label
+/-- Alias with a `sourceSelected` name. No source theorem forces this label
 or its `+Y` orientation. -/
 abbrev sourceSelectedEvent : PhaseEvent := currentFirstLabelledEvent
 
-/-- Legacy compatibility alias. Prefer
+/-- Alias with a `sourceSelected` name. Prefer
 `currentFirstLabelledGeneratedEffect`. -/
 abbrev sourceSelectedGeneratedEffect : Matrix (Fin 2) (Fin 2) ℂ :=
   currentFirstLabelledGeneratedEffect

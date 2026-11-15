@@ -54,7 +54,7 @@ source pulses** and **20,498 load/export service events**, eight initialized
 work bits and four retained purifier bits. The explicit model-time `1/16`,
 four-step field continuation plus number pointer requests another **1,411
 pulses**, **2,822 service events**, and one initialized pointer. Initial
-blanks and physical preparation/storage costs remain declared resources;
+blanks and physical preparation/storage costs are declared resources;
 they are not assigned calibrated energy or duration here.
 
 All three bond directions are tested against independent Jordan--Wigner
@@ -94,9 +94,9 @@ automatically compile those maps or make them local retractions.
 
 ## Entropy and energy on that same field
 
-The finite Gibbs identity, already used in the
-[same-action entropy analysis](../field_stress/README.md), now has an
-executed bounded full-Fock preparation. For every normalized field density
+The finite Gibbs identity of the
+[same-action entropy analysis](../field_stress/README.md) has an
+executed bounded full-Fock preparation here. For every normalized field density
 `sigma` on this complete algebra,
 
 ```
@@ -119,7 +119,7 @@ bounded by that denominator's inverse times `||tau-rho||_HS^2`. Integrating
 twice gives the factor `1/2`. The noncommuting contact-pair control tests
 this identity and its remainder on the actual interacting action. The
 related Lean Gibbs ledger identities have their declared finite-energy
-domain; this quantum matrix execution is not a new kernel-checked theorem.
+domain; this quantum matrix execution is not a kernel-checked theorem.
 
 Finite Gibbs free-energy stationarity is not fixed-proper-volume
 generalized-entropy stationarity, an area law, a Newton normalization, or

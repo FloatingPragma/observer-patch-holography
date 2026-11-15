@@ -95,7 +95,7 @@ multipliers meet the premises of the existing
 [bond-reflection Gram identity](../../Lean/SourceLaw/ReflectionPositivity.lean),
 with mode covariance `c0=5/33` and `r` an eigenvalue of `A` on the mean-free
 sector. The supplied time-register action in that file is not silently
-identified with this newly derived precision.
+identified with this derived precision.
 
 ## What the observer executes and predicts
 

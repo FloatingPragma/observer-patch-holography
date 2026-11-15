@@ -33,7 +33,7 @@ refinement/cofinal convergence theorem, and no topological, smooth-manifold,
 or continuum-spacetime limit.  The exact finite order/cone embedding is
 conditional on supplied spatial coordinates, an authenticated-edge speed
 bound, and an explicit cone-support converse.  Event-frame transports and
-any nontrivial multi-chart atlas remain supplied data.
+any nontrivial multi-chart atlas are supplied data.
 -/
 
 namespace OPH
@@ -93,7 +93,7 @@ structure SourceOrderFrameCompatibilityPacket
   standardToEventFrame : Event → OrientedLorentzEquiv
 
 /-- An order-faithful canonical-height/positive-scale/spatial placement constructs
-the active source chart packet directly, without the legacy rich-region
+the active source chart packet directly, without a rich-region
 population map or a separately declared precedence relation. -/
 noncomputable def SourceOrderFrameCompatibilityPacket.ofFaithfulPlacement
     {Register : Type u} {Value : Type v} {Event : Type w}

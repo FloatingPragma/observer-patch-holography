@@ -61,7 +61,7 @@ theorem port_orbit_metric_relation
 
 /-- On the port-sector attachment, substituting the selected metric relation
 into the frozen coefficient packet gives exact `P`- and `ell`-dependent
-coefficients.  The result remains conditional on the metric attachment and on
+coefficients.  The result is conditional on the metric attachment and on
 the primitive-port branch. -/
 theorem port_orbit_frozen_coefficient_consequences
     (a cellArea P ell : ℝ)
@@ -128,7 +128,7 @@ theorem incidence_orbit_metric_coefficients_pairwise_distinct :
     norm_num at h
 
 /-- On the port-sector attachment, the dimensionless hop ratio is fixed by
-the positive square root.  This remains conditional on the attachment. -/
+the positive square root.  This is conditional on the attachment. -/
 theorem port_orbit_hop_ratio
     (a cellArea P ell : ℝ)
     (h : EqualOrbitShellAttachment 12 a cellArea)

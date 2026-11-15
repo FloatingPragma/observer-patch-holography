@@ -10,7 +10,7 @@ connected support has one completing word which the guard accepts from
 every protected checkpoint whose record determines the current receiver
 scalar. Initial sampling and the retained updates maintain this hypothesis.
 Other proposals, including rejected ones,
-remain part of an attempt history. A proposal probability law is separate.
+are part of an attempt history. A proposal probability law is separate.
 -/
 
 set_option autoImplicit false

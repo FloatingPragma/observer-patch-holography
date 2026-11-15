@@ -4,7 +4,7 @@ The parent [source map](../standard_model_source_map/PROOF.md) verifies the
 fifteen internal matter weights, their full-Fock current attachment, finite
 gauge identities and the complete logical Koide generator. This package
 extends that configured coherent branch. The four stationary-feedback
-actions remain separate models; all four fail their direct Koide test.
+actions are separate models; all four fail their direct Koide test.
 
 The current construction and its physical requirements are:
 

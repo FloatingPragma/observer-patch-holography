@@ -58,7 +58,7 @@ and these stronger properties hold. Thus the compatible observation tower
 can be built before solving the separate common-clock and local-access joins.
 
 The [same-source clock comparison](../modular_clock_comparison/README.md)
-now implements relative modular corrections for the actual interacting
+implements relative modular corrections for the actual interacting
 two-site Gibbs field. Exact spectral intervals also prove that any
 uncorrected same-parameter modular intertwiner on this reference has
 stationary regional range. The active corrections provide transitive clock

@@ -3,7 +3,7 @@
 These eleven constructions connect native charged responses to spatial motion,
 finite field preparation and complete local observations. Each states its
 source, preparation, references and clock. The beta-Wilson and orthogonal-regulator families are distinct Hamiltonian
-choices. Fixed-cube ground conclusions and spatial record limits remain
+choices. Fixed-cube ground conclusions and spatial record limits are
 separate. No observed particle identity
 or GeV mass is inferred.
 

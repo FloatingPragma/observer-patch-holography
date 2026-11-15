@@ -6,7 +6,7 @@ record-only inference in [PR #1151](https://github.com/FloatingPragma/observer-p
 working revision `67aa7b6f4a904a1a90ea6d77bf2f66c741f2ba0c`. It constructs a
 positive local kinetic operator with a nonzero density interaction, derives
 its approximation from the existing native record counts, and identifies
-precisely why it is not yet the recovered observer's physical Hamiltonian.
+precisely why it is not the recovered observer's physical Hamiltonian.
 
 ## Actual source and theorem attachment
 
@@ -43,8 +43,7 @@ diagnostics; positivity and uniqueness follow from the preceding exact proof.
 This is an application of the established stochastic-matrix/Rokhsar--Kivelson
 construction, not a new general theorem. See Castelnovo, Chamon, Mudry and
 Pujol, [*Generalized Rokhsar--Kivelson Hamiltonians and the Stochastic Matrix
-Form decomposition*](https://arxiv.org/abs/cond-mat/0502068). The new work is
-the native branch mapping, record-derived error bound and incompatible-clock
+Form decomposition*](https://arxiv.org/abs/cond-mat/0502068). The contribution here is the native branch mapping, record-derived error bound and incompatible-clock
 witness on this specific observer source. The existing
 [`FiniteConditionalRepair`](../../Lean/Thermodynamics/FiniteConditionalRepair.lean)
 provides the conditional-resampling detailed-balance foundation; the actual
@@ -112,7 +111,7 @@ Thus **no affine identification `H=aK+bI` exists** on this full source algebra.
 For the actual unequal weights, an exact nonzero hop between unequal
 reference probabilities also proves `[H,pi]!=0`. Consequently this `pi`
 cannot be a Gibbs state of `H` at any inverse temperature: such a state must
-commute with `H`. The uniform-weight control has scalar `K`, and still has
+commute with `H`. The uniform-weight control has scalar `K`, and has
 nonzero kinetics; it does not rescue the affine identification. Its reference
 can of course be the zero-inverse-temperature Gibbs state of any `H`.
 

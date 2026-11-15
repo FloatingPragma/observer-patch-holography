@@ -1,11 +1,11 @@
-# Corrected Einstein Branch: Theorem and Dependency Index
+# Einstein Branch: Theorem and Dependency Index
 
 This index covers GitHub issue #578. The Lean modules mechanize exact finite
 algebra and the composition *conditional on* the listed continuum,
 asymptotic, and physical inputs. A synthetic inhabitant of the
 Einstein-admissible tower exists (`Geometry/EinsteinBranchInhabitant.lean`,
 `demoAdmissibleTower`), which proves the premise clauses jointly satisfiable;
-a source-derived inhabited tower is not constructed. A separate finite source-order path now
+a source-derived inhabited tower is not constructed. A separate finite source-order path
 constructs an exact `1+3` algebraic carrier and an explicit order-faithful non-chain
 control; it does not construct the tensor fields or continuum tower consumed
 by the Einstein branch.
@@ -18,7 +18,7 @@ most Lean's standard extensionality/choice/quotient axioms (`propext`,
 
 ## Theorem-to-paper map
 
-| Lean declaration | Compact-paper anchor | Level | What is proved / what remains input |
+| Lean declaration | Compact-paper anchor | Level | What is proved / what is input |
 |---|---|---|---|
 | `BareConsensusTower` | `def:bare-finite-consensus-reduct` (`paper/reality_as_consensus_protocol.tex`) | exact finite structure | Finite states/quotients, mismatch, repair, normal forms, boundary data, and typed coarse maps. |
 | `bare_consensus_not_einstein_complete` | `thm:bare-consensus-not-einstein-complete` (`paper/reality_as_consensus_protocol.tex`); Theorem 4.3h in `paper/tex_fragments/PAPER.tex` | model-theoretic exact | Two free geometric decorations of the constant demo tower share one reduct and disagree on the integer Einstein identity. The quantifier ranges over free decorations; extensions whose geometry is read from `Quot` are the object of the readout and composition rows below. |
@@ -28,16 +28,16 @@ most Lean's standard extensionality/choice/quotient axioms (`propext`,
 | `tomographyDirections_null` | `thm:null-tomography` | exact algebra | Each of the displayed nine directions is Minkowski-null. |
 | `tomographyDecoder_design`, `tomographyDecoder_charge`, `tomographyCharge_injective` | `thm:null-tomography` | exact algebra | An explicit left inverse for the nine-direction design map, hence exact rank-nine reconstruction of the trace-free symmetric tensor. |
 | `null_cone_determines`, `jacobson_step` | `thm:null-tomography`; `lem:nullreconstruct` | exact algebra | Null data leave exactly a metric multiple. |
-| `directSumEntropy_eq_bulk_add_edge` | `thm:bulk-edge-central-first-law` preamble | exact finite | Corrected convention: Shannon entropy belongs to `S_bulk`; `S_edge = sum p log d`. |
+| `directSumEntropy_eq_bulk_add_edge` | `thm:bulk-edge-central-first-law` preamble | exact finite | Central-sector convention: Shannon entropy belongs to `S_bulk`; `S_edge = sum p log d`. |
 | `centralVariation_eq_edgeEntropyVariation` | `thm:bulk-edge-central-first-law` (2) | exact finite | `z_alpha = log d_alpha` makes the central variation exactly the edge variation. |
 | `central_edge_normalization_defect` | `prop:entropy-coefficient-countermodel` | exact finite negative control | Computes the defect for a wrong central normalization. |
-| `finite_bulk_edge_central_first_law` | `thm:bulk-edge-central-first-law` | exact finite composition | Entropy differential = modular pairing, `K=2pi B+Z`, and `Z=L_edge` imply the boxed first law. These three equalities remain explicit premises. |
+| `finite_bulk_edge_central_first_law` | `thm:bulk-edge-central-first-law` | exact finite composition | Entropy differential = modular pairing, `K=2pi B+Z`, and `Z=L_edge` imply the boxed first law. These three equalities are explicit premises. |
 | `maxEnt_envelope_identity` | `thm:maxent-lagrange-stationarity` | exact finite | Normalization tangent + unit constraint tangent + Gibbs differential imply `dS/dt=lambda`. MaxEnt-family existence is not asserted. |
-| `diamondKernelIntegral_eq` | `lem:smallball` | exact coefficient conditional on kernel | Evaluates the radial polynomial integral as `4pi ell^4/15`; identification with a continuum modular charge remains a premise. |
+| `diamondKernelIntegral_eq` | `lem:smallball` | exact coefficient conditional on kernel | Evaluates the radial polynomial integral as `4pi ell^4/15`; identification with a continuum modular charge is a premise. |
 | `bulkSmallBallCoefficient` | `lem:smallball` | exact arithmetic | Multiplies the kernel by `2pi` to obtain `8pi^2 ell^4/15`. |
 | `fixedVolumeAreaCoefficient` | `thm:fixed-volume-small-ball-area` | exact arithmetic | Checks the coefficient algebra; the smooth fixed-volume geometric expansion is not derived. |
 | `restFrameEinsteinRelation` | `thm:einstein` | exact conditional algebra | Stationarity + continuum kernel identity + fixed-volume area identity imply the rest-frame coefficient `8pi G`. |
-| `unit_timelike_determines`, `tensor_upgrade` | corrected first-variation content of `cor:einstein` | exact algebra | All future unit-timelike quadratic data determine every symmetric-tensor component. Coverage is a premise. |
+| `unit_timelike_determines`, `tensor_upgrade` | first-variation content of `cor:einstein` | exact algebra | All future unit-timelike quadratic data determine every symmetric-tensor component. Coverage is a premise. |
 | `ddiv_lam_eta`, `step_invariant_of_divergence_free` | `lem:lambda-constancy` | exact discrete composition | Ward+Bianchi divergence cancellation forces componentwise invariance of the metric residue. |
 | `einstein_equation_with_constant_symm` | `lem:lambda-constancy`; `thm:absolute-einstein-base-condition` | exact algebra conditional on conservation | Null metric ambiguity + Ward + Bianchi + symmetric connectivity gives one constant per component. Continuum conservation laws are premises. |
 | `strictManifest_dependency` | strict dependency audit | exact manifest logic | Every required finite/analytic/physical key has mathematical evidence. |
@@ -53,8 +53,8 @@ most Lean's standard extensionality/choice/quotient axioms (`propext`,
 | `SourceDerivedSpacetime.sourceCausalLE_isPartialOrder` | ambient Lorentz-cone order | exact finite algebra | The future-cone relation on the constructed `ℝ × FrameQuotient` target is a partial order. |
 | `SourceDerivedSpacetime.EnumeratedCausalPlacement.finiteLog_has_separated_forwardCausalPlacement` | universal finite one-way placement | exact finite construction | Every finite authenticated log has an enumeration-dependent injective placement that sends generated ancestry into the source future cone and makes distinct equal-height events spacelike. The placement uses one spatial axis, is not source-selected, and need not reflect order. |
 | `SourceDerivedSpacetime.RankSpatialCausalPlacement.generatedBefore_sourceCausalLE` | finite source-order precursor | exact conditional finite theorem | The ambient target is independently `ℝ × FrameQuotient`. Positive `timeScale` times canonical source height gives only the temporal coordinate of the supplied event placement, not a physical event time. A supplied spatial readback and authenticated-edge speed bound send every generated ancestry comparison into the future cone. |
-| `SourceDerivedSpacetime.FaithfulRankSpatialCausalPlacement.ofIncomparableSpacelike`, `generatedBeforeEq_iff_sourceCausalLE`, `mem_interval_iff_sourceCausalInterval` | finite exact-order-embedding precursor | exact conditional finite theorem | For a forward placement, spatial separation inside every equal-height layer plus strict spacelikeness of every increasing-height nonancestor derives the converse cone-support clause. Exact two-way order/cone agreement, event separation, and exact interval transport then follow. The spatial readback, scale, edge-speed bound, and two geometric conditions remain supplied. This has no density clause and is not by itself a causal-set faithful embedding. |
-| `EventPopulation.SourceDerivedCausalChartInterface.separation_base`, `separation_all` | finite event separation | exact consequence of the interface | Exact base order/cone agreement and source-order antisymmetry derive base-chart injectivity; the overlap cocycle transports it to every supplied chart. Separation is no longer an independent field, while the atlas, total visibility, and cone attachment remain supplied. |
+| `SourceDerivedSpacetime.FaithfulRankSpatialCausalPlacement.ofIncomparableSpacelike`, `generatedBeforeEq_iff_sourceCausalLE`, `mem_interval_iff_sourceCausalInterval` | finite exact-order-embedding precursor | exact conditional finite theorem | For a forward placement, spatial separation inside every equal-height layer plus strict spacelikeness of every increasing-height nonancestor derives the converse cone-support clause. Exact two-way order/cone agreement, event separation, and exact interval transport then follow. The spatial readback, scale, edge-speed bound, and two geometric conditions are supplied. This has no density clause and is not by itself a causal-set faithful embedding. |
+| `EventPopulation.SourceDerivedCausalChartInterface.separation_base`, `separation_all` | finite event separation | exact consequence of the interface | Exact base order/cone agreement and source-order antisymmetry derive base-chart injectivity; the overlap cocycle transports it to every supplied chart. Separation is not an independent field; the atlas, total visibility, and cone attachment are supplied. |
 | `SourceDerivedSpacetime.BooleanDiamondPlacement.exactDiamondConeOrder`, `sourceOrderFramePacket_consequences` | finite non-chain control | exact constructed witness | The authenticated Boolean diamond inhabits the full standard-frame finite packet; all parent edges are null and its independent responses are spacelike. The standard gauge is not a physical event-frame derivation. |
 | `SourceDirectionEinsteinShapePremises.constantMetricAmbiguity` | finite Einstein-shape algebra | exact conditional algebra | Nine source-direction balances, symmetric tensors, Ward/Bianchi, and connectivity imply one constant metric ambiguity without entropy-source, Newton, vacuum-reference, or physical-scale fields. |
 | `sourceOrderEinsteinShape_from_minimal_source_directions` | finite same-event-type composition | exact conditional composition | Combines the finite source-order/frame consequences with a separately supplied tensor interface. The order does not construct or enter the tensor fields, steps, balances, or conservation laws, and no coordinate-difference identification with the constructed carrier follows. |
@@ -80,8 +80,8 @@ manifest. They are not Lean axioms: they are ordinary theorem arguments.
 | Independent physical scale | `ContinuumEinsteinPremises.physicalScale`, manifest stabilizer key | Identifies `kappa=8pi G`; SI conversion is separate. |
 | Generic spatial event placement and edge-speed certificate | `RankSpatialCausalPlacement.spatial`, `edge_speed_sq` | The finite forward order-to-cone theorem does not select spatial coordinates or prove the speed bound. |
 | Generic cone-support converse | `FaithfulRankSpatialCausalPlacement.cone_supported`, `ofIncomparableSpacelike` | Required for two-way order/cone agreement. It follows from supplied within-height spatial separation and strict spacelikeness of every increasing-height nonancestor, but neither condition is derived for a refinement family or physical event set. |
-| Order-to-tensor identification | no constructor or theorem | The exact `1+3` source carrier is not yet identified with the supplied `Mat 3`, `eta 3`, and `Fin 4` tensor/step data. |
-| Inhabited Einstein-admissible tower | `demoAdmissibleTower` (synthetic, `Geometry/EinsteinBranchInhabitant.lean`) | The synthetic inhabitant proves joint satisfiability of the premise clauses; a source-derived inhabitant remains the open source-construction/certification problem. |
+| Order-to-tensor identification | no constructor or theorem | The exact `1+3` source carrier is not identified with the supplied `Mat 3`, `eta 3`, and `Fin 4` tensor/step data. |
+| Inhabited Einstein-admissible tower | `demoAdmissibleTower` (synthetic, `Geometry/EinsteinBranchInhabitant.lean`) | The synthetic inhabitant proves joint satisfiability of the premise clauses; a source-derived inhabitant is the open source-construction/certification problem. |
 
 ## Receipt non-vacuity and deletion boundary
 

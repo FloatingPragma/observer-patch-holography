@@ -21,7 +21,7 @@ The new results are:
   dense M1 observation has at least order q^5 read incidences per fixed
   horizon and order q^2 fresh input bandwidth per interior receiver.
 
-LC1--LC3 remain proposed physical premises. The native all-level source
+LC1--LC3 are proposed physical premises. The native all-level source
 completion, response completeness and simulator binding are not certified.
 Finite algebra compatibility is not full A1--A3 membership. The entropy
 Hessian motivates a candidate quadratic form but supplies no time calibration.

@@ -5,7 +5,7 @@ import ObservableNormalForms.Stability
 
 This module formalizes the one-step approximate-naturality theorem and the
 metric telescope/projective-comparison core of the manuscript's refinement
-results.  It remains generic and imports only the preceding mathematical
+results.  It is generic and imports only the preceding mathematical
 certificate layer.
 -/
 
@@ -222,9 +222,9 @@ theorem nested_compatible_levels_metric_core
   have h₁ := dist_triangle exactCoarse exactFine approxFine
   linarith
 
-/-- Supporting precursor retained for comparison with the earlier draft:
+/-- Supporting precursor:
 two implementations are compared with a common exact coarse point after each
-has paid the same tower receipt.  The current manuscript uses the sharper
+has paid the same tower receipt.  The manuscript uses the sharper
 same-level and anchored/nested statements above. -/
 theorem two_implementations_bound_from_tower_receipts
     {Qfine Qcoarse : Type*}

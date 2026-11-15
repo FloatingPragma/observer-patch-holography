@@ -1,6 +1,6 @@
 # A global interacting cube ground and positive charged excitations
 
-The unchanged open `2×2×2` Weyl/contact source at `c=1/8,U=1` has **global ground energy `−√3/4` and exactly five ground states**, all in `N=4` and forming one hidden-spin `S=2` multiplet. This comparison covers all 65,536 Fock states. The empty Fock state is not this ground. No chemical potential, energy recentering, new mass term, or Hamiltonian replacement is introduced.
+The unchanged open `2×2×2` Weyl/contact source at `c=1/8,U=1` has **global ground energy `−√3/4` and exactly five ground states**, all in `N=4` and forming one hidden-spin `S=2` multiplet. This comparison covers all 65,536 Fock states. The empty Fock state is not this ground. No chemical potential, energy recentering, additional mass term, or Hamiltonian replacement is introduced.
 
 Above a specified pure ground `G`, the original local CAR probes have positive addition/removal energies. Write `λ=√3/16≈0.108253175473`. The following values are in the existing model's energy units:
 
@@ -13,11 +13,11 @@ Above a specified pure ground `G`, the original local CAR probes have positive a
 | eta-`5/2` component of `c_down† G` | 5 | `1/10` | `1+λ≈1.108253175473` |
 | remaining component of `c_down† G` | 5 | `4/5` | positive measure, all gaps `>7/1024` |
 
-The last three rows are an orthogonal decomposition of the down-addition measure. The two displayed `1/10` weights are exact symmetry-resolved contributions; without additionally resolving the remaining measure they are lower bounds on the total weights of any coincident atoms. The residual has strictly positive variance, so it is not a single unresolved sharp line. These are finite-volume excitation energies, **not relativistic rest masses or Standard Model assignments**. A native preparation and detector for this new ground have not been executed.
+The last three rows are an orthogonal decomposition of the down-addition measure. The two displayed `1/10` weights are exact symmetry-resolved contributions; without additionally resolving the remaining measure they are lower bounds on the total weights of any coincident atoms. The residual has strictly positive variance, so it is not a single unresolved sharp line. These are finite-volume excitation energies, **not relativistic rest masses or Standard Model assignments**. A native preparation and detector for this ground are not executed here.
 
 ## Source and exact ground construction
 
-`ground.py` consumes the original `cube_eta_protection.cube.operators()` full-Fock action and its previously constructed onsite unitary frame. That frame changes coordinates, not the Hamiltonian. The one-body hidden-frame action is the spin-independent signed cube adjacency `A/16`, with `A²=3I`. With even/odd sublattices,
+`ground.py` consumes the original `cube_eta_protection.cube.operators()` full-Fock action and its constructed onsite unitary frame. That frame changes coordinates, not the Hamiltonian. The one-body hidden-frame action is the spin-independent signed cube adjacency `A/16`, with `A²=3I`. With even/odd sublattices,
 
 ```
 A = [0 B; B^T 0],  BB^T=3I4,
@@ -53,7 +53,7 @@ Consequently `H_N>−217/512` for these sectors. The exact square comparison
 √3/4 > 441/1024 > 217/512
 ```
 
-separates them from `G`. Every `N≠4` lies strictly more than `7/1024` above the ground. This is a conservative **charged-sector** bound; it is not an asserted bound on neutral excitations within `N=4`. Together with the exact five-state kernel it proves the global ground statement. Every density matrix supported on that ground space is passive for this finite Hamiltonian and satisfies its positive-energy spectral condition. Uniqueness, an infinite-volume limit, and Lorentz-invariant vacuum structure remain open.
+separates them from `G`. Every `N≠4` lies strictly more than `7/1024` above the ground. This is a conservative **charged-sector** bound; it is not an asserted bound on neutral excitations within `N=4`. Together with the exact five-state kernel it proves the global ground statement. Every density matrix supported on that ground space is passive for this finite Hamiltonian and satisfies its positive-energy spectral condition. Uniqueness, an infinite-volume limit, and Lorentz-invariant vacuum structure are open.
 
 ## Positive Lehmann measures and the genuine interaction response
 
@@ -86,11 +86,11 @@ E_r[ω²]=131/256−√3/64,
 Var_r(ω)=1069/4096>0.
 ```
 
-The contact-deleted comparator, applied to this same vector, has mean gap zero instead of1/2. The actual interacting result is not obtained by relabeling the previous empty-sector Weyl modes. Single addition/removal changes the conserved model number by `±1`, has odd CAR grading relative to this even ground, and does not supply an independently calibrated electric charge or physical spin.
+The contact-deleted comparator, applied to this same vector, has mean gap zero instead of1/2. The actual interacting result is not obtained by relabeling the empty-sector Weyl modes. Single addition/removal changes the conserved model number by `±1`, has odd CAR grading relative to this even ground, and does not supply an independently calibrated electric charge or physical spin.
 
 ## Same-process repair attachment
 
-The already declared `cube_eta_protection.repair` has24 active columns supported entirely in `N=6`. Each of its130 complete outcomes is either an active native Kraus operator or the outside projector `Q`. Hence on `N3⊕N4⊕N5`, a6748-dimensional space, all active outcomes vanish and `Q` is identity. This includes cross-number coherences and arbitrary untouched references. The original Hamiltonian preserves number, so any finite interleaving of its evolution and these repairs preserves that statement and the normal field evolution.
+The declared `cube_eta_protection.repair` has24 active columns supported entirely in `N=6`. Each of its130 complete outcomes is either an active native Kraus operator or the outside projector `Q`. Hence on `N3⊕N4⊕N5`, a6748-dimensional space, all active outcomes vanish and `Q` is identity. This includes cross-number coherences and arbitrary untouched references. The original Hamiltonian preserves number, so any finite interleaving of its evolution and these repairs preserves that statement and the normal field evolution.
 
 This is **passive outside-service protection** supplied by the actual full-Fock completion. It is not active error correction, autonomous preparation of `G`, or invariance under arbitrary repair laws. The full outcome dictionary remains present; the outside record is certain for ideal states in this sum.
 
@@ -102,4 +102,4 @@ This is **passive outside-service protection** supplied by the actual full-Fock 
 .venv/bin/python -W error -m model.interacting_vacuum --check
 ```
 
-The receipt binds the source, exact checks, this proof, and the focused paper fragment. Its claim is a globally certified finite interacting reference plus positive charged spectral data, not complete resolution of the down-addition spectrum. The new ground's native source/detector, a controlled growing-volume interacting vacuum, stable relativistic massive poles, physical charge/spin dictionaries, independently fixed units, and Einstein coarse-graining premises remain required. Earlier protected excited-reference spectra remain valid as excited-reference experiments; their negative-frequency obstruction does not apply to this newly proved global ground.
+The receipt binds the source, exact checks, this proof, and the focused paper fragment. Its claim is a globally certified finite interacting reference plus positive charged spectral data, not complete resolution of the down-addition spectrum. This ground's native source/detector, a controlled growing-volume interacting vacuum, stable relativistic massive poles, physical charge/spin dictionaries, independently fixed units, and Einstein coarse-graining premises are required. The protected excited-reference spectra are valid as excited-reference experiments; their negative-frequency obstruction does not apply to this proved global ground.

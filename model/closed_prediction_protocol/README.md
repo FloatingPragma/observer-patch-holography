@@ -24,7 +24,7 @@ a fair placement coin. This schedule is an experimental input; it does not
 follow from the production observer's adaptive scheduler.
 
 1. Apply 379 actual unread native channels to whatever sector state the
-   carrier currently has. Forget their preparation records. Retaining and
+   carrier has. Forget their preparation records. Retaining and
    conditioning on those records would define a different preparation.
 2. Perform the existing fixed-seam native current herald. Retain both useful
    signs and failure. The useful reference yield is `5/33`.
@@ -155,10 +155,10 @@ premises of this finite test. The native repair law supplies a quantitative
 preparation operation, and the continuing-state protocol has a complete
 sequential error bound. The source compiler supplies the chosen mixer once
 its coherent proper-code services are admitted; committed native repairs
-alone still cannot create the needed coherence from diagonal inputs.
+alone cannot create the needed coherence from diagonal inputs.
 
 The fixed particle sector, native law candidate, random schedule, coherent
-transport/control services and classical record implementation remain
+transport/control services and classical record implementation are
 declared architecture/interface inputs. They are not claimed to follow from
 the closure hypothesis, the no-outside rule or the agreement condition of the
 [OPH basis](../../docs/BASIS.md). No public laboratory dataset implementing this native

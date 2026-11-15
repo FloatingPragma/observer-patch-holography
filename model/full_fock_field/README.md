@@ -7,7 +7,7 @@ occupation number, including coherence between number sectors and arbitrary
 untouched reference columns. An exact locality bound also constructs its
 fixed-spacing thermodynamic local dynamics. This is an interacting lattice
 field in three spatial coordinates and Hamiltonian model time. The lattice,
-action, coherent control services and clock convention remain supplied; no
+action, coherent control services and clock convention are supplied; no
 Lorentzian continuum, taste removal or native physical-action selection is
 established.
 
@@ -72,7 +72,7 @@ operator bound. Summing segment errors and using instrument contractivity
 gives the complete finite-history bound, with all outcomes and arbitrary
 references retained. There is no success-probability division or record-count
 multiplier. The **full-Fock bound depends on volume**; the volume-uniform
-bound proved on the old `N=2` carrier must not be reused here.
+bound proved on the `N=2` carrier must not be reused here.
 Floating source contraction and hardware errors are outside the ideal bound.
 The existing local-residual sum is retained as a diagnostic, not an outward
 interval certificate.
@@ -169,7 +169,7 @@ the full theory; the full-Fock implementation separately checks its exact
 `N=2` restriction against the existing executor. No taste or chirality has
 been discarded. Source-selected field coefficients, physical reference and
 clock preparation, the chiral continuum limit and particle assignments
-remain additional obligations.
+are additional obligations.
 
 ```sh
 OPENBLAS_NUM_THREADS=1 python -m pytest -q -W error model/full_fock_field

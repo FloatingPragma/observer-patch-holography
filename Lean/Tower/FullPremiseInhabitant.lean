@@ -30,7 +30,7 @@ the raw representative of its public class.
 
 This is the existence half of obligation 2 only: a branch combining every
 A4 premise exists as an explicit finite mathematical object.  The
-source-selection half remains open: no theorem here states that the OPH
+source-selection half is open: no theorem here states that the OPH
 source produces this branch, and the branch is synthetic rather than
 source-derived.  No physical world, clock, continuum limit, or
 cross-regulator naturality is inferred.

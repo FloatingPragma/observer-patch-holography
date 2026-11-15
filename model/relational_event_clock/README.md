@@ -27,7 +27,7 @@ read is added. This detector grouping and the seam schedule are declared
 observation premises. Tick number gives record order; attempt count measures
 computational resources, not elapsed physical time.
 
-The earlier [local-tick packet](../local_tick/SPEC.md) ticks at every incident
+The [local-tick packet](../local_tick/SPEC.md) ticks at every incident
 attempt, including no change. Here a tick requires actual local movement, and
 complete marked two-event laws, an event-triggered intervention and coherent
 terminal readout replace an occupation-moment-only calculation.

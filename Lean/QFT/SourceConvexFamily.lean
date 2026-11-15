@@ -361,7 +361,7 @@ theorem sourceConvexFamily_outcome_affine (E : Matrix (Fin 8) (Fin 8) ℂ)
         + ((1 - l : ℝ) : ℂ) * bornWeight (sourceConvexFamily.state q) E :=
   sourceConvexFamily.outcome_affine E l hl p q
 
-/-- Exact source-attachment theorem (legacy API name).  The simplex
+/-- Exact source-attachment theorem (API name).  The simplex
 vertices are the four diagonal fibre states built from counts extracted
 from the pinned joint table, the restricted realized record marginal and
 the declared rebalanced point are family states whose diagonals are the

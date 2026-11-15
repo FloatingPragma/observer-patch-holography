@@ -30,7 +30,7 @@ and the ground-selection theorem. Its imported Lieb uniqueness theorem
 and full-number-sector bound are explicit mathematical inputs. This
 packet checks the source hypotheses and sector-bound arithmetic and
 reverifies the integer ground witness. It reports inherited receipt
-custody separately; it does not rerun the earlier all-number calculation.
+custody separately; it does not rerun the parent all-number calculation.
 
 At vertex zero the native neighbors are vertices `1,2,4`. Define
 

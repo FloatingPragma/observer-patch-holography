@@ -11,7 +11,7 @@ This construction studies the **same supplied local action** as
 `h(k) = -c sum_j sigma_j sin(k_j)`, `c=1/8`, `U=1`.
 The periodic boxes used for momentum resolution change the boundary condition
 of that package's open boxes; no equivalence of finite boundary observations
-is assumed. Spatial lattice spacing, CAR dictionary and action remain supplied.
+is assumed. Spatial lattice spacing, CAR dictionary and action are supplied.
 The infinite-lattice integrals hold spacing fixed. They are not a spatial
 continuum limit or a physical vacuum construction.
 
@@ -90,8 +90,8 @@ R = U kappa / c²,
 
 The tail bound uses `sum sin² <= 3` and
 `average cos²(k_x)(sin²(k_y)+sin²(k_z))=1/2`.
-It is valid for `12a<1`, which is the same gap regime. Already the zeroth
-term and elementary denominator bound give `17/16 <= R <= 14/13` at the
+It is valid for `12a<1`, which is the same gap regime. The zeroth
+term and elementary denominator bound alone give `17/16 <= R <= 14/13` at the
 declared parameters. The retained order-16 rational interval narrows this
 to approximately `R=1.06904777858`, `kappa=0.0167038715404` and kinetic
 coordinate mass `1/kappa=59.8663608`.

@@ -25,7 +25,7 @@ product, self-adjointness statement, or conserved energy.  It supplies no
 physical-position identification, physical clock, photon or other
 field-sector attachment, preferred-frame or boost map, energy unit, SI
 conversion, continuum limit, global gluing, or laboratory readout.  Those
-identifications remain separate premises.
+identifications are separate premises.
 -/
 
 /-- Product-coordinate point of the response-Gram carrier completion. -/

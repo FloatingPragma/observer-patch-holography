@@ -10,7 +10,7 @@ Repeated centered readouts multiply the original detector response by an
 exact product of cross-time commutator cosines. The certificate retains all
 21 unconditional marginals, includes all 210 prior-readout pairs, and bounds
 their difference from the **continuously evolving field with the same
-repeated instrument**. All 15 previously resolved time slots remain resolved.
+repeated instrument**. All 15 resolved time slots of the parent readout are resolved here.
 
 The packet does not contain sampled quantum outcomes. It defines their joint
 instrument mathematically; the reported marginals average over earlier

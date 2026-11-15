@@ -32,7 +32,7 @@ The external mathematical input is precisely FA92's matched DLS/Koma
 input. In particular [Koma, arXiv:2105.04970v2](https://arxiv.org/html/2105.04970v2),
 equations (2.6)--(2.9), (3.4), (4.1), (5.3)--(5.12), supplies the
 field-selected state, smooth packet limit and transverse susceptibility
-bound. We use the explicit spectral-window constants already proved in
+bound. We use the explicit spectral-window constants proved in
 FA92; no additional assumption of a spin-wave dispersion is introduced.
 
 ## Exact source spatial action
@@ -88,7 +88,7 @@ finite cube has a different spatial little group action.
 The selected state is invariant under hidden rotations about axis 1,
 under all even-parity hidden translations, and under a one-step hidden
 translation combined with a pi spin rotation about axis 2. These follow
-already at positive field from invariance of the finite Hamiltonian and
+at positive field from invariance of the finite Hamiltonian and
 its unique ground, and pass to the stated limits.
 
 Let `A_a(f)=sum_x f_x S_x^a`, `a=2,3`, with Fourier support in
@@ -141,8 +141,7 @@ The upper weight bound also follows directly from FA92: the total
 inverse moment is at most `1/(10J)` because `E(k+Q)>=5`, while the
 first moment is at most `Jp^2/2`. Spectral Cauchy--Schwarz gives total
 weight at most `p/sqrt(20)<p/4`; the filter is a contraction. Thus the
-natural rescaling of the two-point spectral measure by `1/p` already
-has a uniformly positive finite mass, without a fitted normalization.
+natural rescaling of the two-point spectral measure by `1/p` has a uniformly positive finite mass, without a fitted normalization.
 
 For each real channel the commuting energy and unbroken physical
 translations have a joint spectral measure. Recenter its momentum at
@@ -233,7 +232,7 @@ of the absolute coefficient products is at most `K^2 n^3`.
 FA90's Stinespring estimate is uniform over untouched references, so
 controlled local contractions or unitaries can be inserted and the free
 segments telescoped. The first term `24/E_n^3` includes up to three free
-segments; the remaining terms already use their total time. Equivalently
+segments; the remaining terms use their total time. Equivalently
 the insertions can be tested with controlled local unitaries. No collision
 outcome is discarded.
 
@@ -241,7 +240,7 @@ Normalization is admitted only after the complete error epsilon is smaller
 than `c/n`. If numerator and denominator errors are `epsilon_N,epsilon_D`,
 the normalized characteristic error is bounded by
 `(epsilon_N+epsilon_D)/(c/n-epsilon_D)`. This rejects a small absolute
-error that is still large relative to the detected weight.
+error that is large relative to the detected weight.
 
 The finite initial spin state in this quantitative dynamical comparison
 is the restriction of omega to the source box. Such density matrices
@@ -273,8 +272,7 @@ The receipt hashes a narrow, explicit list of mathematical inputs and
 reports exact local snapshots of inherited receipts from fixed checkpoint
 `ba312dbf0` separately. Their original hashes are checked before parsing;
 runtime access to Git history is unnecessary, including on a shallow clone.
-Live broad CI receipts are not direct inputs. It does not refresh
-or silently repair previous evidence. Reproduce with
+Live broad CI receipts are not direct inputs. It does not refresh or silently repair other evidence. Reproduce with
 
 ```sh
 python -W error -m pytest model/spin_particle_scaling -q

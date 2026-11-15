@@ -5,7 +5,7 @@ long-count limit. Independent copies of the whole history are unnecessary for
 this result. The source fixes the limiting covariance. Stationary binary
 preparation supplies the exact finite-count laws; the axial functional limit
 holds from every initial classical binary law. The uniform seam scheduler
-and access to the selected seam/current record remain declared.
+and access to the selected seam/current record are declared.
 
 The concrete measurement counts signed circulation around the lexicographically
 first triangular face of the source graph. Each native attempt contributes

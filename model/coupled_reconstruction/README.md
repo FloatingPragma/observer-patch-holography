@@ -1,15 +1,15 @@
 # Interaction recovery with the complete field participating
 
-The observer now identifies the local quartic action while **every onsite and
+The observer identifies the local quartic action while **every onsite and
 bond term participates in every calibration trial**. This removes the
 isolated-generator access used by the [preceding reconstruction](../interacting_reconstruction/README.md).
-The inverse still receives only complete binary detector laws, opaque labels,
+The inverse receives only complete binary detector laws, opaque labels,
 protocol declarations and separately executed clock probabilities.
 
 This is a finite source-executed identification benchmark. The action family,
-number preparation, pair detectors, schedule and clock calibration remain
-supplied. The inference is Python arithmetic on accessible records, not yet
-an arithmetic program compiled into the native observer. No new empirical
+number preparation, pair detectors, schedule and clock calibration are
+supplied. The inference is Python arithmetic on accessible records, not
+an arithmetic program compiled into the native observer. No empirical
 comparison or interacting continuum construction is claimed.
 
 ## Executed computation
@@ -73,8 +73,8 @@ complete two-read histories before their corresponding source executions:
 coupled evolution, first measurement, first-bit-controlled feedback,
 continued evolution and second measurement. Both native pointer phases and
 all 1,056 joint native/quantum outcomes are retained at each cutoff.
-These are the earlier predeclared measurement protocols, withheld from this
-new calibration; they are not new prospective experimental data.
+These are the parent's predeclared measurement protocols, withheld from this
+calibration; they are not prospective experimental data.
 
 ## Retained result
 
@@ -101,7 +101,7 @@ the declared canonical polynomial family.
 
 Numerical agreement is not a roundoff certificate. The ideal budgets exclude
 clock uncertainty, floating errors and physical service errors. Existing
-occupation bounds transfer under the declared cube relabeling; they remain
+occupation bounds transfer under the declared cube relabeling; they are
 larger than this particular interaction-deletion contrast, so the contrast
 is not certified after occupation removal.
 
@@ -117,7 +117,7 @@ tests check that the executable does not substitute isolated laws.
 
 The improvement is removal of generator isolation. The pair instruments,
 number preparations, fixed action family, separated-zero topology assumption
-and independent calibrated clock remain premises. Short-time inference still
+and independent calibrated clock are premises. Short-time inference
 amplifies probability noise; one evolution step does not solve physical
 sampling cost. No finite-shot experiment was run.
 
@@ -126,7 +126,7 @@ trusted controls and a clock included in the continuing process, followed by
 interacting observables that retain their meaning over a common spatial,
 occupation and energy refinement domain. Action selection by native agreement,
 native/field geometry identification, interacting relativistic covariance
-and a controlled continuum theory remain open.
+and a controlled continuum theory are open.
 
 ## Reproduce
 
@@ -139,9 +139,9 @@ python -m model.verify --hashes-only
 ```
 
 The [manifest](manifest.json) binds all package artifacts. The result binds
-the imported producers, including the frozen predecessor's prediction and
+the imported producers, including the frozen parent's prediction and
 occupation-certificate code. Existing evidence packets are unchanged.
 Replay allows `2e-8` floating variation in inferred coefficient diagnostics,
 because the short-time inverse amplifies rounding; raw laws, clocks and
 predictions retain `2e-10`. Structures, counts, hashes and fixed proof strings
-remain exact. These numerical replay tolerances are not physical error bounds.
+are compared exactly. These numerical replay tolerances are not physical error bounds.

@@ -101,7 +101,7 @@ representation-level normal-form theorem, not a source selection.
 
 The package does not:
 
-- source-select the reference measure; the step-uniform reference is now
+- source-select the reference measure; the step-uniform reference is
   characterized as the unique independently target-scrambling-invariant Markov reference,
   but the invariance principle itself is a stated normal-form convention,
   not a source product;
@@ -137,7 +137,7 @@ kernel does not determine the mass normalization.  Two distinct positive
 normalized initial laws combined with that same uniform transition kernel
 give distinct `stepUniformRef` path laws, so selecting the transition kernel
 does not select the whole history reference.  The counting reference and
-trivial datum remain declared identifications pending an A1-generated source
+trivial datum are declared identifications pending an A1-generated source
 receipt.
 
 The multiplier receipt is narrower.  The exact rational tilts of the committed

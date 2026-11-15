@@ -10,12 +10,12 @@ free-continuum class improves from `U=o((log c)^(3/2))` to
 Every full field limit in this class is the free eight-valley Weyl vacuum
 hierarchy. Its particle and hole energies are `v|p|` and its relativistic
 rest masses are zero. These are the canonical charged fields on the
-**centered** clock `K=H-(U/2)N`; this does not replace the original
+**centered** clock `K=H-(U/2)N`; this does not replace the
 uncentered ground or clock. No physical species assignment follows.
 
 The exponent `2/7` is a sufficient bound, not a phase boundary. A coupling
 outside this class is not thereby proved interacting. The distinct protected
-Heisenberg spin limit remains outside this result. The theorem narrows the
+Heisenberg spin limit is outside this result. The theorem narrows the
 search for a surviving interaction; it does not construct that interaction.
 
 ## Retained source inputs
@@ -45,7 +45,7 @@ free composite response satisfies
  \tag{2}
 \]
 
-The earlier logarithmic restriction came from the exponential estimate
+A logarithmic restriction follows from the exponential estimate
 `B(s)<=exp(3|s|)`. The free source itself has a stronger bound, proved next.
 No assumption of exponential clustering, a spectral gap, perturbative
 convergence, or a spin-wave approximation is added.
@@ -107,7 +107,7 @@ The exterior sum is at most
 `26L^4 sum_(r>M) r^-2<=26L^4/M<=52L^3`.
 
 Weighted Cauchy--Schwarz in `(n,beta)`, retaining the two spin indices,
-now proves
+proves
 
 \[
  B(s)\le\sqrt{2\cdot16\cdot79}\,(1+|s|)^{3/2}
@@ -138,7 +138,7 @@ The free phases cancel pointwise. The negative-band creator has the same
 bound using `I-rho`. Both wrong-band ground-vector norms are therefore
 at most `sqrt(Delta)`, uniformly in position, spin and free time.
 
-The ordinary CAR Wick recursion can now be applied directly to any fixed
+The ordinary CAR Wick recursion applies directly to any fixed
 word of these normalized freely evolved site fields and unevolved site
 fields. Moving its first annihilating part through the word gives the same
 constants `C_2=2`, `C_4=8` as for site fields at time zero. No position-kernel
@@ -251,7 +251,7 @@ It is the same source, centered state, field normalization and clock.
 The proof does not replace an interacting state by a guessed free state.
 
 The nonlinear composite retains its exact equal-time CAR norm while its
-effect on these finite-energy canonical fields vanishes. This remains
+effect on these finite-energy canonical fields vanishes. This is
 consistent with the separate composite-channel and protected-spin results.
 
 ## Exact finite bounds and verification

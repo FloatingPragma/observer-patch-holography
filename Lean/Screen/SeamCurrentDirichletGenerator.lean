@@ -480,7 +480,7 @@ theorem completionComplexDirichletGenerator_planeWave
 /-- Under the declared quadratic normalization, the eigenvalue of the
 canonical completion generator is exactly the FZ-12 edge-current character.
 This is an equality of mathematical carrier symbols; physical field, time,
-and scale remain outside it. -/
+and scale are outside it. -/
 theorem completionFourierSymbol_normalizes_to_edgeCurrentCharacterSymbol
     (k : Vec3) :
     (6 / completionStepScale ^ 2) * completionFourierSymbol k =
@@ -515,7 +515,7 @@ noncomputable def dilatedCompletionFourierSymbol
 
 /-- The coordinate-dilated completion symbol is algebraically the edge-current
 character at the supplied scale.  Physical position and
-`edgeCurrentCharacterSymbol a k = omega_physical k ^ 2` remain separate
+`edgeCurrentCharacterSymbol a k = omega_physical k ^ 2` are separate
 premises. -/
 theorem dilatedCompletionFourierSymbol_eq_edgeCurrentCharacterSymbol
     (a : ℝ) (ha : a ≠ 0) (k : Vec3) :

@@ -120,7 +120,7 @@ channel realizes or preserves the admitted operator perturbation class.
 The following estimate applies to every normalized exact zero mode of
 (1). It also applies after an arbitrary self-adjoint perturbation with
 both matrix indices inside a finite cube K_S, once that cube is included
-in the reference radius. Index preservation for that perturbation still
+in the reference radius. Index preservation for that perturbation
 requires the anticommutation condition above. No exponential estimate is
 transferred to arbitrary nonlocal compact perturbations.
 
@@ -215,6 +215,6 @@ Those finite controls are independent checks of the proof and are not
 used as an infinite-volume eigenvalue extrapolation.
 
 The texture, its site-centered inversion symmetry, its amplitude and
-its clock remain specified inputs. Native repair protection, autonomous
+its clock are specified inputs. Native repair protection, autonomous
 texture formation, full interacting continuum particle states, physical
 charges and a common Einstein stress tensor are not established here.

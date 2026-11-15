@@ -32,5 +32,5 @@ its rounded stored fields are compared to that reference by the same bound.
 This is a classical fixed-family nonlinear readout enclosure. It neither
 encloses every numerical state coordinate nor transports the separate free
 q233 quantum detector estimate. Native action/population selection,
-physical time, full fermion dynamics and observed Born outcomes remain open.
-Historical parent receipt bytes and their narrower scope are unchanged.
+physical time, full fermion dynamics and observed Born outcomes are open.
+The parent receipt bytes and their narrower scope are retained.

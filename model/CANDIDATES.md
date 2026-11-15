@@ -209,8 +209,7 @@ the finite-event law.
 
 ### What the executed laws share and where they differ
 
-The model executes C as its convention among the classified laws and E as the comparison law. Older
-documents and retained receipts call C the N1 current law and E the N1-E
+The model executes C as its convention among the classified laws and E as the comparison law. Some documents and retained receipts call C the N1 current law and E the N1-E
 contrast law. C0 and T are classified with exact one-seam predictions; every
 admissible table has the same network gap `(5−√5)/60`, and C0's slowest
 binary coherence factor is `43/60 + 2√2/15 ≈ 0.905` per attempt.
@@ -460,9 +459,7 @@ reuses the free scalar continuum and quantum-instrument results under a
 supplied canonical representation, state, controls and clock. An eight-site
 construction composes preparation and retained observations on one finite
 code with mathematical trace-distance error **<0.001237** before physical
-service errors. This is the original q=3, d=8192 construction recipe: its
-full source word has not been emitted or executed. The later two-site and
-native histories below are executed on their own stated domains.
+service errors. This is the q=3, d=8192 construction recipe: its full source word is neither emitted nor executed. The two-site and native histories below are executed on their own stated domains.
 
 The [configuration-equilibrium control](CONSTRUCTION.md#retained-audit-controls)
 preserves only the normalized classical configuration Gibbs marginal; its
@@ -548,12 +545,7 @@ fit the owners below.
 [CP-00 #1135](https://github.com/FloatingPragma/observer-patch-holography/issues/1135)
 owns the declared law/program boundary, and
 [CP-01 #1136](https://github.com/FloatingPragma/observer-patch-holography/issues/1136)
-owns complete source execution. They replace the coordination in #1076 and
-#1077. The original q=3 scalar preparation and five retained-pointer
-histories remain an unexecuted benchmark. CP-00/CP-13 must explicitly decide
-whether to complete or retire it from the active path without relabeling
-its status. Its large common-code word is unexecuted. Later complete
-native and two-site programs establish their own finite milestones and do
+owns complete source execution. The q=3 scalar preparation and five retained-pointer histories are an unexecuted benchmark. CP-00/CP-13 must explicitly decide whether to complete it or remove it from the active path without relabeling its status. Its large common-code word is unexecuted. The complete native and two-site programs establish their own finite milestones and do
 not silently replace that deliverable. No entry closes a physical premise by
 renaming it. Completion requires the simplest shared rule to satisfy the
 required constraints on one common model, with discriminating evidence for

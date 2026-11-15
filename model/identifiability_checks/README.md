@@ -64,7 +64,7 @@ each. Each endpoint is a separate prepared experiment; shared unread computed
 prefixes do not turn these into repeated measurements of one evolving state.
 The maximum full output-matrix discrepancy from chronological execution is
 below `1.8e-14`. Scoring the same 125 positive-duration observations gives
-RMSE `0.2876427868` in the declared position-estimator units, with no new fit.
+RMSE `0.2876427868` in the declared position-estimator units, with no refit.
 This is the existing empirical comparison through another solver, not an
 independent dataset or additional empirical confirmation.
 
@@ -111,7 +111,7 @@ the same calibration cannot remove the ambiguity. The
 [identification experiment](../identification_design/README.md) addresses it
 with a coherent preparation involving level four and a phase-sensitive read;
 its declared two candidate laws differ by total variation `0.7071067812`.
-The action family and coherent services remain supplied.
+The action family and coherent services are supplied.
 
 Likewise, the unit-edge cube graph admits a planar embedding with the same
 existing graph dynamics and observation records. Inferring rank three needs
@@ -187,7 +187,7 @@ trial count or extraction procedure. It provides no basis for rescaling the
 observations after inspecting residuals. The published `h=.4` comparison is
 retained with its uncertainty explicitly unresolved.
 
-Preparation transfer also remains an empirical assumption: the largest
+Preparation transfer is also an empirical assumption: the largest
 zero-duration estimator residual is **0.340550**. The largest positive-duration
 residual is about **1.0823**, exceeding the selected ideal finite-model radius
 of **0.001517**. That radius does not include apparatus uncertainty or removal

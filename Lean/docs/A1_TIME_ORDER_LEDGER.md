@@ -44,11 +44,11 @@ Lean is open-world, so no theorem can prevent a downstream file from adding a
 new instance. The enforceable in-module contract is the absence of such
 instances plus compile-time checks that the conversions fail. Supported
 cross-layer translations use `NamedRealizationMap`; it deliberately has no
-`CoeFun` instance, so application remains the explicit `.realize` operation.
+`CoeFun` instance, so application is the explicit `.realize` operation.
 
 The module provides only three named packaging operations:
 
-- `WorldlineRealization.asNamedMap` for a worldline already constructed;
+- `WorldlineRealization.asNamedMap` for a constructed worldline;
 - `namedModularRealization` for a modular interpretation supplied as data;
 - `namedProperTimeCalibration` for a calibration supplied as data.
 
@@ -100,7 +100,7 @@ witness; its authenticated four-event Boolean diamond violates both
 conditions. This is an informational-order obstruction, not a physical
 causal-set, dimension, manifold, or continuum theorem.
 
-`Geometry/SourceOrderEinsteinComposition.lean` later shares the packet's
+`Geometry/SourceOrderEinsteinComposition.lean` shares the packet's
 finite `Event` type, but it does not convert this informational order into a
 tensor input. Its Einstein-form calculation uses the fixed algebraic inverse
 images of a pre-existing coordinate nine-vector tomography frame in the
@@ -118,5 +118,5 @@ A1 supplies names and type separation only. The bounded D1 packet in
 `D1_OBSERVER_TIME_CALIBRATION.md` adds conditional affine-timelike realization,
 dimensionless proper-time algebra, and shared-event comparison, while proving
 that bare record order retains arbitrary monotone gauge. Source production,
-refinement transport, a physical clock and SI unit remain open downstream.
-The stable-causality/global-time branch remains optional.
+refinement transport, a physical clock and SI unit are open downstream.
+The stable-causality/global-time branch is optional.

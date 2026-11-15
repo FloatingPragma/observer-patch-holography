@@ -12,7 +12,7 @@ with current.
 The same texture permits neutral and charged fermion occupations. Thus
 winding alone cannot determine the native current on the unchanged
 carrier. Physically identifying that current with observed electric
-charge remains a separate dictionary problem; the quantization and
+charge is a separate dictionary problem; the quantization and
 history-preservation statements hold for the declared source.
 
 The [proof](PROOF.md) distinguishes this winding from the simulator's

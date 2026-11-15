@@ -216,7 +216,7 @@ isometry error by `29*2^-p`. The complete unhalved trace error for `N`
 pulses is at most `58N*2^-p`, for arbitrary reference entanglement.
 The producer emits every distinct dyadic command and its certified source
 interval at a precision giving cube error below `10^-9`. These exact
-commands are a separate interface from legacy binary64 controls.
+commands are a separate interface from the binary64 controls.
 
 The chain uses 278 pulses on all 64 field rows with 64 reference columns
 and two blank pointers. Its full six-level native action is executed,

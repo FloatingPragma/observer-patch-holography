@@ -82,7 +82,7 @@ split fibre of observer 64, record class 18, nodes 64 and 43: of the 21
 incident edge slots the payload counts 8, 4, 3, 2, 3, 1 across the six
 elements, every element with positive count.  The literals are
 transcribed in `designatedFibreEdgeCount`; the receipt-shaped Prop
-`RealizesAllGaugeElements` is a legacy name for label-census coverage, and
+`RealizesAllGaugeElements` names label-census coverage, and
 `born_weight_forced_with_realized_covariance` consumes it: covariance
 is assumed only at gauge labels with positive realized edge count,
 and the census receipt `designatedFibre_realizes_all` discharges the
@@ -622,7 +622,7 @@ def designatedFibreEdgeCount (g : S3) : ℕ :=
   else if g = rGen * rGen then 3
   else 1
 
-/-- Receipt-shaped interface Prop for the source tie (legacy name): an
+/-- Receipt-shaped interface Prop for the source tie: an
 edge census covers every group label when every count is positive.  It
 does not source-produce the supplied representation or its action.  The
 committed payload is the intended producer of the census; any module
@@ -645,7 +645,7 @@ theorem designatedFibre_edge_total :
 /-- The derivation with covariance assumed only at gauge labels of
 positive edge count: any census covering all six labels discharges the
 indexing condition.  Covariance under the supplied representation
-remains a hypothesis; the run provides only the census. -/
+is a hypothesis; the run provides only the census. -/
 theorem born_weight_forced_with_realized_covariance
     (v : Matrix (Fin 2) (Fin 2) ℂ → Matrix (Fin 2) (Fin 2) ℂ → ℝ)
     (hmix : ∀ (l : ℝ), 0 ≤ l → l ≤ 1 → ∀ X Y : Matrix (Fin 2) (Fin 2) ℂ,

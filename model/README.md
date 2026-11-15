@@ -109,8 +109,7 @@ transforming the operator.
 The [local pointer](native_local_current_readout/PROOF.md) realizes that
 last readout with a declared local polynomial coupling, without cancelling
 the source Hamiltonian. Its complete-history error is below `0.000268446640`;
-both negative means survive. Earlier preparation and energy-bin services
-retain their own control requirements.
+both negative means survive. The separate preparation and energy-bin services retain their own control requirements.
 
 The [complete quark probes](native_quark_response/PROOF.md) calculate all
 local roots and residues for `u^c`, `d^c` and `Q`, including twelve exact
@@ -356,8 +355,7 @@ neutral-mass and native-spatial identification boundaries.
 
 The [protected ordered-cover construction](defect_protection/README.md) starts from
 native repair paths and an explicit coherent memory law. Its exact protected
-charge is carried by the joint source/memory system; a localized source
-particle remains to be constructed. The [same-carrier matter-capacity
+charge is carried by the joint source/memory system; the construction of a localized source particle is open. The [same-carrier matter-capacity
 theorem](defect_identity/README.md) derives necessary additional multiplicity
 and a conditional faithful gauge embedding. The [repair-cost/action
 calculation](defect_energy/README.md) derives the actual operator path action,
@@ -392,8 +390,7 @@ the same repairs with a source-executed modular clock. C, E and their tagged
 mixture retain a nonzero clock signal under the full seam scheduler. The
 actual source-reference flow, supported FIFO flow and correlated exported
 archive have distinct checked domains. The supplied weights and
-changed coin law are explicit. This finite family does not reproduce the
-earlier transported three-charge reference with endpoint-only reversible
+changed coin law are explicit. This finite family does not reproduce the separate transported three-charge reference with endpoint-only reversible
 rates, create a bare-source protecting charge, or freeze the full physical
 program class.
 
@@ -425,7 +422,7 @@ work under the [shared interface conditions](completion/SAME_PROCESS_INTERFACES.
 | [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | [Complete joint detector bins](native_joint_spin_spectroscopy/README.md) and the [power-law charged free boundary](ballistic_free_boundary/README.md) constrain the particle search. Measured species require relativistic poles, physical charges and independent units. |
 | [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145) | [Actual finite entropy limits](shrinking_modular_entropy/README.md) give a common shrinking matter/stress response and invertible nine-frame matrix. Area, Newton normalization and geometric stationarity/response are open. |
 
-The [earlier particle transport](charged_dynamics/README.md) and
+The [charged particle transport](charged_dynamics/README.md) and
 [actual-data replay](particle_comparison/README.md) retain their own
 contracts. The spectrum and relativistic pass
 adds retrospective mismatch diagnostics, while the
@@ -439,8 +436,7 @@ with positive GNS energy, nonzero density and finite-volume energy-density
 brackets. Its local retarded response converges in the upper half-plane.
 The [exact finite matter response](retarded_matter_response/README.md)
 also derives a state-dependent self-energy and controlled low-frequency
-expansion on the grounded cube. The geometry target remains the existing
-common-symbol and Einstein theorem stack, with its shared-state premises.
+expansion on the grounded cube. The geometry target is the common-symbol and Einstein theorem stack, with its shared-state premises.
 
 The native ground and spatial-response extension
 connects that finite ground to a complete observer preparation and
@@ -467,7 +463,7 @@ symmetry. For the free source, actual finite entropy changes converge to the
 existing stress response on a common shrinking schedule. The canonical charged
 continuum is free and massless throughout `U=o(c^(2/7))`. These results close
 component inputs; sharp spin poles, surviving continuum interaction, physical
-species and responsive Einstein geometry remain to be derived.
+species and responsive Einstein geometry are not derived.
 
 The [port/support incidence audit](../code/a5_closure/port_support_source_audit.md)
 retains all sixty oriented relative seed maps. A fixed support mark leaves
@@ -546,7 +542,7 @@ reset rule and declared projector feedback. Its uncalibrated coefficient
 ratios are `1 : 195.11704 : 3579.82625`; a fixed-basis two-clock inverse
 recovers this coefficient from complete simulated records. This is a new
 finite candidate, with its own supplied control services, rather than a
-physical pole-mass inference or a replacement of earlier retained evidence.
+physical pole-mass inference or a replacement of other retained evidence.
 The [cross-scale comparison](empirical_diagnostics/README.md) carries one
 entangled-pair spectral scalar through the declared P and primordial-tilt
 maps, while checking which laboratory and cosmological comparisons can share
@@ -845,7 +841,7 @@ The [quantum correspondence](quantum_observer_correspondence/README.md)
 extends the representation to coherent source states and untouched quantum
 references. It checks the native remote resolvent on all 4,356 matrix units,
 with complete local clock records, quantum interventions and timeouts.
-The coherent protocol omits the earlier initial occupation disclosure,
+The coherent protocol omits an initial occupation disclosure,
 which would disturb its preparation. A separate oracle checks the joint
 clock/interference law; matching the clock and detector marginals separately
 fails that comparison. Its phase and mixing operations are declared ideal
@@ -858,8 +854,7 @@ all 512 code addresses and 1,656 clock, timeout and complement-abort outputs.
 Both intervention settings and a compiled reference-attached preparation
 agree with the complete ideal history within 1e-11, with source pulse and
 service budgets. This closes the ideal coherent-apparatus gap for that
-finite protocol; the native repair instrument and code services remain its
-declared primitives.
+finite protocol; the native repair instrument and code services are its declared primitives.
 
 The [calibrated history bound](compiled_clock_history/README.md#calibrated-repair-law-and-complete-readout-predictions)
 carries all nine repair-law calibration coordinates into that complete

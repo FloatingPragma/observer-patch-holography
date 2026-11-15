@@ -45,7 +45,7 @@ makes the vector amplitude exactly one. The tighter existing same-state
 axial variance estimate applies there because the entire proton source
 is the neutron source minus the declared charge splitting, and the
 positive correlated propagation term is zero at rest. The inherited axial
-calibration remains an input; this calculation does not predict its value.
+calibration is an input; this calculation does not predict its value.
 
 ## Complete intervention, charge reference and work
 

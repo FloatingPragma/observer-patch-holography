@@ -632,8 +632,7 @@ do not select a fundamental field action.
 ### Continuing measurement predictions
 
 The [compiled overlapping-clock history](compiled_clock_history/README.md)
-replaces the coherent correspondence's ideal preparation, intervention and
-pointer with emitted source controls. The same continuing native C process
+implements the coherent correspondence's ideal preparation, intervention and pointer with emitted source controls. The same continuing native C process
 retains both clocks, feedback, timeouts and all code-complement aborts.
 Its 512-address execution uses exact rational arithmetic on the returned
 binary source arrays and certifies all quantum/reference outputs within
@@ -1502,7 +1501,7 @@ conditional probability and the controller a design choice, so both
 comparisons are consistency checks of the construction. Native feedback gives final port-0 occupation
 `35/264`, versus `1/6` when the selector is disconnected or independently
 shuffled with the same action frequencies. Occupation here is an external
-audit; the native current remains the implemented observation.
+audit; the native current is the implemented observation.
 
 ## P-dependent response and finite capacity
 
@@ -1899,8 +1898,7 @@ has a separate, completed finite scope. A selecting restriction must constrain
 the additional coherent interface freedom. The
 [identifiability checks](identifiability_checks/README.md) likewise separate
 apparatus restrictions, unseen action directions and geometry ambiguities.
-The stronger effective-Hamiltonian comparator remains relevant to empirical
-protocol design; missing timing, normalization or raw counts cannot be
+The stronger effective-Hamiltonian comparator is relevant to empirical protocol design; missing timing, normalization or raw counts cannot be
 inferred by fitting away residuals.
 
 The [mathematical reuse guide](../docs/AGREEMENT_RESEARCH_FOUNDATIONS.md)
@@ -1948,11 +1946,9 @@ navigation, not a proof that every theorem antecedent has been discharged.
 The [completion program #1134](https://github.com/FloatingPragma/observer-patch-holography/issues/1134)
 and its [dependency DAG](../docs/COMPLETION_PROGRAM.md) own the linked
 construction gates, including theorem/model integration and active-library
-triage. Earlier coordination issues #1025, #1026, #1076 and #1077 are
-superseded; their evidence and unfinished benchmark contracts are retained.
-[Correctness #1033](https://github.com/FloatingPragma/observer-patch-holography/issues/1033)
+triage. [Correctness #1033](https://github.com/FloatingPragma/observer-patch-holography/issues/1033)
 and the [broad obstruction search #1078](https://github.com/FloatingPragma/observer-patch-holography/issues/1078)
-remain ongoing. Some research branches can proceed in parallel; acceptance
+are open programs. Some research branches can proceed in parallel; acceptance
 of a joined result requires its mapped predecessors.
 Finite results retain their stated validity unless evidence invalidates
 them; larger claims add declared requirements. A negative result rejects its stated family.

@@ -39,7 +39,7 @@ for that coordinate without a separate reconstruction. A larger tensor
 product alone does not change the tested local identities. The native
 Casimir law and Gauss covariance therefore do not determine a Wilson bare
 coupling by taking a ratio of the existing coefficients. The source's
-electric color coefficient 2e remains a defined finite action coefficient.
+electric color coefficient 2e is a defined finite action coefficient.
 
 ## 2. Positive transfer on the same source
 

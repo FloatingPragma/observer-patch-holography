@@ -74,8 +74,8 @@ theorem state_sourceSelected_weight_eq_half_sub_im
   linear_combination ((rho 0 1).im : ℂ) * Complex.I_sq
 
 /-- Accurate public alias: the effect is the current first-labelled member
-under the declared adapter and ordering convention.  The legacy theorem name
-above is retained for API stability. -/
+under the declared adapter and ordering convention.  The theorem above
+states the same equality under its API name. -/
 theorem state_current_first_labelled_weight_eq_half_sub_im
     {rho : PhaseMatrix} (hrho : IsState rho) :
     bornWeight rho currentFirstLabelledGeneratedEffect =

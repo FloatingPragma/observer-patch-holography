@@ -13,14 +13,14 @@ c=1/8, U=1, N=2, total momentum K=0.
 
 In a momentum fiber, `P=|d><d|` is the on-site singlet contact projector.
 Spatial lattice, periodic boundary condition, CAR algebra, coupling constants,
-input states and momentum measurements remain supplied. Model Hamiltonian time
+input states and momentum measurements are supplied. Model Hamiltonian time
 is used throughout. No value here is a physical mass, measured cross section
 or calibrated laboratory rate. A periodic cube is not identified with the
-earlier open cube at finite volume.
+open cube at finite volume.
 
 ## Why dropping the other pockets changes the interacting theory
 
-The earlier field packet retained all eight Weyl nodes and their balanced
+The open-cube field packet retains all eight Weyl nodes and their balanced
 chiralities. That free-symbol count alone does not prove whether a selected
 interacting observable sector closes. This packet supplies an operator-level
 answer for the declared momentum-pocket projection.
@@ -65,7 +65,7 @@ and evolve under the complete action. All eight unnormalized measurement
 outputs are retained. At model time two the total probability in the seven
 other pockets is approximately `0.267060`; all seven have positive weight.
 These are supplied momentum measurements of the finite field state, not a
-newly compiled native field detector. The independent test diagonalizes the
+compiled native field detector. The independent test diagonalizes the
 complete **424-dimensional physical antisymmetric fiber**, embeds its answer
 back into all 864 spin/momentum coordinates and compares the resulting
 evolution. No positive spectral or spin component is omitted.
@@ -123,21 +123,21 @@ C_A(t) = Tr[tau exp(tH) A exp(-tH) A*]
 The test uses the non-Hermitian product of contact and pocket projectors,
 which do not commute. A tracial density substituted at the same nonzero beta
 fails the identity, exposing the reference premise. The finite positivity
-and KMS facts are ordinary matrix identities, now attached to this action;
-they are not new general thermal theorems.
+and KMS facts are ordinary matrix identities, attached here to this action;
+they are not general thermal theorems.
 
 This does not establish spatial locality of the momentum observables,
 reflection positivity of a continuum field measure, a physical vacuum,
 Lorentz covariance, all Osterwalder--Schrader reconstruction hypotheses,
 Higgs/current matching, or decoupling of the mirror tastes. It supplies a
 concrete positive finite thermal premise and an exact failed taste-removal
-map on the same interaction. CP-06 remains open.
+map on the same interaction. CP-06 is open.
 
-The pending mobile-memory PR #1153 supplies active native code transport
-under its declared fair-coin law. The pending triplet-attachment PR #1128
+The mobile-memory PR #1153 supplies active native code transport
+under its declared fair-coin law. The triplet-attachment PR #1128
 studies a different operational dictionary and scoped decoder obstructions.
 Neither provides a chiral-regulator or full-field clock map for this action;
-this packet uses no code from either pending PR.
+this packet uses no code from either PR.
 
 ```sh
 OPENBLAS_NUM_THREADS=1 python -m model.field_tastes --check model/field_tastes/results.json

@@ -161,7 +161,7 @@ completed regional algebras on a GNS Hilbert space.  A coherent observer
 family makes the tower's compatible selected density states descend to a
 normalized positive functional on the completion, and the committed witness
 therefore has an explicit nonzero normalized GNS unit class.  The observer
-family and finite states remain declared structural data: no source selection,
+family and finite states are declared structural data: no source selection,
 physical state or vacuum, dynamics, field content, continuum limit, or
 spacetime attachment is constructed.
 `QFT.FiniteTwoSiteIsingField` separately realizes the exact coupled bond

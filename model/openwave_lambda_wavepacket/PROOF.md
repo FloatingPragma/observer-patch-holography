@@ -30,7 +30,7 @@ proves the uniform ground-band weight
 
     Z >= 1-(sqrt(1-Z0)+d/(g-d))².
 
-The high relative block is unchanged. Its hopping coupling still has norm at
+The high relative block is unchanged. Its hopping coupling has norm at
 most 6t, and the compact ground energy is at most e0_upper+d. Thus the full
 pole's relative-complement probability is at most
 
@@ -73,7 +73,7 @@ operator likewise factor in the translation coordinate. Consequently each
 nonzero conditioned internal outcome retains the **same** spatial packet.
 The primary experiment is performed on the actual rational trial. It needs
 no exact band filter and makes no claim that this trial is an eigenstate.
-Its full ground-band dominance is separately certified by the previous bound.
+Its full ground-band dominance is separately certified by the preceding bound.
 
 With M and T the existing exact projected and total current Grams, respectively,
 G the source Gram and c² the inherited Cabibbo factor, the exact trial records are
@@ -97,7 +97,7 @@ momentum record is asserted. These are terminal alternative measurements.
 The direct integral of the full ground projections is bounded and commutes
 with H, so it preserves normalizability and has zero nonselective mean energy
 work. Its success and complement are both retained. This exact spectral service
-is optional; a finite local compiler for it is not supplied here. The previous
+is optional; a finite local compiler for it is not supplied here. The preceding
 compact Gram order aG<=M<=bG and full relative weight1-q imply the reported
 uniform pole-channel bounds. Noncompact success is at most c²q after the W/36
 probe; its full complementary failure probability is retained. Integrating
@@ -118,4 +118,4 @@ These finite-instrument and Parseval arguments reuse the existing proofs; the
 new closure is the normalizable strange-particle trial and exact translation
 factorization of its full current/channel record. Full autonomous outgoing
 weak transfer, on-shell spectral density, lifetime and the physical continuum
-dictionary remain separate obligations.
+dictionary are separate obligations.

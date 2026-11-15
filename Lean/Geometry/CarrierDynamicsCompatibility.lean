@@ -24,7 +24,7 @@ The carrier-map candidate of `Geometry/ScreenCarrierMapCandidate.lean`
 assigns exact `ℤ[φ]` rays to the twelve committed ports and realizes the
 two committed generator permutations `genA` and `genB` by the exact
 rotation matrices `rotAZ` and `rotBZ`.  This file proves the dynamics
-half of completion item 2 of the 2026-08-24 deep audit for issue #740:
+half of audit completion item 2 for issue #740:
 the incidence symmetries realized geometrically through the candidate
 embedding transport the committed screen evolution data exactly.  Every
 statement is compatibility of the CANDIDATE; no theorem identifies the

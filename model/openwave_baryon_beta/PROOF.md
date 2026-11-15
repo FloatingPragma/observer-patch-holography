@@ -125,6 +125,6 @@ This source supplies an allowed finite nucleon conversion using one
 calibrated mass action and its actual native weak current. It supplies
 no outgoing continuum, irreversible neutron lifetime or observed
 angular distribution. The same current's certified axial ratio near
-`5/3` fails the held-out magnitude near `1.2753`. A mass fit and a
-finite conversion signal therefore do not establish a complete
+`5/3` is not identified with the physical axial ratio. A mass fit and a
+finite conversion signal do not establish a complete
 physical neutron-decay model.

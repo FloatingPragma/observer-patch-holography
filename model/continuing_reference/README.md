@@ -1,6 +1,6 @@
 # A faithful reference that survives the original field and complete repair
 
-The same literal source pulse, repeated once on each occupation mode, now
+The same literal source pulse, repeated once on each occupation mode,
 prepares a faithful nontracial **stationary field weight**. Its stationarity
 does not require perfect control angles. The actual represented controls
 determine two positive numbers `a,b`, and the unnormalized successful field
@@ -15,7 +15,7 @@ Weyl/contact action and every unchanged complete charged-block repair
 preserve it. All local export aborts and all later repair records remain in
 the output. This is a number-biased reference, not a Gibbs state for the
 interacting Hamiltonian. Its modular flow is trivial on fixed-number
-observables, including the previous fixed-N particle sector.
+observables, including the fixed-N particle sector.
 
 ## Actual source preparation and complete outputs
 
@@ -150,7 +150,7 @@ sum_r ||[L_r,X]||_HS^2
 
 Consequently every fixed density commutes with all Kraus operators.
 Requiring stationarity for every Hamiltonian time also requires commutation
-with H. The already source-bound joint algebra on six-site `N=4,S=1`
+with H. The source-bound joint algebra on six-site `N=4,S=1`
 therefore classifies **all** common stationary references there:
 
 ```
@@ -168,7 +168,7 @@ Hamiltonian time, not fixed points of one arbitrarily chosen stroboscopic
 composite. It is not a claim to have source-prepared every matrix in the
 classification.
 
-The new exact projector
+The exact projector
 `P=(4I-Splus* Splus-eta_minus* eta_minus)/4` on the120-dimensional highest
 weight space gives `Tr(PK)=-135`, `Tr(PK^2)=1815/8`, hence active energy
 variance `13/48`. Popoviciu's spectral variance bound gives distance at
@@ -181,9 +181,9 @@ these clocks, not to the positive continuing reference just constructed.
 A separate exact target on aligned chains is
 `3^(2S_z_hidden)/(16/3)^L`; it has local eigenvalues
 `(3,9,1,3)/16` and nontrivial modular action within fixed N. Its invariance
-follows from the previously proved common spin. Its alternating mode
+follows from the proved common spin. Its alternating mode
 preparation is not asserted to have the identical-pulse exact-stationarity
-property, and unaligned three-dimensional swaps remain outside its domain.
+property, and unaligned three-dimensional swaps are outside its domain.
 
 ```sh
 OPENBLAS_NUM_THREADS=1 python -m model.continuing_reference --check model/continuing_reference/results.json

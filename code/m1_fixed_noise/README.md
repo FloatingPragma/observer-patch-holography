@@ -61,7 +61,7 @@ The accuracy theorem and Solovay--Kitaev synthesis are credited prior work.
 The universal non-Clifford protection is an imported constructive theorem;
 the finite Clifford recovery census is not a simulated universal machine.
 No numerical threshold is inferred from that census or borrowed from a
-different gadget schedule. Universal library constants remain symbolic.
+different gadget schedule. Universal library constants are symbolic.
 
 The local drive increases by a polylogarithmic factor relative to the
 parent's particular pi c/a schedule. Each finite drive, time and inventory
@@ -75,7 +75,7 @@ abort flags. All auxiliary records are retained, but their distributions
 need not resemble noiseless records. Known preparation is included. A noisy
 first encoding of arbitrary unprotected unknown inputs has a separate
 unavoidable error and is explicitly not granted for free. Floquet accounting
-remains a declared positive reference, not physical drive energy.
+is a declared positive reference, not physical drive energy.
 
 A lower-level exhausted ancilla supply retains a complete local output and
 a failure diagnostic, so an upper code can correct it. Only an outermost

@@ -1,19 +1,19 @@
 # Source-compiled apparatus in a complete observer-clock history
 
-This construction replaces the ideal coherent preparation, union intervention
-and terminal detector in the existing
+This construction implements the coherent preparation, union intervention
+and terminal detector of the
 [quantum observer correspondence](../quantum_observer_correspondence/README.md)
-with words emitted by the retained six-level source compiler. Their original
+by words emitted by the retained six-level source compiler. Their original
 binary output arrays are propagated through the same stopped native history.
 Every classical word and its full quantum state remain in the output,
 including unresolved waits and the declared complement-abort outcomes.
 
-The earlier result already proves the quantum correspondence, its
-arbitrary-reference extension and a joint clock/detector response. The new
+The parent result proves the quantum correspondence, its
+arbitrary-reference extension and a joint clock/detector response. This
 connection is an executable apparatus attachment with a complete-history
 error certificate. It does not select a repair law, derive the apparatus from
 native repairs alone, or identify a physical duration. Native C, the uniform
-seam scheduler, fair coin and the compiler's source-control services remain
+seam scheduler, fair coin and the compiler's source-control services are
 specified inputs.
 
 ## State, operations and records
@@ -35,7 +35,7 @@ A retained native mark contains both clock increments and the three signed
 occupation increments on the union. Hidden seam and coin alternatives are
 summed as CP alternatives, never as coherent amplitudes.
 
-The new nine-qubit chart has address
+The nine-qubit chart has address
 
 ```text
 local_bits + 8 * spectator_label.
@@ -46,7 +46,7 @@ The other ports are `(2,3,4,6,7,8,9,10,11)`. Within each remote occupation
 shell of total zero, one or two, their sorted binary tuples receive a
 six-bit label. Local occupation total determines the applicable shell.
 This gives an injective isometry `V:C^66 -> C^512`, checked on all 66
-source states. It is a new chart; it is not the collision-inclusive encoding
+source states. It is a separate chart; it is not the collision-inclusive encoding
 used by the separate source-discrimination construction.
 
 Write `P=VV*` and `Q=I-P`. Each native instrument is extended to the whole
@@ -54,7 +54,7 @@ Write `P=VV*` and `Q=I-P`. Each native instrument is extended to the whole
 separately retained Kraus operator `Q` reporting complement abort. These
 operators satisfy the complete instrument identity on all 512 inputs.
 An abort ends native evolution. It does not renormalize the code component
-or discard the complement state. The terminal detector is still applied.
+or discard the complement state. The terminal detector is applied.
 This extension specifies what happens to compiler errors outside the code;
 it is not an assertion of additional physical native states.
 
@@ -86,7 +86,7 @@ The experiment is the following complete finite history.
    at port one. Retain both outcomes and the full 512-dimensional work
    matrix, together with the untouched reference when present.
 
-On the ideal code, this is the earlier 1,442-word experiment. The extended
+On the ideal code, this is the parent 1,442-word experiment. The extended
 cap-two output has 1,656 words, including the explicit abort words, whose
 ideal probabilities are zero. No zero entry, timeout, detector outcome or
 padding component is removed. Source pulse invocations are apparatus costs;
@@ -226,7 +226,7 @@ The inherited joint clock/detector distinction is therefore meaningful
 for this apparatus execution up to the certified complete error. A common
 record coarse graining contracts the bound. For comparisons of two
 settings, add their complete error bounds to the inherited ideal
-distinguishability statement. The coherent interaction remains a chosen
+distinguishability statement. The coherent interaction is a chosen
 source-control operation; its successful compilation does not make it the
 Hamiltonian or action selected by native repair.
 
@@ -344,7 +344,7 @@ controls. Numerical values are reported by the receipt generated from
 those executions.
 
 Blank preparation, coherent load/export, native C, scheduling, record
-delivery, pointer readout and physical control accuracy remain declared
+delivery, pointer readout and physical control accuracy are declared
 services. The native repairs themselves are evaluated by their established
 exact instruments; this attachment does not compile the entire scheduler
 and every repair into source pulses. It proves neither a physical clock

@@ -58,7 +58,7 @@ charge-zero and charge-two components additionally shift by plus or minus
 delta. Native weak lowering relates all three components. Their complete
 spectra, not only a selected vector, are therefore determined exactly from
 the27-level original spectrum. Each component lies above its available
-same-charge two-nucleon threshold. The former exchange degeneracy is removed
+same-charge two-nucleon threshold. The exchange degeneracy of that spectrum is lifted
 by an actual positive native-current term, without a composite projector.
 
 Deleting eta changes both the baryon thresholds and the partner spectra.

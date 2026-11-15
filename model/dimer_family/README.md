@@ -35,7 +35,7 @@ This is a finite particle-search exclusion, not an exclusion of OPH.
 The reference, action and dictionary are explicit hypotheses. Moving the
 chemical potential while keeping the half-filled ground can make the
 two-gap ratio arbitrarily large; an executable countercontrol retains that
-escape from the ratio bound. It still leaves only two doublets per charge.
+escape from the ratio bound. It leaves only two doublets per charge.
 More precisely, writing `delta=mu-U/2`, this same N=2 state is the unique
 ground exactly while `|delta|<g_minus`. Addition gaps shift by `-delta`
 and removal gaps by `+delta`. The N=0/N=4 gaps stay positive in this open

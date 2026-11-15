@@ -66,7 +66,7 @@ and the constancy of `l_P` are premises (Assumption A-GEOM of
 capacity-closure section as cited in the DK-01 theorem file), packaged here
 as the single positive constant `kappa`; the FRW continuity relation is the
 definition of `w`, not a derivation from field equations.  Nothing in this
-module scores data.  DESI DR1 and DR2 are already-examined data, named only
+module scores data.  DESI DR1 and DR2 are seen data, named only
 as provenance, and are excluded from any future comparison this surface
 feeds; every decision rule lives in the separate registration proposal and
 is a proposal pending the owner's freeze.

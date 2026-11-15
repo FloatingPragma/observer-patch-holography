@@ -34,7 +34,7 @@ after the body, identifies its terminal occupation. Reversing the complete
 body currents then identifies every preceding occupation. The detector's
 own displacement, records, failures and host limits are retained. Initial
 occupation disclosure is unnecessary for this decoder; the specified
-initial probability law remains an input to (1).
+initial probability law is an input to (1).
 
 ## The graph attachment at every combinatorial level
 
@@ -259,7 +259,7 @@ On the level-zero241-command example the original expanded evaluator
 returns `RESOURCE_STOP` after one body attempt. The complete raw-word query
 is a separate exact factorization of its admitted kernel; it does not
 relabel that host stop. The full raw alphabets, including impossible words,
-remain part of the instrument. Access to every body record plus the final
+are part of the instrument. Access to every body record plus the final
 tree differs from a receiver's incident tape alone.
 
 Existing [`federated_observer/SCALING.md`](../federated_observer/SCALING.md)

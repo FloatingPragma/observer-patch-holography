@@ -14,7 +14,7 @@ chain without silently importing microscopic reversibility.
 The lazy directed three-cycle is an exact rational separation witness: it is
 stochastic, preserves the faithful uniform law, and violates detailed balance.
 The stationary second law follows.  Detailed fluctuation relations and
-Onsager reciprocity therefore remain separate receipts.
+Onsager reciprocity therefore are separate receipts.
 
 No source construction, physical energy, clock, or common-reference
 identification is asserted here.

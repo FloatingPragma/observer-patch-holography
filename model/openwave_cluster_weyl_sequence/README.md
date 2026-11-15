@@ -2,9 +2,9 @@
 
 An exact separated-cluster CAR identity and quantitative normalizable Weyl
 vectors place the native Lambda rest energy in the essential spectrum of the
-complete interacting one-dimensional N5 strong source. This strengthens the
-previous sum-of-bands energy-shell test to an actual full-Hamiltonian spectrum
-statement. Every correlated term, Gauss flux and high relative tail is retained.
+complete interacting one-dimensional N5 strong source. This is an
+actual full-Hamiltonian spectrum statement, beyond a sum-of-bands energy-shell
+test. Every correlated term, Gauss flux and high relative tail is retained.
 
 The Weyl family is defined by isolated spectral projections and finite spatial
 boxes; the code certifies its errors, rather than claiming to enumerate every

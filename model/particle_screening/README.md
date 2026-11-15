@@ -149,7 +149,7 @@ changes that grammar and must carry its controller, record and recovery costs.
 
 ## Status and reproduction
 
-CP-03 is open. The new result rules out exact transported-reference
+CP-03 remains open. The new result rules out exact transported-reference
 screening and an invariant edge bond for the tested sharp sectors, while giving
 an optimal small-cap active-memory control. A particle claim still needs a
 localized *state and observable* that remain protected under the full record

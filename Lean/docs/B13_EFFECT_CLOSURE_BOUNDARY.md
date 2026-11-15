@@ -23,7 +23,7 @@ entire celestial sphere is available.
 
 ## Exact positive result after affinity
 
-If the centered response is already supplied in affine form, bounds on any
+If the centered response is supplied in affine form, bounds on any
 dense subset of unit directions extend by continuity to the whole sphere.
 Those bounds force the coefficient vector into the closed unit ball.  The
 module exposes both the centered and probability-interval versions.

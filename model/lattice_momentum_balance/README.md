@@ -1,6 +1,6 @@
 # Three kinetic momentum balances on the same interacting source action
 
-The unchanged open-box Weyl/contact action now has three exact momentum
+The unchanged open-box Weyl/contact action has three exact momentum
 balance columns with explicit nearest-face kinetic stresses and contact
 forces. These complement the conserved energy column in
 [coarse_energy_ward](../coarse_energy_ward/README.md). They close the finite
@@ -157,18 +157,18 @@ Any normalized state/reference expectation obeys the same equation. With
 lower-face indexing, it supplies `ddiv(T)_j=integrated_force_j`, rather
 than the zero right side in the Einstein premise. These are finite cell
 quantities; no pointwise symmetric stress tensor or metric volume factor
-is inferred. The previous energy column remains conserved, with the same
+is inferred. The energy column is conserved, with the same
 H and arbitrary input state. The four columns have not thereby acquired
 Lorentz symmetry or the symmetry `T_ij=T_ji`.
 
 Spatial blocks sum the momentum densities and forces and cancel their
 internal kinetic faces. The divergence commutes with pushforward under
-any finite block map, and successive block maps compose as previously
-proved. Merging time cells telescopes endpoints and adds both stress and
+any finite block map, and successive block maps compose as proved
+for the energy column. Merging time cells telescopes endpoints and adds both stress and
 force integrals. `Lean/QFT/LatticeMomentumBalance.lean` proves the generic
 forced block equation, cancellation of total antisymmetric divergence,
 the total momentum change and exclusion of absorbing nonzero total force
-into a closed internal divergence, without admissions or new axioms. The
+into a closed internal divergence, without admissions or added axioms. The
 concrete source and quadratic classification are separately justified by
 the exact CAR certificate and the sector argument above.
 
@@ -205,7 +205,7 @@ patch, distinct from the 27-site symbolic instance. This is a resource
 bound, not source execution or measurement of those counts. It is uniform
 in the larger ambient volume, not in the size of an arbitrarily extensive
 coarse block. Local input restriction, initialization, measurement accuracy,
-floating/hardware errors and controller/export-failure energy remain
+floating/hardware errors and controller/export-failure energy are
 separate. The inherited tail domain requires `24ct<=32` and `2<R<=4096`.
 
 ```sh

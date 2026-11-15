@@ -107,8 +107,7 @@ Each full-box ground projector commutes with that symmetry, and the
 exterior vacuum is invariant. A translate of such a state is invariant as
 well, because the symmetry is normalized by translations. Averages and
 weak-star limits preserve it. Schur's lemma on each two-component site
-then gives `rho_x=r I`; translation invariance makes `r` constant. The
-earlier density theorem implies `1/8<=r<=1/2`, so
+then gives `rho_x=r I`; translation invariance makes `r` constant. The density theorem implies `1/8<=r<=1/2`, so
 
 ```
 (7U^2/64) I <= W^dagger W=U^2 r(1-r) I <= (U^2/4) I.
@@ -196,7 +195,7 @@ local commutator, the four-word identity and its negative controls.
 
 The same selected ground supplies every ordered local Euclidean n-point
 function, not only the retarded two-point response. Let `L_omega>=0` be
-its already proved positive GNS generator, with `L_omega Omega=0`.
+its proved positive GNS generator, with `L_omega Omega=0`.
 For bounded local CAR operators `A_1,...,A_n`, keep their displayed order
 and take `s_1<=...<=s_n`. Define
 
@@ -245,7 +244,7 @@ omega(A_1 tau_(t_1)(A_2) tau_(t_1+t_2)(A_3) ...
 
 Its finite comparator uses the same shared translation label and finite
 Hamiltonian throughout. On a compact box of the `t_j`, every cumulative
-time is bounded. The earlier full-CAR local-dynamics estimate controls
+time is bounded. The full-CAR local-dynamics estimate controls
 each factor uniformly for good translates; telescoping the finite
 product sums those errors. Bad translates have vanishing fraction and
 each entire integrand is bounded by the same product of norms. Finally,
@@ -300,8 +299,7 @@ above. The hierarchy is not claimed to be Gaussian: the preceding
 nonzero connected real-time witness belongs to this same state and
 dynamics. No `O(4)` covariance, bosonic permutation symmetry, spatial
 continuum, or complete relativistic Osterwalder--Schrader axioms are
-inferred. The individual limiting values and a unique ground are still
-not computed.
+inferred. The individual limiting values and a unique ground are not computed.
 
 ## A uniformly invertible spatial Green operator
 
@@ -354,7 +352,7 @@ Since `exp(2mu)<2`, both parts give, for all `d` including zero and one,
 ||G_xy(z)|| <= A(1+d)^2 exp(-2mu d).
 ```
 
-At zero and one use the previously proved operator bound `1/eta`.
+At zero and one use the proved operator bound `1/eta`.
 This estimate uses no decay or clustering assumption on the ground state:
 the distant anticommutator is controlled in operator norm before taking
 its expectation.
@@ -385,7 +383,7 @@ by `D_f=exp(alpha f)` changes a block of `G` by at most
 ||D_f G D_f^(-1)-G|| <= alpha A S_hat <= 1/(2B0).
 ```
 
-A Neumann series and `||G^(-1)||<=B0` now give
+A Neumann series and `||G^(-1)||<=B0` give
 `||D_f G^(-1)D_f^(-1)||<=2B0`. For each desired pair `x,y`, choose the
 bounded function `f(u)=min(||u-y||_infinity,R)` with `R>=d`. It follows that
 
@@ -434,11 +432,10 @@ larger domain. For real `k` and `|w|<eta/2`, Cauchy's integral formula gives
 Thus the local spatial coefficients and their frequency dependence exist
 with explicit error bounds on the actual interacting infinite ground.
 Their numerical values are not computed, because the underlying ground
-functional remains selected only by a subsequence. The constants worsen
-as `eta` tends to zero. These controlled complex-frequency symbols cannot
-yet be inserted as real hyperbolic action coefficients into
+functional is selected only by a subsequence. The constants worsen
+as `eta` tends to zero. These controlled complex-frequency symbols cannot be inserted as real hyperbolic action coefficients into
 `wave_density_metric` or `geometric_matter_join.source_tetrad`. That step
-still requires real-frequency control, common matter coefficients and
+requires real-frequency control, common matter coefficients and
 the full action normalization, followed by the existing joint modular,
 stress, area and Einstein premises.
 

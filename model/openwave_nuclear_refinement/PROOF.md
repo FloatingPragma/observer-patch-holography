@@ -7,7 +7,7 @@ Use the identical positive current action and calibrated coefficients of
 `eta sum_(xy)(I_x+I_y)^2` and its kinetic term is the positive graph
 Laplacian with hopping t. Graphs are explicit construction inputs. No
 coefficient is refitted when the graph changes. Only colourful Q modes
-are occupied in the N=6 experiment; every other native Fock factor remains
+are occupied in the N=6 experiment; every other native Fock factor is
 an invariant complement of the source.
 
 Each cell has twelve Q coordinates: three colours, two spins and two weak

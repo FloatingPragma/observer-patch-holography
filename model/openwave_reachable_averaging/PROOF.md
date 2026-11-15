@@ -85,7 +85,7 @@ unitarity on the left and invariance of P on the right give
        <= G A + G² |t| (K+5A/4).
 
 This estimate does not use a norm bound for V on the whole Fock space inside
-the integral. The left unitary remains the complete unfiltered propagator.
+the integral. The left unitary is the complete unfiltered propagator.
 Tensoring an untouched reference changes none of these operator bounds.
 Using2pi/5<44/35 gives a first-peak error coefficient below3367930.443.
 

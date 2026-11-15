@@ -14,7 +14,7 @@ thereby constructed.
 .venv/bin/python -W error -m model.relativistic_sector_audit --check model/relativistic_sector_audit/results.json
 ```
 
-## Source and what is new
+## Source and what this package adds
 
 The action is exactly the supplied [Weyl/contact action](../interacting_field/DERIVATION.md):
 
@@ -36,8 +36,7 @@ protected-cube experiment. The same local formula does not prove that these
 wave packets survive that cube's five repair seams; no such protection or
 identification with its eight measured response lines is assumed.
 
-The earlier derivation already counted eight zeros and bounded the one-body
-sine remainder. The new attachment is the simultaneous eight-valley
+The separate derivation counts eight zeros and bounds the one-body sine remainder. The attachment here is the simultaneous eight-valley
 continuum-to-lattice Fock isometry, a countable-lattice contact estimate,
 and an operator-norm dynamical comparison for every fixed `Nmax`, including
 all contact escape and arbitrary untouched references. It also gives
@@ -219,6 +218,5 @@ valley spin with the observed particle spin.
 Thus the positive result is a **controlled massless relativistic dynamical
 sector** with explicit energy, spinor and error data. It is free in the
 proved limit, includes four valleys of each chirality, and supplies no
-massive physical species. Physical species assignments remain zero. The
-earlier calibrated dimer masses, supplied scalar mass, and nonrelativistic
+massive physical species. Physical species assignments are zero. The separately calibrated dimer masses, supplied scalar mass, and nonrelativistic
 pair mass cannot fill those missing attachments.
