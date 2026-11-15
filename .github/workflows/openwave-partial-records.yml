@@ -1,0 +1,25 @@
+name: OpenWave partial results on native records
+on:
+  push:
+    branches: [main]
+    paths: ['code/openwave_partial_records/**', 'code/openwave_static_signed_source/evidence/openwave/shared/localized_rest_join/evidence/graph.json', 'model/defect_field_bridge/**', 'claims/openwave_partial_records.json', 'tools/build_openwave_partial_records_claim.py', '.github/workflows/openwave-partial-records.yml']
+  pull_request:
+    paths: ['code/openwave_partial_records/**', 'code/openwave_static_signed_source/evidence/openwave/shared/localized_rest_join/evidence/graph.json', 'model/defect_field_bridge/**', 'claims/openwave_partial_records.json', 'tools/build_openwave_partial_records_claim.py', '.github/workflows/openwave-partial-records.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  partial-records:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r code/openwave_static_signed_source/requirements.txt pytest
+      - name: Evidence custody, sealed receipts and independent recomputation
+        run: python -B code/openwave_partial_records/verify.py
+      - name: Tests and claim ledger
+        run: |
+          python -m pytest -q code/openwave_partial_records
+          python tools/build_openwave_partial_records_claim.py --check
