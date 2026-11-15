@@ -1,0 +1,50 @@
+name: OpenWave free-wave evidence
+
+on:
+  push:
+    branches: [main]
+    paths: ['code/openwave_wave_evidence/**', '.github/workflows/openwave-wave-evidence.yml']
+  pull_request:
+    paths: ['code/openwave_wave_evidence/**', '.github/workflows/openwave-wave-evidence.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: '3.12'
+            numpy: '2.3.5'
+          - os: windows-latest
+            python: '3.13'
+            numpy: '2.5.1'
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          sparse-checkout: code/openwave_wave_evidence
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install "numpy==${{ matrix.numpy }}"
+      - name: Verify sealed evidence and transport mutations
+        run: |
+          python -B code/openwave_wave_evidence/reproduce.py custody
+          python -B code/openwave_wave_evidence/test_openwave_wave_transport.py
+      - name: Independently reconstruct finite records
+        run: python -B code/openwave_wave_evidence/reproduce.py independent --output "$RUNNER_TEMP/wave-independent.json"
+      - name: Replay the complete source ancestry
+        run: python -B code/openwave_wave_evidence/reproduce.py replay --output "$RUNNER_TEMP/wave-run"
+      - name: Exercise amendment mutations and verify saved outputs
+        run: |
+          python -B code/openwave_wave_evidence/reproduce.py tests --run "$RUNNER_TEMP/wave-run" --output "$RUNNER_TEMP/wave-tests.json"
+          python -B code/openwave_wave_evidence/reproduce.py verify --run "$RUNNER_TEMP/wave-run" --output "$RUNNER_TEMP/wave-verification.json"
