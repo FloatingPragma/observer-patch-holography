@@ -18,8 +18,8 @@ from verify_galois_port_frame_independent import ZERO, ONE, add, sub, mul, div, 
 ROOT = Path(__file__).resolve().parents[2]
 BASELINE = 'a44330802c726037f88356f9f62044184ed429a5'
 HISTORICAL_SOURCE_COMMIT = '53e365b248a4611bb911e75d7afae0f52bfd8675'
-# Reviewed integration: detached Fraction returns only; see INTEGRATION_2026-10-29.md.
-SOURCE_COMMIT = 'aa95355797ff58b03fa6378850f6be04bcffb78d'
+# The source receipt differs only in its registry and checkout-attribute pins.
+SOURCE_COMMIT = 'd50c094a8bee944cc35159302e18240bd32dc947'
 REFERENCE = ROOT/'code/a5_closure/receipts/proper_code_attachment_probe.json'
 COMPILER = 'model/observer/source_scalar/compiler.py'
 INPUTS = sorted(set(m.INPUTS + [
