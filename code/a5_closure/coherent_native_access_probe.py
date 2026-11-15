@@ -16,7 +16,7 @@ from model.native_interface import tomography, pointer
 
 BASELINE = '3800f801283078b6b86c23bbb9b85b545a70b69c'
 # Reviewed current prerequisites, separate from the historical work baseline.
-PRIOR_COMMIT = 'f5486275bea27c31ef7b7a02ae8212bec6a55db9'
+PRIOR_COMMIT = '84cfe4d1ef4b1ca8662536923a5b4287417da29d'
 SOURCE_COMMIT = previous.SOURCE_COMMIT
 INPUTS = sorted(set(previous.INPUTS + [
     'model/compiled_native_interface/construction.py',
