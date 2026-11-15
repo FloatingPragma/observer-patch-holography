@@ -10,7 +10,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[2]
-BASE = "1fa8949e8000b9dad4cf3a816d5abc847d696e33"
+BASE = "9690061c6d60f7231df5c92a8e0ae479bcf2160b"
 DEFAULT = ROOT / "code/a5_closure/receipts/port_support_source_audit.json"
 SOURCE_PATHS = {
     "Lean/ObserverPatchHolography/CoreAxioms.lean",

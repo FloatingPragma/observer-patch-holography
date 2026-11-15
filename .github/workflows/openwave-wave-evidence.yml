@@ -29,6 +29,9 @@ jobs:
       run:
         shell: bash
     steps:
+      - name: Enable long evidence paths on Windows
+        if: runner.os == 'Windows'
+        run: git config --global core.longpaths true
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           sparse-checkout: code/openwave_wave_evidence
