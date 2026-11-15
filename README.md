@@ -7,9 +7,11 @@
 </p>
 <p align="center"><b><a href="https://philpapers.org/rec/MUEFOC">Synthesis paper</a> · <a href="https://oph-book.floatingpragma.ai/">Book</a> · <a href="https://floatingpragma.ai/faq/">Reality FAQ</a> · <a href="https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a">Notebook</a> · <a href="https://particles.floatingpragma.ai/">Simulation</a></b></p>
 
-[![Mandatory Suite](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml)
-[![Lean CI](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml)
-[![Runnable observer model](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml)
+<p align="center">
+<a href="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml"><img src="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml/badge.svg" alt="Mandatory Suite"></a>
+<a href="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml"><img src="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml/badge.svg" alt="Lean CI"></a>
+<a href="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml"><img src="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml/badge.svg" alt="Runnable observer model"></a>
+</p>
 
 ## The idea
 
