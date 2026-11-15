@@ -1,22 +1,22 @@
 # Wave evidence and reproduction
 
-For a connected weighted graph with total edge weight \(W\), graph Laplacian
-\(L\), and projection \(\Pi\) off the constant mode, the declared one-unit
+For a connected weighted graph with total edge weight $W$, graph Laplacian
+$L$, and projection $\Pi$ off the constant mode, the declared one-unit
 process and normalized occupation covariance satisfy
 
-\[
+$$
 P=I-L/(2W),\qquad
 C_n=\frac{\Pi+2\sum_{k=1}^{n-1}(1-k/n)\Pi P^k\Pi}{4W},\qquad
 C_\infty=L^+-\Pi/(4W).
-\]
+$$
 
 The scalar slice energy uses
-\(q_a(p)=\sum_j4a^{-2}\sin^2(ap_j/2)\) and
-\(E_a=2a^{-1}\operatorname{asinh}(a\sqrt{\lambda+q_a}/2)\).
-For \(S=\lambda+|p|^2\), its stated error bound is
-\(0\leq S-E_a^2\leq a^2[\sum_jp_j^4+S^2]/12\).
-The internal gaps are \(0,5-\sqrt5,6,5+\sqrt5\), with multiplicities
-\(1,3,5,3\). They are native band labels without measured-species assignments.
+$q_a(p)=\sum_j4a^{-2}\sin^2(ap_j/2)$ and
+$E_a=2a^{-1}\operatorname{asinh}(a\sqrt{\lambda+q_a}/2)$.
+For $S=\lambda+|p|^2$, its stated error bound is
+$0\leq S-E_a^2\leq a^2[\sum_jp_j^4+S^2]/12$.
+The internal gaps are $0,5-\sqrt5,6,5+\sqrt5$, with multiplicities
+$1,3,5,3$. They are native band labels without measured-species assignments.
 The field-strength reflection form has a positive rank-two quotient at nonzero
 momentum. Its finite contact terms and separated-support domain are retained.
 
