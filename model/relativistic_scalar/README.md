@@ -46,10 +46,10 @@ checks. The numerical global reference instead exponentiates the complete
 sparse Hamiltonian. Cached local contractions save host computation while
 the resource ledger counts every requested physical source word.
 
-Unlike the [earlier Bose construction](../spatial_interaction/README.md),
+Unlike the [Bose construction](../spatial_interaction/README.md),
 this action has number-changing terms. Local occupation cutoffs therefore
 need error bounds. The implementation compresses the **full** q^2, p^2 and
-q^4 operators; taking powers of an already truncated coordinate would
+q^4 operators; taking powers of a truncated coordinate would
 define a different Hamiltonian.
 
 ## Retained comparisons

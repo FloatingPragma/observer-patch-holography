@@ -7,7 +7,7 @@ twelve source ports. The source function `model.observer.native.native`
 repairs a selected ordered seam (a,b) using a placement bit c. If s=x_a+x_b,
 the new endpoints are (floor(s/2),ceil(s/2)) for c=0 and the reverse for c=1.
 The committed record includes c and j=x_a-x'_a. Our record also retains the
-selected seam, an action already known to the public controller. Only the
+selected seam, an action known to the public controller. Only the
 thirty committed carrier edges are admitted. Other loads
 are unchanged. Conservation makes X invariant. `endpoint` executes the source
 and independently checks this floor/ceiling description.
@@ -44,7 +44,7 @@ comes from finite classical counting. No trace rule is used. Reversing the
 record restores x by adding j to the first endpoint and subtracting it from
 the second, in reverse order. Therefore terminal (y,r) identifies its initial
 configuration and bit history; the executable independently checks this
-custody property. The record marginal can still forget that initial state.
+custody property. The record marginal can nevertheless forget that initial state.
 
 For a public event A, define
 
@@ -147,7 +147,7 @@ coordinates of the 66-state binary sector, with export abort and timeout
 outcomes retained. This packet rechecks its exact design and all 156 source
 pins. It does not rerun the entire compiler/quantum execution. Coherent
 proper-code services, quantum state/channel semantics and repeated preparations
-remain premises of that tomography result.
+are premises of that tomography result.
 
 Tomographic completeness identifies a state within a represented matrix model;
 it does not prove that arbitrary operational assignments on all effects are

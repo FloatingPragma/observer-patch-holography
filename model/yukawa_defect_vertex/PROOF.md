@@ -89,8 +89,7 @@ Measure the mixed three-point traces `T_ij,k=Tr[rho K_ij phi_k^dagger]` and the
 scalar Gram `C_ab=Tr[rho phi_a phi_b^dagger]`. The matrix C is positive and
 invertible, so the coefficients are `A_ij=T_ij C^(-1)`. Reconstructing
 `sum_k A_ij,k phi_k` returns K as an operator on every source state. The
-nonzero coefficients have modulus one. Fermion normalization is already
-fixed by the CAR spectral sum; substituting `phi=sqrt(14/5) phi_canonical`
+nonzero coefficients have modulus one. Fermion normalization is fixed by the CAR spectral sum; substituting `phi=sqrt(14/5) phi_canonical`
 therefore gives contact coefficient modulus `sqrt(14/5)`.
 
 This is the contact vertex in the exact field equation, extracted from

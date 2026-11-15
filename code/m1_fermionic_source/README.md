@@ -22,7 +22,7 @@ Read the [objective, deliverables and exit](CONTRACT.md) and the
 | Actual native operations | M6 one-code pulses and its native pair-code CZ implement signed Pauli rotations, both QND outcomes and a quartic density phase. Unknown entangled inputs survive the explicit code-growth instrument. |
 | Massive clock | Reflecting two-bank compiler, fermionic flights, exact blank restoration, degree bound, one processor per owner and a conflict-free positive-duration schedule. |
 | Reads and interaction | Tree-compiled complex CAR number reads; bounded Fock click effect; non-Slater two-particle output with stabilizer entanglement witness 2 sqrt(2) against separable bound sqrt(2). |
-| Valid noise budget | Physical edge dephasing damages even the encoded vacuum; a full-interface bound replaces the invalid occupation-only estimate. A finite analytic clock has positive sufficient noise rate and retained error outcomes. |
+| Valid noise budget | Physical edge dephasing damages even the encoded vacuum; the bound is a full-interface bound; an occupation-only estimate is invalid. A finite analytic clock has positive sufficient noise rate and retained error outcomes. |
 
 ## Reproduce
 
@@ -92,4 +92,4 @@ with commuting local qubit observables.
 The three claim rows are `OPH-SOURCE-LOCAL-FERMIONIC-REALIZATION`,
 `OPH-SOURCE-ENCODED-FERMION-CLOCK` and `OPH-SOURCE-FERMIONIC-VACUUM-NOISE`.
 Their mathematical-model status is retained in the registry and necessity
-inventory. Earlier physical-selection premises are not marked discharged.
+inventory. Physical-selection premises are not marked discharged.

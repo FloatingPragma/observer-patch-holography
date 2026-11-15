@@ -35,8 +35,7 @@ H_(a,b) = H_(light,light) + (m_a+m_b-2m_light) I.
 Every eigenvector, binding correction and internal spin degeneracy is
 unchanged. The light/second-family meson difference, after the electron
 calibration, equals the inherited muon-minus-electron branch energy,
-approximately0.105148416 GeV. The measured charged kaon-minus-pion difference
-is0.35410661 GeV. No adjustment of family-independent U,J,t changes this
+approximately0.105148416 GeV. No adjustment of family-independent U,J,t changes this
 identity. A kaon assignment requires a genuinely family-dependent operator
 or a different physical mapping. It cannot follow from relabeling this
 common binding correction.

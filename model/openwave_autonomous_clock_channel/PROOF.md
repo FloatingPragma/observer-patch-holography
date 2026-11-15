@@ -21,7 +21,7 @@ Declare the bounded native-current function
 The denominator is positive on every retained occupation. On the symmetric
 active sector reached from the native vacuum, `a|j>=sqrt(j)|j-1>` for
 j=0,...,N. This is a representation consequence of the actual collective
-currents. Other spin sectors remain part of the operator. Their ladder
+currents. Other spin sectors are part of the operator. Their ladder
 coefficients satisfy `J+J- <= n(N-n+1)`, so `||a||²<=N` and
 `||a²||²<=N(N-1)` on the complete carrier. The source energy differs from
 m n by an operator commuting with all the collision operators. Therefore
@@ -121,7 +121,7 @@ charged branch from vacuum, with its inherited rest-energy gap m. The
 two-loss operator vanishes, and the exact coherence multiplier is
 `sqrt(1-delta gamma) exp(-i m delta)`. Its phase therefore uses the same
 single-particle source gap, while its finite linewidth and conditional
-readout preparation remain explicit. No phase was supplied to the pump.
+readout preparation are explicit. No phase was supplied to the pump.
 
 For N>1 the carrier is an array of native charged branches. Its first-band
 frequency m is the constituent rest gap, not the total array energy

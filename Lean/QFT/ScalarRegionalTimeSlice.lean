@@ -15,7 +15,7 @@ These are vector-space statements. The Weyl-algebra interpretation and its
 Schroedinger representation argument are analytic in the companion paper.
 Classical configuration records are not assumed to be quantum observables
 or to attest quantum measurement outcomes. Action, regions and access to
-the Weyl families remain supplied.
+the Weyl families are supplied.
 -/
 
 set_option autoImplicit false

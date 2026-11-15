@@ -12,7 +12,7 @@ a designed eight-dimensional fiber, but it gives seven positive and eight
 negative **native exchange characters**. It therefore cannot realize a
 requirement that one collective fifteen-label module have uniform negative
 character. That particular encoding requires a fifteen-dimensional fiber
-instead. This is not a universal fermionic memory bound. The later
+instead. This is not a universal fermionic memory bound. The separate
 `defect_field_bridge/colored.py` construction gives each particle its own
 internal state: its true two-particle exchange is `-SWAP`, and both native
 characters occur. This package retains its full positive-sector complement.
@@ -52,7 +52,7 @@ Design an additional untouched fiber \(\mathbb C^m\). The commutant becomes
 is a legitimate explicit memory design. The observer and memory laws are
 allowed design variables; no independent uniqueness or natural-selection
 principle is required. The execution, memory errors and resource cost of
-the added fiber still need to be implemented and accounted for.
+the added fiber need to be implemented and accounted for.
 
 For the internal-grading test use the faithful image group
 
@@ -208,7 +208,7 @@ the ordering bit as \(|-\rangle\) by \(H\) then \(Z\) on \(|0\rangle\)
 and tensoring any internal state is a unitary initialization design, not
 postselection. Native branches and the specified internal action preserve
 this negative sector. The abstract preparation is exact; source execution
-and resource accounting for the whole new fiber remain separate work.
+and resource accounting for the whole added fiber are separate work.
 
 This is a uniform-character collective-module design on the native
 two-token configuration carrier. Its \(m\ge15\) bound does not apply to
@@ -218,9 +218,9 @@ or identify an observed particle.
 
 Execution of the specified additional fiber and gauge operations, their
 resource costs and complete failure records, and memory noise that does
-not commute with \(X\) remain to be handled. Localization, propagation,
+not commute with \(X\) are open. Localization, propagation,
 particle poles and spin/statistics must be derived on this same excitation
 before comparing it to measured particles. Generations and empirical
-particle identification also remain open. This package supplies an exact
+particle identification are also open. This package supplies an exact
 obstruction and an explicit mathematical design on the same native process;
 design freedom itself is not an unresolved premise.

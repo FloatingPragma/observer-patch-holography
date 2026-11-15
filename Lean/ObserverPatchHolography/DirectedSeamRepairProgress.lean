@@ -16,7 +16,7 @@ against the first endpoint at least two below `M`.
 This file proves the arithmetic part of that argument for paths of length at
 most three.  Three is the diameter of the twelve-vertex icosahedral carrier.
 The graph-theoretic premise that the listed vertices form such a shortest
-path remains explicit; these theorems do not select a stochastic schedule.
+path is explicit; these theorems do not select a stochastic schedule.
 -/
 
 /-- Every pair of ports in the concrete twelve-port carrier is connected by

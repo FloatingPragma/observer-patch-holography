@@ -63,9 +63,9 @@ independent four-mode Jordan–Wigner test covers every spectator occupation
 and rejects an ordinary qubit-swap replacement. Routing costs and their
 contribution to the conservative global numerical bound are retained.
 
-At `phi=0` this is exactly the previous onsite static Hamiltonian. The
-spatial reference remains explicit: twelve copies contain `12 E_vac`,
-and the same fixed subtraction `11 E_vac I` leaves the earlier single
+At `phi=0` this is exactly the parent onsite static Hamiltonian. The
+spatial reference is explicit: twelve copies contain `12 E_vac`,
+and the same fixed subtraction `11 E_vac I` leaves the parent single
 global scalar. That scalar is also source-executed. Restricting the static
 limit to the hard-core two-particle subspace gives the prior `U⊗U` law.
 At nonzero phase the pair term leaves that subspace. It conserves electric
@@ -81,7 +81,7 @@ even-number outcome through `N=1006`; small positive tails are stored as
 decimal values rather than rounded to zero by floating underflow.
 
 The [`full_domain`](../defect_field_bridge/full_domain.py) repair extension
-now makes the next repair step defined on these pair-created collisions.
+makes the next repair step defined on these pair-created collisions.
 The package executes the actual complete source repair isometry between
 a drive and its inverse, keeping all 32 coin/raw records and all 16
 local occupation states. A collision flag distinguishes vacuum from a
@@ -95,7 +95,7 @@ coherent.
 There is also an exact full-spatial echo calculation at the declared
 interval `tau=0.002`. Before repair each initially empty seam endpoint has
 even occupation. The noncollision record therefore means both endpoints
-are still vacuum, with probability `A` obtained from all 84 local pair
+are vacuum, with probability `A` obtained from all 84 local pair
 factors. The other record has probability `1−A`. The full inverse-drive
 return is `A²+(1−A)²`; all other sites and their particle sectors remain
 present. This follows from two orthogonal measurement projectors and does
@@ -107,4 +107,4 @@ advances once for the entire physical interval. Multiplying every term
 by the same `1+j/4` does not mean advancing the clock once per compiled
 term. A chosen split-step product is not silently equated with continuous
 simultaneous evolution. Interacting physical poles, scattering data and
-quantized gauge/Higgs dynamics remain further scientific work.
+quantized gauge/Higgs dynamics are open scientific work.

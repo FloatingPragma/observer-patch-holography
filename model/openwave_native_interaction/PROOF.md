@@ -67,7 +67,7 @@ Every terminal readout branch and its post-repair state is retained. Z takes
 values0 or2; its mean, not its individual value, equals a probability. This
 additional readout is one actual native repair. The displayed two cases use
 respectively three and five events, with separately admitted literal programs.
-The unread terminal assay happens to leave these already heat-bathed diagonal
+The unread terminal assay happens to leave these heat-bathed diagonal
 populations unchanged. It is not an identity channel on arbitrary coherent
 source states.
 

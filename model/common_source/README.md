@@ -7,7 +7,7 @@ nonzero scalar response to the recorded matter feedback. A separate exact
 certificate proves that this response survives infinite oscillator
 occupation and the actual coordinate-sign readout. This is a construction
 toward OPH's [physical completion target](../CONSTRUCTION.md#completion-target-and-acceptance-criteria).
-That target remains open.
+That target is open.
 
 The [particle mass-response audit](../../docs/research/OPH_PARTICLE_MASS_RESPONSE.md)
 joins the finite charged-gap, CAR-readout, Weyl–Higgs, hierarchy and full-response
@@ -17,7 +17,7 @@ conserved correlation density and shared detector effects on overlapping
 observer regions. Its matrix-unit algebra, incident-clock transfer and
 modular frequencies are computed separately. Identifying that response
 with a physical relativistic particle, and recovering the measured Standard
-Model hierarchy, remain open.
+Model hierarchy, are open.
 The canonical `python -m model.verify` replays the retained receipts;
 for the charged experiments it recomputes the complete quantum outputs and
 compares the stored arrays as well as their hashes. The
@@ -84,14 +84,14 @@ family coupling without measured masses. Its complete correlated channel
 has a controlled averaging limit and attaches one common coupling to the
 three Higgs lines. The resulting ratios `1 : 30.84 : 452.62` fail the
 charged-lepton comparison. Neutral memory and coherent Higgs feedback are
-explicit additions to the repair rule; the calibrated control remains a
+explicit additions to the repair rule; the calibrated control is a
 separate experiment.
 The [native family selector](native_family_selection.py) computes a rank-three
 protected band from the carrier's rotation and incidence response, without
 supplying a three-dimensional frame. Its compiled cooling service retains all
 605 classical labels and both native quantum syndrome outputs, and its exact
 coefficient map agrees with the finite family-band theorem. The cooling rule
-is chosen; identifying these levels with physical families remains separate.
+is chosen; identifying these levels with physical families is separate.
 The [loop-phase calculation](native_mass_holonomy.py) excludes the original
 carrier's closed edge phases under the declared finite mass relation.
 The [current-mediated auxiliary response](native_mass_dressing.py) gives
@@ -155,7 +155,7 @@ connects the full auxiliary current action, physical CAR rotations and native
 exchange-echo hopping. All local Fock columns and routing signs are retained.
 Its [continuum comparison](native_gauge_continuum.py) uses those source links
 and keeps both Dirac tastes in a constant non-Abelian background. Spatial
-geometry, background paths and improving source accuracy remain premises;
+geometry, background paths and improving source accuracy are premises;
 dynamical chiral gauge theory and physical spectrum recovery are unestablished.
 The transport and continuum checks share one
 [retained receipt](native_gauge_matter_transport_results.json) and complete
@@ -185,7 +185,7 @@ budgets; it does not supply a physical noise rate or hardware error bound.
 
 The canonical finite [executable specification](COMPOSITION.md) and
 [program runtime](protocol.py) compose these operations on retained
-states. Both original sharp and smooth histories use this engine. The new
+states. Both the sharp and smooth histories use this engine. The
 [four-read continuation](composition.py) adds a second smooth field read,
 record-controlled feedback and a later gauge clock probe to the same
 preparation. Its complete native attachment retains all 4,224 joint outcomes
@@ -201,18 +201,18 @@ finite work outputs at d=2,4 with the infinite history for each of the three
 native currents, including later feedback and the gauge clock probe. Its
 [producer](smooth_history.py) and [receipt](smooth_history_results.json)
 fix the blank-gauge and scalar-vacuum preparation. The broader uniform
-moment bound and the missing numerical and physical service bounds remain
+moment bound and the missing numerical and physical service bounds are
 separate.
 
 The [coherent native attachment](QUANTUM_NATIVE.md) executes the native
 repairs around that same continuation with the existing source controls.
 It accepts the full 78-state native carrier with arbitrary reference
 coherence, retains every raw outcome, and uses an executed port permutation
-for the final record-selected seam. C and E remain distinct quantum record
+for the final record-selected seam. C and E are distinct quantum record
 laws. Its [runtime](quantum_native.py) and
 [receipt](quantum_native_results.json) keep initialization, code services,
 storage and physical calibration as explicit inputs. The classical
-native benchmark remains available with its original scope and counts.
+native benchmark is available with its own scope and counts.
 
 The [encoded memory variant](ENCODED_MEMORY.md) uses
 `native_mode='protected_qubit'` to recover the existing four-configuration
@@ -244,7 +244,7 @@ timeouts. These use their stated references; the code reference is not the
 native Gibbs population. The [combined producer](record_observer.py) and
 [receipt](record_observer_results.json) retain the complete complex field
 arrays with the capacity, source, clock and information checks. The logical
-transport, coherent services and preparation remain declared inputs. Native
+transport, coherent services and preparation are declared inputs. Native
 records do not select that transport, a physical time unit, spacetime or an
 empirical particle model.
 
@@ -262,7 +262,7 @@ nine-bit controlled flip from 11,782 to 2,044 native pulses. It preserves
 the complete 512-dimensional endpoint operator, including padding and
 reference coherence, with no extra qubits. The encoder uses 28,635
 pulses; the `d=2` protected C history uses at most 1,158,423. These counts
-include every repeated source request. Physical services remain supplied,
+include every repeated source request. Physical services are supplied,
 and the shorter words need not preserve intermediate source states.
 
 The [observer readout bridge](OBSERVER_READOUTS.md) reconstructs Hilbert
@@ -286,29 +286,29 @@ interacting record/quantum output has a quantitative occupation error bound,
 including measurement backreaction. The infinite-model unconditional
 measurement energy increase is exactly `1/8` in the declared model units.
 The executed finite cutoffs retain their actual energy changes and boundary
-corrections. This is a different detector; the original sharp-record clock
+corrections. This is a different detector; the sharp-record clock
 is not transferred to it.
 
-The [history repair construction](HISTORY_REPAIR.md) solves the original
+The [history repair construction](HISTORY_REPAIR.md) solves the
 sharp-readout event history as local compatibility constraints. Every fair update schedule
 reaches its unique completed assignment for the fixed apparatus inputs.
 Its observer states and modular readouts are consequently independent of
-the auxiliary repair counter. The supplied record meanings still select
+the auxiliary repair counter. The supplied record meanings select
 the actual feedback operations inside that history.
 
 The [native slow-geometry readout](SLOW_GEOMETRY.md) attaches the existing
-rank-three response carrier to all 1,056 joint histories. The original
+rank-three response carrier to all 1,056 joint histories. The
 two-seam controller spans two displacement directions. An additional
 binary continuation uses three independent seam directions across its two
-events, with every new native outcome and its quantum reference retained.
+events, with every native outcome and its quantum reference retained.
 These are dimensionless carrier displacements; physical position, momentum
-and spacetime remain separate attachments.
+and spacetime are separate attachments.
 
 The [calibration checks](CALIBRATION.md) compare carrier distances, sampled
 modular-clock readings and finite detector energy with their declared
 mathematical targets. They also show why choosing the physical speed of
 light would relate length and time units without determining an energy
-scale. A propagation law connecting these readouts remains to be built.
+scale. A propagation law connecting these readouts is not constructed here.
 
 The [fixed-reference clock bridge](THERMAL_CLOCK.md) distinguishes a
 stationary equilibrium reference from the actual changing observation state.
@@ -317,7 +317,7 @@ its continuous between-event dynamics, by the finite KMS identity, the modular
 flow of that chosen reference, with `t=-beta s`.
 Source-executed clock probes retain the earlier records. The reference is
 constructed from the supplied action; its selection by repair and a physical
-time calibration remain unproved. The local-clock construction and
+time calibration are unproved. The local-clock construction and
 the failed identification using the local post-measurement state are retained.
 The clock probes appended to the sharp history are outside its
 infinite-readout certificate. The [smooth continuation](COMPOSITION.md)
@@ -411,10 +411,10 @@ The complete experiment proceeds as follows:
 
 All quantum preparations, evolution factors, pointer gates and controlled
 pulses execute through the inherited twelve-port source compiler. In this
-sharp-history benchmark the native integer-repair channel remains
+sharp-history benchmark the native integer-repair channel is
 the declared primitive. The separate [coherent attachment](QUANTUM_NATIVE.md)
 executes the full native interface around the four-read smooth continuation.
-Coherent code transfer, blank preparation, storage and readout remain
+Coherent code transfer, blank preparation, storage and readout are
 supplied services in both constructions.
 
 At 512 steps per interval, the quantum protocol uses the following emitted
@@ -429,7 +429,7 @@ feedback and zero-angle requests:
 Two fresh pointer blanks and two committed quantum bits are additional.
 The native source and native records are accounted separately. These are
 expanded word counts; the numerical replay reuses executed step matrices.
-Physical service duration and initialization/storage/readout costs remain
+Physical service duration and initialization/storage/readout costs are
 unspecified. No efficiency or physical cost bound follows from host runtime.
 
 Every complete path retains both quantum bits, both native records, final
@@ -493,7 +493,7 @@ polynomials can be regenerated with `--polynomials --write PATH.json`.
 
 The [readout audit](READOUT.md) also identifies a necessary distinction:
 the sign projector of a truncated coordinate is not the compression of the
-infinite sign projector. Their operator difference already has norm about
+infinite sign projector. Their operator difference has norm about
 0.101058 at d=2. The finite signal belongs to its finite detector;
 the occupation certificate uses the actual infinite detector, including its
 postmeasurement tails.
@@ -553,14 +553,14 @@ analytic bounds, not executions of those larger source programs. At the
 executed dimensions 2 and 4 the bound is vacuous, so agreement between those
 small cutoffs does not certify continuum precision. The joint ideal limit
 uses `n(d)=d^2` temporal steps; floating execution and physical service errors
-remain separate.
+are separate.
 
 The local-reference and post-sharp fixed-Gibbs-reference probes have
 no proved occupation limit in those detector analyses. The separate
 [continued smooth program](COMPOSITION.md) bounds its later gauge probe on
 the retained state, without asserting convergence of Gibbs modular data.
 
-## What this establishes and what remains
+## What this establishes and what is open
 
 This packet binds source control, CAR, operator Gauss, record readback and
 feedback to one explicit interacting finite process. It reuses the
@@ -577,7 +577,7 @@ probability on a bounded phase window. The fixed-Gibbs-reference bridge
 relates modular and Hamiltonian parameters on continuous evolution segments;
 it does not turn the intervening measurements and feedback into one modular
 unitary flow. Both protocols use declared references and pulse schedules,
-without physical duration calibration. The actual preparation remains the
+without physical duration calibration. The actual preparation is the
 projected free vacuum, not the Gibbs reference or an established ground state
 of the coupled Hamiltonian. P and N retain their existing
 closure and physical-readback contracts; they do not fix these additional

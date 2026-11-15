@@ -2,7 +2,7 @@
 
 The five modules under `Time/` implement the bounded observer-history and
 clock-calibration packet. They separate what follows from record order, what
-follows only after a metric calibration, and what still requires a
+follows only after a metric calibration, and what requires a
 source-produced physical clock.
 
 ## Exact finite results

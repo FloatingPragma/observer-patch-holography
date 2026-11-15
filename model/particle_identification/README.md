@@ -192,7 +192,7 @@ as the common energy scale to its dimer particle/hole doublets. Their equal
 gaps give a conditional particle-antiparticle equality, but zero independently
 predicted absolute masses. Its finite dictionary also lacks the physical
 vacuum, charge, Lorentz spin and continuum pole joins. The exact672-case
-three-lepton exclusion is scoped to that dimer frequency menu and its
+three-lepton exclusion remains scoped to that dimer frequency menu and its
 common scale/chemical-potential map; it is not applied to the new cube.
 
 This audit reads and hashes the existing receipt and observations without

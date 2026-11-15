@@ -19,8 +19,8 @@ gauge quotient, observer patches, declared observable overlap data, local
 recovery moves). The theorem-grade formalisation of Proposition 4.2 lives
 downstream and is tracked in `PROOF_INDEX.md`.
 
-Source: PR #299 (Aristotle output, verified sorry-free), relabelled per the
-2026-05-18 audit verdict that this is a skeleton, not a Prop 4.2 statement.
+Source: PR #299 (Aristotle output, verified sorry-free). This is a skeleton,
+not a Prop 4.2 statement.
 -/
 
 open Function Relation

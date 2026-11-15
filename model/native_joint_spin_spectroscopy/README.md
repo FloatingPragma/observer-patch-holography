@@ -23,7 +23,7 @@ put g_j=R_j Z_all. Each g_j is a unitary involution, the g_j commute, and
 each commutes with H_B: the reflection and Z_all each reverse the selected
 field, while preserving exchange. In the Marshall frame U=product_(eps=-1) Z,
 the exact identity is U g_j U=R_j. The source's real matrix in this frame
-has negative hopping and transverse-field entries. The previously proved
+has negative hopping and transverse-field entries. A
 Perron argument gives a unique positive ground. Permuting its coordinates
 therefore fixes it, and consequently g_j Omega=Omega in the physical frame.
 These graph actions permute the protected spin tensor factors; they do not
@@ -163,7 +163,7 @@ zero: its transverse probe lies in the span of `(1,0,0,1)` and `(0,1,1,0)`,
 and both the exchange and selected-field terms annihilate this span. The
 combined reflection preserves it. Every controlled split factor therefore
 has its exact source action on every ideal prefix. The initial ground
-error and all literal native errors are still added; no exactness is
+error and all literal native errors are added; no exactness is
 claimed for an arbitrary input outside this common kernel.
 
 The execution evaluates the real six-level matrices on every one of the

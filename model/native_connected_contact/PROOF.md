@@ -81,7 +81,7 @@ For any unit coordinate f, therefore,
 The exact E_l formula and all-level combinatorial attachment are proved in
 [native spatial scaling](../native_spatial_scaling/PROOF.md). Distinct
 floating port choices do not alter (4), since the coordinate is constant
-inside each cell. Successful routing must still satisfy the owning source
+inside each cell. Successful routing must also satisfy the owning source
 postconditions. This argument does not prove that a floating constructor
 returns at every mathematical level. Literal controls evaluate levels 0–2.
 

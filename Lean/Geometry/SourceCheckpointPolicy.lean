@@ -6,7 +6,7 @@ import Mathlib.Analysis.SpecialFunctions.Log.Basic
 Backward masses on the complete native move tree construct the transition
 law. Positive trajectories are exactly terminally accepted trajectories;
 the law never samples a failed trajectory and retries it. The finite move
-grammar, reference weights and terminal checkpoint remain explicit data.
+grammar, reference weights and terminal checkpoint are explicit data.
 -/
 
 set_option autoImplicit false

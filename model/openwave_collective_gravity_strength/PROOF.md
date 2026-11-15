@@ -1,8 +1,8 @@
 # Complete collective geometry with a calibrated weak strength
 
-The previous replicated member deliberately preserved a large gravitational
+The replicated parent member preserves a large gravitational
 susceptibility by reducing each register's frequency. Here the declared
-hardware instead keeps every register frequency fixed:
+hardware keeps every register frequency fixed:
 
 ```
 Q_N=(q/N) sum_i Z_i,
@@ -10,7 +10,7 @@ H_g=(omega/2) sum_i(I-X_i),
 H=H_g+exp(Q_N)K_source+exp(F Q_N)K_probe.
 ```
 
-The inherited q=1/8 and omega=1 remain unchanged. Both native factors keep
+The inherited values q=1/8 and omega=1 are kept. Both native factors keep
 all eight positive-energy levels. Every term is positive. The complete
 geometry carrier has dimension 2^N, with energy r omega and multiplicity
 C(N,r) for every r=0,...,N. Its gap is omega; it does not shrink with N.
@@ -40,11 +40,11 @@ g0=S q^2/(2 pi omega).
 
 These exact rational bounds use the existing Machin enclosure of pi. They
 are evaluable for huge N without constructing a fraction whose denominator
-contains an exponent proportional to N. The full binomial sum remains the
+contains an exponent proportional to N. The full binomial sum is the
 source definition. Independent complete hypercube matrices check the small
 N cases; the huge case is a theorem evaluation, not an enumerated replay.
 
-Retain the electron energy unit u and h=hbar c. The previous unit theorem
+Retain the electron energy unit u and h=hbar c. The parent unit theorem
 requires `g_N=G_target u^2` and sets the free-symbol light-matching length
 to h/u. Choose N by rounding `g0/(G_target u^2)` to its uniquely enclosed
 nearest integer. The exact g_N enclosure then differs from the supplied
@@ -63,10 +63,9 @@ geometry vacuum and costs N omega/2 source units. This enormous resource
 is retained explicitly, along with all N+1 output labels; it is not treated
 as a small executable apparatus.
 
-The calculation repairs the weak-coefficient/free-symbol unit compatibility
-of this declared member. It does not overturn the distinct fixed-member
-failure. In particular, the inherited strong-sector length still fails the
-unit-speed comparison. Full dressed-photon propagation, finite source-energy
+The calculation establishes the weak-coefficient/free-symbol unit compatibility
+of this declared member; it makes no unit-speed claim for the inherited
+strong-sector length. Full dressed-photon propagation, finite source-energy
 force universality, a common strong/geometry spatial construction, nonlinear
 Einstein dynamics and a physical particle interpretation of geometry
 excitations are not established. No Nature-validation credit follows from

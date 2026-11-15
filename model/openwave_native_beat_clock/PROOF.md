@@ -150,7 +150,7 @@ trigonometric evaluation.
 
 The source values give `Omega approximately 4.691656680938395`; the
 reference-subtracted gap is approximately `0.691656680938395`.
-At one million source-time units the waveform bound still controls over
+At one million source-time units the waveform bound controls over
 700000 atomic total-beat cycles. Reference cost four is part of the
 measured beat; subtracting it is a declared model energy comparison,
 not a continuing compensating phase drive. No laboratory second,

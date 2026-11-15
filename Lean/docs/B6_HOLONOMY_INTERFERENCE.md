@@ -42,7 +42,7 @@ or physical identification.
 The phase theorem receives the edge labels, paths, character, cyclic sector,
 and factorization as data. It constructs no observer-source connection,
 physical gauge field, spacetime loop, flux, charge, laboratory arm, detector,
-or interference fringe. Those attachments remain with the source/current and
+or interference fringe. Those attachments belong to the source/current and
 physical-sector continuation.
 
 The module contains no `sorry` or project axiom. Its printed dependencies are

@@ -1,7 +1,7 @@
 This package compiles a conditional local classical action from the registered
 fundamental, dual and singlet representations. It uses a supplied flat Spin
 chart, connection, Higgs doublet and minimal kinetic/potential/Yukawa laws.
-Fermion values, conjugates and first derivatives remain exterior-algebra
+Fermion values, conjugates and first derivatives are exterior-algebra
 variables. Gauge parameters retain their first and symmetric second jets.
 
 Run from the repository root:
@@ -34,7 +34,7 @@ paper fragment. Neither a source-emitted action/current nor a quantum functional
 measure, physical Spin identification or calibrated Standard Model is asserted.
 The kernel-checked Lean module proves generic connection/curvature identities
 and a Grassmann sign control; the full action theorem is analytic, with separate
-exact finite executable controls. Gauge fixing and ghosts remain outside this
+exact finite executable controls. Gauge fixing and ghosts are outside this
 classical assembly.
 
 The intended observer attachment is to bounded patches with local state, ports,

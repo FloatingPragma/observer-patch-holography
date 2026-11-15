@@ -67,7 +67,7 @@ nonfinite values and undeclared conversions reject before comparison.
 
 The physical vacuum, electric-charge dictionary, Lorentz spin, continuum
 dispersion, stable physical pole and same-excitation defect/transport/clock
-map are unestablished. Doublet multiplicity alone does not give physical
+map remain unestablished. Doublet multiplicity alone does not give physical
 spin. The internal particle–hole symmetry supplies a useful candidate relation;
 it does not identify the excitations with observed electrons and positrons.
 
@@ -186,12 +186,13 @@ uncertainties above its observed value. The declared primordial map lies
 at lower-tail posterior weight `3114/508985≈0.006118` in the retained
 P-ACT-LB projection. This marginal posterior weight is **not a p-value**
 or a joint model likelihood. The standard cosmology and calibration models,
-missing physical photon-residue map and missing common error contract are explicit in [`empirical_diagnostics`](../empirical_diagnostics/README.md).
+missing physical photon-residue map and missing common error contract remain
+explicit in [`empirical_diagnostics`](../empirical_diagnostics/README.md).
 Earlier oscillator and chiral histories are not reexecuted by this replay.
 
 The source prediction is hashed before observations are reopened. Because
 the targets were already exposed, this is a reproducibility boundary, not
-a prospective validation claim. CP11 is open until CP07/CP10 supply
+a prospective validation claim. CP11 remains open until CP07/CP10 supply
 one eligible physical dictionary and a complete, independent comparison.
 
 Run from the repository root:

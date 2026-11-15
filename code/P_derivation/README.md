@@ -30,7 +30,7 @@ not establish their physical identification. `verify_selection_accounting.py`
 independently checks the exponent residuals, imported evidence custody,
 numerical classifications and a two-measure counterexample showing that
 output counts do not determine a chance probability. The owning interval
-verifiers remain responsible for the imported root enclosures.
+verifiers are responsible for the imported root enclosures.
 
 ```bash
 python3 code/P_derivation/selection_accounting.py
@@ -90,7 +90,7 @@ Canonical naming, used on every surface in this directory: `P` is the
 measured-endpoint working value of the pixel constant, located from the
 measured fine-structure constant; `P_fwd` is the forward-model closure
 point, the pixel value implied by the solver's own contracted output. The gap
-between them is the open loop residual recorded on the historical P-closure
+between them is the open loop residual recorded on the P-closure
 issue ([#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545), closed).
 Inserting the measured hadronic payload does not close it: the
 [empirical endpoint](EMPIRICAL_HADRON_SCHEME_BRIDGE.md) lands 0.48 percent
@@ -131,7 +131,7 @@ Two alpha readout modes are supported:
   No paper endpoint, frozen ratio, or imported charged bundle is inserted.
 
 - `thomson_structured_running_asymptotic`
-  Legacy comparison path. It keeps the older high-energy asymptotic
+  Comparison path with the high-energy asymptotic
   approximation
   `Delta alpha_f^-1 ~= N_c Q_f^2 (log(Q^2 / m_f^2) - 5/3) / (3 pi)`.
   This is preserved for auditability only.
@@ -166,7 +166,7 @@ The important claim-boundary caveat is:
 (`contract_satisfied`) from verified spectral/interval evidence. It checks
 necessary arithmetic consistency, including overlap of the endpoint with its
 component sum, but does not read or replay a supplied backend certificate.
-Consequently `certificate_replayed` and `promotion_allowed` remain false even
+Consequently `certificate_replayed` and `promotion_allowed` are false even
 for complete metadata. A backend name, positivity label or nonempty proof
 reference cannot authorize a physical fine-structure claim. The outer-map
 Decimal calculations are diagnostics; the reciprocal-alpha endpoints alone
@@ -220,7 +220,7 @@ python3 measured_endpoint_calibration.py
 `interval_contraction_certificate.py` emits
 `runtime/p_interval_contraction_certificate_2026-07-14.json`, the stage-2
 contraction certificate of the basin-then-contract protocol for the P
-coordinate (historical P-closure issue #545).
+coordinate (P-closure issue #545).
 
 What is certified:
 
@@ -258,8 +258,8 @@ What is not certified:
   theorems.
 - No relation to the measured fine-structure constant is certified. The P
   coordinate carries a stage-2 contraction certificate for the declared
-  map; the stage-3 landing verdict is unchanged: the source fixed point
-  remains outside the measured basin (historical P-closure issue #545), pending the hadronic
+  map; the stage-3 landing verdict is that the source fixed point
+  lies outside the measured basin (P-closure issue #545), pending the hadronic
   transport term.
 - Global uniqueness of the inner roots (`alpha_U`, `m_Z`) over the solver's
   full scan windows is not claimed; the inner-root certificates hold on the
@@ -379,7 +379,7 @@ The JSON keeps audit guard fields for theorem tooling and carries row class
 `oph_plus_empirical_hadron_closure`. Consumer-facing prose leads with the
 source-only value and the closure status: the forward map contracts to
 `alpha^-1 = 136.9948...`, the residual to the measured basin is open
-(historical P-closure issue #545; the executed empirical hadron closure lands at
+(P-closure issue #545; the executed empirical hadron closure lands at
 `136.3828`, below the measured value), and the measured endpoint
 `137.035999177(21)` is the measured input. The empirical hadron-closure row is a
 labeled closure-status display:
@@ -433,7 +433,7 @@ v(P_source_audit)/E_star = 2.0198114078576330591337426182670149e-17
 
 The bundle certifies the local `P -> alpha_U -> v/E_star` hierarchy lane by a
 declared dependency graph and a Krawczyk inclusion for the `R_U` interval. The
-public Thomson endpoint transport gate remains the same source-side hadronic
+public Thomson endpoint transport gate is the same source-side hadronic
 spectral object described above.
 
 ## Usage

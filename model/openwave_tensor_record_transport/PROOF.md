@@ -66,4 +66,4 @@ curvature halos. Their divergences vanish identically. The arbitrary-table
 decoder conclusion follows from the existing exact inverse identity, with
 six direct numerical-algebraic checks per example. Nonlinear curvature,
 physical stress/metric identification, continuum control and the value of
-the cosmological metric term remain separate obligations.
+the cosmological metric term are separate obligations.

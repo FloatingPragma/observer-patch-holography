@@ -2,9 +2,9 @@
 
 Requiring particle-hole invariance of the original bipartite Weyl/contact
 source fixes a unique scalar charge-clock centering: `K=H-(U/2)N`.
-This package constructs a **new** full ground for that explicitly changed
-charged dynamics. It does not assume that the old ground stays a ground.
-On the actual cube the old `N=4` ground fails that test, and the new
+This package constructs a **separate** full ground for that explicitly changed
+charged dynamics. It does not assume that the uncentered ground stays a ground.
+On the actual cube the uncentered `N=4` ground fails that test, and the centered
 global ground is proved to lie entirely in `N=8`. An exact integer
 certificate proves that it is unique and has hidden spin zero, using
 the source spin algebra and a certified trial overlap. The explicitly
@@ -16,7 +16,7 @@ every other charge sector exceeds `1/8` model energy unit at `c=1/8,U=1`.
 The reference approximation has certified infidelity below `10^-6`.
 These finite source energies do not identify relativistic masses.
 
-The original action and earlier scientific results remain unchanged. The
+The uncentered action and the results built on it keep their own scope. The
 subtraction is an explicitly recorded comparison dynamics, motivated by
 the necessary CPT centering in
 [continuum_cpt_constraint](../continuum_cpt_constraint/README.md).
@@ -65,18 +65,18 @@ half filling. The cube has the stronger charge-sector proof below.
 
 The gauge-invariant ground has a positive GNS generator for `K`, with
 ground energy subtracted only in the GNS representation. This generator
-is obtained from the new state. Positivity is not inferred by subtracting
-charge from the old state's generator.
+is obtained from the centered state. Positivity is not inferred by subtracting
+charge from the uncentered state's generator.
 
 ## The actual cube changes from four particles to eight
 
 The imported [all-number cube theorem](../interacting_vacuum/README.md)
 proves the exact operator inequality `H>=-sqrt(3)/4` on every Fock state
-at `c=1/8,U=1`. Its old ground has exactly `N=4` and therefore centered
+at `c=1/8,U=1`. Its uncentered ground has exactly `N=4` and therefore centered
 energy `-2-sqrt(3)/4`, which is greater than `-4`. Any singly occupied
 `N=8` product state has centered expectation `-4`: the contact term and
-all hopping expectations vanish. Thus the old ground definitely ceases
-to minimize the changed clock.
+all hopping expectations vanish. Thus the uncentered ground does not
+minimize the changed clock.
 
 For every `N<=7`, the same all-number inequality implies
 
@@ -209,7 +209,7 @@ The preceding full-Fock argument independently establishes half filling,
 `N=8`. The review's centered interaction convention adds only the scalar
 `UV/4=2` to our `K`, so it has the same eigenvectors. The theorem therefore
 independently gives a unique hidden-spin-zero ground. It is not an
-admission premise of the direct finite gap proof, but remains an explicit
+admission premise of the direct finite gap proof, but is an explicit
 import elsewhere in the package. Neither argument identifies physical
 spin or establishes thermodynamic ground uniqueness.
 
@@ -252,7 +252,7 @@ zero: the scalar staggered excess density is particle-hole odd, and the
 three hidden-frame Neel orders form a spin vector in a singlet. This
 allows nonzero fluctuations and the rigorously positive many-body gap.
 It prevents interpreting that gap as proof of a selected classical mass
-texture. The bounded-coupling continuum remains free and massless.
+texture. The bounded-coupling continuum is free and massless.
 
 ## Actual cube one-site faithfulness and its modular generator
 
@@ -285,7 +285,7 @@ The dimer trial implies `omega(T)+omega(D)<=-delta`. Therefore
 d >= delta^2/54 >1/15000,       d <sqrt(3)/16 <1/8.
 ```
 
-Gauge, hidden-spin and particle-hole invariance now give the complete
+Gauge, hidden-spin and particle-hole invariance give the complete
 one-site density and its finite modular generator:
 
 ```
@@ -294,7 +294,7 @@ K_x=-log(1/2-d) I + log((1/2-d)/d) (N_x-1)^2,
 lambda_min(rho_x)>1/15000,      ||K_x||<log(15000).
 ```
 
-Thus the actual centered cube reference removes the old polarized
+Thus the actual centered cube reference avoids the uncentered polarized
 reference's zero-doublon obstruction at one site. Its entropy satisfies
 `log(2)<S(rho_x)<3log(2)-(3/4)log(3)`, because the displayed entropy
 increases with `d` on `(0,1/4)`. For every same-site density `sigma`, put
@@ -341,7 +341,7 @@ d=(1-U/s)/4 >0.                                    (3)
 
 It is faithful on the full local four-state CAR algebra for `t>0`.
 Its actual modular generator is the diagonal `-log(rho_site)`. This
-faithfulness belongs to the new reference; the old polarized cube's
+faithfulness belongs to the centered reference; the uncentered polarized cube's
 zero doublon eigenvalue is not discarded or reinterpreted. No geometric
 cap or physical temperature is obtained from (3).
 
@@ -355,13 +355,13 @@ g_+ = s/2+t,       w_+=(1-4t/s)/4.                   (4)
 
 Each charge branch has total weight `1/2`; the full signed response
 has the four atoms `+/-g_-`, `+/-g_+`, with the corresponding weights.
-At `U=0` the upper weight is zero and remains a retained null outcome.
+At `U=0` the upper weight is zero and is a retained null outcome.
 At `U=1,t=1/16`, `g_+/-=(2sqrt(17)+/-1)/16`. These exact source energies
 are symmetric under particle-hole exchange. The signed mean is zero
 and the second moment is `t^2+U^2/4=65/256`. Their relativistic dispersion
 and physical species are not established.
 
-## A centered thermodynamic ground, without reusing the old vacuum
+## A centered thermodynamic ground, without reusing the uncentered vacuum
 
 Use normalized full centered-ground projectors in growing open boxes.
 Extend each by the tracial product state outside the box; the exterior
@@ -376,8 +376,8 @@ All finite states are gauge and hidden-spin invariant. Translating the
 particle-hole map changes `eta` by at most a common sign, absorbed into
 the gauge symmetry, so particle-hole invariance also survives translation
 averaging and the weak-star limit. Thus every site's density is exactly
-one and its one-body spin density is `I/2`. This is a new selected
-ground subsequence, not a proof that the old unshifted ground works.
+one and its one-body spin density is `I/2`. This is a separately selected
+ground subsequence, not a proof that the unshifted ground works.
 
 The original and centered dynamics differ by a gauge phase. Consequently
 the original locality estimates hold with identical norms. More strongly,
@@ -400,7 +400,7 @@ supplies a centered eight-valley continuum net with positive energy,
 continuous translations and the proved propagation cone. Particle-hole
 symmetry acts on all valleys (it pairs complementary valley phases),
 so no valley is deleted to obtain it. Its averaged addition/removal
-energy measures agree. This removes the previous CPT *moment* obstruction;
+energy measures agree. This removes the CPT *moment* obstruction;
 it does not derive a full spacetime CPT action or Lorentz covariance.
 
 The centered moment identities are exactly
@@ -456,7 +456,7 @@ cells `[-pi/2,pi/2]^3`, use `|sin q_j|>=2|q_j|/pi`, and enclose the
 cell by the radius `sqrt(3)pi/2` ball. With normalized Brillouin measure,
 `integral 1/s(k)^2 <= pi sqrt(3)/2 <11/4`. The isolated nodes have
 measure zero. This is specific to the three-dimensional integral.
-For `c=v/a`, (8) is `O(a^2)` at bounded coupling. It still does not
+For `c=v/a`, (8) is `O(a^2)` at bounded coupling. It does not
 uniformly control a normalized packet concentrated in a shrinking
 momentum pocket or prove that a nonzero interaction survives.
 

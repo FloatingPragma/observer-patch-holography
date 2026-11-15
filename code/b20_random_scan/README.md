@@ -1,6 +1,6 @@
 # Random-scan common-reference preflight
 
-Historical labels: B20, issue #725 (closed).
+Lane label: B20 (issue #725).
 
 Exact algebraic feasibility preflight mandated as the issue's first
 step: before any fresh simulation, decide on retained source data

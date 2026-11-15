@@ -2,7 +2,7 @@
 
 This package checks finite witnesses for
 `paper/tex_fragments/PAULI_SOURCE_SELECTION_BOUNDARY.tex`. It tests whether the
-currently supplied source hopping, positive metric, finite capacity, covariance
+supplied source hopping, positive metric, finite capacity, covariance
 and exact number-phase law select exclusion. They do not suffice: a symmetric
 four-mode Fock space capped at total occupation two has all these mathematical
 properties and retains double occupation.
@@ -33,7 +33,7 @@ creation anticommutation. Mixed CAR additionally follows if creator and adjoint
 are the complete pair of Kraus outcomes. The package checks a finite CAR
 realization and a contrasting three-outcome capped-boson instrument. Scaling
 the latter's branches by 1/2 makes them contractions but changes their phase
-coefficient to 1/4, so the same operator no longer meets both premises.
+coefficient to 1/4, so the same operator does not meet both premises.
 Under the exact phase law, contraction is equivalent to exclusion; identifying
 the source creator as that contraction is the substantial missing condition.
 

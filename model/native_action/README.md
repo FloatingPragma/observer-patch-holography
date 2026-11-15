@@ -93,7 +93,7 @@ of a transfer, when defined, also differs from this local sum.
 
 ## An exact action representation of each finite observation history
 
-The source instrument also has a **unitary history representation**, already
+The source instrument also has a **unitary history representation**, even
 on one elementary carrier. Dissipation of the retained source state does not
 exclude such a representation when its discarded record environment is kept.
 The [exact construction](history_action.py) supplies a dimensionless Hermitian
@@ -196,7 +196,7 @@ between their different coherence rules.
 Let `Q0,Q1` be the global-movement transition kernels split according to whether
 that movement leaves port `v` unchanged or ticks it. These are computed from
 the endpoint branches, without fitted transition rates. Write `d(x)` for all
-moving branches and `d_v(x)` for those ticking `v`. The previous global-movement
+moving branches and `d_v(x)` for those ticking `v`. The global-movement
 Palm law is `mu(x)=d(x)/600`. The local-tick Palm law and stopped kernel are
 
 ```text
@@ -209,7 +209,7 @@ identity is an exact **stopped occupation measure**, stronger than replacing
 random waiting times by their mean. In particular a local tick takes six
 global movements on average under `nu_v`. This preparation is operational:
 from `I66/66`, perform one native attempt and herald a tick at `v`. Its success
-probability is `5/198` per attempt; failure `193/198` remains part of the experiment.
+probability is `5/198` per attempt; failure `193/198` is part of the experiment.
 The successful preparation has support 51, so it is not a faithful reference
 on the full 66-state algebra. Starting with an arbitrary configuration or
 waiting for the first tick from a uniform state does not supply this Palm law.
@@ -240,7 +240,7 @@ E[D_l D_l^T] = P/5,       E[D_l D_k^T] = 0 for k != l.
 For the native triangle `(0,1,5)`, the signed circulation weight has squared
 norm three. Consequently `Var(sum_(l=1)^m triangle_current_l)=3m/5` exactly
 under the declared Palm preparation. These finite covariance statements do
-not depend on exchanging a limit with expectation. Gradient currents still
+not depend on exchanging a limit with expectation. Gradient currents
 telescope to bounded occupation differences at the stopped endpoints.
 
 **Scaling action.** `R` is irreducible on its 51-state support. It has period
@@ -337,7 +337,7 @@ integrating its ordered attempt locations within `[0,s]`, has coefficient
 native paths give the same hidden Kraus label at every step. Visible
 currents are then retained, while hidden alternatives are summed as CP
 maps. This is a local path-weight action with hard record-compatibility
-constraints. Complex input coherences and final quantum readouts still
+constraints. Complex input coherences and final quantum readouts also
 contract with this kernel; the construction is not a classical
 hidden-variable replacement for arbitrary quantum experiments.
 
@@ -469,7 +469,7 @@ elementary carrier. It does require the graph neighborhoods, source
 instruments, initial restrictions and observer access maps to agree. The
 finite screen identifications below supply these hypotheses on their
 declared neighborhoods, but not on an entire infinite sequence. The direct
-parent-map coarse-graining obstruction still applies. The result supplies no
+parent-map coarse-graining obstruction applies. The result supplies no
 Lorentz symmetry, continuum dimension, or physical identification of `s`.
 Those require a further observational correspondence and scaling argument.
 
@@ -530,7 +530,7 @@ screen process or a replacement for its analytical error bound.
 
 ### A nontrivial compatible state domain
 
-Use the already checked full binary tensor algebra, with no separate
+Use the checked full binary tensor algebra, with no separate
 total-two constraint on each elementary carrier. A declared density `0<rho<1`
 gives the faithful product reference
 `sigma_rho = tensor_ports diag(1-rho,rho)`. Its local restrictions agree exactly
@@ -603,13 +603,13 @@ check every four-port matrix unit and an entangled reference. These domains
 are distinguished in the shared contract; a first-moment density reduction
 does not replace a quantum history.
 
-### What is still required for a limit
+### What a limit requires
 
 The nearest [tower theorem](../../Lean/Tower/ConsensusTower.lean) requires
 compatible algebras, states and dynamics over its whole domain. Here the
 finite tensor identifications, explicit compatible states, native instrument
 transport and bounded local output comparison are supplied for the listed
-source pairs. An all-level stabilization or approximation theorem is still
+source pairs. An all-level stabilization or approximation theorem is
 required. A proof would need to control spherical subdivision geometry,
 local port-routing decisions and state restrictions as the radius increases;
 the pinned executable routing uses floating direction scores. Six finite

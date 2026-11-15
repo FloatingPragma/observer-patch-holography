@@ -86,7 +86,7 @@ The parent compiles the balanced operation on its full 512-address carrier,
 including padding leakage, and gives an all-input two-call half trace-norm
 allowance delta. The native binary experiment is embedded into that carrier
 only after the absorption sweep. The parent's CPTP padding extension applies
-between mixer calls. Its estimate already charges the possible norm gain of
+between mixer calls. Its estimate charges the possible norm gain of
 the binary mixer matrices. Apply that estimate to the ACTUAL prepared input,
 then use ideal contractivity above. Thus the half trace-norm error from the
 stationary ideal reference is at most epsilon+delta. There is no division by

@@ -10,8 +10,8 @@ The original midpoint topology and distinct port routing also prove the
 cell-halo geometry at every mathematical level. Positive first-incident-tick
 arrival at arbitrarily large graph distance distinguishes that local count
 from global causal layers. Complete terminal tree records and body currents
-reconstruct the path; expanded host stops remain distinct from exact lazy
-kernel queries. No physical position, particle identity or new continuum
+reconstruct the path; expanded host stops are distinct from exact lazy
+kernel queries. No physical position, particle identity or continuum
 theory is claimed.
 
 See [the proof](PROOF.md), [producer](packet.py) and [certificate](results.json).

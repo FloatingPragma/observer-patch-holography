@@ -23,8 +23,8 @@ variable {Move ι R Value : Type*} [Fintype Move] [DecidableEq ι]
 
 /-- A single feasible positive-weight cut-avoiding word survives constrained
 information projection and prevents a guaranteed correct two-input read.
-This removes the IID, uniform-reference and full-simplex restrictions of the
-earlier finite-word obstruction. -/
+No IID, uniform-reference or full-simplex restriction on the finite word is
+assumed. -/
 theorem constrained_remote_read_obstruction (k : ℕ)
     (K : Set (Word Move k → ℝ)) (hK : Convex ℝ K)
     (hKnonneg : ∀ p ∈ K, ∀ w, 0 ≤ p w)

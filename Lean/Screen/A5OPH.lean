@@ -2,17 +2,16 @@
   A5_OPH.lean: consolidated, machine-checked corpus
 
   PROVENANCE.  Contributed by DULA (external cross-audit lane), built with
-  Aristotle against Lean/Mathlib v4.28.0, merged 2026-07-23.  Rebuilt
+  Aristotle against Lean/Mathlib v4.28.0, and rebuilt
   unchanged under this project's toolchain (v4.29.1) with the same
   eighteen-line standard-axiom audit; the drop artifacts and the rebuild
-  record are not part of this repository.  This header note and the Part IV
-  status line are the only local edits.
+  record are not part of this repository.  This header note, the Part IV
+  header and the Part IV status line are the only local edits.
 
   Five separately verified Lean developments, merged into one module so that a
   single `lake build` covers all of them.  Every proof body below is the one
-  Aristotle compiled against Mathlib v4.28.0; nothing has been re-proved by
-  hand during the merge.  The only editorial change is the restoration of the
-  Part IV header, which a previous run deleted.
+  Aristotle compiled against Mathlib v4.28.0; no proof body is re-proved by
+  hand.
 
   ------------------------------------------------------------------------
   PART   NAMESPACE          CONTENT                                   STATUS
@@ -918,7 +917,7 @@ end OPHInner
       finite physical interpretation of the six-axis lattice.  Companion
       executable receipts establish those statements on the named certified
       source carrier.  Laboratory-current attachment and continuum
-      cocharacter interpretation remain separate.
+      cocharacter interpretation are separate.
 
   Note on Part III: Smith invariants (1,1,1,1,1,6) for the presentation matrix
   are equivalent to the statement that the quotient is cyclic of order 6, which

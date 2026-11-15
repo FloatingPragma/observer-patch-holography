@@ -159,4 +159,4 @@ finite laws stated above. The source operator identities, complete records
 and all-lag inclusion are proved, with executable witnesses and fresh replay.
 This recommendation changes no broader physical premise, adds no empirical
 observation and applies no dashboard edit. The declared coherent services,
-reference choices and scheduler remain visible architecture inputs.
+reference choices and scheduler are visible architecture inputs.

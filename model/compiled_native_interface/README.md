@@ -5,14 +5,14 @@ can be implemented by **34 pulses of the existing source compiler**, using
 three local seam qubits and leaving six spectator qubits untouched. The
 balanced gate is implemented through the compiler's coherent proper-code
 services. The balanced
-angle remains a chosen experimental operation; this does not select it from
+angle is a chosen experimental operation; this does not select it from
 A1--A3 or produce coherence using committed native repairs alone.
 
 One additional source `Z` pulse gives the imaginary phase quadrature. The
 resulting native coin/current read distinguishes two conjugate phase mixtures
 with ideal plus probabilities **one and zero**; the real-only apparatus
 gives one half for each. These are finite conditional model predictions.
-There are no new laboratory observations in this packet.
+There are no laboratory observations in this packet.
 
 ## Why the same source suffices
 
@@ -68,7 +68,7 @@ asserted in `test_construction.py` and is not retained in a receipt.
 Every emitted pulse calls the existing full six-level response evaluator.
 Its retained twelve-port control coefficients are checked in `Q(sqrt(5))`
 against the source response and realization receipts. `H` controls follow
-from the already available `X` and `Z` controls. No target matrix is used by
+from the available `X` and `Z` controls. No target matrix is used by
 the pulse executor. The target above is only the independent oracle.
 
 ## Original binary arrays, references and padding
@@ -78,7 +78,7 @@ the pulse executor. The target above is only the independent oracle.
 wiring. No polar correction, normalization, amplitude cutoff or code
 projection is performed. All off-target binary entries remain present.
 The existing compiler contracts each processor pulse to its analytically
-invariant two- or four-dimensional proper code; the new certificate concerns
+invariant two- or four-dimensional proper code; this packet's certificate concerns
 the returned encoded array, not a numerical simulation of all processor
 load/export environments.
 
@@ -126,7 +126,7 @@ Write `Z_orientation=P_u-P_v`, `X_orientation=sum_w(|uw><vw|+|vw><uw|)` and
 Y_orientation = sum_w (-i|uw><vw|+i|vw><uw|).
 ```
 
-The native coin/current pointer already has effects
+The native coin/current pointer has effects
 `D_±=(I±Z_orientation)/2`. The mixer gives
 `B*D_±B=(I±X_orientation)/2`. On each active pair, the existing source
 `Z` pulse on seam bit zero, with angle `pi/4`, restricts to
@@ -140,7 +140,7 @@ therefore gives exactly
 
 The complete target unitaries and these effects are checked entry by entry
 in the exact number field, including the inactive sector. The two uniform
-mixtures of `(|uw>±i|vw>)/sqrt(2)` now have plus probabilities one and zero.
+mixtures of `(|uw>±i|vw>)/sqrt(2)` have plus probabilities one and zero.
 Preparation uses the same services: after a successful native orientation
 herald, apply `B` and then the inverse source phase pulse. Both herald signs
 remain available with their recorded interpretation.
@@ -151,13 +151,13 @@ They do not determine spectator coherences, arbitrary 66-dimensional states
 or an unknown active-sector weight. There is no claim of full-carrier
 tomography.
 
-## Existing results used, and what remains supplied
+## Results used, and what is supplied
 
 The [coherent source-code construction](../../docs/research/COHERENT_SOURCE_CLOCKS.md)
-already supplies the two ingredients: exact realization of single-code
+supplies the two ingredients: exact realization of single-code
 rotations and phase-exact pair entanglers from the declared twelve-port
 response, and identity code transport conditional on preservation of two
-complementary read tables. One-basis agreement still permits complete
+complementary read tables. One-basis agreement permits complete
 dephasing. This packet adds the concrete three-qubit word and its native
 encoding map; it does not derive coherent gluing from classical agreement.
 
@@ -171,11 +171,11 @@ have supplied it. The [native partial-injection argument](../native_interface/RE
 and `dephase_kraus` in
 [`SourceRepairInstrument.lean`](../../Lean/Geometry/SourceRepairInstrument.lean)
 retain their separate committed-repair scope. This is a direct finite-matrix
-attachment, with no claim of a new Lean proof.
+attachment, with no claim of a Lean proof.
 
 The carrier encoding, chosen balanced measurement, source control response,
 coherent two-/four-dimensional proper-code services, apparatus preparation,
-storage and readout remain premises. Their physical errors and timings are
+storage and readout are premises. Their physical errors and timings are
 unbounded here. The result reduces an additional gate-availability premise
 within that common construction; it does not select a physical action,
 repair candidate, universal scheduler or continuum field theory.

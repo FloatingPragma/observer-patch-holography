@@ -104,4 +104,4 @@ All identities remain valid with an idle external quantum reference.
 These are complete bounded instruments and normalizable vectors on the
 unchanged one-dimensional native source. A finite local realization of its
 exact spectral service, a physical four-dimensional particle dictionary,
-autonomous weak dynamics and physical lifetimes remain unproved.
+autonomous weak dynamics and physical lifetimes are unproved.

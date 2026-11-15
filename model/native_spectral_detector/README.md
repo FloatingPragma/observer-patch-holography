@@ -5,11 +5,11 @@ grounded cube. Its input is the invariant five-dimensional ground mixture,
 prepared by finite native source words from blank registers. A native
 charge instrument retains both addition and removal. The clock retains all
 outcomes and executes coherent original-action histories through model time
-three. Its probabilities include every one of the previously resolved
-78 positive excitation lines. Four broad bins do not separately resolve
+three. Its probabilities include every one of the
+78 resolved positive excitation lines. Four broad bins do not separately resolve
 78 lines, and their centers are not particle masses.
 
-The action remains the original zero-chemical-potential Weyl/contact cube
+The action is the original zero-chemical-potential Weyl/contact cube
 with `c=1/8`, `U=1` and exact ground energy `E_G=-sqrt(3)/4`.
 It is not the separately considered centered action `H-N/2`. The existing
 native six-level source controls, blank qubits, coherent proper-code
@@ -60,7 +60,7 @@ weights, inverse Walsh coefficients and rational sine/cosine enclosures
 independently certify the emitted tape. Polar rotation angles are similarly
 checked against nested rational enclosures of their algebraic target
 sines and cosines. Exact opposite Pauli coefficients retain the vacuum and
-doublon phases. The already certified ground tree and physical frame are
+doublon phases. The certified ground tree and physical frame are
 reused without modification. The complete preparation error is the sum of
 the tree/frame bound, selector bound and maximum conditional rotation
 bound; it is below `10^-9`. Orthogonal selector records require the maximum
@@ -97,7 +97,7 @@ before its Fourier transform is
 
 Apply the positive-sign four-dimensional Fourier transform and measure
 both clock qubits with the complete native readout. The effect at bin `k`
-is exactly the previously proved positive kernel
+is exactly the proved positive kernel
 
 ```
 K_k(E) = |(1/4) sum_(n=0)^3 exp[-in(E-2*pi*k/4)]|^2.
@@ -152,7 +152,7 @@ preserves arbitrary untouched references during field evolution.
 
 One longest successful history contains 612,666 source pulses: at most
 5,902 preparation pulses, 13 charge-instrument pulses and 606,751 clock
-pulses. The selector is read while the ground still occupies its eight
+pulses. The selector is read while the ground occupies only its eight
 compact modes; the eight blank spin modes are embedded afterward. The
 charge tag is measured before the two clock bits are initialized, so the
 maximum simultaneous quantum register has eighteen bits. Pulse failures
@@ -176,7 +176,7 @@ all supported block sizes and up to thirty-two columns. It performs no
 rank, number-sector, spectral or amplitude truncation. Five workers
 propagate disjoint classical columns; linearity and orthogonal classical
 labels make this an exact decomposition of the specified instrument.
-All native export effects and failure slots are still evaluated.
+All native export effects and failure slots are evaluated.
 
 The comparator alone uses the exact original Hamiltonian exponential in
 the source-invariant number sectors, then assembles the complete field
@@ -197,8 +197,8 @@ probability within `1/100` simultaneously, with failure probability below
 `1/1000`. This follows from Hoeffding and an exact positive-series bound
 on the exponential. No random shot records are fabricated here.
 
-This closes a finite native preparation-and-energy-POVM task. It does not
+This is a finite native preparation-and-energy-POVM construction. It does not
 identify measured species, create additional resolution beyond its four
 bins, derive relativistic dispersion or convert model energies to rest
 masses. Infinite-ground preparation, bounded-frequency continuum
-structure and the existing Einstein prerequisites remain separate.
+structure and the existing Einstein prerequisites are separate.

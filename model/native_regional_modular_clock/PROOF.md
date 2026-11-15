@@ -187,7 +187,7 @@ A complete same-reference construction must meet the following checks together.
    fixed-proper-volume generalized entropy stationarity, a common small-ball
    limit and universal positive Newton coupling before using G1--G6.
 
-The existing source-causal and celestial/null-ray finite theorems remain
+The existing source-causal and celestial/null-ray finite theorems are
 conditional on their actual coverings, read laws, Lorentz coordinate data
 and null-balance premises. They supply no omitted premise in the list above.
 No G1--G6 physical premise is discharged by this regional clock result.

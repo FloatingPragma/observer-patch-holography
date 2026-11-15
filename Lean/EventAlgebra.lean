@@ -135,7 +135,7 @@ reflections.  `EventAlgebra.SpectralEntropyBoundary` proves that Lean's
 totalized matrix logarithm cannot by itself define support-aware relative
 entropy: it assigns zero to an exact orthogonal pure-state pair whose support
 inclusion fails.  The support-aware entropy and majorization continuation
-remain separate work.
+are separate work.
 `EventAlgebra.SlotLocalitySurface` composes the Tsirelson bound and the
 no-signalling receipts on one supplied bipartite slot split: the
 cross-party commutation is derived from the split, the lifted local

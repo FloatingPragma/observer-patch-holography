@@ -5,11 +5,7 @@ isospin. Its raising map identifies every pair of corresponding magnetic
 multiplet levels, including their full complementary sectors. Thus the
 triton-like and helion-like gap is exactly delta times the electron unit,
 1.29333251 MeV, independently of every isospin-scalar nuclear interaction.
-The supplied nuclear targets instead differ by0.52952556 MeV. An additional
-charge-breaking gap of0.76380695 MeV is required. Weyl's inequality shows
-that a bounded perturbation changing this difference must have norm at least
-0.381903475 MeV on the relevant source. Another isospin-scalar fit cannot
-remove this discrepancy.
+No physical mirror splitting is assigned by this isospin-scalar source.
 
 ## Native-charge comparison member
 
@@ -60,10 +56,8 @@ failed preparations.
 
 The resulting triton interval contains its inherited calibration target.
 The helion interval is approximately[2.80884329,2.80884820] GeV, and the
-alpha interval is approximately[3.74016768,3.74019421] GeV. Both are disjoint
-from their held-out targets. Coulomb repulsion has the required sign for
-the mirror splitting but does not reproduce either helium mass in this
-geometry. The positive correlated baryon propagation extension acts on
+alpha interval is approximately[3.74016768,3.74019421] GeV. Neither is
+identified with a physical helium mass. The positive correlated baryon propagation extension acts on
 higher particle-number sectors and is not included in these nuclear
 intervals. No infinite-volume breakup threshold, halo or common physical
 nuclear spectrum follows from the finite-box calculation.

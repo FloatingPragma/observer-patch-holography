@@ -74,7 +74,7 @@ controlled action in the same-ground limiting representation that does.
 
 ## Uniform local Wick comparison controls averaged fluctuations
 
-The previously proved local Wick estimate is uniform in the positions of
+The proved local Wick estimate is uniform in the positions of
 its site fields, including sites whose separations grow with refinement.
 It also holds for any unit spinor at a site: its relative-free annihilator
 has squared ground norm at most `D_a`, by the same positive covariance
@@ -196,7 +196,7 @@ the remaining nested contact derivations are bounded by (3). Hence
  <= ||A|| (2 Umax |s|)^N (m/2)_N/N!.               (4)
 ```
 
-This derivation is first finite-volume. The uniform bound, the previously
+This derivation is first finite-volume. The uniform bound, the
 proved full-CAR thermodynamic dynamics, and norm approximation pass (4)
 to the infinite system. No differentiability of a limiting continuum
 field is asserted.
@@ -285,7 +285,7 @@ spacing limit. It can therefore carry spectral weight escaping to
 infinite energy, as in the retained moment-escape controls. Conversely,
 its nonzero canonical norm prevents simply deleting it in a claimed
 finite-spacing operator identity. A proof that its bounded-frequency
-spectral weight vanishes or survives is still required to select
+spectral weight vanishes or survives is required to select
 Hartree/free or interacting dynamics.
 
 ## An actual positive-energy control for loss of the memory channel
@@ -321,8 +321,8 @@ the actual OPH continuum. It shows why the equal-time channel theorem
 alone cannot settle the latter dynamics.
 
 This result provides neither a Lorentz stress tensor nor geometric cap
-modular flow. The existing `EinsteinRegisterData` remains the consumer:
+modular flow. `EinsteinRegisterData` is the consumer:
 its diamond-kernel identification, null matching, area stationarity and
-physical normalization cannot be obtained by relabeling this new channel.
+physical normalization cannot be obtained by relabeling this channel.
 The fixed-spacing composite force algebra and its continuum canonical
 resolution do not close any of those remaining geometric premises.

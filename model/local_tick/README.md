@@ -56,7 +56,7 @@ For both N4 completions C and E, the existing interval Gram margin gives:
 These are inherited rigorous lower bounds, not estimates of the actual N4
 statistic. The full N4 `c_2` is not numerically evaluated. C and E share `c_1`
 and the lower-bound proof, but their remote resolvents may differ; equality
-of their old one/two-global-attempt correlations does not imply equality here.
+of their one/two-global-attempt correlations does not imply equality here.
 Their local-tick values satisfy `c_2,C >= c_2,E` and `b_tick,C >= b_tick,E`;
 strict inequality is not proved.
 
@@ -117,7 +117,7 @@ coupling `alpha_em` and geometric pixel parameter used by the
 [binary detector](../observer/p_response/README.md).
 
 Let `P` project onto centered linear occupations, and let `L_R` be the carrier
-Laplacian containing only remote seams. The previously proved seam compression
+Laplacian containing only remote seams. The proved seam compression
 gives, in coefficient coordinates on the centered subspace,
 
 ```text
@@ -160,7 +160,7 @@ couplings, and a symbolic identity covers the general parameter. An independent
 floating evaluation of the complete 66-state native chain agrees with the exact
 values `5/11` and `93/407` to the declared numerical tolerance.
 
-The old global-attempt correction `(1-c_1)²/10` is incorrect at local ticks.
+The global-attempt correction `(1-c_1)²/10` does not hold at local ticks.
 It assigns `-16/2035` to the native null; the test suite retains that negative
 control. It is a null-model error, not a positive false detection of memory.
 
@@ -188,7 +188,7 @@ The existing N4 construction defines odd-block edge residuals
 `S_e=Phi_e(Z_e)-(1-alpha)Z_e` (extended by zero outside odd occupation), with
 full-reference Gram matrix `G_ef=<S_e,S_f>`. The interval certificate proves
 `G>=m I` at `theta=1/16` and `1/8`. To avoid confusing the two objects, this
-packet calls the edge Gram `G`; the earlier packet calls it `B`.
+packet calls the edge Gram `G`; the global-attempt packet calls it `B`.
 
 For an occupation coefficient vector `u`, the hidden part of the all-seam
 defect is `-(1/60) sum_e (partial u)_e S_e`. The hidden part of the remote
@@ -209,7 +209,7 @@ or `-1`, irrespective of the remote resolvent, so `sum_e t_e²>=5`. Therefore
 b_tick >= (5m/3600)/[(1/6)(5/36)] = 3m/50.
 ```
 
-This is six times the earlier global-attempt lower bound `m/100`. It compares
+This is six times the global-attempt lower bound `m/100`. It compares
 two differently normalized event-count statistics; it is not a claim of six
 times greater physical power or a sample-size improvement. The proof uses
 the full Gram bound, not a reset, small-coupling truncation or mean-field
@@ -231,11 +231,11 @@ The one-term controls have normal exchange amplitude and `alpha=1` in the
 existing source proof. The present packet does not transfer any higher-moment
 closure from that fact to N4.
 
-## What is supplied and what remains open
+## What is supplied and what is open
 
-The exact local-tick mathematical interface is now constructed. Detecting a
+The exact local-tick mathematical interface is constructed. Detecting a
 tick, preparing the full trace, counting to one or two and retaining endpoint
-records still require an internal apparatus if the model is to realize its
+records require an internal apparatus if the model is to realize its
 own observer. The branch's dressed current label is not relabeled a bare
 occupation measurement. The stopping proof supplies neither a calibrated
 physical duration nor an autonomous schedule.

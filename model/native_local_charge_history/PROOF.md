@@ -47,8 +47,8 @@ and the terminal mask use exactly the same clock as the detector.
 For decoded label `x`, the readout theorem gives `K_h=K_h P_x`. Attaching the
 whole reconstructed local history therefore does not add measurement
 back-action. The original terminal source/reference block, FIFO and archive
-are retained. Coverage and constant erasures remain explicit labels; no
-trajectory is invented for them. Currents still give occupation differences
+are retained. Coverage and constant erasures are explicit labels; no
+trajectory is invented for them. Currents give occupation differences
 on live erasure branches, without fixing the initial occupation.
 
 Let D be this actual complete history instrument. Let O first measure initial

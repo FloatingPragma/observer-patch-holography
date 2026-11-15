@@ -238,6 +238,6 @@ from arbitrary record consensus or deterministic execution. This theorem
 does not derive the response dimension, the quadratic readout law, inverse
 ports, physical seams or their native selection. The marked-sphere degree
 floor in `code/a5_closure/continuous_equivariant_degree_proof.md` concerns
-the topological degree of equivariant maps between two already specified
+the topological degree of equivariant maps between two specified
 `A5` sphere actions. It is distinct from vertex valence and supplies none of
 these operational premises. No frozen source or prediction is changed.

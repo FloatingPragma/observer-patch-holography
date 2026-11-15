@@ -12,8 +12,7 @@ uses the same 66-state source, thirty-seam schedule and overlapping regions,
 but discloses definite initial occupations. **This experiment changes that
 preparation/read contract.** It omits the initial disclosure, which would
 dephase the coherent probe, and selects feedback from a measured current
-instead of an unmeasured occupation. Its 1,442 records are not the earlier
-5,768-word experiment with an arbitrary coherent input substituted.
+instead of an unmeasured occupation. Its 1,442 records are not the separate 5,768-word experiment with an arbitrary coherent input substituted.
 Fields here are accessible quantum observables and instruments. They are not
 simultaneously assigned classical occupations inferred from an unread state.
 
@@ -21,9 +20,7 @@ The [native operator construction](../native_quantum_history/README.md)
 provides the existing signed-difference reduction on all 4,356 operator units.
 We reuse it to check the unread source, then split the actual Kraus maps into
 remote and current-marked incident parts. The
-[joint-clock process](../joint_clock_process/README.md) had complete reference
-outputs on a separate four-state support with a different schedule. The new
-attachment is the full single-carrier quantum domain and its exact
+[joint-clock process](../joint_clock_process/README.md) has complete reference outputs on a separate four-state support with a different schedule. The attachment here is the full single-carrier quantum domain and its exact
 finite-cap representation, with independent joint clock/response replay.
 
 ## The declared experiment
@@ -189,8 +186,7 @@ censoring error; they add no physical clock calibration.
 This closes a finite coherent/reference correspondence interface. It leaves
 spatial refinement, Lorentzian microcausality, interacting continuum dynamics,
 physical action normalization, physical source/apparatus identification and
-comparison with independent observations as separate obligations. Native
-repair remains the stated instrument; no unitary Hamiltonian evolution is
+comparison with independent observations as separate obligations. Native repair is the stated instrument; no unitary Hamiltonian evolution is
 silently substituted for it. No federation is required for this local result.
 
 ```sh

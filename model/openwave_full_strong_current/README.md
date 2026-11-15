@@ -7,10 +7,10 @@ response after the literal native weak component. The derivative square is
 Hamiltonian Taylor bound certifies positive finite-time probability while
 retaining all complementary outcomes.
 
-This closes the kinetic-only omission. The specified input is a localized
+The response includes the correlated terms beyond the kinetic substep. The specified input is a localized
 Lambda coordinate; the target is a native field subspace. No outgoing
-on-shell amplitude, physical decay rate or new independent Nature match is
-claimed. All calibrations are inherited unchanged.
+on-shell amplitude, physical decay rate or independent Nature match is
+claimed. All calibrations are inherited without modification.
 
 Run `python -m model.openwave_full_strong_current --write`, then a fresh
 `python -m model.openwave_full_strong_current --check`. See PROOF.md for the

@@ -80,7 +80,7 @@ The complete conditional law given two eligible cells is
 
 These masses sum exactly to one. There is no restoration after a final
 unsuccessful Bell round. All finite coin/raw histories behind these coarse
-labels remain part of the native instrument.
+labels are part of the native instrument.
 
 Worst-case resource counts are 22 initial tree attempts when needed,
 R+(R-1)r boundary native attempts, 44R local proper-code pulses and twelve

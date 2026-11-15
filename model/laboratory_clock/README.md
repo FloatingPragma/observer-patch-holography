@@ -6,7 +6,7 @@ no external calibration. A federation is not needed. This packet derives
 geometry from comparisons between incident-event clocks and tests field
 predictions from that geometry. It also implements a **conditional timestamp
 calibration and held-out test** for an independently specified apparatus.
-No new laboratory measurements are claimed.
+No further laboratory measurements are claimed.
 
 The [existing clock bridge](../native_clock/CLOCK_BRIDGE.md) relates incident
 hits, moving currents and fields on the native source. The
@@ -225,7 +225,7 @@ is inferred from the file; one would require independently justified
 simultaneous coverage for its bounds. Endpoints cannot establish constant
 cadence at unobserved intervening attempts or beyond the tested range.
 
-The proof is finite elimination of linear inequalities, not a new theorem of
+The proof is finite elimination of linear inequalities, not a theorem of
 clock physics. The nearest existing model results are the native count
 additivity/monotonicity attachment and exact marked waiting laws in
 [native_clock](../native_clock/README.md). Their source and scheduling premises
@@ -247,7 +247,7 @@ outer probability interval obtained at these two endpoints. The producer
 reconstructs `P(W>m)` from the source marked kernel for both stationary and
 actual-current-conditioned (Palm) preparations. It keeps the no-current tail;
 it does not assign the mean wait to every realization or assume an exponential
-clock. The named preparation and ideal scheduler remain required inputs.
+clock. The named preparation and ideal scheduler are required inputs.
 
 The [synthetic input](endpoints_example.json) assigns endpoint errors of one
 microsecond and calibrates on attempts 0 and 1,000. It yields
@@ -326,7 +326,7 @@ The native endpoint replay retains the number of actual scheduled attempts,
 including hidden zero-current attempts and the feedback repair. This is an
 additional controller counter for the calibration protocol; it is not an
 assertion that an observer can read hidden microscopic events in nature.
-At cap two its maximum needs three counter bits. Forgetting this new count
+At cap two its maximum needs three counter bits. Forgetting this added count
 recovers every full conditional matrix of the established observer history,
 for both coherent settings and for each executed cap from one through three.
 This full-matrix identity concerns the ideal native history. Source-pulse
@@ -402,7 +402,7 @@ Reading the hidden attempt count requires the extra counter service above;
 predicting an elapsed observation can instead **sum over that latent count**.
 The existing visible word, status and detector bit do not determine it.
 `visible_exposure` computes their exact conditional attempt distributions,
-with no new read access. At cap two, ambiguous records have mass `16/25`.
+with no additional read access. At cap two, ambiguous records have mass `16/25`.
 The smallest classification error using only those records is `38/125`,
 at either coherent setting. This is an inference risk derived from the
 source law, not an error allowance fitted to observations.
@@ -443,10 +443,10 @@ an executed independent clock measurement or an atomic-clock identification.
 
 ## What the actual retained measurements establish
 
-The replay checks both original host executions: each has 264,532 native
+The replay checks both retained host executions: each has 264,532 native
 attempts and the same complete seam/coin/current tape. The existing data
 have no traceable timestamp-error bound. Their input therefore retains
-`seconds_error: null`, and the new bounded-error numerical test remains
+`seconds_error: null`, and the bounded-error numerical test is
 unresolved. The reported host-clock resolution is not promoted to accuracy.
 
 As an explicitly counterfactual zero-error check, calibrating the first
@@ -455,7 +455,7 @@ endpoints reject an **exact** affine cadence, as does the same-record
 workload control. This does not contradict the existing 25% engineering
 tolerance for movement-clock predictions; that was a different, deliberately
 approximate contract. Its calibration, observations and verdicts are preserved.
-The present retrospective attempt-cadence test was not part of the original
+This retrospective attempt-cadence test is not part of the retained executions'
 capture policy and is not described as a prospective experiment.
 
 ## An optional independent apparatus test
@@ -492,7 +492,7 @@ python -m model.laboratory_clock --data model/laboratory_clock/endpoints_example
 `--write PATH` refuses to overwrite a receipt. The input has three to 64
 endpoints, at least two for calibration and one for validation, with strictly
 increasing reported native counts. Time values and errors are rational
-strings. Unknown counter or clock errors remain `null` and prevent the
+strings. Unknown counter or clock errors are `null` and prevent the
 numerical test. Nonempty provenance references are retained but never treated
 as authentication. The full receipt binds source files and raw host records;
 replay neither acquires nor reproduces physical timestamps.

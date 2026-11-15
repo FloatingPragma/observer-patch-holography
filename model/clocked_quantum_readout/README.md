@@ -13,7 +13,7 @@ existing coherent source compiler.
 The useful preparation probability is `5/33`. All `28/33` failed preparations,
 both successful herald signs, the stopping slot and current sign, all sixteen
 work records, the final native phase bit, and both unresolved timeouts remain
-in the output. There is no new laboratory dataset or empirical-agreement claim.
+in the output. There is no laboratory dataset or empirical-agreement claim.
 
 ## What actually executes
 
@@ -27,7 +27,7 @@ The herald sign determines whether it prepared plus or minus phase.
 For each succeeding controller slot, execute the native signed-current
 instrument and one work waiting evolution of supplied model coordinate
 `delta=1/4`. On the first nonzero current at slot `n`, latch the native
-register, and let the already evolved work execute its current-controlled
+register, and let the evolved work execute its current-controlled
 kick, four-read continuation and record-conditioned feedback. It consumes
 the state after `n` waiting steps, without a new work preparation.
 
@@ -73,7 +73,7 @@ extension of every intervening native operation first dephases the native
 code versus its complement, applies the original native instrument on the
 code, and places identity evolution of the complement in its zero-current
 or bit-zero outcome. This extension is an additional operational convention;
-it changes no native-sector target. The work operations already have their
+it changes no native-sector target. The work operations have their own
 complete finite CPTP target.
 
 If the actual source matrix has operator error `epsilon` against the exact
@@ -91,7 +91,7 @@ other ideal operations. A floating 512-dimensional history is not executed
 or certified here. Binary source maps are not assumed exactly trace preserving;
 their complete record weights are not renormalized. The compiled service
 removes an independently supplied mixer **implementation**, while coherent
-source services and the balanced target design remain premises.
+source services and the balanced target design are premises.
 
 ## Complete numerical certificate and finite theorem attachments
 
@@ -112,7 +112,7 @@ vacuum; timeout uses the retained waiting state. The complete joint bound is
 sum_r e_r + sum_r (p_r + 2*e_r)*w_r.
 ```
 
-No additional factor of sixteen is needed: each `w_r` already covers the
+No additional factor of sixteen is needed: each `w_r` covers the
 complete work instrument. The preparation error, repeated numerical norm
 gain, rounded waiting products and every returned work density were charged
 by that certificate. The computed work budget is bound to the executed
@@ -139,9 +139,9 @@ finite tape. The native
 the first-current counter, without importing that file's separate two-state
 return law or a physical clock calibration. The
 [native-interface reachability argument](../native_interface/README.md)
-still prohibits constructing coherence from diagonal inputs using the
+prohibits constructing coherence from diagonal inputs using the
 committed partial injections alone. The coherent compiler services are the
-additional resource. No new Lean theorem is claimed.
+additional resource. No further Lean theorem is claimed.
 
 ## Predictions and their meaning
 
@@ -156,10 +156,10 @@ The phase-match event attains the total variation distance of the complete
 ideal classical record laws for this construction. At fixed herald, slot and
 current sign, both candidates use exactly the same normalized conditional
 work-record distribution. Appending those work records therefore leaves
-that full classical distance unchanged. Work-only marginals remain equal.
+that full classical distance unchanged. Work-only marginals are equal.
 The gain is the connection to one continuing interacting history and its
-joint native/work observables, not greater discrimination than the already
-retained native record allows.
+joint native/work observables, not greater discrimination than the
+retained native record alone allows.
 
 The [receipt](results.json) additionally gives bounded probabilities for
 phase match together with final gauge bit one, and for phase match together
@@ -171,7 +171,7 @@ The source-comparison half-L1 bound is labelled as a distance between
 unnormalized binary record weights, rather than claiming exact normalization.
 
 At cap 64, the complete ideal-service output error is at most `0.000003`.
-The failed-herald probability is still `28/33`, and the unresolved mass is
+The failed-herald probability is `28/33`, and the unresolved mass is
 approximately `0.00000716142`. The full source-mixer comparison has the same
 displayed finite error bound; its two-call contribution is below `1e-12`.
 The C-minus-E record-weight difference for **phase match and final gauge one**
@@ -199,7 +199,7 @@ mixer source pulse budgets separate from the native channel attempts, which
 are not compiled into source words here. Expected costs use the exact ideal
 invariant-sector clock law; they are not asserted as expectations of the
 slightly non-normalized binary-source comparator. The finite maximum path
-cost remains valid with the declared padding extension.
+cost is valid with the declared padding extension.
 
 The remaining premises are the binary sector and diagonal initial state,
 the chosen seam and uniform scheduler, the coherent compiler services,
@@ -213,7 +213,7 @@ establish the relation between those modular parameters, the native clock
 records and work evolution, or select the Gibbs reference. No fundamental
 field or preferred global clock is required by that open task. Physical
 source errors, physical memory/halting, a selected effective observation law,
-occupation/spatial refinement and an empirical comparison remain open.
+occupation/spatial refinement and an empirical comparison are open.
 
 ## Reproduction
 

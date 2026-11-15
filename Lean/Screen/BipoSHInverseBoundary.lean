@@ -142,7 +142,7 @@ def inverseTailRadius (gamma epsilon : ℝ) : ℝ :=
   epsilon / (gamma * (gamma - epsilon))
 
 /-- The resolvent radius is positive only inside a positive coercivity
-margin.  The matrix resolvent identity remains a separate operator theorem
+margin.  The matrix resolvent identity is a separate operator theorem
 input; this lemma verifies the scalar admission arithmetic. -/
 theorem inverseTailRadius_pos
     {gamma epsilon : ℝ}

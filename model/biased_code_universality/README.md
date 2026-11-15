@@ -79,7 +79,7 @@ Every counted reset raises it by at most `H=max(h)`. Thus
 `E[N_n] >= max(0,(n-h(initial))/H)` for adaptive or randomized choices,
 including voluntary early resets. Resetting only at the impossible boundary
 to `(0,1)` attains asymptotic rate `1/H`, approximately `0.00492549261172`.
-The previously compiled family supplies attainability; arbitrary exact codes
+The compiled family supplies attainability; arbitrary exact codes
 cannot lower this rate. This optimizes label interventions, not recovery
 pulses, hardware errors, entropy production or energy.
 
@@ -105,13 +105,13 @@ branches and checks every unnormalized joint output.
 
 This is an operational composition theorem, with a supplied clock factor,
 initialization, phase control, readout, shared-event order and storage. Its
-test is an algebraic clock control, not a newly compiled native clock. A
+test is an algebraic clock control, not a compiled native clock. A
 record-inferred native clock could fill this interface only with its actual
 preparation and complete archive contract retained. Neither the tensor
 identity nor a native-attempt timestamp establishes a relation between
 memory transport and clock phase, a Hamiltonian dispersion relation,
 physical duration, a stationary product reference, or a particle mass.
-The reference-like exterior and autonomous protection gaps also remain.
+The reference-like exterior and autonomous protection gaps are open.
 
 ```sh
 python -m pytest -q -W error model/biased_code_universality

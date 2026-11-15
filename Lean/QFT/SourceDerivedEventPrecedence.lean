@@ -7,7 +7,7 @@ import ObserverPatchHolography.Provenance.HistoryCausalInvariance
 
 The event precedence adapter of `QFT/ObserverEventTower.lean` decorates an
 observer event world with declared strict order data on event slots.  This
-module replaces the declaration with a derivation.  A semantic event log on
+module derives that order instead of declaring it.  A semantic event log on
 the event carrier generates its causal order from certified read-from
 provenance, and the generated order inhabits the adapter interface
 directly: `generatedPrecedenceAdapter` builds an `EventPrecedenceAdapter`
@@ -26,7 +26,7 @@ two-commit log over one register generates exactly one edge, the derived
 adapter reproduces the declared chain adapter's order on every pair, and
 the declared adapter satisfies the exactness clauses, so its declaration
 was redundant on that world.  No physical causal order, spacetime, clock,
-or continuum object is attached; those identifications remain premises of
+or continuum object is attached; those identifications are premises of
 the geometric branch.
 -/
 

@@ -1306,7 +1306,7 @@ theorem demoCarrier_boundary_fiber_not_unique :
   · rw [heq₂]; exact demoCarrier_const_consistent false
   · rw [heq₁, heq₂]; exact demoCarrier_consts_not_gaugeEquiv
 
-/-! ### Two DIFFERENT uniqueness notions, two DIFFERENT levers (the corrected #304 cut)
+/-! ### Two DIFFERENT uniqueness notions, two DIFFERENT levers (the #304 cut)
 
 `demoCarrier_Hfib_fails` shows the symmetric repair + trivial boundary breaks OBSERVER-uniqueness
 ("same boundary → same normal form"). Two levers act, on two DIFFERENT notions : do not conflate them:

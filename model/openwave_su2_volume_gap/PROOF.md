@@ -76,4 +76,4 @@ fixed spatial spacing. The uniform-volume gap is compatible with that limit.
 For fixed g² the energy unit scales as 1/a. The smallness map controls a
 strong-coupling region and neither supplies a weak-coupling renormalization
 trajectory nor Euclidean rotational invariance. A physical finite mass, a GeV
-scale, and the Clay spatial-continuum construction remain separate requirements.
+scale, and the Clay spatial-continuum construction are separate requirements.

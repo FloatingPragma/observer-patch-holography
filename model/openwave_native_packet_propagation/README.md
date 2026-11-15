@@ -7,7 +7,7 @@ attempts to 128 local matrix powers with outward rational remainder bounds.
 
 Three packet widths use one event-intensity convention. Coherences decay
 at their initial addresses; no persistent coherent translation or physical
-speed is inferred. Initial preparation and memory remain declared resources.
+speed is inferred. Initial preparation and memory are declared resources.
 
 Run `python -m model.openwave_native_packet_propagation --write`, then
 `python -m model.openwave_native_packet_propagation --check`.

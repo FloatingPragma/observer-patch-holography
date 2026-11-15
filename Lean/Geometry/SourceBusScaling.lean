@@ -4,7 +4,7 @@ import Geometry.SourceReusableBus
 # Arbitrary finite paired-rail chains
 
 This is a conditional construction for the candidate scalar pair-mean law.
-The rail embedding, initial preparation and controller remain supplied.
+The rail embedding, initial preparation and controller are supplied.
 Cells 0,...,n form the bus; cells greater than n are untouched archives.
 Only cell 0 needs a physical reset rung. Each adjacent copy needs both rail
 edges. A weighted bound gives polynomial sufficient cleanup work; it does

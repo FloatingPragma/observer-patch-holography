@@ -3,8 +3,8 @@
 The complete two-family colour source fits a charged kaon at0.493677 GeV
 and a Lambda state at1.115683 GeV with two disclosed strong coefficients.
 A full strong charge-conjugation symmetry gives the equal charged-kaon
-partner. Sigma, Xi and neutral-kaon controls disagree with their measured
-masses. The actual native nonleptonic vertex is nonzero, but its complete
+partner. Sigma, Xi and neutral-kaon states are held-out controls with no
+mass claim. The actual native nonleptonic vertex is nonzero, but its complete
 two-cell proton/pion channel lies above the Lambda energy, so it supplies
 no open physical decay.
 

@@ -67,7 +67,7 @@ four-position native spin-zero operators are checked against the256-state
 native meson source. The two tails have linearly increasing electric
 energy. In the bulk, the common degree law adds2dn to every pair and
 8dU/3 to split and tail configurations. The returned parameters from
-`constants(*degree_coefficients())` already include these corrections;
+`constants(*degree_coefficients())` include these corrections;
 the independent two-cell control uses the unchanged parameters. The
 receipt and regression test retain this ancestry explicitly. Their lower
 bound discards no kinetic term without paying its

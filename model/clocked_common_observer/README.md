@@ -13,7 +13,7 @@ The construction joins the existing
 is executed from the actual finite native Kraus maps. Work operations are
 compiled from the existing source pulse words and executed by the shared
 [density-matrix runtime](../primitive_observer/runtime.py). These two execution
-contracts remain explicit: the native clock uses finite channel semantics,
+contracts are explicit: the native clock uses finite channel semantics,
 not compiled native pulse words.
 
 ## One preparation and a retained stopping record
@@ -34,7 +34,7 @@ map `A_num`, the finite product evolution for Hamiltonian model coordinate
 Hamiltonian interval.
 
 The first nonzero current stops the native waiting process. If it occurs at
-slot `n`, work has already undergone `A_num^n`. The current kick is then applied,
+slot `n`, work has undergone `A_num^n`. The current kick is then applied,
 followed by the existing complete continuation:
 
 ```text
@@ -139,7 +139,7 @@ numerical CP trace-norm gain <= (1+eta)^2.
 
 These bounds hold on arbitrary work inputs and finite reference extensions.
 They can therefore be composed through waiting and the suffix even though
-the incoming suffix state is no longer the prepared vacuum. The numerical
+the incoming suffix state differs from the prepared vacuum. The numerical
 gain must remain in the error propagation: the binary arrays are not assumed
 to define an exactly trace-preserving map.
 
@@ -186,7 +186,7 @@ complete work output error at that outcome, one tensor triangle gives
 complete finite output error <= sum_r e_r + sum_r (p_r+2*e_r)*w_r.
 ```
 
-For a success, `w_r` already sums all sixteen work records. There is no extra
+For a success, `w_r` sums all sixteen work records. There is no extra
 factor equal to the number of records. For timeout it concerns the retained
 waiting state. This composition does not assume positivity or exact unit
 trace of the numerical factors. A comparison with the unlimited exact
@@ -223,7 +223,7 @@ continuation is at most this unresolved mass. A finite cap never claims to
 execute the infinite history.
 
 Merely forgetting later stopping labels does **not** recover the cap `N`
-timeout quantum block: later native and work operations have already acted.
+timeout quantum block: later native and work operations have acted.
 Agreement of coarsened classical survival probabilities is a weaker claim.
 The quantum compatibility statement is forward continuation from the
 retained timeout state.
@@ -234,7 +234,7 @@ At full activity the slot `n` counts native attempts. Work's model coordinate at
 end of a successful path is `n/4+5/2`; timeout reaches `N/4`. These quantities
 are neither source pulse counts nor laboratory durations. The Hamiltonian,
 per-slot model increment, preparation, coherent source services and uniform
-native scheduler remain declared inputs.
+native scheduler are declared inputs.
 
 The existing [record-count identities](../../Lean/QFT/SourceRecurrenceClock.lean)
 apply to `omega(k)=abs(j_k)` with counted symbol one. They supply additivity,
@@ -249,7 +249,7 @@ replaces `T_0` by `(1-q)Id+q*T_0` and `T_j` by `q*T_j`. For the native register
 alone, its unlimited first-current instrument is invariant under this change
 after forgetting the stopping-slot record and retaining the sign and native
 state. The full slot-labelled native instrument changes with `q`.
-Here work still advances by `A_num` in every slot, with exact target `U`.
+Here work advances by `A_num` in every slot, with exact target `U`.
 Its stopping-time state
 therefore generally changes. The joint observer cannot inherit the
 native-only idling invariance. The retained half-activity control uses this
@@ -263,7 +263,7 @@ is also bound by the source program and its complete output certificate.
 
 The work marginal is the same under C and E for this independently prepared
 experiment: it depends only on their common `(n,j)` probabilities and the
-same work continuation. The joint quantum outputs can still differ through
+same work continuation. The joint quantum outputs can differ through
 the native factor. A work-only readout is not asserted to select between
 the native candidates.
 
@@ -274,13 +274,13 @@ with record `(n,j,w)` uses
 `n` native attempts, `n` waiting work evolutions and one current kick with
 one complete four-read suffix. A timeout path uses `N` native attempts and
 `N` waiting work evolutions and performs no suffix. Every repeated source
-word invocation remains in its path count even if its contracted matrix is
+word invocation is kept in its path count even if its contracted matrix is
 cached. Costs of a realized path are distinct from the host work needed to
 enumerate all possible paths and from the classical storage for its records.
 For the idling control, the observed slot count does not determine how many
 hidden native activity draws led to actual native attempts. Per-record
 attempt costs are therefore upper bounds; exact expected active attempts
-are `q` times the expected controller-slot count. Work still incurs
+are `q` times the expected controller-slot count. Work incurs
 one waiting evolution in each such slot.
 
 At cap 128 the declared record alphabet contains 4,097 outcomes. A fixed
@@ -290,13 +290,13 @@ these retained record widths; it does not assign a physical implementation
 cost to memory, clock counters or native hidden labels.
 
 This is a finite occupation construction. The retained target and numerical
-certificate do not turn its arbitrary incoming work states into the earlier
+certificate do not turn its arbitrary incoming work states into the
 vacuum occupation theorem. Infinite-occupation comparison, physical source
 and storage errors, a physical halt device, and calibrated clock durations
-remain separate obligations. There is no new empirical agreement claim or
+are separate obligations. There is no empirical agreement claim or
 construction of the complete consensus tower. A later repair selected by a
 work record is not part of this stopping-and-work output; connecting that
-additional feedback remains a distinct extension.
+additional feedback is a distinct extension.
 
 ## Demonstrated output and budgets
 

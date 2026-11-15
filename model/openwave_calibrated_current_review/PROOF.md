@@ -29,8 +29,8 @@ the neutron and plus one for the proton. Multiplication by the declared
 contact coefficient gives opposite shifts of G times the electron energy.
 The strong-sector fitted masses and free-channel endpoint therefore supply
 no interacting physical pole-mass calculation. The finite conversion law
-supplies neither an irreversible lifetime nor a physical parity-violating
-angular distribution. The physical axial mismatch is retained.
+supplies no irreversible lifetime, physical parity-violating
+angular distribution or physical axial ratio.
 
 The exact CAR algebra, rational local projector contractions and sector
 identities have exact mathematical meanings. Matrix comparisons and finite

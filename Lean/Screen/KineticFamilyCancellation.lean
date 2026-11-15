@@ -102,7 +102,7 @@ theorem one_scalar_doublet_cofactor_form
   ring
 
 /-- The one-scalar determinant for every complete-family multiplicity is
-    exactly the already frozen `(nG,nH) = (3,1)` determinant.  This identifies
+    exactly the frozen `(nG,nH) = (3,1)` determinant.  This identifies
     the general cancellation theorem with the #646 statistic definition, not
     with a physical coupling comparison. -/
 theorem one_scalar_doublet_matches_frozen_three_one

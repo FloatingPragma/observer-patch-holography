@@ -18,7 +18,7 @@ a,v,m>0,               eta=+1 or -1.
 ```
 
 All eight folded valleys are retained. The site-centered mass field,
-its amplitude and the source clock remain specified inputs. No claim
+its amplitude and the source clock are specified inputs. No claim
 is made that the interacting source selects this texture.
 
 ## The index and the admitted perturbations
@@ -98,7 +98,7 @@ The cold receipt binds the proof, all owning Python files and the
 complete parent source manifest. It verifies every inherited digest
 without rerunning the parent's spectrum proof. Its exact checks concern
 the original Clifford and edge identities, the atomic index and rational
-localization bounds; independent finite numerical controls remain tests.
+localization bounds; independent finite numerical controls are tests.
 
 This is a statement about a supplied quadratic source operator. It does
 not establish autonomous defect formation, a many-body interacting

@@ -61,7 +61,7 @@ All audited B5 declarations depend only on `propext`, `Classical.choice`, and
 ## Einstein-branch boundary
 
 B5 supplies the finite incidence precursor of a Ward identity.
-`OPH.EinsteinBranch.ContinuumEinsteinPremises.ward` remains an explicit input.
+`OPH.EinsteinBranch.ContinuumEinsteinPremises.ward` is an explicit input.
 The finite theorem does not construct a continuum stress tensor or identify
 the seam load and current with physical stress-energy components.
 
@@ -86,7 +86,7 @@ limit statements:
 
 `Dynamics/WardLimitManifest.lean` records the mathematical fields and guards
 in this list. The physical distributional-divergence identification in item 6
-and the concrete meanings of the abstract relations remain F1 obligations.
+and the concrete meanings of the abstract relations are F1 obligations.
 Every regulator carries an actual `FiniteContinuityWitness`, so the manifest cannot
 replace B5 with a detached source label. It also requires a not-all-zero
 finite datum, a positive scale tending to zero, admissible tests that separate
@@ -96,7 +96,7 @@ candidate limit is a theorem: exact
 finite-residual vanishing and residual convergence force it by uniqueness of
 real limits. The candidate limit may itself be zero. Source derivation,
 transport compatibility, the meaning of the finite and continuum residuals,
-chart realization, and common-tower carriage remain relations whose concrete
+chart realization, and common-tower carriage are relations whose concrete
 physical meanings and evidence must be supplied and audited by F1. Defining
 or generically inhabiting the structure does not establish that its residual
 is physical distributional divergence or that `AdmissibleTest` is the intended

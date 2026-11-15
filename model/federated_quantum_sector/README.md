@@ -150,7 +150,7 @@ their controller's consultation dependencies. The finite tensor split and
 graph support do not supply physical spacelike separation or a relativistic
 light cone.
 
-The graph block formula is reused, not a new general theorem; no new Lean
+The graph block formula is reused, not a general theorem; no Lean
 proof is claimed. This packet provides interacting local quantum
 instruments, noncommuting readouts and full finite record predictions. It
 does not select a continuum state, compatible refinement dynamics, a

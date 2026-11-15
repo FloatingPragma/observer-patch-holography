@@ -1,19 +1,19 @@
 # A moving native code with an exact stopping boundary
 
 CP-03 / [#1139](https://github.com/FloatingPragma/observer-patch-holography/issues/1139).
-This construction removes the fixed-core reset from the existing actively
-corrected qubit. Its classical core now follows the complete native current,
+This construction removes the fixed-core reset from the actively
+corrected qubit. Its classical core follows the complete native current,
 and each successful correction encodes the unknown logical state at that
-new core. An exact calculation also shows where this construction must stop.
+destination core. An exact calculation also shows where this construction must stop.
 It is moving, actively serviced memory; autonomous particle protection and
-a reference-like exterior remain unachieved.
+a reference-like exterior are not achieved.
 
 The baseline is [PR #1151](https://github.com/FloatingPragma/observer-patch-holography/pull/1151)
 at `67aa7b6f4a904a1a90ea6d77bf2f66c741f2ba0c`, used provisionally for this
 follow-up. The fixed source weights are `(25,25,8,...,8)`, exactly those of
 its record-derived clock. The recovery controller does not need to know or
 infer these weights: they multiply complete flags without changing their
-code geometry. They remain parameters of the native source law. The new
+code geometry. They remain parameters of the native source law. The added
 active operations change the complete process, so its marginal is not
 claimed to retain PR #1151's stationary reference or preparation guarantee.
 
@@ -83,7 +83,7 @@ This excludes **every exact all-seam sharp-q=1 qubit at that core**, not
 merely the chosen crossed rectangles.
 
 The moving service therefore retains the native output on an opposite-core
-flag, records a stop and halts. This output still preserves the logical
+flag, records a stop and halts. This output preserves the logical
 state through a known isometry, but it is not certified for another native
 attempt. No stopped output is discarded or sent back to the initial code.
 There are **11,460 positive continuing flags and 120 positive stopping
@@ -119,7 +119,7 @@ Different adaptive seam schedules need their own stopping analysis. The
 general branch identities do not by themselves imply this uniform-scheduler
 absorption bound.
 
-## The actual reference and clock still constrain the candidate
+## The actual reference and clock constrain the candidate
 
 This packet keeps the same **fixed** product-pair reference as PR #1151.
 It never moves the heavy weights along with the core. For every sharp-q=1
@@ -149,7 +149,7 @@ dimensionless parameter `s` has exact code leakage
 A scalar compressed clock is not a preserved code subspace when this
 leakage is nonzero. Better record inference alone cannot supply the missing
 clock/code compatibility. The modular service and moving recovery need a
-new joint protocol before their capabilities can be composed. No rest
+joint protocol before their capabilities can be composed. No rest
 energy, stress tensor, spin/statistics or physical particle is assigned.
 
 ## Source execution and cost
@@ -202,5 +202,5 @@ The resulting exclusion belongs to CP-12 as a **finite canonical moving
 memory obstruction**. The opposite-core exact-code theorem has its wider
 specified local scope. Approximate correction, other charges or cores,
 different native operations, coherent position encodings and refining
-carriers remain outside this finite stopping calculation. No whole-program
+carriers are outside this finite stopping calculation. No whole-program
 exclusion or empirical comparison is added.

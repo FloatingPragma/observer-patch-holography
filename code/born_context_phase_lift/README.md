@@ -1,15 +1,15 @@
 # Algebraic phase-lift audit
 
-Historical label: B13.
+Lane label: B13.
 
 `BORN_CONTEXT_WEB_PAYLOAD.v1.json` is a byte-identical, hash-pinned copy of
 the simulator payload used by the exact verifier. The default verification
 path is hermetic. An optional custody test rehashes the larger sibling
 simulator inputs when that checkout is available.
 
-The payload is retained byte-for-byte, including its historical prose. Its
-phrase that the web “earns noncommuting effect contexts” is superseded by the
-audited boundary: the run realizes gauge labels and diagonal counts; the
+The payload is retained byte-for-byte, including its prose. Its
+phrase that the web “earns noncommuting effect contexts” is not a result; the
+audited boundary is that the run realizes gauge labels and diagonal counts; the
 two-dimensional representation and projector orbit are declared algebraic
 adapters. The phase lift
 `I/2 - (2*sqrt(3)/3)*i*(Q*P-P*Q)` is an exact operator-algebra target, not a
@@ -18,7 +18,7 @@ source-produced instrument, outcome, or Born-law validation receipt.
 `SOURCE_PHASE_SELECTION_PACKET.v1.json` is the committed derived packet for
 the declared representation, record projector, commutator order, and
 complexification adapter. Its replay yields exactly the unordered pair of
-Pauli-Y projectors. The stable label order currently puts `pair:00-02` first
+Pauli-Y projectors. The stable label order puts `pair:00-02` first
 and that pair is `+Y`, but this sign is not source-forced: reversing the event
 list does not select `-Y`, whereas reversing the commutator order for a fixed
 pair exchanges the two transpose effects.

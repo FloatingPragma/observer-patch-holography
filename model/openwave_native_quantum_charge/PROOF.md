@@ -117,5 +117,5 @@ hidden lower charged competitor.
 The charge partner and conditional electron calibration do not prove an
 observed electron dictionary, a physical positron scattering law, unequal
 quark spectra, a spatial continuum or local gauge completion. The shared
-native family coefficients still give equal up/down/lepton free-family
+native family coefficients give equal up/down/lepton free-family
 masses in the declared action.

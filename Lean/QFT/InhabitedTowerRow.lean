@@ -47,7 +47,7 @@ closable on the demo tower by relabeling the committed event readout, so
 closing these Props carries no physical identification and cannot
 discharge the matrix rows by itself.  None of the five Props is proved
 for the inhabitant here, and no `EinsteinAdmissibleTower` is assembled:
-the completion row remains an F1 obligation.
+the completion row is an F1 obligation.
 
 ## Negative receipt
 
@@ -60,7 +60,7 @@ reduct.  The demo instantiation composes with the committed
 counterextensions of `bare_consensus_not_einstein_complete`, which share
 the inhabitant's own bare tower as reduct.  Einstein truth is therefore
 not inherited from the bare consensus tower alone; it can only enter
-through the readout completion and the analytic premises that remain
+through the readout completion and the analytic premises that are
 open.
 
 ## Claim boundary
@@ -71,7 +71,7 @@ demo tier.  The modular, stress, entropy, and scale readouts, the
 Einstein readout completion, and every analytic and physical premise row
 of the `#694` matrix (guarded Ward limit, first law, MaxEnt envelope,
 small-ball asymptotics, vacuum reference, universal coupling, absolute
-scale, source-causal continuum receipts, clock network) remain open with F1.  No
+scale, source-causal continuum receipts, clock network) are open with F1.  No
 source produces the bundle, no physical attachment, uniqueness, or
 continuum claim is made, and closure of the stated gap Props is necessary
 interface surface rather than sufficient row closure.
@@ -385,7 +385,7 @@ fragment's event and geometry readouts through injective encodings at
 every regulator, with typed-arrow commutation, refinement naturality, and
 the boundary fibre.  A witness would assemble an
 `EinsteinAdmissibleTower` on the shared tower; every analytic Einstein
-premise of `composedEinsteinBranch` remains a separate argument even
+premise of `composedEinsteinBranch` is a separate argument even
 then. -/
 def EinsteinReadoutCompletionRow {κ : Type u} [Preorder κ]
     {ι : Type u'} [Preorder ι]

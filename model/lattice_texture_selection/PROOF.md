@@ -199,7 +199,7 @@ Delta E_at_crossing >=2J kappa >J/1000000.             (6)
 Both chords are actual source edges of that triangle. This is an absolute
 energy floor at a topology-changing configuration. It is not a barrier
 above the initial defect energy, an activation time or a lifetime bound.
-Indeed the charged-shell lower bound(4) already exceeds(6) for |q|>=1.
+Indeed the charged-shell lower bound(4) exceeds(6) for |q|>=1.
 
 ## A finite deformation with a source-energy bound
 
@@ -247,7 +247,7 @@ repair-only schedules, or schedules depending only on their retained
 repair records, with their entire records retained. Onsite spin
 rotations preserve this carrier, so records from repair-only insertions
 between specified rotations also contain no spin-direction information.
-The controlled rotations themselves remain supplied operations.
+The controlled rotations themselves are supplied operations.
 
 The package checks(8) on every full-Fock input of the two-site and
 three-site native maps, including a nonadjacent seam. It also retains an

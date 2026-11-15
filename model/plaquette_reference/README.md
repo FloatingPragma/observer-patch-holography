@@ -8,7 +8,7 @@ No particle-number sector is truncated. The reference is a controlled
 approximation to the Gibbs state, with an exact rational error bound.
 
 Write `Hc=H-I`, `Q8=sum_{k=0}^8 (-Hc/64)^k/k!`. The exact onsite frame
-already established in `field_symmetry` makes `Hc` real. Integer matrix
+established in `field_symmetry` makes `Hc` real. Integer matrix
 powers compute every coefficient of `Q8`, without an eigenbasis oracle.
 For column `j`, set `p_j=||Q8[:,j]||^2/Tr(Q8^2)` and
 `v_j=Q8[:,j]/||Q8[:,j]||`. The source executes:
@@ -29,7 +29,7 @@ Thus BLAS norm reductions and host `atan2` implementations cannot alter
 the retained word hashes or the number of distinct pulse controls.
 All zero-angle requests remain. This is a reproducible angle construction,
 not a claim of correct rounding: the independent `certified_reference`
-interval checks still bound every actual emitted angle and integrated
+interval checks bound every actual emitted angle and integrated
 source control against the exact integer target.
 
 The unconditioned field density is `Q8^2/Tr(Q8^2)` in the original Weyl
@@ -58,7 +58,7 @@ execution has a separate `2e-11` complete-output admission and is not
 presented as an interval proof of hardware precision.
 
 The receipt compares the **actually executed, unnormalized success field**
-with the old regional expansion, while retaining its abort complement.
+with the regional expansion, while retaining its abort complement.
 For the normalized Gibbs modular generator, the regional expansion is
 `P8+log Tr_A(E exp(-beta Hc)) I`; its exact scalar is retained in the
 absolute operator comparison. The scalar drops only on trace-zero entropy

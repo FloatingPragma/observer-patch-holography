@@ -150,8 +150,8 @@ def c11_finite_claims():
        'statement':'The actual selected interacting output has a faithful declared two-configuration corner with nontrivial modular correlations. A complete P/Q and sequential projective apparatus realizes the real correlation and retains every branch through subsequent native evolution.',
        'domain':'The corner is chosen after inspecting the known output and is an exploratory global configuration algebra, not a local spatial partial trace or a predeclared physical observer. Full-source and pure observed-branch faithfulness are rejected. The observable family is frozen from the premeasurement state and its modular parameter is injected; no autonomous H-clock, subjective time or physical time conversion is identified.'},
       {'id':'complete_charged_energy_unit_display',
-       'statement':'Every already executed charged-response energy group and unconditional probability is retained under one common source-energy-to-GeV scale, with the actual interacting ground subtracted once and the complete work budget converted by that same scale.',
-       'domain':'The most probable addition line is assigned the supplied0.000511GeV anchor. Its agreement is a calibration identity. Other lines remain unnamed source excitations, not predicted particle masses; source charge conjugation, rest-shell and species identification remain open.'}]
+       'statement':'Every executed charged-response energy group and unconditional probability is retained under one common source-energy-to-GeV scale, with the actual interacting ground subtracted once and the complete work budget converted by that same scale.',
+       'domain':'The most probable addition line is assigned the supplied0.000511GeV anchor. Its agreement is a calibration identity. Other lines are unnamed source excitations, not predicted particle masses; source charge conjugation, rest-shell and species identification are open.'}]
 
 
 def generate():
@@ -239,13 +239,13 @@ def generate():
     return {
       'schema':'oph.openwave_joint_model_claims.v1',
       'separately_validated_candidates':[separately_validated_native_charge(), separately_validated_common_charge(), separately_validated_signed_source(), *separately_validated_wave_rows()],
-      'construction':'One declared all-number shared-record CAR source with periodic half-record electric energy, cyclic face term, recomputed interacting reference, complete native instrument and boundary-dressed charged reservoir. The canonical entry point binds one selected protocol and its continued grouped spectral apparatus. Earlier one-load, zero-field, bounded-integer, spatial and modular-time experiments retain their comparison domains.',
+      'construction':'One declared all-number shared-record CAR source with periodic half-record electric energy, cyclic face term, recomputed interacting reference, complete native instrument and boundary-dressed charged reservoir. The canonical entry point binds one selected protocol and its continued grouped spectral apparatus. The separate one-load, zero-field, bounded-integer, spatial and modular-time experiments retain their comparison domains.',
       'canonical_source':{'contract':'code/openwave_candidate/next/C10/CANONICAL_SOURCE_CONTRACT.json',
                           'receipt':'code/openwave_candidate/next/C10/CANONICAL_CONSTRUCTION.json',
                           'construction_id':contract['construction_id'],
                           'selected':canonical['selected'],
                           'scope':canonical['scope'],
-                          'earlier_31_row_assessment_domain':'The earlier one-load assessment is preserved below. Its measured outcomes are not reassigned to this interacting all-number source.'},
+                          'earlier_31_row_assessment_domain':'The one-load assessment below keeps its own domain. Its measured outcomes are not reassigned to this interacting all-number source.'},
       'source_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},
       'assessment':str(receipt.relative_to(ROOT)),
       'canonical_continued_observables':[
@@ -305,8 +305,8 @@ def generate():
         'clock':'The port/transit probability oscillates at 2E; no physical electron rest clock or derived commit-rate calibration is identified.',
         'regulator':'Two finite cutoff comparisons provide no cutoff-removal theorem.',
         'records':'C and E outcome payloads are retained; global position and register monitoring is supplied. Native coarse local measurements are a different instrument. Separate seam-offset dynamics are not implemented.',
-        'interaction':'The canonical all-number source selects periodic half-record energy and a cyclic face term. Earlier E2a/E2b, first-order and zero-field variants remain controls; their spectra and squared-generator identities do not transfer.',
-        'local_native_candidate':'The same configuration-level native CAR instrument acts on the full interacting carrier. Its coherent ground is generally excited by native monitoring. Earlier uniform-fiber reductions require their invariant zero-field domain; complete-sector enumeration grows with graph cycle rank.',
+        'interaction':'The canonical all-number source selects periodic half-record energy and a cyclic face term. The E2a/E2b, first-order and zero-field variants are controls; their spectra and squared-generator identities do not transfer.',
+        'local_native_candidate':'The same configuration-level native CAR instrument acts on the full interacting carrier. Its coherent ground is generally excited by native monitoring. The uniform-fiber reductions require their invariant zero-field domain; complete-sector enumeration grows with graph cycle rank.',
         'continuum':'No physical particle dictionary, common relativistic continuum or complete 31-row validation follows.'}}
 
 

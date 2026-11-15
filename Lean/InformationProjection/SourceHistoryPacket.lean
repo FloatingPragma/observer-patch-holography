@@ -60,7 +60,7 @@ empirical path law from those data; these objects were not all fixed by
 the run's local pre-execution contract.  The unique positive parameter is
 matched to the DECLARED alternative mean, the empirical mean action of the
 same run.  No prospective source mechanism selects that constraint observable
-or level: its provenance and physical interpretation remain open in issue B7.
+or level: its provenance and physical interpretation are open in issue B7.
 -/
 
 section TiltZero
@@ -437,7 +437,7 @@ and it is the unique minimizer of relative entropy to the reference
 among laws sharing its mean action.  `lam` is a free input to this generic
 inhabitation theorem.  The packet later proves a unique positive exponential
 parameter at its declared empirical target, while source provenance and
-physical selection of that target remain open in issue B7. -/
+physical selection of that target are open in issue B7. -/
 theorem sourceHistoryLaw_packet_inhabitation (lam : ℝ) :
     (∀ g, 0 < tilt sourceTauChainR sourceActionR lam g)
       ∧ (∑ g, tilt sourceTauChainR sourceActionR lam g = 1)
@@ -902,7 +902,7 @@ zero is the reference law exactly, the empirical law diverges strictly
 from the reference, and a multiplier matching the declared empirical
 mean action exists inside the payload's rational bracket.  A separate theorem
 proves that the positive exponential parameter at that supplied target is
-unique.  The constraint observable and level remain declared postprocessing
+unique.  The constraint observable and level are declared postprocessing
 inputs; their prospective source and physical selection is the open core of
 B7. -/
 theorem sourceHistoryPacket_receipt :

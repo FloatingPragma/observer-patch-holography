@@ -121,7 +121,7 @@ whose records admit a controlled lattice-field description. It supplies a
 concrete step toward the [effective QFT target](../CONSTRUCTION.md), while
 relativistic propagation, a controlled spatial continuum/EFT domain,
 physical clocks and comparison with nature are additional work. It is
-a separate spatial branch sharing the carrier controls, not yet the spatial
+a separate spatial branch sharing the carrier controls, not the spatial
 extension of the existing charged matter/flux/scalar common action.
 Reproducing the deliberately compiled target is an implementation and
 comparison result; it is not an independent empirical prediction.
@@ -148,7 +148,7 @@ lattice/pointer qubits. The source ledger excludes costs of initialization,
 storage, physical readout and the two classical native repairs. No efficient
 hardware or autonomous physical implementation is inferred from runtime.
 
-Guarded polar corrections act only on already executed local matrices.
+Guarded polar corrections act only on executed local matrices.
 Roundoff-sized entries forbidden by the exact sector or diagonal identities
 are compressed away; full-phase residuals and the onsite off-diagonal
 residual are retained as numerical diagnostics. There is no normalization

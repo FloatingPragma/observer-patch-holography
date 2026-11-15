@@ -1,13 +1,13 @@
 # A native current counter and its measurement laws
 
-The same executable binary observer now predicts its current-count and
+The same executable binary observer predicts its current-count and
 waiting-record distributions. No independent random clock or Hamiltonian is
 added. Its 66 native configurations reduce exactly to a three-state process
 for **every finite absolute-current record word**. This reduction makes longer
 record predictions inexpensive and identifies which scheduler assumptions can
 be removed.
 
-The counter is `N(n) = sum(abs(j_k), k=1..n)`, where `j_k` is the already
+The counter is `N(n) = sum(abs(j_k), k=1..n)`, where `j_k` is the
 committed native current. Its readings are observable integer event counts.
 Here `n` always means **native attempt count**, including the recorded zero
 currents. A physical duration, proper time or relation to an experimental
@@ -87,7 +87,7 @@ For occupation, `R=W=3`. All twelve ports have the same exact constants;
 their observations need not be independent.
 
 The first nonzero current retrospectively resolves every local bit in the
-window. An all-zero window returns `[0,1]` for the two bit moments and still
+window. An all-zero window returns `[0,1]` for the two bit moments and
 reports its exact zero movement count. Coverage includes these unknown
 outcomes and applies from arbitrary binary total-two inputs, including
 coherent states with untouched references. It is not conditional on resolution,
@@ -123,7 +123,7 @@ The receipt composes conditioning, finite complement repair and modular
 generator errors, including arbitrary initially untouched references.
 
 Warm-up and heralding use no global attempt counter. Regional record
-collection, an IID seam schedule and a fixed local horizon remain declared.
+collection, an IID seam schedule and a fixed local horizon are declared.
 The complement controller counts its own repairs and reports completion;
 those remote repairs produce no incident tick at the cap. Retained preparation records must be ignored by
 the continuation; the bound does not assert independence from that tape.
@@ -141,7 +141,7 @@ count covariances recover all three native port-distance shells. These
 unit-independent relations are testable after an operational apparatus
 identification; choosing seconds is a convention, not the missing result.
 
-The [measured host-clock attachment](HOST_CLOCK.md) now records actual native
+The [measured host-clock attachment](HOST_CLOCK.md) records actual native
 execution against a monotonic host counter, calibrates one local clock on
 one block and checks a different clock on three untouched blocks. Their
 duration errors are 6.29%, 2.29% and 7.76% against a declared 25% engineering
@@ -360,14 +360,14 @@ claim that the adaptive two-event observer uses that law. It also says
 nothing about independence across attempts. The
 [symmetry/scheduling gate](symmetry_schedule.py) executes a stationary
 countercontrol: repeat the last seam with probability `q`, otherwise redraw
-uniformly. For every rational `0 <= q < 1`, each seam still has uniform
+uniformly. For every rational `0 <= q < 1`, each seam has uniform
 one-step exposure, every fixed-seam native kernel preserves the same uniform
 total-two configuration law, and all seams remain reachable. Yet the
 probability of two successive moving currents is
 `(23+52q)/990`: `23/990` for IID seams and `49/990` at `q=1/2`, while each
 single-attempt moving rate remains `5/33`. Within this declared scheduler
 family, the retained current bits determine `q=(990 P(11)-23)/52` from their
-exact two-event law; finite-sample uncertainty still needs a bound. Thus
+exact two-event law; finite-sample uncertainty needs a bound. Thus
 source symmetry and stationarity reduce the uniform-marginal premise
 but do not select the temporal scheduling law required by the complete field
 and clock records.
@@ -387,7 +387,7 @@ law `nu_i = r_i/(66*p)`, where `p=5/33`. Consequently
 `sum(nu_i/r_i) = 1/p = 33/5`. The observer's mean event interval is then fixed
 without choosing uniform seam weights. Positivity matters: selecting only
 one seam leaves 46 configurations forever inactive. That stationary mixture
-still has mean move rate `5/33`, but its event-conditioned mean interval is
+has mean move rate `5/33`, but its event-conditioned mean interval is
 `2`, not `33/5`. This exact inactive-component negative control is retained.
 
 The full measurement law remains scheduler-sensitive. Doubling one seam's
@@ -402,7 +402,7 @@ each attempt, gives `T0' = (1-q)I + q T0`, `T1' = q T1`. The stopped moving
 kernel is unchanged because `T1'(i,j)/r_i' = T1(i,j)/r_i`; its stationary
 event-conditioned law also stays fixed. This removes only global idling from
 the stopped transition sequence. Zero records, waiting counts and attempt
-costs still change. The producer checks `q=1/2` on the full 66-state kernel;
+costs change. The producer checks `q=1/2` on the full 66-state kernel;
 the cancellation establishes the identity for any `0<q<=1`.
 
 ## Passive age from two current-derived endpoints
@@ -473,7 +473,7 @@ condition cannot be dropped: a mixture of ages zero and two with probabilities
 `9/19` and `10/19` has the same score mean as age one but mean age `20/19`.
 This is a failure of this mean inverse, not an asserted equality of complete
 record distributions. Joint current access, finite memory and the declared
-native instrument remain part of the observer architecture.
+native instrument are part of the observer architecture.
 
 ## Existing theorem attachment and limits
 
@@ -487,7 +487,7 @@ and the bound `N(n)<=n` for this instantiated observer counter.
 The nearest waiting-law result in that file, `meanReturn_hasSum`, belongs to
 a different committed two-state chain. Its numerical return law is not
 imported here. The advance is the checked native-kernel mapping, exact marked
-reduction and newly calculated waiting/count distributions compared with full
+reduction and directly calculated waiting/count distributions compared with full
 executed CQ output. These are exact finite arithmetic checks and direct
 mathematical derivations; no new Lean proof is claimed.
 
@@ -496,7 +496,7 @@ assumes independently justified count-volume errors and a fourth-power
 proper-time/volume relation. The present current counter supplies neither.
 It therefore establishes no spatial dimension, Lorentzian geometry, proper
 time calibration or physical frequency. The supplied carrier, native rule,
-stationary preparation and chosen current observable remain explicit.
+stationary preparation and chosen current observable are explicit.
 
 The related [`relative_modular_dynamics`](../relative_modular_dynamics/README.md)
 packet derives a periodic Y-readout response to the Palm state's modular
@@ -505,7 +505,7 @@ phase readout under the declared ideal phase target. Its exact boundary test
 also shows why the current native rule cannot supply that phase evolution:
 real coherent preparation and real repair branches leave the Y readout
 unbiased at every integer native-attempt count. Native attempt counts and the
-modular parameter remain distinct model readouts, with no derived conversion
+modular parameter are distinct model readouts, with no derived conversion
 between them, and neither specifies physical duration or a lab clock.
 
 The new laws are predictions of the executable source model. No laboratory

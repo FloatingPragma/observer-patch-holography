@@ -60,12 +60,12 @@ representation for an arbitrary supplied `k`-block projective partition:
   signs `+I` and `-I` leaves a binary off-diagonal control unchanged and is
   therefore not pinching.
 
-This proves an explicit finite random-unitary realization of the already
+This proves an explicit finite random-unitary realization of the
 supplied partition readout. It does not derive majorization, choose a
 partition, or produce a laboratory randomizer.
 
 `EventAlgebra/SpectralEntropyBoundary.lean` proves why the naive totalized
-matrix-log formula is not yet support-aware relative entropy:
+matrix-log formula is not support-aware relative entropy:
 
 - `totalizedMatrixLog_event_eq_zero`: the totalized continuous-functional-
   calculus logarithm sends every projection event to zero;

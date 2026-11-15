@@ -1,12 +1,12 @@
 # Contact resonances narrow; fixed wavepackets become transparent
 
-The same K=0 Weyl/contact action now has a controlled continuum conclusion
+The same K=0 Weyl/contact action has a controlled continuum conclusion
 on **both signs of energy**, including its negative-energy resonances.
 For c=v/a, fixed v>0 and any real finite coupling U(a), its energy-normalized
 bright scattering channel tends strongly to the identity on every fixed
 L2 wavepacket. The convergence is uniform over the coupling choices for
 bounded packet densities on a fixed bounded energy window. This strengthens
-[the earlier positive-energy bound](../contact_continuum/README.md).
+[the positive-energy bound](../contact_continuum/README.md).
 
 It is deliberately **not operator-norm convergence** on windows containing
 negative energies: repulsive U can be tuned to keep S(E0)=-1 at one chosen
@@ -18,7 +18,7 @@ The original action has U>=0. The proof also covers the algebraic signed
 rank-one extension U in R; this does not replace the source's repulsive law.
 The model energy zero and total momentum K=0 stay fixed. A filled physical
 vacuum, diverging energy recentering, additional interactions, nonzero-K
-scaling and many-body continuum reconstruction remain outside this theorem.
+scaling and many-body continuum reconstruction are outside this theorem.
 No particle identity or complete interacting QFT is inferred.
 
 ## Source measure and a quantitative monotonicity theorem
@@ -108,7 +108,7 @@ The contact-generated free ac channel has cyclic spectral measure
 rho_c(E)dE. Multiplication by sqrt(rho_c) maps it to Lebesgue-normalized
 energy amplitudes on the interior band. For each c extend the resulting
 scattering multiplier by one outside that band to L2(R,dE). The other
-reducing ac channels already scatter identically. Dark point states and
+reducing ac channels scatter identically. Dark point states and
 any isolated pair remain in the full model Hilbert space; they are not
 incoming ac packets and are not included in this assertion.
 
@@ -126,7 +126,7 @@ momentum-space identification or a many-body asymptotic theorem.
 
 ## Retained resonance and numerical cross-checks
 
-For any fixed E0<0 and c>=4|E0|, the previous sign theorem gives a_c(E0)>0
+For any fixed E0<0 and c>=4|E0|, the sign theorem above gives a_c(E0)>0
 and the density is positive. Thus the exact choice U_c=1/a_c(E0)>0 gives
 S(E0)=-1. Continuity near E0 makes the essential operator-norm distance
 from identity equal to two on a window containing E0. Consequently a
@@ -144,7 +144,7 @@ is floating arithmetic, separate from the rational proof certificate.
 The retained E0=-1/16 rows keep the resonance distance two while the
 response at E0/2 decreases. They do not identify this resonance as a mass.
 
-The only imported scattering step is the previous trace-class/rank-one
+The only imported scattering step is the trace-class/rank-one
 attachment, whose premises were checked on this source. Its primary
 references are [Behrndt, Malamud and Neidhardt](https://arxiv.org/abs/0902.3568)
 and [Simon's account of Kato's work](https://arxiv.org/abs/1711.00528).

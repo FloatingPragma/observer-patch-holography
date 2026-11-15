@@ -121,11 +121,9 @@ The eigenvalue bound follows from \(H_m^2=\operatorname{diag}(m^2+BB^*,m^2+B^*B)
 and \(\|BB^*\|\leq 12\). Under the declared anchor
 \(E_0J=.51099895\) MeV, every same-source energy difference is at most
 \(2J\sqrt{m^2+12}\). It is `2.1295` MeV for the lowest flat-level anchor
-and `15.4265` MeV for the supplied mass `.23`. A physical electron identified
-with this same one-load source cannot then cover the 104.5 GeV beam energy
-reported in [CERN's LEP RF report](https://cds.cern.ch/record/507409/files/mpph123.pdf).
-This is a conditional energy-identification obstruction. A different
-many-body or interacting construction does not inherit it.
+and `15.4265` MeV for the supplied mass `.23`. This bound is conditional on
+the one-load source; a different many-body or interacting construction does
+not inherit it.
 
 The separate `4.56665e-18` m spacing calculation requires physical momentum
 to equal \(\hbar k\), with \(k\) restricted to the first Brillouin zone.
@@ -238,7 +236,7 @@ energies. No nonempty, non-full number sector contains a state stationary
 under both H and all native branches. The [proof](PERSISTENCE_PROOF.md)
 also excludes spectral aliasing at the specified algebraic time `.37`;
 it distinguishes stationary rays from repeatably pure nonstationary orbits.
-The independent complete-H propagation agrees with the former compact
+The independent complete-H propagation agrees with the compact
 state's variance `6.4495111111` and port leakage `0.00412249177`.
 These facts identify no physical species and exclude no approximate
 lifetime or mixed stationary state.

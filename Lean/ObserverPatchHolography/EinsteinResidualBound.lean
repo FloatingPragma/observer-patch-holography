@@ -1,12 +1,12 @@
 import ObserverPatchHolography.EinsteinBranch.Tensor
 
 /-!
-# Error transport through the existing finite null-tomography decoder
+# Error transport through the finite null-tomography decoder
 
-The tensor decoder is already proved to invert its nine null charges. This
+The tensor decoder provably inverts its nine null charges. This
 module supplies the finite weighted-error inequality needed to propagate
 charge intervals through each decoder row. Physical stress/metric attachment
-and a measured error budget remain hypotheses, not consequences of this bound.
+and a measured error budget are hypotheses, not consequences of this bound.
 -/
 
 namespace OPH.EinsteinBranch

@@ -1,7 +1,7 @@
 # The full matrix spectrum of the original grounded cube
 
 The entire eight-site down-addition response of the original cube has the
-same 78 energy lines as the previously resolved origin probe. Every matrix
+same 78 energy lines as the resolved origin probe. Every matrix
 residue has rank four. The observed cyclic subspace therefore has dimension
 312 inside the full 560-state charged sector. Its response, inverse response
 and exact memory kernel are all affine functions of the signed cube
@@ -17,8 +17,8 @@ No projected approximate dynamics or fitted mass is introduced.
 
 ## Exact matrix resolvent from a finite source recurrence
 
-The previous source polynomial `q` is monic of degree 78 over `Q(sqrt(3))`.
-The new calculation proves `q(H16)V=0` for **all eight columns**, using
+The origin-probe source polynomial `q` is monic of degree 78 over `Q(sqrt(3))`.
+This calculation proves `q(H16)V=0` for **all eight columns**, using
 unbounded integer arithmetic. It also evaluates every complete matrix
 moment through order 77 and verifies
 
@@ -50,7 +50,7 @@ The calculation further verifies exactly
 q divides p_I^2-3p_A^2.
 ```
 
-At each of the 78 distinct real roots `x_i` already certified for the
+At each of the 78 distinct real roots `x_i` certified for the
 origin probe, let
 
 ```
@@ -86,7 +86,7 @@ Their eigenvalues and degeneracies have not been resolved. No claim of
 completing the full 560-state spectrum follows.
 
 Every site has the same local measure because `A` has zero diagonal.
-The 78 energies remain excitation energies of this finite source, rather
+The 78 energies are excitation energies of this finite source, rather
 than identified physical species or relativistic rest masses.
 
 ## Exact inverse response and a larger controlled disk
@@ -129,7 +129,7 @@ after order `p`, obeys
 ```
 
 The response itself has four times this error bound. The controlled disk
-is larger than the earlier conservative `7/1024` full-sector gap disk.
+is larger than the conservative `7/1024` full-sector gap disk.
 The stronger bound is not applied to the remaining 248 source dimensions,
 an excited reference or an infinite-volume ground.
 
@@ -148,7 +148,7 @@ Sigma(0)=C^-1-(A/16+I/2).
 These exact values satisfy the prior certified approximations
 `c0≈12.9058381883`, `c1≈-4.9026412320`. A floating linear solve is no
 longer required to calculate these static coefficients. The physical
-meaning remains an exact finite source response, not an inferred metric.
+meaning is an exact finite source response, not an inferred metric.
 
 ## A complete finite-gap particle-dictionary test
 
@@ -159,7 +159,7 @@ energy, with one common positive unit factor and no additive energy shift.
 All 78 down-channel gaps and the positive up-channel line lie in the
 certified interval used here. Its upper-to-lower ratio is below 62.
 
-The already retained [PDG 2025 comparison baseline](../particle_species_detector/physical_targets.json)
+The retained [PDG 2025 comparison baseline](../particle_species_detector/physical_targets.json)
 has a muon/electron ratio above 206 and tau/electron ratio above 3477,
 even throughout the declared boxes consisting of each reported central
 value plus or minus its reported uncertainty. Those boxes are benchmark
@@ -190,5 +190,5 @@ relativistic sector and its actual detector dictionary.
 
 Run `python -W error -m pytest -q model/matrix_spectral_response` and
 `python -W error -m model.matrix_spectral_response --check` from the
-repository environment. All earlier source proofs and their boundaries
-remain separately retained.
+repository environment. The parent source proofs and their boundaries
+are retained separately.

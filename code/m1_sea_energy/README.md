@@ -66,8 +66,8 @@ full finite operators and Fock matrices are recomputed instead of archived.
 
 ## Interpretation
 
-This is a new filled-vacuum experiment, with a different physical read from
-the old empty-vacuum click detector. The generator is exactly positive after
+This is a filled-vacuum experiment, with a different physical read from
+the empty-vacuum click detector. The generator is exactly positive after
 normal ordering and produces the same integer-time source channels. It is
 not a claim of unique laboratory energy: two explicit Floquet branch changes
 preserve those channels and positivity while changing energy assignments.

@@ -12,7 +12,7 @@ transition has one reference particle on both arms and reads
 `Delta_ec-Delta_L`, cancelling their common reference energy. The L
 transition has no measured-particle assignment. Preparation work, the
 coherent services and the distinction from a physical Compton clock
-remain explicit in the [proof](PROOF.md).
+are explicit in the [proof](PROOF.md).
 
 ```sh
 python -m model.openwave_native_beat_clock --write

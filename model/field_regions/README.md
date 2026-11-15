@@ -6,7 +6,7 @@ This component supplies explicit spatial algebra and record restriction maps
 for the same [Weyl/contact field](../interacting_field/DERIVATION.md). Its
 Hamiltonian is `H=dGamma[-(1/8) sigma.sin(k)] + sum_x n_x0 n_x1`.
 The declared cubes, their coordinates, two CAR modes per site and Hamiltonian
-model time remain inputs. A growing cube is a volume limit at fixed lattice
+model time are inputs. A growing cube is a volume limit at fixed lattice
 spacing. It is not a spatial continuum or physical Lorentzian reconstruction.
 
 The nearest results are the existing
@@ -17,11 +17,11 @@ history estimates in the field derivation. The existing
 explains why the older
 [`FiniteCausalObserverNet`](../../Lean/QFT/FiniteCausalObserverNet.lean)
 with a scalar bottom cannot admit its homomorphic restriction from a full
-matrix factor. These are reused results. The new contribution is a concrete
+matrix factor. These are reused results. The contribution here is a concrete
 signed CAR attachment, retained local particle sectors, compatible observer
 records, and finite-volume embeddings for this particular interacting field.
-The new general proof below is mathematical prose with independent numerical
-and exact finite controls; it is not a new Lean kernel proof.
+The general proof below is mathematical prose with independent numerical
+and exact finite controls; it is not a Lean kernel proof.
 
 ## A full-Fock split before sector restriction
 
@@ -113,7 +113,7 @@ The ambient expectations are **not multiplicative**. For four modes,
 retain modes 0,1 and let `X=c2* c3+c3* c2`. Exactly `E_K(X)=0`, but
 `E_K(X^2)` is the nonzero projector onto the sector with one exterior
 particle. This is a concrete control for the existing homomorphic-retraction
-obstruction, not a new no-go. Nor do separated marginals uniquely determine
+obstruction, not a further no-go. Nor do separated marginals uniquely determine
 a joint state: `(|0,2>+|1,3>)/sqrt(2)` and its minus-phase partner have
 identical marginals on regions {0,1} and {2,3}, but orthogonal joint states.
 The existing two-slot correlation controls have the same logical boundary.
@@ -142,7 +142,7 @@ It holds with untouched references. Summing all branches gives local
 no-signalling for a disjoint retained algebra. Conditioning on a selected
 outcome does not give that unconditional theorem. The source tests retain
 both outcomes and verify the square against the independently constructed
-local CAR effect. Source floating contraction residuals remain numerical
+local CAR effect. Source floating contraction residuals are numerical
 diagnostics, not outward error certificates.
 
 For nested cubes define the one-mode inclusion by identical coordinate and
@@ -170,7 +170,7 @@ regional quantum states, retained records and arbitrary untouched
 references together, without a factor for the number of outcomes. Spatial
 inclusions are exact; finite-volume dynamics converge rather than
 intertwine. Bounds refer to the ideal compiled operation; floating and
-physical service errors remain separate. This gives a usable fixed-spacing
+physical service errors are separate. This gives a usable fixed-spacing
 local observation limit and does not establish a UV limit, strict relativistic
 microcausality or topology of physical spacetime.
 
@@ -179,17 +179,17 @@ microcausality or topology of physical spacetime.
 PR-16 and PR-52 require a source-selected physical event/geometry dictionary,
 two-way order/cone faithfulness, calibrated count/volume and rods/clocks,
 manifold and dimension/topology tests, and a controlled unique Lorentzian
-limit. None follows from choosing cubic CAR labels. PR-53 still requires
+limit. None follows from choosing cubic CAR labels. PR-53 requires
 physical propagation/frame/clock/readout identification. PR-70, PR-71 and
 PR-72 concern the committed edge-direction action, its physical continuous
 operator sector and cofinal gluing into that comparison. The present cubes
 supply no map from that source edge action to this Hamiltonian. Their
 premise-register dispositions are unchanged.
 
-The finite mathematical advance is concrete: the supplied interacting
-field now has signed regional CP maps, local algebra/expectation identities,
+The finite mathematical result is concrete: the supplied interacting
+field has signed regional CP maps, local algebra/expectation identities,
 source-instrument naturality and a record-preserving fixed-spacing limit.
-The outstanding physical selection and continuum premises remain explicit.
+The outstanding physical selection and continuum premises are explicit.
 
 Run from the repository root:
 

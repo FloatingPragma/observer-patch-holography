@@ -1,27 +1,27 @@
 # Check the preparation before testing the dynamics
 
-The native observer now predicts six additional, fixed preparation readouts.
+The native observer predicts six additional, fixed preparation readouts.
 They expose a concrete ambiguity in the anharmonic comparison: a non-Gaussian
 mixture gives the **same original imaginary characteristic read** as the
 transferred thermal preparation, yet gives different additional readouts.
-The additional outcomes have not been measured here. The existing 125-point
-comparison, its RMSE of 0.287643 and its unresolved normalization remain
-unchanged.
+The additional outcomes are not measured here. The 125-point
+comparison, its RMSE of 0.287643 and its unresolved normalization are those
+of the anharmonic packet.
 
 This extends [action identification](../identification_design/README.md) in
 a different direction. That packet identifies a specified family of action
 corrections. This one tests the preparation and readout assumptions that must
 be settled before a trajectory discrepancy can identify an action. The
-earlier preparation calibration already used a complex scan. What is missing
+parent preparation calibration uses a complex scan. What is missing
 is an authenticated, contemporaneous scan for each changed-potential run;
-transferring a previous scan does not establish the state in a later run.
+transferring a scan from another run does not establish the state in a later run.
 
 The [protocol](protocol.json) fixes the six probes before their contrasts are
-computed. Its design was motivated by the existing retrospective audit; it is
-not a blinded analysis of the old dataset. The preparation parameters remain
-the authenticated earlier values, with no new fit. The producer never opens
+computed. Its design was motivated by the retrospective audit; it is
+not a blinded analysis of the deposited dataset. The preparation parameters are
+the authenticated parent values, with no refit. The producer never opens
 the 125 target trajectory observations; it extracts only the calibration
-parameters from the authenticated frozen prior receipt.
+parameters from the authenticated frozen parent receipt.
 
 ## What runs and what is measured
 
@@ -41,7 +41,7 @@ The baseline is the supplied displaced-thermal family with
 The control uses a supplied classical mixture of two source-executed coherent
 preparations, with displacements `0` and `-1.5`. The latter receives weight
 `0.7581835796978423`. This weight is constructed from the baseline's analytic
-prediction to demonstrate blindness of the old read; it is not inferred from
+prediction to demonstrate blindness of the original read; it is not inferred from
 an observed value. The predictor contracts native words; analytic formulas
 are independent checks and define this counterexample.
 
@@ -49,7 +49,7 @@ Explicitly, the exact ideal weight is
 `w=Im chi_gaussian(0.4i)/Im chi_coherent,-1.5(0.4i)`, since the vacuum
 component has zero imaginary characteristic value. This gives exact
 blindness in the unrestricted analytic model. The implementation uses its
-binary floating representation; its two native old-read laws differ by
+binary floating representation; its two native original-read laws differ by
 total variation about `2.6e-15`, a numerical residual rather than an exact
 zero certificate for floating source execution.
 
@@ -57,12 +57,12 @@ For `chi(beta)=Tr[rho D(beta)]`, the two detector outcomes have difference
 `Re chi(beta)` or `Im chi(beta)`. The finite-difference position conversion
 is not used. Reporting raw four-outcome frequencies in a future experiment
 would avoid introducing an unauthenticated position-estimator denominator.
-It would still require calibration of the physical probe coordinate.
+It would require calibration of the physical probe coordinate.
 
 | Fixed probe | Baseline `P(detector=0)` | Non-Gaussian control |
 | --- | ---: | ---: |
 | Real part, `beta=0.4i` | 0.812678296 | 0.738417930 |
-| Imaginary part, `beta=0.4i` (old read) | 0.173836810 | 0.173836810 |
+| Imaginary part, `beta=0.4i` (original read) | 0.173836810 | 0.173836810 |
 | Real part, `beta=0.8i` | 0.485930446 | 0.384809749 |
 | Imaginary part, `beta=0.8i` | 0.166878739 | 0.314060429 |
 | Real part, `beta=0.4` | 0.951829772 | 0.961558173 |
@@ -117,11 +117,11 @@ The conservative bound falls below 1% at **1,671 fresh trials**. If each
 candidate probability has an independently justified uncertainty `epsilon`,
 replace `Delta/2` by `max(0, Delta/2-epsilon)` in the usual
 `exp(-2*m*margin^2)` bound. No physical apparatus uncertainty or statistical
-confidence is inferred from the old derived values.
+confidence is inferred from the deposited derived values.
 For the stronger, also predeclared imaginary-`0.8i` probe, the certified
 contrast exceeds `0.14718168968`, and **426 fresh ideal trials** suffice for
 the same conservative bound. Choosing a probe from its calculated separation
-is prospective experimental design; it is not validation by new data.
+is prospective experimental design; it is not validation by fresh data.
 
 ## Cutoff and numerical control
 
@@ -140,12 +140,12 @@ than the proposed discriminator.
 Each certificate applies to its own semantic path and unrestricted supplied
 oscillator model. Native source-word floating error is separately checked
 against that path; its floating residual is not promoted to a rigorous
-native-execution error certificate. The packet does not change the prior
+native-execution error certificate. The packet does not change the parent
 occupation-control receipt or attach its radii to a different trajectory.
 All paths here concern preparation and readout at zero evolution duration.
-No new long-time anharmonic bound is claimed.
+No long-time anharmonic bound is claimed.
 
-## The probe-scale ambiguity that remains
+## The open probe-scale ambiguity
 
 Suppose the actual coordinate is `s*beta` for unknown positive scale `s`.
 The entire Gaussian characteristic scan then depends only on
@@ -166,16 +166,16 @@ factor and a displacement coordinate are also different apparatus quantities.
 The [primary experiment](https://arxiv.org/html/2603.04744v1) describes
 characteristic-function readout and two-point position estimation. The
 [measurement provenance analysis](../identifiability_checks/README.md#measurement-provenance-and-interpretation) records why its printed
-formula and the deposited derived values have not yet been authenticated as
+formula and the deposited derived values are not authenticated as
 one complete measurement protocol.
 
-The immediate experimental step is to acquire these contemporaneous probes,
-retain raw spin/detector counts and phase/coordinate metadata, and separate
+The required experiment acquires these contemporaneous probes,
+retains raw spin/detector counts and phase/coordinate metadata, and separates
 preparation calibration from later evolution tests. Passing this finite menu
 would support the stated preparation family; it would not establish an
 arbitrary state, select the action or distinguish OPH from ordinary quantum
 mechanics. The architecture, preparation family, draws, probe coordinates,
-pointer blanks and committed read remain supplied services.
+pointer blanks and committed read are supplied services.
 
 ## Reproduction
 

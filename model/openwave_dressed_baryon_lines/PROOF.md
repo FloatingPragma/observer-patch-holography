@@ -97,5 +97,5 @@ common reference convention. A finite box does not establish asymptotic
 proton-electron tensor factorization, a continuum endpoint, a relativistic
 nucleon pole or an irreversible lifetime. The charged and hadron GeV unit
 uses the electron calibration. The three or four fitted strong inputs
-remain inputs; the subsequent weak-contact line shifts are computed
+are inputs; the subsequent weak-contact line shifts are computed
 consequences of those fixed constructions.

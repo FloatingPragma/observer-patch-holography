@@ -5,7 +5,7 @@ particle subspace** in a declared interacting Weyl/contact action, a faithful
 reference recovered from native records, and a complete source-executed
 energy interferometer. It adds the operator map missing from a comparison of
 unrelated spectral gaps. The field encoding and action parameters are supplied;
-physical particle identification and clock calibration are open.
+physical particle identification and clock calibration remain open.
 The shared operator is executed through
 [`bound_pair.fiber.clock_subspace`](../bound_pair/fiber.py), rather than
 reconstructed from a separate spectrum fixture.
@@ -52,7 +52,7 @@ selected native C or E repair, and heralds the corner again. Outside outcomes
 halt with their actual source/reference state. On return it applies the
 record-derived source clock, the analyzer, and the native `(1,7)` detector.
 Coin and current together decode the pre-detector occupation, hence the
-declared `0/U` energy label. Source-address export aborts are separate
+declared `0/U` energy label. Source-address export aborts remain separate
 outputs. Structurally zero raw slots remain available through `raw_output`.
 
 The coarse herald is an actual source word: reversible CNOT fan-in makes one

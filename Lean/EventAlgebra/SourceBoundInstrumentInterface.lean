@@ -506,7 +506,7 @@ theorem affineRunValuation_injective : Function.Injective affineRunValuation := 
 /-- On the convex interval between the Born functional and the cubic
 countermodel, every member is probability-valued on every effect.  This is
 the interval on which the affine family can be described as a continuum of
-probability assignments; outside it the algebraic identities above still
+probability assignments; outside it the algebraic identities above
 hold, but no range bound is asserted. -/
 theorem affineRunValuation_probability {t : ℝ} (ht0 : 0 ≤ t) (ht1 : t ≤ 1)
     {E : Matrix (Fin 2) (Fin 2) ℂ} (hE : IsEffect E) :

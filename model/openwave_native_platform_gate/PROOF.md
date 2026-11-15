@@ -21,5 +21,5 @@ This is an author-run platform-layout reproduction, not a maintainer-run
 in-platform criterion award. The charge-conservation/channel identities are
 finite source facts; a physical electron, photon, rest mass or other criterion
 observable is not identified by them. The exact official M10 gate is retained
-and all31 cells remain untested. Known comparisons have been read; no blind
+and all31 cells are untested. Known comparisons are read; no blind
 or prospective prediction is claimed.

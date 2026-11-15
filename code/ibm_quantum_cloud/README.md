@@ -1,7 +1,7 @@
 # Frozen IBM Quantum Cloud Engineering Bundle
 
 > **Status: frozen on 11 July 2026.** No experiment in this bundle
-> distinguishes OPH from standard quantum mechanics. The code, derived legacy
+> distinguishes OPH from standard quantum mechanics. The code, derived state-preparation
 > summaries, and complete issue `#509` receipts are retained as an engineering
 > and reproducibility archive. New OPH-evidence runs on quantum-cloud hardware
 > are paused until OPH supplies a quantitative prediction that differs from
@@ -13,7 +13,7 @@ Quantum Cloud OPH-motivated engineering experiments.
 It contains:
 
 - `programs/`: runnable preflight, sealing, execution, harvesting, and analysis scripts
-- `qc_data/`: representative derived JSON summaries from the legacy hardware runs
+- `qc_data/`: representative derived JSON summaries from the state-preparation hardware runs
 - `protocols/`: frozen or pre-hardware experimental protocol specifications
 - `tests/`: mandatory finite-kernel tests and optional Qiskit/Aer circuit tests
 
@@ -21,8 +21,8 @@ It contains:
 
 The bundle contains two scientifically different kinds of experiment.
 
-1. The original Stage 1, `Z_3`, `Z_5`, and `S_3` runs prepare states whose
-   mathematical pattern is already specified, then ask whether a real QPU can
+1. The Stage 1, `Z_3`, `Z_5`, and `S_3` runs prepare states whose
+   mathematical pattern is specified in advance, then ask whether a real QPU can
    preserve and read that pattern. These are state-preparation, readout, and
    layout-consistency tests.
 2. The issue `#509` benchmark starts from ordinary basis states and generates
@@ -38,10 +38,10 @@ record to choose a repair move, and publishes the evidence needed to audit the
 process. It is not evidence for OPH over unrestricted quantum mechanics.
 Standard quantum mechanics predicts every programmed circuit in this bundle.
 
-The archived legacy summaries describe 10 provider jobs, 294 circuit
+The archived state-preparation summaries describe 10 provider jobs, 294 circuit
 instances, and 400,384 shots. The blinded benchmark adds 14 jobs, 3,104
 circuits, and 606,208 shots. Those totals do not imply equal evidential weight:
-the legacy `qc_data/` files mostly preserve derived metrics rather than every
+the `qc_data/` files mostly preserve derived metrics rather than every
 provider count, whereas the blinded run preserves the complete raw joined
 counts, job journals, commitments, and replayable analysis.
 
@@ -67,7 +67,7 @@ different assessments:
 
 | Experiment | Immediate outcome | Strength for the immediate claim | Strength for OPH as a physical theory |
 | --- | --- | --- | --- |
-| Stage 1 recoverability | Legacy summaries report lower conditional dependence and higher recovery fidelity for structured states on two QPUs | Archived consistency report; measured rows cannot be independently revalidated from the retained data | None as a discriminator; the ordering is designed into QM-prepared states |
+| Stage 1 recoverability | Archived summaries report lower conditional dependence and higher recovery fidelity for structured states on two QPUs | Archived consistency report; measured rows cannot be independently revalidated from the retained data | None as a discriminator; the ordering is designed into QM-prepared states |
 | `Z_3` heat-kernel check | Two independently decoded nontrivial states gave nearly the same heat time at all three prepared points | Strong sanity check | None as a discriminator; QM predicts the directly prepared distribution |
 | `Z_5` golden-ratio check | Several runs landed near `phi^2`, but the values spread from `2.407` to `2.878`, and the high-shot point was below the exact target | Mixed supportive consistency | None as a discriminator; QM predicts the encoded amplitude ratio |
 | `S_3` nonabelian check | The base layout missed `2`; reversing the physical qubits moved the result near `2`, and a repeat stayed near `2` | Useful layout diagnostic | None as a discriminator; QM predicts the prepared state and measurement |
@@ -101,7 +101,7 @@ CMI. The test was run on `ibm_marrakesh` and independently on `ibm_fez`.
 #### What happened
 
 The frozen derived summaries report the following ordering for
-`structured_theta_0.00` and the controls. These historical values are retained
+`structured_theta_0.00` and the controls. These archived values are retained
 as reported; the measured rows have not been independently revalidated:
 
 | Backend | CMI: structured | CMI: random | CMI: GHZ | Recovery fidelity: structured | Random | GHZ |
@@ -121,19 +121,19 @@ for the conversion and the theorem's scope over possible recovery channels.
 #### How strong is it?
 
 The measured rows are **archived consistency reports**. Complete tomography
-counts and reconstructed density matrices were not retained, so the corrected
+counts and reconstructed density matrices were not retained, so the
 analysis cannot independently revalidate their CMI or recovery values. The
-[recovery audit](../quantum_information/RECOVERY_EVIDENCE.md) found that the
-former pipeline could silently repair invalid states, erase rare sectors and
+[recovery audit](../quantum_information/RECOVERY_EVIDENCE.md) found that a
+pipeline without complete-count checks can silently repair invalid states, erase rare sectors and
 accept incomplete tomography. The numerical impact on these archived rows
 cannot be determined from the retained summaries.
 
-The repaired pipeline validates complete count records, preserves resolved
+The pipeline validates complete count records, preserves resolved
 positive support and saves acquired evidence before analysis. Circuit
 references and complete synthetic-count controls can be replayed; unresolved
 Petz support leaves valid CMI available and marks recovery metrics unavailable.
-Those controls validate the software, while the historical measured rows
-remain unrevalidated. No formal uncertainty test was attached to those rows,
+Those controls validate the software, while the archived measured rows
+are not revalidated. No formal uncertainty test was attached to those rows,
 and tomographic correction can affect nonlinear quantities such as CMI and
 fidelity.
 
@@ -258,7 +258,7 @@ matrix as fixed, so its uncertainty is not propagated into the interval.
 
 #### What it asks
 
-The older tests ask whether a target already placed in an initial state survives
+The state-preparation tests ask whether a target placed in an initial state survives
 the hardware. This benchmark asks whether the device can generate a repair
 decision from a record created during the circuit. “Generative” is used in
 that control-system sense: the output is generated by measurement and
@@ -338,7 +338,7 @@ The run also passed all frozen quality gates:
 - pooled Cayley leakage was `3.362%` and `1.189%`, below the `10%` limits;
 - the worst individual circuit had `19.792%` leakage, retained in the data and
   below the separate `25%` catastrophic limit;
-- every comparison still passed when the frozen contamination fraction was
+- every comparison passed when the frozen contamination fraction was
   varied from `4%` through `15%`, around the central `8%` model; and
 - the complete primary S3 transition law had zero violations in a simultaneous
   99% prediction envelope covering 55,296 locked outcome cells.
@@ -365,7 +365,7 @@ receipt-backed. It strongly supports the statement that IBM hardware realized
 the programmed finite self-reading repair instrument and that this instrument
 outperformed the restricted nulls. The held-out chip is a real replication
 barrier, but both chips came from one provider and one campaign, so this does
-not yet establish robustness across providers, hardware generations, or time.
+not establish robustness across providers, hardware generations, or time.
 
 It does not support the stronger statement that OPH beat standard quantum
 mechanics. Unrestricted quantum mechanics includes measurement, classical
@@ -424,7 +424,7 @@ More shots, qubits, backends, or elaborate blinding would make the engineering
 replication stronger but would not create evidence that separates OPH from
 quantum mechanics. Hardware noise and provider calibration would matter once a
 specific deviation existed, but they are not the reason for the present
-freeze: there is currently no different OPH number to measure.
+freeze: there is no different OPH number to measure.
 
 The hardware program may be reopened only after a discriminator proposal
 provides all of the following before platform selection or data collection:
@@ -501,7 +501,7 @@ as evidence for OPH over standard quantum mechanics.
   pinned revision that retains the committed reveal, raw provider count journals
   and sealed blind packet/report.
 - `qc_data/README.md`
-  Index of the representative legacy derived summaries.
+  Index of the representative derived summaries.
 
 ## Technical details and local verification
 
@@ -599,7 +599,7 @@ python3 code/ibm_quantum_cloud/programs/s3_diagnostic_bundle.py \
 
 ## Notes
 
-- The legacy JSON exports keep original job IDs and the reported derived
+- The archived JSON exports keep the provider job IDs and the reported derived
   metrics, but account-specific instance CRNs are redacted in the public copy.
 - Complete provider count dictionaries were not archived for most Stage 1,
   Z3, Z5, and direct S3 runs. The S3 layout summaries retain target counts and

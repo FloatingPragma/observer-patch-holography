@@ -1,7 +1,7 @@
 # Regional entropy and modular flow of the actual particle ground
 
 This constructs the reduced density and modular generator of the invariant
-ground `P_ground/5` already used in the
+ground `P_ground/5` used in the
 [full ground-family spectrum](../spin_resolved_spectrum/README.md). The
 reference is the original `2 x 2 x 2` Weyl/contact cube at `c=1/8,U=1`,
 not an independently chosen Gibbs state. Exact signed CAR traces retain
@@ -136,8 +136,8 @@ assigning the whole logarithm to bare regional energy.
 More explicitly, write a number-block state as `rho=direct_sum p_n rho_n`.
 Its entropy is `H(p)+sum_n p_n S(rho_n)`. At the reference, the triplet
 block is the maximally mixed state, and the spin multiplicity contribution
-is exactly the `log(n+1)` term already displayed. A formal definition of
-a bulk pairing by dividing `beta_R Tr(delta H_R)` by `2*pi` still does not
+is exactly the `log(n+1)` term displayed above. A formal definition of
+a bulk pairing by dividing `beta_R Tr(delta H_R)` by `2*pi` does not
 prove that this pairing is a geometric diamond charge. The existing
 Einstein theorem stack additionally needs its actual geometric kernel,
 area/edge interpretation, common stress, scaling and normalization.
@@ -183,5 +183,5 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m pytest -q -W error model/grou
 The exact matrices use rational coefficients of `1,sqrt(3)`. Separate
 floating full-Fock restrictions, logarithms and entropy remainders test
 the implementation; the displayed derivations and exact source traces
-carry the claims. No new Lean proof, physical particle assignment,
+carry the claims. No Lean proof, physical particle assignment,
 Lorentz metric, Newton constant or Einstein-register inhabitant is asserted.

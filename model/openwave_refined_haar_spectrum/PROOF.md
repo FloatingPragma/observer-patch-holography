@@ -73,4 +73,4 @@ intervals overlap. Overlap is compatibility of these bounds, not proof of
 equality, convergence, Lorentz symmetry or a common renormalized continuum.
 Fine interior low modes remain present even when boundary electric moments
 agree. Uniform repeated refinement, volume control and Yang–Mills UV
-identification remain open, as do physical GeV calibration and Nature validation.
+identification are open, as are physical GeV calibration and Nature validation.

@@ -82,7 +82,7 @@ ofReal`, `WC = range (toLin' projC)`, and transported tables
 NOT PROVED HERE (inferences, stated for scope).  The identification of
 the listed group with the abstract alternating group `A5` and of the two
 complexified pieces with the two Galois-conjugate three-dimensional
-irreducible characters of the abstract character table remain outside
+irreducible characters of the abstract character table are outside
 this file; the theorems concern the sixty listed rows and the two
 declared projector tables.  No physical interpretation of a golden mode
 is asserted.  Absolute irreducibility in the sense of every field
@@ -95,7 +95,7 @@ PRIOR WORK.  `Screen/GoldenSectorIrreducibility.lean` proves the real
 statements (`finrank_S`, `span_gt_eq_top`, `irreducible`,
 `goldenPlus_irreducible`, `goldenMinus_irreducible`) and states complex
 irreducibility and the character identification as inferences; this file
-replaces the first inference by theorems.  `Screen/GoldenSectorCharacters.lean`
+proves the first inference as theorems.  `Screen/GoldenSectorCharacters.lean`
 supplies the character values (`chi_plus_values`, `chi_minus_values`,
 `chi_differ_iff`) and `traceZphi_eq`.  `QFT/GaugeIrreducibleBorn.lean`
 proves a `2 × 2` complex commutant statement (`commutant_scalar`) for a

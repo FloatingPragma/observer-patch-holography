@@ -101,7 +101,7 @@ positive all-seam contract; a test retains this countercontrol.
 
 ## Clock readout and the energy distinction
 
-The already derived reference flow `U_s=pi^(-is)` multiplies each oriented
+The derived reference flow `U_s=pi^(-is)` multiplies each oriented
 coherence by `exp(-i s log(25/8))`. The parameter `s` is dimensionless modular
 parameter; it has not been identified with native attempt count `n` or a
 calibrated physical time. Modular covariance of the actual branches permits

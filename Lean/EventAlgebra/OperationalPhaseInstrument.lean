@@ -17,7 +17,7 @@ operation, or a scientific discharge of register row PR-04.
 * `ideal_phase_model_completes_tomography` and
   `preparation_identified_by_exact_fit_data` preserve the valid conditional
   tomography statements supplied by those effects.
-* The diagonal, rotated, and genuinely-complex necessity theorems remain
+* The diagonal, rotated, and genuinely-complex necessity theorems are
   finite-algebra delimitations.
 * `modelOfIdealPhaseFitData` assembles a model from `IdealPhaseFitData`, and
   `HasIdealPhaseFit` is equivalent to `Nonempty IdealPhaseFitData`.
@@ -32,7 +32,7 @@ effect/readback compatibility, an implemented context-selection and common-
 preparation protocol, producer-bound receipts, and a preregistered statistical
 validation rule (or an explicitly exhaustive deterministic semantics).  None
 of those is a field here.  The trace/Born pairing is part of the ideal model;
-operational additivity and effect composition remain separate obligations.
+operational additivity and effect composition are separate obligations.
 -/
 
 open Matrix

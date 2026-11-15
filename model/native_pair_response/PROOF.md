@@ -266,7 +266,7 @@ so this conclusion includes covariance convergence, not only weak laws:
        +K_(tau,u)(f,k)K_(tau,u)(g,h).                     (14)
 
 This is the symmetric second Gaussian chaos of the inherited diffusive
-field, with transfer generator A tensor I+I tensor A. It is not a newly
+field, with transfer generator A tensor I+I tensor A. It is not a separately
 selected interacting continuum field: finite exclusion corrections coexist
 with this Gaussian collective limit. No claim is made for unbounded L2
 tests, unsmeared pointwise products, fixed microscopic contrast profiles,

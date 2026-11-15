@@ -702,7 +702,7 @@ Here subscripts label the three band representatives. The derived
 `z_N^N` is approximately `0.76998918+0.00384689i`; the Gaussian limit is
 `0.76997108+0.00384989i`. The finite-copy allowance is below `0.000944`;
 including source numerical guards gives an allowance below `0.001462`.
-The positive ordered phase remains resolved. Raw estimator amplification
+The positive ordered phase is resolved. Raw estimator amplification
 is charged when taking its Nth power. The request-zero branch supplies a
 tracial control with zero Gaussian symplectic form; its finite ordered
 phase need not vanish. A 4096-register circuit and access to all eleven
@@ -999,8 +999,7 @@ Its coin/current record must be unavailable to the later protocol. The
 receipt executes this preparation and retains a nonstationary example at
 TV distance `32/33` from equilibrium whose pulse changes the port-1 mean
 from `1/2` to `3/4`, exactly as its passive records predict. This derives
-the local preparation; the pulse controller and field access remain the
-declared observation protocol.
+the local preparation; the pulse controller and field access are the declared observation protocol.
 
 Without that local preparation, any common complete classical continuation
 contracts the displayed L1 error, independently of its finite stopping cap.
@@ -1061,7 +1060,7 @@ clock counts executed repairs, including zero-current repairs. It is an
 aggregate event clock; it is not a primitive port-incident clock. Selection
 slots and controller service have separate counts. Native fair bits can be
 read by repairing a disclosed equal-occupation seam: its load stays fixed,
-but every service write remains a charged native event. An equal pair exists
+but every service write is a charged native event. An equal pair exists
 in every binary carrier triangle. These resource counts do not identify
 seconds, an atomic transition or an autonomous force law.
 

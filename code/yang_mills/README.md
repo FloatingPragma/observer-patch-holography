@@ -24,7 +24,7 @@ python3 -m pytest code/yang_mills/test_collar_gap_certificate.py
 
 The bundled JSON is marked `theorem_contract_witness`. It tests the arithmetic
 and the explicit constant `3/8`. Source descriptions, rate bounds and the
-completeness of conditional rows remain supplied premises: comparing one pair
+completeness of conditional rows are supplied premises: comparing one pair
 does not establish that it maximizes influence over a source kernel. The
 checker does not reconstruct a Gibbs measure or prove the rate, refinement or
 continuum hypotheses of the paper's theorem.
@@ -104,7 +104,7 @@ Result on the committed receipt (`receipts/z2_finite_transfer_receipt.json`):
 * for the Kogut-Susskind Hamiltonian the single-flip form is exact with
   fiber-dependent rates `c_l(o) = lam (r + 1/r)`, `r = Omega(o)/Omega(X_l o)`,
   so the scalar cross-fiber equality fails (rate spread 1.04 to 2.05 at
-  `L = 3`) while `c_l(o) >= 2 lam` remains an analytic positive floor;
+  `L = 3`) while `c_l(o) >= 2 lam` is an analytic positive floor;
 * among the interacting tested points, the Dobrushin sum `eta_*` is below one
   at Wilson `beta_s = beta_t = 0.1` and Kogut-Susskind `lam = 2`.
 
@@ -159,27 +159,27 @@ Narrowing an extended-precision coupling must preserve its value within ordinary
 relative rounding; becoming zero or a badly rounded subnormal causes refusal.
 These are numerical safeguards at a `1e-7` resolution policy, not certified
 interval bounds or a relative-error guarantee for every derived scalar at every
-accepted noncanonical coupling. Tiny cancellation-derived diagnostics remain
+accepted noncanonical coupling. Tiny cancellation-derived diagnostics are
 floating estimates; the retained grid is checked component by component across
 platforms and against the independent controls below.
 The generic rounded-matrix logarithm separately refuses an
 unresolved bottom spectrum or Perron state. Near-zero positive couplings and
 an unresolved leading eigengap are not replaced by an exact free model.
 
-The defect was reproduced on `de60560b` before correction:
+The controls cover these failure modes of a floating implementation without
+the safeguards above:
 
-| Original input | Incorrect result | Independent control / correction |
+| Original input | Unsafeguarded floating result | Independent control |
 | --- | --- | --- |
 | Free `L=2, beta_t=.01` | Nonzero constant-rate residual and multi-flip mass | Exact free Hamiltonian, including every entry and rate |
 | Free `L=2, beta_t=18` | `pi_max/pi_min` about 117, `eta_*` about 3.45 | Uniform law, `eta_* = 0`, heat-bath gap 2 |
 | Interacting `L=2, beta_s=beta_t=.01` | About 0.4% full-H error | Original-input 60/90-digit transfer calculations |
-| Interacting `L=3, beta_s=beta_t=.1` | Outside-single-flip mass about 6413.72 | Corrected value about 2152.32; fit residual .03777034 |
+| Interacting `L=3, beta_s=beta_t=.1` | Outside-single-flip mass about 6413.72 | Value about 2152.32; fit residual .03777034 |
 
 Floating defects depend on LAPACK and platform; the analytic controls do not.
-The last row corrects live numerical evidence while preserving the finite-grid
-constant-rate failure. The paper's rounded residuals `.038`, `.084`, `.24`
-and the exact Kogut-Susskind rate theorem remain valid. No physical mass-gap
-claim, claim-registry status, Lean theorem or frozen registration changes.
+The finite-grid constant-rate failure holds at the value in the last row.
+The paper's rounded residuals `.038`, `.084`, `.24` and the exact
+Kogut-Susskind rate theorem hold. No physical mass-gap claim follows.
 
 `verify_z2_finite_transfer_receipt.py` validates strict JSON, the complete grid,
 source and run digests, scalar identities, and every replayed component.
@@ -196,7 +196,7 @@ these controls and the full grid, rather than merely collecting the tests.
 This is a finite-grid diagnostic on a toy gauge system (`physical_clay_receipt:
 false`), not a universal no-go or a compact-simple-gauge receipt. Anisotropic
 couplings, the anisotropic Wilson-to-Hamiltonian limit, alternate transfer
-objects, and fiber-dependent positive rates remain viable. The next proof
+objects, and fiber-dependent positive rates are viable. The open proof
 target is the quotient-space variable-rate approximate-tensorization lemma.
 
 ```bash

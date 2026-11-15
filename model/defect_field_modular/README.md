@@ -7,9 +7,9 @@ repair and field histories to that reference. It supplies finite quantum
 entropy and regional-observation inputs to the Einstein premise chain;
 it does not construct `EinsteinRegisterData`.
 
-This is a new reference-state experiment using the same complete field
-instrument. Its Gibbs preparation differs from the original joint witness's
-localized input; that earlier witness is unchanged. The entropy identities
+This is a reference-state experiment using the same complete field
+instrument. Its Gibbs preparation differs from the parent joint witness's
+localized input; that witness keeps its own scope. The entropy identities
 refer to the field and its raw records. The clock factor may be traced
 consistently or retained as reported below. No stationarity of the full
 field/clock/reference state is asserted.
@@ -21,14 +21,14 @@ spectral deletion is made. Adding a common scalar to H changes Z and
 leaves rho and K unchanged. The modular convention is
 sigma_s(A)=rho^(is) A rho^(-is), corresponding to Hamiltonian time
 **t=-beta s**. This Gibbs parameter is not an extra physical clock. Field
-intervals still use the common Omega_ref=1/4 GeV source clock and its
+intervals use the common Omega_ref=1/4 GeV source clock and its
 lambda_j multiplier.
 
 The existing complex preparation compiler emits an eight-qubit word for
 |sqrt(rho)>. All sixteen purification columns remain. Giving the purifier
 the dual charge -Q^T makes the ideal complete state neutral because
 [Q,rho]=0. Preparation costs and every first-export complement output
-remain accounted. This is a declared preparation service, not a claim that
+are accounted. This is a declared preparation service, not a claim that
 passive repair thermalizes to rho.
 
 The signed full-Fock CAR trace gives the first-site reference rho_A and a
@@ -49,7 +49,7 @@ four-input,64-output isometry for this same Petz recovery. It retains the
 16-state field and four-state environment, all input/reference columns,
 and every first-export failure. The preparation and recovery words are
 frozen in `source_controls.npz`: they are explicit emitted programs, not
-new source primitives. Each replay independently checks their full targets
+source primitives. Each replay independently checks their full targets
 against the current H and rho. Freezing the words keeps actual costs and
 otherwise arbitrary QR phases reproducible across platforms; controls are
 regenerated only with `--freeze-controls`.
@@ -100,7 +100,7 @@ This prevents entropy of an unread field, a retained record and a complete
 purification from being silently identified. Reference stationarity under
 the driven repaired history is a measured diagnostic, not an assumption.
 
-The new construction closes a finite same-action/reference/preparation
+This construction closes a finite same-action/reference/preparation
 and compatible-observation join. It does not identify a geometric cap
 kernel, null stress, a bulk/edge split, fixed-volume area variation,
 shrinking balls or a positive measured Newton normalization. The two-site

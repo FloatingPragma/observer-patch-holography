@@ -7,7 +7,7 @@ through a mass contraction, retaining its failure and all 174 spectator
 coordinates of the 180-dimensional Nambu carrier.
 
 The source supplies the flavour weights through its actual weak current.
-The masses and mixing remain conditional on the retained oscillation
+The masses and mixing are conditional on the retained oscillation
 packet, selected normal ordering and lightest mass. No nuclear decay
 rate or literal pulse implementation is claimed.
 

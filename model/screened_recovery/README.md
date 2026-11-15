@@ -84,7 +84,7 @@ one positive branch are 799,631 and 783,290 pulses. The fixed archive uses
 23 C or 24 E classical bits per attempt: five seam-selector bits, one coin,
 two or three raw-record bits, and the 15-bit core-reset entry. The initial
 core label uses seven bits. Source proper-code load/export and classical
-control are apparatus services already declared by the compiler; the core
+control are apparatus services declared by the compiler; the core
 reset has no assigned source pulse or physical work cost here.
 
 The retained source composition admission ceiling is `1e-6` through 100
@@ -100,8 +100,7 @@ holds for all finite attempt counts only under ideal supplied services.
 
 ## Particle gate
 
-The active code improves one-port screening compared with the older q=1
-control, but still occupies four exterior ports and has full-exterior trace
+The active code improves one-port screening compared with the separate q=1 control, but occupies four exterior ports and has full-exterior trace
 distance at least `4/9` from the transported reference. It needs recovery
 and core reanchoring after every attempted native event. No autonomous
 localized state/observable, invariant bond, statistics phase, measured rest

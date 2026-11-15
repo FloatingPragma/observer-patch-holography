@@ -1,7 +1,7 @@
 # Omit exact identity recoveries
 
 The existing supplied moving-code recovery decodes and re-encodes every
-positive continuing flag, including flags whose native image is already the
+positive continuing flag, including flags whose native image is the
 target code. This separate variant removes those redundant words and retains
 the original moving-defect and biased-reset receipts as baseline evidence.
 
@@ -15,7 +15,7 @@ give the exact column identity
 
 `K_h V_c = sqrt(p_h) V_c'`.
 
-Therefore identity is already a valid flagged recovery. This equality extends
+Therefore identity is a valid flagged recovery. This equality extends
 linearly to arbitrary logical states entangled with an untouched reference.
 The decision reads only the code label and complete flag, and no branch is
 conditioned or normalized. It is an identity on the admitted flagged image;

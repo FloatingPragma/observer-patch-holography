@@ -37,7 +37,7 @@ rho_(r,b) = sum_a (K_(b,a) tensor I_reference)
 p(r,b) = trace(rho_(r,b)).
 ```
 
-Every branch density remains unnormalized. Its trace is its unconditional
+Every branch density is unnormalized. Its trace is its unconditional
 probability, and all outcomes sum to total probability one. A reported
 conditional expectation divides by the selected probability only at the
 reporting boundary. The underlying history retains rejected outcomes and
@@ -173,7 +173,7 @@ For the declared uniform scheduler over the thirty icosahedral seams, the
 normalized capacities are `1/12` and the stiffness is `L/720`, where `L` is
 the unweighted Laplacian of those recovered seams. The quadratic energy is
 `sum_seams (f_a-f_b)^2/1440`. Relative coefficients are derived from this
-native response; common action normalization remains a convention. This
+native response; common action normalization is a convention. This
 uniform calibration and the native feedback experiment are distinct schedules.
 
 The recovered characteristic polynomial of `60R=L` is

@@ -125,7 +125,7 @@ Each mean has norm at most one. Since `V e_i` has norm one,
 The replacement `W0->W1`, where `W1 e_i=o_i tensor b_y`, costs at most
 `eta` in operator norm, because the output rays `o_i` are orthogonal.
 The `b_y` for different labels are orthogonal. If a mean vanishes, then
-`eta>=1`, and the universal channel bound `delta=1` already suffices.
+`eta>=1`, and the universal channel bound `delta=1` suffices.
 
 Thus `W1` is a Stinespring isometry for the complete Lüders channel and
 `||V-W1||_op<=2 eta`. For any pure input with an untouched reference,

@@ -10,7 +10,7 @@ particle species. This branch therefore does not supply the required
 interacting theory or its massive sectors. Other coupling trajectories,
 field scalings and microscopic modifications are outside this theorem.
 
-The result uses the new centered state and clock `K=H-(U/2)N`; it does
+The result uses the centered state and clock `K=H-(U/2)N`; it does
 not transfer that state to the original uncentered Hamiltonian. No
 external renormalization theorem is imported. The proof combines the
 existing source inequalities with a uniform microscopic-time estimate,
@@ -207,7 +207,7 @@ annihilation statements by density to every positive/negative band.
 The CAR then uniquely determine the pure free filled-sea state on the
 entire initial-time CAR algebra: move its annihilating parts to the
 vacuum and iterate the CAR, giving Wick's rule at every order. This is
-now a statement about physical packets, not only microscopic site words.
+a statement about physical packets, not only microscopic site words.
 Let `H_0` denote this initial algebra's cyclic subspace in the full
 limiting GNS representation.
 
@@ -238,7 +238,7 @@ A_b(t,f)=C_b(f,t)-C_b(exp(it h_b)f,0).                   (6)
 
 These are vector identities, not an inference from a scalar retarded
 function alone. A finite countercontrol in `algebra.py` shows why (6)
-by itself would not yet prove the full hierarchy: an empty two-mode
+by itself would not prove the full hierarchy: an empty two-mode
 vacuum can have free one-field propagation while a quartic interaction
 changes its two-particle energy. The spatial cyclicity step is needed.
 
@@ -283,7 +283,7 @@ covariance or imported Reeh--Schlieder theorem is assumed.
 Take compact smooth f. The free Weyl equation has finite propagation
 speed v: its conserved current obeys `|j dot n|<=v|u|^2`, and integration
 outside an expanding ball preserves zero exterior initial data. The
-already constructed interacting candidate has its retained finite
+constructed interacting candidate has its retained finite
 propagation cone. Therefore both terms of A_b(t,f) in (6) graded-commute
 with every initial field supported outside one bounded enlarged region.
 For every homogeneous polynomial B of those outside fields,
@@ -320,7 +320,7 @@ The receipt authenticates the frozen source inputs, exact finite negative
 controls, uniform bound calculators and this proof. It does not pretend
 that finitely many numerical checks prove the infinite hierarchy.
 The full proof above supplies that conclusion. The interacting massive
-physical endpoint now requires a different justified coupling/refinement
+physical endpoint requires a different justified coupling/refinement
 trajectory or a changed microscopic construction. This theorem selects
 neither such a trajectory nor a physical species dictionary, gauge sector,
 detector calibration or common Einstein geometry.

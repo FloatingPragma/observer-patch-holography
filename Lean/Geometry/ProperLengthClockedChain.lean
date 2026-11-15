@@ -102,7 +102,7 @@ its bounds, and the declared readings `indexRuleReturn` and
 composition with a trajectory appear there.  `QFT/SourceRecurrenceClock.lean`
 proves `kac_identity`, `meanReturn_values`, and
 `returnCount_block_additive` on the abstract step index; the composition
-`returnCount i ω (c n)` appears here for the first time.
+`returnCount i ω (c n)` is introduced here.
 `Geometry/ProperTimeInternalAction.lean` proves `properLength_refine`.
 `Geometry/CommonWorldMaxwellClockJoin.lean` proves `joined_clock_advance`
 and `joined_stepDuration_not_forced`.  No prior module defines a

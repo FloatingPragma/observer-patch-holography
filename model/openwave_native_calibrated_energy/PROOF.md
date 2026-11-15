@@ -10,7 +10,7 @@ compression can be written
 The difference `Delta(1)-Delta(0)=-5/1024` is nonzero. This is a genuine
 interaction between the binary source coordinate and its spectator. It is
 calculated from the same H2, matching code and native recovery, without
-installing a second interaction Hamiltonian. H2's two-hop phase remains a
+installing a second interaction Hamiltonian. H2's two-hop phase is a
 declared architectural service.
 
 Prepare binary X-plus and a coherent superposition of spectator values zero

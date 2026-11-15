@@ -219,10 +219,10 @@ has exactly matching source marginals across volumes. Therefore its
 truncated polynomial records have the
 [fixed-time local limit](../particle_local_history_family/PROOF.md).
 Taking M large using (8) gives a norm-Cauchy local smooth-field limit.
-The state and clock remain those of (1) and its approximants. This
+The state and clock are those of (1) and its approximants. This
 does not identify canonical purifiers from different volumes or the
 global exterior state; the reference restrictions of the owning local
-history proof remain in force.
+history proof are in force.
 
 For a concrete finite simulator, the code also chooses an open box
 for that same binomial polynomial. The observation cells are contained
@@ -241,7 +241,7 @@ charge references.
 Finally apply the existing representation-cutoff theorem to the
 binomial polynomial, with word step `max(4,2M+1)`, full-Fock norm density
 `b_delta`, and initial degree `3|box|L`. The generic integer cutoff
-planner consumes these quantities only; its legacy degree-key name
+planner consumes these quantities only; its degree-key name
 does not import Legendre coefficients. Complete local occupation
 pointers preserve coordinate degree. The whole-history Dyson count
 includes all intervals before imposing the cutoff, with no restart
@@ -303,7 +303,7 @@ The default uses the fixed-L referenced mixed preparation and kappa
 of its degree-zero density planner. It changes the regulator action
 explicitly to delta=1. The certificate recomputes the kinetic allowance
 as `b_delta=180` at a=1 before quoting any same-action roughness bound.
-It does not reuse the old regulator's kinetic constant silently.
+It does not silently reuse the kinetic constant of a different regulator.
 The record comparison itself is state independent and uses no roughness
 bound. The maximally mixed full Fock input is not a Lorentz vacuum,
 and its conjugate charged reference is part of the preparation.

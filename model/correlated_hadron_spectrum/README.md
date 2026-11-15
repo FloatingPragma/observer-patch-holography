@@ -3,12 +3,12 @@
 The retained quenched Wilson correlators are fitted with their complete
 time covariance and a fixed conditioning rule. Every one of the 32 paired
 stream deletions is refitted with its own covariance. All 48 channel, sink,
-window and kappa fits remain visible; the original diagonal-time fit is a
+window and kappa fits are retained; the parent diagonal-time fit is a
 separate replayed control.
 
 The [receipt](results.json) carries the paired chiral and GeV scale chain,
-joint covariance, fit-choice sensitivity and original unresolved nucleon
-label. The rho-anchored pion remains a calibration identity. The separate
+joint covariance, fit-choice sensitivity and inherited unresolved nucleon
+label. The rho-anchored pion is a calibration identity. The separate
 string anchor exposes scale dependence. No sea-quark, continuum, volume or
 physical source-clock error is bounded.
 

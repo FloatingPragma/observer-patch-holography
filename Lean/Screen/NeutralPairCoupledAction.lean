@@ -46,7 +46,7 @@ so the field-stationarity theorem has an inhabited sourced instance.
 
 All of this is conditional finite mathematics.  The charge `q`, step `h`,
 clock units, kinetic and clock terms, minimal coupling, carrier map, and
-variation class remain declared.  No theorem selects a joint stationary
+variation class are declared.  No theorem selects a joint stationary
 worldline, identifies the step with laboratory time, or establishes a
 continuum Lorentz-force or Maxwell limit.
 -/

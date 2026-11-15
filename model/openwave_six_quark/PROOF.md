@@ -155,4 +155,4 @@ triplet0,1,2 is retained. These extra finite-source states are not declared
 new observed particles. One unchanged electron unit displays a conditional
 six-quark stationary energy and binding energy; it supplies no physical
 strong scale, deuteron mass or length. All absolute mass and species
-identifications remain separate from the finite binding theorem.
+identifications are separate from the finite binding theorem.

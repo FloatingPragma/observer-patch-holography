@@ -16,13 +16,13 @@ The exact first-current readout predicts:
 
 The plus-probability difference is `3644/69069 = 0.0527588354...`.
 Both candidates have **the same current waiting distribution**, with mean
-`33/5` native attempts for this preparation. Their phase measurements still
+`33/5` native attempts for this preparation. Their phase measurements
 distinguish them. An independent clock, a supplied Hamiltonian and a conversion
 to seconds are unnecessary for this conditional relational law.
 
 The carrier, uniform seam scheduler, native candidate, coherent preparation,
-phase detector and logical stopping controller remain declared. No laboratory
-measurement has yet been identified with this protocol. These are exact laws
+phase detector and logical stopping controller are declared. No laboratory
+measurement is identified with this protocol. These are exact laws
 of the executable native models, not new empirical agreement claims.
 
 ## What executes
@@ -106,7 +106,7 @@ the state actually retained by the latched runtime.
 ## Why the two laws differ
 
 The moving-current CP maps are exactly identical for C and E. On a moving
-branch the current already determines the endpoint imbalance. Their
+branch the current alone determines the endpoint imbalance. Their
 zero-current instruments retain different committed information, so their
 coherence attenuation differs before the first current arrives.
 
@@ -128,7 +128,7 @@ replaced with identity operations: they contribute measurable dephasing.
 Simply conditioning on a move on the first attempt gives plus probability
 `67/92` for both candidates, a different protocol that loses this distinction.
 
-The diagonal preparation has class law `(2/5,1/2,1/10)`, exactly the earlier
+The diagonal preparation has class law `(2/5,1/2,1/10)`, exactly the native
 current counter's stationary event-conditioned, or Palm, law. Here it is
 obtained directly from the declared phase preparation; no unexecuted event
 is postselected. The imported current-clock calculation therefore gives,
@@ -156,7 +156,7 @@ cancels exactly in the entrywise stopped resolvent. Thus the entire
 first-current quantum instrument, including phase outputs and reference
 correlations, is invariant under this global idling. The producer checks the
 cancellation on all 4,356 matrix units at `q=1/2`; the algebra proves it for
-every `0<q<=1`. Attempt costs and zero-record histories still change.
+every `0<q<=1`. Attempt costs and zero-record histories change.
 This control does not equate native no-current dephasing with identity idling,
 and it does not remove arbitrary changes to seam weights.
 

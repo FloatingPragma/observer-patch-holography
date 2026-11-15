@@ -293,7 +293,7 @@ The construction supplies an actual gauge-complete charged regional
 spinor, an explicit compensator, complete spin-coefficient records and
 positive original energy weight on one fixed source. The recorded energy
 includes the link and both endpoints. Its exact electric contribution
-63/4 already prevents treating the bare onsite value six as the entire
+63/4 prevents treating the bare onsite value six as the entire
 pair response. Neither dividing the transfer by two nor reading87/4 as
 a mass has a proved physical basis.
 

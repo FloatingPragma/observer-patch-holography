@@ -29,14 +29,14 @@ the complete reference-valued action is exactly
 The tagged diagonal operator `sum_i |i,i><i,i|` reveals `D`, `f` and `w`
 without materializing the off-diagonal Choi entries. This argument depends on
 the native branch form. Tagged diagonal data do not determine an arbitrary
-quantum channel: identity and dephasing already agree on every diagonal
+quantum channel: identity and dephasing agree on every diagonal
 input. A coherent service inserted between native attempts would require a
 different compiler and is not admitted by this package.
 
-The underlying partial-injection and signed-difference results are already
+The underlying partial-injection and signed-difference results are
 documented in [complete record recovery](../observer/RECORD_RECOVERY.md).
-This package supplies an execution representation of those results, rather
-than a new protection or particle theorem. Exact real and imaginary operator
+This package supplies an execution representation of those results; it
+adds no protection or particle theorem. Exact real and imaginary operator
 parts are applied separately, preserving arbitrary untouched references.
 
 ## Explicit host bounds

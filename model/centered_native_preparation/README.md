@@ -4,7 +4,7 @@ This package prepares the actual centered `N=8` cube ground to a proved
 error using the existing six-level native source, then executes the
 complete four-bin charged energy instrument. The reference is the unique
 hidden-spin-zero, eta-zero ground of `K=H-N/2`, at `c=1/8,U=1`. It is not
-the original `N=4` spin-two reference. The complete field carrier has
+the `N=4` spin-two reference. The complete field carrier has
 65536 rows; every preparation and clock outcome, including first-export
 failures, remains represented. A four-bin experiment does not separately
 resolve the 228 visible spectral lines and does not identify physical

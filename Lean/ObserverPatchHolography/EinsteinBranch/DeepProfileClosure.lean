@@ -5,8 +5,8 @@ import ObserverPatchHolography.EinsteinBranch.DarkSector
 
 `DarkSector.lean` commits to the linear enclosed-mass profile
 `M_A(r) = r * sqrt(Mb * a0 / G)` as a single functional-form premise
-(premise `pre:linear` of the dark-matter paper).  This module replaces the
-functional form by two atomic premises and derives the profile from them.
+(premise `pre:linear` of the dark-matter paper).  This module derives
+that profile from two atomic premises.
 
 * `DeepRegimeLaw` packages a deep-regime enclosed-mass law
   `M : Mb -> r -> M_A(r)` with two structural premises: degree-one scale

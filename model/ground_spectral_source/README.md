@@ -1,6 +1,6 @@
 # Native preparation and charged response of the original cube ground
 
-The existing native qubit service now prepares the proved ground `G` of
+The native qubit service prepares the proved ground `G` of
 the original three-dimensional cube and reads a charged response above it.
 The experiment executes the complete 17-bit field/pointer state, with
 all source export failures, all 130 repair outcome slots and all six final
@@ -40,7 +40,7 @@ every first-failure output. A missing leaf sign fails this certificate.
 
 Next embed all 256 rows into the even-numbered modes of the full
 65,536-row Fock register, retaining eight initialized blank spectators.
-Apply the inverse of the already proved onsite frame. The 184 native
+Apply the inverse of the proved onsite frame. The 184 native
 frame pulses implement the exterior-power inverse of
 
 ```

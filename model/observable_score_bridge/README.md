@@ -51,8 +51,7 @@ The supported result for each row is:
    gives completed probabilities `P_C(+)=61/72` and `P_E(+)=809/1089`, with
    difference `101/968`. Both terminal outcomes of all 21 capped words are
    retained. The untouched reference marginal is `I₂/2` under both laws;
-   the reference alone cannot distinguish them. This replaces the original
-   reference-coherence wording.
+   the reference alone cannot distinguish them.
 5. **Incident-clock field statistics.** The actual 240-port, 28,680-state
    source executes a cap-one four-read law with all 124 original records per
    policy, including 60 timeout records. Integer numerators sum exactly to
@@ -76,9 +75,9 @@ The supported result for each row is:
    give `m=B n`, `m mod 6=class` and zero total lift on each closed carrier.
    All 2,592 local native contexts and the 80-carrier, 200-sweep reference
    attach these identities to accepted twists, rejected branches and
-   consistent cuts. The live value **exact identities** replaces the original
-   **99.7%**; the more explicit **`m mod 6=class; total lift=0`** is also
-   supported. The 99.7% large-run census remains an imported diagnostic,
+   consistent cuts. The live value is **exact identities**; the more explicit
+   **`m mod 6=class; total lift=0`** is also supported. The 99.7% large-run
+   census is an imported diagnostic,
    not a theorem or conserved particle hypercharge.
 
 Rows 1–3 bind the [observer-readout proof](../finite_observer_readout_closure/PROOF.md)

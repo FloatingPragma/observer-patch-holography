@@ -57,8 +57,8 @@ lightest-mass choices and are retained separately.
 
 The vectorlike control retains all six light and six heavy quark branches,
 all 256 original occupation outcomes and its preparation failure. Their charge
-labels do not establish an observed quark dictionary; the light-family ordering
-fails the physical charm/strange assignment. Charged Wilson corner modes are
+labels do not establish an observed quark dictionary or a physical
+charm/strange assignment. Charged Wilson corner modes are
 saddles or maxima, so their GeV energies are not additional particle minima.
 The neutral zero modes of that member are retained explicitly.
 

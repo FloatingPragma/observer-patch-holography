@@ -67,7 +67,7 @@ approximate-tensorization theorem.  A downstream module proves descent to
 the invariant subspace for the independent product under moved-link
 symmetry, but no spectral-gap theorem for the committed orbit law is proved
 here.
-The exact open step is the one the 2026-08-24 deep audit names:
+The exact open step is:
 "The next proof is a variable-rate approximate-tensorization comparison on
 the gauge-orbit quotient, followed by an anisotropic Wilson-to-Hamiltonian
 scan."  The domination lemmas in this file supply the rate-comparison half

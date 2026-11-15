@@ -99,55 +99,44 @@ one seam attempt. All stationary means, centered covariances, density
 projections and coarse-block products are exact rational values, with no
 roundoff tolerance. Integer coefficients, propagated numerators and products
 must use Python integers before multiplication or summation. Converting an
-already overflowed NumPy integer to `Fraction` cannot recover its value.
+overflowed NumPy integer to `Fraction` cannot recover its value.
 Off-diagonal covariances may be negative; they must not be clipped. The
 separate chart-volume replay uses floating arithmetic and its explicit
 geometric tolerances.
 
-**Repair and artifact impact.** Five records at stride two require lag eight,
-beyond the supplied `[1,2,4]` record counts. At half filling, the local-drive
-lag-eight diagonal is exactly `90750535351/26730000000`. Fixed-width
-propagation and contraction previously returned
-`63700095795517/682015950000000`. At occupancy three, the five-record
-stride-two drive covariance also acquired a negative all-ones quadratic
+**Lag coverage and exactness controls.** Five records at stride two require
+lag eight, beyond the supplied `[1,2,4]` record counts, whose controls end at
+lag six. At half filling, the local-drive lag-eight diagonal is exactly
+`90750535351/26730000000`; fixed-width propagation and contraction return the
+incorrect value `63700095795517/682015950000000`, and at occupancy three they
+give the five-record stride-two drive covariance a negative all-ones quadratic
 form, although the drive sums to zero in every original configuration.
-These are errors in valid finite covariance calculations.
-
-At reviewed main `7521d5c3`, the first twelve controls in
-`test_exact_moments.py` produced nine failures and three passes; they were
-retained before the repair in `b38cf9d6`. The original short-window checks
-and the complement identity passed despite the longer-window corruption.
-The repaired controls include all occupancies `1..11` through lag 18,
+Short-window checks and the complement identity alone do not detect these
+longer-window errors. The controls in `test_exact_moments.py` include all
+occupancies `1..11` through lag 18,
 original-input linear and nonlinear oracles, large shifted integer data,
 and a detached verifier with the producer absent. Isolated mutations of
 centering, moments, lazy weight, clock/covariance validation, input handling
 and fixed-width propagation are rejected; these controls are not a claim
 of mutation completeness.
 
-The follow-up audit of `a04620a7` found that an outer list or tuple could
-hide a masked NumPy row: array conversion discarded its mask before the
-integer check. For rows `1` and a masked `999`, this admitted covariance
-`249001` from an unobserved sample. The retained original-container tests
-first produced 13 failures and seven passes. Missingness is now checked
-inside the original containers before conversion; complete signed,
-unsigned and arbitrarily large integer rows remain accepted exactly.
-The mathematical follow-up checks the feature-transition identity against
+An outer list or tuple can hide a masked NumPy row, because array conversion
+discards its mask before the integer check; for rows `1` and a masked `999`
+this would admit covariance `249001` from an unobserved sample. Missingness is
+checked inside the original containers before conversion; complete signed,
+unsigned and arbitrarily large integer rows are accepted exactly.
+The feature-transition identity is checked against
 both original endpoint-coin operations on all 4,096 binary configurations.
 Direct original-state checks reproduce projection residuals and coarse
 covariances for every nontrivial occupancy. The retained native path-sum
 controls also verify record averages at both clock strides without using
 the covariance-lag multiplicity formula.
 
-The existing `[1,2,4]` controls end at lag six. All rational matrices, native
-states and events, source geometry and the source-identification decision
-remain unchanged. Canonical regeneration on Windows and Linux agrees, but
-changes forty floating reference-volume entries relative to the previous
-receipt, by at most two ULPs (`1/72057594037927936`, about `1.39e-17`). These
-last-bit chart-volume differences remain within the geometric replay
-tolerance. The live producer and verification receipts bind the changed
-code and regenerated data; producer, verifier and receipt hashes change. The
-frozen native archive and its manifest remain inputs. The claim registry
-and observation ledger reference these live artifacts by path; the numerical
-correction changes no physical claim or observation status. The paper's
+Canonical regeneration on Windows and Linux agrees up to last-bit
+chart-volume differences of at most two ULPs (`1/72057594037927936`, about
+`1.39e-17`), within the geometric replay tolerance. The live producer and
+verification receipts bind the code and data; the frozen native archive and
+its manifest are inputs. The claim registry and observation ledger reference
+these live artifacts by path. The paper's
 finite covariance identities and the Lean fixed-geometry theorem have the
 same scope.

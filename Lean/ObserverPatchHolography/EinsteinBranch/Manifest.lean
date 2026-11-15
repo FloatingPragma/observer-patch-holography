@@ -18,7 +18,7 @@ open Filter Asymptotics
 open scoped Topology
 
 /-- Required finite, analytic, conservation, and physical dependencies of the
-corrected composed theorem. -/
+composed theorem. -/
 inductive Dependency where
   | finiteRepair
   | boundaryFiber

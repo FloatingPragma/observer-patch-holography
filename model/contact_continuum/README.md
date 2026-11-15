@@ -1,7 +1,7 @@
 # A controlled continuum test of the repulsive contact candidate
 
 The existing Weyl/contact action has nontrivial lattice scattering and an
-isolated repulsive pair. Those facts do not yet supply an interacting
+isolated repulsive pair. Those facts do not supply an interacting
 continuum theory. This package closes a precise test of that inference:
 at zero total momentum, with the **same model energy zero**, `c=v/a` and
 fixed `v>0`, its positive-energy two-body scattering tends to the identity
@@ -11,11 +11,11 @@ This is an analytic exclusion on the existing contact family. It does not
 exclude a different physical vacuum, finite density, energy counterterms,
 additional interactions or the whole OPH class. It does not assert a
 many-body continuum limit. The finite-spacing interaction and bound pair
-remain valid results. It advances CP-06/#1142 and informs CP-07/#1143.
+are valid results. It advances CP-06/#1142 and informs CP-07/#1143.
 
 ## Exact principal-value sign, with every node retained
 
-Use the already established [on-shell contact measure](../contact_scattering/ONSHELL.md).
+Use the established [on-shell contact measure](../contact_scattering/ONSHELL.md).
 At `c=1` it is an even probability measure `mu` on `[-sqrt(12),sqrt(12)]`.
 The singlet has no dark zero-energy point mass. For `0<|t|<2` its density is
 
@@ -81,7 +81,7 @@ continuous subspace obeys
 ```
 
 The last term requires a specified finite U; the middle term is independent
-of U. The other reducing scattering channels are identities already. Point
+of U. The other reducing scattering channels are identities. Point
 spectrum is outside the scattering operator's domain and has not been
 discarded from the model Hilbert space.
 
@@ -97,7 +97,7 @@ window as a shrinks. This statement concerns a pair that exists; it does
 not assert existence for every U, exclude embedded states, or infer a
 physical mass from a band-edge separation.
 
-The free kinetic symbol still has all eight nodes. At each `pi*b`, for
+The free kinetic symbol has all eight nodes. At each `pi*b`, for
 `b in {0,1}^3`, its expansion in the physical momentum label p obeys
 
 ```
@@ -116,14 +116,14 @@ it does not identify any Weyl node as a physical massless species.
 Negative energies can have a different principal-value sign and are not
 covered. The filled interacting vacuum, alternative energy normalization,
 nonzero total-momentum scaling, many-body asymptotic completeness, gauge
-fields, chiral/taste removal and gravitational response remain separate.
+fields, chiral/taste removal and gravitational response are separate.
 The nonnegative U class is fixed before this calculation; choosing an
 attractive term or a counterterm changes its stated scope.
 
 The exact certificate evaluates the rational inequalities above. Tests
 independently integrate principal-value monomials, compare all eight
 kinetic expansions with the actual field symbol, and verify the density
-bound against the earlier exact angular certificate. Separate positive-
+bound against the exact angular certificate. Separate positive-
 broadening Brillouin quadrature checks the Green function normalization;
 it is explicitly not an on-shell proof or a numerical continuum limit.
 

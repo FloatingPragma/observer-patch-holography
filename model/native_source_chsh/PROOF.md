@@ -76,5 +76,5 @@ The composed finite service is explicitly described here; it is not an
 unannounced enlargement of the frozen V2 native-word grammar. Its source
 directions, code packing, native measurements and all numerical errors
 are bound by the existing finite implementations. Preparation of the
-initial basis state from every possible earlier source branch remains a
+initial basis state from every possible earlier source branch is a
 separate producer interface.

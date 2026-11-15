@@ -42,7 +42,7 @@ pinned L3, L4 and L5 captures. It checks all parent bridges through level five.
 These finite comparisons connect the abstract construction to those captures;
 the Lean files do not verify the simulator or its floating-point geometry.
 Port assignments, carrier placement, read menus and the physical realization
-of finer supports remain separate inputs. In particular, the finite degree
+of finer supports are separate inputs. In particular, the finite degree
 checks in the receipt are not an all-level geometric port-assignment proof.
 
 There are `C_l=20*4^l` faces. Choosing the smallest level with `n <= C_l`

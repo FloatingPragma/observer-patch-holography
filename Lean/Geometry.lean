@@ -120,12 +120,12 @@ ancestry relation future-causal. Equal-height spatial separation together
 with strict spacelikeness of every increasing-height nonancestor derives the
 converse cone-support clause; exact two-way agreement then derives event
 separation and a one-chart exact finite order embedding. The physical spatial readback,
-geometric conditions, and continuum family remain inputs, and the result is
+geometric conditions, and continuum family are inputs, and the result is
 not a topology, open atlas, physical-causality theorem, count--volume law, or
 refinement/manifold limit.
 The finite `SourceOrderFrameCompatibilityPacket` keeps those boundaries
 explicit. An order-faithful placement constructs its one-chart order/cone attachment;
-event-dependent Lorentz-frame transports remain optional supplied data, while
+event-dependent Lorentz-frame transports are optional supplied data, while
 the standard-frame specialization removes that field for a purely algebraic
 existence result. The Boolean-diamond control constructs a complete non-chain
 packet. The independent rank-three quotient/rest-fiber metric bridge and its
@@ -148,8 +148,8 @@ a universal-source equality for later composition, but that equality is not
 used in the tensor equation itself. The nine directions are not observed
 provenance links or a physical sky, and this finite conditional theorem
 supplies no count--volume law, manifoldlikeness, smooth limit, or physical
-spacetime.  Its `V 3`, `Mat 3`, `eta 3`, and `Fin 4` tensor/step types remain
-the pre-existing Einstein algebra: the new source-carrier theorem proves an
+spacetime.  Its `V 3`, `Mat 3`, `eta 3`, and `Fin 4` tensor/step types are
+those of the Einstein algebra: the source-carrier theorem proves an
 exact `1+3` algebraic carrier but does not identify its finite differences
 with those tensor fields.  The generated order is not used to select the
 tensor fields, balance law, or nine algebraic directions.
@@ -182,7 +182,7 @@ count interpretation. `Geometry.GoldenSourceCausalLimit` and
 convergence in the supplied window. `Geometry.FlatDiamondNormalization`
 evaluates the actual geometric pair measure and proves the `1 / 10` limit
 for timelike limiting diamonds contained in that window. The population,
-complete-neighbour read law and coordinate measure/clock remain supplied.
+complete-neighbour read law and coordinate measure/clock are supplied.
 `Geometry.SourceNetConformalRecordDensity` proves that positive layer scaling
 of positions and read radius leaves the layered order unchanged, defines the
 constant-physical-density count measure with the FLRW weight `σ ^ 4`,

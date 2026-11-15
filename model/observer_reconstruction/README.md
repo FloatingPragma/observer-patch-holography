@@ -145,7 +145,7 @@ differs from the fitted free predictions by about `0.00176` in probability.
 It is a numerical model-change control, not a local interacting field limit;
 the free coherent-state cutoff certificate does not apply to it.
 
-## Error accounting and what remains
+## Error accounting and open requirements
 
 The [exact cutoff calculation](bounds.py) bounds the complete ideal output,
 including terminal fields and both pointer outcomes, against eight
@@ -169,7 +169,7 @@ they are not a total engineering cost for every diagnostic or apparatus.
 The finite result adds **executed records → inferred field description →
 withheld records** to the prior supplied-matrix analyses. Completing the
 [operational target](../CONSTRUCTION.md#completion-target-and-acceptance-criteria)
-still requires a common native construction selecting or identifying the
+requires a common native construction selecting or identifying the
 field action and its spatial meaning, a controlled interacting spacetime
 validity domain with the observed matter sectors, compatible physical clock
 and gravitational responses, and independent empirical comparisons. A

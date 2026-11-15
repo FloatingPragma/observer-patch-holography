@@ -168,6 +168,6 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m pytest -q -W error model/read
 The packet runs offline. Source files, protocol, original data and existing
 attribution are hash-bound. Exact data fractions, candidate laws, trial
 counts and bounds must replay exactly; executable floating diagnostics use
-the shared numerical tolerance. The original data remain attributed to
+the shared numerical tolerance. The original data are attributed to
 McGarry and coauthors under CC BY 4.0, as recorded in their existing
 provenance. Existing empirical producers and receipts are unchanged.

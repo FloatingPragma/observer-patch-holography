@@ -11,7 +11,7 @@ The uniform event preparation and correctly signed reflection are emitted
 as native proper-code words. Complete64/128 stored columns and the certified
 2048-column factor execution retain event padding and processor failures.
 The proof separates these execution scopes and includes reference-safe
-error/resource bounds. The declared apparatus and physical gaps remain
+error/resource bounds. The declared apparatus and physical gaps are
 explicit; these results award no physical OpenWave row.
 
 Run the original writer, then its independent replay:

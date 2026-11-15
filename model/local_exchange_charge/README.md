@@ -11,9 +11,9 @@ transported object is a two-port coherence, not an identified physical particle.
 Each of the twelve ports has states `0,A,B`. Restrict their tensor product to
 exactly one A and one B: dimension 132. The isometry W maps the unordered
 pair and orientation bit of the ordered cover to the positions of these two
-labels. Thus the old global orientation memory has a spatial realization.
+labels. Thus the global orientation memory has a spatial realization.
 The additional coherent label at each binary port is an explicit apparatus
-choice; this does not construct a new conserved observable on bare H66.
+choice; this does not construct an additional conserved observable on bare H66.
 
 For a seam, use the existing [two-site source service](../defect_field_bridge/FULL_DOMAIN.md):
 apply its coin-selected hold or label-preserving move when precisely one endpoint is occupied; hold when
@@ -28,7 +28,7 @@ sixteen inputs, both coins and sixteen raw slots per coin are retained. On
 the qutrit subspace the collision slot is zero. Tensor the **two-site stencil**
 with spectator identities: do not replace it by the nonadjacent global CAR
 hop, which has different spectator signs. This is ordinary tensor-qutrit
-locality, distinct from the earlier graded CAR representation.
+locality, distinct from the graded CAR representation.
 
 `core.py` checks `K_local W = W K_cover` for every native raw slot, every
 seam and all 132 columns. The on-site label swap S exchanges A and B and

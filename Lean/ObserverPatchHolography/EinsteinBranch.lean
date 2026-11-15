@@ -20,7 +20,7 @@ import ObserverPatchHolography.EinsteinBranch.EdgeCenterTiltFreedom
 import ObserverPatchHolography.EinsteinBranch.CosmologyLedgerBrackets
 
 /-!
-# Corrected Einstein-branch formalisation (GitHub #578)
+# Einstein-branch formalisation (GitHub #578)
 
 This umbrella exports the exact finite algebra and conditional composition.
 It does not construct an Einstein-admissible tower or assert the truth of any

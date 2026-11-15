@@ -212,7 +212,7 @@ calculation verifies both assertions without compressing away empty or
 doubly occupied states. The limiting configuration creators inherit their
 equal-time commutative field algebra. These facts supply a source exchange
 grading and spatial representation information. A relativistic
-spin-statistics identification still needs the same continuum spacetime
+spin-statistics identification needs the same continuum spacetime
 action, positive spectrum, locality and field/sector attachment; it is
 not proved by an onsite spin-one-half label.
 

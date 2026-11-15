@@ -50,8 +50,8 @@ The [source-compiled two-site apparatus](source_scalar/README.md) executes a
 separate finite field design through emitted twelve-port control words,
 including entangled preparation from blanks and both pointer branches.
 It retains exact initial-tail and finite temporal error certificates with
-the native feedback. Coherent code services and the scalar action remain
-supplied; the earlier field family's continuum bounds do not transfer to
+the native feedback. Coherent code services and the scalar action are
+supplied; the continuum bounds of the separate field family do not transfer to
 this two-site implementation.
 
 The [source C/E discriminator](source_discrimination/README.md) supplies
@@ -59,7 +59,7 @@ encoded twelve-port control words for both full native repair channels,
 coherent preparations and a pointer-only binary readout. Its exact channel
 identity covers every native input and arbitrary references. The executed
 output states and synthetic counts reproduce the fixed prediction test;
-physical occupation-to-code loading and service calibration remain supplied.
+physical occupation-to-code loading and service calibration are supplied.
 
 The [quantum mixing theorem](QUANTUM_MIXING.md) determines the C/E quantum
 gap and coherence rates through small exact signed-difference blocks. Under
@@ -139,7 +139,7 @@ link phases and tape erasure are declared interface choices. These controls
 establish a workable phase-sensitive readout, not a native-selected defect.
 The one-face arms have two versus one **moving** events despite both making
 two attempts; independent idle and move-count dynamical-phase calibration is
-still required before the measured contrast can be called geometric holonomy.
+required before the measured contrast can be called geometric holonomy.
 
 The [complete face reconstruction](holonomy_reconstruction.py) connects that
 conditional readout to the finite `HolonomyInterference` and
@@ -179,7 +179,7 @@ records must replay under native repair. This is not a finite observer tape
 or a finite-sample inference. Thus port-resolved probing
 does provide a `W5` observable of the load preparation, while the fixed
 record-only controller does not. Identifying that load observable with the
-charged defect record remains open. Repeatable preparation, all-seam access
+charged defect record is open. Repeatable preparation, all-seam access
 and exact branch laws are declared inputs; the full final load register
 is another stronger readout. Neither protocol selects a charged-family
 operator, coupling or mass.
@@ -340,7 +340,7 @@ history projectors determine the remaining quantum information and the best
 possible final recovery. Existing source inverse words implement the branch
 reversal without overwriting the archive. A correctable one-event encoded
 qubit and finite identifying schedules establish both the opportunity and
-the limitation; the coherent, unread tape remains a distinct recoverable
+the limitation; the coherent, unread tape is a distinct recoverable
 isometry. Run `python -m model.observer.record_recovery_receipt --check
 model/observer/results/record_recovery.json` to replay the complete evidence.
 

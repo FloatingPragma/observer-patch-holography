@@ -10,13 +10,12 @@ For a normalized compact shell g_1 supported d<=|y|<=D, d>0, let
  g_L(y)=L^(-3/2)g_1(y/L), rho=R/L,
  g_rho(y)=rho^(3/2)g_1(rho y), f_rho=1_B P_-g_rho.
 Assume rho<=d/4. This includes the original nine shells (d=1,D=2) and
-all81 observer-frame preparations (d=1/2,D=4). They remain preparations
-on ordinary rest balls, not sharply boosted lattice region algebras.
+all81 observer-frame preparations (d=1/2,D=4). They are preparations on ordinary rest balls, not sharply boosted lattice region algebras.
 
 ## 1. An actual modular exponential domain estimate
 
 Use [La Piana--Morsella, Theorem 3.2, equation 3.9](https://arxiv.org/html/2405.07888v2), on the ordinary signed-CAR
-Cauchy space with the FA87 convention bridge already established. The
+Cauchy space with the FA87 convention bridge established. The
 regional real flow is exp(-is k). At initial time zero its local formula
 is the conformal spinor factor times the Weyl solution evaluated at
 
@@ -36,7 +35,7 @@ The exact norm identity uses
 (cos I-i sin sigma.x)(cos I+i sin sigma.x)=tau I.
 In particular it is not a bound on an arbitrary complex spinor matrix.
 
-The already derived spacelike negative-band Weyl kernel is
+The derived spacelike negative-band Weyl kernel is
  K_-(t,z)=-i(t I+sigma.z)/(2pi^2(|z|^2-t^2)^2).
 At t=i a and real z, its norm is exactly
  1/[2pi^2(|z|^2+a^2)^(3/2)].
@@ -94,8 +93,7 @@ For |theta|<=b<1, FA106 then gives the actual regional Araki entropy
 Combining (B) with FA106's original-shell positive lower bound gives
  c_gamma^2 rho^6/576 <=chi_rho(0)<=26K^2 rho^6
 for rho<=2^-18. Similarly D is bounded above and below by positive
-constants times theta^2 rho^6. This is two-sided order, without yet a
-claim about its exact coefficient. (C) is o(R^4) for fixed L as R->0;
+constants times theta^2 rho^6. This is two-sided order, without a claim about its exact coefficient at this step. (C) is o(R^4) for fixed L as R->0;
 for varying L one must require R^2/L^6->0. It is not an unconditional
 statement for every joint L,R limit.
 
@@ -119,8 +117,7 @@ approaches the same nine-direction response D_ij from FA101 with
  <=[C_B+(1/n0)(1+b/2+13K^2 b/(1-b)^2)]rho^2.             (D)
 
 This bound is uniform for0<|theta|<=b; at theta=0 use the derivative.
-C_B is the already established FA91 Taylor constant. Thus amplitude no
-longer has to shrink with rho. The same finite-matrix Neumann condition
+C_B is the established FA91 Taylor constant. Thus amplitude need not shrink with rho. The same finite-matrix Neumann condition
 9*(68/5)*C_total*rho^2<1/4 keeps the finite response matrix invertible
 with inverse norm<=272/15. These are the same rest-ball algebras and
 observer-frame preparations. No area, Newton, stationarity or Einstein
@@ -184,8 +181,7 @@ corresponding existing positive symbolic mesh is used.
 For each original normalized FA91 shell, |u|^2=c_gamma/pi^3. Thus
  chi_rho(0)~64c_gamma^2 rho^6/(35pi^2),
  D_rho(theta)~32c_gamma^2 theta^2 rho^6/(35pi^2)
-for fixed nonzero theta. This computes the previously missing leading
-small-ball nonlinear coefficient; it remains a free-matter result.
+for fixed nonzero theta. This computes the leading small-ball nonlinear coefficient; it is a free-matter result.
 
 An independent Stieltjes calculation verifies the constant. For
 L=log((1+t)/t), put r=t/(1+t)=exp(-L). Substituting
@@ -223,7 +219,7 @@ are always the original natural exterior-shell states.
 
 ## 5. Attachment to the existing Einstein stack
 
-No change to the already proved G1-G6 implication or tensor completion.
+The proved G1-G6 implication and tensor completion apply as stated.
 The result strengthens only the source-realized G5 matter estimates.
 It supplies no responsive area, central edge identification, Newton
 normalization, generalized entropy stationarity, nonzero-U entropy law,
@@ -241,7 +237,6 @@ function, both exact Hessian calculations, rational error budgets and
 symbolic refinement. Independent floating integrals check the same
 spectral density and a two-variable Hessian without supplying the proof.
 Their raw floating tails are not serialized as exact certificate data.
-A one-mode natural-vector counterexample demonstrates why the new
-modular exponential estimate is essential. The source manifest pins
+A one-mode natural-vector counterexample demonstrates why the modular exponential estimate is essential. The source manifest pins
 current mathematical inputs narrowly; it claims no full-repository or
 old-receipt replay.

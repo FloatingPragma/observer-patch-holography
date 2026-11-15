@@ -85,12 +85,10 @@ These compressed eigenvalues are variational certificates. They are not
 substituted for the full dynamic spectrum. The complete parent lower bound
 and this upper bound enclose its actual ground energy.
 
-The resulting helion enclosure lies below its held-out target, while the
-alpha enclosure lies above its target. The alpha exclusion is stronger
-than a failed static approximation: every positive electric/magnetic
-addition with only its common vacuum subtracted preserves the parent
-alpha lower bound. Its excess cannot be removed by polarization within
-this extension class. An attractive term or a different renormalization
+The helion and alpha enclosures are not identified with the physical
+nuclear masses. Every positive electric/magnetic addition with only its
+common vacuum subtracted preserves the parent alpha lower bound, so
+polarization within this extension class cannot lower it. An attractive term or a different renormalization
 prescription would require its own common-source derivation and calibration
 audit. The exact bare-flux charge-breaking norms are reported only on the
 specified quartet charge blocks; the full electric operator is unbounded.

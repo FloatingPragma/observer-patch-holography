@@ -17,7 +17,7 @@ state space.
 
 Exact enumeration gives three connected sectors of sizes 2970, 1320 and 66.
 The supplied faithful reversible reference has masses `2/5`, `5/9`, `2/45`.
-The new Lean proof establishes that, for **every** positive `f(0),f(1),f(2)`,
+The Lean proof establishes that, for **every** positive `f(0),f(1),f(2)`,
 
 ```text
 pi_f(x,c) = f(q(x,c)) pi(x,c) / Z
@@ -35,19 +35,19 @@ its reciprocity ratios propagate along walks inside each connected sector.
 One overall normalization leaves two independent sector probabilities.
 Its uniqueness theorem for a connected full support therefore cannot select
 these probabilities. The extension is elementary finite algebra; it adds an
-explicit quantified model binding, not a new law of physics. A separately
+explicit quantified model binding and no law of physics. A separately
 declared Gibbs reference and inverse temperature retain their own values;
 stationarity and the native gradient do not determine them or a rest mass.
 
 The [receipt](sector_action_results.json) distinguishes exact Python checks
 of the actual 4,356-state model from Lean's proof of the general implication.
-The frozen [campaign](campaign.json) retains its original energy-bridge input
+The frozen [campaign](campaign.json) retains its energy-bridge input
 under [an exact predecessor capture](predecessor/energy_bridge_results.json),
 byte-identical to that input at the campaign's recorded predecessor commit.
 Its specifically named historical path resolves to this capture; every other
 campaign source is checked against its live bytes. The current receipt binds
 the capture's actual path separately from the current energy-bridge receipt,
-so later documentation updates do not rewrite the campaign or its evidence.
+so documentation changes do not rewrite the campaign or its evidence.
 The full native kernel is not encoded as a Lean value. Mutation tests reject
 charge leakage, missing holds, an invalid reference, a disconnected
 purported sector and a changed predecessor capture. No clock calibration, physical energy or integrated

@@ -82,7 +82,7 @@ remain valid with an arbitrary idle external quantum reference.
 
 This is a selectable probe of one literal native current component. It is
 not a replacement of the full autonomous weak Hamiltonian by a flavour
-projector. Other native weak components remain required for autonomous
+projector. Other native weak components are required for autonomous
 dynamics. Probe source work is explicitly
 Tr[H(K_s rho K_s*+K_f rho K_f* - rho)] and is not set to zero; the final
 spatial-span tag also need not commute with H. No autonomous decay rate is
@@ -106,4 +106,4 @@ A nonzero compact N5 current response and an open energy shell do not imply
 that the source's interacting on-shell scattering projector has nonzero
 current spectral weight. That transfer, the full weak vacuum and all other
 weak channels, and a physical four-dimensional particle/current dictionary
-remain required before a Lambda decay amplitude or lifetime can be claimed.
+are required before a Lambda decay amplitude or lifetime can be claimed.

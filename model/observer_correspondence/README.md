@@ -1,6 +1,6 @@
 # One process, overlapping observer records and an effective transfer
 
-The [quantum clock extension](QUANTUM_CLOCK.md) now gives an ordinary
+The [quantum clock extension](QUANTUM_CLOCK.md) gives an ordinary
 completely positive effective instrument for local quantum observations,
 including an untouched reference. Its source-derived split-wait construction
 executes coherent fields and record-controlled phase interventions on the
@@ -12,7 +12,7 @@ extends that transported-cone approach to the entire total-two operator
 domain with exact global decoding. The CP local construction and that
 exact global representation have different comparison contracts.
 
-This package closes a finite integration gap. It compares the **complete same
+This package is a finite integration test. It compares the **complete same
 experiment** under direct native endpoint execution and a derived effective
 representation: overlapping observer fields, both local incident clocks,
 current transport, record-controlled feedback, every timeout, and the full
@@ -121,7 +121,7 @@ are positive. Since `D<=I`, the G-self-adjoint transfer obeys
 
 H is defined as the matrix logarithm of the given transfer; it is the
 effective Euclidean generator per completed union incident tick by definition.
-The marked insertions and decoder remain part of the history dictionary.
+The marked insertions and decoder are part of the history dictionary.
 The native repairs are not the unitary continuation `exp(-isH)`.
 
 The existing [C history action](../native_action/README.md) also attaches at
@@ -159,7 +159,7 @@ comparison with measured spacetime is supplied. A physical equivalence claim
 must specify shared accessible observations and interventions and bound their
 joint output discrepancy on the same declared domain. This finite certificate
 provides one exact diagonal instance of that criterion; it is not evidence
-that its physical identification already holds.
+that its physical identification holds.
 
 ```sh
 python -m model.observer_correspondence --check model/observer_correspondence/results.json

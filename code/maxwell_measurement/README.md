@@ -176,7 +176,7 @@ This is conditional on the operator's externally chosen trust declarations;
 the adapter does not authenticate an organization, verify a witness signature,
 or detect a coalition that supplies false external attestations. It never
 certifies physical truth or a complete physical episode. The existing class-H
-hardware evidence verifier remains a separate, unchanged policy boundary.
+hardware evidence verifier is a separate, unchanged policy boundary.
 A synthetic capture is ineligible for attestation even if a trust file is
 supplied. No automatic change is made to an instrument or observation ledger.
 
@@ -213,24 +213,23 @@ raw-error bounds by `1/1000000007`, `1/1000000009`, `1/1000000021`,
 tightens the original `1/1000000000` bound, and the unchanged singleton gains
 and offsets explain every reading with zero displacement. The exact action
 endpoints have 277 and 275 characters. Reapplying the external 200-character
-input limit during the final gauge comparison incorrectly returned `INVALID`.
-The verifier now retains its exact intervals for both gauge comparisons.
+input limit during the final gauge comparison would return `INVALID`, so
+the verifier retains its exact intervals for both gauge comparisons.
 API and CLI controls compare all decoded coordinates, fields, action endpoints
 and device durations against an independent original-input scalar center/radius
 calculation. A separate case crosses the field-endpoint length boundary;
 another uses full 200-character inputs whose action integers exceed Python's
 default 4,300-digit formatting ceiling. An independent base-10 chunk formatter
 checks those outputs, including under restricted decimal contexts. Overlong
-external calibration and capture values must still be rejected.
+external calibration and capture values must be rejected.
 
-The repairs reject inconsistent synthetic or hardware-emulator submissions
-and admit conforming captures with long exact intermediate results; verdict
-meanings and reported uncertainty are unchanged.
-Previously frozen contracts remain historical and fail the changed adapter
-source pin. A future run needs a newly frozen contract, not a replacement
-hash attached to an old experiment. The live source-current inventory is
-regenerated for the changed package bytes; it still records this adapter as
+The verifier rejects inconsistent synthetic or hardware-emulator submissions
+and admits conforming captures with long exact intermediate results.
+Contracts frozen against other adapter bytes fail the adapter source pin.
+A future run needs a contract frozen against these bytes, not a replacement
+hash attached to another experiment. The live source-current inventory
+records this adapter as
 downstream-contaminated with no shipped capture. The immutable serial parent,
 voltage decoder, paper claims and physical-realization obligations are
-unchanged. This is a verifier correction under the standing
+unaffected by this verifier, which belongs to
 [evidence audit #1033](https://github.com/FloatingPragma/observer-patch-holography/issues/1033).

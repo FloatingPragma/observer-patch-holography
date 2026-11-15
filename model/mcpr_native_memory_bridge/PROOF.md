@@ -7,7 +7,7 @@ eight register dimensions, source monomials, response signs, a phase offset,
 an amplitude and a determinant normalization. These are simulator design
 inputs. Their selection was informed by charged-lepton data. The execution
 in this package reads no charged-lepton reference values and performs no
-fit to observed masses. This separates runtime derivation from historical
+fit to observed masses. This separates runtime derivation from target-informed
 calibration; it does not turn that calibration into a prospective prediction.
 
 The two supplied source-coordinate pairs are read from the forward pixel

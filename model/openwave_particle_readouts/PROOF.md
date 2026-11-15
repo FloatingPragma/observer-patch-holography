@@ -112,7 +112,7 @@ This inequality holds for the actual source clock and the retained
 mixed-state preparation, using its purification. It does not require
 \([\Pi_0,H]=0\), an isolated full-H charged eigenvalue, purity of the
 source marginal or exclusion of dynamical screening. The fixed
-compensator and the small declared hopping coefficient remain part of
+compensator and the small declared hopping coefficient are part of
 the construction. The bound is finite in time; it supplies neither a
 thermodynamic localization theorem nor an asymptotically free electron.
 
@@ -197,7 +197,7 @@ A retained pointer begins in \(|+\rangle\). Controlled source rotation,
 followed by its second Hadamard, gives deterministic pointer one after
 \(2\pi\) and pointer zero after \(4\pi\), conditioned on the line.
 The original-input probabilities are respectively \(q p_{\rm line}\);
-every preparation, pump and energy failure remains a separate output.
+every preparation, pump and energy failure is a separate output.
 The reference has odd parity as well. Rotating source *and* reference
 by \(2\pi\) produces \(+I\), which gives the opposite pointer result.
 The code checks this control and the loss of the deterministic result

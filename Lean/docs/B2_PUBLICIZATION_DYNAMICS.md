@@ -64,7 +64,7 @@ finite sum of these generators cannot cancel when every rate is nonnegative.
 Zero-rate terms are included. With strictly positive rates,
 `multiCollarGenerator_eq_zero_iff_stableIntersection_of_pos` identifies the
 kernel of the sum with the intersection of the partition commutants. The
-pinchings need not commute. The original signed-rate theorem retains its
+pinchings need not commute. The signed-rate theorem retains its
 explicit no-cancellation premise: two identical nontrivial pinchings with
 rates `+1` and `-1` cancel even when each has a nonzero residual.
 

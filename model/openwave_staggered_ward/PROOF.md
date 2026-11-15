@@ -32,7 +32,7 @@ For a connected scalar graph, D lambda=0 means equality at the two endpoints
 of each actual nearest-neighbour edge. Propagation along graph paths gives
 one constant. Equivalently the periodic symbol is 2i sin(ka/2)/a, with no
 additional zero inside the physical Brillouin interval. The complete finite
-cycle matrices retain the constant mode and expose the old stencil's extra
+cycle matrices retain the constant mode and expose the parent stencil's extra
 checkerboard mode. No boundary mode is removed to obtain the rank.
 
 If B=lambda eta+R on the stated staggered locations, every R component is

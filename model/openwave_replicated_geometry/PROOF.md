@@ -105,5 +105,5 @@ The free geometry gap is omega_N/N and tends to zero in the retained clock.
 With unscaled register energy the same weak susceptibility instead vanishes
 as1/N. No uniform preparation-time bound or finite-strength test-probe
 universality is inferred. Finite probe energy changes the classical geometry
-through backreaction. The original physical Newton-strength mismatch,
-continuum geometry and full Einstein requirements remain open.
+through backreaction. Physical Newton strength,
+continuum geometry and full Einstein requirements are open.

@@ -3,9 +3,9 @@
 The complete infinite-chain baryon source and its compact-to-complement
 intertwiner are those of `openwave_hadron_refinement_flow`. Its calibrated
 rest energy does not determine the coefficient of spatial motion. With the
-supplied strong length, the unchanged ground band rises by only about
+supplied strong length, the ground band rises by about
 33.1 keV across the Brillouin interval. Exact rational inertia and the full
-Schur bound certify this mismatch with relativistic dispersion.
+Schur bound certify this band; no relativistic baryon dispersion is claimed.
 
 ## Complete native construction
 

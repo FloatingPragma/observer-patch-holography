@@ -87,7 +87,7 @@ approximately 0.97585, 0.97001, 0.91494 and 0.90822. Transfer normalization
 means a linear response coefficient; it does not posit a physical perturbation
 of unit amplitude. The numerical evidence is floating point, with no rigorous
 interval ODE certificate. It supplies neither a CMB/large-scale-structure
-likelihood nor a new empirical match. Free-streaming neutrinos, recombination,
-anisotropic stress and the full Boltzmann hierarchy remain required for such
+likelihood nor an empirical match. Free-streaming neutrinos, recombination,
+anisotropic stress and the full Boltzmann hierarchy are required for such
 a comparison. The exact constraint identities close the linear gravitational
 attachment of this declared scalar/fluid model only.

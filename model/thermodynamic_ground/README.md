@@ -31,8 +31,7 @@ be positive. Each interaction term is even. A spatial bond has norm at
 most `c`, and a contact term has norm `U`, giving
 `-c E_Lambda I <= H_Lambda <= (c E_Lambda+U|Lambda|)I`.
 
-The existing [full-Fock construction](../full_fock_field/README.md) already
-proves a strongly continuous automorphism group `tau_t` on the quasi-local
+The existing [full-Fock construction](../full_fock_field/README.md) proves a strongly continuous automorphism group `tau_t` on the quasi-local
 CAR algebra, with convention `tau_t(A)=exp(itH)A exp(-itH)` in finite
 volume. For `||A||<=1` supported on `s` sites in `[-r,r]^3`, its outward
 boundary bound for a containing cube of radius `R>r` is
@@ -135,7 +134,7 @@ omega(A^*[H,A]) >=0       for every local A, including odd A.
 ```
 
 Stationarity can be proved directly without assuming that this local
-inequality is already a theorem about an unbounded generator. Fix
+inequality is a theorem about an unbounded generator. Fix
 `R>r`. A fraction at least `(1-R/L)^3` of translates have their entire
 radius-`R` cube inside `Lambda_L`. For each good translate, compare
 finite-box and infinite dynamics to the same intermediate cube: the
@@ -219,7 +218,7 @@ most one, and the Pauli anticommutators cancel the mixed terms:
 `H>=-sqrt3 c N` for `U>=0`. The full-ground comparison at `c>0` yields
 `Tr(rho_L N)/V_L>=1/4`.
 
-For the upper bound, the already proved all-box onsite SU(2) frame
+For the upper bound, the proved all-box onsite SU(2) frame
 turns the original action into real, spin-independent bipartite hopping
 while preserving `N,D`. The simultaneous staggered particle-hole map
 on both hidden components gives
@@ -244,7 +243,7 @@ state has
 ```
 
 This fixed-spacing state has finite, nonzero density. It is outside the
-fixed-particle-count domain of the earlier free Weyl continuum theorem.
+fixed-particle-count domain of the free Weyl continuum theorem.
 The density bounds neither select a density nor control its behavior
 under `a->0`.
 
@@ -281,8 +280,7 @@ Define `h_x=U D_x` plus one half of every incident spatial hopping
 bond. The exterior-vacuum extension has zero cross-boundary hopping
 expectation, so the spatially averaged reference obeys
 `nu_L(h_0)=E_(2L)/(2L)^3` exactly. The same ground subsequence therefore
-satisfies `omega(h_0)=e_infinity`. The earlier trial and number bounds
-also give `-sqrt3 c<=e_infinity<=-sqrt3 c/4` when `c,U>0`.
+satisfies `omega(h_0)=e_infinity`. The trial and number bounds above also give `-sqrt3 c<=e_infinity<=-sqrt3 c/4` when `c,U>0`.
 
 `energy.py` evaluates the surface bracket given a separately certified
 finite full-ground energy interval. The retained side-two input is
@@ -394,11 +392,11 @@ spatially local inverse, metric or relativistic dispersion.
 .venv/bin/python -W error -m model.thermodynamic_ground --check
 ```
 
-The receipt binds the action, previous thermodynamic dynamics, exact
+The receipt binds the action, the parent thermodynamic dynamics, exact
 local/source checks, density inequalities, countercontrols and this proof.
 It records an existence theorem, not retained amplitudes or local density
 matrices of an infinite-volume state. Native preparation/readout, a
 specific ground functional, repair-preserving continuation, uniqueness,
 gap or clustering, finite-density continuum estimates, gauge/species
-identification and geometric Einstein premises still require separate
+identification and geometric Einstein premises require separate
 constructions.

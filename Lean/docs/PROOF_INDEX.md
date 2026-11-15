@@ -9,10 +9,10 @@ arithmetic. The finite matter representation and interaction calculations
 are executable algebra with retained receipts in
 [`model/observer_particles/`](../../model/observer_particles/README.md),
 not a claim that all of those calculations are Lean theorems. Physical
-mass selection and the full Einstein antecedents remain separate.
+mass selection and the full Einstein antecedents are separate.
 
-For the corrected typed Einstein composition theorem (GitHub #578), see the
-current statement-by-statement and premise audit in
+For the typed Einstein composition theorem (GitHub #578), see the
+statement-by-statement and premise audit in
 [`EINSTEIN_BRANCH_INDEX.md`](EINSTEIN_BRANCH_INDEX.md). That development is
 sorry-free and formalizes the algebraic/compositional implication while
 leaving continuum, asymptotic, physical-identification, and tower-nonemptiness
@@ -56,7 +56,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   (`ObserverPatchHolography/CapacityClosurePrinciple.lean`): sorry-free.
   A typed equivalence and commuting readback square imply equality of the two
   readings; a declared source return law and closure identification give a
-  fixed point; uniqueness remains a separate hypothesis. The module also
+  fixed point; uniqueness is a separate hypothesis. The module also
   proves that the finite-presence and Poisson reserve factors differ for
   nonzero `P`, and that a normalized translation-invariant weight on the six
   `ZMod 6` classes is uniform. It does not select either reserve branch,
@@ -108,7 +108,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   are positive controls; stiffness positivity is equivalent to absence of a
   constrained harmonic mode. The numerical mass-matrix certificates, Hilbert
   completion, interacting sector, continuum limit, physical clock, and state
-  selection remain outside these Lean results.
+  selection are outside these Lean results.
 - Finite repair-word schedule selection
   (`ObserverPatchHolography/RepairWordSchedule.lean`): sorry-free
   information-theoretic algebra. If the primitive event type is complete and
@@ -138,7 +138,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   fixed-relation repair, and a static missing-support no-go. Separate
   broad/outcome and flash/hybrid policies make target, observation,
   authority, support, cost provenance, and family explicit without using
-  cost in the behavior order. The fixture-specific mappings remain explicit,
+  cost in the behavior order. The fixture-specific mappings are explicit,
   replaceable assumptions. One `FullControlActivation` value carries all
   declared control outcomes simultaneously, while retaining the two policies
   as distinct fields. A three-variant control refutes upgrading pairwise
@@ -176,7 +176,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   readout's strict record monotonicity, and a nonzero offset gives a distinct
   readout whenever a record exists. The module constructs no OPH endpoint,
   worldline, clock calibration, proper-time limit, global time function, or
-  physical modular-time identification; those remain downstream premises.
+  physical modular-time identification; those are downstream premises.
 - Bounded observer-time calibration
   (`Time/ObserverHistory.lean`, `Time/ClockReadout.lean`,
   `Time/WorldlineRealization.lean`, `Time/ProperTimeCalibration.lean`,
@@ -190,7 +190,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   held-out test needs separate predesignation and custody. Separate affine and
   cubic algebraic controls pass and fail after the same two-anchor fit. The
   source history, instrument, common physical atlas, refinement, network
-  coherence, and SI scale remain open. See
+  coherence, and SI scale are open. See
   `D1_OBSERVER_TIME_CALIBRATION.md`.
 - B1 public-record algebra and sharp copying boundary
   (`EventAlgebra/PublicRecordAlgebra.lean`,
@@ -200,7 +200,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   functions on the active, nonzero projector labels. One isometric copier
   using one normalized blank can sharply copy two distinct alternatives only
   when they are orthogonal. The general mixed-state no-broadcasting
-  implication remains an explicit adapter premise, and no physical record
+  implication is an explicit adapter premise, and no physical record
   partition or readout is selected. See `B1_PUBLIC_RECORD_ALGEBRA.md`.
 - A3 timeless consensus-tower interface
   (`Tower/ConsensusTower.lean`): sorry-free structural packaging. A nonempty
@@ -229,7 +229,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   single-site attempt semantics: every adaptive run is eventually constant,
   pathwise weak fairness supplies normality, and work conservation bounds the
   normal horizon by the initial mismatch count. Completeness and confluence
-  remain explicit for a consistent canonical raw and public endpoint.
+  are explicit for a consistent canonical raw and public endpoint.
   Cumulative attempt capacity charges equality stutters, directly bounds
   cumulative genuine changes by the initial mismatch rank, proves that no
   single mismatch-only finite attempt horizon uniformly bounds all normalizing
@@ -315,7 +315,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   frame field while making no physical event-frame claim. The Boolean diamond
   inhabits that packet and all its finite consequences. The exact
   source-unit/celestial/future-null-ray equivalences and transported
-  quotient-Gram/rest-metric identity remain algebraic. No theorem identifies
+  quotient-Gram/rest-metric identity are algebraic. No theorem identifies
   those directions with a physical sky or proves physical causality, volume,
   manifoldlikeness, refinement convergence, or a continuum.
   `Geometry/SourceOrderEinsteinComposition.lean` then uses the exact
@@ -332,7 +332,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   source-identification equality that the equation does not use. The order is
   bundled in `P.FiniteConsequences` but is not used in the tensor calculation;
   no provenance link selects a direction, field, step, or balance. The exact
-  `1+3` carrier is now independently constructed, but no theorem identifies
+  `1+3` carrier is independently constructed, but no theorem identifies
   its finite differences with the supplied `Mat 3`, `eta 3`, and `Fin 4`
   tensor/step data. No Einstein-premise inhabitant, smooth geometry, or
   physical interpretation is constructed.
@@ -349,9 +349,9 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   superincreasing dependency rank. Arbitrary node attempts are eventually
   constant, and pathwise weak fairness makes the stable state a consensus.
   Same-input normal endpoints have one output through the
-  observation-determined-normal-forms consumer. The historical weak
-  `RepairStep` remains unchanged; the weak-node adapter places every fixture
-  step directly in that historical relation, and a one-member fair stuttering
+  observation-determined-normal-forms consumer. The weak
+  `RepairStep` relation is kept as stated; the weak-node adapter places every fixture
+  step directly in that relation, and a one-member fair stuttering
   fixture proves that fairness cannot make the broader relation progress.
   A separate fanout control shows that fairness restricted to nodes failing
   from time zero is too weak for nodes enabled later. A pre-tail scheduler
@@ -516,7 +516,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   window. The actual geometric pair measure is evaluated as V²/20, and
   `Geometry/FlatDiamondNormalization.lean` proves the N(N-1) ordering fraction
   tends to 1/10 for an interior timelike limiting diamond at supplied c>0.
-  The population, complete-neighbour law, clock and coordinate measure remain
+  The population, complete-neighbour law, clock and coordinate measure are
   inputs; additional instrument/routing events are outside these counts.
   The transitive axiom receipts are checked in
   `Geometry/SourceCountLimitAxiomAudit.lean`; the exact hypotheses are the
@@ -605,11 +605,11 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   informational order only shares the finite event type and is not load-bearing
   in this separately supplied tensor interface. The minimal Einstein-shape theorem removes six irrelevant
   normalization/source-unification fields, but its `Mat 3`, `eta 3`, and
-  `Fin 4` tensor/step data remain supplied and are not yet identified with the
+  `Fin 4` tensor/step data are supplied and are not identified with the
   independently constructed `1+3` source carrier; no theorem identifies their
   coordinate differences. Smooth curvature, physical stress-energy,
   source-causal refinement, manifoldlikeness, count--volume, and continuum
-  readings remain external.
+  readings are external.
   A reflexive symmetric
   nontransitive overlap control blocks pairwise-overlap quotient shortcuts.
   The exact premise-reduction theorem retains source-atlas, population,
@@ -658,11 +658,11 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   fixed-slot, scalarisation, and idempotence receipts. The extraction is
   post-hoc and ineligible as validation, the slot assembly is a declared
   postprocessor, and no region lattice over the tower is constructed.
-  The redesigned interface (`QFT/CPRestrictionNet.lean`,
-  `QFT/TwoSlotCPNetWitness.lean`) replaces the excluded star-homomorphic
-  scalar restrictions by conditional expectations with membership,
+  The conditional-expectation interface (`QFT/CPRestrictionNet.lean`,
+  `QFT/TwoSlotCPNetWitness.lean`) uses, in place of the excluded star-homomorphic
+  scalar restrictions, conditional expectations with membership,
   fixing, positivity, trace, and tower laws, adds the joint-coverage law
-  the earlier cover type lacked, and is inhabited by the designated-pair
+  that the `FiniteCover` type lacks, and is inhabited by the designated-pair
   diamond with a proper generating slot pair, explicit Kraus-certified
   expectations, a proper Heisenberg pinch channel fixing the disjoint
   slot, and the instantiated scalar-homomorphism obstruction.  The diamond is anchored over one
@@ -692,7 +692,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   orthogonal or unitary frame changes preserve the frozen unsquared
   rank-six norm statistic and its squared form. Multiplicity-one band gains
   cancel in the squared form. Physical equivariance, isometry, multiplicity
-  one, and radial-copy exclusion remain premises.
+  one, and radial-copy exclusion are premises.
 - Conditional volume readout
   (`Screen/VolumeReadoutBridge.lean`): sorry-free determinant and logarithm
   algebra. It proves the collar determinant, conformal square-root determinant
@@ -726,12 +726,12 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   not select the unbounded signed controls, Gram topology, or adapter from
   A1--A3. The dense image is not a locally finite lattice, and long cumulative
   controls can have arbitrarily small Gram displacement despite large
-  record-count distance. Record order and repair cost remain separate data.
+  record-count distance. Record order and repair cost are separate data.
   The faithful proper-port action on the intrinsic real carrier is formalized
   separately. A separately replayed exact receipt checks the induced signed
   integral action and its unique extension to the conditional metric
   completion. Overlap/refinement gluing, physical space, scale, rest frame,
-  Lorentzian structure, and field-sector attachment remain open.
+  Lorentzian structure, and field-sector attachment are open.
 - Port Gram repair-band identification
   (`Screen/PortGramRepairBand.lean`): sorry-free exact table arithmetic. The
   pinned normalized port Gram form is exactly four times the rank-three
@@ -766,7 +766,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   separately replayed exact receipt constructs their faithful signed integral
   action and unique isometric extension to the conditional completion.
   Overlap/refinement gluing, a global carrier, and a physical attachment
-  remain open.
+  are open.
 - Proper port action on the repair-selected carrier
   (`Screen/PortGramA5Isometry.lean`): sorry-free exact matrix algebra and real
   linear reasoning. The sixty registered proper port permutations are
@@ -780,7 +780,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   rotation list. A separate independent executable receipt checks the signed
   integral action and its completion extension. Abstract-group identification
   in Lean, overlap/refinement gluing, and physical position, scale, or field
-  attachment remain open.
+  attachment are open.
 - Universal repair-word and source-load carrier readout
   (`Screen/RepairWordCarrierReadout.lean`): sorry-free exact additive algebra
   and metric completion. The free abelian group forced by the conditional A2
@@ -793,10 +793,10 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   antipodally even. No additional integral load relation is inserted. The
   thirty seam-attempt alphabet is not identified with the twelve translation
   directions. Ordered history, protected-total restrictions, and repair cost
-  remain separate. Equality of observer word actions is equivalent to
+  are separate. Equality of observer word actions is equivalent to
   equality of carrier records only under an explicit faithful-action premise;
   operational selection of the response topology and every physical attachment
-  remain open.
+  are open.
 - Thirty-seam current quotient and completion
   (`Screen/SeamCurrentCarrierQuotient.lean`): sorry-free exact incidence and
   integer algebra. The canonical boundary of the thirty undirected seams,
@@ -927,7 +927,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   source-native edge control ray
   \(C_4=-1/20\), \(B_0=1/840\), and \(B_6=-1/12600\), with ratios
   \(10/21\), \(-2/63\), and \(-1/15\). These are carrier-moment facts.
-  Treating the seams as the sole homogeneous physical kinetic support still
+  Treating the seams as the sole homogeneous physical kinetic support
   requires the named position-action, field, scale, frame, and readout
   premises.
 - Source-seam full-symbol remainder
@@ -962,7 +962,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   The raw-record-to-unit-direction factor, the response-chart factor, and the
   physical scale require one declared attachment. Feasibility,
   naturality, unique minimality, physical position readout, temporal
-  completeness, field propagation, and laboratory attachment remain open.
+  completeness, field propagation, and laboratory attachment are open.
 - Source-selected carrier Markov and Dirichlet generator
   (`Screen/SeamCurrentDirichletGenerator.lean`): sorry-free finite-sum and
   completion algebra. The exact directed-seam translations act on the dense
@@ -1014,7 +1014,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   well-posed flow, and it proves no inner product, self-adjointness statement,
   or conserved energy. Physical position, a physical clock, photon or other
   field-sector attachment, preferred-frame and boost transport, energy and SI
-  units, continuum limit, global gluing, and laboratory readout remain open.
+  units, continuum limit, global gluing, and laboratory readout are open.
   The exact internal edge character is
   \(\Lambda_{\rm int}(\mathbf k)=(6/a_{\rm edge}^2)
   \texttt{completionFourierSymbol}(\mathbf k)\). Writing
@@ -1046,7 +1046,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   `B0 = 3*P^2*ell^4/(280*pi^2)`, and
   `B6 = 2*P^2*ell^4/(875*pi^2)`. The orbit-to-cell measure map,
   areal-radius-to-hop identity, quotient-natural metric readout, physical
-  scale, and refinement attachment remain premises.
+  scale, and refinement attachment are premises.
 - Primitive-port operator selection boundary
   (`Screen/PrimitivePortOperatorSelectionBoundary.lean`): sorry-free exact
   composition and counterfamily. If a scalar reciprocal first-hop action is
@@ -1140,7 +1140,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   reciprocal-linear envelope and equality witness, identifies the
   equal-share transition `3 d E^4 <= 16 m^2`, and excludes a leading solution
   below the envelope. General independent-coefficient share optimization and
-  full anisotropic minimization remain open. The exact full
+  full anisotropic minimization are open. The exact full
   cosine symbol is bounded by the Euclidean momentum quadratic form. On that
   separate symbol attachment and Lorentz-invariant charged-lepton premises,
   photon decay into an electron-positron pair is impossible. At fixed incoming momenta the
@@ -1161,7 +1161,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   quadratic normalization, the candidate equals the frozen equal-weight
   primitive cosine operator and is unique within that grammar. Grammar
   completeness and move selection are conditional inputs; the source-to-translation
-  identification and quadratic normalization remain separate attachments.
+  identification and quadratic normalization are separate attachments.
 - Directed integer seam completion
   (`ObserverPatchHolography/DirectedSeamRepair.lean`): sorry-free integer and
   rational arithmetic. The two nearest-balanced directed outcomes preserve a
@@ -1222,13 +1222,13 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   that a form fixed by a non-half-turn axial generator is exactly
   `diag(t,t,-2t)`, and gives an explicit equivalence of that fixed locus with
   one real coordinate. The canonical `C3` and `C5` generators satisfy the
-  module's nonzero-sine contract; their finite-order determinant checks remain
+  module's nonzero-sine contract; their finite-order determinant checks are
   in the byte-exact machine receipt. For the canonical `C2` half-turn, the
   module proves the exact three-coordinate form
   `[[a,b,0],[b,d,0],[0,0,-a-d]]`, gives an equivalence of the fixed locus with
   `ℝ × ℝ × ℝ`, and checks the pairwise-distinct diagonal witness
   `diag(1,2,-3)`. Projectivization, a screen-derived invariant potential,
-  orbit selection, and any physical family attachment remain outside the
+  orbit selection, and any physical family attachment are outside the
   Lean theorem.
 - Narrow real-three-dimensional icosahedral residual-axis no-go
   (`ObserverPatchHolography/IcosahedralAxisNoGo.lean`): 8 / 8 public
@@ -1370,7 +1370,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   implemented law is a finite simulator check. No physical coupling value or
   promotion is implied.
 - A5 group/trichotomy receipt corpus (`Screen/A5OPH.lean`, external
-  cross-audit contribution, merged 2026-07-23): 18 / 18 audited
+  cross-audit contribution): 18 / 18 audited
   declarations, sorry-free, standard axioms (`propext`, `Classical.choice`,
   `Quot.sound`), no `native_decide`. Six namespaces: `A5Order6` (order-six
   subgroups of `A5`, nonabelian hence `≅ S3`), `A5NoZ6` (no element of
@@ -1396,7 +1396,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   (v4.29.1); the rebuild record is not part of this repository.
   Declared classical inputs stay on paper: compact-simple
   classification, reductive decomposition, exponential surjectivity, and
-  the torus/cocharacter step. The former paper steps are discharged in
+  the torus/cocharacter step. The other paper steps are discharged in
   companion modules: the dimension-six branch module argument (#604,
   closed) in `Screen/A5SixAxes.lean` (sixty-element six-axis
   `PSL(2, F5)` list, kernel-checked closure/2-transitivity/sharp fiber
@@ -1436,7 +1436,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   projective unitary group, prove that the supplied response flow is the
   exponential flow of the A1 operators, extract either object from source
   logs, prove the two Lie-theory adapters, or formalize compact-simple
-  classification. Those inputs remain explicit.
+  classification. Those inputs are explicit.
 - #705 response-word algebra boundary
   (`Screen/A5ResponseWordAlgebra.lean`): the registered adjacency recurrence
   and its polynomial antipode readback generate an exactly four-dimensional
@@ -1549,7 +1549,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   intertwiner is measured by the simulator global-form artifact (six-axis
   class group with Smith invariants (1,1,1,1,1,6), deck action, flux-sector
   menu), which the executable certificate consumes by hash pin;
-  four-dimensional instanton/theta data remain open. Sorry-free, standard
+  four-dimensional instanton/theta data are open. Sorry-free, standard
   axioms, no `native_decide`. Executable counterpart:
   `code/a5_closure/axis_center_descent_certificate.py`.
 - #314/#567 exterior selection and statistics forcing
@@ -1628,11 +1628,9 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
 
 The headline number is **0% of Proposition 4.2** until the OPH-specific
 structures are in place. The 100% skeleton number is preliminary
-infrastructure, not progress on Prop 4.2 itself. Counts revised per
-math-seat audit (2026-05-19): previous "3+2" undercounted by ≈3×.
+infrastructure, not progress on Prop 4.2 itself.
 
-> **Addendum (2026-07-11) : the three declared `Primitives.lean` admissions
-> are discharged.** `localRepair` is a constructed single-site
+> **`Primitives.lean` carries no admission.** `localRepair` is a constructed single-site
 > transactional recovery move (fires iff an incident overlap is broken and
 > the site can satisfy all its overlaps at once, repaired state chosen from
 > declared overlap data), `Repair` is a choice-canonical asynchronous
@@ -1645,18 +1643,13 @@ math-seat audit (2026-05-19): previous "3+2" undercounted by ≈3×.
 > (`Repair_normalForm`, `Repair_reachable`). NOT discharged: OPH
 > `Confluence` (false in general : `demoCarrier_not_confluent`),
 > `Completeness` for the constructed operator (holds exactly on
-> frustration-free dynamics via the conditional `H1`–`H3` layer), and the
-> `NF`/`World` quotient construction at the time of this addendum. The
-> Definition 4.1 and Proposition 4.2 tables below were re-audited against
-> the sources on 2026-10-26: the normal form and the public quotient are
-> constructed (`Primitives`, `Tower/PublicWorldQuotient`,
-> `Tower/FixedPointEndpoint`), and confluence and completeness stay
-> premises.
+> frustration-free dynamics via the conditional `H1`–`H3` layer). The normal
+> form and the public quotient are constructed (`Primitives`,
+> `Tower/PublicWorldQuotient`, `Tower/FixedPointEndpoint`), and confluence and
+> completeness stay premises.
 
-> **Addendum (2026-07-18) : issue #544 collar chain (layer separation +
-> state-side no-gos), 41 / 41 audited declarations at the time, sorry-free;
-> the six collar modules carry 215 public theorem/lemma declarations as of
-> 2026-10-26.**
+> **Issue #544 collar chain (layer separation + state-side no-gos).** The six
+> collar modules carry 215 public theorem/lemma declarations, sorry-free.
 > `CollarClause.lean`/`CollarLayer.lean` prove the layer separation (the
 > overlap-consistency repair layer factors through the realized constraint
 > family; the collar clause is a declared input, not a theorem).
@@ -2025,8 +2018,6 @@ bound is shipped as an inequality only. Mathlib's
 
 ## Endpoint audit: constructed repair to theorem-grade Proposition 4.2
 
-(Revised per math-seat audit 2026-05-19.)
-
 | Lean layer | Status and remaining endpoint | Paper anchor |
 |---|---|---|
 | `Records`, `Site`, `localRepair`, `acceptedStep`, `Repair` | Constructed and admission-free. A4 uses these literal primitives in its raw presentation and labelled repair system. | lines 28–31, 297 |
@@ -2034,13 +2025,13 @@ bound is shipped as an inequality only. Mathlib's
 | `Φ`, `lyapunovDescent_holds`, `termination_holds` | Exact mismatch formula, strict descent, and termination are proved. | line 300; OPHConsensus Lyapunov proposition |
 | `gaugeEquiv`, `gaugeEquiv_equivalence` | The declared gauge relation and its equivalence proof are built. | line 311 |
 | `repair_respects_gauge` | Repair congruence is proved on declared overlap data. | line 327 ("on the physical quotient") |
-| `Confluence`, `Completeness` | Both remain premise-specific. A4 composes them with H1--H3 termination/completeness and explicit quotient congruence; no universal truth is asserted. | line 326; OPHConsensus completeness assumption |
+| `Confluence`, `Completeness` | Both are premise-specific. A4 composes them with H1--H3 termination/completeness and explicit quotient congruence; no universal truth is asserted. | line 326; OPHConsensus completeness assumption |
 | `PublicWorld`, `FixedPointObject`, descended `publicRepair` | Constructed as the literal readback-kernel quotient; the endpoint map is well defined and idempotent. | lines 305–313 |
 | Conditional schedule independence | Completed schedules agree under confluence; completed schedules from gauge-equivalent representatives have the same public endpoint under output and enabledness congruence. | lines 326–327 |
 | Source-realized global endpoint | Open. No exhibited instance combines the A3 readback adaptor, H1--H3, confluence, both congruences, and cross-regulator naturality; `demoLR` is nonconfluent. | lines 321–328 |
 
 The finite endpoint theorem is therefore complete as a conditional
-composition. Its source realization and cross-regulator physical use remain
+composition. Its source realization and cross-regulator physical use are
 open downstream obligations.
 
 ## Update protocol
@@ -2058,18 +2049,18 @@ When adding a Lean statement that targets a paper item:
 
 ### Source population and local action
 
-- `Geometry/SourceRecordProtection.lean`: a linear record is invariant under every allowed pair-mean repair exactly when its coefficients agree on every allowed seam. Connected support leaves only total-load multiples. The theorem concerns this linear readout and pure pair-mean class; protected memory, driving and other laws remain available.
-- `Geometry/SourceNonlinearRecord.lean`: any state-only readout invariant under every allowed pair mean on **all nonnegative states** factors through total load on connected finite support, with no linearity or continuity assumption; total-load readouts supply the converse. The finite equal-image argument is not an executable concentration protocol. Restricted code spaces and observation histories remain outside the theorem.
+- `Geometry/SourceRecordProtection.lean`: a linear record is invariant under every allowed pair-mean repair exactly when its coefficients agree on every allowed seam. Connected support leaves only total-load multiples. The theorem concerns this linear readout and pure pair-mean class; protected memory, driving and other laws are available.
+- `Geometry/SourceNonlinearRecord.lean`: any state-only readout invariant under every allowed pair mean on **all nonnegative states** factors through total load on connected finite support, with no linearity or continuity assumption; total-load readouts supply the converse. The finite equal-image argument is not an executable concentration protocol. Restricted code spaces and observation histories are outside the theorem.
 - `Geometry/SourcePassiveReset.lean`: every positive raw register in a nonnegative state retains at least its initial load divided by two to the number of incident means, even with changing ancillas. Finite exact native-zero reset is impossible; sequential use of fresh zero neighbours attains the bound with explicit finite support and operation count. Fresh-zero preparation, support and schedule are supplied; logical reset under another encoding is not excluded.
 - `Geometry/SourcePassiveMemoryBudget.lean`: the exact sum-of-squares loss ledger for arbitrary finite pair-mean words, its equality/closed-cycle criterion, baseline-shift covariance, and the ancillary cost of balanced copy. A nonzero balanced record cannot be copied while returning every ancilla to its original state, despite preserving total load. No physical energy interpretation or open-system impossibility follows. `SourcePassiveMemoryAxiomAudit.lean` checks all 40 theorems of these three modules transitively against standard axioms. Exact controls and scope are in `code/source_passive_memory/`; these are M1 preparation results, not a derivation of its feedback law.
 - `Geometry/SourcePopulationQuadrature.lean`: actual Bochner-integral finite-cell transport bounds, disjoint measurable partition quadrature, and a varying-population convergence theorem under vanishing assignment error. The actual golden assignment is specialized in `GoldenSourceAssignment.lean`; generated-interval counting is specialized in `GoldenSourceCausalLimit.lean`.
 - `Screen/LocalGaugeJetAction.lean`: first- and second-jet noncommutative covariance, cyclic-trace Ward cancellation, a Grassmann spin-sign identity, and an inhomogeneous-term control. The full local Standard Model action and variational current proof are analytic on declared geometry, Spin, connection, kinetic and matter inputs.
 
-- `Geometry/GoldenSourceAssignment.lean`: Fibonacci arithmetic identifies the exact fractional-part population with a permuted equal-cell assignment, proves nonwrapping and injectivity, the q³ image size, measurable partition, exact Lebesgue cell masses, and a Bochner-integral quadrature bound with convergence. The two-cell-width assignment bound has a formal counterexample to replacing it by one cell width. The source population, read law and physical clock remain supplied. Its quadrature and assignment results are consumed by the interval, volume and pair-limit modules below.
+- `Geometry/GoldenSourceAssignment.lean`: Fibonacci arithmetic identifies the exact fractional-part population with a permuted equal-cell assignment, proves nonwrapping and injectivity, the q³ image size, measurable partition, exact Lebesgue cell masses, and a Bochner-integral quadrature bound with convergence. The two-cell-width assignment bound has a formal counterexample to replacing it by one cell width. The source population, read law and physical clock are supplied. Its quadrature and assignment results are consumed by the interval, volume and pair-limit modules below.
 - `Geometry/SourceSeamPathTomography.lean`: a recursive suffix calibration using canonical pair means reconstructs every initial path scalar and the changed relay state from destination-local samples. Exact source attenuation is 2^-d, fixed-baseline inverse amplification is 2^d, and mean-operation count is d(d+1)/2. `paper/tex_fragments/SOURCE_SEAM_PATH_TOMOGRAPHY.tex` states the full-observation noise bound and finite receipt. The path, schedule and protected history are declared; this is destructive readout, not full metric-neighbor routing, bounded physical precision or a physical clock.
-- `QFT/ScalarRegionalTimeSlice.lean`: two local field layers plus exterior linear readouts C recover every local velocity exactly iff ker C is contained in ker B, with B the complete exterior force block. Explicit reconstruction and hidden exterior perturbations prove sufficiency and necessity, including the zero-collar criterion B=0. The finite Weyl-algebra and minimal-rank interpretation is analytic; source-selected regions, action, Weyl access, outcomes and physical time-slice identification remain supplied.
+- `QFT/ScalarRegionalTimeSlice.lean`: two local field layers plus exterior linear readouts C recover every local velocity exactly iff ker C is contained in ker B, with B the complete exterior force block. Explicit reconstruction and hidden exterior perturbations prove sufficiency and necessity, including the zero-collar criterion B=0. The finite Weyl-algebra and minimal-rank interpretation is analytic; source-selected regions, action, Weyl access, outcomes and physical time-slice identification are supplied.
 
-- `Geometry/GoldenSourceCountLimit.lean`: 29 public declarations prove dominated-convergence indicator counting on derived partitions, actual golden spatial counts, clipped time-product cells, the inclusive endpoint-layer discrepancy at most L³Delta, and normalized counts on the actual shrinking time grid for every fixed measurable coordinate continuity set. Injectivity makes label counts genuine event counts. The following modules specialize to moving generated intervals and strict pairs; physical measure selection remains outside these results.
+- `Geometry/GoldenSourceCountLimit.lean`: 29 public declarations prove dominated-convergence indicator counting on derived partitions, actual golden spatial counts, clipped time-product cells, the inclusive endpoint-layer discrepancy at most L³Delta, and normalized counts on the actual shrinking time grid for every fixed measurable coordinate continuity set. Injectivity makes label counts genuine event counts. The following modules specialize to moving generated intervals and strict pairs; physical measure selection is outside these results.
 - `Geometry/SourceNetOrderLimit.lean`: actual generated read paths eventually agree with the continuum cone away from null separation for moving sampled events. Path existence is derived from the covering theorem, not assumed as a convergence premise.
 - `Geometry/SourceCausalBoundary.lean`: Fubini proves future/past cone boundaries, diamond frontiers, pairwise null separation and the coincidence diagonal have zero mass in the supplied coordinate window. Fixed diamond counts specialize the existing golden count theorem without a supplied null-frontier hypothesis.
 - `Geometry/SourceCountTransport.lean`: dominated convergence for moving finite cell classifiers and a uniform inclusive-layer discrepancy bound, retaining the actual partition masses and event labels.
@@ -2086,6 +2077,6 @@ When adding a Lean statement that targets a paper item:
 - `Geometry/SourceFeedbackTransport.lean`: 14 public declarations prove exact local feedback hops and paths, sharp additive error bounds and a finite semantic-order projection criterion. Non-interleaved local copy/reset/readback operations, protected versions, support and program are supplied; the complete finite W12 writer obligations are independently replayed in `code/source_feedback_transport/`. Physical causal order, native operation selection and quantum transport are excluded.
 
 - `Geometry/SourceRoutingHierarchy.lean`: kernel-checked `base_diameter`, `stencil_refinement`, `tower_diameter` and `envelope_closed` support the analytic composition giving the all-level combinatorial distance bound `4*2^l-1`. Lean has no theorem identifying `baseEdge` with the base `triangleEdge`, or `subdividedEdge` with the next level's `triangleEdge`, and no theorem stating the composed all-level conclusion. Exact integer reconstruction matches captured L3–L5 faces and carrier seams in `code/source_routing_refinement/`. Physical support selection and all-level geometric port assignment are not established.
-- `Geometry/SourceRoutingStorage.lean`: seven theorems prove owner-local live-slot injectivity, write/retirement refinement, and a sufficient 23-scalar-slot-per-carrier layout for preceding-layer payloads and one completed source episode at a time. The sharper `14C+9n` census is enforced by `storage.py` on finite controls; `occupied_slot_bound` proves only its arithmetic comparison with `23C`. Historical reads outside that lifetime interface are excluded. Scalar precision, control and audit-log memory remain separate; local feedback primitives are supplied.
+- `Geometry/SourceRoutingStorage.lean`: seven theorems prove owner-local live-slot injectivity, write/retirement refinement, and a sufficient 23-scalar-slot-per-carrier layout for preceding-layer payloads and one completed source episode at a time. The sharper `14C+9n` census is enforced by `storage.py` on finite controls; `occupied_slot_bound` proves only its arithmetic comparison with `23C`. Historical reads outside that lifetime interface are excluded. Scalar precision, control and audit-log memory are separate; local feedback primitives are supplied.
 - `Geometry/SourceRoutingBudget.lean`: read/tree-hop envelopes and the unchanged program's event formula imply `E >= 3N + 13C + 5n`, a same-weight raw-mass error lower bound, and a serial-tick constraint. The count comparison is for the whole execution window, not all primitive-order intervals. No physical clock or volume measure is selected.
 - `Geometry/SourceRoutingRefinementAxiomAudit.lean`: enforced transitive standard-axiom allowlist for all 26 routing/storage/budget theorems, with admission and compiler-trust rejection controls. Scope, exact receipts and remaining M1 assumptions: `code/source_routing_refinement/README.md`.

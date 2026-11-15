@@ -1,6 +1,6 @@
 # Exact energy Ward cells and their coarse-graining
 
-The supplied complete-Fock Weyl/contact action now has an exact nearest-face
+The supplied complete-Fock Weyl/contact action has an exact nearest-face
 energy conservation column on a three-dimensional lattice, and that column
 commutes with spatial and temporal block coarse-graining. This attaches an
 actual conserved source observable to the **energy column** of the finite
@@ -17,7 +17,7 @@ H = sum_x h_x,       J_xy = i[h_x,h_y].
 ```
 
 Their continuity law holds for every state, number sector and untouched
-reference; no Gibbs or stationary reference is needed. The new result is
+reference; no Gibbs or stationary reference is needed. This result is
 not another proof that a finite Hamiltonian conserves its total energy.
 It routes the actual range-two local currents to standard lattice faces,
 forms exact finite spacetime cells, and proves that successive coarse cells
@@ -40,7 +40,7 @@ Outside edges of the open box have zero flux. All paths stay in the box.
 At distance two, a straight pair has one shortest path and a bent pair has
 two, each with weight 1/2. The prescription treats coordinate permutations
 and reflections equally; it does not choose a preferred axis ordering.
-The half-bond local energy and this routing remain stated conventions.
+The half-bond local energy and this routing are stated conventions.
 Neither is claimed to be a unique physical stress prescription.
 
 `ward.py` computes the same source action using exact rational Majorana
@@ -116,7 +116,7 @@ exact Python certificate, rather than represented as a Lean value.
 
 ## Controlled source approximation and finite current samples
 
-This attachment reuses the already proved
+This attachment reuses the proved
 [complete-field locality and source schedule](../full_fock_field/LOCAL_SIMULATION.md).
 It does not introduce a second thermodynamic-limit claim. Write
 `A=U+3c`. The bond norm is at most c, so `||h_x||<=A` and

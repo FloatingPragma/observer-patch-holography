@@ -6,7 +6,7 @@ Owners: [#1142](https://github.com/FloatingPragma/observer-patch-holography/issu
 This closes a positive, explicitly recentered two-body limit of the same Weyl/contact
 family. It does not close a many-body continuum limit, identify a physical particle,
 or derive a relativistic massive/massless spectrum. All eight edge valleys are retained.
-The earlier fixed-zero, `c=v/a` transparency theorem remains valid on its different domain.
+The separate fixed-zero, `c=v/a` transparency theorem holds on its different domain.
 
 ## Declared family and comparison
 
@@ -156,7 +156,7 @@ For `E>B_a`, `g_a(E)` is strictly decreasing from `a^2 W0/2` to zero:
 it is the Stieltjes transform of a positive unit-mass spectral measure.
 The chosen positive `1/U_a` lies strictly between these endpoints. Thus there
 is exactly one upper bound pole `E_a=B_a+delta_a`. This existence proof does
-not use the stronger sufficient condition `U>B_a` in the earlier finite fiber helper.
+not use the stronger sufficient condition `U>B_a` in the finite fiber helper.
 For `a gamma<=1/256`, the exterior estimate gives opposite signs at
 `delta=gamma^2/4` and `4gamma^2`, so
 
@@ -181,7 +181,7 @@ uniform estimates, all eight dispersions, pole brackets, rounding boundaries,
 missing countertuning, and reversed scattering orientation.
 
 Imported ingredients are elementary coarea, geometric-series and principal-value
-calculus, the spectral theorem, and the already declared rank-one stationary
+calculus, the spectral theorem, and the declared rank-one stationary
 scattering formula. The model-specific claims are the full-valley coefficient,
 explicit countertuning, and quantitative error bounds above. Lattice contact
 renormalization and repulsively bound pairs are established mechanisms, not new

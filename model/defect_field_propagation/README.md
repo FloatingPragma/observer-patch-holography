@@ -3,7 +3,7 @@
 This finite spatial extension uses all twelve native ports, with the supplied
 Hamiltonian cycle `(0,1,5,4,2,3,9,8,6,7,10,11)`. Every ring edge is checked
 against the actual native seam graph. Ring position and orientation are
-design choices. Native balancing remains a separate instrument.
+design choices. Native balancing is a separate instrument.
 
 At unit spacing and speed the Hermitian difference operator has
 `D[r,r+1]=-i/2` and eigenvalue `sin(k)`. The action is
@@ -17,7 +17,7 @@ identity with the sum of three squared sines and eight nodes. That larger
 construction is an algebraic observation, not a source execution here.
 
 The full carrier has 1080 CAR modes and all `2^1080` occupation states.
-Same-port collisions are retained: hopping out of the earlier hard-core
+Same-port collisions are retained: hopping out of the parent hard-core
 two-particle sector can create them. Likewise, kinetic evolution need not
 preserve the static onsite positive-quasiparticle number. The calibrated
 pairing graph decomposes the action into 24 two-mode, six six-mode and six
@@ -51,12 +51,12 @@ occupation pointers; both outcomes and the full conditional covariances,
 including every purifier, are retained. Current is the difference between
 two separate complete pointer experiments. There is no postselection.
 
-The complete native balancing extension outside the old two-particle domain
+The complete native balancing extension outside the parent two-particle domain
 is a separate supplied instrument. This package supplies the field action
 and its source propagation on the full carrier for composition with that
 instrument; it does not invent that extension by applying an exterior power
 to a nonunitary Kraus map. Static per-site Bogoliubov coordinates connect the
-bare fields used here to the earlier colored internal chart.
+bare fields used here to the parent colored internal chart.
 
 This is a one-dimensional finite witness with calibrated matter inputs. It
 does not establish a three-dimensional continuum, remove the doublers, or

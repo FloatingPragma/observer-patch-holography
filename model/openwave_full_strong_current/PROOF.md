@@ -1,6 +1,6 @@
 # Complete autonomous strong response on the native five-body carrier
 
-Use the already declared range-one strong member, including the local/bond
+Use the declared range-one strong member, including the local/bond
 charge-conjugate completion and the common inverse-rest correlated propagation.
 No coefficient is adjusted. The carrier contains four light quarks and one
 light antiquark on the infinite chain, with the full colour-singlet Gauss
@@ -46,7 +46,7 @@ then contracting with every current output. All three component matrices
 For the normalized second native Lambda coordinate, a spatially localized
 finite-support input, the full projected derivative has squared norm
 0.02761018661589379... times the inherited Cabibbo factor squared. This is
-positive after both correlated terms, which were absent from the earlier
+positive after both correlated terms, which are absent from the separate
 kinetic-substep calculation. It is not an assertion about the Lambda pole
 or an energy-shell transition.
 
@@ -89,4 +89,4 @@ Probe failure, every orthogonal N5 outcome and arbitrary idle references
 remain in the complete instrument. Autonomous strong evolution conserves
 its own energy; probe and terminal measurement work is retained and need
 not vanish. Outgoing Moller wave operators, on-shell weak spectral weight,
-full weak dynamics and physical3+1 particle identification remain open.
+full weak dynamics and physical3+1 particle identification are open.

@@ -16,7 +16,7 @@ the declared spin and exterior lift in
 [`native_matter_attachment.py`](../common_source/native_matter_attachment.py).
 Its five-mode primitive charge is `(-2,-2,-2,3,3)`. The invariant module is
 `M15 = exterior²(C⁵) + exterior⁴(C⁵)`, with no vacuum or other exterior
-components silently added. The existing construction already established a
+components silently added. The existing construction established a
 complete-generation internal match, several anomaly contractions and the
 compatible central quotient. This packet adds the **complete trace tensor
 and an unbounded multiplicity classification**, not a new anomaly theorem.
@@ -177,18 +177,16 @@ separate attachment before it can exclude this candidate.
 
 ## Completion interfaces and stopping scope
 
-| Result | What it constrains | What remains |
+| Result | What it constrains | What is open |
 | --- | --- | --- |
 | Complete anomaly tensor, rank-four multiplicity system | Any chiral truncation or arbitrary-copy extension of the five specified source-current blocks | A moving defect carrying these currents; physical chirality and gauge measure |
 | Fixed-source `C2` instrument covariance | The exact #1151 biased member and uniform scheduler | A physical family assignment, calibration and continuum interpretation |
 | Five-dimensional commutant and nondegenerate control | Family splitting is permitted after this symmetry reduction | Selection of Yukawa values and common kinetic normalization |
 | Common isolated family and zero CP-odd invariant | Same-action invariant Yukawas, singlet Higgs and invariant kinetic metrics | Additional justified symmetry breaking or a different attachment |
 
-The actively transported logical qubit and the exterior matter module are
-currently different constructions. A quantum-memory transport identity does
+The actively transported logical qubit and the exterior matter module are different constructions. A quantum-memory transport identity does
 not attach `M15` to that defect. No rest gap, spin/statistics assignment or
-physical particle dictionary follows from combining their names. The new
-constraints should be applied to an explicit same-source matter map when
+physical particle dictionary follows from combining their names. These constraints should be applied to an explicit same-source matter map when
 one is proposed, with surviving alternatives retained under CP-12.
 
 ```sh

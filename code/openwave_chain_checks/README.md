@@ -4,7 +4,7 @@ This package reproduces two finite constructions and rejects unsupported joins.
 The coherent source passes through two complete regional charge instruments
 and an energy instrument on its actual Hamiltonian. A separate reciprocal
 classical source supplies a measured drift and a controlled field calculation.
-Their source, preparation and clock differences remain explicit.
+Their source, preparation and clock differences are explicit.
 
 Run with Python, NumPy, SciPy, SymPy and mpmath installed:
 

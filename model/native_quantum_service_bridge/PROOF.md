@@ -8,13 +8,13 @@ The actual finite native Yukawa Hamiltonian has a gauge-singlet two-state code. 
 
 The actual committed C/E operations in `model/observer/native.py` have recorded Kraus maps that are scaled partial injections. `native_interface.construction.exact_native_audit` checks their complete native domains. Finite adaptive compositions, classical conditioning and routing preserve diagonal states and have diagonal effects. They cannot synthesize a coherent phase from a diagonal preparation.
 
-The separate `coherent_seam_repair.program.Observer` already *declares* coherent address preparation, the uniform-address reflection, and owned memory. On an addressed seam its actual repair is
+The separate `coherent_seam_repair.program.Observer` *declares* coherent address preparation, the uniform-address reflection, and owned memory. On an addressed seam its actual repair is
 
 \[
 Q=I-ss^T/2,\qquad s=(1,-1,-1,-1)^T,
 \]
 
-a real involution. The executable reads all four columns from `Observer.repair`. Real words preserve real density matrices on the same real code. The exact target Cayley state `(15/17,-8i/17)` has off-diagonal density `120i/289`, so those real words alone cannot implement that target on this code. This is not a no-go theorem for a larger rebit encoding. The optional addressed `quarter_turn` is an apparatus phase already present in the Observer API; neither its existence nor the real reflection proves an arbitrary-gate compiler.
+a real involution. The executable reads all four columns from `Observer.repair`. Real words preserve real density matrices on the same real code. The exact target Cayley state `(15/17,-8i/17)` has off-diagonal density `120i/289`, so those real words alone cannot implement that target on this code. This is not a no-go theorem for a larger rebit encoding. The optional addressed `quarter_turn` is an apparatus phase present in the Observer API; neither its existence nor the real reflection proves an arbitrary-gate compiler.
 
 The sufficient additional interface used here is precise:
 
@@ -22,7 +22,7 @@ The sufficient additional interface used here is precise:
 2. Apply the signed integrated port control `exp(sum_p c_p D_p)`, with supplied real coefficients and a specified error allowance. The twelve `D_p` are the retained source response generators. Their exact `Q(sqrt(5))` control identities are checked by the existing source compiler before execution.
 3. Export by the complete code-plus-failure channel. Success is the identity on the valid code; every complement basis vector has its own failure Kraus map. Retain failures, storage, routing and native records.
 
-This is the existing coherent proper-code gluing (CCG) premise plus controlled source response, now specialized to explicit field services. Complex actuation and coherent transfer are independently stated obligations; calling the combined API one primitive is not a minimality proof. Reset, pulse, load/export, address schedule and native pointer costs are charged separately. The source's native integer repair does not establish CCG or the accuracy of an analog actuator.
+This is the existing coherent proper-code gluing (CCG) premise plus controlled source response, specialized to explicit field services. Complex actuation and coherent transfer are independently stated obligations; calling the combined API one primitive is not a minimality proof. Reset, pulse, load/export, address schedule and native pointer costs are charged separately. The source's native integer repair does not establish CCG or the accuracy of an analog actuator.
 
 ## 2. Native quantum Yukawa: an exact one-pulse service
 
@@ -124,7 +124,7 @@ Measuring all fifteen bits implements the complete configuration instrument. Mer
 
 ## 5. A finite generalization with explicit cost
 
-For an explicitly supplied finite Hermitian `H`, pad it by zero to `2^n` and expand it exactly as `sum_j h_j P_j` using `h_j=Tr(P_j H)/2^n`. The source compiler already emits each `exp(-it h_j P_j/r)` using actual one-bit controls and phase-exact source CNOT words. No arbitrary logical basis change is free.
+For an explicitly supplied finite Hermitian `H`, pad it by zero to `2^n` and expand it exactly as `sum_j h_j P_j` using `h_j=Tr(P_j H)/2^n`. The source compiler emits each `exp(-it h_j P_j/r)` using actual one-bit controls and phase-exact source CNOT words. No arbitrary logical basis change is free.
 
 For `r` first-order product steps,
 

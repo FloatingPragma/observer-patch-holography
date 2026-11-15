@@ -29,7 +29,7 @@ For a fixed-flavour singlet meson, the spin-zero and one orbital spaces are cano
  2k_s\le E_\rho-E_\pi\le 2k_s+2J_s.
 \]
 
-Along the fixed-D path, the Delta-plus versus proton splitting changes by exactly 3k_s. The observed central rho-pion separation requires k_s between 621.7568 and 622.0068 in electron units, whereas the Delta-plus fit requires about 191.2685. The disjoint intervals exclude a simultaneous match by this common positive spin square on the stated path. The two complete fitted controls exhibit the size of the mismatch. These are central-value comparisons; no claim of measured precision beyond the input data is made.
+Along the fixed-D path, the Delta-plus versus proton splitting changes by exactly 3k_s. No simultaneous rho-pion and Delta-plus calibration is claimed for this common positive spin square on the stated path, and no measured precision beyond the input data is claimed.
 
 ## A fifth-input neutral scalar control
 
@@ -64,8 +64,8 @@ The actual native currents are constructed on the full 2024-state and 576-state 
 
 For a singlet meson the force vanishes on split occupancy and is (16/3)S² on co-location. These identities follow from the same colour pair contraction and the Pauli pair sum. The producer verifies the complete source intertwiners. It never inserts a meson- or baryon-specific potential into the source.
 
-Every feasible h control refits the four empirical inputs. At h=50 the rho and Delta candidates are about 0.41236 and 1.07508 GeV. The larger h searches retain their positive-A feasibility failures. Min-max requires h at least about 116.58 to reach the rho separation because its gap is bounded above by 32h/3+2J_s. No successful rho calibration is claimed for this positive-coefficient search. Failure of the recorded continuation is not a theorem excluding every colour-spin action or another positive completion.
+Every feasible h control refits the four empirical inputs. Min-max requires h at least about 116.58 to reach the rho separation because its gap is bounded above by 32h/3+2J_s. No rho calibration is claimed for this positive-coefficient search, and the recorded continuation is not a theorem about every colour-spin action or another positive completion.
 
 ## Arithmetic and physical domain
 
-The exact results are the native operator identities, positivity, reducing domains, scalar shifts and min-max inequalities. The complete numerical spectra, fitted coefficients and search controls are deterministic floating computations. No narrow floating margin supports the common-spin exclusion, whose coefficient intervals are separated by over 400. None of these controls identifies a physical continuum, confinement scale or complete hadron catalogue.
+The exact results are the native operator identities, positivity, reducing domains, scalar shifts and min-max inequalities. The complete numerical spectra, fitted coefficients and search controls are deterministic floating computations. No narrow floating margin supports the common-spin interval separation, which exceeds 400. None of these controls identifies a physical continuum, confinement scale or complete hadron catalogue.

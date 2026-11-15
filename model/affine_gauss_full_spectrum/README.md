@@ -18,7 +18,7 @@ occupation probability near`0.00007224654`.
 Complete position records and a compensated preparation with retained
 failure and energy-complement outcomes are included. [The proof](PROOF.md)
 states every source, arithmetic and apparatus premise. The fixed boundary
-compensator prevents interpreting this result as a translation-invariant
+compensator still prevents interpreting this result as a translation-invariant
 relativistic rest mass or an identified Standard Model particle.
 
 ```sh

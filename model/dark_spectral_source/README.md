@@ -1,10 +1,10 @@
 # Native preparation and Ramsey readout of the dark spectral sector
 
-The previous [repaired-spectrum result](../repair_spectral_sectors/README.md)
-identified an exact 15-multiplicity, spin-one, eta-two dark sector on the
+The [repaired-spectrum result](../repair_spectral_sectors/README.md)
+identifies an exact 15-multiplicity, spin-one, eta-two dark sector on the
 unchanged six-site Weyl/contact chain. Its states preserve nonconstant
-energy coherences under every complete existing block repair. The missing
-source preparation and detector now have concrete native words.
+energy coherences under every complete block repair. This packet gives the
+source preparation and detector as concrete native words.
 
 This package prepares one sparse dark state with **292 native pulses**;
 its spectral measure has strictly positive weight on all **13 distinct
@@ -17,7 +17,7 @@ This advances CP-03/#1139 and CP-07/#1143 on a fixed finite source. It
 does not establish physical charge coherence, particle identity, a
 localized three-dimensional defect or a continuum mass. The source's
 coherent qubit encoding, initialized registers, load/export, memory,
-readout and phase controls remain explicit specified services. The
+readout and phase controls are explicit specified services. The
 vacuum/N=4 Ramsey superposition respects fermion parity but uses a supplied
 number-phase reference; an electromagnetic charge reference or a physical
 superselection rule is not derived or circumvented.
@@ -87,7 +87,7 @@ P0(phi,t) = [1+Re(exp(i phi) C_H(t))]/2,  P1=1-P0,
 C_H(t) = <D01|exp(-itH)|D01>.
 ```
 
-The reference is explicit. Previous dark energies used K=H-N/2. On N=4,
+The reference is explicit. The parent dark energies use K=H-N/2. On N=4,
 H=K+2, while the vacuum H energy is zero. Hence
 
 ```
@@ -101,7 +101,7 @@ Every weight is strictly positive: sine is positive and cosine strictly
 decreasing on (0,pi). Exterior-power Parseval gives sum w=1. Exact integer
 Hamiltonian moments give mean H energy 1 and variance **1/256**, so the
 response contains more than a common number-sector phase. The three
-pairs p+q=7 share energy 1; the previous exact characteristic polynomial
+pairs p+q=7 share energy 1; the parent exact characteristic polynomial
 proves that the remaining twelve are distinct. The receipt keeps all 15
 mode-pair contributions and all 13 exact groups, without thresholding.
 An independent two-by-two determinant checks the characteristic function:
@@ -114,8 +114,8 @@ This gives a source-accessible spectral measure. Two phases at one time
 do not empirically resolve thirteen frequencies or fit a particle mass.
 The exact spectral formula is derived from the same Hamiltonian; the
 native experiment tests its complete detector probabilities. Simple pair
-annihilation from the earlier eta-singlet ground still cannot reach this
-eta-two sector. The new source preparation is a different explicit
+annihilation from the eta-singlet ground cannot reach this
+eta-two sector. The source preparation here is a different explicit
 operation, not a reversal of that selection rule.
 
 ## Complete source and field accounting
@@ -136,7 +136,7 @@ matrices. Four-column failure tables include explicitly identified padding
 for pair-code events; padding is not counted as an additional outcome.
 The ideal protocol takes only Q and the two proper pointer outputs.
 
-The earlier exact-source checker independently verifies the native gate
+The parent exact-source checker independently verifies the native gate
 routing and all fixed pi angles. Literal binary64 port coefficients are
 interpreted as exact rationals in the retained Q(sqrt(5)) source response;
 outward dyadic pi bounds and anti-Hermitian Duhamel estimates include
@@ -160,7 +160,7 @@ inject an actual source-code leakage rotation, alter a native target or
 angle, and omit field evolution. They distinguish a complete coherent
 source/readout experiment from a target statevector or successful branch.
 The inherited active90/dark15 classification, repair energy disturbance,
-3D alignment criterion and transverse-dimer obstruction remain unchanged.
+3D alignment criterion and transverse-dimer obstruction apply as inherited.
 
 ```sh
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.dark_spectral_source --check

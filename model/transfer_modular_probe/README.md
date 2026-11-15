@@ -112,7 +112,7 @@ seam/current record and triggers **the same fixed `U(1)=exp(iH)` word**, includi
 when the current is zero. Remote attempts update the carrier but do not advance
 the probe. There is no elapsed-time or adjustable-phase argument to this
 controller. The unit coupling per event fixes the modular parameter convention.
-The reference `S/Tr(S)` remains the three-class *attempt-transfer* reference;
+The reference `S/Tr(S)` is the three-class *attempt-transfer* reference;
 it is not silently replaced by a port-incident transfer reference.
 
 The clock carrier and coherent probe/service code are distinct regions of the
@@ -229,10 +229,9 @@ w_- = 1/7260 - sqrt(3)/16335.
 ```
 
 The producer checks this against exact full 66-state marked path sums at
-`n=0,1,4,8`. The new X/Y source readouts reconstruct
+`n=0,1,4,8`. The X/Y source readouts reconstruct
 `C_M(s)=sum_j w_j exp(is E_j)`, the corresponding analytic continuation.
-The marked transfer matrices are **not POVM effects**; their measurement
-semantics remain the native current instrument. The new coherent probes
+The marked transfer matrices are **not POVM effects**; their measurement semantics are the native current instrument. The coherent probes
 measure spectral phases in the reconstructed code. Analytic continuation
 plus its executable simulation is a supported correspondence, while agreement
 of that interpretation with independent physical observations is open.

@@ -35,7 +35,7 @@ inhabitation proves packaging only.
 E1 can define finite causal regions and local algebra assignments as a
 decoration of a fixed `ConsensusTower`. Its isotony, locality or
 no-signalling, overlap descent, conditional repair, and compatible regional
-states remain additional fields or theorems. The A3 `public_natural` and
+states are additional fields or theorems. The A3 `public_natural` and
 `generator_natural` laws provide refinement targets; they do not prove any E1
 causal or channel property.
 
@@ -44,7 +44,7 @@ causal or channel property.
 E2 should quantify over one enriched `ConsensusTower` and attach the
 source-native informational-order/placement interface and the finite causal
 algebra net to that same value. Source-selected spatial placement and a
-separate physical-continuum certificate are still required before this data
+separate physical-continuum certificate are required before this data
 has a geometric reading. The record-germ atlas is an optional algebraic
 soldering interface; it is not an input to the source-native route. The A3
 functoriality and naturality fields express the

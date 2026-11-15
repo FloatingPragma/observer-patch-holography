@@ -12,7 +12,7 @@ The state is exactly the translation-averaged full-ground state from
 [thermodynamic_ground](../thermodynamic_ground/README.md), with the
 hidden-spin symmetry proved in
 [retarded_spatial_locality](../retarded_spatial_locality/README.md).
-No chemical-potential subtraction, new action or replacement reference is
+No chemical-potential subtraction, additional action or replacement reference is
 made. The free sea below is a variational comparison, not the interacting
 ground. All integrals use normalized Brillouin measure `d^3k/(2pi)^3`.
 
@@ -66,7 +66,7 @@ calculator choice; the theorem holds for every threshold in the stated
 interval.
 
 The particle density obeys
-`|n-1|=|integral tr(rho-P_-)|<=D`. Combining this with the earlier
+`|n-1|=|integral tr(rho-P_-)|<=D`. Combining this with
 `1/4<=n<=1` and onsite symmetry `rho_x=rI` gives
 
 ```
@@ -142,7 +142,7 @@ each has second moment one and its variance tends to one. A memory Gram
 can therefore disappear from a weak spectral limit despite uniform second
 moments. Separately, an occupation defect supported in a momentum cube
 of volume `n^-3` has vanishing integrated defect, but a normalized packet
-supported in that cube still has defect expectation one. Fixed microscopic
+supported in that cube has defect expectation one. Fixed microscopic
 local convergence is not uniform convergence on the scaling wave packets.
 
 These results fix ground inputs and energy sum rules for the continuum

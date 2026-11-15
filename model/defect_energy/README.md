@@ -12,7 +12,7 @@ All receipt calculations are integer or rational; the largest Markov carrier
 has 132 states. Word enumeration is bounded to eight attempts. The receipt
 lists direct implementation bindings; `defect_protection` owns the wider
 source-execution and interface audit. Expanded compiler words are counted,
-not newly executed in this packet.
+not executed in this packet.
 
 ## Constructive repair-to-action identity
 
@@ -93,7 +93,7 @@ source-conditioned action that this example retains.
 Every complete branch commutes with `I66 tensor X`; hence its two charge
 sectors persist under the specified memory law. This is the same conserved
 observable certified by `defect_protection`. The joint defect here is an
-observer memory sector, not yet a source-localized particle.
+observer memory sector, not a source-localized particle.
 
 For initial `I66/66 tensor rho`, fair coins, independent uniform seams, and
 the continuing source traced only at the observation boundary, exact
@@ -143,7 +143,7 @@ and motion belonging to this same defect. `InternalEnergyInertia.lean`
 proves inertial coupling conditional on the chosen proper-time action;
 `ProperTimeInternalAction.lean` states the refinement and proper-time
 conditions selecting that action. This packet supplies the finite native
-repair/action side of the proposed join. It does not yet supply spatial
+repair/action side of the proposed join. It does not supply spatial
 motion or a momentum for this observer-memory sector, nor discharge those
 Lorentz/proper-time premises. Transferring a different field's dispersion
 would not check `E=mc^2` for this defect. The matched-cost experiment tells

@@ -92,7 +92,7 @@ records under that scaling. The two acoustic branches have leading speed
 sqrt(2 alpha beta/3)=1/sqrt(48) cells per macro, equal to the scalar
 LOCAL12 walk's leading speed. This statement neither removes optical
 branches nor proves a deterministic spatial approximation error by itself.
-Native service duration and the chosen macro clock remain distinct.
+Native service duration and the chosen macro clock are distinct.
 
 Amplitude scaling changes the admitted integer preparation; a charge
 scaled by R must be declared if a fixed rescaled charge is intended.

@@ -56,7 +56,7 @@ S_m = R_m (I-Q)^(-1) = sum_(n>=0) R_m Q^n.
 
 The uniform survival bound proves convergence and completeness. The expected
 cost of the next union event is six native attempts. Dividing R_m by the
-one-step event probability is still wrong: Q contains remote motion and is not
+one-step event probability is wrong: Q contains remote motion and is not
 `(5/6) Id`. Independently inserted identity holds cancel from the completed
 instrument, by the same resolvent identity as the
 [single local-clock construction](../relational_event_clock/README.md).
@@ -148,7 +148,7 @@ probability that A has not ticked after `2k` union events is at most
 `(2/3)^k`, uniformly over work/reference preparations. This proves completion
 almost surely and gives a complete finite censoring bound. An independent
 identity hold with any fixed activity `0<a<=1` cancels from every completed
-union map and hence every relative-count coefficient. Identity holds still
+union map and hence every relative-count coefficient. Identity holds do
 change native-attempt caps and resource costs. Changing the relative seam
 weights, allowing evolution during an alleged hold, or timing feedback by
 attempt count is outside this invariance.
@@ -182,7 +182,7 @@ function to `(4+z-z^2)/(2(3-z^2))`, with mean B count **`3/4`**, variance
 **`35/16`**, and probability **`1/6`** of exactly one B tick. The feedback can
 change occupation between native ticks; its action is explicitly charged and
 is not itself counted as a native-current tick. The two signed A maps retain
-that changed sign law. C and E still have the same *completed* count
+that changed sign law. C and E have the same *completed* count
 instrument under this event-triggered feedback. This is a controlled
 prediction about a changed experiment, not a regrading of the same clock.
 
@@ -210,7 +210,7 @@ The finite execution starts with the disclosed coherent probe preparation;
 the boundary-based count law applies after any actual A event. Neither
 requires exact stationary preparation, a supplied clock-rate ratio or an
 identification with modular flow. The sector, three-seam schedule, record
-collector and coherent apparatus remain the stated inputs. No laboratory
+collector and coherent apparatus are the stated inputs. No laboratory
 data are identified with this clock protocol.
 
 ## Full quantum field histories require memory
@@ -249,7 +249,7 @@ algebraic identity itself holds at every finite length.
 
 The memory terms and hidden forcing are generally not positive maps. Their
 complete sum is the restriction of the original CP history. This predictor
-still uses source operator blocks and the declared initial hidden component;
+uses source operator blocks and the declared initial hidden component;
 it does not prove an efficient finite memory window or reconstruct an unknown
 preparation from field records alone.
 
@@ -311,7 +311,7 @@ distinction between event order, modular parameter and calibrated comparison.
 
 The extension of the existing block-elimination identity is from first moments
 to record-conditioned quantum maps and their complete output states. Its proof
-is the finite substitution above, not a new Lean theorem or an invocation of a
+is the finite substitution above, not a Lean theorem or an invocation of a
 Gaussian theorem on this non-Gaussian process. The four-mark event closure is
 an additional source-specific simplification checked on the complete operator
 space. The clock-conversion factorization reuses that stopped-instrument
@@ -320,7 +320,7 @@ fluctuations and feedback. It does not instantiate the affine-clock theorem
 by replacing the stochastic comparison with its mean. These identities
 discharge the finite joint-law correspondence for this declared experiment.
 Compatible refinement, controlled continuum limits, physical
-calibration and relativistic spacetime recovery remain separate obligations.
+calibration and relativistic spacetime recovery are separate obligations.
 
 ```sh
 python -m model.joint_clock_process --check model/joint_clock_process/results.json

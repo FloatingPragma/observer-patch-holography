@@ -31,7 +31,7 @@ Matching model light speed one to `299792458 m/s` fixes
 Its energy unit is `hbar/T`. The [units calculation](CALIBRATION_PROOF.md)
 computes the conversion coefficients and accepts an explicitly identified
 same-generator physical clock. It supplies no absolute `T`; absolute GeV
-mass entries therefore remain null.
+mass entries therefore are null.
 
 The localized interacting charged gap is distinct from these exterior
 one-body bands. Motion of the defect, interacting relativistic poles,

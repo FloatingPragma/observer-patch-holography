@@ -292,7 +292,7 @@ theorem tooth_ratio_52_bounds (T : CombTemplate) :
   rw [h]
   exact log5_div_log2_bounds
 
-/-- Declared KMS net-response factor `(k-1)/k`. The legacy name `kmsWeight`
+/-- Declared KMS net-response factor `(k-1)/k`. The name `kmsWeight`
 does not assert a normalized cross-`k` transition weight. -/
 noncomputable def kmsWeight (k : ℕ) : ℝ := ((k : ℝ) - 1) / (k : ℝ)
 

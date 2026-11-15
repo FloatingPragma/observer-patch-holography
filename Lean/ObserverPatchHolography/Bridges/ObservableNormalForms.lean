@@ -8,7 +8,7 @@ This module records the exact relationship between Jonathan Hill's concrete
 local-repair development and the substrate-neutral endpoint theorem used by
 the Observation-Determined Normal Forms paper.  It does not assert that any
 particular physical boundary map identifies the concrete consistent quotient;
-that remains a separate application theorem.
+that is a separate application theorem.
 -/
 
 namespace OPH

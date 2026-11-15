@@ -106,7 +106,7 @@ complete color-bearing F family for kernels constructed from the displayed
 costs, and proves that only common scaling is multiplier gauge.  Identifying
 either constructed kernel with an independent OPH source law, selecting the
 relative coefficient, extending to the mirror G family, and supplying
-physical units or a continuum limit remain open.
+physical units or a continuum limit are open.
 -/
 
 namespace OPH.QFT

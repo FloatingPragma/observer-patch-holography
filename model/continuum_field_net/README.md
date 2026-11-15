@@ -10,8 +10,8 @@ It does not prove Lorentz covariance, surviving continuum interactions,
 physical particle identification, or any completed Einstein premise.
 
 This is an existence theorem on a common subsequence of the **spacing**
-parameter, in addition to the previously constructed infinite-volume
-ground at each spacing. It is not a claimed convergence rate for states,
+parameter, in addition to the infinite-volume ground of
+`thermodynamic_ground` at each spacing. It is not a claimed convergence rate for states,
 a unique limit, or a numerical construction of its correlations. The
 norm estimates below are uniform and explicit. No finite-volume gap or
 ground-state clustering assumption is used.
@@ -62,7 +62,7 @@ For `f in H^3`, Taylor's integral remainder also gives
 For each `b in {0,1}^3`, let `M_b u(n)=(-1)^(b dot n)u(n)` and define
 the physical smeared lattice field `C_a,b(f)=c(M_b J_a f)`. The convention
 for linearity of `c(f)` is inherited from the source CAR algebra. These
-fields still evolve under the full original Hamiltonian. Their kinetic
+fields evolve under the full original Hamiltonian. Their kinetic
 terms obey
 
 ```
@@ -147,7 +147,7 @@ The polynomial norm inequalities justify boundedness without assigning
 a pre-existing norm to the free algebra. Equal-time CAR identify the
 ordinary continuum CAR algebra faithfully inside this representation
 (a nonzero unital representation of the simple CAR algebra is faithful).
-Equivalently, the nonzero CAR identity itself already prevents collapse
+Equivalently, the nonzero CAR identity itself prevents collapse
 of a nonzero smearing function to the zero operator.
 
 In particular, a norm estimate passes to an **operator** identity by
@@ -194,7 +194,7 @@ transform of any smooth test function supported in negative energy,
 dominated convergence therefore gives zero. The limiting time generator
 has no negative spectral projection on any polynomial vector. These
 vectors are dense, so the entire ground GNS generator is nonnegative.
-No subtraction of a fitted chemical potential or new energy origin is
+No subtraction of a fitted chemical potential or shifted energy origin is
 introduced in this passage.
 
 ## Exact graded locality in a conservative physical cone
@@ -227,7 +227,7 @@ limit anticommutes whenever `R-r>96v|t|`.
 For arbitrary separated compact supports, cover the first support by
 finitely many small cubes and use a smooth partition of unity. If their
 sup-norm distance is `d>96v|t|`, the cubes can be chosen small enough that
-each inner/outer cube pair has a gap still larger than `96v|t|` and the
+each inner/outer cube pair has a gap larger than `96v|t|` and the
 outer cube misses the other support. Apply the preceding bound to each
 piece and sum. Time translation invariance gives the statement for any
 two times. Algebraic graded commutation then extends from field generators
@@ -243,7 +243,7 @@ valley use the exact Fourier isometry from physical `|p|<=P` into lattice
 momenta `k=pi b+a p`, with `aP<pi/2`. The images of all eight windows are
 disjoint (under the torus convention). Translation invariance makes each
 window reduce the full retarded Green operator and its Schur memory.
-Its kinetic norm is at most `vP`. The previously proved exact formula
+Its kinetic norm is at most `vP`. The proved exact formula
 `G_a^-1=z-h_a-U r_a-Sigma_a`, with
 `||Sigma_a||<=U^2/(4 Im z)` and `1/8<=r_a<=1/2`, gives
 
@@ -253,7 +253,7 @@ Its kinetic norm is at most `vP`. The previously proved exact formula
 ```
 
 The second inequality is the same spectral Cauchy--Schwarz argument as
-in `retarded_spatial_locality`, now applied only to this reducing window.
+in `retarded_spatial_locality`, applied here only to this reducing window.
 It proves invertibility with a bound uniform in spacing on compact upper
 half-plane frequency domains. It neither takes the real-frequency limit
 nor proves convergence of inverse operators from weak convergence alone.
@@ -262,7 +262,7 @@ isometry only by the multiplier `product_j sinc(a p_j/2)`; its error is
 at most `a^2 P^2||f||/24`. Thus both smearing conventions have the same
 limiting field correlations on these packets.
 
-The density bound used here is the previously proved one for `U>0`.
+The density bound used here is the proved one for `U>0`.
 At `U=0` the filled negative-energy free ground has onsite covariance
 `I/2`, hence `r=1/2`, giving the same bound directly.
 
@@ -277,7 +277,7 @@ Differentiating `tau_H,t-s(tau_kin,s(c(u)))` and integrating gives
 ```
 
 Only the interaction derivation contributes. At each intermediate time
-the free field is linear and its one-particle norm is still `||u||`, so
+the free field is linear and its one-particle norm is `||u||`, so
 the bound on `B(u)` proves this Duhamel estimate. The domain is justified
 by the same closed derivation argument used above; it is not an estimate
 of the norm of an extensive interaction Hamiltonian.
@@ -314,7 +314,7 @@ This corollary is a controlled **free** continuum. For fixed `U0>0`, the
 Duhamel bound retains `U0|t|||f||` and gives no vanishing interaction
 error. It does not settle the required interacting continuum.
 
-## What is still missing
+## What is missing
 
 The source interaction is retained throughout every finite-spacing
 evolution, but a strict connected correlation has not been shown to
@@ -323,7 +323,7 @@ shrinking physical regions and times; it cannot establish that claim.
 The construction supplies neither a unique continuum vacuum nor numerical
 limiting correlations. It proves no real-frequency particle classification,
 scattering, Lorentz covariance, common metric or physical unit map.
-The existing Einstein theorem still requires its same-family G1--G6
+The Einstein theorem requires its same-family G1--G6
 receipts: the finite propagation cone and positive energy here do not
 provide a symmetric Lorentz stress, geometric modular flow, renormalized
 area stationarity, curvature control or a Newton scale.

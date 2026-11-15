@@ -1,7 +1,7 @@
 # One controlled enlargement of the interacting field band
 
-This construction adds two previously omitted spatial harmonics to the
-existing scalar field and executes their effect on the same continued
+This construction adds two spatial harmonics, omitted by the parent scalar
+field, to that field and executes their effect on the same continued
 measurement history. It derives the required low-mode mass adjustment,
 bounds the complete low-observer output, and certifies a positive
 interaction-induced excitation of the added modes. It is a finite,
@@ -12,7 +12,7 @@ control grid spacing and occupation for a fixed Fourier band. Finer grids
 there retain the same seven field degrees of freedom. This packet changes
 that band, supplies its interaction terms by exact Fourier integration,
 and compares the resulting nine-mode process with a matched seven-mode
-description. It preserves the earlier receipts.
+description. It does not rewrite the parent receipts.
 
 ```sh
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.interacting_band_extension --check model/interacting_band_extension/results.json
@@ -23,7 +23,7 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m pytest -q -W error model/inte
 
 The supplied torus is `[0,2*pi)^3`, with volume `V=(2*pi)^3`. The normalized
 real modes are the constant, sine/cosine pairs of each first harmonic,
-and the added `cos(3x), sin(3x)` pair. The new pair is a selected resonant
+and the added `cos(3x), sin(3x)` pair. The added pair is a selected resonant
 extension; it is not the next complete momentum shell. Pairing preserves
 translation closure of this Fourier band before occupation compression.
 The rectangular finite occupation code does not preserve all rotations
@@ -32,8 +32,8 @@ mixing a sine/cosine pair. No finite-code translation covariance is claimed.
 The canonical scalar action has bare `m=c=1`, `g=lambda/V=1` and oscillator
 basis frequency `Omega=2`. The occupation dimensions, in the order above,
 are `(2,4,4,2,2,2,2,4,4)`: 8,192 field amplitudes. The matched low code has
-512 amplitudes. These cutoffs are premises of this comparison; the earlier
-unrestricted seven-mode certificate does not extend to the new modes.
+512 amplitudes. These cutoffs are premises of this comparison; the parent
+unrestricted seven-mode certificate does not extend to the added modes.
 
 All `Q^2`, `P^2`, `Q^3` and `Q^4` matrices compress the full oscillator
 polynomial after it is formed. Powers of the compressed `Q` would give a
@@ -57,7 +57,7 @@ interval. The supplied Hamiltonian model time is shared by the compared
 protocols; source pulse counts and host runtime do not calibrate it.
 The construction needs no observer federation.
 
-## The new terms and the matching identity
+## The added terms and the matching identity
 
 Write `x=Q_cos_x`, `y=Q_sin_x`, `z=Q_cos_3x`, `w=Q_sin_3x`, and let `W7`
 be the existing dimensionless quartic polynomial, so the interaction is
@@ -72,11 +72,11 @@ The last four terms create odd occupation in the added band. The code
 independently obtains every one of the 49 monomials by summing its Fourier
 coefficients. A uniform grid with at least 13 points per axis integrates
 this quartic exactly. At 12 points `cos(3x)^4` aliases, providing a negative
-control. Grid refinement within these nine modes still leaves their
+control. Grid refinement within these nine modes leaves their
 bandwidth fixed. A separate rational `O(N^-2)` complete-history bound covers
 the finite-difference kinetic error on that unchanged code.
 
-Let `J psi=psi tensor |0,0>`, `P=JJ*`, and `Q=I-P`, where the two new
+Let `J psi=psi tensor |0,0>`, `P=JJ*`, and `Q=I-P`, where the two added
 oscillator blanks have frequency two. Their exact moments give
 
 ```text
@@ -103,7 +103,7 @@ B01 = (g/24) P_low (3x^2y-y^3) P_low.
 The high occupation cutoff four is used here; larger codes add channels.
 Exact rational row bounds on the compressed polynomials give
 `||Q H9 J||^2 <= R^2 < 7.570328`. The even blocks include motion caused by
-the frequency-two blank under the new harmonic's frequency `sqrt(10)`.
+the frequency-two blank under the added harmonic's frequency `sqrt(10)`.
 Total high excitation therefore is not, by itself, an interaction witness.
 
 ## Complete-history comparison theorem
@@ -148,8 +148,8 @@ distance `|sin(T)|`, verifying this distinction. Tests also cover an
 entangled reference, an intervening measurement and feedback, and the
 linear error produced by forgetting `P H P` in the comparison action.
 
-This is a direct finite-dimensional projection/Duhamel argument. The new
-contribution is its exact mapping to the executed band extension and its
+This is a direct finite-dimensional projection/Duhamel argument. The
+contribution here is its exact mapping to the executed band extension and its
 unpostselected observer histories. Hamiltonian truncation and coupling
 matching are established methods; see
 [Rychkov and Vitale, sections 2–3](https://arxiv.org/html/1412.3460v4).
@@ -160,7 +160,7 @@ Neither source supplies a continuum theorem for the finite family here.
 ## Certified resonance and retained numerical controls
 
 In a separate protocol, prepare the full product blank and read whether
-the total occupation of the new pair is odd. Two source-compiled CNOTs
+the total occupation of the added pair is odd. Two source-compiled CNOTs
 write that parity into a blank pointer, and both outcomes remain. The exact first derivative
 has squared norm `g^2/768`. This follows from cancellation of the one-quantum
 terms in `x^3-3xy^2` and `3x^2y-y^3`. For `g=0`, parity makes the odd event
@@ -201,7 +201,7 @@ source/reference errors are reported separately, without branch rescaling.
 The principal worst branch requests 2,950,900 source pulses and 5,901,800
 code load/export services, plus the two native repairs. The resource ledger
 counts requested operations rather than cached host computations;
-preparation, hardware fidelity and classical control costs remain supplied.
+preparation, hardware fidelity and classical control costs are supplied.
 
 ## Interacting readouts on the same radial product
 
@@ -287,7 +287,7 @@ to length `pi/c` with normalized radial measure and independent effective `g`.
 Holding the covariant coupling fixed would additionally change `g_eff` by `c`.
 This fit identifies neither radial topology nor the full angular tensor.
 
-An absolute energy scale is still needed: if `H_phys=E_* H_model`, then
+An absolute energy scale is needed: if `H_phys=E_* H_model`, then
 `beta_model=E_*/(k_B T)` and `t_model=E_* t_phys/hbar`. Simultaneously scaling
 the Hamiltonian by a constant and dividing inverse temperature and duration
 by it preserves all these records. A legitimate calibration can fix that
@@ -405,8 +405,8 @@ same instrument or idling are available interventions and both fix this
 algebra. One may choose between them by the retained label. With the same
 issued/retained evidence labels, prediction and unused-buffer embeddings as
 the cited construction, every finite observer-interface clause follows on
-this product program. These buffers and interface choices remain declared;
-no new Lean inhabitant is asserted. The first write itself changes its
+this product program. These buffers and interface choices are declared;
+no Lean inhabitant is asserted. The first write itself changes its
 projector from zero to probability `1/60` for a selected seam/coin record,
 so global blank-to-written durability is false. The proof preserves public
 prefixes, not arbitrary quantum work observables, and does not identify
@@ -424,7 +424,7 @@ its entangled reference. No failed branch is normalized or discarded.
 There are at most 775 controller instructions after preparation, with the
 same 217,110 source pulses including preparation, 434,220 load/export
 events and two native timing repairs. One instruction may call an entire
-compiled source word; its primitive cost remains counted. Controller
+compiled source word; its primitive cost is counted. Controller
 instruction count is neither incident count nor physical duration.
 For fixed `0<=q<1`, the single lazy instrument `q Id+(1-q) T` merely
 inserts recorded idle outcomes. If L bounds active instructions and
@@ -443,8 +443,8 @@ would generally bias it and is not used. An implementation error epsilon
 per complete controller invocation adds at most `J epsilon` to the
 existing source and splitting budget. This is a construction of the finite
 scheduler, not a certificate of controller hardware, storage or source
-service accuracy. The instruction table and architecture remain declared.
-The passive mixing channel is still distinct from the nontrivial modular
+service accuracy. The instruction table and architecture are declared.
+The passive mixing channel is distinct from the nontrivial modular
 unitary of the interacting Gibbs state.
 
 <a id="one-reference-clock-for-complete-intervened-histories"></a>
@@ -677,7 +677,7 @@ The same limiting state and dynamics satisfy, for bounded observables,
 flows, on `P_d A P_d`, converge through the strong propagator limit; no boundedness of
 `log(rho)` is asserted. Occupation refinement therefore preserves the
 interacting Gibbs clock and complete histories. Coupling, temperature,
-radial boundary conditions and the two-mode spatial projection remain
+radial boundary conditions and the two-mode spatial projection are
 declared choices.
 
 `product_occupation_refinement` retains ideal comparisons at `d=4,8,12`.
@@ -698,12 +698,12 @@ finite-`d` norm and waiting-time terms to vanish along the same schedule.
 Fixed step counts, fixed source precision and a fixed native clock
 refinement do not suffice uniformly in `d`. Protected services and
 arbitrarily accurate growing-code preparation/control are implementation
-premises. The original source execution uses `d=4`; the separate cold
-eight-level execution below now has a quantitative occupation certificate.
+premises. The parent source execution uses `d=4`; the separate cold
+eight-level execution below has a quantitative occupation certificate.
 
 ## Quantitative preparation and complete-history certificate
 
-The qualitative occupation theorem now has a computable error for the same
+The qualitative occupation theorem has a computable error for the same
 Hamiltonian, detector and feedback protocol. Run
 
 ```sh
@@ -711,14 +711,14 @@ python -m model.interacting_band_extension.thermal_certificate --check model/int
 python -m pytest -q -W error model/interacting_band_extension
 ```
 
-The original hot protocol remains `beta=1/4`. At `d=24`, its **preparation**
+The parent hot protocol is `beta=1/4`. At `d=24`, its **preparation**
 error against the infinite canonical Gibbs purification is below `0.005435`.
-This does not certify the old four-level history or execute a 24-level
+This does not certify the parent four-level history or execute a 24-level
 source word. A separate declared cold protocol, `beta=4,g=1,d=8`, has
 preparation error below `0.001469`. Its complete two-read history has
 error below `0.0025`, retaining work, the full quantum reference and all four
 records for each native sign. Temperature is a supplied parameter, not an
-estimate from laboratory data. The spatial two-mode projection remains.
+estimate from laboratory data. The spatial two-mode projection is retained.
 
 Here is the partition certificate. In the natural frequency `(1,2)` basis,
 let `H0` be the harmonic operator, `K=(Q1^2,Q2^2,Q1 Q2)`, and
@@ -774,7 +774,7 @@ platform-dependent residual as an invariant. Declared preparation, seed,
 path and escaped-row budgets enter the final error sum. The displayed
 partition interval is a separate, coarser enclosure; the preparation check
 uses the tighter unrounded partition certificate. Exact receipt comparisons
-remain strict, including rejection of both larger and smaller stored caps.
+are strict, including rejection of both larger and smaller stored caps.
 The preparation resource budget is also checked from the exact rational sum
 of the compiled word's binary floating-point angles, after recompiling the
 returned target and checking the entire resource record. Its declared
@@ -842,7 +842,7 @@ bound with the actual controller and retained preparation reference.
 The zero-/one-/two-incident timeout alphabet is preserved, including its
 `35/36` timeout mass at the two-attempt horizon. Algebraic invalid-code
 failure exports remain absorbing; they have zero weight on the declared
-valid-code input. The larger construction does not assert a new quantum
+valid-code input. The larger construction does not assert a quantum
 access-algebra rank beyond the separately derived four-level result.
 
 The same receipt instantiates the existing incident-clock composition at
@@ -853,7 +853,7 @@ outputs retain the same stochastic clock tape. This is an explicit
 resource/accuracy schedule, not execution of those 491,524 calls or a
 claim that the required service precision has been measured. At `beta=4`
 the modular increment per incident is `-1/(4 R)`. The active coupling,
-protected storage, coherent services and temperature remain supplied.
+protected storage, coherent services and temperature are supplied.
 
 The tests independently build padded oscillator matrices, compare all
 work/reference amplitudes, omit feedback as a negative control, corrupt
@@ -861,7 +861,7 @@ candidate paths, challenge spectral candidates and reject invalid or
 overflowing inputs. The stored receipt contains compact bounds and counts;
 the matrices and pulse histories are recomputed rather than archived.
 
-## What remains open
+## Open requirements
 
 One interacting bandwidth enlargement and its matching error are established
 on a finite occupation domain. Repeated band enlargement and unrestricted

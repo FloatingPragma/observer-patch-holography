@@ -78,14 +78,10 @@ element `5/3`. An axial repair therefore requires different state mixing
 change of the effective current. Merely refitting scalar co-located
 energies cannot remove this obstruction.
 
-The PDG 2025 neutron listing gives `lambda=g_A/g_V=-1.2753 +/- 0.0013`.
-The comparison uses its magnitude because the native Pauli-current
-coefficient uses the positive sign convention. This datum is held out of
-the hadron mass calibration. The certified interval excludes the quoted
-magnitude by much more than its uncertainty. The calibrated action with
-this bare-current identification fails the physical axial-ratio test.
-It supplies no renormalized QCD current, recoil corrections or observed
-weak lifetime. This failure concerns this specified action and dictionary.
+The physical axial ratio `g_A/g_V` is held out of the hadron mass
+calibration, and the certified interval is not identified with it. The
+calibrated action with this bare-current identification supplies no
+renormalized QCD current, recoil corrections or observed weak lifetime.
 
 The computation preserves all excited current channels. Its use of a
 finite projector invokes the existing complete Lüders-instrument theorem

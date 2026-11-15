@@ -6,7 +6,7 @@ dispersion curve. It adds an operational use of the existing
 [Gibbs energy identities](../../Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean)
 and [conserved-sector result](../conserved_sector_action/README.md).
 It supplies no physical clock, native field identification, particle species
-or mass. The source/core carrier and the interacting field remain distinct.
+or mass. The source/core carrier and the interacting field are distinct.
 
 Run the exact controls and, optionally, the bounded full-field comparison:
 
@@ -37,7 +37,7 @@ and rejects inconsistent cycles. Choosing zero independently in disconnected
 components does not measure a common energy origin.
 
 The same statement applies to blocks when the full generator inside each
-block is already known up to a scalar: one coherent comparison between two
+block is known up to a scalar: one coherent comparison between two
 blocks fixes their relative scalar. This is a conditional reduction in the
 number of comparisons, not a construction of the comparisons. A supplied
 positive `beta` is also a premise. Determining its value from a slope requires
@@ -142,7 +142,7 @@ There is a further independent boundary for mass attachments. On this fixed
 and the normalized Gibbs reference unchanged. Connecting all momentum fibers
 therefore does not measure the two-particle rest-energy offset relative to a
 vacuum sector absent from the carrier. Calibrated dispersion curvature may
-still constrain an effective mass under declared kinematic assumptions;
+constrain an effective mass under declared kinematic assumptions;
 that is a different contract from measuring an absolute vacuum-sector gap.
 The existing eta-pair/dark-state contrast `U` is an internal `N=2` energy
 difference and survives this scalar shift. Its measurability is unaffected;
@@ -150,14 +150,14 @@ it is not a comparison to the vacuum.
 
 ## Relation to the finite proof stack
 
-`GibbsReferenceEnergyIdentification.lean` already proves the equal-mass
+`GibbsReferenceEnergyIdentification.lean` proves the equal-mass
 partition-constant cancellation, additive-energy gauge and slope uniqueness
-when a nonzero energy contrast exists. `ConservedSectorAction.lean` already
+when a nonzero energy contrast exists. `ConservedSectorAction.lean`
 proves invariant sector reweighting and zero native charge-gradient cost.
 The additions here are the accessible-algebra graph criterion, the full
 clocked-history induction, their actual raw-map checks and the full-archive
 energy application. These matrix/instrument arguments are given above and
-tested here; they are not represented as new Lean theorems.
+tested here; they are not represented as Lean theorems.
 
 `ModularEnergyAdditivity.lean` requires the declared reference factorization
 or its explicit binding correction; adjoining a clock does not select it.

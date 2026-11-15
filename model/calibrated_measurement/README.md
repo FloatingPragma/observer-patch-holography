@@ -9,8 +9,8 @@ imperfect null controls, calibration uncertainty and declared apparatus
 errors together. It uses exact rational scalar arithmetic and outward square
 root/logarithm bounds.
 
-No new laboratory outcomes are available. The anharmonic comparison,
-its unresolved coordinate provenance and its RMSE remain unchanged. The new
+It uses no additional laboratory outcomes. The anharmonic comparison,
+its unresolved coordinate provenance and its RMSE are those of that packet. This
 result is a usable prospective calculation, not a resolution of that discrepancy
 or an empirical distinction between OPH and ordinary quantum mechanics.
 
@@ -33,9 +33,9 @@ All four joint outcomes are counted; summing the spin rows is a marginal,
 not postselection. Fixed trial budgets are required; optional stopping or
 selecting the most favorable probe after seeing counts needs another bound.
 
-The three imaginary-null/phase-reversal controls remain useful checks
+The three imaginary-null/phase-reversal controls are useful checks
 on stationarity. They are not required for the six-setting implication, and
-omitting them does not establish stationarity. The producer still compiles
+omitting them does not establish stationarity. The producer compiles
 their operators to reuse the existing nine-setting operator certificate;
 only six settings enter this measurement family or its trial budget.
 
@@ -66,9 +66,9 @@ software control, not an independently certified simulated trajectory.
 
 At 200 or 2,000 trials per setting the conservative interval is too broad to
 give this sign prediction. At 20,000 trials, the first complex-moment error
-radius is about **0.132906**, including the inferred calibration. The old
-nine-setting design's corresponding radius was about 0.1367; the main gain
-here is the completed error accounting and executable count interface.
+radius is about **0.132906**, including the inferred calibration. The
+nine-setting design has corresponding radius about 0.1367; this packet
+contributes the complete error accounting and executable count interface.
 
 ## The actual computation and its finite comparison
 
@@ -95,7 +95,7 @@ enclosures are recomputed rather than read from a receipt. They certify the
 **returned binary Kraus matrices**. The existing detector and spin-pointer
 producers use their guarded polar representation of contracted native words.
 This packet adds no projection or normalization of those returned matrices;
-the raw-word-to-representation telescope remains a floating diagnostic, not
+the raw-word-to-representation telescope is a floating diagnostic, not
 a rigorous source-implementation bound. That discrepancy requires a justified
 additional service allowance if the raw pulse execution is the target.
 Native word metadata and source hashes bind the fresh construction. Base-array validation prevents
@@ -128,7 +128,7 @@ This comparison error is included explicitly. Any actual apparatus discrepancy
 from this complete comparison, including physical implementation errors, must
 enter through a justified additional observed-mean bound `beta_s`.
 A complete-output total-variation bound `epsilon_s` can supply
-`beta_s=2 epsilon_s`; missing bounds remain `null`, never zero.
+`beta_s=2 epsilon_s`; missing bounds are `null`, never zero.
 
 The producer also executes the baseline preparation and the six
 complete readouts in the shared primitive runtime. Its floating expectations
@@ -227,8 +227,8 @@ with unresolved physical service bounds is in [counts_example.json](counts_examp
 
 Every invocation recompiles and certifies its own source interface. Zero
 service errors in the retained software controls name the complete
-mathematical target; they are not a hardware calibration result. The next
-physical step remains acquisition of contemporaneous raw counts and justified
+mathematical target; they are not a hardware calibration result. The open
+physical requirement is acquisition of contemporaneous raw counts and justified
 phase, coordinate, stationarity and apparatus bounds. Absolute displacement
-scale, physical clocks, the interacting action and the old anharmonic mismatch
-remain separate obligations.
+scale, physical clocks, the interacting action and the anharmonic mismatch
+are separate obligations.

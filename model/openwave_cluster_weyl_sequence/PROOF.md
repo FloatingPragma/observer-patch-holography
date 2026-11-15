@@ -106,7 +106,7 @@ Weyl's criterion therefore puts the complete pair-band energy in the essential
 spectrum. Total momentum concentrates around zero; no fixed total-momentum
 fibre is substituted for this normalizable full-space construction.
 
-The previously certified strict endpoint inequalities place the entire native
+The certified strict endpoint inequalities place the entire native
 Lambda rest enclosure between the pair-band energies at half-angle tangents
 7651/40960 and11477/61440. Continuity of the full isolated bands supplies at
 least one k* in this bracket with E_p(k*)+E_pi(-k*)=E_Lambda. Applying the
@@ -126,4 +126,4 @@ work, including arbitrary idle references. The existence of this breakup
 spectrum and the separate positive local-current response do not imply a
 nonzero on-shell weak spectral density. An outgoing wave operator and its
 actual weak overlap, complete weak dynamics and physical3+1 identification
-remain open.
+are open.

@@ -150,7 +150,7 @@ For a nonstationary input the effects remain complete, but this displayed
 identification of their sum with the stationary p_0 requires its premise.
 
 The canonical reference is never counter-evolved. The two source echoes
-already implement the Heisenberg conjugations. Discarding the reference
+implement the Heisenberg conjugations. Discarding the reference
 would weaken the observation domain, and replacing an echo by a one-sided
 unitary gives a different Gram response.
 

@@ -86,12 +86,12 @@ the pinned selector distances.
 ## Open boundary
 
 The face incidence is pinned input.  For the quadratic rule the metric choice
-is now characterized rather than declared coordinate data: the comparison is
+is characterized rather than declared coordinate data: the comparison is
 robust over the complete carrier-induced invariant class, with balance in the
 two three-dimensional sectors as the stated sufficient condition and an exact
 three-scale tie surface beyond it.  The nearest-point repair rule, the
 restriction to carrier-induced metrics, and the `L1`/`Linfinity` coordinate
-rules remain declared discriminator choices, and none of them is
+rules are declared discriminator choices, and none of them is
 source-derived.  Neither a minimum-distance Jacobi repair law nor a physical
 bracket producer is selected by the source.  The comparison ranges only over
 the compact locus classified under the three named compact-Lie inputs; it is

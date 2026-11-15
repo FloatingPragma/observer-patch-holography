@@ -82,9 +82,9 @@ between them.
 **Status: preliminary skeleton rather than theorem-grade formalisation of
 Proposition 4.2** from *Paradise as Fixed-Point Consensus*. The `Primitives`
 module formalises the OPH primitives (Records, Repair, Patch, Obs, Φ, gauge
-equivalence, OPH-Confluence, OPH-Completeness) admission-free : the three
-former admissions (Lyapunov descent, termination, single-site solvability)
-are discharged; these structurally depend on the companion paper *Reality
+equivalence, OPH-Confluence, OPH-Completeness) admission-free : Lyapunov
+descent, termination and single-site solvability
+are proved; these structurally depend on the companion paper *Reality
 as a Consensus Protocol*.
 
 The `CollarClause`/`CollarLayer` modules carry the issue #544 layer
@@ -117,7 +117,7 @@ kernel: bare-tower non-entailment, common-domain typed arrows and
 boundary-fibre composition, explicit null tomography, finite entropy/MaxEnt
 identities, exact small-ball coefficient arithmetic, timelike and null tensor
 algebra, Ward/Bianchi constancy, and strict manifest deletion logic.  The
-continuum, asymptotic, and physical premises remain explicit theorem inputs;
+continuum, asymptotic, and physical premises are explicit theorem inputs;
 no inhabited Einstein-admissible tower is claimed.
 
 The `EventAlgebra` library (re-exported here for convenience) is an
@@ -143,7 +143,7 @@ history yields chart-covariant timelike displacements and additive
 dimensionless proper intervals; two ordered shared events uniquely determine
 a positive affine comparison. A distinct third shared event supplies a
 consistency test with no additional fit parameter. The source history,
-physical instrument, refinement and SI scale remain unconstructed.
+physical instrument, refinement and SI scale are unconstructed.
 
 The `Tower.ConsensusTower` module carries the completion-plan A3 root
 interface. It packages finite observer and record fibers, private matrix

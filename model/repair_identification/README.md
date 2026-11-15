@@ -3,8 +3,7 @@
 Nine source-executed scalar measurements identify all nine real coordinates
 of the existing [record-law family](../record_laws/README.md). This determines
 the **coarse definite-current instrument on all 78 total-two states**, with
-arbitrary spectator and reference coherences. It goes beyond the earlier
-[C/E experiment](../observer/source_discrimination/README.md): an admissible
+arbitrary spectator and reference coherences. It extends the [C/E experiment](../observer/source_discrimination/README.md): an admissible
 collision law agrees with E on the entire binary sector, yet this experiment
 separates it. A reference-uniform bound propagates measurement uncertainty
 through finite feedback histories.
@@ -170,7 +169,7 @@ that shell and using the common interface remains identical, even with
 references and adaptive controls. In the collision probe their unconditional
 `(-1,+)` probabilities are respectively **1/2 and 3/8**. This proves that a
 successful C/E comparison restricted to the binary sector cannot identify the
-general repair law. The new probe removes that obstruction within the stated
+general repair law. The probe here removes that obstruction within the stated
 family. Additional exact controls vary h, m and n independently near the
 interior and exercise the imaginary quadratures.
 
@@ -228,7 +227,7 @@ independence between settings. Counts do not establish these premises.
 Outcome-dependent stopping or choosing a radius after inspecting outcomes
 does not satisfy this guarantee. A retained bounded Bernoulli stopping
 counterexample exceeds the incorrectly reused fixed-sample failure bound.
-The earlier continuing binary C/E classifier does not supply collision
+The separate continuing binary C/E classifier does not supply collision
 preparation or this independent-trial guarantee.
 
 The analysis reports compatible/excluded locked candidates and the diameter
@@ -246,7 +245,7 @@ python -m model.verify --hashes-only
 The finite component is complete: full-family identification, executable
 distinguishing operations, canonical continuation and a composed error budget.
 This does not settle physical law selection. Independent observations or a
-separate selection principle must still constrain the repair table; apparatus
+separate selection principle must constrain the repair table; apparatus
 accuracy and physical clock/field correspondences need evidence. Fine record
 access and coherent continuation require their own operational specification.
 The original large scalar benchmark and continuum/relativistic recovery are

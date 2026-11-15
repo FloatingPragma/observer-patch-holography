@@ -12,7 +12,7 @@ the Higgs/top comparison in its declared mass conventions, and the quark
 non-identifiability and conditional flavor checks. The displayed lepton
 intervals use a measured triple. The fixed MCPR muon/electron ratio falls
 outside the displayed PDG componentwise one-sigma interval under an identity
-pole-mass map; the Higgs/top and quark coordinates do not yet have a common
+pole-mass map; the Higgs/top and quark coordinates do not have a common
 physical mass attachment. Each ledger row reads its owning artifact.
 
 The [finite matter and common-field package](../../model/observer_particles/README.md)
@@ -36,7 +36,7 @@ under repeatable preparation. A [current-record spectrum](../../model/native_eff
 recovers two exact relaxation poles and a dimensionless decay-rate ratio under
 a declared uniform scheduler. The [modular-clock scale
 check](../../model/transfer_modular_probe/README.md) shows that assigning
-seconds to native events remains free. These are target-free native diagnostics,
+seconds to native events is free. These are target-free native diagnostics,
 not selected charged-family operators, particle mass ratios or absolute masses.
 The C/E charge-one two-point block is spatially pinned despite token
 population transport; a compiled relational readout can measure its decay
@@ -66,7 +66,7 @@ the conditional finite-action, anomaly, FJ-coordinate, strict W/Z, and Nielsen
 algebra and the namespaced dependency DAG. It cannot set a physical-promotion
 flag. Source-selected actions, QFT-Q2 constructions, QFT-Q3 restoration and
 identity transcripts, physical-current amplitudes, QFT-Q4 towers, analytic
-sheets, and numerical freezes remain separate producers.
+sheets, and numerical freezes are separate producers.
 
 ## Shared mixing readout
 
@@ -95,7 +95,7 @@ before rounding once; nonzero values below the float range are refused.
 phase quadrants, CP conjugation, rephasing, tiny mixing, invalid inputs and
 singular charts across all legacy entry points. These changes do not rescue
 any rejected particle candidate or supply missing physical source selection.
-Frozen artifacts/locks remain historical evidence; new candidate locks also
+Frozen artifacts/locks are archival evidence; candidate locks also
 hash the shared reader and its numeric-validation dependencies.
 
 Run `python -m pytest -q code/particles/test_mixing_readout.py` from the root.
@@ -107,7 +107,7 @@ They use a scaled direct SVD and check `U.T @ M @ U = diag(m)` instead of
 extracting masses from `M†M` or subtracting the intrinsic cubic trace shift.
 Those older calculations could round positive masses to zero. Complex phases
 are preserved at every mass scale; the real shortcut requires exactly zero
-imaginary entries. The cubic remains an independent numerical diagnostic.
+imaginary entries. The cubic is an independent numerical diagnostic.
 The checks are normwise binary64 residuals, not interval enclosures or relative
 error certificates for arbitrarily small masses. Degenerate blocks requiring
 additional congruence resolution are explicitly refused. Run
@@ -197,8 +197,8 @@ for analytic-spectrum, scale, complex-congruence, and serialized-producer contro
   admissible convention rescue. The bridge and absolute attachment remain
   compare-only. The shared-basis identity cancels the charged-lepton matrix by
   construction and does not supply the missing physical charged-lepton basis.
-  Earlier intrinsic builders also exported left SVD vectors instead of the
-  Majorana Takagi matrix; that implementation error is corrected. This lane
+  The intrinsic builders export the Majorana Takagi matrix, not left SVD
+  vectors. This lane
   emits neither a physical PMNS matrix nor absolute neutrino masses.
 - hadrons:
   `qcd/derive_lambda_msbar_descendant.py ->
@@ -239,7 +239,7 @@ row declares no lane.
 | `sin^2 theta_W_eff` | `0.22305833336075578` | `0.22321` in a distinct on-shell comparison convention | same incomplete quintet; no common scheme map, so no residual or pull |
 | `m_H` | `125.1995304097179 GeV` | `125.13 +- 0.11 GeV` | target-anchored fit: the synchronization scale minimizes an objective containing the measured pair; validation of the formula stack, never a prediction |
 | `m_t` | `172.3523553288312 GeV` | `172.1 +- 0.6 GeV` | companion coordinate of the same target-anchored fit; never a prediction |
-| `m_t` (criticality, adopted branch) | `172.629 GeV` | PDG 2026 cross-section pole reference `172.1 +- 0.6 GeV` | QCD-converted top coordinate at the log-midpoint anchor `E_star exp(-pi) P^(-1/6)`, two loops; finite electroweak pole matching remains open |
+| `m_t` (criticality, adopted branch) | `172.629 GeV` | PDG 2026 cross-section pole reference `172.1 +- 0.6 GeV` | QCD-converted top coordinate at the log-midpoint anchor `E_star exp(-pi) P^(-1/6)`, two loops; finite electroweak pole matching is open |
 | `m_H` (criticality, adopted branch) | `125.771 GeV` | `125.13 +- 0.11 GeV` | same branch and gates; tree readout inside the declared matching band |
 | `m_H` at measured `m_t` (relation test) | `124.726 GeV` | `125.13 +- 0.11 GeV` | two-loop criticality curve evaluated at the PDG 2026 cross-section pole-top reference; this tree Higgs coordinate is inside the declared matching tolerance, which is not a derived uncertainty |
 | `M_W`, `M_Z` (target-free declared-map audit branch) | `80.3301, 91.1191 GeV` | stale Breit--Wigner coordinates `80.3692, 91.1880 GeV` | zero-selector coordinate on a declared map that the source does not select; the renormalized-vev, tadpole, threshold, running, finite-order, uncertainty, and complex-pole maps are open, so this row is not a physical mass comparison |
@@ -259,7 +259,7 @@ The Koide receipt separates three statements. The positive-chamber
 face-circulant identity is exact. Equal rank-two event blocks and the finite
 tracial Gelfand-Naimark-Segal map give `abs(b)/a = 1/sqrt(2)` under the
 declared finite packet. A physical charged-lepton statement additionally
-needs the face-to-chiral-family attachment. The phase remains free and carries
+needs the face-to-chiral-family attachment. The phase is free and carries
 the two mass ratios jointly. The MCPR modulus is 3.30 ppm below exact balance,
 but the MCPR architecture was historically target-informed.
 
@@ -382,7 +382,7 @@ equal-area screen chart:
 `Lambda_CRC*a_cell=3*pi*P_*/N_CRC^EW=12*pi/K_cell`.
 It is a summary receipt of the existing certificates, not an SI Lambda or
 primitive-carrier promotion.
-Full SI gravity remains gated by the no-G clock stack.
+Full SI gravity is gated by the no-G clock stack.
 
 ## Electroweak Readout Status (#594)
 
@@ -499,7 +499,7 @@ not physical dimensionless Yukawa matrices. A physical Yukawa construction
 would require source-emitted RG trajectories, common-scale transport with
 threshold matching, a top conversion, the running Higgs expectation value in
 the same scheme, and `y_q(mu) = sqrt(2) m_q(mu) / v(mu)`. Numeric public quark
-rows remain withheld. Reopening the source theorem requires a new OPH source
+rows are withheld. Reopening the source theorem requires a new OPH source
 observable that breaks the independent positive-rescaling action without a
 dependency path to target data.
 

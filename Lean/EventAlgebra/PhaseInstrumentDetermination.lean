@@ -325,7 +325,7 @@ with `prep_coordinates`, `phase_frequency_eq`, and
 `rotated_frequency_eq`, this reduces the entire mathematical content of
 a committed-core inhabitant to the one free state coordinate; the
 residue is not mathematical state identification: provenance, preparation,
-and operational-instrument realization remain outside the model. -/
+and operational-instrument realization are outside the model. -/
 theorem prep_eq_iff_frequencies_eq {I J : IdealPhasePOVMCountModel}
     (hI : I.core = QuantumSurface.committedAlgebraicPhaseCompletion)
     (hJ : J.core = QuantumSurface.committedAlgebraicPhaseCompletion) :

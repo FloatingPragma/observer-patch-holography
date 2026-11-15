@@ -3,7 +3,7 @@
 The [finite matter contracts](observer_particles/DERIVATION.md) expose a
 selection boundary inside the particle route. The declared response and spin
 lift determine internal multiplets and invariant interaction lines, while
-three complex family matrices, the Higgs phase and its scale are free.
+three complex family matrices, the Higgs phase and its scale remain free.
 A common unbroken irreducible family action forces degeneracy, so it cannot
 supply the measured hierarchy under those assumptions. The entangled-pair
 spectral scalar is computed independently of empirical coupling values;
@@ -54,20 +54,20 @@ legitimate; their measured consequences require these derivations.
 | --- | --- | --- |
 | [Native action and field statistics](native_action/README.md) | A specified C/E instrument and scheduler determine exchange, coherence loss and complete finite histories. | Derive the effective observable dynamics in an identified physical regime. A transfer logarithm, Liouville generator and chosen-reference modular flow have different meanings. |
 | [Signal, spatial readout and receiver clock](physical_space_time/README.md) | The declared total-one passage protocol gives receiver-tick means 22, 28 and 30; a total-two control retains remote signal propagation before one local tick. | Select the spatial observable dictionary and compatible clock relation. The passage Gram has rank eleven and the slow-response Gram rank three; neither alone fixes physical dimension or a causal cone. |
-| [Native continuous observation field](physical_space_time/OCCUPATION_FIELD.md) | The compact Green limit G has a strongly local H1 inverse A of spectral dimension two. Positive weighted dual graphs share its limits, with Green error at most 182*2^-level. Positive native lag mixtures construct exp(-r*sqrt(A)) and its half-cylinder comparison. | Full initial/current readback, lag processing and spatial subsequences are explicit. The parameter r is not measured radius or an independent bulk field. Whole-sequence uniqueness, isotropy and physical interacting dynamics are unproved; the scoped static/complete-spectrum obstructions apply. |
-| [Native correlations and faithful quantum clocks](observer_time_fields/REFINEMENT.md#one-product-field-state-and-active-clock) | Native angular phases and declared radial pulses give a bounded-band product clock with splitting and precision bounds. The positive Dirichlet product operator determines thermal CCR covariance, sine response and sigma_s=alpha_(-b*s), at active incident time t=(2d/sqrt(630))*tau. Its action determines a measurable Lorentz metric, smooth under a smooth full-density premise. | Radial design, common b, preparation and protected controls are supplied. Finite-word costs construct a growing angular encoder family under precision-service premises; growing execution is unperformed. The relation identifies no spatial-patch boost, smooth observed metric or laboratory clock. Passive state and interaction selection are unproved. |
+| [Native continuous observation field](physical_space_time/OCCUPATION_FIELD.md) | The compact Green limit G has a strongly local H1 inverse A of spectral dimension two. Positive weighted dual graphs share its limits, with Green error at most 182*2^-level. Positive native lag mixtures construct exp(-r*sqrt(A)) and its half-cylinder comparison. | Full initial/current readback, lag processing and spatial subsequences are explicit. The parameter r is not measured radius or an independent bulk field. Whole-sequence uniqueness, isotropy and physical interacting dynamics remain unproved; the scoped static/complete-spectrum obstructions apply. |
+| [Native correlations and faithful quantum clocks](observer_time_fields/REFINEMENT.md#one-product-field-state-and-active-clock) | Native angular phases and declared radial pulses give a bounded-band product clock with splitting and precision bounds. The positive Dirichlet product operator determines thermal CCR covariance, sine response and sigma_s=alpha_(-b*s), at active incident time t=(2d/sqrt(630))*tau. Its action determines a measurable Lorentz metric, smooth under a smooth full-density premise. | Radial design, common b, preparation and protected controls remain supplied. Finite-word costs construct a growing angular encoder family under precision-service premises; growing execution is unperformed. The relation identifies no spatial-patch boost, smooth observed metric or laboratory clock. Passive state and interaction selection are unproved. |
 | [Quantum locality and refinement](native_action/README.md) | Compatible local inputs on a fixed bounded-degree graph give a quasilocal process in auxiliary per-edge Poisson parameter. Actual screen pairs have finite comparison bounds. | Establish the relevant extending family and quantitative limit of joint observations, including the claimed relativistic propagation, states and interactions. More carriers alone do not establish this. |
 | [Visible clock reconstruction](relative_observer_geometry/README.md#incident-clocks-on-the-simultaneous-density-continuum-scale) | Pair means and coincidences reconstruct positive IID seam weights. Normalized incident clocks sample the continuum field paths, including [predictable port choices](relative_observer_geometry/README.md#predictable-port-access-on-the-density-continuum-scale) with inverse-degree tick weights. Fixed bounded seam incidences separately give finite-vector Gaussian jitter with covariance `min(t,u)*shared_seams`, asymptotically independent of density vectors. | The IID uniform schedule and read access are explicit. Predictable port choices precede the fresh seam draw; their path theorem assumes no clock–field independence. Jitter independence applies only to the fixed-event-set contract. A local clock grants no remote readback, modular identity or physical duration. |
 | [Laboratory-clock attachment](laboratory_clock/README.md) | Events define an internal clock. Public optical data reject direct distinct-region attachments under bounded-error/no-extra-filter hypotheses; a separate test covers a declared compact filter and independent replicas. | The published servo time constant establishes neither compact support nor independent native sources. Allan moment targets give no confidence/resource or refinement bound. Atomic identification is unproved; aliases define one clock. |
-| [Native background preparation](record_laws/README.md#preparation-by-finite-native-warm-up) | Every admissible current-record law has a reference-safe warm-up bound: under uniform scheduling, 221 binary or 318 full-carrier attempts suffice for half trace error at most `1e-3`. Binary warm-up also controls all normalized entropy tangents; a global movement herald prepares a faithful modular reference with a finite flow-error bound. | Warm-up records may be stored but are ignored by the continuation; preparation failures are outputs. Conserved sector, exogenous seam coverage and herald access are explicit. Neither coherent probes, physical entropy/area identification nor passive modular evolution follow from these preparations. |
-| [Native regional entropy and clock](native_modular_reference/README.md) | Mixed complement repair plus one core attempt selects the unique coherent MaxEnt at two conserved occupation moments, with a faithful interior smooth family and the same entropy envelope for 1,024 cap decompositions. Bare-cap probes of the locally prepared reference read two modular gaps without exterior-state selection; complete state tomography derives the finite measurement menu. | The preparation schedule, coherent services and physical accuracy are declared. Counted edge entropy has no physical area/stress identification. The ideal inverse expected-current clock uses dimensionless modular parameter; compiled continuation is certified at `s=1`; the shared core clock is trivial, and intermediate pulse locality and laboratory seconds are unproved. |
+| [Native background preparation](record_laws/README.md#preparation-by-finite-native-warm-up) | Every admissible current-record law has a reference-safe warm-up bound: under uniform scheduling, 221 binary or 318 full-carrier attempts suffice for half trace error at most `1e-3`. Binary warm-up also controls all normalized entropy tangents; a global movement herald prepares a faithful modular reference with a finite flow-error bound. | Warm-up records may be stored but are ignored by the continuation; preparation failures remain outputs. Conserved sector, exogenous seam coverage and herald access are explicit. Neither coherent probes, physical entropy/area identification nor passive modular evolution follow from these preparations. |
+| [Native regional entropy and clock](native_modular_reference/README.md) | Mixed complement repair plus one core attempt selects the unique coherent MaxEnt at two conserved occupation moments, with a faithful interior smooth family and the same entropy envelope for 1,024 cap decompositions. Bare-cap probes of the locally prepared reference read two modular gaps without exterior-state selection; complete state tomography derives the finite measurement menu. | The preparation schedule, coherent services and physical accuracy remain declared. Counted edge entropy has no physical area/stress identification. The ideal inverse expected-current clock uses dimensionless modular parameter; compiled continuation is certified at `s=1`; the shared core clock is trivial, and intermediate pulse locality and laboratory seconds remain unproved. |
 | [Local preparation of a modular reference](native_clock/README.md#preparing-a-regional-clock-with-local-incident-counts) | A stopped-channel similarity bound replaces global warm-up counting with 496 regional incident ticks. The next specified movement flag and complement repair give a faithful reference with cap gaps `log(23/22)` and `log(5/4)`, with finite quantum/reference errors. | This is a different reference from the global Palm preparation. Regional record collection, IID scheduling, the fixed stopping rule and complement control remain. Its modular flow has no supplied physical duration or passive-dynamics identification. |
-| [Source-coded neutral transport readout](native_effective_fields/README.md) | Native currents herald pure orientation; source mixers and nine pointer copies implement the full phase POVM. The complete finite C/E trial has total variation `29/39600`, with all failures and timeouts. | The complement dephases addresses. Coherent proper-code and pointer reset/read services, global movement access and physical fidelity are explicit. This response supplies no charged pole, particle mass or relativistic propagation. |
+| [Source-coded neutral transport readout](native_effective_fields/README.md) | Native currents herald pure orientation; source mixers and nine pointer copies implement the full phase POVM. The complete finite C/E trial has total variation `29/39600`, with all failures and timeouts. | The complement dephases addresses. Coherent proper-code and pointer reset/read services, global movement access and physical fidelity remain explicit. This response supplies no charged pole, particle mass or relativistic propagation. |
 | [Single-history local sampling](native_clock/README.md#finite-confidence-from-one-continuing-local-history) | One own-incident signed-current tape estimates stationary occupation, adjacent-occupation product and movement means with exact finite confidence bounds, from arbitrary initial states. | Uniform IID seams and fair placement remain. Fixed local horizons and complete unknown outcomes are required; the intervals neither estimate an arbitrary initial mean nor authenticate a laboratory correspondence. |
-| [Native preparation of field histories](observer_time_fields/README.md#native-preparation-of-the-labelled-field-state) | Native coarse-coin selection and current-only reset supply the elementary uniform field state and its two initial records. The continuing incident-clock/feedback law retains every failure with a common complete error bound. | Joint current access, separate work/auxiliary carriers and the explicit private-record discard boundary are architecture inputs. This does not supply refined-screen preparation or identify the fields with physical observations. |
+| [Native preparation of field histories](observer_time_fields/README.md#native-preparation-of-the-labelled-field-state) | Native coarse-coin selection and current-only reset supply the elementary uniform field state and its two initial records. The continuing incident-clock/feedback law retains every failure with a common complete error bound. | Joint current access, separate work/auxiliary carriers and the explicit private-record discard boundary remain architecture inputs. This does not supply refined-screen preparation or identify the fields with physical observations. |
 | [Passive endpoint age](native_clock/README.md#passive-age-from-two-current-derived-endpoints) | A native antipodal occupation mode has exact decay factor `9/10`. Current-only endpoint discovery gives an inverse from complete continuing-trial counts, without reset, coherent services or independent copies. | A fixed unknown attempt count and externally delimited intervals are required. The decoder cannot see the private scheduler tape. Random lengths can share a score mean; no individual monotone clock, modular flow or seconds calibration follows. |
 | [Native attempts and source pulse costs](laboratory_clock/resource_clock.py) | Refining the ideal native history by an admitted attempt counter gives a joint operation-count law; a shared affine timing hypothesis supplies conditional duration bounds. | The counter is additional read access. Raw compiled-array histories and coarse-current calibration bounds are not transferred to this finer output. Physical timestamps and service-duration assumptions need independent evidence. |
-| [Public observations](../docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md) | The same certified forward P is propagated into the conditional coupling endpoint and primordial tilt without fitting either target. The endpoint misses its comparison band; the ACT posterior position remains `3114/508985` at both tilt interval endpoints. The separate fixed-background ACT likelihood uses overlapping observations. | Complete coupling transport, primordial identification and CMB transfer are conditional; the numerical enclosure is not a physical theory-error budget. No current bridge equates primordial tilt with a native finite-carrier readout or establishes agreement across all public datasets. |
+| [Public observations](../docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md) | The same certified forward P is propagated into the conditional coupling endpoint and primordial tilt without fitting either target. The endpoint misses its comparison band; the ACT posterior position remains `3114/508985` at both tilt interval endpoints. The separate fixed-background ACT likelihood uses overlapping observations. | Complete coupling transport, primordial identification and CMB transfer remain conditional; the numerical enclosure is not a physical theory-error budget. No current bridge equates primordial tilt with a native finite-carrier readout or establishes agreement across all public datasets. |
 
 The [inverse clock test](predictions/README.md) constrains two descriptions
 of the same three-mode transfer: four consecutive nonzero-lag movement-bit
@@ -124,7 +124,7 @@ A [relational charged-coherence test](native_effective_fields/README.md)
 can distinguish the admitted C/E laws
 using existing source controls for a declared source/reference preparation
 and exchange analyzer. This proves ideal encoded realizability, while their
-selection and physical service errors are open. Each exact native C/E
+selection and physical service errors remain open. Each exact native C/E
 channel keeps every vacuum-to-one-token coherence at its original port under
 any current-word schedule; its uniform-attempt charged two-point function has
 a flat spatial band even though one-token populations move. Thus these
@@ -136,9 +136,9 @@ derives its dissipative bands and first-global-movement response from the
 actual C/E maps. The ideal first-movement analyzer attains C/E trace distance
 `4/69`; finite capped executions retain complete probabilities and explicit
 timeouts. Coherent preparation,
-joint analysis and all-seam access are supplied; this is neither charged
+joint analysis and all-seam access remain supplied; this is neither charged
 particle propagation nor a physical spectral pole. A sourced geometric loop
-observable and calibrated physical spectrum are necessary for particle
+observable and calibrated physical spectrum remain necessary for particle
 identification or mass comparison.
 
 The [repair-response identity](predictions/README.md#native-repair-response-from-passive-clock-and-field-records)
@@ -158,7 +158,7 @@ bias, with the endpoint rule unchanged, also gives continuum mean derivative
 response at fixed bias. At fixed selection-slot count, its [disjoint-support response](observer_time_fields/REFINEMENT.md#heat-response-and-the-boundary-of-a-finite-signal-cone)
 has a nonzero exponentially bounded tail at every positive scaled time.
 An exact finite cone fails under that support/control/time dictionary.
-The controller, disclosure and their physical locality are explicit
+The controller, disclosure and their physical locality remain explicit
 obligations; this does not infer signalling from equilibrium correlations.
 
 The next physical identification should use the process's existing states, record
@@ -224,7 +224,7 @@ active-program role without claiming it executed or proved impossible.
 Its d=8192 full source word has not been emitted or executed. Later native,
 two-site and common-source histories are substantive completed finite
 protocols; they neither execute that original word nor establish physical
-completion. Their theorem hypotheses and error budgets are separately
+completion. Their theorem hypotheses and error budgets remain separately
 scoped in [RE-10](PREMISES.md#re-10).
 
 The reverse-engineering search uses finite OPH theorems, eligible observations
@@ -253,7 +253,7 @@ spectral encoders, lazy filters and pointer reads. A joint schedule keeps
 `p=630*h*16^level<=1`, while the existing zero-request branch bounds the
 actual marginal's logarithm, including input error. The native spectrum
 derives a uniform partition bound and a positive gap; precision services,
-growing execution and spectral tails are obligations. This supplies no 66-state Gibbs preparation,
+growing execution and spectral tails remain obligations. This supplies no 66-state Gibbs preparation,
 missing four-dimensional irrep, physical collar, group sewing or product Fock state.
 
 Critical superstring dimension ten follows from a specified worldsheet
@@ -308,7 +308,7 @@ most `(1/4+sqrt(5)/20)*((55-sqrt(5))/60)^n`. Nine means predict the other three
 with error at most `2+2*sqrt(5)` times that residual bound. Complete resolved/unknown readout
 intervals propagate through the decoder without discarding failures.
 This supplies actual finite source observations. The Lorentz lift, a physical
-stress dictionary and the small-ball attachment are separate inputs.
+stress dictionary and the small-ball attachment remain separate inputs.
 
 The continuing native load process supplies a more restrictive readout.
 For unit port directions `u_p`, continuity makes the decoded sum of currents
@@ -359,8 +359,9 @@ interacting evolution while the clock carrier pauses during protected
 services; timeouts remain in the output. Its two-mode Gibbs histories have
 an unrestricted-occupation limit, with a common clock/precision schedule.
 The four-level execution has substantial occupation dependence. Radial
-design, initial states, coupling, spectral access and controls are supplied; growing execution, physical transport, laboratory duration and a
-spatially unregulated interacting QFT are unproved.
+design, initial states, coupling, spectral access and controls remain
+supplied; growing execution, physical transport, laboratory duration and a
+spatially unregulated interacting QFT remain unproved.
 
 The [ambient spacetime theorem](../Lean/Geometry/SourceDerivedSpacetimeCarrier.lean)
 adjoins an independent real axis and defines `t*t'-G(x,x')`; dimension four
@@ -383,7 +384,7 @@ sixteen coin sequences, proves its parent graph and canonical heights, and
 instantiates the forward theorem. The executable compares its complete
 current/terminal-state table with the literal table proved in Lean.
 This formal instance has the declared four-event scope; the all-tape
-geometric argument is separate. Full value/version logging is execution
+geometric argument remains separate. Full value/version logging is execution
 instrumentation, with every zero-current invocation committed. It supplies
 neither intrinsic local access to all source registers nor arbitrary coherent
 quantum histories. The complete tape and exogenous schedule are explicit.
@@ -402,7 +403,7 @@ attachment under its stated gain, error and readout hypotheses. Its separate
 compact-filter extension does not identify the actual servo; sample Allan
 moment targets infer no resource bounds or source refinement level. The
 same-clock density-transfer sampling certificate requires joint incident
-records absent from those optical files. Atomic transitions are unproved.
+records absent from those optical files. Atomic transitions remain unproved.
 
 The conditional product construction joins radial and angular readouts to
 one wave operator, state and measurable metric. Physical identification
@@ -480,7 +481,8 @@ binary sector also leaves the collision coordinate `n` undetermined.
 
 With noisy records, the result is a set of admissible laws and a bound on
 their complete future observations. A fixed-design probability tube is not
-an exact recovered constant. Apparatus errors and the sampling design are explicit; the existing source executions use synthetic outcomes. Within a
+an exact recovered constant. Apparatus errors and the sampling design remain
+explicit; the existing source executions use synthetic outcomes. Within a
 specified model, a theorem may hold for every admitted state and reference.
 That mathematical quantifier does not make the empirically selected model
 instance an unconditional or observer-independent "eternal truth".
@@ -535,7 +537,7 @@ their retained runtime outputs. The stationary ground vector is a history
 representation; the runtime prepares the stationary mixture. This derives
 the finite classical-sector transfer Hamiltonian under the native law and
 uniform scheduler, while C/E quantum-instrument selection, physical-time
-identification, relativistic locality and physical refinement are open.
+identification, relativistic locality and physical refinement remain open.
 
 The [full quantum transfer attachment](native_quantum_history/README.md)
 extends that construction to all 4,356 binary matrix units for each declared
@@ -591,7 +593,7 @@ identification.
 The [native equilibration construction](native_equilibration/README.md)
 derives finite approach to the stationary state in each connected binary
 fixed-total sector, uniformly with an untouched reference. Conserved total
-and sector mixture are initial or boundary data. On that fixed algebra,
+and sector mixture remain initial or boundary data. On that fixed algebra,
 unital repair cannot increase relative entropy to `I/d`, and `I/d` is the
 entropy maximum with zero first variation for trace-zero state changes.
 The [finite counting identity](../code/geometry/ENTROPY_FIRST_LAW_AUDIT.md#joint-counting-stationarity-and-its-geometric-boundary)
@@ -640,7 +642,7 @@ timeouts and source errors. Passive repair has a quantitative obstruction to
 nontrivial modular automorphisms. These results connect source records,
 thermal references and clock protocols without selecting physical duration
 or a relativistic continuum. The coherent probe services and conditioning
-access are explicit inputs.
+access remain explicit inputs.
 
 The [native record clock](native_clock/README.md) constructs an observable
 counter with exact statistics from the same committed currents.
@@ -649,15 +651,15 @@ including no-event tails. Uniform stationary mean current `5/33` survives
 any fixed seam weighting, but event recurrence and correlations do not.
 The single-seam control leaves inactive configurations, so an unchanged
 stationary rate cannot alone justify a working clock. Counts, event-conditioned
-intervals and physically calibrated duration are distinct quantities.
+intervals and physically calibrated duration remain distinct quantities.
 Its [signed-current readout](native_clock/README.md#local-field-readout-without-an-initial-bit-disclosure)
 also recovers the local bit after the first nonzero incident current and
-retrodicts its earlier value. Before resolution the bit is unknown.
+retrodicts its earlier value. Before resolution the bit remains unknown.
 For either C or E, unresolved probability after `m` own incident ticks is at
 most `(3/8)^floor(m/16)` for any binary-sector input, including coherent
 inputs with untouched references. Complete resolved/unknown probabilities
 bound occupation means without initial-bit disclosure. Joint access,
-checkpoint coordination and finite-sample confidence are explicit.
+checkpoint coordination and finite-sample confidence remain explicit.
 
 The [first-current coherent readout](native_relational_readout/README.md)
 joins these constructions in the same executed history. The phase observable
@@ -667,7 +669,7 @@ The ideal stopped instrument is invariant under independently inserted identity
 idling and needs no supplied attempt count or conversion to seconds. A finite
 six-attempt program retains its unresolved tail; the infinite stopping law is
 summed separately. The phase preparation, detector, logical stopping controller,
-uniform scheduler and candidate law are supplied. This does not identify
+uniform scheduler and candidate law remain supplied. This does not identify
 a laboratory apparatus or remove its physical clock-calibration premise.
 
 The [common local-clock history](native_modular_reference/README.md#a-common-observer-from-two-local-stopping-clocks)
@@ -679,7 +681,7 @@ and `log(8/5)` and preserves every core-containing cap algebra. Requiring
 every bare two-port algebra to be modular invariant is stronger: even among
 noncommuting faithful references it forces diagonal product weights. These
 results discharge finite preparation and instrument connections, while
-coherent code services and physical meaning are declared obligations.
+coherent code services and physical meaning remain declared obligations.
 Completed spectator-uniform cap operations remove exterior-state selection;
 intermediate source-pulse locality is separate. One complete native-current
 setting identifies this source-derived entropy family, with all failed trials
@@ -732,7 +734,7 @@ in half-diamond distance for `|s|<=16`. This derives work-state faithfulness
 and the finite modular/KMS hypotheses at `H=-log(sigma_n), beta=1`, with
 failure and reference correlations accounted for. The full-algebra herald differs from
 the fixed-seam probe's rank-20 herald. Exogenous scheduling, discarded
-warm-up records, herald access and coherent controls are explicit.
+warm-up records, herald access and coherent controls remain explicit.
 Composing the full source word with this preparation controls its difference
 from the actual successful state's modular action, without compiling that
 unknown state's eigenbasis. These results
@@ -774,7 +776,7 @@ Actual source-screen levels 1/3, 2/4 and 3/5 have identified port-labelled
 neighborhoods through radii 3, 6 and 9. Those maps and matched initial
 restrictions supply finite complete-output comparisons. Uniform global
 total-two states instead have a calculable local mismatch and dilute toward
-vacuum as the screen grows; nontrivial compatible density is boundary
+vacuum as the screen grows; nontrivial compatible density remains boundary
 data. An all-level routing and scaling argument is required.
 A reduced observer algebra can require memory; the conditional limit
 does not imply autonomous local Markov evolution, Lorentz symmetry or a
@@ -804,7 +806,7 @@ that interface with continuing work evolution, keeping both herald signs,
 failure, signed stopping records, four work bits and native phase. Its cap-64
 execution retains 8,195 complete records and the finite error budgets. The
 work-only marginals agree for C and E; phase access provides the discriminator.
-The separate work preparation and action are supplied benchmarks. Complete
+The separate work preparation and action remain supplied benchmarks. Complete
 record-weight bounds on raw source arrays do not certify physical apparatus
 fidelity or make numerical padding irrelevant to unlimited stopping.
 The [coherent continuation](observer/COHERENT_CONTINUATION.md) fixes a
@@ -824,7 +826,7 @@ An [active incident counter](relative_observer_geometry/README.md#active-coheren
 drives steps on a protected register; its complete two-attempt Ramsey
 probability is `1297/1320` and its ideal bounded-band limit is
 `cos((2d/sqrt(630))*tau*sqrt(A))`. Timing-carrier pauses, coherent services
-and accumulating implementation errors are explicit. The product-mode
+and accumulating implementation errors remain explicit. The product-mode
 controller executes complete ordered pointer and kick readouts; its bounded-band
 contract does not execute a growing nonconstant-mode refinement compiler.
 
@@ -857,7 +859,7 @@ retained. Conditional on coin zero, plus probabilities are `1` and `0`;
 conditional on coin one, both are `1/2`. Each coin has probability `1/2`.
 Committing the record before that read gives `1/2` for both.
 The complementary outcome is a distinct record-basis result, not a native
-current label. Source-code services and calibration are premises; these
+current label. Source-code services and calibration remain premises; these
 values are model predictions without experimental data.
 
 ## Measurement premises and discriminating predictions
@@ -881,7 +883,7 @@ probe-coordinate scale.
 joint spin/detector counts. Null settings constrain a stationary detector's
 gain and offset; two quadratures at `h` constrain the two at `2h` without a
 Gaussian preparation assumption. Calibration, finite instrument comparison,
-service errors and simultaneous sampling error are explicit. Its software
+service errors and simultaneous sampling error remain explicit. Its software
 fixtures are not empirical counts. Missing apparatus bounds leave the physical
 test unresolved; no zero-error default is justified.
 
@@ -894,11 +896,12 @@ Their deterministic Gram-positivity residuals diagnose treating noisy means
 as exact expectations; they neither reject a model statistically nor prove
 the dataset unreliable. The finite compiled probes do not implement the
 continuous oscillator Weyl relations exactly. Those laboratory instruments,
-accepted counts, coordinate calibration and physical error bounds are necessary premises. The 125-point anharmonic RMSE is `0.2876427868`.
+accepted counts, coordinate calibration and physical error bounds remain
+necessary premises. The 125-point anharmonic RMSE is `0.2876427868`.
 
 For a future Gram-witness test, randomizing the setting after preparation
 replaces a common-state/IID premise with conditional positivity. Preparation
-may drift and retain quantum memory; the setting must be independent
+may drift and retain quantum memory; the setting must remain independent
 of the prepared state conditional on the past. Fixed-horizon bounds retain
 every outcome and explicitly charge detector errors. Deposited means select
 candidate witnesses, but lack the fresh random-setting records needed to
@@ -976,7 +979,8 @@ the physical interpretation premise open.
 ## Arithmon marked-triplet interface
 
 The comparison keeps the McKay result in its established scope: the
-character field is `Q(sqrt(5))`, and its two real embeddings are unselected by McKay alone. The exact OPH marked-triplet certificate
+character field is `Q(sqrt(5))`, and its two real embeddings remain
+unselected by McKay alone. The exact OPH marked-triplet certificate
 transports the source-frozen order-five action through the live response
 chart before evaluating characters. For that action, the spatial slow
 triplet and lower internal triplet have zero intertwiner dimension; the

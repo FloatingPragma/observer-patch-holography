@@ -29,8 +29,7 @@ neutral-mass and native-spatial identification boundaries.
 
 The [protected ordered-cover construction](defect_protection/README.md) starts from
 native repair paths and an explicit coherent memory law. Its exact protected
-charge is carried by the joint source/memory system; a localized source
-particle remains to be constructed. The [same-carrier matter-capacity
+charge is carried by the joint source/memory system; the construction of a localized source particle is open. The [same-carrier matter-capacity
 theorem](defect_identity/README.md) derives necessary additional multiplicity
 and a conditional faithful gauge embedding. The [repair-cost/action
 calculation](defect_energy/README.md) derives the actual operator path action,
@@ -280,8 +279,7 @@ between seam records and the detector. Even a control
 matching all status-conditioned marginals fails the joint comparison.
 These are event-count clocks. The phase, mixer and terminal detector are
 declared ideal interventions; their physical implementation or duration is
-not supplied. The earlier diagonal receipt and its occupation-disclosure
-contract remain unchanged.
+not supplied. The separate diagonal receipt and its occupation-disclosure contract keep their own scope.
 
 The [CP local-output construction](observer_correspondence/QUANTUM_CLOCK.md) constructs
 an ordinary CP effective instrument by splitting actual remote waits around
@@ -787,8 +785,7 @@ For supplied work dynamics, the
 [thermal-reference construction](common_source/THERMAL_CLOCK.md) gives
 `s=-t/beta` under its faithful Gibbs reference and preserves committed record
 projectors between interventions. Choosing that reference from the supplied
-Hamiltonian does not derive either input. Measurement and feedback remain
-their actual instruments. None of these constructions selects a unique
+Hamiltonian does not derive either input. Measurement and feedback are their actual instruments. None of these constructions selects a unique
 operational reference or requires universal synchronization.
 
 ## Coherent interfaces and joint work observations
@@ -1205,8 +1202,8 @@ members as one interacting physical universe.
 
 | Source construction | Consequence and remaining input |
 | --- | --- |
-| [Factorized kinetic compiler](openwave_factorized_compiler/PROOF.md) | Exact Fourier and spin factorization replaces the fifth-power volume error estimate by a linear-volume bound. A prepared-state energy inequality gives at most 6.564×10^27 cycles for the same large near-rest packet and complete records, about 1.966×10^34 fewer than the global-norm bound. This is a large analytic resource bound with supplied controls. |
-| [Complete native Higgs action](openwave_full_higgs_floor/PROOF.md) | All seven native charged pairs give H−E_ground≥e_min·abs(Q) on the full Fock carrier. All neutral zero modes and eight spatial valleys remain. The common family choice gives equal quark and lepton spectra, which fails unequal observed quark masses. |
+| [Factorized kinetic compiler](openwave_factorized_compiler/PROOF.md) | Exact Fourier and spin factorization gives a linear-volume error bound. A prepared-state energy inequality gives at most 6.564×10^27 cycles for the same large near-rest packet and complete records, about 1.966×10^34 fewer than the global-norm bound. This is a large analytic resource bound with supplied controls. |
+| [Complete native Higgs action](openwave_full_higgs_floor/PROOF.md) | All seven native charged pairs give H−E_ground≥e_min·abs(Q) on the full Fock carrier. All neutral zero modes and eight spatial valleys remain. The common family choice gives equal quark and lepton spectra; no quark-mass comparison is made. |
 | [Larger neutral source](openwave_neutral_transfer/PROOF.md) | The literal side-four antiperiodic PW119 source has a nonzero third-order transfer between prepared gauge-singlet spin-half packets. A full-source remainder bounds a positive complete-record probability. The side-two isolated ground and its static energy are not transferred. |
 | [Neutral family evolution](openwave_neutrino_oscillation/PROOF.md) | Native family operators and the actual charged-current frame give three-flavour oscillation records with retained chirality-filter failures. The neutral architecture and pulse are declared; measured PMNS angles are not inferred. |
 | [Native weak conversion](openwave_weak_decay/PROOF.md) | The full weak-current contraction has a nonzero heavy-to-light charged transition with two neutral outputs, retaining quark spectators, momentum, energy and complementary records. It establishes a finite mechanism, without a physical muon lifetime. |
@@ -1238,7 +1235,7 @@ The [source derivation](../paper/tex_fragments/NATIVE_COMPOSITES_AND_QUANTUM_GEO
 | [Neutral production and flight](openwave_neutral_flight/PROOF.md) | Native source/receiver currents, spatial evolution, flavour mixing and recoil share one declared action; failures and which-path controls remain in the complete experiment. |
 | [Inclusive weak decay](openwave_inclusive_decay/PROOF.md) | A declared positive-frequency native-current member computes the inclusive three-body spectral law and finite-time survival control, with ultraviolet and weak coefficients retained as inputs. |
 | [Native bound composites](openwave_native_composites/PROOF.md) | Exact colour-singlet sectors of dimension120 and64 give baryon and meson binding margins at least55/24 and67/24. Full-Fock positivity retains all complementary modes. |
-| [One-scale comparison](openwave_composite_scale/PROOF.md) | All energies share one electron calibration. The physical light-hadron assignment fails; exact flavour degeneracy and cancellation of common binding corrections constrain any replacement. |
+| [One-scale comparison](openwave_composite_scale/PROOF.md) | All energies share one electron calibration. No physical light-hadron assignment is made; exact flavour degeneracy and cancellation of common binding corrections constrain any assignment. |
 | [Quantum geometry](openwave_quantum_geometry/PROOF.md) | Autonomous mediator evolution retains all64 native energy sectors and permits an entanglement witness between initially separate native clocks. Inertia, stiffness and cutoff are declared. |
 | [Wave-packet bending](openwave_wave_deflection/PROOF.md) | Complete two-dimensional scalar-wave evolution gives transverse deflection with metric controls and an independent second-order solver. The static profile and isotropic metric are supplied, without transfer from the distinct quantum-geometry source. |
 

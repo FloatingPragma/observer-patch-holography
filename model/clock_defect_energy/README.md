@@ -1,11 +1,9 @@
 # Continuing clocks, localized excitations and repair energy
 
-These source-bound diagnostics advance clock, defect and energy joins on the
-existing native C/E carrier. They build on the recorded-history transport in
+These source-bound diagnostics address clock, defect and energy joins on the
+native C/E carrier. They build on the recorded-history transport of
 [PR #1149](https://github.com/FloatingPragma/observer-patch-holography/pull/1149),
-pinned at `3d282b3d59763fa1a5171ad9a4fbc09fc0abf35a`. The contracts record
-its pending status at the campaign boundary; that status is historical after
-integration into main. The [first contract](campaign.json) fixes the diagnostic
+pinned at `3d282b3d59763fa1a5171ad9a4fbc09fc0abf35a`. The [first contract](campaign.json) fixes the diagnostic
 domain. A separate [theorem-join contract](joins_campaign.json) admits the
 counted extension of the compiled clock inventory. Both retain the native
 repair law and accept no integrated physical gate.
@@ -17,16 +15,16 @@ repair law and accept no integrated physical gate.
 | [#1139](https://github.com/FloatingPragma/observer-patch-holography/issues/1139), [exchange history](DEFECT_HISTORY.md) | The native configuration complex has exact integral first homology `Z/2`; complete C/E records realize its exchange class. The [sharp-sector packet](../exchange_sector/README.md) tests live relational charges, exterior distance and active recovery. | Obtain an autonomously protected localized sector and coherent exchange response. |
 | [#1140](https://github.com/FloatingPragma/observer-patch-holography/issues/1140), [mode energy](MODE_ENERGY.md) | Native current records give a positive Dirichlet form. The product mode has a separate rest/kinetic comparison. The [reference-balance test](REFERENCE_BALANCE.md) finds fixed-clock drift, a stationary source/core measure and zero gradient cost for its relational charge. | Attach one rest action, moving response and conserved stress to a localized excitation with a calibrated clock. |
 
-The [completion plan](../../docs/COMPLETION_PROGRAM.md) advances #1135 as
-the shared domain/primitive owner, with #1136 reviewing continuing services
-and #1137 reviewing theorem interfaces.
+In the [completion plan](../../docs/COMPLETION_PROGRAM.md), #1135 owns the
+shared domain and primitives, #1136 the continuing services and #1137 the
+theorem interfaces.
 The [theorem application map](THEOREM_JOINS.md) states which premises are
-checked on the model and which remain conditional. The original
+checked on the model and which are conditional. The
 [continuation](CONTINUATION.md), [localization](LOCALIZED.md) and
-[activity-energy](ENERGY.md) diagnostics retain their results: the previous
+[activity-energy](ENERGY.md) diagnostics retain their results: the
 four-word inventory is incomplete, the adjacent pair has mean first exit 15,
-and its excess bare movement is negative. The successor's positive results
-use their own explicit service and observation contracts.
+and its excess bare movement is negative. The positive results of the
+theorem-join contract use their own explicit service and observation contracts.
 
 ## Clockwork correction and reuse
 
@@ -53,11 +51,11 @@ The transported faithful reference extension is not a posterior corner or
 the stationary source/FIFO reference. Its core label is classical metadata;
 transporting it does not implement port routing or establish a physical
 source charge. Attempt count, actual repair count, modular parameter, wave
-parameter and any calibrated physical clock remain named separately.
+parameter and any calibrated physical clock are named separately.
 
 The retained receipts bind their implementations, independent checks and their
 named contracts. No empirical comparison is added. Preparation and coherent
-services retain their predecessor domains and failure budgets. The expanded
+services retain their parent domains and failure budgets. The expanded
 clock inventory counts every added word and its source execution.
 The reference-balance packet distinguishes fixed-reference drift from a
 stationary co-moving source/core measure with counted classical metadata.
@@ -85,4 +83,4 @@ python -m model.clock_defect_energy.clock_count_inference --check
 
 `--write` regenerates the named packet's receipt after a reviewed source
 change. The all-core source-word replay takes several minutes. The frozen
-predecessor receipts and campaign remain untouched.
+parent receipts and campaign are never rewritten.

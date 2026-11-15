@@ -143,24 +143,13 @@ integer arithmetic. It applies the unchanged six-quark bound
 frame is invertible. Every eigenvalue interval follows from these
 recomputed quantities. Integer ranges, dimensions and ordering are checked;
 no supplied interval or error is trusted and no complementary column is
-discarded. Native floating diagnostics still diagonalize the actual source.
+discarded. Native floating diagnostics also diagonalize the actual source.
 
-## One-length comparison
+## Physical length
 
 The nuclear source provides an exact graph quadrupole interval q close to
 one half. If one physical length a attaches both records, then
 `Q=a² q` and `sigma=(4kappa u/3)/a`, where u is the electron GeV unit.
-Eliminating a gives `sigma² Q=(4kappa u/3)² q`. The comparison inputs use
-Q=0.285699 fm² from Puchalski, Komasa and Pachucki,
-Phys. Rev. Lett. 125, 253001 (2020), arXiv:2010.06888v2, and the explicitly
-illustrative tension benchmark sigma=1 GeV/fm. They are not fitting inputs.
-
-At kappa=4 the quadrupole-matching length gives a tension near
-0.00361 GeV/fm. Even allowing kappa to vary while preserving the two-cell
-operator identity and nonnegative local colour requires kappa<=2U. The
-exact outward quadrupole interval gives a maximum tension below
-0.429 GeV/fm, incompatible with the supplied 1 GeV/fm benchmark. The
-receipt verifies the inequality using rational squared quantities, without
-relying on rounded square roots. This rejects the simultaneous benchmark
-attachment in this specified positive-source transfer family. It is not
-a general obstruction to OPH or to physical colour confinement.
+Preserving the two-cell operator identity and nonnegative local colour
+requires kappa<=2U. No common physical length for the quadrupole and the
+string tension is claimed for this positive-source transfer family.

@@ -1,7 +1,7 @@
 # Controlled relativistic charge dispersion on a specified running family
 
 The thermodynamic Hubbard charge excitations have a controlled relativistic
-scaling limit on the explicit coupling family already derived in
+scaling limit on the explicit coupling family derived in
 `mass_generation_audit`. This package proves a finite-parameter error bound
 for that dispersion, rather than calling a charge gap a mass:
 
@@ -57,13 +57,13 @@ Momentum also requires its reference convention. For ordinary Hubbard
 translation `T`, the same exact witness gives
 `P T P^dagger=-(-1)^N_down T`. Its constant phase cancels from momentum
 differences; the staggered map shifts them by `pi Delta N_down` modulo
-`2pi` on admissible whole states. The earlier onsite SU(2) frame conjugates
+`2pi` on admissible whole states. The inherited onsite SU(2) frame conjugates
 ordinary Hubbard translation to source translation combined with a uniform
 internal rotation. The momentum below is measured relative to the chosen
 low-energy charge branch, with these carrier offsets subtracted. It is not
 identified silently with an unshifted raw source translation eigenvalue.
 
-The even-ring SO(4) selection rules remain in force. An elementary
+The even-ring SO(4) selection rules hold. An elementary
 thermodynamic quasiparticle dispersion is not, by itself, a permitted
 isolated finite-ring state or a single local-CAR pole. No ground preparation,
 complete repair invariance, or native charge detector is executed here.
@@ -157,10 +157,10 @@ The continuation is not unique. For any `M>0`, multiplying `a_M(A)` above by
 while retaining `t=v/(2a)` and `U=pi v/(aA)` gives the very same starting
 point. This factor stays positive and tends to one, so the limiting rest
 energy is `M`. This exact counterfamily prevents inference of a unique
-mass from the bare point alone. In contrast, the previous fixed-U
+mass from the bare point alone. In contrast, the fixed-U
 velocity-preserving continuum family has zero limiting charge mass.
 
 Run `.venv/bin/python -W error -m pytest model/hubbard_relativistic_sector -q`
 and `.venv/bin/python -W error -m model.hubbard_relativistic_sector --check`.
-The receipt binds the owning source-law audit, new proofs, code, tests and
+The receipt binds the owning source-law audit, this packet's proofs, code, tests and
 paper fragment; it reports exact rational bounds separately from diagnostics.

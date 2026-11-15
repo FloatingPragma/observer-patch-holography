@@ -65,7 +65,7 @@ separate from the live port loads changed by feedback.
 The q=13 and q=21 rows are a checked census from a pinned declared-family
 receipt and a unicast compiler cost calculation. They are not new full-family
 executions. Full routing at those levels, source selection of copy/reset and
-read rules, physical costs, and quantum preparation/readout remain separate.
+read rules, physical costs, and quantum preparation/readout are separate.
 
 The [full-family compiler](../source_read_routing/README.md) executes
 complete q=13/q=21 routed histories and interventions under a supplied read

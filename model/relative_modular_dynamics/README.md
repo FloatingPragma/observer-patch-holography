@@ -388,8 +388,8 @@ and [`compiled_native_interface`](../compiled_native_interface/README.md).
 The fixed operator-error gates are `1e-10` and `1e-11`, respectively. These
 are separate source-gate bounds, **not** an end-to-end certified error bar
 for this packet's native-sector prediction. A complete source implementation
-of the new degree/Y instruments, native evolution on the full encoded
-carrier, and their composite error accounting remain to be supplied.
+of the degree/Y instruments, native evolution on the full encoded
+carrier, and their composite error accounting are not supplied.
 
 The next physical-time attachment must explain the joint continuing record
 and intervention statistics, and connect them to the accessible effective

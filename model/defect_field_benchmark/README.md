@@ -128,7 +128,7 @@ the diagonalized charged blocks to `y v/√2`: spin multiplicity two for
 each lepton sign, and spin-times-color multiplicity six for each quark
 sign. These are running action parameters, not direct pole-mass
 predictions. The input table has a pinned fit, scheme, scale and external
-matching provenance. This package produces zero new independently
+matching provenance. This package produces no independently
 predicted mass values and performs no additional fit or scan.
 
 Every one of the twelve original current generators is transformed as
@@ -161,4 +161,4 @@ The native port motion has not been mapped to this momentum or speed;
 the rest basis is not held fixed at finite momentum, and finite-momentum
 source execution requires both momentum sectors. Source propagation,
 particle-changing interactions, collision states and physical detector
-observables remain the concrete joins needed for particle identification.
+observables are the concrete joins needed for particle identification.

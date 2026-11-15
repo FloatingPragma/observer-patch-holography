@@ -8,12 +8,12 @@ logical qubit at core `(0,1)`; ordinary legal core motion is preserved.
 Both before and after the reset the physical carrier is the same binary
 two-load source. Classical core metadata is not coherent spatial position.
 
-The source weights remain `(25,25,8,...,8)`, with uniform seam attempts and
-the complete C/E placement coins. The code family remains exactly the 60
-encoders already declared by `moving_defect`. This is a new continuing
-controller with explicit services; the earlier stopped receipt remains
-unchanged. A core reset is not the number of quantum recovery operations:
-active recovery still follows every attempted repair.
+The source weights are `(25,25,8,...,8)`, with uniform seam attempts and
+the complete C/E placement coins. The code family is exactly the 60
+encoders declared by `moving_defect`. This is a continuing
+controller with explicit services, separate from the stopped receipt.
+A core reset is not the number of quantum recovery operations:
+active recovery follows every attempted repair.
 
 ## Exact optimal asymptotic reset rate
 
@@ -83,7 +83,7 @@ This identity holds on every logical matrix unit and arbitrary untouched
 reference. No branch probability is divided out. The all43,200-slot census
 includes 120 positive boundary resets, 11,460 ordinary continuing flags,
 17,220 valid zero slots and 14,400 raw abort slots. Abort and zero outputs
-remain present; the additional service is identity there. Sixty new inverse
+remain present; the additional service is identity there. Sixty inverse
 Gray schedules are checked on all512 original addresses, including padding.
 
 The fresh floating source replay executes a moving C branch, an E boundary
@@ -102,22 +102,22 @@ invocation even when compiler matrices are cached. The growing archive uses
 Physical storage, initialization, export and classical-control apparatus
 retain their declared service obligations.
 
-## What remains open
+## Open requirements
 
-The source law differs from the fair law in pending
+The source law differs from the fair law of
 [PR1153](https://github.com/FloatingPragma/observer-patch-holography/pull/1153).
 Its fair-control stopping means are150 and120, and a reset to any edge
 attains rate1/150. This package does not import that PR's rotation-equivariant
 encoder family or its every-code finite-horizon theorem into the biased law.
 The [compatibility note](../completion/SAME_PROCESS_INTERFACES.md) records
-the exact boundaries and pending revisions.
+the exact boundaries.
 
 Continuation does not fix the reference-like exterior obstruction. Nor does
 it make the fixed modular flow preserve all moving codes: only19 of60
 declared code subspaces are invariant. A reset count, source pulse budget or
 active logical qubit is therefore not assigned a topological particle,
 physical spin, rest energy or mass. CP-03 and the integrated completion
-gates remain open.
+gates are open.
 
 The optimal reset code itself is invariant under that fixed clock, but one
 native attempt can leave the invariant subset. The new stationary receipt

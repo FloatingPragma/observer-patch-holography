@@ -1,6 +1,6 @@
 # Exact seven-state control for contact observations
 
-The complete periodic Weyl-contact action remains owned by
+The complete periodic Weyl-contact action is owned by
 [`bound_pair`](../bound_pair/README.md). This package gives a smaller exact
 control for one declared observation domain: side `L=4`, total momentum
 `K=0`, states in the contact-generated cyclic subspace, and complete

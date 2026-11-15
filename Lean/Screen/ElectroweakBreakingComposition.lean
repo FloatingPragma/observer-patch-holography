@@ -8,7 +8,7 @@ One typed premise bundle, one composed receipt.  Register rows PR-67,
 PR-68, and PR-69 declare the finite scalar grammar, quartic breaking
 packet, and single Yukawa-line coefficient used here.  The broader
 physical scalar, vacuum, Yukawa-matrix, and source-action attachments
-(PR-48, PR-49, PR-50, PR-54) remain open.  This module inhabits only
+(PR-48, PR-49, PR-50, PR-54) are open.  This module inhabits only
 the finite clauses on the committed coarse grammar: it declares the
 premise parameters as typed fields of one bundle
 `EWBreakingPremiseData` (extending the committed
@@ -155,7 +155,7 @@ theorem vacuum_normSqSum (vev : ℝ) : normSqSum (vacuum vev) = vev ^ 2 := by
 /-! ## The quartic potential and its exact minimizer set (finite PR-68 packet) -/
 
 /-- The declared finite quartic potential `lam * (|h|^2 - vev^2)^2`
-(register row PR-68).  The physical vacuum attachment remains PR-49. -/
+(register row PR-68).  The physical vacuum attachment is PR-49. -/
 def potential (lam vev : ℝ) (h : Doublet) : ℝ :=
   lam * (normSqSum h - vev ^ 2) ^ 2
 
@@ -573,7 +573,7 @@ def epsPair (a b : Doublet) : ℂ := a 0 * b 1 - a 1 * b 0
 
 /-- One Yukawa line with one declared coefficient: the epsilon-paired
 coupling of the scalar to a doublet carrier and a singlet (register
-row PR-69: one finite line; physical matrices and family structure remain PR-50). -/
+row PR-69: one finite line; physical matrices and family structure are PR-50). -/
 noncomputable def yukawaLine (y : ℝ) (h ψ : Doublet) (χ : ℂ) : ℂ :=
   (y : ℂ) * epsPair ψ h * χ
 
@@ -608,7 +608,7 @@ Standard-Model structure premises (register rows PR-09, PR-10, PR-11,
 PR-59) extended by the declared scalar-sector, coupling, and Yukawa
 parameters.  Every added field is a declared finite hypothesis under
 PR-67--PR-69.  The physical scalar/action, vacuum selection, complete
-Yukawa matrices, and source action remain open under PR-48--PR-50 and
+Yukawa matrices, and source action are open under PR-48--PR-50 and
 PR-54.  None is derived here. -/
 structure EWBreakingPremiseData where
   /-- The committed Standard-Model structure premises. -/

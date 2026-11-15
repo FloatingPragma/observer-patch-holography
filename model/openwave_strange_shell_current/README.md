@@ -12,7 +12,7 @@ center-of-mass wave-packet transfer is not executed.
 The same strong source has an enclosed proton–pion energy shell. This
 package refines its momentum bracket, but does not identify the compact
 five-body output with an interacting scattering eigenstate. The on-shell
-scattering transfer and physical Lambda lifetime remain open. See
+scattering transfer and physical Lambda lifetime are open. See
 [proof](PROOF.md) and [records](results.json).
 
 Run `python -m model.openwave_strange_shell_current --write`, then

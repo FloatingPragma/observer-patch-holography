@@ -9,7 +9,7 @@ with its original positive probability and every failure retained.
 The original unit-link energy gives a linear separation cost in its
 complete single-unscreened-charge sector. Adding a positive Coulomb
 term cannot cancel that cost. A separate executable Hamiltonian
-replaces the link penalty by the quadratic Green energy. Its physical
+uses the quadratic Green energy in place of the link penalty. Its physical
 static trial states have path-independent Coulomb-shaped energy
 differences, with explicit unpenalized flux loops and no transferred
 ground-state or particle-spectrum claims.

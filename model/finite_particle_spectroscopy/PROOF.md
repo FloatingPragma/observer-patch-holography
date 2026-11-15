@@ -103,7 +103,7 @@ complement outcomes use the same original terminal branches.
 The executable evaluates all 32 adaptive word amplitudes for each of the
 112 exact source energies and compares them with the complete Fourier
 kernel. The ideal all-input identity supplies the full reference domain;
-the high-precision point comparison remains a floating diagnostic. The
+the high-precision point comparison is a floating diagnostic. The
 executed equivalent detector uses one reusable quantum qubit, five retained
 bits and five controlled source evolutions. The sum of their exposure
 magnitudes is unchanged, (2^n-1) 2 pi/R_a.
@@ -111,7 +111,7 @@ magnitudes is unchanged, (2^n-1) 2 pi/R_a.
 Likewise an n-bit sufficient precision plan can use one reusable qubit,
 n retained classical bits and n sequential source services, instead of n
 simultaneous pointer qubits. The large planned n values and exposures
-remain unexecuted. This reduces quantum storage, not coherent exposure,
+are not executed. This reduces quantum storage, not coherent exposure,
 classical record size or the assumed physical control accuracy.
 
 ## Confidence sets, including inconclusive records

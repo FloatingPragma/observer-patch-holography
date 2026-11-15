@@ -72,7 +72,7 @@ span the whole native channel, including all 240 fixed-magnetic states and
 2,520 states with magnetic multiplicities. The ordered columns retain the
 same native trial vectors and dyadic proof frames. Floating pivoted QR is
 not used to choose certified coordinates; exploratory energy diagnostics
-may still use the inherited floating basis. These indices are proof
+may use the inherited floating basis. These indices are proof
 coordinates, not new Hamiltonian coefficients or a subspace selection. Every exact native source, Gram error, residual, spectral
 interval, current and preparation probability is rebuilt; no stored result
 or error bound is accepted. Exact basis multiplication retains all occupations,

@@ -166,8 +166,7 @@ independent full-Fock exponential tests retain these branches.
 For the eight-site cube, `c=65536,U=c^2,J=1` gives the unit-time bound
 `327/4096<0.08`. These are controlled model examples, not measured mass
 fits. The original cube parameters `c=1/8,U=1` have `tau=3/2` and do
-not satisfy the new expansion premise. Their earlier exact results are
-neither replaced nor used to certify (6) outside its domain.
+not satisfy the expansion premise. Their separate exact results are neither replaced nor used to certify (6) outside its domain.
 
 Refining a fixed physical open cube is different. For L sites per side,
 `|E|=3L^2(L-1)`, `c=vL`, and `tau=O(L^4)`. If `U` has power L^p, the
@@ -236,7 +235,7 @@ vacuum field evolution as in the bounded-U theorem.
 
 ### Why unbounded U does not silently reuse a bounded-U compactness premise
 
-The earlier field construction used a time-Lipschitz bound containing U;
+The bounded-U field construction uses a time-Lipschitz bound containing U;
 it cannot be directly reused uniformly here. Instead, for all real
 times and smooth compactly supported physical smearings in all eight
 valleys, consider the formal bounded generators whose evaluations are
@@ -292,7 +291,7 @@ then implies convergence of each original finite-word correlator,
 without extracting a privileged subnet. Strong continuity, positive
 energy, and free Weyl propagation follow from this identified limit.
 This argument supplies the missing compactness step for unbounded U;
-it does not assume the old uniform time-Lipschitz estimate survives.
+it does not assume that the bounded-U uniform time-Lipschitz estimate survives.
 
 The result concerns the canonical charged CAR fields: all eight Weyl
 valleys have energies `v|p|` and zero rest mass. It neither sets the
@@ -340,7 +339,7 @@ proof for arbitrary finite graphs.
 
 The receipt binds current proof/code sources and records whether
 inherited historical receipts match those sources. A dependency whose
-receipt is stale is reported as such; the new replay does not claim
+receipt is stale is reported as such; this replay does not claim
 that prior expensive experiments were rerun. The growing-U theorem uses
 the stated analytic premises and their source proofs. Final integrated
 custody requires the owning project's dependency refresh.

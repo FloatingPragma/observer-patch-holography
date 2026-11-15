@@ -8,7 +8,7 @@ A receiver can extend a calibrated connected region by sweeping one new
 vertex through a simple path of calibrated vertices. The endpoint
 sample recovers the new value and the evolved region. This is a construction
 from scalar seam means, with no record payload in the schedule. Paths and
-their supported incidence remain explicit inputs; no metric menu is selected.
+their supported incidence are explicit inputs; no metric menu is selected.
 -/
 
 set_option autoImplicit false

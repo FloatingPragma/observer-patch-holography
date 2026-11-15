@@ -62,7 +62,7 @@ normalizer treats parent wires as read-only. A directional output-only rule or
 a compiler gadget that blocks backward writes would be a revised theorem
 target requiring its own proof; issue #626 tracks that construction.
 Continuum and physical-hardware attachment
-remain separate open interfaces.
+are separate open interfaces.
 
 Compilation checks the complete Boolean truth and update tables over every
 declared port assignment and internal register state. It accepts only kernels
@@ -86,12 +86,12 @@ of the settling potential away from the generated extension. This argument
 applies to the accepted finite Boolean kernels and wiring, not an unchecked
 replacement update law.
 
-The repaired compiler boundary rejects, for example, a supplied wire with
+The compiler boundary rejects, for example, a supplied wire with
 `q' = x XOR q`: at `x = 1` its original table has the cycle `0, 1, 0, 1` and no
-fixed state. Previously direct compilation used only the `q = 0` table slice
-and falsely certified a one-round bound. The reference manifest already
-verified its primitives before compilation, so its valid reference circuits
-retain their settling bounds. The tree-packet export, architecture benchmarks,
+fixed state. Direct compilation of only the `q = 0` table slice would falsely
+certify a one-round bound. The reference manifest verifies its primitives
+before compilation, so its valid reference circuits keep their settling
+bounds. The tree-packet export, architecture benchmarks,
 and issue #517 receipt use separate engines. Consensus source changes require
 refreshing the live source-current inventory with
 `python3 code/a5_closure/source_current_order_sensitive_inventory.py all`, then
@@ -112,9 +112,9 @@ each validator's lock state from certificate delivery and partial commits,
 construct the new-view reports, select the proposal, compute eligible voters,
 and determine recovery or deadlock. It also executes reference
 nonfaulty-progress phases; the arbitrary-view
-and wall-clock arguments remain the paper theorem. The refinement controls are finite
+and wall-clock arguments are the paper theorem. The refinement controls are finite
 descriptions of parametric infinite counterfamilies, not fixed-depth
-surrogates for a limit; the arbitrary-depth positive telescope remains the
+surrogates for a limit; the arbitrary-depth positive telescope is the
 mathematical/Lean theorem. The receipt
 checks both \(p\ge1\) and the finite-channel or pairwise-summability premise
 for finite-valued weighted \(\ell^p\) pseudometrics. It

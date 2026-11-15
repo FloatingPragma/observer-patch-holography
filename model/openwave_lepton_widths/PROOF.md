@@ -69,9 +69,9 @@ observer-clock theorem.
 
 The named PDG 2025 GF value is a weak normalization input with muon-lifetime
 ancestry. The calculated muon characteristic time is consequently a
-normalization check. A separate control uses alpha(0), W and Z masses in
-the on-shell tree relation; it fails the precision muon comparison. No
-radiative correction or loop-matched weak coupling is installed.
+normalization check. A separate on-shell tree-relation control with alpha(0), W and Z masses
+is not a precision muon comparison; no radiative correction or
+loop-matched weak coupling is installed.
 
 ## Uniform massive-neutral correction
 
@@ -139,8 +139,8 @@ the electron energy anchor. The native charged analyzer supplies the mass
 ratio; the neutral family sum and its bounded mass correction are explicit.
 The PDG 2025 HFLAV ratio is a comparison value that enters no source or
 normalization parameter. The tree result agrees with that ratio at its
-quoted precision. The muon width does not match the measured lifetime at
-precision level; its electromagnetic radiative terms are absent.
+quoted precision. The muon width carries no electromagnetic radiative terms and is
+not a precision lifetime.
 Hadronic tau vertices are outside this declared source, so the summed
 leptonic width is not a prediction for the physical total tau lifetime.
 

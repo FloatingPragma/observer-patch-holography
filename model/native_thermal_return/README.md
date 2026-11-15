@@ -5,7 +5,7 @@ the full-configuration comparison used by the native closed-history thermal
 construction. An initial census restores and reports the binary source
 configuration. Its signed-current records then supply the local field word.
 A terminal census reports the body endpoint for comparison. Every census
-failure, waiting timeout and different-state result remains an outcome.
+failure, waiting timeout and different-state result is an outcome.
 
 The [proof](PROOF.md) and [certificate](certificate.py) provide two separate
 bodies: regional incident-clock histories, and fixed global-attempt histories

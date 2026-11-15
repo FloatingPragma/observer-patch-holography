@@ -28,17 +28,17 @@ What IS proved here:
 * `uniform_concentration`: for every positive tolerance one
   inverse-temperature threshold takes the off-minimum mass of every
   stage below the tolerance; the companion theorem exports this beside
-  the old four-law conclusion record;
+  the four-law conclusion record `FourLawConclusions`;
 * exact field use: `minEnergy_mono` uses energy compatibility,
   `refine_ground_min` uses the ground-minimum and ground-preservation
   fields, and `refine_energy_le_chain` uses composition and energy
-  compatibility.  The current concentration and four-law companion do
+  compatibility.  The concentration theorem and four-law companion do
   not use directedness, identity coherence, or those auxiliary lemmas;
 * retention: `ofUniformGap` constructs a coherent family from
   `UniformGapRefinement` data only when directedness, coherence, energy
   compatibility, and coherent ground data are additionally supplied.
-  `ofUniformGapConst` uses the old gap and cardinality bounds but installs
-  identity maps rather than preserving arbitrary old refine maps.
+  `ofUniformGapConst` uses the `UniformGapRefinement` gap and cardinality bounds but
+  installs identity maps rather than preserving arbitrary given refine maps.
   `twoLevelCoherent` retains the committed two-level gap witness
   `twoLevelTower` as a degenerate constant-carrier instance;
 * cardinality separation: the ladder family `ladderFamily` has stage `n`
@@ -65,11 +65,11 @@ What IS proved here:
   PR-15 unchanged with row PR-08 in the narrowed form, and
   `fourLaws_composed_coherent` conjoins two results.  First it produces
   `FourLawConclusions` through `toAntecedent`, which carries rows PR-07
-  and PR-15 over definitionally but fills the old PR-08 field with a
+  and PR-15 over definitionally but fills the PR-08 field with a
   constructed degenerate constant family.  Separately it proves
   the supplied directed family's envelope, concentration, and
   calibrated-member clauses.  It does not substitute that supplied
-  family into the old `FourLawConclusions` type.
+  family into the `FourLawConclusions` type.
   The hook lives in this module rather than in
   `FourLawAdequacySurface`, keeping every committed declaration of the
   surface untouched; this module is registered as an
@@ -87,7 +87,7 @@ What is NOT proved here:
   fields required by the latter, while the latter need not have a
   uniform cardinality bound.  The ladder proves only the stated
   same-data cardinality separation;
-* replacement of the old four-law refinement member by the supplied
+* replacement of the four-law refinement member by the supplied
   directed family.  The theorem `fourLaws_composed_coherent` is the
   companion conjunction described above;
 * a refinement-uniform ground-degeneracy entropy limit: the finite,
@@ -96,9 +96,9 @@ What is NOT proved here:
   this file proves no entropy limit uniform over the directed family;
 * any identification of `beta` with a physical inverse temperature or
   of the energies with a realized objective: register rows PR-15 and
-  PR-07 stay open exactly as recorded in the four-law surface;
+  PR-07 are open exactly as recorded in the four-law surface;
 * any claim that a realized source artifact supplies a coherent directed
-  refinement family: register row PR-08 remains a registered premise.
+  refinement family: register row PR-08 is a registered premise.
 -/
 
 /-! ## Geometric tail bounds
@@ -241,7 +241,7 @@ theorem envelope_bound (F : CoherentRefinementFamily X E) {beta : ℝ}
 there is one inverse-temperature threshold past which every stage of
 the family holds its off-minimum Gibbs mass below the tolerance.  The
 four-law companion theorem exports this conclusion beside, rather than
-inside, the old gap-plus-cardinality conclusion record. -/
+inside, the gap-plus-cardinality conclusion record. -/
 theorem uniform_concentration (F : CoherentRefinementFamily X E) :
     ∀ eps : ℝ, 0 < eps → ∃ beta1 : ℝ, ∀ beta : ℝ, beta1 ≤ beta →
       ∀ r : I, offMinMass (E r) beta < eps := by
@@ -665,7 +665,7 @@ theorem ladder_uniformGap_isEmpty (δ : ℝ) :
 
 Register row PR-08, narrowed form.  The declarations below leave every
 committed declaration of `FourLawAdequacySurface` untouched.  They pair
-the old conclusion record, reached through a separately constructed
+the four-law conclusion record, reached through a separately constructed
 constant-family witness, with consequences of the supplied directed
 family. -/
 
@@ -773,10 +773,10 @@ theorem FourLawCoherentAntecedent.toAntecedent_calib {Ω : Type u}
     A.toAntecedent.calib = A.calib := rfl
 
 /-- **Four-law companion conjunction for the coherent-envelope row.**
-From the bundled data, the full old conclusion package holds along the
+From the bundled data, the full four-law conclusion package holds along the
 separately constructed degenerate one-member route (`toAntecedent`;
 rows PR-07 and PR-15 are carried over definitionally).  The supplied
-directed family is not installed in that old conclusion record.
+directed family is not installed in that conclusion record.
 Separately, its uniform spectral-tail envelope
 controls every member of the declared coherent family beyond the
 declared threshold; for every positive tolerance one
