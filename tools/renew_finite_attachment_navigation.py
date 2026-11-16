@@ -26,10 +26,10 @@ SELF='tools/renew_finite_attachment_navigation.py'
 FILES=(MAP,REVIEW,CLASS,PROGRAM)
 FIELDS=('claim_count','lean_module_count','contract_coverage_sha256')
 BASELINE_SEMANTIC_SHA256={
-  "model/completion/finite_attachment_map.json": "da94cf29f450f84375f49ebcbac6b884da10f0a427d25349e23ea25118b22876",
-  "model/completion/program_class_v2_review.json": "b31c3083187ebc2f6ce61cc2644ab28b85256fa0c8b902fdf9b84b9957f23c00",
+  "model/completion/finite_attachment_map.json": "6da52b150d7ec2c6cf486be3bd84c18dec78e287c7ba4c7eec5fa708c14afc4d",
+  "model/completion/program_class_v2_review.json": "b16880ec35b9087844156aee549841141f44b90ee5bdccbd71b4fa444f08b87d",
   "model/completion/program_class_v2.json": "1bba82a7d3f9c8915db5ff4fe8de3685a29e000ff0c8a85f8720226452e5a61c",
-  "claims/completion_program.json": "e23234b0c1d0869ce67f49dc6190125c14a98f5f7135eadfb604ab1670770dfc"
+  "claims/completion_program.json": "2c191e8a92f2f86b07bbc0605d3af707de666df0e3a475c3e114586c09f1e0b3"
 }
 
 CANDIDATE='model/particle_joint_reconstruction/candidate.py'
