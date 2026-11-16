@@ -10,7 +10,7 @@ seam-repair construction.  It does not assert that the OPH axioms select this
 construction as the physical repair law.
 
 For two endpoints, support off the endpoints, endpoint agreement after the
-update, and preservation of the endpoint sum together force pair averaging.
+update, and preservation of the endpoint sum already force pair averaging.
 The resulting linear map is an idempotent retraction, commutes with endpoint
 exchange, and is nonidentity when the endpoints are distinct.  Uniformly
 averaging these maps over a finite seam family gives the identity minus the
@@ -71,7 +71,7 @@ theorem pairAverage_preserves_sum (u v : ι) (x : ι → ℝ) :
     pairAverage u v x u + pairAverage u v x v = x u + x v := by
   simp
 
-/-- An input that agrees at the endpoints is fixed pointwise. -/
+/-- An input that already agrees at the endpoints is fixed pointwise. -/
 theorem pairAverage_fixes_agreement (u v : ι) (x : ι → ℝ)
     (hagree : x u = x v) :
     pairAverage u v x = x := by
@@ -209,7 +209,7 @@ theorem uniformSeamRepair_eq_id_sub_graphLaplacian
   simp_rw [hcoefficient]
 
 /-- For a family indexed by thirty seams, uniform pair averaging is exactly
-`I - L / 60`.  The endpoint maps are explicit inputs; this theorem does
+`I - L / 60`.  The endpoint maps remain explicit inputs; this theorem does
 not identify them with a physical carrier. -/
 theorem uniform_thirty_seam_repair
     (left right : Fin 30 → ι) :
