@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[2]
 BASELINE = 'a44330802c726037f88356f9f62044184ed429a5'
 HISTORICAL_SOURCE_COMMIT = '53e365b248a4611bb911e75d7afae0f52bfd8675'
 # Reviewed integration: detached Fraction returns only; see INTEGRATION_2026-10-29.md.
-SOURCE_COMMIT = 'aa95355797ff58b03fa6378850f6be04bcffb78d'
+SOURCE_COMMIT = 'a888f8a02b8f9f863c6c784737149b3419697205'
 REFERENCE = ROOT/'code/a5_closure/receipts/proper_code_attachment_probe.json'
 COMPILER = 'model/observer/source_scalar/compiler.py'
 INPUTS = sorted(set(m.INPUTS + [
