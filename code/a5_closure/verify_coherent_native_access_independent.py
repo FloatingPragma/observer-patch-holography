@@ -23,7 +23,7 @@ from model.observer.source_scalar import compiler
 
 BASELINE = '3800f801283078b6b86c23bbb9b85b545a70b69c'
 # Reviewed current prerequisites, separate from the historical work baseline.
-PRIOR_COMMIT = 'f5486275bea27c31ef7b7a02ae8212bec6a55db9'
+PRIOR_COMMIT = 'b75870ef30e3fc311ba07995f5309b645c476338'
 SOURCE_COMMIT = previous.SOURCE_COMMIT
 INPUTS = sorted(set(previous.INPUTS + [
     'model/compiled_native_interface/construction.py',
