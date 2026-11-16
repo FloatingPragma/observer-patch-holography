@@ -26,10 +26,10 @@ SELF='tools/renew_finite_attachment_navigation.py'
 FILES=(MAP,REVIEW,CLASS,PROGRAM)
 FIELDS=('claim_count','lean_module_count','contract_coverage_sha256')
 BASELINE_SEMANTIC_SHA256={
-  "model/completion/finite_attachment_map.json": "ae0273e71cd22e0d182a16f06c31385413c12a4d2a56aabc6d53d6859a914f52",
-  "model/completion/program_class_v2_review.json": "bd339fe9505fe964ad95429c389c49ac94106f43bbf3148aa58254345e62e0a6",
-  "model/completion/program_class_v2.json": "c367a61f93d30aa5e1cb91ac4f2e7e17f582a6b31278748d42148b4ac9ae3b9a",
-  "claims/completion_program.json": "0f84541bc77d3f5b8bfdbcae9412ffb629a455d3889d2d7c0238655581cc0153"
+  "model/completion/finite_attachment_map.json": "57d3e9149de3fea83b2ef6898b8491ae8daa8b65065e8ed6fa1fcbf8eb090deb",
+  "model/completion/program_class_v2_review.json": "ab3ff34fbcd39b027a08127cb54aeda3fe4a7a92ace4a5f776726362d0707fba",
+  "model/completion/program_class_v2.json": "1bba82a7d3f9c8915db5ff4fe8de3685a29e000ff0c8a85f8720226452e5a61c",
+  "claims/completion_program.json": "a76565b3fc511a390324251800782c6d1300fddae3069635fbb528d06982af59"
 }
 
 CANDIDATE='model/particle_joint_reconstruction/candidate.py'

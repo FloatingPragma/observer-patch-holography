@@ -8,7 +8,7 @@
     "model/biased_reset/results.json": "9d448b9bceaa795f762b9636def37c957bf1aa5b248930e666979d4432af588e",
     "model/centered_particle_spectrum/results.json": "098e4c25a9b0ff1ced38644d80bdf066ed7bc4b1b5f404c0a6a135370fa0dcab",
     "model/charged_dynamics/results.json": "2e25e65e1468e7bea7bda0e335180582f9b58c1dd56aa0d5361244c05394163b",
-    "model/laboratory_clock/results.json": "19e8c1bfee78f9eae3d5b49bcb2ec977b9ebfd1a4aa573f8ddf4835427250c9c",
+    "model/laboratory_clock/results.json": "a690d6f3504fd2a52aceb7e9e4bbe4f529c6ee4d07456fa31296fae747f64881",
     "model/native_clock/host_clock_results.json": "16a1fa646473b595ff10c6fbf80f54d05aefcb9f5de85be8f34474fcc48254f7",
     "model/native_fixed_algebra/occupation_results.json": "5947a5185217a595440f5dc9a319460351066824e17bc796c6fa3e37dc832609",
     "model/native_joint_spin_spectroscopy/results.json": "f2ad10ce03e24fb91799598028c5078513465f991a033385c6cae59812eb38d5",
@@ -17,7 +17,7 @@
     "model/weyl_geometric_modular/results.json": "0066a270c587c008f584d8986497e35a95aa520440f60ea8acc492a52c50224b",
     "model/centered_native_preparation/results.json": "45a6e1ff4b8233cbe988044f69f056e44ff1c036af941c299217b2b95d44094f",
     "model/centered_neutral_spectrum/results.json": "bf234e5a8544b9a66d3fe118a21b3ba54c7d1ca47c2d48db1aa6ea40040a3886",
-    "model/native_clock/clock_bridge_results.json": "338cc6fc005e1728158c4f4a53614ab611ebcaeb5cdd28f05ab908cbbb57f579",
+    "model/native_clock/clock_bridge_results.json": "c3c2a407abdcef4e8ea749c77a1bc2b61b7bd5a36fbc549c1bacb1aba83906ad",
     "model/protected_spin_limit/results.json": "d093ed5a0609cad4ecf2bd29b5bb967ef9add35de226e06712367ea2699acc50",
     "model/weyl_gravity_response/results.json": "a7c28dda0704251515eb7c696e4d8b79b375be3c7a33a01cd6f963d9eb22211e",
     "model/cubic_particle_channels/results.json": "e2d30989af40d0923e69e414c542cf865459b87f1ec4b26a485d051f2cbe223a",
@@ -421,9 +421,9 @@
       "receipt": "model/laboratory_clock/results.json",
       "module": "model.laboratory_clock",
       "before_sha256": "142a76f88bee65a7ba775395744c1998967191a9b54927fc24be553f1c5496c8",
-      "sha256": "19e8c1bfee78f9eae3d5b49bcb2ec977b9ebfd1a4aa573f8ddf4835427250c9c",
+      "sha256": "a690d6f3504fd2a52aceb7e9e4bbe4f529c6ee4d07456fa31296fae747f64881",
       "output_sha256": {
-        "model/laboratory_clock/results.json": "19e8c1bfee78f9eae3d5b49bcb2ec977b9ebfd1a4aa573f8ddf4835427250c9c"
+        "model/laboratory_clock/results.json": "a690d6f3504fd2a52aceb7e9e4bbe4f529c6ee4d07456fa31296fae747f64881"
       },
       "scientific_payload_unchanged": false,
       "actual_producer_and_independent_cold_check_passed": true,
@@ -1565,9 +1565,9 @@
       "receipt": "model/native_clock/clock_bridge_results.json",
       "module": "model.native_clock.clock_bridge",
       "before_sha256": "4ab8cd8231e8dad6797935321d59a4a861f00e884b7fe925f15a9bbbf7df6bd8",
-      "sha256": "338cc6fc005e1728158c4f4a53614ab611ebcaeb5cdd28f05ab908cbbb57f579",
+      "sha256": "c3c2a407abdcef4e8ea749c77a1bc2b61b7bd5a36fbc549c1bacb1aba83906ad",
       "output_sha256": {
-        "model/native_clock/clock_bridge_results.json": "338cc6fc005e1728158c4f4a53614ab611ebcaeb5cdd28f05ab908cbbb57f579"
+        "model/native_clock/clock_bridge_results.json": "c3c2a407abdcef4e8ea749c77a1bc2b61b7bd5a36fbc549c1bacb1aba83906ad"
       },
       "scientific_payload_unchanged": false,
       "actual_producer_and_independent_cold_check_passed": true,
@@ -2849,7 +2849,7 @@
   "historical_host_capture_selection": {
     "scope": "Current canonical retained-capture analysis, not a new timing measurement or timing-portability claim",
     "before_sha256": "4ab8cd8231e8dad6797935321d59a4a861f00e884b7fe925f15a9bbbf7df6bd8",
-    "candidate_sha256": "338cc6fc005e1728158c4f4a53614ab611ebcaeb5cdd28f05ab908cbbb57f579",
+    "candidate_sha256": "c3c2a407abdcef4e8ea749c77a1bc2b61b7bd5a36fbc549c1bacb1aba83906ad",
     "capture_inputs": [
       {
         "label": "published_linux",

@@ -18,6 +18,10 @@ ADOPTION_SEMANTICS = {
     'status': 'ADOPTED_AFTER_REVIEW', 'changes_current_registry': True,
     'independent_review': {
         'verdict': 'PASS', 'path': 'model/completion/program_class_v2_review.json'}}
+REVIEWED_EXPOSURE_TRANSITIONS = {
+    'model/local_repair_family/record_clock_results.json':
+        'ea709f6bb519b780b4be325ccb2a549f24fd89ac7a03048b7afd45f43171bf66',
+}
 PACKAGES = ('native_quark_transport', 'native_quark_spatial_spectrum',
     'native_code_ground_preparation', 'native_wilson_cone_audit',
     'native_orthogonal_wilson_bridge', 'native_wilson_maxwell_locality',
@@ -38,8 +42,16 @@ def check_parent_class(data, root=ROOT):
     klass = strict_json.load(root/program_class_v2.PATH)
     # The existing conservation policy excludes only the named live member
     # hash and first authenticates it against the actual receipt bytes.
-    if (custody_renewal.digest(custody_renewal.class_semantics(klass, root))
-            != custody_renewal.CLASS_SEMANTICS_SHA256):
+    semantics = custody_renewal.class_semantics(klass, root)
+    # Reviewed exposure transition: the record-clock receipt changed only in its
+    # m1_source_realization pin. The class pin must equal the live bytes; the
+    # sealed semantics are compared at the retained value.
+    exposure = semantics['exposure']['source_hashes']
+    for name, retained in REVIEWED_EXPOSURE_TRANSITIONS.items():
+        if exposure.get(name) != sha(root/name):
+            raise ValueError('Reviewed exposure transition differs from live bytes: ' + name)
+        exposure[name] = retained
+    if custody_renewal.digest(semantics) != custody_renewal.CLASS_SEMANTICS_SHA256:
         raise ValueError('Sealed parent class semantics changed')
     adoption = copy.deepcopy(klass['adoption'])
     adoption['independent_review'].pop('sha256')

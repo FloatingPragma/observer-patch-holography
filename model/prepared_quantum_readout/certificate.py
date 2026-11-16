@@ -23,7 +23,7 @@ from ..primitive_observer import runtime
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 PARENT = "model/clocked_quantum_readout/results.json"
-PARENT_SHA256 = "440ea8fce66ea5d16dd21788a36bc4a0fb92278a3d2b62651d67a897221d284d"
+PARENT_SHA256 = "e08fc7b7dc4e26af4c566d9ff6047b2dcd6142dcc9a4daebaaba5da6ff27d687"
 TOLERANCE = F(1, 2**24)
 
 

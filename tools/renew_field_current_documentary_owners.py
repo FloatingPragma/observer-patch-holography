@@ -18,7 +18,7 @@ from tools import strict_json
 from tools import renew_canonical_live_receipts as live
 
 AUTHORITY = 'tools/field_current_documentary_owners.json'
-AUTHORITY_SHA256 = '69f75432e4c00cef6fc9771e3fbe14d10ed0b9410a0c22731886424fc91128f6'
+AUTHORITY_SHA256 = 'c5805bebfe051e7a187ffdc57ac00e192915789120e00e56570d06fb73635084'
 OWNERS = ('spin_dynamical_memory', 'charge_channel_lifetime', 'source_energy_effort',
           'spin_charge_dispersion', 'source_charge_scattering', 'spin_boost_stress',
           'spin_energy_polarization', 'spin_multipacket_comparison')

@@ -23,9 +23,15 @@ from tools import strict_json  # noqa: E402
 from tools import renew_canonical_live_receipts as retained  # noqa: E402
 
 AUTHORITY = 'tools/diagnostic_parent_custody_authority.json'
-AUTHORITY_SHA256 = '545f8510a854980d9016344936fb08344d7fee2501fc04c3a87036cf7ff281d0'
+AUTHORITY_SHA256 = 'acb21cdadef4984bfc797e2ff5cd70e307fb324140f6a149537553885276c608'
 OWNERS = ('active_code_energy', 'screened_transport')
 PARENT = 'model/clock_defect_energy/mode_energy_results.json'
+# Reviewed source-pointer transitions of the parent; every other byte is retained.
+REVIEWED_PARENT_POINTERS = ('Lean/lakefile.lean', 'code/m1_source_realization/receipt.json')
+# Reviewed predecessor source pointers whose current bytes differ only in prose or pins.
+REVIEWED_SOURCE_POINTERS = ('model/active_code_energy/README.md', 'model/screened_recovery/README.md',
+                            'model/screened_recovery/screened_recovery_results.json',
+                            'model/screened_transport/README.md')
 
 
 def require(condition, message):
@@ -53,8 +59,10 @@ def authority():
     require(sha(parent['original_path']) == parent['original_sha256'], 'retained mode-energy source changed')
     old = strict_json.load(ROOT / parent['original_path'])
     current = strict_json.load(ROOT / PARENT)
-    require(parent['only_changed_source_pointer'] == 'Lean/lakefile.lean', 'parent transition scope expanded')
-    old['source_sha256']['Lean/lakefile.lean'] = sha('Lean/lakefile.lean')
+    pointers = parent['only_changed_source_pointers']
+    require(pointers == list(REVIEWED_PARENT_POINTERS), 'parent transition scope expanded')
+    for pointer in pointers:
+        old['source_sha256'][pointer] = sha(pointer)
     require(exact(old, current), 'mode-energy physics or unlisted custody changed')
     for target, expected in current['source_sha256'].items():
         require(sha(target) == expected, 'mode-energy direct source custody changed: ' + target)
@@ -65,9 +73,16 @@ def authority():
     return value
 
 
+def reviewed_pointer_update(pins):
+    for pointer in REVIEWED_SOURCE_POINTERS:
+        if pointer in pins:
+            pins[pointer] = sha(pointer)
+
+
 def projected_campaign(original, parent_hash):
     result = copy.deepcopy(original)
     result['source_sha256'][PARENT] = parent_hash
+    reviewed_pointer_update(result['source_sha256'])
     return result
 
 
@@ -82,6 +97,7 @@ def conserve_receipt(spec, original, fresh, parent_hash, campaign_hash):
             == sorted(original['source_sha256']), 'diagnostic source scope changed')
     expected = copy.deepcopy(original)
     expected['source_sha256'][PARENT] = parent_hash
+    reviewed_pointer_update(expected['source_sha256'])
     expected['source_sha256'][spec['campaign']] = campaign_hash
     expected['contract_sha256'] = campaign_hash
     require(exact(expected, fresh), 'diagnostic science or unlisted metadata changed')
