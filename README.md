@@ -35,7 +35,11 @@ hypothesis in full.
 
 ## What comes out
 
-The [official executable model](model/SPEC.md) joins complete native matter,
+The search for the executable model's specification is ongoing, and it is
+the project's current main priority.
+
+The [current executable model](model/SPEC.md) is a calibrated test
+candidate, not yet a production-level model. It joins complete native matter,
 charged and neutral lepton transport, weak currents, electric and magnetic
 fields, and local registers that respond to total source energy. Each vertex
 has its own volume, capacity and memory register. Exact checks preserve
@@ -44,12 +48,16 @@ Disconnected components evolve independently. The full native operator is
 checked through exact polynomials and basis columns; small propagated
 diagnostics have separately stated carriers.
 
+Its particle masses are inputs, not outputs. The quark and hadron
+coefficients are calibrated to the measured proton, neutron and charged-pion
+masses, the electron mass sets the energy unit, and the charged-lepton,
+neutrino and quark-family values are supplied. OPH derives no particle mass
+so far.
+
 The theorem library also establishes conditional gauge and geometry results,
 quantum-record identities and finite spectra on their specified sources.
-Calibrated comparisons retain their inputs. A common interacting continuum,
-physical particle identification and the Einstein theorem's source premises
-require their own demonstrations. The [matches page](https://particles.floatingpragma.ai/?page=matches)
-lists the comparisons with nature.
+A common interacting continuum, physical particle identification and the
+Einstein theorem's source premises require their own demonstrations.
 
 ## How it works
 

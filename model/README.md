@@ -6,6 +6,12 @@ charged and neutral transport, electromagnetic links and faces, weak
 currents, and a response to total energy. Its instruments produce finite
 observer records, with references and all outcomes retained.
 
+**Status.** This model is a calibrated test candidate, not yet a production-level model. Its particle masses
+are calibration inputs: the quark and hadron coefficients are fitted to the measured proton, neutron and
+charged-pion masses, the electron mass sets the energy unit, and the charged-lepton, neutrino and
+quark-family values are supplied. It derives no particle mass. The search for the executable model's
+specification is ongoing and is the project's current main priority.
+
 The [specification](SPEC.md) and [design](DESIGN.md) fix the full law, source data, parameters,
 preparations and execution scope. The [executable package](ccf_lt2/README.md)
 contains its generator and calculations. The

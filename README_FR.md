@@ -5,7 +5,7 @@
 <p align="center">
   <a href="https://particles.floatingpragma.ai/"><img src="assets/particles-banner.gif" alt="Regardez un univers fabriquer ses propres particules : 81 920 observateurs, une construction de matière, de champs et de registres. Ouvrir la simulation en direct sur particles.floatingpragma.ai." width="100%"></a>
 </p>
-<p align="center"><b>▶ <a href="https://particles.floatingpragma.ai/">Ouvrir la simulation en direct</a></b> · <a href="https://particles.floatingpragma.ai/?page=matches">Tous les accords avec notre univers</a> · <a href="https://particles.floatingpragma.ai/?page=journey">Des observateurs aux particules</a></p>
+<p align="center"><b>▶ <a href="https://particles.floatingpragma.ai/">Ouvrir la simulation en direct</a></b> · <a href="https://particles.floatingpragma.ai/?page=journey">Des observateurs aux particules</a></p>
 
 [**Simulation en direct**](https://particles.floatingpragma.ai/) · [Article principal](https://philpapers.org/rec/MUEFOC) · [Livre](https://oph-book.floatingpragma.ai/) · [FAQ sur la réalité (en anglais)](https://floatingpragma.ai/faq/) · [Carnet](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) · [Bibliothèque Lean](Lean/) · [Reproduire](REPRODUCE.md) · [Pragma Research](https://floatingpragma.ai/) · [English](README.md)
 
@@ -101,6 +101,15 @@ de lois échoue.
 
 ## Points forts
 
+**Statut actuel.** La recherche de la spécification du modèle exécutable se poursuit ; c’est
+la priorité principale actuelle du projet. Le [modèle exécutable actuel](model/SPEC.md)
+est un candidat de test calibré, pas encore un modèle de niveau production.
+Ses masses de particules sont des entrées et non des résultats : les
+coefficients des quarks et des hadrons sont étalonnés sur les masses mesurées
+du proton, du neutron et du pion chargé, la masse de l’électron fixe l’unité
+d’énergie, et les valeurs des leptons chargés, des neutrinos et des familles
+de quarks sont fournies. OPH ne dérive à ce jour aucune masse de particule.
+
 Les résultats ci-dessous portent sur les sources et les préparations
 explicitement déclarées dans leurs preuves. Leur transfert au modèle
 commun exige une identification démontrée ; ils ne sont pas tous des
@@ -114,33 +123,6 @@ conséquences de son Hamiltonien.
   compensent la charge. Le lien avec les particules observées exige leur
   source physique et leur dynamique.
   [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
-- **Les masses du muon et du tau à partir de celle de l’électron.** Un registre
-  de génération à phase fixée donne les rapports 206,770316 et 3477,4728.
-  Un étalonnage par l’électron les convertit en coefficients libres de
-  105,6594 et 1776,985 MeV. La comparaison rétrospective donne un écart de
-  +9,83 ppm pour le muon et de 0,61 écart-type pour le tau. Un compilateur
-  sur l’espace fermionique complet réalise ces coefficients ; leur
-  identification aux masses physiques en interaction est distincte.
-- **Masses et oscillations de neutrinos calibrées.** Un tenseur de Dirac
-  déclaré utilise six paramètres d’oscillation mesurés et une masse minimale
-  choisie de 0,001 eV. Ses masses sont 0,001, 0,00871206 et 0,05013980 eV.
-  Le courant faible natif et les lectures complètes actives/stériles
-  reproduisent la loi d’oscillation correspondante à moins de 4,1×10⁻⁹
-  en variation totale sur l’intervalle de phase déclaré. Ce sont des
-  registres finis calibrés, sans prédiction indépendante des masses ni
-  identification d’un faisceau physique.
-  [Registres neutres natifs](model/openwave_neutrino_calibration/PROOF.md).
-- **Populations exactes et comptages thermiques de particules.** La cellule
-  native fermée possède des lois complètes d’absorption des classes. Une
-  source quantique calibrée donne des registres complets de nombres de
-  particules sous une préparation thermique déclarée ; son extension
-  distincte en gaz idéal a un décompte énergétique relativiste de 106,75.
-  Des comparaisons indépendantes sur réseaux euclidiens donnent une transition
-  électrofaible continue vers 161 GeV, le déconfinement de la couleur et la
-  liaison des hadrons. Elles conservent leurs entrées fournies et ne constituent
-  pas une histoire commune de refroidissement cosmique.
-  [Résultats sur les particules et la cosmologie](model/particle_cosmology_results/README.md),
-  [Visualiseur interactif](https://particles.floatingpragma.ai/).
 - **Le groupe de jauge et les courants natifs.** Sous les prémisses de
   courant complet, le support orienté admet (SU(3)×SU(2)×U(1))/Z6 et une
   représentation de matière sans anomalies. Les instruments natifs de
@@ -166,16 +148,6 @@ conséquences de son Hamiltonien.
   support tridimensionnel dans sa réponse lente ; l’algèbre de Lie de jauge du
   Modèle standard et une représentation de matière sans anomalies
   conditionnelle ; un ordre causal de dimension (1+3) et des horloges locales déclarées ; et l’équation d’Einstein à partir d’un bilan nul.
-- **Masses des hadrons et réponse axiale sur une seule source.** Quatre
-  entrées déclarées ajustent le proton à 0,93827208943 GeV, le neutron à
-  0,93956542194 GeV, le pion chargé à 0,13957039 GeV et la magnitude axiale
-  à 1,2753, sans renormaliser le courant natif. Une action positive commune
-  réunit ces états calibrés et six branches de Dirac, avec des bornes sur
-  les fenêtres spectrales des nucléons. La dépendance au graphe, un canal
-  nucléaire supplémentaire et l’identification des pôles physiques
-  contraignent l’interprétation.
-  [État axial natif](model/openwave_axial_state/PROOF.md),
-  [Source commune de masse](model/openwave_common_mass_source/PROOF.md).
 - **Émission et horloges natives.** Les calculs complets certifient un
   contraste de parité d’impulsion bêta et une fenêtre finie d’émission
   mésonique. Deux facteurs d’horloge de la source native à huit niveaux
@@ -293,9 +265,9 @@ entrées.
   et aux [particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
   L’[index des articles](paper/README.md) et l’[ensemble des articles](docs/PAPER_SET.md)
   donnent chaque article et son rôle.
-- **Les articles compagnons** portent des résultats ciblés. Une relation entre
-  masses de leptons, la relation de Koide, tient exactement sous une prémisse
-  d’équilibre déclarée. Le programme de capacité demande si la capacité
+- **Les articles compagnons** portent des résultats ciblés. La relation de Koide
+  tient exactement pour un registre déclaré, conçu en connaissant les masses
+  mesurées des leptons ; ce n’est pas une dérivation de ces masses. Le programme de capacité demande si la capacité
   publique attribuée à l’Univers s’accorde avec celle reconstruite depuis
   l’intérieur. Ces calculs de constantes, comme celui de la structure fine,
   ont un statut diagnostique.
