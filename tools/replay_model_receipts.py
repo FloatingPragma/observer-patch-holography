@@ -200,7 +200,13 @@ def output_owners(root, values, optional=()):
     share an output with another one is dropped and returned."""
     owners, outputs, dropped = {}, {}, []
     for receipt in sorted(values, key=lambda name: name in optional):
-        paths = owned_outputs(root, receipt, values[receipt])
+        try:
+            paths = owned_outputs(root, receipt, values[receipt])
+        except ValueError:
+            if receipt not in optional:
+                raise
+            dropped.append(receipt)
+            continue
         clash = [path for path in paths if path in owners]
         if clash and receipt in optional:
             dropped.append(receipt)
@@ -406,6 +412,32 @@ def main():
             receipt = (relative / "results.json").as_posix()
             if receipt not in replay and (root / receipt).is_file():
                 replay[receipt] = (".".join(relative.parts), None, receipt)
+                discovered.add(receipt)
+        # Any other receipt with a source map whose package holds exactly one
+        # module that names it and has a write or check option.
+        for path in sorted((root / "model").rglob("*.json")):
+            relative = path.relative_to(root)
+            receipt = relative.as_posix()
+            if (receipt in replay or {"historical", "predecessor"} & set(relative.parts)
+                    or path.name in ("manifest.json", "MANIFEST.json")):
+                continue
+            try:
+                value = strict_json.loads(path.read_text())
+            except (OSError, ValueError, UnicodeDecodeError):
+                continue
+            if not any(isinstance(child, dict) and child for _, child, _ in source_maps(value)):
+                continue
+            owners_found = []
+            for module_file in sorted(path.parent.glob("*.py")):
+                if module_file.name.startswith("test_") or module_file.name == "__init__.py":
+                    continue
+                text = module_file.read_text(errors="ignore")
+                if path.name in text and re.search(r"--(write|output|check)\b", text):
+                    owners_found.append(module_file)
+            if len(owners_found) == 1:
+                module_path = owners_found[0].relative_to(root).with_suffix("")
+                parts = module_path.parts[:-1] if module_path.name == "__main__" else module_path.parts
+                replay[receipt] = (".".join(parts), None, receipt)
                 discovered.add(receipt)
     values = {}
     for name in list(replay):

@@ -12,7 +12,7 @@ def test_cold_complete_observation_receipt_and_source_custody():
     actual = packet.build()
     stored = strict_json.load(packet.OUTPUT)
     packet.validate(stored, actual)
-    assert 'model/moving_contact_scattering/PROOF.md' in stored['source_bindings']
+    assert 'model/moving_contact_scattering/PROOF.md' not in stored['source_bindings']
     assert 'model/native_spin_observer/precision.py' in stored['source_bindings']
     for path, digest in stored['source_bindings'].items():
         assert hashlib.sha256((packet.ROOT/path).read_bytes()).hexdigest() == digest

@@ -162,6 +162,6 @@ def test_bound_rejects_source_changes_or_pole_promotion(actual):
 
 def test_certificate_is_canonical_and_pins_the_modular_and_original_source_proofs():
     c=m.certificate();assert json.loads(json.dumps(c,sort_keys=True))==c
-    assert 'model/particle_primary_gravity_premises/PROOF.md' in c['source_sha256']
-    assert 'model/particle_primary_coherent_odd_response/KERNEL_PROOF.md' in c['source_sha256']
+    # Proofs are prose: the certificate binds code and receipts, never them.
+    assert not any(p.endswith('.md') for p in c['source_sha256'])
     assert len(c['members'])==1

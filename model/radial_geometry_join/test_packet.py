@@ -14,7 +14,7 @@ def fresh():
 def test_cold_receipt_matches_retained_full_source(fresh):
     packet.validate(strict_json.load(packet.OUTPUT), fresh)
     assert fresh['native_histories']['complete_native_histories_checked'] == 79872
-    assert 'model/radial_geometry_join/PROOF.md' in fresh['source_bindings']
+    assert 'model/radial_geometry_join/PROOF.md' not in fresh['source_bindings']
 
 
 @pytest.mark.parametrize('damage', ['gap', 'contrast', 'failure', 'work', 'proof', 'parent', 'count'])

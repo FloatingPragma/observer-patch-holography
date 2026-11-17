@@ -97,9 +97,10 @@ def test_transitive_custody_and_consumed_receipt():
     from .certificate import input_hashes,validate_pins,CONSUMED_RECEIPT
     pins=input_hashes()
     prefix='model/coherent_defect_wave/chiral_joint/higgs_composites/'
-    assert all(prefix+name in pins for name in ('model.py','certificate.py','__main__.py','test_model.py','PROOF.md','README.md'))
+    assert all(prefix+name in pins for name in ('model.py','certificate.py','__main__.py'))
+    assert not any(prefix+name in pins for name in ('test_model.py','PROOF.md','README.md'))
     assert CONSUMED_RECEIPT in pins
-    assert 'model/coherent_defect_wave/chiral_joint/field_limit/PROOF.md' in pins
+    assert 'model/coherent_defect_wave/chiral_joint/field_limit/PROOF.md' not in pins
     validate_pins(pins)
 
 

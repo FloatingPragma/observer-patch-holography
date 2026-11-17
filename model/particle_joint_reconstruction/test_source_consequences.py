@@ -45,7 +45,7 @@ def test_aggregate_keeps_exact_receipt_and_same_member_zero_contract(aggregate, 
     own_prefix = f'model/{package}/'
     own_pins = {p: h for p, h in certificate['source_sha256'].items()
                 if p.startswith(own_prefix)}
-    assert own_prefix + 'PROOF.md' in own_pins
+    assert own_prefix + 'PROOF.md' not in own_pins
     assert own_prefix + 'model.py' in own_pins
     for path, expected in own_pins.items():
         assert sha256((ROOT / path).read_bytes()).hexdigest() == expected
