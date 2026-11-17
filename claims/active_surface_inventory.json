@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 2674,
+  "surface_count": 2676,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -6842,6 +6842,16 @@
     },
     {
       "path": "model/openwave_einstein_error/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_energy_clock_join/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_energy_clock_join/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
