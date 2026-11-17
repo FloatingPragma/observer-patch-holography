@@ -25,12 +25,6 @@ from ..observer.source_scalar import compiler
 from ..observer.source_discrimination import circuit
 from ..common_source import native_routing
 from ..bound_pair.fiber import clock_subspace
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -365,7 +359,7 @@ def bindings():
                   'model/particle_clock/__main__.py', 'model/local_repair_family/record_clock.py',
                   'model/local_repair_family/acquisition.py', 'model/common_source/native_routing.py',
                   'model/bound_pair/fiber.py', 'model/interacting_field/lattice.py'))
-    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
+    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
 
 
 def report():
@@ -420,7 +414,7 @@ def report():
     if F(budget['source_instrument_halfdiamond_upper']) > compiler_cap or F(budget['source_channel_norm_upper']) > gain_cap:
         raise ArithmeticError('fixed all-transcript source caps exceeded')
     total = gain_cap*record_clock.PREPARATION_CAP+compiler_cap+PHASE_CAP+alpha*(gain_cap+1)/2
-    return {'schema': 'oph.particle_clock.v1', 'source_sha256': bound_pins(bindings()),
+    return {'schema': 'oph.particle_clock.v1', 'source_sha256': bindings(),
             'field_dictionary': {'source_states': [[1,2], [7,2]], 'field_states': ['r', 'd'],
                 'energy_matrix': [['0','0'],['0','1']], 'total_momentum': ['pi','pi','pi'],
                 'domain': 'even periodic L>=4; two fermions; singlet relative amplitudes sqrt(2)sin(k_x) and1',

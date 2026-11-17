@@ -13,12 +13,6 @@ from .regions import (
     regional_basis, restrict_pure, restrict_regional, lift_number_observable,
     conditional_expectation, cube_mode_map, two_particle_embedding,
 )
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -190,7 +184,7 @@ def source_bindings():
         'Lean/QFT/FiniteCausalObserverNet.lean', 'Lean/QFT/CPRestrictionNet.lean',
         'Lean/QFT/NoncommutativeWitness.lean', 'Lean/QFT/TwoSlotCPNetWitness.lean',
     }
-    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
+    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
 
 
 def run():
@@ -219,4 +213,4 @@ def run():
             'algebra_controls': controls, 'checks': checks, 'all_pass': all(checks.values()),
             'physical_Lorentzian_or_continuum_attachment_claimed': False,
             'premise_register_dispositions_changed': False,
-            'source_bindings': bound_pins(source_bindings())}
+            'source_bindings': source_bindings()}

@@ -18,12 +18,6 @@ from ..federated_observer import source
 from ..federated_quantum_sector import construction as quantum
 from ..observer.scalar_response.experiment import canonical
 from ..primitive_observer import runtime
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(sorted(set((*quantum.SOURCE_PATHS,
@@ -352,4 +346,4 @@ def run():
             'pinned_refinements_proved_compatible': False,
             'Lorentzian_continuum_or_physical_time_identification': False,
             'new_laboratory_comparison': False},
-        'source_bindings': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS})}
+        'source_bindings': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}}

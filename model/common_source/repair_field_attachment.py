@@ -34,12 +34,6 @@ from ..native_modular_reference.phase_inference import atan_interval
 from .halfline import pi_interval
 from ..scalar_observations.experimental_readout.stats import concentration_certificate
 from ..calibrated_measurement.bounds import root_interval
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -909,7 +903,7 @@ def source_bindings():
         "mass_response/history.py", "mass_response/model.py", "halfline.py")}
     paths.update({"model/native_modular_reference/phase_inference.py",
         "model/scalar_observations/experimental_readout/stats.py", "model/requirements.txt"})
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths) if not name.endswith(".md")})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths) if not name.endswith(".md")}
 
 
 def compare_execution(report, arrays, fresh, fresh_arrays):
@@ -1022,7 +1016,7 @@ def check(path):
     retained = strict_json.load(path)
     _finite_json(retained)
     pins = source_bindings()
-    if type(retained) is not dict or bound_pins(retained.get("source_bindings")) != scoped(pins):
+    if type(retained) is not dict or retained.get("source_bindings") != pins:
         raise ValueError("native field closed source bindings differ")
     artifact = path.with_suffix(".npz")
     if retained.get("artifact") != {"filename": artifact.name, "sha256": hashlib.sha256(artifact.read_bytes()).hexdigest()}:
@@ -1057,7 +1051,7 @@ def main():
     report, arrays = execute()
     if source_bindings() != pins:
         raise RuntimeError("native field source changed during execution")
-    report["source_bindings"] = bound_pins(pins)
+    report["source_bindings"] = pins
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with artifact.open("xb") as stream:
         np.savez_compressed(stream, **arrays)

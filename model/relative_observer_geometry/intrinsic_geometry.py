@@ -21,12 +21,6 @@ from ..observer import native
 from ..observer_reconstruction import native_geometry as ng
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -1075,7 +1069,7 @@ def run():
                               *local_continuum.SOURCE_PATHS)))
     return {
         'schema': 'oph.relative_observer_geometry.intrinsic.v1',
-        'sources': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in source_paths}),
+        'sources': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in source_paths},
         'single_carrier_recovery': biased,
         'same_structural_gram_as_uniform_protocol_exact': True,
         'finite_shot_recovery': {

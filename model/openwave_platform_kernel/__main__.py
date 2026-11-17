@@ -12,12 +12,6 @@ from .export import source_packet
 from model.particle_common_contract.provenance import import_closure
 from model.common_source.chiral_candidate.action import SOURCE_FILES
 from model.openwave_larmor_dynamics.certificate import equivalent
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -28,8 +22,8 @@ def pins():
     seeds=set(SOURCE_FILES)
     seeds.update(str(p.relative_to(ROOT)) for p in HERE.iterdir()
                  if p.suffix in ('.py','.md','.tex') or p.name=='source_packet.json')
-    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
-            for p in sorted(import_closure(seeds))})
+    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
+            for p in sorted(import_closure(seeds))}
 
 
 def run(openwave, python):
@@ -59,7 +53,7 @@ def run(openwave, python):
     cases=[c for row in records['runs'] for c in row['cases']]
     return {'schema':'oph.openwave_platform_kernel.v1',
         'verdict':'PASS_FULL_NATIVE_HEADLESS_PLATFORM_EVOLUTION',
-        'source_sha256':bound_pins(before),'upstream_commit':actual,
+        'source_sha256':before,'upstream_commit':actual,
         'upstream_modified_tracked_files':False,
         'official_admission_or_award':False,
         'full_native_execution':records,

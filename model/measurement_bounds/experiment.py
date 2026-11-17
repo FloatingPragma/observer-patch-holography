@@ -15,12 +15,6 @@ from ..observer.source_scalar import compiler
 from ..primitive_observer import anharmonic, runtime
 from ..scalar_observations.experimental_readout import executable_source as native
 from . import bounds
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 FOLDER = Path(__file__).resolve().parent
@@ -141,8 +135,8 @@ def source_bindings():
         'model/measurement_bounds/bounds.py', 'model/measurement_bounds/experiment.py',
         'model/measurement_bounds/__main__.py', 'model/measurement_bounds/protocol.json',
         'Lean/EventAlgebra/StateExpectation.lean', 'Lean/EventAlgebra/Basic.lean'}
-    return bound_pins({(ROOT/path).relative_to(ROOT).as_posix(): hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-            for path in sorted(paths)})
+    return {(ROOT/path).relative_to(ROOT).as_posix(): hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+            for path in sorted(paths)}
 
 
 def produce():
@@ -210,7 +204,7 @@ def produce():
     if not all(checks.values()):
         raise ArithmeticError(f'measurement bounds failed: {checks}')
     return {'schema': 'oph.measurement_bounds.results.v1', 'all_pass': True, 'checks': checks,
-            'protocol': protocol, 'source_bindings': bound_pins(source_bindings()), 'source_controls': compiler.source_summary(),
+            'protocol': protocol, 'source_bindings': source_bindings(), 'source_controls': compiler.source_summary(),
             'compiled_detector_metadata': metadata, 'finite_operator_certificates': certificates,
             'source_executions': components, 'complete_non_gaussian_mixture_laws': mixture,
             'non_gaussian_weight': weight, 'measurement_analyses': analyses,

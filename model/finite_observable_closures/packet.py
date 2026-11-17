@@ -7,12 +7,6 @@ from pathlib import Path
 
 from model.particle_common_contract.provenance import import_closure
 from . import coherence,counting,measurement
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -32,7 +26,7 @@ def bindings():
                   'model/observer_time_fields/results.json'})
     scalar_execution.sources()
     seeds.update(scalar_execution.PINS)
-    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(seeds))})
+    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(seeds))}
 
 
 def calculate():
@@ -53,7 +47,7 @@ def calculate():
         'claim_links':{'exec-coherent-screen':['OPH-MODEL-NATIVE-PROCESS-RECOVERY'],
             'exec-incident-fields':['OPH-MODEL-NATIVE-PROCESS-RECOVERY'],
             'measurement':['OPH-MODEL-COMMON-SOURCE-EXECUTION']},
-        'input_sha256':bound_pins(pins)}
+        'input_sha256':pins}
 
 
 def encode(value):

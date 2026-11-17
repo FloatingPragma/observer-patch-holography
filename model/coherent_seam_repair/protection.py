@@ -12,12 +12,6 @@ import json
 from pathlib import Path
 
 from model.common_source import slow_geometry
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('protection_results.json')
@@ -174,7 +168,7 @@ def certificate():
               'evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py')
     return {
         'schema': 'oph.coherent_seam_repair.boundary_flux.v1',
-        'input_sha256': bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in inputs}),
+        'input_sha256': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in inputs},
         'source_domain': 'declared finite classical central-link register and fixed-boundary move grammar',
         'link_memory_bits': 30, 'face_count': 20, 'vertex_count': 12,
         'region_faces': [list(law.faces[f]) for f in law.region],

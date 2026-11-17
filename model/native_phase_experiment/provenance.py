@@ -4,12 +4,6 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -59,7 +53,7 @@ def source_graph():
         add_module(module)
     add_path(ROOT / CLASSIFIER, 'oph_protected_classifier')
     spec = json.loads((ROOT / SPEC).read_text(encoding='utf-8'))
-    for name in bound_pins(spec['source_sha256']):
+    for name in spec['source_sha256']:
         if name.endswith('.py'):
             add_module(name[:-3].replace('/', '.'))
     while pending:
@@ -82,5 +76,5 @@ def source_graph():
 
 
 def source_hashes():
-    return bound_pins({name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
-            for name in source_graph()['files']})
+    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+            for name in source_graph()['files']}

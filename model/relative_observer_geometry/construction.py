@@ -23,12 +23,6 @@ from ..native_action import screen_compatibility
 from ..primitive_observer import algebra, runtime, transfer
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 LETTERS = tuple(product((0, 1), (-1, 0, 1)))
@@ -755,7 +749,7 @@ def refinement_metric_bridge():
 
 def run():
     return {'schema': 'oph.relative_observer_geometry.v1', 'all_pass': True,
-            'sources': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
+            'sources': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
             'exact_continuity': branch_audit(), 'complete_execution': runtime_check(),
             'complete_local_histories': history_check(), 'shared_event_clocks': clock_checks(),
             'record_geometry_connection': geometry_connection(), 'negative_controls': controls(),

@@ -13,12 +13,6 @@ from .data import FOLDER, load_observations
 from .executable_bounds import cutoff_certificate
 from .executable_calibration import calibrate_state
 from .executable_source import source_run
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins
 
 
 def _json_value(value):
@@ -175,8 +169,8 @@ def run(*, progress=None):
     receipt = {
         'schema': 'oph.scalar_observations.executable_experimental_readout.v1',
         'protocol_sha256': hashlib.sha256(protocol_bytes).hexdigest(),
-        'implementation_sha256': bound_pins({name: hashlib.sha256((FOLDER/name).read_bytes()).hexdigest()
-                                  for name in bindings}),
+        'implementation_sha256': {name: hashlib.sha256((FOLDER/name).read_bytes()).hexdigest()
+                                  for name in bindings},
         'selection_note': protocol['selection_order'], 'scope': protocol['scope'],
         'provenance': observations['provenance'], 'orientation': observations['orientation'],
         'runs': runs, 'checks': checks, 'all_pass': all(checks.values()),

@@ -21,12 +21,6 @@ from scipy.linalg import expm
 from . import calibrated_matter as matter
 from .chiral_candidate import gaussian_source as g
 from .chiral_candidate import protected_momentum as protected
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -180,7 +174,7 @@ def source_bindings():
         "model/common_source/chiral_candidate/gaussian_source.py",
         "model/common_source/chiral_candidate/protected_momentum.py",
         "model/observer/source_scalar/compiler.py"}
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
 
 
 def source_defined_down_sector(angles, *, singlet_sign=1):

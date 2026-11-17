@@ -12,12 +12,6 @@ import math
 from pathlib import Path
 
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 CERTIFICATE = 'model/occupation_control/results.json'
@@ -115,7 +109,7 @@ def certified_inputs(protocol, prior, apparatus, *, root=ROOT):
                             'radius_exact_binary': None if radius is None else str(radius),
                             'conditional_certificate_available': radius is not None})
         runs.append({'dimension': run['dimension'], 'records': records})
-    return {'certificate': CERTIFICATE, 'source_pins': bound_pins(dict(CERTIFICATE_PINS)),
+    return {'certificate': CERTIFICATE, 'source_pins': dict(CERTIFICATE_PINS),
             'source_and_artifact_hashes_verified': True, 'certificate_recomputed_here': False,
             'parameters': expected_parameters, 'runs': runs,
             'target': 'fixed unrestricted spin-oscillator apparatus; independent semantic evaluator',

@@ -19,12 +19,6 @@ import numpy as np
 
 from tools import strict_json
 from ..observer import native, quantum_mixing
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -308,7 +302,7 @@ def report():
                      'rho_L_prepared_on_native_quantum_working_carrier':False,
                      'complete_configuration_service_executed_by_this_packet':False,
                      'native_source_fields_same_as_incident_clock_dictionary':False},
-            'source_sha256':bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sources})}
+            'source_sha256':{name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sources}}
 
 
 def main():

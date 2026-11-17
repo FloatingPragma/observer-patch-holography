@@ -17,12 +17,6 @@ from pathlib import Path
 import numpy as np
 
 from ..interacting_field.lattice import real
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 def _fraction(value, name):
@@ -139,8 +133,8 @@ def report():
                'model/contact_scattering/scattering.py',
                'model/interacting_field/lattice.py', 'model/bound_pair/fiber.py')
     return {'schema':'oph.lattice_contact_threshold.v1',
-            'source_bindings':bound_pins({name:hashlib.sha256((root/name).read_bytes()).hexdigest()
-                               for name in sources}),
+            'source_bindings':{name:hashlib.sha256((root/name).read_bytes()).hexdigest()
+                               for name in sources},
             'total_momentum':[0,0,0], 'speed':'1/8',
             'scope':'INFINITE_FIXED_SPACING_TWO_FERMION_CONTACT_RESPONSE',
             'density_certificate':'exact rational series and Machin pi enclosure',

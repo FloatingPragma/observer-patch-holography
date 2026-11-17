@@ -12,12 +12,6 @@ from ..common_source import calibrated_matter as matter
 from .quasiparticles import (ABSOLUTE_OPERATOR_GUARD, MODE_COUNT, NAMBU_COUNT,
                             ORTHOGONALITY_GUARD, current_probe_data, moving_symbol,
                             quasiparticles, validate_chart)
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 RECEIPT = Path(__file__).with_name('results.json')
@@ -104,7 +98,7 @@ def certificate():
     return {
         'schema': 'oph.defect_field_benchmark.static_charged_quasiparticles.v1',
         'role': 'specified executable calibrated matter law; same-input recovery, not held-out particle prediction',
-        'source_sha256': bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCES}),
+        'source_sha256': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCES},
         'domain': {'original_annihilators': MODE_COUNT, 'all_Nambu_directions': NAMBU_COUNT,
                    'positive_charged_quasiparticles': 84, 'neutral_zero_quasiparticles': 6,
                    'neutral_zero_particle_hole_directions': 12,

@@ -20,12 +20,6 @@ from pathlib import Path
 
 from . import local_bias as local
 from ..observer.source_discrimination import circuit
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 STATES = local.basis()
@@ -431,7 +425,7 @@ def source_bindings():
     paths = ('model/local_repair_family/continuing.py', 'model/local_repair_family/test_continuing.py',
              'model/local_repair_family/local_bias.py', 'model/local_repair_family/mixing.py', 'model/observer/native.py',
              'model/observer/record_recovery.py', 'model/observer/source_discrimination/circuit.py')
-    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})
+    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}
 
 
 def report():
@@ -439,7 +433,7 @@ def report():
     return {'schema': 'oph.local_repair_family.continuing.v1',
             'reference': certificate(p), 'archive_countercontrol': archive_counterexample(),
             'memory_clock_boundary': correctable_clock_certificate(),
-            'resources_at64_attempts': resource_counts(64), 'source_sha256': bound_pins(source_bindings()),
+            'resources_at64_attempts': resource_counts(64), 'source_sha256': source_bindings(),
             'scope': {'fixed_source_and_record_independent_selector': True,
                       'complete_instrument_is_ideal_not_new_source_compilation': True,
                       'bounded_FIFO_is_not_bounded_total_archive': True,

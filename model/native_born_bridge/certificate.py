@@ -19,12 +19,6 @@ from pathlib import Path
 
 from tools import strict_json
 from ..observer import native
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -375,13 +369,13 @@ def tomography_attachment():
     from ..native_interface import tomography
     path = ROOT/'model/native_interface/tomography_results.json'
     old = strict_json.load(path)
-    for name, expected in bound_pins(old['source_sha256']).items():
+    for name, expected in old['source_sha256'].items():
         require(hashlib.sha256((ROOT/name).read_bytes()).hexdigest() == expected,
                 f'stale conditional tomography source: {name}')
     design = tomography.design_certificate()
     require(design == old['certificate']['exact_design'], 'tomography design differs from its source receipt')
     require(old['all_pass'] and old['certificate']['all_failures_retained'], 'incomplete tomography receipt')
-    return {'fresh_exact_design': design, 'source_pins_verified': len(bound_pins(old['source_sha256'])),
+    return {'fresh_exact_design': design, 'source_pins_verified': len(old['source_sha256']),
             'receipt': 'model/native_interface/tomography_results.json',
             'real_hermitian_dimension': 4356, 'native_diagonal_dimension': 66,
             'coherent_code_services_and_quantum_semantics_supplied': True,
@@ -452,7 +446,7 @@ def report():
                       'unique_complex_density_from_diagonal_records': False,
                       'complex_effect_operational_equivalence_derived': False,
                       'full_quantum_theory_derived_from_scalar_consensus': False},
-            'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sources})}
+            'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sources}}
 
 
 def main():

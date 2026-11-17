@@ -33,12 +33,6 @@ from ..observer import native
 from ..observer.source_discrimination import circuit
 from ..observer.source_scalar import compiler
 from ..repair_scheduler import coins
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -530,8 +524,8 @@ def source_bindings():
         'tools/strict_json.py', 'requirements.txt', 'evidence/native_geometric_source_20260925/spec.json',
         'evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py',
         'evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py'})
-    paths.update(bound_pins(compiler.source_summary()['source_sha256']))
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
+    paths.update(compiler.source_summary()['source_sha256'])
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
 
 
 def _compare(expected, actual, path='receipt'):
@@ -558,7 +552,7 @@ def _compare(expected, actual, path='receipt'):
 
 def check(path):
     retained = strict_json.load(path)
-    if type(retained) is not dict or bound_pins(retained.get('source_bindings')) != scoped(source_bindings()):
+    if type(retained) is not dict or retained.get('source_bindings') != source_bindings():
         raise ValueError('retained closed source bindings differ')
     artifact = path.with_suffix('.npz')
     if retained.get('artifact') != {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}:
@@ -600,7 +594,7 @@ def main():
     if args.output.exists() or artifact.exists():
         parser.error('choose fresh receipt and source artifact paths')
     result, arrays = report()
-    result['source_bindings'] = bound_pins(source_bindings())
+    result['source_bindings'] = source_bindings()
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with artifact.open('xb') as stream:
         np.savez_compressed(stream, **arrays)

@@ -8,12 +8,6 @@ from .native import currents,formfactors
 from model.particle_common_contract.provenance import import_closure
 from model.common_source.chiral_candidate.action import SOURCE_FILES
 from model.openwave_larmor_dynamics.certificate import equivalent
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -22,7 +16,7 @@ def pins():
     seeds=set(SOURCE_FILES)
     for name in ('openwave_baryon_weak_formfactors','openwave_calibrated_hadrons'):
         seeds.update(str(p.relative_to(ROOT))for p in (ROOT/'model'/name).iterdir()if p.suffix in ('.py','.md','.tex')or p.name=='inputs.json')
-    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(seeds))})
+    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(seeds))}
 
 def exact_local():
     c=currents();d=c['native'];labels=d['old']['labels']
@@ -47,7 +41,7 @@ def calculate():
     sine=3*p['t']/gamma;error=12*sine;interval=[F(5,3)-error,F(5,3)+error]
     comparison=json.loads((HERE/'inputs.json').read_text());observed=F(comparison['axial_ratio_magnitude'])
     assert interval[0]>observed+10*F(comparison['quoted_uncertainty'])
-    return {'schema':'native-baryon-weak-formfactors-v1','source_sha256':bound_pins(pins()),
+    return {'schema':'native-baryon-weak-formfactors-v1','source_sha256':pins(),
         'source':'openwave_calibrated_hadrons; same complete two-cell native colour action',
         'exact_local_current_algebra':local,'finite_hopping_certificate':{
             'complement_gap_lower_rational':str(gamma),'state_sine_error_upper_rational':str(sine),

@@ -14,12 +14,6 @@ import json
 from pathlib import Path
 from types import SimpleNamespace
 import sys
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 sys.dont_write_bytecode=True
 import numpy as np
 import sympy as sp
@@ -200,7 +194,7 @@ def main():
            PUBLIC/'code/sm_fermion_current/README.md',PUBLIC/'model/common_source/gauge_matter.py',
            PUBLIC/'code/yang_mills/manifests/physical_compact_gauge_uninstantiated.json']
     result={'status':'EXACT_SOURCE_RESPONSE_INTERNAL_GAUGE_MULTIPLETS_IDENTIFIED',
-        'producer_sha256':sha(__file__),'source_sha256':bound_pins({str(p.relative_to(ROOT)):sha(p) for p in paths}),
+        'producer_sha256':sha(__file__),'source_sha256':{str(p.relative_to(ROOT)):sha(p) for p in paths},
         'artifacts':{artifact.name:sha(artifact)},'empirical_or_mass_inputs':[],
         'public_head':'bb469bd80432fa24672bbb605afc1d171e46fa9d',
         'source_reconstruction':{'probe_count_per_port':35,'ports':12,'work_dimension':6,

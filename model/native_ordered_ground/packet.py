@@ -13,12 +13,6 @@ import tempfile
 import numpy as np
 from tools import strict_json
 from . import experiment,source,angles
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -98,7 +92,7 @@ def source_bindings():
        'model/native_ordered_ground/README.md','model/native_ordered_ground/witness.npz',
        'paper/tex_fragments/NATIVE_ORDERED_GROUND.tex','model/spin_goldstone_sector/README.md',
        'model/protected_spin_limit/README.md','model/native_spin_observer/README.md'))
-    return bound_pins({p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)})
+    return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
 
 
 def theorem():
@@ -131,7 +125,7 @@ def produce():
     pins=source_bindings();checked,execution,arrays=experiment.run()
     value={'schema':'oph.native_ordered_ground.v1','new_checks_pass':True,'all_pass':True,
        'theorem':theorem(),'finite_spectrum':checked,'exact_controls':exact_controls(),
-       'execution':execution,'source_bindings':bound_pins(pins)}
+       'execution':execution,'source_bindings':pins}
     if pins!=source_bindings():raise ValueError('source changed during native replay')
     validate(value,arrays);return value,arrays
 

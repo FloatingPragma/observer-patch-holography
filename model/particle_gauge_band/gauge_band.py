@@ -19,12 +19,6 @@ import numpy as np
 from scipy import linalg as la, sparse as sp
 from scipy.sparse.linalg import eigsh
 import sympy as sy
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
@@ -513,7 +507,7 @@ def execute(output_dir=HERE):
                         'physical_particle_masses_computed': False,
                         'numerical_eigenvectors_are_outward_interval_certificates': False},
               'execution_complete': True,
-              'source_bindings': bound_pins(source_bindings()),
+              'source_bindings': source_bindings(),
               'witness_array_shapes': {name: list(value.shape) for name, value in arrays.items()},
               'witness_sha256': digest(output_dir/'gauge_band_witnesses.npz')}
     # Frames are binary witnesses, not JSON complex-number payloads.
@@ -550,7 +544,7 @@ def source_bindings():
             if (path.suffix == '.py' and path.is_relative_to(REPO)
                     and not path.relative_to(REPO).parts[0].startswith('.')):
                 names.append(path.relative_to(REPO).as_posix())
-    return bound_pins({name: digest(REPO/name) for name in sorted(set(names))})
+    return {name: digest(REPO/name) for name in sorted(set(names))}
 
 
 if __name__ == '__main__':

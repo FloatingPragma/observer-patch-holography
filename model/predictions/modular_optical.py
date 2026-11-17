@@ -16,12 +16,6 @@ from pathlib import Path
 from ..transfer_modular_probe import construction as source
 from ..repair_identification import core as exact
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = source.ROOT
 DATA = 'model/predictions/data/modular_optical_ratios.json'
@@ -189,7 +183,7 @@ def run():
             raise ArithmeticError('the minimal single-generator attachment comparison changed')
         results.append({'isotope': row['isotope'], 'quoted_standard_uncertainty': row['standard_uncertainty'], **result})
     return {'schema': 'oph.modular_optical_assignment.v1',
-        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
+        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
         'source_generator': 'H=-log(T3), spectrum {0,E_plus,E_minus}',
         'positive_energy_gap_enclosures': {key: list(map(str, value)) for key, value in zip(LABELS, energy_gaps, strict=True)},
         'attachment': {'frequency_relation': 'nu_A/nu_B=gap_A/gap_B plus total absolute ratio error',

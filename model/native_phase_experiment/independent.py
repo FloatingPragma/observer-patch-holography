@@ -30,12 +30,6 @@ from itertools import combinations, combinations_with_replacement
 import json
 from pathlib import Path
 import sys
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 SOURCE_COMMIT = "3cf3c14810671a16e61b7915f69079a1773a12a2"
@@ -475,7 +469,7 @@ def compute(root, *, compact=True):
         carrier.update(states=[list(state) for state in states], faces=[list(face) for face in faces])
     return {
         "schema": "oph.one_port.portable_independent_oracle.v2", "compact": bool(compact),
-        "source_commit": SOURCE_COMMIT, "source_sha256": bound_pins(dict(SOURCE_HASHES)),
+        "source_commit": SOURCE_COMMIT, "source_sha256": dict(SOURCE_HASHES),
         "oracle_sha256": _sha(Path(__file__).read_bytes()),
         "conventions": {
             "state_order": "lexicographically sorted twelve-port binary total-two occupation tuples",

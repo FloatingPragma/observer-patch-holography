@@ -9,12 +9,6 @@ from pathlib import Path
 from tools import strict_json
 from . import localization
 from ..observer.scalar_response.experiment import compare_receipt
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -33,12 +27,12 @@ def bindings():
              "model/federated_quantum_sector/construction.py",
              "model/federated_quantum_sector/README.md",
              "model/observer/QUANTUM_MIXING.md"]
-    result.update(bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in paths}))
+    result.update({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in paths})
     return dict(sorted(result.items()))
 
 
 def report():
-    return {**localization.report(), "source_sha256": bound_pins(bindings())}
+    return {**localization.report(), "source_sha256": bindings()}
 
 
 def verify(retained, current=None):

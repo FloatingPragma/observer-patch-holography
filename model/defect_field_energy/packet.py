@@ -15,12 +15,6 @@ from ..defect_field_bridge import joint
 from ..defect_field_propagation import propagation
 from ..observer.source_scalar import compiler
 from . import balance, energy, readout
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -180,7 +174,7 @@ def build():
              ROOT/'model/common_source/calibrated_matter_parameters.json', ROOT/'model/defect_field_clock/clock.py',
              ROOT/'model/observer/source_scalar/compiler.py', ROOT/'model/common_source/chiral_candidate/gaussian_source.py']
     report = {'schema': 'oph.defect_field_energy.same_carrier_balance.v1',
-              'source_sha256': bound_pins({p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in files}),
+              'source_sha256': {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
               'continuity': continuity, 'grouped_neutral_pointer_definitions': pointer_rows,
               'exact_quadratic_observable_decomposition': definitions,
               'separate_preparations_required_for_noncommuting_readout_groups': True,

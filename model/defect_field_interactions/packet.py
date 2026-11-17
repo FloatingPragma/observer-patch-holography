@@ -12,12 +12,6 @@ import numpy as np
 
 from ..defect_field_benchmark.quasiparticles import quasiparticles
 from . import interaction as model
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -97,7 +91,7 @@ def build():
              ROOT/'model/observer/source_scalar/compiler.py']
     result = {
         'schema': 'oph.defect_field_interactions.full_occupation_higgs_drive.v1',
-        'source_sha256': bound_pins({p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in files}),
+        'source_sha256': {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
         'design': 'external neutral Higgs phase drive H=(0,v exp(i phi)), fixed gauge background, phi=pi/2',
         'creation_phase_signs_from_actual_invariant_flags': {n: row['creation_phase_sign'] for n, row in model.channel_pairings().items()},
         'domain': {'ports': 12, 'CAR_modes': 1080, 'all_occupation_sectors': 1081,

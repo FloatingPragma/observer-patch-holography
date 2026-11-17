@@ -27,12 +27,6 @@ from ..defect_protection import packet as protection_packet
 from ..observer.source_scalar import compiler
 from . import full_domain
 from .dynamics_packet import compare_arrays, compare_json
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 HERE = Path(__file__).resolve().parent
@@ -352,7 +346,7 @@ def main():
     args = parser.parse_args()
     pins = bindings()
     report, arrays = build()
-    report['source_sha256'] = bound_pins(pins)
+    report['source_sha256'] = pins
     if bindings() != pins:
         raise RuntimeError('joint source changed during execution')
     output, archive = HERE/'joint_results.json', HERE/'joint_results.npz'

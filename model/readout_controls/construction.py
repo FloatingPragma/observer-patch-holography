@@ -7,12 +7,6 @@ from ..measurement_bounds import experiment as detector_source
 from ..compiled_native_interface import construction as compiled
 from ..observer.scalar_response.experiment import compare_receipt
 from . import readout, prospective
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -33,7 +27,7 @@ def run():
     # No observed response enters either executable prediction.
     empirical = readout.compare_data()
     return {'schema': 'oph.readout_controls.v1',
-            'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
+            'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
             'null_source_execution': source, 'empirical_null_comparison': empirical,
             'prospective_native_discrimination': discrimination,
             'scope': {'new_OPH_specific_empirical_confirmation': False,

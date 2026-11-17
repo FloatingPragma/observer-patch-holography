@@ -5,12 +5,6 @@ from model.particle_common_contract.provenance import import_closure
 from .cube import full_operators, spectrum
 from .momentum import certificate as momentum_certificate
 from .transfer import certificate as transfer_certificate
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[4]
 HERE = Path(__file__).parent
@@ -32,11 +26,11 @@ def input_hashes():
     for name in closure:
         if not (ROOT/name).is_file():
             raise FileNotFoundError('missing spin geometry import: '+name)
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(closure)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(closure)}
 
 
 def certificate():
     full_operators()
     return {'schema': 'oph.coherent_defect_wave.chiral_joint.atomic_spin_geometry.v1',
             'full_spin_spectrum': spectrum(), 'actual_source_momentum': momentum_certificate(),
-            'full_interacting_transfer': transfer_certificate(), 'input_sha256': bound_pins(input_hashes())}
+            'full_interacting_transfer': transfer_certificate(), 'input_sha256': input_hashes()}

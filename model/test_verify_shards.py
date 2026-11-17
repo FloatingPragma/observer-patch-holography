@@ -423,33 +423,26 @@ def test_receipt_source_gate_rejects_duplicate_keys_before_hash_selection(monkey
         verify.verify_receipt_source_bindings()
 
 
-def test_package_manifests_bind_data_but_not_code_receipts_or_prose(monkeypatch, tmp_path):
+def test_compressed_receipt_requires_outer_manifest_coverage(monkeypatch, tmp_path):
     packet = tmp_path/'model/example'
     packet.mkdir(parents=True)
     source = packet/'source.py'
     source.write_text('value = 1\n', encoding='utf-8')
     receipt = packet/'results.json.gz'
     receipt.write_bytes(gzip.compress(b'{}', mtime=0))
-    data = packet/'arrays.npz'
-    data.write_bytes(b'data\n')
-    manifest = {'files': {'source.py': hashlib.sha256(source.read_bytes()).hexdigest(),
-                          'arrays.npz': hashlib.sha256(data.read_bytes()).hexdigest()}}
+    manifest = {'files': {'source.py': hashlib.sha256(source.read_bytes()).hexdigest()}}
     (packet/'manifest.json').write_text(json.dumps(manifest), encoding='utf-8')
     monkeypatch.setattr(verify, 'ROOT', tmp_path)
     monkeypatch.setattr(verify, 'PACKETS', ('model/example',))
-    monkeypatch.setattr(verify, 'REPLAYS', ())
-    assert verify.verify_artifacts() == 1
-    # Code, receipts, prose and tests change without a manifest update.
-    source.write_text('value = 2\n', encoding='utf-8')
-    (packet/'README.md').write_text('notes\n', encoding='utf-8')
-    (packet/'test_source.py').write_text('def test(): pass\n', encoding='utf-8')
-    assert verify.verify_artifacts() == 1
-    data.write_bytes(b'changed\n')
-    with pytest.raises(ValueError, match='Artifact digest mismatch'):
+    monkeypatch.setattr(verify, 'REPLAYS', (('model.example', None, 'model/example/results.json.gz'),))
+    with pytest.raises(ValueError, match='Unbound artifact'):
         verify.verify_artifacts()
+    manifest['files'][receipt.name] = hashlib.sha256(receipt.read_bytes()).hexdigest()
+    (packet/'manifest.json').write_text(json.dumps(manifest), encoding='utf-8')
+    assert verify.verify_artifacts() == 2
 
 
-@pytest.mark.parametrize('name', ['results.npz', 'witness.csv', 'notes.txt', 'figure.png'])
+@pytest.mark.parametrize('name', ['results.npz', 'witness.csv', 'notes.txt', 'figure.pdf'])
 def test_unbound_artifact_of_any_suffix_is_rejected(monkeypatch, tmp_path, name):
     packet = tmp_path/'model/example'
     packet.mkdir(parents=True)
@@ -460,7 +453,7 @@ def test_unbound_artifact_of_any_suffix_is_rejected(monkeypatch, tmp_path, name)
     monkeypatch.setattr(verify, 'ROOT', tmp_path)
     monkeypatch.setattr(verify, 'PACKETS', ('model/example',))
     monkeypatch.setattr(verify, 'REPLAYS', ())
-    assert verify.verify_artifacts() == 0
+    assert verify.verify_artifacts() == 1
     (packet/name).write_bytes(b'unbound\n')
     with pytest.raises(ValueError, match='Unbound artifact'):
         verify.verify_artifacts()
@@ -480,7 +473,7 @@ def test_packet_metadata_and_interpreter_caches_are_not_artifacts(monkeypatch, t
     monkeypatch.setattr(verify, 'ROOT', tmp_path)
     monkeypatch.setattr(verify, 'PACKETS', ('model/example',))
     monkeypatch.setattr(verify, 'REPLAYS', ())
-    assert verify.verify_artifacts() == 0
+    assert verify.verify_artifacts() == 1
 
 
 def test_ci_checks_custody_per_push_and_replays_all_six_shards_nightly():

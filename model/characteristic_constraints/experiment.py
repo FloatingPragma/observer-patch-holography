@@ -11,12 +11,6 @@ from ..measurement_bounds import experiment as detector_source
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from ..scalar_observations.experimental_readout import data
 from . import bounds, source, randomized, randomized_source
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 FOLDER = Path(__file__).resolve().parent
@@ -100,7 +94,7 @@ def run():
     sealed = canonical(predictions_by_extent)
     scored = {str(e): score(axes, interior, predictions_by_extent[str(e)]) for e in protocol['coordinate_extents']}
     return {'schema': 'oph.characteristic_constraints.v1',
-        'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
+        'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
         'source_execution': execution, 'orientation': orientation,
         'randomized_continuing_execution': randomized_source.execute(),
         'future_randomized_designs': randomized.empirical_designs(scored, axes, interior),

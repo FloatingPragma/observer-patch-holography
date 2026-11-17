@@ -15,12 +15,6 @@ import sympy as s
 
 from ..coherent_defect_wave.chiral_higgs import model as source
 from ..coherent_defect_wave.physical_attachment.chiral import representation
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_FILES = (
@@ -409,7 +403,7 @@ def serial(value):
 def certificate():
     data = source_data()
     return serial({'schema': 'oph.yukawa_defect_vertex.v1',
-        'source_files_sha256': bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_FILES}),
+        'source_files_sha256': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_FILES},
         'construction': {'source': 'existing 320-state unit lepton-Higgs interaction',
             'dimension': data['H'].rows, 'CAR_modes': 6, 'scalar_levels': 5,
             'primitive_interaction_coefficient': '1', 'scalar_number_energy': '1',

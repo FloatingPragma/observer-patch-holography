@@ -10,12 +10,6 @@ import numpy as np
 from scipy.optimize import minimize_scalar
 
 from model.quenched_hadron_binding import analysis as old
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -198,7 +192,7 @@ def source_bindings():
     paths = [TABLE,OLD_RESULT,ROOT/'model/quenched_hadron_binding/analysis.py',
              ROOT/'model/quenched_hadron_binding/PROOF.md',ROOT/'model/pion_mass_readout/results.json']
     paths += [p for p in HERE.iterdir() if p.suffix in {'.py','.md'}]
-    return bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)})
+    return {str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
 
 
 def certificate():
@@ -260,7 +254,7 @@ def certificate():
         paired_scale_chain=True,no_covariance_fallback=True,no_target_selected_rule=True,
         diagonal_control_replayed=True,all_original_four_kappa_rows_retained=True)
     require(all(checks.values()),'correlated fit checks failed')
-    result=dict(schema='oph.correlated_hadron_spectrum.v1',source_bindings=bound_pins(pins),rule=RULE,
+    result=dict(schema='oph.correlated_hadron_spectrum.v1',source_bindings=pins,rule=RULE,
         all_checks_pass=True,checks=checks,source_lattice={k:dump[k]for k in ['label','lattice','beta','streams','configurations']},
         fits=fits,rejected_windows=rejected,kappas_used=[dump['kappas'][i]for i in selected],
         inherited_unresolved_nucleon_kappas=archived['production']['B']['nucleon_not_resolved_at'],

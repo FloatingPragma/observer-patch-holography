@@ -27,12 +27,6 @@ from tools import strict_json
 from . import native_gauge_object as objects
 from . import native_code_transport as transport
 from . import native_repair_mass_h2 as h2_control
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 COUNTS = (8, 32, 128, 512)
@@ -376,7 +370,7 @@ def source_bindings():
              | set(native_readout.source_bindings()))
     paths.update(('model/common_source/native_repair_mass.py',
                   'model/common_source/test_native_repair_mass.py'))
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
 
 
 def _compare(a, b, path='receipt'):
@@ -398,7 +392,7 @@ def _compare(a, b, path='receipt'):
 
 def check(path):
     path = Path(path); report = strict_json.load(path); before = source_bindings()
-    if bound_pins(report.get('source_bindings')) != scoped(before): raise ValueError('source pins differ')
+    if report.get('source_bindings') != before: raise ValueError('source pins differ')
     artifact = path.with_suffix('.npz')
     if report.get('artifact') != {'name': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}:
         raise ValueError('binary custody differs')
@@ -494,7 +488,7 @@ def main():
     before = source_bindings(); report, arrays = build()
     if source_bindings() != before: raise ValueError('source changed during generation')
     artifact = args.output.with_suffix('.npz'); np.savez_compressed(artifact, **arrays)
-    report['source_bindings'] = bound_pins(before)
+    report['source_bindings'] = before
     report['artifact'] = {'name': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}
     args.output.write_text(json.dumps(report, indent=2, sort_keys=True, allow_nan=False)+'\n', encoding='utf-8')
 

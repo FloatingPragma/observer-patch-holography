@@ -5,12 +5,6 @@ from model.particle_common_contract.provenance import import_closure
 from .model import operator_certificate
 from .residue import certificate as residue_certificate
 from .transfer import certificate as transfer_certificate
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[4]
 HERE = Path(__file__).parent
@@ -32,7 +26,7 @@ def input_hashes():
     for name in closure:
         if not (ROOT/name).is_file():
             raise FileNotFoundError('missing collective spin import: '+name)
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(closure)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(closure)}
 
 
 def certificate():
@@ -40,4 +34,4 @@ def certificate():
         'actual_native_operator': operator_certificate(),
         'exact_atomic_residue': residue_certificate(),
         'same_source_interacting_records': transfer_certificate(),
-        'input_sha256': bound_pins(input_hashes())}
+        'input_sha256': input_hashes()}

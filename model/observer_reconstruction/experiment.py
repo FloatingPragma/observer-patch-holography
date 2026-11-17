@@ -9,12 +9,6 @@ import numpy as np
 
 from . import native_geometry, recovery, source
 from .bounds import coherent_history_cutoff
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -173,9 +167,9 @@ def run():
     native = native_geometry.report()
     result = {
         'schema': 'oph.observer_reconstruction.v1',
-        'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                          for path in SOURCE_PATHS}),
-        'source_control_bindings': bound_pins(source.c.source_summary()['source_sha256']),
+        'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                          for path in SOURCE_PATHS},
+        'source_control_bindings': source.c.source_summary()['source_sha256'],
         'protocol': {'gamma': '3/10', 'eta': '2/5', 'frequency_upper_bound': 3.,
             'positive_clock_window': '0 < t < pi; supplied unwrapped phase window',
             'calibration_time_ratio': 2, 'edge_length_convention': 1,

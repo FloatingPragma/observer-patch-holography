@@ -11,12 +11,6 @@ import tempfile
 from model.openwave_platform_kernel.__main__ import UPSTREAM
 from model.openwave_platform_kernel.export import source_packet
 from model.openwave_pure_su2_source.custody import ROOT,pin_package,equivalent
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 KERNEL=ROOT/'model/openwave_platform_kernel'
@@ -66,7 +60,7 @@ def run(upstream, python):
     assert not subprocess.check_output(['git','diff','--name-only','HEAD','--'],cwd=upstream,env=env).strip()
     return {'schema':'oph.openwave_admission_replay_packet.v1',
         'verdict':'PASS_THREE_EXECUTED_FINITE_PLATFORM_REPLAYS',
-        'source_sha256':bound_pins(before),'upstream_commit':head,
+        'source_sha256':before,'upstream_commit':head,
         'unchanged_tracked_upstream_source':True,
         'three_actual_platform_replays':outputs,
         'scope':{'same_complete_180_coordinate_native_free_source':True,

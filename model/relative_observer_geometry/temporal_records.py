@@ -23,12 +23,6 @@ from ..observer_time_fields import spatial_dynamics as waves
 from ..native_action import incident_refinement as clocks
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(sorted(set((*core.SOURCE_PATHS, *clocks.screen.SOURCE_PATHS, *waves.SOURCE_PATHS,
@@ -754,7 +748,7 @@ def run():
             'positive_transfer_class_is_existing_native_theorem': True,
             'coherent_real_time_implementation_or_lab_duration_derived': False,
             'same_spectrum_on_refined_screens_asserted': False},
-        'source_bindings': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS})}
+        'source_bindings': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}}
 
 
 def main():

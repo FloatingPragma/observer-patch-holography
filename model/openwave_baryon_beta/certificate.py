@@ -8,12 +8,6 @@ from model.openwave_calibrated_hadrons.source import parameters,INPUTS
 from model.particle_common_contract.provenance import import_closure
 from model.common_source.chiral_candidate.action import SOURCE_FILES
 from model.openwave_larmor_dynamics.certificate import equivalent
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -22,7 +16,7 @@ def pins():
     seeds=set(SOURCE_FILES)
     for name in ('openwave_baryon_beta','openwave_baryon_weak_formfactors','openwave_calibrated_hadrons'):
         seeds.update(str(p.relative_to(ROOT))for p in (ROOT/'model'/name).iterdir()if p.suffix in ('.py','.md','.tex')or p.name=='inputs.json')
-    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(seeds))})
+    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(seeds))}
 
 def calculate():
     d=construction();e=eigensystem(d);h=d['H'].toarray();rows=[records(d,t,e)for t in(0,16,32,64,128,256,512,1024)]
@@ -43,7 +37,7 @@ def calculate():
     for hi in range(120):
         start,end=b.indptr[hi:hi+2];colour.append([[str(d['native']['basis'][int(i)]),float(abs(a)**2)]for i,a in zip(b.indices[start:end],b.data[start:end])])
     assert max(abs(sum(x[1]for x in row)-1)for row in colour)<1e-14
-    return {'schema':'native-baryon-beta-v1','source_sha256':bound_pins(pins()),
+    return {'schema':'native-baryon-beta-v1','source_sha256':pins(),
         'construction':{'native_mode_count':60,'three_quark_raw_dimension':2024,'lepton_number_four_dimension':70,
             'complete_colour_singlet_product_dimension':d['source_dimension'],'complete_charge_zero_dimension':d['charge_zero_dimension'],
             'exact_twice_spin_projection_one_dimension':d['source_spin_dimension'],'contact_coefficient':G,

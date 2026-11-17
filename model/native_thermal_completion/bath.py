@@ -14,12 +14,6 @@ from scipy.sparse.csgraph import connected_components
 
 from model.native_abundance_epochs import model as native
 from model.particle_common_contract.provenance import import_closure
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -157,7 +151,7 @@ def bindings():
     paths={str(p.relative_to(ROOT)) for p in HERE.iterdir() if p.suffix in {'.py','.md'}}
     paths.update(['model/native_abundance_epochs/PROOF.md','model/defect_integer_lift/federation.json',
                   'Lean/Dynamics/ChargeConjugation.lean'])
-    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))})
+    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))}
 
 
 def certificate():
@@ -171,7 +165,7 @@ def certificate():
             'detailed_balance_exact':True,'stationarity_exact':True,'conjugation_exact':True,
             'components':parts,'equilibrium_face_class_shares':[str(sum((p*(int(state[3]==k)+int((-state[3])%6==k))/2
                  for state,p in zip(d['states'],pi,strict=True)),F(0))) for k in range(6)]})
-    result={'schema':'oph.native_thermal_completion.v1','source_bindings':bound_pins(pins),'states':len(d['states']),
+    result={'schema':'oph.native_thermal_completion.v1','source_bindings':pins,'states':len(d['states']),
         'state_order':[list(x) for x in d['states']],
         'complete_proposal_edges':[[x,y,str(weight),d['energy'][y]-d['energy'][x]] for (x,y),weight in sorted(d['proposal'].items())],
         'complete_idle_weights':[str(1-x/d['uniformization']) for x in d['row_sums']],

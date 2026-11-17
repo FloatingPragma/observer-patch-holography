@@ -25,12 +25,6 @@ from ..common_source.chiral_candidate import gaussian_source as gaussian
 from ..full_fock_field.local_simulation import split_bound
 from ..full_fock_field.field import FullFock
 from ..interacting_field import source as local_source
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 
 
 SMALL_GATE = F(1, 10**10)
@@ -595,9 +589,9 @@ def certificate():
     for cached in (_encoder, _local, compiler._source, compiler._native, local_source._contact):
         cached.cache_clear()
     source_paths = (compiler.RESPONSE, compiler.CONTROL_RECEIPT)
-    source_pins = bound_pins({path: hashlib.sha256((compiler.ROOT/path).read_bytes()).hexdigest()
-                   for path in source_paths})
-    if bound_pins(compiler.source_summary()['source_sha256']) != scoped(source_pins):
+    source_pins = {path: hashlib.sha256((compiler.ROOT/path).read_bytes()).hexdigest()
+                   for path in source_paths}
+    if compiler.source_summary()['source_sha256'] != source_pins:
         raise ArithmeticError('source control data changed during fresh admission')
     rows = []
     for kind in ('hole', 'particle'):
@@ -647,8 +641,8 @@ def certificate():
                 'numerical_mass_and_preparation_gate': '1e-7',
                 'numerical_propagation_is_outward_certificate': False,
                 'all_number_sectors_and_export_failures_retained': True})
-    if bound_pins({path: hashlib.sha256((compiler.ROOT/path).read_bytes()).hexdigest()
-            for path in source_paths}) != scoped(source_pins):
+    if {path: hashlib.sha256((compiler.ROOT/path).read_bytes()).hexdigest()
+            for path in source_paths} != source_pins:
         raise ArithmeticError('source control data changed during fresh execution')
     return {'schema': 'oph.charged_dynamics.source.v1', 'rows': rows,
             'fresh_native_control_data_sha256': source_pins,

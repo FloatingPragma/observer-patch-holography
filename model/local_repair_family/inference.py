@@ -23,12 +23,6 @@ from pathlib import Path
 
 from ..native_modular_reference import native_census
 from ..observer import record_recovery
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 TRIALS_PER_SEAM = 1 << 20
@@ -310,4 +304,4 @@ def source_bindings():
                         'model/observer/record_recovery.py',
                         'model/local_repair_family/inference.py',
                         'model/local_repair_family/test_inference.py')))
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in names})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in names}

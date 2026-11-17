@@ -31,12 +31,6 @@ from . import calibrated_spectrum_observer as observer
 from .chiral_candidate import gaussian_source as g, kinetic, protected_momentum as protected
 from .chiral_candidate import dispersion_identifiability as bounds
 from ..calibrated_measurement.bounds import root_interval
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -933,7 +927,7 @@ def source_bindings():
     names = set(observer.source_bindings()) | set(bounds.source_bindings()) | {
         "model/common_source/calibrated_transport.py",
         "model/common_source/test_calibrated_transport.py"}
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
 
 
 def canonical_report(report):
@@ -983,7 +977,7 @@ def check(path):
     path = Path(path)
     report = strict_json.load(path)
     _finite_json(report)
-    if type(report) is not dict or bound_pins(report.get("source_bindings")) != scoped(source_bindings()):
+    if type(report) is not dict or report.get("source_bindings") != source_bindings():
         raise ValueError("retained transport closed source bindings differ")
     artifact = path.with_suffix(".npz")
     if report.get("artifact") != {"filename": artifact.name,
@@ -1018,7 +1012,7 @@ def main():
     report, arrays = execute(levels=args.levels)
     if source_bindings() != initial_bindings:
         raise RuntimeError("transport sources changed during execution; receipt was not written")
-    report["source_bindings"] = bound_pins(initial_bindings)
+    report["source_bindings"] = initial_bindings
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with artifact.open("xb") as stream:
         np.savez_compressed(stream, **arrays)

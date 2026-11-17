@@ -27,12 +27,6 @@ from . import local_bias as law
 from ..native_modular_reference import common_caps as common, cap_local_clock as cap
 from ..native_modular_reference import local_history
 from ..observer.source_discrimination import circuit
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 PROBE = (1, 7)  # Existing full bare-cap source mixer, all ten spectators.
 REQUESTED_SEAMS = ((0, 5), (5, 9))
@@ -607,4 +601,4 @@ def report():
             'requested_complete_source_execution': requested,
             'probe_region': list(PROBE), 'parameter': 'two half-steps, total s=1',
             'fresh_reference_reset_between_events': False,
-            'physical_time_or_integrated_gate_claimed': False, 'source_sha256': bound_pins(source_sha256())}
+            'physical_time_or_integrated_gate_claimed': False, 'source_sha256': source_sha256()}

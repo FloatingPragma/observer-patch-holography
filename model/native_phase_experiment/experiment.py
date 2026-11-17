@@ -22,12 +22,6 @@ from ..observer.source_scalar import compiler
 from ..reference_recovery import recovery
 from .lineage import classify_phase_loss
 from .provenance import source_hashes
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -261,7 +255,7 @@ def report(*, keep_arrays=False):
                         'success_probability': float(np.linalg.norm(prepared) ** 2),
                         'densities': {}},
         'source_execution': {name: _run_summary(run) for name, run in runs.items()},
-        'source_sha256': bound_pins(_dependencies()),
+        'source_sha256': _dependencies(),
         'protected_obstruction_reuse': classify_phase_loss(ROOT), 'trials': [],
         'resource_envelope': {
             'maximum_selector_source_pulses': SELECTOR_BITS * SELECTOR_ATTEMPTS,

@@ -53,12 +53,6 @@ import math
 from pathlib import Path
 
 from ..observer import native, record_recovery as records
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 DIMENSION = 66
 MAX_ATTEMPTS = 12
@@ -545,4 +539,4 @@ def source_bindings():
                   'model/native_modular_reference/test_history_transport.py',
                   'model/observer/record_recovery.py', 'model/observer/native.py',
                   'model/common_source/slow_geometry.py'))
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}

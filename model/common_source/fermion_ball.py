@@ -46,12 +46,6 @@ from . import calibrated_matter as matter
 from .chiral_candidate import gaussian_source as source
 from .chiral_candidate import kinetic
 from ..native_equilibration import ball_modular
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -59,7 +53,7 @@ OUTPUT = Path(__file__).with_name("fermion_ball_results.json")
 MIN_GAP = 1e-11
 NUMERIC_ADMISSION = 2e-9
 SOURCE_PATHS = tuple(sorted(set((*matter.source_bindings(), *ball_modular.SOURCE_PATHS,
-    *bound_pins(source.compiler.source_summary()["source_sha256"]),
+    *source.compiler.source_summary()["source_sha256"],
     "model/common_source/fermion_ball.py",
     "model/common_source/test_fermion_ball.py",
     "model/common_source/chiral_candidate/gaussian_source.py",
@@ -498,7 +492,7 @@ def build():
             "joint_state_geometry_entropy_stationarity_derived": False,
             "numerical_diagnostics_are_outward_certificates": False,
             "mass_inputs_removed_or_derived": False},
-        "source_bindings": bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS})}
+        "source_bindings": {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}}
 
 
 def compare(old, new, path="root"):

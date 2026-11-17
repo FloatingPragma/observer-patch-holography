@@ -23,12 +23,6 @@ from .. import slow_geometry
 from ..particle_identification import family_attachment
 from ...native_modular_reference import local_preparation
 from ...observer import native
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT=Path(__file__).resolve().parents[3]
@@ -193,7 +187,7 @@ def report(selector_rounds=32):
     mapped_caps=[sorted(data["residual_permutation"][i] for i in cap) for cap in local_preparation.CAPS]
     serial=[[before,flag,list(seam) if seam is not None else None,coin,current,after,str(probability)]
             for before,flag,seam,coin,current,after,probability in data["source"]]
-    bindings=dict(bound_pins(family_attachment.report()["source_bindings"]))
+    bindings=dict(family_attachment.report()["source_bindings"])
     for name in SOURCE_FILES:
         bindings[name]=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
     return {
@@ -255,7 +249,7 @@ def report(selector_rounds=32):
                  "Yukawa_map_selected":False,"response_eigenvalues_identified_as_particle_masses":False,
                  "coherent_quartic_fermion_interaction_derived":False,
                  "Standard_Model_masses_or_CKM_derived":False},
-        "source_bindings":bound_pins(dict(sorted(bindings.items())))}
+        "source_bindings":dict(sorted(bindings.items()))}
 
 
 if __name__=="__main__":

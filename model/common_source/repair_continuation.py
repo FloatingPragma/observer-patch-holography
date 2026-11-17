@@ -62,12 +62,6 @@ from ..observer.source_discrimination import circuit
 from ..observer.source_scalar import compiler
 from ..calibrated_measurement.bounds import root_interval
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -686,7 +680,7 @@ def source_bindings():
     paths = set(selection.source_bindings())|{
         'model/common_source/repair_continuation.py', 'model/common_source/test_repair_continuation.py',
         'model/calibrated_measurement/bounds.py'}
-    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
+    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
 
 
 def run():
@@ -740,7 +734,7 @@ def run():
             'source_replay_numerics_or_finite_N_grid_are_outward_certificates': False,
             'directed_ideal_contraction_and_ideal_error_bound_are_certificates': True,
             'physical_clock_or_service_accuracy_or_interacting_mass_law_derived': False},
-        'source_bindings': bound_pins(source_bindings())}
+        'source_bindings': source_bindings()}
     return _json(report), arrays
 
 

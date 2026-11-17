@@ -13,12 +13,6 @@ from model.common_source import native_family_record_memory as memory
 from model.common_source import calibrated_matter as matter
 from model.common_source.chiral_candidate import action
 from model.particle_common_contract.provenance import import_closure
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[2];HERE=Path(__file__).resolve().parent
 ALPHABET=(2,3,10)
 PRIMARY_WORD=(2,3,10)
@@ -184,11 +178,11 @@ def bindings():
     names={p.relative_to(ROOT).as_posix()for p in HERE.iterdir()if p.suffix in('.py','.md')}
     names.update(repair.source_bindings())
     names.update(('model/native_flavor_orbit/PROOF.md','model/source_flavour_identifiability/PROOF.md'))
-    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(names))})
+    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(names))}
 
 
 def certificate():
-    pins=bindings();out=dict(schema='oph.native_flavour_transport.v1',source_bindings=bound_pins(pins),all_checks_pass=True,
+    pins=bindings();out=dict(schema='oph.native_flavour_transport.v1',source_bindings=pins,all_checks_pass=True,
         source_contract=dict(family_factor=3,full_native_internal_rows=45,
             empirical_mass_or_mixing_inputs=[],architecture_changed='down coefficient Yd=V_word Y, Yu=Ye=Y',
             source_forces_chosen_word=False,original_record_memory_replaced=False,

@@ -18,12 +18,6 @@ from tools import strict_json
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from . import continuation_bounds, encoded_observer, infinite_history, protocol, smooth_history
 from . import open_bounds, open_environment as environment, open_native, open_protocol as mixed
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 STEPS = 512
@@ -244,7 +238,7 @@ def run():
                            'larger_source_execution_claimed': False})
     root = Path(__file__).resolve().parents[2]
     return {'schema': 'oph.common_source.open_observer.v1',
-            'source_sha256': bound_pins({path: hashlib.sha256((root/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
+            'source_sha256': {path: hashlib.sha256((root/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
             'source_environment_channels': source_channels,
             'environment': env.specification(), 'work_histories': rows,
             'native_attachments': native_rows, 'retained_reference_control': _reference_control(env),

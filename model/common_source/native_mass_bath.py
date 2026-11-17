@@ -21,12 +21,6 @@ from . import native_gauge_object as objects, native_mass_dressing as dressing
 from . import native_repair_mass as feedback
 from ..native_modular_reference import local_preparation as preparation
 from ..observer import native
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = objects.ROOT
 ADMISSION = 2e-10
@@ -283,4 +277,4 @@ def report(): return execute()[0]
 def source_bindings():
     paths = set(dressing.source_bindings()) | set(preparation.SOURCE_PATHS) | {
         'model/common_source/native_mass_bath.py', 'model/common_source/test_native_mass_bath.py'}
-    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
+    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}

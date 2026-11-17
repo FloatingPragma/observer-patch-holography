@@ -18,12 +18,6 @@ from ..defect_mode_overlap import overlap
 from ..defect_scalar_modes import modes as scalar_modes
 from ..particle_common_contract.provenance import import_closure
 from . import encounter
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -254,13 +248,13 @@ def bindings():
         if not (ROOT/name).is_file():
             raise FileNotFoundError('missing declared joined-source input: '+name)
     paths = import_closure(paths)
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
 
 
 def certificate():
     pins = bindings()
     contact = spatial_contact()
-    result = serial({'schema': 'oph.defect_mass_join.v1', 'source_bindings': bound_pins(pins),
+    result = serial({'schema': 'oph.defect_mass_join.v1', 'source_bindings': pins,
         'local_full_domain_checks': local_operator_checks(),
         'literal_lepton_control': lepton_control_embedding(),
         'joined_source': contact['source'],

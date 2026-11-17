@@ -12,12 +12,6 @@ import numpy as np
 
 from tools import strict_json
 from . import native, response
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
@@ -66,8 +60,8 @@ def source_bindings():
         'Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean',
         'Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean'))
     paths.update((HERE/'README.md', HERE/'PROOF.md'))
-    return bound_pins({p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in sorted(paths)})
+    return {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(paths)}
 
 
 def claims():
@@ -113,7 +107,7 @@ def produce():
             'physical_2pi_bulk_plus_edge_split_supplied': False,
             'SmallBallPremises_supplied': False,
             'ContinuumEinsteinPremises_supplied': False},
-        'source_bindings': bound_pins(pins)}
+        'source_bindings': pins}
     if pins != source_bindings():
         raise RuntimeError('source changed during response verification')
     return value

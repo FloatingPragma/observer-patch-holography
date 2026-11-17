@@ -10,12 +10,6 @@ from ..interacting_field.lattice import WeylLattice
 from ..common_source.chiral_candidate import gaussian_source as gaussian
 from .energy import certify, commutator, SCALE, sum_exact
 from . import entropy
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -81,7 +75,7 @@ def source_bindings():
         'Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean',
         'Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean',
         'Lean/Thermodynamics/EinsteinPremiseLink.lean']
-    return bound_pins({path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
+    return {path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
 
 
 def run():
@@ -116,4 +110,4 @@ def run():
                 'PR-27':'no small geodesic balls, Bianchi geometry or cofinal controlled geometric tail',
                 'PR-28':'no physical gravitational tower or independent Newton calibration'},
             'EinsteinRegisterData_inhabited':False,'integrated_gate_accepted':False,
-            'physical_comparison_count_added':0,'source_bindings':bound_pins(source_bindings())}
+            'physical_comparison_count_added':0,'source_bindings':source_bindings()}

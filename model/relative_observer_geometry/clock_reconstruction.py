@@ -21,12 +21,6 @@ from ..laboratory_clock import event_geometry as event
 from ..observer import native
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(sorted(set((*event.SOURCE_PATHS,
@@ -272,7 +266,7 @@ def run():
     if cyclic['zero_B_count_probability'] == iid_zero:
         raise ArithmeticError('the temporal-dependence control failed to distinguish interval laws')
     return {'schema': 'oph.clock_scheduler_reconstruction.v1',
-        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
+        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
         'normalization': 'each single-seam event ticks exactly two ports; sum of exposures is two',
         'reconstruction': 'a_i=2*mu_0i/sum_j(mu_0j), mu_00=1; p_ij=a_i*coincidence_ij',
         'same_structural_gram_different_kinetics': changed,

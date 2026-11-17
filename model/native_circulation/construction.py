@@ -22,12 +22,6 @@ from ..observer import native
 from ..primitive_observer import runtime, transfer
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 VALUES = (-1, 0, 1)
@@ -409,7 +403,7 @@ def run():
     if square_correlation!=F(1,1980):
         raise ArithmeticError('the nonindependent squared-current control changed')
     return {'schema':'oph.native_circulation.v1','all_pass':True,
-        'sources':bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
+        'sources':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
         'source_geometry':geometry,'axial_circulation':axial_geometry(),
         'axial_radial_limit':axial_radial_limit_control(),
         'complete_native_execution':runtime_check(),

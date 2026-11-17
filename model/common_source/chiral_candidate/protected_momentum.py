@@ -32,12 +32,6 @@ from . import action, gaussian_source as g, history, kinetic
 from .. import record_code, record_field
 from ..mass_response import history as instruments, model
 from ...observer.source_scalar import compiler
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins, scoped
 
 
 MOMENTUM = F(1, 3)
@@ -795,16 +789,16 @@ def execute(*, steps=16, with_protection_budget=True):
 def source_bindings():
     root = Path(__file__).resolve().parents[3]
     from ..record_observer import SOURCE_PATHS
-    names = set(SOURCE_PATHS)|set(bound_pins(action.report()["source_bindings"]))
-    names.update(bound_pins(compiler.source_summary()["source_sha256"]))
+    names = set(SOURCE_PATHS)|set(action.report()["source_bindings"])
+    names.update(compiler.source_summary()["source_sha256"])
     names.update({"model/common_source/chiral_candidate/"+name for name in (
         "protected_momentum.py", "test_protected_momentum.py", "README.md", "action.py",
         "gaussian_source.py", "history.py", "kinetic.py", "__init__.py")})
     names.update("model/common_source/mass_response/"+name for name in (
         "model.py", "history.py", "experiment.py", "__init__.py"))
     paths = {root/name for name in names}
-    return bound_pins({path.relative_to(root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
-            for path in sorted(paths)})
+    return {path.relative_to(root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in sorted(paths)}
 
 
 def canonical_report(report):
@@ -882,7 +876,7 @@ def verify_retained(path):
     _finite_json(document)
     if document.get("schema") != "oph.chiral_candidate.protected_momentum.v1":
         raise ValueError("wrong protected momentum schema")
-    if bound_pins(document.get("source_bindings")) != scoped(source_bindings()):
+    if document.get("source_bindings") != source_bindings():
         raise ValueError("protected momentum source custody changed")
     artifact = document["artifact"]
     if Path(artifact["filename"]).name != artifact["filename"]:
@@ -927,7 +921,7 @@ def verify_retained(path):
 def compare_execution(retained, stored_arrays, current, current_arrays):
     """Compare all complex outputs; validate hashes against stored bytes only."""
     left, right = deepcopy(retained), canonical_report(current)
-    right["source_bindings"] = bound_pins(source_bindings())
+    right["source_bindings"] = source_bindings()
     right["artifact"] = left["artifact"]
     for report in (left, right):
         for factor in report["complete_complex_tensor_factors"].values():
@@ -991,7 +985,7 @@ def main():
         parser.error("choose fresh JSON and companion NPZ output paths")
     report, arrays = execute(steps=args.steps)
     report = canonical_report(report)
-    report["source_bindings"] = bound_pins(source_bindings())
+    report["source_bindings"] = source_bindings()
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with artifact.open("xb") as handle:
         np.savez_compressed(handle, **arrays)

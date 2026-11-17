@@ -19,12 +19,6 @@ from .thermal_history import finite_gibbs_seed, history, preparation_bracket
 from .thermal_spectrum import certify_spectrum
 from .thermal_forms import fixed_code_form
 from .thermal_source import run as source_run
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(dict.fromkeys(CONSTRUCTION_SOURCE_PATHS+tuple(
@@ -183,7 +177,7 @@ def run():
         'same_H_product_formula_error_upper','timeout_probability_upper',
         'model_time_and_native_arrival_time_discrepancy_upper')
     return compact({'schema':'oph.interacting_band_extension.thermal_certificate.v1',
-        'source_sha256':bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_PATHS}),
+        'source_sha256':{name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_PATHS},
         'original_hot_protocol':hot_summary|{
             'original_d4_preparation_allowance_upper':certified_upper(old_allowance,F('0.566265'),'old preparation'),
             'd24_source_history_executed':False},

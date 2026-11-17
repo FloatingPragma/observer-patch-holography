@@ -24,12 +24,6 @@ from ..compiled_native_interface import construction as compiled
 from ..observer.source_scalar import compiler
 from ..native_clock import regional_preparation
 from . import common_caps as common, compatibility, full_flow as full, local_preparation as local
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name("local_history_results.json")
@@ -333,7 +327,7 @@ def run():
         "model/native_modular_reference/common_caps.py",
         "model/native_modular_reference/full_flow.py")))
     return {"schema": "oph.native_modular_reference.local_history.v1", "all_pass": True,
-            "source_sha256": bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}),
+            "source_sha256": {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths},
             "source_words": {"clock": hashlib.sha256(full.corner.canonical(word()).encode()).hexdigest(),
                 "rotations": [hashlib.sha256(full.corner.canonical(pair_word(i, sign)).encode()).hexdigest()
                               for i in (0, 1) for sign in (-1, 1)]},

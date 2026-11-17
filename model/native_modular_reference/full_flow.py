@@ -51,12 +51,6 @@ from tools import strict_json
 from . import construction as corner, preparation
 from ..native_clock import configuration
 from ..native_interface import pointer
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 compiled = corner.compiled
 compiler = compiled.compiler
@@ -355,7 +349,7 @@ def run():
                         "model/native_modular_reference/preparation.py",
                         "model/native_modular_reference/full_flow.py",
                         "model/record_laws/burn_in.py", "Lean/QFT/StructuralInheritance.lean")))
-    hashes = bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in paths})
+    hashes = {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in paths}
     return {"schema": "oph.native_modular_reference.full_flow.v2", "all_pass": True,
             "source_dependency_count": len(paths),
             "source_dependency_map_sha256": hashlib.sha256(corner.canonical(hashes).encode()).hexdigest(),

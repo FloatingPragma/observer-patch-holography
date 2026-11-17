@@ -11,12 +11,6 @@ from tools import strict_json
 from ..measurement_bounds import bounds as original_bounds
 from ..measurement_bounds import experiment as source
 from .bounds import FIRST, SETTINGS, InterfaceBounds, analyze_counts, json_safe, sampling_radius
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 FOLDER = Path(__file__).resolve().parent
@@ -104,7 +98,7 @@ def source_bindings():
         'model/calibrated_measurement/bounds.py', 'model/calibrated_measurement/experiment.py',
         'model/calibrated_measurement/protocol.json', 'Lean/Dynamics/ChoiCPTP.lean',
         'model/common_source/output_certificate.py'}
-    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
+    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
 
 
 def produce():
@@ -145,7 +139,7 @@ def produce():
     if not all(checks.values()):
         raise ArithmeticError(f'calibrated measurement checks failed: {checks}')
     return json_safe({'schema': 'oph.calibrated_measurement.results.v1', 'all_pass': True,
-        'checks': checks, 'protocol': protocol, 'source_bindings': bound_pins(source_bindings()),
+        'checks': checks, 'protocol': protocol, 'source_bindings': source_bindings(),
         'source_detector_metadata': metadata, 'finite_interface': {
             'mass_bounds': interface.mass, 'null_bounds': interface.null, 'moment_bound': interface.moment,
             'complete_instrument_observable_corrections': {name: interface.completion(name) for name in SETTINGS},

@@ -36,6 +36,7 @@ import sys
 import tempfile
 import threading
 import time
+from subprocess import run as _git_run
 
 try:
     from tools.pin_scope import exempt
@@ -84,12 +85,14 @@ def writer_interface(root, row):
     text, problem = producer_help(root, module, command)
     if problem:
         return None, problem
+    write_flag = re.search(r"--write\b(?! \[?[A-Z_])", text) is not None
     for flag in ("--write", "--output", "--out"):
         if re.search(re.escape(flag) + r" \[?[A-Z_]+", text):
-            write = ("path", flag)
+            # A flag-only --write that directs its output with --output.
+            write = ("path", "--write --output" if flag == "--output" and write_flag else flag)
             break
     else:
-        write = ("inplace", "--write") if re.search(r"--write\b", text) else ("bare", None)
+        write = ("inplace", "--write") if write_flag else ("bare", None)
     if (module, command) != row[:2]:
         text, problem = producer_help(root, row[0], row[1])
         if problem:
@@ -98,8 +101,11 @@ def writer_interface(root, row):
         check = "path"
     elif re.search(r"--check\b", text):
         check = "flag"
+    elif re.search(r"--verify\b", text):
+        check = "verify"
     else:
-        return None, "no --check interface"
+        # No separate checker: the exact payload comparison is the check.
+        check = None
     return {"write": write, "check": check}, None
 
 
@@ -356,6 +362,33 @@ def topological(graph):
     return order
 
 
+def touched_since(root, start_ns, skip=()):
+    """Files under model/ modified at or after ``start_ns``."""
+    found = set()
+    for directory, names, files in os.walk(root / "model"):
+        names[:] = [n for n in names if n != "__pycache__"]
+        for file_name in files:
+            path = Path(directory) / file_name
+            try:
+                if path.stat().st_mtime_ns >= start_ns and path.resolve() not in skip:
+                    found.add(path.resolve())
+            except OSError:
+                pass
+    return found
+
+
+def restore_from_git(root, paths):
+    """Return side-effect files to their committed bytes; remove new ones."""
+    for path in sorted(paths):
+        relative = path.relative_to(root).as_posix()
+        tracked = _git_run(["git", "cat-file", "-e", "HEAD:" + relative], cwd=root,
+                           capture_output=True).returncode == 0
+        if tracked:
+            _git_run(["git", "checkout", "HEAD", "--", relative], cwd=root, capture_output=True)
+        else:
+            path.unlink(missing_ok=True)
+
+
 def repository_digests(root):
     """Current SHA-256 of every repository file (tracked files when in Git)."""
     try:
@@ -428,7 +461,8 @@ def main():
             relative = path.relative_to(root)
             receipt = relative.as_posix()
             if (receipt in replay or {"historical", "predecessor"} & set(relative.parts)
-                    or path.name in ("manifest.json", "MANIFEST.json")):
+                    or path.name in ("manifest.json", "MANIFEST.json")
+                    or "campaign" in path.name or "contract" in path.name):
                 continue
             try:
                 value = strict_json.loads(path.read_text())
@@ -627,15 +661,31 @@ def main():
         if mode == "bare":
             for relative in backed_up:
                 (root / relative).unlink()
-        run("write", writer + ([flag, str(candidate)] if mode == "path" else [flag] if flag else []))
+        started_ns = time.time_ns()
+        declared = {path.resolve() for path in by_path}
+        failure = None
+        try:
+            run("write", writer + (flag.split() + [str(candidate)] if mode == "path" else [flag] if flag else []))
+        except RuntimeError as error:
+            failure = error
+        # Files the producer wrote besides its declared outputs.
+        side_effects = touched_since(root, started_ns, skip=declared)
+        with report_lock:
+            result["side_effect_files"] = sorted(p.relative_to(root).as_posix() for p in side_effects)
+            save()
+        if failure is not None:
+            restore_from_git(root, side_effects)
+            raise failure
         try:
             after = load_receipt(candidate_root, name, strict_json)
         except (OSError, ValueError, EOFError):
             if mode != "path":
                 restore()
+            restore_from_git(root, side_effects)
             raise RuntimeError(f"{name} write did not produce a readable receipt")
         candidate_outputs = owned_outputs(candidate_root, name, after)
-        own = set(candidate_outputs) | {root / relative for relative in backed_up}
+        # A digest of anything this producer just wrote is payload, not a pin.
+        own = set(candidate_outputs) | {root / relative for relative in backed_up} | side_effects
         own = {path.resolve() for path in own}
         diff = differences(science_payload(root, name, before), science_payload(root, name, after),
                            file_digest=file_digest_for(own))
@@ -651,18 +701,19 @@ def main():
         if diff:
             if mode != "path":
                 restore()
+            restore_from_git(root, side_effects)
             raise RuntimeError(f"{name} changed non-provenance payload; backups={args.output / 'before'}")
-        check_target = candidate if mode == "path" else root / name
-        run("check", prefix + (["--check", str(check_target)] if interface["check"] == "path" else ["--check"]))
         relative_outputs = {p.relative_to(candidate_root).as_posix(): p for p in candidate_outputs}
         if relative_outputs.keys() != backed_up.keys():
             if mode != "path":
                 restore()
+            restore_from_git(root, side_effects)
             raise RuntimeError(f"{name} changed its output catalogue; review candidate outputs")
-        if mode == "path":
+
+        def commit():
             if any(digest(root / relative) != expected for relative, expected in backed_up.items()):
                 raise RuntimeError(f"{name} canonical output changed during replay")
-            # Commit archives first and the receipt last. Dependent DAG nodes are
+            # Archives first and the receipt last. Dependent DAG nodes are
             # released only after this entire operation returns successfully.
             for relative in sorted(relative_outputs, key=lambda p: p == name):
                 destination = root / relative
@@ -674,6 +725,28 @@ def main():
                     os.replace(temporary, destination)
                 finally:
                     temporary.unlink(missing_ok=True)
+
+        # A checker given a path reads the candidate; a flag-only checker reads
+        # the canonical receipt, so the candidate is committed first and the
+        # backed-up outputs return if the check fails. Some checkers accept
+        # only the repository-relative canonical path.
+        canonical_check = interface["check"] in ("flag", "verify")
+        if mode == "path" and canonical_check:
+            commit()
+        try:
+            if interface["check"] == "path":
+                run("check", prefix + ["--check", str(candidate) if mode == "path" else name])
+            elif interface["check"] == "flag":
+                run("check", prefix + ["--check"])
+            elif interface["check"] == "verify":
+                run("check", prefix + ["--verify"])
+        except RuntimeError:
+            if mode == "path" and canonical_check:
+                restore()
+            restore_from_git(root, side_effects)
+            raise
+        if mode == "path" and not canonical_check:
+            commit()
         with current_lock:
             for relative in relative_outputs:
                 path = (root / relative).resolve()
@@ -731,7 +804,11 @@ def main():
     if stopped:
         raise SystemExit(f"Time limit reached; {len(pending)} affected receipts not started: {report_path}")
     # Fresh authoritative validation, not the local copy of discovery logic.
-    verify.verify_receipt_source_bindings()
+    try:
+        from model import verify_current as authority
+    except ImportError:
+        authority = verify
+    authority.verify_receipt_source_bindings()
     report["authoritative_final_source_check"] = "PASS"
     save()
     print(f"All {len(affected)} affected receipts replayed and checked: {report_path}", flush=True)

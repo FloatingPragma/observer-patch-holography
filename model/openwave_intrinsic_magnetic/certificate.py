@@ -3,12 +3,6 @@ from pathlib import Path
 import hashlib
 from model.particle_common_contract.provenance import import_closure
 from .experiment import run
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 DEPENDENCIES=('model/native_mass_channels/README.md','model/openwave_field_observables/PROOF.md',
@@ -20,15 +14,15 @@ def inputs():
     seeds.update(DEPENDENCIES)
     for name in seeds:
         if not (ROOT/name).is_file():raise FileNotFoundError('missing stationary magnetic input: '+name)
-    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(seeds))})
+    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(seeds))}
 
 
 def certificate():
-    result=run();result['input_sha256']=bound_pins(inputs());return result
+    result=run();result['input_sha256']=inputs();return result
 
 
 def validate_pins(value):
-    for name,expected in bound_pins(value['input_sha256']).items():
+    for name,expected in value['input_sha256'].items():
         path=Path(name)
         if path.is_absolute() or '..' in path.parts or hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=expected:
             raise ValueError('stationary magnetic input changed: '+name)

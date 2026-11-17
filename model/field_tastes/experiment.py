@@ -3,12 +3,6 @@ from pathlib import Path
 import hashlib
 from fractions import Fraction as F
 from . import tastes,thermal
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -18,7 +12,7 @@ def source_bindings():
     paths=list(HERE.glob('*.py'))+[HERE/'README.md']
     paths.extend(ROOT/p for p in ('model/bound_pair/fiber.py','model/bound_pair/spectrum.py',
         'model/interacting_field/lattice.py','model/observer/scalar_response/experiment.py'))
-    return bound_pins({p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)})
+    return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
 
 
 def run():
@@ -37,7 +31,7 @@ def run():
         'same_action_faithful_Gibbs':positive['smallest_Gibbs_eigenvalue']>0,
         'reflection_positivity':positive['reflection_Gram_minimum_eigenvalue']>-2e-12 and positive['independent_trace_formula_residual']<2e-12,
         'KMS_and_wrong_reference_control':positive['KMS_residual']<2e-12 and positive['wrong_tracial_reference_KMS_residual']>1e-6}
-    return {'schema':'oph.same_field_tastes.v1','source_bindings':bound_pins(source_bindings()),
+    return {'schema':'oph.same_field_tastes.v1','source_bindings':source_bindings(),
             'owner_issues':[1142,1137],'taste_interaction':taste,'finite_thermal_positivity':positive,
             'checks':checks,'all_pass':all(checks.values()),
             'integrated_gate_accepted':False,'physical_comparison_count_added':0,

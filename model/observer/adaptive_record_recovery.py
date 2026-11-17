@@ -41,12 +41,6 @@ import numpy as np
 
 from . import record_recovery as recovery
 from .source_discrimination import circuit
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -290,7 +284,7 @@ def source_bindings():
     from .record_recovery_receipt import SOURCE_PATHS
     paths = set(SOURCE_PATHS) | {'model/observer/adaptive_record_recovery.py',
                                'model/observer/test_adaptive_record_recovery.py'}
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
 
 
 def _json_safe(value):

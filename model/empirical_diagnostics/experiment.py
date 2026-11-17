@@ -18,12 +18,6 @@ from ..occupation_control.solver import evolve
 from ..observer.source_scalar import compiler
 from ..primitive_observer import anharmonic, runtime
 from ..scalar_observations.experimental_readout import executable_source as native
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 FOLDER = Path(__file__).resolve().parent
@@ -182,7 +176,7 @@ def _source_bindings():
              ROOT/'model/observer/source_scalar/compiler.py', ROOT/'tools/strict_json.py',
              ROOT/'model/requirements.txt', ROOT/'code/source_selection_model/response.json',
              ROOT/'code/m1_source_realization/receipt.json']
-    return bound_pins({path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths})
+    return {path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths}
 
 
 def produce(*, dimension=None, certificate=True):
@@ -265,7 +259,7 @@ def produce(*, dimension=None, certificate=True):
         raise ArithmeticError(f'preparation diagnostic failed: {checks}')
     return {'schema': 'oph.empirical_diagnostics.results.v1', 'dimension': dimension,
             'source_controls': compiler.source_summary(),
-            'source_bindings': bound_pins(_source_bindings()), 'protocol': protocol,
+            'source_bindings': _source_bindings(), 'protocol': protocol,
             'frozen_preparation': supplied, 'non_gaussian_second_component_weight': weight,
             'source_executions': executed, 'semantic_certificates': certified,
             'records': records, 'recovered_gaussian': identify_gaussian(z, h),

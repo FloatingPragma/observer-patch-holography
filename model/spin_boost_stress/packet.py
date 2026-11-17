@@ -12,12 +12,6 @@ import numpy as np
 from tools import strict_json
 from model.spin_modular_geometry.packet import compare, rational
 from . import algebra, response, native
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
@@ -80,8 +74,8 @@ def source_bindings():
         'Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean',
         'Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean'))
     paths.update((HERE/'README.md', HERE/'PROOF.md'))
-    return bound_pins({p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in sorted(paths)})
+    return {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(paths)}
 
 
 def claims():
@@ -129,7 +123,7 @@ def produce():
                  'Dynamics.StoneConverse': 'fixed source clock and ground scalar retained',
                  'Dynamics.WardLimitManifest': 'source refinement/chart/limit premises not supplied',
                  'operational_causal_selection': 'one-boost complete-history covariance not supplied'},
-             'source_bindings': bound_pins(pins)}
+             'source_bindings': pins}
     if pins != source_bindings():
         raise ValueError('source changed during boost/stress certificate')
     return value

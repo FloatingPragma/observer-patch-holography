@@ -12,12 +12,6 @@ import numpy as np
 from . import source
 from .calibration import calibrate
 from .data import load_calibration, load_metadata, load_validation
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 FOLDER = Path(__file__).resolve().parent
@@ -215,8 +209,8 @@ def predict(*, progress=None):
     result = {'schema': 'oph.anharmonic_observations.predictions.v1',
               'protocol_sha256': hashlib.sha256(protocol_bytes).hexdigest(),
               'protocol': protocol, 'calibration': preparation,
-              'source_binding_sha256': bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-                                        for name in SOURCE_PATHS}),
+              'source_binding_sha256': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+                                        for name in SOURCE_PATHS},
               'provenance': metadata['provenance'], 'runs': runs,
               'zero_duration_position_predictions': zero_prediction,
               'positive_duration_values_used': False}

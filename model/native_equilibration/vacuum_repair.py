@@ -66,12 +66,6 @@ from ..observer.source_scalar import compiler
 from ..calibrated_measurement.bounds import root_interval
 from ..observer.scalar_response.experiment import canonical
 from . import vacuum_geometry as vacuum
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -484,7 +478,7 @@ def run():
     arrays["reset_target_isometry"] = dilation.pop("target_isometry")
     joint_source, joint_target, joint_control = joint_reset_control()
     arrays["joint_reset_isometry"], arrays["joint_reset_target_isometry"] = joint_source, joint_target
-    sources = set(vacuum.SOURCE_PATHS)|set(bound_pins(compiler.source_summary()["source_sha256"]))|{
+    sources = set(vacuum.SOURCE_PATHS)|set(compiler.source_summary()["source_sha256"])|{
         "model/native_equilibration/vacuum_repair.py", "model/native_equilibration/test_vacuum_repair.py",
         "model/observer/source_scalar/compiler.py", "model/calibrated_measurement/bounds.py"}
     report = {"schema": "oph.native_equilibration.vacuum_repair.v1",
@@ -527,7 +521,7 @@ def run():
             "literal_binary_word_family_entropy_derivative_error_bound_certified": False,
             "proper_isotropic_UV_limit_or_renormalized_generalized_entropy": False,
             "small_ball_Einstein_stationarity_or_physical_work_units_derived": False},
-        "source_bindings": bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(sources)})}
+        "source_bindings": {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(sources)}}
     return _json(report), arrays
 
 

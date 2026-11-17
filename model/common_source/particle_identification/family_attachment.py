@@ -17,12 +17,6 @@ from pathlib import Path
 from .. import slow_geometry
 from ...native_modular_reference import local_preparation
 from ...observer import native
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -195,8 +189,8 @@ def report():
                            "physical_chirality_selected": False,
                            "absolute_scale_or_measured_masses_derived": False,
                            "Standard_Model_particle_identification_completed": False},
-        "source_bindings": bound_pins({path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
-                            for path in sorted(paths)}),
+        "source_bindings": {path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+                            for path in sorted(paths)},
     }
 
 

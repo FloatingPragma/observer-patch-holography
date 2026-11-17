@@ -19,12 +19,6 @@ from scipy.sparse import coo_matrix
 
 from tools import strict_json
 from . import local_bias as local, mixing, continuing, modular_clock
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -156,14 +150,14 @@ def report():
     paths = {'model/local_repair_family/observer.py', 'model/local_repair_family/test_observer.py',
              'model/local_repair_family/observer_campaign.json', 'model/local_repair_family/README.md',
              'tools/strict_json.py'}
-    bindings = bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
+    bindings = {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
     for child in (mix, fifo, clock):
-        for name, digest in bound_pins(child['source_sha256']).items():
+        for name, digest in child['source_sha256'].items():
             if name in bindings and bindings[name] != digest:
                 raise ArithmeticError('component source custody differs')
             bindings[name] = digest
     return {'schema': 'oph.local_repair_family.observer.v1', 'campaign_id': CAMPAIGN,
-            'contract_sha256': CONTRACT_SHA256, 'source_sha256': bound_pins(dict(sorted(bindings.items()))),
+            'contract_sha256': CONTRACT_SHA256, 'source_sha256': dict(sorted(bindings.items())),
             'mixing': mix, 'continuing': fifo, 'modular_clock': clock,
             'composition_budget': composition_budget(clock['source_budget']),
             'preparation_execution': preparation_execution(),

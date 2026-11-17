@@ -23,12 +23,6 @@ from ..native_quantum_history import construction as quantum
 from ..readout_controls import prospective
 from ..primitive_observer import runtime
 from ..observer.scalar_response.experiment import compare_receipt
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 FOLDER = Path(__file__).resolve().parent
@@ -311,7 +305,7 @@ def run():
     success = 2*interface.SUCCESS
     mixer_resources = compiled.resources()
     return {'schema': 'oph.closed_prediction_protocol.v1',
-        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
+        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
         'design': chosen,
         'exact_selected_complete_laws': {law: list(map(str, prospective.exact_law(law, attempts))) for law in ('C', 'E')},
         'sequential_execution': [execute(law, selected) for law in ('C', 'E')],

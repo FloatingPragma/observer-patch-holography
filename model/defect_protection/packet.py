@@ -9,12 +9,6 @@ from pathlib import Path
 from tools import strict_json
 from ..exchange_sector import statistics_packet
 from . import protection, service
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -56,7 +50,7 @@ def report():
                   'coherence_between_charge_sectors_preserved': False,
                   'localized_source_defect_or_physical_particle_identified': False,
                   'collision_sector_or_refinement_covered': False},
-              'source_sha256': bound_pins(before)}
+              'source_sha256': before}
     if source_bindings() != before:
         raise RuntimeError('source files changed during protection replay')
     return result

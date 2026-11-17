@@ -9,12 +9,6 @@ from pathlib import Path
 import tempfile
 
 from . import gauge_band, quantum_link_completion, native_link_projector_witness
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -58,7 +52,7 @@ def compare(expected, actual, path='root'):
 def check():
     stored = {name: json.loads((HERE/name).read_text()) for name in RECEIPTS}
     for name, packet in stored.items():
-        for path, sha in bound_pins(packet['source_bindings']).items():
+        for path, sha in packet['source_bindings'].items():
             if digest(ROOT/path) != sha:
                 raise AssertionError(f'{name}: source binding changed: {path}')
     if digest(HERE/'gauge_band_witnesses.npz') != stored['gauge_band.json']['witness_sha256']:

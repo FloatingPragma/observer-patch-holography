@@ -19,12 +19,6 @@ import numpy as np
 from tools import strict_json
 from ..native_equilibration import common_variation
 from . import open_observer, record_capacity, record_code, record_field, record_information
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -116,7 +110,7 @@ def execution_diagnostics():
             raise ArithmeticError('complete field composition exceeds numerical guard')
     result = {
         'schema': 'oph.common_source.record_observer.v1',
-        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
+        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
         'optimal_native_code': code, 'rank15_recovery_obstruction': capacity,
         'native_source_execution': executed, 'all_seam_source_composition': budget,
         'protected_field': field, 'complete_field_reference_arrays': outputs,

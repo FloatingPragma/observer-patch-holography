@@ -11,12 +11,6 @@ import subprocess
 import sys
 
 from tools import strict_json
-try:
-    from tools.pin_scope import exempt
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[1]))
-    from tools.pin_scope import exempt
 from .replay_empirical import EMPIRICAL_REPLAYS
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -532,7 +526,6 @@ def verify_receipt_source_bindings(digests=None):
     The mixed ``sources`` maps also contain external custody metadata and
     aliases; those and frozen captures outside REPLAYS retain their owning
     verifiers. This does not replace schema validation or scientific replay.
-    Prose and test entries (tools/pin_scope.py) are never compared.
     """
     digests = {} if digests is None else digests
     root = ROOT.resolve()
@@ -555,8 +548,6 @@ def verify_receipt_source_bindings(digests=None):
                     base = ((root/receipt).parents[package_levels[key]]
                             if key in package_levels else root)
                     for relative, expected in child.items():
-                        if isinstance(relative, str) and exempt(relative):
-                            continue
                         if not isinstance(relative, str) or "://" in relative:
                             if local_only:
                                 raise ValueError(f"Invalid local source path: {receipt} at {here}")
@@ -595,10 +586,7 @@ def verify_receipt_source_bindings(digests=None):
 
 # Non-artifact files that legitimately sit inside a packet: the manifest that
 # binds it, repository/VCS metadata, and interpreter caches. Every other file
-# must be bound by the packet manifest, whatever its suffix, except prose and
-# test modules (tools/pin_scope.py), code, and JSON receipts. Code is not
-# byte-pinned, and every receipt carries its own source map and replay.
-UNPINNED_SUFFIXES = (".py", ".c", ".json", ".json.gz")
+# must be bound by the packet manifest, whatever its suffix.
 PACKET_METADATA = frozenset({"manifest.json", ".gitattributes", ".gitignore"})
 PACKET_CACHE_DIRS = frozenset({"__pycache__", ".pytest_cache"})
 
@@ -613,8 +601,6 @@ def verify_artifacts():
         if not files:
             raise ValueError(f"Empty artifact manifest: {name}")
         for relative, expected in files.items():
-            if exempt(f"{name}/{relative}") or relative.endswith(UNPINNED_SUFFIXES):
-                continue
             target = (folder / relative).resolve()
             if not target.is_relative_to(folder.resolve()):
                 raise ValueError(f"Artifact outside its package: {name}/{relative}")
@@ -626,8 +612,6 @@ def verify_artifacts():
     for name in PACKETS:
         for target in (ROOT / name).rglob("*"):
             if not target.is_file() or target.name in PACKET_METADATA:
-                continue
-            if exempt(target.relative_to(ROOT).as_posix()) or target.name.endswith(UNPINNED_SUFFIXES):
                 continue
             if PACKET_CACHE_DIRS.intersection(target.relative_to(ROOT / name).parts):
                 continue

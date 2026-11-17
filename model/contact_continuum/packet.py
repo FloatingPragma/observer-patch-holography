@@ -10,12 +10,6 @@ from pathlib import Path
 from tools import strict_json
 from ..observer.scalar_response.experiment import compare_receipt
 from . import continuum as c
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).with_name('results.json')
@@ -50,8 +44,8 @@ def run():
         diagnostic.append({'energy':x,'eta':.5,'speed':1.,
                            'green_real':value.real,'green_imaginary':value.imag})
     return exact({'schema':'oph.repulsive_contact_continuum.v1',
-        'issues':[1142,1143], 'source_bindings':bound_pins({
-            name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCES}),
+        'issues':[1142,1143], 'source_bindings':{
+            name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCES},
         'sign_certificate':c.principal_value_certificate(),
         'scaling_rows':rows,
         'uniform_window':c.spacing_certificate(F(1,16),F(1,1000)),

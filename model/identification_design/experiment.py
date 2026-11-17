@@ -8,12 +8,6 @@ import numpy as np
 
 from ..observer.source_scalar import compiler
 from . import response, source
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -69,8 +63,8 @@ def run():
                     'minimum occupation additions within the declared nested family',
                     'complete native and independent reference detector probabilities',
                     'conditional finite-shot discrimination bound'],
-        'input_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                         for path in SOURCE_PATHS}),
+        'input_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                         for path in SOURCE_PATHS},
         'source_controls': compiler.source_summary(),
         'exact_zero_compressions_at_cutoff_four': response.exact_blind_compression(),
         'response_design': design,

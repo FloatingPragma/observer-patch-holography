@@ -12,12 +12,6 @@ from evidence_contract import public_receipt
 import hashlib,importlib.util,itertools,json,sys
 from collections import Counter
 from pathlib import Path
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 sys.dont_write_bytecode=True
 import sympy as s
 
@@ -231,10 +225,10 @@ def main():
  'paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex',
  'paper/tex_fragments/STANDARD_MODEL_DERIVATION_SCOPE.tex','code/b15_matter_freeze/matter_class_freeze_v1.md']
  sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
- bindings=bound_pins({str((PUBLIC/p).relative_to(ROOT)):sha(PUBLIC/p) for p in paths})
+ bindings={str((PUBLIC/p).relative_to(ROOT)):sha(PUBLIC/p) for p in paths}
  bindings[str((HERE/'gauge_particle_identification.py').relative_to(ROOT))]=sha(HERE/'gauge_particle_identification.py')
  result={'status':'EXACT_CONDITIONAL_SOURCE_SPIN_LIFT_AND_MATTER_IDENTIFICATION_PASS',
- 'producer_sha256':sha(__file__),'source_sha256':bound_pins(bindings),
+ 'producer_sha256':sha(__file__),'source_sha256':bindings,
  'artifacts':{artifact.name:sha(artifact)},'empirical_mass_or_coupling_inputs':[],
  'native_source_to_lift':{'source_directions':12,'source_size':6,'lift_size':5,
   'all_generators_match_independent_matrix_probe_decoder_modulo_scalar':True,

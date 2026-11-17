@@ -7,12 +7,6 @@ from pathlib import Path
 
 from . import source
 from ..primitive_observer.transfer import native_counts
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -54,7 +48,7 @@ def run():
     numerical = source.execute_current_check(kernel)
     return {
         'schema': 'oph.native_fluctuations.v1', 'all_pass': True,
-        'sources': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
+        'sources': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
         'source_attachment': {
             'native_configurations': 66, 'primitive_branches': 3960,
             'conditional_mean_checked_on_every_configuration': True,

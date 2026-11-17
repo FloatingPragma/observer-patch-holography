@@ -18,12 +18,6 @@ import scipy
 from . import dispersion, experiment as e, gap_certificate, hubbard, model, native_attachment
 from ...observer.source_scalar import compiler
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -47,8 +41,8 @@ def source_bindings():
                     and path.relative_to(ROOT).parts[0] in ("model", "code", "tools")):
                 paths.add(path)
     paths.update(HERE/name for name in ("README.md", "DERIVATION.md", "HUBBARD_GAP.md"))
-    bindings = bound_pins({path.relative_to(ROOT).as_posix(): _hash(path) for path in sorted(paths)})
-    bindings.update(bound_pins(compiler.source_summary()["source_sha256"]))
+    bindings = {path.relative_to(ROOT).as_posix(): _hash(path) for path in sorted(paths)}
+    bindings.update(compiler.source_summary()["source_sha256"])
     return dict(sorted(bindings.items()))
 
 
@@ -194,8 +188,8 @@ def run():
             "responsive_gravity_derived": False,
         },
     }
-    document["source_bindings"] = bound_pins(source_bindings())
-    if bound_pins(document["source_bindings"]) != scoped(initial_bindings):
+    document["source_bindings"] = source_bindings()
+    if document["source_bindings"] != initial_bindings:
         raise RuntimeError("source files changed during execution; no receipt is valid")
     return document
 
@@ -216,11 +210,11 @@ def verify(path):
         raise ValueError("wrong receipt schema")
     required = {f"model/common_source/mass_response/{name}.py" for name in
                 ("model", "history", "experiment", "run", "gap_certificate", "dispersion", "hubbard", "native_attachment")}
-    required.update(bound_pins(compiler.source_summary()["source_sha256"]))
-    if not required <= set(bound_pins(document["source_bindings"])):
+    required.update(compiler.source_summary()["source_sha256"])
+    if not required <= set(document["source_bindings"]):
         raise ValueError("incomplete computational source custody")
     mismatches = []
-    for name, expected in bound_pins(document["source_bindings"]).items():
+    for name, expected in document["source_bindings"].items():
         current = (ROOT/name).resolve()
         if not current.is_relative_to(ROOT):
             raise ValueError("source binding escaped the repository")
@@ -286,7 +280,7 @@ def verify(path):
             or attachment["final_native_classical_total_variation"] <= 0
             or attachment["public_feedback_separation_after_ideal_split_budgets"] <= 0):
         raise ValueError("incomplete or unresponsive native feedback attachment")
-    print(f"Verified custody ({len(bound_pins(document['source_bindings']))} source bindings) and retained seven-case checks; "
+    print(f"Verified custody ({len(document['source_bindings'])} source bindings) and retained seven-case checks; "
           "this command does not rerun the experiment")
 
 

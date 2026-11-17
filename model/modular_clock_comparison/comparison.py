@@ -22,12 +22,6 @@ from ..full_fock_field.field import FieldGeometry, FullFock
 from ..modular_flow.flow import ModularFlow, NUMERICAL_ALLOWANCE
 from ..observer.source_scalar import compiler
 from ..reference_recovery.recovery import execute_complete
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 def exact_spectral_attachment():
@@ -242,8 +236,8 @@ def report():
                'model/observer/source_scalar/compiler.py')
     return {'schema': 'oph.modular_clock_comparison.v1',
             'scope': 'FINITE_SOURCE_CLOCK_COCYCLE_AND_EXACT_REGIONAL_NONRESONANCE',
-            'source_sha256': bound_pins({path: hashlib.sha256((root/path).read_bytes()).hexdigest()
-                              for path in sources}),
+            'source_sha256': {path: hashlib.sha256((root/path).read_bytes()).hexdigest()
+                              for path in sources},
             'law': 'same full-Fock Weyl/contact dimer, speed=1/8, U=1, beta=1, mu=0',
             'frequency_certificate': frequency_certificate(),
             'source_clock_comparisons': records,

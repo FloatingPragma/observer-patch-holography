@@ -3,12 +3,6 @@ import hashlib
 from pathlib import Path
 from model.particle_common_contract.provenance import import_closure
 from .model import certificate as preparation_certificate
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[4]
 HERE = Path(__file__).parent
@@ -27,9 +21,9 @@ def input_hashes():
         if not (ROOT/name).is_file():
             raise FileNotFoundError('missing declared interacting preparation input: '+name)
     paths = import_closure(seeds)
-    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
+    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
 
 
 def certificate():
     return {'schema':'oph.finite_algebraic_interacting_ground_preparation.v1',
-        'preparation':preparation_certificate(),'input_sha256':bound_pins(input_hashes())}
+        'preparation':preparation_certificate(),'input_sha256':input_hashes()}

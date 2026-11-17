@@ -14,12 +14,6 @@ from ..observer.scalar_response.experiment import canonical,compare_receipt
 from ..full_fock_field.field import FieldGeometry
 from ..coarse_energy_ward import ward as w
 from . import momentum as m
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).with_name('results.json')
@@ -114,7 +108,7 @@ def run():
                                   'Physical chart/time and a controlled continuum mapping of source energy and all stress columns.',
                                   'Geometric modular kernels, entropy/area stationarity, Newton normalization and an Einstein-register inhabitant.'],
                      'no_conserved_interacting_Ward_or_Einstein_gate_accepted':True},
-            'source_sha256':bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS})}
+            'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}}
 
 
 def main():

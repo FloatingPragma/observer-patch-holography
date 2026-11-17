@@ -6,16 +6,10 @@ from model.openwave_larmor_dynamics.certificate import equivalent
 from .source import field_certificate,block,upper,exact_geometry
 from .propagation import refined_records,coefficients
 from .spectrum import spectra
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 def pins():
  seeds={str(p.relative_to(ROOT))for p in HERE.iterdir()if p.suffix in('.py','.md','.tex')};seeds.update(SOURCE_FILES);seeds.update(('model/openwave_dynamic_wave/PROOF.md','model/openwave_dynamic_stress/PROOF.md'))
- return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(seeds))})
+ return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(seeds))}
 def certificate():
  source_errors={f'{i},{j}':str(upper(block(i,j)['error']))for i,j in((0,0),(1,0),(0,1),(1,1))};c=coefficients();records=refined_records();spectrum=spectra()
  assert records['master_same_source_arrival_delay_interval'][0]>0 and records['master_time4_bending_interval'][1]<0
@@ -31,7 +25,7 @@ def certificate():
   'infinite_geometry_cap_or_spatial_continuum_limit_proved':False,'physical_G_seconds_or_Einstein_limit_identified':False,
   'scope':'Finite refinement within one fixed cap-four construction. Re-exponentiating a smaller coordinate changes the action; the nested comparison compresses the fixed action and retains its omitted-output labels. Source-parameter labels index a finite event word and are not a fundamental global clock.'}
 def main():
- p=argparse.ArgumentParser();g=p.add_mutually_exclusive_group(required=True);g.add_argument('--write',action='store_true');g.add_argument('--check',action='store_true');a=p.parse_args();before=pins();r=certificate();assert pins()==before;r['source_sha256']=bound_pins(before);path=HERE/'results.json'
+ p=argparse.ArgumentParser();g=p.add_mutually_exclusive_group(required=True);g.add_argument('--write',action='store_true');g.add_argument('--check',action='store_true');a=p.parse_args();before=pins();r=certificate();assert pins()==before;r['source_sha256']=before;path=HERE/'results.json'
  if a.write:path.write_text(json.dumps(r,indent=2,sort_keys=True)+'\n')
  else:assert equivalent(json.loads(path.read_text()),r)
  print(r['verdict'])

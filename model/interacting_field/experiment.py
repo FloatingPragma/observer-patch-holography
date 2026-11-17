@@ -10,12 +10,6 @@ from .lattice import WeylLattice, TwoFermions, node_table
 from . import source, bounds
 from ..common_source.chiral_candidate import gaussian_source as gaussian
 from ..local_repair_family import local_bias
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -282,7 +276,7 @@ def source_bindings():
         'model/local_repair_family/local_bias.py',
         'model/local_repair_family/record_clock_campaign.json',
         'model/local_repair_family/record_clock_results.json'])
-    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})
+    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}
 
 
 def run(radii=(1,2,3), steps=16):
@@ -303,4 +297,4 @@ def run(radii=(1,2,3), steps=16):
             'naive_Weyl_nodes':node_table(), 'net_node_chirality':sum(x['jacobian_chirality'] for x in node_table()),
             'free_low_momentum_certificate': bounds.low_momentum(F(1,4),2*INTERVAL),
             'native_clock_compatibility': clock_obstruction(),
-            'source_bindings': bound_pins(source_bindings())}
+            'source_bindings': source_bindings()}

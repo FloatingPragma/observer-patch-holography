@@ -44,12 +44,6 @@ from . import vacuum_repair
 from ..observer import native
 from ..observer.source_discrimination import circuit, experiment as native_source
 from ..observer.source_scalar import compiler
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -544,7 +538,7 @@ def build():
 
 def source_bindings():
     from ..common_source import parameter_selection
-    names = set(vacuum_repair.vacuum.SOURCE_PATHS)|set(bound_pins(compiler.source_summary()['source_sha256']))|{
+    names = set(vacuum_repair.vacuum.SOURCE_PATHS)|set(compiler.source_summary()['source_sha256'])|{
         'model/native_equilibration/vacuum_repair.py', 'model/native_equilibration/reciprocal_vacuum.py',
         'model/native_equilibration/test_vacuum_repair.py',
         'model/native_equilibration/test_reciprocal_vacuum.py', 'model/observer/source_scalar/compiler.py',
@@ -552,7 +546,7 @@ def source_bindings():
         'model/observer/source_discrimination/experiment.py', 'tools/strict_json.py', 'requirements.txt',
         'model/common_source/repair_field_attachment.py', 'model/common_source/test_repair_field_attachment.py'}
     names.update(parameter_selection.source_bindings())
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
 
 
 def _compare(expected, actual, path='report'):
@@ -578,7 +572,7 @@ def _compare(expected, actual, path='report'):
 
 def check(path):
     path = Path(path); retained = strict_json.load(path)
-    if type(retained) is not dict or bound_pins(retained.get('source_bindings')) != scoped(source_bindings()):
+    if type(retained) is not dict or retained.get('source_bindings') != source_bindings():
         raise ValueError('reciprocal finite source custody differs')
     artifact = path.with_suffix('.npz')
     if retained.get('artifact') != {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}:
@@ -639,7 +633,7 @@ def main():
     report, arrays = build()
     if source_bindings() != bindings:
         raise RuntimeError('reciprocal executable sources changed during production')
-    report['source_bindings'] = bound_pins(bindings)
+    report['source_bindings'] = bindings
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with artifact.open('xb') as stream:
         np.savez_compressed(stream, **arrays)

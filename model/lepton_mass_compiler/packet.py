@@ -8,12 +8,6 @@ import numpy as np
 
 from model.particle_common_contract.provenance import import_closure
 from . import analyzer,compiler,family_map
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -25,12 +19,12 @@ def bindings():
         'model/standard_model_source_map/KOIDE_SOURCE.md',
         'model/charged_lepton_response/CAR_KOIDE.md','model/charged_lepton_response/RELATIVISTIC_MASS.md',
         'model/coherent_defect_wave/mass_instrument/PROOF.md','model/requirements.txt','requirements.txt'))
-    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))})
+    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))}
 
 
 def calculate():
     pins=bindings();source=analyzer.certificate();effects=source['effect_values_k0_k1_k2']
-    result={'schema':'oph.lepton_mass_compiler.v1','source_bindings':bound_pins(pins),
+    result={'schema':'oph.lepton_mass_compiler.v1','source_bindings':pins,
         'actual_native_analyzer':source,
         'existing_charged_family_frame_witness':family_map.certificate(),
         'full_CAR_operator':{'physical_modes_per_site':90,'enlarged_modes_per_site':324000,

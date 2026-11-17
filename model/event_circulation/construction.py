@@ -21,12 +21,6 @@ from ..native_clock import clock
 from ..primitive_observer import runtime
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(dict.fromkeys((
@@ -294,7 +288,7 @@ def run():
                          *F(sum(marked[0][j])+sum(marked[2][j]),40)
                          for i in range(66) for j in range(66))
     return {'schema':'oph.event_circulation.v1','all_pass':True,
-        'sources':bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
+        'sources':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
         'exact_event_geometry':facts,'event_counter_predictions':summaries,
         'holding_invariance':holding_control(),'complete_execution':runtime_check(),
         'exact_first_event_timeout_laws':[

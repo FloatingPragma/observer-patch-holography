@@ -17,12 +17,6 @@ import sympy as s
 from ..particle_identification import family_attachment
 from ...native_modular_reference import local_preparation
 from ...observer import native
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -315,7 +309,7 @@ def report(v=None):
         rows.append({"channel":name,"tree_mass_parameters_exact":list(map(str,exact)),
                      "tree_mass_over_clock_float_diagnostic":[float(x/coefficients["Omega"]) for x in exact],
                      "physical_pole_mass_or_species_assignment":False})
-    bindings = dict(bound_pins(family_attachment.report()["source_bindings"]))
+    bindings = dict(family_attachment.report()["source_bindings"])
     for name in (*SOURCE_FILES,Path(__file__).relative_to(ROOT).as_posix()):
         bindings[name] = hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
     return {
@@ -353,7 +347,7 @@ def report(v=None):
                           "right_handed_mirror_fields_added_to_make_mass":False,
                           "Nambu_doubling_counts_as_extra_matter":False,
                           "time_parameter":"declared coherent parameter; masses reported relative to native-reference clock frequency"},
-        "source_bindings":bound_pins(dict(sorted(bindings.items())))}
+        "source_bindings":dict(sorted(bindings.items()))}
 
 
 if __name__ == "__main__":

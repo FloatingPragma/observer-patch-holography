@@ -19,12 +19,6 @@ from . import core, dual
 from ..native_action import clock_histories, incident_refinement as clocks
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(sorted(set((*core.SOURCE_PATHS, *dual.SOURCE_PATHS,
@@ -436,7 +430,7 @@ def run():
             'C_and_E_share_this_diagonal_field_law': True,
             'uncoarsened_current_words_or_terminal_quantum_law_enumerated': False,
             'physical_duration_calibration_or_relativistic_continuum_proved': False},
-        'source_bindings': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS})}
+        'source_bindings': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}}
 
 
 def main():

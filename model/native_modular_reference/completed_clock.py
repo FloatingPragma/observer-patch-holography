@@ -41,12 +41,6 @@ import numpy as np
 from tools import strict_json
 from ..native_equilibration import cut_completion as cut
 from . import full_flow as full, preparation, regional
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name("completed_clock_results.json")
@@ -354,7 +348,7 @@ def run():
              "model/native_equilibration/cut_completion.py",
              "model/native_equilibration/construction.py")
     return {"schema": "oph.native_modular_reference.completed_clock.v1", "all_pass": True,
-            "source_sha256": bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}),
+            "source_sha256": {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths},
             "cap": list(CAP), "reference": "native complement completion of diag(degree/600)",
             "reference_weight_census": {str(w): sigma.count(w) for w in sorted(set(sigma))},
             "bare_cap_algebra_dimension": 53,

@@ -15,12 +15,6 @@ from pathlib import Path
 from tools import strict_json
 from . import continuation_bounds, exact_output, infinite_history as ih
 from . import open_observer, open_protocol, protocol, smooth_history as sh
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 STEPS = 512
@@ -164,8 +158,8 @@ def run():
                 })
     root = Path(__file__).resolve().parents[2]
     return {'schema': 'oph.common_source.exact_output_certificate.v1',
-            'source_sha256': bound_pins({name: hashlib.sha256((root/name).read_bytes()).hexdigest()
-                              for name in SOURCE_PATHS}),
+            'source_sha256': {name: hashlib.sha256((root/name).read_bytes()).hexdigest()
+                              for name in SOURCE_PATHS},
             'steps': STEPS, 'outward_report_grid': str(F(1, GRID)),
             'environment': environment.specification(),
             'remaining_work_service_stage_keys': list(continuation_bounds.required_service_keys(base.operations)),

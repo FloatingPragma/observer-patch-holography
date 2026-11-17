@@ -58,12 +58,6 @@ from ..observer.scalar_response.experiment import canonical
 from ..physical_space_time import uniform_green
 from ..relative_observer_geometry import intrinsic_geometry as geometry
 from . import vacuum_geometry
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -369,7 +363,7 @@ def run():
             "massive_full_matter_or_calibrated_particle_spectrum": False},
         "entropy_secant_replay_absolute_tolerance": ENTROPY_SECANT_REPLAY_TOLERANCE,
         "references": ["https://arxiv.org/abs/1007.1813", "https://arxiv.org/abs/1102.0440", "https://arxiv.org/abs/1505.04753"],
-        "source_bindings": bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS})}
+        "source_bindings": {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}}
     # This also refuses any unanticipated nonfinite scalar in the receipt.
     json.dumps(report, allow_nan=False)
     return report

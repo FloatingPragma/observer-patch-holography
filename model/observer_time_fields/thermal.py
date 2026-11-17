@@ -24,12 +24,6 @@ from model.observer import native
 from model.record_laws import burn_in
 from model.native_clock import clock as native_clock
 from . import core
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(sorted(set((*core.SOURCE_PATHS, *burn_in.SOURCE_PATHS, *native_clock.SOURCE_PATHS,
@@ -570,7 +564,7 @@ def run():
         raise ArithmeticError('complete capped history error did not retain timeout')
     budget = next(n for n in range(1000) if ground_limit_bound(n) <= F(1,1000))
     return _value({'schema':'oph.observer_time_fields.thermal.v1',
-        'source_sha256':bound_pins({path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
+        'source_sha256':{path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
         'source':{'region':core.source().region,'dimension':66,'tick_probability':F(3,10),
                   'effective_transfer_lower':core.spectral_certificate()['effective_transfer_lower']},
         'open_ground_state':{'centered_field':'n0-1/6','moments':open_moments(),

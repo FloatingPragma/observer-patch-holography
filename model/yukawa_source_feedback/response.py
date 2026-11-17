@@ -20,12 +20,6 @@ import sympy as sp
 
 from model.common_source import native_family_record_memory as memory
 from model.particle_memory_response import certificate as memory_theorem
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -188,8 +182,8 @@ def source_bindings():
                   'model/particle_memory_response/PROOF.md'))
     paths.update(str(p.relative_to(ROOT)) for p in Path(__file__).parent.glob('*')
                  if p.suffix in ('.py', '.md'))
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(paths)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(paths)}
 
 
 def report():
@@ -261,7 +255,7 @@ def report():
             'finite_step_slow_generator_claimed_GKSL': False,
             'computed_J_is_a_physical_Yukawa': False,
             'physical_particle_spectrum_derived': False},
-        'source_bindings': bound_pins(source_bindings())}
+        'source_bindings': source_bindings()}
 
 
 def compare(actual, expected, path='receipt'):

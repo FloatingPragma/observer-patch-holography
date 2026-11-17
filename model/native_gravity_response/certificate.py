@@ -21,12 +21,6 @@ import sympy as sy
 from tools import strict_json
 from ..native_quantum_reconstruction import certificate as source
 from ..native_thermodynamic_bridge.certificate import combine, log_rational
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -367,7 +361,7 @@ def report():
                      'geometric_modular_normalization':False,'physical_stress_or_Ward_identity':False,
                      'fixed_proper_volume_stationarity':False,'positive_Newton_normalization':False,
                      'controlled_small_ball_refinement':False,'Einstein_premises_G1_to_G6':False},
-            'source_sha256':bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in names})}
+            'source_sha256':{name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in names}}
 
 
 def main():

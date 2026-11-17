@@ -18,21 +18,15 @@ from . import compiler as c, field
 from .bounds import split_error_bound
 from .cutoff import occupation_cutoff_bound, reference_probability_interval
 from ..scalar_response.experiment import canonical, compare_receipt, exact_statistics, sample
-try:
-    from tools.pin_scope import bound_pins, repo_sha256
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins, repo_sha256
 
 TRIALS = 200_000
 SEED = 20261012
 DIMENSIONS = (4, 8, 16)
 STEPS = (64, 128)
 PINS = {
-    c.RESPONSE: repo_sha256(c.RESPONSE),
-    c.CONTROL_RECEIPT: repo_sha256(c.CONTROL_RECEIPT),
-    "model/observer/native.py": repo_sha256("model/observer/native.py"),
+    c.RESPONSE: "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
+    c.CONTROL_RECEIPT: "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
 }
 
 
@@ -266,7 +260,7 @@ def run(trials=TRIALS, seed=SEED):
     checks["analytic_occupation_refinement_bound_decreases"] = all(
         later < earlier for earlier, later in zip(occupation_errors, occupation_errors[1:]))
     result = {
-        "schema": "oph.observer.source_scalar.v1", "source_pins": bound_pins(PINS), "source": source,
+        "schema": "oph.observer.source_scalar.v1", "source_pins": PINS, "source": source,
         "scope": {
             "construction": "native repair current -> emitted source preparation, scalar evolution and quantum pointer -> committed bit -> native repair feedback",
             "target": "two sites with onsite occupation d=4,8,16, supplied mass=1 and spring kappa=9/32; not the earlier spatial-refinement family",

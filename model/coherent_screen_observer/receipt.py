@@ -8,12 +8,6 @@ from ..native_action import incident_refinement as clocks
 from ..observer.scalar_response.experiment import canonical, compare_receipt as _compare_receipt
 from ..observer_time_fields import dual
 from . import construction as c
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 EXPORT_BITS = 64
@@ -166,5 +160,5 @@ def run():
             for (status, word), columns in zip(outputs[0].records, outputs[0].columns, strict=True)],
         'independent_exact_controls': small_controls(),
         'runtime_controls': oracle.run(),
-        'source_bindings': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                            for path in sorted(paths)})}
+        'source_bindings': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                            for path in sorted(paths)}}

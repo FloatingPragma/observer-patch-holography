@@ -27,12 +27,6 @@ from tools import strict_json
 from . import native_sm_current as native_current
 from .chiral_candidate import action as existing_action, gaussian_source as gaussian
 from ..observer.source_scalar import compiler
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 ADMISSION = 2e-8
@@ -752,7 +746,7 @@ def source_bindings():
         'model/common_source/native_matter_attachment.py', 'model/common_source/test_native_matter_attachment.py',
         'model/common_source/chiral_candidate/action.py', 'model/common_source/chiral_candidate/gaussian_source.py',
         'model/observer/source_scalar/compiler.py', 'tools/strict_json.py'}
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
 
 
 def _compare(a, b, path='receipt'):
@@ -770,7 +764,7 @@ def _compare(a, b, path='receipt'):
 
 def check(path):
     path = Path(path); pins = source_bindings(); report = strict_json.load(path)
-    if type(report) is not dict or bound_pins(report.get('source_bindings')) != scoped(pins): raise ValueError('matter source bindings differ')
+    if type(report) is not dict or report.get('source_bindings') != pins: raise ValueError('matter source bindings differ')
     artifact = path.with_suffix('.npz')
     if report.get('artifact') != {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}:
         raise ValueError('matter artifact custody differs')
@@ -797,7 +791,7 @@ def main():
     pins = source_bindings(); report, arrays = build()
     if source_bindings() != pins: raise ValueError('matter sources changed during generation')
     with artifact.open('xb') as stream: np.savez_compressed(stream, **arrays)
-    report['source_bindings'] = bound_pins(pins)
+    report['source_bindings'] = pins
     report['artifact'] = {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}
     with args.output.open('x') as stream: json.dump(report, stream, indent=2, sort_keys=True, allow_nan=False); stream.write('\n')
 

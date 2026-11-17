@@ -15,12 +15,6 @@ from scipy import linalg as la
 
 from model.compact_defect_pair.spectral import source
 from model.compact_defect_pair.topology import spectral_bounds
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -190,7 +184,7 @@ def source_bindings():
     paths = ["model/compact_defect_pair/spectral.py", "model/compact_defect_pair/topology.py",
              "model/compact_defect_pair/PROOF.md", "model/defect_mode_overlap/overlap.py",
              "model/defect_mode_overlap/PROOF.md"]
-    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in paths})
+    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in paths}
 
 
 def calculate():
@@ -220,7 +214,7 @@ def calculate():
             "band_energies": value["energies"][value["mask"]].tolist(),
             "parent_exact_bounds": spectral_bounds(64, 1, 3),
             "identities_maximum_numerical_error": max(value["checks"].values()),
-            "source_bindings": bound_pins(source_bindings()), "all_site_diagnostics": site_rows,
+            "source_bindings": source_bindings(), "all_site_diagnostics": site_rows,
             "profiles": diagnostics, "texture_amplitude_controls": texture_controls(),
             "complete_exterior_residue": core_residue(value),
             "full_interventions": {name: full_intervention(profiles[name]/la.norm(profiles[name]), value=value)
@@ -273,7 +267,7 @@ def validate_archive(packet, *, value=None):
 def check():
     saved = json.loads((HERE/"results.json").read_text())
     fresh = calculate()
-    if bound_pins(saved["source_bindings"]) != bound_pins(fresh["source_bindings"]):
+    if saved["source_bindings"] != fresh["source_bindings"]:
         raise ArithmeticError("source bindings differ")
     # Numerical spectra are portable diagnostics, compared at their stated tolerance.
     def compare(a, b):

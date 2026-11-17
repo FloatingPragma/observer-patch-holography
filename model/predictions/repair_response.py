@@ -22,12 +22,6 @@ from ..observer import native
 from ..record_laws import burn_in
 from ..observer.scalar_response.experiment import compare_receipt
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(sorted(set((*inherited.SOURCE_PATHS, *burn_in.SOURCE_PATHS,
@@ -787,7 +781,7 @@ def run():
     if nonstationary == invalid_forecast:
         raise ArithmeticError('the nonstationary premise control failed')
     return _json({'schema': 'oph.native_repair_response.v1',
-        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
+        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
         'pulse': {'seam': PULSE, 'policy': 'repair iff disclosed initial port-zero occupation equals one',
             'complete_marks_trigger_coin_current': MARKS,
             'no_pulse_coin_sentinel': -1,

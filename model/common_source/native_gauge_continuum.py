@@ -32,12 +32,6 @@ import sympy as s
 from . import native_gauge_matter_transport as transport
 from . import native_matter_attachment as matter
 from . import native_staggered_field as field
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -404,7 +398,7 @@ def source_bindings():
         'model/common_source/test_native_gauge_matter_transport.py',
         'model/common_source/native_gauge_continuum.py',
         'model/common_source/test_native_gauge_continuum.py'}
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
 
 
 def build():

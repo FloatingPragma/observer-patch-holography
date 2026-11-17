@@ -12,12 +12,6 @@ import numpy as np
 
 from tools import strict_json
 from . import native, pulse, regional
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
@@ -69,8 +63,8 @@ def source_bindings():
         'Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean',
         'Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean'))
     paths.update((HERE/'README.md', HERE/'PROOF.md'))
-    return bound_pins({p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in sorted(paths)})
+    return {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(paths)}
 
 
 def claims():
@@ -135,7 +129,7 @@ def produce():
             'physical_2pi_bulk_plus_center_split': False,
             'center_is_geometric_edge_variation': False,
             'SmallBallPremises': False, 'ContinuumEinsteinPremises': False},
-        'source_bindings': bound_pins(pins)}
+        'source_bindings': pins}
     if pins != source_bindings():
         raise ValueError('source changed during complete regional replay')
     return value

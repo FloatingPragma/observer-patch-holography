@@ -7,12 +7,6 @@ from pathlib import Path
 
 from model.particle_common_contract.provenance import import_closure
 from .model import calculate, load_parents, PARENTS
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -35,14 +29,14 @@ def input_hashes():
     seeds.update(parent_pins)
     seeds.add('model/requirements.txt')
     names=import_closure(seeds)
-    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
+    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
 
 
 def certificate():
     pins=input_hashes()
     value=copy.deepcopy(calculate())
     value['schema']='oph.interacting_block_propagation.v1'
-    value['input_sha256']=bound_pins(pins)
+    value['input_sha256']=pins
     value['immutable_parent_pins_validated']=PARENTS
     return value
 

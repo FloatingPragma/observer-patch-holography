@@ -26,12 +26,6 @@ from . import native_family_record_memory as memory
 from . import native_filtered_current_control as control
 from . import native_gauge_family_records as gates
 from . import native_record_yukawa_field as field
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT = Path(__file__).with_name('native_family_protocol_results.json')
@@ -125,7 +119,7 @@ def source_bindings():
                   'model/common_source/native_matter_theorems.py',
                   'model/common_source/chiral_candidate/kinetic.py', 'model/requirements.txt',
                   'tools/strict_json.py'))
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
 
 
 def build():
@@ -281,7 +275,7 @@ def check(path):
     path = Path(path)
     pins = source_bindings()
     retained = strict_json.load(path)
-    if type(retained) is not dict or bound_pins(retained.get('source_bindings')) != scoped(pins):
+    if type(retained) is not dict or retained.get('source_bindings') != pins:
         raise ValueError('source bindings differ')
     artifact = retained.get('artifact')
     if (type(artifact) is not dict or set(artifact) != {'path', 'sha256'}

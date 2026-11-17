@@ -74,12 +74,6 @@ from ..common_source import repair_field_attachment as attachment
 from ..common_source.chiral_candidate import gaussian_source as gaussian
 from ..common_source.halfline import pi_interval
 from ..observer.source_scalar import compiler
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_GATE = 1e-8
@@ -606,7 +600,7 @@ def bindings():
         "model/native_equilibration/wedge_modular.py", "model/native_equilibration/test_wedge_modular.py",
         "model/common_source/native_staggered_field.py", "model/common_source/test_native_staggered_field.py",
         "tools/strict_json.py"}
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
 
 
 def run():
@@ -672,7 +666,7 @@ def run():
             status = "purity gap unresolved; finite modular logarithm refused"
         finite_controls.append({"half_length": half, "finite_log_status": status,
             "first_four_covariance_BW_error_diagnostic": float(np.linalg.norm(covariance[:4, :4]-prediction[:4, :4], 2))})
-    report = {"schema": "native-free-wedge-modular-v1", "source_bindings": bound_pins(pins),
+    report = {"schema": "native-free-wedge-modular-v1", "source_bindings": pins,
         "primary_theorem": {"url": "https://arxiv.org/abs/2410.16433", "equations": [64, 67, 70, 71, 72, 87],
             "domain": "infinite gapped free scalar staggered chain, filled negative band, halfspace n>=1, cut0|1"},
         "independent_geometry": {"site_position": "a*(n-1/2)", "bond_position": "a*n", "lapse_coupling": "H[N]={N,H}/2", "energy_first_moment": "B={X,H}/2"},

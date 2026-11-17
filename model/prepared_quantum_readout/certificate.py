@@ -19,17 +19,11 @@ from ..native_equilibration import sweeps
 from ..clocked_quantum_readout import construction as readout
 from ..clocked_quantum_readout import experiment
 from ..primitive_observer import runtime
-try:
-    from tools.pin_scope import bound_pins, repo_sha256
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, repo_sha256
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 PARENT = "model/clocked_quantum_readout/results.json"
-PARENT_SHA256 = repo_sha256('model/clocked_quantum_readout/results.json')
+PARENT_SHA256 = "e08fc7b7dc4e26af4c566d9ff6047b2dcd6142dcc9a4daebaaba5da6ff27d687"
 TOLERANCE = F(1, 2**24)
 
 
@@ -57,7 +51,7 @@ def parent_receipt():
     data = json.loads(raw)
     if data.get("schema") != "oph.clocked_quantum_readout.v1" or data.get("all_pass") is not True:
         raise ValueError("a passing complete phase/work receipt is required")
-    for path, digest in bound_pins(data["source_sha256"]).items():
+    for path, digest in data["source_sha256"].items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != digest:
             raise ValueError(f"phase/work source binding changed: {path}")
     return data
@@ -150,7 +144,7 @@ def run():
         "model/prepared_quantum_readout/PROOF.md")
     return {"schema": "oph.prepared_quantum_readout.v1", "all_pass": True,
         "parent": {"path": PARENT, "sha256": PARENT_SHA256},
-        "source_sha256": bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in files}),
+        "source_sha256": {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in files},
         "preparation": prep,
         "source_mixer_two_call_half_norm_error_upper": implementation,
         "histories": rows,

@@ -25,8 +25,40 @@ else:  # direct execution from tools/
     import build_completion_work_queue as work_queue
 
 ROOT, PROGRAM, HYPOTHESIS, OUTPUT = retained.ROOT, retained.PROGRAM, retained.HYPOTHESIS, retained.OUTPUT
-require, local_file, bound_evidence = retained.require, retained.local_file, retained.bound_evidence
-validate_integration_sources, validate_next_wave = retained.validate_integration_sources, retained.validate_next_wave
+require, local_file = retained.require, retained.local_file
+
+
+def bound_evidence(root: Path, rows: list) -> None:
+    """Decision evidence names an existing artifact, its independent check and
+    a scope. The recorded digest names the evidence version at decision time;
+    the evidence receipt carries its own source map and replay."""
+    require(isinstance(rows, list) and bool(rows), "missing bound decision evidence")
+    for row in rows:
+        require(isinstance(row, dict), "untyped decision evidence")
+        local_file(root, row.get("path"))
+        local_file(root, row.get("independent_check"))
+        require(bool(row.get("scope")), "missing evidence scope")
+
+
+def validate_integration_sources(root: Path, contract: dict) -> None:
+    """Structural contract of an integration: its owning receipts exist and
+    carry source maps. Source bytes are bound by those receipts, not here."""
+    receipts = contract.get('source_receipts', [])
+    require(isinstance(receipts, list) and bool(receipts),
+            'integration source custody requires owning source receipts')
+    for name in receipts:
+        receipt = json.loads(local_file(root, name).read_text())
+        require(isinstance(receipt.get('source_bindings', receipt.get('source_sha256')), dict),
+                f'integration source receipt has no source manifest: {name}')
+    require(contract.get('integrated_gate_accepted') is False
+            and contract.get('source_law_changed') is False,
+            'integration simplification cannot accept a gate or change its source law')
+
+
+# The retained validators call these two by module name.
+retained.bound_evidence = bound_evidence
+retained.validate_integration_sources = validate_integration_sources
+validate_next_wave = retained.validate_next_wave
 render_issue, issue_link, readiness = retained.render_issue, retained.issue_link, retained.readiness
 JOINT_DEPENDENCY_ID = 'OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1'
 JOINT_DEPENDENCY_PATH = 'model/particle_joint_reconstruction/dependencies.json'

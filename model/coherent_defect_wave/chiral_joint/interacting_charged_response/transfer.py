@@ -8,12 +8,6 @@ from ..collective_spin_response.transfer import data as neutral_data
 from ..collective_spin_response.bounds import probability_interval
 from ..family_cell.quotient import outward
 from ..higgs_composites.certificate import validate_pins
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
-    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[4]
 PREPARATION='model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json'
@@ -62,7 +56,7 @@ def data(family):
     local_unrestricted=s.Rational(-1171,100)
     occupied_reference_gap=mu+8*(local_unrestricted-e0high)-2*v
     assert source_excitation[0]>0 and one_reference_gap>0 and occupied_reference_gap>0
-    prep=json.loads((ROOT/PREPARATION).read_text());validate_pins(bound_pins(prep['input_sha256']))
+    prep=json.loads((ROOT/PREPARATION).read_text());validate_pins(prep['input_sha256'])
     prep=prep['preparation'];assert s.Rational(prep['source']['hopping_coefficient'])==neutral['coupling']
     trace=s.Rational(prep['finite_energy_agreement_filter']['conditional_one_source_trace_distance_upper'])
     approximate={name:(max(0,lo-trace),min(1,hi+trace)) for name,(lo,hi) in probabilities.items()}

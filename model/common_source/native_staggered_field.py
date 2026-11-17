@@ -39,12 +39,6 @@ from .chiral_candidate import gaussian_source as gaussian
 from .mass_response import history as instruments
 from .halfline import pi_interval
 from ..observer.source_scalar import compiler
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -782,7 +776,7 @@ def verify_retained_arrays(report, arrays):
 def source_bindings():
     paths = set(attachment.source_bindings())|{
         "model/common_source/native_staggered_field.py", "model/common_source/test_native_staggered_field.py"}
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
 
 
 def _same(expected, actual, path="report"):
@@ -829,7 +823,7 @@ def check(path):
     report = strict_json.load(path)
     attachment._finite_json(report)
     pins = source_bindings()
-    if bound_pins(report.get("source_bindings")) != scoped(pins):
+    if report.get("source_bindings") != pins:
         raise ValueError("native staggered closed source bindings differ")
     artifact = path.with_suffix(".npz")
     if report.get("artifact") != {"filename": artifact.name, "sha256": hashlib.sha256(artifact.read_bytes()).hexdigest()}:
@@ -863,7 +857,7 @@ def main():
     report, arrays = execute()
     if source_bindings() != pins:
         raise RuntimeError("native staggered sources changed during execution")
-    report["source_bindings"] = bound_pins(pins)
+    report["source_bindings"] = pins
     with artifact.open("xb") as stream:
         np.savez_compressed(stream, **arrays)
     report["artifact"] = {"filename": artifact.name, "sha256": hashlib.sha256(artifact.read_bytes()).hexdigest()}
