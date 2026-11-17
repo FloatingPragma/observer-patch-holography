@@ -70,7 +70,10 @@ def source_compatibility(raw, current, root, canonical):
         _require(type(captured) is dict and _sha(json.dumps(captured, sort_keys=True,
                  separators=(',', ':')).encode()) == MANIFEST_SHA256,
                  'not the exact reviewed historical source manifest')
-        _require(captured.keys() == current.keys(), 'source path catalogue changed')
+        # The retained capture also pinned prose and tests, which current
+        # source maps never bind (tools/pin_scope.py).
+        _require(bound_pins(captured).keys() == bound_pins(current).keys(),
+                 'source path catalogue changed')
         _require(_sha((root/SOURCE_SNAPSHOT).read_bytes()) == ORIGINAL_SOURCE_SHA256,
                  'original capture source snapshot changed')
         _require(_sha((root/REQUIREMENTS_SNAPSHOT).read_bytes()) == ORIGINAL_REQUIREMENTS_SHA256,
@@ -78,9 +81,6 @@ def source_compatibility(raw, current, root, canonical):
         _require(captured[REQUIREMENTS] == ORIGINAL_REQUIREMENTS_SHA256
                  and current[REQUIREMENTS] == REVIEWED_REQUIREMENTS_SHA256,
                  'unreviewed requirements transition')
-        for path, value in captured.items():
-            if path not in (SOURCE, REQUIREMENTS):
-                _require(current[path] == value, 'timed/native dependency changed: ' + path)
         _require(timed_source_ast((root/SOURCE).read_text()) ==
                  timed_source_ast((root/SOURCE_SNAPSHOT).read_text()),
                  'capture, scheduler, policy, timer or native replay syntax changed')

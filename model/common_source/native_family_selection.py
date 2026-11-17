@@ -21,6 +21,12 @@ from . import native_code_transport as transport
 from .mass_response import history
 from ..observer.source_discrimination import circuit
 from ..observer.source_scalar import compiler
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_ADMISSION = 2e-8
@@ -455,4 +461,4 @@ def source_bindings():
     names = set(transport.source_bindings()) | set(objects.source_bindings()) | {
         'model/common_source/native_family_selection.py', 'model/common_source/test_native_family_selection.py',
         'Lean/Screen/A5FamilyBand.lean', 'Lean/Screen/A5PortAction.lean'}
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})

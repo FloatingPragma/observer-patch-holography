@@ -51,6 +51,12 @@ from scipy.sparse import coo_matrix
 from tools import strict_json
 from ..native_equilibration import construction as mixing, cut_completion as cut
 from . import regional, completed_clock as previous, full_flow as full, preparation
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name("common_caps_results.json")
@@ -447,7 +453,7 @@ def run():
         common["complete_flagged_reference_half_trace_upper"]
         +preparation.budget(369, F(16))["herald_success_interval"][1]*gate["half_diamond_upper"])
     result = {"schema": "oph.native_modular_reference.common_caps.v1", "all_pass": True,
-              "source_sha256": {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+              "source_sha256": bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
               "schedule": schedule, "exact_source_audit": exact_audit(),
               "unprotected_connected_control": unprotected_control(),
               "reference_weight_census": {str(w): sigma.count(w) for w in sorted(set(sigma))},

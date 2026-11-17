@@ -20,6 +20,12 @@ from tools import strict_json
 from . import native_repair_mass as feedback
 from . import native_code_transport as transport
 from . import native_gauge_object as objects
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = objects.ROOT
 BENCHMARK = 'model/common_source/chiral_candidate/results.json'
@@ -257,4 +263,4 @@ def source_bindings():
     names = set(transport.source_bindings()) | set(objects.source_bindings()) | {
         'model/common_source/native_repair_mass.py', 'model/common_source/test_native_repair_mass.py',
         'model/common_source/native_mass_record_cycles.py', 'model/common_source/test_native_mass_record_cycles.py', BENCHMARK}
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})

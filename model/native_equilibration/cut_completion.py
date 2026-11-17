@@ -60,6 +60,12 @@ from scipy.sparse import coo_matrix
 
 from .construction import graph_certificate, preparation_budget
 from ..observer import native, quantum_mixing
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -339,7 +345,7 @@ def run():
                    for x in native.states(binary=True))
     palm_change = sum(abs(p-F(d, sum(degree))) for p, d in zip(completed, degree, strict=True))/2
     return {"schema": "oph.native_equilibration.cut_completion.v1",
-            "source_sha256": {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+            "source_sha256": bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
             "native_cut": cut_certificate(), "all_matrix_unit_audit": exact_audit(),
             "native_heat_bath_first_law_attachment": heat_bath_audit(),
             "completed_palm_reference": {

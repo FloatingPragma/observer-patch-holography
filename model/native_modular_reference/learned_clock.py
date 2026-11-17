@@ -25,6 +25,12 @@ from tools import strict_json
 
 from . import cap_local_clock as cap, common_caps as common
 from . import local_history as history, local_preparation as local
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 full = common.full
 WORD_GATE = F(1, 10**9)
@@ -245,7 +251,7 @@ def run():
         rows.append({'law': law, 'complete_output_halftrace_diagnostic': residual,
                      'complete_output_mass_diagnostic': sum(probabilities.values()),
                      'record_probabilities': {str(key): value for key, value in probabilities.items()}})
-    paths = set(training['source_sha256']) | set(common.SOURCE_PATHS) | set(local.SOURCE_PATHS)
+    paths = set(bound_pins(training['source_sha256'])) | set(common.SOURCE_PATHS) | set(local.SOURCE_PATHS)
     paths.update(('model/native_modular_reference/learned_clock.py',
                   'model/native_modular_reference/cap_local_clock.py',
                   'model/native_modular_reference/local_history.py'))
@@ -271,7 +277,7 @@ def run():
             'training_native_attempts_upper': inference['source_native_attempts_all_trials_upper'],
             'future_preparation_native_attempts_upper': local.budget()['total_native_attempts_upper'],
             'histories': rows,
-            'source_sha256': {p: hashlib.sha256((common.ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)},
+            'source_sha256': bound_pins({p: hashlib.sha256((common.ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}),
             'scope': {'source_derived_family_required': True,
                       'known_weights_used_to_center_estimator_or_compile_clock': False,
                       'prepared_reference_used_only_for_source_certificate_and_validation': True,

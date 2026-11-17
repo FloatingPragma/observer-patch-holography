@@ -10,13 +10,22 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
+try:
+    from tools.pin_scope import bound, bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound, bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 BASE='model/particle_calibration_selection/results.json'
 
 
 def import_closure(seeds):
-    paths=set(seeds);pending=list(paths);visited=set()
+    """Pinned repository paths: the seeds and their Python import closure,
+    without prose and test modules (tools/pin_scope.py), which are neither
+    walked nor returned."""
+    paths=set(bound(seeds));pending=list(paths);visited=set()
     def add_module(name):
         stem=name.replace('.','/')
         parts=stem.split('/')
@@ -40,18 +49,18 @@ def import_closure(seeds):
                 if node.level:target=importlib.util.resolve_name(target,package)
                 add_module(target)
                 for alias in node.names:add_module(target+'.'+alias.name)
-    return paths
+    return set(bound(paths))
 
 
 def definition_inputs(seeds):
-    inherited=json.loads((ROOT/BASE).read_text())['input_sha256']
+    inherited=bound_pins(json.loads((ROOT/BASE).read_text())['input_sha256'])
     return tuple(sorted(import_closure(set(seeds)|set(inherited)|{BASE,
         'model/particle_common_contract/provenance.py','model/requirements.txt'})))
 
 
 def definition_hashes(paths):
-    hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}
-    inherited=json.loads((ROOT/BASE).read_text())['input_sha256']
+    hashes=bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})
+    inherited=bound_pins(json.loads((ROOT/BASE).read_text())['input_sha256'])
     for path,expected in inherited.items():
         if hashes.get(path)!=expected:raise ValueError('immutable source ancestry changed: '+path)
     return hashes

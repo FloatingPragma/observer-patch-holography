@@ -23,6 +23,12 @@ import numpy as np
 from tools import strict_json
 from . import reference_tomography as training, learned_clock as learned
 from . import phase_readout as readout, phase_inference as inverse
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('phase_clock_results.json')
@@ -312,7 +318,7 @@ def run():
             'fixed_trials_per_quadrature': TRIALS,
             'fixed_parameter_window': (F(-1), F(1)), 'fixed_interval_width_gate': F(1, 5),
             'alternatives': alternatives,
-            'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in source_paths()},
+            'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in source_paths()}),
             'scope': SCOPE.copy()}
 
 
@@ -424,7 +430,7 @@ def _validated_copy(original):
             or not _same(value['source_effect_proof'], _json(readout.exact_effects()))
             or not _same(value['complete_trial_budget'], _json(readout.complete_trial_budget()))):
         raise ValueError('canonical phase proof or scope changed')
-    bindings = value['source_sha256']
+    bindings = bound_pins(value['source_sha256'])
     if (set(bindings) != set(source_paths()) or any(
                 type(p) is not str or Path(p).is_absolute() or '..' in Path(p).parts
             or type(digest) is not str or hashlib.sha256((ROOT/p).read_bytes()).hexdigest() != digest

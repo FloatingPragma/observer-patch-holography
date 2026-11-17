@@ -74,6 +74,12 @@ from . import construction as mixing, cut_completion as cut
 from ..native_clock import regional_preparation as incident
 from ..native_modular_reference import common_caps as common, local_preparation as local
 from ..observer import native, quantum_mixing
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name("variation_results.json")
@@ -302,7 +308,7 @@ def run():
     if moments(common.reference())[0] != moments((F(1, 66),)*66)[0]:
         raise ArithmeticError("mean-charge-only countercontrol changed")
     payload = {"schema": "oph.native_equilibration.common_variation.v1",
-        "source_sha256": {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+        "source_sha256": bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
         "native_source": source_audit(), "arbitrary_input_preparation": preparation_budget(),
         "selected_references": references,
         "continuing_record_entropy": history_entropy.run(),

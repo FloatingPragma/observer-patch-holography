@@ -30,6 +30,12 @@ from . import slow_geometry
 from ..observer import native
 from ..observer.source_discrimination import circuit
 from ..repair_scheduler import coins
+try:
+    from tools.pin_scope import bound_pins, scoped
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -514,7 +520,7 @@ def source_bindings():
              slow_geometry.SPEC.relative_to(ROOT).as_posix(),
              (slow_geometry.ARCHIVE/"oph_exact/carrier.py").relative_to(ROOT).as_posix(),
              (slow_geometry.ARCHIVE/"oph_fpe/dynamics/self_readback_repair_closure.py").relative_to(ROOT).as_posix()}
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def check(path):
@@ -522,7 +528,7 @@ def check(path):
     if packet.get("schema") != "oph.native_gauge_object.v1":
         raise ValueError("wrong native gauge-object schema")
     pins = source_bindings()
-    if packet.get("source_bindings") != pins:
+    if bound_pins(packet.get("source_bindings")) != scoped(pins):
         raise ValueError("native gauge-object source bindings differ")
     expected = report()
     actual = {key: value for key, value in packet.items() if key != "source_bindings"}
@@ -565,7 +571,7 @@ def main():
     packet = report()
     if source_bindings() != pins:
         raise RuntimeError("source changed during exact construction")
-    packet["source_bindings"] = pins
+    packet["source_bindings"] = bound_pins(pins)
     args.output.write_text(json.dumps(packet, sort_keys=True, indent=2, allow_nan=False)+"\n")
     print(packet["two_object_geometry"]["selected_geometric_dimension"])
 

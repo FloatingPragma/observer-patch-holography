@@ -18,6 +18,12 @@ from pathlib import Path
 from tools import strict_json
 from model.observer import native, quantum_mixing as mixing
 from . import family as f
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 D = 66
@@ -480,8 +486,8 @@ def run():
                                   "full_attempts": full_n, "full_even_split": full["split"],
                                   "full_error_upper": str(rounded_upper(full["error"]))}
     return {"schema": "oph.record_laws.burn_in.v1",
-            "source_sha256": {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-                              for name in SOURCE_PATHS},
+            "source_sha256": bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+                              for name in SOURCE_PATHS}),
             "structural": structural, "coefficient_domination": coefficient_audit(),
             "finite_budgets": thresholds, "controls": controls(),
             "adaptive_reference_execution": adaptive_witness(),

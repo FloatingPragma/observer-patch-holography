@@ -6,6 +6,12 @@ No propagation speed is inferred from the present observer construction.
 """
 from fractions import Fraction as F
 import math
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 C_SI = F(299792458)
@@ -76,7 +82,7 @@ def conditional_si_example(time_seconds):
 def report():
     examples = [conditional_si_example(F(1, 10**power)) for power in (15, 12)]
     return {'schema': 'oph.common_source.conditional_units.v1',
-            'sources': SOURCES,
+            'sources': bound_pins(SOURCES),
             'SI_defining_constants': {'c_metres_per_second_exact': str(C_SI),
                                       'h_joule_seconds_exact': str(H_SI),
                                       'hbar_definition': 'h/(2*pi)',

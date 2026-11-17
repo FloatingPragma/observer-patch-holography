@@ -23,6 +23,12 @@ from ..federated_observer import source
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from ..primitive_observer import runtime
 from . import construction as local
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(sorted(set((*local.SOURCE_PATHS,
@@ -337,8 +343,8 @@ def run():
             'spherical_cell_parent_coarse_graining_repaired': False,
             'physical_time_dimension_or_relativistic_QFT_recovered': False,
             'independent_laboratory_comparison': False},
-        'source_bindings': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                            for path in SOURCE_PATHS}}
+        'source_bindings': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                            for path in SOURCE_PATHS})}
 
 
 def main():

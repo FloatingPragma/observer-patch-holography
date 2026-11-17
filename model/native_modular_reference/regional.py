@@ -49,6 +49,12 @@ import numpy as np
 from tools import strict_json
 from ..primitive_observer import transfer
 from . import preparation, full_flow
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name("regional_results.json")
@@ -323,9 +329,9 @@ def run():
              "model/native_modular_reference/preparation.py",
              "model/native_modular_reference/full_flow.py",
              "model/primitive_observer/transfer.py", "model/observer/native.py")
-    hashes = {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in paths}
+    hashes = bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in paths})
     result = {"schema": "oph.native_modular_reference.regional.v1", "all_pass": True,
-            "source_sha256": hashes,
+            "source_sha256": bound_pins(hashes),
             "reference": "diag(degree/600)",
             "source_generator_up_to_scalar": "log(5/4) times native adjacency projector",
             "regions": rows, "checked_nested_inclusions": inclusions,

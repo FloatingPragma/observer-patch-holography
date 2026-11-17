@@ -46,6 +46,12 @@ from ..native_equilibration import cut_completion as cut, construction as equili
 from ..observer import native, quantum_mixing as mixing
 from ..record_laws import burn_in
 from ..record_laws.burn_in import R_UPPER
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -246,7 +252,7 @@ def run():
                      "positive_modular_gap_log_arguments": sorted({str(b/a) for a in weights for b in weights if b>a})})
     return {
         "schema": "oph.native_regional_reference_preparation.v1", "all_pass": True,
-        "source_sha256": {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+        "source_sha256": bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
         "audit": exact_audit(), "preparation": preparation(),
         "raw_reference_zero_eigenvalues": raw.count(F(0)),
         "completed_reference_weight_multiplicities": {str(k): v for k, v in sorted(Counter(completed).items())},

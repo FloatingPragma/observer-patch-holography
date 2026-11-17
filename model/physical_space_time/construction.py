@@ -20,6 +20,12 @@ from ..observer_reconstruction import native_geometry as ng
 from ..relative_observer_geometry import intrinsic_geometry as intrinsic
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -267,7 +273,7 @@ def run():
                      for i in range(PORTS) for j in range(i+1, PORTS))
     return {
         'schema': 'oph.physical_space_time.single_carrier.v1',
-        'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
+        'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
         'contract': {'carriers': 1, 'ports': PORTS, 'seams': len(seams),
             'passage_preparation': 'one known native load at sender, every other port empty',
             'calibration_sector_total_load': 1,

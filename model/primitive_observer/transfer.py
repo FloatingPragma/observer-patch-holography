@@ -23,6 +23,12 @@ from ..common_source import slow_geometry
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
 from . import runtime
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -316,7 +322,7 @@ def run():
     uninterrupted = runtime.execute(checkpoint_program)
     checkpoint_error = _bounded(runtime.complete_distance(continued, uninterrupted), 'checkpoint continuation')
     return {'schema': 'oph.primitive_observer.native_transfer.v1', 'all_pass': True,
-            'sources': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
+            'sources': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
             'exact_kernel_attachment': exact,
             'spectral_reconstruction': {'Hamiltonian': 'H=-log(K)',
                 'vacuum': 'constant normalized vector on native configurations',
