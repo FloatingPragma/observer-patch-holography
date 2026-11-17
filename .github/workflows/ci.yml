@@ -59,7 +59,7 @@ jobs:
         run: |
           python tools/check_lean_native_decide_inventory.py
           python tools/check_lean_ci_budget.py
-          python -m pytest -q tools/test_check_lean_ci_budget.py tools/test_mandatory_suite_shards.py tools/test_ci_lanes.py
+          python -m pytest -q tools/test_check_lean_ci_budget.py tools/test_mandatory_suite_shards.py tools/test_ci_lanes.py tools/test_pin_scope.py tools/test_audit_receipt_sources.py
       - name: Documentation policy on changed files
         if: github.event_name == 'pull_request'
         run: python tools/check_docs_policy.py --changed "${{ github.event.pull_request.base.sha }}"

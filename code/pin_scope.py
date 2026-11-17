@@ -4,7 +4,8 @@ Receipts and checks bind the code that produces or verifies a result and the
 data it reads. Prose and repository configuration (papers, documentation,
 READMEs, workflow files, Git attribute files) change for editorial reasons,
 and test modules check a receipt without producing it, so no receipt pins
-them and no verifier compares them. A verifier filters a recorded pin map
+them and no verifier compares them. This rule file itself (pin_scope.py)
+governs custody, not results, and is exempt as well. A verifier filters a recorded pin map
 with ``bound_pins`` before comparing it, so receipts written before this
 rule still verify.
 
@@ -18,7 +19,7 @@ from pathlib import PurePosixPath
 
 EXEMPT_PREFIXES = ("docs/", "paper/", "book/", "flagship/", "extra/", ".github/")
 EXEMPT_SUFFIXES = (".md", ".tex", ".pdf", ".bib", ".rst")
-EXEMPT_NAMES = (".gitattributes", ".gitignore", "conftest.py")
+EXEMPT_NAMES = (".gitattributes", ".gitignore", "conftest.py", "pin_scope.py")
 
 
 def exempt(path) -> bool:
