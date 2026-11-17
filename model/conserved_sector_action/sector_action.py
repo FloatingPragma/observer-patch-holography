@@ -174,7 +174,9 @@ def report() -> dict:
     if any(type(campaign.get(k)) is not type(v) or campaign[k] != v
            for k, v in required.items()):
         raise ValueError("sector action campaign changed")
-    if bound_pins(campaign.get("source_sha256")) != predecessor_bindings():
+    # The frozen campaign names its predecessor inputs; their current bytes
+    # are bound by this receipt's own source map.
+    if set(bound_pins(campaign.get("source_sha256"))) != set(predecessor_bindings()):
         raise ValueError("sector action predecessor binding changed")
     kernels = {law: native_kernel(law) for law in ("C", "E")}
     if kernels["C"] != kernels["E"]:

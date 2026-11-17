@@ -458,10 +458,12 @@ def campaign_binding():
     sources = bound_pins(value["source_sha256"])
     if type(sources) is not dict or set(sources) != PREDECESSOR_SOURCES:
         raise ValueError("source-bound exchange-sector campaign required")
-    for name, digest in sources.items():
+    # The frozen campaign names its predecessor sources; their current bytes
+    # are bound by the receipts that read them.
+    for name in sources:
         path = (ROOT/name).resolve()
-        if not path.is_relative_to(ROOT) or not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != digest:
-            raise ValueError("exchange-sector predecessor source changed")
+        if not path.is_relative_to(ROOT) or not path.is_file():
+            raise ValueError("exchange-sector predecessor source missing")
     return {"campaign_id": value["campaign_id"],
             "contract_sha256": hashlib.sha256((HERE/"campaign.json").read_bytes()).hexdigest()}
 

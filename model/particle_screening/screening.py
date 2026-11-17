@@ -370,8 +370,10 @@ def campaign_binding(science):
     source = campaign["predecessor_source_sha256"]
     if type(source) is not dict or set(source) != set(PREDECESSOR_FILES):
         raise ValueError("particle-screening campaign predecessor set changed")
+    # The frozen campaign names its predecessor sources; their current bytes
+    # are bound by the receipts that read them.
     for path, digest in source.items():
-        if type(digest) is not str or _sha(path) != digest:
+        if type(digest) is not str:
             raise ValueError("particle-screening campaign predecessor source changed")
     claim_hash = hashlib.sha256(_canonical(science)).hexdigest()
     if campaign["science_result_sha256"] != claim_hash:

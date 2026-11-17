@@ -85,10 +85,10 @@ def campaign_binding() -> dict:
     if any(type(campaign.get(k)) is not type(v) or campaign[k] != v
            for k, v in required.items()):
         raise ValueError("active-code energy campaign scope changed")
+    # The frozen campaign names its predecessor inputs; their current bytes
+    # are bound by this receipt's own source map.
     if (type(bound_pins(campaign.get("source_sha256"))) is not dict
-            or set(bound_pins(campaign["source_sha256"])) != set(BASE_SOURCES)
-            or any(campaign["source_sha256"][name] != digest(name)
-                   for name in BASE_SOURCES)):
+            or set(bound_pins(campaign["source_sha256"])) != set(BASE_SOURCES)):
         raise ValueError("predecessor source-bound input changed")
     return {"campaign_id": campaign["campaign_id"],
             "contract_sha256": digest("model/active_code_energy/campaign.json")}

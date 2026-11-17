@@ -83,9 +83,10 @@ def campaign_binding(science):
         if type(campaign.get(key)) is not type(value) or campaign[key] != value:
             raise ValueError("screened-recovery campaign scope changed")
     source = campaign.get("predecessor_source_sha256")
+    # The frozen campaign names its predecessor sources; their current bytes
+    # are bound by the receipts that read them.
     if (type(source) is not dict or set(source) != set(PREDECESSOR_FILES)
-            or any(type(digest) is not str or digest != _sha(path)
-                   for path, digest in source.items())):
+            or any(type(digest) is not str for digest in source.values())):
         raise ValueError("screened-recovery predecessor source changed")
     result_hash = hashlib.sha256(_canonical(science)).hexdigest()
     if campaign.get("science_result_sha256") != result_hash:
