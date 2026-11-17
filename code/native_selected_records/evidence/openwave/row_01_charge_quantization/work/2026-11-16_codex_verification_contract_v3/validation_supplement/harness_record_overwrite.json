@@ -1,0 +1,20 @@
+{
+  "label": "harness_record_overwrite",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/work/2026-11-16_codex_verification_contract_v3/descendants/verify_source.py",
+    "--source",
+    "/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/reviews/2026-11-16_codex_resubmission_integration/source_export_v2/source",
+    "--job",
+    "23",
+    "--record-to",
+    "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-extra-hfz6rup_/existing.json"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/work/2026-11-16_codex_verification_contract_v3/descendants/verify_source.py\", line 136, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/work/2026-11-16_codex_verification_contract_v3/descendants/verify_source.py\", line 117, in main\n    require(not args.record_to.exists(),'First-record destination already exists')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/work/2026-11-16_codex_verification_contract_v3/descendants/verify_source.py\", line 22, in require\n    raise AssertionError(message)\nAssertionError: First-record destination already exists\n",
+  "expected_success": false,
+  "passed": true,
+  "seconds": 0.04659833300684113
+}

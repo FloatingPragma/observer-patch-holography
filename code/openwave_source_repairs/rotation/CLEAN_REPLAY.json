@@ -1,0 +1,42 @@
+{
+  "custody_note": "An initial function-hash audit omitted the terminal newline; corrected documented convention matches original f965c022... and byte-identical module. Subsequent clean-copy tuple/list replay failure is separately retained in ATTEMPT_02_FAILURE.json.",
+  "environment": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONINTMAXSTRDIGITS": "0"
+  },
+  "runs": [
+    {
+      "command": [
+        "python3",
+        "headline.py"
+      ],
+      "exit_code": 0,
+      "seconds": 6.778314292008872,
+      "stderr": "",
+      "stdout": "{\"candidate\": \"A-native-discovered-apolar-bond-v1\", \"contexts\": 120, \"hold_and_swap_TV\": \"1\", \"literal_native_calls\": 74551, \"native_opposite_start_TV\": \"0\", \"records_reproduced_byte_for_byte\": true, \"seconds\": 4.905053624999709, \"source_algorithm_unchanged\": true}\n"
+    },
+    {
+      "command": [
+        "python3",
+        "independent_check.py"
+      ],
+      "exit_code": 0,
+      "seconds": 6.52627412500442,
+      "stderr": "",
+      "stdout": "{\"controller_events_replayed\": 84857, \"exact_Qphi_rotations\": 30, \"histogram_checks\": 5760, \"histories_recomputed\": 184320, \"independence\": \"Separate implementation; same Codex author/group\", \"passed\": true, \"producer_imports\": [], \"receipt_sha256\": \"e2b2c754d5524babcd92e411bae46a2ab0679b22d88c1f93a7bdfbc3a7dac9de\", \"records_sha256\": \"d469dcee4d4dc47366cf071343e7bf23ddb2b780203af364bdaf8675e5fdac75\", \"seconds\": 6.41838312499749, \"source_table_rows\": 1502}\n"
+    },
+    {
+      "command": [
+        "python3",
+        "coupling_check.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.11265574999561068,
+      "stderr": "",
+      "stdout": "{\"cases\": 120, \"conditional_on_each_coin\": true, \"future_source_processes_equal\": true, \"historical_current_records_retained_distinct\": true, \"literal_native_calls\": 720, \"same_group\": true}\n"
+    }
+  ],
+  "same_group": true,
+  "scratch_path": "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave_row7_final_clean_7mq24ze_/packet",
+  "time": "2026-11-15T16:42:24.727171+00:00"
+}

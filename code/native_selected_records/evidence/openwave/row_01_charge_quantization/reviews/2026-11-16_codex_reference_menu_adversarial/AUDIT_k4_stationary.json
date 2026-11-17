@@ -1,0 +1,422 @@
+{
+  "k": 4,
+  "verdict": "PASS",
+  "checks": 272432,
+  "counts": {
+    "source_catalogs": 78,
+    "quantum_stages": 2160,
+    "reference_blocks": 4384,
+    "ramsey_records": 272,
+    "classical_events": 99146,
+    "marker_histories": 3888,
+    "stationary_holds": 432
+  },
+  "cases": [
+    {
+      "M": 4,
+      "turns": 1,
+      "direction": 1,
+      "law": "native",
+      "visibility": -0.007253146763137375,
+      "direct_visibility": -0.007253146763137405,
+      "normalized_crossblock": -0.999974875224163,
+      "physical_path_law": [
+        0.4963734266184313,
+        0.5036265733815686
+      ],
+      "positive_fidelity": 0.9973316137243582,
+      "off_band_weight": 7.713675444914747e-11,
+      "pair_off_band_weight": 0.005322531981063227,
+      "pair_energy_interval": [
+        [
+          1021.0688468405699,
+          1022.5387778884444
+        ]
+      ],
+      "log10_analyzer": -65.84054399172194,
+      "log10_selected_clock": -66.13843535454245,
+      "log10_pair": -132.2768707090849
+    },
+    {
+      "M": 4,
+      "turns": 1,
+      "direction": 1,
+      "law": "swap",
+      "visibility": 2.4010805788066136e-08,
+      "direct_visibility": 2.401080584531199e-08,
+      "normalized_crossblock": 1.0000000000000002,
+      "physical_path_law": [
+        0.5000000120054029,
+        0.49999998799459705
+      ],
+      "positive_fidelity": 0.9961904477785164,
+      "off_band_weight": 0.0011442192416053557,
+      "pair_off_band_weight": 0.007597487754945336,
+      "pair_energy_interval": [
+        [
+          1021.2032379529297,
+          1022.6736500995364
+        ]
+      ],
+      "log10_analyzer": -75.52009346477041,
+      "log10_selected_clock": -75.82112345000664,
+      "log10_pair": -151.64224690001328
+    },
+    {
+      "M": 4,
+      "turns": 1,
+      "direction": -1,
+      "law": "native",
+      "visibility": -0.007255018597047358,
+      "direct_visibility": -0.0072550185970473476,
+      "normalized_crossblock": -0.9999748866645548,
+      "physical_path_law": [
+        0.4963724907014763,
+        0.5036275092985236
+      ],
+      "positive_fidelity": 0.9973316137243189,
+      "off_band_weight": 7.717628749612238e-11,
+      "pair_off_band_weight": 0.00532253198114161,
+      "pair_energy_interval": [
+        [
+          1021.0688468405746,
+          1022.5387778884491
+        ]
+      ],
+      "log10_analyzer": -65.84054398877326,
+      "log10_selected_clock": -66.1384345445212,
+      "log10_pair": -132.2768690890424
+    },
+    {
+      "M": 4,
+      "turns": 1,
+      "direction": -1,
+      "law": "swap",
+      "visibility": 2.4010805788066136e-08,
+      "direct_visibility": 2.4010805845312e-08,
+      "normalized_crossblock": 1.0000000000000004,
+      "physical_path_law": [
+        0.5000000120054029,
+        0.49999998799459705
+      ],
+      "positive_fidelity": 0.9961904477785164,
+      "off_band_weight": 0.001144219241605428,
+      "pair_off_band_weight": 0.007597487754945337,
+      "pair_energy_interval": [
+        [
+          1021.2032379529297,
+          1022.6736500995363
+        ]
+      ],
+      "log10_analyzer": -75.52009346477041,
+      "log10_selected_clock": -75.82112345000664,
+      "log10_pair": -151.64224690001328
+    },
+    {
+      "M": 4,
+      "turns": 2,
+      "direction": 1,
+      "law": "native",
+      "visibility": 2.6295579046875517e-05,
+      "direct_visibility": 2.629557904663229e-05,
+      "normalized_crossblock": 0.9999748752241624,
+      "physical_path_law": [
+        0.5000131477895234,
+        0.49998685221047673
+      ],
+      "positive_fidelity": 0.9973316138012185,
+      "off_band_weight": 7.09363123796436e-14,
+      "pair_off_band_weight": 0.005322531827751766,
+      "pair_energy_interval": [
+        [
+          1021.0688468315066,
+          1022.5387778793488
+        ]
+      ],
+      "log10_analyzer": -120.93186043418638,
+      "log10_selected_clock": -121.23287900997562,
+      "log10_pair": -242.46575801995124
+    },
+    {
+      "M": 4,
+      "turns": 2,
+      "direction": 1,
+      "law": "swap",
+      "visibility": 4.440892098500626e-16,
+      "direct_visibility": 2.882593986706342e-16,
+      "normalized_crossblock": 1.0000000000000002,
+      "physical_path_law": [
+        0.5000000000000001,
+        0.49999999999999983
+      ],
+      "positive_fidelity": 0.9961904477785162,
+      "off_band_weight": 0.0011442192416056289,
+      "pair_off_band_weight": 0.00759748775494578,
+      "pair_energy_interval": [
+        [
+          1021.2032379529297,
+          1022.6736500995363
+        ]
+      ],
+      "log10_analyzer": -140.2914451684641,
+      "log10_selected_clock": -140.59247516412807,
+      "log10_pair": -281.18495032825615
+    },
+    {
+      "M": 4,
+      "turns": 2,
+      "direction": -1,
+      "law": "native",
+      "visibility": 2.630236537681796e-05,
+      "direct_visibility": 2.6302365377228232e-05,
+      "normalized_crossblock": 0.9999748866645545,
+      "physical_path_law": [
+        0.5000131511826884,
+        0.49998684881731137
+      ],
+      "positive_fidelity": 0.9973316138012187,
+      "off_band_weight": 7.077238101116379e-14,
+      "pair_off_band_weight": 0.0053225318277513225,
+      "pair_energy_interval": [
+        [
+          1021.0688468315066,
+          1022.5387778793488
+        ]
+      ],
+      "log10_analyzer": -120.93186043418636,
+      "log10_selected_clock": -121.23287900702842,
+      "log10_pair": -242.46575801405683
+    },
+    {
+      "M": 4,
+      "turns": 2,
+      "direction": -1,
+      "law": "swap",
+      "visibility": 4.440892098500626e-16,
+      "direct_visibility": 2.882593986706344e-16,
+      "normalized_crossblock": 0.9999999999999998,
+      "physical_path_law": [
+        0.5000000000000001,
+        0.49999999999999983
+      ],
+      "positive_fidelity": 0.9961904477785164,
+      "off_band_weight": 0.0011442192416053982,
+      "pair_off_band_weight": 0.007597487754945336,
+      "pair_energy_interval": [
+        [
+          1021.2032379529297,
+          1022.6736500995363
+        ]
+      ],
+      "log10_analyzer": -140.2914451684641,
+      "log10_selected_clock": -140.59247516412807,
+      "log10_pair": -281.18495032825615
+    },
+    {
+      "M": 8,
+      "turns": 1,
+      "direction": 1,
+      "law": "native",
+      "visibility": -4.134550640344514e-05,
+      "direct_visibility": -4.1345506403636314e-05,
+      "normalized_crossblock": -0.9999968395899854,
+      "physical_path_law": [
+        0.4999793272467983,
+        0.5000206727532018
+      ],
+      "positive_fidelity": 0.9973316138012196,
+      "off_band_weight": 6.968254098738136e-14,
+      "pair_off_band_weight": 0.005322531827749544,
+      "pair_energy_interval": [
+        [
+          1021.0688468315064,
+          1022.5387778793487
+        ]
+      ],
+      "log10_analyzer": -120.93186043407583,
+      "log10_selected_clock": -121.23287247398572,
+      "log10_pair": -242.46574494797144
+    },
+    {
+      "M": 8,
+      "turns": 1,
+      "direction": 1,
+      "law": "swap",
+      "visibility": 0.0,
+      "direct_visibility": 9.522523185821317e-17,
+      "normalized_crossblock": 0.9999999999999986,
+      "physical_path_law": [
+        0.5,
+        0.49999999999999994
+      ],
+      "positive_fidelity": 0.9961904477785164,
+      "off_band_weight": 0.001144219241605438,
+      "pair_off_band_weight": 0.007597487754945337,
+      "pair_energy_interval": [
+        [
+          1021.2032379529297,
+          1022.6736500995364
+        ]
+      ],
+      "log10_analyzer": -140.2914451684641,
+      "log10_selected_clock": -140.59247516412807,
+      "log10_pair": -281.18495032825615
+    },
+    {
+      "M": 8,
+      "turns": 1,
+      "direction": -1,
+      "law": "native",
+      "visibility": -4.1349290749392864e-05,
+      "direct_visibility": -4.134929074925247e-05,
+      "normalized_crossblock": -0.9999968401004995,
+      "physical_path_law": [
+        0.4999793253546253,
+        0.5000206746453746
+      ],
+      "positive_fidelity": 0.9973316138012195,
+      "off_band_weight": 6.994318318964687e-14,
+      "pair_off_band_weight": 0.005322531827749767,
+      "pair_energy_interval": [
+        [
+          1021.0688468315064,
+          1022.5387778793487
+        ]
+      ],
+      "log10_analyzer": -120.93186043407584,
+      "log10_selected_clock": -121.23287247234228,
+      "log10_pair": -242.46574494468456
+    },
+    {
+      "M": 8,
+      "turns": 1,
+      "direction": -1,
+      "law": "swap",
+      "visibility": 0.0,
+      "direct_visibility": 9.522523185821327e-17,
+      "normalized_crossblock": 1.0000000000000007,
+      "physical_path_law": [
+        0.5,
+        0.49999999999999994
+      ],
+      "positive_fidelity": 0.9961904477785168,
+      "off_band_weight": 0.0011442192416050135,
+      "pair_off_band_weight": 0.007597487754944449,
+      "pair_energy_interval": [
+        [
+          1021.2032379529296,
+          1022.6736500995363
+        ]
+      ],
+      "log10_analyzer": -140.29144516846407,
+      "log10_selected_clock": -140.59247516412805,
+      "log10_pair": -281.1849503282561
+    },
+    {
+      "M": 8,
+      "turns": 2,
+      "direction": 1,
+      "law": "native",
+      "visibility": 8.547131891134541e-10,
+      "direct_visibility": 8.547131626957538e-10,
+      "normalized_crossblock": 0.9999968395899869,
+      "physical_path_law": [
+        0.5000000004273566,
+        0.49999999957264346
+      ],
+      "positive_fidelity": 0.9973316138012198,
+      "off_band_weight": 6.947480785113314e-14,
+      "pair_off_band_weight": 0.0053225318277491,
+      "pair_energy_interval": [
+        [
+          1021.0688468315064,
+          1022.5387778793487
+        ]
+      ],
+      "log10_analyzer": -231.11448189482908,
+      "log10_selected_clock": -231.41551189012188,
+      "log10_pair": -462.83102378024375
+    },
+    {
+      "M": 8,
+      "turns": 2,
+      "direction": 1,
+      "law": "swap",
+      "visibility": 0.0,
+      "direct_visibility": 4.533922391225235e-33,
+      "normalized_crossblock": 0.9999999999999997,
+      "physical_path_law": [
+        0.5,
+        0.5
+      ],
+      "positive_fidelity": 0.9961904477785166,
+      "off_band_weight": 0.0011442192416051817,
+      "pair_off_band_weight": 0.007597487754944892,
+      "pair_energy_interval": [
+        [
+          1021.2032379529297,
+          1022.6736500995363
+        ]
+      ],
+      "log10_analyzer": -269.83414857585143,
+      "log10_selected_clock": -270.1351785715154,
+      "log10_pair": -540.2703571430308
+    },
+    {
+      "M": 8,
+      "turns": 2,
+      "direction": -1,
+      "law": "native",
+      "visibility": 8.547913488143877e-10,
+      "direct_visibility": 8.547913944141289e-10,
+      "normalized_crossblock": 0.9999968401004993,
+      "physical_path_law": [
+        0.5000000004273957,
+        0.4999999995726043
+      ],
+      "positive_fidelity": 0.9973316138012197,
+      "off_band_weight": 6.963960658135093e-14,
+      "pair_off_band_weight": 0.005322531827749323,
+      "pair_energy_interval": [
+        [
+          1021.0688468315064,
+          1022.5387778793487
+        ]
+      ],
+      "log10_analyzer": -231.11448189482914,
+      "log10_selected_clock": -231.41551189012188,
+      "log10_pair": -462.83102378024375
+    },
+    {
+      "M": 8,
+      "turns": 2,
+      "direction": -1,
+      "law": "swap",
+      "visibility": -1.1102230246251565e-16,
+      "direct_visibility": 4.533922391225236e-33,
+      "normalized_crossblock": 1.000000000000001,
+      "physical_path_law": [
+        0.5,
+        0.5
+      ],
+      "positive_fidelity": 0.9961904477785175,
+      "off_band_weight": 0.0011442192416042463,
+      "pair_off_band_weight": 0.007597487754943116,
+      "pair_energy_interval": [
+        [
+          1021.2032379529296,
+          1022.6736500995363
+        ]
+      ],
+      "log10_analyzer": -269.8341485758514,
+      "log10_selected_clock": -270.1351785715153,
+      "log10_pair": -540.2703571430307
+    }
+  ],
+  "reference": "stationary",
+  "input_evidence_sha256": "84b702cff2ed3342f93d1ffb4ec334ce40be760ecc47cc2153c50b292a53c4c2",
+  "same_group_only": true,
+  "producer_imports": false,
+  "seconds": 2.99587545900431,
+  "finite_shot_precision_claim": false
+}

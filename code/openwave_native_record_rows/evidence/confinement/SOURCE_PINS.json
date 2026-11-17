@@ -1,0 +1,63 @@
+{
+  "external_primary_reference": "https://arxiv.org/abs/math-ph/0609050; QR Haar fact is proved directly in PROOF.md through invariance; paper provides phase convention context.",
+  "inputs": [
+    {
+      "copy": "inputs/native.py",
+      "sha256": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+      "source": "reverse-engineering-reality/model/observer/native.py"
+    },
+    {
+      "copy": "inputs/ROW22_THEOREMS.md",
+      "sha256": "0e39e94f4d54ee7632998062b1c0f80a256e288bece46e209845f8f27ec1a167",
+      "source": "openwave/row_22_confinement/THEOREMS.md"
+    },
+    {
+      "copy": "inputs/ROW12_THEOREMS.md",
+      "sha256": "0516e65545bf936ac9274aa4e83c995d19deaa2b4021ecb33a94dbd64c464f37",
+      "source": "openwave/row_12_quarks/THEOREMS.md"
+    },
+    {
+      "copy": "inputs/COLOUR_STRING_PROOF.md",
+      "sha256": "3f42d1e4ebb1835c7c5d81c716a0aceb87fe40e6da16f4ddbe78375bb81da8bf",
+      "source": "reverse-engineering-reality/model/openwave_colour_string/PROOF.md"
+    },
+    {
+      "copy": "inputs/POSITIVE_CONE_PROOF.md",
+      "sha256": "0078e741be4f1253b455bc69eeaedacb67ae0a80418795d7de6c0fb1214305d7",
+      "source": "reverse-engineering-reality/model/openwave_string_positive_cone/PROOF.md"
+    },
+    {
+      "copy": "inputs/NATIVE_CENTRE_STRING_PROOF.md",
+      "sha256": "d2971c59c9930aff23b1acb002901eaf32e4049209ccee7d8860eed79c7b2cc4",
+      "source": "reverse-engineering-reality/model/openwave_native_centre_string/PROOF.md"
+    },
+    {
+      "copy": "inputs/DiscreteGauss.lean",
+      "sha256": "d276dbb8d1c1fcb9a2dfba64750b93c5a7afda889d30c0e3dbed764fedfd9f55",
+      "source": "reverse-engineering-reality/lean/Screen/DiscreteGauss.lean"
+    },
+    {
+      "copy": "inputs/AGENTS.md",
+      "sha256": "f6880987a1ac9471485ac80923d7dbe158aca74c084b53bd8ab972c7b80d86f2",
+      "source": "openwave-tuning/AGENTS.md"
+    },
+    {
+      "copy": "inputs/MANUAL.md",
+      "sha256": "1c5d965002519d96ef952aa06ec0b19c7ac30b5a281fe685d0939b52321894fe",
+      "source": "openwave-tuning/MANUAL.md"
+    },
+    {
+      "copy": "inputs/DELIVERABLE.md",
+      "sha256": "2e3a9e318abf53a8c118dfeedbdf102bd91144fb88d6d37e01702dd6fd997cb6",
+      "source": "openwave/docs/DELIVERABLE.md"
+    },
+    {
+      "copy": "inputs/FRAMEWORK.md",
+      "sha256": "b72481bf6e070c10644f42e8ba40a16cb34543b26f30fed8142d71da0d174971",
+      "source": "openwave/docs/FRAMEWORK.md"
+    }
+  ],
+  "lean_status": "Read declarations; no new Lean build or axiom audit executed in this packet.",
+  "pinned_native_commit": "3c4e1e23fc32dd241e8c2bfba75de123fe5c6984",
+  "theorem_files": "Read proof inputs captured from the local working tree, whose exact bytes below govern; no claim every file occurs at the native event pin."
+}

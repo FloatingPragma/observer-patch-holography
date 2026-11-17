@@ -1,0 +1,1299 @@
+{
+  "all_gates_pass": true,
+  "arbitrary_reference_idle_identity": "For each coin c the factorized branch is2^(-1/2) I_source,reference,spectator tensor|c,current0>; every finite repeated history is retained. Summing its branches is exactly the identity channel.",
+  "candidate": "A-old240-source-local-count-flow-v1-clock-realization",
+  "clock_slots_per_inherited_count_tick": 122536064,
+  "clock_slots_per_time_unit": 154395440640,
+  "elapsed_seconds": 0.003672749997349456,
+  "gates": {
+    "duration_ratio_exact40": true,
+    "finite_counter_capacity": true,
+    "native_zero_source_branches_exact": true,
+    "nonnegative_integral_padding": true,
+    "same_clock_count_for_both_objects": true,
+    "source_tick_conversion_exact": true
+  },
+  "literal_histories": [
+    {
+      "observed_tick_count": 16,
+      "records": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "seed_word": 0
+    },
+    {
+      "observed_tick_count": 16,
+      "records": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "seed_word": 1
+    },
+    {
+      "observed_tick_count": 16,
+      "records": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "seed_word": 2
+    },
+    {
+      "observed_tick_count": 16,
+      "records": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "seed_word": 3
+    },
+    {
+      "observed_tick_count": 16,
+      "records": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "seed_word": 4
+    },
+    {
+      "observed_tick_count": 16,
+      "records": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "seed_word": 5
+    },
+    {
+      "observed_tick_count": 16,
+      "records": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "seed_word": 6
+    },
+    {
+      "observed_tick_count": 16,
+      "records": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "seed_word": 7
+    },
+    {
+      "observed_tick_count": 16,
+      "records": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "seed_word": 8
+    },
+    {
+      "observed_tick_count": 16,
+      "records": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "seed_word": 9
+    },
+    {
+      "observed_tick_count": 16,
+      "records": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "seed_word": 10
+    },
+    {
+      "observed_tick_count": 16,
+      "records": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "seed_word": 11
+    },
+    {
+      "observed_tick_count": 16,
+      "records": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "seed_word": 12
+    },
+    {
+      "observed_tick_count": 16,
+      "records": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "seed_word": 13
+    },
+    {
+      "observed_tick_count": 16,
+      "records": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "seed_word": 14
+    },
+    {
+      "observed_tick_count": 16,
+      "records": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "seed_word": 15
+    }
+  ],
+  "literal_zero_source_calls": 258,
+  "native_branch_records": [
+    {
+      "coin": 0,
+      "input": [
+        0,
+        0
+      ],
+      "output": [
+        0,
+        0
+      ],
+      "record": [
+        0,
+        0
+      ]
+    },
+    {
+      "coin": 1,
+      "input": [
+        0,
+        0
+      ],
+      "output": [
+        0,
+        0
+      ],
+      "record": [
+        1,
+        0
+      ]
+    }
+  ],
+  "prereg_sha256": "086a1da1c6ec571e440dcc75dfeb64ed203aab367ee55a703f8491446d96b6d0",
+  "programmes": [
+    {
+      "complete_clock_record_law": {
+        "alphabet": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "coin_dependent_scheduling": false,
+        "every_binary_history_probability": "2^(-15439544064)",
+        "length": 15439544064,
+        "summed_probability": "1"
+      },
+      "duration": "1/10",
+      "idle_slots_per_macrostep": 38,
+      "inherited_count_ticks": 126,
+      "macrosteps": 128,
+      "object": "pair",
+      "on_processor_abort": "Retain first-failure flag, skip remaining source pulses, continue the same total zero-source clock slots.",
+      "processor_pulses_per_macrostep": 120621400,
+      "represented_active_processor_pulses": 15439539200,
+      "represented_idle_slots": 4864,
+      "slots_per_macrostep": 120621438,
+      "total_clock_slots": 15439544064
+    },
+    {
+      "complete_clock_record_law": {
+        "alphabet": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "coin_dependent_scheduling": false,
+        "every_binary_history_probability": "2^(-15439544064)",
+        "length": 15439544064,
+        "summed_probability": "1"
+      },
+      "duration": "1/10",
+      "idle_slots_per_macrostep": 91929398,
+      "inherited_count_ticks": 126,
+      "macrosteps": 128,
+      "object": "single",
+      "on_processor_abort": "Retain first-failure flag, skip remaining source pulses, continue the same total zero-source clock slots.",
+      "processor_pulses_per_macrostep": 28692040,
+      "represented_active_processor_pulses": 3672581120,
+      "represented_idle_slots": 11766962944,
+      "slots_per_macrostep": 120621438,
+      "total_clock_slots": 15439544064
+    },
+    {
+      "complete_clock_record_law": {
+        "alphabet": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "coin_dependent_scheduling": false,
+        "every_binary_history_probability": "2^(-617581762560)",
+        "length": 617581762560,
+        "summed_probability": "1"
+      },
+      "duration": "4",
+      "idle_slots_per_macrostep": 4704236120,
+      "inherited_count_ticks": 5040,
+      "macrosteps": 128,
+      "object": "pair",
+      "on_processor_abort": "Retain first-failure flag, skip remaining source pulses, continue the same total zero-source clock slots.",
+      "processor_pulses_per_macrostep": 120621400,
+      "represented_active_processor_pulses": 15439539200,
+      "represented_idle_slots": 602142223360,
+      "slots_per_macrostep": 4824857520,
+      "total_clock_slots": 617581762560
+    },
+    {
+      "complete_clock_record_law": {
+        "alphabet": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "coin_dependent_scheduling": false,
+        "every_binary_history_probability": "2^(-617581762560)",
+        "length": 617581762560,
+        "summed_probability": "1"
+      },
+      "duration": "4",
+      "idle_slots_per_macrostep": 4796165480,
+      "inherited_count_ticks": 5040,
+      "macrosteps": 128,
+      "object": "single",
+      "on_processor_abort": "Retain first-failure flag, skip remaining source pulses, continue the same total zero-source clock slots.",
+      "processor_pulses_per_macrostep": 28692040,
+      "represented_active_processor_pulses": 3672581120,
+      "represented_idle_slots": 613909181440,
+      "slots_per_macrostep": 4824857520,
+      "total_clock_slots": 617581762560
+    }
+  ],
+  "source_effect_error": "0 exactly under the native zero-source law and disjoint auxiliary scheduling",
+  "source_intervals_and_words_unchanged": true,
+  "supplied_architecture": [
+    "auxiliary zero source",
+    "fair native coin law",
+    "40-bit classical observer counter",
+    "slot scheduler and declared count-time scale"
+  ],
+  "time_scope": "One observer count clock for both objects and both durations; not wall-clock time or total repair-plus-processor resource count. Counter and rate are supplied apparatus, not emergence credit."
+}

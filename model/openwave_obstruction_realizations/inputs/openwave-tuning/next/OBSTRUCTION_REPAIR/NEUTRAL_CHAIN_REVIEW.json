@@ -1,0 +1,77 @@
+{
+  "schema": "oph.obstruction_repair.neutral_chain_independent_review.v1",
+  "producer_code_imported": false,
+  "independent_tridiagonal_inertia_and_path_moments": true,
+  "Y_intervals_consumed_not_reproved_here": true,
+  "leading_suppression_exact": "1/62350352785",
+  "gap_checks": [
+    {
+      "y": "0",
+      "below_negative_gap": 5,
+      "below_positive_gap": 6
+    },
+    {
+      "y": "1",
+      "below_negative_gap": 5,
+      "below_positive_gap": 6
+    }
+  ],
+  "families": [
+    {
+      "family": 0,
+      "exact_light_root_counts": [
+        5,
+        6
+      ],
+      "max_complete_spectral_moment_error": "3.45E-61",
+      "retained_heavy_active_weight": "0.006944444444333134990612743647265441209645277641210662456038345"
+    },
+    {
+      "family": 1,
+      "exact_light_root_counts": [
+        5,
+        6
+      ],
+      "max_complete_spectral_moment_error": "2.0444774456016439671498395E-62",
+      "retained_heavy_active_weight": "0.006944444444398063454567744669884748260961518747700929740076002"
+    },
+    {
+      "family": 2,
+      "exact_light_root_counts": [
+        5,
+        6
+      ],
+      "max_complete_spectral_moment_error": "2.76625919625E-61",
+      "retained_heavy_active_weight": "0.006944444458332533287599173064218755354063109818825883270312723374080375"
+    }
+  ],
+  "current_checks": [
+    {
+      "candidate": "existing_primary",
+      "full_current_completeness_error": 4.440892098500626e-16,
+      "heavy_weights": [
+        0.006944444447586286,
+        0.00694444445273126,
+        0.006944444446746186
+      ],
+      "complete_records": 18
+    },
+    {
+      "candidate": "real_control",
+      "full_current_completeness_error": 7.771561172376096e-16,
+      "heavy_weights": [
+        0.0069444444511649,
+        0.006944444451164902,
+        0.006944444444733929
+      ],
+      "complete_records": 18
+    }
+  ],
+  "hierarchy_component_verified": true,
+  "independent_physical_mixing_or_source_transfer": false,
+  "physical_neutrino_row_solved": false,
+  "pins": {
+    "species_leptons/neutral_chain/RESULT.json": "922ce9ffbc32bea35449e0a49500d09a6da25b2e59c5bfb3448403acd3931a1c",
+    "species_leptons/neutral_chain/MANIFEST.json": "b59211136fd167869d684dc3f63f815a9554fe5a77f9a322d094f17463cd3145"
+  }
+}

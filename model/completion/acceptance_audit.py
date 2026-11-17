@@ -27,10 +27,10 @@ ROOT = Path(__file__).resolve().parents[2]
 SOURCE_BINDINGS = {
     'model/local_repair_family/local_bias.py': '4902174ac8b27c1d8111bc3942cf5cd1024a07999d77f272cbfa1f1242876755',
     'model/local_repair_family/modular_clock.py': 'e66cdb06b13d2e4d66495ce8f4ccfae1bd96828c8265bdbb22c5be071bf71d8a',
-    'model/local_repair_family/record_clock_results.json': '5bd1e91ea466c2a10d59857b94371019af3b1e49d84775f299eefccb5acb1f1f',
+    'model/local_repair_family/record_clock_results.json': '0ce4cdfb456cf28239f80a23cb807e8573c0c912b820d6df595a6b14f892fd0d',
     'model/bound_pair/fiber.py': 'a5a21df2e5e6a4c71c66feaff2436390e357da8ae019df794280577afa48a49e',
     'model/bound_pair/protection.py': '99affa2080d03d5526122b97e0b75b6cdc1dd114116eedcacdf094287a2f0db1',
-    'model/particle_clock/results.json': '6ab55cabd12d7a981d68fe7653f3957eac214b0e08509512ae99fbd1b8dd78fb',
+    'model/particle_clock/results.json': '7e89187132143feebd39b5b61e0e25f0a211fe3c17ba082bc75f90545daf0f92',
 }
 
 
@@ -162,8 +162,6 @@ def field_capacity(side):
 def report(root=ROOT):
     check_bindings(root)
     root = Path(root)
-    program = strict_json.load(root/'claims/completion_program.json')
-    stages = {row['id']: row for row in program['stages']}
     clock = strict_json.load(root/'model/particle_clock/results.json')
     if clock['field_dictionary']['beta_times_U'] != 'log(25/8)':
         raise ValueError('the source/field clock calibration changed')
@@ -177,12 +175,9 @@ def report(root=ROOT):
         'native_tensor_reference': '(64/7505)^n*(25/8)^m, integer0<=m<=2n',
         'spectral_certificate': spectral_certificate(),
         'capacity': [field_capacity(side) for side in (4, 6, 8, 12, 16)],
-        'gate_dependencies': {
-            gate: {'registry_status': stages[gate]['status'],
-                   'unaccepted_predecessors': [p for p in stages[gate]['requires']
-                                               if stages[p]['status'] != 'ACCEPTED']}
-            for gate in ('CP-00', 'CP-01', 'CP-13')},
-        'boundary_status': program['boundary_status'],
+        'official_model': 'CCF-LT-2',
+        'source_domain': 'independent native product-reference and eta-calibrated pair component',
+        'applies_to_official_model': False,
         'accepted_gate_changes': [],
         'whole_program_falsified': False,
         'canonical_premises_discharged': [],

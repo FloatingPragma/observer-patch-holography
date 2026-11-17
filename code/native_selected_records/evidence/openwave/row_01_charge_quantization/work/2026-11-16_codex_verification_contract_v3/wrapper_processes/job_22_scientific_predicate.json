@@ -1,0 +1,14 @@
+{
+  "label": "job_22_scientific_predicate",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "experiment.py"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_01_charge_quantization/work/2026-11-16_codex_pair_stride_readout/experiment.py\", line 105, in <module>\n    result=run();print(json.dumps(result,indent=2));raise SystemExit(0 if result['passed'] else 1)\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_01_charge_quantization/work/2026-11-16_codex_pair_stride_readout/experiment.py\", line 68, in run\n    intervals=[unique(q) for q in (nominal,bounded,envelope)]\n               ~~~~~~^^^\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_01_charge_quantization/work/2026-11-16_codex_pair_stride_readout/experiment.py\", line 15, in unique\n    assert not (result['unique_component']),'multiple or empty compatible branches'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: multiple or empty compatible branches\n",
+  "expected_success": false,
+  "passed": true,
+  "seconds": 0.7794137919991044
+}

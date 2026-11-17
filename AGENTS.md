@@ -21,6 +21,11 @@ domains and error bounds. Agreement alone neither fixes Born probabilities
 nor proves a relativistic field limit. A record-copying operation copies an
 orthogonal classical record, not an arbitrary quantum state.
 
+The official executable model is [CCF-LT-2](model/SPEC.md), implemented in
+[model/ccf_lt2](model/ccf_lt2/README.md). Use its complete local-capacity Hamiltonian,
+source data and instruments for model claims. Independent component proofs
+retain their own hypotheses and require an explicit source map.
+
 Use the [construction contract](model/CONSTRUCTION.md#what-is-being-built)
 and [executable-model hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md).
 The carrier, code, repair law, scheduler, preparation and observer apparatus
@@ -44,8 +49,9 @@ between actual preparations, interventions and shared records. Deriving a
 consequence of a specified construction does not require deriving that
 construction's uniqueness.
 
-Field claims use the [primary source/state/reference/clock contract](model/particle_common_contract/PROOF.md)
-and its typed consumers. Regenerate the actual member and result; matching
+Field claims use the [official source contract](model/SOURCE_SELECTION.md)
+and its typed consumers. The [Wilson comparison contract](model/particle_common_contract/PROOF.md)
+retains its separate source domain. Regenerate the actual member and result; matching
 labels or hashes alone do not admit a different preparation or clock.
 Comparison programs retain their stated domains until an explicit transfer
 proof connects them. Fixing this construction does not prove its physical

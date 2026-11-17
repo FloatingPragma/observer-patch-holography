@@ -1,0 +1,128 @@
+{
+  "verified": false,
+  "record_created": true,
+  "rows": 144,
+  "sha256": "f26e77b185decc60bf955c1573749d234a3c9682e7419961520a8a9043b5bc02",
+  "k6_M8_h4": [
+    {
+      "M": 8,
+      "law": "native",
+      "k": 6,
+      "h": 4,
+      "turns": 1,
+      "visibility": -0.9560629257249993,
+      "normalized_cross": -0.9999972517082545,
+      "rotation_success": 0.7724188970468067,
+      "rotation_reencode_success": 0.38618093150568594,
+      "log10_rotation_success": -0.11214710985022722,
+      "log10_rotation_reencode_success": -0.41320917422909886,
+      "arm_product_natural_logs": [
+        -0.29961845290895445,
+        -5.327370113281859e-13
+      ],
+      "log10_clock_success_given_classical_prefix": -10.610349975507834,
+      "input_optical_trace_drift": -6.661338147750939e-16,
+      "native_reversals": 576
+    },
+    {
+      "M": 8,
+      "law": "native",
+      "k": 6,
+      "h": 4,
+      "turns": 2,
+      "visibility": 0.8417314924369808,
+      "normalized_cross": 0.9999972517082545,
+      "rotation_success": 0.6486528179841045,
+      "rotation_reencode_success": 0.3243024613076197,
+      "log10_rotation_success": -0.18798769083864708,
+      "log10_rotation_reencode_success": -0.48904975521768046,
+      "arm_product_natural_logs": [
+        -0.6016105061174354,
+        -1.0656440631482659e-12
+      ],
+      "log10_clock_success_given_classical_prefix": -10.75314190099093,
+      "input_optical_trace_drift": -6.661338147750939e-16,
+      "native_reversals": 1152
+    },
+    {
+      "M": 8,
+      "law": "swap",
+      "k": 6,
+      "h": 4,
+      "turns": 1,
+      "visibility": 1.0000000000000002,
+      "normalized_cross": 1.0000000000000002,
+      "rotation_success": 0.9999999999981083,
+      "rotation_reencode_success": 0.4999630988228831,
+      "log10_rotation_success": -8.215587851300729e-13,
+      "log10_rotation_reencode_success": -0.30106204880198945,
+      "arm_product_natural_logs": [
+        0.34657359027856927,
+        0.3465735902795329
+      ],
+      "log10_clock_success_given_classical_prefix": -10.488555676164626,
+      "input_optical_trace_drift": -6.661338147750939e-16,
+      "native_reversals": 1584
+    },
+    {
+      "M": 8,
+      "law": "swap",
+      "k": 6,
+      "h": 4,
+      "turns": 2,
+      "visibility": 1.0000000000000002,
+      "normalized_cross": 1.0000000000000002,
+      "rotation_success": 0.9999999999962167,
+      "rotation_reencode_success": 0.4999630988219375,
+      "log10_rotation_success": -1.6430693538868181e-12,
+      "log10_rotation_reencode_success": -0.30106204880281084,
+      "arm_product_natural_logs": [
+        0.3465735902771666,
+        0.34657359027909324
+      ],
+      "log10_clock_success_given_classical_prefix": -10.529350513234913,
+      "input_optical_trace_drift": -6.661338147750939e-16,
+      "native_reversals": 3168
+    },
+    {
+      "M": 8,
+      "law": "swap_fixed_native_calibration",
+      "k": 6,
+      "h": 4,
+      "turns": 1,
+      "visibility": 1.5560162562650231e-18,
+      "normalized_cross": 1.0000000000000002,
+      "rotation_success": 5.553959225536869e-23,
+      "rotation_reencode_success": 2.776774665140596e-23,
+      "log10_rotation_success": -22.255397312952585,
+      "log10_rotation_reencode_success": -22.556459361753753,
+      "arm_product_natural_logs": [
+        -66.62687584645226,
+        -24.929325865172217
+      ],
+      "log10_clock_success_given_classical_prefix": -33.04498298478037,
+      "input_optical_trace_drift": -6.661338147750939e-16,
+      "native_reversals": 576
+    },
+    {
+      "M": 8,
+      "law": "swap_fixed_native_calibration",
+      "k": 6,
+      "h": 4,
+      "turns": 2,
+      "visibility": 1.2105932948805085e-36,
+      "normalized_cross": 1.0,
+      "rotation_success": 6.16929261578523e-45,
+      "rotation_reencode_success": 3.084418653738939e-45,
+      "log10_rotation_success": -44.20976463024118,
+      "log10_rotation_reencode_success": -44.51082667904235,
+      "arm_product_natural_logs": [
+        -133.6003252831845,
+        -50.20522532062441
+      ],
+      "log10_clock_success_given_classical_prefix": -55.04014513913843,
+      "input_optical_trace_drift": -6.661338147750939e-16,
+      "native_reversals": 1152
+    }
+  ]
+}

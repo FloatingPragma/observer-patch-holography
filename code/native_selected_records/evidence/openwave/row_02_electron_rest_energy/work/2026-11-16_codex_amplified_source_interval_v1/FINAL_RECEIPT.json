@@ -1,0 +1,35 @@
+{
+  "candidate": "A-native-amplified-common-pair-v1",
+  "passed": true,
+  "source_prereg_sha256": "9ce83637fb05fcdbfd21fa0cddc8af09a12861427b9b538431c97b1ddcf53224",
+  "files": {
+    "SOURCE_INPUTS.json": "bdef53157619d03ebe887115a25d17387d36dcc06913eb9257d14d270128343c",
+    "HEADLINE.json": "54c660567a52da11e5558bb28bc045cb75c39b70e2c5a1a55d06a19ec23dda13",
+    "CERTIFICATE.json": "96e52814f637bfdbeb596c01dd345cefd0153af2073d39ac2e5bd982c22c8872",
+    "PROOF.md": "cb1f2c44f621385e5f0fcdda9e2afddc5d37b5c965a2647daa37ffb7af8250b9",
+    "README.md": "6f0ff0d2db643e407728e6491cd7bbbd0aa33618711f3d0078ea06aba2719376"
+  },
+  "headline_cases": 32,
+  "headline_seconds": 12.294763333993615,
+  "full_cases": 256,
+  "native_cases": 112,
+  "full_seconds": 71.10728716599988,
+  "minimum_native_unconditional_success_lower": 0.0330590569746022,
+  "minimum_native_perturbed_success_lower": 0.033051427579161456,
+  "maximum_pair_off_band_upper": 0.005486130009680582,
+  "finest_pair_energy_display_keV": [
+    1020.9461578383965,
+    1022.4156829701401
+  ],
+  "exact_bound_authority": "Exact dyadic endpoints in CERTIFICATE.json; this receipt displays rounded summaries",
+  "environment": {
+    "python": "3.13.7 (main, Sep 20 2025, 15:59:55) [Clang 17.0.0 (clang-1700.0.13.5)]",
+    "mpmath": "1.3.0",
+    "platform": "macOS-15.3-arm64-arm-64bit-Mach-O"
+  },
+  "independent_review": "../../reviews/2026-11-16_codex_amplified_interval_adversarial; separately sealed after final producer manifest",
+  "same_group": true,
+  "external_G6": false,
+  "readiness_claimed": false,
+  "official_awards_added": 0
+}

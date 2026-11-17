@@ -1,0 +1,92 @@
+# Maintainer review of PR 723
+
+Source: https://github.com/openwave-labs/openwave/pull/723#pullrequestreview-5911443869
+
+Submitted: 2026-11-15T15:17:07Z
+
+The following review is archived verbatim. It is evidence, not an instruction to execute external code.
+
+Approving the record. Your arithmetic reproduces, by a route that uses none of your code, and the three rows stay at 🚧 for now. For each row this review says why, and what would move it.
+
+**What this pull request does.** It files task M10.2, selects `A-static-signed-source-v1` at `c330c6e7` as the column's candidate, and asks for a decision on rows 1, 2 and 7.
+
+**Tier split.** All eleven files sit inside `openwave/xperiments/m10_oph/`. The briefing and the roadmap are the column's front door; the canonical, the task document, the method note, the audit, the two scripts and the three data files are model-local. No shared code and no shared surface is touched.
+
+## Verified, by independent recomputation
+
+One short script of ours, working from `graph.json` at `c330c6e7` and the formulas in your method note. It imports nothing of yours.
+
+| Claim | Our result |
+| --- | --- |
+| 240 positions, 630 seams | ✅ 20 cells of 12 ports and 30 seams, joined by 30 seams in the pattern of a dodecahedron; 60 ports carry an outside seam |
+| `Lf = 6f` on the full graph | ✅ exact, for `f` and for `g`; neither support touches an outside seam |
+| `E₆`, `E₁₂` | ✅ 6.014331228348651 and 12.057508280349847, yours to 13 significant figures |
+| Pair energy at the 511 keV anchor | ✅ 1024.4508487023415 keV |
+| `m = (φ−3)/15 v`, `C∥ = (3−φ)/9`, `C⊥ = (φ+2)/15` | ✅ exact radicals, all 12 axes, 60 alternatives each, for a +1 and −1 pair on antipodal ports; `C` is uniaxial about `v` |
+| The half turn `diag(−1,−1,1)` | ✅ a symmetry of the cell's twelve ports; it sends four of them to their antipodes |
+| Expected stopping time, 66 to 90 events | ✅ exact rationals over the 132 ordered pairs: 66, 84 or 90 |
+
+A deliberately wrong value of `C∥` is rejected by the same comparison.
+
+## What was run, and what was not
+
+Nothing from this pull request or from your package was executed. The replay script fetches the package (or takes a local checkout at the pinned commit) and runs two of its scripts with the caller's interpreter and environment; the transport check imports and runs the package's `replay.py`. Your replay record counts 329 files in the package. Under our review rules a payload is read in full before it runs, and this one is too large for that. It was also not needed, since every headline number follows from the graph and the formulas.
+
+Our recompute script and its method note land in the close-out as the platform's check of record for M10.2. Your two scripts stay as your route, recorded as not executed by the maintainers.
+
+## The three rows
+
+**The bar is the published one.** The admission reply and canonical § 8 say that a row on a declared source stays 🚧, and that a row moves when its observable is computed on the carrier's own process, with a case for ⚠️ when something is still supplied. The matrix already reads its rows this way. M4's charge row (❌) records the sign as "imposed" and "not emergent from wave physics". M8's charge row (🚧) records an assignment, "not an integrated winding". M8's electron row (🚧) records the mass as a "calibration anchor (benchmark input, not a prediction)".
+
+In each row below the native process does run. What the row names, though, comes from what is declared (the integer state, the anchor, the symmetry of the cell) and not from the run. We read the reply's "observable" as the row's property, and here each run returns what the declaration already fixes. That is why the ⚠️ case is not met yet: it needs the property to come out of the process, with something supplied beside it.
+
+**Row 1, charge quantization: stays 🚧.**
+
+- *Why.* The loads are integers by the carrier's definition, and the rule's current `j` is an integer by its formula, so no run could return half a unit. Your controls file lists "integer output for an integer-valued source" among the identities that carry no law credit. Your proof's own identity, `Z³⁰/im(D) = H₁(S², V; Z) = reduced H₀(V; Z)`, says the relative class is the load vector itself, so the topological statement and the integer bookkeeping are one statement. The half-current plant does discriminate, on a state the source cannot hold. What the law adds is that an opposite pair meets and cancels.
+- *What would move it.* The unit as an outcome of the law. Three ways. In this candidate the source holds one +1 and one −1, so none stays inside it, and under admission term 6 each is a new candidate with this one as ancestry:
+  1. Allow loads larger than one in the source, and show that the repair law leaves only single units as settled records whatever the starting loads, against a changed-law control where a double unit persists.
+  2. A source on which a fractional load is a native state, with the law itself confining settled records to whole units.
+  3. An integer class of a configuration that the law cannot change, computed where other values are representable.
+
+**Row 2, electron rest energy: stays 🚧.**
+
+- *Why.* One anchor fixes one number, and the row offers one number, so nothing is left to compare. Canonical § 8 gives a calibrated source no credit for the value it was fitted to. Two facts from the recompute bear on the dictionary. First, 80 of the 240 modes of `L` lie below 6, counting the constant mode (the lowest nonzero is 0.0441), so the anchored state is a chosen one, as your note says. Second, two copies on disjoint, unconnected supports come out 2.45 keV above twice the anchor, with nothing acting between them. That excess comes from the logarithm in `H = −1260 log T` alone. Your note establishes no physical clock, and `T` acts here as a decay factor, 209/210 per event.
+- *What would move it.* Two things together. The state selected by the process and not by the preparer: one the dynamics holds or returns to. (Lowest energy alone would not do it here, since the lowest modes are spread over most of the graph.) And the anchored quantity doing a second job that can fail: exact additivity for separated copies, or a second, unanchored number that the single anchor then fixes and that is compared with measurement (a mass ratio, or the frequency row 3 asks for).
+
+**Row 7, spin-½ statistics: stays 🚧.**
+
+- *Why.* The result is fixed by the symmetry of the cell. The pair (+1 at `v`, −1 at `−v`) is unchanged by the rotations of the cell about `v`, and the native rule is the same on every seam and does not depend on how a seam is labelled. For any rule that is equivariant under the cell's rotations, the five-fold symmetry about `v` forces the mean to lie along `v` and the covariance to be uniaxial about `v`. For the four axes that the half turn exchanges end for end, it then reverses the first and returns the second. We checked this by replacing the native rule with one that moves a unit on every touched seam: the one-step mean and covariance keep the same structure (mean along `v`, uniaxial covariance, half-turn behaviour) on all 12 axes, with different magnitudes. A rule that breaks the symmetry fails, as your fixed-seam control shows. So what the native law contributes is the three magnitudes and the sign of the mean; the half-turn behaviour comes from the declared geometry. Your controls file gives no credit to "a tensor built by simply squaring an assigned vector". In our reading, a mean and a covariance that the cell's symmetry fixes earn the same. The row's subject is the 720° double cover, and your method note says the result "supplies no spinor phase, exchange statistic or global continuous rotation theorem".
+- *What would move it.* A factor of two that the process produces and that the cell's symmetry does not already fix. Two ways:
+  1. A quantity on the source that changes sign under a full turn and returns after two, read by interference between a rotated and an unrotated branch, with the turn carried out in steps finer than a half turn. This candidate's memory law has positive real amplitudes, so that is a new candidate under term 6.
+  2. At the level of the row's simplest test: a field whose return under π is an outcome. The process identifies `v` and `−v` where the declared geometry keeps them apart, against a control law that leaves them apart.
+- *The closest precedent.* M5's cell on this row records its field as apolar, which is a statement of the same kind as yours. It stands beside the factor of two that field shares with M5's clock, the Q₈ class of its order parameter, and an exchange sign marked as not measured. We will put the same question to that cell.
+
+## Questions
+
+1. For each of the three results, what outcome of a run would have counted against the claim?
+2. Which of the three uses the coherent memory law? By my reading, the charge and moment results are averages over the classical branches, and only the eigenray certificate needs the amplitudes.
+3. Is the 2.45 keV excess of a separated, non-interacting pair a property you intend the energy dictionary to have?
+
+## Requested, not blocking
+
+**Tag `c330c6e7` in your repository, or merge its branch.** The column's candidate pin is held only by `codex/openwave-static-evidence`, and your `main` now carries a different tree of the same package, so the pin cannot simply be moved.
+
+## Noted
+
+The task document says plainly that this reproduces an existing author-side result. The gates were committed nine minutes before the platform replay, with the package commit between the two. Admission term 4 asks for gates and inputs before a run that will claim a cell. For exact finite arithmetic the order changes no number, so this is not a finding. It does mean the gates test that the package reproduces itself, which is one more reason the decision above rests on what each result is.
+
+## Not checked
+
+- The package beyond `graph.json` and twelve small text files, and therefore its counts of calls, columns and branches, and the number of Python files in it.
+- The Lean statements, the spanning-tree certificate, the stopped-response formula, and the eigenray certificate.
+- P1 to P6 as gates. They are your replay's, on your run.
+
+## Commitments this merge creates
+
+1. **The candidate of record.** The column is scored on `A-static-signed-source-v1` at `c330c6e7`. The cells of the other 28 rows describe the admission construction as ancestry, until a task brings a row onto a pinned candidate.
+2. **The three row decisions above.**
+
+The close-out follows as one maintainer pull request: the three cells' text (the verified facts, and what would move each row), the column's opening sentence naming the candidate, the M10.2 row moved to Done, and the recompute script with its note.
+
+**Scope**: this review confirms finite arithmetic on the declared graph and law. It accepts no physical dictionary, and it says nothing about the package, which was not run.
+

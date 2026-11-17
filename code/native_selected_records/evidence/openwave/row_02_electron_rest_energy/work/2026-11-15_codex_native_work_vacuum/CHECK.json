@@ -1,0 +1,56 @@
+{
+  "checks": 132844,
+  "verdict": "PASS",
+  "source_floor_ceiling_reimplementation": true,
+  "producer_modules_imported": false,
+  "full_padding_levels": [
+    1,
+    2
+  ],
+  "maximum_all_band_decoder_error": 1.1684653244969923e-11,
+  "holding": [
+    {
+      "k": 0,
+      "minimum_selected_mode_fidelity_through32": 0.9976303234811673,
+      "max_density_change_Frobenius": 0.00748186083701695,
+      "three_port_support_exact": true
+    },
+    {
+      "k": 1,
+      "minimum_selected_mode_fidelity_through32": 0.9974808551224776,
+      "max_density_change_Frobenius": 0.007292184751883186,
+      "three_port_support_exact": true
+    },
+    {
+      "k": 2,
+      "minimum_selected_mode_fidelity_through32": 0.9961121606025736,
+      "max_density_change_Frobenius": 0.001931522054566352,
+      "three_port_support_exact": true
+    },
+    {
+      "k": 3,
+      "minimum_selected_mode_fidelity_through32": 0.9961560622053148,
+      "max_density_change_Frobenius": 0.0014388819163284265,
+      "three_port_support_exact": true
+    },
+    {
+      "k": 4,
+      "minimum_selected_mode_fidelity_through32": 0.9961940931570339,
+      "max_density_change_Frobenius": 0.0019476883103041215,
+      "three_port_support_exact": true
+    },
+    {
+      "k": 5,
+      "minimum_selected_mode_fidelity_through32": 0.9962052082789491,
+      "max_density_change_Frobenius": 0.0016086273739100957,
+      "three_port_support_exact": true
+    },
+    {
+      "k": 6,
+      "minimum_selected_mode_fidelity_through32": 0.9962080857543718,
+      "max_density_change_Frobenius": 0.0009047335939980488,
+      "three_port_support_exact": true
+    }
+  ],
+  "scope": "Independent implementation by the producer group, not other-group G6 or scientific award."
+}

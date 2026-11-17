@@ -68,12 +68,15 @@ def separately_validated_common_charge():
 def separately_validated_signed_source():
     path = ROOT/'claims/openwave_signed_source.json'
     data = json.loads(path.read_text())
-    if [r['row'] for r in data['rows']] != [1, 2, 7] or not all(r['criterion_met_on_construction'] for r in data['rows']):
-        raise ValueError('signed-source criterion ledger absent')
+    if [r['row'] for r in data['rows']] != [1, 2, 7] or not all(r['finite_arithmetic_verified'] for r in data['rows']):
+        raise ValueError('signed-source finite evidence ledger absent')
+    if any(r['criterion_met_on_construction'] for r in data['rows']):
+        raise ValueError('signed-source arithmetic cannot supply a physical criterion award')
     for relative, expected in data['source_sha256'].items():
         if hashlib.sha256((ROOT/relative).read_bytes()).hexdigest() != expected:
             raise ValueError('stale signed-source input: '+relative)
-    return {'candidate_id': 'signed-source-static-v1', 'validated_rows': [1, 2, 7],
+    return {'candidate_id': 'signed-source-static-v1', 'validated_rows': [],
+            'finite_arithmetic_rows': [1, 2, 7],
             'ledger': str(path.relative_to(ROOT)),
             'ledger_sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             'scope': data['construction'], 'transfer_to_this_canonical_source': False,

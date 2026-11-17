@@ -1,0 +1,40 @@
+{
+  "records": [
+    {
+      "floor": 1e-11,
+      "entropy_response": 5.429547799182218,
+      "bulk_coefficient": 1117.6908633369462
+    },
+    {
+      "floor": 1e-12,
+      "entropy_response": 5.429547799134258,
+      "bulk_coefficient": 1117.6908639945839
+    },
+    {
+      "floor": 1e-13,
+      "entropy_response": 5.429547799123655,
+      "bulk_coefficient": 1117.6908640366087
+    },
+    {
+      "floor": 1e-14,
+      "entropy_response": 5.429547799122501,
+      "bulk_coefficient": 1117.6908640697452
+    },
+    {
+      "floor": 1e-15,
+      "entropy_response": 5.429547799122476,
+      "bulk_coefficient": 1117.6908640738288
+    }
+  ],
+  "minimum_restricted_eigenvalue": -5.309028334902619e-18,
+  "maximum_restricted_eigenvalue": 0.9999999999999999,
+  "independent_response_difference": 2.424727085781342e-13,
+  "independent_bulk_difference": 1.1368683772161603e-12,
+  "checks": {
+    "independent_realspace_response_agrees": true,
+    "independent_bulk_agrees": true,
+    "response_floor_spread_below_point_one_percent": true,
+    "bulk_floor_spread_below_point_one_percent": true
+  },
+  "pass": true
+}

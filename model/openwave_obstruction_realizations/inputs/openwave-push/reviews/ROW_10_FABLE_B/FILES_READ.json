@@ -1,0 +1,91 @@
+{
+ "written": "Sat Nov 14 18:26:38 +07 2026",
+ "read_completely": {
+  "openwave-push/reviews/REVIEW_BRIEF.md": "aaac917aff29c0b31eff8036826bdaa8bec07b0c76428e1392988120eb14f5b8",
+  "openwave-push/b/B_BRIEF.md": "8e58fbb2d004a272a0b8d967b38f76029e9f0db49f1e94302990968e4236f3c1",
+  "openwave-tuning/row_completion/ROW_10/TASK.md": "277590eae05029086698d605a753945255efce94ac05b57e3f8f81cb3471253f",
+  "openwave-push/rowfull/ROW_10_symmetry/STATUS.md": "56840e0d92ccbbac28b91e2c32d466f6cad4ae90d0cc18f21039c66e55dda872",
+  "openwave-push/rowfull/ROW_10_symmetry/PROOF.md": "1d498ca6b59815a07db4a1dc7b82b6a77c043c5a48e10e32df611d54c5a0b36c",
+  "openwave-push/rowfull/ROW_10_symmetry/FOR_REVIEWERS.md": "6c970d83a066f4f6b5e506519c1e63e84ec5b69b720998c80cb0b2ada5101941"
+ },
+ "read_in_part": {
+  "openwave-push/b/W3_reviews.md": {
+   "sha256": "ddf26745f07f5e559bbad9b54c4754ed93684fdce1d22d3a9688c6d58d0d3578",
+   "part": "lines 212-236 (section R10) and the head read earlier"
+  },
+  "openwave-push/rowfull/ROW_10_symmetry/MANIFEST.json": {
+   "sha256": "4855979585e0fbc523e080dfaeee00dc097730f1988adcaec5d564e125c7ea3d",
+   "part": "all pins, checked against the bytes"
+  },
+  "openwave-push/rowfull/ROW_10_symmetry/patterns.json": {
+   "sha256": "4016fc7cb0d2b530591641ad4bbcd06c90f976c7cb9117cd4c924539b90630c6",
+   "part": "patterns, type pairs, transposes, conjugates, J, fixed columns, menus, subgroup census (data for the comparison)"
+  },
+  "openwave-push/rowfull/ROW_10_symmetry/angles.json": {
+   "sha256": "4c55b181329cd45c82352d24b2f03d8975015e8b8f689c690c9d0f37b15dae7e",
+   "part": "menus, the 79 triples of menu H, null, reference (data for the comparison)"
+  },
+  "openwave-push/rowfull/ROW_10_symmetry/SELECTION.md": {
+   "sha256": "408c584dd552a3065697c67dd960cd03d12add5a36857772bc9772c6dd167683",
+   "part": "lines 1-40 (searches and hits)"
+  },
+  "openwave-push/rowfull/ROW_10_symmetry/JOIN.md": {
+   "sha256": "f03cbda48c885953b13ffc73a5eeaf5bb3079f30f1dfbbc6a3424ec6efcd3243",
+   "part": "table lines of the joins and level laws"
+  },
+  "openwave-push/rowfull/ROW_10_symmetry/CRITERION.json": {
+   "sha256": "32fb40800864ebbf782b2d63d33370bfe6f259097b7ead87068046ffb120e2ae",
+   "part": "criterion hash line"
+  },
+  "openwave-push/b/SD11C_kept_pair/PROOF.md": {
+   "sha256": "efbf5c1a7a34250b3381e1457a0346c525be5afdf91246ea2d7c56a6978850d7",
+   "part": "lines 1-40 (result table, statements S1 to S3)"
+  },
+  "reverse-engineering-reality/model/openwave_neutrino_oscillation/PROOF.md": {
+   "sha256": "8ec558e66c92f315d8634a75f374250fc2c0dc930ba00a5a1aa52734969539c8",
+   "part": "lines 10-30"
+  },
+  "reverse-engineering-reality/model/common_source/native_virtual_exchange.py": {
+   "sha256": "40a71b674f3f4a19ba3e279ee0a0201ce34bc2f56548550187127530cefcd728",
+   "part": "lines 426-434"
+  },
+  "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py": {
+   "sha256": "7e7cda89350be6330c7425df69bf9647549e6e1890a64eaaf28289be6c640b2f",
+   "part": "the oriented face list (data, compared in audit.py)"
+  },
+  "openwave-push/platform/PRECEDENTS.md": {
+   "sha256": "68422095c32ee55d81c1d92721738e1908d6a2d1e7e2fdc261068361d01991a6",
+   "part": "lines 67, 375, 1028, 1079"
+  },
+  "openwave-tuning/row_completion/INTERNAL_VALIDATION.json": {
+   "sha256": "ff1ff57e0caf3aac9df37e6f4c90690c42a89c71e3e5d3574febe046e626c310",
+   "part": "entry 10"
+  }
+ },
+ "not_read_within_the_budget": {
+  "openwave-push/rowfull/ROW_10_symmetry/r10lib.py": "231d2303843cfff5bf402a0b798ddd2f7cc00fb590c3cc3fad504d51d3b648e1",
+  "openwave-push/rowfull/ROW_10_symmetry/s1_enumerate.py": "a14c71ec18b52bb93d776a0b8d162d1d222b8bcd8aaacf8a08a7ccdb0cf96579",
+  "openwave-push/rowfull/ROW_10_symmetry/s2_angles.py": "3d73c67f8140bdd090cd41fe1fac32f58c66712945b43cfaebd7d63632bc7c04",
+  "openwave-push/rowfull/ROW_10_symmetry/s3_source_join.py": "222a491d06959a7c4fa75ae71c297ac9d138dad16648bf5f83418f534676cfb2",
+  "openwave-push/rowfull/ROW_10_symmetry/s4_oscillation.py": "da4db3ab8e5dcc82bb0c55853441840cedace36e8be95faee52c396df0f43f34",
+  "openwave-push/rowfull/ROW_10_symmetry/s5_supplement.py": "734fcdbbf3b47bb35174a7f4f249ee095215c9e6a8a2314fab25faf7870a70c7",
+  "openwave-push/rowfull/ROW_10_symmetry/PATTERNS.md": "2b66634548d735f0f734ce53b779b890d5522c0c681ecaea2c5664cbee19ed8b",
+  "openwave-push/rowfull/ROW_10_symmetry/ANGLES.md": "761ee5dde4b250cd0148cdabb676c39234b30d4418bfc378d5c299661d8080b6",
+  "openwave-push/rowfull/ROW_10_symmetry/CANDIDATE.json": "f032f6749c6d98852f24459b49b5f6e456e481b63acde59844962e88a6799558",
+  "openwave-push/rowfull/ROW_10_symmetry/SOURCE_CONTRACT.json": "e2ff0e2781cf5c1a35989d53d58102b552918b9d8a7d5d95bb2f5f379c846da4",
+  "openwave-push/rowfull/ROW_10_symmetry/RESULT.json": "139cf6492db84787912ee48ed122422e1d79bff2636fa890ab3f0f947cd09bc9",
+  "openwave-push/rowfull/ROW_10_symmetry/PREREGISTRATION.md": "3b5de5834cfe443082775a471f0c9223e27621a80629498c7d8644e94ee75b75",
+  "openwave-tuning/row_completion/README.md": "32eb64477900e8fe2353401a609ede787aef0f09a35d1d850b98a2bf0014f35a"
+ },
+ "candidate_pins": "37 of 37 file pins and 33 of 36 consumed pins equal the bytes on disk (18:23 +07); changed since the seal: reverse-engineering-reality/flagship/from_observer_consensus_to_standard_physics.tex, openwave-tuning/row_completion/README.md, openwave-tuning/row_completion/INTERNAL_VALIDATION.json",
+ "repository_searches": [
+  "residual symmetr",
+  "Klein (and Klein four, Klein group)",
+  "tri-bimaximal, tribimaximal, trimaximal",
+  "golden-ratio mixing",
+  "neutrino with subgroup",
+  "neutral with stabilizer",
+  "PMNS with subgroup, stabilizer or residual"
+ ],
+ "search_scope": "model/, paper/, flagship/, claims/ of the theory repository; *.py, *.md, *.tex, *.yaml (and *.json for the file counts)"
+}

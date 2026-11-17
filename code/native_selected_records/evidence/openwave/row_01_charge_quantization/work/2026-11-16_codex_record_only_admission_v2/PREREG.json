@@ -1,0 +1,57 @@
+{
+  "candidate": "A-native-record-only-admission-v2",
+  "files": {
+    "ANCESTRY.json": "ed652f7c7d664d9c7286a95bcb238666fd66bd82f22053b4bd5ae3e6442517cf",
+    "CRITERIA_CAUTIONS.md": "3f2ef5433513d8d6ed3796c64c2dfdb52cb2a6ca301c2f5bef1cf4a5df32c6f7",
+    "CRITERIA_SUBMISSION_CHECKLIST.md": "f8a08b120f8f298fccee025398341c210f67f58e1ca1c5198a3bf94262c8a501",
+    "DESIGN.md": "d377ef26ceae7f36ac1e82f73584c9eb4e54195d68c6c859d07511698878830c",
+    "LEGACY_RECORDS.json.gz": "f64f93d45da8e13ed868598a5310c02e614060b9259a5f4c12017e5f0d391302",
+    "PROOF.md": "fde3c48cffa1b9d330674f1d38ab2ee9b86338cbb5d38e1dd61450f65773f998",
+    "PUBLIC_GRAPHS.json": "8de107e7a79f1c987e009f507230826073a2f4730a8769b6623cbee98ab7d6d7",
+    "TASK.md": "e07d35e0f8fde596c0e2f4999b409bf0be58fa6e8932fe1b2c22c2ee76abb067",
+    "check.py": "411fc5940aa41d7f07592b812c7d8655a6738f1350d86e3cfc1326437830c52b",
+    "continuation.py": "568c672877dfaa0b71697ced924084e803aa6cb7604188d33d7972c27a40a6af",
+    "experiment.py": "a395560a06c96cb2e984efe981693bfded550f5286cbf7148e18cf44c6423998",
+    "legacy_decoder.py": "caaf7fb5c88aacbb47a6c45b5b338b62e4412e6af8b863cbbe46054d0237c9db",
+    "legacy_selectors.py": "5a5de79da106d67271bb9223782bde45ed587df951e702b27581e5c55a77c70e",
+    "native_source.py": "323822e27c1196517127df86ba8f6cbb9873f78c295f91b6e8b62ba38be04e31",
+    "observer.py": "6e4c702f56e2f27bb59eebba7afb22ac82f72276dc4c77c4a21efd2bdb1392b2"
+  },
+  "first_source_run_has_occurred": false,
+  "fixed_gates": {
+    "fresh_complete_prefixes": 12,
+    "headline_seconds": 60,
+    "legacy_metadata_trials": 516,
+    "legacy_records": 172,
+    "minimum_nonunit_control_challenges": 10,
+    "minimum_probability": -1e-12,
+    "native_extractions": 864,
+    "native_zero_outcomes": 12,
+    "probability_sum_tolerance": 1e-10,
+    "source_histories": 1752
+  },
+  "inputs": {
+    "B": [
+      2,
+      3,
+      4
+    ],
+    "M": [
+      4,
+      8
+    ],
+    "cap": 64,
+    "laws": [
+      "native",
+      "balance_only_swap_hold"
+    ],
+    "seeds_each_given_to_every_input": [
+      72361000,
+      72362000
+    ],
+    "total_range": "all integers -12B through 12B"
+  },
+  "known_prior": "b6df record-only formula and total-coded harness seed; OLD240 unknown-total extraction and its seed amendment were known and read before this design. No new native assay run yet. Public graph generation made zero native calls.",
+  "record_contract": "exclusive --record-to only; default read-only exact replay; scientific failure exits nonzero",
+  "utc": "2026-11-15T18:52:11.306102+00:00"
+}

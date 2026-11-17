@@ -1,0 +1,20 @@
+{
+  "schema": "oph.obstruction_repair.row1.opposing.hadrons.v1",
+  "adaptive_increment_proof_pass": true,
+  "phase_reads": 120,
+  "phase_max_error": 4.547473508864641e-13,
+  "independent_neutral_source_reads": 480,
+  "retained_pointer_effect_cases": 42,
+  "sample_budget_stop_pass": true,
+  "malformed_source_rejected": true,
+  "hidden_source_and_pointer_ignored": true,
+  "component_review_pass": true,
+  "physical_charge_or_platform_validation": false,
+  "scope": "The constructive decoder and known neutral-pair source protocol pass these independent checks. Faithful event records, scalar preparation filling, native integer alphabet and the spatial field dictionary remain declared. No source-independent physical charge quantization or coupling derivation follows.",
+  "pins": {
+    "openwave-tuning/next/OBSTRUCTION_REPAIR/row1/adaptive_phase.py": "3d371995e460af04db9fa2335ae62615a14d72bedaacdecd3c1be75d4d48ecc5",
+    "openwave-tuning/next/OBSTRUCTION_REPAIR/row1/neutral_record.py": "6fd90489c748ab87d7f44a878f640d716c6fef8c9429e1380952df16b925da60",
+    "openwave-tuning/next/OBSTRUCTION_REPAIR/row1/NEUTRAL_RECORD_EXAMPLES.json": "e28c52cb8eaad8bdcaa0db77016160dd02b16753d667bc27045300bd8abae164",
+    "openwave-tuning/row_completion/ROW_01/GEOMETRY.json": "4027e358b2475efd6bf44e376d8b2d167610b15d00b79eda3907e9b5fcfcbfe9"
+  }
+}

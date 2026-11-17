@@ -1,0 +1,71 @@
+{
+  "schema": "oph.obstruction_repair.hadron_current_independent_review.v1",
+  "producer_independent_matrix": true,
+  "exact_rational_inertia": true,
+  "complete_projected_source_retained": true,
+  "checks": [
+    {
+      "kind": "none",
+      "weakup": 1,
+      "dimension": 14,
+      "below_lower": 0,
+      "below_upper": 1
+    },
+    {
+      "kind": "none",
+      "weakup": 2,
+      "dimension": 14,
+      "below_lower": 0,
+      "below_upper": 1
+    },
+    {
+      "kind": "electric",
+      "weakup": 1,
+      "dimension": 14,
+      "below_lower": 0,
+      "below_upper": 1
+    },
+    {
+      "kind": "electric",
+      "weakup": 2,
+      "dimension": 14,
+      "below_lower": 0,
+      "below_upper": 1
+    },
+    {
+      "kind": "current_square",
+      "weakup": 1,
+      "dimension": 14,
+      "below_lower": 0,
+      "below_upper": 1
+    },
+    {
+      "kind": "current_square",
+      "weakup": 2,
+      "dimension": 14,
+      "below_lower": 0,
+      "below_upper": 1
+    },
+    {
+      "kind": "flavour_reflected",
+      "weakup": 1,
+      "dimension": 14,
+      "below_lower": 0,
+      "below_upper": 1
+    },
+    {
+      "kind": "flavour_reflected",
+      "weakup": 2,
+      "dimension": 14,
+      "below_lower": 0,
+      "below_upper": 1
+    }
+  ],
+  "structural_beta_threshold_repair_verified": true,
+  "physical_mass_prediction_verified": false,
+  "native_pulse_replay_reviewed_here": false,
+  "pins": {
+    "hadrons/RESULT.json": "d75bda31461dc92236de8efa253c63c5f81d6e5362cdda4eb6573b7916f008a7",
+    "hadrons/inputs/3_results.json": "fd38fddf3ff8b409449c2f73b448e43c122e437443fb5ec3b5f883adc827ce28"
+  }
+}

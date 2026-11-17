@@ -1,0 +1,849 @@
+{
+  "schema": "oph.obstruction_repair.species_leptons.v1",
+  "row10": {
+    "single_phase_obstruction": "C is complex symmetric, so |C|^2 is symmetric; excluded by the cited angle triple under all six neutral assignments.",
+    "comparisons": {
+      "sin2_theta12": 0.308,
+      "sin2_theta13": 0.02215,
+      "sin2_theta23": 0.47
+    },
+    "permutation_checks": [
+      {
+        "neutral_columns": [
+          0,
+          1,
+          2
+        ],
+        "required_cos_delta": 1.9061432496068003,
+        "minimum_max_antisymmetry_over_physical_delta": 0.06214826224861521
+      },
+      {
+        "neutral_columns": [
+          0,
+          2,
+          1
+        ],
+        "required_cos_delta": -2.162178989415581,
+        "minimum_max_antisymmetry_over_physical_delta": 0.07970859424861527
+      },
+      {
+        "neutral_columns": [
+          1,
+          0,
+          2
+        ],
+        "required_cos_delta": -4.471876596719733,
+        "minimum_max_antisymmetry_over_physical_delta": 0.2381202942486152
+      },
+      {
+        "neutral_columns": [
+          1,
+          2,
+          0
+        ],
+        "required_cos_delta": 5.07128441517175,
+        "minimum_max_antisymmetry_over_physical_delta": 0.2792309622486152
+      },
+      {
+        "neutral_columns": [
+          2,
+          0,
+          1
+        ],
+        "required_cos_delta": null,
+        "minimum_max_antisymmetry_over_physical_delta": 0.21708270000000002
+      },
+      {
+        "neutral_columns": [
+          2,
+          1,
+          0
+        ],
+        "required_cos_delta": null,
+        "minimum_max_antisymmetry_over_physical_delta": 0.1584117
+      }
+    ],
+    "repair": {
+      "word": [
+        2,
+        3,
+        10
+      ],
+      "selection": "listed geometric ports in ascending order; primary fixed before CP evaluation",
+      "phase": "-i",
+      "mass_coefficient": "same native Y",
+      "neutral_coefficient": "V* Y V-dagger",
+      "antisymmetry": 0.012321319819412598,
+      "takagi_error": 1.3488734349676798e-16,
+      "angles": {
+        "sin2_theta12": 0.04437549718779577,
+        "sin2_theta13": 0.12344874040531786,
+        "sin2_theta23": 0.17803748770319508
+      },
+      "masses_in_source_units": [
+        0.0020641535150423235,
+        0.063659825356949,
+        0.9342760211280088
+      ],
+      "complete_records": [
+        {
+          "momentum": 1.0,
+          "time": 0.0,
+          "initial": 0,
+          "probabilities": [
+            0.9669539372767281,
+            0.0003483097479930723,
+            0.0016121231060440167,
+            0.01666183981464031,
+            0.014423790054594599
+          ]
+        },
+        {
+          "momentum": 1.0,
+          "time": 0.0,
+          "initial": 1,
+          "probabilities": [
+            0.0003483097479930723,
+            0.9568494120864779,
+            0.0020058865104865247,
+            0.021813201844106955,
+            0.018983189810935608
+          ]
+        },
+        {
+          "momentum": 1.0,
+          "time": 0.0,
+          "initial": 2,
+          "probabilities": [
+            0.0016121231060440167,
+            0.0020058865104865247,
+            0.8150833940117861,
+            0.09718030924675436,
+            0.08411828712492897
+          ]
+        },
+        {
+          "momentum": 1.0,
+          "time": 1.0,
+          "initial": 0,
+          "probabilities": [
+            0.954386330855936,
+            0.0025785586045955575,
+            0.01194948067023311,
+            0.01666183981464031,
+            0.014423790054594932
+          ]
+        },
+        {
+          "momentum": 1.0,
+          "time": 1.0,
+          "initial": 1,
+          "probabilities": [
+            0.0025857106071995742,
+            0.9417148797548892,
+            0.014903017982868822,
+            0.021813201844106955,
+            0.018983189810935386
+          ]
+        },
+        {
+          "momentum": 1.0,
+          "time": 1.0,
+          "initial": 2,
+          "probabilities": [
+            0.011942328667629214,
+            0.014910169985472824,
+            0.7918489049752148,
+            0.09718030924675436,
+            0.08411828712492886
+          ]
+        },
+        {
+          "momentum": 1.0,
+          "time": 10.0,
+          "initial": 0,
+          "probabilities": [
+            0.6193167351555926,
+            0.06056817281388543,
+            0.289029462161287,
+            0.01666183981464031,
+            0.01442379005459471
+          ]
+        },
+        {
+          "momentum": 1.0,
+          "time": 10.0,
+          "initial": 1,
+          "probabilities": [
+            0.06401064655293606,
+            0.5320155857454933,
+            0.36317737604652783,
+            0.021813201844106955,
+            0.01898318981093572
+          ]
+        },
+        {
+          "momentum": 1.0,
+          "time": 10.0,
+          "initial": 2,
+          "probabilities": [
+            0.2855869884222362,
+            0.3666198497855784,
+            0.16649456542050195,
+            0.09718030924675436,
+            0.08411828712492919
+          ]
+        },
+        {
+          "momentum": 1.0,
+          "time": 100.0,
+          "initial": 0,
+          "probabilities": [
+            0.9010941912167371,
+            0.008928752931416144,
+            0.05889142598261228,
+            0.01666183981464031,
+            0.014423790054594154
+          ]
+        },
+        {
+          "momentum": 1.0,
+          "time": 100.0,
+          "initial": 1,
+          "probabilities": [
+            0.0185158010564491,
+            0.8433175701544223,
+            0.09737023713408563,
+            0.021813201844106955,
+            0.01898318981093594
+          ]
+        },
+        {
+          "momentum": 1.0,
+          "time": 100.0,
+          "initial": 2,
+          "probabilities": [
+            0.04930437785757911,
+            0.10695728525911863,
+            0.662439740511619,
+            0.09718030924675436,
+            0.08411828712492886
+          ]
+        },
+        {
+          "momentum": 3.0,
+          "time": 0.0,
+          "initial": 0,
+          "probabilities": [
+            0.9944154811300213,
+            9.834282340773573e-06,
+            4.54794896360912e-05,
+            0.002796168714729985,
+            0.002733036383271825
+          ]
+        },
+        {
+          "momentum": 3.0,
+          "time": 0.0,
+          "initial": 1,
+          "probabilities": [
+            9.834282340773573e-06,
+            0.992776372188358,
+            5.68919841016299e-05,
+            0.0036183601709844915,
+            0.003538541374215054
+          ]
+        },
+        {
+          "momentum": 3.0,
+          "time": 0.0,
+          "initial": 2,
+          "probabilities": [
+            4.54794896360912e-05,
+            5.68919841016299e-05,
+            0.9676414808770636,
+            0.016312305212135225,
+            0.015943842437063482
+          ]
+        },
+        {
+          "momentum": 3.0,
+          "time": 1.0,
+          "initial": 0,
+          "probabilities": [
+            0.9922840149528023,
+            0.00038850357737965077,
+            0.00179827637181592,
+            0.002796168714729985,
+            0.0027330363832721583
+          ]
+        },
+        {
+          "momentum": 3.0,
+          "time": 1.0,
+          "initial": 1,
+          "probabilities": [
+            0.0003891118090841608,
+            0.9902043230830309,
+            0.002249663562684867,
+            0.0036183601709844915,
+            0.003538541374215609
+          ]
+        },
+        {
+          "momentum": 3.0,
+          "time": 1.0,
+          "initial": 2,
+          "probabilities": [
+            0.0017976681401114625,
+            0.002250271794389364,
+            0.9636959124163001,
+            0.016312305212135225,
+            0.015943842437063815
+          ]
+        },
+        {
+          "momentum": 3.0,
+          "time": 10.0,
+          "initial": 0,
+          "probabilities": [
+            0.8144956000064558,
+            0.031735508052214575,
+            0.14823968684332736,
+            0.002796168714729985,
+            0.0027330363832722693
+          ]
+        },
+        {
+          "momentum": 3.0,
+          "time": 10.0,
+          "initial": 1,
+          "probabilities": [
+            0.03227854913944198,
+            0.7753485739693252,
+            0.18521597534603307,
+            0.0036183601709844915,
+            0.003538541374215276
+          ]
+        },
+        {
+          "momentum": 3.0,
+          "time": 10.0,
+          "initial": 2,
+          "probabilities": [
+            0.14769664575610034,
+            0.18575901643326043,
+            0.6342881901614407,
+            0.016312305212135225,
+            0.01594384243706337
+          ]
+        },
+        {
+          "momentum": 3.0,
+          "time": 100.0,
+          "initial": 0,
+          "probabilities": [
+            0.7677333212232303,
+            0.036730766102745616,
+            0.19000670757602225,
+            0.002796168714729985,
+            0.002733036383271825
+          ]
+        },
+        {
+          "momentum": 3.0,
+          "time": 100.0,
+          "initial": 1,
+          "probabilities": [
+            0.04347570989227986,
+            0.7324249475123915,
+            0.21694244105012883,
+            0.0036183601709844915,
+            0.003538541374215276
+          ]
+        },
+        {
+          "momentum": 3.0,
+          "time": 100.0,
+          "initial": 2,
+          "probabilities": [
+            0.18326176378648837,
+            0.22368738483966302,
+            0.5607947037246499,
+            0.016312305212135225,
+            0.015943842437063482
+          ]
+        },
+        {
+          "momentum": 10.0,
+          "time": 0.0,
+          "initial": 0,
+          "probabilities": [
+            0.9994639929481562,
+            9.039524070504743e-08,
+            4.179985272871661e-07,
+            0.00026803944849485006,
+            0.0002674592095809336
+          ]
+        },
+        {
+          "momentum": 10.0,
+          "time": 0.0,
+          "initial": 1,
+          "probabilities": [
+            9.039524070504743e-08,
+            0.9993073858417743,
+            5.232258740327188e-07,
+            0.0003463670641844496,
+            0.0003456334729264876
+          ]
+        },
+        {
+          "momentum": 10.0,
+          "time": 0.0,
+          "initial": 2,
+          "probabilities": [
+            4.179985272871661e-07,
+            5.232258740327188e-07,
+            0.9968749814947552,
+            0.0015637318813208623,
+            0.0015603453995226557
+          ]
+        },
+        {
+          "momentum": 10.0,
+          "time": 1.0,
+          "initial": 0,
+          "probabilities": [
+            0.9992593371797659,
+            3.647033782091787e-05,
+            0.00016869382433759163,
+            0.00026803944849485006,
+            0.00026745920958071157
+          ]
+        },
+        {
+          "momentum": 10.0,
+          "time": 1.0,
+          "initial": 1,
+          "probabilities": [
+            3.648863766246402e-05,
+            0.9990603633860718,
+            0.0002111474391545813,
+            0.0003463670641844496,
+            0.00034563347292659863
+          ]
+        },
+        {
+          "momentum": 10.0,
+          "time": 1.0,
+          "initial": 2,
+          "probabilities": [
+            0.00016867552449606284,
+            0.00021116573899612184,
+            0.996496081455664,
+            0.0015637318813208623,
+            0.0015603453995228778
+          ]
+        },
+        {
+          "momentum": 10.0,
+          "time": 10.0,
+          "initial": 0,
+          "probabilities": [
+            0.9793165007021737,
+            0.003573464255299711,
+            0.016574536384450764,
+            0.00026803944849485006,
+            0.00026745920958104463
+          ]
+        },
+        {
+          "momentum": 10.0,
+          "time": 10.0,
+          "initial": 1,
+          "probabilities": [
+            0.003591570314401232,
+            0.9749859051001657,
+            0.02073052404832262,
+            0.0003463670641844496,
+            0.0003456334729259325
+          ]
+        },
+        {
+          "momentum": 10.0,
+          "time": 10.0,
+          "initial": 2,
+          "probabilities": [
+            0.016556430325349408,
+            0.020748630107424105,
+            0.959570862286383,
+            0.0015637318813208623,
+            0.0015603453995226557
+          ]
+        },
+        {
+          "momentum": 10.0,
+          "time": 100.0,
+          "initial": 0,
+          "probabilities": [
+            0.707745923049524,
+            0.05072272225216688,
+            0.24099585604023355,
+            0.00026803944849485006,
+            0.00026745920958071157
+          ]
+        },
+        {
+          "momentum": 10.0,
+          "time": 100.0,
+          "initial": 1,
+          "probabilities": [
+            0.05337519759347956,
+            0.6398085321867771,
+            0.3061242696826323,
+            0.0003463670641844496,
+            0.00034563347292659863
+          ]
+        },
+        {
+          "momentum": 10.0,
+          "time": 100.0,
+          "initial": 2,
+          "probabilities": [
+            0.23834338069892058,
+            0.30877674502394514,
+            0.4497557969962909,
+            0.0015637318813208623,
+            0.0015603453995225447
+          ]
+        }
+      ],
+      "independent_of_neutrino_comparison_inputs": true,
+      "observed_angles_matched": false,
+      "full_common_source_transfer_proved": false
+    }
+  },
+  "row11": {
+    "limit_muon_ratio": "206.7703159727293886125503393177750774622",
+    "limit_tau_ratio": "3477.472837104598532313001225522648344599",
+    "muon_residual_sigma": "442.015810736654902247677777191",
+    "rounds": [
+      {
+        "rounds": 65536,
+        "muon_ratio": "206.75774161437958578008748359450175",
+        "tau_ratio": "3477.2494094768354262853695566706156",
+        "muon_residual_sigma": "-2291.5403522639608505"
+      },
+      {
+        "rounds": 1048576,
+        "muon_ratio": "206.76953004307229974660550096932175",
+        "tau_ratio": "3477.4588722872556571662912549867964",
+        "muon_residual_sigma": "271.16153745646665337"
+      },
+      {
+        "rounds": 16777216,
+        "muon_ratio": "206.77026685199979921443803267492923",
+        "tau_ratio": "3477.4719643012074513928604425348326",
+        "muon_residual_sigma": "431.33739126069879088"
+      },
+      {
+        "rounds": 268435456,
+        "muon_ratio": "206.77031290268329700311278642865237",
+        "tau_ratio": "3477.4727825543775774240597374492599",
+        "muon_residual_sigma": "441.34840941239198104"
+      }
+    ],
+    "logarithmic_phase_sensitivity": "56.1438827452703963772546470277",
+    "diagnostic_target_fitted_phase_shift": "-0.000000175149134373463306503211760603",
+    "fitted_phase_is_not_a_solution": true,
+    "next_physical_obligation": "Compute a mass-shell correction from the fixed interacting source; do not select phase or round count using the muon target.",
+    "solved": false
+  },
+  "row25": {
+    "declared_Wilson_coefficient": 1,
+    "source_axial": 1.2753000000008339,
+    "source_Q": 2.5309885827609833,
+    "current_projection_residual": 5.939693181744587e-14,
+    "records": [
+      {
+        "L": 4,
+        "w": 0.0,
+        "chirality": 1.0,
+        "selected_probability": 3.638085452927098e-12,
+        "electron_velocity_odd": 0.0,
+        "antineutrino_velocity_odd": 0.0,
+        "electron_conditional_velocity_asymmetry": 0.0,
+        "antineutrino_conditional_velocity_asymmetry": 0.0,
+        "full_Fock_Dyson_probability_error_upper": 4.4507299447059634e-14,
+        "electron_margin_over_omitted_sectors": -4.4507299447059634e-14,
+        "original_failed_preparation": 0.9916666666666667,
+        "original_selected_interval": [
+          2.9946484612333654e-14,
+          3.068827293645131e-14
+        ],
+        "original_prepared_complement_interval": [
+          0.008333333333302644,
+          0.008333333333303387
+        ]
+      },
+      {
+        "L": 4,
+        "w": 0.0,
+        "chirality": -1.0,
+        "selected_probability": 3.638085452927098e-12,
+        "electron_velocity_odd": 0.0,
+        "antineutrino_velocity_odd": 0.0,
+        "electron_conditional_velocity_asymmetry": 0.0,
+        "antineutrino_conditional_velocity_asymmetry": 0.0,
+        "full_Fock_Dyson_probability_error_upper": 4.4507299447059634e-14,
+        "electron_margin_over_omitted_sectors": -4.4507299447059634e-14,
+        "original_failed_preparation": 0.9916666666666667,
+        "original_selected_interval": [
+          2.9946484612333654e-14,
+          3.068827293645131e-14
+        ],
+        "original_prepared_complement_interval": [
+          0.008333333333302644,
+          0.008333333333303387
+        ]
+      },
+      {
+        "L": 4,
+        "w": 0.0,
+        "chirality": 0.0,
+        "selected_probability": 3.638085452927098e-12,
+        "electron_velocity_odd": 0.0,
+        "antineutrino_velocity_odd": 0.0,
+        "electron_conditional_velocity_asymmetry": 0.0,
+        "antineutrino_conditional_velocity_asymmetry": 0.0,
+        "full_Fock_Dyson_probability_error_upper": 4.4507299447059634e-14,
+        "electron_margin_over_omitted_sectors": -4.4507299447059634e-14,
+        "original_failed_preparation": 0.9916666666666667,
+        "original_selected_interval": [
+          2.9946484612333654e-14,
+          3.068827293645131e-14
+        ],
+        "original_prepared_complement_interval": [
+          0.008333333333302644,
+          0.008333333333303387
+        ]
+      },
+      {
+        "L": 4,
+        "w": 1.0,
+        "chirality": 1.0,
+        "selected_probability": 3.608719325970842e-12,
+        "electron_velocity_odd": -9.057066884465106e-14,
+        "antineutrino_velocity_odd": 8.925383867850316e-13,
+        "electron_conditional_velocity_asymmetry": -0.02509773153950817,
+        "antineutrino_conditional_velocity_asymmetry": 0.24732829188507616,
+        "full_Fock_Dyson_probability_error_upper": 4.4507299447059634e-14,
+        "electron_margin_over_omitted_sectors": 4.6063369397591425e-14,
+        "original_failed_preparation": 0.9916666666666667,
+        "original_selected_interval": [
+          2.9701766887698184e-14,
+          3.044355521181585e-14
+        ],
+        "original_prepared_complement_interval": [
+          0.00833333333330289,
+          0.008333333333303631
+        ]
+      },
+      {
+        "L": 4,
+        "w": 1.0,
+        "chirality": -1.0,
+        "selected_probability": 3.608719325970842e-12,
+        "electron_velocity_odd": 9.057066884465126e-14,
+        "antineutrino_velocity_odd": -8.925383867850318e-13,
+        "electron_conditional_velocity_asymmetry": 0.025097731539508224,
+        "antineutrino_conditional_velocity_asymmetry": -0.2473282918850762,
+        "full_Fock_Dyson_probability_error_upper": 4.4507299447059634e-14,
+        "electron_margin_over_omitted_sectors": 4.606336939759163e-14,
+        "original_failed_preparation": 0.9916666666666667,
+        "original_selected_interval": [
+          2.9701766887698184e-14,
+          3.044355521181585e-14
+        ],
+        "original_prepared_complement_interval": [
+          0.00833333333330289,
+          0.008333333333303631
+        ]
+      },
+      {
+        "L": 4,
+        "w": 1.0,
+        "chirality": 0.0,
+        "selected_probability": 3.6087193259708415e-12,
+        "electron_velocity_odd": 1.0097419586828951e-28,
+        "antineutrino_velocity_odd": 1.0097419586828951e-28,
+        "electron_conditional_velocity_asymmetry": 2.798061770601258e-17,
+        "antineutrino_conditional_velocity_asymmetry": 2.798061770601258e-17,
+        "full_Fock_Dyson_probability_error_upper": 4.4507299447059634e-14,
+        "electron_margin_over_omitted_sectors": -4.4507299447059533e-14,
+        "original_failed_preparation": 0.9916666666666667,
+        "original_selected_interval": [
+          2.9701766887698184e-14,
+          3.044355521181585e-14
+        ],
+        "original_prepared_complement_interval": [
+          0.00833333333330289,
+          0.008333333333303631
+        ]
+      },
+      {
+        "L": 8,
+        "w": 0.0,
+        "chirality": 1.0,
+        "selected_probability": 3.64386940433265e-12,
+        "electron_velocity_odd": 0.0,
+        "antineutrino_velocity_odd": -2.0194839173657902e-28,
+        "electron_conditional_velocity_asymmetry": 0.0,
+        "antineutrino_conditional_velocity_asymmetry": -5.542141315395591e-17,
+        "full_Fock_Dyson_probability_error_upper": 4.4507299447059634e-14,
+        "electron_margin_over_omitted_sectors": -4.4507299447059634e-14,
+        "original_failed_preparation": 0.9916666666666667,
+        "original_selected_interval": [
+          2.999468420737992e-14,
+          3.073647253149758e-14
+        ],
+        "original_prepared_complement_interval": [
+          0.008333333333302597,
+          0.008333333333303338
+        ]
+      },
+      {
+        "L": 8,
+        "w": 0.0,
+        "chirality": -1.0,
+        "selected_probability": 3.64386940433265e-12,
+        "electron_velocity_odd": 0.0,
+        "antineutrino_velocity_odd": 0.0,
+        "electron_conditional_velocity_asymmetry": 0.0,
+        "antineutrino_conditional_velocity_asymmetry": 0.0,
+        "full_Fock_Dyson_probability_error_upper": 4.4507299447059634e-14,
+        "electron_margin_over_omitted_sectors": -4.4507299447059634e-14,
+        "original_failed_preparation": 0.9916666666666667,
+        "original_selected_interval": [
+          2.999468420737992e-14,
+          3.073647253149758e-14
+        ],
+        "original_prepared_complement_interval": [
+          0.008333333333302597,
+          0.008333333333303338
+        ]
+      },
+      {
+        "L": 8,
+        "w": 0.0,
+        "chirality": 0.0,
+        "selected_probability": 3.643869404332652e-12,
+        "electron_velocity_odd": 0.0,
+        "antineutrino_velocity_odd": -1.0097419586828951e-28,
+        "electron_conditional_velocity_asymmetry": 0.0,
+        "antineutrino_conditional_velocity_asymmetry": -2.7710706576977943e-17,
+        "full_Fock_Dyson_probability_error_upper": 4.4507299447059634e-14,
+        "electron_margin_over_omitted_sectors": -4.4507299447059634e-14,
+        "original_failed_preparation": 0.9916666666666667,
+        "original_selected_interval": [
+          2.9994684207379935e-14,
+          3.073647253149759e-14
+        ],
+        "original_prepared_complement_interval": [
+          0.008333333333302597,
+          0.008333333333303338
+        ]
+      },
+      {
+        "L": 8,
+        "w": 1.0,
+        "chirality": 1.0,
+        "selected_probability": 3.609937334174977e-12,
+        "electron_velocity_odd": -1.1130877672386339e-13,
+        "antineutrino_velocity_odd": 9.581988029391559e-13,
+        "electron_conditional_velocity_asymmetry": -0.030833991402042477,
+        "antineutrino_conditional_velocity_asymmetry": 0.2654336389354927,
+        "full_Fock_Dyson_probability_error_upper": 4.4507299447059634e-14,
+        "electron_margin_over_omitted_sectors": 6.680147727680375e-14,
+        "original_failed_preparation": 0.9916666666666667,
+        "original_selected_interval": [
+          2.971191695606598e-14,
+          3.0453705280183635e-14
+        ],
+        "original_prepared_complement_interval": [
+          0.00833333333330288,
+          0.008333333333303623
+        ]
+      },
+      {
+        "L": 8,
+        "w": 1.0,
+        "chirality": -1.0,
+        "selected_probability": 3.609937334174977e-12,
+        "electron_velocity_odd": 1.1130877672386324e-13,
+        "antineutrino_velocity_odd": -9.581988029391555e-13,
+        "electron_conditional_velocity_asymmetry": 0.030833991402042436,
+        "antineutrino_conditional_velocity_asymmetry": -0.2654336389354926,
+        "full_Fock_Dyson_probability_error_upper": 4.4507299447059634e-14,
+        "electron_margin_over_omitted_sectors": 6.68014772768036e-14,
+        "original_failed_preparation": 0.9916666666666667,
+        "original_selected_interval": [
+          2.971191695606598e-14,
+          3.0453705280183635e-14
+        ],
+        "original_prepared_complement_interval": [
+          0.00833333333330288,
+          0.008333333333303623
+        ]
+      },
+      {
+        "L": 8,
+        "w": 1.0,
+        "chirality": 0.0,
+        "selected_probability": 3.609937334174977e-12,
+        "electron_velocity_odd": 5.127595883936577e-29,
+        "antineutrino_velocity_odd": 1.7591598186428563e-28,
+        "electron_conditional_velocity_asymmetry": 1.4204113283059105e-17,
+        "antineutrino_conditional_velocity_asymmetry": 4.87310348018797e-17,
+        "full_Fock_Dyson_probability_error_upper": 4.4507299447059634e-14,
+        "electron_margin_over_omitted_sectors": -4.4507299447059584e-14,
+        "original_failed_preparation": 0.9916666666666667,
+        "original_selected_interval": [
+          2.971191695606598e-14,
+          3.0453705280183635e-14
+        ],
+        "original_prepared_complement_interval": [
+          0.00833333333330288,
+          0.008333333333303623
+        ]
+      }
+    ],
+    "three_dimensional_onshell_doubler_bounds": {
+      "electron_wrong_halfzone_min": 2.8284271247461903,
+      "neutral_wrong_halfzone_plus_electron_min": 3.0,
+      "physical_Q": 2.5309885827609833
+    },
+    "meaning": "3D group-velocity parity signal repaired on the Wilson-amended declared source at a controlled short time; numerical sums, analytic Dyson bound, not interval-certified floating arithmetic.",
+    "inherited_inputs": [
+      "proton/neutron/pion masses",
+      "axial coupling",
+      "neutral masses/mixing",
+      "electron unit"
+    ],
+    "missing": [
+      "source-derived neutron-proton gap",
+      "source-derived chirality and axial value",
+      "physical lifetime",
+      "transfer to shared common native source"
+    ],
+    "full_row_solved": false
+  },
+  "input_sha256": {
+    "reverse-engineering-reality/model/openwave_neutrino_oscillation/results.json": "663d52ef0ceaf8bcb2bab5a8579dbcd95123562d344c29c3a2c3306dc4dc2baa",
+    "reverse-engineering-reality/model/native_flavour_transport/results.json": "d550bcc52ee6b0ee8c9f6c59448938750f45a3440d95809709b96a8349920e0d",
+    "openwave-push/rowfull/ROW_11/r11lib.py": "8efe41c0efe662d1f36dc734ece7d75221dcd7eaa6cf2f8f597906e25cedcd49",
+    "openwave-push/rowfull/ROW_11/STATUS.md": "03f6799419d469e0932ba2c24cf4c2bd2c1550c6a642fa3d9ad61bb8d6f5ff5a",
+    "openwave-push/rowfull/ROW_25/consumed/source_arrays.npz": "aec1c2ba906b440181553977e1a49c967724a9abf1bcdd5a82705430c517786e"
+  }
+}

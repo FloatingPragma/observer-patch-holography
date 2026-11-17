@@ -1,0 +1,34 @@
+{
+  "schema": "oph.obstruction_repair.auxiliary_bound_independent_review.v1",
+  "producer_code_imported": false,
+  "exact_one_particle_double_commutator": "8A/3",
+  "CAR_commutator_lift_exact": true,
+  "vector_current_commutator": "0",
+  "singlet_spin_half_G_square": "4",
+  "normalized_excited_axial_factor": "2/3",
+  "positive_gap_lower_bound_exclusive": "25/18",
+  "source_coupling_predictions": [
+    {
+      "kappa": "1/2",
+      "exact": "sqrt(10)/12 + 25/18",
+      "numerical": 1.652412027236254
+    },
+    {
+      "kappa": "1",
+      "exact": "5*sqrt(37)/111 + 25/18",
+      "numerical": 1.6628872010644844
+    },
+    {
+      "kappa": "2",
+      "exact": "2*sqrt(145)/87 + 25/18",
+      "numerical": 1.665707155068022
+    }
+  ],
+  "conditional_on_stated_auxiliary_source_and_bare_singlet_dictionary": true,
+  "full_5500_state_numerical_replay_performed_here": false,
+  "physical_axial_row_solved": false,
+  "pins": {
+    "hadrons/LOCAL_AUXILIARY_INTERFACE_MANIFEST.json": "f5fbd849224a569aebdc002ed2f620b3f6fe719c2caa21c72906f3a645031889",
+    "species_leptons/auxiliary_current/MANIFEST.json": "45762733d165194f36dfc66a2abd2e0e0ce5be20036d498bc2db5bbfc2e81ed7"
+  }
+}

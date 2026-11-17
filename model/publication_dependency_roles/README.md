@@ -1,22 +1,24 @@
-# Scientific inputs and retained presentation custody
+# Scientific inputs and presentation provenance
 
-Three explicitly enumerated inherited receipt edges hash explanatory notes.
-Their producer read traces use those bytes only for custody metadata. This
-typed checker authenticates the original receipt, provider, note and every
-scientific pin; it changes no immutable source-selection receipt or result.
-The original raw no-docs audit retains three findings. The typed result
-classifies their role and does not relabel that audit as clean.
+The exact register classifies three receipt edges as presentation provenance.
+Their producer read traces use the document bytes only for hash metadata or
+required binding membership. The checker authenticates the current owner,
+provider, presentation document and every operative input. It rejects an
+extra document edge and any numerical use of these notes, including a read
+hidden inside a binding function or hash comprehension.
 
-Run `python3 -m model.publication_dependency_roles --write` and `--check`.
-`test_roles.py` rejects changed operative code/data, altered legacy prose,
-an extra document edge and a hidden numerical use of note contents. There
-is no general document exemption. [The exact register](roles.json) and
-[checker](check.py) state the complete scope.
+Run `python3 -m model.publication_dependency_roles --write` to generate the
+current role-check result and `--check` to replay it. [roles.json](roles.json)
+contains the exact paths and digests; [check.py](check.py) checks their roles.
+The result is a provenance check. It does not rerun scientific calculations
+or transfer an independent component's physical claims to the official
+common source.
 
-The Yang–Mills presentation has one-way publication custody. Its scientific
-criterion, code, Lean proofs and data are inputs of the original owners;
-the paper binds those accepted outputs without becoming an input to their
-calculations. Run `python3 -m model.publication_dependency_roles.paper_check
---write`, then `--check`, after editing the paper. Repeated binding edges are
-checked for agreement and their exact union is hashed once per invocation.
-Every operative byte is authenticated; no result or cross-run cache is used.
+The Yang--Mills presentation has one-way publication provenance. Its
+mathematical criterion, source code, Lean proofs and data remain inputs of
+their scientific owners. The paper binds those outputs without becoming an
+input to their calculations. After a paper edit, run
+`python3 -m model.publication_dependency_roles.paper_check --write`, then
+`--check`. Repeated binding edges must agree and their exact union is hashed
+once per invocation. Operative changes invalidate the check; there is no
+cross-run cache or document exemption.

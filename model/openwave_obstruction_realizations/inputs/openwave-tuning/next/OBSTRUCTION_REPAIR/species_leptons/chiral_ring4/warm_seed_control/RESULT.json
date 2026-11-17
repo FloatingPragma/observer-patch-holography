@@ -1,0 +1,782 @@
+[
+  {
+    "case": "zero_K2",
+    "S": 2,
+    "L": 4,
+    "CAR_modes": 16,
+    "mass": 0.0,
+    "K": 2,
+    "every_sector": [
+      {
+        "N": 0,
+        "infinite_rotor_lower": -2e-323,
+        "dimension_at_this_cutoff": 5
+      },
+      {
+        "N": 1,
+        "infinite_rotor_lower": -20.308226636663438,
+        "dimension_at_this_cutoff": 80
+      },
+      {
+        "N": 2,
+        "infinite_rotor_lower": -37.91522367655522,
+        "dimension_at_this_cutoff": 600
+      },
+      {
+        "N": 3,
+        "infinite_rotor_lower": -50.64570116169011,
+        "dimension_at_this_cutoff": 2800
+      },
+      {
+        "N": 4,
+        "infinite_rotor_lower": -63.04647237966744,
+        "dimension_at_this_cutoff": 9100
+      },
+      {
+        "N": 5,
+        "infinite_rotor_lower": -73.41393736867326,
+        "dimension_at_this_cutoff": 21840
+      },
+      {
+        "N": 6,
+        "infinite_rotor_lower": -82.29720164565416,
+        "dimension_at_this_cutoff": 40040
+      },
+      {
+        "N": 7,
+        "infinite_rotor_lower": -89.99642026467397,
+        "dimension_at_this_cutoff": 57200
+      },
+      {
+        "N": 8,
+        "infinite_rotor_lower": -93.20940082277154,
+        "dimension_at_this_cutoff": 64350
+      },
+      {
+        "N": 9,
+        "infinite_rotor_lower": -89.99642026467397,
+        "dimension_at_this_cutoff": 57200
+      },
+      {
+        "N": 10,
+        "infinite_rotor_lower": -82.29720164565416,
+        "dimension_at_this_cutoff": 40040
+      },
+      {
+        "N": 11,
+        "infinite_rotor_lower": -73.41393736867326,
+        "dimension_at_this_cutoff": 21840
+      },
+      {
+        "N": 12,
+        "infinite_rotor_lower": -63.04647237966744,
+        "dimension_at_this_cutoff": 9100
+      },
+      {
+        "N": 13,
+        "infinite_rotor_lower": -50.64570116169011,
+        "dimension_at_this_cutoff": 2800
+      },
+      {
+        "N": 14,
+        "infinite_rotor_lower": -37.91522367655522,
+        "dimension_at_this_cutoff": 600
+      },
+      {
+        "N": 15,
+        "infinite_rotor_lower": -20.308226636663438,
+        "dimension_at_this_cutoff": 80
+      },
+      {
+        "N": 16,
+        "infinite_rotor_lower": -2e-323,
+        "dimension_at_this_cutoff": 5
+      }
+    ],
+    "global_vacuum_number_certified": true,
+    "vacuum_number": 8,
+    "neutral_sector_dimension": 64350,
+    "charged_sector_dimension": 57200,
+    "variational_energy": -92.73900744534726,
+    "variational_energy_upper": -92.73900644534726,
+    "energy_excess_above_true_vacuum_upper": 0.47039437742428447,
+    "finite_neutral_low_eigenvalues": [
+      -92.73900744534788,
+      -91.51835475259522
+    ],
+    "finite_neutral_ground_order_certified": false,
+    "finite_preparation_eigen_residual": 2.101110385143566e-13,
+    "full_preparation_spectral_residual": 0.3931497946061983,
+    "exact_neutral_vacuum_state_certified": false,
+    "charged_infinite_resolvent_gap_lower": 2.7425861806732854,
+    "holonomy_cos_mean_in_preparation": -0.644176846036056,
+    "electric_energy_in_preparation": 0.5287088297860544,
+    "probability_lower_free_W_le_quarter": 0.7909990708274742,
+    "free_low_W_uniform_upper": 0.2928932188134524,
+    "edge_flux_probability": 0.02414191924372394,
+    "full_CAR_sum_error": 8.881784197001252e-15,
+    "complete_resolvent_checks": [
+      {
+        "channel": "particle",
+        "Dirac_probe": 0,
+        "cg_info": 0,
+        "iterations": 52,
+        "finite_residual": 7.404802872540438e-11,
+        "outside_flux_residual": 0.06060516873447124,
+        "full_infinite_residual_upper": 0.06060517873447124,
+        "full_infinite_solution_error_upper": 0.022097821086370786
+      },
+      {
+        "channel": "particle",
+        "Dirac_probe": 1,
+        "cg_info": 0,
+        "iterations": 54,
+        "finite_residual": 3.932425241792068e-11,
+        "outside_flux_residual": 0.03661735708142626,
+        "full_infinite_residual_upper": 0.03661736708142626,
+        "full_infinite_solution_error_upper": 0.01335140071056471
+      },
+      {
+        "channel": "hole",
+        "Dirac_probe": 0,
+        "cg_info": 0,
+        "iterations": 54,
+        "finite_residual": 3.932420629723117e-11,
+        "outside_flux_residual": 0.03661735708143605,
+        "full_infinite_residual_upper": 0.03661736708143605,
+        "full_infinite_solution_error_upper": 0.01335140071056828
+      },
+      {
+        "channel": "hole",
+        "Dirac_probe": 1,
+        "cg_info": 0,
+        "iterations": 52,
+        "finite_residual": 7.40480038832147e-11,
+        "outside_flux_residual": 0.06060516873448999,
+        "full_infinite_residual_upper": 0.06060517873448999,
+        "full_infinite_solution_error_upper": 0.02209782108637762
+      }
+    ],
+    "Green_real": [
+      [
+        -0.02366402380649127,
+        -8.159265092993334e-16
+      ],
+      [
+        -8.051450504302071e-16,
+        0.023664023806491248
+      ]
+    ],
+    "Green_imag": [
+      [
+        -3.133344278483108e-17,
+        -1.0895689732393077e-15
+      ],
+      [
+        1.1171466719360132e-15,
+        1.5829351718288365e-17
+      ]
+    ],
+    "infinite_prepared_Green_error_upper": 0.05163618327802369,
+    "inverse_response_Pauli": {
+      "I": -1.7763568394002505e-14,
+      "X": 1.447421448014364e-12,
+      "Y": -1.9703310044058195e-12,
+      "Z": 42.25824011069879
+    },
+    "infinite_prepared_inverse_error_upper": null,
+    "true_vacuum_propagator_certified": false,
+    "physical_lepton_pole_claim": false,
+    "roundoff_admissions": {
+      "Rayleigh_upper_margin": 1e-06,
+      "full_residual_margin": 1e-08,
+      "Green_product_margin": 1e-08
+    },
+    "elapsed_seconds": 17.048907995224
+  },
+  {
+    "case": "zero_K4",
+    "S": 2,
+    "L": 4,
+    "CAR_modes": 16,
+    "mass": 0.0,
+    "K": 4,
+    "every_sector": [
+      {
+        "N": 0,
+        "infinite_rotor_lower": -2e-323,
+        "dimension_at_this_cutoff": 9
+      },
+      {
+        "N": 1,
+        "infinite_rotor_lower": -20.308226636663438,
+        "dimension_at_this_cutoff": 144
+      },
+      {
+        "N": 2,
+        "infinite_rotor_lower": -37.91522367655522,
+        "dimension_at_this_cutoff": 1080
+      },
+      {
+        "N": 3,
+        "infinite_rotor_lower": -50.64570116169011,
+        "dimension_at_this_cutoff": 5040
+      },
+      {
+        "N": 4,
+        "infinite_rotor_lower": -63.04647237966744,
+        "dimension_at_this_cutoff": 16380
+      },
+      {
+        "N": 5,
+        "infinite_rotor_lower": -73.41393736867326,
+        "dimension_at_this_cutoff": 39312
+      },
+      {
+        "N": 6,
+        "infinite_rotor_lower": -82.29720164565416,
+        "dimension_at_this_cutoff": 72072
+      },
+      {
+        "N": 7,
+        "infinite_rotor_lower": -89.99642026467397,
+        "dimension_at_this_cutoff": 102960
+      },
+      {
+        "N": 8,
+        "infinite_rotor_lower": -93.20940082277154,
+        "dimension_at_this_cutoff": 115830
+      },
+      {
+        "N": 9,
+        "infinite_rotor_lower": -89.99642026467397,
+        "dimension_at_this_cutoff": 102960
+      },
+      {
+        "N": 10,
+        "infinite_rotor_lower": -82.29720164565416,
+        "dimension_at_this_cutoff": 72072
+      },
+      {
+        "N": 11,
+        "infinite_rotor_lower": -73.41393736867326,
+        "dimension_at_this_cutoff": 39312
+      },
+      {
+        "N": 12,
+        "infinite_rotor_lower": -63.04647237966744,
+        "dimension_at_this_cutoff": 16380
+      },
+      {
+        "N": 13,
+        "infinite_rotor_lower": -50.64570116169011,
+        "dimension_at_this_cutoff": 5040
+      },
+      {
+        "N": 14,
+        "infinite_rotor_lower": -37.91522367655522,
+        "dimension_at_this_cutoff": 1080
+      },
+      {
+        "N": 15,
+        "infinite_rotor_lower": -20.308226636663438,
+        "dimension_at_this_cutoff": 144
+      },
+      {
+        "N": 16,
+        "infinite_rotor_lower": -2e-323,
+        "dimension_at_this_cutoff": 9
+      }
+    ],
+    "global_vacuum_number_certified": true,
+    "vacuum_number": 8,
+    "neutral_sector_dimension": 115830,
+    "charged_sector_dimension": 102960,
+    "variational_energy": -92.74418950609123,
+    "variational_energy_upper": -92.74418850609123,
+    "energy_excess_above_true_vacuum_upper": 0.46521231668030794,
+    "finite_neutral_low_eigenvalues": [
+      -92.74418950609223,
+      -90.41240501019949
+    ],
+    "finite_neutral_ground_order_certified": false,
+    "finite_preparation_eigen_residual": 1.531588294898847e-13,
+    "full_preparation_spectral_residual": 0.00018949871690906585,
+    "exact_neutral_vacuum_state_certified": false,
+    "charged_infinite_resolvent_gap_lower": 2.747768241417262,
+    "holonomy_cos_mean_in_preparation": -0.6569772506050459,
+    "electric_energy_in_preparation": 0.538920152197252,
+    "probability_lower_free_W_le_quarter": 0.7841152366150239,
+    "free_low_W_uniform_upper": 0.2928932188134524,
+    "edge_flux_probability": 1.5749640837598884e-07,
+    "full_CAR_sum_error": 3.0753177782116836e-14,
+    "complete_resolvent_checks": [
+      {
+        "channel": "particle",
+        "Dirac_probe": 0,
+        "cg_info": 0,
+        "iterations": 47,
+        "finite_residual": 6.94139266592158e-11,
+        "outside_flux_residual": 3.283945095889988e-05,
+        "full_infinite_residual_upper": 3.2849450958973245e-05,
+        "full_infinite_solution_error_upper": 1.1954956922433145e-05
+      },
+      {
+        "channel": "particle",
+        "Dirac_probe": 1,
+        "cg_info": 0,
+        "iterations": 46,
+        "finite_residual": 4.85287376422814e-11,
+        "outside_flux_residual": 4.590774926741889e-05,
+        "full_infinite_residual_upper": 4.591774926744454e-05,
+        "full_infinite_solution_error_upper": 1.6710925097438633e-05
+      },
+      {
+        "channel": "hole",
+        "Dirac_probe": 0,
+        "cg_info": 0,
+        "iterations": 46,
+        "finite_residual": 4.85287359299651e-11,
+        "outside_flux_residual": 4.590774926741926e-05,
+        "full_infinite_residual_upper": 4.591774926744491e-05,
+        "full_infinite_solution_error_upper": 1.671092509743877e-05
+      },
+      {
+        "channel": "hole",
+        "Dirac_probe": 1,
+        "cg_info": 0,
+        "iterations": 47,
+        "finite_residual": 6.941393072472411e-11,
+        "outside_flux_residual": 3.283945095890019e-05,
+        "full_infinite_residual_upper": 3.284945095897355e-05,
+        "full_infinite_solution_error_upper": 1.1954956922433257e-05
+      }
+    ],
+    "Green_real": [
+      [
+        -0.02367606099078194,
+        1.6323772193090458e-17
+      ],
+      [
+        2.3055372592581967e-17,
+        0.023676060990781934
+      ]
+    ],
+    "Green_imag": [
+      [
+        2.8514517136368767e-17,
+        -8.207742790083286e-18
+      ],
+      [
+        6.7506384596980476e-18,
+        -4.0657581468206416e-17
+      ]
+    ],
+    "infinite_prepared_Green_error_upper": 4.110384443584877e-05,
+    "inverse_response_Pauli": {
+      "I": -7.105427357601002e-15,
+      "X": -3.512508503783736e-14,
+      "Y": -1.3342453633430018e-14,
+      "Z": 42.23675553080139
+    },
+    "infinite_prepared_inverse_error_upper": 0.07345446061371141,
+    "true_vacuum_propagator_certified": false,
+    "physical_lepton_pole_claim": false,
+    "roundoff_admissions": {
+      "Rayleigh_upper_margin": 1e-06,
+      "full_residual_margin": 1e-08,
+      "Green_product_margin": 1e-08
+    },
+    "elapsed_seconds": 49.04786992073059
+  },
+  {
+    "case": "register_electron_K2",
+    "S": 2,
+    "L": 4,
+    "CAR_modes": 16,
+    "mass": 6.0300795404423236e-05,
+    "K": 2,
+    "every_sector": [
+      {
+        "N": 0,
+        "infinite_rotor_lower": -2e-323,
+        "dimension_at_this_cutoff": 5
+      },
+      {
+        "N": 1,
+        "infinite_rotor_lower": -20.308467839845054,
+        "dimension_at_this_cutoff": 80
+      },
+      {
+        "N": 2,
+        "infinite_rotor_lower": -37.91546487973684,
+        "dimension_at_this_cutoff": 600
+      },
+      {
+        "N": 3,
+        "infinite_rotor_lower": -50.64594236487173,
+        "dimension_at_this_cutoff": 2800
+      },
+      {
+        "N": 4,
+        "infinite_rotor_lower": -63.04671358284906,
+        "dimension_at_this_cutoff": 9100
+      },
+      {
+        "N": 5,
+        "infinite_rotor_lower": -73.41417857185488,
+        "dimension_at_this_cutoff": 21840
+      },
+      {
+        "N": 6,
+        "infinite_rotor_lower": -82.29744284883577,
+        "dimension_at_this_cutoff": 40040
+      },
+      {
+        "N": 7,
+        "infinite_rotor_lower": -89.99666146785559,
+        "dimension_at_this_cutoff": 57200
+      },
+      {
+        "N": 8,
+        "infinite_rotor_lower": -93.20964202595316,
+        "dimension_at_this_cutoff": 64350
+      },
+      {
+        "N": 9,
+        "infinite_rotor_lower": -89.99666146785559,
+        "dimension_at_this_cutoff": 57200
+      },
+      {
+        "N": 10,
+        "infinite_rotor_lower": -82.29744284883577,
+        "dimension_at_this_cutoff": 40040
+      },
+      {
+        "N": 11,
+        "infinite_rotor_lower": -73.41417857185488,
+        "dimension_at_this_cutoff": 21840
+      },
+      {
+        "N": 12,
+        "infinite_rotor_lower": -63.04671358284906,
+        "dimension_at_this_cutoff": 9100
+      },
+      {
+        "N": 13,
+        "infinite_rotor_lower": -50.64594236487173,
+        "dimension_at_this_cutoff": 2800
+      },
+      {
+        "N": 14,
+        "infinite_rotor_lower": -37.91546487973684,
+        "dimension_at_this_cutoff": 600
+      },
+      {
+        "N": 15,
+        "infinite_rotor_lower": -20.308467839845054,
+        "dimension_at_this_cutoff": 80
+      },
+      {
+        "N": 16,
+        "infinite_rotor_lower": -2e-323,
+        "dimension_at_this_cutoff": 5
+      }
+    ],
+    "global_vacuum_number_certified": true,
+    "vacuum_number": 8,
+    "neutral_sector_dimension": 64350,
+    "charged_sector_dimension": 57200,
+    "variational_energy": -92.73904056950221,
+    "variational_energy_upper": -92.73903956950221,
+    "energy_excess_above_true_vacuum_upper": 0.47060245645094767,
+    "finite_neutral_low_eigenvalues": [
+      -92.7390405695019,
+      -91.51838306997749
+    ],
+    "finite_neutral_ground_order_certified": false,
+    "finite_preparation_eigen_residual": 4.2381874379510203e-13,
+    "full_preparation_spectral_residual": 0.3931488050879895,
+    "exact_neutral_vacuum_state_certified": false,
+    "charged_infinite_resolvent_gap_lower": 2.742378101646622,
+    "holonomy_cos_mean_in_preparation": -0.6441761691163393,
+    "electric_energy_in_preparation": 0.5287068755303713,
+    "probability_lower_free_W_le_quarter": 0.7909992234801319,
+    "free_low_W_uniform_upper": 0.2928932188134524,
+    "edge_flux_probability": 0.024141881277161027,
+    "full_CAR_sum_error": 7.105427357601002e-15,
+    "complete_resolvent_checks": [
+      {
+        "channel": "particle",
+        "Dirac_probe": 0,
+        "cg_info": 0,
+        "iterations": 52,
+        "finite_residual": 7.404889214940674e-11,
+        "outside_flux_residual": 0.06060520475005524,
+        "full_infinite_residual_upper": 0.060605214750055245,
+        "full_infinite_solution_error_upper": 0.02209951090028968
+      },
+      {
+        "channel": "particle",
+        "Dirac_probe": 1,
+        "cg_info": 0,
+        "iterations": 54,
+        "finite_residual": 3.9323581799293497e-11,
+        "outside_flux_residual": 0.036617092110153446,
+        "full_infinite_residual_upper": 0.03661710211015345,
+        "full_infinite_solution_error_upper": 0.013352317132406807
+      },
+      {
+        "channel": "hole",
+        "Dirac_probe": 0,
+        "cg_info": 0,
+        "iterations": 54,
+        "finite_residual": 3.9323601591165534e-11,
+        "outside_flux_residual": 0.03661709211015346,
+        "full_infinite_residual_upper": 0.03661710211015346,
+        "full_infinite_solution_error_upper": 0.013352317132406812
+      },
+      {
+        "channel": "hole",
+        "Dirac_probe": 1,
+        "cg_info": 0,
+        "iterations": 52,
+        "finite_residual": 7.404892344174349e-11,
+        "outside_flux_residual": 0.0606052047500553,
+        "full_infinite_residual_upper": 0.0606052147500553,
+        "full_infinite_solution_error_upper": 0.0220995109002897
+      }
+    ],
+    "Green_real": [
+      [
+        -0.02366513354395744,
+        -9.610435819547292e-18
+      ],
+      [
+        -3.726097934971667e-18,
+        0.02366513354395744
+      ]
+    ],
+    "Green_imag": [
+      [
+        2.3852447794681098e-18,
+        1.0906396228846371e-17
+      ],
+      [
+        -4.335114624047509e-18,
+        -1.0842021724855044e-19
+      ]
+    ],
+    "infinite_prepared_Green_error_upper": 0.05164002374269333,
+    "inverse_response_Pauli": {
+      "I": 0.0,
+      "X": 1.1906799860499415e-14,
+      "Y": 1.3607555204180786e-14,
+      "Z": 42.256258480118994
+    },
+    "infinite_prepared_inverse_error_upper": null,
+    "true_vacuum_propagator_certified": false,
+    "physical_lepton_pole_claim": false,
+    "roundoff_admissions": {
+      "Rayleigh_upper_margin": 1e-06,
+      "full_residual_margin": 1e-08,
+      "Green_product_margin": 1e-08
+    },
+    "elapsed_seconds": 32.64037895202637
+  },
+  {
+    "case": "register_electron_K4",
+    "S": 2,
+    "L": 4,
+    "CAR_modes": 16,
+    "mass": 6.0300795404423236e-05,
+    "K": 4,
+    "every_sector": [
+      {
+        "N": 0,
+        "infinite_rotor_lower": -2e-323,
+        "dimension_at_this_cutoff": 9
+      },
+      {
+        "N": 1,
+        "infinite_rotor_lower": -20.308467839845054,
+        "dimension_at_this_cutoff": 144
+      },
+      {
+        "N": 2,
+        "infinite_rotor_lower": -37.91546487973684,
+        "dimension_at_this_cutoff": 1080
+      },
+      {
+        "N": 3,
+        "infinite_rotor_lower": -50.64594236487173,
+        "dimension_at_this_cutoff": 5040
+      },
+      {
+        "N": 4,
+        "infinite_rotor_lower": -63.04671358284906,
+        "dimension_at_this_cutoff": 16380
+      },
+      {
+        "N": 5,
+        "infinite_rotor_lower": -73.41417857185488,
+        "dimension_at_this_cutoff": 39312
+      },
+      {
+        "N": 6,
+        "infinite_rotor_lower": -82.29744284883577,
+        "dimension_at_this_cutoff": 72072
+      },
+      {
+        "N": 7,
+        "infinite_rotor_lower": -89.99666146785559,
+        "dimension_at_this_cutoff": 102960
+      },
+      {
+        "N": 8,
+        "infinite_rotor_lower": -93.20964202595316,
+        "dimension_at_this_cutoff": 115830
+      },
+      {
+        "N": 9,
+        "infinite_rotor_lower": -89.99666146785559,
+        "dimension_at_this_cutoff": 102960
+      },
+      {
+        "N": 10,
+        "infinite_rotor_lower": -82.29744284883577,
+        "dimension_at_this_cutoff": 72072
+      },
+      {
+        "N": 11,
+        "infinite_rotor_lower": -73.41417857185488,
+        "dimension_at_this_cutoff": 39312
+      },
+      {
+        "N": 12,
+        "infinite_rotor_lower": -63.04671358284906,
+        "dimension_at_this_cutoff": 16380
+      },
+      {
+        "N": 13,
+        "infinite_rotor_lower": -50.64594236487173,
+        "dimension_at_this_cutoff": 5040
+      },
+      {
+        "N": 14,
+        "infinite_rotor_lower": -37.91546487973684,
+        "dimension_at_this_cutoff": 1080
+      },
+      {
+        "N": 15,
+        "infinite_rotor_lower": -20.308467839845054,
+        "dimension_at_this_cutoff": 144
+      },
+      {
+        "N": 16,
+        "infinite_rotor_lower": -2e-323,
+        "dimension_at_this_cutoff": 9
+      }
+    ],
+    "global_vacuum_number_certified": true,
+    "vacuum_number": 8,
+    "neutral_sector_dimension": 115830,
+    "charged_sector_dimension": 102960,
+    "variational_energy": -92.74422260030559,
+    "variational_energy_upper": -92.7442216003056,
+    "energy_excess_above_true_vacuum_upper": 0.46542042564756514,
+    "finite_neutral_low_eigenvalues": [
+      -92.74422260030555,
+      -91.56301497679513
+    ],
+    "finite_neutral_ground_order_certified": false,
+    "finite_preparation_eigen_residual": 2.540155914971433e-13,
+    "full_preparation_spectral_residual": 0.00018949907374545097,
+    "exact_neutral_vacuum_state_certified": false,
+    "charged_infinite_resolvent_gap_lower": 2.7475601324500047,
+    "holonomy_cos_mean_in_preparation": -0.6569765125633016,
+    "electric_energy_in_preparation": 0.5389181502773119,
+    "probability_lower_free_W_le_quarter": 0.7841154112526328,
+    "free_low_W_uniform_upper": 0.2928932188134524,
+    "edge_flux_probability": 1.5749608237612673e-07,
+    "full_CAR_sum_error": 3.0753177782116836e-14,
+    "complete_resolvent_checks": [
+      {
+        "channel": "particle",
+        "Dirac_probe": 0,
+        "cg_info": 0,
+        "iterations": 47,
+        "finite_residual": 6.941342073925189e-11,
+        "outside_flux_residual": 3.283918006347102e-05,
+        "full_infinite_residual_upper": 3.284918006354438e-05,
+        "full_infinite_solution_error_upper": 1.1955763834094033e-05
+      },
+      {
+        "channel": "particle",
+        "Dirac_probe": 1,
+        "cg_info": 0,
+        "iterations": 46,
+        "finite_residual": 4.852764534168957e-11,
+        "outside_flux_residual": 4.590745320748797e-05,
+        "full_infinite_residual_upper": 4.591745320751362e-05,
+        "full_infinite_solution_error_upper": 1.671208308244338e-05
+      },
+      {
+        "channel": "hole",
+        "Dirac_probe": 0,
+        "cg_info": 0,
+        "iterations": 46,
+        "finite_residual": 4.852763290166298e-11,
+        "outside_flux_residual": 4.5907453207487915e-05,
+        "full_infinite_residual_upper": 4.5917453207513565e-05,
+        "full_infinite_solution_error_upper": 1.6712083082443362e-05
+      },
+      {
+        "channel": "hole",
+        "Dirac_probe": 1,
+        "cg_info": 0,
+        "iterations": 47,
+        "finite_residual": 6.94134399255172e-11,
+        "outside_flux_residual": 3.283918006347094e-05,
+        "full_infinite_residual_upper": 3.28491800635443e-05,
+        "full_infinite_solution_error_upper": 1.1955763834094004e-05
+      }
+    ],
+    "Green_real": [
+      [
+        -0.02367716293109577,
+        -1.2136686998728239e-18
+      ],
+      [
+        4.376158397887582e-18,
+        0.023677162931095813
+      ]
+    ],
+    "Green_imag": [
+      [
+        -1.713039432527097e-17,
+        -2.2551009724279858e-17
+      ],
+      [
+        5.1835366789689245e-18,
+        1.962405932198763e-17
+      ]
+    ],
+    "infinite_prepared_Green_error_upper": 4.110666700894923e-05,
+    "inverse_response_Pauli": {
+      "I": 3.552713678800501e-14,
+      "X": -2.8205889384169078e-15,
+      "Y": -2.473612952672125e-14,
+      "Z": 42.234789823010246
+    },
+    "infinite_prepared_inverse_error_upper": 0.07345267002454044,
+    "true_vacuum_propagator_certified": false,
+    "physical_lepton_pole_claim": false,
+    "roundoff_admissions": {
+      "Rayleigh_upper_margin": 1e-06,
+      "full_residual_margin": 1e-08,
+      "Green_product_margin": 1e-08
+    },
+    "elapsed_seconds": 72.47519207000732
+  }
+]

@@ -15,23 +15,27 @@ ROWS = [
                 'ker B = im D excludes two sharp half-charge daughters of one signed pair, and the '
                 'law-dependent stopped flow E[F] = B^T L^+ q is measured: 264 native trials absorb, '
                 '48 changed-law controls do not, a planted half-current is detected.'),
-     'scope': ('A probabilistic alternative between two integer outcomes is distinguished from a '
-               'fractional charge. The charge dictionary reads the primitive boundary source as '
-               'electric charge.')},
+     'scope': ('The integer image is inherited from the load alphabet. The relative-homology '
+               'certificate restates that image and does not derive electric quantization. '
+               'The stopped response is a separate law-derived result; the fractional plant '
+               'tests the decoder, not selection of a physical charge unit.')},
     {'row': 2, 'criterion': 'Electron rest energy (mass)',
      'result': ('A compact four-port charged ray has positive energy E6 = -1260 log(209/210) = '
                 '6.014331228348673 from the full 630-seam transfer operator of the same source; '
                 'the disjoint pair has E12 = 12.057508280349891, which is 1024.4508487 keV in the '
                 'unit fixed by 511 keV.'),
-     'scope': ('511 keV is the permitted calibration of the energy unit, not a predicted number. '
-               'Lower nonconstant modes and the complementary energy-pointer outcomes are retained.')},
+     'scope': ('511 keV sets the reporting unit and supplies no independent prediction. '
+               'A transfer eigenray and its projector do not demonstrate source selection or '
+               'unread-channel persistence. The separated-pair excess fails additive energy '
+               'under this clock convention. Lower modes and pointer complements are retained.')},
     {'row': 7, 'criterion': 'Spin-1/2 statistics (720 degree double cover)',
      'result': ('Independently measured first-current mean m = ((phi-3)/15) v_p and covariance '
                 'C_parallel = (3-phi)/9, C_transverse = (phi+2)/15 over 720 branches: the executed '
                 'proper half-turn returns the covariance and reverses the nonzero mean; the second '
                 'half-turn returns both. Fixed-seam and off-axis controls discriminate.'),
-     'scope': ('The executed rotation is a finite symmetry of the addressed cell, distinct from a '
-               'continuous interpolation; no exchange-statistics claim is made.')},
+     'scope': ('These moment identities follow from equivariance and parity; the fixed-seam '
+               'control breaks the relevant symmetry. They do not establish dynamical antipodal '
+               'identification or a coherent full-turn sign. No spin or exchange claim follows.')},
 ]
 
 
@@ -54,8 +58,16 @@ def generate():
                                   'preparation and pointer services',
                                   'physical dictionary: boundary source as charge, transfer '
                                   'spectrum as energy, first-current moments as frame and field'],
-        'rows': [dict(r, criterion_met_on_construction=True, official_status='untested')
+        'rows': [dict(r, finite_arithmetic_verified=True, criterion_met_on_construction=False,
+                     official_status='untested')
                  for r in ROWS],
+        'adjudication': {
+            'source': 'https://github.com/openwave-labs/openwave/pull/723#pullrequestreview-5911443869',
+            'decision_date': '2026-11-15',
+            'source_adopted': True,
+            'full_or_partial_rows_awarded': [],
+            'review_scope': 'Finite arithmetic recomputation; full source package not executed by maintainer',
+        },
         'evidence': {'proof': 'code/openwave_signed_source/PROOF.md',
                      'recompute': 'python3 code/openwave_signed_source/verify.py',
                      'full_replay': verification['full_replay'],

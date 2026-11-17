@@ -1,5 +1,11 @@
 # Particle response and field-action selection
 
+The official source is [CCF-LT-2](../../model/SPEC.md), with its
+[source-specific dependency map](../../model/particle_joint_reconstruction/DEPENDENCIES.md).
+The component calculations below have their stated Hamiltonians, states and
+measurement domains. Their spectra, geometry and clock values require an
+explicit checked connection before use as outputs of the official law.
+
 <a id="a-specified-chiral-source-and-its-physical-inputs"></a>
 <a id="controlled-motion-and-the-finite-particle-dependency-path"></a>
 <a id="local-transport-architecture"></a>

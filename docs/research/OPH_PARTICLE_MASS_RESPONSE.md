@@ -1,5 +1,11 @@
 # Particle construction: source laws, mass operators and physical matching
 
+The official source is [CCF-LT-2](../../model/SPEC.md), with its
+[source-specific dependency map](../../model/particle_joint_reconstruction/DEPENDENCIES.md).
+The component calculations below have their stated Hamiltonians, states and
+measurement domains. Their spectra, geometry and clock values require an
+explicit checked connection before use as outputs of the official law.
+
 ## What the source fixes and what a mass comparison requires
 
 The executable sources determine finite transition measures and, for a

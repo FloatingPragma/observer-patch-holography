@@ -1,0 +1,15 @@
+{
+  "label": "changed_saved_certificate",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_interval_source_certificate/certificate.py",
+    "--verify",
+    "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/interval-certificate-cli-60fht1_a/changed.json"
+  ],
+  "exit_code": 1,
+  "stdout": "{\"progress_k\": 2, \"cases\": 32}\n",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_interval_source_certificate/certificate.py\", line 241, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_interval_source_certificate/certificate.py\", line 232, in main\n    require(left == right, 'saved certificate differs')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_interval_source_certificate/interval_math.py\", line 11, in require\n    raise ValueError(message)\nValueError: saved certificate differs\n",
+  "seconds": 9.985438667004928,
+  "passed": true
+}

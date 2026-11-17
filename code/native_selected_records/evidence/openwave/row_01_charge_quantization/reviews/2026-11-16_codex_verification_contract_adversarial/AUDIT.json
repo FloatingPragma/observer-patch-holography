@@ -1,0 +1,162 @@
+{
+  "passed": true,
+  "same_group": true,
+  "external_G6": false,
+  "producer_manifest": "b25c9c07328cc62fe7852261af837ddf5d33a03d3031dd74b54d56c74ac1dd42",
+  "verified_leaves": 146,
+  "payload_calculations": [
+    {
+      "file": "m10_4_charge.py",
+      "source": "a3ca3af58f32f9bf25c174d8acd5021c4b73c3cf2abf3283999c301d1c9d730d",
+      "descendant": "d494f6fe965858a1307123fe91d7875b31f5995b01605959932c45b39a3e944b"
+    },
+    {
+      "file": "m10_4_common.py",
+      "source": "038747b3f5bd7623785e4a767a8209973789a37875b0703074411d55df565085",
+      "descendant": "423caefcd5adce1fa2c81985ef61d0feb7b8c7037515e824ca47e75ed987222a"
+    },
+    {
+      "file": "m10_4_energy.py",
+      "source": "3bbc49a75465194be7b1958e02bf18ba2376347ab9e71bfd8ddd0d34d259bd87",
+      "descendant": "70b5f84bcee35af0e4627f1a44e60a6dae1152a4098f91e1aefb170bf0f67693"
+    },
+    {
+      "file": "m10_4_pair.py",
+      "source": "040f35492c4ed4acd7770bbdeab774232b5dbe3871dda778f4b16f5863bfbdd7",
+      "descendant": "6172db23e668c7ba5f60eff6c46449c5890865db0a9408e0113dc60ffc328a9e"
+    },
+    {
+      "file": "m10_4_spin.py",
+      "source": "0bb4e9025d9e90311f9cd5b77d77ca4f01c4fc555dfd64b21d31bd305f0cb19a",
+      "descendant": "dc408cedd1f65352113336f24c58773d6f07df1fbbc7bcbf99e2b1b78dd6a8ab"
+    }
+  ],
+  "direct_producer_calculations": [
+    {
+      "file": "descendants/producers/reservoir/experiment.py",
+      "source": "2a47ee844304173e93d0540c81d6358c104fa2812acf695b016a95eec3db378c",
+      "descendant": "2d2f5482e8f51282d22e84a57a3892d650d03c1c933233d81b101f1c40f94d4c"
+    },
+    {
+      "file": "descendants/producers/reservoir/model.py",
+      "source": "c8953f6428768307c341334de18255333d0abc84bd29f82c6860f2e1c6508793",
+      "descendant": "c97cb995ca80a47d06dbf92f4174065c7c539e80264c632b4049e0b96165c232"
+    },
+    {
+      "file": "descendants/producers/reservoir/native_function.py",
+      "source": "f965c0226270ceb52afbee36f82286e799f615a925ed2737fa138eee76ccfba0",
+      "descendant": "90b8218f8022febcaf97439b267be10a5c4f36d0a74f43f9d7c38e5b4fb78e1f"
+    },
+    {
+      "file": "descendants/producers/reservoir/reader.py",
+      "source": "1fbd772d47983c5661dfd886f7180f5f78a3fe3ed13ea3061486ae25df8306b3",
+      "descendant": "7e7e4457edb6ee4775573cce232cfe985f3c2138e664c2468cb163d7206ad0c6"
+    },
+    {
+      "file": "descendants/producers/pair/core.py",
+      "source": "58a9a8031dbcddc0a2f9ec5f9a1020fe728c3a5003e615e5b7f4111ed4bd61f0",
+      "descendant": "8f4afd9a0d84eef7166cfd2b2c1018bca5482ea2bbdc7c2a1e3663ab22c65800"
+    },
+    {
+      "file": "descendants/producers/pair/pair_source.py",
+      "source": "286d3b8efb00ba0be854bb1e8f43d74982e63622854c5c9eb47c12fe4f33d816",
+      "descendant": "bd17eb88c80d08234dfaf580833c456b205dd76f76af450a842311f9a221ba35"
+    }
+  ],
+  "retained_full_archive_jobs": 28,
+  "runtime_only_paths": 22,
+  "required_current_verdict_paths": 34,
+  "retained_scientific_predicate_mutants": 10,
+  "retained_historical_entry_mutants": 21,
+  "fresh_processes": [
+    {
+      "label": "charge_predicate_optimized",
+      "exit_code": 1,
+      "required_stderr": "AssertionError: Scientific check at original line 132"
+    },
+    {
+      "label": "energy_predicate_optimized",
+      "exit_code": 1,
+      "required_stderr": "AssertionError: Scientific check at original line 46"
+    },
+    {
+      "label": "spin_predicate_optimized",
+      "exit_code": 1,
+      "required_stderr": "AssertionError: Scientific check at original line 139"
+    },
+    {
+      "label": "common_predicate_optimized",
+      "exit_code": 1,
+      "required_stderr": "AssertionError: Scientific check at original line 353"
+    },
+    {
+      "label": "pair_predicate_optimized",
+      "exit_code": 1,
+      "required_stderr": "AssertionError: Scientific check at original line 77"
+    },
+    {
+      "label": "charge_optimized_clean",
+      "exit_code": 0,
+      "required_stderr": null
+    },
+    {
+      "label": "explicit_first_record",
+      "exit_code": 0,
+      "required_stderr": null
+    },
+    {
+      "label": "exclusive_overwrite",
+      "exit_code": 1,
+      "required_stderr": "FileExistsError"
+    },
+    {
+      "label": "historical_job_23_optimized_parent",
+      "exit_code": 0,
+      "required_stderr": null
+    },
+    {
+      "label": "saved_adjudication_optimized",
+      "exit_code": 0,
+      "required_stderr": null
+    }
+  ],
+  "parser_cases": [
+    {
+      "actual": [
+        {
+          "passed": false
+        },
+        {
+          "passed": true
+        }
+      ],
+      "accepted": false
+    },
+    {
+      "actual": [
+        {
+          "passed": true,
+          "checks": {
+            "inner": false
+          }
+        }
+      ],
+      "accepted": false
+    },
+    {
+      "actual": [
+        {
+          "passed": true,
+          "history": {
+            "passed": false
+          },
+          "external_G6": false
+        }
+      ],
+      "accepted": true
+    }
+  ],
+  "producer_packet_unchanged": true,
+  "historical_focused_replay_unchanged": true,
+  "saved_copy_bytes_metadata_unchanged": true
+}

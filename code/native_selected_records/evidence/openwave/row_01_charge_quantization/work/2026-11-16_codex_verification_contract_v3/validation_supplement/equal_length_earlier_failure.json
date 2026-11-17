@@ -1,0 +1,15 @@
+{
+  "label": "equal_length_earlier_failure",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "-O",
+    "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-extra-hfz6rup_/earlier.py"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-extra-hfz6rup_/earlier.py\", line 3, in <module>\n    f([{'passed': False}, {'passed': True}],{'expected_output': [{'passed': True}, {'passed': True}], 'runtime_paths': [], 'required_verdict_paths': [[0, 'passed'], [1, 'passed']]})\n    ~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/work/2026-11-16_codex_verification_contract_v3/descendants/verify_source.py\", line 43, in check_output\n    require(record.get('passed') is not False,'A current result declares failure')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/work/2026-11-16_codex_verification_contract_v3/descendants/verify_source.py\", line 22, in require\n    raise AssertionError(message)\nAssertionError: A current result declares failure\n",
+  "expected_success": false,
+  "passed": true,
+  "seconds": 0.048335999992559664
+}

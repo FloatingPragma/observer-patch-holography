@@ -1,0 +1,64 @@
+{
+  "all_pass": true,
+  "complete_flux_checks": [
+    {
+      "flux_states": 729,
+      "full_multiplicity_table_match": true,
+      "graph": "chain_7"
+    },
+    {
+      "flux_states": 729,
+      "full_multiplicity_table_match": true,
+      "graph": "cycle_6"
+    },
+    {
+      "flux_states": 2187,
+      "full_multiplicity_table_match": true,
+      "graph": "ladder_2_by_3"
+    },
+    {
+      "flux_states": 531441,
+      "full_multiplicity_table_match": true,
+      "graph": "cube"
+    }
+  ],
+  "copied_native_replay_calls": 663600,
+  "preparation_checks": [
+    {
+      "all_raw_letters_replayed": true,
+      "bits": 8,
+      "failures": 58,
+      "mutated": false,
+      "records": 147456
+    },
+    {
+      "all_raw_letters_replayed": true,
+      "bits": 12,
+      "failures": 24,
+      "mutated": false,
+      "records": 221184
+    },
+    {
+      "all_raw_letters_replayed": true,
+      "bits": 16,
+      "failures": 6,
+      "mutated": false,
+      "records": 294912
+    },
+    {
+      "all_raw_letters_replayed": true,
+      "bits": 16,
+      "failures": 1,
+      "mutated": true,
+      "records": 288
+    }
+  ],
+  "preregistration_leaves_unchanged": true,
+  "role": "producer self-check; not independent G6 review",
+  "runtime": {
+    "numpy": "2.3.5",
+    "platform": "macOS-15.3-arm64-arm-64bit-Mach-O",
+    "python": "3.13.7 (main, Sep 20 2025, 15:59:55) [Clang 17.0.0 (clang-1700.0.13.5)]"
+  },
+  "scope": "All raw source letters and all finite flux-sector multiplicities replayed. Matrix comparison is floating-point diagnostic, not certified exact-decoder forward error."
+}

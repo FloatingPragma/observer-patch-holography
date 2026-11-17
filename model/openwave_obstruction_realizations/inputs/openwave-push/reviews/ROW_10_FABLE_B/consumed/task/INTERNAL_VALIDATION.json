@@ -1,0 +1,552 @@
+{
+  "schema": "oph.openwave.internal_row_completion.v1",
+  "created_at": "2026-11-14T13:01:25+07:00",
+  "updated_at": "2026-11-14T18:20:30+07:00",
+  "count_basis": "Complete literal criterion on the admitted source with reproducible evidence and two independent full-criterion reviews. Official status is not a counting input.",
+  "confirmed_validated": 10,
+  "total_rows": 31,
+  "maximum_concurrent_workers": 3,
+  "runtime_thread_limit": "Three active worker slots; queued rows are assigned, not launched. Replacement agents resume the frozen or unfinished artifacts of their predecessor lanes.",
+  "criterion_source": "openwave-tuning/validation/direct_runs/packet_at_readiness.json",
+  "criterion_source_sha256": "2a203acaa796b7fc4fc390c3060f3dd1bb85aed211337a2b0c4668640a40d5b5",
+  "initial_claim_ledger": "reverse-engineering-reality/claims/openwave_joint_model.json",
+  "initial_claim_ledger_sha256": "f41324230767c7ebbbf7da2948f9442020aa2ffdcf240a0d0dbd509100405d18",
+  "rows": [
+    {
+      "id": 1,
+      "criterion": "Charge quantization",
+      "literal_gate": "integer topological charge; a split e \u2192 e/2 + e/2 impossible",
+      "internal_validated": true,
+      "work_state": "internally_validated",
+      "worker": "/root/charge_spin_lane",
+      "priority": 1,
+      "targeted_gap": "Bind native cut-current/topological degree to the complete observer-only charge apparatus. Prove integer charge and equal-half exclusion across the stated signed-sector/intervention domain. Compare the exact validated precedent; do not add mass or spin prerequisites.",
+      "prior_local_status": "partial_support",
+      "prior_full_criterion_met": false,
+      "evidence": [
+        "openwave-tuning/row_completion/ROW_01/VALIDATION.json"
+      ],
+      "active_phase": "Complete static charge criterion accepted on exact source and observer domain.",
+      "lane_position": 1
+    },
+    {
+      "id": 2,
+      "criterion": "Electron rest energy (mass)",
+      "literal_gate": "localized state anchored to 511 keV",
+      "internal_validated": true,
+      "work_state": "internally_validated",
+      "worker": "Auditor root + independent Fable review",
+      "priority": 7,
+      "targeted_gap": "Construct a localized charged rest state with measured field energy, control its background and vacuum, and use exactly the permitted common 511 keV scale anchor. Reuse Fable's active self-energy producer; supplying a mass eigenphase does not derive field energy.",
+      "prior_local_status": "diagnostic_only",
+      "prior_full_criterion_met": false,
+      "evidence": [
+        "openwave-tuning/row_completion/ROW_02/VALIDATION.json"
+      ],
+      "lane_position": 3,
+      "accepted_alternatives": [
+        {
+          "candidate_id": "native-local12:g-cal-CODATA2022:held-sector:isolated-anchor-v1",
+          "receipt": "openwave-tuning/row_completion/ROW_02/CALIBRATED_VALIDATION.json",
+          "receipt_sha256": "af1dda68e4431f7c08fe3ed215ed9fae6b897f5c722168cc76bab0a51ca87a13"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "criterion": "de Broglie clock (Zitterbewegung)",
+      "literal_gate": "self-starting frequency-rigid internal oscillation at \u03c9 = mc\u00b2/\u210f",
+      "internal_validated": false,
+      "work_state": "external_partial_complete",
+      "worker": "Fable b6c0499e free-clock positive; coupled/self-start/reset clauses fail",
+      "priority": 10,
+      "targeted_gap": "Measure a bounded, self-starting, frequency-rigid internal clock on the charged state under the stated drive tests. Audit Fable's circulation route; a mean current or supplied phase is not an oscillation.",
+      "prior_local_status": "partial_support",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 4
+    },
+    {
+      "id": 4,
+      "criterion": "Particle stability (Derrick escape)",
+      "literal_gate": "the particle state persists in free evolution",
+      "internal_validated": true,
+      "work_state": "internally_validated",
+      "worker": "Fable + Codex independent full adjudications; Auditor root binding",
+      "priority": 6,
+      "targeted_gap": "Establish unforced persistence of the admitted particle state under the actual interacting source and declared enlargement/readout domain. Distinguish a stable localized excitation from a flat code mode or finite-volume recurrence.",
+      "prior_local_status": "diagnostic_only",
+      "prior_full_criterion_met": false,
+      "evidence": [
+        "openwave-tuning/row_completion/ROW_04/VALIDATION.json"
+      ],
+      "lane_position": 2,
+      "active_phase": "Dressed-state residual improves; finite-time localization bound is vacuous.",
+      "pending_validation_receipt": "openwave-tuning/row_completion/ROW_04/VALIDATION.json"
+    },
+    {
+      "id": 5,
+      "criterion": "Magnetic moment \u03bc (g \u2248 2, magnetostatics)",
+      "literal_gate": "intrinsic magnetostatics: a stationary state sources a static dipole B from internal circulation, g \u2248 2; dipole Larmor response",
+      "internal_validated": false,
+      "work_state": "external_producer_running",
+      "worker": "Fable-B dressed magnetic moment producer",
+      "priority": 11,
+      "targeted_gap": "Construct a stationary dressed charged state, measure its intrinsic dipolar magnetic field, magnetic moment and Larmor response. The conditional Pauli identity alone does not determine that source or detector.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 4
+    },
+    {
+      "id": 6,
+      "criterion": "Angular momentum J (spin \u210f/2)",
+      "literal_gate": "field-carried J = \u210f/2 on the electron state",
+      "internal_validated": false,
+      "work_state": "external_producer_running",
+      "worker": "Fable-B field angular-momentum obligations",
+      "priority": 12,
+      "targeted_gap": "Compute the field-carried angular momentum of that same charged state with a physical rotation/readout dictionary. Retain spin-field correlations; a supplied spin matrix alone is insufficient.",
+      "prior_local_status": "diagnostic_only",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 4
+    },
+    {
+      "id": 7,
+      "criterion": "Spin-\u00bd statistics (720\u00b0 double cover)",
+      "literal_gate": "the field returns under a \u03c0 rotation while its frame needs 2\u03c0",
+      "internal_validated": true,
+      "work_state": "internally_validated",
+      "worker": "/root/charge_spin_lane",
+      "priority": 5,
+      "targeted_gap": "Audit the literal field/frame periods and the actual M5 precedent against the frozen flux-sector lifted rotations and native character instrument. Establish the phase-angle/frame dictionary, including failing flux mutations. Do not impose an exchange-statistics gate absent from the literal precedent.",
+      "prior_local_status": "diagnostic_only",
+      "prior_full_criterion_met": false,
+      "evidence": [
+        "openwave-tuning/row_completion/ROW_07/VALIDATION.json"
+      ],
+      "lane_position": 2,
+      "active_phase": "Two producer-independent full local field/frame criterion reviews accepted."
+    },
+    {
+      "id": 8,
+      "criterion": "Antimatter + annihilation",
+      "literal_gate": "pair annihilation to radiation; follow-on: positronium 2\u03b3/3\u03b3",
+      "internal_validated": false,
+      "work_state": "external_producer_running",
+      "worker": "Codex conditional radiation; Fable-B autonomous annex",
+      "priority": 13,
+      "targeted_gap": "Connect actual conjugate-pair removal to propagated radiation with a complete energy/record ledger on one source. Separate the literal annihilation gate from its stated positronium follow-on; do not count a static tape as radiation.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 5
+    },
+    {
+      "id": 9,
+      "criterion": "Neutrinos (neutral states)",
+      "literal_gate": "light charge-0 states released in decays",
+      "internal_validated": false,
+      "work_state": "queued",
+      "worker": "Neutral outgoing-excitation transfer after shared decay dynamics",
+      "priority": 19,
+      "targeted_gap": "Construct a light neutral outgoing excitation produced by the admitted decay dynamics, and measure its propagation and charge. A static neutral loop record is insufficient.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 7
+    },
+    {
+      "id": 10,
+      "criterion": "Neutrino oscillations (PMNS)",
+      "literal_gate": "3 flavors + oscillation; the PMNS angles",
+      "internal_validated": false,
+      "work_state": "external_producer_running",
+      "worker": "Fable ROW10 exact mixing menu; Fable-B handed ownership back",
+      "priority": 20,
+      "targeted_gap": "Derive three neutral flavors and their mixing/oscillation probabilities from one fixed source; audit the physical PMNS angle comparison and ancestry. Reject target-fitted mixing matrices and degenerate one-frequency surrogates.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 7
+    },
+    {
+      "id": 11,
+      "criterion": "Lepton mass spectrum (\u03bc, \u03c4)",
+      "literal_gate": "exactly 3 charged-lepton minima; ratios 1 : 207 : 3477",
+      "internal_validated": false,
+      "work_state": "running",
+      "worker": "Fable ROW11 sealed; Fable-B full review; root review queued",
+      "priority": 21,
+      "targeted_gap": "Derive exactly three charged-lepton minima and their mass ratios using the common scale. Audit X2b premises and search the executable theorem/model stack for a source-bound alternative to the retrospective phase/Koide register.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 7
+    },
+    {
+      "id": 12,
+      "criterion": "Quarks",
+      "literal_gate": "fractional charge as partial winding on a quark string",
+      "internal_validated": true,
+      "work_state": "internally_validated",
+      "worker": "Charge producer; Codex root and Maxwell independent full reviews",
+      "priority": 17,
+      "targeted_gap": "Construct fractional charge as a partial winding on a persistent quark string. Prove the relation to the electron charge unit; a normalization change or unbound triple does not supply the string.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [
+        "openwave-tuning/row_completion/ROW_12/VALIDATION.json"
+      ],
+      "lane_position": 6,
+      "accepted_alternatives": [
+        {
+          "candidate_id": "positive-color-Maxwell-spatial-rings-v1",
+          "receipt": "openwave-tuning/row_completion/ROW_12/POSITIVE_WINDING_VALIDATION.json",
+          "receipt_sha256": "20f34e95e8691f236271654e8b825df1378d2f0bb1b573d005ead1b5b161449b"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "criterion": "Baryons: bound state (p, n)",
+      "literal_gate": "a stable three-quark composite",
+      "internal_validated": true,
+      "work_state": "internally_validated",
+      "worker": "Charge producer; Auditor root and Codex species independent full reviews",
+      "priority": 18,
+      "targeted_gap": "Construct and test a stable three-quark composite under the same charge/string dynamics. Keep all breakup and recombination outcomes and compare with separated thresholds.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [
+        "openwave-tuning/row_completion/ROW_13/VALIDATION.json"
+      ],
+      "lane_position": 6,
+      "accepted_alternatives": [
+        {
+          "candidate_id": "positive-color-Maxwell-endpoint-native-v1",
+          "receipt": "openwave-tuning/row_completion/ROW_13/POSITIVE_FIELD_VALIDATION.json",
+          "receipt_sha256": "d382fba4e62d7e82d5cf3445b8f902a9a82f21209cb22b9aec68aeec15660749",
+          "actual_Maxwell_field_coupled": true
+        },
+        {
+          "candidate_id": "positive-color-Maxwell-spatial-rings-v1",
+          "receipt": "openwave-tuning/row_completion/ROW_13/POSITIVE_WINDING_VALIDATION.json",
+          "receipt_sha256": "b61211f1642d9f92e55e79080d3e34399a9efc22920f8bd4925f3babef8650db"
+        },
+        {
+          "candidate_id": "positive-Maxwell-actual-Lorentz-vacuum-contact-v1",
+          "receipt": "openwave-tuning/row_completion/ROW_13/POSITIVE_WEAK_VALIDATION.json",
+          "receipt_sha256": "01620aec716664888e4ba8da87f3cb8cfa9e84b782546fd5ccd1ca58ce7a3259"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "criterion": "Baryons: mass ordering + charge profile",
+      "literal_gate": "m_n > m_p; positive core, negative shell",
+      "internal_validated": false,
+      "work_state": "external_producer_running",
+      "worker": "Fable ROW14 ordering repair and profile; native postprocessing available",
+      "priority": 22,
+      "targeted_gap": "Identify distinct proton/neutron branches, their mass ordering and nontrivial radial charge profile in the bound composite source; use source-derived states rather than prescribed profiles.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 8
+    },
+    {
+      "id": 15,
+      "criterion": "Baryons: exact masses",
+      "literal_gate": "938.3 / 939.6 MeV from the field",
+      "internal_validated": false,
+      "work_state": "external_producer_running",
+      "worker": "Fable-B baryon-mass producer",
+      "priority": 23,
+      "targeted_gap": "Compute proton/neutron field energies with the single shared scale, propagate numerical errors, and compare 938.3/939.6 MeV without using them as inputs.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 8
+    },
+    {
+      "id": 16,
+      "criterion": "Deuteron (binding + quadrupole)",
+      "literal_gate": "m_d < m_p + m_n; the electric quadrupole moment",
+      "internal_validated": false,
+      "work_state": "external_producer_running",
+      "worker": "Fable-B native Weyl quadrupole repair",
+      "priority": 24,
+      "targeted_gap": "Construct a deuteron below the proton-plus-neutron threshold and measure its electric quadrupole in the same source. Retain finite-volume and excited-state uncertainty.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 8
+    },
+    {
+      "id": 17,
+      "criterion": "Nuclear structure (levels, halos)",
+      "literal_gate": "binding curve, levels, halo-nuclei lifetimes",
+      "internal_validated": false,
+      "work_state": "external_producer_running",
+      "worker": "Fable-B nuclear-structure producer",
+      "priority": 25,
+      "targeted_gap": "Derive nuclear binding and excitation records plus halo lifetimes from the common composite source, without supplying the target binding curve or decay rates.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 9
+    },
+    {
+      "id": 18,
+      "criterion": "Mesons (\u03c0, K)",
+      "literal_gate": "\u03c0/K states; strange decays (\u039b\u2070 \u2192 p + \u03c0\u207b)",
+      "internal_validated": false,
+      "work_state": "external_producer_running",
+      "worker": "Fable ROW18 strange channels; Fable-B handed ownership back",
+      "priority": 26,
+      "targeted_gap": "Identify pion/kaon states and strange decay channels, including Lambda0 -> p + pi-, with source-derived energies and complete outgoing records.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 9
+    },
+    {
+      "id": 19,
+      "criterion": "Dark matter candidate",
+      "literal_gate": "a stable neutral massive state",
+      "internal_validated": true,
+      "work_state": "internally_validated",
+      "worker": "Auditor root + independent Fable review",
+      "priority": 8,
+      "targeted_gap": "Audit Fable's conserved magnetic-cell-charge route as a stable neutral massive state. Derive its energy and localization on an admitted source, control harmonic/zero modes and supplied sector preparation.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [
+        "openwave-tuning/row_completion/ROW_19/VALIDATION.json"
+      ],
+      "lane_position": 3,
+      "active_phase": "Exact dark-factor native packet frozen; Maxwell-lane full static review passes, root reviewing.",
+      "pending_validation_receipt": "openwave-tuning/row_completion/ROW_19/VALIDATION.json",
+      "accepted_alternatives": [
+        {
+          "candidate_id": "same-positive-color-Maxwell-cell1-dark-optical-v1",
+          "receipt": "openwave-tuning/row_completion/ROW_19/POSITIVE_FIELD_VALIDATION.json",
+          "receipt_sha256": "15fd6994753a9228aac9d4d5104c069ebdd42d6dffd198996126524d7c32329b",
+          "same_physical_source_as_ROW13_alternative": true
+        },
+        {
+          "candidate_id": "native-local12:g-cal-CODATA2022:neutral-optical:isolated-anchor-v1",
+          "receipt": "openwave-tuning/row_completion/ROW_19/CALIBRATED_VALIDATION.json",
+          "receipt_sha256": "4fbd0c30da8bcf32c63d454c81876cebf0b0ee0e045f40f461b3907a6c8c1ad8"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "criterion": "Electric force (Coulomb 1/r, electrostatics)",
+      "literal_gate": "far-field 1/r potential at charge e; the strength (\u03b1) credited only when it follows from the model's own mechanism, never fitted",
+      "internal_validated": true,
+      "work_state": "internally_validated",
+      "worker": "Fable + Maxwell independent calibrated full reviews; Auditor root binding",
+      "priority": 3,
+      "targeted_gap": "Join the actual LOCAL12 static charge energy, controlled far-distance law and source-derived strength to native records. Reuse Codex root27 and DYN18/19; mixed two-charge differences cancel fixed-compensator one-body terms. Do not import an external 1/r potential.",
+      "prior_local_status": "diagnostic_only",
+      "prior_full_criterion_met": false,
+      "evidence": [
+        "openwave-tuning/row_completion/ROW_20/VALIDATION.json"
+      ],
+      "active_phase": "Bound held-sector candidate9b72856a; exact/native components pass; source-unit e and optional strength interpretation under independent review; no alpha credit.",
+      "lane_position": 1
+    },
+    {
+      "id": 21,
+      "criterion": "Lorentz covariance (+ Coulomb = EM)",
+      "literal_gate": "Lorentz-invariant action, no preferred frame; boosted states contract, c-limited",
+      "internal_validated": false,
+      "work_state": "external_producer_running",
+      "worker": "Fable-B dressed charge; Codex source/clock map",
+      "priority": 15,
+      "targeted_gap": "Establish a common Lorentz limit and boosted state observables for interacting matter and field with one clock and speed. Quantify lattice anisotropy, cutoff/doublers and preferred-frame observables within the declared refinement domain.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 5
+    },
+    {
+      "id": 22,
+      "criterion": "Strong force: confinement",
+      "literal_gate": "linear inter-charge potential, ~1 GeV/fm (Cornell)",
+      "internal_validated": false,
+      "work_state": "external_partial_complete",
+      "worker": "Fable-B and Codex force review; strength gap",
+      "priority": 16,
+      "targeted_gap": "Derive a linear inter-charge potential and its physical strength at the shared scale, with actual persistent color/string objects. Distinguish finite integer-flux string energy from color confinement and from frozen-field artifacts.",
+      "prior_local_status": "diagnostic_only",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 6
+    },
+    {
+      "id": 23,
+      "criterion": "Running coupling",
+      "literal_gate": "coupling varies with scale (onset at the core radius)",
+      "internal_validated": false,
+      "work_state": "external_producer_running",
+      "worker": "Fable-B response; Fable screening opposing reviews",
+      "priority": 14,
+      "targeted_gap": "Extract a scale-dependent coupling from one fixed interaction source and detector, including core crossover and error bars. Separate preparation/temperature/cutoff changes from physical running.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 5
+    },
+    {
+      "id": 24,
+      "criterion": "Weak force: muon decay",
+      "literal_gate": "\u03bc relaxes to e + neutral ejecta",
+      "internal_validated": false,
+      "work_state": "external_producer_running",
+      "worker": "Fable ROW24 candidate and Fable-B independent review",
+      "priority": 27,
+      "targeted_gap": "Identify a heavier charged state and derive relaxation to the electron plus neutral outgoing excitations. A supplied reset or heating under measurement is not muon decay.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 9
+    },
+    {
+      "id": 25,
+      "criterion": "Weak force: beta decay (n \u2192 p)",
+      "literal_gate": "n \u2192 p + e + \u03bd\u0304, parity-violating (needs a neutron)",
+      "internal_validated": false,
+      "work_state": "waiting_common_dynamics",
+      "worker": "Codex native CAR/weak; neutron/outgoing transfer pending",
+      "priority": 28,
+      "targeted_gap": "Construct neutron -> proton + electron + antineutrino with a parity-violating event statistic on the same source. Audit exact mirror symmetries before claiming a weak interaction.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 10
+    },
+    {
+      "id": 26,
+      "criterion": "Gravity: Newton limit (GEM)",
+      "literal_gate": "attractive 1/r\u00b2 between masses, via the GEM route; the strength (G) credited only when it follows from the model's own mechanism, never fitted",
+      "internal_validated": false,
+      "work_state": "external_producer_running",
+      "worker": "Fable/Fable-B entropy and typed-preference sources; Codex metric audit",
+      "priority": 29,
+      "targeted_gap": "Derive a mass-even attractive inverse-square response and its strength from the actual process; audit X1b and geometry-changing mechanisms. Separate electric-sign attraction and preparation offsets from gravity.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 10
+    },
+    {
+      "id": 27,
+      "criterion": "Gravity: local metric phenomena",
+      "literal_gate": "light bending, gravitational time dilation / Shapiro delay",
+      "internal_validated": false,
+      "work_state": "external_producer_running",
+      "worker": "Fable/Fable-B gravity clock and metric; Codex conditional audit",
+      "priority": 30,
+      "targeted_gap": "Derive light bending, clock dilation and Shapiro delay from the same endogenous source/metric dictionary. A supplied rate profile cannot validate the mechanism.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 10
+    },
+    {
+      "id": 28,
+      "criterion": "Cosmology: \u039b / cosmic acceleration",
+      "literal_gate": "\u039b from the model's own mechanism, never fitted; every remaining gap and a falsification named",
+      "internal_validated": false,
+      "work_state": "external_partial_complete",
+      "worker": "Fable ROW_28; capacity/amplitude gap",
+      "priority": 31,
+      "targeted_gap": "Derive cosmological acceleration and its amplitude from the source, with explicit gaps and falsifier. Audit the free screen-capacity parameter and supplied background history; do not fit Lambda.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 11
+    },
+    {
+      "id": 29,
+      "criterion": "EM waves (Maxwell)",
+      "literal_gate": "Maxwell recovered; transverse waves at c",
+      "internal_validated": true,
+      "work_state": "internally_validated",
+      "worker": "/root/maxwell_lane",
+      "priority": 2,
+      "targeted_gap": "Complete the native quantum field -> controlled Maxwell limit -> transverse wave/readout chain with the common matter speed. Reuse DYN16/19/20 and the size3 native compiler; retain harmonics, padding, errors and supplied-input ancestry.",
+      "prior_local_status": "blocked",
+      "prior_full_criterion_met": false,
+      "evidence": [
+        "openwave-tuning/row_completion/ROW_29/VALIDATION.json"
+      ],
+      "active_phase": "Two producer-independent complete Maxwell criterion reviews accepted on the radiative source domain.",
+      "lane_position": 1,
+      "accepted_alternatives": [
+        {
+          "candidate_id": "native-local12-calibrated-Q0-L262144-v1",
+          "receipt": "openwave-tuning/row_completion/ROW_29/COMMON_MEMBER_VALIDATION.json",
+          "receipt_sha256": "ea59b09f3cafbdfcf4f62b9651cb3d2f4b55bdab074c007996585dcc99d654c7"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "criterion": "Quantum wave equation (Klein-Gordon)",
+      "literal_gate": "emergent \u03c9\u00b2 = k\u00b2 + m\u00b2 for matter waves",
+      "internal_validated": true,
+      "work_state": "internally_validated",
+      "worker": "/root/maxwell_lane",
+      "priority": 4,
+      "targeted_gap": "Derive the actual matter-wave Klein-Gordon dispersion with common clock, spatial dimension and controlled refinement. Reuse Codex26 and Fable W16; retain flat bands and measurement-schedule effects.",
+      "prior_local_status": "partial_support",
+      "prior_full_criterion_met": false,
+      "evidence": [
+        "openwave-tuning/row_completion/ROW_30/VALIDATION.json"
+      ],
+      "lane_position": 2,
+      "active_phase": "Codex candidate frozen; two independent Codex full-row reviews active.",
+      "accepted_alternatives": [
+        {
+          "candidate_id": "native-local12-calibrated-Q0-L262144-v1",
+          "receipt": "openwave-tuning/row_completion/ROW_30/COMMON_MEMBER_VALIDATION.json",
+          "receipt_sha256": "dd43900a748a98238f2353589ffe3a29086ce4c7cf85150aa908f9fced363846"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "criterion": "Orbital quantization (atomic structure)",
+      "literal_gate": "hydrogen-like discrete levels from standing waves",
+      "internal_validated": false,
+      "work_state": "external_partial_complete",
+      "worker": "Maxwell6400730e spectral reduction; Fable-B opposing theorem review; native orbitals open",
+      "priority": 9,
+      "targeted_gap": "Produce hydrogen-like standing-wave levels from the source's own charge interaction. Audit the executed orbital packet and replace its supplied potential with the shared field response; control reduction errors and all s/p/d levels.",
+      "prior_local_status": "diagnostic_only",
+      "prior_full_criterion_met": false,
+      "evidence": [],
+      "lane_position": 3
+    }
+  ],
+  "work_counts": {
+    "internally_validated": 10,
+    "external_partial_complete": 4,
+    "external_producer_running": 14,
+    "queued": 1,
+    "running": 1,
+    "waiting_common_dynamics": 1
+  },
+  "current_common_work": {
+    "root": "Bound calibrated2/19 and weak13 alternatives; hstar15dd complete; conditional rare-readout60d; independent UM1 source/axial/unit audit",
+    "charge_spin_lane": "Occupied160-state weak/positive-field source018b frozen; fresh current-history/native terminal budget",
+    "interacting_lane": "Weak13 full6f4b frozen; independent occupied160-state source/domain/Gauss audit",
+    "maxwell_lane": "Weak13 fullfc1e8 frozen; independent rare binary-reference/history theorem audit"
+  }
+}

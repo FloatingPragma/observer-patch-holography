@@ -1,0 +1,125 @@
+{
+  "stage": "first refinement confirmatory execution",
+  "utc": "2026-11-15T16:47:37.293189+00:00",
+  "command": "python3 -B refinement/experiment.py",
+  "exit_code": 0,
+  "elapsed_seconds": 2.1069317079964094,
+  "freeze_sha256": "d13b6dbecdc1c62a935343b5b139c5d6c3fb7697cbe60fdd1306e56ad9156cc4",
+  "stdout_sha256": "48e8912fc8edbdf1b5be010d2fbbb2e2e1d2086909982242b8ddc35483d94fa1",
+  "native_calls": 62268,
+  "rows": [
+    {
+      "k": 0,
+      "predicted_frequency": 0.9272952180016122,
+      "decoded_frequency_error_from_prediction": 0.0,
+      "selected_positive_mode_fidelity": 0.9976303234811674,
+      "gates": {
+        "alias_excluded_by_uniform_bound": true,
+        "heldout_reader": true,
+        "pair_direct": true,
+        "positive_mode": true,
+        "probability_complete": true,
+        "reader_prediction": true,
+        "source_bound": true,
+        "work_phase": true
+      }
+    },
+    {
+      "k": 1,
+      "predicted_frequency": 0.9020536235925248,
+      "decoded_frequency_error_from_prediction": 3.3306690738754696e-16,
+      "selected_positive_mode_fidelity": 0.9974808551224854,
+      "gates": {
+        "alias_excluded_by_uniform_bound": true,
+        "heldout_reader": true,
+        "pair_direct": true,
+        "positive_mode": true,
+        "probability_complete": true,
+        "reader_prediction": true,
+        "source_bound": true,
+        "work_phase": true
+      }
+    },
+    {
+      "k": 2,
+      "predicted_frequency": 0.896301141207277,
+      "decoded_frequency_error_from_prediction": 1.6653345369377348e-15,
+      "selected_positive_mode_fidelity": 0.9961121606025736,
+      "gates": {
+        "alias_excluded_by_uniform_bound": true,
+        "heldout_reader": true,
+        "pair_direct": true,
+        "positive_mode": true,
+        "probability_complete": true,
+        "reader_prediction": true,
+        "source_bound": true,
+        "work_phase": true
+      }
+    },
+    {
+      "k": 3,
+      "predicted_frequency": 0.8948936948144265,
+      "decoded_frequency_error_from_prediction": 3.3306690738754696e-15,
+      "selected_positive_mode_fidelity": 0.9961560622053148,
+      "gates": {
+        "alias_excluded_by_uniform_bound": true,
+        "heldout_reader": true,
+        "pair_direct": true,
+        "positive_mode": true,
+        "probability_complete": true,
+        "reader_prediction": true,
+        "source_bound": true,
+        "work_phase": true
+      }
+    },
+    {
+      "k": 4,
+      "predicted_frequency": 0.8945436938364216,
+      "decoded_frequency_error_from_prediction": -6.661338147750939e-16,
+      "selected_positive_mode_fidelity": 0.9961940931570397,
+      "gates": {
+        "alias_excluded_by_uniform_bound": true,
+        "heldout_reader": true,
+        "pair_direct": true,
+        "positive_mode": true,
+        "probability_complete": true,
+        "reader_prediction": true,
+        "source_bound": true,
+        "work_phase": true
+      }
+    },
+    {
+      "k": 5,
+      "predicted_frequency": 0.8944563090276472,
+      "decoded_frequency_error_from_prediction": 1.4432899320127035e-15,
+      "selected_positive_mode_fidelity": 0.9962052082789504,
+      "gates": {
+        "alias_excluded_by_uniform_bound": true,
+        "heldout_reader": true,
+        "pair_direct": true,
+        "positive_mode": true,
+        "probability_complete": true,
+        "reader_prediction": true,
+        "source_bound": true,
+        "work_phase": true
+      }
+    },
+    {
+      "k": 6,
+      "predicted_frequency": 0.8944344700269709,
+      "decoded_frequency_error_from_prediction": 1.4432899320127035e-15,
+      "selected_positive_mode_fidelity": 0.9962080857543718,
+      "gates": {
+        "alias_excluded_by_uniform_bound": true,
+        "heldout_reader": true,
+        "pair_direct": true,
+        "positive_mode": true,
+        "probability_complete": true,
+        "reader_prediction": true,
+        "source_bound": true,
+        "work_phase": true
+      }
+    }
+  ],
+  "second_band_keV": 625.8446292811019
+}

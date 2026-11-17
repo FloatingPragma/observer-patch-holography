@@ -1,0 +1,186 @@
+{
+  "L": 24,
+  "R": 1,
+  "radius": 4,
+  "cells": 257,
+  "effective_radius": 3.944102303918349,
+  "entropy": 13.799195006525185,
+  "unresolved_eigenvalues": 28,
+  "eigenvalue_floor": 1e-13,
+  "uniform_coframe_response": [
+    28.453142994622596,
+    2.072587955752514e-15
+  ],
+  "axis_responses": [
+    [
+      23.733510259292284,
+      5.115165460696565e-14
+    ],
+    [
+      23.733510259292398,
+      4.4538920841050874e-14
+    ],
+    [
+      23.73351025929259,
+      1.3356232083916213e-13
+    ]
+  ],
+  "proper_volume_first_derivative": 2.488675931999751e-12,
+  "curved_entropy_response": 5.429547799123412,
+  "planar_eta": 0.06779595762226844,
+  "smooth_sphere_area_response": 77.20410590206855,
+  "discrete_volume_sphere_area_response": 77.64077752871385,
+  "smooth_ratio": 1.037336032074784,
+  "discrete_volume_ratio": 1.031501788434754,
+  "same_ball_bulk_coefficient": 1117.6908640366098,
+  "continuum_bulk_coefficient": 1273.7704182040359,
+  "bulk_ratio": 0.8774664947962194,
+  "uniform_full_H_scaling_control": 6.119081012739839e-17,
+  "full_Einstein_criterion": false,
+  "exact_radial": {
+    "introduced_after_cosine_diagnostics": true,
+    "profile": "periodic signed-coordinate r^2 minus regional mean r^2",
+    "axis_symmetry_defect": 3.164524640274873e-13,
+    "regional_mean_r2": 9.29182879377432,
+    "proper_volume_first_derivative": -6.394884621840902e-13,
+    "entropy_response": 174.99944327120198,
+    "smooth_fixed_volume_area_prediction": 164.92873802919667,
+    "discrete_volume_area_prediction": 166.03500818064632,
+    "smooth_ratio": 1.0610609488821927,
+    "discrete_volume_ratio": 1.053991234672644,
+    "modes": [
+      {
+        "n": 1,
+        "coefficient": [
+          -29.347740270490522,
+          -8.97430278238668e-16
+        ],
+        "response": [
+          23.733510259292284,
+          5.115165460696565e-14
+        ]
+      },
+      {
+        "n": 2,
+        "coefficient": [
+          7.464101615137754,
+          7.401486830834377e-17
+        ],
+        "response": [
+          12.691408249292916,
+          4.549280191240362e-14
+        ]
+      },
+      {
+        "n": 3,
+        "coefficient": [
+          -3.4142135623730945,
+          -9.25185853854297e-16
+        ],
+        "response": [
+          1.920492916969227,
+          -4.564250212347865e-15
+        ]
+      },
+      {
+        "n": 4,
+        "coefficient": [
+          2.0,
+          0.0
+        ],
+        "response": [
+          -3.705621513751556,
+          -2.0852147169452765e-14
+        ]
+      },
+      {
+        "n": 5,
+        "coefficient": [
+          -1.349198186208549,
+          -1.0362081563168126e-15
+        ],
+        "response": [
+          -3.8582632478442322,
+          -7.78492496804288e-15
+        ]
+      },
+      {
+        "n": 6,
+        "coefficient": [
+          1.0,
+          0.0
+        ],
+        "response": [
+          -1.3141615699731617,
+          -9.3950695988375e-15
+        ]
+      },
+      {
+        "n": 7,
+        "coefficient": [
+          -0.7943953532404322,
+          -1.1842378929335002e-15
+        ],
+        "response": [
+          1.0502846661504406,
+          -4.5475197681573335e-14
+        ]
+      },
+      {
+        "n": 8,
+        "coefficient": [
+          0.6666666666666666,
+          0.0
+        ],
+        "response": [
+          1.9088864293221195,
+          -1.2614575022411671e-13
+        ]
+      },
+      {
+        "n": 9,
+        "coefficient": [
+          -0.5857864376269039,
+          4.48715139119334e-16
+        ],
+        "response": [
+          1.4686904738152766,
+          -2.0916030770793773e-13
+        ]
+      },
+      {
+        "n": 10,
+        "coefficient": [
+          0.5358983848622456,
+          -3.700743415417188e-17
+        ],
+        "response": [
+          0.5742898743502994,
+          -2.486317479060634e-13
+        ]
+      },
+      {
+        "n": 11,
+        "coefficient": [
+          -0.508666190060499,
+          -5.0197122775135124e-17
+        ],
+        "response": [
+          -0.11588992464475983,
+          -1.7707877345521886e-13
+        ]
+      },
+      {
+        "n": 12,
+        "coefficient": [
+          0.5,
+          0.0
+        ],
+        "response": [
+          -0.3568091332269419,
+          -8.94667570480631e-17
+        ]
+      }
+    ]
+  }
+}

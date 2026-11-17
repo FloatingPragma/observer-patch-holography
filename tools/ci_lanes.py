@@ -330,19 +330,17 @@ LANES: tuple[Lane, ...] = (
          env=BLAS1),
     lane("model_finite_observables", "push", "root", 1,
          "python -m pytest -q -W error model/charged_composite_search model/quadratic_conservation "
-         "model/prepared_regional_entropy model/completion/test_finite_observable_campaign.py",
+         "model/prepared_regional_entropy",
          "python -W error -m model.charged_composite_search --check",
          "python -W error -m model.quadratic_conservation --check",
-         "python -W error -m model.prepared_regional_entropy --check",
-         "python -W error -m model.completion.finite_observable_campaign --check", env=BLAS1),
+         "python -W error -m model.prepared_regional_entropy --check", env=BLAS1),
     lane("model_native_observations", "push", "root", 7,
          "python -m pytest -q -W error model/composite_spatial_response model/native_composite_probe "
-         "model/interacting_observation_process model/native_regional_modular model/completion/test_native_observation_campaign.py",
+         "model/interacting_observation_process model/native_regional_modular",
          "python -W error -m model.composite_spatial_response --check",
          "python -W error -m model.native_composite_probe --check",
          "python -W error -m model.interacting_observation_process --check",
-         "python -W error -m model.native_regional_modular --check",
-         "python -W error -m model.completion.native_observation_campaign --check", env=BLAS1),
+         "python -W error -m model.native_regional_modular --check", env=BLAS1),
 
     # ------------------------------------------------------------------
     # Push tier, model requirements (model/requirements.txt).

@@ -1,0 +1,37 @@
+{
+  "source": "openwave-tuning/CODEX_FABLE_SYNC.md",
+  "snapshot_utc": "2026-11-14T17:25:24.688000+00:00",
+  "source_sha256": "b5cd5990352edb9d9998736cd385ef9d6ed5d323f82bd456594bf873f891bd87",
+  "entries": [
+    {
+      "source_line": 3993,
+      "text": "PREREG row 31 b89c1f93eb05a6a1b90ab87bb584954f33fa46f899bcbb8dd2053098d35caf2d openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding/PREREG.json | 2026-11-14T16:56:47.005658+00:00; MFR-native-probe-binding registered, all frozen leaves verified before execution; declared apparatus and complete outcomes; no full-row award."
+    },
+    {
+      "source_line": 4043,
+      "text": "SEAL row 31 b852667d89897adf4d835b024938c0f6ef6be433ad2acca8908508c677e073b2 openwave/row_31_orbital_levels/work/2026-11-14_codex_probe_binding | 2026-11-14T17:09:57.614747+00:00; positive source component, full outcome/cost and source-reference scope retained; no full-row award."
+    },
+    {
+      "source_line": 4047,
+      "text": "REVIEW row31 b852667d89897adf4d835b024938c0f6ef6be433ad2acca8908508c677e073b2 c4d6bc0da9df7c5c1cbe22c02291ac31b62ec08aec8d02b0fac8c74dbfa1bf35 no_blocker openwave/row_31_orbital_levels/reviews/20261114_codex_read_order_probe_binding | 2026-11-14T17:09:57.614747+00:00; all305157 source calls independently replayed, cap addendum retained; same-group, no G6."
+    },
+    {
+      "source_line": 4051,
+      "text": "SEAL row31 5cb65bdd39e0e92715cbeb841b2dece179b1b8da5648103e2d944882ee256355 openwave/row_31_orbital_levels/work/2026-11-14_codex_coulomb_limit | 2026-11-14T17:11:27.919033+00:00; theorem-only native probe feedback Coulomb spectral/standing-mode limit; finite shell multiplicities and source coefficient, no new production run."
+    },
+    {
+      "source_line": 4053,
+      "text": "REVIEW row31 5cb65bdd39e0e92715cbeb841b2dece179b1b8da5648103e2d944882ee256355 cc9496cf5f32cbe90965f9a002b0b189ace3364ac7d6d4d0c4a51928c55c8651 no_blocker openwave/row_31_orbital_levels/reviews/20261115_codex_root_coulomb_limit | 2026-11-14T17:11:27.919033+00:00; independent same-group written spectral proof and primary Green theorem check; no G6."
+    },
+    {
+      "source_line": 4069,
+      "text": "PREREG row31 production 1f8fa5e20db32127636a30b7288d489f011bb15df08c71f21a2d4c899e3a9afe openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/PREREG.json | 2026-11-14T17:16:01.640942+00:00; existing registered MFR-native-probe-binding global production mode; complete main/probe/reset/hold fields and clocks, all frozen inputs verified before source execution."
+    },
+    {
+      "source_line": 4107,
+      "text": "PREREG row31 production-amendment 1ee9f7d8fa6acedafbbd5c3f5a8a13af6ead47b4dd49303080cb8f983cb257bd openwave/row_31_orbital_levels/work/2026-11-14_codex_production_field/PREREG.json | 2026-11-14T17:22:13.120785+00:00; projector-view mutation failure retained under09e216ace...; explicit copies and independent polynomial-projector checks, source/seeds/scientific gates unchanged; before retry."
+    }
+  ],
+  "new_native_experiment": false,
+  "scope": "standalone assembly and reproduction; full initial failure and preregistered amendment retained"
+}

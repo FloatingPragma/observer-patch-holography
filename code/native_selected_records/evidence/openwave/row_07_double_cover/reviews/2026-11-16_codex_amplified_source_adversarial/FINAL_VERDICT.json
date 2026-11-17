@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "external_G6": false,
+  "cases": 256,
+  "source_index": "9a2fc39dcc8637c3d21ff9df873079e64787dfbeff4df5662a8d410028c14811",
+  "record_audit": "4157dd03ff69dd1c1a4fe590506a49e96c590d288e41504c1285c4790195a4b8",
+  "minimum_native_nominal_selected_cost_given_entry": 0.03305905697453139,
+  "maximum_record_audit_discrepancy": 1.1091239038307776e-11,
+  "independently_recomputed_original_scientific_gates_pass": true,
+  "lowest_positive_adaptive_control_minus": 9.805726675006057e-48,
+  "counts": {
+    "preparation_flags": 3328,
+    "counter_bins": 65024,
+    "decoder_flags": 154,
+    "marker_literal_events": 5603328,
+    "target_flags": 18874368,
+    "full_outer_crossblocks": 147456,
+    "ramsey_binary_laws": 34816,
+    "returned_counter_bins": 1306624,
+    "cases": 256
+  },
+  "execution_seconds": {
+    "full_record_audit": 264.55527062500187,
+    "first_workspace_signed_bridge": 23.26418508400093,
+    "optimized_workspace_readonly_replay": 12.198663083006977,
+    "optimized_phase_readonly_replay": 0.30839866600581445,
+    "scientific_mutation_processes": 68.20394962499267
+  },
+  "mutant_processes": 16,
+  "additional_saved_verdict_mutation_rejected": true,
+  "limitations": "Finite declared coherent source and apparatus; no external G6 or official award. Full common-source/pair interval inference binds separate parent packets.",
+  "additional_saved_verdict_mutants": 3,
+  "record_calculation_AST_unchanged_by_verdict_repair": true
+}

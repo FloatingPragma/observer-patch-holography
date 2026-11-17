@@ -1,0 +1,14 @@
+{
+  "label": "job_02_scientific_predicate",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "check.py"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_02_electron_rest_energy/work/2026-11-15_codex_native_work_vacuum/check.py\", line 35, in <module>\n    require(not (len(old['source_records'])==30 and len(old['negative_source_records'])==30),'full source columns')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_02_electron_rest_energy/work/2026-11-15_codex_native_work_vacuum/check.py\", line 20, in require\n    if not ok:raise AssertionError(label)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: full source columns\n",
+  "expected_success": false,
+  "passed": true,
+  "seconds": 0.2814602919970639
+}

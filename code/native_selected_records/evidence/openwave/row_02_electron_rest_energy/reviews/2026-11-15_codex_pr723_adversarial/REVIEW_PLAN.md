@@ -1,0 +1,3 @@
+# Independent same-group adversarial review plan
+
+Review only. Producer files remain untouched. Recompute original compact unread evolution from the graph with separate endpoint arithmetic; recover source-controller kernels and work/return laws from individual native records; inspect and replay the opaque-source trajectory controller; reconstruct source state and choices from record history independently. Check equilibrium versus finite burn-in scope, all costs and failures, zero-rest-energy obstruction, and the stated physical limitations. Exercise false-summary and actual-record mutations against the independent review script. Bind the final producer manifest when sealed. No G6/G9 award is available to this same-group reviewer.

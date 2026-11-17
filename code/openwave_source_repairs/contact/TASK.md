@@ -1,0 +1,3 @@
+# Execution contract
+
+Freeze this design, amendment, source snapshots, inputs and all executable scripts before the corrected full execution. Run audit.py --record, retain complete actions and outcomes, then independent_check.py (no producer imports) and a clean headline replay. Exact rejection gates are DESIGN.md and the source checks. Any failure must remain recorded before another amendment. The prior failed preparation is not overwritten. The unchanged complete chart has57361 valid and8175 invalid coordinates. The literal prepared run has30240 body endpoint calls,18 local table calls and8 detector calls. Every one of82575360 full-domain event columns is enumerated; this is not a literal-call count.

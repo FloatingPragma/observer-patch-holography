@@ -1,0 +1,21 @@
+{
+  "reviewer": "Codex MFR rows29-31 agent",
+  "party": "Codex MFR",
+  "kind": "same-group mathematical review",
+  "reviewed_utc": "2026-11-14T16:15:01.316928+00:00",
+  "source": "openwave/shared/native_occupation_fluctuation_limit/PROOF.md",
+  "source_sha256": "33429121eec7cf7b80f0a70bdbceba12b4a26522bf172e7437c083f5e915d3b4",
+  "scope": "Sections1-8, written finite-dimensional and Gaussian-limit arguments; no run review",
+  "blocking_findings": [],
+  "G6_pass": false,
+  "checks": [
+    "Native one-unit symmetric positive transfer and uniform reference",
+    "Exact finite covariance and z(1-z^n) remainder",
+    "46/(5n) twelve-port conservative bound",
+    "Analytic eigenvalue derivatives and joint mixed-moment Gaussian limit",
+    "Independent native zero-load coin completion removes Pi/(4W)",
+    "Rooted pseudoinverse equals grounded inverse; ||D||^2=M",
+    "Finite Dirichlet scalar bond-reflection expansion"
+  ],
+  "nonblocking_note": "The absolute-majorant justification in section8 uses nonpositive Laplacian off-diagonal entries, x^T A x >= |x|^T A |x|, then positivity of the Dirichlet form; make that step explicit if desired."
+}

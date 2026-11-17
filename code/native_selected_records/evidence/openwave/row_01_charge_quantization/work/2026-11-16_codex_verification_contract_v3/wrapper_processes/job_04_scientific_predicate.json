@@ -1,0 +1,14 @@
+{
+  "label": "job_04_scientific_predicate",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "check.py"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_native_word_continuum/check.py\", line 14, in <module>\n    assert not (np.max(abs(values-np.array([0.,4.,6.])))<1e-12)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "expected_success": false,
+  "passed": true,
+  "seconds": 0.18508920801104978
+}

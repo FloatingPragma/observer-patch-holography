@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-15T20:03:59.596889+00:00",
+  "kind": "Known-result complete-source and quantum binding verification",
+  "files": {
+    "bind_quantum.py": "20680814b0557dff0a04d932ebb4e0ea00d0f3a9ae60b0670d6dc7dc8fa462a1",
+    "PROOF.md": "d9f941c0b2d83dfef8670fb7c24e888034babe4ebe6cb84353d48bb6ede609c5",
+    "SOURCE_JOIN.json.gz": "39358cb4cd7eecedfcc6c58832d3c87e51f14e9405a32309b9e3c6be80e3470b"
+  },
+  "command": "python3 -B bind_quantum.py --record-to QUANTUM_BINDING.json",
+  "discovery_claimed": false
+}

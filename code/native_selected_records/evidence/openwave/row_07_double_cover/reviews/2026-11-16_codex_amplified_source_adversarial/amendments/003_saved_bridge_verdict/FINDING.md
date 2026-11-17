@@ -1,0 +1,1 @@
+Review of our default comparison found it overwrote the saved numerical residual without first enforcing its bound. The new comparison validates the saved residual before normalizing it for replay. This does not alter calculations or recorded evidence. No saved input/source changes.

@@ -1,0 +1,2 @@
+# Row25 scope
+“n -> p + e + anti-nu, parity-violating (needs a neutron)” remains absent here. The written result gives a positive native spin-transport source candidate and its exact full-sector parity on even tori. It rules out the specific single-cone parity inference while retaining positive conditional source-spin results from the existing stack. Physical spin/chirality, neutron/proton operators, the common decay interaction and accepted platform evidence remain open. No general no-go for parity-breaking native architectures is asserted.

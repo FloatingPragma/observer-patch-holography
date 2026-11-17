@@ -1,0 +1,16 @@
+{
+  "label": "job_14_scientific_predicate",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "independent.py",
+    "--k",
+    "0"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_01_charge_quantization/work/2026-11-16_codex_common_refinement_family/independent.py\", line 286, in <module>\n    args=parser.parse_args();print(json.dumps(run(args.folder,args.k),indent=2,sort_keys=True))\n                                              ~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_01_charge_quantization/work/2026-11-16_codex_common_refinement_family/independent.py\", line 115, in run\n    g=graphs[r['M']];n=g['core_N'];initial,post=current_reader(r,n,g['core']);readings+=1\n                                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_01_charge_quantization/work/2026-11-16_codex_common_refinement_family/independent.py\", line 56, in current_reader\n    close(before,np.rint(before),1e-9);before=np.rint(before).astype(int)\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_01_charge_quantization/work/2026-11-16_codex_common_refinement_family/independent.py\", line 19, in close\n    assert not (error<tol),error\n           ^^^^^^^^^^^^^^^\nAssertionError: 0.0\n",
+  "expected_success": false,
+  "passed": true,
+  "seconds": 0.7843706249987008
+}

@@ -1,0 +1,14 @@
+{
+  "label": "reservoir_primary_gate",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "headline.py"
+  ],
+  "exit_code": 1,
+  "stdout": "{\n  \"calibrated_unit\": 1,\n  \"candidate\": \"A-native-vacuum-reservoir-units-v1\",\n  \"checks\": {\n    \"all_initial_states_recovered\": true,\n    \"all_native_bodies_select_units_by_burn\": true,\n    \"all_readings_conclusive\": true,\n    \"calibration_nonzero\": true,\n    \"conditional_transport_prediction\": true,\n    \"control_retains_multiloads\": true,\n    \"control_transports_larger_than_calibrated_unit\": true,\n    \"native_heldout_currents_are_zero_or_calibrated_unit\": true\n  },\n  \"control_body_calls\": 377856,\n  \"control_histories\": 36,\n  \"evidence_sha256\": \"6998ccb93e06d58638107a7e1132237065680ce6aa7d56562bab037af2d5ae7d\",\n  \"heldout_conditional_expected\": \"241106/57\",\n  \"heldout_nonzero_observed\": 4211,\n  \"heldout_trials\": 73728,\n  \"martingale_alpha\": 1e-06,\n  \"martingale_threshold\": 731.3324544097279,\n  \"native_body_calls\": 377856,\n  \"native_census_calls\": 207084,\n  \"native_first_unit_max\": 4641,\n  \"native_histories\": 36,\n  \"native_local_calls\": 148,\n  \"native_probe_calls\": 6330,\n  \"passed\": true,\n  \"physical_row_award\": false,\n  \"same_group\": true\n}\n",
+  "stderr": "Traceback (most recent call last):\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_01_charge_quantization/work/2026-11-15_codex_pr723_vacuum_reservoir/headline.py\", line 23, in <module>\n    assert not (receipt['passed'])\n           ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "expected_success": false,
+  "passed": true,
+  "seconds": 13.5627465830039
+}

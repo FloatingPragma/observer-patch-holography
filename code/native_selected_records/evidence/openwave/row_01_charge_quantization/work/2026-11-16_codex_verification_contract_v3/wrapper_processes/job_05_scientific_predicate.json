@@ -1,0 +1,14 @@
+{
+  "label": "job_05_scientific_predicate",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "headline.py"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_07_double_cover/work/2026-11-15_codex_subdivided_rotation/headline.py\", line 123, in <module>\n    assert not (visibility < 0 if law == \"native\" and turns == 1 else visibility > 0)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "expected_success": false,
+  "passed": true,
+  "seconds": 0.07387466600630432
+}

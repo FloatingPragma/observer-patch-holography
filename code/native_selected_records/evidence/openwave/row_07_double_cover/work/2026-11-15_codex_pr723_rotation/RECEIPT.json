@@ -1,0 +1,1483 @@
+{
+  "G6_awarded": false,
+  "G9_awarded": false,
+  "all_diagnostic_checks": true,
+  "candidate": "A-signed-record-rotation-audit-v1",
+  "changed_law_calls": 15960,
+  "checks": {
+    "alternate_law_changes_magnitudes": true,
+    "alternate_law_keeps_old_return_claim": true,
+    "complete_branch_rows": true,
+    "hold_retains_antipodal_distinction": true,
+    "native_finite_time_mean_transfer_invertible": true,
+    "native_formulas_reproduced": true,
+    "phase_detector_sees_negative_plant": true,
+    "positive_port_lift_has_no_spinor_sign": true
+  },
+  "dynamics": {
+    "hold": {
+      "antipodal_difference_active_radius": 1.0,
+      "any_candidate_window": false,
+      "axis_difference_active_radius": 1.0,
+      "checkpoints": [
+        {
+          "antipodal_total_variation": 1.0,
+          "attempts": 1,
+          "axis_total_variation_after_explicit_even_projection": 1.0,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 1.0,
+          "attempts": 2,
+          "axis_total_variation_after_explicit_even_projection": 1.0,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 1.0,
+          "attempts": 4,
+          "axis_total_variation_after_explicit_even_projection": 1.0,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 1.0,
+          "attempts": 8,
+          "axis_total_variation_after_explicit_even_projection": 1.0,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 1.0,
+          "attempts": 16,
+          "axis_total_variation_after_explicit_even_projection": 1.0,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 1.0,
+          "attempts": 32,
+          "axis_total_variation_after_explicit_even_projection": 1.0,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 1.0,
+          "attempts": 64,
+          "axis_total_variation_after_explicit_even_projection": 1.0,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 1.0,
+          "attempts": 128,
+          "axis_total_variation_after_explicit_even_projection": 1.0,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 1.0,
+          "attempts": 256,
+          "axis_total_variation_after_explicit_even_projection": 1.0,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 1.0,
+          "attempts": 512,
+          "axis_total_variation_after_explicit_even_projection": 1.0,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 1.0,
+          "attempts": 1024,
+          "axis_total_variation_after_explicit_even_projection": 1.0,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        }
+      ],
+      "largest_transient_eigenvalue": 1.0,
+      "numerical_zero_policy": "numbers below resolution are not exact identifications; use PROOF.md",
+      "smallest_transient_eigenvalue": 1.0
+    },
+    "move_always": {
+      "antipodal_difference_active_radius": 0.907868932583,
+      "any_candidate_window": false,
+      "axis_difference_active_radius": 0.832724241024,
+      "checkpoints": [
+        {
+          "antipodal_total_variation": 1.0,
+          "attempts": 1,
+          "axis_total_variation_after_explicit_even_projection": 0.933333333333,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 1.0,
+          "attempts": 2,
+          "axis_total_variation_after_explicit_even_projection": 0.844444444444,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 0.96237037037,
+          "attempts": 4,
+          "axis_total_variation_after_explicit_even_projection": 0.649718518519,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 0.771288121201,
+          "attempts": 8,
+          "axis_total_variation_after_explicit_even_projection": 0.336060412254,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 0.388199177393,
+          "attempts": 16,
+          "axis_total_variation_after_explicit_even_projection": 0.0744715630718,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 0.0838313108209,
+          "attempts": 32,
+          "axis_total_variation_after_explicit_even_projection": 0.00334821204289,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 0.00380424762816,
+          "attempts": 64,
+          "axis_total_variation_after_explicit_even_projection": 8.96234265428e-06,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 7.82980157167e-06,
+          "attempts": 128,
+          "axis_total_variation_after_explicit_even_projection": 7.22514218593e-11,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 3.31676027789e-11,
+          "attempts": 256,
+          "axis_total_variation_after_explicit_even_projection": 1.04300248993e-16,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 5.37764277553e-17,
+          "attempts": 512,
+          "axis_total_variation_after_explicit_even_projection": 2.25514051877e-16,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 1.08420217249e-17,
+          "attempts": 1024,
+          "axis_total_variation_after_explicit_even_projection": 1.30104260698e-17,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        }
+      ],
+      "largest_transient_eigenvalue": 1.0,
+      "numerical_zero_policy": "numbers below resolution are not exact identifications; use PROOF.md",
+      "smallest_transient_eigenvalue": 0.517595468167
+    },
+    "native": {
+      "antipodal_difference_active_radius": 0.953934466292,
+      "any_candidate_window": false,
+      "axis_difference_active_radius": 0.905325191841,
+      "checkpoints": [
+        {
+          "antipodal_total_variation": 1.0,
+          "attempts": 1,
+          "axis_total_variation_after_explicit_even_projection": 0.966666666667,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 1.0,
+          "attempts": 2,
+          "axis_total_variation_after_explicit_even_projection": 0.927777777778,
+          "numerical_candidate_window": false,
+          "survival": 1.0
+        },
+        {
+          "antipodal_total_variation": 0.994685185185,
+          "attempts": 4,
+          "axis_total_variation_after_explicit_even_projection": 0.839349382716,
+          "numerical_candidate_window": false,
+          "survival": 0.998654320988
+        },
+        {
+          "antipodal_total_variation": 0.950974839079,
+          "attempts": 8,
+          "axis_total_variation_after_explicit_even_projection": 0.650730065778,
+          "numerical_candidate_window": false,
+          "survival": 0.986912577671
+        },
+        {
+          "antipodal_total_variation": 0.768959664546,
+          "attempts": 16,
+          "axis_total_variation_after_explicit_even_projection": 0.343851915274,
+          "numerical_candidate_window": false,
+          "survival": 0.931013023811
+        },
+        {
+          "antipodal_total_variation": 0.399990449466,
+          "attempts": 32,
+          "axis_total_variation_after_explicit_even_projection": 0.0780227903769,
+          "numerical_candidate_window": false,
+          "survival": 0.776195934682
+        },
+        {
+          "antipodal_total_variation": 0.0903003990964,
+          "attempts": 64,
+          "axis_total_variation_after_explicit_even_projection": 0.00336276774389,
+          "numerical_candidate_window": false,
+          "survival": 0.514973515315
+        },
+        {
+          "antipodal_total_variation": 0.00441732952055,
+          "attempts": 128,
+          "axis_total_variation_after_explicit_even_projection": 5.84323254895e-06,
+          "numerical_candidate_window": false,
+          "survival": 0.224808278037
+        },
+        {
+          "antipodal_total_variation": 1.05568244281e-05,
+          "attempts": 256,
+          "axis_total_variation_after_explicit_even_projection": 1.73132220501e-11,
+          "numerical_candidate_window": false,
+          "survival": 0.0428344806422
+        },
+        {
+          "antipodal_total_variation": 6.02951591828e-11,
+          "attempts": 512,
+          "axis_total_variation_after_explicit_even_projection": 1.94533821831e-16,
+          "numerical_candidate_window": false,
+          "survival": 0.00155509129289
+        },
+        {
+          "antipodal_total_variation": 3.88580177856e-16,
+          "attempts": 1024,
+          "axis_total_variation_after_explicit_even_projection": 1.94289243549e-16,
+          "numerical_candidate_window": false,
+          "survival": 2.04965447093e-06
+        }
+      ],
+      "largest_transient_eigenvalue": 0.987131141597,
+      "numerical_zero_policy": "numbers below resolution are not exact identifications; use PROOF.md",
+      "smallest_transient_eigenvalue": 0.758797734083
+    }
+  },
+  "fine_turn": {
+    "all_133_columns": [
+      {
+        "all_columns_return": false,
+        "mean_minus_probability": 0.488721804511,
+        "steps_72_degrees": 1
+      },
+      {
+        "all_columns_return": false,
+        "mean_minus_probability": 0.488721804511,
+        "steps_72_degrees": 2
+      },
+      {
+        "all_columns_return": false,
+        "mean_minus_probability": 0.488721804511,
+        "steps_72_degrees": 3
+      },
+      {
+        "all_columns_return": false,
+        "mean_minus_probability": 0.488721804511,
+        "steps_72_degrees": 4
+      },
+      {
+        "all_columns_return": true,
+        "mean_minus_probability": 0.0,
+        "steps_72_degrees": 5
+      },
+      {
+        "all_columns_return": false,
+        "mean_minus_probability": 0.488721804511,
+        "steps_72_degrees": 6
+      },
+      {
+        "all_columns_return": false,
+        "mean_minus_probability": 0.488721804511,
+        "steps_72_degrees": 7
+      },
+      {
+        "all_columns_return": false,
+        "mean_minus_probability": 0.488721804511,
+        "steps_72_degrees": 8
+      },
+      {
+        "all_columns_return": false,
+        "mean_minus_probability": 0.488721804511,
+        "steps_72_degrees": 9
+      },
+      {
+        "all_columns_return": true,
+        "mean_minus_probability": 0.0,
+        "steps_72_degrees": 10
+      }
+    ],
+    "dephased_plant_minus_probability": 0.5,
+    "full_turn_minus_probability": 0.0,
+    "negative_phase_plant_minus_probability": 1.0,
+    "port_permutation": [
+      0,
+      7,
+      4,
+      3,
+      9,
+      1,
+      2,
+      10,
+      6,
+      8,
+      11,
+      5
+    ],
+    "status": "conditional comparator; no native analyzer or phase-generating intervention claimed",
+    "two_turn_minus_probability": 0.0
+  },
+  "memory_phase_used_by_classical_observables": false,
+  "moment_results": {
+    "hold": [
+      {
+        "covariance": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "mean": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "parallel": 0.0,
+        "shape_residual": 0.0,
+        "source": [
+          0,
+          3
+        ],
+        "transverse": 0.0
+      },
+      {
+        "covariance": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "mean": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "parallel": 0.0,
+        "shape_residual": 0.0,
+        "source": [
+          1,
+          2
+        ],
+        "transverse": 0.0
+      },
+      {
+        "covariance": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "mean": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "parallel": 0.0,
+        "shape_residual": 0.0,
+        "source": [
+          2,
+          1
+        ],
+        "transverse": 0.0
+      },
+      {
+        "covariance": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "mean": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "parallel": 0.0,
+        "shape_residual": 0.0,
+        "source": [
+          3,
+          0
+        ],
+        "transverse": 0.0
+      },
+      {
+        "covariance": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "mean": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "parallel": 0.0,
+        "shape_residual": 0.0,
+        "source": [
+          4,
+          7
+        ],
+        "transverse": 0.0
+      },
+      {
+        "covariance": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "mean": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "parallel": 0.0,
+        "shape_residual": 0.0,
+        "source": [
+          5,
+          6
+        ],
+        "transverse": 0.0
+      },
+      {
+        "covariance": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "mean": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "parallel": 0.0,
+        "shape_residual": 0.0,
+        "source": [
+          6,
+          5
+        ],
+        "transverse": 0.0
+      },
+      {
+        "covariance": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "mean": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "parallel": 0.0,
+        "shape_residual": 0.0,
+        "source": [
+          7,
+          4
+        ],
+        "transverse": 0.0
+      },
+      {
+        "covariance": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "mean": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "parallel": 0.0,
+        "shape_residual": 0.0,
+        "source": [
+          8,
+          11
+        ],
+        "transverse": 0.0
+      },
+      {
+        "covariance": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "mean": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "parallel": 0.0,
+        "shape_residual": 0.0,
+        "source": [
+          9,
+          10
+        ],
+        "transverse": 0.0
+      },
+      {
+        "covariance": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "mean": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "parallel": 0.0,
+        "shape_residual": 0.0,
+        "source": [
+          10,
+          9
+        ],
+        "transverse": 0.0
+      },
+      {
+        "covariance": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "mean": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "parallel": 0.0,
+        "shape_residual": 0.0,
+        "source": [
+          11,
+          8
+        ],
+        "transverse": 0.0
+      }
+    ],
+    "move_always": [
+      {
+        "covariance": [
+          [
+            0.416976267167,
+            0.105865156056,
+            0.0
+          ],
+          [
+            0.105865156056,
+            0.311111111111,
+            3.70074341542e-18
+          ],
+          [
+            0.0,
+            3.70074341542e-18,
+            0.482404531833
+          ]
+        ],
+        "mean": [
+          0.184262134833,
+          -0.298142397,
+          0.0
+        ],
+        "parallel": 0.245682846444,
+        "shape_residual": 1.38777878078e-17,
+        "source": [
+          0,
+          3
+        ],
+        "transverse": 0.482404531833
+      },
+      {
+        "covariance": [
+          [
+            0.416976267167,
+            -0.105865156056,
+            0.0
+          ],
+          [
+            -0.105865156056,
+            0.311111111111,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.482404531833
+          ]
+        ],
+        "mean": [
+          -0.184262134833,
+          -0.298142397,
+          0.0
+        ],
+        "parallel": 0.245682846444,
+        "shape_residual": 1.38777878078e-17,
+        "source": [
+          1,
+          2
+        ],
+        "transverse": 0.482404531833
+      },
+      {
+        "covariance": [
+          [
+            0.416976267167,
+            -0.105865156056,
+            0.0
+          ],
+          [
+            -0.105865156056,
+            0.311111111111,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.482404531833
+          ]
+        ],
+        "mean": [
+          0.184262134833,
+          0.298142397,
+          0.0
+        ],
+        "parallel": 0.245682846444,
+        "shape_residual": 1.38777878078e-17,
+        "source": [
+          2,
+          1
+        ],
+        "transverse": 0.482404531833
+      },
+      {
+        "covariance": [
+          [
+            0.416976267167,
+            0.105865156056,
+            0.0
+          ],
+          [
+            0.105865156056,
+            0.311111111111,
+            3.70074341542e-18
+          ],
+          [
+            0.0,
+            3.70074341542e-18,
+            0.482404531833
+          ]
+        ],
+        "mean": [
+          -0.184262134833,
+          0.298142397,
+          0.0
+        ],
+        "parallel": 0.245682846444,
+        "shape_residual": 1.38777878078e-17,
+        "source": [
+          3,
+          0
+        ],
+        "transverse": 0.482404531833
+      },
+      {
+        "covariance": [
+          [
+            0.482404531833,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.416976267167,
+            0.105865156056
+          ],
+          [
+            0.0,
+            0.105865156056,
+            0.311111111111
+          ]
+        ],
+        "mean": [
+          0.0,
+          0.184262134833,
+          -0.298142397
+        ],
+        "parallel": 0.245682846444,
+        "shape_residual": 1.11022302463e-16,
+        "source": [
+          4,
+          7
+        ],
+        "transverse": 0.482404531833
+      },
+      {
+        "covariance": [
+          [
+            0.482404531833,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.416976267167,
+            -0.105865156056
+          ],
+          [
+            0.0,
+            -0.105865156056,
+            0.311111111111
+          ]
+        ],
+        "mean": [
+          0.0,
+          -0.184262134833,
+          -0.298142397
+        ],
+        "parallel": 0.245682846444,
+        "shape_residual": 1.11022302463e-16,
+        "source": [
+          5,
+          6
+        ],
+        "transverse": 0.482404531833
+      },
+      {
+        "covariance": [
+          [
+            0.482404531833,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.416976267167,
+            -0.105865156056
+          ],
+          [
+            0.0,
+            -0.105865156056,
+            0.311111111111
+          ]
+        ],
+        "mean": [
+          0.0,
+          0.184262134833,
+          0.298142397
+        ],
+        "parallel": 0.245682846444,
+        "shape_residual": 1.11022302463e-16,
+        "source": [
+          6,
+          5
+        ],
+        "transverse": 0.482404531833
+      },
+      {
+        "covariance": [
+          [
+            0.482404531833,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.416976267167,
+            0.105865156056
+          ],
+          [
+            0.0,
+            0.105865156056,
+            0.311111111111
+          ]
+        ],
+        "mean": [
+          0.0,
+          -0.184262134833,
+          0.298142397
+        ],
+        "parallel": 0.245682846444,
+        "shape_residual": 1.11022302463e-16,
+        "source": [
+          7,
+          4
+        ],
+        "transverse": 0.482404531833
+      },
+      {
+        "covariance": [
+          [
+            0.311111111111,
+            0.0,
+            0.105865156056
+          ],
+          [
+            0.0,
+            0.482404531833,
+            0.0
+          ],
+          [
+            0.105865156056,
+            0.0,
+            0.416976267167
+          ]
+        ],
+        "mean": [
+          -0.298142397,
+          0.0,
+          0.184262134833
+        ],
+        "parallel": 0.245682846444,
+        "shape_residual": 1.38777878078e-17,
+        "source": [
+          8,
+          11
+        ],
+        "transverse": 0.482404531833
+      },
+      {
+        "covariance": [
+          [
+            0.311111111111,
+            -7.40148683083e-18,
+            -0.105865156056
+          ],
+          [
+            -7.40148683083e-18,
+            0.482404531833,
+            0.0
+          ],
+          [
+            -0.105865156056,
+            0.0,
+            0.416976267167
+          ]
+        ],
+        "mean": [
+          -0.298142397,
+          0.0,
+          -0.184262134833
+        ],
+        "parallel": 0.245682846444,
+        "shape_residual": 5.55111512313e-17,
+        "source": [
+          9,
+          10
+        ],
+        "transverse": 0.482404531833
+      },
+      {
+        "covariance": [
+          [
+            0.311111111111,
+            -7.40148683083e-18,
+            -0.105865156056
+          ],
+          [
+            -7.40148683083e-18,
+            0.482404531833,
+            0.0
+          ],
+          [
+            -0.105865156056,
+            0.0,
+            0.416976267167
+          ]
+        ],
+        "mean": [
+          0.298142397,
+          0.0,
+          0.184262134833
+        ],
+        "parallel": 0.245682846444,
+        "shape_residual": 5.55111512313e-17,
+        "source": [
+          10,
+          9
+        ],
+        "transverse": 0.482404531833
+      },
+      {
+        "covariance": [
+          [
+            0.311111111111,
+            0.0,
+            0.105865156056
+          ],
+          [
+            0.0,
+            0.482404531833,
+            0.0
+          ],
+          [
+            0.105865156056,
+            0.0,
+            0.416976267167
+          ]
+        ],
+        "mean": [
+          0.298142397,
+          0.0,
+          -0.184262134833
+        ],
+        "parallel": 0.245682846444,
+        "shape_residual": 1.38777878078e-17,
+        "source": [
+          11,
+          8
+        ],
+        "transverse": 0.482404531833
+      }
+    ],
+    "native": [
+      {
+        "covariance": [
+          [
+            0.216976267167,
+            0.0391984893889,
+            0.0
+          ],
+          [
+            0.0391984893889,
+            0.177777777778,
+            -1.67631360591e-18
+          ],
+          [
+            0.0,
+            -1.67631360591e-18,
+            0.241202265917
+          ]
+        ],
+        "mean": [
+          0.0921310674167,
+          -0.1490711985,
+          0.0
+        ],
+        "parallel": 0.153551779028,
+        "shape_residual": 2.77555756156e-17,
+        "source": [
+          0,
+          3
+        ],
+        "transverse": 0.241202265917
+      },
+      {
+        "covariance": [
+          [
+            0.216976267167,
+            -0.0391984893889,
+            0.0
+          ],
+          [
+            -0.0391984893889,
+            0.177777777778,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.241202265917
+          ]
+        ],
+        "mean": [
+          -0.0921310674167,
+          -0.1490711985,
+          0.0
+        ],
+        "parallel": 0.153551779028,
+        "shape_residual": 2.77555756156e-17,
+        "source": [
+          1,
+          2
+        ],
+        "transverse": 0.241202265917
+      },
+      {
+        "covariance": [
+          [
+            0.216976267167,
+            -0.0391984893889,
+            0.0
+          ],
+          [
+            -0.0391984893889,
+            0.177777777778,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.241202265917
+          ]
+        ],
+        "mean": [
+          0.0921310674167,
+          0.1490711985,
+          0.0
+        ],
+        "parallel": 0.153551779028,
+        "shape_residual": 2.77555756156e-17,
+        "source": [
+          2,
+          1
+        ],
+        "transverse": 0.241202265917
+      },
+      {
+        "covariance": [
+          [
+            0.216976267167,
+            0.0391984893889,
+            0.0
+          ],
+          [
+            0.0391984893889,
+            0.177777777778,
+            -1.67631360591e-18
+          ],
+          [
+            0.0,
+            -1.67631360591e-18,
+            0.241202265917
+          ]
+        ],
+        "mean": [
+          -0.0921310674167,
+          0.1490711985,
+          0.0
+        ],
+        "parallel": 0.153551779028,
+        "shape_residual": 2.77555756156e-17,
+        "source": [
+          3,
+          0
+        ],
+        "transverse": 0.241202265917
+      },
+      {
+        "covariance": [
+          [
+            0.241202265917,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.216976267167,
+            0.0391984893889
+          ],
+          [
+            0.0,
+            0.0391984893889,
+            0.177777777778
+          ]
+        ],
+        "mean": [
+          0.0,
+          0.0921310674167,
+          -0.1490711985
+        ],
+        "parallel": 0.153551779028,
+        "shape_residual": 2.77555756156e-17,
+        "source": [
+          4,
+          7
+        ],
+        "transverse": 0.241202265917
+      },
+      {
+        "covariance": [
+          [
+            0.241202265917,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.216976267167,
+            -0.0391984893889
+          ],
+          [
+            0.0,
+            -0.0391984893889,
+            0.177777777778
+          ]
+        ],
+        "mean": [
+          0.0,
+          -0.0921310674167,
+          -0.1490711985
+        ],
+        "parallel": 0.153551779028,
+        "shape_residual": 2.77555756156e-17,
+        "source": [
+          5,
+          6
+        ],
+        "transverse": 0.241202265917
+      },
+      {
+        "covariance": [
+          [
+            0.241202265917,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.216976267167,
+            -0.0391984893889
+          ],
+          [
+            0.0,
+            -0.0391984893889,
+            0.177777777778
+          ]
+        ],
+        "mean": [
+          0.0,
+          0.0921310674167,
+          0.1490711985
+        ],
+        "parallel": 0.153551779028,
+        "shape_residual": 2.77555756156e-17,
+        "source": [
+          6,
+          5
+        ],
+        "transverse": 0.241202265917
+      },
+      {
+        "covariance": [
+          [
+            0.241202265917,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.216976267167,
+            0.0391984893889
+          ],
+          [
+            0.0,
+            0.0391984893889,
+            0.177777777778
+          ]
+        ],
+        "mean": [
+          0.0,
+          -0.0921310674167,
+          0.1490711985
+        ],
+        "parallel": 0.153551779028,
+        "shape_residual": 2.77555756156e-17,
+        "source": [
+          7,
+          4
+        ],
+        "transverse": 0.241202265917
+      },
+      {
+        "covariance": [
+          [
+            0.177777777778,
+            0.0,
+            0.0391984893889
+          ],
+          [
+            0.0,
+            0.241202265917,
+            0.0
+          ],
+          [
+            0.0391984893889,
+            0.0,
+            0.216976267167
+          ]
+        ],
+        "mean": [
+          -0.1490711985,
+          0.0,
+          0.0921310674167
+        ],
+        "parallel": 0.153551779028,
+        "shape_residual": 2.77555756156e-17,
+        "source": [
+          8,
+          11
+        ],
+        "transverse": 0.241202265917
+      },
+      {
+        "covariance": [
+          [
+            0.177777777778,
+            0.0,
+            -0.0391984893889
+          ],
+          [
+            0.0,
+            0.241202265917,
+            0.0
+          ],
+          [
+            -0.0391984893889,
+            0.0,
+            0.216976267167
+          ]
+        ],
+        "mean": [
+          -0.1490711985,
+          0.0,
+          -0.0921310674167
+        ],
+        "parallel": 0.153551779028,
+        "shape_residual": 2.77555756156e-17,
+        "source": [
+          9,
+          10
+        ],
+        "transverse": 0.241202265917
+      },
+      {
+        "covariance": [
+          [
+            0.177777777778,
+            0.0,
+            -0.0391984893889
+          ],
+          [
+            0.0,
+            0.241202265917,
+            0.0
+          ],
+          [
+            -0.0391984893889,
+            0.0,
+            0.216976267167
+          ]
+        ],
+        "mean": [
+          0.1490711985,
+          0.0,
+          0.0921310674167
+        ],
+        "parallel": 0.153551779028,
+        "shape_residual": 2.77555756156e-17,
+        "source": [
+          10,
+          9
+        ],
+        "transverse": 0.241202265917
+      },
+      {
+        "covariance": [
+          [
+            0.177777777778,
+            0.0,
+            0.0391984893889
+          ],
+          [
+            0.0,
+            0.241202265917,
+            0.0
+          ],
+          [
+            0.0391984893889,
+            0.0,
+            0.216976267167
+          ]
+        ],
+        "mean": [
+          0.1490711985,
+          0.0,
+          -0.0921310674167
+        ],
+        "parallel": 0.153551779028,
+        "shape_residual": 2.77555756156e-17,
+        "source": [
+          11,
+          8
+        ],
+        "transverse": 0.241202265917
+      }
+    ]
+  },
+  "native_endpoint_calls": 7980,
+  "official_status": "untested",
+  "record_count": 23940,
+  "row_criterion_passed": false,
+  "schema": "oph.row07.pr723.rotation.v1"
+}

@@ -4,7 +4,6 @@ import json
 from pathlib import Path
 import unittest
 
-from .family import binding
 from . import current_theorem_navigation as navigation
 
 
@@ -14,7 +13,8 @@ ROOT = Path(__file__).resolve().parents[2]
 class TheoremMapCustodyTests(unittest.TestCase):
     def test_reviewed_sources_and_canonical_navigation(self):
         packet = navigation.validate()
-        self.assertEqual(packet["campaign"], binding())
+        self.assertNotIn("campaign", packet)
+        self.assertTrue(all("owners" not in row for row in packet["mappings"]))
         self.assertFalse(packet["full_gate_accepted"])
         ids = {row["id"] for row in json.loads((ROOT / packet["canonical_registry"]).read_text())["rows"]}
         for source in packet["sources"].values():

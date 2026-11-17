@@ -1,0 +1,18 @@
+{
+  "amendment": "Save fullrawoperator beforegates. Keep originalgate result asdata; diagnose noncompactmass separatelyfromrawmatrixtracedeficit. No outcomeorstate normalization. Originalscientific complete512errorgate1e\u22123 unchanged.",
+  "archive_files": {
+    "NATIVE_PRIMITIVES.json": "edd03d25188a019dc3bba0e9840a1db6fa74872448b836e33199cd40dc6cf27e",
+    "native_M6_primitives.npz": "b3f7abfbea2a0afc65d593e1c3844356d146f2246edbebb095c874bf9e50557b"
+  },
+  "files": {
+    "replay_selection.py": "9556bb6d52774b8c07ba95d9624f937e610fca3ca34c0bc83166ee7ec7cf318f"
+  },
+  "gates": {
+    "complete512error_max": 0.001,
+    "raw_noncompact_mass_max": 1e-07,
+    "raw_trace_diagnostic_error_max": 1e-06
+  },
+  "original_failure": "First rawpump assertion weight>1\u22121e\u22127 and |mass\u22121|<1e\u22127 failed afterallwords; stage2rawsinglewordtrace drift predicts accumulatedfloatdeficit\u22481.2e\u22127. Originalinputs/log/outputretained.",
+  "scope": "diagnostic reproduction of failedrawpump using alreadyexecutedidenticalnativeprimitivematrices",
+  "utc": "2026-11-15T16:57:16.283835+00:00"
+}

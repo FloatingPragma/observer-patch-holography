@@ -1,5 +1,9 @@
 # From a twist to a particle
 
+[CCF-LT-2](../SPEC.md) is the official matter, field and local-capacity law.
+This atlas illustrates independent component examples; their physical
+attachment requires the same source, preparation and complete detector.
+
 The [explainer atlas](../../docs/research/OPH_PARTICLE_ATLAS_V3.svg) follows
 an illustrative topological defect in nine numbered steps: the
 compare, repair and record loop; a twist owned by a whole loop; why no local
@@ -53,7 +57,7 @@ PDG 2026 comparison data; the builder rejects any input that declares them
 predictions. The evidence panel reads the
 [candidate correspondence](../standard_model_source_map/candidates/CANDIDATES.md)
 and isolated gauge-transition receipt, checks all their producer hashes, and
-distinguishes a rare primary-source transition and static fusion from an
+distinguishes an independent Wilson transition and static fusion from an
 executed contact-interaction control in a separate supplied action. The GeV
 mass table is empty; the reference masses do not supply source parameters.
 The [candidate identity tests](../particle_candidate_confirmation/RESULTS.md)
@@ -79,7 +83,7 @@ The public [candidate atlas](../../docs/research/OPH_PARTICLE_CANDIDATE_ATLAS.sv
 is owned by the leaf renderer below. It retains the numerical atlas produced by
 `model.particle_candidate_atlas` with unchanged rendered contents inside its enlarged canvas and
 adds the authenticated coherent repair panel, source-family catalogue and confirmation steps. The
-immutable numerical producer and its audit retain their scientific domain;
+numerical comparison producer and its audit retain their scientific domain;
 its standalone SVG comparison command does not own this augmented public view.
 The leaf audit binds both the numerical rendering and the candidate receipt.
 

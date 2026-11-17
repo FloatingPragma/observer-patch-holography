@@ -1,0 +1,226 @@
+{
+  "G6_pass": false,
+  "G9_pass": false,
+  "all_outcome_audits": {
+    "apolar96": {
+      "all_first_rejection_mass": 0.9999999999999984,
+      "flag_probabilities_checked": 36864,
+      "log10_success": -85.19191669370502,
+      "max_probability_error": 4.849176615806527e-13,
+      "max_reach_log_error": 4.7975845518521965e-11,
+      "stages": 96
+    },
+    "balanced96_zero_winding": {
+      "all_first_rejection_mass": 1.0000000000000002,
+      "flag_probabilities_checked": 36864,
+      "log10_success": -90.95227057879352,
+      "max_probability_error": 4.986011603591578e-13,
+      "max_reach_log_error": 4.857803048707865e-11,
+      "stages": 96
+    },
+    "original192": {
+      "all_first_rejection_mass": 0.9999999999999997,
+      "flag_probabilities_checked": 73728,
+      "log10_success": -170.2903842417091,
+      "max_probability_error": 5.000444502911705e-13,
+      "max_reach_log_error": 4.925908569930471e-10,
+      "stages": 192
+    },
+    "original48": {
+      "all_first_rejection_mass": 0.9999999999999996,
+      "flag_probabilities_checked": 18432,
+      "log10_success": -42.798152495452705,
+      "max_probability_error": 4.95742336070748e-13,
+      "max_reach_log_error": 4.9976023319686647e-11,
+      "stages": 48
+    },
+    "polar192": {
+      "all_first_rejection_mass": 0.9999999999999989,
+      "flag_probabilities_checked": 73728,
+      "log10_success": -169.90271396683946,
+      "max_probability_error": 5.001832281692487e-13,
+      "max_reach_log_error": 4.978062406735262e-10,
+      "stages": 192
+    },
+    "polar96": {
+      "all_first_rejection_mass": 0.9999999999999989,
+      "flag_probabilities_checked": 36864,
+      "log10_success": -85.01815551566278,
+      "max_probability_error": 4.961586697049825e-13,
+      "max_reach_log_error": 4.881428594671888e-11,
+      "stages": 96
+    },
+    "repeated_polar96_twice": {
+      "all_first_rejection_mass": 0.9999999999999989,
+      "flag_probabilities_checked": 73728,
+      "log10_success": -170.03720805884083,
+      "max_probability_error": 0.0,
+      "max_reach_log_error": 0.0,
+      "stages": 192
+    },
+    "repeated_polar96_twice_amendment": {
+      "all_first_rejection_mass": 0.9999999999999989,
+      "flag_probabilities_checked": 73728,
+      "log10_success": -170.03720805884083,
+      "max_probability_error": 4.961586697049825e-13,
+      "max_reach_log_error": 4.941114184475737e-10,
+      "stages": 192
+    }
+  },
+  "bound_amendment_manifest": "1861b420260787509cc944f291919af901a87a7f5dc7ca8c86c91c7ab4cfe512",
+  "bound_manifest": "05af1f898eb98a68413084b3b01586e600c79aa231d2f0318f0f90b887158f32",
+  "constant_input_amplitude_sensitivity": {
+    "amplitude": "1e-18",
+    "scope": "counterfactual preparation sensitivity of the declared instrument; no new native calls",
+    "visibility": 0.9987820631623315
+  },
+  "decimal_ties": [
+    [
+      "polar",
+      16,
+      0,
+      2
+    ],
+    [
+      "polar",
+      16,
+      1,
+      2
+    ],
+    [
+      "polar",
+      48,
+      1,
+      0
+    ],
+    [
+      "polar",
+      48,
+      2,
+      0
+    ],
+    [
+      "polar",
+      80,
+      0,
+      2
+    ],
+    [
+      "polar",
+      80,
+      1,
+      2
+    ],
+    [
+      "apolar",
+      8,
+      0,
+      2
+    ],
+    [
+      "apolar",
+      8,
+      1,
+      2
+    ],
+    [
+      "apolar",
+      24,
+      1,
+      0
+    ],
+    [
+      "apolar",
+      24,
+      2,
+      0
+    ],
+    [
+      "apolar",
+      40,
+      0,
+      2
+    ],
+    [
+      "apolar",
+      40,
+      1,
+      2
+    ],
+    [
+      "apolar",
+      56,
+      0,
+      1
+    ],
+    [
+      "apolar",
+      56,
+      2,
+      1
+    ],
+    [
+      "apolar",
+      72,
+      0,
+      1
+    ],
+    [
+      "apolar",
+      72,
+      2,
+      1
+    ],
+    [
+      "apolar",
+      88,
+      1,
+      0
+    ],
+    [
+      "apolar",
+      88,
+      2,
+      0
+    ]
+  ],
+  "exact_signs": {
+    "apolar": {
+      "coefficient_sign": 1,
+      "log10_success": -85.19191669370502,
+      "overlap": 0.9957558908565447,
+      "visibility": 0.8147850751335564
+    },
+    "polar": {
+      "coefficient_sign": -1,
+      "log10_success": -85.01815551566278,
+      "overlap": -0.9986647409544197,
+      "visibility": -0.9971227657290824
+    }
+  },
+  "exact_two_turn": {
+    "coefficient_sign": 1,
+    "log10_success": -170.03720805884083,
+    "overlap": 0.9986647409544197,
+    "visibility": 0.9918660047675824
+  },
+  "isometry_and_complete_eraser": true,
+  "mutation_checks": {
+    "invalid_coin": true,
+    "wrong_current_flag": true,
+    "wrong_rejection_probability": true
+  },
+  "native_calls_total": 100908,
+  "physical_rotation_derived": false,
+  "same_group": true,
+  "source_selection_derived": false,
+  "source_tables": {
+    "native_ticket_records": 384,
+    "rotor_native": 73728,
+    "signed_changed": 15960,
+    "signed_native": 7980,
+    "triangle_and_rotor_body_records": 130176,
+    "triangle_changed_body": 37632,
+    "triangle_native_body": 18816
+  }
+}

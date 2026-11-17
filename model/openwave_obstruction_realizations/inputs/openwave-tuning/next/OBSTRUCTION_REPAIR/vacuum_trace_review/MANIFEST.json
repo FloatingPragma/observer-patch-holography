@@ -1,0 +1,26 @@
+{
+  "schema": "oph.root.vacuum_trace_review.freeze.v1",
+  "created_at": "2026-11-14T18:51:39.849837+07:00",
+  "files": {
+    "CONSUMERS.json": "5fcd5cb74a29c4001df68709e1db0423dcac84b54b671e3b94b92c8b08ebca18",
+    "PLAN.md": "18bc506d57c6de31d57808449acfbe34c27febe82d7681ada45e83d9f5278e4c",
+    "PROOF.md": "92214f4d5097064d00408671313e0920235af4b03da3a45bc19b8725aeeb7c36",
+    "RESULT.json": "a7f3f1d644e98c4876241bf8d9d1497110b2611e89f24ff6bf62b1db4fd48d49",
+    "TRACE_ROWS.json": "2547696da52c972a499b86ad2960b4f7028472ec1aa52f2484605d67fcfc7a83",
+    "consumers.log": "5fcd5cb74a29c4001df68709e1db0423dcac84b54b671e3b94b92c8b08ebca18",
+    "consumers.py": "539170cfc71e9eb052dcf22cc7c4545dd67f92d12ede37a08ba645d6e39022a2",
+    "run.log": "6c0bfaa27ded8bdba75658501ee08ef3c6881f283e97c4592a513a0c615d2bf1",
+    "run.py": "fac68aa58cd74a9e5030ff51bb27e702218d61b7b2d1b43f2f4fee8e5eebfbf1"
+  },
+  "source_pins": {
+    "species_leptons/chiral_ring4_fidelity/RESULT.json": "c5b48b535fc1a77ca2a44d1b6914a08c36f42b7a2ee25003b588e0bfe51a2a1a",
+    "species_leptons/chiral_ring4_fidelity/COMPLETE_TRACE_INPUTS.npz": "44afbf74bdce69ea3e21ab1094d750732340223f2db22e6bc13ff95141f8bb50",
+    "species_leptons/chiral_ring4_fidelity/inputs/prepared_results.json": "8ea7c44b4040f9f90bd439fcb9906e3c137921239e3c7898218ebc18ceedf05b",
+    "species_leptons/chiral_ring4_fidelity/inputs/pointwise_controls.json": "a0ed003950056e277fd217d3f4ab93be1deb7ad50637826fd24a7988b2427a58",
+    "species_leptons/chiral_ring4_fidelity/inputs/coulomb_results.json": "5f82551f9302f74c75103630f5093977e4fd0f7a52a8f3e03ce2875aab0e4058",
+    "species_leptons/chiral_ring4_fidelity/inputs/source.py": "0f7f5584dd6da38ef9478abc1816273f3a22ba44bb8dedcd38e7bd705d1e5bef",
+    "species_leptons/chiral_ring4_fidelity/MANIFEST.json": "00b9669980263529c589e8ada00861616c2de5f5d4320357d4aa9614b8e08b92"
+  },
+  "scope": "Independent analytic bands and interval complete canonical trace, stronger exact boundary derivative, larger verification cut and same-source vacuum consumers; consumed Coulomb and preparation bounds explicit",
+  "physical_lepton_poles_solved": false
+}

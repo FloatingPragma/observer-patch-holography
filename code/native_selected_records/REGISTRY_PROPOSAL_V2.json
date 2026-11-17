@@ -1,0 +1,190 @@
+{
+  "scope": "Review proposal; canonical registry unchanged by this file. Sealed custody and final source repairs must be verified before admission.",
+  "rows": [
+    {
+      "claim": {
+        "claim_id": "OPH-NATIVE-TRANSPORTED-CLOCK-LIMIT",
+        "statement": "The reserved native three-port source with seam multiplicities (2,2,1) and complete coherent memory has transfer eigenvalues 1,3/5,2/5. Universal constant-mode removal followed by source filters selects its lowest nonconstant mode from a basis preparation, whereas always-swap retains target weight 4/7. Native active/blank refinement at epsilon=2^-k, k an integer at least zero, with P_epsilon=I-epsilon^2 L/10 and the actual involution-reflection word W_epsilon give phase 2 asin(epsilon sqrt(lambda/20)). On the analytic positive-frequency chart the exact native words converge uniformly to exp(it sqrt(L/5)), with bound (T/10)epsilon^2+(6/5)epsilon for t in [0,T]. A 21-event native permutation transports the whole clock state to an empty copy. Independent-copy clocks have the sum generator. One 511 keV limiting-frequency calibration gives 1022 keV for the limiting pair, with all finite-refinement corrections retained under the same scale. Frequency reconstruction from exact outcome laws is evaluated numerically and distinguished from finite-shot estimation; counter and error arrays are floating-point checks. Coherent apparatus, the measured positive sector and the epsilon word clock are declared; no laboratory-time, mechanical-inertia or general positive charged-mass theorem is asserted.",
+        "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "tier": "conditional_finite_source_interface",
+        "assumptions": [
+          "declared_native_clock_frame_and_joint_apparatus"
+        ],
+        "imported_results": [
+          "finite_native_transfer",
+          "quantum_walk_spectral_mapping",
+          "uniform_native_word_limit"
+        ],
+        "oph_specific_delta": "Binds source-dependent state acquisition, actual native clock words, controlled refinement and transport in one declared instrument instead of assigning energy to a transfer logarithm.",
+        "novelty_type": "source_specific_finite_premise_reduction",
+        "evidence": [
+          "code/native_selected_records/PROOF.md",
+          "code/native_selected_records/EVIDENCE.json",
+          "code/native_selected_records/verify.py"
+        ],
+        "falsifier": "A source column, completeness, selection/control, spectral mapping or uniform-limit identity fails; the native transport changes the full clock state; independent-copy records violate the sum-generator comparison; or finite calibration errors exceed their source bound.",
+        "scope_if_false": "Reject or repair the affected stated source construction; no exclusion of the model family follows.",
+        "status": "proved_in_prose_with_exact_finite_checks",
+        "claim_class": "conditional_implication",
+        "gates": [],
+        "premise_dependencies": {
+          "classification": "explicit_non_consumer",
+          "consumed": [],
+          "open": [],
+          "boundary": [],
+          "rationale": "The explicit native source, coherent memory, measured chart and word-clock family suffice for the conditional spectral, selection, transport and limit statements; no endogenous apparatus, laboratory clock or empirical particle identification is inferred."
+        }
+      },
+      "context": {
+        "prior_work": {
+          "summary": "finite_native_transfer; quantum_walk_spectral_mapping; uniform_native_word_limit",
+          "overlap": "Spectral mapping and geometric phase are established mechanisms. The source-dependent selection, native event programs and complete record comparisons are the specific application.",
+          "imported_step": "finite_native_transfer; quantum_walk_spectral_mapping; uniform_native_word_limit",
+          "citations": [
+            {
+              "work": "Established spectral or geometric mechanism",
+              "keys": [
+                "szegedy2004spectra",
+                "higuchi2016spectral"
+              ]
+            },
+            {
+              "work": "Explicit native source and complete observer construction",
+              "keys": [],
+              "internal": true
+            }
+          ]
+        },
+        "owner_section": "A selected mode with a transported native clock",
+        "falsifiers": {
+          "mathematical": "A source column, completeness, selection/control, spectral mapping or uniform-limit identity fails; the native transport changes the full clock state; independent-copy records violate the sum-generator comparison; or finite calibration errors exceed their source bound.",
+          "physical_identification": "The explicit native source, coherent memory, measured chart and word-clock family suffice for the conditional spectral, selection, transport and limit statements; no endogenous apparatus, laboratory clock or empirical particle identification is inferred.",
+          "phenomenological": "One limiting energy scale is calibrated where stated; no additional empirical particle identification or official row award is established."
+        },
+        "depends_on": []
+      }
+    },
+    {
+      "claim": {
+        "claim_id": "OPH-NATIVE-PLANAR-ROTATION-HOLONOMY",
+        "statement": "A conditioned native three-port source is observed through an actual moving 3M-site marker ring. Its complete current records decode finer Cartesian frame turns, and native incidence interpolation determines the target transfer without an installed spin or half-angle matrix. For M=4,8 and four target repetitions per frame, complete finite record calculations give negative one-turn and positive two-turn interference against a matched zero-winding reference; all frame increments are below 90 degrees. The geometry-preserving always-swap law yields exactly positive unit visibility under the same optical reader, while committed records remove the strong signed fringe. Periodic native plane filters retain their failures and pass the tested phase-error set delta in {0,+0.01,-0.01} radians on the stated uniform-input audit. A separate complete M=8 stationary-reference test retains the same native one/two-turn signs at much weaker visibilities (-4.13474e-5,+8.54752e-10), with positive swap-law controls. These are conditional planar observer-frame holonomy records, with complete postselection costs, not a general spatial spin representation or a sampled rare-herald experiment.",
+        "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "tier": "conditional_finite_source_interface",
+        "assumptions": [
+          "declared_native_clock_frame_and_joint_apparatus"
+        ],
+        "imported_results": [
+          "complete_quantum_instruments",
+          "finite_matrix_product_holonomy"
+        ],
+        "oph_specific_delta": "Derives signed fine-turn interference from actual native incidence-controlled transfer and current-decoded marker geometry, with a symmetry-preserving competing law.",
+        "novelty_type": "source_specific_finite_premise_reduction",
+        "evidence": [
+          "code/native_selected_records/PROOF.md",
+          "code/native_selected_records/EVIDENCE.json",
+          "code/native_selected_records/verify.py"
+        ],
+        "falsifier": "The frame current decoder aliases a sub-90-degree increment, a native odd turn has nonnegative interference, a two-turn return fails its preset bound, the swap control has the same odd-turn sign, complete outcomes fail normalization, or a supplied phase rather than source dynamics fixes the sign.",
+        "scope_if_false": "Reject or repair the affected stated source construction; no exclusion of the model family follows.",
+        "status": "proved_in_prose_with_exact_finite_checks",
+        "claim_class": "conditional_implication",
+        "gates": [],
+        "premise_dependencies": {
+          "classification": "explicit_non_consumer",
+          "consumed": [],
+          "open": [],
+          "boundary": [],
+          "rationale": "The declared graph, complete coherent instrument, marker geometry and fixed observer program suffice for the finite planar holonomy record laws; no endogenous apparatus, arbitrary-axis spin representation or empirical fermion identification is inferred."
+        }
+      },
+      "context": {
+        "prior_work": {
+          "summary": "complete_quantum_instruments; finite_matrix_product_holonomy",
+          "overlap": "Spectral mapping and geometric phase are established mechanisms. The source-dependent selection, native event programs and complete record comparisons are the specific application.",
+          "imported_step": "complete_quantum_instruments; finite_matrix_product_holonomy",
+          "citations": [
+            {
+              "work": "Established spectral or geometric mechanism",
+              "keys": [
+                "berry1984quantal"
+              ]
+            },
+            {
+              "work": "Explicit native source and complete observer construction",
+              "keys": [],
+              "internal": true
+            }
+          ]
+        },
+        "owner_section": "Native observer-frame turns and coherent return",
+        "falsifiers": {
+          "mathematical": "The frame current decoder aliases a sub-90-degree increment, a native odd turn has nonnegative interference, a two-turn return fails its preset bound, the swap control has the same odd-turn sign, complete outcomes fail normalization, or a supplied phase rather than source dynamics fixes the sign.",
+          "physical_identification": "The declared graph, complete coherent instrument, marker geometry and fixed observer program suffice for the finite planar holonomy record laws; no endogenous apparatus, arbitrary-axis spin representation or empirical fermion identification is inferred.",
+          "phenomenological": "One limiting energy scale is calibrated where stated; no additional empirical particle identification or official row award is established."
+        },
+        "depends_on": []
+      }
+    },
+    {
+      "claim": {
+        "claim_id": "OPH-NATIVE-SELECTED-STATE-JOIN",
+        "statement": "On one connected bounded-integer native graph with explicit core, target/copy triangles, blank reference pair and two marker rings, a current-selected core unit is routed into the target and undergoes source cooling and a finite positive-frequency counter. Its actual mixed state, including residual negative-frequency weight, is propagated through complete probabilistic arc-to-position erasure, fine observer-frame rotation and finite re-encoding. Conditional on the filed successful classical charge/routing prefix, the sixteen joined cases at B=2, M in {4,8}, epsilon=1/4, both orientations and one/two turns retain odd-turn negative and two-turn positive fringes, the competing-law comparison and the recovered source-clock frequency. The dominant frequency is numerically reproduced from exact outcome laws; the four-pole fit is ill-conditioned and licenses no accurate weak-pole or finite-shot precision claim. The complete graph, program menu, apparatus, all complements and success costs are declared. This implements the conditional same-state measurement join; it does not assert an autonomous clock-preserving rotation or identify separate idealized packets as one state.",
+        "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "tier": "conditional_finite_source_interface",
+        "assumptions": [
+          "declared_native_clock_frame_and_joint_apparatus",
+          "declared_native_selected_record_graph_and_apparatus"
+        ],
+        "imported_results": [
+          "complete_quantum_instruments",
+          "native_arc_position_intertwining",
+          "finite_record_law_reconstruction"
+        ],
+        "oph_specific_delta": "Executes the selected finite density through charge routing, clock preparation, rotation and final clock readout on a common source with complete outcome accounting.",
+        "novelty_type": "source_specific_finite_premise_reduction",
+        "evidence": [
+          "code/native_selected_records/PROOF.md",
+          "code/native_selected_records/EVIDENCE.json",
+          "code/native_selected_records/verify.py"
+        ],
+        "falsifier": "The current-selected unit is reset or replaced by an ideal ray; arc decoding or re-encoding drops a complement; any graph edge is absent; propagated finite-state interference or clock laws fail; or mismatched arm records determine the fringe.",
+        "scope_if_false": "Reject or repair the affected stated source construction; no exclusion of the model family follows.",
+        "status": "proved_in_prose_with_exact_finite_checks",
+        "claim_class": "conditional_implication",
+        "gates": [],
+        "premise_dependencies": {
+          "classification": "explicit_non_consumer",
+          "consumed": [],
+          "open": [],
+          "boundary": [],
+          "rationale": "The explicitly constructed common finite source and complete measurement maps establish the conditional same-state join; no autonomous joint field dynamics, endogenous controller or empirical particle identification is consumed or inferred."
+        }
+      },
+      "context": {
+        "prior_work": {
+          "summary": "complete_quantum_instruments; native_arc_position_intertwining; finite_record_law_reconstruction",
+          "overlap": "Spectral mapping and geometric phase are established mechanisms. The source-dependent selection, native event programs and complete record comparisons are the specific application.",
+          "imported_step": "complete_quantum_instruments; native_arc_position_intertwining; finite_record_law_reconstruction",
+          "citations": [
+            {
+              "work": "Explicit native source and complete observer construction",
+              "keys": [],
+              "internal": true
+            }
+          ]
+        },
+        "owner_section": "One selected source through clock and rotation records",
+        "falsifiers": {
+          "mathematical": "The current-selected unit is reset or replaced by an ideal ray; arc decoding or re-encoding drops a complement; any graph edge is absent; propagated finite-state interference or clock laws fail; or mismatched arm records determine the fringe.",
+          "physical_identification": "The explicitly constructed common finite source and complete measurement maps establish the conditional same-state join; no autonomous joint field dynamics, endogenous controller or empirical particle identification is consumed or inferred.",
+          "phenomenological": "One limiting energy scale is calibrated where stated; no additional empirical particle identification or official row award is established."
+        },
+        "depends_on": [
+          "OPH-NATIVE-DYNAMIC-UNIT-SELECTION",
+          "OPH-NATIVE-TRANSPORTED-CLOCK-LIMIT",
+          "OPH-NATIVE-PLANAR-ROTATION-HOLONOMY"
+        ]
+      }
+    }
+  ]
+}

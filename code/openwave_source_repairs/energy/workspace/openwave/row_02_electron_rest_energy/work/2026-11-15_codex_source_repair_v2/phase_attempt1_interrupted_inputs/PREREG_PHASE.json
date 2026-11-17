@@ -1,0 +1,16 @@
+{
+  "files": {
+    "run_phase.py": "01c78f035ce938cd99532a5fce42fbab9535d242707721538a3552dae657437a"
+  },
+  "gates": {
+    "HOLD_separation_min": 0.1,
+    "joint_complete_error_max": 0.0001,
+    "measured_complex_additivity_error": 1e-07,
+    "plant_error_max": 1e-07,
+    "single_phase_error": 1e-07
+  },
+  "pair_compression": "two local wordinputs executed simultaneously and their common-control outputtensor is materialized; completefirstfailuremapsfactorized",
+  "prior_knowledge": "exact product-clock phase additivity is known algebraically; this is first implementation test of controllednativeword and fullpointerrecords, not a prediction of absolute mass",
+  "scope": "native controlled sourceflow and measured one/two-source Ramsey records",
+  "utc": "2026-11-15T16:44:28.379785+00:00"
+}

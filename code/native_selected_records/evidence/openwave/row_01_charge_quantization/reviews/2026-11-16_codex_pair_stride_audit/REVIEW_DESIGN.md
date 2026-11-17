@@ -1,0 +1,5 @@
+# Independent pair-stride review
+
+This is a same-group retrospective adversarial review, not a new prospective scientific discovery. The source observations and producer results are known. No producer Python module is imported. Rebuild the literal floor/ceil native endpoint clock, compare product-trace moments with the producer full joint calculation, audit density positivity and both signed compact populations, and implement a different monotone-half-wave inverse reader. Check all retained error corners, deterministic interior perturbations, the whole unsigned frequency chart, and deliberately wrong principal-branch readings. Recompute the supplied shifted-clock and higher-state detector controls. These controls earn no native-law emergence credit.
+
+The fixed-source family manifest and exact pair-readout files are bound in INPUTS.json before audit execution. A final review will additionally bind the producer supplement manifest after sealing. Full preparation/complements and actual two-source admission are dependencies of the separately sealed family and its review; this audit checks the new readout, not a second execution of all preparation paths.

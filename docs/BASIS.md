@@ -74,16 +74,14 @@ states what inter-observer agreement must preserve.
 
 ## The executable specification
 
-The specification consists of the twelve-port carrier, the native repair
-law, the observer algebra of states, preparations, measurements, retained
-records and feedback, the declared services, and the closure inputs P and N.
-One carrier supports the local observer, clock and geometry results; the
-spherical federation, whose cross-carrier routing is a declared convention,
-is the construction used for larger observer domains and refinement. The
-specification is implemented and run in the
-[model directory](../model/README.md). Its status is a candidate, judged by
-the [acceptance criteria](../model/CONSTRUCTION.md#completion-target-and-acceptance-criteria)
-of the completion target.
+The official specification is [CCF-LT-2](../model/SPEC.md). It fixes a finite
+oriented carrier, complete native matter and electromagnetic field operators,
+signed transport and interactions, local response and per-vertex capacity,
+preparations, references, complete instruments and finite resources.
+All terms are installed before free evolution. The creator may supply this
+architecture; observers need not invent its laws. Its physical identification
+is judged by the [acceptance criteria](../model/CONSTRUCTION.md#completion-target-and-acceptance-criteria).
+Other finite constructions retain the hypotheses of their own theorems.
 
 ## Entry point and order
 
@@ -101,7 +99,7 @@ name parts of the basis above.
 
 | Library label | Registry name | Part of the basis |
 | --- | --- | --- |
-| A1 | `observer_screen_architecture` | The carrier, federation and complete-response layer of the executable specification |
+| A1 | `observer_screen_architecture` | The declared screen/carrier and complete-response hypotheses of the theorem; their source-specific realization requires a checked map |
 | A2 | `observer_meaning_agreement` | The agreement condition, together with the adopted response-endogeneity principle |
 | A3 | `conditional_maximum_randomness` | The adopted state-selection principle on its declared reference and constraint space |
 

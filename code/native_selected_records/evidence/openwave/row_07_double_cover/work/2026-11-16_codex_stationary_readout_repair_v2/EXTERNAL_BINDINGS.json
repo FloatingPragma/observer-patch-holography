@@ -1,0 +1,32 @@
+{
+  "date_utc": "2026-11-15T20:17:52.979193+00:00",
+  "base": "openwave/",
+  "providers": {
+    "calibration": {
+      "path": "row_02_electron_rest_energy/work/2026-11-16_codex_record_calibration_v1",
+      "manifest_sha256": "0f7152d640b26d10e7b8e1af40205f72417f778d6f2aec798eac3e36544388c8"
+    },
+    "source_adversarial_review": {
+      "path": "row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial",
+      "manifest_sha256": "edbf1a5cb1070d2e597a1a90677039ab7e2d0fa310178f8d74d770eaa59fc427"
+    },
+    "interval_certificate": {
+      "path": "row_02_electron_rest_energy/work/2026-11-16_codex_amplified_source_interval_v1",
+      "manifest_sha256": "85ac553dd7cca56f2895d4c1881680f816636379b301489d3ece050f7ef31f24"
+    },
+    "interval_review": {
+      "path": "row_02_electron_rest_energy/reviews/2026-11-16_codex_amplified_interval_adversarial",
+      "manifest_sha256": "dd0e3023c48a03c530ae3d1d62a683a20cf7b1b60095d65ed6998d73a43acdd8"
+    },
+    "common_pair": {
+      "path": "row_02_electron_rest_energy/work/2026-11-16_codex_amplified_common_pair_v1",
+      "manifest_sha256": "84911912c6b9f629d3a365fbff969b26d629e632f04f438c7975c845b88ba684"
+    },
+    "interval_scope": {
+      "path": "row_02_electron_rest_energy/work/2026-11-16_codex_amplified_interval_scope",
+      "manifest_sha256": "e345f106d05f2bb0b14ec0e30e0fa48973333aa3a0ace893f850d23f5cd6ac05"
+    }
+  },
+  "independence": "All listed reviews are same-group; none constitutes external G6.",
+  "changed_clock_control": "Not credited: still underway at source seal."
+}

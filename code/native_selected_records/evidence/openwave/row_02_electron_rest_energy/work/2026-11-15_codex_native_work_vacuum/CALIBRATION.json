@@ -1,0 +1,78 @@
+{
+  "scope": "Derived record-only calibration audit; one common scale fixed at the continuum-limit selected frequency, no per-refinement refit",
+  "scale_keV_per_frequency": 571.3153682511963,
+  "rows": [
+    {
+      "k": 0,
+      "epsilon": 1.0,
+      "selected_measured_energy_keV": 529.7780089501645,
+      "pair_measured_energy_keV": 1059.556017900329,
+      "second_band_measured_energy_keV": 662.3141834384556,
+      "selected_limit_error_bound_keV": 23.80480701046651,
+      "first_band_limit_keV": 511.0,
+      "pair_limit_keV": 1022.0
+    },
+    {
+      "k": 1,
+      "epsilon": 0.5,
+      "selected_measured_energy_keV": 515.3570981450896,
+      "pair_measured_energy_keV": 1030.7141962901792,
+      "second_band_measured_energy_keV": 633.9441392269966,
+      "selected_limit_error_bound_keV": 5.951201752616628,
+      "first_band_limit_keV": 511.0,
+      "pair_limit_keV": 1022.0
+    },
+    {
+      "k": 2,
+      "epsilon": 0.25,
+      "selected_measured_energy_keV": 512.0706165528039,
+      "pair_measured_energy_keV": 1024.1412331056079,
+      "second_band_measured_energy_keV": 627.8170820636308,
+      "selected_limit_error_bound_keV": 1.487800438154157,
+      "first_band_limit_keV": 511.0,
+      "pair_limit_keV": 1022.0
+    },
+    {
+      "k": 3,
+      "epsilon": 0.125,
+      "selected_measured_energy_keV": 511.2665207985797,
+      "pair_measured_energy_keV": 1022.5330415971594,
+      "second_band_measured_energy_keV": 626.3346046466626,
+      "selected_limit_error_bound_keV": 0.37195010953853924,
+      "first_band_limit_keV": 511.0,
+      "pair_limit_keV": 1022.0
+    },
+    {
+      "k": 4,
+      "epsilon": 0.0625,
+      "selected_measured_energy_keV": 511.0665598609403,
+      "pair_measured_energy_keV": 1022.1331197218806,
+      "second_band_measured_energy_keV": 625.9669290684972,
+      "selected_limit_error_bound_keV": 0.09298752738463481,
+      "first_band_limit_keV": 511.0,
+      "pair_limit_keV": 1022.0
+    },
+    {
+      "k": 5,
+      "epsilon": 0.03125,
+      "selected_measured_energy_keV": 511.0166355767369,
+      "pair_measured_energy_keV": 1022.0332711534738,
+      "second_band_measured_energy_keV": 625.8751921281981,
+      "selected_limit_error_bound_keV": 0.023246881846158703,
+      "first_band_limit_keV": 511.0,
+      "pair_limit_keV": 1022.0
+    },
+    {
+      "k": 6,
+      "epsilon": 0.015625,
+      "selected_measured_energy_keV": 511.0041586200233,
+      "pair_measured_energy_keV": 1022.0083172400466,
+      "second_band_measured_energy_keV": 625.8522692341513,
+      "selected_limit_error_bound_keV": 0.005811720461539676,
+      "first_band_limit_keV": 511.0,
+      "pair_limit_keV": 1022.0
+    }
+  ],
+  "second_band_limit_keV": 625.8446292811019,
+  "max_Proney_fit_condition_number": 192367.57953250228
+}

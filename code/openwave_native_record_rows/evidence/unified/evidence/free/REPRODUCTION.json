@@ -1,0 +1,60 @@
+{
+  "actual_native_calls": 169364,
+  "byte_replay": {
+    "RECEIPT.json": true,
+    "RECORDS.json.gz": true
+  },
+  "candidate": "MFR-common-native-field-v1",
+  "clock_ticks": [
+    4,
+    5,
+    3,
+    0
+  ],
+  "elapsed_seconds": 3.072090041001502,
+  "first_tick_censor_tail": 0.07477076427429247,
+  "interpretation": "finite source replay plus separately bound full-limit theorem",
+  "official": "untested",
+  "population_block_length": 100000000,
+  "population_is_actual_tape": false,
+  "row": "both",
+  "row29": {
+    "electric_magnetic_relative_error": 0.00046080512555141925,
+    "full_two_polarization_causal_limit": "bound written proof; not inferred from curl null eigenvalue",
+    "negative_finite_contact_eigenvalues_retained": [
+      -3.254948401393287e-05,
+      -3.7229484012759755e-05,
+      -3.839948401478631e-05
+    ],
+    "source_changed_iid_separated_covariance": [
+      -3.3881317890172014e-21,
+      -3.3881317890172014e-21,
+      -3.3881317890172014e-21
+    ]
+  },
+  "row30": {
+    "full_common_speed_KG_limit": "bound written proof; finite N=3 is not the continuum",
+    "max_covariance_relative_error": 6.763001222132026e-05,
+    "max_first_hit_population_error": 4.1799896877137144e-14,
+    "max_source_eigenvector_residual": 2.4171868260546117e-14,
+    "native_internal_bands": [
+      [
+        1.5308297291861927e-15,
+        1
+      ],
+      [
+        2.763932022500209,
+        3
+      ],
+      [
+        5.999999999999997,
+        5
+      ],
+      [
+        7.23606797749979,
+        3
+      ]
+    ]
+  },
+  "unfinished_clock_intervals": 4
+}

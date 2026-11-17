@@ -1,0 +1,9 @@
+# Genuine continuum CAR cell regions for joint entropy selection
+
+The source is continuous D_sigma=e^(-sigma/2)D e^(-sigma/2), H_uv=D_sigma+beta(m+R^3 D_sigma^4), with the positive flattened clock. The observer modes are normalized indicators of disjoint spatial cubes, with all four spinor components. This is an actual finite CAR subalgebra of the continuum source. It is not the whole continuum regional algebra; spatial refinement and proper-cutoff separation must be checked.
+
+Its covariance contains every continuum momentum alias. The local beta product contribution is evaluated exactly; only the decaying difference from it is integrated numerically, with successive alias shells retained as convergence tests. No negative entropy weight or physical band deletion is used.
+
+A volume-preserving observer tangent dilates the actual cube functions and their centres by exp(-epsilon average_B sigma). The average is the integral over the cube union, including the sinc form factor. This cancels the proper-volume variation at first order. The CAR map is induced by a genuine global number-preserving coordinate pullback, smoothly extended outside the observed union. Its entropy response is calculated from the scaled cell functions, independently of the coframe susceptibility; no measured K(0) is subtracted.
+
+First gates: positivity/normalization, alias and box controls, comparison of literal finite scaled-cell entropies with the analytic shape derivative, and uniform proper-volume cancellation. Then use the already validated complete G1/G2/H reduction for larger balls, independent metric and lapse susceptibilities, neutral four-pair matter, and held-out radii/centres. A static positive-energy state on the finite torus still has an unresolved mean mode; local/nonzero-q component tests must not be reported as global Einstein equilibrium.

@@ -1,0 +1,95 @@
+{
+  "schema": "oph.obstruction_repair.hadrons.Jzero.v1",
+  "amendment": "Remove the separately installed local spin-square term, J=0, retain t=1/8,U=1,kappa=1 and the full Gauss-chain source",
+  "new_calibration": false,
+  "all_path_lengths_L_at_least_2_bound": "H_kinetic+colour+string >= 1/4 in the three-quark singlet domain",
+  "P_floor": "3/8",
+  "Q_floor": "8/3",
+  "offdiagonal_squared_upper": "3/32",
+  "completing_square_eta": "1/8",
+  "uniform_floor": "1/4",
+  "finite_exact_controls": [
+    {
+      "L": 2,
+      "weakup": 1,
+      "colocated_columns": 4,
+      "disjoint_hop_images": true
+    },
+    {
+      "L": 2,
+      "weakup": 2,
+      "colocated_columns": 4,
+      "disjoint_hop_images": true
+    },
+    {
+      "L": 3,
+      "weakup": 1,
+      "colocated_columns": 6,
+      "disjoint_hop_images": true
+    },
+    {
+      "L": 3,
+      "weakup": 2,
+      "colocated_columns": 6,
+      "disjoint_hop_images": true
+    },
+    {
+      "L": 4,
+      "weakup": 1,
+      "colocated_columns": 8,
+      "disjoint_hop_images": true
+    },
+    {
+      "L": 4,
+      "weakup": 2,
+      "colocated_columns": 8,
+      "disjoint_hop_images": true
+    },
+    {
+      "L": 5,
+      "weakup": 1,
+      "colocated_columns": 10,
+      "disjoint_hop_images": true
+    },
+    {
+      "L": 5,
+      "weakup": 2,
+      "colocated_columns": 10,
+      "disjoint_hop_images": true
+    }
+  ],
+  "two_cell_massless_energy_interval": [
+    "24447412765/68719476736",
+    "12223706383/34359738368"
+  ],
+  "rows": [
+    {
+      "analyzer": "432",
+      "uniform_mass_lower_GeV": "1598027232525403724331625753064564994313203768349417335339000795463817/753759942555290475995630244937580730308073521272808323100000000000000",
+      "uniform_mass_lower_GeV_decimal": 2.120074498928661,
+      "two_cell_mass_interval_GeV": [
+        "2273546626803501662279303317871801188923799471474417335339000795463817/753759942555290475995630244937580730308073521272808323100000000000000",
+        "18188373015171614639456955842531618526282973896795338682711853064025329/6030079540442323807965041959500645842464588170182466584700000000000000"
+      ],
+      "two_cell_mass_interval_GeV_decimal": [
+        3.016274145712818,
+        3.0162741458361335
+      ]
+    },
+    {
+      "analyzer": "3600",
+      "uniform_mass_lower_GeV": "319663220953568772175499443565585099979347492353/188439246909543835264037122182307900000000000000",
+      "uniform_mass_lower_GeV_decimal": 1.6963728426860893,
+      "two_cell_mass_interval_GeV": [
+        "227383549904594179882517478263516169450733316489/94219623454771917632018561091153950000000000000",
+        "363813679862222714636478551212770051388364931841/150751397527635068211229697745846300000000000000"
+      ],
+      "two_cell_mass_interval_GeV_decimal": [
+        2.413335370775969,
+        2.4133353708746217
+      ]
+    }
+  ],
+  "physical_mass_solution": false,
+  "conclusion": "Removing the imposed spin coefficient is insufficient. The positive graph kinetic and colour localization cost already exceeds the physical proton at either actual raw-electron coefficient. A signed Dirac/current source with its actual dressed vacuum is a different construction and is not excluded by this bound."
+}

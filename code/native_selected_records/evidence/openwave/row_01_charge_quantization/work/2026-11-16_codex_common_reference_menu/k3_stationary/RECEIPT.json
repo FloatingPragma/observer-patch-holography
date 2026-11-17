@@ -1,0 +1,1362 @@
+{
+  "candidate": "A-native-common-reference-menu-v1",
+  "cases": [
+    {
+      "M": 4,
+      "R_events_per_first_binary_setting": 16,
+      "R_events_per_stride8_binary_setting": 128,
+      "arm_weights": [
+        1.3152701919712324e-05,
+        0.9999868472980802
+      ],
+      "binary_crossblock_discrepancy": 9.540979117872439e-17,
+      "conditioning": "filed successful classical prefix for one, both independent filed prefixes for pair",
+      "direction": 1,
+      "k": 3,
+      "law": "native",
+      "log10_analyzer_probability": -65.84039943613762,
+      "log10_independent_pair_preparation_probability": -132.27658163744954,
+      "log10_selected_clock_probability": -66.13829081872477,
+      "normalized_crossblock": -0.9999748831426716,
+      "pair_energy_interval_keV": [
+        [
+          1021.4630896572748,
+          1022.9344477931833
+        ]
+      ],
+      "pair_frequency_source_comparison": 1.789787389628853,
+      "pair_off_band": 0.005398261336057435,
+      "pair_reader": {
+        "all_compatible_branches": [
+          {
+            "interval": [
+              1.7879146027245625,
+              1.7904899896608746
+            ],
+            "sign": 1,
+            "winding": 2
+          }
+        ],
+        "eta_external_certificate": 0.01,
+        "finite_shot_confidence_claim": false,
+        "first_interval": [
+          1.7748703572018532,
+          1.7956290723293558
+        ],
+        "frequency_components": [
+          [
+            1.7879146027245625,
+            1.7904899896608746
+          ]
+        ],
+        "probability_error": 2e-05,
+        "stride": 8,
+        "stride_phase_interval": [
+          1.736946207437327,
+          1.757549302927825
+        ],
+        "unique_component": true
+      },
+      "pair_records": {
+        "1": {
+          "x_minus": 0.6053369435705376,
+          "x_plus": 0.3946630564294624,
+          "y_minus": 0.014583251299047362,
+          "y_plus": 0.9854167487009526
+        },
+        "8": {
+          "x_minus": 0.5868863103340709,
+          "x_plus": 0.4131136896659291,
+          "y_minus": 0.010841994317099257,
+          "y_plus": 0.9891580056829008
+        }
+      },
+      "path_probabilities": [
+        0.4963734495406713,
+        0.5036265504593285
+      ],
+      "reference": "stationary",
+      "selected_path": 1,
+      "selector_success_factor": "185237929860733015420396031876343626733374804699891860506366425980344979828776009693005217941261976980264275910331744918000698089599609375/186070713419675363980626894819329160794532188335953423432061490990243657757029868371504908982723472783555205531204141550984858016925351936",
+      "settings_cost": "Each X/Y and stride is a separate measurement setting; pair preparation probability is per prepared pair, not the success of collecting all settings.",
+      "turns": 1,
+      "visibility_binary": -0.007253100918657385,
+      "visibility_direct": -0.007253100918657289
+    },
+    {
+      "M": 4,
+      "R_events_per_first_binary_setting": 16,
+      "R_events_per_stride8_binary_setting": 128,
+      "arm_weights": [
+        1.4412969933531703e-16,
+        0.9999999999999996
+      ],
+      "binary_crossblock_discrepancy": 5.724583831128768e-17,
+      "conditioning": "filed successful classical prefix for one, both independent filed prefixes for pair",
+      "direction": 1,
+      "k": 3,
+      "law": "swap",
+      "log10_analyzer_probability": -75.51994907214504,
+      "log10_independent_pair_preparation_probability": -151.64195811476253,
+      "log10_selected_clock_probability": -75.82097905738127,
+      "normalized_crossblock": 0.9999999999999998,
+      "pair_energy_interval_keV": [
+        [
+          1021.5963902592024,
+          1023.0682417565095
+        ]
+      ],
+      "pair_frequency_source_comparison": 1.789787389628853,
+      "pair_off_band": 0.007672298881181022,
+      "pair_reader": {
+        "all_compatible_branches": [
+          {
+            "interval": [
+              1.788147925000376,
+              1.7907241754902103
+            ],
+            "sign": 1,
+            "winding": 2
+          }
+        ],
+        "eta_external_certificate": 0.01,
+        "finite_shot_confidence_claim": false,
+        "first_interval": [
+          1.7753219492763201,
+          1.7960827132217425
+        ],
+        "frequency_components": [
+          [
+            1.788147925000376,
+            1.7907241754902103
+          ]
+        ],
+        "probability_error": 2e-05,
+        "stride": 8,
+        "stride_phase_interval": [
+          1.7388127856438358,
+          1.7594227895625105
+        ],
+        "unique_component": true
+      },
+      "pair_records": {
+        "1": {
+          "x_minus": 0.6055558327860433,
+          "x_plus": 0.3944441672139567,
+          "y_minus": 0.014653862911644056,
+          "y_plus": 0.9853461370883559
+        },
+        "8": {
+          "x_minus": 0.5877973994458112,
+          "x_plus": 0.41220260055418884,
+          "y_minus": 0.012209882618419876,
+          "y_plus": 0.9877901173815802
+        }
+      },
+      "path_probabilities": [
+        0.5000000120054029,
+        0.499999987994597
+      ],
+      "reference": "stationary",
+      "selected_path": 0,
+      "selector_success_factor": "185237929860733015420396031876343626733374804699891860506366425980344979828776009693005217941261976980264275910331744918000698089599609375/186070713419675363980626894819329160794532188335953423432061490990243657757029868371504908982723472783555205531204141550984858016925351936",
+      "settings_cost": "Each X/Y and stride is a separate measurement setting; pair preparation probability is per prepared pair, not the success of collecting all settings.",
+      "turns": 1,
+      "visibility_binary": 2.4010805788066136e-08,
+      "visibility_direct": 2.4010805845311975e-08
+    },
+    {
+      "M": 4,
+      "R_events_per_first_binary_setting": 16,
+      "R_events_per_stride8_binary_setting": 128,
+      "arm_weights": [
+        1.3159823927764118e-05,
+        0.9999868401760721
+      ],
+      "binary_crossblock_discrepancy": 5.377642775528102e-17,
+      "conditioning": "filed successful classical prefix for one, both independent filed prefixes for pair",
+      "direction": -1,
+      "k": 3,
+      "law": "native",
+      "log10_analyzer_probability": -65.84039943304454,
+      "log10_independent_pair_preparation_probability": -132.27657993805178,
+      "log10_selected_clock_probability": -66.13828996902589,
+      "normalized_crossblock": -0.99997489513901,
+      "pair_energy_interval_keV": [
+        [
+          1021.4630896572796,
+          1022.9344477931883
+        ]
+      ],
+      "pair_frequency_source_comparison": 1.789787389628853,
+      "pair_off_band": 0.005398261336141147,
+      "pair_reader": {
+        "all_compatible_branches": [
+          {
+            "interval": [
+              1.787914602724571,
+              1.7904899896608832
+            ],
+            "sign": 1,
+            "winding": 2
+          }
+        ],
+        "eta_external_certificate": 0.01,
+        "finite_shot_confidence_claim": false,
+        "first_interval": [
+          1.7748703572018691,
+          1.7956290723293717
+        ],
+        "frequency_components": [
+          [
+            1.787914602724571,
+            1.7904899896608832
+          ]
+        ],
+        "probability_error": 2e-05,
+        "stride": 8,
+        "stride_phase_interval": [
+          1.7369462074373947,
+          1.757549302927893
+        ],
+        "unique_component": true
+      },
+      "pair_records": {
+        "1": {
+          "x_minus": 0.6053369435705453,
+          "x_plus": 0.3946630564294546,
+          "y_minus": 0.014583251299052413,
+          "y_plus": 0.9854167487009475
+        },
+        "8": {
+          "x_minus": 0.586886310334104,
+          "x_plus": 0.413113689665896,
+          "y_minus": 0.010841994317151493,
+          "y_plus": 0.9891580056828485
+        }
+      },
+      "path_probabilities": [
+        0.4963724677792352,
+        0.5036275322207648
+      ],
+      "reference": "stationary",
+      "selected_path": 1,
+      "selector_success_factor": "185237929860733015420396031876343626733374804699891860506366425980344979828776009693005217941261976980264275910331744918000698089599609375/186070713419675363980626894819329160794532188335953423432061490990243657757029868371504908982723472783555205531204141550984858016925351936",
+      "settings_cost": "Each X/Y and stride is a separate measurement setting; pair preparation probability is per prepared pair, not the success of collecting all settings.",
+      "turns": 1,
+      "visibility_binary": -0.007255064441529568,
+      "visibility_direct": -0.007255064441529622
+    },
+    {
+      "M": 4,
+      "R_events_per_first_binary_setting": 16,
+      "R_events_per_stride8_binary_setting": 128,
+      "arm_weights": [
+        1.441296993353172e-16,
+        0.9999999999999998
+      ],
+      "binary_crossblock_discrepancy": 5.724586808978973e-17,
+      "conditioning": "filed successful classical prefix for one, both independent filed prefixes for pair",
+      "direction": -1,
+      "k": 3,
+      "law": "swap",
+      "log10_analyzer_probability": -75.51994907214505,
+      "log10_independent_pair_preparation_probability": -151.64195811476256,
+      "log10_selected_clock_probability": -75.82097905738128,
+      "normalized_crossblock": 1.0000000000000002,
+      "pair_energy_interval_keV": [
+        [
+          1021.5963902592024,
+          1023.0682417565095
+        ]
+      ],
+      "pair_frequency_source_comparison": 1.789787389628853,
+      "pair_off_band": 0.007672298881180578,
+      "pair_reader": {
+        "all_compatible_branches": [
+          {
+            "interval": [
+              1.788147925000376,
+              1.7907241754902103
+            ],
+            "sign": 1,
+            "winding": 2
+          }
+        ],
+        "eta_external_certificate": 0.01,
+        "finite_shot_confidence_claim": false,
+        "first_interval": [
+          1.7753219492763201,
+          1.7960827132217425
+        ],
+        "frequency_components": [
+          [
+            1.788147925000376,
+            1.7907241754902103
+          ]
+        ],
+        "probability_error": 2e-05,
+        "stride": 8,
+        "stride_phase_interval": [
+          1.7388127856438356,
+          1.7594227895625103
+        ],
+        "unique_component": true
+      },
+      "pair_records": {
+        "1": {
+          "x_minus": 0.6055558327860433,
+          "x_plus": 0.3944441672139567,
+          "y_minus": 0.014653862911643833,
+          "y_plus": 0.9853461370883562
+        },
+        "8": {
+          "x_minus": 0.5877973994458111,
+          "x_plus": 0.4122026005541889,
+          "y_minus": 0.012209882618419599,
+          "y_plus": 0.9877901173815804
+        }
+      },
+      "path_probabilities": [
+        0.5000000120054029,
+        0.4999999879945971
+      ],
+      "reference": "stationary",
+      "selected_path": 0,
+      "selector_success_factor": "185237929860733015420396031876343626733374804699891860506366425980344979828776009693005217941261976980264275910331744918000698089599609375/186070713419675363980626894819329160794532188335953423432061490990243657757029868371504908982723472783555205531204141550984858016925351936",
+      "settings_cost": "Each X/Y and stride is a separate measurement setting; pair preparation probability is per prepared pair, not the success of collecting all settings.",
+      "turns": 1,
+      "visibility_binary": 2.4010805788066136e-08,
+      "visibility_direct": 2.4010805845312004e-08
+    },
+    {
+      "M": 4,
+      "R_events_per_first_binary_setting": 16,
+      "R_events_per_stride8_binary_setting": 128,
+      "arm_weights": [
+        1.7287086794091263e-10,
+        0.9999999998271291
+      ],
+      "binary_crossblock_discrepancy": 1.602721861476697e-16,
+      "conditioning": "filed successful classical prefix for one, both independent filed prefixes for pair",
+      "direction": 1,
+      "k": 3,
+      "law": "native",
+      "log10_analyzer_probability": -120.93171587852977,
+      "log10_independent_pair_preparation_probability": -242.4654689087824,
+      "log10_selected_clock_probability": -121.2327344543912,
+      "normalized_crossblock": 0.9999748831426716,
+      "pair_energy_interval_keV": [
+        [
+          1021.4630896482821,
+          1022.9344477841577
+        ]
+      ],
+      "pair_frequency_source_comparison": 1.789787389628853,
+      "pair_off_band": 0.005398261182759042,
+      "pair_reader": {
+        "all_compatible_branches": [
+          {
+            "interval": [
+              1.7879146027088222,
+              1.7904899896450766
+            ],
+            "sign": 1,
+            "winding": 2
+          }
+        ],
+        "eta_external_certificate": 0.01,
+        "finite_shot_confidence_claim": false,
+        "first_interval": [
+          1.7748703571714277,
+          1.7956290722987922
+        ],
+        "frequency_components": [
+          [
+            1.7879146027088222,
+            1.7904899896450766
+          ]
+        ],
+        "probability_error": 2e-05,
+        "stride": 8,
+        "stride_phase_interval": [
+          1.7369462073114055,
+          1.7575493028014402
+        ],
+        "unique_component": true
+      },
+      "pair_records": {
+        "1": {
+          "x_minus": 0.6053369435557895,
+          "x_plus": 0.3946630564442105,
+          "y_minus": 0.01458325129429311,
+          "y_plus": 0.9854167487057068
+        },
+        "8": {
+          "x_minus": 0.5868863102725982,
+          "x_plus": 0.41311368972740187,
+          "y_minus": 0.010841994224921603,
+          "y_plus": 0.9891580057750784
+        }
+      },
+      "path_probabilities": [
+        0.5000131477064187,
+        0.49998685229358114
+      ],
+      "reference": "stationary",
+      "selected_path": 0,
+      "selector_success_factor": "1162544441629087079963476286925039987077684886319769817448184481962430007243287442941238120523377600338192638693977641329058119609640936688989776171158971646085235491544971591793000698089599609375/1167984798111281975972139931059274579172666497855631342228273284582214442805421410945513679697247078343332431250840168271536308408672112127552681297848886832192510636636227827221215793215130566656",
+      "settings_cost": "Each X/Y and stride is a separate measurement setting; pair preparation probability is per prepared pair, not the success of collecting all settings.",
+      "turns": 2,
+      "visibility_binary": 2.62954128373849e-05,
+      "visibility_direct": 2.6295412837545174e-05
+    },
+    {
+      "M": 4,
+      "R_events_per_first_binary_setting": 16,
+      "R_events_per_stride8_binary_setting": 128,
+      "arm_weights": [
+        2.0773370230488909e-32,
+        0.9999999999999998
+      ],
+      "binary_crossblock_discrepancy": 2.882593986706341e-16,
+      "conditioning": "filed successful classical prefix for one, both independent filed prefixes for pair",
+      "direction": 1,
+      "k": 3,
+      "law": "swap",
+      "log10_analyzer_probability": -140.29130077583872,
+      "log10_independent_pair_preparation_probability": -281.1846615430054,
+      "log10_selected_clock_probability": -140.5923307715027,
+      "normalized_crossblock": 0.9999999999999997,
+      "pair_energy_interval_keV": [
+        [
+          1021.5963902592024,
+          1023.0682417565095
+        ]
+      ],
+      "pair_frequency_source_comparison": 1.789787389628853,
+      "pair_off_band": 0.007672298881180578,
+      "pair_reader": {
+        "all_compatible_branches": [
+          {
+            "interval": [
+              1.788147925000376,
+              1.7907241754902103
+            ],
+            "sign": 1,
+            "winding": 2
+          }
+        ],
+        "eta_external_certificate": 0.01,
+        "finite_shot_confidence_claim": false,
+        "first_interval": [
+          1.7753219492763201,
+          1.7960827132217427
+        ],
+        "frequency_components": [
+          [
+            1.788147925000376,
+            1.7907241754902103
+          ]
+        ],
+        "probability_error": 2e-05,
+        "stride": 8,
+        "stride_phase_interval": [
+          1.738812785643836,
+          1.7594227895625105
+        ],
+        "unique_component": true
+      },
+      "pair_records": {
+        "1": {
+          "x_minus": 0.6055558327860433,
+          "x_plus": 0.39444416721395664,
+          "y_minus": 0.014653862911643722,
+          "y_plus": 0.9853461370883563
+        },
+        "8": {
+          "x_minus": 0.5877973994458112,
+          "x_plus": 0.4122026005541887,
+          "y_minus": 0.01220988261841971,
+          "y_plus": 0.9877901173815803
+        }
+      },
+      "path_probabilities": [
+        0.5,
+        0.4999999999999998
+      ],
+      "reference": "stationary",
+      "selected_path": 0,
+      "selector_success_factor": "1162544441629087079963476286925039987077684886319769817448184481962430007243287442941238120523377600338192638693977641329058119609640936688989776171158971646085235491544971591793000698089599609375/1167984798111281975972139931059274579172666497855631342228273284582214442805421410945513679697247078343332431250840168271536308408672112127552681297848886832192510636636227827221215793215130566656",
+      "settings_cost": "Each X/Y and stride is a separate measurement setting; pair preparation probability is per prepared pair, not the success of collecting all settings.",
+      "turns": 2,
+      "visibility_binary": 0.0,
+      "visibility_direct": 2.882593986706341e-16
+    },
+    {
+      "M": 4,
+      "R_events_per_first_binary_setting": 16,
+      "R_events_per_stride8_binary_setting": 128,
+      "arm_weights": [
+        1.7296447638145404e-10,
+        0.9999999998270354
+      ],
+      "binary_crossblock_discrepancy": 2.287802109215975e-16,
+      "conditioning": "filed successful classical prefix for one, both independent filed prefixes for pair",
+      "direction": -1,
+      "k": 3,
+      "law": "native",
+      "log10_analyzer_probability": -120.9317158785298,
+      "log10_independent_pair_preparation_probability": -242.46546890259935,
+      "log10_selected_clock_probability": -121.23273445129968,
+      "normalized_crossblock": 0.9999748951390095,
+      "pair_energy_interval_keV": [
+        [
+          1021.4630896482821,
+          1022.9344477841577
+        ]
+      ],
+      "pair_frequency_source_comparison": 1.789787389628853,
+      "pair_off_band": 0.00539826118275882,
+      "pair_reader": {
+        "all_compatible_branches": [
+          {
+            "interval": [
+              1.7879146027088222,
+              1.7904899896450766
+            ],
+            "sign": 1,
+            "winding": 2
+          }
+        ],
+        "eta_external_certificate": 0.01,
+        "finite_shot_confidence_claim": false,
+        "first_interval": [
+          1.774870357171428,
+          1.7956290722987924
+        ],
+        "frequency_components": [
+          [
+            1.7879146027088222,
+            1.7904899896450766
+          ]
+        ],
+        "probability_error": 2e-05,
+        "stride": 8,
+        "stride_phase_interval": [
+          1.736946207311405,
+          1.7575493028014397
+        ],
+        "unique_component": true
+      },
+      "pair_records": {
+        "1": {
+          "x_minus": 0.6053369435557896,
+          "x_plus": 0.3946630564442104,
+          "y_minus": 0.01458325129429383,
+          "y_plus": 0.9854167487057062
+        },
+        "8": {
+          "x_minus": 0.586886310272598,
+          "x_plus": 0.41311368972740203,
+          "y_minus": 0.010841994224922102,
+          "y_plus": 0.989158005775078
+        }
+      },
+      "path_probabilities": [
+        0.500013151265793,
+        0.4999868487342068
+      ],
+      "reference": "stationary",
+      "selected_path": 0,
+      "selector_success_factor": "1162544441629087079963476286925039987077684886319769817448184481962430007243287442941238120523377600338192638693977641329058119609640936688989776171158971646085235491544971591793000698089599609375/1167984798111281975972139931059274579172666497855631342228273284582214442805421410945513679697247078343332431250840168271536308408672112127552681297848886832192510636636227827221215793215130566656",
+      "settings_cost": "Each X/Y and stride is a separate measurement setting; pair preparation probability is per prepared pair, not the success of collecting all settings.",
+      "turns": 2,
+      "visibility_binary": 2.630253158608653e-05,
+      "visibility_direct": 2.630253158631531e-05
+    },
+    {
+      "M": 4,
+      "R_events_per_first_binary_setting": 16,
+      "R_events_per_stride8_binary_setting": 128,
+      "arm_weights": [
+        2.0773370230488922e-32,
+        0.9999999999999998
+      ],
+      "binary_crossblock_discrepancy": 6.621479374560286e-17,
+      "conditioning": "filed successful classical prefix for one, both independent filed prefixes for pair",
+      "direction": -1,
+      "k": 3,
+      "law": "swap",
+      "log10_analyzer_probability": -140.29130077583878,
+      "log10_independent_pair_preparation_probability": -281.1846615430055,
+      "log10_selected_clock_probability": -140.59233077150276,
+      "normalized_crossblock": 0.9999999999999994,
+      "pair_energy_interval_keV": [
+        [
+          1021.5963902592024,
+          1023.0682417565095
+        ]
+      ],
+      "pair_frequency_source_comparison": 1.789787389628853,
+      "pair_off_band": 0.0076722988811808,
+      "pair_reader": {
+        "all_compatible_branches": [
+          {
+            "interval": [
+              1.788147925000376,
+              1.7907241754902103
+            ],
+            "sign": 1,
+            "winding": 2
+          }
+        ],
+        "eta_external_certificate": 0.01,
+        "finite_shot_confidence_claim": false,
+        "first_interval": [
+          1.7753219492763201,
+          1.7960827132217425
+        ],
+        "frequency_components": [
+          [
+            1.788147925000376,
+            1.7907241754902103
+          ]
+        ],
+        "probability_error": 2e-05,
+        "stride": 8,
+        "stride_phase_interval": [
+          1.7388127856438356,
+          1.7594227895625103
+        ],
+        "unique_component": true
+      },
+      "pair_records": {
+        "1": {
+          "x_minus": 0.6055558327860433,
+          "x_plus": 0.3944441672139567,
+          "y_minus": 0.014653862911643889,
+          "y_plus": 0.985346137088356
+        },
+        "8": {
+          "x_minus": 0.5877973994458111,
+          "x_plus": 0.4122026005541889,
+          "y_minus": 0.012209882618419765,
+          "y_plus": 0.9877901173815802
+        }
+      },
+      "path_probabilities": [
+        0.5000000000000001,
+        0.4999999999999998
+      ],
+      "reference": "stationary",
+      "selected_path": 0,
+      "selector_success_factor": "1162544441629087079963476286925039987077684886319769817448184481962430007243287442941238120523377600338192638693977641329058119609640936688989776171158971646085235491544971591793000698089599609375/1167984798111281975972139931059274579172666497855631342228273284582214442805421410945513679697247078343332431250840168271536308408672112127552681297848886832192510636636227827221215793215130566656",
+      "settings_cost": "Each X/Y and stride is a separate measurement setting; pair preparation probability is per prepared pair, not the success of collecting all settings.",
+      "turns": 2,
+      "visibility_binary": 2.220446049250313e-16,
+      "visibility_direct": 2.8825939867063417e-16
+    },
+    {
+      "M": 8,
+      "R_events_per_first_binary_setting": 16,
+      "R_events_per_stride8_binary_setting": 128,
+      "arm_weights": [
+        4.2736350948188393e-10,
+        0.9999999995726365
+      ],
+      "binary_crossblock_discrepancy": 4.0515279933067694e-17,
+      "conditioning": "filed successful classical prefix for one, both independent filed prefixes for pair",
+      "direction": 1,
+      "k": 3,
+      "law": "native",
+      "log10_analyzer_probability": -120.93171587841927,
+      "log10_independent_pair_preparation_probability": -242.4654558367388,
+      "log10_selected_clock_probability": -121.2327279183694,
+      "normalized_crossblock": -0.9999968406088051,
+      "pair_energy_interval_keV": [
+        [
+          1021.463089648282,
+          1022.9344477841574
+        ]
+      ],
+      "pair_frequency_source_comparison": 1.789787389628853,
+      "pair_off_band": 0.0053982611827565995,
+      "pair_reader": {
+        "all_compatible_branches": [
+          {
+            "interval": [
+              1.787914602708822,
+              1.7904899896450763
+            ],
+            "sign": 1,
+            "winding": 2
+          }
+        ],
+        "eta_external_certificate": 0.01,
+        "finite_shot_confidence_claim": false,
+        "first_interval": [
+          1.7748703571714277,
+          1.7956290722987922
+        ],
+        "frequency_components": [
+          [
+            1.787914602708822,
+            1.7904899896450763
+          ]
+        ],
+        "probability_error": 2e-05,
+        "stride": 8,
+        "stride_phase_interval": [
+          1.7369462073114037,
+          1.7575493028014384
+        ],
+        "unique_component": true
+      },
+      "pair_records": {
+        "1": {
+          "x_minus": 0.6053369435557895,
+          "x_plus": 0.3946630564442105,
+          "y_minus": 0.014583251294292998,
+          "y_plus": 0.9854167487057071
+        },
+        "8": {
+          "x_minus": 0.5868863102725973,
+          "x_plus": 0.4131136897274027,
+          "y_minus": 0.010841994224920604,
+          "y_plus": 0.9891580057750794
+        }
+      },
+      "path_probabilities": [
+        0.4999793272931408,
+        0.5000206727068591
+      ],
+      "reference": "stationary",
+      "selected_path": 1,
+      "selector_success_factor": "1162544441629087079963476286925039987077684886319769817448184481962430007243287442941238120523377600338192638693977641329058119609640936688989776171158971646085235491544971591793000698089599609375/1167984798111281975972139931059274579172666497855631342228273284582214442805421410945513679697247078343332431250840168271536308408672112127552681297848886832192510636636227827221215793215130566656",
+      "settings_cost": "Each X/Y and stride is a separate measurement setting; pair preparation probability is per prepared pair, not the success of collecting all settings.",
+      "turns": 1,
+      "visibility_binary": -4.134541371836331e-05,
+      "visibility_direct": -4.1345413718403826e-05
+    },
+    {
+      "M": 8,
+      "R_events_per_first_binary_setting": 16,
+      "R_events_per_stride8_binary_setting": 128,
+      "arm_weights": [
+        2.2669611956126094e-33,
+        0.9999999999999998
+      ],
+      "binary_crossblock_discrepancy": 2.0624753432072864e-16,
+      "conditioning": "filed successful classical prefix for one, both independent filed prefixes for pair",
+      "direction": 1,
+      "k": 3,
+      "law": "swap",
+      "log10_analyzer_probability": -140.29130077583872,
+      "log10_independent_pair_preparation_probability": -281.1846615430054,
+      "log10_selected_clock_probability": -140.5923307715027,
+      "normalized_crossblock": 0.9999999999999987,
+      "pair_energy_interval_keV": [
+        [
+          1021.5963902592024,
+          1023.0682417565095
+        ]
+      ],
+      "pair_frequency_source_comparison": 1.789787389628853,
+      "pair_off_band": 0.007672298881180134,
+      "pair_reader": {
+        "all_compatible_branches": [
+          {
+            "interval": [
+              1.788147925000376,
+              1.7907241754902103
+            ],
+            "sign": 1,
+            "winding": 2
+          }
+        ],
+        "eta_external_certificate": 0.01,
+        "finite_shot_confidence_claim": false,
+        "first_interval": [
+          1.7753219492763201,
+          1.7960827132217425
+        ],
+        "frequency_components": [
+          [
+            1.788147925000376,
+            1.7907241754902103
+          ]
+        ],
+        "probability_error": 2e-05,
+        "stride": 8,
+        "stride_phase_interval": [
+          1.7388127856438351,
+          1.7594227895625099
+        ],
+        "unique_component": true
+      },
+      "pair_records": {
+        "1": {
+          "x_minus": 0.6055558327860433,
+          "x_plus": 0.39444416721395675,
+          "y_minus": 0.014653862911643833,
+          "y_plus": 0.9853461370883562
+        },
+        "8": {
+          "x_minus": 0.5877973994458109,
+          "x_plus": 0.4122026005541891,
+          "y_minus": 0.012209882618419376,
+          "y_plus": 0.9877901173815806
+        }
+      },
+      "path_probabilities": [
+        0.49999999999999994,
+        0.4999999999999999
+      ],
+      "reference": "stationary",
+      "selected_path": 0,
+      "selector_success_factor": "1162544441629087079963476286925039987077684886319769817448184481962430007243287442941238120523377600338192638693977641329058119609640936688989776171158971646085235491544971591793000698089599609375/1167984798111281975972139931059274579172666497855631342228273284582214442805421410945513679697247078343332431250840168271536308408672112127552681297848886832192510636636227827221215793215130566656",
+      "settings_cost": "Each X/Y and stride is a separate measurement setting; pair preparation probability is per prepared pair, not the success of collecting all settings.",
+      "turns": 1,
+      "visibility_binary": -1.1102230246251565e-16,
+      "visibility_direct": 9.522523185821297e-17
+    },
+    {
+      "M": 8,
+      "R_events_per_first_binary_setting": 16,
+      "R_events_per_stride8_binary_setting": 128,
+      "arm_weights": [
+        4.2744557825941374e-10,
+        0.9999999995725546
+      ],
+      "binary_crossblock_discrepancy": 1.2145774837268863e-16,
+      "conditioning": "filed successful classical prefix for one, both independent filed prefixes for pair",
+      "direction": -1,
+      "k": 3,
+      "law": "native",
+      "log10_analyzer_probability": -120.93171587841924,
+      "log10_independent_pair_preparation_probability": -242.46545583329086,
+      "log10_selected_clock_probability": -121.23272791664543,
+      "normalized_crossblock": -0.9999968411441253,
+      "pair_energy_interval_keV": [
+        [
+          1021.4630896482821,
+          1022.9344477841574
+        ]
+      ],
+      "pair_frequency_source_comparison": 1.789787389628853,
+      "pair_off_band": 0.0053982611827574885,
+      "pair_reader": {
+        "all_compatible_branches": [
+          {
+            "interval": [
+              1.7879146027088222,
+              1.7904899896450763
+            ],
+            "sign": 1,
+            "winding": 2
+          }
+        ],
+        "eta_external_certificate": 0.01,
+        "finite_shot_confidence_claim": false,
+        "first_interval": [
+          1.7748703571714275,
+          1.795629072298792
+        ],
+        "frequency_components": [
+          [
+            1.7879146027088222,
+            1.7904899896450763
+          ]
+        ],
+        "probability_error": 2e-05,
+        "stride": 8,
+        "stride_phase_interval": [
+          1.7369462073114041,
+          1.7575493028014386
+        ],
+        "unique_component": true
+      },
+      "pair_records": {
+        "1": {
+          "x_minus": 0.6053369435557894,
+          "x_plus": 0.3946630564442106,
+          "y_minus": 0.014583251294293664,
+          "y_plus": 0.9854167487057064
+        },
+        "8": {
+          "x_minus": 0.5868863102725974,
+          "x_plus": 0.41311368972740253,
+          "y_minus": 0.010841994224920382,
+          "y_plus": 0.9891580057750796
+        }
+      },
+      "path_probabilities": [
+        0.4999793253082828,
+        0.5000206746917173
+      ],
+      "reference": "stationary",
+      "selected_path": 1,
+      "selector_success_factor": "1162544441629087079963476286925039987077684886319769817448184481962430007243287442941238120523377600338192638693977641329058119609640936688989776171158971646085235491544971591793000698089599609375/1167984798111281975972139931059274579172666497855631342228273284582214442805421410945513679697247078343332431250840168271536308408672112127552681297848886832192510636636227827221215793215130566656",
+      "settings_cost": "Each X/Y and stride is a separate measurement setting; pair preparation probability is per prepared pair, not the success of collecting all settings.",
+      "turns": 1,
+      "visibility_binary": -4.1349383434363673e-05,
+      "visibility_direct": -4.134938343448513e-05
+    },
+    {
+      "M": 8,
+      "R_events_per_first_binary_setting": 16,
+      "R_events_per_stride8_binary_setting": 128,
+      "arm_weights": [
+        2.2669611956126115e-33,
+        1.0000000000000002
+      ],
+      "binary_crossblock_discrepancy": 1.2681937306681837e-16,
+      "conditioning": "filed successful classical prefix for one, both independent filed prefixes for pair",
+      "direction": -1,
+      "k": 3,
+      "law": "swap",
+      "log10_analyzer_probability": -140.29130077583872,
+      "log10_independent_pair_preparation_probability": -281.1846615430054,
+      "log10_selected_clock_probability": -140.5923307715027,
+      "normalized_crossblock": 0.9999999999999981,
+      "pair_energy_interval_keV": [
+        [
+          1021.5963902592024,
+          1023.0682417565095
+        ]
+      ],
+      "pair_frequency_source_comparison": 1.789787389628853,
+      "pair_off_band": 0.007672298881180135,
+      "pair_reader": {
+        "all_compatible_branches": [
+          {
+            "interval": [
+              1.788147925000376,
+              1.7907241754902103
+            ],
+            "sign": 1,
+            "winding": 2
+          }
+        ],
+        "eta_external_certificate": 0.01,
+        "finite_shot_confidence_claim": false,
+        "first_interval": [
+          1.7753219492763201,
+          1.7960827132217427
+        ],
+        "frequency_components": [
+          [
+            1.788147925000376,
+            1.7907241754902103
+          ]
+        ],
+        "probability_error": 2e-05,
+        "stride": 8,
+        "stride_phase_interval": [
+          1.7388127856438356,
+          1.75942278956251
+        ],
+        "unique_component": true
+      },
+      "pair_records": {
+        "1": {
+          "x_minus": 0.6055558327860433,
+          "x_plus": 0.39444416721395664,
+          "y_minus": 0.014653862911643833,
+          "y_plus": 0.9853461370883562
+        },
+        "8": {
+          "x_minus": 0.587797399445811,
+          "x_plus": 0.41220260055418895,
+          "y_minus": 0.012209882618419376,
+          "y_plus": 0.9877901173815806
+        }
+      },
+      "path_probabilities": [
+        0.5000000000000001,
+        0.5
+      ],
+      "reference": "stationary",
+      "selected_path": 0,
+      "selector_success_factor": "1162544441629087079963476286925039987077684886319769817448184481962430007243287442941238120523377600338192638693977641329058119609640936688989776171158971646085235491544971591793000698089599609375/1167984798111281975972139931059274579172666497855631342228273284582214442805421410945513679697247078343332431250840168271536308408672112127552681297848886832192510636636227827221215793215130566656",
+      "settings_cost": "Each X/Y and stride is a separate measurement setting; pair preparation probability is per prepared pair, not the success of collecting all settings.",
+      "turns": 1,
+      "visibility_binary": 2.220446049250313e-16,
+      "visibility_direct": 9.522523185821293e-17
+    },
+    {
+      "M": 8,
+      "R_events_per_first_binary_setting": 16,
+      "R_events_per_stride8_binary_setting": 128,
+      "arm_weights": [
+        1.8263398281620692e-19,
+        0.9999999999999998
+      ],
+      "binary_crossblock_discrepancy": 1.660922558209627e-16,
+      "conditioning": "filed successful classical prefix for one, both independent filed prefixes for pair",
+      "direction": 1,
+      "k": 3,
+      "law": "native",
+      "log10_analyzer_probability": -231.11433733917247,
+      "log10_independent_pair_preparation_probability": -462.8307346689305,
+      "log10_selected_clock_probability": -231.41536733446526,
+      "normalized_crossblock": 0.9999968406088052,
+      "pair_energy_interval_keV": [
+        [
+          1021.463089648282,
+          1022.9344477841574
+        ]
+      ],
+      "pair_frequency_source_comparison": 1.789787389628853,
+      "pair_off_band": 0.005398261182757488,
+      "pair_reader": {
+        "all_compatible_branches": [
+          {
+            "interval": [
+              1.787914602708822,
+              1.7904899896450763
+            ],
+            "sign": 1,
+            "winding": 2
+          }
+        ],
+        "eta_external_certificate": 0.01,
+        "finite_shot_confidence_claim": false,
+        "first_interval": [
+          1.7748703571714266,
+          1.795629072298791
+        ],
+        "frequency_components": [
+          [
+            1.787914602708822,
+            1.7904899896450763
+          ]
+        ],
+        "probability_error": 2e-05,
+        "stride": 8,
+        "stride_phase_interval": [
+          1.736946207311404,
+          1.7575493028014386
+        ],
+        "unique_component": true
+      },
+      "pair_records": {
+        "1": {
+          "x_minus": 0.6053369435557889,
+          "x_plus": 0.39466305644421107,
+          "y_minus": 0.014583251294292998,
+          "y_plus": 0.9854167487057071
+        },
+        "8": {
+          "x_minus": 0.5868863102725974,
+          "x_plus": 0.4131136897274026,
+          "y_minus": 0.010841994224921603,
+          "y_plus": 0.9891580057750784
+        }
+      },
+      "path_probabilities": [
+        0.5000000004273557,
+        0.49999999957264435
+      ],
+      "reference": "stationary",
+      "selected_path": 0,
+      "selector_success_factor": "45789811364101270986484575797046567656497480241663818595851646939377676563849158360450775223226368990131990055816783542800899239112648315564937881961564882894877226836985827425096039584180593546034506726146233082135066643028375518716273959237316389871610516055590428737519237412101347217685543000698089599609375/46020944252475287237870212884199033180620210660923048261998100776379565006208246561973370194536329221406749153247076699560650180816490655358168942243705375840708580716765564230733368217919000094579989235733761476822566574679670497657321756298451772713817730735254092349426494960250807374037851220383801379127296",
+      "settings_cost": "Each X/Y and stride is a separate measurement setting; pair preparation probability is per prepared pair, not the success of collecting all settings.",
+      "turns": 2,
+      "visibility_binary": 8.547114127566147e-10,
+      "visibility_direct": 8.547112466643588e-10
+    },
+    {
+      "M": 8,
+      "R_events_per_first_binary_setting": 16,
+      "R_events_per_stride8_binary_setting": 128,
+      "arm_weights": [
+        5.139113062413354e-66,
+        0.9999999999999999
+      ],
+      "binary_crossblock_discrepancy": 1.1102230246251565e-16,
+      "conditioning": "filed successful classical prefix for one, both independent filed prefixes for pair",
+      "direction": 1,
+      "k": 3,
+      "law": "swap",
+      "log10_analyzer_probability": -269.8340041832261,
+      "log10_independent_pair_preparation_probability": -540.2700683577802,
+      "log10_selected_clock_probability": -270.1350341788901,
+      "normalized_crossblock": 0.9999999999999987,
+      "pair_energy_interval_keV": [
+        [
+          1021.5963902592024,
+          1023.0682417565095
+        ]
+      ],
+      "pair_frequency_source_comparison": 1.789787389628853,
+      "pair_off_band": 0.007672298881179246,
+      "pair_reader": {
+        "all_compatible_branches": [
+          {
+            "interval": [
+              1.788147925000376,
+              1.7907241754902103
+            ],
+            "sign": 1,
+            "winding": 2
+          }
+        ],
+        "eta_external_certificate": 0.01,
+        "finite_shot_confidence_claim": false,
+        "first_interval": [
+          1.77532194927632,
+          1.7960827132217423
+        ],
+        "frequency_components": [
+          [
+            1.788147925000376,
+            1.7907241754902103
+          ]
+        ],
+        "probability_error": 2e-05,
+        "stride": 8,
+        "stride_phase_interval": [
+          1.738812785643835,
+          1.7594227895625096
+        ],
+        "unique_component": true
+      },
+      "pair_records": {
+        "1": {
+          "x_minus": 0.6055558327860432,
+          "x_plus": 0.3944441672139568,
+          "y_minus": 0.014653862911643722,
+          "y_plus": 0.9853461370883563
+        },
+        "8": {
+          "x_minus": 0.5877973994458108,
+          "x_plus": 0.4122026005541892,
+          "y_minus": 0.012209882618418988,
+          "y_plus": 0.9877901173815811
+        }
+      },
+      "path_probabilities": [
+        0.49999999999999994,
+        0.49999999999999994
+      ],
+      "reference": "stationary",
+      "selected_path": 0,
+      "selector_success_factor": "45789811364101270986484575797046567656497480241663818595851646939377676563849158360450775223226368990131990055816783542800899239112648315564937881961564882894877226836985827425096039584180593546034506726146233082135066643028375518716273959237316389871610516055590428737519237412101347217685543000698089599609375/46020944252475287237870212884199033180620210660923048261998100776379565006208246561973370194536329221406749153247076699560650180816490655358168942243705375840708580716765564230733368217919000094579989235733761476822566574679670497657321756298451772713817730735254092349426494960250807374037851220383801379127296",
+      "settings_cost": "Each X/Y and stride is a separate measurement setting; pair preparation probability is per prepared pair, not the success of collecting all settings.",
+      "turns": 2,
+      "visibility_binary": -1.1102230246251565e-16,
+      "visibility_direct": 4.533922391225214e-33
+    },
+    {
+      "M": 8,
+      "R_events_per_first_binary_setting": 16,
+      "R_events_per_stride8_binary_setting": 128,
+      "arm_weights": [
+        1.8266905494421772e-19,
+        0.9999999999999998
+      ],
+      "binary_crossblock_discrepancy": 3.677030511613211e-17,
+      "conditioning": "filed successful classical prefix for one, both independent filed prefixes for pair",
+      "direction": -1,
+      "k": 3,
+      "law": "native",
+      "log10_analyzer_probability": -231.1143373391725,
+      "log10_independent_pair_preparation_probability": -462.83073466893046,
+      "log10_selected_clock_probability": -231.41536733446523,
+      "normalized_crossblock": 0.999996841144125,
+      "pair_energy_interval_keV": [
+        [
+          1021.463089648282,
+          1022.9344477841574
+        ]
+      ],
+      "pair_frequency_source_comparison": 1.789787389628853,
+      "pair_off_band": 0.0053982611827570436,
+      "pair_reader": {
+        "all_compatible_branches": [
+          {
+            "interval": [
+              1.787914602708822,
+              1.7904899896450763
+            ],
+            "sign": 1,
+            "winding": 2
+          }
+        ],
+        "eta_external_certificate": 0.01,
+        "finite_shot_confidence_claim": false,
+        "first_interval": [
+          1.7748703571714266,
+          1.795629072298791
+        ],
+        "frequency_components": [
+          [
+            1.787914602708822,
+            1.7904899896450763
+          ]
+        ],
+        "probability_error": 2e-05,
+        "stride": 8,
+        "stride_phase_interval": [
+          1.736946207311404,
+          1.7575493028014386
+        ],
+        "unique_component": true
+      },
+      "pair_records": {
+        "1": {
+          "x_minus": 0.6053369435557889,
+          "x_plus": 0.394663056444211,
+          "y_minus": 0.014583251294293165,
+          "y_plus": 0.9854167487057068
+        },
+        "8": {
+          "x_minus": 0.5868863102725974,
+          "x_plus": 0.4131136897274026,
+          "y_minus": 0.010841994224921603,
+          "y_plus": 0.9891580057750784
+        }
+      },
+      "path_probabilities": [
+        0.5000000004273967,
+        0.4999999995726034
+      ],
+      "reference": "stationary",
+      "selected_path": 0,
+      "selector_success_factor": "45789811364101270986484575797046567656497480241663818595851646939377676563849158360450775223226368990131990055816783542800899239112648315564937881961564882894877226836985827425096039584180593546034506726146233082135066643028375518716273959237316389871610516055590428737519237412101347217685543000698089599609375/46020944252475287237870212884199033180620210660923048261998100776379565006208246561973370194536329221406749153247076699560650180816490655358168942243705375840708580716765564230733368217919000094579989235733761476822566574679670497657321756298451772713817730735254092349426494960250807374037851220383801379127296",
+      "settings_cost": "Each X/Y and stride is a separate measurement setting; pair preparation probability is per prepared pair, not the success of collecting all settings.",
+      "turns": 2,
+      "visibility_binary": 8.54793347215832e-10,
+      "visibility_direct": 8.547933104455269e-10
+    },
+    {
+      "M": 8,
+      "R_events_per_first_binary_setting": 16,
+      "R_events_per_stride8_binary_setting": 128,
+      "arm_weights": [
+        5.139113062413363e-66,
+        0.9999999999999999
+      ],
+      "binary_crossblock_discrepancy": 1.1102230246251565e-16,
+      "conditioning": "filed successful classical prefix for one, both independent filed prefixes for pair",
+      "direction": -1,
+      "k": 3,
+      "law": "swap",
+      "log10_analyzer_probability": -269.834004183226,
+      "log10_independent_pair_preparation_probability": -540.27006835778,
+      "log10_selected_clock_probability": -270.13503417889,
+      "normalized_crossblock": 0.9999999999999992,
+      "pair_energy_interval_keV": [
+        [
+          1021.5963902592024,
+          1023.0682417565095
+        ]
+      ],
+      "pair_frequency_source_comparison": 1.789787389628853,
+      "pair_off_band": 0.007672298881180134,
+      "pair_reader": {
+        "all_compatible_branches": [
+          {
+            "interval": [
+              1.788147925000376,
+              1.7907241754902103
+            ],
+            "sign": 1,
+            "winding": 2
+          }
+        ],
+        "eta_external_certificate": 0.01,
+        "finite_shot_confidence_claim": false,
+        "first_interval": [
+          1.77532194927632,
+          1.7960827132217423
+        ],
+        "frequency_components": [
+          [
+            1.788147925000376,
+            1.7907241754902103
+          ]
+        ],
+        "probability_error": 2e-05,
+        "stride": 8,
+        "stride_phase_interval": [
+          1.738812785643835,
+          1.7594227895625096
+        ],
+        "unique_component": true
+      },
+      "pair_records": {
+        "1": {
+          "x_minus": 0.6055558327860432,
+          "x_plus": 0.3944441672139568,
+          "y_minus": 0.014653862911643944,
+          "y_plus": 0.985346137088356
+        },
+        "8": {
+          "x_minus": 0.5877973994458108,
+          "x_plus": 0.4122026005541892,
+          "y_minus": 0.012209882618419265,
+          "y_plus": 0.9877901173815807
+        }
+      },
+      "path_probabilities": [
+        0.49999999999999994,
+        0.49999999999999994
+      ],
+      "reference": "stationary",
+      "selected_path": 0,
+      "selector_success_factor": "45789811364101270986484575797046567656497480241663818595851646939377676563849158360450775223226368990131990055816783542800899239112648315564937881961564882894877226836985827425096039584180593546034506726146233082135066643028375518716273959237316389871610516055590428737519237412101347217685543000698089599609375/46020944252475287237870212884199033180620210660923048261998100776379565006208246561973370194536329221406749153247076699560650180816490655358168942243705375840708580716765564230733368217919000094579989235733761476822566574679670497657321756298451772713817730735254092349426494960250807374037851220383801379127296",
+      "settings_cost": "Each X/Y and stride is a separate measurement setting; pair preparation probability is per prepared pair, not the success of collecting all settings.",
+      "turns": 2,
+      "visibility_binary": -1.1102230246251565e-16,
+      "visibility_direct": 4.533922391225221e-33
+    }
+  ],
+  "evidence_sha256": "cfd1b5e65ed3ccc39531c7481c9580de882d9bc24d1ab89c157d11d6b2aaec44",
+  "external_G6": false,
+  "gates": {
+    "binary_crossblock_agreement": true,
+    "bridge_reference": true,
+    "charge_control_retains_multiload": true,
+    "charge_selection": true,
+    "complete_instruments": true,
+    "complete_path_outcomes": true,
+    "corrected_pair_cost": true,
+    "fixed_off_band_bound": true,
+    "heldout_real_moments": true,
+    "ineligible_inputs_retained": true,
+    "k6_pair_excludes_old_value": true,
+    "literal_stationary_reference": true,
+    "matched_parent_equivalence": true,
+    "native_copy_transport": true,
+    "native_normalized_cross": true,
+    "native_sign": true,
+    "pair_impurity": true,
+    "pair_interval_contains_prediction": true,
+    "pair_unique_branch": true,
+    "positive_mode_retained": true,
+    "record_driven_same_target": true,
+    "same_object_frequency": true,
+    "selected_path_cost_included": true,
+    "swap_control_positive": true
+  },
+  "historical_cost_corrections": [],
+  "k": 3,
+  "literal_all_calls": {
+    "native": 61352,
+    "swap": 3060,
+    "swap_hold": 49152
+  },
+  "literal_selector_calls": {
+    "native": 156,
+    "swap": 0,
+    "swap_hold": 0
+  },
+  "passed": true,
+  "physical_award": false,
+  "reference": "stationary",
+  "same_group": true,
+  "seconds": 4.6699994999944465
+}

@@ -1,0 +1,85 @@
+{
+  "candidate": "A-native-incidence-rotation-filtered-v2",
+  "native_endpoint_evaluations_in_this_check": 156,
+  "complete_finite_instruments": true,
+  "results": [
+    {
+      "law": "native",
+      "events_per_frame": 4,
+      "turns": 1,
+      "visibility": -0.9967742411532714,
+      "exact_visibility": "-174253126608/174817044235",
+      "ray_overlap": -0.9997461061261939,
+      "log10_total_success": -17.070615344940595
+    },
+    {
+      "law": "native",
+      "events_per_frame": 4,
+      "turns": 2,
+      "visibility": 0.9807176167371484,
+      "exact_visibility": "43672161361085111258496/44530821732745633907179",
+      "ray_overlap": 0.9997460316876626,
+      "log10_total_success": -27.65071258578474
+    },
+    {
+      "law": "native",
+      "events_per_frame": 6,
+      "turns": 1,
+      "visibility": -0.9999629726870941,
+      "exact_visibility": "-99238960810547856/99242635498666075",
+      "ray_overlap": -0.9999971461367878,
+      "log10_total_success": -21.403948253281705
+    },
+    {
+      "law": "native",
+      "events_per_frame": 6,
+      "turns": 2,
+      "visibility": 0.9997827913757058,
+      "exact_visibility": "14711089137478184939551294140660096/14714285207125496442756904736413579",
+      "ray_overlap": 0.9999971461358251,
+      "log10_total_success": -36.306528973864594
+    },
+    {
+      "law": "swap",
+      "events_per_frame": 4,
+      "turns": 1,
+      "visibility": 0.24615384615384617,
+      "exact_visibility": "16/65",
+      "ray_overlap": 1.0,
+      "log10_total_success": -17.43625781315871
+    },
+    {
+      "law": "swap",
+      "events_per_frame": 4,
+      "turns": 2,
+      "visibility": 0.031242372467659263,
+      "exact_visibility": "128/4097",
+      "ray_overlap": 1.0,
+      "log10_total_success": -30.39306013240381
+    },
+    {
+      "law": "swap",
+      "events_per_frame": 6,
+      "turns": 1,
+      "visibility": 0.24615384615384617,
+      "exact_visibility": "16/65",
+      "ray_overlap": 1.0,
+      "log10_total_success": -23.91134528944446
+    },
+    {
+      "law": "swap",
+      "events_per_frame": 6,
+      "turns": 2,
+      "visibility": 0.031242372467659263,
+      "exact_visibility": "128/4097",
+      "ray_overlap": 1.0,
+      "log10_total_success": -43.343235084975305
+    }
+  ],
+  "supplied_architecture": [
+    "coherent path/current memory and analyzers",
+    "equilateral observer frame and local incidence routing"
+  ],
+  "scope": "one-axis native observer holonomy; no exchange or general SO3 claim",
+  "official_row_awarded": false
+}

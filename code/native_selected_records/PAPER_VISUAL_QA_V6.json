@@ -1,0 +1,32 @@
+{
+  "utc": "2026-11-15T20:31:20.296790+00:00",
+  "passed": true,
+  "scope": "Final native-frame probability qualification; rebuilt both PDFs and rendered affected paragraph/page break; earlier full changed-section inspection retained in V5",
+  "build_command": [
+    "python3",
+    "-B",
+    "tools/build_tex_papers.py",
+    "deriving_the_particle_zoo_from_observer_consistency",
+    "executable_observer_construction"
+  ],
+  "build_exit_status": 0,
+  "inspected_pages_one_based": {
+    "deriving_the_particle_zoo_from_observer_consistency": [
+      114,
+      115
+    ],
+    "executable_observer_construction": [
+      171
+    ]
+  },
+  "findings": "Qualified conditional pair bound is legible and explicitly applies to native-frame selected probabilities above0.03; no clipping/overlap at the changed page break.",
+  "reader_style_exit_status": 0,
+  "files": {
+    "paper/tex_fragments/DYNAMIC_UNIT_SELECTION_AND_LOCAL_PHASES.tex": "d7941babac9897f04b9ba2f61b025d60a18b3cbb09b374040c0fde8985bc6bd2",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex": "7ab1c0f36c5352927667ea6d9eada79e147a85de0cd71ef3329eabcaa8e5218b",
+    "paper/executable_observer_construction.tex": "65ce88c8995a16d6364202c7acc3a48b3cd7f49779e3c7faa0f6d1e79e8af314",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf": "2df52b784404c94aa30d6087798a4894b2ba4a58c3cef8d33bc3e7ef562eba16",
+    "paper/executable_observer_construction.pdf": "a3fb7ca0d5930a24c916f1feed70c3ffded9d42f3c6c9713126d1b7e92cef38f"
+  },
+  "external_G6": false
+}

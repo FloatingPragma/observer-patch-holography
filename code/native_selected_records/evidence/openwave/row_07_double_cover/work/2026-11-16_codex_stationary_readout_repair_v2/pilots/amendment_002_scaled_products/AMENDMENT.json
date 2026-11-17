@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-15T19:01:31.082030+00:00",
+  "cause": "Extremely attenuated fixed-calibration controls underflowed aa*bb in normalized cross ratio.",
+  "repair": "Positive per-arm product scaling with exact log bookkeeping; logsumexp success and sech contrast. No physical renormalization or gate change.",
+  "old_failure_exit_code": 1,
+  "new_pilot_sha256": "f2bec769754e64226febf60fd0709a313bd2a4d59619373ab9bd79bb90cff434"
+}

@@ -1,0 +1,8 @@
+{
+  "status": "USER_TURN_INTERRUPTION_AFTER_COMPLETED_CHECKPOINTS",
+  "completed": ["source and matter metadata", "all three regional covariance/entropy calculations", "actual pure Slater entropy checks", "uniform proper-volume responses", "nonuniform q1 coframe/lapse responses"],
+  "unfinished": ["q2", "q3", "six-variable training and held-out solve"],
+  "scientific_failure": false,
+  "last_observed_cpu_seconds": 141.57,
+  "restart_policy": "Preserve completed JSON records; rebuild only temporary modular aggregates needed by missing Fourier responses, then finish the solve."
+}

@@ -1,0 +1,2 @@
+# Proposed cell scope
+Native current-probe effective coupling for a compact reconstructed pair band: g_eff(k)/g_eff(0)=cos(kappa/2), R_parallel^2=1/(4d), half suppression at |k| R_parallel=pi/3. Bound mode and response are on the same unchanged native event and architecture. No universal QED/QCD beta, identified physical species, coherent preparation, SI core radius or official acceptance is claimed.

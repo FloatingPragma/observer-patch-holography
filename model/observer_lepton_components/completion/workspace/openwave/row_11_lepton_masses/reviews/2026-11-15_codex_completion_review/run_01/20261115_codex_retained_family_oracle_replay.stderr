@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/Users/muellerberndt/Projects/oph-meta/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/replay_child.py", line 73, in <module>
+    main()
+    ~~~~^^
+  File "/Users/muellerberndt/Projects/oph-meta/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/replay_child.py", line 39, in main
+    runpy.run_path(str(packet/'headline.py'),run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/row11_completion_peyrg6j1/openwave/row_11_lepton_masses/work/20261115_codex_retained_family_oracle/headline.py", line 13, in <module>
+    import sympy as sy
+ModuleNotFoundError: No module named 'sympy'

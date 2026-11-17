@@ -1,0 +1,1 @@
+Final review of the reviewer replay found that counts/index/rows were compared but the saved verdict flags and maximum residual were not checked. Add strict saved-verdict validation before calculation; no scientific calculation, source, input, tolerances or successful receipt changes. Validate saved false status via actual optimized CLI.

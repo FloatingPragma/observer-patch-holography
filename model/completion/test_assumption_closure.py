@@ -136,7 +136,7 @@ def test_false_source_join_rejected(inventory):
 
 
 def test_source_relabeling_rejected_even_with_same_numbers(inventory):
-    rejects(inventory, lambda d: row(d["proved_inputs"], "fixed_charged_minmax").__setitem__("source_domain", "primary_wilson_gauss"))
+    rejects(inventory, lambda d: row(d["proved_inputs"], "fixed_charged_minmax").__setitem__("source_domain", "wilson_comparison"))
 
 
 @pytest.mark.parametrize("field", ac.FIELDS)
@@ -164,9 +164,9 @@ def test_stale_source_hash_rejected(inventory):
     rejects(inventory, lambda d: d["source_manifest"][0].__setitem__("sha256", "0" * 64))
 
 
-def test_wrong_revision_and_missing_owner_rejected(inventory):
-    rejects(inventory, lambda d: d["audit"].__setitem__("baseline_revision", "0" * 40))
-    rejects(inventory, lambda d: d["service_inputs"][0].__setitem__("owner", "CP-99"))
+def test_wrong_official_source_and_missing_owner_rejected(inventory):
+    rejects(inventory, lambda d: d["audit"].__setitem__("official_model", "different-source"))
+    rejects(inventory, lambda d: d["service_inputs"][0].__setitem__("owner", "unknown_owner"))
 
 
 def test_join_cannot_hide_in_batch_admission(inventory):
@@ -190,3 +190,12 @@ def test_every_import_edge_retains_application_boundary(inventory):
             assert item["classification"] == "empirical_calibration"
             assert not item["independent_prediction"]
     rejects(inventory, lambda d: d["imported_inputs"][0].__setitem__("hypotheses_matched_here", True))
+
+
+def test_current_source_domains_are_not_transferred(inventory):
+    assert inventory['audit']['official_model']=='CCF-LT-2'
+    assert 'baseline_manifest' not in inventory
+    assert inventory['domains']['ccf_lt2']['operation'].startswith('H_v2=')
+    for item in inventory['joint_inputs']:
+        assert item['source_domain']==('pure_gauge_required' if item['id'].startswith('pure_YM') else 'ccf_lt2')
+    assert 'Separate finite Wilson comparison' in inventory['domains']['wilson_comparison']['domain']

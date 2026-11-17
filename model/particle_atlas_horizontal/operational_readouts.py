@@ -17,7 +17,7 @@ def render(c, data, y):
     if joint['joint_crystal_momentum_is_physical_particle_momentum']:
         raise ValueError('joint readout became a particle identification')
     c.items.append('<g id="source-field-readouts">')
-    c.text(M, y, 'ACTUAL FIELD READOUTS: WHAT CHANGES WHEN A DETECTOR RECORDS?', 88, INK, 700, serif=True)
+    c.text(M, y, 'INDEPENDENT FIELD COMPONENTS: COMPLETE DETECTOR RECORDS', 88, INK, 700, serif=True)
     c.para(M, y+150, W-2*M,
            'The program supplies an action and a preparation. An apparatus performs a specified intervention. Its complete record law is calculable. A physical particle assignment requires an additional spectral and relativistic identification on that same field.',
            62, INK, max_y=y+330)

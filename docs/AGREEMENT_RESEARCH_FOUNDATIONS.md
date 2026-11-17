@@ -1,7 +1,7 @@
 # Established mathematics for observer agreement
 
 This guide governs theorem reuse in the
-[model search](../model/CONSTRUCTION.md), [repair-law guide](../model/CANDIDATES.md), and
+[CCF-LT-2 construction](../model/CONSTRUCTION.md), [model family](../model/CANDIDATES.md), and
 their existing [premise obligations](../model/PREMISES.md). The target remains
 one physical process with compatible carrier, response, record and clock
 readouts. Established results about distributed recovery and sheaf diffusion
@@ -15,8 +15,8 @@ and hypotheses to the actual candidate, and isolate the remaining obligation.
 Reuse the conclusion once those hypotheses hold. A renamed consensus result
 or a longer simulation of it is not an independent theoretical contribution.
 
-The current [runnable construction](../model/README.md) supplies concrete
-objects for this mapping. The [native observer](../model/observer/DERIVATION.md)
+The [official model](../model/SPEC.md) requires source-specific mappings
+for these theorems. The independent [native observer](../model/observer/DERIVATION.md)
 implements completely positive instruments, retained classical records and
 record-controlled repair on one declared finite source. Its
 [capacity adapter](../model/observer/CAPACITY.md) reuses the existing

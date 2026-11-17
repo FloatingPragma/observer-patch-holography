@@ -1,0 +1,5 @@
+{
+  "utc": "2026-11-15T18:59:10.418598+00:00",
+  "reason": "Make subsequent adjudication read-only too; retain original first-record writer, and compare to its existing unchanged FINAL_VERDICT by default. Explicit exclusive --record-to only creates a new audit receipt. No calculation or stored result changed.",
+  "sha256": "78fbe0f9e42ebf0f1ed67c7f004934f49c795fd5b5691eb7b7d553de9ec88dfa"
+}

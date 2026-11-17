@@ -1,0 +1,8 @@
+{
+  "kind": "independent verifier repair before continued run",
+  "utc": "2026-11-15T17:55:09.343130+00:00",
+  "reason": "The frozen audit failed at log10(0) because its text transformation omitted the stationary-reference no-hop guard. No primary output was opened. The intended fixed marker has no movement operation; the corrected explicit guard implements that stated design.",
+  "initial_source_sha256": "aeabbdb78dbe14d2ddcb661075df1ca644801380c047d1da6b89b84fb4807a95",
+  "corrected_source_sha256": "db2c554fb48b8a35fef00fde7e8545d5714d210dcc799263eb94408f77991168",
+  "gate_changes": false
+}

@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-15T17:59:38.299819+00:00",
+  "original_prereg_sha256": "fdf849a329c3f081b4b13403431cf92e637310a7b5724208b1690a2b52d3086b",
+  "source_files": {
+    "core.py": "15200c4374e6428dbc5cee321d049a1fc51e70c881832ae88ea4066f371ba7a7",
+    "experiment.py": "7d773885838e8b6c5903a46688627e24d82204490a8ffbea2710b6b593ac3305",
+    "native_selectors.py": "acb443bd800a2f053befecf72b3351421d6488927e5eba5d6ee53cdb48d41102",
+    "reader.py": "109e2afc366ccabaec4ffbb7d81ebd7b435f540ffa78bd164894d0d30708350f",
+    "DESIGN.md": "166043e265d23baa1924d9c4dbd745fc251708014c651c8f04c617968d70186e",
+    "TASK.md": "f3bf2f827933a29779af8fe203ac552a16f73d084448ccae2c1069c4e59e17e4",
+    "INPUTS.json": "93d11225e3b8dcb57cbdae81bf9d8af32c2c921c174c04ccf335b38cb312cd7e"
+  },
+  "reason": "First matched comparison used Python containers against JSON-loaded sealed data; graph edge tuples differ from serialized lists. Canonicalize fresh payload through JSON before exact equality. No scientific map, input, gate or tolerance changed. Failure and original source preserved.",
+  "original_failure": "amendments/python_json_container_types/RUN.stderr.txt"
+}

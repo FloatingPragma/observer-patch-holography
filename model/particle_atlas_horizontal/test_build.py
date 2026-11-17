@@ -82,7 +82,7 @@ def test_reader_embeds_the_vector_and_preserves_every_reference_anchor(data):
     assert 'FiniteBuschGleason.lean#L1133' in text
     assert '>Ten dependencies</button>' in text
     assert 'max-height:40vh;overflow:auto' in text
-    assert '>Best-guess map</button>' in text
+    assert '>Comparison map</button>' in text
     assert '>Masses & collisions</button>' in text
     assert 'bestguess:[0,30400]' in text and 'comparisons:[38000,30400]' in text
     assert 'model/particle_primary_locality/PROOF.md' in text
@@ -123,7 +123,7 @@ def test_named_candidate_wings_preserve_exact_weights_and_separate_collision_dom
     build.source_connections.render_candidate_wings(canvas,data)
     root=ET.fromstring('<svg xmlns="http://www.w3.org/2000/svg">'+''.join(canvas.items)+'</svg>')
     text=' '.join(' '.join(root.itertext()).split())
-    assert 'BEST-GUESS PARTICLE MAP' in text
+    assert 'INDEPENDENT COMPARISON MAP' in text
     assert 'charged regional G1 factor' in text and 'the pair is not automatically a photon' in text
     assert 'Physical spin and named identities are unproved' in text
     assert 'S=N₋₄+N₂+N₆' in text and 'multiple excitations can alias' in text
@@ -194,3 +194,10 @@ def test_generated_outputs_match_their_exact_source_inventory():
     assert identity['physical_particle_map']==[] and identity['mass_predictions_GeV']==[]
     assert not identity['source_scientific_experiments_replayed_by_atlas']
     assert not identity['original_dressed_pair_window']['energy_window_is_a_single_endpoint_or_rest_mass']
+
+
+def test_component_records_cannot_be_promoted_to_official_records(data):
+    changed=deepcopy(data)
+    changed['observer_outputs']['official_master_source_records_executed']=True
+    with pytest.raises(ValueError,match='cannot be promoted'):
+        build.validate_content(changed)

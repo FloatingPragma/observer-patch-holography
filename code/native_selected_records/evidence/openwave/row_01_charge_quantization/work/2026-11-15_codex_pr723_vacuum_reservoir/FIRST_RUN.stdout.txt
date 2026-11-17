@@ -1,0 +1,31 @@
+{
+  "candidate": "A-native-vacuum-reservoir-units-v1",
+  "checks": {
+    "all_readings_conclusive": true,
+    "all_initial_states_recovered": true,
+    "all_native_bodies_select_units_by_burn": true,
+    "calibration_nonzero": true,
+    "native_heldout_currents_are_zero_or_calibrated_unit": true,
+    "control_retains_multiloads": true,
+    "control_transports_larger_than_calibrated_unit": true,
+    "conditional_transport_prediction": true
+  },
+  "passed": true,
+  "native_histories": 36,
+  "control_histories": 36,
+  "native_body_calls": 377856,
+  "control_body_calls": 377856,
+  "native_probe_calls": 6330,
+  "native_census_calls": 207084,
+  "native_local_calls": 148,
+  "calibrated_unit": 1,
+  "heldout_trials": 73728,
+  "heldout_nonzero_observed": 4211,
+  "heldout_conditional_expected": "241106/57",
+  "martingale_threshold": 731.3324544097279,
+  "martingale_alpha": 1e-06,
+  "native_first_unit_max": 4641,
+  "same_group": true,
+  "physical_row_award": false,
+  "evidence_sha256": "6998ccb93e06d58638107a7e1132237065680ce6aa7d56562bab037af2d5ae7d"
+}

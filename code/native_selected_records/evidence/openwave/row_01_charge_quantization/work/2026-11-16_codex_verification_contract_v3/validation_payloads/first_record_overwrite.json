@@ -1,0 +1,16 @@
+{
+  "label": "first_record_overwrite",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_charge.py",
+    "--record-to",
+    "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/first.json"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_charge.py\", line 197, in <module>\n    _verify_or_record(_verification_payload)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_charge.py\", line 185, in _verify_or_record\n    with args.record_to.open('x') as stream:\n         ~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"/Users/muellerberndt/.pyenv/versions/3.13.7/lib/python3.13/pathlib/_local.py\", line 537, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileExistsError: [Errno 17] File exists: '/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/first.json'\n",
+  "expected_success": false,
+  "passed": true,
+  "seconds": 0.21567200000572484
+}

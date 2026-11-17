@@ -1,0 +1,81 @@
+{
+  "schema": "oph.row1.fixed_policy.v3",
+  "registered_order": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "coverage": {
+    "registered_sweeps": 532,
+    "regional_reads": 13300,
+    "regional_charge_0": 11932,
+    "effect_charge_0": 11932,
+    "complete_readout_0": 8739,
+    "regional_charge_1": 684,
+    "effect_charge_1": 684,
+    "regional_charge_-1": 684,
+    "effect_charge_-1": 684,
+    "complete_readout_1": 81,
+    "complete_readout_-1": 88
+  },
+  "pointer_outcomes": {
+    "complete_closed_pointer_word": 8908,
+    "routing_timeout": 3566,
+    "measurement_timeout": 821,
+    "discovery_timeout": 5
+  },
+  "computed_joint_normalizations": 4788,
+  "all_computed_normalizations_one": true,
+  "survival_bounds": {
+    "True": {
+      "count": 60,
+      "minimum": "0",
+      "maximum": "227/256"
+    },
+    "False": {
+      "count": 72,
+      "minimum": "1169/4096",
+      "maximum": "477/512"
+    }
+  },
+  "post_sweep_hidden_native_events": {
+    "actual_changed_native_events": 3420,
+    "undetected_changed_charge": 3420
+  },
+  "during_sweep_hidden_native_events": {
+    "admitted_correct": 68830,
+    "rejected": 7560,
+    "admitted_wrong": 218
+  },
+  "channel_completeness_authenticated": false,
+  "physical_charge_identification_solved": false,
+  "official_rows_changed": [],
+  "consumed_laws_sha256": "acf809b0ddd6e5278fd8836c6d3028ff2fb123a58a51dfff40899cd3e73318c5"
+}

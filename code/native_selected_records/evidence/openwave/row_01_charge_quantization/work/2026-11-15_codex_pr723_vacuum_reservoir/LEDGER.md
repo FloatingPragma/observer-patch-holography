@@ -1,0 +1,3 @@
+2026-11-15T16:34:03.028660+00:00 PREREG row 1 8be53ca503a63aa82f341e204113f7d67f1fd4fd7b91e1f03acfcd43dcac1bfc row_01_charge_quantization/work/2026-11-15_codex_pr723_vacuum_reservoir/PREREG.json; B chosen before hidden preparation, reservoir family, record-only unit/transport gates; no new-protocol pilot; prior adjacent-level theorem disclosed.
+2026-11-15T16:36:39.901991+00:00 PREREG verification supplement 6b6b5b00fddb54d89171a784e156c8152866dfb57aa66aa802951d9a98f5d019 VERIFY_PREREG.json; main native result known and retained; first verifier/detector execution next.
+2026-11-15T16:37:33.655155+00:00 PREREG verification mutation/replay f9baaa09380e98ecb2463cb891d28fa2e44631f16bc98be6bc015bc4366baa2b MUTATION_PREREG.json; frozen before mutation suite and strict replay.

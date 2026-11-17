@@ -1,0 +1,139 @@
+{
+  "passed": true,
+  "same_group": true,
+  "external_G6": false,
+  "scientific_mutants": 7,
+  "process_checks": 16,
+  "producer_artifacts_unchanged": 277,
+  "index_sha256": "9a2fc39dcc8637c3d21ff9df873079e64787dfbeff4df5662a8d410028c14811",
+  "rows": [
+    {
+      "mutation": "clean",
+      "optimized": false,
+      "returncode": 0,
+      "stdout": "{\"clean\": true}\n",
+      "stderr": "",
+      "expected_predicate": null
+    },
+    {
+      "mutation": "current",
+      "optimized": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 55, in <module>\n    if args.child:child(args.folder,args.child)\n                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 34, in child\n    a.audit_case(record,cl,catalog,success*cl['success'])\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 136, in audit_case\n    slot,p=marker(mark,step,turns,direction,reach,markerreach);failed+=reach*(1-p);reach*=p;markerreach*=p\n           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 109, in marker\n    need(j==observed,'Marker literal current');pos=e1 if j==1 else e0 if j==-1 else pos\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 17, in need\n    if not ok:raise AssertionError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Marker literal current\n",
+      "expected_predicate": "Marker literal current"
+    },
+    {
+      "mutation": "coherence",
+      "optimized": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 55, in <module>\n    if args.child:child(args.folder,args.child)\n                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 34, in child\n    a.audit_case(record,cl,catalog,success*cl['success'])\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 147, in audit_case\n    full=EMBED@rho@EMBED.T;check(density(array(record['input_factor'])),full,'Full actual arm density/crossblock')\n                           ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 20, in check\n    e=near(a,b,label,tol);DEFECT=max(DEFECT,e)\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 26, in near\n    need(error<tolerance,message+': '+str(error))\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 17, in need\n    if not ok:raise AssertionError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Full actual arm density/crossblock: 0.3535551906229595\n",
+      "expected_predicate": "Full actual arm density/crossblock"
+    },
+    {
+      "mutation": "missing_flag",
+      "optimized": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 55, in <module>\n    if args.child:child(args.folder,args.child)\n                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 34, in child\n    a.audit_case(record,cl,catalog,success*cl['success'])\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 149, in audit_case\n    need(len(probs)==128 and len(record['probabilities'])==128,'Complete target flags')\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 17, in need\n    if not ok:raise AssertionError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Complete target flags\n",
+      "expected_predicate": "Complete target flags"
+    },
+    {
+      "mutation": "padding",
+      "optimized": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 55, in <module>\n    if args.child:child(args.folder,args.child)\n                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 34, in child\n    a.audit_case(record,cl,catalog,success*cl['success'])\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 156, in audit_case\n    need((record['rot_R'],record['ref_R'],record['joint_R_schedule'],record['rot_controlled_idle_R_slots'],record['ref_controlled_idle_R_slots'])==(nr,nf,maximum,maximum-nr,maximum-nf),'Which-arm padding budget')\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 17, in need\n    if not ok:raise AssertionError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Which-arm padding budget\n",
+      "expected_predicate": "Which-arm padding budget"
+    },
+    {
+      "mutation": "selected_cost",
+      "optimized": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 55, in <module>\n    if args.child:child(args.folder,args.child)\n                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 34, in child\n    a.audit_case(record,cl,catalog,success*cl['success'])\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 186, in audit_case\n    rel(row['selected_clock_probability_given_entry'],cost,'Full selected clock cost')\n    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 24, in rel\n    need(a==b or abs(a-b)<=tol*max(abs(a),abs(b)),label+' relative error')\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 17, in need\n    if not ok:raise AssertionError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Full selected clock cost relative error\n",
+      "expected_predicate": "Full selected clock cost"
+    },
+    {
+      "mutation": "ideal_ray",
+      "optimized": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 55, in <module>\n    if args.child:child(args.folder,args.child)\n                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 34, in child\n    a.audit_case(record,cl,catalog,success*cl['success'])\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 131, in audit_case\n    rho=np.kron(np.ones((2,2))/2,cl['rho']);check(density(array(row['rotation_input_factor'])),cl['rho'],'No ideal ray substitution')\n                                            ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 20, in check\n    e=near(a,b,label,tol);DEFECT=max(DEFECT,e)\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 26, in near\n    need(error<tolerance,message+': '+str(error))\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 17, in need\n    if not ok:raise AssertionError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: No ideal ray substitution: 2.0203093158751495e-05\n",
+      "expected_predicate": "No ideal ray substitution"
+    },
+    {
+      "mutation": "tiny_positive",
+      "optimized": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 55, in <module>\n    if args.child:child(args.folder,args.child)\n                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 34, in child\n    a.audit_case(record,cl,catalog,success*cl['success'])\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 174, in audit_case\n    for i in range(2):rel(returned['path_probabilities_plus_minus'][i],binary[i],'Exact positive branch probability',1e-10)\n                      ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 23, in rel\n    need(math.isfinite(a) and math.isfinite(b) and (a==0)==(b==0),label+' lost exact zero/positive')\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 17, in need\n    if not ok:raise AssertionError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Exact positive branch probability lost exact zero/positive\n",
+      "expected_predicate": "Exact positive branch probability lost exact zero/positive"
+    },
+    {
+      "mutation": "clean",
+      "optimized": true,
+      "returncode": 0,
+      "stdout": "{\"clean\": true}\n",
+      "stderr": "",
+      "expected_predicate": null
+    },
+    {
+      "mutation": "current",
+      "optimized": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 55, in <module>\n    if args.child:child(args.folder,args.child)\n                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 34, in child\n    a.audit_case(record,cl,catalog,success*cl['success'])\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 136, in audit_case\n    slot,p=marker(mark,step,turns,direction,reach,markerreach);failed+=reach*(1-p);reach*=p;markerreach*=p\n           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 109, in marker\n    need(j==observed,'Marker literal current');pos=e1 if j==1 else e0 if j==-1 else pos\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 17, in need\n    if not ok:raise AssertionError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Marker literal current\n",
+      "expected_predicate": "Marker literal current"
+    },
+    {
+      "mutation": "coherence",
+      "optimized": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 55, in <module>\n    if args.child:child(args.folder,args.child)\n                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 34, in child\n    a.audit_case(record,cl,catalog,success*cl['success'])\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 147, in audit_case\n    full=EMBED@rho@EMBED.T;check(density(array(record['input_factor'])),full,'Full actual arm density/crossblock')\n                           ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 20, in check\n    e=near(a,b,label,tol);DEFECT=max(DEFECT,e)\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 26, in near\n    need(error<tolerance,message+': '+str(error))\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 17, in need\n    if not ok:raise AssertionError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Full actual arm density/crossblock: 0.3535551906229595\n",
+      "expected_predicate": "Full actual arm density/crossblock"
+    },
+    {
+      "mutation": "missing_flag",
+      "optimized": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 55, in <module>\n    if args.child:child(args.folder,args.child)\n                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 34, in child\n    a.audit_case(record,cl,catalog,success*cl['success'])\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 149, in audit_case\n    need(len(probs)==128 and len(record['probabilities'])==128,'Complete target flags')\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 17, in need\n    if not ok:raise AssertionError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Complete target flags\n",
+      "expected_predicate": "Complete target flags"
+    },
+    {
+      "mutation": "padding",
+      "optimized": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 55, in <module>\n    if args.child:child(args.folder,args.child)\n                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 34, in child\n    a.audit_case(record,cl,catalog,success*cl['success'])\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 156, in audit_case\n    need((record['rot_R'],record['ref_R'],record['joint_R_schedule'],record['rot_controlled_idle_R_slots'],record['ref_controlled_idle_R_slots'])==(nr,nf,maximum,maximum-nr,maximum-nf),'Which-arm padding budget')\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 17, in need\n    if not ok:raise AssertionError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Which-arm padding budget\n",
+      "expected_predicate": "Which-arm padding budget"
+    },
+    {
+      "mutation": "selected_cost",
+      "optimized": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 55, in <module>\n    if args.child:child(args.folder,args.child)\n                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 34, in child\n    a.audit_case(record,cl,catalog,success*cl['success'])\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 186, in audit_case\n    rel(row['selected_clock_probability_given_entry'],cost,'Full selected clock cost')\n    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 24, in rel\n    need(a==b or abs(a-b)<=tol*max(abs(a),abs(b)),label+' relative error')\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 17, in need\n    if not ok:raise AssertionError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Full selected clock cost relative error\n",
+      "expected_predicate": "Full selected clock cost"
+    },
+    {
+      "mutation": "ideal_ray",
+      "optimized": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 55, in <module>\n    if args.child:child(args.folder,args.child)\n                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 34, in child\n    a.audit_case(record,cl,catalog,success*cl['success'])\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 131, in audit_case\n    rho=np.kron(np.ones((2,2))/2,cl['rho']);check(density(array(row['rotation_input_factor'])),cl['rho'],'No ideal ray substitution')\n                                            ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 20, in check\n    e=near(a,b,label,tol);DEFECT=max(DEFECT,e)\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 26, in near\n    need(error<tolerance,message+': '+str(error))\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 17, in need\n    if not ok:raise AssertionError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: No ideal ray substitution: 2.0203093158751495e-05\n",
+      "expected_predicate": "No ideal ray substitution"
+    },
+    {
+      "mutation": "tiny_positive",
+      "optimized": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 55, in <module>\n    if args.child:child(args.folder,args.child)\n                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/mutation_check.py\", line 34, in child\n    a.audit_case(record,cl,catalog,success*cl['success'])\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 174, in audit_case\n    for i in range(2):rel(returned['path_probabilities_plus_minus'][i],binary[i],'Exact positive branch probability',1e-10)\n                      ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 23, in rel\n    need(math.isfinite(a) and math.isfinite(b) and (a==0)==(b==0),label+' lost exact zero/positive')\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 17, in need\n    if not ok:raise AssertionError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Exact positive branch probability lost exact zero/positive\n",
+      "expected_predicate": "Exact positive branch probability lost exact zero/positive"
+    }
+  ]
+}

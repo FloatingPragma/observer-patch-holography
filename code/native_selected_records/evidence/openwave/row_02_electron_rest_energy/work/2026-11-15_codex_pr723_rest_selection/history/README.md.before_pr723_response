@@ -1,0 +1,195 @@
+# Row 2. Electron rest energy (mass)
+
+**OpenWave's simplest test:** "localized state anchored to 511 keV"
+
+| | |
+| --- | --- |
+| OpenWave today | 🚧 not tested; M10.2 is under review |
+| Recorded filing estimate | 🚧 untested |
+| Recorded case assessment | ⚠️ partial (dictionary and admission pending; 511 keV anchor declared) |
+| Goal | ✅ validated |
+| Records of the native process | compact localized source-energy result; physical dictionary under review |
+| Stage in the gates | `sealed` (run `python3 openwave/tools/gate.py show 2`) |
+| Producer | Codex CRT |
+| Needs first ([DAG](../docs/DAG.md)) | row 1, F10 (static source energy/localization) |
+| Before the measurement-first pivot | ✅ on an installed field with the 511 keV anchor (class F with C) |
+
+## Current filing
+
+This row is submitted with rows 1, 2 and 7 in
+[OpenWave PR #723 (M10.2)](https://github.com/openwave-labs/openwave/pull/723)
+on `A-static-signed-source-v1`. Public source and platform replay are supplied;
+source admission, the physical dictionary, other-group review and the official
+cell decision remain open. The local gate stage is unchanged by filing.
+See the [filing record](../notes/M10_2_SUBMISSION.md) and
+[upstream tracker](../notes/UPSTREAM_TRACKER.md) for source pins, audit and next actions.
+Earlier constructions below retain their historical scope.
+
+## Exact compact field-spin embedding
+
+[The C/CAR audit](../shared/compact_field_spin_join/existing_audit/PROOF.md) proves the complete one-particle quantum instrument equals the signed source with its spin carried along; the original compact energy certificate transfers exactly. It also retains the E-law coherence counterexample and shows why the old compact mode does not acquire total spatial spin-half merely by tensoring an internal doublet. [Full root replay](../shared/compact_field_spin_root_review/REVIEW.md) passes. This leaves the original literal static results intact.
+
+## Common signed-source static proposal
+
+[The sealed common source](../shared/static_candidate_join/README.md) now supplies the charge, compact-energy and tensor/frame experiments for rows 1, 2 and 7. Every assay uses the same signed-source law with its addressing choice declared; fresh preparations are explicit. The [standalone root replay](../shared/static_candidate_join_root_review/REVIEW.md) passes in 19.43 seconds. The prior paired source is classical ancestry only: its quantum instrument is different. The public source and platform replay are filed in PR #723; external review and physical-dictionary adjudication remain open.
+
+## Complete static acceptance proposal
+
+[The complete-coordinate packet](../shared/compact_static_adjudication/README.md) now defines and executes the signed-source instrument directly on the measured register. It verifies 82,575,360 pair-coordinate columns using 12,798 literal native calls and exact factorized enumeration, including every vacuum and invalid outcome. [Root replay](../shared/compact_static_root_review/REVIEW.md) matches all scientific receipt values in 20.29 seconds. The [static acceptance case](../shared/compact_static_adjudication/REVIEW.md), [platform task](../shared/compact_static_adjudication/TASK_DRAFT.md) and [proposed cell](../shared/compact_static_adjudication/CELL.md) are complete locally. The positive branch-phase lift and proper-code services are declared. The later common-source submission in PR #723 supplies publication and platform integration for review; external adjudication remains open and no official row is awarded.
+
+## Localized source-energy witness
+
+[The compact signed-source packet](../shared/localized_rest_join/README.md) now supplies an exact finite localized ray, sharp regional source charges, positive transfer energy and a complete source-word eigenray certificate. The same detector distinguishes coherent, dephased and sign-planted inputs with probabilities 1, 1/16 and 1/4. The allowed single-energy anchor is 511 keV; the finite pair energy is 1024.45084870234 keV and remains explicit. The later complete-coordinate packet closes the unspecified export and supplies the explicit static acceptance dictionary. Row 3 or row 4 completion is not a prerequisite to this static case.
+
+## What the records of the native process show
+
+The [new modular work/clock component](../shared/mass_clock_join/README.md) measures a counted reference gap and tests its implemented clock on the same configurations. It retains complete preparation failures and the actual-reader control. This is dimensionless source-reference work, with localization and physical rest energy still open.
+
+- The finite stack also contains nonconstant prefix-record energy and a
+  degree-count Palm modular generator with an implemented source clock. These
+  are positive energy/clock components on their stated references, reviewed in
+  [THEOREMS.md](THEOREMS.md). They are not yet the rest energy of the localized
+  charged object required here.
+- Under independent uniform native seams, the start-port probability of one
+  unit is 0.396 after 12 events and 1/12 in the limit. This is a statement about
+  that position law, not all active memory constructions.
+- The unit moves in exactly 1/2 of the agreement attempts at its port (0.5016 ± 0.0025; controls 0 and 1). This rate is the fair coin of the law.
+- Three energy-like record quantities disagree: the movement rate is additive; the energy of the mean tape (7/72 on the carrier) is neither additive nor independent of the block; mode decay rates are the same for one and two units.
+- Codex review of this packet: the movement result stands; the reading of it as an energy mixes two clock normalisations and is rejected.
+
+## What appears only when something is supplied (target descriptions)
+
+- Class F (reflection walk): a prepared one-unit state stays in four cells at every step and its position record has one line at 2π/3 per event. Anchored to 511 keV it predicts a second charged state at 600.7 keV, a cell of 0.8 to 5.6 pm and zero drift; nature shows none. The line is 2·arccos(κ·cos μ): the supplied redraw sets it.
+- Class F with C: the self-energy of a static held charge of the installed quadratic field, set to 511 keV by one calibration.
+- Class N+ (face register J): the time-averaged field energy of a held unit equals the lattice value within 1.7e-06.
+
+## What is owed for acceptance
+
+- A localized charged state with a source-derived operational energy before
+  applying the permitted 511 keV anchor.
+- For the joint mass/clock/propagation claim, use that same object and energy
+  with one clock. Inertial and dispersion tests belong to that cross-row join;
+  they are not extra clauses of this static test.
+
+## Mathematics
+
+- `position law of one unit: T = I − L/(2M)`
+- `movement per incident hit = 1/2; unit map 1022 keV per (movement per incident hit), clock dependent`
+- `walk line: θ = 2·arccos(κ·cos μ), κ = 1/2 at the fair coin`
+
+In context: [the complete row theorem stack](THEOREMS.md).
+
+## Evidence
+
+Links into sibling directories refer to the original `oph-meta` workspace.
+For the standalone public case, use the filing record above.
+
+| What | Where |
+| --- | --- |
+| first packet (committed law) | [openwave-push/mf/E_row02_energy/ROW_02/STATUS.md](../../openwave-push/mf/E_row02_energy/ROW_02/STATUS.md) |
+| second packet (compact state) | [openwave-push/mf/E2_row02_compact_state/ROW_02/STATUS.md](../../openwave-push/mf/E2_row02_compact_state/ROW_02/STATUS.md) |
+| Codex review of the first | [openwave-tuning/measurement_first/reviews/fable_energy_mfr/REVIEW.md](../../openwave-tuning/measurement_first/reviews/fable_energy_mfr/REVIEW.md) |
+| Codex review of the second | [openwave-tuning/measurement_first/reviews/fable_compact_energy_mfr/REVIEW.md](../../openwave-tuning/measurement_first/reviews/fable_compact_energy_mfr/REVIEW.md) |
+| packet on J | [openwave-push/onecandidate/J_ROW_02](../../openwave-push/onecandidate/J_ROW_02/) |
+| audit page of the earlier push (2026-11-14, 19:50) | [openwave-push/results_nov14/audit/ROW_02.md](../../openwave-push/results_nov14/audit/ROW_02.md) |
+
+Packets and reviews bound in `STATUS.json`:
+
+| Kind | Path | Party | Class | Candidate | Manifest |
+| --- | --- | --- | --- | --- | --- |
+| packet | [openwave-push/mf/E_row02_energy/ROW_02](../../openwave-push/mf/E_row02_energy/ROW_02/) | Fable-B | N+ | `A-cont` | `4050591fa3cd` |
+| packet | [openwave-push/mf/E2_row02_compact_state/ROW_02](../../openwave-push/mf/E2_row02_compact_state/ROW_02/) | Fable-B | F | `W` | `b97cc14d1a00` |
+| packet | [openwave/shared/mass_clock_join](../shared/mass_clock_join/) | Codex CRT | N+ | `A-modular-work-clock` | `2b09872a05f1` |
+| packet | [openwave/shared/localized_rest_join](../shared/localized_rest_join/) | Codex CRT | N+ | `A-signed-compact` | `7f3b147b895c` |
+| packet | [openwave/shared/compact_static_adjudication](../shared/compact_static_adjudication/) | Codex CRT | N+ | `A-signed-compact-coordinate-v1` | `6fd661e1af81` |
+| packet | [openwave/shared/static_candidate_join](../shared/static_candidate_join/) | Codex CRT | N+ | `A-static-signed-source-v1` | `34f380f95431` |
+| packet | [openwave/shared/compact_field_spin_join/existing_audit](../shared/compact_field_spin_join/existing_audit/) | Codex CRT | N+ | `CAR-spin-current` | `9f3197c73d57` |
+| review | [openwave-tuning/measurement_first/reviews/fable_energy_mfr](../../openwave-tuning/measurement_first/reviews/fable_energy_mfr/) | Codex MFR |  | `` | `ae24112ce440` |
+| review | [openwave-tuning/measurement_first/reviews/fable_compact_energy_mfr](../../openwave-tuning/measurement_first/reviews/fable_compact_energy_mfr/) | Codex MFR |  | `` | `5a7522db1ecb` |
+| review (same-group) | [openwave/shared/source_joins_root_review](../shared/source_joins_root_review/) | Codex CRT |  | `` | `d8d0c9fd0451` |
+| review (same-group) | [openwave/shared/static_dynamic_join_root_review](../shared/static_dynamic_join_root_review/) | Codex CRT |  | `` | `fae9305adcba` |
+| review (same-group) | [openwave/shared/compact_static_root_review](../shared/compact_static_root_review/) | Codex CRT |  | `` | `ed5aa484d7de` |
+| review (same-group) | [openwave/shared/static_candidate_join_root_review](../shared/static_candidate_join_root_review/) | Codex CRT |  | `` | `0cf9a4819050` |
+| review (same-group) | [openwave/shared/compact_field_spin_root_review](../shared/compact_field_spin_root_review/) | Codex CRT |  | `` | `ef7c58285137` |
+
+## All work on this row in the two older directories
+
+From the historical inventory of 2026-11-14; its original `docs/INVENTORY.md` is not included in this checkout. Current packet records are in [STATUS.json](STATUS.json). Class: N and N+ are records of the native process; F, S, C are target descriptions; T is theory; P is process material.
+
+| Class | Path | Result | Clause |
+| --- | --- | --- | --- |
+| N | [openwave-push/issues/L07_rest_clock_stability/ROW_SHEET.md](../../openwave-push/issues/L07_rest_clock_stability/ROW_SHEET.md) | No generator of phases on the native layer; the record grammar does not distinguish preparations with equal occupations. | none |
+| N | [openwave-tuning/measurement_first/source_contract/](../../openwave-tuning/measurement_first/source_contract/) | 312 admitted histories from 78 preparations give six record laws (largest class 56), so the sum of squared loads is not identifiable with the preparation withheld. | none |
+| N+ | [openwave-push/b/AJ_J_packet_audits/J_ROW_02](../../openwave-push/b/AJ_J_packet_audits/J_ROW_02/) | Safe after fixes: the value 0.15911472305 lies 7.8e-12 above the quoted enclosure and G4 scatters by 1.9 percent; the energy is a time average on a second register for a held charge and the anchor is a calibration. | weaker |
+| N+ | [openwave-push/b/E1_matter](../../openwave-push/b/E1_matter/) | Rest rate 1.5086(65) per slice against the exact 1.513776; with the 511 keV anchor the spacing is 584.6 fm; no localized charged state and no field energy. | weaker |
+| N+ | [openwave-push/bridgework/BR15_repair_on_defects/ROW_SHEET.md](../../openwave-push/bridgework/BR15_repair_on_defects/ROW_SHEET.md) | An isolated offset charge has a rate that grows with the logarithm of the screen; pinned charges give rates 1 : 4 : 9. | negative |
+| N+ | [openwave-push/mf/XC_record_fed_controller/](../../openwave-push/mf/XC_record_fed_controller/) | Interrupted at 21:45 with exact arms a, c, d written and arm b partial; no result is credited. | none |
+| N+ | [openwave-push/onecandidate/J_ROW_02](../../openwave-push/onecandidate/J_ROW_02/) | Time-averaged energy of a held unit above the paired vacuum run is 0.1261021 +- 1.6e-05 against 0.1259836 (size 2) and 0.1466887 +- 3.2e-07 against 0.1466835 (size 6). | weaker |
+| F | [openwave-push/b/AD2_audit_filled_reference](../../openwave-push/b/AD2_audit_filled_reference/) | Decisive statement confirmed with a correction: delta = 0.1955, 0.2068, 0.2164, slope 0.0127 +- 0.0001 against 1/(8 pi^2) = 0.012665; on the size-2 freeze the exchange is 0 and the Coulomb shift is the full 0.058217. | none |
+| F | [openwave-push/b/AU1_audit_unit_map](../../openwave-push/b/AU1_audit_unit_map/) | Stage values only: delta = 0.1955 to 0.2343 for h = 1/8 to 1/128, slope 0.0128, axial commutators 0. | none |
+| F | [openwave-push/b/D1_dressed_charge](../../openwave-push/b/D1_dressed_charge/) | Rest energy of the product family m + E_self/h = 1.636, 2.273, 3.546 m with E_self cited; the spectrum is located within 0.65/h only. | none |
+| F | [openwave-push/b/D2_symmetric_routes](../../openwave-push/b/D2_symmetric_routes/) | The static self-energy of the cell seat is 0.0387 against 0.0796: the row-2 anchor and every unit derived from it change by the factor 0.486 on S. | none |
+| F | [openwave-push/b/D3_filled_reference_particle](../../openwave-push/b/D3_filled_reference_particle/) | Rest energy m(1 + delta) with delta = 0.192, 0.202, 0.210 (audit: 0.1955, 0.2068, 0.2164, growing as ln(1/h)/(8 pi^2)); m is an input; on the size-2 freeze the exchange is exactly zero. | none |
+| F | [openwave-push/b/D4A_member_S_dispersion](../../openwave-push/b/D4A_member_S_dispersion/) | Rest energy m(1 + delta), delta = 0.0750, 0.0835, 0.0912; m h stays an input of the member. | none |
+| F | [openwave-push/b/UM1_unit_map](../../openwave-push/b/UM1_unit_map/) | At m = 0 the generator commutes with the axial charge (exact); the rest energy above the free filling is m(1 + delta), delta = 0.19221 to 0.23048 for h = 1/8 to 1/128, slope 0.012802 per ln(1/h) against 0.012665; the anchor's E_self is the limit m h to infinit | none |
+| F | [openwave-push/reviews/AUTONOMOUS_SOURCE_FABLE](../../openwave-push/reviews/AUTONOMOUS_SOURCE_FABLE/) | Suitable with listed corrections; as frozen it carries none of ten rows: eight species at one gap, an unfilled lower band (matter part reaches -24.02), zero bare kinetic operator at size 2, route dressing 0.923, 0.903, 0.680. | none |
+| F | [openwave-push/reviews/ROW_02_FABLE](../../openwave-push/reviews/ROW_02_FABLE/) | First review false (14:50); re-review true on the static held sector (15:30): E_self in [0.07955736151344082, 0.07955736152112182], 6423.04 keV per source unit, cell 30.72 fm, model coupling 3.635 alpha; nothing for a routed charge, inertia or a clock. | weaker |
+| F | [openwave-push/rowfull/ROW_02_routed](../../openwave-push/rowfull/ROW_02_routed/) | Interrupted after the quadrature arrays; thresholds fixed 18:52 and no gate quantity evaluated. | none |
+| F | [openwave-push/rows/TRACKER.md](../../openwave-push/rows/TRACKER.md) | Every energy that is not supplied is excluded once anchored (spacing 3.11e-12 m, 6.8e5 times the LEP bound); the surviving energies are +-m, a supplied number. | none |
+| F | [openwave-tuning/candidate/methods/uniform_native.md](../../openwave-tuning/candidate/methods/uniform_native.md) | Exact reduction on uniform record fibers; a compact transit state at energy -m on three seams is immobile with m supplied; a definite record keeps zero-holonomy weight 6^-40, so the preparation is supplied. | none |
+| F | [openwave-tuning/common_dynamics/quadratic_field/](../../openwave-tuning/common_dynamics/quadratic_field/) | Installed real quadratic field with 190 coexact oscillators and 3 harmonic modes; a = 1/2 and b = 3 give speed 1 and coupling squared 1/3; no equivalence to the compact field is proved. | none |
+| F | [openwave-tuning/measurement_first/internal_clock_records/](../../openwave-tuning/measurement_first/internal_clock_records/) | Position records show lines at 1.047197551 and 1.230959417 per W step with contrast 0.0340 and 0.03125. | none |
+| F | [openwave-tuning/measurement_first/optical_flat_state/](../../openwave-tuning/measurement_first/optical_flat_state/) | Compact one-load eigenstates of the installed walk at eigenphases pi/3 and arccos(1/3) on four cells; no energy is read. | none |
+| F | [openwave-tuning/row_completion/ROW_02/VALIDATION.json](../../openwave-tuning/row_completion/ROW_02/VALIDATION.json) | Static held charge of the installed quadratic field with self-energy in [0.07955736151344082, 0.07955736152112182] source units, set to 511 keV by one calibration; no mobile or inertial charge. | none |
+| S | [openwave-tuning/auditor/native_particle_bridge/](../../openwave-tuning/auditor/native_particle_bridge/) | Detector output within 3.077e-6 of the ideal rest-correlation experiment on the installed source. | none |
+| C | [openwave-push/mf/E2_row02_compact_state/ROW_02/](../../openwave-push/mf/E2_row02_compact_state/ROW_02/) | The prepared state stays in four cells at 25 of 25 steps with a line at 2 pi / 3 per event; the anchored map predicts a second state at 600.67 keV and misses nature seven times. | none |
+| C | [openwave-push/mf/E_row02_energy/ROW_02/](../../openwave-push/mf/E_row02_energy/ROW_02/) | One excess unit moves in exactly 1/2 of its incident hits and is anchored at 1022 keV per (movement per incident hit); gates L3 and A7 fail. | weaker |
+| C | [openwave-push/packets/ROW_02](../../openwave-push/packets/ROW_02/) | L+_vv = 0.3182294461 gives C = 2.99924187 and one calibrated length a = 8.4517e-15 m, 8.5e3 times the scattering bound. | weaker |
+| C | [openwave-push/packets/V2_self_energy](../../openwave-push/packets/V2_self_energy/) | Self term 0.1591147231 per unit squared in three dimensions; no finite value in two dimensions (growth 0.2803 per doubling). | weaker |
+| C | [openwave-push/reviews/CALIBRATED_ANCHOR_FABLE_B](../../openwave-push/reviews/CALIBRATED_ANCHOR_FABLE_B/) | 0 of the 8 settings of row 2's two native experiments exist on the calibrated member; the unit map (cell 8.45166724 fm) uses two calibrations, 511 keV and the measured alpha. | none |
+| C | [openwave-push/reviews/CALIBRATED_FAMILY_FABLE](../../openwave-push/reviews/CALIBRATED_FAMILY_FABLE/) | Not carried as frozen (held complete reading composed on the wrong pointer columns); after the repair held sector only, half pairs 463.839 and 409.564 keV. | none |
+| C | [openwave-tuning/common_dynamics/L3_fiber_krylov/RESULT.json](../../openwave-tuning/common_dynamics/L3_fiber_krylov/RESULT.json) | Seven-branch trial state with energy -3.3139 and full residual 2.3287; no stationary state is claimed; unsealed, last written 20:14. | none |
+| C | [openwave-tuning/common_dynamics/calibrated_charge/](../../openwave-tuning/common_dynamics/calibrated_charge/) | alpha_input = 0.0072973525643 is put in (g = 0.5245, g squared = 0.2751); the package claims no prediction of alpha. | none |
+| C | [openwave-tuning/next/CHAIN/particle](../../openwave-tuning/next/CHAIN/particle/) | Charge-one gap 0.3480195549 above the interacting reference over 200,448 retained energy outcomes. | weaker |
+| C | [openwave-tuning/next/CHAIN5/self_energy_interval](../../openwave-tuning/next/CHAIN5/self_energy_interval/) | Held-charge self-energy enclosed in (0.07955736151344, 0.07955736152113), which is 11.12502910786 to 11.12502910895 MeV under the anchor. | weaker |
+| C | [openwave-tuning/next/CHAIN6/calibrated_anchor_native](../../openwave-tuning/next/CHAIN6/calibrated_anchor_native/) | Target-84 local half-pair 463.838691656 to 463.839410679 keV from 282 raw pulses and 7,644 fine C/E records. | weaker |
+| C | [openwave-tuning/next/CHAIN7/calibrated_fixed_charge_family](../../openwave-tuning/next/CHAIN7/calibrated_fixed_charge_family/) | The held reset/readout join fails as frozen with a record TV discrepancy above 0.49 (8 failed held joins among 31 protocols). | negative |
+| C | [openwave-tuning/next/CHAIN9/calibrated_full_adjudication](../../openwave-tuning/next/CHAIN9/calibrated_full_adjudication/) | Group decision pass on the static domain with 5,105 pins; no moving 511 keV pole and no inertia. | weaker |
+| C | [openwave-tuning/row_completion/ROW_02/CALIBRATED_VALIDATION.json](../../openwave-tuning/row_completion/ROW_02/CALIBRATED_VALIDATION.json) | The same held charge on the calibrated member with the measured alpha and 511 keV as inputs; 10,228 evidence references, count increment 0, full native word unexecuted. | none |
+| T | [openwave-push/b/SDA_alpha_from_source](../../openwave-push/b/SDA_alpha_from_source/) | The anchor's cell length is proportional to the coupling: 30.7217 fm at g = 1, 8.4517 fm on the measured-charge member, 8.4542 fm at the chain's fixed point. | none |
+| T | [openwave-push/b/SDF_faithful_reference](../../openwave-push/b/SDF_faithful_reference/) | The native rule gives a double load the weight 0; the electron mass needs 0.1352, the law for v a one-tick multiplier and the closure 2 pi: per unit of Casimir 4.00, 0.258, 1.33 and 4.67, and no candidate normalisation meets two links within 10 percent. | none |
+| T | [openwave-push/b/SDL_lepton_scale](../../openwave-push/b/SDL_lepton_scale/) | On the native rule the read that the lepton vertex needs has weight 0 (0 of 9,360 events), so the electron mass with nothing chosen is 0; m_e/E_cell = 5.3452e-23 is an input of every packet; the coherent law gives 3.38 to 8.11 MeV. | none |
+| T | [openwave-push/b/SDS_scale_map](../../openwave-push/b/SDS_scale_map/) | Three unit maps are in use (cells 30.7217 fm, 0.02087 fm, 2.064e-20 fm; ratio 1.4885e21); from the electron anchor alone no derived chain lands on a hadron (nucleon 1482.7 to 3198.5 MeV, n - p 0.0608 MeV, G_F 1.1626e-5 GeV^-2 on the declared chain); every row  | none |
+| T | [openwave-push/issues/E1_masses_units/MASS_TABLE.md](../../openwave-push/issues/E1_masses_units/MASS_TABLE.md) | Table of the repository's masses against the PDG snapshot; no row is produced on the native process. | none |
+| P | [openwave-push/codex_status_history/5b5add11de4f6f7e46466c7a59be45c9287e669a992e02c22c182e5cabb1a817.md](../../openwave-push/codex_status_history/5b5add11de4f6f7e46466c7a59be45c9287e669a992e02c22c182e5cabb1a817.md) | The row is in the group's internal count of 10/31 as Codex reported it at 17:45; official 0/31; superseded by the pause accounting (0 of 31 acceptance-ready). | none |
+| P | [openwave-push/issues/RC1_review_codex_rows_1_2_4/AUDIT.md](../../openwave-push/issues/RC1_review_codex_rows_1_2_4/AUDIT.md) | 31 statement lines, none refuted; confirms the other party's own `physical_criterion_pass: false`. | none |
+| P | [openwave-push/results_nov14/audit/ROW_02.md](../../openwave-push/results_nov14/audit/ROW_02.md) | Audit page of the evening of 2026-11-14 (second Fable session): group's internal mark validated, platform reading if filed strict untested and most favourable partial; construction: Declared quadratic field on the carrier's cells: a held charge, one 511 keV ca | none |
+| N; T | [openwave-push/blockers/X2b_mass_spectrum/VERDICT.md](../../openwave-push/blockers/X2b_mass_spectrum/VERDICT.md) | The electron mass is the anchor of every GeV value: a calibration. | none |
+| N; T | [openwave-push/bridgework/BR16_transfer_matrix/VERDICT.md](../../openwave-push/bridgework/BR16_transfer_matrix/VERDICT.md) | Under the reconstruction H = −log P the unit has zero rest energy on every screen. | none |
+| S; F | [openwave-push/issues/TH_electron_packages_1_2_3_4_8/ROW_SHEET.md](../../openwave-push/issues/TH_electron_packages_1_2_3_4_8/ROW_SHEET.md) | The rest branch is the supplied m; the package's clock line differs from the candidate's line at 2E. | none |
+
+## Design on file for the record experiment
+
+Draft of the design worker (2026-11-14), not reviewed: gate G0 is open. Abbreviations (EOC, FL, MEL, HYP) are explained at the top of [the catalogue](../../openwave-push/mf/T_designs/DESIGNS.md).
+
+1. Hypothesis, not derived. "The proposed mass is the defect's excess rest energy over the reference, read in the
+   same clock and energy dictionary that controls its propagation and interactions" (HYP 113-115). "The
+   maintenance-to-energy map must be derived" (HYP 118). One identity exists on the coherent seam program: "⟨I − Re
+   U⟩ = P(record 1) on every blank-record input with uniform address, so the energy clock reads read probabilities"
+   (EOC 2389-2391).
+2. X-MAINT on A: one excess unit above a balanced background of level h in {1, 2, 5}, on one carrier and on a cubic
+   block of side 6. A defect observer (ports within one seam of the unit, co-moving through displacement records, FL
+   1040-1042) and a reference observer with the same access far away hold the movement bits B = |j| of their
+   incident attempts. Observable: ε = mean B (defect) − mean B (reference) per own tick. Description: an additive,
+   background-independent rest rate; unit map U = 511 keV/ε. Gates: ε equal across h and sizes (exact arm 1e-12);
+   two units at distance ≥ 2 give 2ε; kinetic gate: on D′ (choice register unread) the zero-momentum phase ω0 obeys
+   1 − cos ω0 = ε within 1 %. Controls that fail: swap-always law (ε = 1); hold law (ε = 0).
+3. Supplied: the 511 keV anchor (named by the criterion; one anchor is admitted, PC2 238); background; co-moving
+   bookkeeping; the rule "energy = record rate" (theory: to be derived, HYP 116-120).
+4. Exact on one carrier (12 and 78 states); sampled on 6³ cells for the block arm.
+5. Estimate: a clause. ε = 1/2 per own tick (contrast 1, fair coin), additive at distance ≥ 2, 4/5 of that at
+   contact. The kinetic gate fails: the unread walk has phase 0 at zero momentum (CC 59). Expected mark ⚠️.
+
+## From other rows
+
+(Findings of other rows that bear on this one are added here with their date and source.)

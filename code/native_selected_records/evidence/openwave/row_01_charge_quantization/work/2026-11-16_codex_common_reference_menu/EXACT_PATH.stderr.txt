@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/work/2026-11-16_codex_common_reference_menu/exact_path_amendment.py", line 118, in <module>
+    result=run();raise SystemExit(0 if result['passed'] else 1)
+  File "/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/work/2026-11-16_codex_common_reference_menu/exact_path_amendment.py", line 103, in run
+    assert len(table)==72
+           ^^^^^^^^^^^^^^
+AssertionError

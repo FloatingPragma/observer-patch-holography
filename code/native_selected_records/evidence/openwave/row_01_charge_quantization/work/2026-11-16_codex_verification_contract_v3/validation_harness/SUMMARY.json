@@ -1,0 +1,74 @@
+{
+  "group": "harness",
+  "passed": true,
+  "results": [
+    {
+      "label": "full_harness_28",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "-O",
+        "/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/work/2026-11-16_codex_verification_contract_v3/descendants/verify_source.py",
+        "--source",
+        "/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/reviews/2026-11-16_codex_resubmission_integration/source_export_v2/source",
+        "--record-to",
+        "/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/work/2026-11-16_codex_verification_contract_v3/validation_harness/SOURCE_REPLAY.json"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 92.55628004200116
+    },
+    {
+      "label": "earlier_failure",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "-O",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-parser-jitluw04/probe.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.08208533299330156
+    },
+    {
+      "label": "nested_gate_failure",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "-O",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-parser-jitluw04/probe.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.05782204099523369
+    },
+    {
+      "label": "changed_observable",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "-O",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-parser-jitluw04/probe.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.06590129199321382
+    },
+    {
+      "label": "historical_failure_allowed",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "-O",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-parser-jitluw04/probe.py"
+      ],
+      "exit_code": 0,
+      "expected_success": true,
+      "passed": true,
+      "seconds": 0.052683165995404124
+    }
+  ]
+}

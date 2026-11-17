@@ -1,0 +1,37 @@
+{
+  "utc": "2026-11-15T20:21:58.274848+00:00",
+  "passed": true,
+  "scope": "Rendered inspection of changed adaptive admission and finite positive-filter sections, matched clock-law comparison and neighboring page breaks; not a whole-paper independent scientific review",
+  "build_command": [
+    "python3",
+    "-B",
+    "tools/build_tex_papers.py",
+    "deriving_the_particle_zoo_from_observer_consistency",
+    "executable_observer_construction"
+  ],
+  "build_exit_status": 0,
+  "inspected_pages_one_based": {
+    "deriving_the_particle_zoo_from_observer_consistency": [
+      109,
+      113,
+      114,
+      115
+    ],
+    "executable_observer_construction": [
+      165,
+      169,
+      170,
+      171
+    ]
+  },
+  "findings": "Equations, paragraphs, citations, bounds and page breaks readable; no clipped text or overlapping formulas on inspected pages. Bibliography references render numerically.",
+  "reader_style_exit_status": 0,
+  "files": {
+    "paper/tex_fragments/DYNAMIC_UNIT_SELECTION_AND_LOCAL_PHASES.tex": "28a7765d9cdb7f8a1d81a4c0638b935ea1ce311e11f05fedfdd66a0ea5a34bb4",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex": "7ab1c0f36c5352927667ea6d9eada79e147a85de0cd71ef3329eabcaa8e5218b",
+    "paper/executable_observer_construction.tex": "65ce88c8995a16d6364202c7acc3a48b3cd7f49779e3c7faa0f6d1e79e8af314",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf": "34189d21adf9351b1935d4e27504f65419820a311b096d4cdee21412932a99f1",
+    "paper/executable_observer_construction.pdf": "4c354a32695f19284ccb380b55f2bc455beb0d794fa0f89faf7750a63c7ef9dc"
+  },
+  "external_G6": false
+}

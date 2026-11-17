@@ -1,0 +1,154 @@
+\subsection{The common matter, field and response law}
+\label{sec:common-matter-field-response}
+
+The official executable model is the common matter, field and response
+construction, designated CCF-LT-2 (CCF-2 in the source algebra).
+\path{model/SPEC.md} specifies its complete coefficients, carriers,
+preparations and instruments; \path{model/ccf_lt2/} implements them.
+These are supplied construction inputs, including empirical calibration.
+
+Each vertex of a finite oriented complex carries 96 native fermion modes,
+with canonical anticommutation relations and ordering
+$i(v,s,c,f)=96v+48s+3c+f$. Each edge carries integer flux
+$E_e\in[-L,L]$, default $L=6$, and a raising shift $U_e$ that vanishes
+at the upper wall. Lowering is $U_e^\dagger$, not a finite-wall inverse.
+For vertex--edge incidence $B$ and face boundaries $C$, require
+$BC^{\mathsf T}=0$. Native charge is $n=3(T_3+Y)$; a declared reference
+charge $r$ gives Gauss operator $G=BE-n-r$.
+
+The parent is the complete 114-factor, 22,273-monomial source. Its retained
+binary64 coefficients are promoted to exact rationals, preserving calibrated
+masses, mixing and every normal-order scalar. Replication places one local
+block at each vertex and one residual bond on each edge, recovering the
+parent exactly on one edge. The complete matter and field source is
+\begin{align}
+ H_S={}&H_{\mathrm{parent,spatial}}(U)+K_D(U)+V_{LL}+D_F+V_{QQ}
+ \nonumber\\
+ &+\frac{g_E}{2}\sum_eE_e^2
+   +g_B\sum_f\left[I-\frac{W_f+W_f^\dagger}{2}\right],
+ \qquad W_f=\prod_eU_e^{C_{fe}}.\label{eq:common-source-law}
+\end{align}
+The signed Dirac term retains every charged and neutral lepton spin,
+family and interband term. Defaults are kinetic speed, Wilson coefficient
+and field weights equal to one. The actual mass matrices anticommute
+with its three kinetic matrices. Both weak additions are full left-current
+squares with coupling $1/4096$; the parent semileptonic term occurs once.
+Supplied quark-family shifts are $(0,2,8)$ and $(0,1,4)$, with down-family
+rotation cosine $4/5$ and sine $3/5$. These choices are not physical mass
+or mixing predictions. Dressing each charge-homogeneous word $O$ by
+$U^\lambda$, with $B\lambda=\Delta n(O)$, makes every term Gauss
+invariant. Adjoint pairing and actual hard-wall shifts preserve Hermiticity.
+
+\subsection{Local energy and capacity}
+\label{sec:common-total-energy}
+
+Allocate $H_S=\sum_vh_v$ by sharing each word over its vertex and link
+support, electric energy over edge endpoints, magnetic energy over face
+vertices and scalars uniformly. Each shard is Hermitian and gauge invariant.
+At each vertex, a three-state coordinate $\Phi_v\in\{-1,0,1\}$ has
+lapse $N_v=I+\Phi_v/4$. Its allocated energy is
+\[
+ g_v=j\mathcal L_{3,v}+\frac\kappa2(\rho+b_v)\Phi_v^2
+       +\frac\kappa4\sum_{u:uv}w_{uv}(\Phi_u-\Phi_v)^2,
+\]
+where $\mathcal L_3$ is the path Laplacian; defaults are
+$j=\kappa=1/2$, $\rho=w_{uv}=1$, $b_v=0$.
+
+Independently at every vertex, a 16-state register carries volume
+$\nu\in\{1,3/2\}$, capacity $k\in\{1,2\}$ and two hardware memory bits.
+Its positive lapse $M_v$ has values $3/4,5/4$. Its auxiliary energy $A_v$
+has volume and capacity path-kinetic coefficients $1/2,1/8$ and diagonal
+potential $\nu/(32k)+(\nu-1)^2/16+(k-1)^2/16$.
+Active capacity exposes $2^k$ memory labels; the full four-state hardware
+memory is retained. The law is
+\begin{align}
+ k_v&=g_v+N_v(h_v-e_vI)+e_vI,\nonumber\\
+ H_{\mathrm{total}}&=\sum_vK_v,\qquad
+ K_v=A_v+M_v(k_v-FI)+FI.\label{eq:common-total-law}
+\end{align}
+Local references $e_v$ and the single common outer reference $F$ default
+to zero. Uniform shifts $h_v\mapsto h_v+cI$, $e_v\mapsto e_v+c$ and
+$F\mapsto F+c$ add only $|V|cI$. Nonuniform shifts cannot generally be
+absorbed by $F$; fixed references make source scalars affect the response.
+
+Every factor preserves Gauss. Disconnected graph components have commuting
+Hamiltonians and factorized unitaries. The full charge current weights each
+shard's matter link-phase derivative by $M_vN_v$; second derivatives enter response
+formulas. Energy currents $J_{vw}=i[K_v,K_w]$ obey
+$\dot K_v+\sum_wJ_{vw}=0$, regional cancellation and composable coarse maps.
+Free evolution is $e^{-i\tau H_{\mathrm{total}}}$ with no interleaved repair
+or reset. Preparation retains its syndrome, cutoff and capacity failures;
+meter work is accounted for separately. The intrinsic finite carrier has
+dimension $2^{96|V|}(2L+1)^{|E|}48^{|V|}$; external apparatus adds its own.
+
+\subsection{Finite interfaces and executed scope}
+\label{sec:common-finite-interfaces}
+\label{sec:common-execution-scope}
+
+The specified Gauss-supported Gibbs reference is
+$\rho=P_Ge^{-\beta H_{\mathrm{total}}}/Z$, with $L=6$, $r=0$ and
+$\beta=1/1024$. A norm bound $M$ gives
+$\rho\geq e^{-2\beta M}P_G/\operatorname{rank}P_G$.
+Ordered regional partial traces compose; their supported modular logarithms
+and relative-entropy first-law identities exist. This finite reference
+supplies no efficient physical preparation, selected vacuum, uniform
+refinement floor or physical small-ball stress kernel.
+
+The angular and radial tetrahedral shell family, $n=2^m$, has
+$(2n^2+2)(n+1)$ vertices and cell diameter at most $(8\sqrt6+1)/n$.
+Exact chain and edge-path identities accompany its shrinking cells.
+A constant coframe and shift family recovers $H_S$ at identity and supplies
+six strain and three shift derivatives. These are mechanical responses;
+source, reference, instrument and flux-cutoff limits require compatible
+maps and estimates. The analytic uniform-grid choice
+$g_E=g^2/a$, $g_B=c^2/(g^2a)$ matches free low-momentum speeds, but has
+no executed refinement certificate or common interacting metric limit.
+
+Exact generation gives 63,589 matter monomials on the 192-mode edge and
+109,675 on the 288-mode triangle. Complete triangle action retains
+4,567 native-empty and 4,564 single-neutral outputs, all Gauss compatible,
+with $3^3$ response states and $16^3$ capacity states. Every column of a
+separately specified 256-state diagnostic agrees with its matrix-free API.
+These are complete operator columns, without arbitrary-state propagation
+in the $2^{288}$-dimensional matter carrier.
+
+A source-sensitive coherent instrument uses the triangle with edges
+$(0,1),(0,2),(1,2)$, zero flux, all capacity indices zero and flattened
+response index one. From native empty $|i\rangle$, order source words by
+word and shift and select the first two-creator word with nonzero link
+shift, internal labels in $\{9,11\}$ and positive real coefficient.
+Its action defines $|f\rangle$ with the same auxiliary labels.
+Projectors onto $(|i\rangle\pm i|f\rangle)/\sqrt2$ and their orthogonal
+complement form a complete instrument. The full entry is $9/32$ and the
+initial probability derivatives are $(-9/32,+9/32,0)$. The Dirac-deleted
+column has 4,495 outputs and zero target entry; terminal dephasing removes
+the phase response. This is an initial derivative, without finite-time
+native propagation, local meter hardware or a self-starting mass clock.
+
+Before response coupling, $H_S$ has an exact pair/flux entry $z=1/2$.
+For $\|H_S\|\leq M$, the unitary remainder bound
+$\|e^{-i\tau H_S}-I+i\tau H_S\|\leq\tau^2M^2/2$ gives
+$P_f(\tau)\geq9\tau^2|z|^2/16>0$ at $\tau=|z|/(2M^2)$.
+That quantitative time belongs to $H_S$. The positive local lapses retain
+the nonzero channel in the full law, without establishing an outgoing
+on-shell particle, photon or measured decay rate.
+
+Separate complete finite diagnostics use their own carriers. A 343-state
+field triangle at cap three, zero-flux preparation and complete flux readout
+has loop probability $0.1139773713$ at $\tau=1/2$; magnetic deletion gives
+zero. A 72-state response diagnostic uses modes $e,p,n$, energy
+$N_e+N_p+2N_n$ and two response coordinates prepared at $(0,0)$.
+Neutral energy sits at vertex zero and charged energy at vertex one.
+The charged preparation is $(|0\rangle+|ep\rangle)/\sqrt2$, read with
+both coherent signs and single-occupation complements. Changing neutral
+occupation changes charged-plus probability by $0.0028814204$ at
+$\tau=4$; matched edge-removal and zero-lapse-coupling controls remove it.
+Neither diagnostic is a proved reducing sector of the complete native law.
+
+Every instrument retains complementary, zero-probability and failure
+outcomes. A pair-clock gap $2m$ is recorded as $2m$; a stationary
+state's global phase supplies no observable clock. Source time has
+construction units. Physical species, seconds, renormalized constants,
+a common continuum and the Einstein theorem's regional premises require
+explicit attachments. Calibrated coefficients remain inputs, and independent
+component results transfer only through a proved common-source map.

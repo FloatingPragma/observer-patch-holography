@@ -94,13 +94,13 @@ physical interpretation are supplied.
 
 ## Observer measurements and operational objectivity
 
-The [executable-model hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) is the concrete
-candidate target within the overall closure proposal. It joins modular
-observer clocks, one interacting field/particle description, the preferred
-native-defect maintenance mechanism and realized Einstein premises on one
-process. The [completion program](COMPLETION_PROGRAM.md) states its dependency
-gates and stopping rules. Neither closure nor a finite observer interface
-implies that the current repair law already realizes those physical targets.
+The [executable-model hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) tests
+[CCF-LT-2](../model/SPEC.md) within the closure proposal. One specified
+matter, field and response law must supply the observations used to identify
+particles, clocks, geometry and gravity. Its creator supplies the architecture
+before execution. Neither closure nor finite operator checks establish the
+physical comparison; the [dependency map](../model/particle_joint_reconstruction/DEPENDENCIES.md)
+records the theorem interfaces and source-specific attachment obligations.
 
 **The construction target is an executable realization of OPH's observer
 algebra whose shared measurement statistics reproduce the observable

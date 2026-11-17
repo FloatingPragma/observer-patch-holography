@@ -1,5 +1,10 @@
 # Interacting fields and complete detector records
 
+These are independent Wilson, scalar and detector component calculations.
+The official [CCF-LT-2 model](../SPEC.md) has its own Hamiltonian, preparation
+and instruments. Using these component records for that model requires an
+explicit source map; the report does not execute its master-source records.
+
 This construction computes what specified observers record on finite
 interacting programs. The scalar source supplies an exact gap, charged
 addition/removal lines and complete detector probabilities. A faithful
@@ -37,15 +42,10 @@ of this selected spatial state. Physical joint refinement, chiral particles
 and the Einstein regional premises are separate output theorems.
 
 The [joint dependency map](../particle_joint_reconstruction/DEPENDENCIES.md)
-gives one acceptance graph for the interacting field and its particle
-spectrum, with a separate pure Yang-Mills branch. Its first three finite
-requirements have selected-source consumers. The
-[locality consumer](../particle_primary_locality/PROOF.md) compares a remote
-physical plaquette phase with identity while retaining every local detector
-record and the canonical reference. Its conservative influence cone does
-not identify a measured light speed or prove convergence between levels.
-The aggregate's six comparison-domain summaries classify evidence; they
-are not an additional physical dependency list.
+classifies the official model's acceptance conditions. The Wilson
+[locality consumer](../particle_primary_locality/PROOF.md) and this report's
+six component-domain summaries retain their independent hypotheses. Their
+influence cone is not an established physical light cone for CCF-LT-2.
 
 ## The same scalar source, state and clock
 
