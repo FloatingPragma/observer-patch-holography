@@ -92,6 +92,7 @@ jobs:
         include:
           - {profile: root, requirements: requirements.txt, buckets: 2, bucket: 0}
           - {profile: root, requirements: requirements.txt, buckets: 2, bucket: 1}
+          - {profile: model, requirements: model/requirements.txt, buckets: 1, bucket: 0}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:

@@ -269,7 +269,7 @@ LANES: tuple[Lane, ...] = (
          *(f"python -m model.{name} --check model/{name}/results.json"
            for name in ("bound_pair", "particle_clock", "field_regions", "field_stress", "field_tastes", "biased_reset")),
          env=BLAS1),
-    lane("model_native", "push", "root", 7,
+    lane("model_native", "nightly", "root", 7,
          "python -m pytest -q -W error model/band_clock model/native_localization model/native_program",
          "python -m pytest -q -W error model/pair_cyclic_control model/recovery_elision model/biased_code_universality",
          "python -m pytest -q -W error model/energy_identifiability model/regional_modular model/band_clock_budget model/compiled_native_history",
@@ -282,7 +282,7 @@ LANES: tuple[Lane, ...] = (
          "python -m model.band_clock --check model/band_clock/results.json",
          "python -m model.native_localization.experiment --check model/native_localization/results.json",
          env=BLAS1),
-    lane("model_particle_services", "push", "root", 4,
+    lane("model_particle_services", "nightly", "root", 4,
          "python -m pytest -q --durations=10 -W error model/reference_recovery model/particle_response model/contact_scattering "
          "model/particle_comparison model/charged_dynamics model/particle_transport",
          "python -m pytest -q --durations=10 -W error model/modular_flow model/full_fock_energy model/flux_response "
@@ -312,7 +312,7 @@ LANES: tuple[Lane, ...] = (
          "python -m model.defect_field_propagation --check",
          "python -m pytest -q --durations=10 -W error model/defect_field_propagation model/defect_field_clock model/defect_field_interactions",
          env=BLAS1),
-    lane("model_native_field_thermodynamics", "push", "root", 5,
+    lane("model_native_field_thermodynamics", "nightly", "root", 5,
          "python -m model.defect_field_modular --check",
          "python -m model.defect_field_energy.packet --check",
          "python -m pytest -q --durations=10 -W error model/defect_field_energy model/defect_field_modular",
@@ -356,7 +356,7 @@ LANES: tuple[Lane, ...] = (
          "python -m pytest -q -W error model/coherent_defect_wave "
          + " ".join(f"--ignore=model/coherent_defect_wave/chiral_joint/{pkg}" for pkg in COHERENT_CONSTRAINED),
          env={**BLAS1, "PYTHONDONTWRITEBYTECODE": "1"}),
-    lane("field_record_addenda", "push", "model", 7.5,
+    lane("field_record_addenda", "nightly", "model", 7.5,
          "python -B -m model.field_record_addenda --check",
          "python -B -m pytest -q model/field_record_addenda -W error",
          "python -B tools/check_field_record_addenda_claims.py",

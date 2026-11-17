@@ -25,6 +25,7 @@ physical universe has been reconstructed.
 | [`research/`](research/) | Research notes, each verified by a code lane |
 | [`policies/`](policies/) | Data, hardware-evidence and writing policies |
 | [`COMPLETION_PROGRAM.md`](COMPLETION_PROGRAM.md) | Common-source finite checks and physical acceptance conditions |
+| [`EXECUTABLE_PROGRAM_CLASS_V2_PROPOSAL.md`](EXECUTABLE_PROGRAM_CLASS_V2_PROPOSAL.md) | Program-class V2 contract bound to the completion registry |
 
 ## Rules for this directory
 
