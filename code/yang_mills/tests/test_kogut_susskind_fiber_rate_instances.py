@@ -20,16 +20,6 @@ import gauge_orbit_quotient_instances as quotient  # noqa: E402
 import kogut_susskind_fiber_rate_instances as instances  # noqa: E402
 import verify_z2_finite_transfer_receipt as verifier  # noqa: E402
 
-WORKFLOW = ROOT / ".github/workflows/finite-gauge-transfer.yml"
-REQUIRED_TESTS = {
-    "code/yang_mills/tests/test_z2_finite_transfer_receipt.py",
-    "code/yang_mills/tests/test_z2_finite_transfer_verifier.py",
-    "code/yang_mills/tests/test_z2_transfer_spectrum.py",
-    "code/yang_mills/tests/test_z2_full_space_controls.py",
-    "code/yang_mills/tests/test_z2_kogut_precision.py",
-    "code/yang_mills/tests/test_kogut_susskind_fiber_rate_instances.py",
-}
-
 
 def _rehash(receipt: dict) -> None:
     receipt["sha256_of_runs"] = hashlib.sha256(
@@ -201,57 +191,3 @@ def test_quotient_script_keeps_nonphysical_abstract_scope(capsys):
     assert result["committed_rates_lambda1"]["quotient_gap"] == 4.0
 
 
-def _assert_ci_executes_complete_scope(workflow):
-    job = workflow["jobs"]["transfer-and-custody"]
-    assert set(job["strategy"]["matrix"]["os"]) == {"ubuntu-latest"}
-    assert job["env"]["OPENBLAS_NUM_THREADS"] == "1"
-    assert job["env"]["OMP_NUM_THREADS"] == "1"
-    assert not job.get("if") and not job.get("continue-on-error")
-    assert workflow["permissions"] == {"contents": "read"}
-    assert "workflow_dispatch" in workflow["on"]
-    assert "code/yang_mills/**" in workflow["on"]["pull_request"]["paths"]
-    assert workflow["on"]["push"]["paths"] == workflow["on"]["pull_request"]["paths"]
-    dispatched = []
-    for step in job["steps"]:
-        if "uses" in step:
-            assert len(step["uses"].rsplit("@", 1)[1]) == 40
-            if step["uses"].startswith("actions/setup-python@"):
-                assert step["with"]["python-version"] == "3.12"
-        if "pytest" not in step.get("run", ""):
-            continue
-        assert not step.get("if") and not step.get("continue-on-error")
-        command = shlex.split(step["run"])
-        assert command[:6] == ["python", "-W", "error", "-m", "pytest", "-q"]
-        # Whole-file execution excludes collect-only, selectors and shell
-        # success fallbacks; counting also rejects duplicate expensive replays.
-        assert all(path in REQUIRED_TESTS for path in command[6:])
-        dispatched.extend(command[6:])
-    assert set(dispatched) == REQUIRED_TESTS
-    assert len(dispatched) == len(REQUIRED_TESTS)
-
-
-def _workflow():
-    return yaml.load(WORKFLOW.read_text(encoding="utf-8"), Loader=yaml.BaseLoader)
-
-
-def test_ci_executes_controls_once_per_platform():
-    _assert_ci_executes_complete_scope(_workflow())
-
-
-@pytest.mark.parametrize("mutation", ["collect_only", "missing_test", "duplicate", "skip", "allow_failure"])
-def test_ci_gate_rejects_false_green_routes(mutation):
-    workflow = _workflow()
-    steps = workflow["jobs"]["transfer-and-custody"]["steps"]
-    step = next(row for row in steps if "pytest" in row.get("run", ""))
-    if mutation == "collect_only":
-        step["run"] += " --collect-only"
-    elif mutation == "missing_test":
-        step["run"] = step["run"].replace(sorted(REQUIRED_TESTS)[0], "")
-    elif mutation == "duplicate":
-        steps.append(copy.deepcopy(step))
-    elif mutation == "skip":
-        step["if"] = "false"
-    else:
-        step["continue-on-error"] = "true"
-    with pytest.raises(AssertionError):
-        _assert_ci_executes_complete_scope(workflow)

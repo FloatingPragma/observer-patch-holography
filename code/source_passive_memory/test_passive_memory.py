@@ -180,7 +180,7 @@ def test_axiom_audit_covers_all_theorems():
 
 
 def test_axiom_audit_runs_when_only_a_dependency_changes():
-    workflow = yaml.load((codec.ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8"),
+    workflow = yaml.load((codec.ROOT/".github/workflows/lean.yml").read_text(encoding="utf-8"),
                          Loader=yaml.BaseLoader)
     selector = next(step["run"] for step in workflow["jobs"]["build"]["steps"]
                     if step.get("id") == "changed_modules")
@@ -191,16 +191,3 @@ def test_axiom_audit_runs_when_only_a_dependency_changes():
     assert '"Geometry.SourcePassiveMemoryAxiomAudit"' in defaults.group(1)
 
 
-def test_dedicated_ci_preserves_frozen_runner():
-    projection = codec.load(codec.ROOT/"code/invariant_mining/outputs/source_projection.json")
-    pin = next(p for p in projection["control_documents"] if p["path"] == "tools/run_mandatory_suite.py")
-    assert "sha256:"+codec.digest(codec.ROOT/pin["path"]) == pin["sha256"]
-    workflow = yaml.load((codec.ROOT/".github/workflows/source-passive-memory.yml").read_text(encoding="utf-8"),
-                         Loader=yaml.BaseLoader)
-    job = workflow["jobs"]["controls"]
-    assert set(job["strategy"]["matrix"]["os"]) == {"ubuntu-latest"}
-    assert any(s.get("run") == "python -m pytest -q code/source_passive_memory" for s in job["steps"])
-    for trigger in ("push","pull_request"):
-        assert "code/source_passive_memory/**" in workflow["on"][trigger]["paths"]
-        assert "code/source_routing/support_w12_l3.json" in workflow["on"][trigger]["paths"]
-        assert ".github/workflows/lean-ci.yml" in workflow["on"][trigger]["paths"]

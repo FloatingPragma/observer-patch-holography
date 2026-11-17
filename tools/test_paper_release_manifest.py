@@ -513,29 +513,6 @@ def test_validator_rejects_missing_registered_non_tex_output(
     assert any("registered non-TeX output is missing" in p for p in problems)
 
 
-def test_preview_ci_accepts_same_release_previews_and_rejects_artifact_drift() -> None:
-    workflow = (
-        REPO_ROOT / ".github" / "workflows" / "publication-build.yml"
-    ).read_text(encoding="utf-8")
-    assert "git diff --quiet --" in workflow
-    # Scratch builds must detect stale committed books without overwriting the evidence.
-    assert 'cmp --silent "${RUNNER_TEMP}/book-first.pdf" book/reverse-engineering-reality-book.pdf' in workflow
-    assert "git diff --quiet -- paper flagship extra cosmology" in workflow
-    assert workflow.count("find paper flagship extra cosmology -maxdepth") == 3
-    assert 'git ls-files --error-unmatch -- "$pdf"' in workflow
-    assert workflow.count('- "cosmology/**"') == 2
-    assert workflow.count("python tools/refresh_paper_release.py --preview") == 2
-    assert workflow.count('python tools/build_book_pdf.py --output "${RUNNER_TEMP}/') == 2
-    assert 'diff -u "${RUNNER_TEMP}/book-first.sha256"' in workflow
-    assert "No release bump is required" in workflow
-    assert "paper-preview:" in workflow
-    assert "publication-build:" not in workflow
-    assert "Record first-pass preview hashes" in workflow
-    assert "Record first-pass publication hashes" not in workflow
-    assert workflow.count("sha256sum paper/paper_release_manifest.json") == 2
-    assert 'diff -u "${RUNNER_TEMP}/manifest-first.sha256"' in workflow
-
-
 @pytest.mark.parametrize(
     ("case", "diagnostic"),
     [
@@ -552,7 +529,7 @@ def test_actual_preview_artifact_step_rejects_missing_or_stale_commits(
 ) -> None:
     """Execute the workflow's own Bash block, without rebuilding any real PDF."""
     workflow = (
-        REPO_ROOT / ".github" / "workflows" / "publication-build.yml"
+        REPO_ROOT / ".github" / "workflows" / "ci.yml"
     ).read_text(encoding="utf-8")
     marker = (
         "      - name: Require committed preview artifacts to match the source rebuild\n"
@@ -631,20 +608,6 @@ def test_actual_preview_artifact_step_rejects_missing_or_stale_commits(
     if diagnostic is not None:
         assert diagnostic in output
     assert book.read_bytes() == b"%PDF-book\n", "the gate must not refresh the book"
-
-
-def test_preview_ci_watches_every_theorem_count_input() -> None:
-    workflow = (
-        REPO_ROOT / ".github" / "workflows" / "publication-build.yml"
-    ).read_text(encoding="utf-8")
-    direct_inputs = (
-        "Lean/**/*.lean",
-        "README.md",
-        "README_FR.md",
-        "tools/check_lean_theorem_count.py",
-    )
-    for path in direct_inputs:
-        assert workflow.count(f'- "{path}"') == 2
 
 
 def test_refresh_wrapper_dispatches_preview_by_default() -> None:

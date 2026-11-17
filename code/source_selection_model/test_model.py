@@ -270,5 +270,5 @@ def test_lean_gate_covers_every_declaration():
     assert len(names) == 15
     assert {"OPH.SourceSelectionLocality."+n for n in names} == set(
         re.findall(r"^audit_reusable_bus_axioms (\S+)$", gate, re.M))
-    ci = (ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8")
+    ci = (ROOT/".github/workflows/lean.yml").read_text(encoding="utf-8")
     assert '"Geometry.SourceSelectionLocalityAxiomAudit"' in ci

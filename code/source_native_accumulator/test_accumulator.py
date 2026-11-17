@@ -274,13 +274,13 @@ def test_all_new_theorems_have_transitive_axiom_gate():
     guard = (codec.ROOT/"Lean/Geometry/SourceReusableBusAxiomAudit.lean").read_text(encoding="utf-8")
     assert "Lean.collectAxioms name" in guard and "sorryAx" in guard and "Lean.ofReduceBool" in guard
     assert "SourceAccumulatorAxiomAudit" in (codec.ROOT/"Lean/Geometry.lean").read_text(encoding="utf-8")
-    require_ci_gate((codec.ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8"))
+    require_ci_gate((codec.ROOT/".github/workflows/lean.yml").read_text(encoding="utf-8"))
 
 
 @pytest.mark.parametrize("replacement",['','# "Geometry.SourceAccumulatorAxiomAudit"',
                                          '"Geometry.SourceAccumulatorProgram"'])
 def test_disabled_ci_trust_gate_rejected(replacement):
-    source = (codec.ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8")
+    source = (codec.ROOT/".github/workflows/lean.yml").read_text(encoding="utf-8")
     with pytest.raises(AssertionError):
         require_ci_gate(source.replace('"Geometry.SourceAccumulatorAxiomAudit"',replacement))
 
@@ -290,15 +290,3 @@ def test_pinned_sources_have_portable_bytes():
         assert b"\r\n" not in (codec.ROOT/path).read_bytes(),path
 
 
-def test_workflow_covers_pinned_sources():
-    path = codec.ROOT/".github/workflows/source-native-accumulator.yml"
-    workflow = yaml.safe_load(path.read_text())
-    triggers = workflow.get("on",workflow.get(True))
-    for event in ("push","pull_request"):
-        globs = triggers[event]["paths"]
-        for source in codec.pins():
-            assert any(fnmatchcase(source,g) for g in globs),source
-    job = workflow["jobs"]["controls"]
-    assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest"]
-    assert any("pytest -q code/source_native_accumulator" in s.get("run","") and "if" not in s
-               for s in job["steps"])

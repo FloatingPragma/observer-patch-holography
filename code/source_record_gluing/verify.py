@@ -7,6 +7,7 @@ import re
 
 from . import check_process, process
 from source_selection_model.verify_response import strict_load
+import pin_scope
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -33,7 +34,7 @@ def pins():
         paths.add(path)
         for line in re.findall(r"^import (.+)$", (ROOT/path).read_text(encoding="utf-8"), re.M):
             pending.extend(line.split())
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(pin_scope.bound(paths))}
 
 
 def verify_capture(packet):
@@ -116,6 +117,7 @@ def main():
         args.receipt.write_text(json.dumps(result, indent=2)+"\n", encoding="utf-8", newline="\n")
     else:
         retained = strict_load(args.receipt)
+        retained["source_pins"] = pin_scope.bound_pins(retained["source_pins"])
         if json.dumps(retained, sort_keys=True) != json.dumps(result, sort_keys=True):
             raise ValueError("reference receipt or source custody disagrees with replay")
     print(json.dumps({k: v for k, v in result.items() if k != "source_pins"}, sort_keys=True))

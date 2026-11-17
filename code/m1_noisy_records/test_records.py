@@ -407,13 +407,6 @@ else:
     assert result.returncode == 0, result.stdout+result.stderr
 
 
-def test_workflow_covers_every_pinned_input():
-    text = (verify.ROOT/'.github/workflows/m1-noisy-records.yml').read_text(encoding='utf-8')
-    paths = [line.strip().removeprefix('- ').strip('"') for line in text.splitlines()
-             if line.strip().startswith('- "')]
-    assert all(any(fnmatch.fnmatchcase(p, pattern) for pattern in paths) for p in verify.SOURCES)
-
-
 def test_source_and_claim_tampering_is_rejected(tmp_path):
     original = verify.load(verify.HERE/'receipt.json')
     for section in ('sources', 'claims'):

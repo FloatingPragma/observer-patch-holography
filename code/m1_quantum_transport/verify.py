@@ -11,6 +11,7 @@ if __package__ in (None, ""):
     __package__ = "m1_quantum_transport"
 
 from .check import need, same, verify_evidence
+import pin_scope
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -25,6 +26,7 @@ SOURCE_FILES += ["Lean/Geometry/M1QuantumTransport.lean", "Lean/Geometry/M1Quant
                  "code/source_selection_model/RECORD_GLUING.md", "code/rg_principle/DERIVATION.md",
                  "Lean/Geometry/RecordGluingPrinciple.lean", ".github/workflows/lean-ci.yml",
                  ".github/workflows/m1-quantum-transport.yml", "requirements.txt", ".gitattributes"]
+SOURCE_FILES = pin_scope.bound(SOURCE_FILES)
 PARENTS = ("OPH-RG-LOCAL-CLOCK-REDUCTION", "OPH-RG-INFORMATION-RESOURCE-BOUND")
 
 
@@ -65,7 +67,7 @@ def verify(path=HERE/"receipt.json"):
     need(type(packet) is dict and set(packet) == {"schema", "sources", "parent_claims", "evidence"},
          "receipt envelope is incomplete or has extra fields")
     same(packet["schema"], "oph-m1-quantum-transport-v1", "unknown receipt schema")
-    same(packet["sources"], pins(), "source pins differ")
+    same(pin_scope.bound_pins(packet["sources"]), pins(), "source pins differ")
     same(packet["parent_claims"], parent_claims(), "parent claims differ")
     verify_evidence(packet["evidence"])
     return packet

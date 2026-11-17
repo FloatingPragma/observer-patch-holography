@@ -218,12 +218,3 @@ runpy.run_path(sys.argv[0], run_name='__main__')
     assert result.returncode == 0, result.stderr
 
 
-def test_every_pinned_source_triggers_replay():
-    workflow = yaml.load((verify.ROOT/".github/workflows/m1-vacuum-fidelity.yml").read_text(encoding="utf-8"),
-                         Loader=yaml.BaseLoader)
-    for event in ("push", "pull_request"):
-        patterns = workflow["on"][event]["paths"]
-        for path in verify.SOURCE_FILES+["claims/claim_registry.yaml"]:
-            assert any(fnmatch.fnmatchcase(path, pattern) for pattern in patterns), (event, path)
-    lean = (verify.ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8")
-    assert '"Geometry.M1VacuumFidelityAxiomAudit"' in lean

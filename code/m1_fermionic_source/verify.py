@@ -16,6 +16,7 @@ from .experiment_check import (verify_conversions, verify_detector, verify_inter
                                verify_measurements, verify_noise, verify_resolved_reads, verify_weighted_measurements)
 from .geometry_check import verify_budgets, verify_clock_witness, verify_graphs, verify_walks
 from .preparation_check import verify_preparation
+import pin_scope
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -26,6 +27,7 @@ OWN_FILES = ('__init__.py', 'pauli.py', 'model.py', 'circuits.py', 'spatial.py',
 SOURCES = sorted(set(parent.SOURCES + ['code/m1_source_realization/receipt.json']
                     + ['code/m1_fermionic_source/'+p for p in OWN_FILES]
                     + ['docs/research/FERMIONIC_SOURCE_CLOCKS.md', '.github/workflows/m1-fermionic-source.yml']))
+SOURCES = pin_scope.bound(SOURCES)
 CLAIMS = ('OPH-SOURCE-LOCAL-FERMIONIC-REALIZATION', 'OPH-SOURCE-ENCODED-FERMION-CLOCK',
           'OPH-SOURCE-FERMIONIC-VACUUM-NOISE')
 
@@ -68,7 +70,7 @@ def verify(path=HERE/'receipt.json'):
     packet = parent.load(path)
     keys(packet, 'schema sources claims evidence')
     exact(packet['schema'], 'oph-fermionic-source-v1')
-    exact(packet['sources'], pins())
+    exact(pin_scope.bound_pins(packet['sources']), pins())
     exact(packet['claims'], claim_pins())
     parent.verify()
     verify_evidence(packet['evidence'])

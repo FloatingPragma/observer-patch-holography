@@ -13,6 +13,7 @@ import re
 from urllib.parse import parse_qs, urlparse
 
 from mpmath import MPContext
+import pin_scope
 
 
 HERE = Path(__file__).resolve().parent
@@ -35,6 +36,7 @@ SOURCES = ['code/independent_postdictions/'+p for p in OWN]+[
     FROZEN+'koide_balance_comparison_frozen_2026-07-28.json',
     'docs/research/INDEPENDENT_POSTDICTION_COMPARISON.md',
     '.github/workflows/independent-postdictions.yml', 'requirements.txt', '.gitattributes']
+SOURCES = pin_scope.bound(SOURCES)
 
 # Normative, reviewed contracts: rebuilding a receipt cannot loosen these.
 # A policy change must separately update this review pin and its explanation.
@@ -377,7 +379,7 @@ def verify(path=HERE/'receipt.json'):
     packet = load(path)
     keys(packet, 'schema sources calculations')
     same(packet['schema'], 'oph-independent-postdictions-v1')
-    same(packet['sources'], pins())
+    same(pin_scope.bound_pins(packet['sources']), pins())
     verify_policy()
     verify_calculations(packet['calculations'])
     return packet

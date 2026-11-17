@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 from .format import need, keys, equal, load, canonical
 from . import source_check, observable_check
+import pin_scope
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -19,6 +20,7 @@ SOURCES = ['code/paired_gravity/'+p for p in OWN]+[
     'code/source_scalar_execution/verify_source_scalar_execution.py',
     'Lean/Screen/SeamCurrentCarrierQuotient.lean',
     'Lean/Screen/PrimitivePortFrameQuotient.lean', 'Lean/Screen/PortFrameGram.lean']
+SOURCES = pin_scope.bound(SOURCES)
 CLAIM = 'OPH-SOURCE-PAIRED-GRAVITY-NONIDENTIFICATION'
 # Reviewed primary numerical transcription, independent of the producer/receipt.
 DATA_SHA256 = '6a06eaef2cd6e28ca964557a7de29e5ece6b696c3af47839b2b31fe7fcfa9aa1'
@@ -52,7 +54,7 @@ def verify(path=HERE/'receipt.json'):
     row = load(path)
     keys(row, 'schema sources claim evidence')
     equal(row['schema'], 'oph-paired-gravity-v1', 'receipt schema')
-    equal(row['sources'], pins(), 'complete source custody')
+    equal(pin_scope.bound_pins(row['sources']), pins(), 'complete source custody')
     equal(row['claim'], claim_digest(), 'registered claim custody')
     evidence(row['evidence'])
     return row

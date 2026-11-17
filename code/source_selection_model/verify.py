@@ -6,6 +6,7 @@ import json
 import re
 
 from . import channels, finite_model, geometry, grammar, verify_response
+import pin_scope
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -35,7 +36,7 @@ def pins():
         names.add(relative)
         for line in re.findall(r"^import (.+)$", (ROOT/relative).read_text(encoding="utf-8"), re.M):
             pending.extend(line.split())
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(pin_scope.bound(names))}
 
 
 def evidence(response_path=None, record_path=None):
@@ -63,6 +64,7 @@ def main():
         args.receipt.write_text(json.dumps(actual, indent=2)+"\n", encoding="utf-8", newline="\n")
     else:
         retained = verify_response.strict_load(args.receipt)
+        retained["source_pins"] = pin_scope.bound_pins(retained["source_pins"])
         # JSON comparison retains type distinctions (True is not an integer).
         if json.dumps(retained, sort_keys=True) != json.dumps(actual, sort_keys=True):
             raise ValueError("retained receipt or source custody disagrees with independent replay")

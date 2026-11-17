@@ -180,7 +180,7 @@ def test_complete_lean_gate_and_ci_entry():
             continue
         for name in re.findall(r"^theorem (\w+)", path.read_text(encoding="utf-8"), re.M):
             assert f"audit_reusable_bus_axioms OPH.{path.stem}.{name}" in gate
-    workflow = (codec.ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8")
+    workflow = (codec.ROOT/".github/workflows/lean.yml").read_text(encoding="utf-8")
     executable = "\n".join(line for line in workflow.splitlines() if not line.lstrip().startswith("#"))
     assert '"Geometry.SourceTemporalAcceptanceAxiomAudit"' in executable
 

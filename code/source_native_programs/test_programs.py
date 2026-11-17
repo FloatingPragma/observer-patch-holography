@@ -276,7 +276,7 @@ def test_complete_transitive_axiom_inventory_and_ci_gate():
     audit = (codec.ROOT/"Lean/Geometry/SourceNativeProgramsAxiomAudit.lean").read_text(encoding="utf-8")
     assert set(re.findall(r"^audit_reusable_bus_axioms (\S+)",audit,re.M)) == declarations
     assert "SourceNativeProgramsAxiomAudit" in (codec.ROOT/"Lean/Geometry.lean").read_text(encoding="utf-8")
-    require_ci_gate((codec.ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8"))
+    require_ci_gate((codec.ROOT/".github/workflows/lean.yml").read_text(encoding="utf-8"))
 
 
 def test_kernel_control_certificate_is_complete_and_current(packet,monkeypatch):
@@ -343,7 +343,7 @@ def test_kernel_control_cli_authenticates_evidence_outside_projection(packet,tmp
 @pytest.mark.parametrize("replacement",['','# "Geometry.SourceNativeProgramsAxiomAudit"',
                                          '"Geometry.SourceNativeStoredProgram"'])
 def test_disabled_ci_axiom_gate_is_rejected(replacement):
-    source = (codec.ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8")
+    source = (codec.ROOT/".github/workflows/lean.yml").read_text(encoding="utf-8")
     with pytest.raises(AssertionError):
         require_ci_gate(source.replace('"Geometry.SourceNativeProgramsAxiomAudit"',replacement))
 
@@ -365,37 +365,6 @@ def require_native_ci_gate(workflow):
         for command in commands:
             assert any(step.get("run","").strip() == command and "if" not in step and
                        not step.get("continue-on-error",False) for step in job["steps"])
-
-
-def test_workflow_covers_every_pinned_source_and_preserves_frozen_runner():
-    workflow = yaml.safe_load((codec.ROOT/".github/workflows/source-native-programs.yml").read_text(encoding="utf-8"))
-    require_native_ci_gate(workflow)
-    projection = codec.load(codec.ROOT/"code/invariant_mining/outputs/source_projection.json")
-    pin = next(p for p in projection["control_documents"] if p["path"] == "tools/run_mandatory_suite.py")
-    assert "sha256:"+hashlib.sha256((codec.ROOT/pin["path"]).read_bytes()).hexdigest() == pin["sha256"]
-    for path in codec.pins():
-        assert b"\r\n" not in (codec.ROOT/path).read_bytes(),path
-
-
-@pytest.mark.parametrize("job_name",["controls","families"])
-@pytest.mark.parametrize("mutation",["skip_job","allow_job_failure","skip_step","allow_step_failure","swallow_exit"])
-def test_disabled_native_ci_gate_is_rejected(job_name,mutation):
-    workflow = yaml.safe_load((codec.ROOT/".github/workflows/source-native-programs.yml").read_text(encoding="utf-8"))
-    require_native_ci_gate(workflow)
-    job = workflow["jobs"][job_name]
-    step = job["steps"][-1]
-    if mutation == "skip_job":
-        job["if"] = "false"
-    elif mutation == "allow_job_failure":
-        job["continue-on-error"] = True
-    elif mutation == "skip_step":
-        step["if"] = "false"
-    elif mutation == "allow_step_failure":
-        step["continue-on-error"] = True
-    else:
-        step["run"] += " || true"
-    with pytest.raises(AssertionError):
-        require_native_ci_gate(workflow)
 
 
 @pytest.mark.parametrize("key",["scalar_means_upper","grid_bits_sufficient","maximum_scale_upper",

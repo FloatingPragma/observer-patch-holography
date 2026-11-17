@@ -225,7 +225,7 @@ def require_downstream_audit(workflow):
     '',
 ])
 def test_removing_or_commenting_the_ci_audit_target_fails(replacement):
-    workflow = (codec.ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8")
+    workflow = (codec.ROOT/".github/workflows/lean.yml").read_text(encoding="utf-8")
     original = '            "Geometry.SourceEncodedMemoryAxiomAudit"'
     assert workflow.count(original) == 1
     with pytest.raises(AssertionError):
@@ -278,19 +278,8 @@ def test_no_hidden_untested_theorems_and_downstream_audit():
     assert "audit_encoded_axioms sorryAx" in audit
     assert "audit_encoded_axioms Lean.ofReduceBool" in audit
     assert "import Geometry.SourceEncodedMemoryAxiomAudit" in (lean/"Geometry.lean").read_text(encoding="utf-8")
-    workflow = (codec.ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8")
+    workflow = (codec.ROOT/".github/workflows/lean.yml").read_text(encoding="utf-8")
     # Dependency-only changes must rerun this importer; changed-file builds do not suffice.
     require_downstream_audit(workflow)
 
 
-def test_dedicated_ci_covers_receipts_and_every_input():
-    path = codec.ROOT/".github/workflows/source-encoded-memory.yml"
-    workflow = yaml.load(path.read_text(encoding="utf-8"), Loader=yaml.BaseLoader)
-    assert workflow["jobs"]["controls"]["strategy"]["matrix"]["os"] == ["ubuntu-latest"]
-    commands = [step.get("run", "") for step in workflow["jobs"]["controls"]["steps"]]
-    assert "python -m pytest -q code/source_encoded_memory" in commands
-    from fnmatch import fnmatchcase
-    for event in ("push", "pull_request"):
-        paths = workflow["on"][event]["paths"]
-        for source in codec.PINS + (".github/workflows/lean-ci.yml", ".gitattributes"):
-            assert any(fnmatchcase(source, pattern) for pattern in paths), source

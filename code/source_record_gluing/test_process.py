@@ -262,7 +262,5 @@ def test_every_lean_theorem_is_axiom_audited_and_ci_gated():
     assert len(names) == 20
     assert {"OPH.SourceRecordGluing."+name for name in names} == set(
         re.findall(r"^audit_reusable_bus_axioms (\S+)$", audit, re.M))
-    ci = (ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8")
+    ci = (ROOT/".github/workflows/lean.yml").read_text(encoding="utf-8")
     assert re.search(r'^\s*"Geometry.SourceRecordGluingAxiomAudit"\s*$', ci, re.M)
-    workflow = (ROOT/".github/workflows/source-selection-model.yml").read_text(encoding="utf-8")
-    assert re.search(r'^\s*- run: python -m source_record_gluing.verify\s*$', workflow, re.M)

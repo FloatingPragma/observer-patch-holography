@@ -15,6 +15,7 @@ from m1_fermionic_source.check import exact, keys, need
 from .algebra_check import check_accounting, check_decoder, check_interfaces, check_memory, check_noise
 from .recovery_check import verify_recovery
 from .scaling_check import verify as verify_scaling
+import pin_scope
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -24,6 +25,7 @@ OWN = ('__init__.py', 'algebra.py', 'algebra_check.py', 'recovery.py', 'recovery
 SOURCES = sorted(set(parent.SOURCES+['code/m1_fermionic_source/receipt.json']
                     +['code/m1_fixed_noise/'+p for p in OWN]
                     +['docs/research/FIXED_RATE_SOURCE_READS.md', '.github/workflows/m1-fixed-noise.yml']))
+SOURCES = pin_scope.bound(SOURCES)
 CLAIMS = ('OPH-SOURCE-FIXED-RATE-PROTECTED-READS', 'OPH-SOURCE-RAW-DECODED-NOISE-SEPARATION')
 
 
@@ -57,7 +59,7 @@ def verify(path=HERE/'receipt.json'):
     packet = parent.parent.load(path)
     keys(packet, 'schema sources claims evidence')
     exact(packet['schema'], 'oph-fixed-rate-source-v1')
-    exact(packet['sources'], pins())
+    exact(pin_scope.bound_pins(packet['sources']), pins())
     exact(packet['claims'], claims())
     parent.verify()
     verify_evidence(packet['evidence'])

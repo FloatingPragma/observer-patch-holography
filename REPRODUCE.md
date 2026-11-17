@@ -123,10 +123,9 @@ the existing scalar refinement error to the complete history law. These are
 conditional software tests; the scalar action, Born readout and model-time
 convention are supplied, and independent physical comparison is separate.
 
-The [Runnable observer model workflow](.github/workflows/observer-model.yml)
-checks every model artifact hash and receipt source binding and runs the model
-regressions on each change to the model and its source dependencies. The full
-replay of every receipt runs nightly, on release tags and on manual dispatch.
+The [nightly workflow](.github/workflows/nightly.yml) checks every model
+artifact hash and receipt source binding, runs the complete model regression
+and replays every receipt on a schedule and on manual dispatch.
 It also executes the following
 standalone source-field and particle checks in the model environment:
 
@@ -308,9 +307,9 @@ python tools/run_mandatory_suite.py
 complete standard suite. Its FZ-11 Lean replay test runs only when `lake` is
 on `PATH` and Mathlib's oleans exist under `Lean/.lake`; on a clone without a
 built Mathlib it is skipped, and the dedicated Lean CI lane replays it. On every push and PR, CI
-(`.github/workflows/mandatory-suite.yml`) runs the same ordered steps in ten
-isolated partitions on each operating system. Each partition has its own
-clean checkout and the existing 30-minute job limit. All ten partitions must
+(`.github/workflows/ci.yml`) runs the same ordered steps in ten
+isolated partitions. Each partition has its own clean checkout and a hard
+job timeout. All ten partitions must
 succeed; a failed, cancelled or skipped partition cannot produce a passing
 aggregate check. The runner also supports other partition counts; a complete
 two-part local replay uses:
@@ -345,9 +344,9 @@ non-identifiability receipts (the suite's step titles call them Phase-0). One fi
 runs in the Lean CI workflow instead, where the toolchain is provisioned.
 
 The exact certificate suites (port-current, matter-lift, axis-center-descent
-and matter-menu spectral-ledger, ~26 minutes) run through the same runner in their own CI workflow
-(`.github/workflows/certificate-suites.yml`) whenever `code/a5_closure/`
-changes and nightly on both platforms:
+and matter-menu spectral-ledger, ~26 minutes) run through the same runner in the nightly workflow
+(`.github/workflows/nightly.yml`); the canonical smoke receipts run on every
+push in `.github/workflows/ci.yml`:
 
 ```bash
 python tools/run_mandatory_suite.py --certificates    # mandatory + certificates
@@ -439,7 +438,7 @@ lake exe cache get
 lake build
 ```
 
-CI (`.github/workflows/lean-ci.yml`) runs both builds with a resumable cache,
+CI (`.github/workflows/lean.yml`) runs both builds with a resumable cache,
 rejects any `sorry`/`admit`/global-axiom regression, and replays the
 Einstein-branch axiom check. `Lean/README.md` documents the layout;
 `Lean/docs/PROOF_INDEX.md` maps theorems to paper statements.

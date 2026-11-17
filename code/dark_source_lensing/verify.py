@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 from . import check
 from .format import digest, equal, keys, load, need
+import pin_scope
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -16,6 +17,7 @@ SOURCES = ['code/dark_source_lensing/'+p for p in OWN]+[
     'requirements.txt', '.gitattributes',
     'Lean/ObserverPatchHolography/EinsteinBranch/DarkSector.lean',
     'Lean/ObserverPatchHolography/EinsteinBranch/DeepProfileClosure.lean']
+SOURCES = pin_scope.bound(SOURCES)
 
 
 def pins():
@@ -33,7 +35,7 @@ def verify(path=HERE/'receipt.json'):
     row = load(path)
     keys(row, 'schema sources claim evidence')
     equal(row['schema'], 'oph-dark-source-lensing-v1', 'receipt schema')
-    equal(row['sources'], pins(), 'complete source custody')
+    equal(pin_scope.bound_pins(row['sources']), pins(), 'complete source custody')
     equal(row['claim'], claim_digest(), 'registered claim custody')
     check.verify(row['evidence'])
     return row

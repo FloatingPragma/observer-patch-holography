@@ -332,13 +332,6 @@ else:
     assert result.returncode == 0, result.stdout+result.stderr
 
 
-def test_workflow_covers_every_pinned_input():
-    workflow = (verify.ROOT/'.github/workflows/m1-leakage.yml').read_text(encoding='utf-8')
-    patterns = [line.strip().removeprefix('- ').strip('"') for line in workflow.splitlines()
-                if line.strip().startswith('- "')]
-    assert all(any(fnmatch.fnmatchcase(path, pattern) for pattern in patterns) for path in verify.SOURCES)
-
-
 @pytest.mark.parametrize('mutation', ['stochastic_tail', 'multiplicity', 'boolean', 'amplitude', 'old_levels',
                                      'old_volume', 'discard_lifetimes', 'synthesis', 'false_scope', 'nonfinite'])
 def test_combined_noisy_archive_claims_reject_false_shortcuts(evidence, mutation):

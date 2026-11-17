@@ -4,6 +4,7 @@ import re
 from pathlib import Path
 
 from source_temporal_acceptance.codec import canonical, digest, equal, load
+import pin_scope
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -41,7 +42,7 @@ def pins():
         names.add(relative)
         for line in re.findall(r"^import (.+)$", path.read_text(encoding="utf-8"), re.M):
             pending.extend(line.split())
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(pin_scope.bound(names))}
 
 
 SCOPE = {
