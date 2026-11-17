@@ -6,6 +6,12 @@ import json
 import numpy as np
 import scipy.linalg as la
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
@@ -123,11 +129,11 @@ def record_control():
 
 def report():
     paths=[TARGET/name for name in ('response.py','PROOF.md','results.json')]+[Path(__file__)]
-    pins={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+    pins=bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths})
     receipt=json.loads((TARGET/'results.json').read_text())
-    for name,digest in receipt['source_sha256'].items():
+    for name,digest in bound_pins(receipt['source_sha256']).items():
         assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==digest,name
-    result={'schema':'oph.independent_energy_filtered_arrival_review.v1','input_sha256':pins,
+    result={'schema':'oph.independent_energy_filtered_arrival_review.v1','input_sha256':bound_pins(pins),
             'spin':spin_control(),'native_residues':native_residue_control(receipt),
             'projector_controls':projector_controls(),'records':record_control(),
             'scope':'Positive t=0 energy-filter dressing is supported. These checks do not establish propagation, a free electron or a relativistic mass shell.',

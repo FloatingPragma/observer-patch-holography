@@ -11,6 +11,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import charged, global_ground, ground
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -25,7 +31,7 @@ def source_bindings():
         'independent_checks': [],
     })
     paths.add('paper/tex_fragments/INTERACTING_VACUUM.tex')
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 _IMPORTED_BINDINGS = source_bindings()
@@ -68,7 +74,7 @@ def _produce():
                         'relativistic_masses_constructed': False,
                         'physical_species_identifications_added': 0,
                         'Einstein_premises_completed': False},
-              'source_bindings': pins}
+              'source_bindings': bound_pins(pins)}
     if source_bindings() != pins:
         raise ValueError('source changed during exact ground replay')
     validate(result)
@@ -89,7 +95,7 @@ def report():
         if worker.returncode:
             raise RuntimeError('fresh exact ground worker failed: '+worker.stderr)
         result = strict_json.loads(path.read_text())
-    if source_bindings() != _IMPORTED_BINDINGS or result['source_bindings'] != _IMPORTED_BINDINGS:
+    if source_bindings() != _IMPORTED_BINDINGS or bound_pins(result['source_bindings']) != _IMPORTED_BINDINGS:
         raise ValueError('source changed across cold replay')
     validate(result)
     return result
@@ -116,7 +122,7 @@ def main():
         raise ValueError('exact receipt or source bindings changed')
     print(json.dumps({'all_pass': True, 'global_ground_energy': '-sqrt3/4',
                       'global_ground_dimension': 5, 'positive_charged_gap_lower': '7/1024',
-                      'source_bindings': len(result['source_bindings'])}, indent=2))
+                      'source_bindings': bound_pins(len(bound_pins(result['source_bindings'])))}, indent=2))
 
 
 if __name__ == '__main__': main()

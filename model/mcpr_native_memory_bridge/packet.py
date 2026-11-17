@@ -9,6 +9,12 @@ import numpy as np
 from tools import strict_json
 from . import construction as c
 from .certificate import admissibility
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = c.ROOT
 PACKAGE = Path(__file__).resolve().parent
@@ -21,7 +27,7 @@ def canonical(value):
 
 
 def source_bindings():
-    inherited = strict_json.load(ROOT/PARENT)['source_bindings']
+    inherited = bound_pins(strict_json.load(ROOT/PARENT)['source_bindings'])
     for path,digest in inherited.items():
         if not (ROOT/path).resolve().is_relative_to(ROOT.resolve()):
             raise ValueError('source escapes repository')
@@ -30,7 +36,7 @@ def source_bindings():
     paths = set(inherited)|{PARENT,c.FORWARD,c.MEASURED,c.MCPR}
     paths.update(str(p.relative_to(ROOT)) for p in PACKAGE.iterdir()
                  if p.is_file() and p.suffix in ('.py','.md'))
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def _serialize(row):
@@ -129,14 +135,14 @@ def report():
                   'continuum_or_Einstein_limit_proved':False,
                   'integrated_gate_accepted':False},
               'canonical_physical_premises_discharged':[],
-              'source_bindings':pins}
+              'source_bindings':bound_pins(pins)}
     if pins != source_bindings():
         raise ValueError('source changed during calculation')
     return result
 
 
 def validate(value):
-    if value.get('source_bindings') != source_bindings():
+    if bound_pins(value.get('source_bindings')) != source_bindings():
         raise ValueError('stale or incomplete source manifest')
     for row in value.get('designs',[]):
         independent_check(row)

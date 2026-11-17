@@ -11,6 +11,12 @@ from model.particle_primary_response_moments import model as response
 from model.particle_primary_occupation_bound import model as occupation
 from model.particle_primary_joint_spectroscopy import spectroscopy
 from model.particle_primary_mass_readout import readout
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 SOURCE_INPUTS=(
@@ -289,6 +295,6 @@ def certificate():
     paths=provenance.definition_inputs((*SOURCE_INPUTS,*occupation.SOURCE_INPUTS,*response.SOURCE_INPUTS))
     pins=provenance.definition_hashes(paths)
     value={'schema':'oph.primary_pair_channel_certificate.v1','selected_member':bind_member(contract.member(0)),
-           'source_sha256':pins,'physical_mass_table_GeV':[]}
+           'source_sha256':bound_pins(pins),'physical_mass_table_GeV':[]}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('pair-channel inputs changed during replay')
     return value

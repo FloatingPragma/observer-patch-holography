@@ -9,6 +9,12 @@ from tools import strict_json
 from . import readout as r
 from model.native_sector_readout import packet as sector
 from model.native_rooted_refinement import packet as rooted
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).with_name('results.json')
@@ -20,7 +26,7 @@ SOURCE_FILES=tuple('model/native_fair_local_readout/'+name for name in (
 
 def source_bindings():
     paths=set(SOURCE_FILES)|set(sector.source_bindings())|set(rooted.source_bindings())
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths) if not p.startswith('docs/')}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths) if not p.startswith('docs/')})
 
 
 def encode(value):
@@ -202,7 +208,7 @@ def routed_coverage():
 
 def produce():
     before=source_bindings()
-    output={'schema':'oph.native_fair_local_readout.v1','source_bindings':before,
+    output={'schema':'oph.native_fair_local_readout.v1','source_bindings':bound_pins(before),
         'complete_small_uniform_instrument':all_number_control(),
         'actual_source_kernel_controls':actual_kernel_controls(),
         'declared_global_total_refinement':global_specification_controls(),

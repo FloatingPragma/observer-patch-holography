@@ -12,6 +12,12 @@ import numpy as np
 from tools import strict_json
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from . import expansion as e
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -117,8 +123,8 @@ def run():
             ],
             'no_Einstein_or_physical_particle_gate_accepted': True,
         },
-        'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                          for path in SOURCE_PATHS},
+        'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                          for path in SOURCE_PATHS}),
     }
     return result
 

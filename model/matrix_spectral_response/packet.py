@@ -11,6 +11,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import matrix, identification
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -25,13 +31,13 @@ def source_bindings():
     })
     paths.add('paper/tex_fragments/MATRIX_SPECTRAL_RESPONSE.tex')
     paths.add(identification.TARGET_PATH)
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def prior_certificate():
     prior=strict_json.loads((ROOT/'model/retarded_matter_response/results.json').read_text())
     if prior.get('all_pass') is not True:raise ValueError('prior response did not pass')
-    for path,digest in prior['source_bindings'].items():
+    for path,digest in bound_pins(prior['source_bindings']).items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=digest:
             raise ValueError('prior response source changed: '+path)
     old=prior['resolved_local_spectrum']
@@ -82,7 +88,7 @@ def _produce():
     value={'schema':'oph.matrix_spectral_response.v1','all_pass':True,
            'prior_proof':prior_certificate(),'matrix_response':matrix.certificate(),
            'finite_gap_dictionary':identification.certificate(),
-           'source_bindings':pins,
+           'source_bindings':bound_pins(pins),
            'validation_boundary':'Complete source recurrence and rational matrix resolvent, all 78 rank-four residues, exact static coefficients and a reducing-space frequency bound. The 248 orthogonal source dimensions, thermodynamic spectra, Lorentz geometry and native measurement remain outside this proof.'}
     if source_bindings()!=pins:raise ValueError('source changed during matrix response replay')
     validate(value)
@@ -100,7 +106,7 @@ def report():
                               cwd=ROOT,env=environment,capture_output=True,text=True)
         if worker.returncode:raise RuntimeError('fresh matrix worker failed: '+worker.stderr)
         result=strict_json.loads(path.read_text())
-    if source_bindings()!=pins or result['source_bindings']!=pins:
+    if source_bindings()!=pins or bound_pins(result['source_bindings'])!=pins:
         raise ValueError('source changed across fresh matrix response replay')
     validate(result)
     return result
@@ -120,7 +126,7 @@ def main():
     elif args.write or args.worker:(args.write or args.worker).write_text(canonical(value))
     if not args.worker:
         print(json.dumps({'all_pass':True,'observed_cyclic_dimension':312,
-                          'rank_four_spectral_lines':78,'source_bindings':len(value['source_bindings'])}))
+                          'rank_four_spectral_lines':78,'source_bindings':bound_pins(len(bound_pins(value['source_bindings'])))}))
 
 
 if __name__=='__main__':main()

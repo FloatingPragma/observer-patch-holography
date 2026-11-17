@@ -7,6 +7,12 @@ from pathlib import Path
 
 from tools import strict_json
 from . import algebra
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -53,8 +59,8 @@ def bindings():
                 add(target)
                 for alias in node.names:
                     add(target+'.'+alias.name)
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(names)})
 
 
 def canonical(value):
@@ -64,7 +70,7 @@ def canonical(value):
 def build():
     before = bindings()
     result = {'schema': 'oph.carrier_position_translation.v1',
-              'source_bindings': before,
+              'source_bindings': bound_pins(before),
               'native_operator_covariance': algebra.branch_certificate(),
               'complete_adaptive_observer': algebra.complete_observer_certificate(),
               'uniform_native_clock': algebra.mean_certificate(),

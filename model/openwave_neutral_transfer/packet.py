@@ -5,6 +5,12 @@ import json
 from pathlib import Path
 from model.particle_common_contract.provenance import definition_inputs,definition_hashes
 from .transfer import certificate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 ANCESTORS=['model/coherent_defect_wave/chiral_joint/peter_weyl_links/PROOF.md', 'model/particle_primary_composite_transport/PROOF.md']
@@ -14,7 +20,7 @@ def source_bindings():
  return definition_hashes(definition_inputs(seeds|set(ANCESTORS)))
 
 def report():
- pins=source_bindings();result=certificate();result['input_sha256']=pins
+ pins=source_bindings();result=certificate();result['input_sha256']=bound_pins(pins)
  if pins!=source_bindings():raise ValueError('source changed during complete replay')
  return result
 

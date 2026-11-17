@@ -7,6 +7,12 @@ from pathlib import Path
 import numpy as np
 from tools import strict_json
 from . import observables as o
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -26,7 +32,7 @@ SOURCE_FILES=tuple('model/native_clock_observables/'+name for name in
 def source_bindings():
     result={path:digest for path,digest in o.learned_flow.source_sha256().items()
             if not path.startswith('docs/')}
-    result.update({path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_FILES})
+    result.update(bound_pins({path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_FILES}))
     return dict(sorted(result.items()))
 
 
@@ -73,7 +79,7 @@ def produce():
                      'spatial_locality_of_intermediate_compiler_pulses_proved':False,
                      'universal_operational_Born_premises_supplied':False,
                      'physical_CCR_or_particle_identification':False},
-            'source_bindings':bindings}
+            'source_bindings':bound_pins(bindings)}
     if source_bindings()!=bindings:
         raise ArithmeticError('native clock observable sources changed during replay')
     return result

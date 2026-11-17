@@ -9,6 +9,12 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from ..native_spin_observer.precision import generator_norms
 from . import bounds, native
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -38,7 +44,7 @@ def bindings():
         'independent_checks': ['model/scattering_packet_readout/test_contour.py',
                                'model/scattering_packet_readout/test_cook.py']})
     paths.add('model/scattering_packet_readout/README.md')
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 _IMPORTED_BINDINGS = bindings()
@@ -77,7 +83,7 @@ def build():
     if sum(generator_norms()) != 29:
         raise ArithmeticError('the exact refining native port coefficient bound changed')
     result = serialize({'schema': 'oph.scattering_packet_readout.v1',
-                        'source_bindings': before,
+                        'source_bindings': bound_pins(before),
                         'packet': bounds.profile_certificate(),
                         'analytic': bounds.analytic_certificate(),
                         'finite_observation': bounds.plan(),

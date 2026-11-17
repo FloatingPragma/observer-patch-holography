@@ -5,6 +5,12 @@ import json
 from pathlib import Path
 from model.particle_common_contract.provenance import import_closure
 from . import symmetry,flatness
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -15,12 +21,12 @@ def source_bindings():
     seeds.update('model/'+name+'/'+file for name in ('openwave_neutral_stationary','openwave_neutral_candidate')
                  for file in ('PROOF.md','results.json'))
     seeds.add('model/requirements.txt')
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(seeds))}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(seeds))})
 
 
 def report():
     pins=source_bindings()
-    result={'schema':'oph.native_neutral_exact_flatness.v1','input_sha256':pins,
+    result={'schema':'oph.native_neutral_exact_flatness.v1','input_sha256':bound_pins(pins),
         'complete_carrier_symmetry':symmetry.certificate(),
         'neutral_band_flatness_and_records':flatness.certificate(),
         'verdict':'PASS_EXACT_PERIODIC_SIDE_TWO_ODD_SECTOR_MOMENTUM_FLATNESS'}

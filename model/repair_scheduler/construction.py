@@ -21,6 +21,12 @@ from model.observer import native
 from model.primitive_observer import runtime
 from model.readout_controls import prospective
 from . import coins
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PROBE_ATTEMPTS = 3
@@ -293,7 +299,7 @@ def run():
         raise ArithmeticError('source mixer comparison exceeds existing envelope')
     resources = compiled.resources()
     return {'schema': 'oph.repair_scheduler.v1',
-        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
         'native_coin_effects': coins.effect_certificate(), 'selector': selector,
         'sweep_structure': _json_exact(sweeps.structural_audit()), 'preparation': _json_exact(preparation),
         'auxiliary_executions': [_compact_auxiliary(coins.auxiliary_execution(law)) for law in ('C', 'E')],

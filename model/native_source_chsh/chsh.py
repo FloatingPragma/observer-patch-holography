@@ -10,6 +10,12 @@ from dataclasses import asdict
 import hashlib
 import json
 from pathlib import Path
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 BELL = ROOT / 'model/native_coherent_occupation_control'
@@ -146,7 +152,7 @@ def run():
             'abort_herald_records': [{'record': asdict(row.record),
                                      'mass': str(native.trace(row.density))} for row in aborted],
             'settings': setting_reports,
-            'source_bindings': {str(path): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths}}
+            'source_bindings': bound_pins({str(path): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths})}
 
 
 if __name__ == '__main__':

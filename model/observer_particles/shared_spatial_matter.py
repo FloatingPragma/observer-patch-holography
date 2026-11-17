@@ -10,6 +10,12 @@ from fractions import Fraction as F
 from collections import Counter
 import hashlib,itertools,json,math,sys
 from pathlib import Path
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 sys.dont_write_bytecode=True
 import numpy as np
 from scipy import sparse
@@ -278,7 +284,7 @@ def main():
         path=getattr(module,'__file__',None)
         if path and Path(path).is_file() and Path(path).is_relative_to(PUBLIC):paths.append(Path(path))
     result={'status':'PASS_CONDITIONAL_SHARED_SPATIAL_CAR_FIELD_WITH_COMPLETE_EXTRA_MODES_AND_CLOCK',
-        'producer_sha256':sha(__file__),'source_sha256':{str(p.relative_to(ROOT)):sha(p) for p in sorted(set(paths))},
+        'producer_sha256':sha(__file__),'source_sha256':bound_pins({str(p.relative_to(ROOT)):sha(p) for p in sorted(set(paths))}),
         'artifacts':{artefact.name:sha(artefact)},'empirical_mass_inputs':[],
         'geometry':{'source_ports':240,'source_seams':630,'radial_points':3,'radial_length':2,'radial_boundary':'Dirichlet',
             'node_modes':720,'edge_rows':2850,'incidence_nonzero_entries':c0.nnz,

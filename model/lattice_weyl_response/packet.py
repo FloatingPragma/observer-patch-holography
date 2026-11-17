@@ -5,6 +5,12 @@ import json
 from pathlib import Path
 from tools import strict_json
 from . import algebra,bounds,controls
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -28,14 +34,14 @@ def source_bindings():
         'Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean',
         'Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean',
         'tools/strict_json.py'})
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def prior_custody():
     value=strict_json.load(ROOT/PRIOR)
     if value.get('new_checks_pass') is not True:
         raise ArithmeticError('prior response scientific checks are absent')
-    stale=[p for p,digest in value['source_bindings'].items()
+    stale=[p for p,digest in bound_pins(value['source_bindings']).items()
            if not (ROOT/p).is_file() or hashlib.sha256((ROOT/p).read_bytes()).hexdigest()!=digest]
     return {'prior':PRIOR,'direct_prior_source_mismatches':stale,
             'prior_new_checks_pass':True,'prior_full_source_replay':False,
@@ -69,7 +75,7 @@ def validate(value):
     passed=expected['prior_custody']['dependency_custody_pass']
     if value.get('dependency_custody_pass') is not passed or value.get('all_pass') is not passed:
         raise ArithmeticError('inherited custody must remain explicit')
-    if value.get('source_bindings')!=source_bindings():
+    if bound_pins(value.get('source_bindings'))!=source_bindings():
         raise ArithmeticError('lattice response current source bindings differ')
 
 
@@ -79,7 +85,7 @@ def build():
            'new_checks_pass':True,'dependency_custody_pass':prior['dependency_custody_pass'],
            'all_pass':prior['dependency_custody_pass'],'theorem':theorem(),
            'algebra':algebra.certificate(),'bounds':bounds.certificate(),
-           'controls':controls.certificate(),'prior_custody':prior,'source_bindings':pins}
+           'controls':controls.certificate(),'prior_custody':prior,'source_bindings':bound_pins(pins)}
     if pins!=source_bindings():raise ArithmeticError('sources changed during replay')
     validate(value)
     return value

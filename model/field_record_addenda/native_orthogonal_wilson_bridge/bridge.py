@@ -14,6 +14,12 @@ from model.native_wilson_maxwell import field,bounds
 from model.native_wilson_maxwell_ground import ground
 from model.coherent_defect_wave.chiral_joint.charged_ground_exchange.resolvent import field_data
 from ..provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=a.ROOT
@@ -31,10 +37,10 @@ def parents():
     if digest(ROOT/PARENT)!=PARENT_SHA or digest(CONE/'research_reference.json')!=CONE_SHA:
         raise ValueError('fixed native source or cone calculation differs')
     value=json.loads((ROOT/PARENT).read_text())
-    for path,sha in value['input_sha256'].items():
+    for path,sha in bound_pins(value['input_sha256']).items():
         if digest(ROOT/path)!=sha:raise ValueError('native source pin differs: '+path)
     cone=json.loads((CONE/'research_reference.json').read_text())
-    for path,sha in cone['owned_source_sha256'].items():
+    for path,sha in bound_pins(cone['owned_source_sha256']).items():
         if digest(CONE/'retained'/(path+'.raw'))!=sha:raise ValueError('cone source pin differs: '+path)
     return value
 
@@ -203,15 +209,15 @@ def certificate():
             'interacting_relativistic_or_spatial_continuum_limit':False,
             'all_state_native_tensor_locality':False,'measured_SM_or_GeV_mass':False,
             'finite_photon_CCR_boundary_removed':False}}
-    seeds=set(parent['input_sha256'])|{PARENT,ground.GEOMETRY,
+    seeds=set(bound_pins(parent['input_sha256']))|{PARENT,ground.GEOMETRY,
         'model/native_abelian_field_join/results.json','model/native_wilson_maxwell_ground/ground.py',
         'model/native_wilson_maxwell_ground/PROOF.md',
         'model/coherent_defect_wave/chiral_joint/charged_ground_exchange/resolvent.py',
         'model/native_wilson_maxwell_refinement/bounds.py'}
-    value['input_sha256']={p:digest(ROOT/p)for p in sorted(import_closure(seeds))}
-    value['research_parent_source_sha256']={p.name.removesuffix('.raw'):digest(p)for p in sorted((CONE/'retained').iterdir())}
+    value['input_sha256']=bound_pins({p:digest(ROOT/p)for p in sorted(import_closure(seeds))})
+    value['research_parent_source_sha256']=bound_pins({p.name.removesuffix('.raw'):digest(p)for p in sorted((CONE/'retained').iterdir())})
     value['research_parent_source_sha256']['results.json']=digest(CONE/'research_reference.json')
-    value['owned_source_sha256']={p.name:digest(p)for p in sorted(HERE.iterdir())if p.suffix in ('.py','.md')}
+    value['owned_source_sha256']=bound_pins({p.name:digest(p)for p in sorted(HERE.iterdir())if p.suffix in ('.py','.md')})
     return json.loads(json.dumps(value,default=str))
 
 

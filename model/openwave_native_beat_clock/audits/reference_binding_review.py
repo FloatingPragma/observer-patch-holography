@@ -7,6 +7,12 @@ import hashlib
 import json
 
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 PACKAGE=ROOT/'model/openwave_reference_binding'
@@ -14,7 +20,7 @@ PACKAGE=ROOT/'model/openwave_reference_binding'
 
 def run():
     receipt=json.loads((PACKAGE/'results.json').read_text())
-    for path,expected in receipt['input_sha256'].items():
+    for path,expected in bound_pins(receipt['input_sha256']).items():
         assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==expected,path
     from model.coherent_defect_wave.chiral_joint.periodic_family.model import Configuration,kinetic_terms
     from model.coherent_defect_wave.chiral_joint.oriented_links.model import endpoint_current,label_index
@@ -162,8 +168,8 @@ def run():
             'ec_visible_pole_not_promoted_to_global_compensated_ground':True,
             'Pi_y_T_Pi_y_reason':'Every hopping monomial has a nonarrival matter endpoint; its nontrivial fermion operator has zero gauge-singlet compression.',
             'scope':'Constrained expectation minima on complete Pi_y; screened complement separate, no invariant charged band or Coulomb interpretation.',
-            'reviewed_sha256':{str((PACKAGE/name).relative_to(ROOT)):hashlib.sha256((PACKAGE/name).read_bytes()).hexdigest()
-                               for name in ('strings.py','binding.py','PROOF.md','results.json')}}
+            'reviewed_sha256':bound_pins({str((PACKAGE/name).relative_to(ROOT)):hashlib.sha256((PACKAGE/name).read_bytes()).hexdigest()
+                               for name in ('strings.py','binding.py','PROOF.md','results.json')})}
 
 
 if __name__=='__main__':

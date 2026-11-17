@@ -9,6 +9,12 @@ from model.common_source.chiral_candidate import kinetic
 from model.openwave_neutrino_oscillation.oscillation import construction
 from model.native_flavour_transport.transport import numeric
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[3];HERE=Path(__file__).resolve()
 
 def flight_review():
@@ -57,10 +63,10 @@ def pins():
  seeds={str(HERE.relative_to(ROOT))}
  for package in('openwave_neutral_flight','openwave_inclusive_decay'):
   seeds.update(str(p.relative_to(ROOT))for p in(ROOT/'model'/package).iterdir()if p.suffix in('.py','.md','.tex','.json'))
- return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(seeds))}
+ return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(seeds))})
 
 def main():
- p=argparse.ArgumentParser();g=p.add_mutually_exclusive_group(required=True);g.add_argument('--write',action='store_true');g.add_argument('--check',action='store_true');args=p.parse_args();before=pins();r={'schema':'oph.independent_native_flight_inclusive_decay_review.v1','flight':flight_review(),'decay':decay_review(),'source_sha256':before,'verdict':'PASS_NATIVE_BDG_CURRENT_AND_INCLUSIVE_DECAY_INDEPENDENT_REVIEW'};assert before==pins();target=HERE.with_suffix('.json')
+ p=argparse.ArgumentParser();g=p.add_mutually_exclusive_group(required=True);g.add_argument('--write',action='store_true');g.add_argument('--check',action='store_true');args=p.parse_args();before=pins();r={'schema':'oph.independent_native_flight_inclusive_decay_review.v1','flight':flight_review(),'decay':decay_review(),'source_sha256':bound_pins(before),'verdict':'PASS_NATIVE_BDG_CURRENT_AND_INCLUSIVE_DECAY_INDEPENDENT_REVIEW'};assert before==pins();target=HERE.with_suffix('.json')
  if args.write:target.write_text(json.dumps(r,indent=2,sort_keys=True)+'\n')
  else:assert json.loads(target.read_text())==r
  print(r['verdict'])

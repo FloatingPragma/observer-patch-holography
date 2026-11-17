@@ -10,6 +10,12 @@ from model.particle_primary_spatial_algebra import spatial
 from model.particle_primary_locality import locality
 from model.particle_primary_refinement_response import model as response
 from model.particle_spatial_ground_state import ground
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=(
     'model/particle_primary_origin_momentum/__init__.py',
@@ -231,6 +237,6 @@ def certificate():
         'complete_reference_control':{'total_probability':str(complete['total_probability']),
             'origin_probabilities':[str(x) for x in complete['origin_probabilities']],
             'reference_marginal_preserved':True,'records':complete['records']},
-        'source_sha256':pins}
+        'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('origin inputs changed during replay')
     return result

@@ -10,6 +10,12 @@ from model.particle_common_contract import contract, provenance
 from model.particle_primary_sector_threshold import model as sector
 from model.particle_primary_composite_spin import model as spin
 from model.spin_packet_readout.bounds import sqrt_upper
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=(
  'model/particle_primary_composite_transport/__init__.py',
@@ -224,6 +230,6 @@ def certificate():
  paths=provenance.definition_inputs((*SOURCE_INPUTS,*sector.SOURCE_INPUTS))
  pins=provenance.definition_hashes(paths)
  result={'schema':'oph.primary_composite_transport_certificate.v1',
-  'selected_member_bound':bind_member(contract.member(0)),'source_sha256':pins}
+  'selected_member_bound':bind_member(contract.member(0)),'source_sha256':bound_pins(pins)}
  if provenance.definition_hashes(paths)!=pins:raise ValueError('source changed during cubic transport replay')
  return result

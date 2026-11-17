@@ -18,6 +18,12 @@ from ..repair_identification import calibration, core
 from ..record_laws import family
 from ..quantum_observer_correspondence import construction as ideal
 from . import history, receipt, source
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -188,8 +194,8 @@ def run():
     uncertainty = sum((row['prediction_budget']['ideal_complete_half_trace_upper']
                        for row in rows), F(0))
     return _json({'schema': 'oph.compiled_clock_history.law_calibration.v1',
-                  'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                                    for path in sorted(paths)},
+                  'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                                    for path in sorted(paths)}),
                   'executions': rows, 'all_pass': True,
                   'intervention_contrast': {
                       'event': 'complete and detector one, gamma one minus gamma zero',

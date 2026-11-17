@@ -3,6 +3,12 @@ from __future__ import annotations
 import hashlib
 from pathlib import Path
 from . import mass, protection, identity, spectrum
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -14,15 +20,15 @@ def source_bindings():
     paths.extend(ROOT/name for name in (
         'model/interacting_field/lattice.py','model/field_stress/energy.py',
         'model/particle_clock/clock.py','model/completion/particle_premise_campaign.json'))
-    return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in sorted(paths)}
+    return bound_pins({p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(paths)})
 
 
 def run():
     return {'schema':'oph.bound_pair.v1',
             'campaign_id':'OPH-SAME-ACTION-PARTICLE-PREMISES-2026-10-29-v1',
             'scope':'SUPPLIED_WEYL_CONTACT_ACTION_COMPLETE_TWO_FERMION_SECTOR',
-            'source_bindings':source_bindings(),
+            'source_bindings':bound_pins(source_bindings()),
             'mass':mass.certificate(),
             'protection_and_transport':protection.report(),
             'identity_and_currents':identity.report(),

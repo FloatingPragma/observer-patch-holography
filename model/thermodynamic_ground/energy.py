@@ -4,6 +4,12 @@ import hashlib
 import json
 from math import isqrt
 from pathlib import Path
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 def _side(value):
@@ -46,7 +52,7 @@ def certificate():
     if (prior['all_pass'] is not True or prior['global_ground']['global_ground_energy']!='-sqrt(3)/4' or
             prior['global_ground']['full_Fock_dimension']!=65536):
         raise ArithmeticError('finite energy example lost its full-ground certificate')
-    for name,digest in prior['source_bindings'].items():
+    for name,digest in bound_pins(prior['source_bindings']).items():
         if hashlib.sha256((root/name).read_bytes()).hexdigest()!=digest:
             raise ArithmeticError('finite energy input source binding is stale: '+name)
     scale=1<<80

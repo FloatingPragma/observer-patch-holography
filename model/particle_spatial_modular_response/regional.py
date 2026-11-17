@@ -19,6 +19,12 @@ from model.particle_spatial_ground_state import ground
 from model.particle_geometric_response import geometry
 from model.native_gravity_identification import entropy as inherited_entropy
 from model.particle_observer_outputs import field_route
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_INPUTS = (
@@ -381,9 +387,9 @@ def serialize(value):
 
 
 def certificate():
-    sources={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_INPUTS}
+    sources=bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_INPUTS})
     from model.particle_common_contract import contract
-    return serialize({'schema':'oph.spatial_modular_response.v1','source_sha256':sources,
+    return serialize({'schema':'oph.spatial_modular_response.v1','source_sha256':bound_pins(sources),
         'selected_common_state_consumer':common_contract_bound(contract.member(0)),
         'ambient_parameterized_theorem_example':spatial_faithfulness(),
         'native_boundary_pair_kinematic_control':native_boundary_pair(),

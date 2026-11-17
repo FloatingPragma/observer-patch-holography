@@ -8,6 +8,12 @@ import sympy as s
 from model.particle_common_contract import contract, provenance
 from model.particle_primary_charged_string import model as charged
 from model.particle_primary_channel_labels import channels
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=(
     'model/particle_primary_charged_readout/__init__.py',
@@ -223,6 +229,6 @@ def certificate():
             'premature_charge_readout_record_distance':str(q['premature_charge_readout_record_distance']),
             'post_energy_charge_not_equal_probe_endpoint_probability':str(q['post_energy_charge_not_equal_probe_endpoint_probability']),
             'control_is_selected_primary_source':False},
-        'source_sha256':pins}
+        'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('charged-readout inputs changed during replay')
     return result

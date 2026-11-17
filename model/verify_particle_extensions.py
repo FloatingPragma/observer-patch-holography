@@ -12,6 +12,12 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[1]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[1]
 PACKAGES=(
     'openwave_beta_angular', 'openwave_lepton_widths', 'openwave_neutrino_matter',
@@ -69,7 +75,7 @@ def source_bindings():
         module=importlib.import_module(f'model.{name}.__main__')
         expected=module.pins()
         receipt=json.loads((ROOT/'model'/name/'results.json').read_text())
-        if not expected or receipt.get('source_sha256')!=expected:
+        if not expected or bound_pins(receipt.get('source_sha256'))!=expected:
             raise ValueError(f'particle extension source inventory changed: {name}')
         if not str(receipt.get('verdict','')).startswith('PASS'):
             raise ValueError(f'particle extension producer failed: {name}')

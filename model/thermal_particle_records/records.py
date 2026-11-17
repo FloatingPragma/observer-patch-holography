@@ -17,13 +17,19 @@ from scipy.special import logsumexp
 
 from model.particle_thermal_history import thermodynamics as thermal
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2];HERE=Path(__file__).resolve().parent
 TEMPERATURES=(.1,1.,10.,100.)
 
 
 def authenticate(path):
-    value=json.loads(path.read_text());pins=value.get('source_bindings',value.get('input_sha256'))
+    value=json.loads(path.read_text());pins=bound_pins(value.get('source_bindings',bound_pins(value.get('input_sha256'))))
     if not pins:raise ValueError('source bindings missing')
     for name,digest in pins.items():
         if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:raise ValueError('changed source: '+name)
@@ -36,7 +42,7 @@ def bindings():
         'model/particle_joint_mass_identity/joint.py','model/particle_thermal_history/results.json',
         'model/particle_thermal_history/PROOF.md','model/particle_thermal_history/thermodynamics.py',
         'model/conditional_particle_spectrum/results.json','model/conditional_particle_spectrum/PROOF.md'})
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(paths))}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(paths))})
 
 
 @lru_cache(maxsize=1)
@@ -44,7 +50,7 @@ def inputs():
     identity=authenticate(ROOT/'model/particle_joint_mass_identity/results.json')
     gibbs=authenticate(ROOT/'model/particle_thermal_history/results.json')
     common='model/conditional_particle_spectrum/results.json';digest=hashlib.sha256((ROOT/common).read_bytes()).hexdigest()
-    if identity['source_bindings'].get(common)!=digest or gibbs['source_bindings'].get(common)!=digest:
+    if bound_pins(identity['source_bindings']).get(common)!=digest or bound_pins(gibbs['source_bindings']).get(common)!=digest:
         raise ValueError('the group and Gibbs producers do not bind the same quadratic source')
     groups=identity['complete_calibrated_joint_instrument']['joint_groups']
     source=authenticate(ROOT/common)
@@ -242,7 +248,7 @@ def certificate():
     pins=bindings();identity,_,source,groups=inputs();rotation=boson_rotation();color=gauge_block_control()
     rows=[count_law(t) for t in TEMPERATURES]
     fgroups=[g for g in groups if g['source_sector']=='fermion'];fg_outcomes=math.prod(g['projector_rank']+1 for g in fgroups)
-    result=dict(schema='oph.thermal_particle_records.v1',all_checks_pass=True,source_bindings=pins,
+    result=dict(schema='oph.thermal_particle_records.v1',all_checks_pass=True,source_bindings=bound_pins(pins),
         source_Hilbert_dimension_exact=identity['complete_calibrated_joint_instrument']['source_Hilbert_dimension_exact'],
         joint_groups=groups,complete_number_projectors=dict(
             fermion_group_count=84,boson_group_count=28,fermion_count_outcomes_exact=str(fg_outcomes),

@@ -18,6 +18,12 @@ import numpy as np
 from ..common_source import native_routing, record_code
 from ..exchange_sector import statistics_service as source
 from ..observer.source_scalar import compiler
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 RAW_SLOTS = 16
@@ -200,7 +206,7 @@ def certificate():
             'source_scope': 'All input columns of the four stated small witnesses. General extension is exact finite algebra and a specified algorithm, not an executed 1080-mode dilation.',
             'floating_execution_is_interval_or_hardware_certificate': False,
             'physical_particle_identification_complete': False,
-            'source_sha256': {p: hashlib.sha256((root/p).read_bytes()).hexdigest() for p in paths}}
+            'source_sha256': bound_pins({p: hashlib.sha256((root/p).read_bytes()).hexdigest() for p in paths})}
 
 
 def main():

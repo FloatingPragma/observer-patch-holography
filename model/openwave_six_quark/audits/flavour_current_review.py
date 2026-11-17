@@ -11,6 +11,12 @@ from scipy.linalg import eigh, expm
 from model.openwave_current_averaging import averaging as avg
 from model.openwave_meson_weak_current import decay as meson
 from model.openwave_larmor_dynamics.certificate import equivalent
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 HERE=Path(__file__).resolve().parent
@@ -22,8 +28,8 @@ def pins():
     for package in TARGETS:
         result=ROOT/'model'/package/'results.json'
         files.add(str(result.relative_to(ROOT)))
-        files.update(json.loads(result.read_text())['source_sha256'])
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(files)}
+        files.update(bound_pins(json.loads(result.read_text())['source_sha256']))
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(files)})
 
 
 def independent_word(mask,word):
@@ -149,7 +155,7 @@ def main():
        'exact_four_fock_Bogoliubov_controls':exact_four_fock_controls(),
        'full_native_current_averaging':exact_resonant_columns(),'native_bound_meson':meson_controls(),
        'verdict':'PASS_INDEPENDENT_NATIVE_FLAVOUR_CURRENT_REVIEW'}
-    assert pins()==before;result['source_sha256']=before;path=HERE/'flavour_current_review.json'
+    assert pins()==before;result['source_sha256']=bound_pins(before);path=HERE/'flavour_current_review.json'
     if args.write:path.write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
     else:assert equivalent(json.loads(path.read_text()),result)
     print(result['verdict'])

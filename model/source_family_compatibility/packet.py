@@ -15,6 +15,12 @@ from . import nodal_channels, spectral_residue, spectral_window_access
 from . import nodal_locality, nodal_moment_bounds, mass_scale_selection
 from . import source_action_identification, nodal_next_moments, native_lorentzian
 from . import bulk_action_identification
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -93,7 +99,7 @@ def bindings():
                   HERE/'BULK_ACTION_IDENTIFICATION.md',
                   HERE/'SOURCE_ACTION_IDENTIFICATION.md',
                   ROOT/'model/particle_identification/NATIVE_CAPACITY.md'))
-    return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(paths)}
+    return bound_pins({p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(paths)})
 
 
 def claims():
@@ -167,7 +173,7 @@ def build():
             # c=R,U=R² gives J_eff=1; q=1/p preserves its ballistic clock.
             clocks.append(bounds.common_clock(ratio,ratio*ratio,edges,p,1/p))
     value={'schema':'oph.source_family_compatibility.v1','all_pass':True,
-        'source_bindings':before,'same_clock_controls':serialize(clocks),
+        'source_bindings':bound_pins(before),'same_clock_controls':serialize(clocks),
         'chemical_reference_controls':serialize([bounds.chemical_pair(F(3),F(4),F(n),F(2))for n in (-5,-1,0,2,5)]),
         'actual_full_CAR_dimer':algebra.dimer(),
         'actual_internal_current_and_complete_gauge_control':algebra.internal_and_transport(),

@@ -13,6 +13,12 @@ import itertools
 import json
 from pathlib import Path
 import sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 sys.dont_write_bytecode = True
 import numpy as np
 import sympy as s
@@ -198,7 +204,7 @@ def main():
                    HERE/'results/family_naturality.json']
     result = {'status':'PASS_EXACT_ONE_HIGGS_SOURCE_CURRENT_VERTICES_AND_SCOPED_FAMILY_ACTION',
         'producer_sha256':sha(__file__),
-        'source_sha256':{str(p.relative_to(ROOT)):sha(p) for p in source_paths},
+        'source_sha256':bound_pins({str(p.relative_to(ROOT)):sha(p) for p in source_paths}),
         'artifacts':{artifact.name:sha(artifact)},'empirical_inputs':[],
         'single_internal_family_dimension':15,'source_current_count':len(currents),
         'one_declared_Higgs_doublet':{'dimension':2,'Y':'1/2','same_field_and_its_conjugate_used':True,
@@ -220,7 +226,7 @@ def main():
         'physical_source_selected_interacting_action':False}
     (HERE/'results/unified_yukawa_action.json').write_text(json.dumps(public_receipt(result),indent=2)+'\n', encoding='utf-8', newline='\n')
     print(json.dumps({'status':result['status'],'vertices':result['invariant_vertices'],
-                      'source_bindings':len(source_paths)},indent=2))
+                      'source_bindings':bound_pins(len(source_paths))},indent=2))
 
 
 if __name__ == '__main__': main()

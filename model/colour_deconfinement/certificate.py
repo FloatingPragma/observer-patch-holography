@@ -8,6 +8,12 @@ from pathlib import Path
 import numpy as np
 
 from . import centre, scale, su3
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).parent
 BETA_C_LITERATURE = 5.6925          # Boyd et al. 1996, N_t = 4, infinite volume
@@ -191,7 +197,7 @@ def certificate(monte_carlo=True):
                 string_tension=rec.get('string_tension'), coupling_scan=rec.get('coupling_scan'), N_t_6=rec.get('N_t_6'),
                 register=rec['register'], register_growth=stable(register_growth(rec['register']), 6),
                 statements=rec['statements'], references=rec['references'],
-                input_sha256={f: hashlib.sha256((HERE / f).read_bytes()).hexdigest() for f in files},
+                input_sha256=bound_pins({f: hashlib.sha256((HERE / f).read_bytes()).hexdigest() for f in files}),
                 replay=replay)
 
 

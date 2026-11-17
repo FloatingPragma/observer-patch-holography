@@ -12,6 +12,12 @@ from model.particle_primary_occupation_bound import model as occupation
 from model.particle_primary_joint_spectroscopy import spectroscopy
 from model.particle_primary_mass_readout import readout
 from model.particle_filtered_probe import filter as apparatus
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS = (
     'model/particle_primary_response_moments/__init__.py',
@@ -159,6 +165,6 @@ def certificate():
             'selected_member_bound':bind_member(contract.member(0)),
             'original_selected_state_transfer_band_proved':True,
             'resolved_particle_branch_or_mass_proved':False,
-            'physical_mass_table_GeV':[],'source_sha256':pins}
+            'physical_mass_table_GeV':[],'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('response inputs changed during replay')
     return result

@@ -16,6 +16,12 @@ import numpy as np
 
 from ..observer import native
 from ..record_laws import family as f
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 S = f.S
 I = S(0, 0, 1)
@@ -286,8 +292,8 @@ def run():
             "new_phase_law_selected_as_physics": False,
             "laboratory_clock_or_Lorentzian_action_derived": False,
             "binary_sector_result_not_claimed_on_collision_sector": True},
-        "source_bindings": {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                            for path in SOURCE_PATHS},
+        "source_bindings": bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                            for path in SOURCE_PATHS}),
     }
 
 

@@ -12,6 +12,12 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from model.radial_interacting_core.core import encode
 from . import bounds, source
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -29,8 +35,8 @@ def source_bindings():
         'independent_checks': [],
     })
     paths.add('model/radial_geometry_join/PROOF.md')
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(paths)})
 
 
 def inherited_custody():
@@ -40,7 +46,7 @@ def inherited_custody():
         value = strict_json.load(ROOT/f'model/{name}/results.json')
         producer = importlib.import_module(f'model.{name}.packet')
         if (value.get('schema') != f'oph.{name}.v1' or value.get('all_pass') is not True
-                or value.get('source_bindings') != producer.source_bindings()):
+                or bound_pins(value.get('source_bindings')) != producer.source_bindings()):
             raise ValueError('the field/geometry source manifest is stale: '+name)
         result[name] = {'full_current_source_manifest_verified': True,
                         'parent_expensive_receipt_reexecuted': False}
@@ -103,7 +109,7 @@ def _produce():
             'parent_finite_contrast_certified_lower': geometric['finite_contrast_certified_lower']},
         'finite_observation': encode(bounds.observation_bound()),
         'scope': scope(), 'inherited_custody': inherited_custody(),
-        'source_bindings': pins}
+        'source_bindings': bound_pins(pins)}
     if source_bindings() != pins:
         raise ValueError('source changed during complete join replay')
     return value
@@ -127,7 +133,7 @@ def report():
             cwd=ROOT, env=dict(os.environ, OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1'),
             check=True, capture_output=True, text=True, timeout=300)
         value = strict_json.load(output)
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across cold join replay')
     return value
 

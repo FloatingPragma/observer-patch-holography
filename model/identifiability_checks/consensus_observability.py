@@ -31,6 +31,12 @@ from tools import strict_json
 from model.anharmonic_transfer import calibration, data, experiment as transfer
 from model.anharmonic_observations.replay import _compare
 from model.primitive_observer import anharmonic, runtime
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -364,7 +370,7 @@ def run(progress=None):
                   'new_empirical_confirmation': False, 'floating_error_certified': False,
                   'prior_empirical_preparation_calibration_supplied': True,
                   'positive_duration_comparison_outcomes_used_to_build_or_solve_constraints': False},
-        'source_sha256': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sources}}
+        'source_sha256': bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sources})}
 
 
 def main():

@@ -5,6 +5,12 @@ from fractions import Fraction
 from pathlib import Path
 
 from . import algebra, bounds
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -22,7 +28,7 @@ def canonical(value):
 def bindings():
     paths = list(PARENTS) + [str(p.relative_to(ROOT)) for p in sorted(HERE.glob('*.py'))]
     paths += [str((HERE/'README.md').relative_to(ROOT)), FRAGMENT]
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in paths}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in paths})
 
 
 def build():
@@ -30,7 +36,7 @@ def build():
     m = Fraction(1, 1000)
     result = {
         'schema': 'oph.spin_canonical_energy.v1',
-        'source_bindings': before,
+        'source_bindings': bound_pins(before),
         'direct_exact_checks': algebra.exact_checks(),
         'stiffness_enclosure': bounds.serialize(bounds.stiffness_interval(m)),
         'spectral_windows': bounds.serialize([

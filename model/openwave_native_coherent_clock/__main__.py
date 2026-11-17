@@ -5,12 +5,18 @@ from hashlib import sha256
 from model.openwave_pure_su2_source.custody import ROOT,pin_package,execute
 from model.common_source import repair_continuation as rc
 from .source import run as source_run
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent
 def pins():
  paths=set(rc.source_bindings())|{'model/native_transfer_control/PROOF.md','model/native_effect_synthesis/PROOF.md'}
  for parent in ('model/openwave_native_charge_readout/results.json','model/openwave_coherent_native_architecture/results.json'):
   paths.add(parent)
-  for p,h in json.loads((ROOT/parent).read_text())['source_sha256'].items():
+  for p,h in bound_pins(json.loads((ROOT/parent).read_text())['source_sha256']).items():
    assert sha256((ROOT/p).read_bytes()).hexdigest()==h,('stale parent',p)
    paths.add(p)
  return pin_package(HERE,paths)

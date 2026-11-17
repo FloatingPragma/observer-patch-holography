@@ -12,6 +12,12 @@ from model.continuum_free_limit import packet as free
 from model.spin_canonical_energy import packet as spin
 from model.ballistic_free_boundary import packet as ballistic
 from . import algebra, bounds, charge_bridge
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -33,7 +39,7 @@ def source_bindings():
         'independent_checks': ['model/protected_spin_limit/README.md',
                                'model/strong_coupling_refinement/README.md'],
     })
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def checked_parents():
@@ -67,7 +73,7 @@ def build():
     result = {
         'schema': 'oph.particle_mass_readout_gate.v1',
         'title': 'Free-branch census',
-        'source_bindings': before,
+        'source_bindings': bound_pins(before),
         'parent_theorems': {PARENTS[0]: f, PARENTS[1]: s, PARENTS[2]: b},
         'parent_complete_producers_replayed': list(PARENTS),
         'all_ancestral_expensive_producers_replayed': False,

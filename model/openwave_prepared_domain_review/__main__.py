@@ -5,6 +5,12 @@ from itertools import combinations
 from math import comb
 from pathlib import Path
 import numpy as np
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 PACKAGES=('openwave_calibrated_hadrons','openwave_nuclear_exchange','openwave_nuclear_refinement','openwave_reachable_averaging','openwave_meson_ring','openwave_dirac_neutral_current','openwave_geometry_refinement','openwave_relational_clock')
@@ -30,7 +36,7 @@ def run():
     data={};pins={};count=0
     for name in PACKAGES:
         base=ROOT/'model'/name;d=json.loads((base/'results.json').read_text());data[name]=d
-        for rel,want in d['source_sha256'].items():
+        for rel,want in bound_pins(d['source_sha256']).items():
             actual=hashlib.sha256((ROOT/rel).read_bytes()).hexdigest();assert actual==want,(name,rel);count+=1
         for path in base.iterdir():
             if path.is_file()and path.suffix in('.py','.md','.tex','.json'):pins[str(path.relative_to(ROOT))]=hashlib.sha256(path.read_bytes()).hexdigest()
@@ -71,7 +77,7 @@ def run():
     assert not c['physical_seconds_Einstein_proper_time_or_fundamental_global_clock_assumed']
     for path in HERE.iterdir():
         if path.suffix in('.py','.md'):pins[str(path.relative_to(ROOT))]=hashlib.sha256(path.read_bytes()).hexdigest()
-    return {'schema':'oph.independent_prepared_domain_review.v1','verdict':'PASS_REVIEWED_FINITE_ALGEBRA_AND_SOURCE_DOMAINS','source_sha256':pins,
+    return {'schema':'oph.independent_prepared_domain_review.v1','verdict':'PASS_REVIEWED_FINITE_ALGEBRA_AND_SOURCE_DOMAINS','source_sha256':bound_pins(pins),
       'direct_producer_source_bindings_checked':count,'independent_CAR_number_lemma_check':car_identity(),
       'reviewed_packages':list(PACKAGES),'review_scope':'Independent proof/source review plus exact CAR operator check, rational fit/averaging arithmetic, complete representation census, record normalization and source-custody checks. Numerical producers and their focused tests are separately replayed; this review does not add a Lean proof or an official physical criterion award.',
       'domain_findings':['Hadron targets are calibration inputs; all held-out mass failures remain.',

@@ -9,6 +9,12 @@ from pathlib import Path
 import re
 
 import numpy as np
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -204,7 +210,7 @@ def produce(root=ROOT, *, session=None):
     data = carrier()
     replay = check_source_case(text, data, session)
     grammar = check_grammar_cases(text, session)
-    result = {'schema': SCHEMA, 'source_bindings': before,
+    result = {'schema': SCHEMA, 'source_bindings': bound_pins(before),
               'source_text': text, 'carrier': json.loads(canonical(data)),
               'result_class': 'bounded source/implementation evidence',
               'data': _receipt_math(replay, data)}
@@ -217,7 +223,7 @@ def verify(receipt, root=ROOT, *, session=None):
     require(type(receipt) is dict and set(receipt) == {
         'schema', 'source_bindings', 'source_text', 'carrier', 'result_class', 'data'}, 'receipt:schema')
     require(receipt['schema'] == SCHEMA, 'receipt:profile')
-    require(receipt['source_bindings'] == source_bindings(root), 'receipt:source-custody')
+    require(bound_pins(receipt['source_bindings']) == source_bindings(root), 'receipt:source-custody')
     fresh = produce(root, session=session)
     compare_receipt(receipt, fresh)
     return fresh

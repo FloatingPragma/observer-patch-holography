@@ -17,6 +17,12 @@ from pathlib import Path
 import subprocess
 import sys
 import tempfile
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -245,7 +251,7 @@ def run():
                   'environment': {'python': sys.version.split()[0], 'numpy': numpy.__version__,
                                   'scipy': scipy.__version__, 'sympy': sympy.__version__, 'mpmath': mpmath.__version__},
                   'producer_comparisons': comparisons, 'findings': summarize(fresh, exact),
-                  'exact_controls': exact, 'input_sha256': dict(sorted(explicit.items()))}
+                  'exact_controls': exact, 'input_sha256': bound_pins(dict(sorted(explicit.items())))}
     for name, digest in explicit.items():
         assert sha(ROOT / name) == digest, 'source changed during replay: ' + name
     return result

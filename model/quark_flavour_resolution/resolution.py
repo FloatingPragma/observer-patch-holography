@@ -11,6 +11,12 @@ import hashlib
 import json
 
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
@@ -50,7 +56,7 @@ def sqrt_bounds(value, bits=100):
 
 def authenticate(path):
     value = json.loads((ROOT/path).read_text())
-    for name, expected in value['input_sha256'].items():
+    for name, expected in bound_pins(value['input_sha256']).items():
         if hashlib.sha256((ROOT/name).read_bytes()).hexdigest() != expected:
             raise ValueError('native input changed: '+name)
     return value
@@ -276,7 +282,7 @@ def calculate():
                       'complete_common_spatial_interacting_ground_computed': False,
                       'physical_quark_rest_masses_derived': False,
                       'polarization_memory_is_a_declared_source_architecture': True},
-            'input_sha256': pins}
+            'input_sha256': bound_pins(pins)}
 
 
 def bindings():
@@ -285,8 +291,8 @@ def bindings():
              if path.suffix in ('.py', '.md')}
     seeds.update({NATIVE, CALIBRATION, FAMILY, 'model/native_quark_response/PROOF.md',
                   'model/defect_family_vertices/PROOF.md'})
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(import_closure(seeds))}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(import_closure(seeds))})
 
 
 def main():

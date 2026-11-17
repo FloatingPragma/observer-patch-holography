@@ -5,6 +5,12 @@ import numpy as np
 from scipy.linalg import expm
 from model.common_source import native_matter_attachment as matter
 from model.common_source.chiral_candidate import kinetic
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 def review():
@@ -62,6 +68,6 @@ def review():
     return {'verdict':'PASS','independent_random_full_180_row_spectra':12,'maximum_spectral_error':max_error,
         'independent_complete_record_probabilities':checked,'maximum_probability_error':maximum,
         'actual128_row_spatial_rotation_checked':True,'scope':'Specified free branches and two-copy observer tensor; no full charged gap, fundamental nematic medium or total Noether angular momentum.',
-        'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in refs}}
+        'source_sha256':bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in refs})}
 if __name__=='__main__':
     value=review();Path(__file__).with_suffix('.json').write_text(json.dumps(value,indent=2,sort_keys=True)+'\n');print(value['verdict'])

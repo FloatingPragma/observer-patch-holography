@@ -6,6 +6,12 @@ import numpy as np
 import scipy.linalg as la
 import mpmath as mp
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[2]
 TARGET=ROOT/'model/openwave_native_beat_clock'
@@ -123,10 +129,10 @@ def trig_controls(receipt):
 def report():
     paths=[TARGET/name for name in ('clock.py','PROOF.md','results.json')]+[Path(__file__)]
     paths.append(ROOT/'model/coherent_defect_wave/chiral_joint/interacting_charged_response/results.json')
-    pins={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+    pins=bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths})
     receipt=json.loads((TARGET/'results.json').read_text())
-    assert all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h for p,h in receipt['source_sha256'].items())
-    result={'schema':'oph.independent_native_beat_review.v1','input_sha256':pins,
+    assert all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h for p,h in bound_pins(receipt['source_sha256']).items())
+    result={'schema':'oph.independent_native_beat_review.v1','input_sha256':bound_pins(pins),
         'finite_controls':finite_controls(),'trigonometric_intervals':trig_controls(receipt),
         'scope':'A declared one-time native-pole coherent service and one common full-H herald support the proved free beat. Native microscopic pulse compilation, passive self-starting, unique exact full-H frequency and a physical Compton dictionary are not inferred.',
         'verdict':'PASS_INDEPENDENT_NATIVE_BEAT_REVIEW'}

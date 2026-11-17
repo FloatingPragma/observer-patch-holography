@@ -8,6 +8,12 @@ from model.particle_common_contract import contract, provenance
 from model.standard_model_source_map import algebra
 from model.contact_scattering.collision import collision_certificate, execute as execute_contact
 from . import finite_sector_ratios
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 HERE=Path(__file__).resolve().parent
@@ -45,7 +51,7 @@ def authenticated_inputs():
     values={};pins={};cache={}
     for path in INPUTS:
         file=ROOT/path;value=json.loads(file.read_text());values[path]=value;pins[path]=sha(file)
-        for name,expected in value.get('source_sha256',value.get('source_bindings',{})).items():
+        for name,expected in bound_pins(value.get('source_sha256',bound_pins(value.get('source_bindings',{})))).items():
             p=(ROOT/name).resolve()
             if not p.is_relative_to(ROOT) or not p.is_file():raise ValueError('missing candidate ancestry: '+name)
             if name not in cache:cache[name]=sha(p)
@@ -260,7 +266,7 @@ def build():
     values,pins=authenticated_inputs();source,targets,protected,exclusions=candidate_rows(values)
     paths=provenance.definition_inputs(SOURCE_INPUTS)
     pins.update(provenance.definition_hashes(paths))
-    ratio=finite_sector_ratios.certificate();pins.update(ratio['source_sha256'])
+    ratio=finite_sector_ratios.certificate();pins.update(bound_pins(ratio['source_sha256']))
     fusion=values[INPUTS[6]]['selected_member_bound']['result']
     echo,free_echo=contact_execution_controls()
     by={r['id']:r for r in source};multiplets=[]
@@ -311,7 +317,7 @@ def build():
             'remaining':['prepare separated moving incoming states in the physical sector','control asymptotic or finite detector scattering error','compute inclusive complete outgoing records and compare physical channels']},
         'physical_particle_map':[],'mass_predictions_GeV':[],'fit_parameters_used':False,
         'repeated_family_targets_are_independent_source_flavors':False,
-        'gauge_weights_define_Lorentz_spin':False,'source_sha256':pins}
+        'gauge_weights_define_Lorentz_spin':False,'source_sha256':bound_pins(pins)}
     validate(value)
     if provenance.definition_hashes(pins)!=pins:raise ValueError('candidate inputs changed during export')
     return value

@@ -8,6 +8,12 @@ import sympy as s
 from model.particle_common_contract import contract, provenance
 from model.particle_primary_branch_resolution import model as branch
 from model.particle_primary_odd_residual import model as odd
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=(
     'model/particle_primary_staggered_response/__init__.py',
@@ -116,6 +122,6 @@ def verify_bound(member,value):
 def certificate():
     paths=provenance.definition_inputs((*SOURCE_INPUTS,*odd.SOURCE_INPUTS));pins=provenance.definition_hashes(paths)
     result={'schema':'oph.primary_staggered_response_certificate.v1',
-        'selected_member_bound':bind_member(contract.member(0)),'source_sha256':pins}
+        'selected_member_bound':bind_member(contract.member(0)),'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('staggered inputs changed during replay')
     return result

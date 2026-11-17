@@ -13,6 +13,12 @@ import numpy as np
 from tools import strict_json
 from model.spin_modular_geometry.packet import compare as compare_native_records, rational
 from . import energy, readout, clock
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
@@ -122,8 +128,8 @@ def source_bindings():
         'Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean',
         'Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean'))
     paths.update((HERE/'README.md', HERE/'PROOF.md'))
-    return {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in sorted(paths)}
+    return bound_pins({p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(paths)})
 
 
 def claims():
@@ -193,7 +199,7 @@ def produce():
                  'actual_faithful_regional_modular_identity': True,
                  'physical_H_B_equals_temperature_times_modular_generator': False,
                  'Landauer_temperature_and_reservoir_supplied': False},
-             'source_bindings': pins}
+             'source_bindings': bound_pins(pins)}
     value['energy_table_markdown'] = table(value)
     if source_bindings() != pins:
         raise ValueError('source changed during energy/action replay')

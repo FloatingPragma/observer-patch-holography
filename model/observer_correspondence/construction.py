@@ -24,6 +24,12 @@ from ..observer_time_fields import core
 from ..native_action import history_action
 from ..observer_reconstruction import native_geometry as geometry
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 REGIONS = ((0, 1), (0, 5))
@@ -404,8 +410,8 @@ def run():
         raise ArithmeticError('all timeout prefixes must retain their exact mass')
     maps, _, _, _ = effective_maps(cap)
     return {'schema': 'oph.observer_correspondence.v1',
-            'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                              for path in SOURCE_PATHS},
+            'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                              for path in SOURCE_PATHS}),
             'contract': {'law': 'C, diagonal binary total two', 'states': 66,
                 'regions': [list(region) for region in REGIONS], 'union_region': list(UNION),
                 'scheduler': 'uniform independent native seam and fair coin',

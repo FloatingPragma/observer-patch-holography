@@ -21,6 +21,12 @@ from ..native_circulation import construction as circulation
 from ..native_quantum_history import construction as quantum
 from ..primitive_observer import runtime
 from ..observer.scalar_response.experiment import canonical, compare_receipt
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(sorted(set((*event.SOURCE_PATHS, *quantum.SOURCE_PATHS,
@@ -318,7 +324,7 @@ def run():
             'feedback_preserves_stationary_action_without_rechecking': False,
             'full_quantum_stopped_channel_identified_with_diagonal_jump_chain': False,
             'laboratory_seconds_or_relativistic_wave_action_derived': False},
-        'source_bindings': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}}
+        'source_bindings': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS})}
 
 
 def main():

@@ -18,6 +18,12 @@ from . import contract
 from ..observer import native, record_recovery as records
 from ..observer import adaptive_record_recovery as adaptive
 from ..observer.source_discrimination import circuit
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 OUTPUT = HERE / "localized_results.json"
@@ -371,7 +377,7 @@ def run():
                   "reference_like_exterior": False, "physical_space_or_time_calibration": False,
                   "mass_or_energy_derived": False, "full_CP03_accepted": False,
                   "history_refinement_or_active_recovery_classes_excluded": False},
-        "source_sha256": contract.source_bindings([
+        "source_sha256": bound_pins(contract.source_bindings([
             "model/clock_defect_energy/localized.py", "model/clock_defect_energy/contract.py",
             "model/observer/native.py", "model/observer/record_recovery.py",
             "model/observer/adaptive_record_recovery.py", "model/observer/source_discrimination/circuit.py",
@@ -379,7 +385,7 @@ def run():
             "model/native_modular_reference/local_preparation.py", "tools/strict_json.py",
             "evidence/native_geometric_source_20260925/spec.json",
             "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py",
-            "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py"]),
+            "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py"])),
     })
 
 

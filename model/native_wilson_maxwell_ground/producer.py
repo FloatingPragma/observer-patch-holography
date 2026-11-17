@@ -4,6 +4,12 @@ import hashlib
 import json
 from pathlib import Path
 import sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 RER=HERE.parents[1]
@@ -19,14 +25,14 @@ def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 
 def certificate():
     value=ground.calculate();parent=ground.admit()
-    seeds=set(parent['input_sha256'])|{ground.PARENT,ground.GEOMETRY,
+    seeds=set(bound_pins(parent['input_sha256']))|{ground.PARENT,ground.GEOMETRY,
         'model/native_wilson_maxwell_refinement/bounds.py',
         'model/native_block_dirac/algebra.py','model/particle_common_contract/provenance.py',
         'model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/PROOF.md'}
     seeds.add(str(RESEARCH.relative_to(RER)))
     seeds.update(str(path.relative_to(RER)) for path in HERE.iterdir() if path.suffix in ('.py','.md'))
-    value['input_sha256']={name:digest(RER/name) for name in sorted(import_closure(seeds))}
-    value['owned_source_sha256']={path.name:digest(path) for path in sorted(HERE.iterdir()) if path.suffix in ('.py','.md')}
+    value['input_sha256']=bound_pins({name:digest(RER/name) for name in sorted(import_closure(seeds))})
+    value['owned_source_sha256']=bound_pins({path.name:digest(path) for path in sorted(HERE.iterdir()) if path.suffix in ('.py','.md')})
     if digest(RESEARCH)!=RESEARCH_SHA:raise ValueError('immutable ground comparison differs')
     ignore={'input_sha256','owned_source_sha256'}
     science=lambda data:{k:v for k,v in data.items() if k not in ignore}

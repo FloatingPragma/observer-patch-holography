@@ -6,6 +6,12 @@ import hashlib,json,math
 import sympy as s
 import numpy as np
 from scipy.linalg import expm,norm
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 H=Path(__file__).resolve().parent
 def read(name):return json.loads((H/name).read_text())
 def sha(name):return hashlib.sha256((H/name).read_bytes()).hexdigest()
@@ -66,6 +72,6 @@ result=dict(schema='oph.macro_generator_identity.independent_review_result.v1',
  tighter_rational_Taylor_degree=38,actual_flavor_controls=checks,
  harmonic_exact_Fock_controls=True,scoped_result_pass=True,
  charged_interacting_spectrum_or_particle_claim=False,full_criterion_met=False,
- input_files_sha256={n:sha(n) for n in ['PARAMETERS.json','RESULT.json','SPIN_BRANCHES.json','check.py','PROOF.md']})
+ input_files_sha256=bound_pins({n:sha(n) for n in ['PARAMETERS.json','RESULT.json','SPIN_BRANCHES.json','check.py','PROOF.md']}))
 (H/'REVIEW_RESULT.json').write_text(json.dumps(result,indent=2)+'\n')
 print('PASS independent8 literal branches,3 exact nested intervals,3 wrong-source controls, harmonic variance')

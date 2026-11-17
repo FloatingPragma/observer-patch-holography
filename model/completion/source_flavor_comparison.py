@@ -12,6 +12,12 @@ import json
 from pathlib import Path
 
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PATH = Path('model/completion/source_flavor_comparison.json')
@@ -105,8 +111,8 @@ def necessary_correction(interval, target):
 
 def source_bindings(root=ROOT):
     root = Path(root).resolve()
-    return {name: hashlib.sha256((root/name).read_bytes()).hexdigest()
-            for name in sorted(DIRECT)}
+    return bound_pins({name: hashlib.sha256((root/name).read_bytes()).hexdigest()
+            for name in sorted(DIRECT)})
 
 
 def _inputs(root):
@@ -196,7 +202,7 @@ def build(root=ROOT):
             'correction_bound_is_sufficient_for_joint_matching': False,
         })
     result = {
-        'schema': SCHEMA, 'source_bindings': pins,
+        'schema': SCHEMA, 'source_bindings': bound_pins(pins),
         'calculation_passed': True,
         'canonical_physical_premises_discharged': [],
         'physical_predictions_added': 0,

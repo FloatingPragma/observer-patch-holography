@@ -7,6 +7,12 @@ import json
 from pathlib import Path
 
 import numpy as np
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -102,7 +108,7 @@ def certificate(replay=False):
     files = [HERE/'readout.py', HERE/'PROOF.md', HERE/'test_readout.py',
              UPSTREAM/'analysis.py', UPSTREAM/'literature.py', UPSTREAM/'lattice.py',
              UPSTREAM/'recorded_tables.json', UPSTREAM/'results.json']
-    hashes = {str(f.relative_to(ROOT)): hashlib.sha256(f.read_bytes()).hexdigest() for f in files}
+    hashes = bound_pins({str(f.relative_to(ROOT)): hashlib.sha256(f.read_bytes()).hexdigest() for f in files})
     checks = dict(upstream_pass=upstream['all_checks_pass'],
                   isospin_and_charge=operators['max_charge_and_isospin_residual'] < 1e-14,
                   orthonormal_triplet=bool(np.allclose(operators['gram'], np.eye(3))),
@@ -113,7 +119,7 @@ def certificate(replay=False):
                   both_scale_choices_exposed=abs(values['rho_anchor']['pion']['value_GeV']-
                                                 values['string_anchor']['pion']['value_GeV'])>.03)
     return dict(schema='oph.pion_mass_readout.v1', all_checks_pass=all(checks.values()), checks=checks,
-                source_sha256=hashes, scope='conditional GeV conversion of archived quenched hadron fits',
+                source_sha256=bound_pins(hashes), scope='conditional GeV conversion of archived quenched hadron fits',
                 particles=particles, flavour_operators=operators, calibrations=values,
                 empirical_inputs=dict(light_quark_tuning_mpi_over_mrho=ratio,
                                       rho_anchor_GeV=rho_GeV, alternative_sqrt_sigma_GeV=string_GeV,

@@ -17,6 +17,12 @@ from pathlib import Path
 
 from . import halfline as h
 from . import infinite_history as history
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT_SCALE = 10**60
@@ -435,8 +441,8 @@ def run():
     certificate = history.certificate(retain_polynomials=True)
     root = Path(__file__).resolve().parents[2]
     return {"schema": "oph.common_source.sharp_output.v1",
-            "source_sha256": {path: hashlib.sha256((root/path).read_bytes()).hexdigest()
-                              for path in SOURCE_PATHS},
+            "source_sha256": bound_pins({path: hashlib.sha256((root/path).read_bytes()).hexdigest()
+                              for path in SOURCE_PATHS}),
             "infinite_polynomial_certificate_sha256": hashlib.sha256(
                 history.canonical(certificate).encode()).hexdigest(),
             "infinite_history_parameters": certificate["parameters"],

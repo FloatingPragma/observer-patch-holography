@@ -11,6 +11,12 @@ import numpy as np
 from . import modular as m, controls
 from ..defect_field_clock import clock
 from ..defect_field_bridge.dynamics_packet import compare_json,compare_arrays
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -80,9 +86,9 @@ def build():
           ROOT/'Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean',
           ROOT/'Lean/Thermodynamics/EinsteinPremiseLink.lean']
     pins=m.joint.bindings()
-    pins.update({p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in files})
+    pins.update(bound_pins({p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in files}))
     return {'schema':'oph.same_action_full_fock_modular.v1',
-            'source_sha256':dict(sorted(pins.items())),
+            'source_sha256':bound_pins(dict(sorted(pins.items()))),
             'domain':'Full16-dimensional four-mode Fock algebra of the actual two-site joint source factors; all regional number sectors remain.',
             'experiment_relation':'A new declared Gibbs preparation uses the same complete field instrument; the original localized-input joint witness is unchanged.',
             'full_clock_reference_stationarity_claimed':False,

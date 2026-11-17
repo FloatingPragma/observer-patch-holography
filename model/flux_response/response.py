@@ -19,6 +19,12 @@ from tools import strict_json
 
 from ..full_fock_field.field import FullFock
 from ..reference_observation.observation import frozen
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 DIMENSION = 256
@@ -165,8 +171,8 @@ def report():
                     'model/full_fock_field/field.py', 'model/reference_observation/observation.py',
                     'tools/strict_json.py')
     return dict(schema='oph.complete_finite_flux_response.v1',
-        source_sha256={name: hashlib.sha256((root/name).read_bytes()).hexdigest()
-                       for name in source_files},
+        source_sha256=bound_pins({name: hashlib.sha256((root/name).read_bytes()).hexdigest()
+                       for name in source_files}),
         scope='SUPPLIED_FOUR_SITE_WEYL_CONTACT_LOOP_RESPONSE',
         complete_Fock_dimension=DIMENSION, coordinate_speed=.125, onsite_interaction=1.,
         chemical_potential=.5, flux_is_dimensionless_supplied_Peierls_phase=True,

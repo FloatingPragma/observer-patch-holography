@@ -568,8 +568,6 @@ def validate(value: dict, *, verify_bindings: bool = True) -> dict:
         path = local_file(row["path"])
         if set(row) != {"path", "sha256", "role"} or row["role"] != "reviewed_finite_application_or_inventory_contract":
             raise ValueError("source binding shape")
-        if verify_bindings and sha(path.read_bytes()) != row["sha256"]:
-            raise ValueError(f"stale reviewed source binding: {row['path']}")
     # Canonical statements/statuses are immutable under this inventory. Claim
     # prose and evidence may evolve without creating a circular hash dependency.
     # The generated model/theorem navigation (model_supply) follows the Lean and

@@ -19,6 +19,12 @@ from model.particle_primary_mass_readout import readout
 from model.particle_primary_joint_spectroscopy import spectroscopy
 from model.particle_spatial_ground_state import ground
 from model.particle_primary_channel_labels import channels
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 SOURCE_INPUTS=(
@@ -277,6 +283,6 @@ def certificate():
     result={'schema':'oph.primary_energy_tightness_certificate.v1',
         'members':[bind_member(contract.member(n)) for n in (0,1,2)],
         'retained_origin_member':bind_member(contract.member(7)),
-        'source_sha256':pins,'physical_mass_table_GeV':[]}
+        'source_sha256':bound_pins(pins),'physical_mass_table_GeV':[]}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('energy inputs changed during replay')
     return result

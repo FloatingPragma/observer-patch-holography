@@ -13,6 +13,12 @@ from scipy.sparse import csr_matrix
 
 from model.thermal_particle_records import records as numbers
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 TEMPERATURES=(F(1,10),F(1),F(10),F(100));PLAN=(F(10),F(1),F(1,10),F(1),F(10),F(100))
@@ -46,7 +52,7 @@ def bindings():
     paths={str(p.relative_to(ROOT)) for p in HERE.iterdir() if p.suffix in ('.py','.md')}
     for package in ('particle_joint_mass_identity','particle_thermal_history','thermal_particle_records','conditional_particle_spectrum'):
         paths|={f'model/{package}/results.json',f'model/{package}/PROOF.md'}
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))})
 
 
 @lru_cache(maxsize=1)
@@ -242,7 +248,7 @@ def certificate():
                 'all_thermal_occupation_probabilities':g['probabilities'].tolist(),
                 'log_probabilities':g['log_word_probabilities'],'reset_Kraus_coordinate_count':g['all_quantum_reset_Kraus_coordinates']} for g in f],
             'Gibbs_stationarity_numeric_error':residual,'reference_controls':reference_controls(t)})
-    result={'schema':'oph.quantum_thermal_relaxation.v1','source_bindings':pins,'all_checks_pass':True,
+    result={'schema':'oph.quantum_thermal_relaxation.v1','source_bindings':bound_pins(pins),'all_checks_pass':True,
         'source_dimension_exact':str(2**180*1653),'source_fermion_modes':180,'source_boson_modes':56,
         'source_joint_groups':d['groups'],'boson_word_order':[list(x) for x in d['words']],
         'temperature_rows':temperatures,'cooling_experiments':[execute(n) for n in (32,256)],

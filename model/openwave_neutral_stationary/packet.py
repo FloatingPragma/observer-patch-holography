@@ -5,6 +5,12 @@ import json
 from pathlib import Path
 from model.particle_common_contract.provenance import import_closure
 from . import source,isolation,ground,translations,local_profile,filter,records,dynamics,replay
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -18,12 +24,12 @@ def source_bindings():
                  for name in DEPENDENCIES for file in ('PROOF.md','results.json'))
     seeds.update(('model/openwave_neutral_candidate/PROOF.md',
                   'model/openwave_neutral_candidate/results.json','model/requirements.txt'))
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(seeds))}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(seeds))})
 
 
 def report():
     pins=source_bindings()
-    result={'schema':'oph.native_neutral_stationary.v1','input_sha256':pins,
+    result={'schema':'oph.native_neutral_stationary.v1','input_sha256':bound_pins(pins),
         'source':source.certificate(),'isolation':isolation.certificate(),
         'ground':ground.certificate(),'translations':translations.certificate(),
         'local_profile':local_profile.certificate(),'filter':filter.certificate(),

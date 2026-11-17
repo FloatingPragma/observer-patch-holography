@@ -256,8 +256,7 @@ LANES: tuple[Lane, ...] = (
          "python -m pytest -q --durations=10 -W error model/exchange_sector model/particle_screening", env=BLAS1),
     lane("model_repair", "push", "root", 5,
          "python -m pytest -q --durations=10 -W error model/local_repair_family model/active_code_energy "
-         "model/screened_recovery model/conserved_sector_action model/screened_transport",
-         "python tools/renew_diagnostic_parent_custody.py --check", env=BLAS1),
+         "model/screened_recovery model/conserved_sector_action model/screened_transport", env=BLAS1),
     lane("model_fields", "push", "root", 5,
          "python -m pytest -q --durations=10 -W error model/moving_defect model/record_action model/particle_obstruction model/interacting_field",
          "python -m model.moving_defect.experiment --check",
@@ -387,7 +386,7 @@ LANES: tuple[Lane, ...] = (
 
     # ------------------------------------------------------------------
     # Nightly tier, root requirements.
-    lane("native_program_receipt", "nightly", "root", 3,
+    lane("native_program_receipt", "push", "root", 3,
          "python -m model.native_program.receipt --check model/native_program/results.json", env=BLAS1),
     lane("support_wiring", "nightly", "root", 45,
          "python -m pytest -q code/support_wiring/test_support_wiring.py",

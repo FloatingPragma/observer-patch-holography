@@ -9,6 +9,12 @@ import sympy as s
 from model.particle_common_contract import contract, provenance
 from model.particle_primary_pair_channels import model as pairs
 from model.particle_primary_staggered_response import model as staggered
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 branch=staggered.branch
 CELLS=tuple(product(range(2),repeat=3))
@@ -239,6 +245,6 @@ def certificate():
     paths=provenance.definition_inputs(SOURCE_INPUTS);pins=provenance.definition_hashes(paths)
     result={'schema':'oph.primary_populated_momentum_certificate.v1',
         'selected_member_bound':bind_member(contract.member(0)),
-        'independent_physical_control':control_receipt(),'source_sha256':pins}
+        'independent_physical_control':control_receipt(),'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('populated spatial inputs changed during replay')
     return result

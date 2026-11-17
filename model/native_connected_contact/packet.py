@@ -8,6 +8,12 @@ from tools import strict_json
 from model.native_contact_response import packet as contact_packet
 from model.native_pair_response import packet as pair_packet
 from . import dressing, threshold, records
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -22,15 +28,15 @@ def source_bindings():
     names = set(SOURCE_FILES)
     for owner in (contact_packet, pair_packet):
         names.update(owner.source_bindings())
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(names) if not name.startswith('docs/')}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(names) if not name.startswith('docs/')})
 
 
 def produce():
     before = source_bindings(); response = dressing.certificate()
     for row in response['finite_source_controls']:
         row['normalized_Abel_interval'] = contact_packet.outward(row['normalized_Abel_interval'])
-    result = {'schema': 'oph.native_connected_contact.v1', 'source_bindings': before,
+    result = {'schema': 'oph.native_connected_contact.v1', 'source_bindings': bound_pins(before),
               'source': {'occupation': 2, 'port_weights': 'all one', 'repair_probability': '1',
                          'selector': 'independent uniform seam', 'reference': 'I/binom(V,2)',
                          'attempt_transfer': 'I-G/(2M)', 'ports': '240*4^level', 'seams': '630*4^level'},

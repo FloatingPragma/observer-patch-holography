@@ -12,6 +12,12 @@ from functools import lru_cache
 from pathlib import Path
 
 from .bridge import certificate, lump_kernel, normalized, stochastic
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 @lru_cache(maxsize=1)
@@ -209,10 +215,10 @@ def receipt():
         'model/repair_sector_bridge/README.md',
     }
     value = report()
-    value['input_sha256'] = {
+    value['input_sha256'] = bound_pins({
         name: hashlib.sha256((root / name).read_bytes()).hexdigest()
         for name in sorted(import_closure(seeds))
-    }
+    })
     return value
 
 

@@ -17,6 +17,12 @@ from model.native_effect_synthesis import intervals as iv
 from model.native_program import interpreter as native
 from model.observer.source_scalar import compiler
 from . import bell
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SCHEMA='oph.derived_occupation_exchange.v1'
 ROOT=Path(compiler.ROOT)
@@ -54,8 +60,8 @@ def declare(angle,targets=(0,1),cell=0,level=0):
     controls=(F(),)*4+(-angle/2,-angle/2,angle/2,angle/2)+(F(),)*4
     value={'schema':SCHEMA,'cell':cell,'federation_level':level,'local_targets':list(targets),'angle':str(angle),
             'integrated_controls':[str(x)for x in controls],
-            'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
-                             for p in (compiler.RESPONSE,compiler.CONTROL_RECEIPT)},
+            'source_sha256':bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
+                             for p in (compiler.RESPONSE,compiler.CONTROL_RECEIPT)}),
             'resources':{'native_response_pulses':1,'proper_code_load_events':1,
                          'proper_code_export_events':1,'six_level_blank_preparations':1,
                          'proper_code_dimension':4,'all_export_complement_rows':2,

@@ -15,6 +15,12 @@ import sympy as s
 from .quantum_link_completion import (HERE, REPO, annihilators, clean,
                                      digest, exterior_data,
                                      link_representation, zero)
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 def execute(output_dir=HERE):
@@ -99,12 +105,12 @@ def execute(output_dir=HERE):
                   'actual_compact_343_site_projector_computed': False,
                   'universal_obstruction_to_all_quantum_link_CAR_constructions': False,
                   'physical_particle_mass_calculation': False},
-        'source_bindings': {name: digest(REPO/name) for name in (
+        'source_bindings': bound_pins({name: digest(REPO/name) for name in (
             'model/particle_gauge_band/native_link_projector_witness.py',
             'model/particle_gauge_band/NATIVE_LINK_CAR_WITNESS.md',
             'model/particle_gauge_band/quantum_link_completion.py',
             'model/native_quantum_gauss/algebra.py',
-            'model/interacting_defect_response/algebra.py')},
+            'model/interacting_defect_response/algebra.py')}),
         'construction_dependency_sha256': digest(HERE/'quantum_link_completion.py'),
         'execution_complete': True}
     (output_dir/'native_link_projector_witness.json').write_text(json.dumps(result, indent=2, sort_keys=True)+'\n')

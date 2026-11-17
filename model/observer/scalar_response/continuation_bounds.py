@@ -13,6 +13,12 @@ import importlib.util
 import json
 from pathlib import Path
 import sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -27,7 +33,7 @@ def _sources():
     if sha256(raw).hexdigest() != PARENT_SHA256:
         raise ValueError("two-read bound parent pin mismatch")
     parent = json.loads(raw)
-    for name, pin in parent["source_pins"].items():
+    for name, pin in bound_pins(parent["source_pins"]).items():
         if sha256((ROOT / name).read_bytes()).hexdigest() != pin["sha256"]:
             raise ValueError(f"two-read bound parent source pin mismatch: {name}")
     if sha256((ROOT / NATIVE).read_bytes()).hexdigest() != NATIVE_SHA256:

@@ -1,6 +1,12 @@
 from pathlib import Path
 import sys,json,hashlib
 from fractions import Fraction as F
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[2]
 import numpy as np
 from scipy import sparse
@@ -60,5 +66,5 @@ def certificate():
      'retained_binary64_terminal_probability':p,
      'backend_arithmetic_error_included_in_literal_control_certificate':False,
      'retained_scientific_numbers_or_original_comparison_modified':False,
-     'sources':{str(x):hashlib.sha256((ROOT/x).read_bytes()).hexdigest() for x in [Path('model/protected_readout_numerics/retained.json'),Path('model/protected_particle_readout/packet.py'),Path('model/protected_particle_readout/execute.py'),Path('model/protected_particle_readout/experiment.py'),Path('model/protected_particle_readout/circuits.py'),Path('model/protected_particle_readout/bounds.py'),Path('model/cube_eta_protection/repair.py'),Path('model/cube_eta_protection/source.py'),Path('model/observer/source_scalar/compiler.py')]}}
+     'sources':bound_pins({str(x):hashlib.sha256((ROOT/x).read_bytes()).hexdigest() for x in [Path('model/protected_readout_numerics/retained.json'),Path('model/protected_particle_readout/packet.py'),Path('model/protected_particle_readout/execute.py'),Path('model/protected_particle_readout/experiment.py'),Path('model/protected_particle_readout/circuits.py'),Path('model/protected_particle_readout/bounds.py'),Path('model/cube_eta_protection/repair.py'),Path('model/cube_eta_protection/source.py'),Path('model/observer/source_scalar/compiler.py')]})}
     return value

@@ -15,6 +15,12 @@ from model.coherent_defect_wave.chiral_joint.atomic_spin_geometry.cube import sp
 from model.coherent_defect_wave.chiral_joint.family_cell.quotient import outward,sqrt_interval,mul,add
 from model.coherent_defect_wave.chiral_source.model import PAULI
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -254,19 +260,19 @@ def source_pins():
     paths=set(seeds+inherited)
     for name in inherited:
         receipt=json.loads((ROOT/name).read_text())
-        for path,expected in receipt.get('input_sha256',{}).items():
+        for path,expected in bound_pins(receipt.get('input_sha256',{})).items():
             if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=expected:
                 raise ValueError('changed inherited scientific source: '+path)
             paths.add(path)
     paths.update(import_closure(sorted(paths)))
-    return {path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def certificate():
     pins=source_pins();residue=native_pole_residue();spin=tagged_spin_effects();values=source_bounds()
     bounds=values['bounds'];data=values['data']
     result={'schema':'oph.energy_resolved_native_charge_arrival.v1',
-        'source_sha256':pins,
+        'source_sha256':bound_pins(pins),
         'source':{'Hamiltonian':'unchanged N2 PW119 H0+2^-34 T+4N_ref',
                   'reference':'same full30-mode static CAR reference at cell0, one e^c particle after pump',
                   'ground_preparation':'same physical two-copy algebraic ground preparation with all failure outputs',
@@ -301,6 +307,6 @@ def certificate():
 
 
 def validate_pins(saved):
-    for path,expected in saved['source_sha256'].items():
+    for path,expected in bound_pins(saved['source_sha256']).items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=expected:
             raise ValueError('changed source binding: '+path)

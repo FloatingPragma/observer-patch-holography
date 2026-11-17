@@ -7,6 +7,12 @@ from .basis import DIMENSION,metadata
 from .spectrum import sector_certificate
 from .symmetry import certificate_data as symmetry_data
 from .readout import charged_spectroscopy
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[4]
 
@@ -29,8 +35,8 @@ def input_hashes():
         'model/coherent_defect_wave/chiral_joint/two_cell/REFINEMENT_PROOF.md'))
     missing=sorted(p for p in seeds if not (ROOT/p).is_file())
     if missing:raise ValueError('missing periodic-source input: '+', '.join(missing))
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(set(import_closure(seeds))|seeds)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(set(import_closure(seeds))|seeds)})
 
 
 def certificate():
@@ -56,4 +62,4 @@ def certificate():
             'source_only_particle_momentum_or_relativistic_dispersion_proved':False,
             'GeV_masses_or_observed_species_identified':False,
             'interacting_continuum_limit_proved':False},
-        'input_sha256':input_hashes()}
+        'input_sha256':bound_pins(input_hashes())}

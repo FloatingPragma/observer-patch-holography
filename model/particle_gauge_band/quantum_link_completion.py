@@ -16,6 +16,12 @@ import sys
 import time
 
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
@@ -330,7 +336,7 @@ def execute(output_dir=HERE):
                   'sufficient_full_graph_excited_energy_domain': '0 <= epsilon < (64 - 6 sqrt(6))/882'},
               'operator_valued_projector_counterexample': quantum_projection_counterexample(),
               'commuting_coefficient_CAR_control': classical_bogoliubov_countercontrol(),
-              'source_bindings': {name: digest(REPO/name) for name in sorted(set([
+              'source_bindings': bound_pins({name: digest(REPO/name) for name in sorted(set([
                   'model/particle_gauge_band/GAUGE_BAND_PROOF.md',
                   'model/particle_gauge_band/QUANTUM_LINK_PROOF.md',
                   'model/native_quantum_gauss/algebra.py', 'model/native_quantum_gauss/PROOF.md',
@@ -340,7 +346,7 @@ def execute(output_dir=HERE):
                     if getattr(module, '__file__', None)
                     and Path(module.__file__).resolve().is_relative_to(REPO)
                     and not Path(module.__file__).resolve().relative_to(REPO).parts[0].startswith('.')
-                    and Path(module.__file__).suffix == '.py']))},
+                    and Path(module.__file__).suffix == '.py']))}),
               'operator_artifact_sha256': digest(operators_path),
               'execution_complete': True}
     (output_dir/'quantum_link_completion.json').write_text(json.dumps(result, indent=2, sort_keys=True)+'\n')

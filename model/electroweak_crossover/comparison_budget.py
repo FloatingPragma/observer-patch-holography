@@ -13,6 +13,12 @@ import math
 from pathlib import Path
 
 from . import reduction as rd
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 
@@ -230,7 +236,7 @@ def analyse(production, rows, fit_y, finite_size):
         hashes[name] = hashlib.sha256((HERE/name).read_bytes()).hexdigest()
     return {'schema': 'oph.electroweak_comparison_budget.v1',
             'scope': 'Sharp PSD delta-method variance ranges conditional on supplied marginal estimates and serialized numerical influence coefficients; no nonlinear or coverage bound',
-            'data_custody': custody, 'input_sha256': hashes,
+            'data_custody': custody, 'input_sha256': bound_pins(hashes),
             'fit_intercept': {'value_exact': str(intercept), 'weights_exact': list(map(str, weights)),
                 'set_order': keys, 'fit_error_residual_scale': fit_y['error_scale'],
                 'residual_scale_is_a_covariance_measurement': False},

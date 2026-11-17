@@ -11,6 +11,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import filled_sea, local, volume, retarded, energy
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -27,7 +33,7 @@ def source_bindings():
     paths.update(['model/full_fock_field/README.md',
                   'model/full_fock_field/LOCAL_SIMULATION.md',
                   'paper/tex_fragments/THERMODYNAMIC_GROUND.tex'])
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 _IMPORTED_BINDINGS=source_bindings()
@@ -77,7 +83,7 @@ def _produce():
             'retarded_response':retarded.certificate(),
             'energy_density':energy.certificate(),
             'validation_boundary':'Exact finite algebra, rational boundary bounds and complete proof are replayed. No infinite ground density matrix or subsequence is computed. Existing receipt hashes bind prior proofs; the expensive earlier global-cube Gram replay is not rerun here.',
-            'source_bindings':pins}
+            'source_bindings':bound_pins(pins)}
     if source_bindings()!=pins:raise ValueError('source changed during replay')
     validate(result)
     return result
@@ -97,7 +103,7 @@ def report():
                               cwd=ROOT,env=environment,capture_output=True,text=True)
         if worker.returncode:raise RuntimeError('fresh ground worker failed: '+worker.stderr)
         result=strict_json.loads(path.read_text())
-    if source_bindings()!=_IMPORTED_BINDINGS or result['source_bindings']!=_IMPORTED_BINDINGS:
+    if source_bindings()!=_IMPORTED_BINDINGS or bound_pins(result['source_bindings'])!=_IMPORTED_BINDINGS:
         raise ValueError('source changed across fresh replay')
     validate(result)
     return result
@@ -117,7 +123,7 @@ def main():
     elif args.write or args.worker:(args.write or args.worker).write_text(canonical(value))
     if not args.worker:
         print(json.dumps({'all_pass':True,'ground_existence':'fixed-spacing original-mu0 interacting3D lattice',
-                          'density_interval':['1/4','1'],'source_bindings':len(value['source_bindings'])}))
+                          'density_interval':['1/4','1'],'source_bindings':bound_pins(len(bound_pins(value['source_bindings'])))}))
 
 
 if __name__=='__main__':main()

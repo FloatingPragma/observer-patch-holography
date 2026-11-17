@@ -25,6 +25,12 @@ import numpy as np
 
 from . import experiment
 from .field import ScalarField
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 TEMPORAL_PARENT = "code/source_scalar_time_refinement/source_scalar_time_refinement_receipt.json"
 TEMPORAL_SHA = "a7b8c0a8581968494bf67cde2fd854f624829b9fd58e074ed276d3bf5d211467"
@@ -38,7 +44,7 @@ def temporal_source():
     if hashlib.sha256(path.read_bytes()).hexdigest() != TEMPORAL_SHA:
         raise ValueError("Temporal parent receipt changed")
     parent = json.loads(path.read_text())
-    for name, digest in parent["source_pins"].items():
+    for name, digest in bound_pins(parent["source_pins"]).items():
         if hashlib.sha256((experiment.ROOT / name).read_bytes()).hexdigest() != digest:
             raise ValueError(f"Temporal parent source changed: {name}")
     return parent
@@ -241,7 +247,7 @@ def run(trials=experiment.TRIALS, seed=experiment.SEED):
                 "local": finer, "absolute_probability_error": fine_error,
                 "temporal_probability_error_upper": str(Q(bound["temporal_probability_error_upper"])/4)}
     result = {"schema": "oph.observer.scalar_local_evolution.v1",
-              "source_pins": {TEMPORAL_PARENT: TEMPORAL_SHA, **experiment.PINS},
+              "source_pins": bound_pins({TEMPORAL_PARENT: TEMPORAL_SHA, **experiment.PINS}),
               "reference_time": str(REFERENCE_TIME), "locally_executed_grids": list(LOCAL_GRIDS),
               "scope": {
                   "evolution": "three position columns, local seven-point KDK recurrence; all sites and steps executed",

@@ -12,6 +12,12 @@ from model.particle_candidate_charged import model as dressed
 from model.particle_candidate_charged_propagation import model as filtered
 from model.particle_primary_joint_spectroscopy import spectroscopy
 from model.spin_packet_readout.bounds import sqrt_upper
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=(
  'model/particle_candidate_endpoint_threshold/__init__.py',
@@ -249,6 +255,6 @@ def verify_bound(member,value):
 def certificate():
     paths_=provenance.definition_inputs(SOURCE_INPUTS);pins=provenance.definition_hashes(paths_)
     result={'schema':'oph.particle_candidate_endpoint_threshold.v1',
-        'selected_member_bound':bind_member(contract.member(0)),'source_sha256':pins}
+        'selected_member_bound':bind_member(contract.member(0)),'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths_)!=pins:raise ValueError('endpoint response source changed during replay')
     return result

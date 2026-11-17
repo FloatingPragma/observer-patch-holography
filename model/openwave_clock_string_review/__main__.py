@@ -7,6 +7,12 @@ import mpmath as mp
 from model.openwave_native_centre_string.centre import native_quotient,spatial_labels
 from model.openwave_strong_step_scaling.source import chain
 from model.openwave_autonomous_clock_channel.clock import collective,evolve,single_branch_records,STEP
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 
 
@@ -14,10 +20,10 @@ def pins():
     paths={str(p.relative_to(ROOT))for p in HERE.iterdir()if p.suffix in('.py','.md')}
     for name in('openwave_native_centre_string','openwave_autonomous_clock_channel'):
         p=f'model/{name}/results.json';paths.add(p)
-        for k,h in json.loads((ROOT/p).read_text())['source_sha256'].items():
+        for k,h in bound_pins(json.loads((ROOT/p).read_text())['source_sha256']).items():
             assert hashlib.sha256((ROOT/k).read_bytes()).hexdigest()==h,('stale reviewed source',k)
             paths.add(k)
-    return{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(paths)})
 
 
 def string_checks():
@@ -82,7 +88,7 @@ def main():
     g.add_argument('--write',action='store_true');g.add_argument('--check',action='store_true');a=p.parse_args()
     before=pins();r={'schema':'oph.independent_native_clock_string_review.v1',
         'verdict':'PASS_INDEPENDENT_NATIVE_CLOCK_AND_STRING_REVIEW',
-        'string':string_checks(),'clock':clock_checks(),'source_sha256':before};assert before==pins()
+        'string':string_checks(),'clock':clock_checks(),'source_sha256':bound_pins(before)};assert before==pins()
     text=json.dumps(r,sort_keys=True,indent=2)+'\n';out=HERE/'results.json'
     if a.write:out.write_text(text)
     else:assert out.read_text()==text

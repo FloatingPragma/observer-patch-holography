@@ -6,6 +6,12 @@ from pathlib import Path
 
 from model.particle_common_contract.provenance import import_closure
 from .model import calculate, source, PARENT, PARENT_SHA, FINITE_CLOCK_PROOF
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
@@ -40,14 +46,14 @@ def compare_research(value):
 
 def input_hashes():
     parent = source()
-    inherited = dict(parent["input_sha256"])
+    inherited = dict(bound_pins(parent["input_sha256"]))
     inherited[PARENT] = PARENT_SHA
     validate_pins(inherited)
     seeds = {str(path.relative_to(ROOT)) for path in HERE.iterdir() if path.suffix in (".py", ".md")}
     seeds.update(inherited)
     seeds.update({str(REFERENCE.relative_to(ROOT)), FINITE_CLOCK_PROOF, "model/requirements.txt"})
     names = import_closure(seeds)
-    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def certificate():
@@ -55,7 +61,7 @@ def certificate():
     value = copy.deepcopy(calculate())
     comparison = compare_research(value)
     value["schema"] = "oph.affine_gauss_charged_clock.v1"
-    value["input_sha256"] = pins
+    value["input_sha256"] = bound_pins(pins)
     value["independent_research_comparison"] = comparison
     return value
 

@@ -18,6 +18,12 @@ import sympy as sp
 from . import observer, observer_reference, stationary_reference
 from .family import binding
 from ..common_source.native_defect_decision import complete_record_maps
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 HERE = Path(__file__).resolve().parent
@@ -157,7 +163,7 @@ def report():
         "status": "FIXED_REFERENCE_ALGEBRA_IMPLEMENTATION_OBSTRUCTED",
         "full_CP02_gate_accepted": False,
         "whole_program_excluded": False,
-        "source_sha256": {path: hashlib.sha256((ROOT / path).read_bytes()).hexdigest() for path in files},
+        "source_sha256": bound_pins({path: hashlib.sha256((ROOT / path).read_bytes()).hexdigest() for path in files}),
         "nearest_existing_result": "model/native_interface/README.md: the exact reachability boundary and real-effect complex-conjugation control",
         "addition": "Attach that real-operation invariant to unequal weights of the actual CP01 full-record stationary references and obtain an exact1/2 implementation-error witness for their nontrivial modular action on the fixed support algebra.",
         "primitive_certificate": real_primitive_certificate(),

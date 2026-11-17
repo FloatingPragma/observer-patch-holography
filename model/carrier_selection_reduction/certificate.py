@@ -13,6 +13,12 @@ import json
 from pathlib import Path
 
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -291,9 +297,9 @@ def build_certificate():
             'complete_sign_classification': sign_classification(),
             'stable_incidence_exact_bounds': stability_arithmetic(),
             'premise_controls': control_certificates(),
-            'source_sha256': {
+            'source_sha256': bound_pins({
                 str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
-                for path in (HERE/'certificate.py', HERE/'PROOF.md')}}
+                for path in (HERE/'certificate.py', HERE/'PROOF.md')})}
 
 
 def main():

@@ -1,6 +1,12 @@
 """Exact root, full-source residual and refined charge-selection receipt."""
 from pathlib import Path
 import hashlib,json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 from . import bounds as b
@@ -18,12 +24,12 @@ def validate(pins):
 
 def raw_certificate():
     if digest(ROOT/PARENT)!=PARENT_SHA:raise ValueError('frozen native join changed')
-    parent=json.loads((ROOT/PARENT).read_text());validate(parent['input_sha256'])
+    parent=json.loads((ROOT/PARENT).read_text());validate(bound_pins(parent['input_sha256']))
     from model.native_abelian_field_join.certificate import certificate as replay_join
     if replay_join()!=parent:raise ValueError('fresh native source/reference/G1 replay differs')
-    value=b.calculate();pins=dict(parent['input_sha256']);pins[PARENT]=PARENT_SHA
-    value['input_sha256']=dict(sorted(pins.items()))
-    value['owned_source_sha256']={p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    value=b.calculate();pins=dict(bound_pins(parent['input_sha256']));pins[PARENT]=PARENT_SHA
+    value['input_sha256']=bound_pins(dict(sorted(pins.items())))
+    value['owned_source_sha256']=bound_pins({p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})
     value['fresh_replay']={'full_native_reference_Gauss_and_G1_source':True,
       'actual_local_CAR_target_annihilator_and_positive_weights':True,
       'neutral_and_all9_charged_roots_refined_exactly':True,
@@ -36,7 +42,7 @@ REFERENCE_SHA='9a88dc18a69a9d12eb7058d1bd62b42f015f7e0531147d3a885e82559ab6a086'
 def compare_research(value):
     path=HERE/'research_reference.json'
     if digest(path)!=REFERENCE_SHA:raise ValueError('immutable resolution research receipt changed')
-    old=json.loads(path.read_text());validate(old['input_sha256'])
+    old=json.loads(path.read_text());validate(bound_pins(old['input_sha256']))
     ignored={'schema','input_sha256','owned_source_sha256'}
     if {k:v for k,v in old.items() if k not in ignored}!={k:v for k,v in value.items() if k not in ignored}:
         raise ValueError('fresh resolution science differs from research result')
@@ -50,7 +56,7 @@ def certificate():
     seeds={p.relative_to(ROOT).as_posix() for p in HERE.iterdir() if p.suffix in ('.py','.md')}
     seeds.add((HERE/'research_reference.json').relative_to(ROOT).as_posix())
     for relative in import_closure(seeds):value['input_sha256'][relative]=digest(ROOT/relative)
-    value['input_sha256']=dict(sorted(value['input_sha256'].items()))
+    value['input_sha256']=bound_pins(dict(sorted(bound_pins(value['input_sha256']).items())))
     value['independent_research_comparison']=comparison
     value['construction_scope']={'readout_source':'original full native h plus full30-mode static CAR reference with energy4N',
       'outer_affine_coupled_H_is_the_readout_source':False,

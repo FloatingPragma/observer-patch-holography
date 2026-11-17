@@ -11,6 +11,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import response, bounds, static, spectrum
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -29,7 +35,7 @@ def source_bindings():
                   'model/observer_particles/geometric_matter_join.py',
                   'model/relative_observer_geometry/intrinsic_geometry.py',
                   'Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean'])
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def prior_certificates():
@@ -37,7 +43,7 @@ def prior_certificates():
     for package in ('interacting_vacuum','thermodynamic_ground'):
         prior=strict_json.loads((ROOT/'model'/package/'results.json').read_text())
         if prior.get('all_pass') is not True:raise ValueError('prior proof did not pass')
-        for path,digest in prior['source_bindings'].items():
+        for path,digest in bound_pins(prior['source_bindings']).items():
             if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=digest:
                 raise ValueError('prior proof source changed: '+path)
         if package=='interacting_vacuum':
@@ -101,7 +107,7 @@ def _produce():
                'fundamental_metric_register_update_required':False,
                'EinsteinRegisterData_inhabitant_from_this_package':False},
            'validation_boundary':'Exact source identities, all78 local spectral lines and rational error bounds are replayed. Numerical linear solves and spectral brackets are proposals; integer residuals, exact annihilation/rank and interval residues admit the results. Prior source hashes authenticate the global gap; its costly Gram solve is not repeated. No infinite response values, metric or native detector history are computed.',
-           'source_bindings':pins}
+           'source_bindings':bound_pins(pins)}
     if source_bindings()!=pins:raise ValueError('source changed during response replay')
     validate(value)
     return value
@@ -118,7 +124,7 @@ def report():
                               cwd=ROOT,env=environment,capture_output=True,text=True)
         if worker.returncode:raise RuntimeError('fresh response worker failed: '+worker.stderr)
         result=strict_json.loads(path.read_text())
-    if source_bindings()!=pins or result['source_bindings']!=pins:
+    if source_bindings()!=pins or bound_pins(result['source_bindings'])!=pins:
         raise ValueError('source changed across fresh response replay')
     validate(result)
     return result
@@ -142,7 +148,7 @@ def main():
         print(json.dumps({'all_pass':True,'source_response_channels':4,
                           'resolved_local_lines':78,
                           'ground_down_memory_Gram':'I/4',
-                          'source_bindings':len(value['source_bindings'])}))
+                          'source_bindings':bound_pins(len(bound_pins(value['source_bindings'])))}))
 
 
 if __name__=='__main__':main()

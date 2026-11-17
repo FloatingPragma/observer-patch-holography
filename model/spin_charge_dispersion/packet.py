@@ -8,6 +8,12 @@ from tools import strict_json
 from model.spin_dynamical_memory import packet as memory_packet
 from model.protected_defect_catalog import field
 from . import bounds, dimer, finite, order
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -41,7 +47,7 @@ def bindings():
 
 def build():
     before = bindings()
-    value = {'schema': 'oph.spin_charge_dispersion.v1', 'source_bindings': before,
+    value = {'schema': 'oph.spin_charge_dispersion.v1', 'source_bindings': bound_pins(before),
         'actual_configuration_charge': field.configuration_charge(),
         'stronger_rigorous_source_order': order.certificate(),
         'source_dimer_energy_and_current_bound': dimer.certificate(),

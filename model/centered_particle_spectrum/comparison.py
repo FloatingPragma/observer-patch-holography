@@ -2,6 +2,12 @@
 from pathlib import Path
 from fractions import Fraction as F
 import hashlib,json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 TARGET='model/particle_species_detector/physical_targets.json'
@@ -35,7 +41,7 @@ def certificate(spectrum):
         comparisons.append({'light':'electron','heavy':row['name'],'target_ratio_lower':str(ratio),
                             'source_ratio_upper':str(hi/lo),'relative_error_lower':str(bound),
                             'relative_error_diagnostic':float(bound),'exact_assignment_possible':False,
-                            'sources':[leptons[0]['source'],row['source']]})
+                            'sources':bound_pins([leptons[0]['source'],row['source']])})
     return {'dictionary':'Assign any distinct visible centered-cube positive CAR excitation gaps to charged-lepton rest energies using one positive multiplicative scale, without an additive offset.',
             'status':'retrospective fixed-fixture conditional dictionary exclusion',
             'source_energy_envelope':[str(lo),str(hi)],'source_ratio_strict_upper':'11',

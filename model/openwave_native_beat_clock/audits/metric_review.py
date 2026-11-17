@@ -10,6 +10,12 @@ import sympy as s
 from scipy.linalg import eigh,expm
 from scipy.sparse import diags,eye,kron
 from scipy.sparse.linalg import cg
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 PACKAGE=ROOT/'model/openwave_metric_observables'
@@ -17,7 +23,7 @@ PACKAGE=ROOT/'model/openwave_metric_observables'
 
 def run():
     saved=json.loads((PACKAGE/'results.json').read_text())
-    for path,digest in saved['input_sha256'].items():
+    for path,digest in bound_pins(saved['input_sha256']).items():
         assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==digest,path
     mp.mp.dps=85
     number=lambda x:mp.mpf(F(x).numerator)/F(x).denominator
@@ -116,7 +122,7 @@ def run():
             'independent_complete_field_evolution_cases':6,
             'independent_Christoffel_curvature_and_nonzero_vacuum_residual':True,
             'scope':'Declared static geometry and separate finite scalar field. Fixed-coordinate native clocks fail a common lapse ratio; no same-proper-device or physical Einstein/light transfer is asserted.',
-            'reviewed_sha256':{str((PACKAGE/name).relative_to(ROOT)):hashlib.sha256((PACKAGE/name).read_bytes()).hexdigest()for name in ('geometry.py','clocks.py','waves.py','PROOF.md','results.json')}}
+            'reviewed_sha256':bound_pins({str((PACKAGE/name).relative_to(ROOT)):hashlib.sha256((PACKAGE/name).read_bytes()).hexdigest()for name in ('geometry.py','clocks.py','waves.py','PROOF.md','results.json')})}
 
 
 if __name__=='__main__':

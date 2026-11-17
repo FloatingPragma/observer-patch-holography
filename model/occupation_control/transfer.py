@@ -22,6 +22,12 @@ from model.anharmonic_transfer.experiment import _configuration
 from . import intervals as iv
 from .__main__ import compare as numerical_compare
 from .experiment import PARAMETERS, CASES, run
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 FOLDER = Path(__file__).resolve().parent
@@ -124,8 +130,8 @@ def seal_runs(runs):
             row['trace_aware_readout'] = trace_aware_readout(row)
     prediction = {'schema': 'oph.occupation_control.transfer_prediction.v1',
                   'settings': settings(),
-                  'source_bindings': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-                                      for name in SOURCE_PATHS},
+                  'source_bindings': bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+                                      for name in SOURCE_PATHS}),
                   'runs': runs}
     prediction['seal'] = digest(prediction)
     validate_prediction(prediction)
@@ -159,8 +165,8 @@ def validate_prediction(prediction):
         raise ValueError('Prediction seal changed before comparison')
     if digest(prediction['settings']) != digest(settings()):
         raise ValueError('Fixed transfer settings changed')
-    bindings = {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_PATHS}
-    if prediction['source_bindings'] != bindings:
+    bindings = bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_PATHS})
+    if bound_pins(prediction['source_bindings']) != bindings:
         raise ValueError('Certificate source bindings changed')
     if [r['case'] for r in prediction['runs']] != list(CASES_ORDER):
         raise ValueError('All five cases in their fixed order are required')

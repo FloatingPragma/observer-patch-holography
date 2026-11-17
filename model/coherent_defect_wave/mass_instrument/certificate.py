@@ -4,6 +4,12 @@ from pathlib import Path
 
 from model.particle_common_contract.provenance import import_closure
 from .model import certificate as calculate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 
@@ -17,6 +23,6 @@ def certificate():
                   'model/requirements.txt'))
     names=import_closure(paths)
     value=calculate()
-    value['input_sha256']={name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-                           for name in sorted(names) if (ROOT/name).is_file()}
+    value['input_sha256']=bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+                           for name in sorted(names) if (ROOT/name).is_file()})
     return value

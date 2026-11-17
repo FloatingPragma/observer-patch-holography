@@ -8,6 +8,12 @@ import json
 from fractions import Fraction as F
 from pathlib import Path
 from model.spin_shell_readout.threshold import bracket,non_atomic_control
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[4]
 SOURCE=ROOT/'model/coherent_defect_wave/chiral_joint/two_cell/results.json'
@@ -17,7 +23,7 @@ def source_receipt():
     result=json.loads(SOURCE.read_text())
     if result['schema']!='oph.coherent_defect_wave.chiral_joint.two_cell.v1':
         raise ValueError('wrong physical source receipt')
-    for name,digest in result['input_sha256'].items():
+    for name,digest in bound_pins(result['input_sha256']).items():
         path=(ROOT/name).resolve()
         if not path.is_relative_to(ROOT) or hashlib.sha256(path.read_bytes()).hexdigest()!=digest:
             raise ValueError('stale physical source input: '+name)

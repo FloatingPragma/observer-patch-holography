@@ -7,6 +7,12 @@ import json
 
 from tools import strict_json
 from . import algebra, readout
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -54,7 +60,7 @@ def bindings():
                 target=importlib.util.resolve_name(target,package) if node.level else target
                 add(target)
                 for alias in node.names:add(target+'.'+alias.name)
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(names)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(names)})
 
 
 def declared_inputs():
@@ -86,7 +92,7 @@ def canonical(value):
 
 def build():
     before=bindings()
-    result={'schema':'oph.source_strong_coupling.v1','source_bindings':before,
+    result={'schema':'oph.source_strong_coupling.v1','source_bindings':bound_pins(before),
             'native_color_and_electric_action':algebra.source_certificate(),
             'complete_two_time_readout':readout.witness(),
             'inherited_input_boundary':declared_inputs(),

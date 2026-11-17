@@ -16,6 +16,12 @@ import numpy as np
 
 from ..local_repair_family import inference, local_bias as local, mixing, modular_clock
 from ..observer import record_recovery as records
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -243,7 +249,7 @@ def source_bindings():
              'model/local_repair_family/record_clock_results.json',
              'model/local_repair_family/record_clock_campaign.json',
              'model/observer/native.py', 'model/observer/record_recovery.py']
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})
 
 
 def report():
@@ -259,7 +265,7 @@ def report():
     if error > float(learned['parent_operator_error_upper']):
         raise ArithmeticError('retained parent estimate exceeds its rational bound')
     return _json({'schema': 'oph.record_action.v1', 'issue': 1140, 'gate': 'CP-04',
-                  'working_baseline': BASELINE, 'source_sha256': source_bindings(),
+                  'working_baseline': BASELINE, 'source_sha256': bound_pins(source_bindings()),
                   'native_binding': native_binding(p), 'parent': parent_diagnostics(p),
                   'inferred_parent': learned, 'retained_sample_operator_error_diagnostic': error,
                   'input_custody': {'uses_pinned_existing_acquisition': True,

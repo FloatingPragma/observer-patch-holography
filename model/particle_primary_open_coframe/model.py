@@ -10,6 +10,12 @@ from model.particle_geometric_response import geometry
 from model.particle_local_wilson_density import density
 from model.particle_primary_gravity_premises import model as modular
 from model.particle_spatial_ground_state import ground
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS = (
     'model/particle_primary_open_coframe/__init__.py',
@@ -189,7 +195,7 @@ def verify_bound(member,value):
 def certificate():
     paths=provenance.definition_inputs(SOURCE_INPUTS);pins=provenance.definition_hashes(paths)
     result={'schema':'oph.primary_open_coframe.v1','members':[bind_member(contract.member(n)) for n in (0,1,2)],
-            'flat_control':flat_control(),'source_sha256':pins}
+            'flat_control':flat_control(),'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:
         raise ValueError('coframe inputs changed during replay')
     return result

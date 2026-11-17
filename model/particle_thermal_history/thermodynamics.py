@@ -16,6 +16,12 @@ from scipy.integrate import quad
 from scipy.special import kv,zeta
 
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -30,13 +36,13 @@ def bindings():
     paths.update({'model/conditional_particle_spectrum/results.json','model/conditional_particle_spectrum/PROOF.md',
         'model/conditional_particle_spectrum/source.py','model/conditional_particle_spectrum/readout.py',
         'model/common_source/calibrated_matter_results.json','model/native_abundance_epochs/species_identifiability.py'})
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(paths))}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(paths))})
 
 
 @lru_cache(maxsize=1)
 def parent():
     value=json.loads(PARENT.read_text())
-    for name,digest in value['input_sha256'].items():
+    for name,digest in bound_pins(value['input_sha256']).items():
         if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:
             raise ValueError('calibrated spectrum source changed: '+name)
     return value
@@ -246,7 +252,7 @@ def calculate():
         stable_causal_ideal_gas=all(0<r['sound_speed_squared']<=1/3+1e-12 for r in rows))
     if not all(checks.values()):raise ArithmeticError('thermal history comparison failed')
     if pins!=bindings():raise ArithmeticError('thermal sources changed during calculation')
-    return dict(schema='oph.particle_thermal_history.v1',all_checks_pass=True,source_bindings=pins,
+    return dict(schema='oph.particle_thermal_history.v1',all_checks_pass=True,source_bindings=bound_pins(pins),
         construction=dict(source='calibrated17-species quadratic menu; actual finite cap retained separately',
             continuum_extension='independent free Fock occupations on R3 momentum, thermodynamic volume limit, no zero-mode condensate',
             temperature='supplied common GeV temperature',chemical_potentials='all zero',

@@ -9,6 +9,12 @@ import numpy as np
 from scipy import linalg as la
 from model.compact_defect_pair.spectral import SIGMA
 from model.compact_defect_pair.topology import direction
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -145,14 +151,14 @@ def calculate():
             'GeV_calibration': None,
             'numerical_secants_are_certified_curvature_intervals': False,
             'claim': 'anisotropic nearly flat defect bands; no shared relativistic rest interpretation from Gamma energies'},
-        'source_bindings': bindings()}
+        'source_bindings': bound_pins(bindings())}
 
 
 def bindings():
     names = ['model/defect_dispersion/dispersion.py', 'model/defect_dispersion/PROOF.md',
              'model/compact_defect_pair/spectral.py', 'model/compact_defect_pair/topology.py',
              'model/lattice_texture_selection/shells.py']
-    return {n: hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in names}
+    return bound_pins({n: hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in names})
 
 
 def compare(a, b):

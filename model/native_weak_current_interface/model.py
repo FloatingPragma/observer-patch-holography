@@ -6,6 +6,12 @@ import json
 from pathlib import Path
 import sys
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -152,10 +158,10 @@ def dressed_weak_density():
 
 def calculate():
     if digest(ROOT/JOIN) != JOIN_SHA: raise ValueError('the same-native-H Higgs source changed')
-    parent = json.loads((ROOT/JOIN).read_text()); join.validate(parent['input_sha256'])
+    parent = json.loads((ROOT/JOIN).read_text()); join.validate(bound_pins(parent['input_sha256']))
     if join.certificate() != parent: raise ValueError('fresh same-source Higgs result differs')
     saved_map = json.loads((ROOT/MAP).read_text())
-    join.validate(saved_map['input_sha256'])
+    join.validate(bound_pins(saved_map['input_sha256']))
     current_map = fields.certificate()
     if current_map != {k:v for k,v in saved_map.items() if k != 'input_sha256'}:
         raise ValueError('the actual complete current-map producer differs')
@@ -177,7 +183,7 @@ def calculate():
 
 def certificate():
     result = calculate(); parent = json.loads((ROOT/JOIN).read_text()); mapping = json.loads((ROOT/MAP).read_text())
-    seeds = set(parent['input_sha256'])|set(mapping['input_sha256'])|{JOIN, MAP,
+    seeds = set(bound_pins(parent['input_sha256']))|set(bound_pins(mapping['input_sha256']))|{JOIN, MAP,
         'model/coherent_defect_wave/chiral_particle_map/PROOF.md',
         'model/coherent_defect_wave/chiral_source/PROOF.md',
         'model/coherent_defect_wave/chiral_joint/PROOF.md',
@@ -187,8 +193,8 @@ def certificate():
     seeds.update(str(path.relative_to(ROOT)) for path in HERE.iterdir() if path.suffix in ('.py','.md'))
     seeds.add(str(RESEARCH.relative_to(ROOT)))
     result.update({'schema': 'oph.native_weak_current_interface.v1',
-        'input_sha256': {name:digest(ROOT/name) for name in sorted(import_closure(seeds))},
-        'local_sha256': {p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}})
+        'input_sha256': bound_pins({name:digest(ROOT/name) for name in sorted(import_closure(seeds))}),
+        'local_sha256': bound_pins({p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})})
     if digest(RESEARCH)!=RESEARCH_SHA:raise ValueError('the immutable weak-current source calculation changed')
     ignored={'schema','input_sha256','local_sha256'}
     science=lambda value:{key:item for key,item in value.items() if key not in ignored}
@@ -205,7 +211,7 @@ def main():
     mode.add_argument('--write',action='store_true');mode.add_argument('--check',action='store_true')
     args=parser.parse_args(); path=HERE/'results.json'
     if args.check:
-        saved=json.loads(path.read_text());join.validate(saved['input_sha256'])
+        saved=json.loads(path.read_text());join.validate(bound_pins(saved['input_sha256']))
         for name,value in saved['local_sha256'].items():
             if digest(HERE/name)!=value:raise ValueError('local source custody differs')
     actual=certificate()

@@ -9,6 +9,12 @@ import json
 from pathlib import Path
 
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PATH = Path('model/completion/finite_observable_campaign.json')
@@ -49,7 +55,7 @@ def validate_family(packet, root, *, path, campaign, components, issues, owners,
     require(type(rows) is list and all(type(r) is dict for r in rows)
             and [r.get('id') for r in rows] == list(components),
             'missing or duplicated component')
-    bindings = packet['source_bindings']
+    bindings = bound_pins(packet['source_bindings'])
     require(type(bindings) is dict and bindings, 'missing source custody')
 
     def check_file(name, expected):
@@ -90,12 +96,12 @@ def validate_family(packet, root, *, path, campaign, components, issues, owners,
         evidence = set(source['witnesses'] + source['countercontrols'])
         required_sources.update(evidence)
         require(evidence <= set(bindings) and all(
-            bindings[p] == finite['source_bindings'].get(p) for p in evidence),
+            bindings[p] == bound_pins(finite['source_bindings']).get(p) for p in evidence),
             'missing or conflicting reviewed evidence')
         receipt_path = f'model/{name}/results.json'
         require(receipt_path in evidence, 'missing component receipt')
         receipt = strict_json.load(root/receipt_path)
-        dependencies = receipt.get('source_bindings', receipt.get('source_sha256'))
+        dependencies = bound_pins(receipt.get('source_bindings', bound_pins(receipt.get('source_sha256'))))
         require(type(dependencies) is dict and dependencies, 'missing receipt dependencies')
         for dependency, digest in dependencies.items():
             check_file(dependency, digest)

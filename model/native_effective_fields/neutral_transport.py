@@ -23,6 +23,12 @@ from ..native_quantum_history import construction as history
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from ..primitive_observer import runtime
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(sorted(set((*stopped.SOURCE_PATHS,
@@ -278,7 +284,7 @@ def discrimination(sources):
 def run():
     sources = {law: stopped.source(law) for law in ('C', 'E')}
     return {'schema': 'oph.native_neutral_transport.v1', 'all_pass': True,
-        'sources': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+        'sources': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
         'exact_source_attachment': exact_audit(),
         'first_tick_predictions': [first_tick_predictions(s) for s in sources.values()],
         'candidate_discrimination': discrimination(sources),

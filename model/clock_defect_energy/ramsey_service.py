@@ -21,6 +21,12 @@ from model.observer import coherent_continuation as wave
 from model.observer.source_scalar import compiler as c
 from . import clock_services, continuation, joint_clock
 from .joins_contract import source_bindings, check_receipt
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
@@ -315,7 +321,7 @@ def _clock_budget():
     # independent tests and retained source-word certificate dependencies.
     from tools import strict_json
     receipt = strict_json.load(HERE/'joint_clock_results.json')
-    for path, digest in receipt['source_sha256'].items():
+    for path, digest in bound_pins(receipt['source_sha256']).items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != digest:
             raise ValueError('predecessor joint-clock source binding changed')
     return receipt['source_and_service_budget']
@@ -434,7 +440,7 @@ def run():
         cases.append({'ticks': n, 'budget': budget(n), 'complete_raw_output_error_within_bound': True})
     word = expanded_word(_program()['walk'])
     paths = set(wave.SOURCE_PATHS) | set(joint_clock.clock.transport.source_bindings())
-    paths.update(json.loads((HERE/'clock_services_results.json').read_text())['source_sha256'])
+    paths.update(bound_pins(json.loads((HERE/'clock_services_results.json').read_text())['source_sha256']))
     paths.update({'model/clock_defect_energy/ramsey_campaign.json',
                   'model/clock_defect_energy/ramsey_service.py',
                   'model/clock_defect_energy/test_ramsey_service.py',
@@ -479,7 +485,7 @@ def run():
             'predecessor_clock_bound_reuse': 'hash-verified joint_clock receipt; actual clock arrays execute, inherited exact native/probe certificates are not re-proved',
             'density_sector_intertwiner': wave.density_sector_audit(),
             'physical_seconds_calibrated': False, 'full_3960_arc_unitary_compiled': False,
-            'integrated_cp02_accepted': False, 'source_sha256': source_bindings(paths)}
+            'integrated_cp02_accepted': False, 'source_sha256': bound_pins(source_bindings(paths))}
 
 
 def main():

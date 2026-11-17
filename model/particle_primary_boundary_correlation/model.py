@@ -8,6 +8,12 @@ from model.particle_common_contract import contract, provenance
 from model.particle_primary_boundary_information import model as information
 from model.particle_primary_geometric_cut import model as cut
 from model.particle_primary_gravity_premises import model as modular
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=tuple('model/particle_primary_boundary_correlation/'+name for name in
     ('__init__.py','__main__.py','model.py','test_model.py','PROOF.md','README.md'))+(
@@ -166,6 +172,6 @@ def certificate():
     value={'schema':'oph.primary_boundary_correlation_certificate.v1',
         'noninteracting_polynomial_control':noninteracting_control(),
         'members':[bind_member(contract.member(n)) for n in (0,1,2,8)],
-        'source_sha256':pins}
+        'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('boundary correlation source changed')
     return value

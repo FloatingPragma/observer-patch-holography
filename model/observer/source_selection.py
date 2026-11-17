@@ -21,6 +21,12 @@ from tools import strict_json
 from .source_discrimination import circuit
 from .source_scalar import compiler
 from .scalar_response.experiment import canonical, compare_receipt
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -249,7 +255,7 @@ def run():
         laws[law] = {'complete_committed_map_audit': _committed_audit(law),
                      'runs': runs, 'resources_per_attempt': resources(law)}
     return {'schema': 'oph.observer.source_selection.v1',
-            'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
+            'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
             'laws': laws,
             'contract': {'seam': [0, 1], 'preparation': '(|native code 1>+|native code 2>)/sqrt(2)',
                          'phase': 'source Z(pi/2) and I(-pi/2) on the low unread record bit; both angles zero in control',

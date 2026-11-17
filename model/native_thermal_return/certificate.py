@@ -20,6 +20,12 @@ from tools import strict_json
 from ..native_clock import configuration as census
 from ..observer_time_fields import core, thermal
 from ..record_laws import burn_in
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -309,10 +315,10 @@ def inherited_pins():
                     'model/observer_time_fields/thermal_results.json',
                     'model/record_laws/burn_in_results.json'):
         stored = strict_json.load(ROOT/receipt)
-        for path, expected in stored['source_sha256'].items():
+        for path, expected in bound_pins(stored['source_sha256']).items():
             require(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == expected,
                     f'inherited source binding changed: {path}')
-        results[receipt] = len(stored['source_sha256'])
+        results[receipt] = len(bound_pins(stored['source_sha256']))
     return results
 
 
@@ -383,7 +389,7 @@ def report():
                   'native_quantum_Gibbs_state_prepared': False,
                   'full_complex_effect_quotient_derived': False,
                   'physical_energy_temperature_or_time_units_derived': False},
-        'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in paths}})
+        'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in paths})})
 
 
 def main():

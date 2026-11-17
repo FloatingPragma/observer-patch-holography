@@ -5,6 +5,12 @@ import json
 from pathlib import Path
 from tools import strict_json
 from . import algebra, bounds, controls
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -31,7 +37,7 @@ def source_bindings():
         'Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean',
         'Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean',
     })
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def theorem():
@@ -70,7 +76,7 @@ def validate(value):
     if value.get('new_checks_pass') is not True or value.get('full_repository_replay_performed') is not False:
         raise ArithmeticError('unperformed check cannot be promoted')
     expected={'theorem':theorem(),'bounds':bounds.certificate(),'algebra':algebra.certificate(),
-              'controls':controls.certificate(),'custody':custody(),'source_bindings':source_bindings()}
+              'controls':controls.certificate(),'custody':custody(),'source_bindings':bound_pins(source_bindings())}
     for key,item in expected.items():
         if canonical(value.get(key))!=canonical(item):
             raise ArithmeticError('entropy-response certificate differs: '+key)
@@ -81,7 +87,7 @@ def build():
     result={'schema':'oph.shell_entropy_response.v1','finite_attachment':'FA106','new_checks_pass':True,
             'full_repository_replay_performed':False,'theorem':theorem(),'bounds':bounds.certificate(),
             'algebra':algebra.certificate(),'controls':controls.certificate(),'custody':custody(),
-            'source_bindings':pins}
+            'source_bindings':bound_pins(pins)}
     if source_bindings()!=pins:raise ArithmeticError('source changed during replay')
     validate(result)
     return result

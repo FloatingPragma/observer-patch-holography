@@ -14,6 +14,12 @@ from model.openwave_intrinsic_magnetic.solver import dirac,GAMMA,BETA,SIGMA
 from model.openwave_intrinsic_magnetic.solver import geometry
 from model.openwave_larmor_dynamics.dynamics import field_minimizer
 from model.openwave_field_observables.lattice import curl,curl_adjoint
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
@@ -140,7 +146,7 @@ def run():
     assert scaled<1e-8 and mutation>.03 and la.norm(field.reshape(-1))>0
     assert np.max(abs(dipole-stationary['actual_intrinsic_current_moment']))<1e-12
     paths=set(TARGET.glob('*.py'))|set(TARGET.glob('*.md'))|{TARGET/'results.json'}|set((TARGET/'witnesses').glob('*.npz'))
-    paths.update(ROOT/name for name in json.loads((TARGET/'results.json').read_text())['input_sha256'])
+    paths.update(ROOT/name for name in bound_pins(json.loads((TARGET/'results.json').read_text())['input_sha256']))
     return {'schema':'oph.magnetic_refinement.independent_review.v1',
         'full_19652_row_analytic_residuals':analytic,'analytic_precision_digits':95,
         'independent_exact_characteristic_minor_Sturm_counts':8,'phase_Taylor_controls':tails,
@@ -151,7 +157,7 @@ def run():
         'same_member_zero_field_mutation_scaled_residual':float(mutation),
         'finite_g_interval':[str(lo),str(hi)],
         'source_scope':'Declared finite positive Dirac kernel, confinement and unique quasistatic mean field. Static residuals do not identify a global matter minimizer; the dynamic g interval is finite-duration, with supplied mass/coupling and no continuum or arbitrary-reference nonlinear channel claim.',
-        'input_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)},
+        'input_sha256':bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}),
         'verdict':'PASS'}
 
 

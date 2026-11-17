@@ -8,6 +8,12 @@ import sympy as s
 from model.particle_common_contract import contract, provenance
 from model.particle_physical_boundary_state import boundary
 from model.native_quantum_gauss import algebra as native
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_INPUTS = (
@@ -97,7 +103,7 @@ def certificate():
               'members': [member_capacity(contract.member(n)) for n in range(6)],
               'capacity_one_trillion_nats_selected': False,
               'mass_observables_must_retain_refinement_and_unit_provenance': True,
-              'input_sha256': pins}
+              'input_sha256': bound_pins(pins)}
     if provenance.definition_hashes(paths) != pins:
         raise ValueError('capacity source changed during replay')
     return result

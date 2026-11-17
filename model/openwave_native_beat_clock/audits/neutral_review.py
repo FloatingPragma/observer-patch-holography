@@ -7,6 +7,12 @@ import hashlib
 import json
 import random
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 PACKAGE=ROOT/'model/openwave_neutral_candidate'
@@ -14,7 +20,7 @@ PACKAGE=ROOT/'model/openwave_neutral_candidate'
 
 def run():
     saved=json.loads((PACKAGE/'results.json').read_text())
-    for path,digest in saved['input_sha256'].items():
+    for path,digest in bound_pins(saved['input_sha256']).items():
         assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==digest,path
     from model.coherent_defect_wave.chiral_joint.periodic_family.model import Configuration,kinetic_terms,cells,cell_index,shift_cell
     from model.coherent_defect_wave.chiral_joint.peter_weyl_links import model as native
@@ -136,7 +142,7 @@ def run():
             'K2_transfer_reason':'Complete H0 preserves every nonblank edge support; cross-edge resolvent contractions vanish and equal-edge seam signs square to one.',
             'nonzero_zero_momentum_trial_reason':'Native charge patterns distinguish the eight translated localized vectors; their signed CAR orbit gives exactly1/8 projection success.',
             'scope':'Original odd sector lacks zero source momentum. A separately declared periodic boundary has a protected positive zero-momentum threshold, not a known relativistic particle mass.',
-            'reviewed_sha256':{str((PACKAGE/name).relative_to(ROOT)):hashlib.sha256((PACKAGE/name).read_bytes()).hexdigest()for name in ('source.py','threshold.py','PROOF.md','results.json')}}
+            'reviewed_sha256':bound_pins({str((PACKAGE/name).relative_to(ROOT)):hashlib.sha256((PACKAGE/name).read_bytes()).hexdigest()for name in ('source.py','threshold.py','PROOF.md','results.json')})}
 
 
 if __name__=='__main__':

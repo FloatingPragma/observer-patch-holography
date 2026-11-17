@@ -6,6 +6,12 @@ import hashlib
 import json
 import sympy as s
 from .calibration import Anchor, common_scale, convert_energy, ratio, strings
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -134,7 +140,7 @@ def build():
         'scope':{'all_target_species_accounted_for':True,'all_physical_masses_derived':False,
             'all_native_manybody_eigenvalues_computed':False,'per_species_GeV_fit':False,
             'single_source_SM_spectrum_established':False},
-        'source_bindings':bindings()}
+        'source_bindings':bound_pins(bindings())}
 
 
 def bindings():
@@ -142,7 +148,7 @@ def bindings():
            'model/defect_mass_catalogue/PROOF.md','model/lepton_cycle/physical_comparison.json',
            'model/common_source/calibrated_matter_results.json','model/native_quark_response/results.json',
            'model/defect_mass_join/results.json','model/defect_scalar_modes/results.json','model/defect_family_vertices/results.json']
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})
 
 
 def main():

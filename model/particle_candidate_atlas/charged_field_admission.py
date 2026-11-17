@@ -15,6 +15,12 @@ from model.standard_model_source_map import feedback_limit as feedback
 from model.standard_model_source_map import algebra as source_algebra
 from model.standard_model_source_map import fermion_attachment
 from model.charged_lepton_response import relativistic_mass
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(matter.__file__).resolve().parents[2]
 SOURCE_INPUTS=(
@@ -39,13 +45,13 @@ def rational(value):
 def authenticated_parent():
     path=ROOT/'model/standard_model_source_map/particle_map.json'
     raw=path.read_bytes();parent=json.loads(raw)
-    for name,digest in parent['source_bindings'].items():
+    for name,digest in bound_pins(parent['source_bindings']).items():
         if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:
             raise ValueError('parent source pin differs: '+name)
     if parent['source_weights']!=list(source_algebra.source_components()):
         raise ValueError('parent occupation order or current weights differ')
     return parent,{'path':str(path.relative_to(ROOT)),'sha256':hashlib.sha256(raw).hexdigest(),
-                   'source_pin_count':len(parent['source_bindings'])}
+                   'source_pin_count':len(bound_pins(parent['source_bindings']))}
 
 def clean(a):
     return s.ImmutableSparseMatrix(s.Matrix(a).applyfunc(lambda x:s.factor(s.radsimp(s.expand(x)))))

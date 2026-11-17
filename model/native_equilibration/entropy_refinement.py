@@ -43,6 +43,12 @@ from math import comb
 from pathlib import Path
 
 from . import construction as mixing
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 OUTPUT = HERE / "entropy_results.json"
@@ -146,8 +152,8 @@ def run():
         rows.append({"particles": particles, "dimension": "binomial(V,k)",
                      **cert, **budget})
     return {"schema": "oph.native_equilibration.entropy_refinement.v1",
-            "source_sha256": {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-                              for name in SOURCE_PATHS},
+            "source_sha256": bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+                              for name in SOURCE_PATHS}),
             "retained_actual_screen_certificates": rows,
             "allocation_free_level_five_budget": screen_family_budget(5),
             "theorem": {

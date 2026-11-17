@@ -2,6 +2,12 @@
 from fractions import Fraction as F
 from pathlib import Path
 import hashlib,json,sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent
 RER = HERE.parents[2]
 from model.native_wilson_maxwell import field
@@ -20,7 +26,7 @@ def admit():
     p=RER/PARENT
     assert hashlib.sha256(p.read_bytes()).hexdigest()==PARENT_SHA
     data=json.loads(p.read_text())
-    for name,h in data['input_sha256'].items():
+    for name,h in bound_pins(data['input_sha256']).items():
         assert hashlib.sha256((RER/name).read_bytes()).hexdigest()==h,name
     return data
 

@@ -8,6 +8,12 @@ from pathlib import Path
 import model
 from tools import strict_json
 from . import algebra, bounds, exterior, units
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(model.__file__).resolve().parent.parent
 PACKAGE = Path(__file__).resolve().parent
@@ -46,9 +52,9 @@ def source_bindings():
     inherited = {}
     for name in PARENTS:
         parent = strict_json.load(ROOT/name)
-        if parent.get('all_pass') is not True or type(parent.get('source_bindings')) is not dict:
+        if parent.get('all_pass') is not True or type(bound_pins(parent.get('source_bindings'))) is not dict:
             raise ValueError('source parent receipt has no complete passing manifest')
-        for path, digest in parent['source_bindings'].items():
+        for path, digest in bound_pins(parent['source_bindings']).items():
             if hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != digest:
                 raise ValueError('source parent has a stale source binding: '+path)
             if path in inherited and inherited[path] != digest:
@@ -56,7 +62,7 @@ def source_bindings():
             inherited[path] = digest
     paths = set(inherited) | set(PARENTS) | set(DIRECT_SOURCES)
     paths.update('model/source_mass_shell/'+name for name in OWN_FILES)
-    return {name: hashlib.sha256(_path(name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256(_path(name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def numerical_admission():
@@ -110,7 +116,7 @@ def report():
         },
         'physical_comparison_count_added': 0,
         'integrated_gate_accepted': False,
-        'source_bindings': pins,
+        'source_bindings': bound_pins(pins),
     }
     if source_bindings() != pins:
         raise ValueError('source files changed during the calculation')

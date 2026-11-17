@@ -43,6 +43,12 @@ from ..native_rooted_refinement import packet as rooted_refinement
 from ..native_fair_local_preparation import packet as fair_preparation
 from ..native_fair_local_readout import packet as fair_readout
 from ..native_fair_local_clock import packet as fair_clock
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -109,8 +115,8 @@ def source_bindings():
                   "model/gauge_defect_transport/results.json",
                   "model/protected_reference/results.json",
                   "model/field_cone_compatibility/results.json"))
-    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
-            for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+            for name in sorted(paths)})
 
 
 def report():
@@ -293,7 +299,7 @@ def report():
             "physical_collider_predictions_added": 0,
             "canonical_physical_premises_discharged": [],
         },
-        "source_sha256": before,
+        "source_sha256": bound_pins(before),
     }
     if source_bindings() != before:
         raise RuntimeError("particle interface sources changed during replay")

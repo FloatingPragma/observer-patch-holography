@@ -3,13 +3,17 @@ from pathlib import Path
 from hashlib import sha256
 import argparse,importlib,json
 from tools.joint_observer_results import NAMES,TITLES,project
+try:
+    from tools.pin_scope import bound_pins
+except ImportError:  # run or imported from tools/ as a top-level module
+    from pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[1]
 def generate():
     data={};claims=[]
     for name,title in zip(NAMES,TITLES,strict=True):
         path=f'model/{name}/results.json';value=json.loads((ROOT/path).read_text())
         owner=importlib.import_module(f'model.{name}.__main__')
-        if value.get('source_sha256')!=owner.pins()or not value.get('verdict','').startswith('PASS'):
+        if bound_pins(value.get('source_sha256'))!=owner.pins()or not value.get('verdict','').startswith('PASS'):
             raise ValueError('joint source custody or acceptance changed: '+name)
         data[name]=value
         claims.append({'id':'joint_observer_'+name,'label':title,'status':'verified_in_stated_finite_domain',
@@ -20,7 +24,7 @@ def generate():
     return {'schema':'oph.joint_native_observer_claims.v1',
       'mission':'One declared executable construction reproduces all compatible physical observer records.',
       'architecture_uniqueness_required':False,'claims':claims,
-      'canonical_source_sha256':{x:sha256((ROOT/x).read_bytes()).hexdigest()for x in registers},
+      'canonical_source_sha256':bound_pins({x:sha256((ROOT/x).read_bytes()).hexdigest()for x in registers}),
       'common_program_sha256':p['common_program_sha256'],'shared_integer_extension':p['shared_integer_extension'],
       'proved_finite_interfaces':p['proved_finite_interfaces'],'domains':p['domains'],
       'physical_premises_closed':[],'physical_identification_ids_closed':[],

@@ -13,6 +13,12 @@ from pathlib import Path
 import sympy as s
 
 from ..particle_gauge_band import quantum_link_completion as link
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 NAMES = {-4: 'u^c', -3: 'L', 1: 'Q', 2: 'd^c', 6: 'e^c'}
@@ -226,7 +232,7 @@ def certificate():
     # Preserve the owning current/matter producer's geometry and input-fixture
     # bindings as well as this proof, executable and independent test file.
     bindings = link.native.matter.source_bindings()
-    bindings.update({p: hashlib.sha256((root/p).read_bytes()).hexdigest() for p in SOURCE_FILES})
+    bindings.update(bound_pins({p: hashlib.sha256((root/p).read_bytes()).hexdigest() for p in SOURCE_FILES}))
     return {
         'schema': 'oph.gauge_defect_transport.v1',
         'declared_matter_dimension': 15, 'literal_link_dimension': 60,
@@ -247,7 +253,7 @@ def certificate():
             'all_reference_extensions_and_finite_history_compositions': True,
             'physical_chiral_continuum_or_particle_identity': False,
         },
-        'source_sha256': dict(sorted(bindings.items())),
+        'source_sha256': bound_pins(dict(sorted(bindings.items()))),
     }
 
 

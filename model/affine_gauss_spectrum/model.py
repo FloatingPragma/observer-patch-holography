@@ -11,6 +11,12 @@ import sympy as s
 from model.affine_gauss_mobile import model as mobile
 from model.affine_gauss_mobile.certificate import certificate as parent_certificate
 from model.affine_gauss_mobile.certificate import validate_pins
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -37,7 +43,7 @@ def admitted_parent():
     if hashlib.sha256(raw).hexdigest()!=PARENT_SHA:
         raise ValueError('the actual mobile source changed')
     saved=json.loads(raw)
-    validate_pins(saved['input_sha256'])
+    validate_pins(bound_pins(saved['input_sha256']))
     if saved!=parent_certificate():
         raise ValueError('mobile source fresh replay differs')
     return saved
@@ -177,8 +183,8 @@ def certificate():
         'scope':{'finite_boundary_reference_problem':True,'relativistic_rest_mass_identified':False,
                  'physical_spin_identified':False,'continuum_limit_claimed':False,
                  'physical_particle_map':[],'mass_predictions_GeV':[]}}
-    pins=dict(parent['input_sha256']);pins[PARENT]=PARENT_SHA
-    pins.update({p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
-                 for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})
-    result['input_sha256']=pins
+    pins=dict(bound_pins(parent['input_sha256']));pins[PARENT]=PARENT_SHA
+    pins.update(bound_pins({p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+                 for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}))
+    result['input_sha256']=bound_pins(pins)
     return result

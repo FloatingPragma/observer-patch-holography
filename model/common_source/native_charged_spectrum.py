@@ -45,6 +45,12 @@ import sympy as s
 from tools import strict_json
 from . import repair_field_attachment as field
 from ..calibrated_measurement.bounds import root_interval
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SIZES = (2, 4, 6, 8, 10)
@@ -263,7 +269,7 @@ def source_bindings():
         'model/common_source/native_charged_spectrum.py',
         'model/common_source/test_native_charged_spectrum.py',
         'model/calibrated_measurement/bounds.py'}
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def _compare(expected, actual, path='receipt'):
@@ -290,7 +296,7 @@ def _compare(expected, actual, path='receipt'):
 def check(path):
     path = Path(path)
     report = strict_json.load(path)
-    if type(report) is not dict or report.get('source_bindings') != source_bindings():
+    if type(report) is not dict or bound_pins(report.get('source_bindings')) != source_bindings():
         raise ValueError('charged spectrum source bindings differ')
     artifact = path.with_suffix('.npz')
     if report.get('artifact') != {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}:
@@ -323,7 +329,7 @@ def main():
     if args.output.exists() or artifact.exists():
         parser.error('choose fresh receipt and artifact paths')
     report, arrays = build()
-    report['source_bindings'] = source_bindings()
+    report['source_bindings'] = bound_pins(source_bindings())
     with artifact.open('xb') as output:
         np.savez_compressed(output, **arrays)
     report['artifact'] = {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}

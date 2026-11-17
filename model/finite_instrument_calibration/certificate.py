@@ -13,6 +13,12 @@ import json
 from pathlib import Path
 
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -222,8 +228,8 @@ def run():
                      "half_diamond_upper": str(calibration_bound(ranks, errors, cerrors))})
     delta = calibration_bound((2, 1), [F(1, 2**40)]*3, [F(1, 2**40)])
     return {"schema": "oph.finite_instrument_calibration.v1",
-            "source_sha256": {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
-                              for p in PARENTS},
+            "source_sha256": bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
+                              for p in PARENTS}),
             "controls": rows,
             "rational_error_example": {
                 "ranks": [2, 1], "each_probability_error_upper": str(F(1, 2**40)),

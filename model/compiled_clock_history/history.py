@@ -21,6 +21,12 @@ from sympy.polys.domains import QQ_I
 from ..observer import native, quantum_mixing
 from ..quantum_observer_correspondence import construction as ideal
 from . import source
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ZERO = QQ_I.zero
 CODE = frozenset(source.codes())
@@ -361,8 +367,8 @@ def checkpoint_json(stage):
     _arguments(gamma, cap, reference)
     root = Path(__file__).resolve().parents[2]
     bindings = source.bindings()
-    bindings.update({path: hashlib.sha256((root/path).read_bytes()).hexdigest()
-                     for path in (*ideal.SOURCE_PATHS, 'model/compiled_clock_history/history.py')})
+    bindings.update(bound_pins({path: hashlib.sha256((root/path).read_bytes()).hexdigest()
+                     for path in (*ideal.SOURCE_PATHS, 'model/compiled_clock_history/history.py')}))
     payload = {'schema': 'oph.compiled-clock-prefix.v1',
                'parameters': [gamma, cap, reference],
                'source_binding': bindings,

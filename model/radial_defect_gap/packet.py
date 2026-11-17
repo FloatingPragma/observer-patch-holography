@@ -12,6 +12,12 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from ..bounded_defect_index import packet as parent_packet
 from . import algebra, bounds
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -26,17 +32,17 @@ def source_bindings():
         'source_receipts': [PRIOR], 'independent_checks': [],
     })
     paths.add(PACKAGE+'/PROOF.md')
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-            for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+            for path in sorted(paths)})
 
 
 def inherited_custody():
     value = strict_json.load(ROOT/PRIOR)
     if (type(value) is not dict or value.get('schema') != 'oph.bounded_defect_index.v1'
             or value.get('all_pass') is not True
-            or value.get('source_bindings') != parent_packet.source_bindings()):
+            or bound_pins(value.get('source_bindings')) != parent_packet.source_bindings()):
         raise ValueError('the complete unchanged bounded radial source is required')
-    for path, digest in value['source_bindings'].items():
+    for path, digest in bound_pins(value['source_bindings']).items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != digest:
             raise ValueError('inherited source custody changed: '+path)
     return {'source_receipt': PRIOR, 'complete_parent_manifest_verified': True,
@@ -92,7 +98,7 @@ def validate(value, replay=None):
         raise ValueError('the inherited proof verification boundary changed')
     if replay is not None and canonical(value) != canonical(replay):
         raise ValueError('the radial gap receipt differs from the fresh replay')
-    if value['source_bindings'] != source_bindings():
+    if bound_pins(value['source_bindings']) != source_bindings():
         raise ValueError('the radial gap source manifest is incomplete or stale')
 
 
@@ -103,7 +109,7 @@ def _produce():
              'issues': [1139, 1142, 1143], 'gates': ['CP-03', 'CP-06', 'CP-07'],
              'algebra': algebra.certificate(), 'bounds': bounds.certificate(),
              'scope': scope(), 'physical_comparison_count_added': 0,
-             'inherited_custody': custody, 'source_bindings': pins}
+             'inherited_custody': custody, 'source_bindings': bound_pins(pins)}
     validate(value)
     if source_bindings() != pins:
         raise ValueError('source changed during the radial gap replay')
@@ -120,7 +126,7 @@ def report():
                         '-m', 'model.radial_defect_gap.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.load(path)
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across the cold radial gap replay')
     validate(value)
     return value
@@ -139,7 +145,7 @@ def main():
     else:
         (args.worker or args.write).write_text(canonical(value), encoding='utf-8', newline='\n')
     if not args.worker:
-        print(json.dumps({'all_pass': True, 'source_bindings': len(value['source_bindings']),
+        print(json.dumps({'all_pass': True, 'source_bindings': bound_pins(len(bound_pins(value['source_bindings']))),
                           'exact_kernel_dimension': 2, 'volume_uniform_one_body_gap': True,
                           'fixed_physical_mass_continuum_refinement': False,
                           'physical_species_identified': False}))

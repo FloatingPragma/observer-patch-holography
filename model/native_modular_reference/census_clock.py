@@ -19,6 +19,12 @@ import numpy as np
 from tools import strict_json
 from . import learned_clock as learned, reference_tomography as prior
 from . import native_census as census
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 common, full, local = learned.common, learned.full, learned.local
 history, cap = learned.history, learned.cap
@@ -240,7 +246,7 @@ def run():
             budget['successful_two_read_channel_halfdiamond_upper']
             +2*local.budget()['prepared_modular_generator_operator_error_upper'],
         'histories': rows,
-        'source_sha256': {p: hashlib.sha256((common.ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+        'source_sha256': bound_pins({p: hashlib.sha256((common.ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
         'scope': _scope()}
 
 
@@ -302,9 +308,9 @@ def _compare_receipt(supplied, actual):
                 'successful_error_multiplied_by_herald_probability_for_admission': False}}
         expected = strict_json.loads(full.preparation.canonical(expected))
         full.corner.compare_receipt({key: receipt[key] for key in expected}, expected)
-        if set(receipt['source_sha256']) != set(SOURCE_PATHS):
+        if set(bound_pins(receipt['source_sha256'])) != set(SOURCE_PATHS):
             raise ValueError('the complete declared source custody is required')
-        for path, digest in receipt['source_sha256'].items():
+        for path, digest in bound_pins(receipt['source_sha256']).items():
             if hashlib.sha256((common.ROOT/path).read_bytes()).hexdigest() != digest:
                 raise ValueError('retained census-clock source digest changed')
         budget = receipt['confidence_event_bounds']

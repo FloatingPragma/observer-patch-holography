@@ -6,6 +6,12 @@ import hashlib
 import importlib.util
 from pathlib import Path
 import re
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 def require(condition, message):
@@ -165,7 +171,7 @@ def source_bindings(root):
     import json
     spec_path = root/'evidence/native_geometric_source_20260925/spec.json'
     archive = root/'evidence/observer_dynamics_20260925/oph-physics-sim'
-    declared = json.loads(spec_path.read_bytes())['source_sha256']
+    declared = bound_pins(json.loads(spec_path.read_bytes())['source_sha256'])
     seeds = []
     for name in declared:
         target = (archive/name).resolve()
@@ -177,5 +183,5 @@ def source_bindings(root):
             seeds.append('.'.join(Path(name).with_suffix('').parts))
     paths |= python_closure(archive, seeds)
     paths.add(spec_path)
-    return {path.relative_to(root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
-            for path in sorted(paths)}
+    return bound_pins({path.relative_to(root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in sorted(paths)})

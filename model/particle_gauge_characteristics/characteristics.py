@@ -19,6 +19,12 @@ from model.particle_field_preparation import preparation
 from model.particle_geometric_response import geometry
 from model.particle_local_wilson_density import density
 from model.particle_observer_outputs import field_route
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_INPUTS = (
@@ -325,7 +331,7 @@ def certificate():
     shear = s.Matrix([[1, s.Rational(1, 3), 0], [0, 1, s.Rational(1, 5)], [0, 0, 1]])
     data = {
         'schema': 'oph.native_gauge_characteristics.v1',
-        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_INPUTS},
+        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_INPUTS}),
         'native_source_provenance': d['native_source_provenance'],
         'native_basis': {'labels': d['labels'], 'trace_Gram': d['gram'],
                         'native_port_coefficients': d['native_port_coefficients'],

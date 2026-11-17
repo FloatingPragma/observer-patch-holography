@@ -11,6 +11,12 @@ from tools import strict_json
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from ..continuing_reference import preparation
 from . import controller, history, instrument
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -65,7 +71,7 @@ def run():
         'arbitrary_feedback_covered': False,
         'canonical_physical_premises_discharged': [],
         'integrated_gate_accepted': False,
-        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
     })
 
 

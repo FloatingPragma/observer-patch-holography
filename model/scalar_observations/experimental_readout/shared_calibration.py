@@ -23,6 +23,12 @@ from ...interacting_band_extension.thermal_spectrum import exponential_interval
 from .data import FOLDER, load_observations
 from .executable_calibration import AXIS_KEYS, _axes, calibrate_state
 from .stats import concentration_certificate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -374,8 +380,8 @@ def build(*, depth=10):
                       'physical_clock_or_interacting_action_tested': False,
                       'preparation_or_action_derived_from_OPH': False,
                       'prospective_prediction': False, 'empirical_confirmation': False},
-            'input_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                             for path in SOURCE_PATHS}}
+            'input_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                             for path in SOURCE_PATHS})}
 
 
 def main():

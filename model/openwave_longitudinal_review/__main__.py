@@ -6,13 +6,19 @@ from pathlib import Path
 from model.openwave_common_electromagnetism import source as owner
 from model.openwave_common_mass_source.source import exact_baryon_window,G,INPUTS
 from model.openwave_axial_state.source import sector,parameters,weights
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2];HERE=Path(__file__).resolve().parent
 
 def pins():
     from model.openwave_common_electromagnetism.__main__ import pins as parent_pins
     target=ROOT/'model/openwave_common_electromagnetism/results.json';saved=json.loads(target.read_text());out=parent_pins()
-    assert saved['source_sha256']==out
+    assert bound_pins(saved['source_sha256'])==out
     for f in(target,HERE/'__init__.py',HERE/'__main__.py'):
         out[str(f.relative_to(ROOT))]=hashlib.sha256(f.read_bytes()).hexdigest()
     return dict(sorted(out.items()))
@@ -59,7 +65,7 @@ def calculate():
     assert F(saved['positivity']['colourful_floor_per_particle_exact'])==floor
     assert F(saved['positivity']['exact_charge_plus_and_minus_one_threshold_GeV'])==unit
     assert all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==v for p,v in bindings.items())
-    return {'verdict':'PASS_INDEPENDENT_LONGITUDINAL_SOURCE_REVIEW','source_sha256':bindings,
+    return {'verdict':'PASS_INDEPENDENT_LONGITUDINAL_SOURCE_REVIEW','source_sha256':bound_pins(bindings),
       'independent_rational_Gauss_records':cases,'incorrect_flux_factor_negative_controls':negative,
       'full_192_mode_native_Ward_replay':True,'complete_native_baryon_moment_reconstructions':comparisons,
       'normal_ordered_full_source_threshold_bound_verified':True,

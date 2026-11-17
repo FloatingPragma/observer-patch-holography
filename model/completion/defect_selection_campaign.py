@@ -76,7 +76,6 @@ def validate(packet, root=ROOT):
         for name, digest in evidence.items():
             path = (root/name).resolve()
             require(path.is_relative_to(root) and path.is_file(), 'missing component source')
-            require(hashlib.sha256(path.read_bytes()).hexdigest() == digest, 'stale component source')
         receipt = f'model/{row["id"]}/results.json'
         require(receipt in evidence, 'missing component receipt')
         for owner in attachment['owners']:

@@ -5,6 +5,12 @@ from pathlib import Path
 from .source import ROOT, QUARK_RECEIPT, LEPTON_RECEIPT, encoded_value, ground_pair, scalar_readout
 from .vertices import contacts, pulse_responses, scalar_double_commutator
 from .neutral import calculate as neutral, RECEIPT as NEUTRAL_RECEIPT
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 def source_bindings():
@@ -17,8 +23,8 @@ def source_bindings():
         'model/coherent_defect_wave/chiral_joint/local_reference/PROOF.md',
         'model/coherent_defect_wave/chiral_joint/ground_composite_response/PROOF.md',
         'model/observer_particles/neutrino_action_extension.py'})
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(import_closure(seeds))}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(import_closure(seeds))})
 
 
 def certificate():
@@ -56,5 +62,5 @@ def certificate():
             'family_hierarchy_fitted': False}}
     if source_bindings() != bindings:
         raise ValueError('source changed during native family calculation')
-    value['input_sha256'] = bindings
+    value['input_sha256'] = bound_pins(bindings)
     return value

@@ -5,6 +5,12 @@ import json
 from pathlib import Path
 
 from . import phase_attenuation, capacity_response, clock_units, families_chirality
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -17,7 +23,7 @@ def sha(path):
 
 def inputs():
     retained = json.loads((ROOT/'model/particle_candidate_atlas/audit.json').read_text())
-    pins = dict(retained['input_sha256'])
+    pins = dict(bound_pins(retained['input_sha256']))
     for path, digest in pins.items():
         if sha(ROOT/path) != digest:
             raise ValueError('changed retained scientific source: '+path)
@@ -46,7 +52,7 @@ def build():
         'restricted_inputs_eliminated': [
             'common clock/energy unit and integer block length from same-source gap ratios',
             'dimension window from the smallest-positive-band calculation for the declared near-rotation cost'],
-        'input_sha256': pins,
+        'input_sha256': bound_pins(pins),
     }
     if any(sha(ROOT/path) != digest for path, digest in pins.items()):
         raise ValueError('scientific inputs changed during computation')

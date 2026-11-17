@@ -10,6 +10,12 @@ from pathlib import Path
 from tools import strict_json
 from ..common_source import slow_geometry
 from . import statistics, statistics_service, statistics_topology
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -76,8 +82,8 @@ def source_bindings():
                         module = root.joinpath(*candidate)
                         pending.extend(found for found in (module.with_suffix(".py"), module / "__init__.py")
                                        if found.is_file())
-    return {path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
-            for path in sorted(seen)}
+    return bound_pins({path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in sorted(seen)})
 
 
 def compare(actual, expected):
@@ -126,7 +132,7 @@ def report():
         "integrated_gate_accepted": False,
         "physical_comparison_count_added": 0,
         "physical_particle_identification": False,
-        "source_sha256": pins,
+        "source_sha256": bound_pins(pins),
     }
 
 

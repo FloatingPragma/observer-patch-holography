@@ -6,6 +6,12 @@ import hashlib
 import json
 import numpy as np
 from scipy.linalg import expm
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PARENTS = ('openwave_single_valley_leptons', 'openwave_neutrino_calibration',
@@ -60,7 +66,7 @@ def transport_complete_measure(unit, labels, energies, weights, failure, source_
 
 def read_parent(name, root=ROOT):
     p=root/'model'/name/'results.json';d=json.loads(p.read_text())
-    pins=d.get('source_sha256',d.get('source_bindings'))
+    pins=bound_pins(d.get('source_sha256',bound_pins(d.get('source_bindings'))))
     if not isinstance(pins,dict) or not pins: raise ValueError(f'{name}: no source binding')
     for rel,sha in pins.items():
         target=(root/rel).resolve()

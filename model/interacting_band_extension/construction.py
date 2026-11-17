@@ -24,6 +24,12 @@ from ..scalar_observations.protocol import native_records
 from ..observer.native import native as native_repair
 from ..observer.quantum_mixing import seams as native_seams
 from ..relative_observer_geometry.temporal_records import incident_clock_bound
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -1409,7 +1415,7 @@ def checks_and_run():
     return a.serializable({
         'schema': 'oph.interacting_band_extension.v1', 'all_pass': True,
         'scope': 'One supplied interacting Fourier-band extension, finite occupation, matched low-only histories; no ultraviolet, Lorentzian or empirical completion.',
-        'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
+        'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
         'modes': a.MODES, 'occupation_dimensions': a.DIMENSIONS,
         'grid_without_quartic_aliasing_minimum': 13,
         'complete_quartic_monomials': [{'powers': key, 'coefficient': value} for key, value in sorted(a.quartic_coefficients().items())],

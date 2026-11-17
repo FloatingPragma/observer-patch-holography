@@ -20,6 +20,12 @@ from ..exchange_sector import sector
 from ..particle_screening import screening
 from ..observer import record_recovery as records
 from ..observer.source_discrimination import circuit
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -79,8 +85,8 @@ def campaign_binding() -> dict:
     if any(type(campaign.get(k)) is not type(v) or campaign[k] != v
            for k, v in required.items()):
         raise ValueError("active-code energy campaign scope changed")
-    if (type(campaign.get("source_sha256")) is not dict
-            or set(campaign["source_sha256"]) != set(BASE_SOURCES)
+    if (type(bound_pins(campaign.get("source_sha256"))) is not dict
+            or set(bound_pins(campaign["source_sha256"])) != set(BASE_SOURCES)
             or any(campaign["source_sha256"][name] != digest(name)
                    for name in BASE_SOURCES)):
         raise ValueError("predecessor source-bound input changed")
@@ -333,7 +339,7 @@ def report() -> dict:
             "same_source_or_momentum_dictionary": False,
             "physical_mass_transfer_allowed": False,
         },
-        "source_sha256": {name: digest(name) for name in (*BASE_SOURCES, *PACKET_SOURCES)},
+        "source_sha256": bound_pins({name: digest(name) for name in (*BASE_SOURCES, *PACKET_SOURCES)}),
     }
 
 

@@ -9,6 +9,12 @@ from model.particle_filtered_probe import filter as apparatus
 from model.particle_primary_joint_spectroscopy import spectroscopy
 from model.particle_spatial_ground_state import ground
 from model.spin_packet_readout.bounds import sqrt_upper
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=(
  'model/particle_primary_odd_low_energy/__init__.py',
@@ -183,6 +189,6 @@ def certificate():
     value={'schema':'oph.primary_odd_low_energy_certificate.v1',
         'members':[bind_member(contract.member(n)) for n in (0,1,2,8)],
         'depth_samples':[dressing_depth(n) for n in (0,8,20,40)],
-        'source_sha256':pins,'fixed_energy_survival_proved':False,'physical_mass_table_GeV':[]}
+        'source_sha256':bound_pins(pins),'fixed_energy_survival_proved':False,'physical_mass_table_GeV':[]}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('source changed during odd-filter replay')
     return value

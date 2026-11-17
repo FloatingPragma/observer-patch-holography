@@ -7,6 +7,12 @@ from pathlib import Path
 
 from .model import (STATES, SEAMS, kernel, initial_distribution, evolve, observations, energy,
                     event, balanced, extinct_or_frozen, balance_tail_bound, persistent_probability, survival_probabilities)
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -93,4 +99,4 @@ def certificate():
 
         persistent_occupied_face_share=encode(dict(exact_limit=exact,lower=lo,upper=hi,width=hi-lo)),
         trajectory=trajectory, checks=checks,all_checks_pass=all(checks.values()),
-        input_sha256={name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(source_paths)})
+        input_sha256=bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(source_paths)}))

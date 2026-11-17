@@ -11,6 +11,12 @@ from scipy.linalg import eigh
 import sympy as s
 
 from model.openwave_magnetic_response import response as producer
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[3]
 
@@ -77,7 +83,7 @@ def run():
     paths += list((ROOT/'model/openwave_magnetic_response').glob('*.md'))
     paths += [ROOT/'model/openwave_magnetic_response/results.json',
               ROOT/'model/native_mass_channels/algebra.py', Path(__file__)]
-    pins = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+    pins = bound_pins({str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths})
     gamma, beta, spin, sectors = internal_matrices()
     max_links = max_spectrum = max_square = max_current = max_matrix_tail = 0.
     checked_cases = 0
@@ -146,10 +152,10 @@ def run():
     assert np.array_equal(spin@spin, np.eye(16))
     assert np.allclose((spin/2)@(spin/2), np.eye(16)/4)
     assert np.linalg.norm(np.kron(np.eye(16), curvature)-np.kron(spin, curvature)) > .01
-    if pins != {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}:
+    if pins != bound_pins({str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}):
         raise ValueError('magnetic inputs changed during independent audit')
     return {'schema': 'oph.independent_magnetic_response_audit.v1',
-            'verdict': 'PASS_CONDITIONAL_SPIN_CURVATURE_RESPONSE', 'source_sha256': dict(sorted(pins.items())),
+            'verdict': 'PASS_CONDITIONAL_SPIN_CURVATURE_RESPONSE', 'source_sha256': bound_pins(dict(sorted(pins.items()))),
             'internal_dimension': 16, 'joint_sector_ranks': sectors,
             'independent_complete_spectrum_cases': checked_cases,
             'largest_unreduced_direct_matrix': 400,

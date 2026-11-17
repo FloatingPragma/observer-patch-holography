@@ -16,6 +16,12 @@ from . import continuation, defect_history
 from .joins_contract import binding, check_receipt, source_bindings
 from ..observer import record_recovery as records
 from ..completion import observer
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 OUTPUT = HERE / "reference_balance_results.json"
@@ -261,7 +267,7 @@ def report() -> dict:
             "clock_or_energy_physical_identification_claimed": False,
             "integrated_gate_accepted": False,
         },
-        "source_sha256": source_bindings(paths),
+        "source_sha256": bound_pins(source_bindings(paths)),
     }
 
 

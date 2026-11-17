@@ -6,6 +6,12 @@ from collections import Counter
 import hashlib
 import json
 from pathlib import Path
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -21,7 +27,7 @@ def require(condition, message):
 
 def authenticate(path):
     receipt=json.loads(path.read_text())
-    bindings=receipt.get('source_bindings',receipt.get('input_sha256'))
+    bindings=bound_pins(receipt.get('source_bindings',bound_pins(receipt.get('input_sha256'))))
     require(isinstance(bindings,dict) and bool(bindings),'missing evidence bindings')
     for name,digest in bindings.items():
         source=ROOT/name
@@ -127,7 +133,7 @@ def build():
     paths=[HERE/'dashboard_inputs.json',HERE/'bridge.py',HERE/'PROOF.md',HERE/'test_bridge.py']
     paths +=[ROOT/'model'/name/'results.json' for name in PACKAGES]
     return dict(schema='oph.observable_score_bridge.v1',source_url=snapshot['source_url'],
-        source_bindings={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},
+        source_bindings=bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}),
         all_checks_pass=True,baseline=dict(total=total,completed=old,completed_percent=100*old/total,status_counts=dict(before)),
         proposed=dict(total=total,completed=new,completed_percent=100*new/total,status_counts=dict(after),
                       completion_percentage_point_change=100*(new-old)/total),updates=updates,

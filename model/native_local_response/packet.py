@@ -10,6 +10,12 @@ from . import cone as c,bounds as b
 from model.native_causal_dataflow import dataflow
 from model.native_record_causality import causality
 from model.native_program import receipt as program_receipt
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).with_name('results.json')
@@ -28,8 +34,8 @@ def source_bindings():
     paths.update(program_receipt.source_bindings())
     paths.update(('model/observer/source_discrimination/circuit.py',
                   'model/observer/source_scalar/compiler.py'))
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
-            for p in sorted(paths) if not p.startswith('docs/')}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
+            for p in sorted(paths) if not p.startswith('docs/')})
 
 
 def fixed_program(edges,*,federation=False,overflow='export_oldest'):
@@ -172,7 +178,7 @@ def produce():
                      'weighted_federation_is_admitted':False,
                      'physical_spatial_dimension_or_Lorentz_clock_derived':False,
                      'particle_mass_or_interacting_QFT_claimed':False},
-            'source_bindings':bindings}
+            'source_bindings':bound_pins(bindings)}
     if source_bindings()!=bindings:raise ArithmeticError('local-response sources changed during replay')
     return result
 

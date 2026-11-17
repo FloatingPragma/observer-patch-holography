@@ -16,6 +16,12 @@ import numpy as np
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import algebra, response
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -36,7 +42,7 @@ def source_bindings():
     })
     paths.update(('model/repair_spectral_sectors/contract.json',
                   'paper/tex_fragments/REPAIR_SPECTRAL_SECTORS.tex'))
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 _IMPORTED_BINDINGS = source_bindings()
@@ -130,7 +136,7 @@ def _produce():
              'native_pulse_source_executed': False,
              'all_Fock_common_algebra_classified': False,
              'controller_work_or_heat_identified': False,
-             'source_bindings': pins,
+             'source_bindings': bound_pins(pins),
              'replay_float_absolute_tolerance': REPLAY_ATOL}
     if source_bindings() != pins:
         raise ValueError('source changed during repaired spectral replay')
@@ -155,7 +161,7 @@ def report():
         if result.returncode:
             raise RuntimeError('cold repaired spectral replay failed: '+result.stderr[-3000:])
         value = strict_json.load(target)
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source manifest changed across cold replay')
     validate_accounting(value)
     return value

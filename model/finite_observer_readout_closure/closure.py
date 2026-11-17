@@ -12,6 +12,12 @@ from model.joint_clock_process import construction as clocks
 from model.joint_clock_process import clock_change
 from model.relative_observer_geometry import temporal_records as temporal
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -197,12 +203,12 @@ def bindings():
     seeds.update(temporal.SOURCE_PATHS)
     seeds.update(('model/relative_modular_dynamics/README.md', 'model/joint_clock_process/README.md',
                   'model/relative_observer_geometry/README.md'))
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(seeds))}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(seeds))})
 
 
 def certificate():
     pins = bindings()
-    result = {'schema': 'oph.finite_observer_readout_closure.v1', 'source_bindings': pins,
+    result = {'schema': 'oph.finite_observer_readout_closure.v1', 'source_bindings': bound_pins(pins),
         'periodic_Y': periodic_y(), 'joint_event_clocks': joint_clocks(), 'unused_lag_correlations': cyclic_transfer(),
         'scope': {'new_empirical_observations': 0, 'physical_time_or_Universe_attachment_closed': False,
                   'dashboard_status_changes_applied': False}}

@@ -5,6 +5,12 @@ import json
 from pathlib import Path
 from model.particle_common_contract.provenance import import_closure
 from . import binding, strings
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -17,12 +23,12 @@ def source_bindings():
               'model/coherent_defect_wave/chiral_joint/peter_weyl_links/PROOF.md',
               'model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json',
               'model/coherent_defect_wave/chiral_joint/atomic_spin_geometry/results.json']
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(seeds))}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(seeds))})
 
 
 def report():
     pins = source_bindings()
-    result = {'schema': 'oph.finite_reference_binding.v1', 'input_sha256': pins,
+    result = {'schema': 'oph.finite_reference_binding.v1', 'input_sha256': bound_pins(pins),
               'admissible_native_strings': strings.certificate(), **binding.certificate(),
               'verdict': 'PASS_CONSTRAINED_REFERENCE_BINDING_WITH_SCREENED_COMPLEMENT'}
     if pins != source_bindings(): raise ValueError('binding inputs changed during replay')

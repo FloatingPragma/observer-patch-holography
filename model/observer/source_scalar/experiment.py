@@ -18,6 +18,12 @@ from . import compiler as c, field
 from .bounds import split_error_bound
 from .cutoff import occupation_cutoff_bound, reference_probability_interval
 from ..scalar_response.experiment import canonical, compare_receipt, exact_statistics, sample
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 TRIALS = 200_000
 SEED = 20261012
@@ -260,7 +266,7 @@ def run(trials=TRIALS, seed=SEED):
     checks["analytic_occupation_refinement_bound_decreases"] = all(
         later < earlier for earlier, later in zip(occupation_errors, occupation_errors[1:]))
     result = {
-        "schema": "oph.observer.source_scalar.v1", "source_pins": PINS, "source": source,
+        "schema": "oph.observer.source_scalar.v1", "source_pins": bound_pins(PINS), "source": source,
         "scope": {
             "construction": "native repair current -> emitted source preparation, scalar evolution and quantum pointer -> committed bit -> native repair feedback",
             "target": "two sites with onsite occupation d=4,8,16, supplied mass=1 and spring kappa=9/32; not the earlier spatial-refinement family",

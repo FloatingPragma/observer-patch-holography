@@ -9,6 +9,12 @@ import math
 from . import experiment
 from ..observer.source_discrimination import circuit
 from ..observer.scalar_response.experiment import compare_receipt
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 TOLERANCE = Fraction(str(experiment.TOLERANCE))
@@ -163,7 +169,7 @@ def verify(result, expected):
     _require(result['schema'] == 'oph.native_phase_experiment.v1', 'schema')
     _require(expected['compact'] is False and expected['checks']['all_pass'] is True,
              'complete independent expectation')
-    _require(result['source_sha256'] == experiment._dependencies(), 'source closure')
+    _require(bound_pins(result['source_sha256']) == experiment._dependencies(), 'source closure')
     compare_receipt({'occupation_bits': 12, 'binary_total': 2, 'phase_port': 0,
                      'analyzer_ports': [0, 1], 'seams': expected['carrier']['seams']}, result['target'])
     pointers = result['pointer_records']

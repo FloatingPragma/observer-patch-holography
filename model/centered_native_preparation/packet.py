@@ -13,6 +13,12 @@ import numpy as np
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import target,tree,bounds,experiment,execute
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -30,14 +36,14 @@ def source_bindings():
     paths.update({'model/native_spectral_detector/contract.cpp',
                   'model/centered_particle_spectrum/witness.npz',
                   'paper/tex_fragments/CENTERED_NATIVE_PREPARATION.tex'})
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def custody():
     result={}
     for name in PRIORS:
         row=strict_json.load(ROOT/f'model/{name}/results.json')
-        mismatch=[p for p,d in row['source_bindings'].items() if hashlib.sha256((ROOT/p).read_bytes()).hexdigest()!=d]
+        mismatch=[p for p,d in bound_pins(row['source_bindings']).items() if hashlib.sha256((ROOT/p).read_bytes()).hexdigest()!=d]
         result[name]={'historical_all_pass':row.get('all_pass') is True,
                       'current_source_mismatches':mismatch,'current_source_verified':not mismatch,
                       'historical_expensive_experiment_reexecuted':False}
@@ -83,7 +89,7 @@ def validate(value,arrays):
     prior=value['prior_custody'];accepted=all(r['historical_all_pass'] and r['current_source_verified'] for r in prior.values())
     if value.get('dependency_custody_pass') is not accepted or value.get('all_pass') is not accepted:
         raise ValueError('inherited pending custody hidden')
-    if value.get('source_bindings')!=source_bindings():raise ValueError('current source binding changed')
+    if bound_pins(value.get('source_bindings'))!=source_bindings():raise ValueError('current source binding changed')
     shapes={'hidden_success':(65536,1),'prepared_ground':(65536,1),
             'tree_failure_weights':(262137,4),'frame_failure_weights':(184,4),
             'tree_block_offsets':(32765,2),'charge_success':(131072,1),
@@ -133,7 +139,7 @@ def produce():
            'scope':scope(),'complete_error':bounds.certificate(),'exact_spectral_probability_intervals':bounds.spectral_probabilities(),
            'finite_shot_bound':bounds.old.finite_shot_certificate(),'full_source_programs':experiment.program_metadata(),
            'execution':execution,'prior_custody':prior,
-           'source_bindings':pins,'replay_float_absolute_tolerance':REPLAY_ATOL}
+           'source_bindings':bound_pins(pins),'replay_float_absolute_tolerance':REPLAY_ATOL}
     if source_bindings()!=pins:raise ValueError('source changed during complete native run')
     validate(value,arrays);return value,arrays
 

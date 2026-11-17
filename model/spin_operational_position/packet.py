@@ -10,6 +10,12 @@ from pathlib import Path
 
 from tools import strict_json
 from . import bounds, circuits, experiment, geometry, generic
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -55,8 +61,8 @@ def bindings():
                 add(target)
                 for alias in node.names:
                     add(target+'.'+alias.name)
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(names)})
 
 
 def canonical(value):
@@ -94,7 +100,7 @@ def _build():
     run = experiment.run()
     normal = ((1, 2), (0, 0), (-3, 1), (2, -4))
     _, generic_record = generic.rank_one_phase(normal, F(3, 7), 48)
-    result = {'schema': 'oph.spin_operational_position.v1', 'source_bindings': before,
+    result = {'schema': 'oph.spin_operational_position.v1', 'source_bindings': bound_pins(before),
               'exact_source_geometry': geometry.certify(),
               'literal_native_detector': circuits.plan()[2],
               'complete_native_execution': execution_certificate(run),
@@ -119,7 +125,7 @@ def _build():
 
 def build():
     value = deepcopy(_build())
-    if value['source_bindings'] != bindings():
+    if bound_pins(value['source_bindings']) != bindings():
         raise RuntimeError('source changed after the cached detector replay')
     return value
 

@@ -12,6 +12,12 @@ import json
 from pathlib import Path
 from tools import strict_json
 from .family import binding
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 RETAINED = 'model/completion/theorem_map.json'
@@ -29,7 +35,7 @@ def build():
         raise ValueError('dated theorem review changed')
     reviewed = strict_json.load(ROOT / RETAINED)
     current = copy.deepcopy(reviewed)
-    for row in current['sources'].values():
+    for row in bound_pins(current['sources']).values():
         path = (ROOT / row['path']).resolve()
         if not path.is_relative_to(ROOT) or not path.is_file():
             raise ValueError('missing or escaping reviewed source')

@@ -11,6 +11,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import algebra, bounds, infrared, experiment
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -27,7 +33,7 @@ def source_bindings():
         'domain_and_proof': 'model/spin_goldstone_sector/README.md',
         'source_receipts': list(PRIORS), 'independent_checks': []})
     paths.add(FRAGMENT)
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def prior_custody():
@@ -36,7 +42,7 @@ def prior_custody():
         row = strict_json.loads((ROOT/name).read_text())
         if row.get('new_checks_pass') is not True:
             raise ValueError('missing prior scientific checks')
-        bindings = row.get('source_bindings', row.get('source_sha256'))
+        bindings = bound_pins(row.get('source_bindings', bound_pins(row.get('source_sha256'))))
         if not isinstance(bindings, dict) or not bindings:
             raise ValueError('missing prior source bindings')
         changed = sorted(p for p, digest in bindings.items()
@@ -97,7 +103,7 @@ def validate(value):
         inherited[PRIORS[0]]['historical_all_pass'] is True)
     if value.get('dependency_custody_pass') is not passed or value.get('all_pass') is not passed:
         raise ValueError('inherited dependency status concealed')
-    if canonical(value.get('source_bindings')) != canonical(source_bindings()):
+    if canonical(bound_pins(value.get('source_bindings'))) != canonical(source_bindings()):
         raise ValueError('current source bindings changed')
 
 
@@ -109,7 +115,7 @@ def _produce():
     value = {'schema': 'oph.spin_goldstone_sector.v1', 'new_checks_pass': True,
              'dependency_custody_pass': complete, 'all_pass': complete,
              'theorem': theorem(), 'direct_checks': direct_checks(),
-             'prior_custody': prior, 'source_bindings': pins,
+             'prior_custody': prior, 'source_bindings': bound_pins(pins),
              'proof_scope': 'Analytic source-state transfer, finite-to-infinite order and positive-energy spectral-window proofs; exact rational integral and algebra controls. Primary mathematical theorems are imported with explicit hypotheses. Finite diagonalization is a normalization control, not infinite-volume evidence. Historical experiments are not replayed.'}
     validate(value)
     if source_bindings() != pins:
@@ -126,7 +132,7 @@ def report():
                         '-m', 'model.spin_goldstone_sector.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.loads(path.read_text())
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across cold replay')
     validate(value)
     return value

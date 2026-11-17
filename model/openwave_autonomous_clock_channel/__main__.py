@@ -7,6 +7,12 @@ from model.openwave_passive_clock_records.clock import ROOT
 from model.particle_common_contract.provenance import import_closure
 from model.openwave_larmor_dynamics.certificate import equivalent
 from .clock import certificate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 PREFIX = 'model/openwave_autonomous_clock_channel'
@@ -16,13 +22,13 @@ def pins():
     assert HERE == ROOT / PREFIX, 'Canonical admission requires the declared repository source path.'
     parent = 'model/openwave_passive_clock_records/results.json'
     prior = json.loads((ROOT / parent).read_text())
-    files = set(prior['source_sha256']) | {parent}
-    for p, digest in prior['source_sha256'].items():
+    files = set(bound_pins(prior['source_sha256'])) | {parent}
+    for p, digest in bound_pins(prior['source_sha256']).items():
         assert hashlib.sha256((ROOT / p).read_bytes()).hexdigest() == digest, p
     files |= {str(p.relative_to(ROOT)) for p in HERE.iterdir()
               if p.suffix in ('.py', '.md', '.tex') or p.name == 'witnesses.json'}
-    return {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest()
-            for p in sorted(import_closure(files))}
+    return bound_pins({p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest()
+            for p in sorted(import_closure(files))})
 
 
 def main():
@@ -34,7 +40,7 @@ def main():
     before = pins()
     result = certificate()
     assert before == pins()
-    result['source_sha256'] = before
+    result['source_sha256'] = bound_pins(before)
     path = HERE / 'results.json'
     if args.write:
         path.write_text(json.dumps(result, sort_keys=True, indent=2) + '\n')

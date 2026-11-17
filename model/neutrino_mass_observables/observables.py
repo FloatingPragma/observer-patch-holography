@@ -9,6 +9,12 @@ import sympy as s
 from model.common_source import calibrated_matter as matter
 from model.common_source.chiral_candidate import action
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[2];HERE=Path(__file__).resolve().parent
 
 
@@ -128,11 +134,11 @@ def bindings():
     names={p.relative_to(ROOT).as_posix()for p in HERE.iterdir()if p.suffix in('.py','.md')}
     names.update(matter.source_bindings())
     names.update(('model/source_flavour_identifiability/PROOF.md','model/conditional_particle_spectrum/PROOF.md'))
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(names))}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(names))})
 
 
 def certificate():
-    pins=bindings();out=dict(schema='oph.neutrino_mass_observables.v1',source_bindings=pins,
+    pins=bindings();out=dict(schema='oph.neutrino_mass_observables.v1',source_bindings=bound_pins(pins),
         all_checks_pass=True,mass_observables=mass_observables(),complete_instrument=instrument(),phase_sensitive_controls=phase_controls(),
         calibration_ancestry=matter.neutrino_parameters(),physical_promotions=[])
     require(bindings()==pins,'inputs changed during calculation');return out

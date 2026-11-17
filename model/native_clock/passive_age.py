@@ -24,6 +24,12 @@ import re
 from tools import strict_json
 from . import configuration as discovery
 from ..repair_scheduler import coins
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('passive_age_results.json')
@@ -377,7 +383,7 @@ def run():
             'larger_window_analytic_admission': admission(1 << 18, 12),
             'random_window_obstruction': random_window_obstruction(),
             'alternatives': alternatives,
-            'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in source_paths()}}
+            'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in source_paths()})}
 
 
 def _tape(value):
@@ -444,7 +450,7 @@ def _validate(receipt):
     expected = {'schema': SCHEMA, 'scope': SCOPE, 'source_proof': exact_identity(),
         'executed_admission': admission(), 'larger_window_analytic_admission': admission(1 << 18, 12),
         'random_window_obstruction': random_window_obstruction(),
-        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in source_paths()}}
+        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in source_paths()})}
     if any(not _same(receipt[key], _json(value)) for key, value in expected.items()):
         raise ValueError('passive-age source, proof, scope or resource contract changed')
     if type(receipt['alternatives']) is not list or len(receipt['alternatives']) != 2:

@@ -8,6 +8,12 @@ from model.particle_common_contract import contract, provenance
 from model.particle_primary_composite_spin import model as spin
 from model.particle_primary_charged_readout import model as readout
 from model.particle_spatial_modular_response import regional
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 FAMILIES=(('weak_pair_charge_six',(0,2,0,0,1)),
           ('color_triple',(1,0,0,2,0)),
@@ -201,7 +207,7 @@ def certificate():
         'selected_member_bound':bind_member(contract.member(0)),
         'exact_meter_control':{'source_dimension':meter['source_dimension'],
             'meter_dimension':meter['meter_dimension'],'complete_fine_outcomes':len(meter['rows'])},
-        'source_sha256':pins}
+        'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('source inputs changed during replay')
     return value
 

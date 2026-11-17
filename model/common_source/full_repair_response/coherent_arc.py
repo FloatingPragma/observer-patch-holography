@@ -25,6 +25,12 @@ from ...native_modular_reference import common_caps
 from ...observer import native
 from ...observer.source_scalar import compiler
 from ..mass_response import history
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -256,8 +262,8 @@ def report(*, with_arrays=False):
                                "Lorentzian_3plus1_dispersion_derived": False,
                                "observed_lepton_hierarchy_as_elementary_principal_phases": False,
                                "empirical_inputs_used_to_choose_weights_or_phases": False},
-            "source_bindings": {path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
-                                for path in sorted(set(paths))}}
+            "source_bindings": bound_pins({path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+                                for path in sorted(set(paths))})}
     if with_arrays:
         final = trajectory[-1]
         return result, {"source_arc_states": np.stack(trajectory),

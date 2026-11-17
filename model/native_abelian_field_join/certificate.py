@@ -1,6 +1,12 @@
 """Fresh structural source/reference/record proof with immutable prerequisites."""
 from pathlib import Path
 import argparse,hashlib,json,sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 from .model import calculate
@@ -19,7 +25,7 @@ def raw_certificate():
     pins={};receipts={}
     for relative in PARENTS:
         path=ROOT/relative;value=json.loads(path.read_text())
-        for source,expected in value['input_sha256'].items():
+        for source,expected in bound_pins(value['input_sha256']).items():
             if digest(ROOT/source)!=expected:raise ValueError('changed frozen source: '+source)
             if source in pins and pins[source]!=expected:raise ValueError('inconsistent inherited source')
             pins[source]=expected
@@ -31,8 +37,8 @@ def raw_certificate():
       'model/particle_common_contract/provenance.py'}
     for relative in import_closure(seeds):pins[relative]=digest(ROOT/relative)
     value['prerequisite_receipts']=receipts
-    value['input_sha256']=dict(sorted(pins.items()))
-    value['owned_source_sha256']={p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    value['input_sha256']=bound_pins(dict(sorted(pins.items())))
+    value['owned_source_sha256']=bound_pins({p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})
     value['scope_boundaries']={'declared_new_Hamiltonian_and_enlarged_reference':True,
       'original_uniform_native_lattice_H_preserved':False,
       'each_original_intrablock_H_preserved':True,
@@ -57,7 +63,7 @@ def validate_pins(pins):
 def compare_research(value):
     path=HERE/'research_reference.json'
     if digest(path)!=REFERENCE_SHA:raise ValueError('immutable native join research receipt changed')
-    old=json.loads(path.read_text());validate_pins(old['input_sha256'])
+    old=json.loads(path.read_text());validate_pins(bound_pins(old['input_sha256']))
     ignored={'schema','input_sha256','owned_source_sha256'}
     if {k:v for k,v in value.items() if k not in ignored}!={k:v for k,v in old.items() if k not in ignored}:
         raise ValueError('fresh native join differs from independent research result')
@@ -72,6 +78,6 @@ def certificate():
     seeds={p.relative_to(ROOT).as_posix() for p in HERE.iterdir() if p.suffix in ('.py','.md')}
     seeds.add((HERE/'research_reference.json').relative_to(ROOT).as_posix())
     for relative in import_closure(seeds):value['input_sha256'][relative]=digest(ROOT/relative)
-    value['input_sha256']=dict(sorted(value['input_sha256'].items()))
+    value['input_sha256']=bound_pins(dict(sorted(bound_pins(value['input_sha256']).items())))
     value['independent_research_comparison']=comparison
     return value

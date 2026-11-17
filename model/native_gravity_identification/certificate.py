@@ -8,6 +8,12 @@ from math import comb
 
 from tools import strict_json
 from . import entropy as e
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -26,7 +32,7 @@ SOURCE_FILES = tuple('model/native_gravity_identification/' + name for name in (
 
 
 def source_bindings():
-    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in SOURCE_FILES}
+    return bound_pins({name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in SOURCE_FILES})
 
 
 def canonical(value):
@@ -99,7 +105,7 @@ def report():
     t = floor / 4
     remainder = e.first_law_remainder(floor, F(2), t, F(1))
     value = {'schema': 'oph.native_gravity_identification.v1',
-             'source_sha256': bindings, 'finite_exact_controls': small_control(),
+             'source_sha256': bound_pins(bindings), 'finite_exact_controls': small_control(),
              'growing_source_references': large,
              'same_state_entropy_split': {
                  'population': 240, 'occupied': 80, 'region_ports': 12,

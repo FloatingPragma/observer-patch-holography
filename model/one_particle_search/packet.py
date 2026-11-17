@@ -13,6 +13,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import native, spectrum
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -30,7 +36,7 @@ def bindings():
         'independent_checks': ['model/one_particle_search/test_search.py'],
     })
     names.add('model/one_particle_search/README.md')
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 _IMPORTED_BINDINGS = bindings()
@@ -40,7 +46,7 @@ def build():
     before = bindings()
     if before != _IMPORTED_BINDINGS:
         raise ValueError('source changed after import; replay in a fresh interpreter')
-    value = {'schema': 'oph.one_particle_search.v1', 'source_bindings': before,
+    value = {'schema': 'oph.one_particle_search.v1', 'source_bindings': bound_pins(before),
              'exact_complete_spectrum': spectrum.exact_certificate(),
              'complete_native_detector': native.certificate(),
              'finite_stationary_localization': spectrum.localization_certificate(),
@@ -76,7 +82,7 @@ def report():
         if run.returncode:
             raise RuntimeError('cold one-particle search failed: '+run.stderr[-4000:])
         value = strict_json.load(path)
-    if pins != bindings() or value['source_bindings'] != pins:
+    if pins != bindings() or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across cold replay')
     return value
 

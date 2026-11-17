@@ -26,6 +26,12 @@ from ..native_interface import construction as interface
 from ..native_quantum_history import construction as quantum
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from ..primitive_observer import runtime
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -309,7 +315,7 @@ def run():
     # The native unread channel has a different contraction law on this probe.
     native_control = {law: str((1+quantum.RATES[law])/2) for law in ('C', 'E')}
     return {'schema': 'oph.native_modular_reference.v1', 'all_pass': True,
-        'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
+        'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
         'reference': {'Palm_configuration_probabilities': list(map(str, palm)),
             'faithful': True, 'eigenvalue_ratio': '5/4', 'state_derived_modular_frequency': 'log(5/4)',
             'frequency_float_diagnostic': math.log(5/4), 'active_corner_reference_weight': '23/75',

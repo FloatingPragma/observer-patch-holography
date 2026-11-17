@@ -4,6 +4,12 @@ import hashlib,json
 import numpy as np
 import scipy.linalg as la
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[2]
 TARGET=ROOT/'model/openwave_intrinsic_magnetic'
@@ -112,10 +118,10 @@ def stationary_review():
 
 def report():
     paths=[TARGET/p for p in ('solver.py','checks.py','experiment.py','PROOF.md','results.json')]+[Path(__file__)]
-    pins={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+    pins=bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths})
     receipt=json.loads((TARGET/'results.json').read_text())
-    assert all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h for p,h in receipt['input_sha256'].items())
-    result={'schema':'oph.independent_intrinsic_magnetic_review.v1','input_sha256':pins,
+    assert all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h for p,h in bound_pins(receipt['input_sha256']).items())
+    result={'schema':'oph.independent_intrinsic_magnetic_review.v1','input_sha256':bound_pins(pins),
         'positive_kernel':derivative_review(),'stationary':stationary_review(),
         'scope':'The exact finite minimizer-existence proof does not identify the displayed floating stationary branch. The architecture retains confinement, Wilson mass, transverse-only Maxwell feedback and supplied coefficients; no unconfined electron, anomaly or precision g is inferred.',
         'verdict':'PASS_INDEPENDENT_INTRINSIC_MAGNETIC_REVIEW'}

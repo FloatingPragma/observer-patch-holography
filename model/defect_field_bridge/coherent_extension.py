@@ -19,6 +19,12 @@ from ..defect_field_interactions import interaction
 from ..exchange_sector import statistics_service as source
 from ..observer.source_scalar import compiler
 from . import full_domain
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 RAW_SLOTS = full_domain.RAW_SLOTS
 SOURCE_BOUND = full_domain.SOURCE_BOUND
@@ -188,7 +194,7 @@ def certificate():
               'full_1080_mode_source_isometry_executed': False,
               'source_scope': 'Complete16- and8-input source dilations; full-domain extension proved algebraically. Four local source isometries and all echo outputs are retained.',
               'physical_particle_identification_complete': False,
-              'source_sha256': {p: hashlib.sha256((root/p).read_bytes()).hexdigest() for p in paths}}
+              'source_sha256': bound_pins({p: hashlib.sha256((root/p).read_bytes()).hexdigest() for p in paths})}
     return result, arrays
 
 

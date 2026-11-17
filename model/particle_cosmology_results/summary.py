@@ -7,6 +7,12 @@ import json
 import math
 from fractions import Fraction
 from pathlib import Path
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -113,7 +119,7 @@ def authenticate(name: str, root: Path = ROOT) -> tuple[dict, dict]:
                         or abs(mean-math.fsum(n*p for n, p in enumerate(probabilities))) > 1e-9
                         or abs(mean-math.fsum(row['mean_number'] for row in species)) > 1e-9):
                     raise ValueError(f'{name}: invalid normalized source count law')
-    bindings = result.get('source_bindings', result.get('input_sha256'))
+    bindings = bound_pins(result.get('source_bindings', bound_pins(result.get('input_sha256'))))
     if not isinstance(bindings, dict) or not bindings:
         raise ValueError(f'{name}: missing source ancestry')
     for relative, expected in bindings.items():
@@ -176,7 +182,7 @@ def certificate(root: Path = ROOT) -> dict:
         raise ValueError('Incomplete or misclassified calibrated mass menu')
     # The actual common source, state and detector transfer is proved by this
     # consumer. A common file hash alone is not a physical transfer theorem.
-    join_pins = receipts[JOIN].get('source_bindings', receipts[JOIN].get('input_sha256', {}))
+    join_pins = bound_pins(receipts[JOIN].get('source_bindings', bound_pins(receipts[JOIN].get('input_sha256', {}))))
     for parent in ('particle_joint_mass_identity', 'particle_thermal_history'):
         path = f'model/{parent}/results.json'
         if join_pins.get(path) != bindings[path]:
@@ -199,7 +205,7 @@ def certificate(root: Path = ROOT) -> dict:
             bindings[str(path.relative_to(ROOT))] = digest(path)
     return {
         'schema': 'oph.particle_cosmology_results.v1',
-        'source_bindings': dict(sorted(bindings.items())),
+        'source_bindings': bound_pins(dict(sorted(bindings.items()))),
         'all_checks_pass': True, 'tasks': rows[:len(TASKS)], 'same_source_join': rows[len(TASKS)],
         'conditional_GeV_targets': targets,
         'compiled_lepton_GeV_readout': joint['compiled_lepton_joint']['families'],

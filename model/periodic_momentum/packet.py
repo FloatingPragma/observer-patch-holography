@@ -17,6 +17,12 @@ from ..full_fock_field.field import FieldGeometry
 from ..coarse_energy_ward import ward as w
 from ..particle_response.dispersion import PeriodicSpectrum
 from . import momentum as m
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -187,7 +193,7 @@ def run():
                               'Geometric modular weights, entropy/area stationarity, Newton normalization and an Einstein-register inhabitant.'],
                 'algebraic_tails_and_selected_low_energy_continuum_limits_excluded': False,
                 'no_local_Einstein_momentum_column_accepted': True},
-            'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}}
+            'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS})}
 
 
 def main():

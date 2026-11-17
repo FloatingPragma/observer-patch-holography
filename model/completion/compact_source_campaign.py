@@ -9,6 +9,12 @@ from pathlib import Path
 
 from tools import strict_json
 from .particle_derivation_campaign import ROOT, _bound_file, require
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 PATH = Path('model/completion/compact_source_campaign.json')
 SCHEMA = 'oph.compact_source_campaign.v1'
@@ -76,7 +82,7 @@ def validate(packet, root=ROOT):
     rows = packet.get('component_results')
     require(type(rows) is list and all(type(row) is dict and set(row) == RESULT_FIELDS for row in rows)
             and [row['id'] for row in rows] == list(COMPONENTS), 'missing, duplicated or altered component')
-    bindings = packet.get('source_bindings')
+    bindings = bound_pins(packet.get('source_bindings'))
     require(type(bindings) is dict and bindings, 'missing source bindings')
     checked = {}
 
@@ -126,7 +132,7 @@ def validate(packet, root=ROOT):
                 and all(type(path) is str for path in witnesses+controls), 'missing reviewed evidence')
         expected_bindings.update(witnesses+controls)
         require(set(witnesses+controls) <= set(bindings), 'missing reviewed source or control')
-        finite_bindings = finite.get('source_bindings', {})
+        finite_bindings = bound_pins(finite.get('source_bindings', {}))
         require(all(finite_bindings.get(path) == bindings[path] for path in witnesses+controls),
                 'finite attachment source custody differs')
         receipt_path = f'model/{name}/results.json'
@@ -144,7 +150,7 @@ def validate(packet, root=ROOT):
             require(type(receipt['physical_comparison_count_added']) is int
                     and receipt['physical_comparison_count_added'] == 0,
                     'component receipt added a physical comparison')
-        dependency_bindings = receipt.get('source_bindings')
+        dependency_bindings = bound_pins(receipt.get('source_bindings'))
         require(type(dependency_bindings) is dict and dependency_bindings, 'missing component dependencies')
         for path, digest in dependency_bindings.items():
             bound(path, digest, 'compact component dependency')

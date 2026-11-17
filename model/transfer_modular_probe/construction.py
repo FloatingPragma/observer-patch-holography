@@ -23,6 +23,12 @@ from ..native_clock import clock
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from ..observer.source_scalar import compiler
 from ..primitive_observer import runtime, transfer
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -359,7 +365,7 @@ def run():
     if _sequence_allowance(7) > F(1, 10**10):
         raise ArithmeticError('portable complete sequence allowance is insufficient')
     return {'schema': 'oph.transfer_modular_probe.v1', 'spectrum': audit,
-        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
         'energy_intervals': [[str(x) for x in interval] for interval in energies()],
         'single_readouts': rows, 'continuing_histories': continuing,
         'record_correlation_join': correlation_join(rows),

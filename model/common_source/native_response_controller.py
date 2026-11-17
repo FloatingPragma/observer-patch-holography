@@ -22,6 +22,12 @@ from . import native_response_biased as biased, native_response_cooling as cooli
 from . import native_response_dynamics as dynamics, native_response_reference as reference
 from . import native_code_transport as transport
 from ..observer.source_scalar import compiler
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HORIZON = 512
@@ -436,4 +442,4 @@ def source_bindings():
     paths = set(dynamics.source_bindings())|set(cooling.source_bindings())|{
         'model/common_source/native_response_controller.py',
         'model/common_source/test_native_response_controller.py'}
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})

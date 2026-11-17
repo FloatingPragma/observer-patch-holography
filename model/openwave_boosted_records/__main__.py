@@ -10,6 +10,12 @@ import tempfile
 from .source import source_packet,boost_checks,theorem_metadata
 from model.particle_common_contract.provenance import import_closure
 from model.openwave_larmor_dynamics.certificate import equivalent
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -18,9 +24,9 @@ UPSTREAM='ef55175d04737e73c92f33f9f9cf3d17c593da54'
 
 def pins():
     parent='model/openwave_common_electromagnetism/results.json'
-    seeds=set(json.loads((ROOT/parent).read_text())['source_sha256'])|{parent}
+    seeds=set(bound_pins(json.loads((ROOT/parent).read_text())['source_sha256']))|{parent}
     seeds|={str(p.relative_to(ROOT)) for p in HERE.iterdir() if p.suffix in ('.py','.md','.tex') or p.name=='source_packet.json'}
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(seeds))}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(seeds))})
 
 
 def run(openwave,python):
@@ -33,7 +39,7 @@ def run(openwave,python):
     for name in ('__init__.py','engine.py'):
         target=overlay/name
         if target.exists() and target.read_bytes()!=(HERE/name).read_bytes():
-            previous=json.loads((HERE/'results.json').read_text())['source_sha256']
+            previous=bound_pins(json.loads((HERE/'results.json').read_text())['source_sha256'])
             assert hashlib.sha256(target.read_bytes()).hexdigest()==previous[str((HERE/name).relative_to(ROOT))], 'unrecognized existing overlay'
         shutil.copy2(HERE/name,target)
     before=pins()
@@ -47,7 +53,7 @@ def run(openwave,python):
     return {'schema':'oph.common_source_boosted_records.v1',
         'verdict':'PASS_COMPLETE_REDUCING_SECTOR_RECORDS_AND_CONTROLLED_BOOST_DEFECT',
         'upstream_commit':revision,'upstream_tracked_source_modified':False,
-        'official_admission_or_score_award':False,'source_sha256':before,
+        'official_admission_or_score_award':False,'source_sha256':bound_pins(before),
         'source_domain':source_packet()['source_domain'],
         'theorem':theorem_metadata(),'boosted_energy_and_velocity_checks':boost_checks(),
         'portable_Taichi_execution':records}

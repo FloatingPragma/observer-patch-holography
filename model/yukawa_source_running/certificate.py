@@ -10,6 +10,12 @@ import numpy as np
 import sympy as sp
 
 from . import threshold, running
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -23,7 +29,7 @@ def bindings():
     paths.update(ROOT/name for name in ('model/interacting_extension/dependencies/source_reference.py',
         'model/interacting_extension/dependencies/exact_family_operators.json',
         'model/observer_particles/results/unified_yukawa_operators.json'))
-    return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def report():
@@ -64,8 +70,8 @@ def report():
     arrays.update({'running__'+k:v for k,v in ra.items()})
     if bindings()!=before:
         raise ArithmeticError('consumed implementation changed during calculation')
-    result={'schema':'oph.yukawa_source_running.v1','implementation_sha256':before,
-        'source_sha256':source['source_hashes'],'exact':exact,'finite_cases':cases,
+    result={'schema':'oph.yukawa_source_running.v1','implementation_sha256':bound_pins(before),
+        'source_sha256':bound_pins(source['source_hashes']),'exact':exact,'finite_cases':cases,
         'conditional_running':rg,'running_controls':running.algebra_controls(),
         'source_family_singular_values':np.linalg.svd(y,compute_uv=False)[::-1].tolist(),
         'status':{'empirical_particle_inputs':[], 'source_Y_reconstructed_from_complete_records':True,

@@ -8,6 +8,12 @@ from pathlib import Path
 
 from tools import strict_json
 from .energy import report
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -27,8 +33,8 @@ SOURCES = (
 
 
 def build():
-    return {**report(), "source_sha256": {
-        name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCES}}
+    return {**report(), "source_sha256": bound_pins({
+        name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCES})}
 
 
 def check(actual, expected):

@@ -9,6 +9,12 @@ from tools import strict_json
 from model.interacting_extension._source import verify_sources
 from model.interacting_extension.higgs_join.native_inputs import SOURCE_NAMES
 from . import algebra, readout, source
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -54,7 +60,7 @@ def bindings():
                 add(target)
                 for alias in node.names:
                     add(target+'.'+alias.name)
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(names)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(names)})
 
 
 def canonical(value):
@@ -65,7 +71,7 @@ def build():
     before = bindings()
     result = {
         'schema':'oph.color_loop_readout.v1',
-        'source_bindings':before,
+        'source_bindings':bound_pins(before),
         'literal_source_replay':source.source_replay(),
         'full_space_moment_identities':algebra.certificate(),
         'finite_time_complete_experiments':[readout.witness(q) for q in (0, 1)],

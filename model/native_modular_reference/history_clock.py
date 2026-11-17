@@ -29,6 +29,12 @@ from ..native_interface import construction as interface
 from ..observer import native, record_recovery as records
 from ..observer import adaptive_record_recovery as adaptive
 from ..observer.source_discrimination import circuit
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('history_clock_results.json.gz')
@@ -477,7 +483,7 @@ def run():
                   'model/native_modular_reference/cap_local_clock.py',
                   'model/native_modular_reference/local_history.py'))
     return {'schema': SCHEMA,
-            'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)},
+            'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}),
             'parameter': str(PARAMETER), 'source_budget': budget,
             'finite_preparation': transport.preparation_certificate(PARAMETER),
             'complete_preparation_history_halftrace_upper': full.compiled._outward(joined_bound),

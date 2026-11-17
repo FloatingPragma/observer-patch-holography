@@ -3,6 +3,12 @@ import hashlib
 import json
 from pathlib import Path
 from . import algebra, bounds
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -18,7 +24,7 @@ FRAGMENT = 'paper/tex_fragments/SPIN_CANONICAL_FIELD.tex'
 def bindings():
     paths = list(PARENTS)+[str(p.relative_to(ROOT)) for p in sorted(HERE.glob('*.py'))]
     paths += [str((HERE/'README.md').relative_to(ROOT)), FRAGMENT]
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})
 
 
 def canonical(value):
@@ -29,7 +35,7 @@ def build():
     before = bindings()
     result = {
         'schema': 'oph.spin_canonical_field.v1',
-        'source_bindings': before,
+        'source_bindings': bound_pins(before),
         'direct_exact_checks': algebra.exact_checks(),
         'constants': bounds.constants(),
         'transport_examples': [bounds.scaling_example(n) for n in (2, 4, 8, 16, 64)],

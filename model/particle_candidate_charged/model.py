@@ -13,6 +13,12 @@ from model.particle_primary_selected_odd_response import model as selected_odd
 from model.particle_spatial_modular_response import regional as support
 from model.native_quantum_gauss import algebra as native
 from model.particle_local_wilson_density import density
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=(
     'model/particle_candidate_charged/__init__.py',
@@ -407,6 +413,6 @@ def verify_bound(member,value):
 def certificate():
     paths=provenance.definition_inputs(SOURCE_INPUTS);pins=provenance.definition_hashes(paths)
     result={'schema':'oph.particle_candidate_charged_certificate.v1',
-        'members':[bind_member(contract.member(n)) for n in (0,1,2,8)],'source_sha256':pins}
+        'members':[bind_member(contract.member(n)) for n in (0,1,2,8)],'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('charged candidate inputs changed during replay')
     return result

@@ -8,6 +8,12 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 sys.dont_write_bytecode=True
 
 HERE=Path(__file__).resolve().parent
@@ -64,7 +70,7 @@ def verify():
         if name=='gauge_particle_identification' and status!='EXACT_SOURCE_RESPONSE_INTERNAL_GAUGE_MULTIPLETS_IDENTIFIED':
             raise ValueError('Unexpected gauge response result')
         assert record['producer_sha256']==sha(HERE/f'{name}.py'),name
-        for relative,expected in record['source_sha256'].items():
+        for relative,expected in bound_pins(record['source_sha256']).items():
             path=(ROOT/relative).resolve()
             assert not Path(relative).is_absolute() and path.is_relative_to(ROOT)
             assert sha(path)==expected,(name,relative)

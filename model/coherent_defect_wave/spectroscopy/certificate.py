@@ -7,6 +7,12 @@ from model.particle_common_contract.provenance import import_closure
 from .readout import source_experiment, fourier_branches, filter_clock_branches
 from .readout import energy_branch_control, numerical_free_phase_bound, resolution_plan
 from .background_readout import background_experiment
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[3]
 
@@ -27,7 +33,7 @@ def input_hashes():
     ))
     paths = {ROOT/name for name in import_closure({str(p.relative_to(ROOT)) for p in paths})}
     paths = {p for p in paths if p.name in {q.name for q in p.parent.iterdir()}}
-    return {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def certificate():
@@ -53,7 +59,7 @@ def certificate():
     return {
         'schema': 'oph.coherent_defect_wave.spectroscopy.v1',
         'source_program': 'coherent-defect-wave-v1',
-        'input_sha256': input_hashes(),
+        'input_sha256': bound_pins(input_hashes()),
         'source_dimension': observer.dimension,
         'positive_gauss_dimension': observer.dimension//2,
         'initial_preparation': '|link=1> tensor A|port0,internal3>',

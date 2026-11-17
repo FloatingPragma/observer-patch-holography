@@ -5,6 +5,12 @@ from model.particle_common_contract.provenance import import_closure
 from model.affine_gauss_spectrum.model import certificate as parent_certificate
 from model.affine_gauss_mobile.certificate import validate_pins
 from .model import audit
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 REFERENCE_SHA='e9d1180aab228045451fb245c9422ba7c9dccfbcb9e702aeebaa71c642ba5bef'
@@ -25,15 +31,15 @@ def compare_research(value):
 
 def certificate():
     if digest(ROOT/PARENT)!=PARENT_SHA:raise ValueError('frozen charged spectrum changed')
-    parent=json.loads((ROOT/PARENT).read_text());validate_pins(parent['input_sha256'])
+    parent=json.loads((ROOT/PARENT).read_text());validate_pins(bound_pins(parent['input_sha256']))
     if parent!=parent_certificate():raise ValueError('fresh charged spectrum replay differs')
     value=copy.deepcopy(audit());comparison=compare_research(value)
     value['schema']='oph.affine_gauss_spectrum_validation.v1'
     value.pop('owned_source_sha256')
-    pins=dict(parent['input_sha256']);pins[PARENT]=PARENT_SHA
+    pins=dict(bound_pins(parent['input_sha256']));pins[PARENT]=PARENT_SHA
     seeds={p.relative_to(ROOT).as_posix() for p in HERE.iterdir() if p.suffix in ('.py','.md')}
     seeds.add((HERE/'research_reference.json').relative_to(ROOT).as_posix())
     for relative in import_closure(seeds):pins[relative]=digest(ROOT/relative)
-    value['input_sha256']=dict(sorted(pins.items()))
+    value['input_sha256']=bound_pins(dict(sorted(pins.items())))
     value['independent_research_comparison']=comparison
     return value

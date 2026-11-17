@@ -8,6 +8,12 @@ import sympy as s
 
 from .canvas import AMBER, BLUE, EDGE, MUTED, SOFT, TEAL, TEXT, VIOLET
 from .parts import CW, X0, card
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 RECEIPT = ROOT / 'model/coherent_defect_wave/results.json'
@@ -170,9 +176,9 @@ def load():
     value = json.loads(RECEIPT.read_text())
     if value['schema'] != 'oph.coherent_defect_wave.v1':
         raise ValueError('joint defect-wave schema changed')
-    if not value['input_sha256']:
+    if not bound_pins(value['input_sha256']):
         raise ValueError('joint source custody missing')
-    for name, digest in value['input_sha256'].items():
+    for name, digest in bound_pins(value['input_sha256']).items():
         path = (ROOT / name).resolve()
         if not path.is_relative_to(ROOT) or hashlib.sha256(path.read_bytes()).hexdigest() != digest:
             raise ValueError('stale joint defect-wave input: ' + name)
@@ -194,9 +200,9 @@ def load():
     for name in EXTENSIONS:
         path = RECEIPT.parent / name / 'results.json'
         extension = json.loads(path.read_text())
-        if not extension.get('input_sha256'):
+        if not bound_pins(extension.get('input_sha256')):
             raise ValueError('missing joined extension custody: ' + name)
-        for source, digest in extension['input_sha256'].items():
+        for source, digest in bound_pins(extension['input_sha256']).items():
             target = (ROOT/source).resolve()
             if not target.is_relative_to(ROOT) or hashlib.sha256(target.read_bytes()).hexdigest() != digest:
                 raise ValueError('stale joined extension input: ' + source)
@@ -397,11 +403,11 @@ def check_neutral_motion(mobility, cell):
 
 
 def input_pins(value):
-    pins = {**value['input_sha256'], str(RECEIPT.relative_to(ROOT)):
+    pins = {**bound_pins(value['input_sha256']), str(RECEIPT.relative_to(ROOT)):
             hashlib.sha256(RECEIPT.read_bytes()).hexdigest()}
     for name, extension in value['extensions'].items():
         path = RECEIPT.parent/name/'results.json'
-        pins.update(extension['input_sha256'])
+        pins.update(bound_pins(extension['input_sha256']))
         pins[str(path.relative_to(ROOT))] = hashlib.sha256(path.read_bytes()).hexdigest()
     return pins
 

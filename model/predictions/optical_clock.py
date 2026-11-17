@@ -20,6 +20,12 @@ import re
 from ..laboratory_clock import event_geometry
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SUMMARY = ROOT/'model/predictions/data/optical_clock_summary.json'
@@ -364,7 +370,7 @@ def run():
             or any(row['sha256'] != SOURCES[row['file']] for row in summary['datasets'])):
         raise ValueError('the retained summaries must bind both named public datasets')
     return {'schema': 'oph.optical_clock.direct_attachment.v1',
-            'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+            'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
             'public_dataset': 'https://zenodo.org/records/6901524',
             'measurement_protocol': 'https://arxiv.org/abs/2205.13053',
             'reference_frequency': 'https://arxiv.org/abs/2010.06620',

@@ -14,6 +14,12 @@ from model.openwave_native_force.force import source_matrices
 from model.lepton_mass_compiler.analyzer import rational_effect_intervals
 from model.particle_common_contract.provenance import import_closure
 from model.openwave_larmor_dynamics.certificate import equivalent
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -26,8 +32,8 @@ def pins():
            for p in (ROOT/'model'/package).iterdir()
            if p.suffix in ('.py','.md','.tex') or p.name in ('results.json','inputs.json','oscillation_inputs.json')}
     seeds.discard(str((HERE/'results.json').relative_to(ROOT)))
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
-            for p in sorted(import_closure(seeds))}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
+            for p in sorted(import_closure(seeds))})
 
 def rational_action(matrix,v):
     a=matrix.tocsr()
@@ -38,7 +44,7 @@ def run():
     before=pins()
     receipts={p:json.loads((ROOT/'model'/p/'results.json').read_text()) for p in PACKAGES}
     for receipt in receipts.values():
-        for p,h in receipt['source_sha256'].items():
+        for p,h in bound_pins(receipt['source_sha256']).items():
             assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h,p
     ground=receipts[PACKAGES[0]]['current_ground_certificate']
     d=sector('baryon');v=list(map(int,ground['integer_native_occupation_trial']))
@@ -112,7 +118,7 @@ def run():
     assert not clocks['physical_clock_G_or_equivalence_principle_violation_identified']
     assert pins()==before
     return {'schema':'oph.independent_source_constraints_review.v1','verdict':'PASS_INDEPENDENT_SOURCE_CONSTRAINTS_REVIEW',
-            'source_sha256':before,'exact_native_trial_energy':str(energy),'exact_native_trial_variance':str(variance),
+            'source_sha256':bound_pins(before),'exact_native_trial_energy':str(energy),'exact_native_trial_variance':str(variance),
             'native_axial_diagnostic':native_value,'full_original_trial_records_exactly_normalized':True,
             'fixed_D_native_operator_identity_checked':True,'independent_complete_six_quark_character_count':full,
             'independent_zero_spin_weak_weight_count':fixed,'calibrated_neutral_mass_brackets_and_rotation_checked':True,

@@ -20,6 +20,12 @@ from ..observer import native, quantum_mixing as mixing
 from ..native_quantum_history import construction as quantum
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 STATES = quantum.STATES
@@ -460,8 +466,8 @@ def run():
             raise ArithmeticError('native timeout mass changed')
         comparisons[f'reference_{int(reference)}_interaction_{gamma}'] = result
     receipt = {'schema': 'oph.quantum_observer_correspondence.v1',
-        'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                          for path in SOURCE_PATHS},
+        'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                          for path in SOURCE_PATHS}),
         'contract': {'native_law': 'C', 'binary_total_two_dimension': 66,
             'regions': REGIONS, 'union': UNION, 'scheduler': 'uniform thirty seams and fair native coin',
             'attempt_cap_per_interval': 2, 'scheduled_union_incidents_requested': 2,

@@ -11,6 +11,12 @@ import hashlib
 import json
 from pathlib import Path
 import sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 sys.dont_write_bytecode = True
 import sympy as s
 
@@ -129,7 +135,7 @@ def main():
         PUBLIC/'Lean/Screen/WeylYukawaConventions.lean']
     result = {
         'status':'PASS_EXACT_SOURCE_FAMILY_NATURALITY_AND_SPLITTING_CONTROL',
-        'producer_sha256':sha(__file__),'source_sha256':{str(p.relative_to(ROOT)):sha(p) for p in paths},
+        'producer_sha256':sha(__file__),'source_sha256':bound_pins({str(p.relative_to(ROOT)):sha(p) for p in paths}),
         'artifacts':{artifact.name:sha(artifact)},'empirical_mass_or_coupling_inputs':[],
         'source_carrier_pin':pin,'source_rotations_checked':60,'source_band_dimension':3,
         'character_norm':str(inner),'commutant_complex_dimension':len(kernel),

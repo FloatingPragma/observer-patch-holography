@@ -11,6 +11,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import group, channels
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -28,14 +34,14 @@ def source_bindings():
         'domain_and_proof': 'model/cubic_particle_channels/README.md',
         'source_receipts': list(PRIORS), 'independent_checks': []})
     paths.add(FRAGMENT)
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def prior_custody():
     result = {}
     for name in PRIORS:
         row = strict_json.loads((ROOT/name).read_text())
-        bindings = row.get('source_bindings', row.get('source_sha256'))
+        bindings = bound_pins(row.get('source_bindings', bound_pins(row.get('source_sha256'))))
         if not isinstance(bindings, dict) or not bindings:
             raise ValueError('missing prior source bindings')
         changed = sorted(p for p, digest in bindings.items()
@@ -98,7 +104,7 @@ def _produce():
     value = {'schema': 'oph.cubic_particle_channels.v1', 'new_checks_pass': True,
              'dependency_custody_pass': complete, 'all_pass': complete,
              'theorem': theorem(), 'group': group.certificate(), 'structure': channels.structure(), 'spectrum': channels.spectrum(),
-             'prior_custody': prior, 'source_bindings': pins,
+             'prior_custody': prior, 'source_bindings': bound_pins(pins),
              'proof_scope': 'Exact binary cubic symmetry, commutants and central filters; certified spectral intervals inherited from FA85/88. Source covariance is independently tested. Historical eigensolver certificates are not replayed.'}
     validate(value)
     if source_bindings() != pins:
@@ -115,7 +121,7 @@ def report():
                         '-m', 'model.cubic_particle_channels.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.loads(path.read_text())
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across cold replay')
     validate(value)
     return value

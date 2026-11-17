@@ -8,6 +8,12 @@ from math import comb
 import sys
 
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
@@ -53,10 +59,10 @@ def parents():
     native = json.loads((ROOT/PARENT).read_text())
     route = json.loads((TRANSPORT/'research_reference.json').read_text())
     for value in (native, route):
-        for path, sha in value['input_sha256'].items():
+        for path, sha in bound_pins(value['input_sha256']).items():
             if digest(ROOT/path) != sha:
                 raise ValueError('source pin changed: '+path)
-    for name, sha in route['owned_source_sha256'].items():
+    for name, sha in bound_pins(route['owned_source_sha256']).items():
         if digest(TRANSPORT/'retained'/(name+'.raw')) != sha:
             raise ValueError('transport source changed: '+name)
     if native['actual_quark_CAR_images']['full_native_separate_quark_lepton_spin_H_commutators'] != 6:
@@ -208,7 +214,7 @@ def certificate():
     records = {f:family(f) for f in ('uc','dc','Q')}
     norm = F(1080)+720*LAMBDA
     from ..provenance import import_closure
-    seeds = set(native['input_sha256']) | set(route['input_sha256']) | {
+    seeds = set(bound_pins(native['input_sha256'])) | set(bound_pins(route['input_sha256'])) | {
         PARENT, 'model/native_wilson_maxwell_refinement/bounds.py',
         'model/native_charge_resolution/bounds.py',
         'model/coherent_defect_wave/chiral_source/model.py',
@@ -237,8 +243,8 @@ def certificate():
             'full_charged_sector_ground_or_string_tension_identified':False,
             'ballistic_or_relativistic_dispersion_or_Sm_mass':False},
         'exact_idle_or_zero_hopping_arrival_probability':'0',
-        'input_sha256':{path:digest(ROOT/path) for path in sorted(import_closure(seeds))},
-        'owned_source_sha256':{p.name:digest(p)for p in sorted(HERE.iterdir())if p.suffix in ('.py','.md')}}
+        'input_sha256':bound_pins({path:digest(ROOT/path) for path in sorted(import_closure(seeds))}),
+        'owned_source_sha256':bound_pins({p.name:digest(p)for p in sorted(HERE.iterdir())if p.suffix in ('.py','.md')})}
 
 
 if __name__ == '__main__':

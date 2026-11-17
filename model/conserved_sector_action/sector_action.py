@@ -17,6 +17,12 @@ from tools import strict_json
 from ..clock_defect_energy import reference_balance
 from ..exchange_sector import sector
 from ..observer import record_recovery as records
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -67,14 +73,14 @@ def predecessor_bindings() -> dict[str, str]:
     """Resolve only the campaign's named historical receipt to its capture."""
     if digest(PREDECESSOR_ENERGY_CAPTURE) != PREDECESSOR_ENERGY_SHA256:
         raise ValueError("sector action predecessor capture changed")
-    return {name: PREDECESSOR_ENERGY_SHA256 if name == PREDECESSOR_ENERGY_SOURCE
-            else digest(name) for name in BASE_SOURCES}
+    return bound_pins({name: PREDECESSOR_ENERGY_SHA256 if name == PREDECESSOR_ENERGY_SOURCE
+            else digest(name) for name in BASE_SOURCES})
 
 
 def source_bindings() -> dict[str, str]:
     """Bind current code and actual input files, including the frozen capture."""
-    current = {name: digest(name) for name in (*BASE_SOURCES, *PACKET_SOURCES)
-               if name != PREDECESSOR_ENERGY_SOURCE}
+    current = bound_pins({name: digest(name) for name in (*BASE_SOURCES, *PACKET_SOURCES)
+               if name != PREDECESSOR_ENERGY_SOURCE})
     current[PREDECESSOR_ENERGY_CAPTURE] = digest(PREDECESSOR_ENERGY_CAPTURE)
     return dict(sorted({**sector.source_bindings(), **current}.items()))
 
@@ -168,7 +174,7 @@ def report() -> dict:
     if any(type(campaign.get(k)) is not type(v) or campaign[k] != v
            for k, v in required.items()):
         raise ValueError("sector action campaign changed")
-    if campaign.get("source_sha256") != predecessor_bindings():
+    if bound_pins(campaign.get("source_sha256")) != predecessor_bindings():
         raise ValueError("sector action predecessor binding changed")
     kernels = {law: native_kernel(law) for law in ("C", "E")}
     if kernels["C"] != kernels["E"]:
@@ -183,7 +189,7 @@ def report() -> dict:
     return {
         "schema": "oph.conserved_sector_action.results.v1",
         "campaign_id": campaign["campaign_id"],
-        "source_sha256": source_bindings(),
+        "source_sha256": bound_pins(source_bindings()),
         "predecessor_evidence": {
             "frozen_source_path": PREDECESSOR_ENERGY_SOURCE,
             "captured_path": PREDECESSOR_ENERGY_CAPTURE,

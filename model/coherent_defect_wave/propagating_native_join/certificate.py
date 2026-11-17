@@ -8,6 +8,12 @@ from ..native_routing_join.model import native_column as primitive_column
 from ..mobile_flux.model import gamma as literal_gamma
 from . import model as m
 from . import spinful as f
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 
@@ -24,8 +30,8 @@ def input_hashes():
         'evidence/native_geometric_source_20260925/spec.json',
         'evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py',
         'evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py'))
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(import_closure(paths)) if (ROOT/name).is_file()}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(import_closure(paths)) if (ROOT/name).is_file()})
 
 
 def matching_experiment():
@@ -191,4 +197,4 @@ def certificate():
                      'interacting_relativistic_limit':False,
                      'positive_energy_relativistic_many_body_reference':False,
                      'source_mass_renormalization_or_SM_identity_or_GeV_prediction':False},
-            'input_sha256':input_hashes()}
+            'input_sha256':bound_pins(input_hashes())}

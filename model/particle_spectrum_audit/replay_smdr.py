@@ -17,6 +17,12 @@ import tempfile
 from scipy.optimize import brentq
 
 from .derive import HERE, read
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 def digest(path):
@@ -107,7 +113,7 @@ def low_energy(light, state):
 def replay(smdr):
     smdr = Path(smdr).resolve()
     pin = read("smdr_source_pin.json")
-    for name, expected in pin["files_sha256"].items():
+    for name, expected in bound_pins(pin["files_sha256"]).items():
         if digest(smdr/name) != expected:
             raise ValueError(f"SMDR source pin mismatch: {name}")
     inputs = read("inputs.json")
@@ -162,10 +168,10 @@ def replay(smdr):
             "outputs_GeV": outputs, "relative_mass_replay_errors": errors,
             "alpha_s_5_at_comparison_MZ": alpha["alphaS"], "criticality_boundary": critical,
             "reference_substitution_controls": controls,
-            "inputs_sha256": digest(HERE/"inputs.json"),
-            "sources_sha256": {p.name: digest(p) for p in sorted(HERE.iterdir())
-                               if p.suffix in (".py", ".c", ".h")},
-            "library_sha256": {name: digest(smdr/name) for name in ("libsmdr.a", "lib3vil.a", "libtsil.a")},
+            "inputs_sha256": bound_pins(digest(HERE/"inputs.json")),
+            "sources_sha256": bound_pins({p.name: digest(p) for p in sorted(HERE.iterdir())
+                               if p.suffix in (".py", ".c", ".h")}),
+            "library_sha256": bound_pins({name: digest(smdr/name) for name in ("libsmdr.a", "lib3vil.a", "libtsil.a")}),
             "scope": "Replay of a stipulated frozen boundary and retained perturbative approximations; no physical identity or complete theory-error bound."}
 
 

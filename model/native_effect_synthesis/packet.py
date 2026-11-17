@@ -9,6 +9,12 @@ import numpy as np
 from tools import strict_json
 from . import intervals as iv, synthesis as s
 from model.native_effect_coverage import packet as coverage_packet
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -40,7 +46,7 @@ IMPORT_FILES = (
 
 def source_bindings():
     paths = set(SOURCE_FILES)|set(IMPORT_FILES)|set(coverage_packet.source_bindings())
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def examples():
@@ -99,7 +105,7 @@ def produce():
                        'rounded_maps_asserted_exactly_trace_preserving':False,
                        'Luders_update_inferred_from_effect':False,
                        'generic_host_limits_raised':False,'physical_QFT_or_particle_identification':False},
-              'source_bindings':before}
+              'source_bindings':bound_pins(before)}
     if source_bindings()!=before:
         raise ArithmeticError('source synthesis inputs changed during replay')
     return result

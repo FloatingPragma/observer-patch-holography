@@ -28,6 +28,12 @@ import sympy as sp
 
 from . import inverse_clock
 from ..observer.source_scalar import compiler
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(sorted(set((*inverse_clock.SOURCE_PATHS,
@@ -332,9 +338,9 @@ def _compiled_data():
                 guards[name] = _combined_guard(BASIS_GUARD, PAIR_GUARD, BASIS_GUARD)
             diagnostics[name] = _check_matrix(raw[name], targets[name], guards[name], name)
             diagnostics[name]['pair_routine'] = pair_diagnostic
-    digests = {name: hashlib.sha256(json.dumps(word, sort_keys=True,
+    digests = bound_pins({name: hashlib.sha256(json.dumps(word, sort_keys=True,
                 separators=(',', ':'), allow_nan=False).encode()).hexdigest()
-               for name, word in words.items()}
+               for name, word in words.items()})
     # Exact-algebra identity, numerically checked on the actual finite density;
     # the source implementation allowance is retained separately above.
     state = reference['density']

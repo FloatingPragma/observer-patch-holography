@@ -11,17 +11,23 @@ from model.lepton_mass_compiler.analyzer import rational_effect_intervals
 from model.particle_common_contract.provenance import import_closure
 from model.common_source.chiral_candidate.action import SOURCE_FILES
 from model.openwave_larmor_dynamics.certificate import equivalent
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1];TARGET=ROOT/'model/openwave_platform_kernel'
 
 def pins():
  seeds=set(SOURCE_FILES)
  seeds.update(str(p.relative_to(ROOT))for p in HERE.iterdir()if p.suffix in('.py','.md'))
  seeds.update(str(p.relative_to(ROOT))for p in TARGET.iterdir()if p.suffix in('.py','.md','.tex')or p.name in('source_packet.json','results.json'))
- return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(seeds))}
+ return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(seeds))})
 
 def run():
  before=pins();packet=json.loads((TARGET/'source_packet.json').read_text());receipt=json.loads((TARGET/'results.json').read_text())
- for p,h in receipt['source_sha256'].items():assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h
+ for p,h in bound_pins(receipt['source_sha256']).items():assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h
  assert receipt['full_native_execution']['source_packet_sha256']==hashlib.sha256((TARGET/'source_packet.json').read_bytes()).hexdigest()
  native=native_frames();intervals=rational_effect_intervals()['effect_intervals_k0_k1_k2'];masses=[F(a)+F(b)for a,b in intervals];masses=[m/2 for m in masses]
  substitution={symbol:s.Rational(m.numerator,m.denominator)for symbol,m in zip(native['mass_symbols'],masses)}
@@ -76,7 +82,7 @@ def run():
     'maximum_independent_complete_record_TV':tv,'complete_original_probability_total_range':[minimum_total,maximum_total]})
  assert pins()==before
  return {'schema':'oph.independent_full_native_platform_review.v1','verdict':'PASS_INDEPENDENT_FULL_SOURCE_PLATFORM_REVIEW',
-  'source_sha256':before,'exact_native_symbol_and_Clifford_checks':True,'exact_RK4_norm_polynomial_verified':True,
+  'source_sha256':bound_pins(before),'exact_native_symbol_and_Clifford_checks':True,'exact_RK4_norm_polynomial_verified':True,
   'independent_method':'Full periodic sparse180-row action and scipy expm_multiply, independently of exported charged-frame Fourier evolution',
   'runs':results,'complete_preparation_failure_and_full_complement_checked':True,
   'roundoff_scope':'Independent numerical records are diagnostics. The analytic integration bound is exact arithmetic, not a hardware rounding enclosure.',

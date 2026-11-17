@@ -7,6 +7,12 @@ import numpy as np
 import scipy.linalg as la
 import sympy as s
 from model.openwave_scale_coupling import coupling as producer
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
@@ -151,7 +157,7 @@ def run():
         'all_four_bare_betas_equal_six':True,'nonpositive_or_nonfinite_means_rejected':rejected,
         'finite_volume_long_loop_shift':float(volumes[0]['independent_g_squared'][2]-volumes[1]['independent_g_squared'][2]),
         'scope':'Finite declared pure-SU3 ensemble scale trend with Gaussian finite-volume normalization. No rigorous mixing, continuum beta function, physical GeV scale or PW119 particle-source equivalence follows.',
-        'input_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},
+        'input_sha256':bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}),
         'verdict':'PASS'}
 
 

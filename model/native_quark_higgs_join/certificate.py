@@ -3,6 +3,12 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -30,7 +36,7 @@ def raw_certificate():
     if digest(ROOT/PARENT) != PARENT_SHA:
         raise ValueError('native quark parent changed')
     parent = json.loads((ROOT/PARENT).read_text())
-    validate(parent['input_sha256'])
+    validate(bound_pins(parent['input_sha256']))
     assert parent_certificate() == parent
     result = dict(schema='oph.native_quark_higgs_join.v1',
                   source_parent={PARENT: PARENT_SHA},
@@ -71,14 +77,14 @@ def raw_certificate():
                                     all_atomic_weights_and_actual_source_errors_recomputed=True,
                                     numerical_eigensolver_used=False,
                                     enormous_full_source_pointer_matrix_executed=False))
-    pins = dict(parent['input_sha256'])
+    pins = dict(bound_pins(parent['input_sha256']))
     pins[PARENT] = PARENT_SHA
     seeds = set(pins) | {'model/coherent_defect_wave/chiral_joint/higgs_composites/model.py'}
     for name in import_closure(seeds):
         pins[name] = digest(ROOT/name)
-    result['input_sha256'] = dict(sorted(pins.items()))
-    result['owned_source_sha256'] = {p.name: digest(p) for p in sorted(HERE.iterdir())
-                                     if p.suffix in ('.py', '.md')}
+    result['input_sha256'] = bound_pins(dict(sorted(pins.items())))
+    result['owned_source_sha256'] = bound_pins({p.name: digest(p) for p in sorted(HERE.iterdir())
+                                     if p.suffix in ('.py', '.md')})
     return result
 
 
@@ -91,7 +97,7 @@ def certificate():
     if digest(reference_path) != REFERENCE_SHA:
         raise ValueError('immutable research receipt changed')
     reference = json.loads(reference_path.read_text())
-    validate(reference['input_sha256'])
+    validate(bound_pins(reference['input_sha256']))
     ignored = {'input_sha256', 'owned_source_sha256'}
     if {k: v for k, v in value.items() if k not in ignored} != {
             k: v for k, v in reference.items() if k not in ignored}:
@@ -105,7 +111,7 @@ def certificate():
     seeds.update(value['normalized_admitted_states_and_histories']['pure_inequality_inputs'])
     for name in import_closure(seeds):
         value['input_sha256'][name] = digest(ROOT/name)
-    value['input_sha256'] = dict(sorted(value['input_sha256'].items()))
+    value['input_sha256'] = bound_pins(dict(sorted(bound_pins(value['input_sha256']).items())))
     value['independent_research_comparison'] = {
         'reference_sha256': REFERENCE_SHA,
         'every_research_interference_scientific_field_equal': True,

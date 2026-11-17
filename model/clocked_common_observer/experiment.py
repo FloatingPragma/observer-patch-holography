@@ -13,6 +13,12 @@ from ..common_source import exact_output, output_certificate as report, protocol
 from ..common_source.infinite_history import canonical
 from ..primitive_observer import common, runtime
 from . import clock, construction as c, work_bounds as wb
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 SOURCE_PATHS = tuple(sorted(set((*clock.SOURCE_PATHS, *wb.SOURCE_PATHS,
@@ -275,7 +281,7 @@ def run():
                          ARITHMETIC_GATE, 'C/E common work marginal')
     root = Path(__file__).resolve().parents[2]
     return {'schema': 'oph.clocked_common_observer.v1',
-        'source_sha256': {p: hashlib.sha256((root/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+        'source_sha256': bound_pins({p: hashlib.sha256((root/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
         'occupation_dimension': c.DIMENSION, 'source_split_count': c.STEPS,
         'work_model_duration_per_slot': str(c.DELTA), 'caps': list(c.CAPS),
         'finite_work_channel_bounds': {

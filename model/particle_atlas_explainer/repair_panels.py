@@ -7,6 +7,12 @@ from pathlib import Path
 
 from .canvas import AMBER, BLUE, CARD2, EDGE, GREEN, MUTED, RED, SOFT, TEAL, TEXT, VIOLET
 from .parts import CW, X0, card
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 RECEIPT = ROOT / 'model/coherent_seam_repair/results.json'
@@ -19,7 +25,7 @@ def load():
     value = json.loads(RECEIPT.read_text())
     if value['schema'] != 'oph.coherent_seam_repair.v1':
         raise ValueError('coherent repair receipt schema changed')
-    pins = value['input_sha256']
+    pins = bound_pins(value['input_sha256'])
     if not pins:
         raise ValueError('coherent repair input custody missing')
     for name, digest in pins.items():
@@ -39,7 +45,7 @@ def load():
 
 
 def input_pins(value):
-    return {**value['input_sha256'], str(RECEIPT.relative_to(ROOT)):
+    return {**bound_pins(value['input_sha256']), str(RECEIPT.relative_to(ROOT)):
             hashlib.sha256(RECEIPT.read_bytes()).hexdigest()}
 
 
@@ -47,7 +53,7 @@ def load_protection():
     value = json.loads(PROTECTION.read_text())
     if value['schema'] != 'oph.coherent_seam_repair.boundary_flux.v1':
         raise ValueError('boundary-flux schema changed')
-    for name, digest in value['input_sha256'].items():
+    for name, digest in bound_pins(value['input_sha256']).items():
         path = (ROOT / name).resolve()
         if not path.is_relative_to(ROOT) or hashlib.sha256(path.read_bytes()).hexdigest() != digest:
             raise ValueError('stale boundary-flux input: ' + name)
@@ -58,7 +64,7 @@ def load_protection():
 
 
 def protection_pins(value):
-    return {**value['input_sha256'], str(PROTECTION.relative_to(ROOT)):
+    return {**bound_pins(value['input_sha256']), str(PROTECTION.relative_to(ROOT)):
             hashlib.sha256(PROTECTION.read_bytes()).hexdigest()}
 
 
@@ -66,7 +72,7 @@ def load_agreement():
     value = json.loads(AGREEMENT.read_text())
     if value['schema'] != 'oph.coherent_seam_agreement.v1':
         raise ValueError('observer-agreement schema changed')
-    for name, digest in value['input_sha256'].items():
+    for name, digest in bound_pins(value['input_sha256']).items():
         path = (ROOT / name).resolve()
         if not path.is_relative_to(ROOT) or hashlib.sha256(path.read_bytes()).hexdigest() != digest:
             raise ValueError('stale observer-agreement input: ' + name)
@@ -80,7 +86,7 @@ def load_agreement():
 
 
 def agreement_pins(value):
-    return {**value['input_sha256'], str(AGREEMENT.relative_to(ROOT)):
+    return {**bound_pins(value['input_sha256']), str(AGREEMENT.relative_to(ROOT)):
             hashlib.sha256(AGREEMENT.read_bytes()).hexdigest()}
 
 

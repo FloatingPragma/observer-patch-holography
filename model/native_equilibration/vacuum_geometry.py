@@ -63,6 +63,12 @@ from tools import strict_json
 from ..common_source import slow_geometry
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from ..physical_space_time.observation_process import product_mode_dictionary
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -298,7 +304,7 @@ def run(*, length=F(2), angular_scale=F(1), density=F(1),
             "slab_is_a_small_geodesic_ball": False, "bare_entropy_is_renormalized_generalized_entropy": False,
             "ultraviolet_or_common_continuum_error_certified": False,
             "Einstein_equations_derived_or_all_dynamic_geometries_excluded": False},
-        "source_sha256": {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}}
+        "source_sha256": bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS})}
     def finite(value):
         if isinstance(value, dict):
             return all(finite(child) for child in value.values())

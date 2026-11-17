@@ -8,6 +8,12 @@ import numpy as np
 from . import analysis as an
 from . import gates as gt
 from .literature import CONVENTION, LITERATURE, MEASURED
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 TABLES = Path(__file__).with_name('recorded_tables.json')
 HEADLINE = 'B'
@@ -175,8 +181,8 @@ def certificate():
                 all_checks_pass=bool(all(checks.values())), checks=checks, gate_numbers=numbers, production=prod,
                 melting=melt, production_gates=gates, headline=headline(prod, melt), measured=MEASURED,
                 convention=CONVENTION, literature=LITERATURE,
-                input_sha256={p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in
-                              [TABLES, *sorted(TABLES.parent.glob('*.py'))]})
+                input_sha256=bound_pins({p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in
+                              [TABLES, *sorted(TABLES.parent.glob('*.py'))]}))
 
 
 def close(a, b, rtol=1e-6, atol=1e-9, path=''):

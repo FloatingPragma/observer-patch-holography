@@ -6,6 +6,12 @@ from pathlib import Path
 
 from model.particle_common_contract.provenance import import_closure
 from .model import calculate,source,PARENT,PARENT_SHA
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -23,18 +29,18 @@ def validate_pins(pins):
 
 def input_hashes():
     parent,_=source()
-    inherited=dict(parent['input_sha256']);inherited[PARENT]=PARENT_SHA
+    inherited=dict(bound_pins(parent['input_sha256']));inherited[PARENT]=PARENT_SHA
     validate_pins(inherited)
     seeds={str(p.relative_to(ROOT)) for p in HERE.iterdir() if p.suffix in ('.py','.md')}
     seeds.update(inherited);seeds.add('model/requirements.txt')
     names=import_closure(seeds)
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def certificate():
     pins=input_hashes();value=copy.deepcopy(calculate())
     value['schema']='oph.interacting_block_proca.v1'
-    value['input_sha256']=pins
+    value['input_sha256']=bound_pins(pins)
     value['immutable_parent_pins_validated']=[PARENT]
     return value
 

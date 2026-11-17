@@ -8,6 +8,12 @@ import random
 
 from . import model as m
 from .census import census
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).parent
 SCHEMA = 'oph.defect_integer_lift.v1'
@@ -199,7 +205,7 @@ INPUTS = ('model.py', 'census.py', 'certificate.py', 'federation.json', 'importe
 
 
 def input_hashes():
-    return {name: hashlib.sha256((HERE / name).read_bytes()).hexdigest() for name in INPUTS}
+    return bound_pins({name: hashlib.sha256((HERE / name).read_bytes()).hexdigest() for name in INPUTS})
 
 
 def certificate():
@@ -219,7 +225,7 @@ def certificate():
                 reference_run=ref, kinematics=kin, readings=read,
                 imported_census=dict(source=cen['source'], reference_cross_check=cen['reference_cross_check'],
                                      derived=cen['derived'], pooled_mirror_pairs=cen['pooled_mirror_pairs'], runs=cen['runs']),
-                input_sha256=input_hashes())
+                input_sha256=bound_pins(input_hashes()))
 
 
 _RESULT = None

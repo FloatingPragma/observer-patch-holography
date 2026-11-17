@@ -11,6 +11,12 @@ from .controller import exact_noncommuting_pulse_control
 from .reference import spatial_group, complete_lift_control
 from .resources import finite_member
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 RESEARCH_REFERENCE = HERE/'research_reference.json'
 RESEARCH_SHA = 'df277440b874d997024a9446f4d84c2c086f572dccfbb283c39bc78861a87fec'
@@ -22,7 +28,7 @@ def digest(path):
 
 def source_pins():
     parent, _ = admit()
-    inherited = dict(parent['input_sha256']); inherited[PARENT] = PARENT_SHA
+    inherited = dict(bound_pins(parent['input_sha256'])); inherited[PARENT] = PARENT_SHA
     inherited[PREPARATION] = digest(ROOT/PREPARATION)
     seeds = set(inherited)
     seeds.update({'model/particle_common_contract/provenance.py', 'model/requirements.txt'})
@@ -37,18 +43,18 @@ def source_pins():
                     stem = name.replace('.', '/')
                     for candidate in (stem+'.py', stem+'/__init__.py'):
                         if (ROOT/candidate).is_file(): seeds.add(candidate)
-    pins = {name: digest(ROOT/name) for name in sorted(import_closure(seeds))}
+    pins = bound_pins({name: digest(ROOT/name) for name in sorted(import_closure(seeds))})
     for name, expected in inherited.items():
         if pins[name] != expected: raise ValueError('source pin changed: '+name)
     return pins
 
 
 def local_pins():
-    return {path.name: digest(path) for path in sorted(HERE.iterdir()) if path.suffix in ('.py', '.md')}
+    return bound_pins({path.name: digest(path) for path in sorted(HERE.iterdir()) if path.suffix in ('.py', '.md')})
 
 
 def validate_pins(value):
-    for mapping, root in ((value['input_sha256'], ROOT), (value['local_sha256'], HERE)):
+    for mapping, root in ((bound_pins(value['input_sha256']), ROOT), (value['local_sha256'], HERE)):
         for name, expected in mapping.items():
             relative = Path(name)
             if relative.is_absolute() or '..' in relative.parts or digest(root/name) != expected:
@@ -57,7 +63,7 @@ def validate_pins(value):
 
 def certificate():
     result = {'schema': 'oph.native_block_dirac.v1',
-            'input_sha256': source_pins(), 'local_sha256': local_pins(),
+            'input_sha256': bound_pins(source_pins()), 'local_sha256': local_pins(),
             'parent_native_join_receipt_sha256': PARENT_SHA,
             'complete_native_constituent': constituent_bounds(),
             'canonical_occupation_encoding': four_mode_code(),

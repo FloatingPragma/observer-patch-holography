@@ -8,6 +8,12 @@ from pathlib import Path
 from tools import strict_json
 from model.native_local_history_limit import packet as owning
 from . import refinement as r, routing, attachment as a
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -19,7 +25,7 @@ SOURCE_FILES = tuple('model/native_rooted_refinement/'+name for name in (
 
 def source_bindings():
     paths = set(SOURCE_FILES) | set(owning.source_bindings()) | set(r.affine.SOURCE_PATHS)
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def encode(value):
@@ -79,7 +85,7 @@ def produce():
                  for row in windows if row['cell_radius'] == 4]
     if histories[-1]['budget']['native_to_common_finite_window_upper'] >= F(1, 10**6):
         raise ArithmeticError('the displayed finite full-record bound exceeds its gate')
-    output = {'schema': 'oph.native_rooted_refinement.v1', 'source_bindings': before,
+    output = {'schema': 'oph.native_rooted_refinement.v1', 'source_bindings': bound_pins(before),
         'exact_corner_topology': topology_rows,
         'literal_source_prefix_attachment': [a.source_prefix(level) for level in range(4)],
         'certified_matching_finite_windows': [row['summary'] for row in windows],

@@ -12,6 +12,12 @@ from pathlib import Path
 from tools import strict_json
 from ..native_born_bridge import certificate as born
 from ..native_thermodynamic_bridge import certificate as entropy
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -232,7 +238,7 @@ def encode(value):
 
 def report():
     inherited = strict_json.load(ROOT/'model/native_born_bridge/results.json')
-    for path, expected in inherited['source_sha256'].items():
+    for path, expected in bound_pins(inherited['source_sha256']).items():
         require(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == expected,
                 f'upstream native record source binding changed: {path}')
     table = source_law()
@@ -272,7 +278,7 @@ def report():
                   'physical_temperature_energy_work_or_erasure_cost_identified': False,
                   'same_H_as_occupation_or_transfer_reconstruction': False,
                   'cofinal_spacetime_low_temperature_control': False},
-        'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in paths}})
+        'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in paths})})
 
 
 def main():

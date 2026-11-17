@@ -4,6 +4,12 @@ from pathlib import Path
 import sympy as s
 from model.coherent_defect_wave.physical_attachment.chiral import representation
 from model.openwave_quantum_rotational.source import matter_exact
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[3]
 HERE=Path(__file__).resolve().parent
 
@@ -43,8 +49,8 @@ def review():
   for pins in maps:
    for name,digest in pins.items():assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==digest,name
  paths+=['model/coherent_defect_wave/physical_attachment/chiral.py','model/openwave_quantum_rotational/source.py']
- pins={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(set(paths))}
- return {'verdict':'PASS_INDEPENDENT_EXACT_QUANTUM_SOURCE_CONTROLS','native_filled_singlet_count':len(singlets),'native_charge_offset':str(offset),'all_twelve_reference_current_traces':'0','charged_occupation_magnitudes_at_most_one':True,'neutral_LDL_floor':'strictly greater than 1/2','global_seventh_remainder_coefficient':str(coefficient),'infinite_field_two_state_trial_shift_exact':str(v0),'padded_moment_photon_increments':14,'reviewed_receipts':receipts,'review_scope':'Independent exact current/reference, neutral-floor, global scalar remainder and padding controls plus source-map validation. Energy interval and finite-time Larmor producers retain their own interval arithmetic; this review does not claim a second implementation of every enclosure. The two-dimensional isolated ground representation makes H scalar by irreducibility, so the next-distinct-eigenvalue Temple bound applies.','source_sha256':pins}
+ pins=bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(set(paths))})
+ return {'verdict':'PASS_INDEPENDENT_EXACT_QUANTUM_SOURCE_CONTROLS','native_filled_singlet_count':len(singlets),'native_charge_offset':str(offset),'all_twelve_reference_current_traces':'0','charged_occupation_magnitudes_at_most_one':True,'neutral_LDL_floor':'strictly greater than 1/2','global_seventh_remainder_coefficient':str(coefficient),'infinite_field_two_state_trial_shift_exact':str(v0),'padded_moment_photon_increments':14,'reviewed_receipts':receipts,'review_scope':'Independent exact current/reference, neutral-floor, global scalar remainder and padding controls plus source-map validation. Energy interval and finite-time Larmor producers retain their own interval arithmetic; this review does not claim a second implementation of every enclosure. The two-dimensional isolated ground representation makes H scalar by irreducibility, so the next-distinct-eigenvalue Temple bound applies.','source_sha256':bound_pins(pins)}
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('--write',action='store_true');a=p.parse_args();r=review();out=HERE/'quantum_source_review.json'

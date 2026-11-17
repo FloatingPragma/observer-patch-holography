@@ -7,6 +7,12 @@ from pathlib import Path
 from model.finite_area_response import packet as source_packet
 from model.matched_einstein_limit import packet as tensor_packet
 from . import capacity, response
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -27,13 +33,13 @@ def source_bindings():
     paths.update(LEAN_SOURCES)
     paths.update(str(p.relative_to(ROOT)) for p in Path(__file__).parent.iterdir()
                  if p.suffix in ('.py', '.md', '.lean', '.tex'))
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def report():
     pins = source_bindings()
     result = {'schema': 'oph.finite_gravity_capacity_consequences.v1', 'all_pass': True,
-              'source_bindings': pins, 'inherited_source_custody': source_packet.inherited_custody(),
+              'source_bindings': bound_pins(pins), 'inherited_source_custody': source_packet.inherited_custody(),
               'metric_response': response.source_response(),
               'weak_field_curvature': response.linearized_curvature(),
               'regional_force_transfer': response.newton_error_bound(2, '1/1000', '1/2000',

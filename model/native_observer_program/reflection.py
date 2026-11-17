@@ -10,6 +10,12 @@ import json
 import numpy as np
 from model.observer.source_scalar import compiler
 from model.native_effect_synthesis import intervals as iv, synthesis as syn
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 PULSE_GATE = F(2, 10**11)
 
@@ -171,7 +177,7 @@ def run_reflections():
           'preparation_bound':complete_bound(len(p['preparation']),F(bits,iv.AQ)),
           'reflection_bound':complete_bound(len(p['reflection']),F(2*bits+1,iv.AQ)),
           'direct_stored_execution':direct,
-          'word_sha256':{key:sha256(json.dumps(p[key],sort_keys=True).encode()).hexdigest()for key in ('preparation','reflection')},
+          'word_sha256':bound_pins({key:sha256(json.dumps(p[key],sort_keys=True).encode()).hexdigest()for key in ('preparation','reflection')}),
           'padding_target_action':'minus identity on every unused event address; retained as terminal failure if read',
           'dirty_workspace_policy':'No algorithmic scratch is used; any appended service workspace is admitted by P_blank with a retained I-P_blank outcome.',
           'all_processor_first_failure_outcomes_retained':True,

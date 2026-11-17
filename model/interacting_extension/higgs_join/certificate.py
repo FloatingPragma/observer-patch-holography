@@ -17,6 +17,12 @@ from ..dependencies.source_reference import exact_source_packet
 from . import audit_exact_join
 from .interacting_carrier import HERE,ROOT,build_join,primary_family_matrices,produce_operators
 from .run_joined_response import addition_data,block_eigh,operator_checks,schur_checks
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 OUTPUT=HERE/'results.json'
 
@@ -26,7 +32,7 @@ def source_bindings():
     paths.update(HERE.parent/n for n in ('__init__.py','_source.py','source_manifest.json',
         'dependencies/__init__.py','dependencies/source_reference.py','dependencies/exact_family_operators.json'))
     paths.add(ROOT/'model/requirements.txt')
-    return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def _window(value,lower,upper):
@@ -83,7 +89,7 @@ def report():
             'reference':audit['all_explicit_graded_reference_probe_CAR_sign_checks']}
     if actual!=expected:raise ArithmeticError('complete exact audit coverage differs')
     result={
-        'schema':'oph.interacting.higgs_join.replay.v1','source_sha256':before,
+        'schema':'oph.interacting.higgs_join.replay.v1','source_sha256':bound_pins(before),
         'exact':{'complete_Gauss_dimensions':exact['complete_Gauss_dimensions'],
                  'operator_complement_columns_checked':exact['complete_operator_leakage_columns_checked'],
                  'full_basis_checks':actual,'source_family_expressions_reconstructed':True},

@@ -10,6 +10,12 @@ import numpy as np
 from tools import strict_json
 from model.native_effect_synthesis import packet as parent
 from . import menus as m
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -20,7 +26,7 @@ SOURCE_FILES = tuple('model/native_coexistent_effects/'+name for name in (
 
 def source_bindings():
     paths = set(SOURCE_FILES)|set(parent.source_bindings())
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def example():
@@ -122,7 +128,7 @@ def produce():
                        'Born_semantics_derived_from_bare_repair': False,
                        'growing_capacity_quantum_refinement': False,
                        'physical_QFT_or_particle_identification': False},
-             'source_bindings': before}
+             'source_bindings': bound_pins(before)}
     if source_bindings() != before:
         raise ArithmeticError('source inputs changed during complete menu replay')
     return value

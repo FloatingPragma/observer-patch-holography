@@ -6,6 +6,12 @@ import sympy as s
 from model.particle_common_contract.provenance import import_closure
 from .model import (observer,PairState,positive,insert_pair,exchange,charge,
                     charge_measurement,constraint_branches,onsite,MODES,mode,STAR)
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 
@@ -20,8 +26,8 @@ def hashes():
                   'evidence/native_geometric_source_20260925/spec.json',
                   'evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py',
                   'evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py'))
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(import_closure(paths)) if (ROOT/name).is_file()}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(import_closure(paths)) if (ROOT/name).is_file()})
 
 
 def experiment():
@@ -71,4 +77,4 @@ def certificate():
     return {'schema':'oph.coherent_defect_wave.mobile_flux.v1',
             'paired_flux':experiment(),'protected_object_route':route_certificate(),
             'complete_lane_collision':collision_certificate(),
-            'input_sha256':hashes()}
+            'input_sha256':bound_pins(hashes())}

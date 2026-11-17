@@ -6,6 +6,12 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from ..centered_source_ground import cube as inherited_ground
 from . import certificate,comparison,source
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 DIRECTORY=Path(__file__).resolve().parent
@@ -31,12 +37,12 @@ def source_bindings():
     })
     paths.update({'paper/tex_fragments/CENTERED_PARTICLE_SPECTRUM.tex',
                   'model/centered_particle_spectrum/witness.npz',comparison.TARGET})
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def inherited_inputs():
     prior=strict_json.loads(PRIOR.read_text())
-    manifest=prior.get('source_bindings')
+    manifest=bound_pins(prior.get('source_bindings'))
     if not isinstance(manifest,dict):raise ValueError('historical source manifest missing')
     mismatches=[name for name,digest in manifest.items()
                 if not (ROOT/name).is_file() or hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest]
@@ -89,7 +95,7 @@ def _produce():
             'all_pass_scope':'new exact finite spectral certificate; inherited receipt custody is separately reported',
             'source_symmetry':source.symmetry_certificate(),'inherited_inputs':inherited_inputs(),
             'spectrum':spectrum,'comparison':comparison.certificate(spectrum),
-            'source_bindings':pins}
+            'source_bindings':bound_pins(pins)}
     validate(result)
     if pins!=source_bindings():raise ValueError('source changed during exact finite replay')
     return result
@@ -106,7 +112,7 @@ def report():
             cwd=ROOT,env=environment,capture_output=True,text=True)
         if process.returncode:raise RuntimeError('cold exact spectral replay failed:\n'+process.stderr)
         result=strict_json.loads(destination.read_text())
-    if pins!=source_bindings() or result['source_bindings']!=pins:
+    if pins!=source_bindings() or bound_pins(result['source_bindings'])!=pins:
         raise ValueError('source changed across exact cold replay')
     validate(result);return result
 
@@ -138,7 +144,7 @@ def main():
         if canonical(value)!=canonical(retained) or TABLE.read_text()!=table(value):
             raise ValueError('centered spectrum receipt or complete table changed')
     print(json.dumps({'all_pass':True,'visible_positive_lines':228,'signed_atoms':456,
-                      'source_bindings':len(value['source_bindings']),
+                      'source_bindings':bound_pins(len(bound_pins(value['source_bindings']))),
                       'historical_custody_valid':value['inherited_inputs']['historical_receipt_source_custody_valid']}))
 
 

@@ -23,6 +23,12 @@ from . import local_bias as local, mixing
 from ..observer import native, record_recovery as records
 from ..observer.source_discrimination import circuit
 from ..common_source import native_routing as routing, record_code
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -255,7 +261,7 @@ def source_bindings():
              'model/common_source/slow_geometry.py', 'evidence/native_geometric_source_20260925/spec.json',
              'evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py',
              'evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py')
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})
 
 
 def acquire(private_parameters, *, samples_per_seam=SAMPLES_PER_SEAM,
@@ -337,6 +343,6 @@ def acquire(private_parameters, *, samples_per_seam=SAMPLES_PER_SEAM,
             'complete_tape_reconstructible_by_seeded_native_replay': True,
             'unknown_quantum_input_coin_law': 'certified by complete raw effects, not by the basis trajectory',
             'physical_time_energy_or_precision_identified': False},
-        'source_sha256': source_bindings(),
+        'source_sha256': bound_pins(source_bindings()),
     }
     return report, counts

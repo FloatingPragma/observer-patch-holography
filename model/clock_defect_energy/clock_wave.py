@@ -25,6 +25,12 @@ from model.observer_time_fields import wave_reference
 from model.native_modular_reference import phase_inference, reference_tomography
 from tools import strict_json
 from .contract import binding, check_receipt as check_receipt_file
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('clock_wave_results.json')
@@ -346,7 +352,7 @@ def operational_readout_bridge():
     """
     path = ROOT/'model/native_modular_reference/phase_clock_results.json'
     retained = strict_json.loads(path.read_text())
-    for name, digest in retained['source_sha256'].items():
+    for name, digest in bound_pins(retained['source_sha256']).items():
         if hashlib.sha256((ROOT/name).read_bytes()).hexdigest() != digest:
             raise ValueError('retained phase-clock source binding changed')
     if retained['schema'] != 'oph.native_modular_reference.phase_clock.v1':
@@ -399,7 +405,7 @@ def operational_readout_bridge():
 def source_bindings():
     paths = set(fields.SOURCE_PATHS) | set(transport.source_bindings()) | set(wave_reference.SOURCE_PATHS)
     phase = strict_json.loads((ROOT/'model/native_modular_reference/phase_clock_results.json').read_text())
-    paths.update(phase['source_sha256'])
+    paths.update(bound_pins(phase['source_sha256']))
     paths.update(('model/native_modular_reference/history_clock.py',
                   'model/native_modular_reference/history_clock_results.json.gz',
                   'model/native_modular_reference/phase_clock_results.json',
@@ -408,7 +414,7 @@ def source_bindings():
                   'model/clock_defect_energy/clock_wave.py',
                   'model/clock_defect_energy/test_clock_wave.py',
                   'model/clock_defect_energy/CLOCK_WAVE.md'))
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def report():
@@ -416,7 +422,7 @@ def report():
               'contract': binding(),
               'pending_input': {'pull_request': 1149, 'head': PENDING_PR_HEAD,
                                 'merge_status_asserted': False, 'full_pr_audit_asserted': False},
-              'source_bindings': source_bindings(),
+              'source_bindings': bound_pins(source_bindings()),
               'existing_positive_native_return_bridge': native_return_bridge(),
               'operational_clock_readout_to_field_bound': operational_readout_bridge(),
               'transported_clock_vs_wave': transported_comparison(),

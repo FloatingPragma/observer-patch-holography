@@ -15,6 +15,12 @@ from pathlib import Path
 import sys
 
 import sympy as sp
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 sys.dont_write_bytecode = True
 HERE = Path(__file__).resolve().parent
@@ -115,7 +121,7 @@ def calculate():
         rows.append({"coupling": f"1/{certificate['theta_denominator']}",
                      "certified_b_tick_lower_bound": str(lower),
                      "edge_gram_certificate": certificate})
-    return {"schema": 1, "date": "2026-10-12", "source_sha256": pins,
+    return {"schema": 1, "date": "2026-10-12", "source_sha256": bound_pins(pins),
             "tick_probability": "1/6", "occupation_variance": "5/36",
             "exact_comparator_checks": {"observers": 12, "rows": exact_rows},
             "symbolic_shell_identity": True, "n4_certified_lower_bounds": rows,

@@ -11,6 +11,12 @@ import numpy as np
 from model.particle_joint_mass_identity import joint
 from model.native_flavor_orbit import intervals as iv
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 M=32;K=6
@@ -21,11 +27,11 @@ def bindings():
     paths={str(p.relative_to(ROOT)) for p in HERE.iterdir() if p.suffix in ('.py','.md')}
     paths.update(('model/particle_joint_mass_identity/results.json','model/particle_joint_mass_identity/PROOF.md',
         'requirements.txt','model/requirements.txt'))
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))})
 
 
 def authenticate(parent):
-    for path,digest in parent['source_bindings'].items():
+    for path,digest in bound_pins(parent['source_bindings']).items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=digest:raise ValueError('changed source: '+path)
 
 
@@ -198,7 +204,7 @@ def calculate():
         control={'family_pair':[groups[i]['candidate_species'][0] for i in [ia,ib]],
             'maximally_entangled_family_reference_half_trace_distance_after_invalid_exact_label_dephasing':float(trace_distance),
             'all_phase_pointer_outputs_summed_without_postselection':True}
-    result={'schema':'oph.finite_particle_spectroscopy.v1','source_bindings':pins,'all_checks_pass':True,
+    result={'schema':'oph.finite_particle_spectroscopy.v1','source_bindings':bound_pins(pins),'all_checks_pass':True,
         'source_contract':{'source':'unchanged calibrated quadratic two-momentum action and exact native mass frames',
             'momenta_GeV':[[-0.,0.,-1.],[0.,0.,1.]],'one_excitation_dimension':236,
             'full_Fock_dimension_exact':source['source_Hilbert_dimension_exact'],

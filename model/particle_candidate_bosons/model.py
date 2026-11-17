@@ -7,6 +7,12 @@ import sympy as s
 from model.particle_common_contract import contract, provenance
 from model.particle_primary_reduced_sector import model as reduced
 from model.particle_primary_charge_conjugation import model as charge
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 SOURCE_INPUTS = tuple(dict.fromkeys((
@@ -253,7 +259,7 @@ def certificate():
     paths = provenance.definition_inputs(SOURCE_INPUTS)
     pins = provenance.definition_hashes(paths)
     result = {'schema': 'oph.particle_candidate_bosons_certificate.v1',
-              'selected_member_bound': bind_member(contract.member(0)), 'source_sha256': pins}
+              'selected_member_bound': bind_member(contract.member(0)), 'source_sha256': bound_pins(pins)}
     if provenance.definition_hashes(paths) != pins:
         raise ValueError('source inputs changed during boson-channel replay')
     return result

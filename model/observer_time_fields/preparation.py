@@ -50,6 +50,12 @@ from ..native_clock import configuration as reset
 from ..observer import native
 from ..repair_scheduler import coins
 from . import core
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('preparation_results.json')
@@ -678,7 +684,7 @@ def run():
             'parameters': {'seed_scans': SEED_SCANS, 'retries': RETRIES, 'target_rounds': TARGET_ROUNDS,
                            'selector_rounds': SELECTOR_ROUNDS, 'incident_attempt_cap': CAP,
                            'read_ports': list(core.READ_PORTS)},
-            'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+            'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
             'scope': dict(SCOPE), 'source_kraus_audit': source_audit, 'native_coin_effect_audit': coin_audit,
             'preparation': prepared, 'resources': resources(feedback=True),
             'reference_execution': quantum_preparation_audit(),

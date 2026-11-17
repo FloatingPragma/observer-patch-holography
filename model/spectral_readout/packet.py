@@ -12,6 +12,12 @@ from fractions import Fraction as F
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import energy,finite,kernels
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -26,7 +32,7 @@ def source_bindings():
                            'model/retarded_spatial_locality/results.json'],
         'independent_checks':[]})
     paths.add('paper/tex_fragments/SPECTRAL_READOUT.tex')
-    return {path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def validate(value):
@@ -79,7 +85,7 @@ def _produce():
            'native_first_harmonic':finite.native_first_harmonic(),
            'finite_volume_error_contract':energy.comparison_contract(
                8,F(1,8),1,half_side=4096,buffer_radius=64,support_radius=0,support_sites=1),
-           'source_bindings':pins,
+           'source_bindings':bound_pins(pins),
            'proof_scope':'Complete positive finite-resolution energy POVM; exact finite-source probabilities and energy tails; same-subsequence weak spectral and strong compressed-resolvent convergence. No numerical infinite ground, pole, native higher-harmonic execution or relativistic mass claim.'}
     if source_bindings()!=pins:raise ValueError('source changed during spectral replay')
     validate(value)
@@ -96,7 +102,7 @@ def report():
                               cwd=ROOT,env=environment,capture_output=True,text=True)
         if worker.returncode:raise RuntimeError('cold spectral readout failed: '+worker.stderr)
         value=strict_json.load(target)
-    if source_bindings()!=pins or value['source_bindings']!=pins:
+    if source_bindings()!=pins or bound_pins(value['source_bindings'])!=pins:
         raise ValueError('source changed across spectral replay')
     validate(value)
     return value

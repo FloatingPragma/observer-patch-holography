@@ -11,6 +11,12 @@ from ..native_clock import clock, host_clock
 from ..primitive_observer import transfer
 from .attachment import Endpoint, analyse, fit_rate, validate
 from . import resource_clock, event_geometry, regional_clock
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -144,7 +150,7 @@ def run():
     raw = strict_json.load(host_clock.RAW_PATH)
     replay = host_clock.analyse(raw)
     return {"schema": "oph.laboratory_clock_attachment.v1",
-            "sources": {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_PATHS},
+            "sources": bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_PATHS}),
             "synthetic_endpoint_fixture": fixture_result,
             "synthetic_held_out_rate_change": changed,
             "joint_validation_control": joint,

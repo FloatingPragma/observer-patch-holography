@@ -8,6 +8,12 @@ import numpy as np
 from . import budget
 from ..band_clock import clock
 from ..band_clock.experiment import retained_counts, source_bindings as parent_bindings
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -21,8 +27,8 @@ def source_bindings():
                   'model/pair_cyclic_control/__init__.py',
                   'model/pair_cyclic_control/README.md',
                   'model/band_clock/results.json'))
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(paths)})
 
 
 def run():
@@ -49,7 +55,7 @@ def run():
     after = budget.resources(space, duration, steps)
     result = {
         'schema': 'oph.band_clock_budget.v1',
-        'source_bindings': bindings,
+        'source_bindings': bound_pins(bindings),
         'full_N2_dimension': space.dimension,
         'retained_band_momenta': 64,
         'previous_steps': 32,

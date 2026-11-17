@@ -14,6 +14,12 @@ import sympy as s
 
 from model.lepton_mass_compiler import analyzer
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -24,12 +30,12 @@ def bindings():
     paths.update(('model/lepton_mass_compiler/results.json','model/lepton_mass_compiler/PROOF.md',
                   'model/lepton_mass_compiler/compiler.py','model/charged_lepton_response/CAR_KOIDE.md',
                   'requirements.txt','model/requirements.txt'))
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))})
 
 
 def authenticate_parent():
     p=json.loads((ROOT/'model/lepton_mass_compiler/results.json').read_text())
-    for name,digest in p['source_bindings'].items():
+    for name,digest in bound_pins(p['source_bindings']).items():
         if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:
             raise ValueError('changed full-CAR compiler source: '+name)
     return p
@@ -244,7 +250,7 @@ def calculate():
         row['round_reduction_factor']=row['old_certified_rounds']/rounds
         row['total_exported_ancillary_reduction_factor']=323910*sites*row['old_certified_rounds']/row['quantum_archive_modes']
         examples.append(row)
-    result={'schema':'oph.lepton_compiler_compression.v1','source_bindings':pins,'all_checks_pass':True,
+    result={'schema':'oph.lepton_compiler_compression.v1','source_bindings':bound_pins(pins),'all_checks_pass':True,
             'native_active_spans':spans,'exact_leakage_operator':leakage,
             'independent_full_CAR_controls':[complete_dilation_control(row['effect']) for row in spans],
             'precision_resource_examples':examples,

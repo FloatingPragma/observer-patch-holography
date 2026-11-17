@@ -8,6 +8,12 @@ from tools import strict_json
 from .closure import ROOT, DESIGNS, certificate, Point
 from . import census, exclusion, memory, replay
 from .sources import DEPENDENCIES
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 PACKAGE=Path(__file__).resolve().parent
 OUTPUT=PACKAGE/'results.json'
@@ -20,7 +26,7 @@ def canonical(value):
 def source_bindings():
     paths=set(DEPENDENCIES)
     paths.update(str(p.relative_to(ROOT)) for p in PACKAGE.iterdir() if p.suffix in ('.py','.md'))
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def report():
@@ -62,7 +68,7 @@ def report():
                      'physical_particle_map_complete':False,'integrated_gate_accepted':False,
                      'source_law_uniquely_selected':False},
             'canonical_physical_premises_discharged':[],
-            'source_bindings':pins}
+            'source_bindings':bound_pins(pins)}
     result['independent_simultaneous_root_and_quadrature_replay']=replay.verify_report(result)
     if pins != source_bindings():
         raise ValueError('source changed during report')
@@ -70,7 +76,7 @@ def report():
 
 
 def validate(value):
-    if value.get('source_bindings') != source_bindings():
+    if bound_pins(value.get('source_bindings')) != source_bindings():
         raise ValueError('source bindings are incomplete or stale')
     if canonical(value) != canonical(report()):
         raise ValueError('receipt differs from complete recomputation')

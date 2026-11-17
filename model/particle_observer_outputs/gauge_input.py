@@ -22,6 +22,12 @@ from model.native_gauge_strings import strings as tree_source
 from model.common_source import scalar_coupling
 from model.strong_coupling_refinement import bounds as spin_bounds
 from . import higgs_records
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -190,7 +196,7 @@ def conditional_gauge_ray():
     receipt = json.loads((ROOT/receipt_path).read_text())
     if receipt['producer_sha256'] != _sha(producer_path):
         raise ArithmeticError('the gauge-ray receipt does not bind its producer')
-    for path, digest in receipt['source_sha256'].items():
+    for path, digest in bound_pins(receipt['source_sha256']).items():
         if _sha(path) != digest:
             raise ArithmeticError('the gauge-ray inherited source binding changed: '+path)
     branch = receipt['conditional_matter_trace_Chain_P_entropy_gauge_join']
@@ -228,8 +234,8 @@ def finite_response_reuse():
     """Keep the exact repair result and controlled spin limit in their domains."""
     path = 'model/common_source/full_repair_response/results.json'
     receipt = json.loads((ROOT/path).read_text())
-    excluded_notes = [path for path in receipt['source_bindings'] if path.startswith('docs/')]
-    for source_path, digest in receipt['source_bindings'].items():
+    excluded_notes = [path for path in bound_pins(receipt['source_bindings']) if path.startswith('docs/')]
+    for source_path, digest in bound_pins(receipt['source_bindings']).items():
         if source_path not in excluded_notes and _sha(source_path) != digest:
             raise ArithmeticError('the inherited repair-response scientific source changed: '+source_path)
     control = receipt['harmonic_coupling_control']

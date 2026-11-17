@@ -11,6 +11,12 @@ from ..peter_weyl_links.model import descriptor
 from .model import REFERENCE_RECEIPT
 from .pump import GROUND_RESPONSE_RECEIPT, full_local_operator_checks, actual_composite_translation_checks, complete_pump_records
 from .checks import native_translation_join, character_checks, complete_reference_records, rotation_translation_join
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[4]
 PACKAGE = 'model/coherent_defect_wave/chiral_joint/atomic_momentum_response/'
@@ -30,9 +36,9 @@ def input_hashes():
         if not path.is_file():
             raise FileNotFoundError('missing consumed atomic momentum receipt: ' + name)
         receipt = json.loads(path.read_text())
-        validate_pins(receipt['input_sha256'])
+        validate_pins(bound_pins(receipt['input_sha256']))
         seeds.add(name)
-        seeds.update(receipt['input_sha256'])
+        seeds.update(bound_pins(receipt['input_sha256']))
     for name in sorted(seeds):
         if not (ROOT / name).is_file():
             raise FileNotFoundError('missing declared atomic momentum input: ' + name)
@@ -40,7 +46,7 @@ def input_hashes():
     for name in sorted(paths):
         if not (ROOT / name).is_file():
             raise FileNotFoundError('missing atomic momentum import input: ' + name)
-    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def certificate():
@@ -72,4 +78,4 @@ def certificate():
             'atomic_product_used_as_full_interacting_stationary_vacuum': False,
             'energy_momentum_dispersion_or_named_particle_identification': False,
             'continuum_thermodynamic_or_GeV_claim': False},
-        'input_sha256': input_hashes()}
+        'input_sha256': bound_pins(input_hashes())}

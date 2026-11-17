@@ -21,6 +21,12 @@ from . import core, dual, refinement as ref
 from ..native_action import clock_histories as runtime, incident_refinement as clocks
 from ..observer import native
 from ..observer.scalar_response.experiment import canonical, compare_receipt
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(sorted(set((*ref.SOURCE_PATHS,
@@ -430,7 +436,7 @@ def run():
             'diagonal_record_law_not_general_coherent_state_uniqueness': True,
             'different_finite_sector_restrictions_silently_identified': False,
             'physical_lab_time_or_relativistic_field_equations_derived': False},
-        'source_bindings': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}}
+        'source_bindings': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS})}
 
 
 def main():

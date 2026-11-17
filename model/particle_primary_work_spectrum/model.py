@@ -7,6 +7,12 @@ from model.particle_primary_gravity_premises import model as modular
 from model.particle_primary_local_fluctuation import model as local
 from model.particle_local_wilson_density import density
 from model.particle_spatial_ground_state import ground
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=(
  'model/particle_primary_work_spectrum/__init__.py',
@@ -152,6 +158,6 @@ def certificate():
     members=[contract.member(n) for n in (0,1,2,8)]
     result={'schema':'oph.primary_work_spectrum_certificate.v1','members':[bind_member(x) for x in members],
         'distinct_literal_polynomial_controls':[contract.serial(polynomial_control(x)) for x in members],
-        'source_sha256':pins,'physical_mass_table_GeV':[]}
+        'source_sha256':bound_pins(pins),'physical_mass_table_GeV':[]}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('work-spectrum inputs changed during replay')
     return result

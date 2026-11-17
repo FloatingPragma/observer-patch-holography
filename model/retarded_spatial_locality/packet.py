@@ -11,6 +11,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import algebra,bounds,connected,euclidean
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -30,13 +36,13 @@ def source_bindings():
                   'model/observer_particles/geometric_matter_join.py',
                   'model/relative_observer_geometry/intrinsic_geometry.py',
                   'paper/tex_fragments/RETARDED_SPATIAL_LOCALITY.tex'])
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def prior_proof():
     for package in ('thermodynamic_ground','field_symmetry'):
         prior=strict_json.loads((ROOT/'model'/package/'results.json').read_text())
-        bound=prior.get('source_bindings',prior.get('source_sha256'))
+        bound=bound_pins(prior.get('source_bindings',bound_pins(prior.get('source_sha256'))))
         if not bound:raise ValueError('prior proof lacks source custody')
         for path,digest in bound.items():
             if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=digest:
@@ -119,7 +125,7 @@ def _produce():
            'Euclidean_hierarchy':euclidean.certificate(),
            'spatial_bounds':bounds.certificate(),
            'proof_scope':'Exact local CAR/frame identities, connected four-point and ordered-reflection witnesses, and rational analytic constants are replayed. The README and paper prove the infinite-operator, time-semigroup hierarchy, bounded-weight and Fourier steps. Finite tests do not compute an infinite ground or certify a real-axis or spatial-continuum limit.',
-           'source_bindings':pins}
+           'source_bindings':bound_pins(pins)}
     if source_bindings()!=pins:raise ValueError('sources changed during replay')
     validate(value)
     return value
@@ -136,7 +142,7 @@ def report():
                               cwd=ROOT,env=environment,capture_output=True,text=True)
         if worker.returncode:raise RuntimeError('fresh locality worker failed: '+worker.stderr)
         value=strict_json.loads(path.read_text())
-    if source_bindings()!=pins or value['source_bindings']!=pins:
+    if source_bindings()!=pins or bound_pins(value['source_bindings'])!=pins:
         raise ValueError('sources changed across cold replay')
     validate(value)
     return value
@@ -158,7 +164,7 @@ def main():
                           'non_Gaussian_ground_field':True,
                           'ordered_Euclidean_time_hierarchy':True,
                           'domain':'fixed-spacing Imz>=eta>0',
-                          'source_bindings':len(value['source_bindings'])}))
+                          'source_bindings':bound_pins(len(bound_pins(value['source_bindings'])))}))
 
 
 if __name__=='__main__':main()

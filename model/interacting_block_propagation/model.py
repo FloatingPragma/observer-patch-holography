@@ -10,6 +10,12 @@ import hashlib
 import json
 from pathlib import Path
 import sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 sys.dont_write_bytecode=True
 HERE=Path(__file__).resolve().parent
@@ -35,7 +41,7 @@ def load_parents():
     pins={}
     for name in PARENTS:
         value=json.loads((RER/name).read_text())
-        for path,expected in value['input_sha256'].items():
+        for path,expected in bound_pins(value['input_sha256']).items():
             actual=hashlib.sha256((RER/path).read_bytes()).hexdigest()
             assert actual==expected,('immutable parent changed',path)
             pins[path]=actual
@@ -242,5 +248,5 @@ def calculate():
                                   'fixed_band_momentum_error_controls':continuation,
                                   'maintaining_J_proportional_a^-2_violates_fixed_block_gap_control':True,
                                   'Lorentz_covariance_derived':False},
-            'input_sha256':pins}
+            'input_sha256':bound_pins(pins)}
     return result

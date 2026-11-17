@@ -14,6 +14,12 @@ from tools.build_completion_program import integration_source_paths
 from ..matter_geometry_response import packet as geometry_packet
 from ..radial_interacting_core import packet as core_packet
 from . import modular, records, regional
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = 'model/parity_entropy_response'
@@ -31,7 +37,7 @@ def source_bindings():
         'source_receipts': [f'model/{name}/results.json' for name in PRIORS],
         'independent_checks': [PACKAGE+'/PROOF.md'],
     })
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def custody():
@@ -41,9 +47,9 @@ def custody():
         value = strict_json.load(ROOT/path)
         if (type(value) is not dict or value.get('schema') != 'oph.'+name+'.v1'
                 or value.get('all_pass') is not True
-                or value.get('source_bindings') != producer.source_bindings()):
+                or bound_pins(value.get('source_bindings')) != producer.source_bindings()):
             raise ValueError('complete current parent source receipt required: '+name)
-        for source, digest in value['source_bindings'].items():
+        for source, digest in bound_pins(value['source_bindings']).items():
             if hashlib.sha256((ROOT/source).read_bytes()).hexdigest() != digest:
                 raise ValueError('inherited source binding changed: '+source)
         result[name] = {'receipt': path, 'complete_parent_source_manifest_verified': True,
@@ -125,7 +131,7 @@ def _produce():
              'issues': [1144, 1145], 'gates': ['CP-08', 'CP-09'],
              'regional': regional.certificate(), 'modular': modular.certificate(),
              'records': records.certificate(), 'scope': scope(),
-             'inherited_custody': custody(), 'source_bindings': pins,
+             'inherited_custody': custody(), 'source_bindings': bound_pins(pins),
              'physical_comparison_count_added': 0}
     validate(value)
     if source_bindings() != pins:
@@ -143,7 +149,7 @@ def report():
                         '-m', 'model.parity_entropy_response.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True, timeout=300)
         value = strict_json.load(path)
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across cold regional entropy replay')
     validate(value)
     return value
@@ -162,7 +168,7 @@ def main():
     else:
         (args.worker or args.write).write_text(canonical(value), encoding='utf-8', newline='\n')
     if not args.worker:
-        print(json.dumps({'all_pass': True, 'source_bindings': len(value['source_bindings']),
+        print(json.dumps({'all_pass': True, 'source_bindings': bound_pins(len(bound_pins(value['source_bindings']))),
                           'actual_ground_local_faithfulness': True,
                           'same_source_regional_entropy_response': True,
                           'Einstein_premises_discharged': False}))

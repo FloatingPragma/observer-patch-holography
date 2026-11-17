@@ -6,6 +6,12 @@ from pathlib import Path
 
 from model.particle_common_contract import contract
 from . import spatial
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -14,13 +20,13 @@ OUTPUT = HERE/'results.json'
 
 def build():
     paths = set(spatial.SOURCE_INPUTS)
-    paths.update(contract.member(0)['source']['implementation_sha256'])
+    paths.update(bound_pins(contract.member(0)['source']['implementation_sha256']))
     paths.update(str(path.relative_to(ROOT)) for path in HERE.iterdir()
                  if path.is_file() and path.suffix in ('.py', '.md'))
-    pins = {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(paths)}
+    pins = bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(paths)})
     result = spatial.certificate()
-    result['input_sha256'] = pins
+    result['input_sha256'] = bound_pins(pins)
     if any(hashlib.sha256((ROOT/name).read_bytes()).hexdigest() != value
            for name, value in pins.items()):
         raise ValueError('inputs changed during spatial algebra replay')

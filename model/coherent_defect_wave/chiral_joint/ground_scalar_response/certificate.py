@@ -7,6 +7,12 @@ from model.particle_common_contract.provenance import import_closure
 from .model import source_identities,matrix_certificate
 from .spectrum import certificate as spectrum_certificate
 from .apparatus import certificate as apparatus_certificate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[4]
 PACKAGE='model/coherent_defect_wave/chiral_joint/ground_scalar_response/'
@@ -26,7 +32,7 @@ def input_hashes():
     paths=import_closure(seeds)
     for name in sorted(paths):
         if not (ROOT/name).is_file():raise FileNotFoundError('missing ground scalar import input: '+name)
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def certificate():
@@ -40,4 +46,4 @@ def certificate():
         'complete_apparatus':apparatus_certificate(),'scalar_response':spectrum_certificate(),
         'scope':{'finite_clock_scalar_transition':True,'relativistic_rest_mass_identification':False,
             'many_cell_stationary_reference_or_dispersion':False,'arbitrary_input_ground_filter_protocol':False},
-        'input_sha256':input_hashes()}
+        'input_sha256':bound_pins(input_hashes())}

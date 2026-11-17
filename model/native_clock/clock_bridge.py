@@ -19,6 +19,12 @@ from ..observer import native
 from ..primitive_observer import transfer
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(sorted(set((*host_clock.SOURCE_PATHS,
@@ -278,7 +284,7 @@ def run():
                 for (k, c, d, i), p in sorted(law.items())]})
     return {'schema': 'oph.native_joint_clock_bridge.v1',
         'exact_source_checks_passed': True,
-        'sources': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+        'sources': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
         'source_domain': {'ports': 12, 'seams': 30, 'binary_total_occupation': 2,
             'configurations': 66, 'clock_port': PORT,
             'scheduler': 'independent uniform native seam and fair placement coin',

@@ -14,6 +14,12 @@ from pathlib import Path
 import mpmath as mp
 import numpy as np
 from evidence_contract import public_receipt
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -78,7 +84,7 @@ def run():
                         four_times_joint_projectors=np.array(projectors))
     sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
     result={'status':'PASS_EXACT_ENTANGLED_PAIR_SPECTRAL_CANDIDATE_AND_SCOPED_NORMALIZATION_CONTROLS',
-        'producer_sha256':sha(__file__),'source_sha256':{},'artifacts':{artifact.name:sha(artifact)},
+        'producer_sha256':sha(__file__),'source_sha256':bound_pins({}),'artifacts':{artifact.name:sha(artifact)},
         'primary_reference':'https://alexwg.org/publications/ChainTheoryAlpha.pdf',
         'attribution':{'author':'A. D. Wissner-Gross',
             'title':'A Parameter-Free Candidate for the Fine-Structure Constant from Entangled Qudits',

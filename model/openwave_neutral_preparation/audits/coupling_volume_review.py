@@ -8,6 +8,12 @@ from functools import lru_cache
 from pathlib import Path
 import hashlib,json
 import numpy as np
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[3]
 PKG=ROOT/'model/openwave_coupling_volume'
 RECT=((1,1),(2,1),(2,2),(3,2),(3,3))
@@ -102,7 +108,7 @@ def gauge_check(U,side):
     return baseline,float(np.max(abs(after-baseline)))
 
 def main():
-    result=json.loads((PKG/'results.json').read_text());pins=result['source_sha256']
+    result=json.loads((PKG/'results.json').read_text());pins=bound_pins(result['source_sha256'])
     assert all(sha(ROOT/p)==value for p,value in pins.items())
     assert result['total_retained_records']==2400 and result['new_raw_records']==800
     assert result['bare_beta']==6 and result['bare_g_squared']==1
@@ -152,7 +158,7 @@ def main():
         assert np.max(abs(b-a-row['larger_minus_smaller_g_squared']))<2e-12
         assert np.max(abs(np.sqrt(np.diag(ca+cb))-row['independent_box_standard_errors']))<2e-11
     refs={**pins,'model/openwave_coupling_volume/results.json':sha(PKG/'results.json'),str(Path(__file__).relative_to(ROOT)):sha(Path(__file__))}
-    review={'schema':'oph.independent_larger_volume_coupling_review.v1','verdict':'PASS','input_sha256':refs,
+    review={'schema':'oph.independent_larger_volume_coupling_review.v1','verdict':'PASS','input_sha256':bound_pins(refs),
         'producer_transitive_pins_checked':len(pins),'chains':rows,'retained_records':2400,
         'maximum_estimator_difference':maximum,'independent_methods':['closed oriented paths from links','site-dependent SU3 diagonal gauge','finite Fourier current norm','common-block leave-out estimates and covariance','complex-step influence gradients','full discrete autocorrelation','hot/cold and adjacent-volume covariance sums'],
         'scientific_boundary':'Same bare action and three finite volumes. Statistical errors are finite-history diagnostics, not mixing certificates; no continuum running, particle-core matching or physical GeV scale.'}

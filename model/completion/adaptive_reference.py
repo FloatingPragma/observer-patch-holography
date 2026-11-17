@@ -18,6 +18,12 @@ from pathlib import Path
 from ..observer import native
 from ..common_source import slow_geometry
 from .family import binding
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -107,7 +113,7 @@ def run():
         "campaign": binding(),
         "gate": "CP-13",
         "canonical_premise_navigation": ["PR-07"],
-        "source_sha256": {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in sources},
+        "source_sha256": bound_pins({p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in sources}),
         "contract": {
             "source": "existing 66-state binary shell of the total-two twelve-port carrier",
             "initial_state": "I_66/66 tensor blank classical bit m=0",

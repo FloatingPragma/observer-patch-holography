@@ -10,6 +10,12 @@ from model.coherent_defect_wave.physical_attachment.chiral import representation
 from model.coherent_defect_wave.chiral_joint.peter_weyl_links import model as pw
 from model.coherent_defect_wave.chiral_joint.peter_weyl_links.clebsch import coordinate
 from model.openwave_autonomous_coulomb.source import basis,matrices,REFERENCE_MASK
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[3];TARGET=ROOT/'model/openwave_autonomous_coulomb'
 
 def ref_current(matrix,mask):
@@ -91,14 +97,14 @@ def main():
   residual=abs((j(t+dt)-j(t-dt))/(2*dt)-np.vdot(v,1j*(A@J-J@A)@v).real)
   assert residual<2e-10;numerical.append(residual)
  receipt=json.loads((TARGET/'results.json').read_text())
- for path,h in receipt['source_sha256'].items():assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==h,path
+ for path,h in bound_pins(receipt['source_sha256']).items():assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==h,path
  paths=[p for p in TARGET.iterdir()if p.suffix in ('.py','.md','.tex','.json')]
  result={'verdict':'PASS','independent_reference_full_CAR_current_checks':12,'independent_PW119_reducing_projection':True,
    'independent_complete_flux_spin_position_rows':18,'native_matrix_entries_compared':324,
    'independent_exact_three_dimensional_Green_sum':True,'all_four_native_continuity_identities':True,
    'exact_potential_current_acceleration':str(force),'independent_full_unitary_current_derivative_residuals':numerical,
    'scientific_scope':'Autonomous motion of the declared zero-Yukawa, selected-hop native source with positive number energy and longitudinal Green interaction. All circulation sectors and original source/reference factors are retained; no transfer of the unit-Yukawa interacting ground, physical alpha or transverse radiation is inferred.',
-   'source_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in paths}}
+   'source_sha256':bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in paths})}
  (Path(__file__).resolve().parents[1]/'autonomous_coulomb_review.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
  print('PASS_INDEPENDENT_AUTONOMOUS_NATIVE_COULOMB')
 if __name__=='__main__':main()

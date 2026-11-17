@@ -20,6 +20,12 @@ import numpy as np
 
 from tools import strict_json
 from . import local_bias as local, inference, mixing, observer, modular_clock
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -390,8 +396,8 @@ def report():
                       + preparation_pulses+future_pulses+budget['maximum_source_pulses'])
     return _json({'schema': 'oph.local_repair_family.record_clock.v1', 'campaign_id': CAMPAIGN,
                  'contract_sha256': CONTRACT_SHA256,
-                 'source_sha256': _source_bindings(source['source_sha256'], inference.source_bindings(),
-                                                  flow['source_sha256'], mixing.source_bindings()),
+                 'source_sha256': bound_pins(_source_bindings(bound_pins(source['source_sha256']), inference.source_bindings(),
+                                                  bound_pins(flow['source_sha256']), mixing.source_bindings())),
                  'coin_effects': coin_effect_certificate(), 'unconditional_prepared_faithfulness': faithfulness_certificate(),
                  'identification': inference.exact_certificate(),
                  'acquisition': {k: v for k, v in source.items() if k != 'source_sha256'},

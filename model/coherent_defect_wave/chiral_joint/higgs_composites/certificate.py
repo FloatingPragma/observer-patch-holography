@@ -7,6 +7,12 @@ from model.common_source.chiral_candidate import action
 from .model import (tensor_certificate,compiler_certificate,noncanonical_certificate,
                     composite_dynamics_certificate,star_selection_certificate)
 from .periodic_bridge import residue_certificate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT=Path(__file__).resolve().parents[4]
@@ -22,24 +28,24 @@ def validate_pins(pins):
 
 def input_hashes():
     receipt=json.loads((ROOT/CONSUMED_RECEIPT).read_text())
-    validate_pins(receipt['input_sha256'])
+    validate_pins(bound_pins(receipt['input_sha256']))
     here=Path(__file__).parent
     seeds={str(path.relative_to(ROOT)) for path in here.iterdir() if path.suffix in ('.py','.md')}
     seeds.update(action.SOURCE_FILES)
-    seeds.update(receipt['input_sha256'])
+    seeds.update(bound_pins(receipt['input_sha256']))
     seeds.update((CONSUMED_RECEIPT,'model/requirements.txt',
         'model/coherent_defect_wave/chiral_joint/field_limit/PROOF.md',
         'model/coherent_defect_wave/chiral_joint/periodic_family/PROOF.md'))
     paths=set(import_closure(seeds))|seeds
     missing=sorted(name for name in paths if not (ROOT/name).is_file())
     if missing:raise ValueError('missing source inputs: '+', '.join(missing))
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def certificate():
     pins=input_hashes()
     return {'schema':'oph.native_quantum_higgs_composites.v1',
-            'input_sha256':pins,
+            'input_sha256':bound_pins(pins),
             'consumed_periodic_spectrum_receipt_pins_validated':True,
             'exact_operator_identities':tensor_certificate(),'compiler_ancestry':compiler_certificate(),
             'noncanonical_CAR':noncanonical_certificate(),'local_star_selection':star_selection_certificate(),'quantum_composite_dynamics':composite_dynamics_certificate(),

@@ -22,6 +22,12 @@ from ..native_quantum_reconstruction import certificate as reconstruction
 from ..observer import native, quantum_mixing
 from ..observer.source_discrimination import circuit
 from ..repair_scheduler import coins
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -493,17 +499,17 @@ def local_phase_excitation():
 
 def source_bindings():
     parent = strict_json.load(ROOT/'model/native_quantum_reconstruction/results.json')
-    for name, expected in parent['source_sha256'].items():
+    for name, expected in bound_pins(parent['source_sha256']).items():
         require(hashlib.sha256((ROOT/name).read_bytes()).hexdigest() == expected,
                 'native reconstruction parent source is stale: '+name)
-    names = set(parent['source_sha256']) | {
+    names = set(bound_pins(parent['source_sha256'])) | {
         'model/native_quantum_reconstruction/results.json',
         'model/repair_scheduler/coins.py', 'model/observer/source_discrimination/circuit.py',
         'model/common_source/native_defect_decision.py',
         'model/common_source/native_defect_decision_results.json',
         'model/native_quantum_defects/certificate.py', 'model/native_quantum_defects/PROOF.md',
         'model/native_quantum_defects/test_certificate.py'}
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def report():
@@ -525,7 +531,7 @@ def report():
                                            'different admitted scheduler or reference with its own proof',
                                            'relational history observables and explicitly accounted active recovery',
                                            'refining carriers with proved compatible source maps']},
-            'source_sha256': source_bindings()}
+            'source_sha256': bound_pins(source_bindings())}
 
 
 def main():

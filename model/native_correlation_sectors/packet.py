@@ -11,6 +11,12 @@ from tools import strict_json
 from ..native_program import receipt as native_receipt
 from ..federated_observer import scaling
 from . import sectors as s, records as r
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).with_name('results.json')
@@ -33,8 +39,8 @@ def canonical(value):
 
 def source_bindings():
     names=set(SOURCE_FILES)|set(native_receipt.source_bindings())
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(names) if not name.startswith('docs/')}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(names) if not name.startswith('docs/')})
 
 
 def attachment():
@@ -113,7 +119,7 @@ def produce():
                                                 for q in (2,4,ports//3,ports//2)}
         levels.append(row)
     value={'schema':'oph.native_correlation_sectors.v1',
-           'source_bindings':before,'native_attachment':attachment(),
+           'source_bindings':bound_pins(before),'native_attachment':attachment(),
            'complete_reflected_record_identity':r.pair_certificate(),
            'finite_record_controls':controls(),'evaluated_federations':levels,
            'all_domain_identities':{

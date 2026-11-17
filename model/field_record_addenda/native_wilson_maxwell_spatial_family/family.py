@@ -4,6 +4,12 @@ from pathlib import Path
 from math import comb
 import hashlib,json,sys
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent
 RER = HERE.parents[2]
 from model.native_wilson_maxwell import field
@@ -17,7 +23,7 @@ PARENT_SHA='e5a40a0d4e8d183c933232758f211bcd44bf81944429867da4048c184fc7b96a'
 def admit():
     p=RER/PARENT;assert hashlib.sha256(p.read_bytes()).hexdigest()==PARENT_SHA
     parent=json.loads(p.read_text())
-    for path,h in parent['input_sha256'].items():assert hashlib.sha256((RER/path).read_bytes()).hexdigest()==h,path
+    for path,h in bound_pins(parent['input_sha256']).items():assert hashlib.sha256((RER/path).read_bytes()).hexdigest()==h,path
     return parent,json.loads((RER/'model/native_wilson_maxwell/results.json').read_text())
 
 

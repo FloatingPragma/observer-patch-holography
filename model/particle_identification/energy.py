@@ -17,6 +17,12 @@ import sympy as s
 
 from ..cube_eta_protection import cube
 from . import vacuum
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -98,7 +104,7 @@ def calibration_audit():
     assigned = observations['electron_calibration']
     if assigned['role'] != 'one common energy calibration input; not an absolute mass prediction':
         raise ArithmeticError('the inherited electron calibration role changed')
-    return {'sources_sha256': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in CALIBRATION_SOURCES},
+    return {'sources_sha256': bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in CALIBRATION_SOURCES}),
             'old_SI_helper': 'requires supplied seconds per model unit, signal speed and E=hbar omega; it derives no physical clock calibration',
             'old_defect_clock_scale': 'Omega_ref=1/4 GeV is a declared calibration of a separate co-driven calibrated field/clock design',
             'old_defect_clock_lab_calibration_proved': False,

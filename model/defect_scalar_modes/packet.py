@@ -11,6 +11,12 @@ from scipy import linalg as la
 
 from .modes import build_scalar_source, selected_response
 from .backreaction import calculate_backreaction, small_car_control
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -49,7 +55,7 @@ def source_bindings():
                 include(target)
                 for alias in node.names:
                     include(target+'.'+alias.name)
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(names)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(names)})
 
 
 def archive_arrays(data=None,back=None):
@@ -70,7 +76,7 @@ def calculate():
     public={key:value for key,value in back.items() if not isinstance(value,np.ndarray)}
     uncoupled=build_scalar_source(False)
     frequencies=data['frequencies']
-    result={'schema':'oph.defect_scalar_modes.v1','source_bindings':pins,
+    result={'schema':'oph.defect_scalar_modes.v1','source_bindings':bound_pins(pins),
         'source':{'radius':3,'mass':64,'half_separation':1,'sites':343,
             'native_internal_labels':15,'fermion_CAR_modes':10290,
             'scalar_total_occupation_cap':1,'scalar_dimension':1373,

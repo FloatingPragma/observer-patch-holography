@@ -16,6 +16,12 @@ from tools.build_completion_program import integration_source_paths
 
 from ..centered_particle_spectrum import packet as inherited
 from . import certificate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 DIRECTORY = Path(__file__).resolve().parent
@@ -40,7 +46,7 @@ def bindings():
         'independent_checks': []})
     paths.update({'model/charged_composite_search/witness.npz',
                   'model/centered_particle_spectrum/witness.npz'})
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def validate(value):
@@ -87,7 +93,7 @@ def produce():
             'refinement': 'one finite eight-site cube at c=1/8 U=1; no volume or continuum limit'},
         'spectrum': certificate.verify(load_witness()),
         'inherited_inputs': inherited.inherited_inputs(),
-        'source_bindings': pins}
+        'source_bindings': bound_pins(pins)}
     validate(result)
     if pins != bindings():
         raise ValueError('source changed during composite replay')
@@ -108,7 +114,7 @@ def report():
         if process.returncode:
             raise RuntimeError('cold composite replay failed:\n'+process.stderr)
         result = strict_json.loads(destination.read_text())
-    if pins != bindings() or result['source_bindings'] != pins:
+    if pins != bindings() or bound_pins(result['source_bindings']) != pins:
         raise ValueError('source changed across cold composite replay')
     validate(result)
     return result
@@ -152,7 +158,7 @@ def main():
             raise ValueError('composite receipt or complete line table changed')
     print(json.dumps({'all_pass': True, 'positive_composite_lines': 138,
                       'independent_energy_sum_rules': True,
-                      'source_bindings': len(value['source_bindings'])}))
+                      'source_bindings': bound_pins(len(bound_pins(value['source_bindings'])))}))
 
 
 if __name__ == '__main__':

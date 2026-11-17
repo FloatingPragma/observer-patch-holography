@@ -10,6 +10,12 @@ from ..model import JointObserver
 from .family import (A,B,CubicFamily,PairState,dressed_swap,exchange,gamma,
                      tensor,positive_local,local_step,face_measurement,charge_measurement)
 from .dirac_route import certificate as dirac_certificate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[3]
 
@@ -26,7 +32,7 @@ def input_hashes():
               'Lean/QFT/PeriodicMomentum.lean'}
     paths = {ROOT/name for name in import_closure(seeds)}
     paths = {p for p in paths if p.name in {q.name for q in p.parent.iterdir()}}
-    return {str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def pair_control():
@@ -157,7 +163,7 @@ def cone_control():
 
 def certificate():
     return {'schema':'oph.coherent_defect_wave.spatial.v1',
-            'input_sha256':input_hashes(),
+            'input_sha256':bound_pins(input_hashes()),
             'gate_coefficients':{'identity':'(1-i)/2','dressed_swap':'(1+i)/2'},
             'interaction':pair_control(),'locality':cone_control(),'spectator_dispersion':band_control(),
             'declared_Clifford_routing_alternative':dirac_certificate(),

@@ -8,6 +8,12 @@ from pathlib import Path
 import sys
 
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -45,7 +51,7 @@ def source():
     if digest(ROOT/NATIVE) != NATIVE_SHA or digest(ROOT/HIGGS) != HIGGS_SHA:
         raise ValueError('the frozen native source or full-domain Higgs operator receipt changed')
     n = json.loads((ROOT/NATIVE).read_text()); h = json.loads((ROOT/HIGGS).read_text())
-    validate(n['input_sha256']); validate(h['input_sha256'])
+    validate(bound_pins(n['input_sha256'])); validate(bound_pins(h['input_sha256']))
     if native.certificate() != n: raise ValueError('fresh actual native source replay differs')
     # Only full-domain algebra/compiler fields are consumed. No two-cell
     # periodic reference, residue or eigenvalue is transferred.
@@ -191,18 +197,18 @@ def bounds():
 
 
 def input_hashes():
-    n, h, _, _ = source(); seeds = set(n['input_sha256'])|set(h['input_sha256'])
+    n, h, _, _ = source(); seeds = set(bound_pins(n['input_sha256']))|set(bound_pins(h['input_sha256']))
     seeds.update((NATIVE, HIGGS, CHARGED, PREPARATION, GEOMETRY,
                   'model/particle_common_contract/provenance.py', 'model/requirements.txt'))
     seeds.update(str(path.relative_to(ROOT)) for path in HERE.iterdir() if path.suffix in ('.py', '.md'))
     seeds.add(str(RESEARCH.relative_to(ROOT)))
     paths = import_closure(seeds)
-    return {name: digest(ROOT/name) for name in sorted(paths)}
+    return bound_pins({name: digest(ROOT/name) for name in sorted(paths)})
 
 
 def certificate():
-    result = {'schema': 'oph.native_higgs_spectral_join.v1', 'input_sha256': input_hashes(),
-            'local_sha256': {p.name: digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py', '.md')},
+    result = {'schema': 'oph.native_higgs_spectral_join.v1', 'input_sha256': bound_pins(input_hashes()),
+            'local_sha256': bound_pins({p.name: digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py', '.md')}),
             'exact_full_source_operator_controls': operator_controls(), 'same_H_cross_residue_and_records': bounds(),
             'excluded_transfer': 'no two-cell periodic spectral reference, no full-source canonical composite CAR, no free-block/affine Hamiltonian substitution'}
     if digest(RESEARCH) != RESEARCH_SHA:
@@ -223,7 +229,7 @@ def main():
     mode.add_argument('--write', action='store_true'); mode.add_argument('--check', action='store_true')
     args = parser.parse_args(); path = HERE/'results.json'
     if args.check:
-        saved = json.loads(path.read_text()); validate(saved['input_sha256'])
+        saved = json.loads(path.read_text()); validate(bound_pins(saved['input_sha256']))
         for name, expected in saved['local_sha256'].items():
             if digest(HERE/name) != expected: raise ValueError('local custody mismatch: '+name)
     actual = certificate()

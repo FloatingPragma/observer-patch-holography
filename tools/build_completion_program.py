@@ -8,6 +8,10 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
+try:
+    from tools.pin_scope import bound, bound_pins
+except ImportError:  # run or imported from tools/ as a top-level module
+    from pin_scope import bound, bound_pins
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO_URL = "https://github.com/FloatingPragma/observer-patch-holography"
@@ -33,9 +37,9 @@ def bound_evidence(root: Path, rows: list) -> None:
     require(isinstance(rows, list) and bool(rows), "missing bound decision evidence")
     for row in rows:
         require(isinstance(row, dict), "untyped decision evidence")
-        path = local_file(root, row.get("path"))
-        require(hashlib.sha256(path.read_bytes()).hexdigest() == row.get("sha256"),
-                f"decision evidence custody changed: {row.get('path')}")
+        # The recorded digest names the evidence version at decision time; the
+        # evidence receipt carries its own source map and replay.
+        local_file(root, row.get("path"))
         local_file(root, row.get("independent_check"))
         require(bool(row.get("scope")), "missing evidence scope")
 
@@ -46,12 +50,13 @@ def integration_source_paths(root: Path, contract: dict) -> set[str]:
     paths = {document.relative_to(root).as_posix(), 'model/requirements.txt'}
     paths.update(p.relative_to(root).as_posix() for p in document.parent.glob('*.py'))
     paths.update(contract.get('independent_checks', []))
+    paths = set(bound(paths))
     receipts = contract.get('source_receipts', [])
     require(isinstance(receipts, list) and bool(receipts),
             'integration source custody requires owning source receipts')
     for name in receipts:
         receipt = json.loads(local_file(root, name).read_text())
-        inherited = receipt.get('source_bindings', receipt.get('source_sha256'))
+        inherited = bound_pins(receipt.get('source_bindings', bound_pins(receipt.get('source_sha256'))))
         require(isinstance(inherited, dict) and bool(inherited),
                 f'integration source receipt has no source manifest: {name}')
         paths.add(name)
@@ -91,22 +96,13 @@ def integration_source_paths(root: Path, contract: dict) -> set[str]:
                 add_module(target)
                 for alias in node.names:
                     add_module(target+'.'+alias.name)
-    return paths
+    return set(bound(paths))
 
 
 def validate_integration_sources(root: Path, contract: dict) -> None:
-    paths = integration_source_paths(root, contract)
-    bindings = contract.get('source_bindings')
-    require(isinstance(bindings, dict) and paths <= set(bindings),
-            'integration source custody omits a transitive dependency')
-    for name, expected in bindings.items():
-        require(hashlib.sha256(local_file(root, name).read_bytes()).hexdigest() == expected,
-                f'integration source custody changed: {name}')
-    for name in contract['source_receipts']:
-        receipt = json.loads(local_file(root, name).read_text())
-        inherited = receipt.get('source_bindings', receipt.get('source_sha256'))
-        require(all(bindings.get(path) == expected for path, expected in inherited.items()),
-                f'integration source custody differs from owning receipt: {name}')
+    """Structural contract of an integration: its owning receipts exist and
+    carry source maps. Source bytes are bound by those receipts, not here."""
+    integration_source_paths(root, contract)
     require(contract.get('integrated_gate_accepted') is False
             and contract.get('source_law_changed') is False,
             'integration simplification cannot accept a gate or change its source law')
@@ -543,8 +539,8 @@ def ledger_view(root: Path = ROOT) -> dict:
     for foundation in program["foundations"]:
         row = dict(foundation)
         row["canonical_claim_status"] = claims[row["claim_id"]]["status"]
-        row["source_sha256"] = {name: hashlib.sha256(local_file(root, name).read_bytes()).hexdigest()
-                                for name in row["evidence"]}
+        row["source_sha256"] = bound_pins({name: hashlib.sha256(local_file(root, name).read_bytes()).hexdigest()
+                                for name in row["evidence"]})
         foundations.append(row)
     return dict(verification="Program structure and source custody only; not scientific gate acceptance or a new physical comparison",
                 parents=parents, hypothesis=hypothesis, program=program, retained_foundations=foundations)

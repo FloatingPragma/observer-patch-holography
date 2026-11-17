@@ -6,6 +6,12 @@ from model.common_source.chiral_candidate import action
 from model.particle_common_contract.provenance import import_closure
 from .model import descriptor
 from .checks import local_preparation_checks, full_domain_checks, rotation_checks, experiment
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[4]
 
@@ -25,7 +31,7 @@ def input_hashes():
     for name in sorted(paths):
         if not (ROOT / name).is_file():
             raise FileNotFoundError('missing neutral-mobility import input: ' + name)
-    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def certificate():
@@ -35,4 +41,4 @@ def certificate():
             'full_domain_operator_identities': full_domain_checks(),
             'spatial_symmetries': rotation_checks(),
             'complete_physical_arrival_experiment': experiment(),
-            'input_sha256': input_hashes()}
+            'input_sha256': bound_pins(input_hashes())}

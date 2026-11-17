@@ -10,6 +10,12 @@ import mpmath as mp
 
 from . import composition, sensitivity
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -113,7 +119,7 @@ def report():
     paths = ['compare.py','test_compare.py','COMPARISON.md','experimental_inputs.json',
              'composition.py','sensitivity.py','PROOF.md','results.json']
     result['schema'] = 'oph.lepton_physical_comparison.v1'
-    result['source_bindings'] = {str((HERE/p).relative_to(ROOT)):hashlib.sha256((HERE/p).read_bytes()).hexdigest() for p in paths}
+    result['source_bindings'] = bound_pins({str((HERE/p).relative_to(ROOT)):hashlib.sha256((HERE/p).read_bytes()).hexdigest() for p in paths})
     return result
 
 

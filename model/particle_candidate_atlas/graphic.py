@@ -3,6 +3,12 @@ from html import escape
 import json
 import textwrap
 from .builder import number, decimal, box
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 WIDTH=4000
 MARGIN=120
@@ -366,7 +372,7 @@ def render(data):
     c.text(MARGIN,y,f"{prefix}: {data['source_binding_count']} paths. Exact intervals and hashes: atlas audit.json.",26,MUTED)
     c.text(MARGIN,y+42,'Source experiments and large operator proofs are retained evidence. The atlas executes bounded interval, closure and spectral checks; physical assignments are unproved.',26,MUTED)
     height=int(max(y+105,c.bottom+45))
-    metadata=escape(json.dumps({'schema':data['schema'],'input_sha256':data['input_sha256'],
+    metadata=escape(json.dumps({'schema':data['schema'],'input_sha256':bound_pins(data['input_sha256']),
         'physical_particle_map':[],'physical_mass_predictions':[]},sort_keys=True))
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{height}" viewBox="0 0 {WIDTH} {height}" role="img" aria-labelledby="title desc">'

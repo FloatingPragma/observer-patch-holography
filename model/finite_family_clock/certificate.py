@@ -8,6 +8,12 @@ from model.common_source.chiral_candidate.action import SOURCE_FILES
 from model.particle_common_contract.provenance import import_closure
 from .family import calculate as family
 from .memory import calculate as memory
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -26,7 +32,7 @@ def validate_pins(pins):
 
 
 def input_hashes():
-    higgs=json.loads((ROOT/HIGGS_PARENT).read_text())['input_sha256']
+    higgs=bound_pins(json.loads((ROOT/HIGGS_PARENT).read_text())['input_sha256'])
     seam=json.loads((ROOT/SEAM_PARENT).read_text())['files']
     seam={'model/coherent_seam_repair/'+name:value for name,value in seam.items()}
     validate_pins(higgs)
@@ -37,12 +43,12 @@ def input_hashes():
     seeds.update(SOURCE_FILES)
     seeds.update((HIGGS_PARENT,SEAM_PARENT,'model/requirements.txt'))
     names=import_closure(seeds)
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def certificate():
     pins=input_hashes()
-    return {'schema':'oph.finite_family_clock.v1','input_sha256':pins,
+    return {'schema':'oph.finite_family_clock.v1','input_sha256':bound_pins(pins),
             'immutable_parent_pins_validated':[HIGGS_PARENT,SEAM_PARENT],
             'family_instrument_and_collision_clock':family(),
             'same_H_quantum_memory':memory(),

@@ -16,6 +16,12 @@ from model.native_circulation import construction as native
 from model.defect_integer_lift import certificate as lift_certificate
 from model.defect_integer_lift import model as lift
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -131,12 +137,12 @@ def bindings():
     paths.update(['Lean/Dynamics/IntegerFaceLift.lean','model/native_circulation/README.md',
                   'model/defect_integer_lift/PROOF.md','model/defect_integer_lift/federation.json',
                   'model/defect_integer_lift/imported_census.json',*native.SOURCE_PATHS])
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))})
 
 
 def certificate():
     pins=bindings()
-    result=dict(schema='oph.finite_current_readout_closure.v1',source_bindings=pins,
+    result=dict(schema='oph.finite_current_readout_closure.v1',source_bindings=bound_pins(pins),
                 axial_counter=axial(),integer_face_lift=integer_lift(),
                 scope=dict(two_finite_observable_theorems_attached=True,
                     every_original_two_attempt_axial_record_retained=True,

@@ -14,6 +14,12 @@ from model.compact_defect_pair import packet as compact_packet
 from model.interacting_defect_response import packet as radial_packet
 from tools import strict_json
 from . import algebra, finite
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = Path(__file__).resolve().parent
@@ -62,7 +68,7 @@ def source_bindings():
                     add_module(target+'.'+alias.name)
     if any(path.startswith('docs/') for path in paths):
         raise ValueError('research notes are not executable source evidence')
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def scope():
@@ -101,7 +107,7 @@ def produce():
                  'uniform_in_exterior_volume': True,
                  'constituent_rest_mass_interpretation': False},
              'scope': scope(), 'canonical_physical_premises_discharged': [],
-             'physical_comparison_count_added': 0, 'source_bindings': pins}
+             'physical_comparison_count_added': 0, 'source_bindings': bound_pins(pins)}
     if pins != source_bindings():
         raise ValueError('source changed during compact interacting calculation')
     return value
@@ -118,7 +124,7 @@ def report():
         if result.returncode:
             raise RuntimeError('compact interaction worker failed:\n'+result.stdout+result.stderr)
         value = strict_json.load(path)
-    if value['source_bindings'] != pins or source_bindings() != pins:
+    if bound_pins(value['source_bindings']) != pins or source_bindings() != pins:
         raise ValueError('source changed across compact interacting replay')
     return value
 
@@ -126,7 +132,7 @@ def report():
 def validate(value, replay=None):
     if canonical(value) != canonical(report() if replay is None else replay):
         raise ValueError('compact interacting receipt differs from complete replay')
-    if value.get('source_bindings') != source_bindings():
+    if bound_pins(value.get('source_bindings')) != source_bindings():
         raise ValueError('compact interacting source manifest is stale')
 
 

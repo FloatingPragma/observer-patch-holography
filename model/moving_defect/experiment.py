@@ -9,6 +9,12 @@ from pathlib import Path
 
 from tools import strict_json
 from . import transport
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -93,7 +99,7 @@ def run():
     value = contract()
     return {"schema": "oph.moving_defect.results.v1", "campaign": value,
             "science": science(), "source_replay": admit(transport.source_replay_diagnostics()),
-            "source_sha256": {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCES}}
+            "source_sha256": bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCES})}
 
 
 def compare(expected, actual, path="root"):

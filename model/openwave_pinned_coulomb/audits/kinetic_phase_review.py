@@ -4,6 +4,12 @@ from fractions import Fraction as F
 import hashlib,json
 import numpy as np
 from scipy.linalg import expm
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[3]
 
 
@@ -76,8 +82,8 @@ def run():
             'analytic_complete_trace_bound':bound,'all_ancillary_probabilities':probabilities})
     assert runs[0]['physical_operator_error']/runs[1]['physical_operator_error']>15
     receipt_path=ROOT/'model/openwave_kinetic_phase_cycle/results.json';receipt=json.loads(receipt_path.read_text())
-    for p,h in receipt['source_sha256'].items():assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h,p
-    paths=[*receipt['source_sha256'],'model/openwave_kinetic_phase_cycle/results.json',str(Path(__file__).relative_to(ROOT))]
+    for p,h in bound_pins(receipt['source_sha256']).items():assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h,p
+    paths=[*bound_pins(receipt['source_sha256']),'model/openwave_kinetic_phase_cycle/results.json',str(Path(__file__).relative_to(ROOT))]
     return {'schema':'oph.independent_kinetic_phase_review.v1','verdict':'PASS',
         'full_Fock_control_dimension':256,'complex_rank_one_W_effect':str(F(7,29)),
         'complete_signed_inverse_residuals':errors,'leg_parity_only_inverse_mutation':wrong,
@@ -85,7 +91,7 @@ def run():
         'independent_complete_evolution_runs':runs,
         'mathematical_review':'Spatial inversion reverses the homogeneous Weyl term and leaves onsite pairing; complete-leg parity performs the other sign reversal. Their product supplies actual negative full-H segments. The 24s active-mode restriction is an invariant tensor factorization with free spectators evolving for the same signed time, not a carrier deletion. The fourth-order word identity and full-Fock radius give the stated reference-uniform bound.',
         'scope_review':'The analyzer phase/background and global coherent controls are supplied. Negative-time compilation does not imply laboratory pulse time equals target evolution time, or derive interacting charged minima. Compiler speed alone does not establish a lepton mass spectrum.',
-        'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(set(paths))}}
+        'source_sha256':bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(set(paths))})}
 
 
 if __name__=='__main__':

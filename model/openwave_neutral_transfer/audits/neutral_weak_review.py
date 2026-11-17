@@ -7,6 +7,12 @@ import numpy as np
 from scipy.linalg import sqrtm
 from model.openwave_weak_decay.decay import interaction
 from model.common_source import calibrated_matter
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[3];HERE=Path(__file__).resolve()
 NAMES=('openwave_neutral_transfer','openwave_neutrino_oscillation','openwave_weak_decay')
 SIGMA=(np.array([[0,1],[1,0]],complex),np.array([[0,-1j],[1j,0]],complex),np.diag([1,-1]))
@@ -83,10 +89,10 @@ def weak():
 def run():
  receipts={name:json.loads((ROOT/'model'/name/'results.json').read_text())for name in NAMES};bindings={}
  for name,value in receipts.items():
-  for ref,digest in value.get('input_sha256',value.get('source_sha256',{})).items():
+  for ref,digest in bound_pins(value.get('input_sha256',bound_pins(value.get('source_sha256',{})))).items():
    assert hashlib.sha256((ROOT/ref).read_bytes()).hexdigest()==digest;bindings[ref]=digest
   relative=f'model/{name}/results.json';bindings[relative]=hashlib.sha256((ROOT/relative).read_bytes()).hexdigest()
  bindings[str(HERE.relative_to(ROOT))]=hashlib.sha256(HERE.read_bytes()).hexdigest()
- value={'source_sha256':bindings,'neutral':neutral(),'oscillation':oscillation(receipts[NAMES[1]]),'weak':weak(),'scope':'Independent algebra and complete-instrument checks supplement the package proofs. Native neutral transport is a prepared composite; mixing is a declared nonempirical family model; the contact transition is not a measured muon decay.','verdict':'PASS_INDEPENDENT_NEUTRAL_FLAVOUR_WEAK_REVIEW'}
+ value={'source_sha256':bound_pins(bindings),'neutral':neutral(),'oscillation':oscillation(receipts[NAMES[1]]),'weak':weak(),'scope':'Independent algebra and complete-instrument checks supplement the package proofs. Native neutral transport is a prepared composite; mixing is a declared nonempirical family model; the contact transition is not a measured muon decay.','verdict':'PASS_INDEPENDENT_NEUTRAL_FLAVOUR_WEAK_REVIEW'}
  (HERE.with_suffix('.json')).write_text(json.dumps(value,indent=2,sort_keys=True)+'\n');return value
 if __name__=='__main__':print(run()['verdict'])

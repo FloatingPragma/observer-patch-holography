@@ -14,6 +14,12 @@ from ..periodic_family.model import Configuration, cells, cell_index, shift_cell
 from ..peter_weyl_links import model as source
 from ..neutral_mobility.model import composite_column
 from .model import ROOT, reference_data, momentum_probability
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 GROUND_RESPONSE_RECEIPT = 'model/coherent_defect_wave/chiral_joint/ground_composite_response/results.json'
 
@@ -111,7 +117,7 @@ def actual_composite_translation_checks():
 def success_weight():
     reference_data()
     receipt = json.loads((ROOT / GROUND_RESPONSE_RECEIPT).read_text())
-    validate_pins(receipt['input_sha256'])
+    validate_pins(bound_pins(receipt['input_sha256']))
     actual_source = receipt['source']
     assert actual_source['full_CAR_modes'] == 30 and actual_source['scalar_states'] == 5
     assert actual_source['coefficients'] == {

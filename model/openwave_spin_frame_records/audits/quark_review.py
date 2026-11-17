@@ -8,12 +8,18 @@ from model.openwave_kinetic_phase_cycle.compiler import annihilator
 from model.coherent_defect_wave.physical_attachment.chiral import representation
 from model.coherent_defect_wave.chiral_joint.interacting_charged_response.model import FAMILIES
 from model.openwave_quark_strings.strings import full_string,full_gauss,hop,inner,shortest_paths
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[3]
 TARGET=ROOT/'model/openwave_quark_strings'
 
 def main():
     receipt=json.loads((TARGET/'results.json').read_text())
-    assert not [p for p,h in receipt['source_sha256'].items()if hashlib.sha256((ROOT/p).read_bytes()).hexdigest()!=h]
+    assert not [p for p,h in bound_pins(receipt['source_sha256']).items()if hashlib.sha256((ROOT/p).read_bytes()).hexdigest()!=h]
     c=[annihilator(6,j)for j in range(6)]
     B=sum((c[3+j].H*c[j]for j in range(3)),s.zeros(64))/s.sqrt(3)
     P=s.diag(*[int(mask>>3==0)for mask in range(64)])
@@ -55,12 +61,12 @@ def main():
                 first=-1j*lam*t*F@T@u;b=np.linalg.norm(H0,2);tau=np.linalg.norm(T,2)
                 error=lam*t*t*tau*(2*b+lam*tau)/2
                 assert np.linalg.norm(actual-first)<=error+1e-15;random_checks+=1
-    pins={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in TARGET.iterdir()if p.suffix in ('.py','.md','.json')}
+    pins=bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in TARGET.iterdir()if p.suffix in ('.py','.md','.json')})
     report={'verdict':'PASS','full_CAR_pump_dimension':64,'complete_instrument_on_all_64_rows':True,
        'native_all_fifteen_weight_centre_identity':True,'actual_two_family_six_route_spin_pair_Gauss_checks':True,
        'independent_block_nondiagonal_Duhamel_examples':random_checks,
        'scientific_boundary':'Native fractional charge, colour-carrying Wilson strings and full-H finite-time transport are executed. The central internal gauge phase does not establish fractional spatial winding.',
-       'source_sha256':pins}
+       'source_sha256':bound_pins(pins)}
     (Path(__file__).resolve().parents[1]/'quark_review.json').write_text(json.dumps(report,indent=2,sort_keys=True)+'\n')
     print('PASS_INDEPENDENT_NATIVE_QUARK_STRINGS')
 if __name__=='__main__':main()

@@ -15,6 +15,12 @@ from model.particle_primary_selected_odd_response import model as odd
 from model.particle_primary_charged_readout import model as meters
 from model.particle_primary_pair_channels import model as pair_channels
 from model.particle_primary_composite_transport import model as transport
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 DELTA=(0,2,0,0,1)
 SOURCE_INPUTS=tuple(dict.fromkeys((
@@ -248,6 +254,6 @@ def certificate():
         for label,row in local['families'].items()}
     value={'schema':'oph.primary_selected_spin_response_certificate.v1',
         'exact_local_controls':summary,'exact_residual_controls':contract.serial([residual_control(k) for k in ('G1','H')]),
-        'members':[bind_member(contract.member(n)) for n in (0,1,2,8)],'source_sha256':pins}
+        'members':[bind_member(contract.member(n)) for n in (0,1,2,8)],'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('source changed during selected spin replay')
     return contract.serial(value)

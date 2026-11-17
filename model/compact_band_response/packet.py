@@ -12,6 +12,12 @@ import tempfile
 
 from tools import strict_json
 from . import response
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = Path(__file__).resolve().parent
@@ -60,7 +66,7 @@ def source_bindings():
                 add_module(target)
                 for alias in node.names:
                     add_module(target+'.'+alias.name)
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def scope():
@@ -87,7 +93,7 @@ def produce():
               'exact_missing_force_control': response.force_control(),
               'same_source_thermal_response': response.thermal_control(),
               'scope': scope(), 'canonical_physical_premises_discharged': [],
-              'source_bindings': pins}
+              'source_bindings': bound_pins(pins)}
     if pins != source_bindings():
         raise ValueError('source changed during response calculation')
     return result
@@ -104,7 +110,7 @@ def report():
         if child.returncode:
             raise RuntimeError('compact-work replay failed:\n'+child.stdout+child.stderr)
         result = strict_json.load(path)
-    if result['source_bindings'] != pins or source_bindings() != pins:
+    if bound_pins(result['source_bindings']) != pins or source_bindings() != pins:
         raise ValueError('source changed across response replay')
     return result
 
@@ -112,7 +118,7 @@ def report():
 def validate(value, replay=None):
     if canonical(value) != canonical(report() if replay is None else replay):
         raise ValueError('compact-work receipt differs from complete replay')
-    if value.get('source_bindings') != source_bindings():
+    if bound_pins(value.get('source_bindings')) != source_bindings():
         raise ValueError('compact-work source manifest is stale')
 
 

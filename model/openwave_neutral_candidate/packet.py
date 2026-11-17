@@ -5,6 +5,12 @@ import json
 from pathlib import Path
 from model.particle_common_contract.provenance import import_closure
 from . import source,threshold
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -18,12 +24,12 @@ def source_bindings():
             'model/coherent_defect_wave/chiral_joint/ground_composite_response/PROOF.md',
             'model/coherent_defect_wave/chiral_joint/peter_weyl_links/PROOF.md',
             'model/dark_spectral_source/README.md']
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(seeds))}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(seeds))})
 
 
 def report():
     pins=source_bindings()
-    result={'schema':'oph.native_neutral_threshold.v1','input_sha256':pins,
+    result={'schema':'oph.native_neutral_threshold.v1','input_sha256':bound_pins(pins),
             'currents':source.current_certificate(),'boundary':source.boundary_certificate(),
             'threshold':threshold.certificate(),'dark_source_control':source.dark_number_control(),
             'verdict':'PASS_NATIVE_NEUTRAL_GAP_AND_SEPARATE_PERIODIC_ZERO_MOMENTUM_CANDIDATE'}

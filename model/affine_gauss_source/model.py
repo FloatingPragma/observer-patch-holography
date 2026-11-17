@@ -9,6 +9,12 @@ import math
 import sys
 
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 RER=HERE.parents[1]
@@ -320,7 +326,7 @@ def pins():
         'Lean/Screen/DiscreteCoulombGreen.lean','Lean/Screen/ConeCochainBridge.lean',
         'Lean/Screen/WhitneyConeModes.lean','Lean/Screen/WhitneyNormalModeConstruction.lean',
         'Lean/Screen/WhitneyQuantumBridge.lean','paper/tex_fragments/WHITNEY_MAXWELL_DYNAMICS.tex')
-    return {name:hashlib.sha256((RER/name).read_bytes()).hexdigest() for name in names}
+    return bound_pins({name:hashlib.sha256((RER/name).read_bytes()).hexdigest() for name in names})
 
 
 def calculate():
@@ -361,6 +367,6 @@ def calculate():
         'complete_static_charge_records':charges,'complete_field_records':field_records(),
         'complete_same_source_charge_then_full_electric_records':joint_charge_field_records(),
         'inherited_twelve_port_Green_receipt_freshly_replayed':inherited['receipt_sha256'],
-        'input_sha256':pins(),
-        'owned_source_sha256':{path.name:hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted(HERE.iterdir()) if path.suffix in ('.py','.md')}}
+        'input_sha256':bound_pins(pins()),
+        'owned_source_sha256':bound_pins({path.name:hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted(HERE.iterdir()) if path.suffix in ('.py','.md')})}
     return serialize(result)

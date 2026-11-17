@@ -17,6 +17,12 @@ import json
 from pathlib import Path
 
 from ..native_equilibration import history_entropy as census
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -320,7 +326,7 @@ def source_bindings():
                     add_module(target+"."+alias.name)
     if any(name.startswith("docs/") for name in names):
         raise ArithmeticError("documentation cannot be a mathematical source binding")
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def encode(value):
@@ -363,7 +369,7 @@ def run():
     if not average.contains(exact_average):
         raise ArithmeticError("native sector force averaging failed")
     polynomial = invisible_strain_polynomial(3, (F(2), F(3), F(4), F(192)))
-    result = {"schema": "oph.operational_strain.v1", "source_sha256": before,
+    result = {"schema": "oph.operational_strain.v1", "source_sha256": bound_pins(before),
         "native_scalar_source": native_check, "native_Q_used_only_as_example_amplitude": q,
         "supplied_strain_examples": examples,
         "zero_work": identify_power_response(supplied_power_records(72, 72, 1)),

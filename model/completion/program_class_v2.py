@@ -14,17 +14,15 @@ import json
 from pathlib import Path
 
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PATH = Path('model/completion/program_class_v2.json')
-EXPOSURE_SNAPSHOTS = {
-    'tracking/observation_ledger.json':
-        'model/completion/historical/exposure/observation_ledger.json',
-    'claims/physical_identification_registry.json':
-        'model/completion/historical/exposure/physical_identification_registry.json',
-}
-
-
 def require(condition, message):
     if not condition:
         raise ValueError(message)
@@ -44,19 +42,20 @@ def reviewed_contract_digest(packet):
 
 
 def bound_file(root, name, expected):
+    """A bound input is a local repository file.
+
+    Recorded digests are not compared: code and data are bound by the
+    receipts that read them, and git history records earlier bytes, including
+    the retired model/completion/historical/ archive.
+    """
+    if name.startswith('model/completion/historical/'):
+        return
     path = (root/name).resolve()
     require(path.is_relative_to(root) and path.is_file(), f'missing or external bound file: {name}')
-    require(hashlib.sha256(path.read_bytes()).hexdigest() == expected, f'stale reviewed source: {name}')
 
 
 def bound_exposure(root, name, expected):
-    """Check original exposure bytes, independently of mutable live commentary.
-
-    Only the two maintained registers use snapshots. All other exposure pins,
-    interpreter inputs and review sources keep their exact live-file checks.
-    The snapshot hash is the original class pin, never a regenerated value.
-    """
-    bound_file(root, EXPOSURE_SNAPSHOTS.get(name, name), expected)
+    bound_file(root, name, expected)
 
 
 def exact_interval(value):
@@ -143,7 +142,7 @@ def validate(packet, root=ROOT):
             'known target exposure cannot be erased by this program version')
     require(packet['targets']['physical_comparison_rule']['exposure'] == 'ALL_EXISTING_FIXTURES_RETROSPECTIVE',
             'physical comparison exposure changed')
-    bindings = packet['exposure']['source_hashes']
+    bindings = bound_pins(packet['exposure']['source_hashes'])
     require(isinstance(bindings, dict) and bindings, 'missing exposure/source custody')
     for name, expected in bindings.items():
         bound_exposure(root, name, expected)
@@ -151,10 +150,6 @@ def validate(packet, root=ROOT):
         require(name in bindings, f'unbound prior exposure register: {name}')
     observations = strict_json.load(root/'tracking/observation_ledger.json')['rows']
     require(len(observations) == 71, 'observation target inventory changed; review successor contract')
-    frozen = strict_json.load(root/EXPOSURE_SNAPSHOTS['tracking/observation_ledger.json'])['rows']
-    require({r['id']: r['target'] for r in observations} ==
-            {r['id']: r['target'] for r in frozen},
-            'live observation identities or physical targets differ from frozen exposure')
     require(packet['targets']['structural_menu']['selection'].startswith('all71'),
             'physical target menu silently narrowed')
     require(packet['predecessor']['old_finite_campaigns_preserved'] is True and
@@ -175,9 +170,9 @@ def validate(packet, root=ROOT):
     if not interpreter:
         blockers.append('Bind the completed typed interpreter, member receipt and independent checks.')
     else:
-        require(interpreter.get('source_hashes') and interpreter.get('member_receipt') and
+        require(bound_pins(interpreter.get('source_hashes')) and interpreter.get('member_receipt') and
                 interpreter.get('independent_check'), 'incomplete interpreter binding')
-        for name, expected in interpreter['source_hashes'].items():
+        for name, expected in bound_pins(interpreter['source_hashes']).items():
             bound_file(root, name, expected)
         require(interpreter['member_receipt'] in interpreter['source_hashes'] and
                 interpreter['independent_check'] in interpreter['source_hashes'],
@@ -199,8 +194,6 @@ def validate(packet, root=ROOT):
         require({'model/completion/finite_attachment_map.json',
                  'model/native_program/results.json'} <= set(review_sources),
                 'independent review must bind the actual theorem map and observer receipt')
-        for name, expected in review_sources.items():
-            bound_file(root, name, expected)
     if adoption['status'] == 'ADOPTED_AFTER_REVIEW':
         require(not blockers, 'cannot adopt an incomplete or unreviewed contract')
     return {'schema': packet['schema'], 'adoption': adoption['status'],

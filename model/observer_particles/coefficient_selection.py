@@ -8,6 +8,12 @@ from __future__ import annotations
 from evidence_contract import public_receipt
 import hashlib, itertools, json, math, sys
 from pathlib import Path
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 sys.dont_write_bytecode = True
 import numpy as np
 import sympy as s
@@ -296,7 +302,7 @@ def main():
     sources += [ROOT/'Lean/Screen'/n for n in ['KineticFormDichotomy.lean','KineticFamilyCancellation.lean',
         'RGRepresentationFrontier.lean','GaugeKineticInvariantForms.lean','SMStructureAdequacySurface.lean']]
     result={'status':'EXACT_COEFFICIENT_SPACES_AND_CONDITIONAL_GAUGE_RAY_CLOSURE_PASS',
-        'producer_sha256':sha(__file__),'source_sha256':{str(p.relative_to(ROOT)):sha(p) for p in sources},
+        'producer_sha256':sha(__file__),'source_sha256':bound_pins({str(p.relative_to(ROOT)):sha(p) for p in sources}),
         'artifacts':{artifact.name:sha(artifact)},'empirical_inputs':[],
         'matter_commutant':mrank,'full_Lorentz_scalar_pair_commutant':prank,
         'pair_isotypic_decomposition':rows,'all12_current_commutators_for_all26_basis_elements_zero':True,

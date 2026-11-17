@@ -24,6 +24,12 @@ from model.completion.family import FamilyParameters
 from model.native_modular_reference import common_caps, history_clock, full_flow
 from model.clock_defect_energy import clock_services, continuation, ramsey_service, joint_clock
 from model.clock_defect_energy.joins_contract import check_receipt, source_bindings
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 CAMPAIGN = HERE / "campaign.json"
@@ -44,7 +50,7 @@ def _digest(value):
 
 def _predecessor(name):
     receipt = strict_json.load(HERE.parent / name)
-    if source_bindings(receipt["source_sha256"]) != receipt["source_sha256"]:
+    if source_bindings(bound_pins(receipt["source_sha256"])) != bound_pins(receipt["source_sha256"]):
         raise ValueError(f"{name} source closure changed")
     return receipt
 
@@ -409,7 +415,7 @@ def run():
             "source_processor_proper_code_failure_contract": "all complement outputs retained; ideal probability zero on admitted proper-code inputs",
             "physical_seconds_calibrated": False,
             "integrated_gate_accepted": False,
-            "source_sha256": source_bindings(paths)}
+            "source_sha256": bound_pins(source_bindings(paths))}
 
 
 def main():

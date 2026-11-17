@@ -9,6 +9,12 @@ from pathlib import Path
 
 from tools import strict_json
 from . import bounds, localization
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
@@ -83,13 +89,13 @@ def bindings():
                 add(target)
                 for alias in node.names:
                     add(target+'.'+alias.name)
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def produce():
     before = bindings()
     result = {
-        'schema': 'oph.spin_covariant_localization.v1', 'source_bindings': before,
+        'schema': 'oph.spin_covariant_localization.v1', 'source_bindings': bound_pins(before),
         'finite_source_readout': localization.report(),
         'continuum_source_gram_constants': bounds.gram_bounds(),
         'finite_compression_error_example': bounds.frame_perturbation(F(1, 1000), F(1, 2000000)),

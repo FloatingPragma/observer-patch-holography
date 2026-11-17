@@ -39,6 +39,12 @@ from tools import strict_json
 from . import local_history as history, common_caps as common, local_preparation as local
 from ..native_interface import construction as interface
 from ..observer.source_scalar import compiler
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 full = common.full
 ROOT = Path(__file__).resolve().parents[2]
@@ -385,7 +391,7 @@ def run():
             'source_words': {'clock': hashlib.sha256(full.corner.canonical(history.word()).encode()).hexdigest(),
                 'rotations': [hashlib.sha256(full.corner.canonical(rotation_word(i, sign)).encode()).hexdigest()
                               for i in (0, 1) for sign in (-1, 1)]},
-            'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths},
+            'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}),
             'scope': {'all_exterior_states_and_untouched_references': True,
                       'ideal_cap_algebra_action_at_completed_protocol_boundaries': True,
                       'coherent_encoded_control_services_remain_admitted': True,

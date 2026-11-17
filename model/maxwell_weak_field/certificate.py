@@ -16,6 +16,12 @@ from pathlib import Path
 import sympy as s
 
 from ..maxwell_local_selection import certificate as local
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -282,7 +288,7 @@ def build():
                       'physical_clock_or_coefficients_selected': False,
                       'continuum_or_particle_pole_identification': False,
                       'Lean_kernel_checked': False},
-            'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}}
+            'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})}
 
 
 def main():

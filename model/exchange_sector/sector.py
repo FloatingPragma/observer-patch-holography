@@ -27,6 +27,12 @@ from ..observer.source_discrimination import circuit
 from ..observer.source_scalar import compiler
 from ..native_modular_reference import history_transport
 from ..common_source import encoded_memory as memory, native_routing as routing
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -434,7 +440,7 @@ def source_bindings():
                  "model/clock_defect_energy/defect_history.py", "model/clock_defect_energy/DEFECT_HISTORY.md",
                  "model/clock_defect_energy/continuation.py",
                  "Lean/Geometry/SourceEncodedMemory.lean"))
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(seen)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(seen)})
 
 
 def campaign_binding():
@@ -449,7 +455,7 @@ def campaign_binding():
     for key, item in expected.items():
         if type(value[key]) is not type(item) or value[key] != item:
             raise ValueError("exchange-sector campaign scope changed")
-    sources = value["source_sha256"]
+    sources = bound_pins(value["source_sha256"])
     if type(sources) is not dict or set(sources) != PREDECESSOR_SOURCES:
         raise ValueError("source-bound exchange-sector campaign required")
     for name, digest in sources.items():
@@ -468,7 +474,7 @@ def run():
             "cp03_accepted": False, "cp05_accepted": False,
             "sector_boundaries": sector_certificate(), "closed_exchange": exchange_certificate(),
             "optimal_sharp_sector_code": code_capacity_certificate(),
-            "source_execution": execution_certificate(), "source_sha256": source_bindings()}
+            "source_execution": execution_certificate(), "source_sha256": bound_pins(source_bindings())}
 
 
 def check_receipt(path, expected):

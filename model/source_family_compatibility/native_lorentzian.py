@@ -15,6 +15,12 @@ from model.native_spectral_detector import circuits
 from model.native_spin_observer import execute
 from model.protected_particle_readout import execute as local
 from .local_spectral import dimer_source
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 COUNT=2048
 STEP=F(1,256)
@@ -294,8 +300,8 @@ def _certificate():
     if not original[0]<=exact_box[0]<=exact_box[1]<=original[1]:raise ArithmeticError('native score misses exact same-source spectral law')
     if window<=F(1,2):raise ArithmeticError('native original-window floor failed')
     programs={'preparation':_preparation()[0],'charge':c['charge'],'initialize':c['hadamard'],'readout':c['hadamard'],'clock':c['clock'],'selector':c['coin_word']}
-    program_rows={name:{'pulse_count':len(word),'word_sha256':cert.word_digest(word),'physical_failure_slots':sum(_physical_slots(word)),
-                        'event_failure_slot_counts':_physical_slots(word)}for name,word in programs.items()}
+    program_rows=bound_pins({name:{'pulse_count':len(word),'word_sha256':cert.word_digest(word),'physical_failure_slots':sum(_physical_slots(word)),
+                        'event_failure_slot_counts':_physical_slots(word)}for name,word in programs.items()})
     before_charge=program_rows['preparation']['physical_failure_slots']+program_rows['charge']['physical_failure_slots']
     per_charge=program_rows['initialize']['physical_failure_slots']+COUNT*sum(program_rows[k]['physical_failure_slots']for k in('selector','readout','clock'))
     total_failure_records=before_charge+6*per_charge

@@ -12,6 +12,12 @@ from tools import strict_json
 from ..defect_field_benchmark import quasiparticles as qp
 from ..defect_protection import packet as protected_packet
 from . import dynamics
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 HERE = Path(__file__).resolve().parent
@@ -74,7 +80,7 @@ def build():
         row['array_prefix']+'_internal_factors':
             'shared_internal_'+('abort' if row['abort'] else str(row['current']))
         for rows in report['laws'].values() for row in rows}
-    report['source_sha256'] = pins
+    report['source_sha256'] = bound_pins(pins)
     if source_bindings() != pins:
         raise RuntimeError('sources changed during colored dynamics replay')
     validate_arrays(report, arrays)

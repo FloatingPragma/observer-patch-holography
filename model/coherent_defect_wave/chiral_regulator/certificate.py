@@ -5,6 +5,12 @@ from model.particle_common_contract.provenance import import_closure
 from model.common_source.chiral_candidate.action import SOURCE_FILES
 from .model import (PROGRAM_ID,spectral_certificate,position_certificate,
                     filled_reference_certificate,instrument_certificate,tail_bound)
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 
@@ -24,8 +30,8 @@ def certificate():
                   'model/requirements.txt'))
     missing=[p for p in paths if not (ROOT/p).is_file()]
     if missing:raise FileNotFoundError(missing)
-    hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
-            for p in sorted(import_closure(paths)) if (ROOT/p).is_file()}
+    hashes=bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
+            for p in sorted(import_closure(paths)) if (ROOT/p).is_file()})
     return {'schema':'oph.coherent_defect_wave.chiral_regulator.v1','program':PROGRAM_ID,
             'symbol_and_chirality':spectral_certificate(),'position_source':position_certificate(),
             'reference':filled_reference_certificate(),'complete_free_instrument':instrument_certificate(),
@@ -38,4 +44,4 @@ def certificate():
                  'positive_free_particle_hole_reference':True,'controlled_free_local_continuum':True,
                  'finite_strict_causal_cone':False,'local_interacting_gauge_continuum':False,
                  'physical_Standard_Model_identification':False,'GeV_mass_prediction':False},
-            'input_sha256':hashes}
+            'input_sha256':bound_pins(hashes)}

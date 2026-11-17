@@ -24,6 +24,12 @@ import sympy as s
 
 from . import native_persistent_response as response
 from . import native_sm_current as declared
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -326,4 +332,4 @@ def source_bindings():
     paths = set(response.source_bindings())|set(declared.source_bindings())|{
         'model/common_source/native_response_comparison.py',
         'model/common_source/test_native_response_comparison.py'}
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})

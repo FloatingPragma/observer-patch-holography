@@ -1,6 +1,12 @@
 """Fresh source replay and exact finite arrival/energy certificate."""
 from pathlib import Path
 import hashlib,json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 from . import model
@@ -21,8 +27,8 @@ def raw_certificate():
     pins={}
     for path,expected in PARENTS.items():
         if digest(ROOT/path)!=expected:raise ValueError('frozen parent changed: '+path)
-        value=json.loads((ROOT/path).read_text());validate_pins(value['input_sha256'])
-        for name,sha in value['input_sha256'].items():
+        value=json.loads((ROOT/path).read_text());validate_pins(bound_pins(value['input_sha256']))
+        for name,sha in bound_pins(value['input_sha256']).items():
             if name in pins and pins[name]!=sha:raise ValueError('inconsistent parent pins')
             pins[name]=sha
         pins[path]=expected
@@ -41,8 +47,8 @@ def raw_certificate():
       'native_D':'2^240 5^8 119^24','Mprep':1197721483502453176152084669,
       'energy_pointer_dimension':2**20,'arrival_pointer_reuses_parent_bit':True,
       'gate_synthesis_workspace_included':False}
-    result['input_sha256']=dict(sorted(pins.items()))
-    result['owned_source_sha256']={p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    result['input_sha256']=bound_pins(dict(sorted(pins.items())))
+    result['owned_source_sha256']=bound_pins({p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})
     return result
 
 REFERENCE_SHA='e8a0a69f3162f8bfbdf8154ff84f6214ade453e801eeda1066f44df42a68805d'
@@ -50,7 +56,7 @@ REFERENCE_SHA='e8a0a69f3162f8bfbdf8154ff84f6214ade453e801eeda1066f44df42a68805d'
 def compare_research(value):
     path=HERE/'research_reference.json'
     if digest(path)!=REFERENCE_SHA:raise ValueError('immutable energy research receipt changed')
-    expected=json.loads(path.read_text());validate_pins(expected['input_sha256'])
+    expected=json.loads(path.read_text());validate_pins(bound_pins(expected['input_sha256']))
     ignored={'schema','input_sha256','owned_source_sha256'}
     if {k:v for k,v in value.items() if k not in ignored}!={k:v for k,v in expected.items() if k not in ignored}:
         raise ValueError('fresh energy science differs from immutable research result')
@@ -64,7 +70,7 @@ def certificate():
     seeds={p.relative_to(ROOT).as_posix() for p in HERE.iterdir() if p.suffix in ('.py','.md')}
     seeds.add((HERE/'research_reference.json').relative_to(ROOT).as_posix())
     for relative in import_closure(seeds):value['input_sha256'][relative]=digest(ROOT/relative)
-    value['input_sha256']=dict(sorted(value['input_sha256'].items()))
+    value['input_sha256']=bound_pins(dict(sorted(bound_pins(value['input_sha256']).items())))
     value['independent_research_comparison']=comparison
     value['arrival_readout_service']={
       'unitary':'Uread=(I-Qx) tensor I+Qx tensor X on admitted sector; identity elsewhere',

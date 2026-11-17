@@ -13,6 +13,12 @@ from pathlib import Path
 
 from tools import strict_json
 from model.predictions import endpoint_audit, shared_parameter
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -203,7 +209,7 @@ def build(*, root=ROOT):
         "chiral_mass_comparison": chiral["separate_empirical_comparison"],
         "quantum_comparison_scope": quantum["scope"],
         "joint_status": status,
-        "custody": {"input_sha256": {path: _sha(root/path) for path in source_paths},
+        "custody": {"input_sha256": bound_pins({path: _sha(root/path) for path in source_paths}),
                     "upstream_histories_reexecuted_here": False,
                     "exact_spectral_enclosure_recomputed_here": True,
                     "ACT_weighted_projection_recomputed_here": True},

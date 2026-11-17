@@ -19,6 +19,12 @@ import sympy as sp
 from tools import strict_json
 from model.empirical_diagnostics import cross_scale
 from model.full_fock_field.field import FieldGeometry, FullFock
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -355,10 +361,10 @@ def build(*, root=ROOT):
              "model/particle_response/dimer.py", "model/particle_response/spectrum.py",
              "model/gauged_field/links.py",
              "model/particle_response/dispersion.py", "model/particle_response/test_dispersion.py")
-    source_bindings = {p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in paths}
-    source_bindings.update(replay["custody"]["input_sha256"])
+    source_bindings = bound_pins({p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in paths})
+    source_bindings.update(bound_pins(replay["custody"]["input_sha256"]))
     return {"schema":"oph.particle_comparison.v1", "classification":"retrospective conditional benchmark",
-            "source_bindings":source_bindings,
+            "source_bindings":bound_pins(source_bindings),
             "source_spectrum":certificate,"prediction_sha256_before_comparison":seal,
             "sealing_after_prior_target_exposure_makes_prospective":False,
             "two_candidate_assignment":pair, "assigned_operator_dictionary":dictionary,
@@ -383,7 +389,7 @@ def build(*, root=ROOT):
                 "prospective_comparisons_added":0,"OPH_universe_membership_confirmed":False,
                 "global_likelihood_or_probability":None,
                 "status":"open: CP07/CP10 common physical dictionary and complete error contract absent"},
-            "custody":{"input_sha256":{p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in paths},
+            "custody":{"input_sha256":bound_pins({p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in paths}),
                         "exact_current_Hamiltonian_certified":True,
                         "all_assignment_cases_recomputed":True,
                         "existing_actual_data_projection_recomputed":True,

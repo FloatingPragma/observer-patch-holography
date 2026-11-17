@@ -18,6 +18,12 @@ from model.coherent_defect_wave.chiral_joint.family_cell.quotient import (
     add, divide, evaluate, mul, outward, sqrt_interval,
 )
 from model.coherent_defect_wave.chiral_higgs.model import higgs_memory
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 QUARK_RECEIPT = 'model/native_quark_response/results.json'
@@ -224,7 +230,7 @@ def removal_moments():
         (QUARK_RECEIPT, 'exact_local_response', 'exact_ground_moments', 1),
         (LEPTON_RECEIPT, 'exact_local_channels', 'positive_total_raw_moments_coefficients_in_E0', 2)):
         receipt = json.loads((ROOT/path).read_text())
-        for name, digest in receipt['input_sha256'].items():
+        for name, digest in bound_pins(receipt['input_sha256']).items():
             assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest() == digest, name
         for family, row in receipt[sector].items():
             moments = []

@@ -20,6 +20,12 @@ from tools import strict_json
 from . import native_matter_attachment as matter
 from . import native_gauge_object as objects, slow_geometry
 from .particle_identification import family_attachment
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = matter.ROOT
 BENCHMARK = 'model/common_source/chiral_candidate/results.json'
@@ -326,4 +332,4 @@ def source_bindings():
         'model/common_source/native_repair_mass.py', 'model/common_source/test_native_repair_mass.py',
         'model/common_source/native_repair_mass_attachment.py',
         'model/common_source/test_native_repair_mass_attachment.py'}
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})

@@ -15,6 +15,12 @@ import numpy as np
 
 from .benchmark import compare_receipt
 from .quasiparticles import quasiparticles
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 REPORT = ROOT/'model/defect_field_bridge/dynamics_results.json'
@@ -102,7 +108,7 @@ def certificate():
              ROOT/'model/defect_field_bridge/dynamics.py', ROOT/'model/defect_field_bridge/dynamics_packet.py',
              ROOT/'model/defect_field_benchmark/quasiparticles.py']
     return {'schema': 'oph.defect_field_benchmark.source_gap_readout.v1',
-            'source_sha256': {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},
+            'source_sha256': bound_pins({p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}),
             'all_native_raw_slots_retained_in_source_arrays': total_rows,
             'zero_ideal_native_slots_validated_without_conditioning': zero_rows,
             'inherited_probability_TV_error_added_before_conditioning': inherited_error,

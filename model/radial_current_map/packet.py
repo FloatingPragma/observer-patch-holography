@@ -13,6 +13,12 @@ from tools.build_completion_program import integration_source_paths
 from ..common_source import native_matter_attachment
 from ..radial_interacting_core import packet as core_packet
 from . import algebra, controls, representation
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = 'model/radial_current_map'
@@ -28,18 +34,18 @@ def canonical(value):
 def source_bindings():
     paths = integration_source_paths(ROOT, {'domain_and_proof': PACKAGE+'/README.md',
         'source_receipts': list(PARENTS), 'independent_checks': [PACKAGE+'/PROOF.md']})
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def custody():
     for path, producer, schema in zip(PARENTS, (core_packet, native_matter_attachment),
             ('oph.radial_interacting_core.v1', 'oph.native_matter_attachment.v1'), strict=True):
         value = strict_json.load(ROOT/path)
-        if value.get('schema') != schema or value.get('source_bindings') != producer.source_bindings():
+        if value.get('schema') != schema or bound_pins(value.get('source_bindings')) != producer.source_bindings():
             raise ValueError('the current complete source parent is required: '+path)
         if path == PARENTS[0] and value.get('all_pass') is not True:
             raise ValueError('the complete interacting isolation receipt must pass')
-        for source, digest in value['source_bindings'].items():
+        for source, digest in bound_pins(value['source_bindings']).items():
             if hashlib.sha256((ROOT/source).read_bytes()).hexdigest() != digest:
                 raise ValueError('an inherited source changed: '+source)
     return {'parents': list(PARENTS), 'all_current_source_bindings_verified': True,
@@ -70,7 +76,7 @@ def _produce():
     value = {'schema': 'oph.radial_current_map.v1', 'all_pass': True,
              'issues': [1140, 1141, 1142, 1143], 'gates': ['CP-04', 'CP-05', 'CP-06', 'CP-07'],
              'physical_comparison_count_added': 0, 'scope': scope(),
-             'inherited_custody': custody(), 'source_bindings': pins,
+             'inherited_custody': custody(), 'source_bindings': bound_pins(pins),
              'exact_source_current_classification': algebra.certificate(),
              'actual_low_current_map_and_leakage': representation.certificate(),
              'independent_controls': controls.certificate()}
@@ -99,7 +105,7 @@ def report():
                        cwd=ROOT, check=True, capture_output=True, text=True, timeout=600,
                        env=dict(os.environ, OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1'))
         value = strict_json.load(output)
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across cold current-map replay')
     validate(value, value)
     return value

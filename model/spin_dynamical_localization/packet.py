@@ -8,6 +8,12 @@ from pathlib import Path
 
 from tools import strict_json
 from . import finite
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -59,7 +65,7 @@ def bindings():
                 add(target)
                 for alias in node.names:
                     add(target+'.'+alias.name)
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def canonical(value):
@@ -70,7 +76,7 @@ def produce():
     before = bindings()
     result = {
         'schema': 'oph.spin_dynamical_localization.v1',
-        'source_bindings': before,
+        'source_bindings': bound_pins(before),
         'finite_source_readout': finite.report(),
         'scope': {
             'same_continuum_state_spatial_generator_and_time_clock': True,

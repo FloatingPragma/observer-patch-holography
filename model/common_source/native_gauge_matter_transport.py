@@ -36,6 +36,12 @@ from . import native_matter_attachment as matter
 from . import native_staggered_field as field
 from .chiral_candidate import gaussian_source as gaussian
 from ..observer.source_scalar import compiler
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -381,7 +387,7 @@ def source_bindings():
         'model/common_source/test_native_gauge_matter_transport.py',
         'Lean/Screen/LocalGaugeJetAction.lean'}
     names.update(continuum.source_bindings())
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def _json_copy(value):
@@ -478,7 +484,7 @@ def verify_arrays(report,arrays):
 
 def check(path,arrays_path=None):
     path=Path(path);pins=source_bindings();retained=strict_json.loads(path.read_text(encoding='utf-8'))
-    if type(retained) is not dict or retained.get('source_bindings')!=pins:raise ValueError('source bindings differ')
+    if type(retained) is not dict or bound_pins(retained.get('source_bindings'))!=pins:raise ValueError('source bindings differ')
     arrays_path=path.with_name(retained['artifact']['path']) if arrays_path is None else Path(arrays_path)
     if hashlib.sha256(arrays_path.read_bytes()).hexdigest()!=retained['artifact']['sha256']:
         raise ValueError('array artifact hash differs')

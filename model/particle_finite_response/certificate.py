@@ -16,6 +16,12 @@ import sys
 
 import numpy as np
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -332,8 +338,8 @@ def run():
             path = Path(filename).resolve()
             if path.is_relative_to(ROOT/'model') and path.suffix == '.py':
                 paths.add(path)
-    result['source_bindings'] = {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
-                                 for path in sorted(paths)}
+    result['source_bindings'] = bound_pins({str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
+                                 for path in sorted(paths)})
     return result
 
 

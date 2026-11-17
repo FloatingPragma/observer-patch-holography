@@ -21,6 +21,12 @@ from pathlib import Path
 import numpy as np
 
 from model.observer.source_scalar import compiler
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 Gaussian = tuple[Q, Q]
@@ -377,7 +383,7 @@ def audit():
             "native_full_unitary_residual": residual,
             "native_all_16_matrix_units_channel_residual": channel_residual,
             "resources": compiler.resources(tape),
-            "source_sha256": {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                              for path in source_paths},
+            "source_sha256": bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                              for path in source_paths}),
             "finite_interacting_code_executed": True,
             "continuum_limit_or_physical_identification_supplied": False}

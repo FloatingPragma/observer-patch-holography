@@ -23,6 +23,12 @@ import math
 import numpy as np
 
 from . import modular_clock as clock
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 law, common, cap = clock.law, clock.common, clock.cap
 PROBE, REQUESTED_SEAMS = clock.PROBE, clock.REQUESTED_SEAMS
@@ -504,4 +510,4 @@ def report(relative_weights):
             'requested_schedule_is_full_scheduler': False,
             'diagnostic_input': 'apparatus reference; not supplied to phase compilation',
             'parameter': 'two half-steps, total s=1',
-            'inference_accuracy_is_separate': True, 'source_sha256': source_sha256()}
+            'inference_accuracy_is_separate': True, 'source_sha256': bound_pins(source_sha256())}

@@ -9,6 +9,12 @@ from model.particle_primary_stress import stress
 from model.particle_primary_channel_labels import channels
 from model.particle_primary_charge_conjugation import model as conjugation
 from model.particle_spatial_ground_state import ground
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS = (
     'model/particle_primary_covariant_stress/__init__.py',
@@ -231,7 +237,7 @@ def certificate():
              'allocation_controls': [allocation_control(L) for L in (2, 3)],
              'regional_control': contract.serial(regional_improvement_control()),
              'members': [bind_member(contract.member(n)) for n in (0, 1, 2, 8)],
-             'source_sha256': pins}
+             'source_sha256': bound_pins(pins)}
     if provenance.definition_hashes(paths) != pins:
         raise ValueError('source changed during replay')
     return value

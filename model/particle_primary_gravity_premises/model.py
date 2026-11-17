@@ -15,6 +15,12 @@ from model.particle_primary_channel_labels import channels
 from model.particle_local_wilson_density import density
 from model.particle_spatial_ground_state import ground
 from model.particle_filtered_probe import filter as apparatus
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS = (
     'model/particle_primary_gravity_premises/__init__.py',
@@ -233,6 +239,6 @@ def certificate():
     result={'schema':'oph.primary_gravity_premises_certificate.v1','theorem_premise_map':mapping,
             'selected_member_bound':bind_member(contract.member(0)),
             'open_coframe_controls':[open_shift_control(side) for side in (2,3)],
-            'gravity_is_separate_from_finite_mass_readout':True,'source_sha256':pins}
+            'gravity_is_separate_from_finite_mass_readout':True,'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('gravity inputs changed during replay')
     return result

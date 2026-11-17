@@ -3,6 +3,12 @@ import argparse,hashlib,json
 from pathlib import Path
 from . import refinement
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent
 RER=refinement.RER
 RESEARCH=HERE/'research_reference.json'
@@ -13,12 +19,12 @@ def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def certificate():
     value=refinement.scientific();parent,_=refinement.admit()
     cutoff=json.loads((RER/refinement.CUTOFF_PARENT).read_text())
-    seeds=set(parent['input_sha256'])|set(cutoff['input_sha256'])|{refinement.PARENT,refinement.CUTOFF_PARENT,
+    seeds=set(bound_pins(parent['input_sha256']))|set(bound_pins(cutoff['input_sha256']))|{refinement.PARENT,refinement.CUTOFF_PARENT,
         'model/native_wilson_maxwell_ground/ground.py','model/native_wilson_maxwell_refinement/bounds.py',
         'model/particle_common_contract/provenance.py',str(RESEARCH.relative_to(RER))}
     seeds.update(str(p.relative_to(RER)) for p in HERE.iterdir() if p.suffix in ('.py','.md'))
-    value['input_sha256']={p:digest(RER/p) for p in sorted(import_closure(seeds))}
-    value['owned_source_sha256']={p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    value['input_sha256']=bound_pins({p:digest(RER/p) for p in sorted(import_closure(seeds))})
+    value['owned_source_sha256']=bound_pins({p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})
     if digest(RESEARCH)!=RESEARCH_SHA:raise ValueError('immutable research comparison differs')
     ignore={'input_sha256','owned_source_sha256'}
     science=lambda data:{k:v for k,v in data.items() if k not in ignore}

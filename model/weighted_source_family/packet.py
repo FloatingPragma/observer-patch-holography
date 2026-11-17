@@ -14,6 +14,12 @@ import sympy as s
 from tools import strict_json
 from ..native_program import receipt as native_receipt
 from . import family as f
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -31,8 +37,8 @@ SOURCE_FILES = tuple(sorted(set((*f.geometry.SOURCE_PATHS,
 def source_bindings():
     result = {name: digest for name, digest in native_receipt.source_bindings().items()
               if not name.startswith('docs/')}
-    result.update({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-                   for name in SOURCE_FILES})
+    result.update(bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+                   for name in SOURCE_FILES}))
     return dict(sorted(result.items()))
 
 
@@ -209,7 +215,7 @@ def produce():
                        'physical_clock_or_capacity_selected':False,
                        'coherent_service_embedding_derived':False,
                        'interacting_relativistic_QFT_or_measured_particle_identification':False},
-              'source_bindings':bindings}
+              'source_bindings':bound_pins(bindings)}
     if source_bindings() != bindings:
         raise ArithmeticError('weighted family sources changed during replay')
     return result

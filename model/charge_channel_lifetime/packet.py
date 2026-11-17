@@ -7,6 +7,12 @@ import json
 from pathlib import Path
 from tools import strict_json
 from . import survival
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -63,14 +69,14 @@ def bindings():
                 add(target)
                 for alias in node.names:
                     add(target+'.'+alias.name)
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def build():
     before = bindings()
     survival.source_data.cache_clear()
     value = {'schema':'oph.charge_channel_lifetime.v1',
-             'source_bindings':before, 'complete_readout':survival.build()}
+             'source_bindings':bound_pins(before), 'complete_readout':survival.build()}
     if bindings()!=before:
         raise RuntimeError('source changed during retention certificate')
     return value

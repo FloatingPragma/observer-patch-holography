@@ -7,6 +7,12 @@ from pathlib import Path
 from tools import strict_json
 from model.native_fair_local_preparation import packet as inherited
 from . import reference as r
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -16,7 +22,7 @@ FILES = tuple('model/native_noncentral_reference/' + name for name in (
 
 def source_bindings():
     paths = set(inherited.source_bindings()) | set(FILES)
-    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def encode(value):
@@ -100,7 +106,7 @@ def example_words():
 
 def produce():
     before = source_bindings()
-    value = {'schema': 'oph.native_noncentral_reference.v1', 'source_bindings': before,
+    value = {'schema': 'oph.native_noncentral_reference.v1', 'source_bindings': bound_pins(before),
              'native_word': {'tree_attempts': 11, 'mixing_attempts': 60, 'attempts': 71,
                              'description_nodes': 71, 'all_raw_addresses_per_attempt': 25,
                              'actual_archive_records': 70, 'actual_fifo_records': 1,

@@ -10,6 +10,12 @@ from ..atomic_reference_control.lattice import local_norm
 from ..atomic_momentum_response.model import reference_data
 from ..interacting_charged_response.model import FAMILIES
 from ..family_cell.quotient import sqrt_interval,outward
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[4]
 PREPARATION='model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json'
@@ -36,7 +42,7 @@ def certificate(family):
     reference,_=reference_data()
     assert reference['native_irrep_ground_occupations'][family]['exact_ground_mean_occupation']==str(len(FAMILIES[family]))
     assert reference['mean_occupations_also_hold_on_each_pure_ground_spin_state']
-    receipt=json.loads((ROOT/PREPARATION).read_text());validate_pins(receipt['input_sha256'])
+    receipt=json.loads((ROOT/PREPARATION).read_text());validate_pins(bound_pins(receipt['input_sha256']))
     preparation=receipt['preparation']['finite_energy_agreement_filter']
     ground_fidelity=s.Rational(preparation['conditional_ground_pair_fidelity_lower'])
     sqrt_error=s.Rational(preparation['conditional_one_source_trace_distance_upper'])

@@ -18,6 +18,12 @@ import scipy.linalg as la
 import sympy as s
 
 from ..common_source import native_family_record_memory as memory
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -305,7 +311,7 @@ def build():
                       'full_record_semigroup_equivalence': False,
                       'physical_mass_or_CP_identification': False,
                       'finite_h_complete_channel_logarithm_asserted': False},
-            'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}}
+            'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})}
 
 
 def main():

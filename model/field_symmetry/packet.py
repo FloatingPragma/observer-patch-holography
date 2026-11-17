@@ -14,6 +14,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import readout, symmetry
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -32,7 +38,7 @@ def source_bindings():
     paths.update(('model/field_symmetry/contract.json',
                   'code/source_selection_model/response.json',
                   'code/m1_source_realization/receipt.json'))
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 _IMPORTED_BINDINGS = source_bindings()
@@ -57,7 +63,7 @@ def _produce():
     result = {
         'schema': 'oph.field_symmetry.v1',
         'campaign_id': 'OPH-FIELD-SYMMETRY-2026-10-31',
-        'source_bindings': bindings,
+        'source_bindings': bound_pins(bindings),
         'symmetry': certificate,
         'complete_source_experiments': rows,
         'signal': {'ideal_probability_interval': ['529/2304', '1/4'],
@@ -102,7 +108,7 @@ def report():
     if (type(result) is not dict or result.keys() != keys
             or result['schema'] != 'oph.field_symmetry.v1'):
         raise ValueError('fresh source replay returned an incomplete payload')
-    if result['source_bindings'] != bindings or source_bindings() != bindings:
+    if bound_pins(result['source_bindings']) != bindings or source_bindings() != bindings:
         raise ValueError('source changed across fresh replay')
     compare(result, result)  # Also reject nonfinite diagnostics from child JSON.
     _worker_inventory(result)

@@ -11,6 +11,12 @@ from model.coherent_defect_wave.chiral_joint.charged_ground_exchange.resolvent i
 )
 from model.coherent_defect_wave.chiral_joint.family_cell.quotient import evaluate, outward
 from model.defect_scalar_response.response import ground_pair
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PARENT = 'model/coherent_defect_wave/chiral_joint/ground_composite_response/results.json'
@@ -26,7 +32,7 @@ def value_record(value):
 @lru_cache(maxsize=1)
 def calculate():
     parent = json.loads((ROOT/PARENT).read_text())
-    for name, expected in parent['input_sha256'].items():
+    for name, expected in bound_pins(parent['input_sha256']).items():
         if hashlib.sha256((ROOT/name).read_bytes()).hexdigest() != expected:
             raise ValueError('the actual neutral-ground source changed: '+name)
     complete = parent['actual_ground_composite_spectrum']

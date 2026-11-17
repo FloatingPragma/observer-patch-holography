@@ -9,6 +9,12 @@ from pathlib import Path
 from ..observer.scalar_response.experiment import compare_receipt
 from ..quantum_observer_correspondence import construction as ideal
 from . import history, source
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 ERROR = F(1, 10**11)
@@ -127,8 +133,8 @@ def run():
         'model/compiled_clock_history/__main__.py', 'model/requirements.txt',
         'model/observer/scalar_response/experiment.py', 'tools/strict_json.py'}
     return {'schema': 'oph.compiled_clock_history.v1', 'all_pass': True,
-            'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                              for path in sorted(paths)},
+            'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                              for path in sorted(paths)}),
             'contract': {'native_law': 'C', 'binary_total': 2, 'physical_ports': 12,
                          'admitted_dimension': 66, 'full_encoded_dimension': 512,
                          'union_ports': list(source.UNION), 'cap_per_interval': 2,

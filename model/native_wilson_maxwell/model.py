@@ -7,6 +7,12 @@ import json
 from pathlib import Path
 import sys
 import mpmath as mp
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -33,7 +39,7 @@ def serial(value):return json.loads(json.dumps(value,default=str))
 @lru_cache(None)
 def admit():
     if digest(ROOT/PARENT)!=PARENT_SHA:raise ValueError('native shared-energy source differs')
-    saved=json.loads((ROOT/PARENT).read_text());filtered.higgs.validate(saved['input_sha256'])
+    saved=json.loads((ROOT/PARENT).read_text());filtered.higgs.validate(bound_pins(saved['input_sha256']))
     if filtered.certificate()!=saved:raise ValueError('fresh same-source shared-energy result differs')
     return saved
 
@@ -42,7 +48,7 @@ def admit():
 def admit_field():
     path=FIELD_REFERENCE
     if digest(path)!=PEER_SHA:raise ValueError('frozen field/Gauss/current prerequisite differs')
-    saved=json.loads(path.read_text());filtered.higgs.validate(saved['input_sha256'])
+    saved=json.loads(path.read_text());filtered.higgs.validate(bound_pins(saved['input_sha256']))
     return saved
 
 
@@ -118,8 +124,8 @@ def calculate():
 
 
 def certificate():
-    result=calculate();parent=admit();seeds=set(parent['input_sha256'])|{PARENT}
-    seeds.update(admit_field()['input_sha256'])
+    result=calculate();parent=admit();seeds=set(bound_pins(parent['input_sha256']))|{PARENT}
+    seeds.update(bound_pins(admit_field()['input_sha256']))
     seeds.update(('model/particle_common_contract/provenance.py',
                   'model/particle_physical_causality/PROOF.md',
                   'model/particle_field_causality/PROOF.md',
@@ -127,8 +133,8 @@ def certificate():
     seeds.update(str(p.relative_to(ROOT)) for p in HERE.iterdir() if p.suffix in ('.py','.md'))
     seeds.update((str(RESEARCH.relative_to(ROOT)),str(FIELD_REFERENCE.relative_to(ROOT))))
     result.update({'schema':'oph.native_wilson_maxwell.v1',
-        'input_sha256':{name:digest(ROOT/name) for name in sorted(import_closure(seeds))},
-        'owned_source_sha256':{p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}})
+        'input_sha256':bound_pins({name:digest(ROOT/name) for name in sorted(import_closure(seeds))}),
+        'owned_source_sha256':bound_pins({p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})})
     if digest(RESEARCH)!=RESEARCH_SHA:raise ValueError('immutable combined source calculation differs')
     ignored={'schema','input_sha256','owned_source_sha256','shared_field_source_sha256'}
     science=lambda value:{k:v for k,v in value.items() if k not in ignored}
@@ -146,8 +152,8 @@ def main():
     mode.add_argument('--write',action='store_true');mode.add_argument('--check',action='store_true')
     args=parser.parse_args();path=HERE/'results.json'
     if args.check:
-        saved=json.loads(path.read_text());filtered.higgs.validate(saved['input_sha256'])
-        for name,value in saved['owned_source_sha256'].items():
+        saved=json.loads(path.read_text());filtered.higgs.validate(bound_pins(saved['input_sha256']))
+        for name,value in bound_pins(saved['owned_source_sha256']).items():
             if digest(HERE/name)!=value:raise ValueError('declared source file differs: '+name)
     actual=certificate()
     if args.write:path.write_text(json.dumps(actual,indent=2,sort_keys=True)+'\n')

@@ -15,6 +15,12 @@ from fractions import Fraction as F
 import numpy as np
 from tools import strict_json
 from . import algebra, spectral, experiment, bounds
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
@@ -85,7 +91,7 @@ def bindings():
         'model/native_joint_spin_spectroscopy/README.md',
         'model/requirements.txt',
         'paper/tex_fragments/NATIVE_JOINT_SPIN_SPECTROSCOPY.tex'))
-    return {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def theorem():
@@ -109,7 +115,7 @@ def produce():
     if before != bindings():
         raise ValueError('source changed during joint spectroscopy replay')
     return {'schema': 'oph.native_joint_spin_spectroscopy.v1', 'new_checks_pass': True,
-            'theorem': theorem(), 'source_bindings': before, 'cube_joint_bins': cube,
+            'theorem': theorem(), 'source_bindings': bound_pins(before), 'cube_joint_bins': cube,
             'resource_bounds': bounds.certificate(),
             'dimer_common_kernel': algebra.dimer_common_kernel(), 'execution': execution}, arrays
 

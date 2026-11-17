@@ -19,6 +19,12 @@ from model.observer.source_discrimination import circuit
 from model.observer.source_scalar import compiler
 from model.exchange_sector import statistics_service as source_service
 from model.common_source import record_code as matching_code,parameter_selection as selection
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_DIM=512
 MEMORY_DIM=8
@@ -195,7 +201,7 @@ def prepared_source_and_export():
         'quadrature_readout_resources':{a:compiler.resources(w)for a,w in words.items()},
         'complete_source_outside_code_failure_rank':510,
         'readout_within_code':'inverse prepared eigenstate word; computational zero is plus, all other addresses are minus; initial code-complement projection supplies the separate failure',
-        'word_sha256':{'prepare':_hash(prep),**{a:_hash(w)for a,w in words.items()}}}}
+        'word_sha256':{'prepare':_hash(prep),**bound_pins({a:_hash(w)for a,w in words.items()})}}}
 
 
 def quadrature_records(extra=True):

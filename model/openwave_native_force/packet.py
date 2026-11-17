@@ -6,6 +6,12 @@ from pathlib import Path
 
 from model.finite_area_response import packet as parent
 from . import force
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).with_name('results.json')
@@ -19,13 +25,13 @@ def source_bindings():
     paths=set(parent.source_bindings())
     paths.update(str(p.relative_to(ROOT)) for p in Path(__file__).parent.iterdir()
                  if p.suffix in ('.py','.md'))
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def report():
     pins=source_bindings()
     value={'schema':'oph.native_scalar_geometry_force.v1','all_pass':True,
-           'source_bindings':pins,'inherited_source_custody':parent.inherited_custody(),
+           'source_bindings':bound_pins(pins),'inherited_source_custody':parent.inherited_custody(),
            'force':force.force_run(),
            'prepared_reference_nonuniversality':force.positive_energy_nonuniversality(),
            'actual_ground_nonuniversality':force.ground_counterexample(),

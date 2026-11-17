@@ -11,6 +11,12 @@ from pathlib import Path
 from tools import strict_json
 from ..particle_screening import screening
 from . import protocol
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -106,7 +112,7 @@ def execution_diagnostics():
         "source_replay": protocol.source_replay_report(),
         "source_composition": protocol.source_composition_report(),
         **campaign_binding(science),
-        "source_sha256": source_bindings(),
+        "source_sha256": bound_pins(source_bindings()),
     }
 
 

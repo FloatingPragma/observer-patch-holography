@@ -42,6 +42,12 @@ from tools import strict_json
 from model.compiled_native_interface import construction as compiled
 from model.observer import native
 from model.observer.scalar_response.experiment import canonical, compare_receipt as _portable_compare
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -308,7 +314,7 @@ def run():
             'mass_error_diagnostic': float(mass_error),
             'probabilities_diagnostic': [float(np.trace(value).real) for value in outputs]})
     return {'schema': 'oph.native_current_pointer.v1',
-        'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
+        'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
         'certificate': _json_exact(report), 'source_word_for_work_bit7': source_word(),
         'full_register_reference_executions': witnesses,
         'scope': {'auxiliary_ready_state_must_come_from_complete_native_reset': True,

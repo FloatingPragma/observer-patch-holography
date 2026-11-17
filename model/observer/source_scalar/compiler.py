@@ -23,6 +23,12 @@ from pathlib import Path
 
 import numpy as np
 from scipy.linalg import expm, svd as scipy_svd
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -159,8 +165,8 @@ def source_summary():
     """Serializable source commitments and exact base-control coefficients."""
     generators, coefficients, exact = _source()
     return {
-        "source_sha256": {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                          for path in (RESPONSE, CONTROL_RECEIPT)},
+        "source_sha256": bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                          for path in (RESPONSE, CONTROL_RECEIPT)}),
         "coefficient_field": "Q(sqrt(5)); [a,b] means a+b*sqrt(5)",
         "exact_base_coefficients": {kind: [[str(a), str(b)] for a, b in row]
                                     for kind, row in exact.items()},

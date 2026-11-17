@@ -6,6 +6,12 @@ from pathlib import Path
 import numpy as np
 from scipy.linalg import expm
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[3]
 
@@ -18,7 +24,7 @@ def produce():
              'model/coherent_defect_wave/chiral_joint/interacting_charged_response/local.py',
              'model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/PROOF.md']
     saved = json.loads((ROOT/paths[2]).read_text())
-    for path, digest in saved['input_sha256'].items():
+    for path, digest in bound_pins(saved['input_sha256']).items():
         assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == digest
     count = 0; max_violation = 0.; broken_normalization = False
     for seed in range(32):
@@ -66,7 +72,7 @@ def produce():
     assert not saved['calibration']['electron_identification_or_GeV_mass_prediction_claimed']
     assert not saved['clock']['bounded_clock_is_self_starting_frequency_rigid_time_crystal']
     return {'schema':'oph.prepared_line_independent_review.v1',
-            'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths},
+            'source_sha256':bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}),
             'review_code_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
             'independent_finite_unitary_cases':count,
             'maximum_bound_violation':max(0.,max_violation),

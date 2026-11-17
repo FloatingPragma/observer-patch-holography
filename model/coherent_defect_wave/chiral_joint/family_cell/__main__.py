@@ -4,6 +4,12 @@ from pathlib import Path
 from model.particle_common_contract.provenance import import_closure
 from .model import exact_ground,preparation_records
 from .quotient import generate_partition,spectrum
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[4]
 
 def certificate():
@@ -15,7 +21,7 @@ def certificate():
     return {'schema':'oph.full_native_family_quantum_cell.v1',
         'ground':exact_ground(),'complete_vacuum_energy_records':spectrum(),
         'complete_production_records':preparation_records(),
-        'input_sha256':{name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in inputs},
+        'input_sha256':bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in inputs}),
         'scope':{'all_native_quark_and_lepton_Yukawas_active':True,
             'one_native_generation':True,'quantum_scalar_replaced_by_background':False,
             'global_full_carrier_ground_proved':False,'spatial_propagation_or_GeV_mass':False}}

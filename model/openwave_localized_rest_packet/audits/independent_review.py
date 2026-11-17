@@ -5,6 +5,12 @@ from fractions import Fraction as F
 import numpy as np
 from scipy.linalg import expm
 from model.openwave_localized_rest_packet.packet import one_axis_moments,moment_upper_bounds,finite_execution,certify
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[3]
 def run():
  maximum=0.;counts=0
@@ -61,6 +67,6 @@ def run():
   'complete_pointer_probability_error':error,'independent_spectral_inequality_trials':trials,
   'physical_marginal_energy_error_budget_checked':True,
   'scope':'Analytic finite-carrier existence and complete small-box records; enormous volume not numerically simulated. The physical energy marginal retains every ancillary output. Autonomy and phase derivatives concern the declared quadratic target; the compiler uses continuing controls and transfers sampled records. Free persistence is not interacting stability; prepared phase is not passive onset.',
-  'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in refs}}
+  'source_sha256':bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in refs})}
 if __name__=='__main__':
  v=run();Path(__file__).with_suffix('.json').write_text(json.dumps(v,indent=2,sort_keys=True)+'\n');print(v['verdict'])

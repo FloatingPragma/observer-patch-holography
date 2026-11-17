@@ -17,6 +17,12 @@ from sympy.polys.matrices import DomainMatrix
 
 from model.yukawa_defect_vertex import vertex as native
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -198,7 +204,7 @@ def complete_pointer():
 def bindings():
     paths={str(p.relative_to(ROOT)) for p in HERE.iterdir() if p.suffix in {'.py','.md'}}
     paths.update(native.SOURCE_FILES)
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))})
 
 
 def certificate():
@@ -208,7 +214,7 @@ def certificate():
         raise ArithmeticError('one-point disconnected terms do not vanish')
     if any(clean(d['ground']*o*d['ground']).todok() for o in d['operators']):
         raise ArithmeticError('charged external legs act inside the singlet ground space')
-    result={'schema':'oph.frequency_yukawa_vertex.v1','source_bindings':pins,'source_dimension':320,
+    result={'schema':'oph.frequency_yukawa_vertex.v1','source_bindings':bound_pins(pins),'source_dimension':320,
         'ground_rank':2,'ground_energy':-2,'ground_preparation_probability':'1/160','frequency_rows':rows,
         'complete_first_frequency_tensor':complete_tensor(),'complete_invariant_pointer':complete_pointer(),
         'all_one_point_functions_zero_exact':True,

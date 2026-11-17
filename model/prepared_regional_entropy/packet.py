@@ -7,6 +7,12 @@ from pathlib import Path
 
 from tools import strict_json
 from . import entropy
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = entropy.ROOT
@@ -34,8 +40,8 @@ def bindings():
               ROOT/'model/plaquette_reference/preparation.py',
               ROOT/'model/regional_modular_expansion/expansion.py']
     paths += [ROOT/path for path in entropy.SOURCE_PATHS]
-    return {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in sorted(paths)}
+    return bound_pins({str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(paths)})
 
 
 def report():
@@ -72,7 +78,7 @@ def report():
                   'geometric_modular_charge_identified': False,
                   'entropy_area_stationarity_proved': False,
                   'common_interacting_continuum_or_Einstein_gate_accepted': False},
-        'source_bindings': pins,
+        'source_bindings': bound_pins(pins),
     })
     if bindings() != pins:
         raise ValueError('source changed during entropy replay')

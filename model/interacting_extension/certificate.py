@@ -13,6 +13,12 @@ from ._source import ROOT, verify_sources
 from .higgs_join.native_inputs import SOURCE_NAMES
 from .interacting_records import run
 from .recorded_response import spectral_shift_tv_squared
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 OUTPUT=HERE/'results.json'
@@ -26,8 +32,8 @@ def source_bindings():
               ('joined_basis.json','joined_exact_operators.json','joined_operator_receipt.json',
                'joined_operators.npz','results.json')]
     paths += [HERE/'dependencies/exact_family_operators.json']
-    pins.update({p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
-                 for p in paths})
+    pins.update(bound_pins({p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+                 for p in paths}))
     return dict(sorted(pins.items()))
 
 
@@ -59,7 +65,7 @@ def report(export=None):
         raise RuntimeError('interacting-record source changed during replay')
     return {
         'schema':'oph.interacting_extension.records.v1',
-        'source_sha256':before,
+        'source_sha256':bound_pins(before),
         'scope':{
             'declared_lepton_only_gauge_Higgs_model':True,
             'physical_mass_identification':False,'native_ground_preparation_derived':False,

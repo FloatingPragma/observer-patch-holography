@@ -7,6 +7,12 @@ from model.common_source.chiral_candidate import action
 from .model import descriptor
 from .checks import (matrix_checks, peter_weyl_check, path_checks,
                      rotation_word_checks, actual_hamiltonian_checks)
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[4]
 
@@ -27,7 +33,7 @@ def input_hashes():
     for name in sorted(paths):
         if not (ROOT / name).is_file():
             raise FileNotFoundError('missing oriented-link import input: ' + name)
-    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def certificate():
@@ -39,5 +45,5 @@ def certificate():
         'path_norms': path_checks(),
         'proper_cubic_rotations': rotation_word_checks(),
         'actual_full_carrier_executions': actual_hamiltonian_checks(),
-        'input_sha256': input_hashes(),
+        'input_sha256': bound_pins(input_hashes()),
     }

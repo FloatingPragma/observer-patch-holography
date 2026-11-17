@@ -3,6 +3,12 @@ import hashlib
 import json
 from pathlib import Path
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 INPUT = 'model/common_source/calibrated_neutrino_parameters.json'
@@ -20,7 +26,7 @@ def calculate():
         'two_positive_unit_Dirac_control_gaps': ['1', '5'],
         'conditional_rest_masses_if_the_attachment_is_supplied': ['s_GeV', '5 s_GeV'],
         'comparison_calibration': {'role': 'empirical illustrative choice of one common source energy unit',
-            'input_file': INPUT, 'input_sha256': hashlib.sha256((ROOT/INPUT).read_bytes()).hexdigest(),
+            'input_file': INPUT, 'input_sha256': bound_pins(hashlib.sha256((ROOT/INPUT).read_bytes()).hexdigest()),
             'declared_external_source': packet['source'],
             'consumed_mass_squared_splitting_eV2': str(split),
             'consumed_lightest_mass_architecture_eV': str(lightest),

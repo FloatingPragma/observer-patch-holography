@@ -28,6 +28,12 @@ from ..common_source.slow_geometry import source
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from ..predictions import inverse_clock as preparation
 from ..predictions import prepared_clock, prepared_clock_source
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -287,8 +293,8 @@ def run():
     if after_allowance <= 0:
         raise ArithmeticError('the existing target allowance fails to resolve the native-only floor')
     return _json({'schema': 'oph.native_interface.coherence_budget.v1',
-        'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                          for path in SOURCE_PATHS},
+        'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                          for path in SOURCE_PATHS}),
         'native_sign_herald_targets': native,
         'prepared_reference_target': prepared,
         'existing_prepared_source_comparison': {

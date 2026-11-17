@@ -5,6 +5,12 @@ from pathlib import Path
 from model.particle_common_contract.provenance import import_closure
 from model.openwave_larmor_dynamics.certificate import equivalent
 from .certificate import calculate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -17,12 +23,12 @@ def pins():
     for parent in PARENTS:
         receipt = ROOT / 'model' / parent / 'results.json'
         files.add(str(receipt.relative_to(ROOT)))
-        bindings = json.loads(receipt.read_text())['source_sha256']
+        bindings = bound_pins(json.loads(receipt.read_text())['source_sha256'])
         for path, digest in bindings.items():
             assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest, path
         files.update(bindings)
     files = import_closure(files)
-    return {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in sorted(files)}
+    return bound_pins({p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in sorted(files)})
 
 
 def main():
@@ -34,7 +40,7 @@ def main():
     before = pins()
     result = calculate()
     assert before == pins()
-    result['source_sha256'] = before
+    result['source_sha256'] = bound_pins(before)
     path = HERE / 'results.json'
     if args.write:
         path.write_text(json.dumps(result, indent=2, sort_keys=True) + '\n')

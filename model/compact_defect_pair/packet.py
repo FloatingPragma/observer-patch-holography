@@ -12,6 +12,12 @@ import tempfile
 
 from tools import strict_json
 from . import certification, spectral, topology
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = Path(__file__).resolve().parent
@@ -62,7 +68,7 @@ def source_bindings():
                     add_module(target+'.'+alias.name)
     if any(p.startswith('docs/') for p in names):
         raise ValueError('a prose note cannot be source evidence')
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(names)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(names)})
 
 
 def scope():
@@ -115,7 +121,7 @@ def produce():
               'same_current_and_pairing_control': spectral.lifted_control(),
               'scope': scope(), 'canonical_physical_premises_discharged': [],
               'physical_comparison_count_added': 0,
-              'source_bindings': pins}
+              'source_bindings': bound_pins(pins)}
     if pins != source_bindings():
         raise ValueError('source changed during calculation')
     return result
@@ -132,7 +138,7 @@ def report():
         if child.returncode:
             raise RuntimeError('compact-pair worker failed:\n'+child.stderr)
         result = strict_json.load(path)
-    if result['source_bindings'] != pins or source_bindings() != pins:
+    if bound_pins(result['source_bindings']) != pins or source_bindings() != pins:
         raise ValueError('source changed across cold replay')
     return result
 

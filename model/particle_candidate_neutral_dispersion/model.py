@@ -12,6 +12,12 @@ from model.particle_primary_coherent_odd_response import model as coherent
 from model.particle_primary_odd_sum_rules import model as odd_rules
 from model.particle_primary_joint_spectroscopy import spectroscopy
 from model.particle_primary_original_shell_moments import model as clock_means
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=tuple(dict.fromkeys((
     'model/particle_candidate_neutral_dispersion/__init__.py',
@@ -199,7 +205,7 @@ def certificate():
     value={'schema':'oph.particle_candidate_neutral_dispersion_certificate.v1',
         'exact_occupied_pair_control':occupied_pair_control(),
         'exact_neighbor_CAR_control':neighbor_car_control(),
-        'members':[bind_member(contract.member(0))],'source_sha256':pins}
+        'members':[bind_member(contract.member(0))],'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:
         raise ValueError('source changed during neutral moment certificate')
     return contract.serial(value)

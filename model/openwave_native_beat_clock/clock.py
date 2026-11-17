@@ -13,6 +13,12 @@ from model.coherent_defect_wave.chiral_joint.interacting_charged_response.model 
 from model.coherent_defect_wave.chiral_joint.interacting_charged_response.transfer import data as charged_data
 from model.certified_reference.interval import sine_cosine,pi,SCALE
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -189,11 +195,11 @@ def source_pins():
     inherited='model/openwave_energy_resolved_transport/results.json'
     receipt=json.loads((ROOT/inherited).read_text())
     paths.add(inherited)
-    for path,expected in receipt['source_sha256'].items():
+    for path,expected in bound_pins(receipt['source_sha256']).items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=expected:raise ValueError('changed inherited source: '+path)
         paths.add(path)
     paths.update(import_closure(sorted(paths)))
-    return {path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def certificate():
@@ -214,7 +220,7 @@ def certificate():
                          'source_gap_after_explicit_reference_subtraction_interval':encoded_interval((total[0]-mu,total[1]-mu)),
                          'changed_reference_cost_is_original_frozen_Hamiltonian':mu==4,
                          'unique_full_reference_vacuum_claimed_for_changed_cost':False})
-    result={'schema':'oph.native_free_beat_clock.v1','source_sha256':pins,
+    result={'schema':'oph.native_free_beat_clock.v1','source_sha256':bound_pins(pins),
         'source':{'Hamiltonian':'unchanged N2 PW119 H0+2^-34 T+4 N_ref',
                   'source_time':'same continuous Hamiltonian parameter used by the native charged readouts',
                   'selected_field':'actual e^c atomic charged pole, complete full-H bins retained',

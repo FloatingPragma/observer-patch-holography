@@ -6,6 +6,12 @@ import json
 from math import comb
 from pathlib import Path
 import sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 RER=HERE.parents[1]
@@ -25,9 +31,9 @@ def source():
     path=RER/PARENT
     if digest(path)!=PARENT_SHA:raise ValueError('frozen finite source receipt differs')
     saved=json.loads(path.read_text())
-    for relative,expected in saved['input_sha256'].items():
+    for relative,expected in bound_pins(saved['input_sha256']).items():
         if digest(RER/relative)!=expected:raise ValueError('source input differs: '+relative)
-    for relative,expected in saved['owned_source_sha256'].items():
+    for relative,expected in bound_pins(saved['owned_source_sha256']).items():
         if digest(path.parent/relative)!=expected:raise ValueError('parent source differs: '+relative)
     return saved
 
@@ -116,16 +122,16 @@ def calculate():
 
 def certificate():
     result=calculate();saved=source()
-    inputs=dict(saved['input_sha256'])
-    inputs.update({str(Path(PARENT).parent/k):v for k,v in saved['owned_source_sha256'].items()})
+    inputs=dict(bound_pins(saved['input_sha256']))
+    inputs.update({str(Path(PARENT).parent/k):v for k,v in bound_pins(saved['owned_source_sha256']).items()})
     inputs[PARENT]=PARENT_SHA
     # Directly used exact cube providers are also present in parent pins.
     for relative in ('model/native_wilson_maxwell/field.py','model/native_wilson_maxwell/gauss.py'):
         assert relative in inputs
     seeds=set(inputs)|{str(RESEARCH.relative_to(RER)),'model/particle_common_contract/provenance.py'}
     seeds.update(str(path.relative_to(RER)) for path in HERE.iterdir() if path.suffix in ('.py','.md'))
-    result['input_sha256']={name:digest(RER/name) for name in sorted(import_closure(seeds))}
-    result['owned_source_sha256']={p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    result['input_sha256']=bound_pins({name:digest(RER/name) for name in sorted(import_closure(seeds))})
+    result['owned_source_sha256']=bound_pins({p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})
     if digest(RESEARCH)!=RESEARCH_SHA:raise ValueError('immutable research comparison differs')
     ignored={'input_sha256','owned_source_sha256'}
     science=lambda value:{k:v for k,v in value.items() if k not in ignored}

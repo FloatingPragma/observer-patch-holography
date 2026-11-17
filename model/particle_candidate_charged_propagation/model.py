@@ -10,6 +10,12 @@ from model.particle_candidate_charged import model as charged
 from model.particle_primary_momentum_transfer import model as momentum
 from model.particle_primary_origin_momentum import model as origin
 from model.particle_primary_joint_spectroscopy import spectroscopy
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=(
  'model/particle_candidate_charged_propagation/__init__.py',
@@ -226,6 +232,6 @@ def verify_bound(member,bound):
 def certificate():
     paths=provenance.definition_inputs(SOURCE_INPUTS);pins=provenance.definition_hashes(paths)
     value={'schema':'oph.particle_candidate_charged_propagation.v1',
-        'members':[bind_member(contract.member(n)) for n in (0,1,2,8)],'source_sha256':pins}
+        'members':[bind_member(contract.member(n)) for n in (0,1,2,8)],'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('charged propagation source changed during replay')
     return value

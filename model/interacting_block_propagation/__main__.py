@@ -3,6 +3,12 @@ import argparse
 import json
 from pathlib import Path
 from .certificate import certificate,replay_differences,validate_pins,write
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 def main():
@@ -15,7 +21,7 @@ def main():
         value=write()
     else:
         expected=json.loads(Path(__file__).with_name('results.json').read_text())
-        validate_pins(expected['input_sha256'])
+        validate_pins(bound_pins(expected['input_sha256']))
         value=certificate()
         differences=replay_differences(expected,value)
         if differences:

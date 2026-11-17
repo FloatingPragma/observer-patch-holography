@@ -20,6 +20,12 @@ from scipy.linalg import expm
 
 from tools import strict_json
 from ..observer.source_scalar import compiler
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('overlap_regulator_results.json')
@@ -422,7 +428,7 @@ def run():
            'finite local overlap approximation')
     paths = (MATTER, MATTER_OWNER, 'model/common_source/overlap_regulator.py',
              'model/common_source/test_overlap_regulator.py', 'model/observer/source_scalar/compiler.py',
-             *compiler.source_summary()['source_sha256'])
+             *bound_pins(compiler.source_summary()['source_sha256']))
     return {'schema': 'oph.overlap_regulator.v1',
             'architecture': {'Euclidean_dimensions': 4, 'periodic_side': 2, 'sites': 16,
                              'internal_representation': 'Lambda2(C5)+Lambda4(C5)', 'internal_dimension': 15,
@@ -453,7 +459,7 @@ def run():
                       'physical_masses_Yukawas_spacetime_or_hardware_accuracy_derived': False},
             'primary_sources': ['https://arxiv.org/abs/hep-lat/9707022', 'https://arxiv.org/abs/hep-lat/9802011',
                                 'https://arxiv.org/html/hep-lat/9808010v2'],
-            'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(set(paths))}}
+            'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(set(paths))})}
 
 
 def compare(retained, current, location='root'):

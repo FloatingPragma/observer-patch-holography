@@ -13,6 +13,12 @@ from model.native_fair_local_preparation import preparation
 from model.native_fair_local_readout import packet as readout_owner
 from model.native_phase_experiment import provenance
 from . import clock as c, history as h, composition as j
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -27,7 +33,7 @@ def source_bindings():
              set(exchange_owner.source_bindings()) | set(preparation_owner.source_bindings()) |
              set(readout_owner.source_bindings()) |
              set(provenance.source_hashes()))
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def encode(value):
@@ -106,7 +112,7 @@ def produce():
     if attached[-1][2]['budget']['native_to_common_finite_window_upper'] >= F(1, 80000):
         raise ArithmeticError('the complete prepared-window comparison exceeds its displayed gate')
     pair = c.compare_attachments(*attached[1], *attached[2])
-    result = {'schema': 'oph.native_fair_local_clock.v1', 'source_bindings': before,
+    result = {'schema': 'oph.native_fair_local_clock.v1', 'source_bindings': bound_pins(before),
         'shared_preparation_and_readout_schedules': schedules,
         'same_twelve_time_units_level10_admission_rejected': refused,
         'authenticated_finite_window_comparisons': windows,

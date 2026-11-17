@@ -12,6 +12,12 @@ import sympy as s
 from model.native_flavor_orbit.intervals import sqrt_rational
 from model.particle_ground_spectral_records import records as inherited
 from model.spectral_readout import kernels
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -41,7 +47,7 @@ def _q(value):
 
 def authenticate_sources():
     expected = json.loads((PACKAGE/'source_pins.json').read_text())
-    actual = {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_FILES}
+    actual = bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_FILES})
     if actual != expected:
         raise ArithmeticError('an inherited spectral-source input differs from its frozen pin')
     return actual
@@ -327,7 +333,7 @@ def certificate():
     plan['original_event_error_per_sign_upper'] = inherited.dyadic_interval(plan['original_event_error_per_sign_upper'])[1]
     plan['original_readout_weight_per_sign_interval'] = _outward_pair(plan['original_readout_weight_per_sign_interval'])
     return inherited.serial({
-        'schema': 'oph.native_charged_residue.v1', 'source_sha256': pins,
+        'schema': 'oph.native_charged_residue.v1', 'source_sha256': bound_pins(pins),
         'source_dimension': 208, 'all_fock_states': 16, 'all_flux_states': 13,
         'ground_rank': 1, 'ground_energy_interval': windows['ground_interval'],
         'ground_complement_lower': GROUND_CUT,

@@ -20,6 +20,12 @@ import sympy as s
 from model.local_repair_family import local_bias as local, mixing
 from model.native_program import interpreter
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 DIMENSION = 66
 PRIME = 65521
@@ -384,7 +390,7 @@ def source_bindings():
     paths = set(mixing.source_bindings()) | set(SOURCE_FILES) | set(transfer_sources) | set(short_record_sources)
     if any(path.startswith('docs/') for path in paths):
         raise ArithmeticError('research notes cannot be direct source evidence')
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def report():
@@ -392,7 +398,7 @@ def report():
     value = certificate()
     if source_bindings() != bindings:
         raise ArithmeticError('native response sources changed during calculation')
-    return {**value, 'source_sha256': bindings}
+    return {**value, 'source_sha256': bound_pins(bindings)}
 
 
 def check(path=OUTPUT):

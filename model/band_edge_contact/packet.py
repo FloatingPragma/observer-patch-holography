@@ -8,6 +8,12 @@ from pathlib import Path
 from tools import strict_json
 from ..observer.scalar_response.experiment import compare_receipt
 from . import limit as c
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).with_name('results.json')
 SOURCES=('model/band_edge_contact/limit.py','model/band_edge_contact/packet.py',
@@ -26,7 +32,7 @@ def exact(x):
 
 def run():
     return exact({'schema':'oph.band_edge_contact.v1','issues':[1142,1143],
-        'source_bindings':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCES},
+        'source_bindings':bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCES}),
         'all_pass':True,'threshold_certificate':c.green_certificate(),
         'scattering_schedule':c.spacing_certificate(1,1,F(1,1000)),
         'scattering_rows':[c.scattering_certificate(F(1,n),1,1) for n in [256,1024,4096]],

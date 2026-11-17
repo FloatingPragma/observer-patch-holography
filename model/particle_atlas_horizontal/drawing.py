@@ -2,6 +2,12 @@
 from html import escape
 import math
 import textwrap
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 W = 28000
 M = 360
@@ -570,7 +576,7 @@ def footer(c,data,y):
     for i,(title,text) in enumerate(panels):
         x=M+i*cw;c.text(x,y+240,title,61,GOLD,700)
         c.para(x,y+330,cw-150,text,46,'#d4e0e4')
-    c.text(M,y+650,f"Authenticated v1 scientific inputs: {len(data['v1']['input_sha256'])}  •  No source mass or species claim is promoted by this visual format.",40,'#c4d4db')
+    c.text(M,y+650,f"Authenticated v1 scientific inputs: {len(bound_pins(data['v1']['input_sha256']))}  •  No source mass or species claim is promoted by this visual format.",40,'#c4d4db')
     c.link(M,y+760,'Numerical atlas and all mass conventions','docs/research/OPH_PARTICLE_CANDIDATE_ATLAS.svg',40)
     c.link(M+7000,y+760,'Exact illustration and provenance','model/particle_atlas_horizontal/README.md',40)
     c.link(M+14000,y+760,'Full dependency and assumption map','model/particle_atlas_horizontal/STORY.md',40)

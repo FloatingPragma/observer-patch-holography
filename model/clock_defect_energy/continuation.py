@@ -27,6 +27,12 @@ from model.completion.family import FamilyParameters
 from model.native_modular_reference import history_clock, history_transport
 from model.observer import native
 from .contract import binding, check_receipt, source_bindings
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 OUTPUT = HERE / "continuation_results.json"
@@ -360,14 +366,14 @@ def run():
     if _events(members["C"]) != _events(members["E"]):
         raise ArithmeticError("C/E diagonal compressed kernels unexpectedly differ")
     return {"schema": "oph.clock_defect_energy.continuation.v1", "binding": binding(),
-            "source_sha256": source_bindings((
+            "source_sha256": bound_pins(source_bindings((
                 "model/clock_defect_energy/continuation.py",
                 "model/clock_defect_energy/test_continuation.py",
                 "model/clock_defect_energy/contract.py", "tools/strict_json.py",
                 "model/completion/observer.py", "model/completion/family.py",
                 "model/native_modular_reference/history_transport.py",
                 "model/native_modular_reference/history_clock.py",
-                "model/observer/record_recovery.py", "model/repair_scheduler/coins.py")),
+                "model/observer/record_recovery.py", "model/repair_scheduler/coins.py"))),
             "elementary_certificate": elementary_certificate(),
             "compiled_clock_core_inventory": sorted(compiled_cores()),
             "clock_menu_modular_parameter": str(history_clock.PARAMETER),

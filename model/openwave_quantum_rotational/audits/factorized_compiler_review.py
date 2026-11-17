@@ -11,6 +11,12 @@ from fractions import Fraction as F
 from pathlib import Path
 import numpy as np
 from scipy.linalg import expm
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[3]
 HERE = Path(__file__).resolve().parent
@@ -218,7 +224,7 @@ def main():
     paths = [Path(__file__).resolve(), ROOT/'model/openwave_factorized_compiler/compiler.py',
              ROOT/'model/openwave_factorized_compiler/PROOF.md', ROOT/'model/openwave_factorized_compiler/results.json',
              ROOT/'model/openwave_kinetic_phase_cycle/compiler.py', ROOT/'model/openwave_kinetic_phase_cycle/PROOF.md']
-    data['source_sha256'] = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+    data['source_sha256'] = bound_pins({str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths})
     (HERE/'factorized_compiler_review.json').write_text(json.dumps(data, indent=2, sort_keys=True)+'\n')
     print(data['verdict'])
 

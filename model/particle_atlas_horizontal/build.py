@@ -8,6 +8,12 @@ from urllib.parse import unquote
 import xml.etree.ElementTree as ET
 
 from . import drawing, measurement, endpoints, source_connections
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -100,7 +106,7 @@ def scientific_receipt_records():
             for child in value:yield from bindings(child)
     for name in PRIMARY_RESPONSE_RECEIPTS:
         value=json.loads((ROOT/name).read_text())
-        pins=value['source_sha256']
+        pins=bound_pins(value['source_sha256'])
         for path,expected in pins.items():
             resolved=(ROOT/path).resolve()
             if not resolved.is_relative_to(ROOT) or not resolved.is_file() or sha(resolved)!=expected:
@@ -131,19 +137,19 @@ def load():
     data['candidate_identity_tests']=json.loads(IDENTITY_TESTS.read_text())
     from model.particle_candidate_confirmation.model import read_inputs as identity_inputs
     data['_candidate_identity_authenticated']=identity_inputs()
-    for path,expected in data['candidate_identity_tests']['source_sha256'].items():
+    for path,expected in bound_pins(data['candidate_identity_tests']['source_sha256']).items():
         resolved=(ROOT/path).resolve()
         if not resolved.is_relative_to(ROOT) or not resolved.is_file() or sha(resolved)!=expected:
             raise ValueError('stale candidate identity input: '+path)
     from model.standard_model_source_map.candidates.model import validate as validate_candidates
     validate_candidates(candidate)
-    for path,expected in candidate['source_sha256'].items():
+    for path,expected in bound_pins(candidate['source_sha256']).items():
         resolved=(ROOT/path).resolve()
         if not resolved.is_relative_to(ROOT) or not resolved.is_file() or sha(resolved)!=expected:
             raise ValueError('stale candidate map input: '+path)
-    for rel,expected in data['observer_outputs']['input_sha256'].items():
+    for rel,expected in bound_pins(data['observer_outputs']['input_sha256']).items():
         if sha(ROOT/rel)!=expected:raise ValueError('stale observer-output input: '+rel)
-    pins=data['v1']['input_sha256']
+    pins=bound_pins(data['v1']['input_sha256'])
     for rel,expected in pins.items():
         path=(ROOT/rel).resolve()
         if not path.is_relative_to(ROOT) or sha(path)!=expected:
@@ -151,7 +157,7 @@ def load():
     if data['v1']['physical_mass_predictions'] or data['v1']['physical_particle_map']:
         raise ValueError('v1 physical scope changed; editorial review required')
     validate_content(data)
-    paths=set(pins)|set(data['observer_outputs']['input_sha256'])|{str(V1.relative_to(ROOT)),str(OUTPUTS.relative_to(ROOT))}
+    paths=set(pins)|set(bound_pins(data['observer_outputs']['input_sha256']))|{str(V1.relative_to(ROOT)),str(OUTPUTS.relative_to(ROOT))}
     paths.update(str(p.relative_to(ROOT)) for p in HERE.iterdir()
                  if p.is_file() and (p.suffix in ('.py','.md','.js') or p.name in CONTENT))
     paths.update({str(DEPENDENCIES.relative_to(ROOT)),
@@ -160,8 +166,8 @@ def load():
                   data['joint_dependencies']['conditional_candidate']['producer']})
     paths.update(PRIMARY_PROOFS)
     paths.update(response_paths)
-    paths.update(candidate['source_sha256'])
-    paths.update(data['candidate_identity_tests']['source_sha256'])
+    paths.update(bound_pins(candidate['source_sha256']))
+    paths.update(bound_pins(data['candidate_identity_tests']['source_sha256']))
     paths.update((str(IDENTITY_TESTS.relative_to(ROOT)),
                   'model/particle_candidate_confirmation/RESULTS.md'))
     paths.update((str(CANDIDATES.relative_to(ROOT)),
@@ -180,7 +186,7 @@ def load():
         if not path.is_relative_to(ROOT) or not path.is_file():
             raise ValueError('missing or escaped reference: '+name)
         paths.add(name)
-    data['input_sha256']={p:sha(ROOT/p) for p in sorted(paths)}
+    data['input_sha256']=bound_pins({p:sha(ROOT/p) for p in sorted(paths)})
     return data
 
 
@@ -375,7 +381,7 @@ def build():
         if not path.is_relative_to(ROOT) or not path.is_file():raise ValueError('broken graphic link: '+href)
     audit={
         'schema':'oph.horizontal_particle_atlas.v2',
-        'input_sha256':data['input_sha256'],
+        'input_sha256':bound_pins(data['input_sha256']),
         'source_scientific_experiments_replayed':False,
         'source_physical_identifications':[],
         'reference_data_changed':False,
@@ -426,7 +432,7 @@ def build():
         'svg_sha256':hashlib.sha256(svg.encode()).hexdigest(),
         'html_sha256':hashlib.sha256(html.encode()).hexdigest(),
     }
-    if any(sha(ROOT/p)!=h for p,h in data['input_sha256'].items()):
+    if any(sha(ROOT/p)!=h for p,h in bound_pins(data['input_sha256']).items()):
         raise ValueError('inputs changed during illustration build')
     return svg,html,canonical(audit)
 

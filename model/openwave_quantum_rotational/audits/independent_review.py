@@ -7,6 +7,12 @@ from scipy.linalg import eigh,solve_sylvester
 from scipy.special import eval_hermite,factorial,roots_hermite
 from model.openwave_quantum_rotational.source import source
 from model.openwave_quantum_rotational.__main__ import pins
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve();ROOT=HERE.parents[3];PACKAGE=HERE.parents[1]
 def eps(i,j,k):
  if len({i,j,k})<3:return 0
@@ -58,6 +64,6 @@ def run():
   c=intervals[row['cap']];lo,hi=c['actual_ground_energy_interval'];assert lo-5e-14<=row['ground_energy']<=hi+5e-14
   lo,hi=c['rest_energy_normalized_static_g_interval'];assert lo<=row['static_g']<=hi
  scientific=pins();scientific[str((PACKAGE/'results.json').relative_to(ROOT))]=hashlib.sha256((PACKAGE/'results.json').read_bytes()).hexdigest();scientific[str(HERE.relative_to(ROOT))]=hashlib.sha256(HERE.read_bytes()).hexdigest()
- return {'review':'Independent Gauss-Hermite matrix reconstruction, spectral calculation and Sylvester derivative, compared with source-bound interval receipts. Numerical checks supplement the exact equivariant-band and full-Fock positivity arguments; they are not new interval proofs.','source_sha256':scientific,'checks':rows,'scope':'Declared common charge -1, confined native Clifford/quantum Maxwell extension, one empirical electron anchor. Coupled matter+field spin is exact; Maxwell alone has integer spin, and no physical electron or three-family identity transfers.','verdict':'PASS_INDEPENDENT_QUANTUM_ROTATIONAL_REVIEW'}
+ return {'review':'Independent Gauss-Hermite matrix reconstruction, spectral calculation and Sylvester derivative, compared with source-bound interval receipts. Numerical checks supplement the exact equivariant-band and full-Fock positivity arguments; they are not new interval proofs.','source_sha256':bound_pins(scientific),'checks':rows,'scope':'Declared common charge -1, confined native Clifford/quantum Maxwell extension, one empirical electron anchor. Coupled matter+field spin is exact; Maxwell alone has integer spin, and no physical electron or three-family identity transfers.','verdict':'PASS_INDEPENDENT_QUANTUM_ROTATIONAL_REVIEW'}
 if __name__=='__main__':
  value=run();(PACKAGE/'audits/independent_review.json').write_text(json.dumps(value,indent=2,sort_keys=True)+'\n');print(value['verdict'])

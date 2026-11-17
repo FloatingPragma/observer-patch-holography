@@ -9,6 +9,12 @@ from model.coherent_defect_wave.chiral_higgs.model import higgs_memory
 from model.coherent_defect_wave.chiral_joint.oriented_links.model import endpoint_current
 from model.coherent_defect_wave.chiral_joint.periodic_family.model import Configuration,kinetic_terms
 from model.coherent_defect_wave.chiral_joint.peter_weyl_links.model import gauss_column
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 
 def run():
@@ -60,7 +66,7 @@ def run():
         'oriented_unique_flux_indices':ranks,'full_boundary_tensor_dimensions_checked':[str(119**n) for n in range(25)],
         'omitted_weak_gauge_current_control_rejected':True,
         'scope':'Exact original source identities and actual endpoint constraints; coarse positive probabilities and unevaluated failure-flux distributions retain the producer scope.',
-        'source_sha256':{p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in paths}}
+        'source_sha256':bound_pins({p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in paths})}
     (root/'model/openwave_native_charge_flux/joint_flux_review.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
     print(result['verdict'])
 

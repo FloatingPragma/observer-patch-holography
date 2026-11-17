@@ -9,6 +9,12 @@ import sympy as s
 from model.native_quantum_gauss import algebra as native
 from model.common_source import native_matter_attachment as matter
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -158,12 +164,12 @@ def bindings():
     retained=ROOT/'evidence/observer_dynamics_20260925/oph-physics-sim'
     for package in ('oph_exact','oph_fpe'):
         names.update(p.relative_to(ROOT).as_posix()for p in (retained/package).rglob('*.py'))
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(names))}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(names))})
 
 
 def certificate():
     before=bindings();rows=source()
-    result=dict(schema='oph.quantum_sector_measure.v1',source_bindings=before,
+    result=dict(schema='oph.quantum_sector_measure.v1',source_bindings=bound_pins(before),
         source=dict(parent='native_quantum_gauss.algebra',link_dimension=60,
           ambient_one_matter_reference_dimension=27000,admitted_invariant_Gauss_subspace_dimension=10,
           declared_Cayley_duration=str(DURATION),J='1',epsilon='1',
@@ -184,7 +190,7 @@ def main():
     if args.write:(HERE/'results.json').write_text(data)
     if args.check:require((HERE/'results.json').read_text()==data,'sector receipt differs')
     print(json.dumps(dict(sector_closure=False,stationary_operator_dimension=7,
-                         tracial_centre_balance='3/5',bindings=len(result['source_bindings']))))
+                         tracial_centre_balance='3/5',bindings=len(bound_pins(result['source_bindings'])))))
 
 
 if __name__=='__main__':main()

@@ -9,6 +9,12 @@ from model.native_rooted_refinement import packet as rooted
 from model.primitive_observer import transfer
 from tools import strict_json
 from . import certificate, collar_certificate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -26,7 +32,7 @@ def source_bindings():
     paths = set(rooted.source_bindings()) | set(transfer.SOURCE_PATHS)
     paths.update(OWNED_FILES)
     paths.update(ADDITIONAL_FILES)
-    return {path: hashlib.sha256((ROOT / path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT / path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def encode(value):
@@ -54,7 +60,7 @@ def produce():
         raise ArithmeticError('the authenticated radius-four collar lost its stated bound')
     value = {
         'schema': 'oph.native_regional_modular_clock.v1',
-        'source_bindings': before,
+        'source_bindings': bound_pins(before),
         'same_reference_regional_certificate': native,
         'authenticated_finite_source_collars': windows,
         'limiting_contract': {
@@ -96,7 +102,7 @@ def verify(path=OUTPUT):
     check_payload(strict_json.load(Path(path)), fresh)
     return {'verified': True, 'native_transfer_entries': 4356,
             'native_regions': 30, 'authenticated_collars': 3,
-            'source_files': len(fresh['source_bindings']),
+            'source_files': len(bound_pins(fresh['source_bindings'])),
             'physical_G1_to_G6_discharged': False}
 
 
@@ -113,7 +119,7 @@ def main():
         if args.write:
             OUTPUT.write_text(canonical(value), encoding='utf-8')
             check_payload(strict_json.load(OUTPUT), value)
-        print(json.dumps({'source_files': len(value['source_bindings']),
+        print(json.dumps({'source_files': len(bound_pins(value['source_bindings'])),
                           'native_regions': 30, 'authenticated_collars': 3,
                           'physical_G1_to_G6_discharged': False}, indent=2))
 

@@ -11,6 +11,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import algebra, controls
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = Path(__file__).resolve().parent
@@ -31,7 +37,7 @@ def source_bindings():
     inherited = {}
     for name in PARENTS:
         value = strict_json.load(ROOT/name)
-        pins = value.get('source_bindings', value.get('source_sha256'))
+        pins = bound_pins(value.get('source_bindings', bound_pins(value.get('source_sha256'))))
         if not isinstance(pins, dict) or not pins:
             raise ValueError('parent must provide complete source custody')
         for path, digest in pins.items():
@@ -49,7 +55,7 @@ def source_bindings():
     paths.update(integration_source_paths(ROOT, {
         'domain_and_proof': 'model/defect_current_bridge/PROOF.md',
         'source_receipts': list(PARENTS), 'independent_checks': []}))
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def scope():
@@ -93,7 +99,7 @@ def produce():
                                for branch in ('forward', 'measured_endpoint') for index in (0, 1)],
               'independent_countercontrols': controls.independent_control(),
               'scope': scope(), 'canonical_physical_premises_discharged': [],
-              'source_bindings': pins}
+              'source_bindings': bound_pins(pins)}
     if pins != source_bindings():
         raise ValueError('source changed during calculation')
     return result
@@ -110,7 +116,7 @@ def report():
         if child.returncode:
             raise RuntimeError('cold defect-current worker failed:\n'+child.stderr)
         value = strict_json.load(path)
-    if value.get('source_bindings') != pins or pins != source_bindings():
+    if bound_pins(value.get('source_bindings')) != pins or pins != source_bindings():
         raise ValueError('source changed across calculation')
     return value
 
@@ -118,7 +124,7 @@ def report():
 def validate(value, replay=None):
     if canonical(value) != canonical(report() if replay is None else replay):
         raise ValueError('defect-current receipt differs from complete replay')
-    if value.get('source_bindings') != source_bindings():
+    if bound_pins(value.get('source_bindings')) != source_bindings():
         raise ValueError('defect-current manifest is incomplete or stale')
 
 

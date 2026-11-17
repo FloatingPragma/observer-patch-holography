@@ -13,6 +13,12 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from ..plaquette_reference.preparation import error_theorem
 from . import inclusion
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -26,13 +32,13 @@ def source_bindings():
         'source_receipts': [PRIOR], 'independent_checks': [],
     })
     paths.add('Lean/QFT/FiniteModularInclusion.lean')
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def prepared_reference_bound(prior):
     if prior.get('schema') != 'oph.certified_reference.v1' or prior.get('all_pass') is not True:
         raise ValueError('the literal source requires its proved complete-output certificate')
-    for path, digest in prior['source_sha256'].items():
+    for path, digest in bound_pins(prior['source_sha256']).items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != digest:
             raise ValueError('literal source certificate custody changed: '+path)
     error = F(prior['preparation_certificate']['complete_preparation_output_error'])
@@ -88,7 +94,7 @@ def _produce():
              'issues': [1145], 'gates': ['CP-09'],
              'finite_source': inclusion.certificate(),
              'literal_reference': prepared_reference_bound(strict_json.loads((ROOT/PRIOR).read_text())),
-             'source_bindings': pins,
+             'source_bindings': bound_pins(pins),
              'proof_scope': 'Finite-dimensional inverse invariance and exact complete-CAR boundary leakage. No continuum half-sided or Einstein exclusion.'}
     validate(value)
     if source_bindings() != pins:
@@ -106,7 +112,7 @@ def report():
                         '-m', 'model.finite_modular_inclusion.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.loads(path.read_text())
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across the cold regional replay')
     validate(value)
     return value

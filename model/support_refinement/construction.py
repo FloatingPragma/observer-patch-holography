@@ -8,6 +8,12 @@ import hashlib
 import json
 from pathlib import Path
 from types import MappingProxyType
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_SHA256 = MappingProxyType({
@@ -313,9 +319,9 @@ def certificate():
         swaps.append(dict(edge=list(edge), permutation=list(p)))
     files = ('__init__.py', '__main__.py', 'construction.py', 'README.md', 'test_refinement.py')
     return dict(schema='oph.support_refinement.v1', coefficient_field='rational',
-        source_sha256=dict(SOURCE_SHA256),
-        implementation_sha256={name: hashlib.sha256((Path(__file__).parent/name).read_bytes()).hexdigest()
-                               for name in files},
+        source_sha256=bound_pins(dict(SOURCE_SHA256)),
+        implementation_sha256=bound_pins({name: hashlib.sha256((Path(__file__).parent/name).read_bytes()).hexdigest()
+                               for name in files}),
         support_counts=[dict(vertices=level.vertices, edges=30*4**level.index,
                              faces=len(level.faces)) for level in tower.levels],
         transitions=transitions, tower_compositions=compositions,

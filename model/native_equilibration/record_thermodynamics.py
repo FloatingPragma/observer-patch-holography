@@ -62,6 +62,12 @@ from scipy.sparse import coo_matrix
 
 from . import cut_completion as cut
 from ..observer import native, quantum_mixing
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -236,7 +242,7 @@ def exact_history_audit(cap=cut.CAP, law="C", attempts=2):
 
 def run():
     return {"schema": "oph.native_equilibration.record_thermodynamics.v1",
-            "source_sha256": {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+            "source_sha256": bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
             "cap": list(cut.CAP), "reference": "completed_palm: E_R(sigma_Palm)",
             "laws": {law: {"detailed_balance": exact_balance_audit(law=law),
                            "complete_history": exact_history_audit(law=law)} for law in ("C", "E")},

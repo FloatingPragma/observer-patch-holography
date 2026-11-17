@@ -8,6 +8,12 @@ from pathlib import Path
 from model.native_fair_local_readout import packet as inherited
 from tools import strict_json
 from . import history as h
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -18,7 +24,7 @@ def source_bindings():
     paths = set(inherited.source_bindings())
     paths.update(p.relative_to(ROOT).as_posix() for p in HERE.iterdir()
                  if p.suffix in ('.py', '.md'))
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def produce():
@@ -57,7 +63,7 @@ def produce():
         raise ArithmeticError('complete branch sum changed')
     value = {
         'schema': 'oph.native_local_charge_history.v1',
-        'source_bindings': before,
+        'source_bindings': bound_pins(before),
         'finite_control': {'input_columns': 8, 'live_fine_words': len(blocks),
                            'decoded_words': decoded, 'erasure_words': erasures,
                            'complete_column_weights': [str(x) for x in column_weights],

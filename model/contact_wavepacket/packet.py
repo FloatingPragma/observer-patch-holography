@@ -8,6 +8,12 @@ from pathlib import Path
 from tools import strict_json
 from ..observer.scalar_response.experiment import compare_receipt
 from . import continuum as c
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).with_name('results.json')
 SOURCES=('model/contact_wavepacket/continuum.py','model/contact_wavepacket/packet.py',
@@ -30,7 +36,7 @@ def run():
         rows.append({'spacing':a,**c.window_certificate(F(1,8),speed=F(1,8)/a,
                      packet_density_cap=4,threshold=F(1,2))})
     return exact({'schema':'oph.contact_wavepacket_continuum.v1','issues':[1142,1143],
-        'source_bindings':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCES},
+        'source_bindings':bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCES}),
         'all_pass':True,'slope_certificate':c.slope_certificate(),
         'window_rows':rows,'packet_schedule':c.spacing_certificate(F(1,8),F(1,1000),
                                      velocity=F(1,8),packet_density_cap=4),

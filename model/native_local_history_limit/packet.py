@@ -9,6 +9,12 @@ from tools import strict_json
 from model.native_local_response import packet as owning
 from model.native_spatial_scaling import geometry
 from . import limit as l
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -31,7 +37,7 @@ SOURCE_FILES = tuple('model/native_local_history_limit/'+name for name in (
 
 def source_bindings():
     paths = set(SOURCE_FILES) | set(owning.source_bindings())
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def encode(value):
@@ -89,7 +95,7 @@ def produce():
     # not assert that the floating graph constructor or program admits it.
     census_budget = l.local_budget(formal['ports'], formal['ports']//3,
         formal['seams'], 15, 33, 12, 6, 1, partition, F(1, 3))
-    result = {'schema': 'oph.native_local_history_limit.v1', 'source_bindings': before,
+    result = {'schema': 'oph.native_local_history_limit.v1', 'source_bindings': bound_pins(before),
         'native_endpoint_attachment': attachment,
         'actual_matching_halo_controls': rows,
         'pairwise_complete_observation_bounds': [

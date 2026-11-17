@@ -13,6 +13,12 @@ from ..anharmonic_observations.experiment import _compact_operations, _check_law
 from . import source, certified_comparison
 from .calibration import transferred_parameters, zero_time_displacement
 from .data import load_metadata, load_zero, load_zero_tokens, load_validation
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 FOLDER = Path(__file__).resolve().parent
 ROOT = FOLDER.parents[1]
@@ -153,7 +159,7 @@ def predict(*, progress=None):
                  'execution': 'primary zero-time source instrument, without evolution'})
     return {'schema': 'oph.anharmonic_transfer.predictions.v1',
             'protocol': protocol, 'protocol_sha256': hashlib.sha256(protocol_bytes).hexdigest(),
-            'source_bindings': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_PATHS},
+            'source_bindings': bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_PATHS}),
             'provenance': metadata['provenance'], 'prior_parameters': previous,
             'preparations': preparations, 'runs': runs, 'contracted_words': words,
             'certified_unrestricted_apparatus': occupation,

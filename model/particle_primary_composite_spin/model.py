@@ -10,6 +10,12 @@ from model.particle_primary_sector_threshold import model as sectors
 from model.particle_primary_charge_conjugation import model as conjugation
 from model.particle_primary_channel_labels import channels
 from model.cubic_particle_channels import group
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 OMEGA=sum(1<<j for j in range(30,60))
 SOURCE_INPUTS=tuple(dict.fromkeys((
@@ -286,6 +292,6 @@ def certificate():
     paths=provenance.definition_inputs(SOURCE_INPUTS);pins=provenance.definition_hashes(paths)
     actual={'schema':'oph.primary_composite_spin_certificate.v1','selected_member_bound':bind_member(contract.member(0)),
         'literal_source_rotation_control':channels.rotation_control(),
-        'paired_memory_control':sectors.paired_memory_control(),'source_sha256':pins}
+        'paired_memory_control':sectors.paired_memory_control(),'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('source inputs changed during composite-spin replay')
     return actual

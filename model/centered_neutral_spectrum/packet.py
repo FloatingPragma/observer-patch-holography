@@ -6,6 +6,12 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from ..centered_source_ground import cube as ground_input
 from . import certificate,source
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[2]
 DIRECTORY=Path(__file__).resolve().parent
 OUTPUT=DIRECTORY/'results.json'
@@ -20,13 +26,13 @@ def canonical(value):return json.dumps(value,sort_keys=True,indent=2,allow_nan=F
 def bindings():
     paths=integration_source_paths(ROOT,{'domain_and_proof':'model/centered_neutral_spectrum/README.md','source_receipts':list(PRIORS),'independent_checks':[]})
     paths.update({'paper/tex_fragments/CENTERED_NEUTRAL_SPECTRUM.tex','model/centered_neutral_spectrum/witness.npz'})
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def inherited():
     rows=[]
     for path in PRIORS:
-        old=strict_json.loads((ROOT/path).read_text());pins=old['source_bindings']
+        old=strict_json.loads((ROOT/path).read_text());pins=bound_pins(old['source_bindings'])
         bad=[p for p,h in pins.items() if not (ROOT/p).is_file() or hashlib.sha256((ROOT/p).read_bytes()).hexdigest()!=h]
         rows.append({'path':path,'historical_source_custody_valid':not bad,'mismatches':bad})
     return {'receipts':rows,'current_Lieb_hypotheses':ground_input.lieb_premises(),
@@ -64,7 +70,7 @@ def produce():
     pins=bindings();spectrum=certificate.verify(load_witness())
     result={'schema':'oph.centered_neutral_spectrum.v1','all_pass':True,
             'all_pass_scope':'new complete finite neutral-spectrum certificate; inherited custody reported separately',
-            'spectrum':spectrum,'source_checks':source.source_certificate(),'inherited_inputs':inherited(),'source_bindings':pins}
+            'spectrum':spectrum,'source_checks':source.source_certificate(),'inherited_inputs':inherited(),'source_bindings':bound_pins(pins)}
     validate(result)
     if pins!=bindings():raise ValueError('source changed during neutral replay')
     return result
@@ -78,7 +84,7 @@ def report():
         proc=subprocess.run([sys.executable,'-W','error','-X','pycache_prefix='+str(Path(temp)/'pycache'),'-m','model.centered_neutral_spectrum.packet','--worker',str(dest)],cwd=ROOT,env=env,capture_output=True,text=True)
         if proc.returncode:raise RuntimeError('cold neutral replay failed:\n'+proc.stderr)
         result=strict_json.loads(dest.read_text())
-    if pins!=bindings() or result['source_bindings']!=pins:raise ValueError('source changed across cold replay')
+    if pins!=bindings() or bound_pins(result['source_bindings'])!=pins:raise ValueError('source changed across cold replay')
     validate(result);return result
 
 
@@ -105,7 +111,7 @@ def main():
     else:
         old=strict_json.loads(OUTPUT.read_text());validate(old)
         if canonical(old)!=canonical(result) or TABLE.read_text()!=table(result):raise ValueError('neutral receipt/table changed')
-    print(json.dumps({'all_pass':True,'neutral_gap':result['spectrum']['global']['neutral_gap_interval'],'source_bindings':len(result['source_bindings'])}))
+    print(json.dumps({'all_pass':True,'neutral_gap':result['spectrum']['global']['neutral_gap_interval'],'source_bindings':bound_pins(len(bound_pins(result['source_bindings'])))}))
 
 
 if __name__=='__main__':main()

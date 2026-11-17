@@ -8,6 +8,12 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import (car_koide, phase_readout, phase_selection, relativistic_mass,
               mass_response_bridge, calibrated_sanity, p_dependence, candidate_map)
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -30,7 +36,7 @@ def source_bindings():
         raise ValueError('parent physical admission or provenance requires review')
     for receipt in PARENTS:
         value = strict_json.load(ROOT/receipt)
-        pins = value.get('source_bindings', value.get('source_sha256'))
+        pins = bound_pins(value.get('source_bindings', bound_pins(value.get('source_sha256'))))
         if not pins:
             raise ValueError('missing parent source manifest: '+receipt)
         for name, expected in pins.items():
@@ -52,7 +58,7 @@ def source_bindings():
              'model/pixel_mass_closure/PROOF.md',
              'code/particles/leptons/derive_charged_source_law_rigidity_conditional.py',
              'code/particles/leptons/derive_charged_mcpr_completion_conditional.py']})
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 @lru_cache(maxsize=1)
@@ -75,7 +81,7 @@ def build():
     pins = source_bindings()
     science = json.loads(_science_json(tuple(pins.items())))
     value = {'schema': 'oph.charged_lepton_response.v1',
-        'source_bindings': pins, 'certificates': science,
+        'source_bindings': bound_pins(pins), 'certificates': science,
         'source_selected_phase': None, 'physical_particle_map': [],
         'physical_mass_predictions': [],
         'calibrated_action_comparison_is_independent_prediction': False,

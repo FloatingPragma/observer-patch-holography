@@ -35,6 +35,12 @@ from ...native_modular_reference import local_preparation
 from ...observer import native, quantum_mixing
 from ...repair_scheduler import coins
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -288,12 +294,12 @@ def higgs_rank_control(static):
 
 
 def source_bindings():
-    names = set(native_family_dynamics.SOURCE_FILES)|set(action.report()["source_bindings"])
+    names = set(native_family_dynamics.SOURCE_FILES)|set(bound_pins(action.report()["source_bindings"]))
     names.update({"model/common_source/full_repair_response/"+name for name in (
         "stationary_selection.py", "test_stationary_selection.py", "coupling.py", "README.md")})
     names.update(("model/observer/native.py", "model/observer/quantum_mixing.py",
                   "model/repair_scheduler/coins.py", "model/common_source/slow_geometry.py", "requirements.txt"))
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def uniform_reference_control():
@@ -400,7 +406,7 @@ def report():
             "all_OPH_particle_constructions_excluded": False,
             "observed_particle_spectrum_derived": False},
         "nearest_existing_result": "coupling.py proves the earlier protected rank1 Schur identity and positive derivative. This result classifies all reference-compatible seam weights, adds the allowed core edge and attains the sharp rank2 bound.",
-        "source_bindings": source_bindings()}
+        "source_bindings": bound_pins(source_bindings())}
 
 
 def compare_exact(retained, current, path="root"):

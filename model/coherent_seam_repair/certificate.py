@@ -8,6 +8,12 @@ from model.particle_common_contract.provenance import import_closure
 from . import apparatus, coherence, committed, gauge_walk, holonomy, walk
 from .common import require
 from .program import Observer, PROGRAM_ID
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -31,8 +37,8 @@ def input_hashes():
     # spuriously resolve as a module Session.py beside the real session.py.
     # Keep the actual directory-entry spelling so Linux replay has the same pins.
     paths = {path for path in paths if path.name in {p.name for p in path.parent.iterdir()}}
-    return {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
-            for path in sorted(paths)}
+    return bound_pins({str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in sorted(paths)})
 
 
 def execution_check():
@@ -91,7 +97,7 @@ def certificate():
             'calibrated_from_particle_data': [],
             'committed_native_rule_replaced_in_place': False,
         },
-        'input_sha256': input_hashes(),
+        'input_sha256': bound_pins(input_hashes()),
         'committed_pump': {'finite_state_and_effects': committed.certificate(),
                            'coherence_obstruction': coherence.certificate()},
         'walk': scalar,

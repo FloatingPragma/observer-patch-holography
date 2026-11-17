@@ -6,6 +6,12 @@ import json
 from tools import strict_json
 from model.standard_model_source_map import algebra
 from model.charged_lepton_response import calibrated_sanity
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = calibrated_sanity.REFERENCE.parents[2]
 PARENT = 'model/standard_model_source_map/particle_map.json'
@@ -254,7 +260,7 @@ def summarize(parent_map, calibrated, p_dependence, optional_defectinventory=Non
 
 def certificate():
     from . import p_dependence
-    hashes=lambda: {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_INPUTS}
+    hashes=lambda: bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_INPUTS})
     before=hashes()
     parent=strict_json.load(ROOT/PARENT);defects=strict_json.load(ROOT/DEFECTS)
     result=summarize(parent,calibrated_summary(),p_dependence.certificate(),defects)

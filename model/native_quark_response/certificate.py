@@ -3,6 +3,12 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -118,9 +124,9 @@ def raw_certificate():
         if digest(ROOT/name) != expected:
             raise ValueError('frozen parent changed: '+name)
         value = json.loads((ROOT/name).read_text())
-        validate(value['input_sha256'])
+        validate(bound_pins(value['input_sha256']))
         saved[name] = value
-        for path, sha in value['input_sha256'].items():
+        for path, sha in bound_pins(value['input_sha256']).items():
             if path in pins and pins[path] != sha:
                 raise ValueError('inconsistent frozen import closure')
             pins[path] = sha
@@ -150,9 +156,9 @@ def raw_certificate():
     }
     for name in import_closure(seeds):
         pins[name] = digest(ROOT/name)
-    value['input_sha256'] = dict(sorted(pins.items()))
-    value['owned_source_sha256'] = {p.name: digest(p) for p in sorted(HERE.iterdir())
-                                    if p.suffix in ('.py', '.md')}
+    value['input_sha256'] = bound_pins(dict(sorted(pins.items())))
+    value['owned_source_sha256'] = bound_pins({p.name: digest(p) for p in sorted(HERE.iterdir())
+                                    if p.suffix in ('.py', '.md')})
     value['fresh_replay'] = {
         'actual_source_reference_and_physical_preparation_recomputed': True,
         'all_full_CAR_images_and_Hamiltonian_inclusions_recomputed': True,
@@ -173,7 +179,7 @@ def certificate():
     if digest(path) != REFERENCE_SHA:
         raise ValueError('immutable research receipt changed')
     reference = json.loads(path.read_text())
-    validate(reference['input_sha256'])
+    validate(bound_pins(reference['input_sha256']))
     ignored = {'input_sha256', 'owned_source_sha256'}
     if {k: v for k, v in value.items() if k not in ignored} != {
             k: v for k, v in reference.items() if k not in ignored}:
@@ -184,7 +190,7 @@ def certificate():
     seeds.add(path.relative_to(ROOT).as_posix())
     for name in import_closure(seeds):
         value['input_sha256'][name] = digest(ROOT/name)
-    value['input_sha256'] = dict(sorted(value['input_sha256'].items()))
+    value['input_sha256'] = bound_pins(dict(sorted(bound_pins(value['input_sha256']).items())))
     value['independent_research_comparison'] = {
         'reference_sha256': REFERENCE_SHA,
         'every_scientific_field_equal': True,
@@ -203,8 +209,8 @@ def main():
     path = HERE/'results.json'
     if args.check:
         saved = json.loads(path.read_text())
-        validate(saved['input_sha256'])
-        for name, expected in saved.get('owned_source_sha256', {}).items():
+        validate(bound_pins(saved['input_sha256']))
+        for name, expected in bound_pins(saved.get('owned_source_sha256', {})).items():
             if digest(HERE/name) != expected:
                 raise ValueError('owned source changed: '+name)
     value = certificate()

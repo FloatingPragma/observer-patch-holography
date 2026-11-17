@@ -8,6 +8,12 @@ explicit. Curvature and matter stress are derived independently.
 from __future__ import annotations
 from evidence_contract import public_receipt
 import sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 sys.dont_write_bytecode=True
 import hashlib,json,math
 from pathlib import Path
@@ -249,14 +255,14 @@ def source_hashes():
   if path:
    p=Path(path).resolve()
    if p.is_relative_to(PUBLIC) and p.is_file():paths.add(p)
- return {p.relative_to(ROOT).as_posix():sha(p) for p in sorted(paths)}
+ return bound_pins({p.relative_to(ROOT).as_posix():sha(p) for p in sorted(paths)})
 
 def run():
  native=native_envelope();print('Native common envelope and boundary control: PASS',flush=True)
  metric=metric_area_volume();curvature=radial_curvature();focus=warped_focusing();print('Area, volume and independent radial curvature: PASS',flush=True)
  mixture,arrays=source_mixture();np.savez_compressed(ART,**arrays)
  return {'status':'PASS_SCOPED_GEOMETRIC_ENTROPY_AND_BACKREACTION_TESTS','producer_sha256':sha(__file__),
-  'source_sha256':source_hashes(),'artifacts':{ART.name:sha(ART)},'empirical_inputs':[],
+  'source_sha256':bound_pins(source_hashes()),'artifacts':{ART.name:sha(ART)},'empirical_inputs':[],
   'native_common_entropy':native,'inherited_area_volume_dictionary':metric,
   'independent_radial_null_curvature_and_stress':curvature,'necessary_dynamic_area_response':focus,
   'actual_source_first_order_mixture':mixture,

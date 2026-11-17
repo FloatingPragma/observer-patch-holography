@@ -21,6 +21,12 @@ from ..common_source import slow_geometry
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
 from .historical_capture import source_compatibility, analysis_bindings
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 RAW_PATH = Path(__file__).with_name('host_clock_records.json')
@@ -55,7 +61,7 @@ def _int(value, low, high, name):
 
 
 def _hashes():
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS})
 
 
 def _timed_run(name, work, clock=time.perf_counter_ns):
@@ -257,7 +263,7 @@ def analyse(raw):
     control_ratios = [str(F(b['host_duration_ns'], a['host_duration_ns']))
                       for a, b in zip(runs[0]['blocks'], runs[1]['blocks'], strict=True)]
     return {'schema': 'oph.native_host_clock_attachment.v1', 'replay_integrity_passed': True,
-            'sources': {**_hashes(), **analysis_bindings(ROOT)}, 'clock_metadata': clock,
+            'sources': bound_pins({**_hashes(), **analysis_bindings(ROOT)}), 'clock_metadata': clock,
             'capture_compatibility': compatibility,
             'raw_records_canonical_sha256': hashlib.sha256(canonical(raw).encode()).hexdigest(),
             'calibration': {'run': 'baseline', 'block': 0, 'clock_port': CALIBRATION_PORT,

@@ -14,6 +14,12 @@ import json
 from pathlib import Path
 
 from model.observer.p_response import experiment as response
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -86,7 +92,7 @@ def _read_sources(root):
     certificate = json.loads((root / response.CERT).read_text())
     receipt = json.loads((root / RECEIPT).read_text())
     if (response.MODE != MODE or receipt["source_branch"]["mode"] != MODE
-            or receipt["source_pins"] != response.PINS):
+            or bound_pins(receipt["source_pins"]) != response.PINS):
         raise ValueError("Inherited detector and audit do not use the same pinned branch")
     if (certificate["promotion_allowed"] is not False
             or certificate["exact_alpha_promoted"] is not False
@@ -141,7 +147,7 @@ def audit(target=None, *, root=None):
         "target_sha256": TARGET_SHA256,
         "source": {
             "mode": MODE,
-            "pins": dict(SOURCE_PINS),
+            "pins": bound_pins(dict(SOURCE_PINS)),
             "certificate": response.CERT,
             "certificate_replayed_here": False,
             "artifact_hashes_verified": True,

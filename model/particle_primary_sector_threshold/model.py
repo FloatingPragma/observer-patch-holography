@@ -14,6 +14,12 @@ from model.particle_primary_capacity import capacity
 from model.particle_primary_joint_spectroscopy import spectroscopy
 from model.native_quantum_gauss import algebra as native
 from model.spin_packet_readout.bounds import sqrt_upper
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=(
  'model/particle_primary_sector_threshold/__init__.py',
@@ -286,6 +292,6 @@ def certificate():
  paths=provenance.definition_inputs((*SOURCE_INPUTS,*branch.SOURCE_INPUTS,*refinement.SOURCE_INPUTS,*capacity.SOURCE_INPUTS))
  pins=provenance.definition_hashes(paths)
  result={'schema':'oph.primary_sector_threshold_certificate.v1','selected_member_bound':bind_member(contract.member(0)),
-         'paired_memory_control':paired_memory_control(),'source_sha256':pins}
+         'paired_memory_control':paired_memory_control(),'source_sha256':bound_pins(pins)}
  if provenance.definition_hashes(paths)!=pins:raise ValueError('source inputs changed during threshold replay')
  return result

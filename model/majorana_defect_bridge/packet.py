@@ -10,6 +10,12 @@ import tempfile
 
 from tools import strict_json
 from . import native, readout, spectrum, topology
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = Path(__file__).resolve().parent
@@ -33,7 +39,7 @@ def source_bindings():
     inherited = {}
     for name in PARENTS:
         record = strict_json.load(ROOT/name)
-        bindings = record.get('source_bindings', record.get('source_sha256'))
+        bindings = bound_pins(record.get('source_bindings', bound_pins(record.get('source_sha256'))))
         if type(bindings) is not dict or not bindings:
             raise ValueError('parent lacks a complete source manifest')
         for path, digest in bindings.items():
@@ -48,7 +54,7 @@ def source_bindings():
     paths = set(inherited) | set(PARENTS) | set(DIRECT)
     paths.update(str(path.relative_to(ROOT)) for path in PACKAGE.iterdir()
                  if path.is_file() and path.suffix in ('.py', '.md'))
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def scope():
@@ -77,7 +83,7 @@ def _produce():
               'full_momentum_symbol': spectrum.universal_symbol_certificate(),
               'additive_topological_constraints': topology.certificate(),
               'scope': scope(), 'canonical_physical_premises_discharged': [],
-              'source_bindings': pins}
+              'source_bindings': bound_pins(pins)}
     if pins != source_bindings():
         raise ValueError('source changed during the cold calculation')
     return result
@@ -94,7 +100,7 @@ def report():
         if child.returncode:
             raise RuntimeError('cold Majorana worker failed:\n'+child.stderr)
         value = strict_json.load(path)
-    if value.get('source_bindings') != pins or pins != source_bindings():
+    if bound_pins(value.get('source_bindings')) != pins or pins != source_bindings():
         raise ValueError('source changed across the cold calculation')
     return value
 
@@ -102,7 +108,7 @@ def report():
 def validate(value, replay=None):
     if canonical(value) != canonical(report() if replay is None else replay):
         raise ValueError('Majorana bridge differs from the complete fresh calculation')
-    if value.get('source_bindings') != source_bindings():
+    if bound_pins(value.get('source_bindings')) != source_bindings():
         raise ValueError('Majorana bridge source manifest is incomplete or stale')
 
 

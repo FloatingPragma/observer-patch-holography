@@ -11,6 +11,12 @@ from tools import strict_json
 from model.native_fair_local_preparation import packet as inherited
 from . import bell, derived_control as beam, diagonal_control as phase
 from . import literal_angles, literal_controls
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -54,7 +60,7 @@ def source_bindings():
                 target=importlib.util.resolve_name(target,package)if node.level else target
                 add(target)
                 for alias in node.names:add(target+'.'+alias.name)
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()for name in sorted(paths)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()for name in sorted(paths)})
 
 
 def stable_bell_certificate(level):
@@ -91,7 +97,7 @@ def produce():
         for reference in (False,True):
             value,_=bell.branch_run(level,reference);exact_native.append(value)
         if not bell.charge_block_check(level):raise ArithmeticError('source charge-block identity failed')
-    value={'schema':'oph.native_coherent_occupation_control.v1','source_bindings':before,
+    value={'schema':'oph.native_coherent_occupation_control.v1','source_bindings':bound_pins(before),
            'exact_six_level_exchange_generator':beam.exact_identity(),
            'exact_six_level_phase_generators':{kind:phase.exact_identity(kind)for kind in phase.KINDS},
            'complete_native_even_parity':exact_native,

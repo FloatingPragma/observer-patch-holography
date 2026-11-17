@@ -3,6 +3,12 @@ import hashlib
 import json
 from pathlib import Path
 from .bounds import constants, example, power_exponents, F
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -18,7 +24,7 @@ PARENTS = (
 def bindings():
     paths = list(PARENTS) + [str(p.relative_to(ROOT)) for p in sorted(HERE.glob('*.py'))]
     paths.append(str((HERE/'README.md').relative_to(ROOT)))
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})
 
 
 def build():
@@ -32,7 +38,7 @@ def build():
     result = {
         'schema': 'oph.ballistic_free_boundary.v1',
         'scope': 'Analytic sufficient free-continuum class for the centered source; exact arithmetic checks are not a numerical proof of a continuum limit.',
-        'source_bindings': before,
+        'source_bindings': bound_pins(before),
         'constants': constants(), 'power_controls': rows,
         'finite_bounds': [example(b) for b in (2, 4, 8, 16, 64)],
         'theorem': {

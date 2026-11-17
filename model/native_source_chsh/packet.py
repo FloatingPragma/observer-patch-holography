@@ -10,6 +10,12 @@ from pathlib import Path
 from tools import strict_json
 from model.native_coherent_occupation_control import packet as controls
 from . import chsh
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -20,7 +26,7 @@ def source_bindings():
     paths = set(controls.source_bindings())
     paths.update(path.relative_to(ROOT).as_posix() for path in HERE.iterdir()
                  if path.suffix in ('.py', '.md'))
-    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def canonical(value):
@@ -39,7 +45,7 @@ def produce():
     delta = F(result['one_setting_complete_halfdiamond_upper'])
     value = {
         'schema': 'oph.native_source_chsh.v1',
-        'source_bindings': before,
+        'source_bindings': bound_pins(before),
         'exact_setting_angles': [['0', '25/64'], ['0', '-25/64'],
                                  ['25/32', '25/64'], ['25/32', '-25/64']],
         'same_pre_setting_herald_for_all_settings': True,

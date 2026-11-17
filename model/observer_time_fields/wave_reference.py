@@ -20,6 +20,12 @@ import sympy as sp
 
 from . import spatial_dynamics as dynamics
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = dynamics.ROOT
 SOURCE_PATHS = tuple(sorted(set((*dynamics.SOURCE_PATHS,
@@ -233,7 +239,7 @@ def run():
             'cap_probability': value['cap_probability'],
             'native_and_reconstructed_density_matrices_equal': cap == 0})
     return dynamics._json({'schema': 'oph.observer_time_fields.wave_reference.v1',
-        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
         'length_law': {'PGF': 'exp(arcsin(z)-pi/2)', 'b0': 1, 'b1': 1,
             'positive_rational_recurrence': 'b[n+2]=(n*n+1)*b[n]/((n+2)*(n+1))',
             'implemented_c0': normalization()['implemented_c0'],

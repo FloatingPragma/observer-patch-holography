@@ -5,6 +5,12 @@ import json
 from pathlib import Path
 from model.particle_common_contract.provenance import import_closure
 from .model import ROOT,SOURCE,certificate_data
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 
 def certificate():
@@ -13,10 +19,10 @@ def certificate():
                   'model/coherent_defect_wave/chiral_joint/two_cell/READOUT_PROOF.md',
                   'model/spin_shell_readout/THRESHOLD_READOUT.md','model/requirements.txt'))
     source=json.loads(SOURCE.read_text())
-    seeds.update(source['input_sha256'])
-    hashes={name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(seeds))}
+    seeds.update(bound_pins(source['input_sha256']))
+    hashes=bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(seeds))})
     return {'schema':'oph.coherent_defect_wave.chiral_joint.spectral_edges.v1',
-            **certificate_data(),'input_sha256':hashes}
+            **certificate_data(),'input_sha256':bound_pins(hashes)}
 
 
 def main():

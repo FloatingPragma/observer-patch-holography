@@ -13,6 +13,12 @@ from . import coherent_arc, coupling, memory, quantum_response, mass_observable,
 from ..chiral_candidate import run as candidate_run
 from ...native_modular_reference import common_caps, local_preparation
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 
 HERE = Path(__file__).resolve().parent
@@ -55,7 +61,7 @@ def _hash(path):
 
 def _bindings():
     previous = strict_json.load(BASELINE)
-    bindings = dict(previous["source_bindings"])
+    bindings = dict(bound_pins(previous["source_bindings"]))
     candidate_run._check_bindings(bindings)
     paths = [BASELINE, *NOTES, ROOT / "requirements.txt"]
     paths += sorted(HERE.glob("*.py"))+sorted(HERE.glob("*.md"))
@@ -93,7 +99,7 @@ def run():
     print("Computing exact native current fluctuations and record-preparation response", flush=True)
     current = current_response.report()
     for packet in (population, harmonic, quantum, coherent, observable, current):
-        if any(before.get(name) != digest for name, digest in packet.get("source_bindings", {}).items()):
+        if any(before.get(name) != digest for name, digest in bound_pins(packet.get("source_bindings", {})).items()):
             raise ValueError("a response dependency is absent from source custody")
     result = {
         "schema": "oph.full_repair_response.v1",
@@ -114,7 +120,7 @@ def run():
             "empirical_masses_used_to_fit_a_new_source_law": False,
             "probability_assigned_to_OPH_being_correct": False,
         },
-        "source_bindings": before,
+        "source_bindings": bound_pins(before),
         "replay_comparison": {
             "rational_strings_discrete_claims_and_source_hashes": "exact",
             "floating_absolute_tolerance": REPLAY_ABSOLUTE_TOLERANCE,

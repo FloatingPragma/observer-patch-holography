@@ -11,6 +11,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import regional
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).resolve().parent/'results.json'
@@ -23,7 +29,7 @@ def source_bindings():
         'independent_checks':[],
     })
     paths.add('paper/tex_fragments/GROUND_REGIONAL_MODULAR.tex')
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def validate(value):
@@ -48,11 +54,11 @@ def _produce():
     pins=source_bindings()
     prior=strict_json.loads((ROOT/'model/spin_resolved_spectrum/results.json').read_text())
     if prior.get('all_pass') is not True:raise ValueError('source ground proof did not pass')
-    for path,digest in prior['source_bindings'].items():
+    for path,digest in bound_pins(prior['source_bindings']).items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=digest:
             raise ValueError('source ground proof changed: '+path)
     value={'schema':'oph.ground_regional_modular.v1','all_pass':True,
-           'regional_ground':regional.certificate(),'source_bindings':pins,
+           'regional_ground':regional.certificate(),'source_bindings':bound_pins(pins),
            'proof_scope':'Exact signed full-output regional traces and a self-contained Slater/spin-twirl modular proof on the actual finite particle ground. No geometric or physical-spectrum identification.'}
     validate(value)
     if source_bindings()!=pins:raise ValueError('source changed during regional replay')
@@ -68,7 +74,7 @@ def report():
                         '-m','model.ground_regional_modular.packet','--worker',str(path)],
                        cwd=ROOT,env=env,check=True,capture_output=True,text=True)
         value=strict_json.loads(path.read_text())
-    if source_bindings()!=pins or value['source_bindings']!=pins:
+    if source_bindings()!=pins or bound_pins(value['source_bindings'])!=pins:
         raise ValueError('source changed across cold regional replay')
     validate(value)
     return value
@@ -88,7 +94,7 @@ def main():
     else:
         retained=strict_json.loads(args.check.read_text());validate(retained)
         if canonical(value)!=canonical(retained):raise ValueError('regional ground replay changed')
-    print(json.dumps({'all_pass':True,'source_bindings':len(value['source_bindings']),
+    print(json.dumps({'all_pass':True,'source_bindings':bound_pins(len(bound_pins(value['source_bindings']))),
                       'full_site_pairs':28,'physical_identification':False}))
 
 

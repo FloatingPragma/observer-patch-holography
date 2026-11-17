@@ -14,6 +14,12 @@ from fractions import Fraction as F
 from pathlib import Path
 
 import mpmath as mp
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ORDER = ("e", "mu", "tau", "u", "d", "s", "c", "b", "t", "W", "Z", "H")
@@ -228,8 +234,8 @@ def build(inputs=None, reference=None):
                       "joint_statistical_significance_computed": False,
                       "particle_abundance_distribution_computed": False,
                       "exact_equality_to_experimental_central_values_required": False},
-            "source_sha256": {name: hashlib.sha256((HERE/name).read_bytes()).hexdigest()
-                              for name in ("derive.py", "inputs.json", "pdg2026_reference.json")}}
+            "source_sha256": bound_pins({name: hashlib.sha256((HERE/name).read_bytes()).hexdigest()
+                              for name in ("derive.py", "inputs.json", "pdg2026_reference.json")})}
 
 
 def main():

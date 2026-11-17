@@ -29,6 +29,12 @@ import random
 import sympy as sp
 
 from . import bit_readout as bits
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('trajectory_results.json')
@@ -165,7 +171,7 @@ def run():
         'model/native_clock/bit_readout.py', 'model/native_clock/trajectory_readout.py',
         'model/observer/quantum_mixing.py')))
     return {'schema': 'oph.native_local_trajectory_readout.v1', 'all_pass': True,
-            'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths},
+            'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}),
             'certificates': {name: {k: list(map(str, v)) if isinstance(v, tuple) else str(v)
                                     for k, v in row.items()} for name, row in c.items()},
             'ports_checked': 12, 'baseline': baseline, 'fixed_empty_seam_control': control,

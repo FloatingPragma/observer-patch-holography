@@ -6,6 +6,12 @@ import json
 from pathlib import Path
 
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 RER=HERE.parents[1]
@@ -24,7 +30,7 @@ def source():
     path=RER/PARENT
     assert hashlib.sha256(path.read_bytes()).hexdigest()==PARENT_SHA
     value=json.loads(path.read_text())
-    validate_pins(value['input_sha256'])
+    validate_pins(bound_pins(value['input_sha256']))
     assert value['construction']['measured_inputs']==[]
     assert F(value['source_gap_interval'][0])>0
     # Re-execute the native matrix-unit replication and actual discrete

@@ -10,6 +10,12 @@ from scipy.sparse import csr_matrix, eye
 from model.particle_common_contract import contract, provenance
 from model.particle_primary_selected_spin_response import model as spin
 from . import kernel_reduction
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=tuple(dict.fromkeys((
  'model/particle_primary_coherent_odd_response/__init__.py',
@@ -178,6 +184,6 @@ def certificate():
     value={'schema':'oph.primary_coherent_odd_response_certificate.v1',
         'exact_local_anticommutators':local_anticommutators(),
         'exact_adjoint_residual_controls':[adjoint_residual_control(k) for k in ('G1','H')],
-        'members':[bind_member(contract.member(0))],'source_sha256':pins}
+        'members':[bind_member(contract.member(0))],'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('source changed during coherent odd replay')
     return contract.serial(value)

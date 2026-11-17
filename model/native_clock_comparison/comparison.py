@@ -13,6 +13,12 @@ from model.native_clock_observables import observables as observable
 from model.native_clock_observables import packet as observable_packet
 from model.native_record_response import response, transfer
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 DEGREE = 10
@@ -124,7 +130,7 @@ def detector_contract(receipt=None):
     The comparison independently recomputes every error coefficient it uses.
     """
     receipt = strict_json.load(observable_packet.OUTPUT) if receipt is None else receipt
-    if receipt.get('source_bindings') != observable_packet.source_bindings():
+    if bound_pins(receipt.get('source_bindings')) != observable_packet.source_bindings():
         raise ArithmeticError('the executed detector receipt has stale source bindings')
     word = observable.words()['Y']
     admitted = observable.interpreter.source_word(word, 9)

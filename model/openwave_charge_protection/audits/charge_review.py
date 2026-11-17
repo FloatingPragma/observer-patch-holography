@@ -16,6 +16,12 @@ from model.compact_defect_transport import source, transport
 from model.coherent_defect_wave.physical_attachment.chiral import representation
 from model.common_source.chiral_candidate.action import SOURCE_FILES
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 PACKAGE=Path(__file__).resolve().parents[1]
@@ -126,7 +132,7 @@ def audit():
         'model/openwave_charge_protection/audits/charge_review.py']
     inputs=sorted(import_closure(set(inputs)|set(SOURCE_FILES)))
     return {'schema':'oph.current_protection_independent_review.v1','verdict':'PASS',
-        'reviewed_sha256':{name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in inputs},
+        'reviewed_sha256':bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in inputs}),
         'one_family_all_occupation_states':len(states),
         'one_family_centre_neutral_states':len(neutral),
         'three_family_exact_occupation_multiplicity':sum(total.values()),

@@ -7,6 +7,12 @@ from pathlib import Path
 
 from tools import strict_json
 from . import algebra, bounds, energy
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
@@ -24,8 +30,8 @@ def source_bindings():
         'model/spin_current_spectrum/README.md',
         'model/spin_current_spectrum/algebra.py',
     ))
-    return {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in sorted(paths)}
+    return bound_pins({p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(paths)})
 
 
 def produce():
@@ -60,7 +66,7 @@ def produce():
             'sharp_mass_shell_or_relativistic_rest_mass': False,
             'interacting_relativistic_continuum': False,
         },
-        'source_bindings': pins,
+        'source_bindings': bound_pins(pins),
     })
     if pins != source_bindings():
         raise RuntimeError('source changed during exact clock verification')

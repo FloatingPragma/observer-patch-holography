@@ -8,6 +8,12 @@ from scipy.linalg import expm
 from model.openwave_energy_lapse.source import native,prepare,difference,KAPPA
 from model.particle_common_contract.provenance import import_closure
 from model.openwave_lapse_observations.observations import clocks,wave,wave_matrix,metric_and_curvature
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[3]
 HERE=Path(__file__).resolve().parent
 
@@ -16,7 +22,7 @@ def pins():
  for name in ('openwave_energy_lapse','openwave_lapse_observations'):
   p=ROOT/'model'/name
   paths|={str(x.relative_to(ROOT))for x in p.iterdir()if x.suffix in('.py','.md','.tex')or x.name=='results.json'}
- return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(paths))}
+ return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(paths))})
 
 def report():
  before=pins();M,levels,gaps=native();X=s.Matrix([[0,1],[1,0]]);I=s.eye(2)
@@ -46,7 +52,7 @@ def report():
  curve=metric_and_curvature();assert curve['gamma_zero_countercontrol_G11_at_3_0_0']=='2/27'
  assert not curve['gamma_selected_by_clock_and_force_alone'] and not curve['regional_entropy_stationarity_premises_discharged']
  assert pins()==before
- return {'schema':'oph.independent_energy_lapse_review.v1','source_sha256':before,
+ return {'schema':'oph.independent_energy_lapse_review.v1','source_sha256':bound_pins(before),
   'complete_native8_matrix_independently_rebuilt':True,'all_native_levels_compared':8,
   'operator_response_energy_identity_on_complete_carrier':True,
   'independent_small_cube_mixed_energy_interval':list(map(str,cross)),

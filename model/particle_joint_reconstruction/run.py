@@ -69,6 +69,12 @@ from model.particle_primary_energy_response import model as energy_response
 from model.particle_primary_loop_fusion import model as loop_fusion
 from model.particle_primary_equal_work_control import model as equal_work_control
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -171,7 +177,7 @@ def build():
     stored_candidate = strict_json.load(candidate.OUTPUT)
     graph = strict_json.load(HERE / 'dependencies.json')
     validate_dependencies(graph)
-    paths = (set(stored_candidate['source_sha256']) | set(contract.SOURCE_INPUTS)
+    paths = (set(bound_pins(stored_candidate['source_sha256'])) | set(contract.SOURCE_INPUTS)
              | set(positive_energy.SOURCE_INPUTS))
     paths.update(item['path'] for node in graph['nodes'] for item in node['evidence'])
     for module in (algebra, stress, window, filtered_probe, survival,
@@ -521,7 +527,7 @@ def build():
         'pure_Yang_Mills_gap_proved': False,
         'all_reference_targets_numerically_matched': conditional['conditional_physical_completion_arm']['all_reference_targets_numerically_matched'],
         'next_shared_acceptance': 'joint_refinement',
-        'input_sha256': pins,
+        'input_sha256': bound_pins(pins),
     }
 
 

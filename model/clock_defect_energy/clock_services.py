@@ -22,6 +22,12 @@ from model.completion.family import FamilyParameters
 from model.native_modular_reference import common_caps, full_flow, history_clock, history_transport, local_preparation
 from . import continuation
 from .joins_contract import binding, check_receipt, source_bindings
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 OUTPUT = HERE / "clock_services_results.json"
@@ -269,7 +275,7 @@ def run(progress=None):
             progress(position)
     old = continuation.compiled_cores()
     return {"schema": "oph.clock_defect_energy.clock_services.v1", "campaign": campaign,
-            "source_sha256": source_bindings(set((
+            "source_sha256": bound_pins(source_bindings(set((
                 "model/clock_defect_energy/clock_services.py", "model/clock_defect_energy/test_clock_services.py",
                 "model/clock_defect_energy/continuation.py", "model/clock_defect_energy/joins_contract.py",
                 "model/clock_defect_energy/contract.py", "tools/strict_json.py",
@@ -279,7 +285,7 @@ def run(progress=None):
                 "model/native_modular_reference/full_flow.py", "model/observer/source_scalar/compiler.py",
                 "code/source_selection_model/response.json", "code/m1_source_realization/receipt.json", *THEOREMS))
                 | set(common_caps.SOURCE_PATHS) | set(history_transport.source_bindings())
-                | {"model/clock_defect_energy/CLOCK_SERVICES.md"}),
+                | {"model/clock_defect_energy/CLOCK_SERVICES.md"})),
             "inventory": {"modular_parameter": str(PARAMETER), "native_dimension": 66,
                           "source_register_dimension": 512, "predecessor_cores": sorted(old),
                           "source_words_executed_and_certified": len(rows),

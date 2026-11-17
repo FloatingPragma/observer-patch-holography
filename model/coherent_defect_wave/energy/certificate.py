@@ -13,6 +13,12 @@ from .model import (JointObserver,FockObserver,FockState,SparseState,combine,
                     pair_energy_action,mode,MODES)
 from ..species.spatial_fock import positive_basis,gamma as pair_gamma
 from .dark_collision import certificate as collision_certificate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 
@@ -28,8 +34,8 @@ def input_hashes():
         'evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py',
         'evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py'))
     names=import_closure({str(p.relative_to(ROOT)) for p in paths})
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(names) if (ROOT/name).is_file()}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(names) if (ROOT/name).is_file()})
 
 
 def certificate():
@@ -86,7 +92,7 @@ def certificate():
                        'energy_variance':'0','occupied_wave_support':len(plane.amplitudes)})
     return {'schema':'oph.coherent_defect_wave.positive_energy.v1',
             'program':'oph.coherent_defect_wave.positive_continuous_clock.v1',
-            'input_sha256':input_hashes(),
+            'input_sha256':bound_pins(input_hashes()),
             'source_energy_law':'H=sum_x[I-(U_F,x+U_F,x*)/2]+(pi/4)sum_edges dGamma(I-S_xy)',
             'continuous_evolution':'exp(-itH)',
             'clock_equals_discrete_seven_layer_tick':False,

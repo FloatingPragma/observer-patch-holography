@@ -15,6 +15,12 @@ from model.particle_candidate_atlas import builder as base
 from . import build, families, field_panels, joint_panels, repair_panels
 from .canvas import BG, Canvas, MUTED, TEAL, TEXT
 from .parts import CW, W, X0
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = build.ROOT
 HERE = Path(__file__).resolve().parent
@@ -84,16 +90,16 @@ def produce():
     field = field_panels.load()
     svg = render(old_svg, confirmation, repair, protection, agreement, joint, field)
     build.check_links(svg)
-    pins = {**comparison['input_sha256'], **confirmation['source_sha256'],
+    pins = {**bound_pins(comparison['input_sha256']), **bound_pins(confirmation['source_sha256']),
             str(build.IDENTITY_TESTS.relative_to(ROOT)): build.sha(build.IDENTITY_TESTS)}
     pins.update(repair_panels.input_pins(repair))
     pins.update(repair_panels.protection_pins(protection))
     pins.update(repair_panels.agreement_pins(agreement))
     pins.update(joint_panels.input_pins(joint))
-    pins.update(field['pins'])
+    pins.update(bound_pins(field['pins']))
     audit = {'schema': 'oph.particle_candidate_current_view.v1',
-             'input_sha256': pins,
-             'renderer_sha256': {name: build.sha(HERE/name) for name in SOURCES},
+             'input_sha256': bound_pins(pins),
+             'renderer_sha256': bound_pins({name: build.sha(HERE/name) for name in SOURCES}),
              'retained_numerical_svg_sha256': hashlib.sha256(old_svg.encode()).hexdigest(),
              'retained_numerical_audit_sha256': hashlib.sha256(base.canonical(comparison).encode()).hexdigest(),
              'confirmation_result_sha256': confirmation['content_sha256'],

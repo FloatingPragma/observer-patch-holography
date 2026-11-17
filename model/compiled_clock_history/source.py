@@ -20,6 +20,12 @@ import numpy as np
 from ..common_source import exact_output as exact
 from ..observer import native
 from ..observer.source_scalar import compiler
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 UNION = (0, 1, 5)
@@ -268,4 +274,4 @@ def resources(kind='apparatus', *, gamma=1, reference=False):
 
 def bindings():
     """Fresh source-file digests; callers must also bind their history executor."""
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS})

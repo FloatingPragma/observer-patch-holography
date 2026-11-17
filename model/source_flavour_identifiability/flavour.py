@@ -13,6 +13,12 @@ from sympy.polys.matrices import DomainMatrix
 from model.common_source import calibrated_matter as matter
 from model.common_source.chiral_candidate import action
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -310,12 +316,12 @@ def source_bindings():
     paths={str(p.relative_to(ROOT))for p in HERE.iterdir()if p.suffix in {'.py','.md'}}
     paths.update(matter.source_bindings())
     paths.update(['model/conditional_standard_model/PROOF.md','model/particle_joint_reconstruction/CANDIDATE.md'])
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()for name in sorted(import_closure(paths))}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()for name in sorted(import_closure(paths))})
 
 
 def certificate():
     pins=source_bindings();charged=matter.parameters();neutral=matter.neutrino_parameters()
-    result=dict(schema='oph.source_flavour_identifiability.v1',all_checks_pass=True,source_bindings=pins,
+    result=dict(schema='oph.source_flavour_identifiability.v1',all_checks_pass=True,source_bindings=bound_pins(pins),
         exact_family_quotient=quotient(),native_source_constraints=native_constraints(),
         tested_relation_and_complete_readout=relation_and_readout(),neutrino_phase_redundancy=neutrino_phase_rank(),
         candidate_ancestry=dict(

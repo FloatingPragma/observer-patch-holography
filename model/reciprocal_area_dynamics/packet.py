@@ -11,6 +11,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import bounds, records
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -24,14 +30,14 @@ def source_bindings():
         'source_receipts': [PRIOR], 'independent_checks': [],
     })
     paths.add('model/reciprocal_area_dynamics/DERIVATION.md')
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def inherited_custody():
     prior = strict_json.loads((ROOT/PRIOR).read_text())
     if prior.get('schema') != 'oph.finite_area_response.v1' or prior.get('all_pass') is not True:
         raise ValueError('the exact finite area-response source receipt is required')
-    for path, digest in prior['source_bindings'].items():
+    for path, digest in bound_pins(prior['source_bindings']).items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != digest:
             raise ValueError('area-response source custody changed: '+path)
     return {'source_receipt': PRIOR, 'inherited_source_bindings_verified': True,
@@ -67,7 +73,7 @@ def _produce():
     value = {'schema': 'oph.reciprocal_area_dynamics.v1', 'all_pass': True,
              'issues': [1144, 1145], 'gates': ['CP-08', 'CP-09'],
              'response': bounds.certificate(), 'records': records.certificate(),
-             'inherited_custody': inherited_custody(), 'source_bindings': pins,
+             'inherited_custody': inherited_custody(), 'source_bindings': bound_pins(pins),
              'proof_scope': 'Exact finite area/energy memory, conditional thermal area stationarity and complete-record entropy production under the unchanged reciprocal law. No regional G4, spatial refinement or Einstein dynamics.'}
     validate(value)
     if source_bindings() != pins:
@@ -85,7 +91,7 @@ def report():
                         '-m', 'model.reciprocal_area_dynamics.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.loads(path.read_text())
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across the cold reciprocal dynamics replay')
     validate(value)
     return value

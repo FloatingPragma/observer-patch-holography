@@ -10,6 +10,12 @@ from . import bridge, calibration, core, source
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from ..observer.source_scalar import compiler
 from ..primitive_observer import runtime
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -129,7 +135,7 @@ def run():
     tubes = calibration.analyze_tubes(centers, (F(1, 1000),)*9, tables, 2)
     _require(tubes['compatible_locked_candidates'] == ['E_collision_half'], 'collision control was not separated')
     return {'schema': 'oph.repair_identification.results.v1', 'all_pass': True,
-        'sources': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
+        'sources': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
         'source_control': compiler.source_summary(),
         'probe_word_sha256': {probe.name: dict(source.word_hashes(probe.name)) for probe in core.PROBES},
         'reference_preparation_word_sha256': {probe.name: dict(source.word_hashes(probe.name, True))['preparation']

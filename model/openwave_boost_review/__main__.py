@@ -4,6 +4,12 @@ from fractions import Fraction as F
 from pathlib import Path
 import mpmath as mp
 import numpy as np
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[2];HERE=Path(__file__).resolve().parent
 
 def high(value):
@@ -12,7 +18,7 @@ def high(value):
 def pins():
     from model.openwave_boosted_records.__main__ import pins as parent_pins
     target=ROOT/'model/openwave_boosted_records/results.json';saved=json.loads(target.read_text());out=parent_pins()
-    assert saved['source_sha256']==out
+    assert bound_pins(saved['source_sha256'])==out
     for f in(target,HERE/'__init__.py',HERE/'__main__.py'):
         out[str(f.relative_to(ROOT))]=hashlib.sha256(f.read_bytes()).hexdigest()
     return dict(sorted(out.items()))
@@ -49,7 +55,7 @@ def calculate():
         assert defect<=mp.mpf(str(float(F(row['boost_energy_shell_defect_upper_exact']))))
         assert abs(v-mp.mpf(3)/5)<=mp.mpf(str(float(F(row['group_velocity_error_upper_exact']))))
     assert all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h for p,h in bindings.items())
-    return {'verdict':'PASS_INDEPENDENT_COMPLETE_PORTABLE_BOOST_RECORD_REVIEW','source_sha256':bindings,
+    return {'verdict':'PASS_INDEPENDENT_COMPLETE_PORTABLE_BOOST_RECORD_REVIEW','source_sha256':bound_pins(bindings),
       'direct_Fourier_precision_decimal_digits':65,'complete_cases':comparisons,'independent_boost_defect_checks':4,
       'native_probe_isometry_and_charge_sectors_verified':True,
       'review_scope':'Independent direct Fourier reconstruction of all18 portable probability tables and all retained native rows, same-input continuum law, work account and exact stated boost bounds. This reviews actual reducing-sector records, not a full interacting Fock evolution or a finite-lattice Lorentz representation.'}

@@ -12,6 +12,12 @@ import tempfile
 
 from tools import strict_json
 from . import algebra
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -53,7 +59,7 @@ def source_bindings():
                 add(target)
                 for alias in node.names:
                     add(target+'.'+alias.name)
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def canonical(value):
@@ -70,7 +76,7 @@ def produce():
             'canonical_physical_premises_discharged': [],
             'physical_comparison_count_added': 0,
             'integrated_gate_accepted': False,
-            'source_law_changed': False, 'source_bindings': pins}
+            'source_law_changed': False, 'source_bindings': bound_pins(pins)}
 
 
 def validate(value, expected=None):
@@ -89,7 +95,7 @@ def report():
                         '-m', 'model.quadratic_conservation.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.load(path)
-    if pins != source_bindings() or value['source_bindings'] != pins:
+    if pins != source_bindings() or bound_pins(value['source_bindings']) != pins:
         raise ValueError('quadratic conservation sources changed across cold replay')
     return value
 

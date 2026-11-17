@@ -5,6 +5,12 @@ import json
 from pathlib import Path
 from tools import strict_json
 from . import algebra,bounds,controls
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -28,7 +34,7 @@ def source_bindings():
         'model/continuum_free_limit/README.md',
         'Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean',
         'Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean','tools/strict_json.py'})
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def historical_context():
@@ -76,7 +82,7 @@ def validate(value):
             raise ArithmeticError('modular proof, scope or historical record changed: '+key)
     if value.get('dependency_custody_pass') is not False or value.get('all_pass') is not False:
         raise ArithmeticError('unreplayed historical custody cannot be promoted')
-    if value.get('source_bindings')!=source_bindings():
+    if bound_pins(value.get('source_bindings'))!=source_bindings():
         raise ArithmeticError('current direct mathematical source bindings changed')
 
 
@@ -85,7 +91,7 @@ def build():
     value={'schema':'oph.lattice_modular_limit.v1','finite_attachment':'FA96','new_checks_pass':True,
            'dependency_custody_pass':False,'all_pass':False,'theorem':theorem(),
            'algebra':algebra.certificate(),'bounds':bounds.certificate(),'controls':controls.certificate(),
-           'historical_context':historical_context(),'source_bindings':pins}
+           'historical_context':historical_context(),'source_bindings':bound_pins(pins)}
     if pins!=source_bindings():raise ArithmeticError('source changed during replay')
     validate(value)
     return value

@@ -12,6 +12,12 @@ from pathlib import Path
 from tools import strict_json
 from ..observer.scalar_response.experiment import compare_receipt
 from . import certification, observables, source
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -67,8 +73,8 @@ def source_bindings():
                 add_module(target)
                 for alias in node.names:
                     add_module(target+'.'+alias.name)
-    return {path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
-            for path in sorted(seen)}
+    return bound_pins({path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in sorted(seen)})
 
 
 # A warm interpreter executes its imported code, even if the files have since
@@ -87,7 +93,7 @@ def report():
                   field_observables=observables.certificate(), source_history=source.certificate(),
                   integrated_gate_accepted=False, physical_comparison_count_added=0,
                   physical_electron_identification=False, nontrivial_topological_defect_assigned=False,
-                  source_bindings=pins)
+                  source_bindings=bound_pins(pins))
     if source_bindings() != pins:
         raise ArithmeticError('source files changed during charged dynamics replay')
     compare(result, result)

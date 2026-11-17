@@ -5,6 +5,12 @@ import json
 from pathlib import Path
 from model.particle_common_contract.provenance import import_closure
 from . import geometry,clocks,waves
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -15,12 +21,12 @@ def source_bindings():
     seeds+=['model/openwave_native_force/PROOF.md','model/openwave_native_force/results.json',
             'model/finite_area_response/README.md','model/matched_einstein_limit/PROOF.md',
             'model/maxwell_local_selection/PROOF.md']
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(seeds))}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(seeds))})
 
 
 def report():
     pins=source_bindings()
-    value={'schema':'oph.finite_reciprocal_metric_observables.v1','input_sha256':pins,
+    value={'schema':'oph.finite_reciprocal_metric_observables.v1','input_sha256':bound_pins(pins),
            'metric':geometry.metric_certificate(),'native_clocks':clocks.certificate(),
            'spatial_scalar_wave':waves.certificate(),'Einstein_premise_test':geometry.einstein_test(),
            'verdict':'PASS_FINITE_METRIC_RESPONSE_WITH_CLOCK_AND_EINSTEIN_OBSTRUCTIONS'}

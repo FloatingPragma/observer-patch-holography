@@ -9,6 +9,12 @@ from pathlib import Path
 from tools import strict_json
 from ..native_program import receipt as owning
 from . import causality
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -24,15 +30,15 @@ def source_bindings():
     # inherited by a legacy receipt are not evidence for this theorem.
     result = {name: digest for name, digest in owning.source_bindings().items()
               if not name.startswith('docs/')}
-    result.update({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-                   for name in SOURCE_FILES})
+    result.update(bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+                   for name in SOURCE_FILES}))
     return dict(sorted(result.items()))
 
 
 def produce():
     bindings = source_bindings()
     result = causality.certificate()
-    result['source_bindings'] = bindings
+    result['source_bindings'] = bound_pins(bindings)
     if source_bindings() != bindings:
         raise ArithmeticError('native comparison sources changed during replay')
     return result

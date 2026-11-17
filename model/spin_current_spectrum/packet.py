@@ -4,6 +4,12 @@ import json
 from fractions import Fraction as F
 from pathlib import Path
 from . import algebra, bounds
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -20,12 +26,12 @@ def canonical(value):
 def bindings():
     names=list(PARENTS)+[str(p.relative_to(ROOT)) for p in sorted(HERE.glob('*.py'))]
     names += [str((HERE/'README.md').relative_to(ROOT)),FRAGMENT]
-    return {n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in names}
+    return bound_pins({n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in names})
 
 
 def build():
     before=bindings()
-    result={'schema':'oph.spin_current_spectrum.v1','source_bindings':before,
+    result={'schema':'oph.spin_current_spectrum.v1','source_bindings':bound_pins(before),
             'exact_finite_checks':algebra.exact_checks(),
             'soft_current_fractions':bounds.serialize([bounds.soft_fraction(F(1,1000),F(1,2),r) for r in (1,F(1,2))]),
             'fractional_tail_controls':bounds.serialize([bounds.fractional_tail(F(1,4),d,s) for d in (2,3,4) for s in (2,16,256)]),

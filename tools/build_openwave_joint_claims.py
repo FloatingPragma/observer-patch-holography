@@ -7,6 +7,10 @@ import subprocess
 import sys
 import tempfile
 from tools.check_openwave_assessment_replay import compare
+try:
+    from tools.pin_scope import bound_pins
+except ImportError:  # run or imported from tools/ as a top-level module
+    from pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[1]
 BUNDLE = ROOT/'code/openwave_candidate'
@@ -18,7 +22,7 @@ def separately_validated_native_charge():
     data = json.loads(path.read_text())
     if data.get('full_criterion_met') is not True or data.get('row') != 1:
         raise ValueError('native charge criterion receipt absent')
-    for relative, expected in data['source_sha256'].items():
+    for relative, expected in bound_pins(data['source_sha256']).items():
         if hashlib.sha256((ROOT/relative).read_bytes()).hexdigest() != expected:
             raise ValueError('stale native charge validation input: '+relative)
     return {'candidate_id': data['candidate_id'],
@@ -32,7 +36,7 @@ def separately_validated_native_charge():
 def separately_validated_wave_rows():
     path = ROOT/'claims/openwave_wave_rows.json'
     data = json.loads(path.read_text())
-    for relative, expected in data['source_sha256'].items():
+    for relative, expected in bound_pins(data['source_sha256']).items():
         if hashlib.sha256((ROOT/relative).read_bytes()).hexdigest() != expected:
             raise ValueError('stale wave validation input: '+relative)
     if data['same_source_transfer_between_rows'] is not False:
@@ -54,7 +58,7 @@ def separately_validated_common_charge():
     data = json.loads(path.read_text())
     if data.get('full_criterion_met') is not True or data.get('row') != 1:
         raise ValueError('common-source charge criterion receipt absent')
-    for relative, expected in data['source_sha256'].items():
+    for relative, expected in bound_pins(data['source_sha256']).items():
         if hashlib.sha256((ROOT/relative).read_bytes()).hexdigest() != expected:
             raise ValueError('stale common-source charge input: '+relative)
     return {'candidate_id': data['candidate_id'], 'validated_rows': [1],
@@ -70,7 +74,7 @@ def separately_validated_signed_source():
     data = json.loads(path.read_text())
     if [r['row'] for r in data['rows']] != [1, 2, 7] or not all(r['criterion_met_on_construction'] for r in data['rows']):
         raise ValueError('signed-source criterion ledger absent')
-    for relative, expected in data['source_sha256'].items():
+    for relative, expected in bound_pins(data['source_sha256']).items():
         if hashlib.sha256((ROOT/relative).read_bytes()).hexdigest() != expected:
             raise ValueError('stale signed-source input: '+relative)
     return {'candidate_id': 'signed-source-static-v1', 'validated_rows': [1, 2, 7],
@@ -86,7 +90,7 @@ def observable_receipt(relative):
     no_award=(type(result.get('official_rows_promoted')) is int and result['official_rows_promoted']==0) or ('official_rows_promoted' not in result and result.get('official_rows_changed')==[] and result.get('full_criterion_met') is False)
     if not no_award:
         raise ValueError('observable experiment cannot award an official row')
-    pins=result.get('source_sha256',{})
+    pins=bound_pins(result.get('source_sha256',{}))
     if not pins:
         raise ValueError('observable source custody absent')
     for rel,expected in pins.items():
@@ -159,9 +163,9 @@ def generate():
     assessment = json.loads(receipt.read_text())
     required={'integration/assess.py','platform_packet/packet.json'}
     required.update(str(p.relative_to(BUNDLE)) for p in (BUNDLE/'candidate/oph_openwave').glob('*.py'))
-    if set(assessment['sources']) != required:
+    if set(bound_pins(assessment['sources'])) != required:
         raise ValueError('incomplete assessment source custody')
-    for rel, expected in assessment['sources'].items():
+    for rel, expected in bound_pins(assessment['sources']).items():
         if hashlib.sha256((BUNDLE/rel).read_bytes()).hexdigest()!=expected:
             raise ValueError('stale assessment source: '+rel)
     with tempfile.TemporaryDirectory() as directory:
@@ -188,9 +192,9 @@ def generate():
         raise ValueError('native observer state archive changed')
     bridge_root=BUNDLE/'validation/bridges'
     bridge=json.loads((bridge_root/'NATIVE_MAXWELL_SOURCE.json').read_text())
-    if bridge.get('full_physical_criterion_met') is not False or not bridge.get('source_sha256') or not bridge.get('checks') or not all(v is True for v in bridge['checks'].values()):
+    if bridge.get('full_physical_criterion_met') is not False or not bound_pins(bridge.get('source_sha256')) or not bridge.get('checks') or not all(v is True for v in bridge['checks'].values()):
         raise ValueError('native current/field bridge scope or checks changed')
-    for rel,expected in bridge['source_sha256'].items():
+    for rel,expected in bound_pins(bridge['source_sha256']).items():
         source=(BUNDLE/rel).resolve()
         if not source.is_relative_to(BUNDLE.resolve()) or hashlib.sha256(source.read_bytes()).hexdigest()!=expected:
             raise ValueError('stale or external current/field bridge source: '+rel)
@@ -246,7 +250,7 @@ def generate():
                           'selected':canonical['selected'],
                           'scope':canonical['scope'],
                           'earlier_31_row_assessment_domain':'The one-load assessment below keeps its own domain. Its measured outcomes are not reassigned to this interacting all-number source.'},
-      'source_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},
+      'source_sha256':bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}),
       'assessment':str(receipt.relative_to(ROOT)),
       'canonical_continued_observables':[
         {'receipt':'code/openwave_candidate/next/C11/'+name+'.json',

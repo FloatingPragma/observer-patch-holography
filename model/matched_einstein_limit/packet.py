@@ -8,6 +8,12 @@ import subprocess
 
 from tools import strict_json
 from . import frame
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -33,7 +39,7 @@ def source_bindings():
             if (ROOT/local).is_file() and local not in paths:
                 paths.add(local)
                 pending.append(local)
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def scope():
@@ -110,7 +116,7 @@ def report():
     value = {'schema': 'oph.matched_einstein_limit.v1', 'all_pass': True,
              'issues': [1145, 1146], 'gates': ['CP-09', 'CP-10'],
              'frame_and_bounds': frame.certificate(), 'lean': lean_source_certificate(),
-             'scope': scope(), 'source_bindings': pins}
+             'scope': scope(), 'source_bindings': bound_pins(pins)}
     if source_bindings() != pins:
         raise ValueError('source changed during conditional Einstein replay')
     return value

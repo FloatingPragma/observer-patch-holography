@@ -28,6 +28,12 @@ from .mass_response import history as instruments, model
 from ..calibrated_measurement.bounds import root_interval
 from .halfline import pi_interval
 from ..scalar_observations.experimental_readout.stats import concentration_certificate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -476,8 +482,8 @@ def source_bindings():
         'model/native_modular_reference/reference_tomography.py',
         'model/scalar_observations/experimental_readout/stats.py',
         'model/common_source/halfline.py'}
-    names.update(history.compiler.source_summary()['source_sha256'])
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    names.update(bound_pins(history.compiler.source_summary()['source_sha256']))
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def _same_report(expected, actual, path='report'):
@@ -522,7 +528,7 @@ def compare_execution(report, arrays, fresh_report, fresh_arrays):
 
 def check(path):
     report = strict_json.load(path)
-    if type(report) is not dict or report.get('source_bindings') != source_bindings():
+    if type(report) is not dict or bound_pins(report.get('source_bindings')) != source_bindings():
         raise ValueError('retained source bindings differ from the current closed source set')
     artifact = path.with_suffix('.npz')
     if report.get('artifact') != {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}:
@@ -554,7 +560,7 @@ def main():
     if args.output.exists() or artifact.exists():
         parser.error('choose fresh JSON and quantum artifact paths')
     report, arrays = execute(levels=args.levels)
-    report['source_bindings'] = source_bindings()
+    report['source_bindings'] = bound_pins(source_bindings())
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with artifact.open('xb') as stream:
         np.savez_compressed(stream, **arrays)

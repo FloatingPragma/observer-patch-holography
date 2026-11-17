@@ -13,6 +13,12 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from ..protected_particle_readout.packet import compare
 from . import budgets, certified_power as cp, experiment, factorization, inversion
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -29,7 +35,7 @@ def source_bindings():
     })
     paths.update(('model/resolved_particle_spectrum/contract.json',
                   'paper/tex_fragments/RESOLVED_PARTICLE_SPECTRUM.tex'))
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 _IMPORTED_BINDINGS = source_bindings()
@@ -91,7 +97,7 @@ def _produce():
              'integrated_gate_accepted': False,
              'physical_hardware_execution_or_accuracy_proved': False,
              'primitive_or_field_or_repair_law_changed': False,
-             'source_bindings': pins}
+             'source_bindings': bound_pins(pins)}
     if source_bindings() != pins: raise ValueError('source changed during spectral resolution')
     validate(value); json.dumps(value, allow_nan=False)
     return value
@@ -108,7 +114,7 @@ def report():
                                 cwd=ROOT, env=environment, capture_output=True, text=True, check=False)
         if result.returncode: raise RuntimeError('cold spectral resolution failed: '+result.stderr[-4000:])
         value = strict_json.load(target)
-    if source_bindings() != pins or value['source_bindings'] != pins: raise ValueError('source changed across cold replay')
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins: raise ValueError('source changed across cold replay')
     validate(value)
     return value
 

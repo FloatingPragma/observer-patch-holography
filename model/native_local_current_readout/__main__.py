@@ -1,5 +1,11 @@
 import argparse,json,math
 from . import model
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 def compare(old,new,path='receipt'):
@@ -26,7 +32,7 @@ def main():
     a=p.parse_args();target=model.HERE/'results.json'
     if a.check:
         old=json.loads(target.read_text())
-        for name,sha in old['input_sha256'].items():model.require(model.digest(model.ROOT/name)==sha,'source differs: '+name)
+        for name,sha in bound_pins(old['input_sha256']).items():model.require(model.digest(model.ROOT/name)==sha,'source differs: '+name)
     new=model.certificate()
     if a.write:target.write_text(json.dumps(new,indent=2,sort_keys=True,allow_nan=False)+'\n')
     else:compare(old,new)

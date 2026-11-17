@@ -5,6 +5,12 @@ import hashlib
 
 from tools import strict_json
 from .contract import HERE, source_bindings, check_receipt, load_contract as load_diagnostic
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 REQUIRED_SOURCES = frozenset((
     "model/clock_defect_energy/campaign.json",
@@ -37,7 +43,7 @@ def load_contract():
             or value["physical_comparison_count_added"] != 0
             or value["service_inventory_extended"] is not True):
         raise ValueError("wrong empirical or service scope")
-    sources = value["source_sha256"]
+    sources = bound_pins(value["source_sha256"])
     if (type(sources) is not dict or set(sources) != REQUIRED_SOURCES
             or source_bindings(sources) != sources):
         raise ValueError("finite theorem join source custody changed")

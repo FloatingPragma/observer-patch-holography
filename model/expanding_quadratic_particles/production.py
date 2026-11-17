@@ -17,6 +17,12 @@ from model.thermal_particle_records import records as joint
 from model.native_effect_synthesis import intervals as iv
 from model.quantum_thermal_relaxation.relaxation import negative_exp_endpoint
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 Q=iv.Q;ZERO=(0,0);ONE=(Q,Q)
@@ -125,7 +131,7 @@ def bindings():
     for package in ('conditional_particle_spectrum','particle_joint_mass_identity','thermal_particle_records'):
         paths|={f'model/{package}/results.json',f'model/{package}/PROOF.md'}
     paths|={'model/native_effect_synthesis/PROOF.md','model/quantum_thermal_relaxation/PROOF.md'}
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))})
 
 
 @lru_cache(maxsize=1)
@@ -331,7 +337,7 @@ def certificate():
     quench=protocols[0]['preparations'][0]['complete_number_readout']['expected_total_number_interval']
     if not (F(slow[1])<F(fast[0]) and F(fast[1])<F(quench[0])):
         raise ArithmeticError('continuous vacuum production ordering is not certified')
-    result={'schema':'oph.expanding_quadratic_particles.v1','source_bindings':pins,'all_checks_pass':True,
+    result={'schema':'oph.expanding_quadratic_particles.v1','source_bindings':bound_pins(pins),'all_checks_pass':True,
         'actual360_Nambu_source_controls':d['controls'],'all180_modes':[x for x in d['fermions']['modes']],
         'initial_joint_groups':d['groups'],
         'final_instantaneous_joint_groups':[dict(g,initial_comoving_momentum_z_GeV=g['momentum_z_GeV'],

@@ -7,6 +7,12 @@ import importlib.util
 import json
 from tools import strict_json
 from . import bounds, finite
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -46,7 +52,7 @@ def bindings():
                 target=importlib.util.resolve_name(target,package) if node.level else target
                 add(target)
                 for alias in node.names:add(target+'.'+alias.name)
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(names)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(names)})
 
 
 def encode(value):
@@ -63,7 +69,7 @@ def canonical(value):
 
 def build():
     before=bindings()
-    result={'schema':'oph.spin_position_limit.v1','source_bindings':before,
+    result={'schema':'oph.spin_position_limit.v1','source_bindings':bound_pins(before),
             'finite_source_controls':finite.controls(),
             'bounded_probe_error_example':bounds.bounded_probe_errors(3,F(1,10),F(1,1000000),F(1,1000000)),
             'exact_error_example':bounds.probability_error(F(1,100),F(1,1000000),F(1),F(1,1000000),F(1,100000)),

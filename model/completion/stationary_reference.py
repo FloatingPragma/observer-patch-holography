@@ -20,6 +20,12 @@ from . import adaptive_reference
 from .family import binding
 from ..common_source.native_defect_decision import strongly_connected_components
 from ..observer import native
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -87,7 +93,7 @@ def run():
         "gate": "CP-02",
         "campaign": binding(),
         "canonical_premise_navigation": ["PR-07", "PR-23"],
-        "source_sha256": {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in files},
+        "source_sha256": bound_pins({p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in files}),
         "contract": {
             "kernel": "adaptive_reference.py with r=1, epsilon=1/2, m'=1[current>0]",
             "source_dimensions": 66,

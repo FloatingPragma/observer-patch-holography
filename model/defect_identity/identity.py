@@ -16,6 +16,12 @@ import sys
 import sympy as sp
 
 from ..defect_protection import protection
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 UPSTREAM = ROOT / 'code' / 'a5_closure'
@@ -317,7 +323,7 @@ def certificate():
     return {
         'schema': 'oph.defect_identity.v1',
         'arithmetic': 'exact rational complex matrices; no numerical eigenspace thresholds',
-        'source_sha256': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in files},
+        'source_sha256': bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in files}),
         'group_convention': {
             'group': 'G=S(U(3) x U(2)) isomorphic to (SU(3) x SU(2) x U(1))/Z6',
             'cover_map': '(A,B,z) -> (z^-2 A,z^3 B)',

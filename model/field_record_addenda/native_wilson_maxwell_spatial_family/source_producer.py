@@ -3,6 +3,12 @@ from pathlib import Path
 import argparse,hashlib,json
 from . import family
 from ..provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent;RER=family.RER
 
 
@@ -11,11 +17,11 @@ def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 
 def certificate():
     value=family.scientific();parent,_=family.admit()
-    seeds=set(parent['input_sha256'])|{family.PARENT,'model/native_wilson_maxwell/field.py',
+    seeds=set(bound_pins(parent['input_sha256']))|{family.PARENT,'model/native_wilson_maxwell/field.py',
         'model/native_wilson_maxwell/current.py','model/native_wilson_maxwell_refinement/bounds.py',
         'model/particle_common_contract/provenance.py'}
-    value['input_sha256']={p:digest(RER/p) for p in sorted(import_closure(seeds))}
-    value['owned_source_sha256']={p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    value['input_sha256']=bound_pins({p:digest(RER/p) for p in sorted(import_closure(seeds))})
+    value['owned_source_sha256']=bound_pins({p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})
     return value
 
 

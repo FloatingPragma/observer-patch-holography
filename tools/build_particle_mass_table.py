@@ -10,6 +10,10 @@ import io
 import json
 from math import gcd, isqrt
 from pathlib import Path
+try:
+    from tools.pin_scope import bound_pins
+except ImportError:  # run or imported from tools/ as a top-level module
+    from pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = 'tools/particle_mass_table_sources.json'
@@ -280,7 +284,7 @@ def assemble(snapshot):
             or len(ordered['all_ordered_levels']) != 256
             or len(ordered['isolated_clusters']) != 68):
         raise ValueError('finite ordered-field energies changed scope')
-    for name, digest in ordered['source_bindings'].items():
+    for name, digest in bound_pins(ordered['source_bindings']).items():
         if name not in snapshot or hashlib.sha256(snapshot[name]).hexdigest() != digest:
             raise ValueError('ordered energy source binding changed: '+name)
     if ordered['tool_sha256'] != hashlib.sha256(snapshot['tools/read_ordered_spin_energies.py']).hexdigest():
@@ -333,7 +337,7 @@ def assemble(snapshot):
             'custody': {'kind': 'Reviewed proof outputs and exact rational table arithmetic',
                         'inherited_proof_producers_rerun_here': False,
                         'calibration_or_species_fit_performed': False},
-            'source_bindings': {name: hashlib.sha256(value).hexdigest() for name, value in sorted(snapshot.items())}}
+            'source_bindings': bound_pins({name: hashlib.sha256(value).hexdigest() for name, value in sorted(snapshot.items())})}
 
 
 def build(root=ROOT):

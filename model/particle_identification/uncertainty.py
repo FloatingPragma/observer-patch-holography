@@ -19,6 +19,12 @@ from ..interacting_extension._source import ROOT, verify_sources
 from ..interacting_extension.higgs_join.native_inputs import SOURCE_NAMES
 from ..interacting_extension.higgs_join.interacting_carrier import load_operators
 from ..interacting_extension.recorded_response import partial_isometry
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 HIGGS = ROOT / "model/interacting_extension/higgs_join"
@@ -108,7 +114,7 @@ def _probe_from_rows(name, rows, neutral_norms, charged_norms):
 
 def source_bindings():
     bindings = verify_sources(ROOT, SOURCE_NAMES)
-    upstream = json.loads((HIGGS / "results.json").read_text())["source_sha256"]
+    upstream = bound_pins(json.loads((HIGGS / "results.json").read_text())["source_sha256"])
     names = ("joined_basis.json", "joined_exact_operators.json", "joined_operator_receipt.json",
              "joined_operators.npz", "interacting_carrier.py", "native_inputs.py", "source_algebra.py")
     for name in names:
@@ -191,7 +197,7 @@ def certificate():
     rows = [exact_audit(probe) for probe in load_probes()]
     if source_bindings() != before:
         raise ValueError("uncertainty source changed during replay")
-    return {"schema": "oph.compensated_probe_uncertainty.v1", "source_sha256": before,
+    return {"schema": "oph.compensated_probe_uncertainty.v1", "source_sha256": bound_pins(before),
             "probes": rows,
             "neutral_state_theorem": {"domain": "all neutral densities, including arbitrary references",
                 "active_probability": "w=Tr(rho b^dagger b)=1-<n_j>",

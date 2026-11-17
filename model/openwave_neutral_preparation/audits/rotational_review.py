@@ -10,6 +10,12 @@ import scipy.linalg as la
 from scipy.integrate import solve_ivp
 from scipy.optimize import brentq
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 sys.path.insert(0,str(ROOT))
@@ -134,14 +140,14 @@ def main():
     paths=[ROOT/'model'/name/f for name in ('openwave_angular_torque','openwave_rotational_g_limit') for f in ('PROOF.md','PAPER_RESULT.md','results.json')]
     paths.extend(p for name in ('openwave_angular_torque','openwave_rotational_g_limit') for p in (ROOT/'model'/name).glob('*.py'))
     paths.append(Path(__file__).resolve())
-    inputs={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
+    inputs=bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)})
     dependency_checks={}
     for name in ('openwave_angular_torque','openwave_rotational_g_limit'):
         producer=json.loads((ROOT/'model'/name/'results.json').read_text())
-        pins=producer['source_sha256']
+        pins=bound_pins(producer['source_sha256'])
         assert all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==sha for p,sha in pins.items())
         dependency_checks[name]={'checked_transitive_source_hashes':len(pins),'mismatches':0}
-    result={'schema':'oph.independent_rotational_magnetic_review.v1','input_sha256':inputs,
+    result={'schema':'oph.independent_rotational_magnetic_review.v1','input_sha256':bound_pins(inputs),
         'producer_dependency_checks':dependency_checks,
         'exact_full_shell_algebra':exact_shell(),'fresh_torque_and_field_controls':torque_control(),
         'independent_axial_static_and_bound_review':axial_control(),

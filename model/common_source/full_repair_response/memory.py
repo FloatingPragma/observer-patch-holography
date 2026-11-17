@@ -22,6 +22,12 @@ from .. import slow_geometry
 from ..hierarchy_diagnosis import native_family_dynamics as source
 from ...native_modular_reference import local_preparation
 from ...observer import native
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT=Path(__file__).resolve().parents[3]
@@ -410,7 +416,7 @@ def report():
     lower66=2*min(d["C66"].diagonal())-1
     if lower12<=0 or lower66<=0:
         raise ArithmeticError("the exact Gershgorin positivity guard changed")
-    bindings=dict(d["packet"]["source_bindings"])
+    bindings=dict(bound_pins(d["packet"]["source_bindings"]))
     for name in SOURCE_FILES:
         bindings[name]=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
     return {
@@ -481,7 +487,7 @@ def report():
                               "correct_incident_clock_checked_instead_of_assuming_proposal_count":True,
                               "Standard_Model_mass_ratios_derived":False,
                               "failure_of_this_population_rate_route_excludes_all_OPH":False},
-        "source_bindings":dict(sorted(bindings.items()))}
+        "source_bindings":bound_pins(dict(sorted(bindings.items())))}
 
 
 if __name__=="__main__":

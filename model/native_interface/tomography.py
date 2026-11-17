@@ -24,6 +24,12 @@ from ..common_source import exact_output as exact
 from ..native_clock import configuration
 from ..native_modular_reference import local_preparation
 from ..observer.source_scalar import compiler
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 DIMENSION = 66
@@ -340,7 +346,7 @@ def run():
                 'reported_counts_are_laboratory_data': False},
             'conservative_sampling_example': {k: str(v) if isinstance(v, F) else v for k, v in sample.items()},
             'continuing_native_preparation': prepared_sampling_certificate(proof),
-            'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}}
+            'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS})}
 
 
 def main():

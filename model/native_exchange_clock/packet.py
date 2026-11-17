@@ -10,6 +10,12 @@ from pathlib import Path
 from tools import strict_json
 from ..native_correlation_sectors import packet as owning, records
 from . import exchange as e
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -19,8 +25,8 @@ SOURCE_FILES = tuple(f'model/native_exchange_clock/{name}' for name in (
 
 def source_bindings():
     names = set(owning.source_bindings()) | set(SOURCE_FILES)
-    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
-            for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+            for name in sorted(names)})
 
 
 def canonical(value):
@@ -95,7 +101,7 @@ def produce():
                     'half_filled_full_generator_obstruction':
                         e.full_generator_obstruction(ports, seams, ports // 2)})
         rows.append(row)
-    value = {'schema': 'oph.native_exchange_clock.v1', 'source_bindings': before,
+    value = {'schema': 'oph.native_exchange_clock.v1', 'source_bindings': bound_pins(before),
         'native_attachment': attachment, 'evaluated_federations': rows,
         'all_domain_bounds': {
             'positive_native_transfer_floor': '10/21',

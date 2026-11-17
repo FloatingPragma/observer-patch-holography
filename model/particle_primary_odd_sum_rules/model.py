@@ -10,6 +10,12 @@ from model.particle_primary_composite_spin import model as composite
 from model.particle_primary_composite_transport import model as transport
 from model.particle_spatial_modular_response import regional
 from model.particle_primary_original_branch import model as branch
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=tuple(dict.fromkeys((
  'model/particle_primary_odd_sum_rules/__init__.py',
@@ -294,6 +300,6 @@ def certificate():
     paths=provenance.definition_inputs(SOURCE_INPUTS);pins=provenance.definition_hashes(paths)
     value={'schema':'oph.primary_odd_sum_rules_certificate.v1','members':[bind_member(contract.member(0))],
         'chirality_members':[bind_chirality_member(contract.member(n)) for n in (0,1,2,8)],
-        'source_sha256':pins}
+        'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('source changed during odd sum-rule replay')
     return contract.serial(value)

@@ -3,6 +3,12 @@ from pathlib import Path
 from fractions import Fraction as F
 import argparse,hashlib,json,sys
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 PARENT=HERE.parent/'native_wilson_maxwell_spatial_family'
@@ -18,8 +24,8 @@ def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def admit():
     assert digest(PARENT/'research_reference.json')==PARENT_SHA
     p=json.loads((PARENT/'research_reference.json').read_text())
-    for name,sha in p['owned_source_sha256'].items():assert digest(PARENT/'retained'/(name+'.raw'))==sha,name
-    for name,sha in p['input_sha256'].items():assert digest(RER/name)==sha,name
+    for name,sha in bound_pins(p['owned_source_sha256']).items():assert digest(PARENT/'retained'/(name+'.raw'))==sha,name
+    for name,sha in bound_pins(p['input_sha256']).items():assert digest(RER/name)==sha,name
     return p
 
 
@@ -120,13 +126,13 @@ def scientific():
 def certificate():
     value=scientific();p=admit()
     from ..provenance import import_closure
-    seeds=set(p['input_sha256'])|{'model/affine_gauss_mobile/model.py',
+    seeds=set(bound_pins(p['input_sha256']))|{'model/affine_gauss_mobile/model.py',
         'model/particle_common_contract/provenance.py'}
-    value['input_sha256']={name:digest(RER/name) for name in sorted(import_closure(seeds))}
+    value['input_sha256']=bound_pins({name:digest(RER/name) for name in sorted(import_closure(seeds))})
     value['research_parent_sha256']={str((PARENT/name).relative_to(HERE.parent)):sha
-        for name,sha in p['owned_source_sha256'].items()}
+        for name,sha in bound_pins(p['owned_source_sha256']).items()}
     value['research_parent_sha256']['native_wilson_maxwell_spatial_family/results.json']=PARENT_SHA
-    value['owned_source_sha256']={p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    value['owned_source_sha256']=bound_pins({p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})
     return value
 
 

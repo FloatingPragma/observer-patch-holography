@@ -12,6 +12,12 @@ from model.native_correlation_preparation import packet as preparation_packet
 from model.native_exchange_clock import packet as clock_packet
 from model.native_spatial_scaling import packet as spatial_packet
 from . import contact as c, leakage, records
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -28,8 +34,8 @@ def source_bindings():
     names = set(SOURCE_FILES)
     for owner in (sector_packet, preparation_packet, clock_packet, spatial_packet):
         names.update(owner.source_bindings())
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(names) if not name.startswith('docs/')}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(names) if not name.startswith('docs/')})
 
 
 def rational_tree(value):
@@ -60,7 +66,7 @@ def produce():
         graph = c.source.source.Family((1,)*4, edges, (1,)*len(edges))
         for z in (F(-1), F(), F(9, 2)):
             controls.append({'graph': name, 'z': z, **c.contact_identity(graph, z)})
-    result = {'schema': 'oph.native_contact_response.v1', 'source_bindings': before,
+    result = {'schema': 'oph.native_contact_response.v1', 'source_bindings': bound_pins(before),
               'source': {'ports': 12, 'seams': 30, 'occupation': 2,
                          'port_weights': [1]*12, 'repair_probability': '1',
                          'reference': 'I66/66', 'attempt_transfer': 'I-G2/60'},

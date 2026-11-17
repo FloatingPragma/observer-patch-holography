@@ -22,6 +22,12 @@ from . import local_continuum as spatial
 from ..observer import native
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(sorted(set((*occupation.SOURCE_PATHS, *continuum.SOURCE_PATHS,
@@ -703,7 +709,7 @@ def run():
     cross, delta = joint_clt()
     action = cylinder_action()
     return {'schema': 'oph.native_joint_observation_process.v1',
-        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
         'native_exact_controls': {'one_step_branches': branches,
             'two_step_complete_branches': actual['branches'],
             'post_repair_mark_mean_zero_given_output_checked': True,

@@ -5,6 +5,12 @@ from itertools import combinations
 from pathlib import Path
 import argparse, hashlib, importlib.util, json, sys
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent; WORK=HERE.parent
 RER=HERE.parents[2]
@@ -29,17 +35,17 @@ def admit():
     assert digest(BRIDGE/'research_reference.json')==BRIDGE_SHA
     bridge=json.loads((BRIDGE/'research_reference.json').read_text()); public={};research={}
     research['native_orthogonal_wilson_bridge/results.json']=BRIDGE_SHA
-    for f,h in bridge['owned_source_sha256'].items():
+    for f,h in bound_pins(bridge['owned_source_sha256']).items():
         assert digest(BRIDGE/'retained'/(f+'.raw'))==h;research['native_orthogonal_wilson_bridge/'+f]=h
     for f,h in bridge['research_parent_source_sha256'].items():
         p=WORK/'native_wilson_cone_audit'/('research_reference.json' if f=='results.json' else 'retained/'+f+'.raw');assert digest(p)==h
         research['native_wilson_cone_audit/'+f]=h
     for path,sha in ((SOURCE,SOURCE_SHA),(CLOCK,CLOCK_SHA)):
         assert digest(RER/path)==sha;v=json.loads((RER/path).read_text());public[path]=sha
-        for f,h in v['input_sha256'].items():
+        for f,h in bound_pins(v['input_sha256']).items():
             assert digest(RER/f)==h
             assert f not in public or public[f]==h;public[f]=h
-    for f,h in bridge['input_sha256'].items():
+    for f,h in bound_pins(bridge['input_sha256']).items():
         assert digest(RER/f)==h
         assert f not in public or public[f]==h;public[f]=h
     seeds=set(public)|{'model/native_wilson_maxwell/field.py','model/native_wilson_maxwell_refinement/bounds.py',
@@ -254,8 +260,8 @@ def calculate():
 
 
 def certificate():
-    value=calculate();_,_,public,research=admit();value['input_sha256']=public;value['research_input_sha256']=research
-    value['owned_source_sha256']={p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    value=calculate();_,_,public,research=admit();value['input_sha256']=bound_pins(public);value['research_input_sha256']=research
+    value['owned_source_sha256']=bound_pins({p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})
     return value
 
 if __name__=='__main__':

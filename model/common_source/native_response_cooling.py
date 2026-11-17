@@ -28,6 +28,12 @@ from . import native_response_reference as reference
 from . import record_code, native_routing
 from ..observer.source_scalar import compiler
 from ..observer.source_discrimination import circuit
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_ADMISSION = 2e-7
@@ -311,4 +317,4 @@ def source_bindings():
     from . import native_response_biased as biased
     paths = set(reference.source_bindings())|set(biased.source_bindings())|{
         'model/common_source/native_response_cooling.py', 'model/common_source/test_native_response_cooling.py'}
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})

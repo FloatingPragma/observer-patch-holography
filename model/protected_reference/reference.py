@@ -18,6 +18,12 @@ from ..exchange_sector import statistics as exchange
 from ..gauge_defect_transport import transport as gauge_transport
 from ..local_repair_family import local_bias as local, mixing
 from ..native_program import interpreter
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_FILES = (
@@ -307,7 +313,7 @@ def certificate():
     joined = gauge_join.certificate()
     return {
         'schema': 'oph.protected_reference.v1',
-        'source_sha256': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_FILES},
+        'source_sha256': bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_FILES}),
         'domain': 'native biased H66 endpoint law with the explicit persistent ordered-cover bit',
         'dimension': 132, 'parameters': parameters().description(),
         'current_and_energy': current,

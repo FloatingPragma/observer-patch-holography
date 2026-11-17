@@ -11,6 +11,12 @@ from pathlib import Path
 from tools import strict_json
 from ..weighted_source_family import packet as parent
 from . import limit
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -26,10 +32,10 @@ SOURCE_FILES = tuple(sorted(set((*parent.SOURCE_FILES,
 
 def source_bindings():
     inherited = parent.source_bindings()
-    if strict_json.load(parent.OUTPUT)['source_bindings'] != inherited:
+    if bound_pins(strict_json.load(parent.OUTPUT)['source_bindings']) != inherited:
         raise ValueError('the weighted family source receipt is stale')
-    inherited.update({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-                      for name in SOURCE_FILES})
+    inherited.update(bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+                      for name in SOURCE_FILES}))
     return dict(sorted(inherited.items()))
 
 
@@ -137,7 +143,7 @@ def produce():
                        'huge_global_carrier_enumerated':False,
                        'physical_volume_or_cosmological_nats_identified':False,
                        'continuum_QFT_or_measured_mass_prediction':False},
-              'source_bindings':bindings}
+              'source_bindings':bound_pins(bindings)}
     if source_bindings() != bindings:
         raise ArithmeticError('weighted local-limit sources changed during replay')
     return result

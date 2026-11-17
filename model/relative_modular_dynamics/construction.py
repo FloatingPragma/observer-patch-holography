@@ -27,6 +27,12 @@ from ..native_modular_reference import construction as modular
 from ..native_relational_readout import construction as relational
 from ..primitive_observer import runtime
 from ..observer.scalar_response.experiment import canonical, compare_receipt
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -738,7 +744,7 @@ def run():
     if phase_bound['operator_error_upper'] > modular.PHASE_ERROR_GATE or mixer_bound['operator_error_upper'] > compiled.ERROR_GATE:
         raise ArithmeticError('fresh full-carrier source comparison failed')
     results = {'schema': 'oph.relative_modular_dynamics.v1', 'all_pass': True,
-        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
         'algebra_audits': [algebra_audit(law) for law in ('C', 'E')],
         'modular_clock_readouts': [modular_clock_audit(law) for law in ('C', 'E')],
         'modular_lab_time_scale_identifiability': [modular_lab_scale_audit(law) for law in ('C', 'E')],

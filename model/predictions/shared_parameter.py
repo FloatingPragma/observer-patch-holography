@@ -15,6 +15,12 @@ import json
 from pathlib import Path
 
 from . import endpoint_audit as endpoint
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PROJECTION = "code/cosmology/tilt_posterior/act_dr6_ns_weight.json.gz"
@@ -97,7 +103,7 @@ def compare_projection(prediction, *, root=ROOT):
     for chain in payload["chains"]:
         drop = len(chain["rows"]) // 2
         retained = chain["rows"][drop:]
-        per_chain.append({"member": chain["member"], "source_sha256": chain["source_sha256"],
+        per_chain.append({"member": chain["member"], "source_sha256": bound_pins(chain["source_sha256"]),
                           "burn_in_rows": drop, "retained_rows": len(retained),
                           **weighted_positions(retained, lower, upper, inherited)})
     total = sum(c["multiplicity"] for c in per_chain)
@@ -130,7 +136,7 @@ def build(*, root=ROOT):
         "schema": "oph.predictions.shared_forward_parameter.v1",
         "classification": "retrospective conditional same-parameter comparison",
         "prediction": prediction, "prediction_sha256_before_comparison": seal,
-        "source_pins": dict(endpoint.SOURCE_PINS),
+        "source_pins": bound_pins(dict(endpoint.SOURCE_PINS)),
         "coupling": {"target": coupling["target"],
                      "relative_inverse_alpha_deficit_ppm": coupling["arithmetic"]["relative_inverse_alpha_deficit_ppm"],
                      "zero_missing_correction_verdict": coupling["verdicts"]["literal_complete_zero_correction_hypothesis"]},

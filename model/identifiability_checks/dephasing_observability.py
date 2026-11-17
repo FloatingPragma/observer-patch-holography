@@ -38,6 +38,12 @@ from model.observer.source_discrimination import certificate
 from model.observer.scalar_response.experiment import canonical, compare_receipt
 from model.predictions import observer_instrument as native_instrument
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 PAPER_URL = 'https://arxiv.org/html/2603.04744v1'
@@ -234,8 +240,8 @@ def run():
             'an independently calibrated duration and noise model for that implementation',
             'candidate-specific predictions for the actual deposited detector settings',
         ],
-        'source_bindings': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                            for path in SOURCE_PATHS},
+        'source_bindings': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                            for path in SOURCE_PATHS}),
     }
 
 

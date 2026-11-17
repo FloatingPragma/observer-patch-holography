@@ -7,6 +7,12 @@ from pathlib import Path
 from tools import strict_json
 from model.exchange_sector.many_body_packet import source_bindings as inherited_bindings
 from .certificate import report
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -17,14 +23,14 @@ def source_bindings():
     paths.update(p.relative_to(ROOT).as_posix() for p in Path(__file__).parent.glob('*.py'))
     paths.add('model/repair_coherence_lifetime/README.md')
     paths.add('paper/tex_fragments/REPAIR_COHERENCE_LIFETIME.tex')
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def build():
     before = source_bindings()
     result = {'schema': 'oph.repair_coherence_lifetime.v1',
               'scope': 'FINITE_COMPONENT_FAMILY', 'all_pass': True,
-              'certificate': report(), 'source_bindings': before,
+              'certificate': report(), 'source_bindings': bound_pins(before),
               'integrated_gate_accepted': False, 'physical_comparison_count_added': 0}
     if source_bindings() != before:
         raise RuntimeError('source changed during exact replay')

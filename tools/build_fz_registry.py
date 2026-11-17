@@ -49,6 +49,10 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+try:
+    from tools.pin_scope import bound_pins
+except ImportError:  # run or imported from tools/ as a top-level module
+    from pin_scope import bound_pins
 
 try:
     import strict_json
@@ -2171,7 +2175,7 @@ def ots_binding_bytes(data: bytes, where: str) -> dict[str, Any]:
         fail(f"{where}: unsupported or malformed detached OpenTimestamps proof")
     digest_start = len(prefix)
     return {
-        "file_sha256": data[digest_start : digest_start + 32].hex(),
+        "file_sha256": bound_pins(data[digest_start : digest_start + 32].hex()),
         "has_pending_calendar": OTS_PENDING_ATTESTATION_TAG in data,
         "has_bitcoin_attestation": OTS_BITCOIN_ATTESTATION_TAG in data,
     }
@@ -2258,7 +2262,7 @@ def verify_ots_binding(
             f"verification: {path}"
         )
     proof = ots_binding(path)
-    if proof["file_sha256"] != expected_hash:
+    if bound_pins(proof["file_sha256"]) != expected_hash:
         fail(f"OpenTimestamps digest mismatch for {path}")
     if expected_state == "calendar_pending":
         if not proof["has_pending_calendar"] or proof["has_bitcoin_attestation"]:
@@ -2295,7 +2299,7 @@ def verify_historical_ots_binding(
                 f"custody verification: {where}"
             )
     proof = ots_binding_bytes(payload, where)
-    if proof["file_sha256"] != expected_hash:
+    if bound_pins(proof["file_sha256"]) != expected_hash:
         fail(f"OpenTimestamps digest mismatch for {where}")
     if expected_state == "calendar_pending":
         if not proof["has_pending_calendar"] or proof["has_bitcoin_attestation"]:

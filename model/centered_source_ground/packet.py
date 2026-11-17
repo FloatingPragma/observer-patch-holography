@@ -11,6 +11,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import bounds,cube,dimer,faithfulness,gap,particles
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).resolve().parent/'results.json'
@@ -25,13 +31,13 @@ def source_bindings():
         'independent_checks':[],
     })
     paths.add('paper/tex_fragments/CENTERED_SOURCE_GROUND.tex')
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def validate(value):
     if value.get('schema')!='oph.centered_source_ground.v1' or value.get('all_pass') is not True:
         raise ValueError('invalid centered-source receipt')
-    if value.get('source_bindings') != source_bindings():
+    if bound_pins(value.get('source_bindings')) != source_bindings():
         raise ValueError('centered-source receipt has incomplete or stale custody')
     row=value['cube']['bounds']
     if row['centered_global_ground_number']!=8 or row['old_N4_ground_remains_centered_ground'] is not False:
@@ -130,14 +136,14 @@ def _produce():
     for name in PRIORS:
         prior=strict_json.loads((ROOT/f'model/{name}/results.json').read_text())
         if prior.get('all_pass') is not True:raise ValueError('prior proof did not pass')
-        for path,digest in prior['source_bindings'].items():
+        for path,digest in bound_pins(prior['source_bindings']).items():
             if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=digest:
                 raise ValueError('prior proof source changed: '+path)
     value={'schema':'oph.centered_source_ground.v1','all_pass':True,
            'cube':cube.certificate(),'cube_local_state':faithfulness.certificate(),
            'finite_gap':gap.certificate(),'charged_particles':particles.certificate(),
            'dimer':dimer.certificate(),'bounds':bounds.certificate(),
-           'source_bindings':pins,
+           'source_bindings':bound_pins(pins),
            'proof_scope':'New charge-clock and new ground. Exact full-source symmetry and imported all-N lower bound; rational rank-one Gram, variance and spin proof of a unique singlet and full finite gap, independent of the separately retained Lieb theorem crosscheck. Certified trial-state error, complete charged-sector and current identities, full-CAR one-site faithfulness, dimer readout and centered thermodynamic construction. Floating eigensolvers only propose integer witnesses; they do not determine admission. No physical particle, topological protection or thermodynamic mass is inferred.'}
     validate(value)
     if source_bindings()!=pins:raise ValueError('source changed during replay')
@@ -153,7 +159,7 @@ def report():
                         '-m','model.centered_source_ground.packet','--worker',str(path)],
                        cwd=ROOT,env=env,check=True,capture_output=True,text=True)
         value=strict_json.loads(path.read_text())
-    if source_bindings()!=pins or value['source_bindings']!=pins:
+    if source_bindings()!=pins or bound_pins(value['source_bindings'])!=pins:
         raise ValueError('source changed across cold replay')
     validate(value);return value
 
@@ -173,7 +179,7 @@ def main():
     else:
         retained=strict_json.loads(args.check.read_text());validate(retained)
         if canonical(value)!=canonical(retained):raise ValueError('centered-source replay changed')
-    print(json.dumps({'all_pass':True,'source_bindings':len(value['source_bindings']),
+    print(json.dumps({'all_pass':True,'source_bindings':bound_pins(len(bound_pins(value['source_bindings']))),
                       'physical_identification':False}))
 
 

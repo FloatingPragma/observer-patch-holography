@@ -10,6 +10,12 @@ from pathlib import Path
 from tools import strict_json
 from ..particle_transport import packet as predecessor
 from . import branches, dictionary
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -72,7 +78,7 @@ def report():
              'physical_particle_identification': False,
              'bare_native_law_modified': False,
              'full_field_source_execution_claimed': False,
-             'source_bindings': pins,
+             'source_bindings': bound_pins(pins),
              'replay_float_absolute_tolerance': REPLAY_ATOL}
     if source_bindings() != pins:
         raise ValueError('charged-defect sources changed during replay')

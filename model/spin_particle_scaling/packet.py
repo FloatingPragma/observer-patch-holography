@@ -10,6 +10,12 @@ import tempfile
 
 from tools import strict_json
 from . import algebra, bounds, experiment
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).with_name('results.json')
@@ -33,7 +39,7 @@ def source_bindings():
     paths=set(INPUTS)
     paths.update(path for path,_ in SNAPSHOTS.values())
     paths.update(str(p.relative_to(ROOT)) for p in Path(__file__).parent.iterdir() if p.suffix in ('.py','.md'))
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def inherited():
@@ -77,7 +83,7 @@ def produce():
     pins=source_bindings()
     value={'schema':'oph.spin_particle_scaling.v1','theorem':theorem(),
            'direct_checks':direct_checks(),'inherited_custody':inherited(),
-           'source_bindings':pins,'source_binding_scope':'explicit narrow mathematical inputs; not parent transitive closures',
+           'source_bindings':bound_pins(pins),'source_binding_scope':'explicit narrow mathematical inputs; not parent transitive closures',
            'new_checks_pass':True,'dependency_custody_pass':False,'all_pass':False}
     if source_bindings()!=pins:raise ValueError('source changed during replay')
     return value

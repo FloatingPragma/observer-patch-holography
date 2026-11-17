@@ -13,6 +13,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from ..exchange_sector import statistics_packet
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -33,7 +39,7 @@ def source_bindings():
     # current static closure as well. The ordered-cover result is recomputed
     # on every column in core.py; no saved protection receipt is consumed.
     paths.update(statistics_packet.source_bindings())
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def _produce():
@@ -44,7 +50,7 @@ def _produce():
     pins = source_bindings()
     for name in PARENTS:
         parent = strict_json.load(ROOT/name)
-        inherited = parent.get('source_bindings', parent.get('source_sha256'))
+        inherited = bound_pins(parent.get('source_bindings', bound_pins(parent.get('source_sha256'))))
         if not inherited or any(pins.get(path) != digest for path, digest in inherited.items()):
             raise ValueError('predecessor source custody changed: '+name)
     value = {
@@ -64,7 +70,7 @@ def _produce():
             'refinement_limit_proved': False,
             'canonical_physical_premises_discharged': [],
         },
-        'source_bindings': pins,
+        'source_bindings': bound_pins(pins),
     }
     if source_bindings() != pins:
         raise ValueError('source changed during local charge replay')
@@ -88,7 +94,7 @@ def report():
         if completed.returncode:
             raise RuntimeError('cold local-charge replay failed:\n'+completed.stderr)
         value = strict_json.load(path)
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across cold local charge replay')
     return value
 

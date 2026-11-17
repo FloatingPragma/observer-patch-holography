@@ -1,6 +1,12 @@
 """Fresh exact same-source dressed-current contraction and complete records."""
 from pathlib import Path
 import argparse,hashlib,json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 from . import bounds
@@ -21,8 +27,8 @@ def raw_certificate():
     pins={};saved={}
     for name,sha in PARENTS.items():
         if digest(ROOT/name)!=sha:raise ValueError('frozen prerequisite changed: '+name)
-        value=json.loads((ROOT/name).read_text());validate(value['input_sha256']);saved[name]=value
-        for path,expected in value['input_sha256'].items():
+        value=json.loads((ROOT/name).read_text());validate(bound_pins(value['input_sha256']));saved[name]=value
+        for path,expected in bound_pins(value['input_sha256']).items():
             if path in pins and pins[path]!=expected:raise ValueError('inconsistent source closure')
             pins[path]=expected
         pins[name]=sha
@@ -38,8 +44,8 @@ def raw_certificate():
       'model/coherent_defect_wave/chiral_joint/atomic_momentum_response/model.py',
       'model/coherent_defect_wave/chiral_joint/atomic_momentum_response/PROOF.md'}
     for relative in import_closure(seeds):pins[relative]=digest(ROOT/relative)
-    value['input_sha256']=dict(sorted(pins.items()))
-    value['owned_source_sha256']={p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    value['input_sha256']=bound_pins(dict(sorted(pins.items())))
+    value['owned_source_sha256']=bound_pins({p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})
     value['fresh_replay']={'original_CAR_scalar_weak_operator_and_all_twelve_Gauss_commutators':True,
       'complete_local_source_and_all_magnetic_charged_target_images':True,
       'exact_full_source_charged_resolvent_and_error':True,
@@ -52,7 +58,7 @@ RESEARCH_SHA='7a3b9756fc1a2e4db5d867492aef7a455676003ff4499293589714d4757f339d'
 def compare_research(value):
     path=HERE/'research_reference.json'
     if digest(path)!=RESEARCH_SHA:raise ValueError('immutable weak-response research receipt changed')
-    expected=json.loads(path.read_text());validate(expected['input_sha256'])
+    expected=json.loads(path.read_text());validate(bound_pins(expected['input_sha256']))
     ignored={'schema','input_sha256','owned_source_sha256'}
     science=lambda record:{k:v for k,v in record.items() if k not in ignored}
     if science(expected)!=science(value):raise ValueError('fresh weak-current science differs from research result')
@@ -66,7 +72,7 @@ def certificate():
     seeds={p.relative_to(ROOT).as_posix() for p in HERE.iterdir() if p.suffix in ('.py','.md')}
     seeds.add((HERE/'research_reference.json').relative_to(ROOT).as_posix())
     for relative in import_closure(seeds):value['input_sha256'][relative]=digest(ROOT/relative)
-    value['input_sha256']=dict(sorted(value['input_sha256'].items()))
+    value['input_sha256']=bound_pins(dict(sorted(bound_pins(value['input_sha256']).items())))
     value['independent_research_comparison']=comparison
     return value
 
@@ -75,7 +81,7 @@ def main():
     group.add_argument('--write',action='store_true');group.add_argument('--check',action='store_true');args=parser.parse_args()
     path=HERE/'results.json'
     if args.check:
-        saved=json.loads(path.read_text());validate(saved['input_sha256'])
+        saved=json.loads(path.read_text());validate(bound_pins(saved['input_sha256']))
     value=certificate()
     if args.write:path.write_text(json.dumps(value,indent=2,sort_keys=True)+'\n')
     elif value!=saved:raise ValueError('fresh same-H current records differ')

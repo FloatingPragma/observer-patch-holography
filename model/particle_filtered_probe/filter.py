@@ -24,6 +24,12 @@ from model.source_family_compatibility.spectral_window_access import cayley_serv
 from model.spin_operational_position.bounds import generic_instrument_plan
 from model.spin_packet_readout import controls as inherited_lcu
 from model.spin_packet_readout.bounds import sqrt_upper
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_INPUTS = (
@@ -561,7 +567,7 @@ def certificate():
               'exact_contraction_and_Lueders_control':finite_effect_control(),
               'inherited_complete_LCU_control': inherited_lcu.exact_control(),
               'inherited_compiler_control': generic_instrument_plan(2, 8, F(1, 10**6)),
-              'source_sha256': hashes,
+              'source_sha256': bound_pins(hashes),
               'primary_nonzero_energy_survival_or_continuum_proved': False}
     if provenance.definition_hashes(paths) != hashes:
         raise ValueError('filter source inputs changed during calculation')

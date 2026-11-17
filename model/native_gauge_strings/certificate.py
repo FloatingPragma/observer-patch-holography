@@ -8,6 +8,12 @@ from pathlib import Path
 
 from ..native_quantum_gauss import packet as owning
 from . import strings
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -50,7 +56,7 @@ def produce():
             'relativistic_or_chiral_continuum_derived': False,
             'physical_or_asymptotic_particle_mass_identified': False,
             'detector_reservoir_or_reset_cost_derived': False},
-        'source_bindings': bindings,
+        'source_bindings': bound_pins(bindings),
     }
     if bindings != source_bindings():
         raise ArithmeticError('source bindings changed during tree certificate generation')

@@ -20,6 +20,12 @@ from pathlib import Path
 from model.observer import native
 from model.observer.scalar_response.experiment import compare_receipt
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / 'model/predictions/data/hensen2015.txt'
@@ -185,8 +191,8 @@ def run():
             'whole_OPH_excluded': False, 'quantum_C_or_E_selected': False,
             'new_native_empirical_confirmation': False, 'lab_clock_calibrated': False,
             'native_repairs_identified_with_laboratory_spacelike_separation': False},
-        'source_bindings': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-                            for name in SOURCE_PATHS}}
+        'source_bindings': bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+                            for name in SOURCE_PATHS})}
 
 
 def main():

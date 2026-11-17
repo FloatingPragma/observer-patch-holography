@@ -23,6 +23,12 @@ import hashlib
 from pathlib import Path
 
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 def _exact(value):
@@ -338,4 +344,4 @@ def source_bindings():
         'model/common_source/native_response_dynamics.py',
         'model/common_source/test_native_response_dynamics.py'}
     root = Path(__file__).resolve().parents[2]
-    return {path: hashlib.sha256((root/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((root/path).read_bytes()).hexdigest() for path in sorted(paths)})

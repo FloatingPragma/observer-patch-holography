@@ -7,6 +7,12 @@ from pathlib import Path
 from tools import strict_json
 from ..moving_defect.experiment import SOURCES,compare
 from . import reset
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -16,7 +22,7 @@ OUTPUT=HERE/'results.json'
 def source_bindings():
     paths=set(SOURCES)|{p.relative_to(ROOT).as_posix() for p in HERE.glob('*.py')}|{
         'model/biased_reset/README.md','model/completion/SAME_PROCESS_INTERFACES.md'}
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def run():
@@ -25,7 +31,7 @@ def run():
         raise ArithmeticError('fair-source control no longer reproduces its own law')
     return {'schema':'oph.biased_reset.v1','owner_issues':[1139,1140,1137],
             'scope':'ACTIVE_CONTINUATION_OF_THE_FIXED_ENDPOINT_BIASED_CODE_FAMILY',
-            'source_bindings':source_bindings(),
+            'source_bindings':bound_pins(source_bindings()),
             'renewal':reset.renewal_certificate(),
             'finite_horizon':reset.bellman_certificate(),
             'complete_service':reset.exact_service_certificate(),

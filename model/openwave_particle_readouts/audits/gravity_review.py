@@ -5,6 +5,12 @@ import json
 
 import numpy as np
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 
@@ -95,7 +101,7 @@ def run():
             assert recovered==n
             histories.append({'exponent':exponent,'a':str(scale),'recovered_capacity_ratio':str(recovered)})
     paths=['model/openwave_gravity_capacity/'+f for f in ('PROOF.md','response.py','capacity.py','Transfer.lean','results.json')]
-    hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}
+    hashes=bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})
     return {'schema':'oph.independent_gravity_capacity_review.v1',
             'reviewed_sha256':hashes,
             'reviewer_source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),

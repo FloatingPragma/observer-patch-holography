@@ -13,6 +13,12 @@ from tools.build_completion_program import integration_source_paths
 from ..radial_geometry_join import packet as parent
 from ..radial_interacting_core.core import encode
 from . import controls, reuse
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = 'model/radial_reused_readout'
@@ -29,16 +35,16 @@ def source_bindings():
         'domain_and_proof': PACKAGE+'/README.md',
         'source_receipts': [PARENT], 'independent_checks': [PACKAGE+'/PROOF.md'],
     })
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def custody():
     value = strict_json.load(ROOT/PARENT)
     if (type(value) is not dict or value.get('schema') != 'oph.radial_geometry_join.v1'
             or value.get('all_pass') is not True
-            or value.get('source_bindings') != parent.source_bindings()):
+            or bound_pins(value.get('source_bindings')) != parent.source_bindings()):
         raise ValueError('the complete current same-field native instrument receipt is required')
-    for path, digest in value['source_bindings'].items():
+    for path, digest in bound_pins(value['source_bindings']).items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != digest:
             raise ValueError('an inherited source binding changed: '+path)
     return {'receipt': PARENT, 'all_current_parent_source_bindings_verified': True,
@@ -74,7 +80,7 @@ def _produce():
     value = {'schema': 'oph.radial_reused_readout.v1', 'all_pass': True,
              'issues': [1143, 1144], 'gates': ['CP-07', 'CP-08'],
              'physical_comparison_count_added': 0,
-             'scope': scope(), 'inherited_custody': custody(), 'source_bindings': pins,
+             'scope': scope(), 'inherited_custody': custody(), 'source_bindings': bound_pins(pins),
              'history': encode({'rounds': 32, 'ordered_binary_histories': 2**32,
                                'unread': reuse.unread_coefficients(32),
                                'one_ordered_balanced_history': reuse.history_coefficients(32, 16)}),
@@ -105,7 +111,7 @@ def report():
                        cwd=ROOT, check=True, capture_output=True, text=True, timeout=300,
                        env=dict(os.environ, OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1'))
         value = strict_json.load(output)
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across cold reused-readout replay')
     validate(value, value)
     return value

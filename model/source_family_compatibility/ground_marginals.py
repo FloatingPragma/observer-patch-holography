@@ -10,6 +10,12 @@ import sympy as s
 
 from tools import strict_json
 from .defect_budget import exact_source
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 NATIVE_INPUTS = (
@@ -228,7 +234,7 @@ def _native_cube_reference():
     if not all(receipt.get(key) is True for key in
                ('all_pass', 'new_checks_pass', 'dependency_custody_pass')):
         raise ArithmeticError('the existing native preparation is not admitted')
-    for name, expected in receipt['source_bindings'].items():
+    for name, expected in bound_pins(receipt['source_bindings']).items():
         if _hash(ROOT/name) != expected:
             raise ArithmeticError('native preparation source binding differs: '+name)
     archive = path.parent/receipt['complete_record_archive']['filename']
@@ -325,7 +331,7 @@ def _native_local_records():
         raise ArithmeticError('fine classical first-failure records were lost')
     return {'existing_preparation_receipt_sha256': _hash(ROOT/'model/centered_native_preparation/results.json'),
             'existing_preparation_archive_sha256': _hash(archive),
-            'existing_source_bindings_authenticated': len(receipt['source_bindings']),
+            'existing_source_bindings_authenticated': len(bound_pins(receipt['source_bindings'])),
             'existing_preparation_tape_reexecuted': False,
             'additional_native_tagging_pulses_executed': len(word)*2,
             'fresh_blank_tag_registers_consumed': 2,

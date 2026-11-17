@@ -7,6 +7,12 @@ import numpy as np
 from model.protected_particle_readout import packet,experiment
 from model.cube_eta_protection import repair
 from . import kernel,interval_replay,arithmetic
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -22,7 +28,7 @@ def specification():
     require(digest(ROOT/spec['retained_array'])==spec['retained_array_sha256'],'retained complete NPZ changed')
     require(digest(ROOT/spec['original_producer'])==spec['original_producer_sha256'],'original producer changed')
     old=json.loads((ROOT/spec['retained_receipt']).read_text())
-    expected=dict(old['source_bindings'])
+    expected=dict(bound_pins(old['source_bindings']))
     for path,transition in spec['typed_parent_metadata_transitions'].items():
         require(expected[path]==transition['retained'],'parent baseline changed')
         expected[path]=transition['current']
@@ -32,8 +38,8 @@ def specification():
     return spec,old,expected
 
 def verify_legacy_projection(old,canonical,pins):
-    require(canonical['source_bindings'] in (old['source_bindings'],pins),'legacy source projection is unreviewed')
-    restored=copy.deepcopy(canonical);restored['source_bindings']=old['source_bindings']
+    require(bound_pins(canonical['source_bindings']) in (bound_pins(old['source_bindings']),pins),'legacy source projection is unreviewed')
+    restored=copy.deepcopy(canonical);restored['source_bindings']=bound_pins(old['source_bindings'])
     require(restored==old,'legacy scientific fields or archive metadata changed')
 
 
@@ -119,8 +125,8 @@ def numerical_paths(value):
 
 def compare_science(old,fresh):
     """Only independently validated diagnostic fields use the successor rule."""
-    _,_,pins=specification();require(fresh['source_bindings']==pins,'fresh source pins changed')
-    baseline=copy.deepcopy(old);baseline['source_bindings']=pins
+    _,_,pins=specification();require(bound_pins(fresh['source_bindings'])==pins,'fresh source pins changed')
+    baseline=copy.deepcopy(old);baseline['source_bindings']=bound_pins(pins)
     allowed=numerical_paths(old)
     def walk(a,b,path='receipt'):
         require(type(a)is type(b),'scientific type changed: '+path)
@@ -157,7 +163,7 @@ def report(fresh_pair=None):
     compare_science(old,value);current=validate(value,current_arrays,budget=budget)
     rejected=False
     try:
-        baseline=copy.deepcopy(old);baseline['source_bindings']=value['source_bindings'];packet.compare(baseline,value)
+        baseline=copy.deepcopy(old);baseline['source_bindings']=bound_pins(value['source_bindings']);packet.compare(baseline,value)
     except ValueError:rejected=True
     return {'schema':'oph.protected_readout_numerics.v1','scope':'same finite17-bit program; corrected numerical replay contract',
             'physical_statuses_changed':False,'old_checker_and_admission_preserved':True,
@@ -171,5 +177,5 @@ def report(fresh_pair=None):
 
 def live_projection():
     spec,old,pins=specification()
-    result=copy.deepcopy(old);result['source_bindings']=pins
+    result=copy.deepcopy(old);result['source_bindings']=bound_pins(pins)
     return result

@@ -5,6 +5,12 @@ from pathlib import Path
 from model.compiled_native_history.compiler import compile_history
 from model.native_program import interpreter as native
 from model.openwave_native_process.source import admitted_local_program,fixed_command
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 PARENT='model/openwave_capacity_finite_wavelength/results.json'
@@ -27,7 +33,7 @@ def run():
     run3=compile_history(admitted_local_program(commands=long,capacity=3,overflow='halt'))
     assert stop.status=='FIFO_TIMEOUT' and run3.status=='COMPLETE'
     parent=json.loads((ROOT/PARENT).read_text())
-    for rel,h in parent['source_sha256'].items():
+    for rel,h in bound_pins(parent['source_sha256']).items():
         assert hashlib.sha256((ROOT/rel).read_bytes()).hexdigest()==h,rel
     return {'schema':'oph.native_capacity_history.v1',
         'verdict':'PASS_COMPLETE_NATIVE_MEMORY_AND_NORMALIZATION_BOUNDARY',

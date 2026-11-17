@@ -13,6 +13,12 @@ import json
 from pathlib import Path
 
 from model.defect_particle_classes.model import fields, patterns
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -289,7 +295,7 @@ def receipt():
         identified_linear_combinations="precisely coefficients constant within each populated class; over all censuses, the row space of the six-class matrix",
         indistinguishable_populations=examples, thermal_benchmark=thermal,
         checks=checks, all_checks_pass=all(checks.values()), physical_species_claim=False,
-        input_sha256={name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in inputs}))
+        input_sha256=bound_pins({name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in inputs})))
 
 
 def main():

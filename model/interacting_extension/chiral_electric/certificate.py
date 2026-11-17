@@ -8,6 +8,12 @@ from pathlib import Path
 
 from . import covariant_kinetic
 from .._source import PIN, ROOT, verify_sources
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 OUTPUT=HERE/"results.json"
@@ -41,7 +47,7 @@ def report():
         raise ArithmeticError("Source changed during chiral-electric replay")
     return {
         "schema":"oph.interacting_extension.chiral_electric_certificate.v1",
-        "source_commit":PIN,"source_sha256":before,
+        "source_commit":PIN,"source_sha256":bound_pins(before),
         "source_domain":{"charge":6,"Euclidean_sites":16,"spin_site_dimension":64,"chiral_rank":32},
         "declared_controls":{"toron_per_link":[.17,-.11,.07,.03],"holonomy_halfwidth":.16,
             "kinetic_coefficient":.01,"boundary":"Dirichlet","grid_sizes":[5,9,17],

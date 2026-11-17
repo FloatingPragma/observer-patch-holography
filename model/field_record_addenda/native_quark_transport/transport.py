@@ -3,6 +3,12 @@ from pathlib import Path
 import hashlib
 import json
 import sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
@@ -104,7 +110,7 @@ def certificate():
     parents={}; inputs={}
     for name in PARENTS:
         value=json.loads((ROOT/name).read_text()); parents[name]=pin(ROOT/name)
-        for path,expected in value['input_sha256'].items():
+        for path,expected in bound_pins(value['input_sha256']).items():
             assert pin(ROOT/path)==expected, path
             if path in inputs:assert inputs[path]==expected
             inputs[path]=expected
@@ -114,11 +120,11 @@ def certificate():
                   'model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/model.py'))
     for path in import_closure(seeds): inputs[path]=pin(ROOT/path)
     return dict(schema='oph.research.native_quark_transport.v1', algebra=source_algebra(),
-        finite_records=bounds(), parent_sha256=parents, input_sha256=dict(sorted(inputs.items())),
+        finite_records=bounds(), parent_sha256=parents, input_sha256=bound_pins(dict(sorted(inputs.items()))),
         scope=dict(same_full_H_compensated_quark_type_transport=True,
                    energy_resolved_propagation=False, relativistic_dispersion=False,
                    measured_quark_identity_or_mass=False, GeV_calibration=False),
-        owned_source_sha256={p.name:pin(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})
+        owned_source_sha256=bound_pins({p.name:pin(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}))
 
 
 if __name__ == '__main__':

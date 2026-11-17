@@ -6,6 +6,12 @@ import json
 from fractions import Fraction as F
 from pathlib import Path
 from . import bounds, coefficients, controls, envelope, filters, finite
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -53,7 +59,7 @@ def bindings():
                 for entry in node.names:
                     add(target+'.'+entry.name)
     paths.update(PROOFS)
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def build():
@@ -70,7 +76,7 @@ def build():
         raise ArithmeticError('finite demonstration failed its conditional error target')
     result = {
         'schema': 'oph.spin_packet_readout.v1',
-        'source_bindings': before,
+        'source_bindings': bound_pins(before),
         'new_checks_pass': True,
         'explicit_Goldstone_filter': filters.encode(filters.goldstone_filter()),
         'explicit_band_limited_envelope': envelope.certificate(),

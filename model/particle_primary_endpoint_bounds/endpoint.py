@@ -13,6 +13,12 @@ from model.particle_primary_spectral_scale import scale
 from model.particle_spatial_ground_state import ground
 from model.particle_local_wilson_density import density
 from model.spin_packet_readout.bounds import sqrt_upper
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=(
     'model/particle_primary_endpoint_bounds/__init__.py',
@@ -205,7 +211,7 @@ def certificate():
         'authenticated_endpoint_enclosures':[compare_with_variational(m,variational.bind_member(m))
                                              for m in members],
         'endpoint_branch_isolation_proved':False,
-        'physical_mass_table_GeV':[], 'source_sha256':pins}
+        'physical_mass_table_GeV':[], 'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:
         raise ValueError('endpoint-bound inputs changed during replay')
     return result

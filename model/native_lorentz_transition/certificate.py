@@ -8,6 +8,12 @@ import json
 from pathlib import Path
 
 from . import transition as t
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -80,8 +86,8 @@ def build():
         raise AssertionError('the perturbed map should have a nonzero metric defect')
     return _encode({
         'schema': 'oph.native_lorentz_transition.v1',
-        'source_bindings': {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
-                            for name in SOURCE_FILES},
+        'source_bindings': bound_pins({name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+                            for name in SOURCE_FILES}),
         'exact_scalar_encoding': 'rational pair [a,b] denotes a+b*sqrt(5)',
         'native_design_rank': source['exact_design_rank'],
         'native_kernel_dimension': source['exact_kernel_dimension'],

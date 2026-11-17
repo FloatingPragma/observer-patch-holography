@@ -10,6 +10,12 @@ from pathlib import Path
 from tools import strict_json
 from model.spin_charge_dispersion import order
 from . import bounds, finite, dispersion
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -62,7 +68,7 @@ def bindings():
                 target=importlib.util.resolve_name(target,package)if node.level else target
                 add(target)
                 for alias in node.names:add(target+'.'+alias.name)
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()for name in sorted(names)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()for name in sorted(names)})
 
 
 def build():
@@ -73,7 +79,7 @@ def build():
     for n in (1,2,3,4):
         eps=p**n*4**(n-1)/(4*n*(n-1))if n>1 else F(1,2)
         configurations.append(bounds.configuration(n,F(1),F(4),filter_data,p,eps))
-    result={'schema':'oph.spin_multipacket_comparison.v1','all_pass':True,'source_bindings':before,
+    result={'schema':'oph.spin_multipacket_comparison.v1','all_pass':True,'source_bindings':bound_pins(before),
         'actual_source_order_bound':order.certificate(),
         'actual_finite_local_source_control':finite.build(),
         'actual_source_scalar_dispersion_diagnostic':dispersion.build(),

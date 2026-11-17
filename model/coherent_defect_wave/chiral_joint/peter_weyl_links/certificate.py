@@ -8,6 +8,12 @@ from .model import descriptor
 from .checks import (clebsch_checks, matrix_checks, path_checks,
                      rotation_word_checks, actual_hamiltonian_checks)
 from .experiment import preparation_checks, transfer_checks
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[4]
 PACKAGE = 'model/coherent_defect_wave/chiral_joint/peter_weyl_links/'
@@ -30,7 +36,7 @@ def input_hashes():
     for name in sorted(paths):
         if not (ROOT / name).is_file():
             raise FileNotFoundError('missing Peter-Weyl import input: ' + name)
-    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def certificate():
@@ -43,4 +49,4 @@ def certificate():
         'actual_occupied_Hamiltonian_controls': actual_hamiltonian_checks(),
         'physical_source_reference_preparation': preparation_checks(),
         'complete_neutral_transfer_experiment': transfer_checks(),
-        'input_sha256': input_hashes()}
+        'input_sha256': bound_pins(input_hashes())}

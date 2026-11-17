@@ -5,6 +5,12 @@ from pathlib import Path
 from model.common_source.chiral_candidate import action
 from model.particle_common_contract.provenance import import_closure
 from . import algebra,characters,physical,spectrum,reference
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[4]
 PACKAGE='model/coherent_defect_wave/chiral_joint/local_reference/'
@@ -24,7 +30,7 @@ def input_hashes():
     paths=import_closure(seeds)
     for name in sorted(paths):
         if not (ROOT/name).is_file():raise FileNotFoundError('missing local reference import input: '+name)
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def certificate():
@@ -39,4 +45,4 @@ def certificate():
         'complete_maximal_module_physical_reduction':physical.certificate(),
         'global_physical_ground_and_gap':spectrum.certificate(),
         'selected_stationary_reference':reference.certificate(),
-        'input_sha256':input_hashes()}
+        'input_sha256':bound_pins(input_hashes())}

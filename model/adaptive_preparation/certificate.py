@@ -13,6 +13,12 @@ from model.observer import native
 from model.completion import observer
 from model.completion.family import FamilyParameters
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -138,7 +144,7 @@ def report():
                'model/completion/stationary_reference_results.json']
     sources += [p.relative_to(ROOT).as_posix() for p in sorted(HERE.iterdir()) if p.suffix in ('.py', '.md')]
     return {'schema': 'oph.adaptive_preparation.v1',
-            'source_bindings': {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in sources},
+            'source_bindings': bound_pins({p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in sources}),
             'kernel': {'states': len(states), 'stationary_support': sum(p > 0 for p in probabilities),
                        'transition_denominator': 120, 'block_attempts': BLOCK_LENGTH,
                        'common_column_numerators': minima, 'block_denominator': 120 ** BLOCK_LENGTH,

@@ -18,6 +18,12 @@ from ..observer import native
 from ..primitive_observer import runtime, transfer
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -403,7 +409,7 @@ def run():
         waited.append({'start': start, 'attempts': 16, 'first_move_probabilities': list(map(str, mass)),
                        'no_move_tail_probability': str(tail)})
     return {'schema': 'oph.native_current_clock.v1', 'all_pass': True,
-            'sources': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
+            'sources': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
             'exact_marked_lumping': {
                 'original_configurations': 66, 'primitive_branch_addresses_checked': 3960,
                 'reduced_classes': ['adjacent occupied ports', 'distance-two occupied ports', 'antipodal occupied ports'],

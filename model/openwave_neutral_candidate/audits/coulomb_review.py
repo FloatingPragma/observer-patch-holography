@@ -5,6 +5,12 @@ from pathlib import Path
 import hashlib,json,random
 import numpy as np
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[2]
 TARGET=ROOT/'model/openwave_current_coulomb'
@@ -119,10 +125,10 @@ def green_profile_review():
 
 def report():
     paths=[TARGET/name for name in ('source.py','result.py','PROOF.md','results.json')]+[Path(__file__)]
-    pins={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+    pins=bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths})
     receipt=json.loads((TARGET/'results.json').read_text())
-    assert all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h for p,h in receipt['input_sha256'].items())
-    result={'schema':'oph.independent_native_current_coulomb_review.v1','input_sha256':pins,
+    assert all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h for p,h in bound_pins(receipt['input_sha256']).items())
+    result={'schema':'oph.independent_native_current_coulomb_review.v1','input_sha256':bound_pins(pins),
         'cochains':cochain_review(),'native_operator':native_operator_review(),'Green_profile':green_profile_review(),
         'scope':'The native-current Gauss quadratic is a valid original-source observable. The original unscreened domain has the retained linear link-cost obstruction. Removing that penalty defines a distinct source with Coulomb static trial energies, without transferring the original interacting ground or transport probabilities; kappa and physical unit conversion are not derived.',
         'verdict':'PASS_INDEPENDENT_NATIVE_CURRENT_COULOMB_REVIEW'}

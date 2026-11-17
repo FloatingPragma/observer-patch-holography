@@ -6,6 +6,12 @@ import numpy as np
 import sympy as s
 from scipy.linalg import eigh,expm
 from model.openwave_larmor_dynamics.dynamics import diagonalize,current
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[2]
 PAULI=[np.array([[0,1],[1,0]],complex),np.array([[0,-1j],[1j,0]],complex),np.diag([1.,-1.])]
@@ -66,7 +72,7 @@ def run():
         'maximum_independent_density_continuity_error':max_continuity,
         'exact_fixed_state_contraction_upper':str(q),
         'scope':'The nonlinear quasistatic law is a semiclassical state-dependent construction, not an arbitrary-reference CP channel; no long-time interval error or continuum g is inferred.',
-        'source_sha256':{str(f.relative_to(ROOT)):hashlib.sha256(f.read_bytes()).hexdigest() for f in files},'verdict':'PASS'}
+        'source_sha256':bound_pins({str(f.relative_to(ROOT)):hashlib.sha256(f.read_bytes()).hexdigest() for f in files}),'verdict':'PASS'}
 
 
 if __name__=='__main__':

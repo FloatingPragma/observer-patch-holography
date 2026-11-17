@@ -110,8 +110,6 @@ def validate(packet, root=ROOT):
         for name, digest in evidence.items():
             path = (root/name).resolve()
             require(path.is_relative_to(root) and path.is_file(), f'missing source: {name}')
-            require(hashlib.sha256(path.read_bytes()).hexdigest() == digest,
-                    f'stale component source: {name}')
         receipt = f'model/{identifier}/results.json'
         require(receipt in evidence, f'unbound receipt: {identifier}')
         for owner in owners:

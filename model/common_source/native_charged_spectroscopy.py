@@ -33,6 +33,12 @@ from . import record_code as code
 from .mass_response import history
 from ..observer.source_scalar import compiler
 from ..observer.source_discrimination import circuit
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -628,7 +634,7 @@ def source_bindings():
         'model/common_source/mass_response/history.py', 'tools/strict_json.py',
         'model/observer_particles/representation_identification.py',
         'model/observer_particles/results/representation_identification_operators.json'}
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def _compare(left, right, path='receipt'):
@@ -690,7 +696,7 @@ def check(path):
     path = Path(path)
     report = strict_json.load(path)
     pins = source_bindings()
-    if type(report) is not dict or report.get('source_bindings') != pins:
+    if type(report) is not dict or bound_pins(report.get('source_bindings')) != pins:
         raise ValueError('native charged spectroscopy source bindings differ')
     artifact = path.with_suffix('.npz')
     if report.get('artifact') != {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}:
@@ -722,7 +728,7 @@ def main():
     report, arrays = execute()
     if source_bindings() != pins:
         raise ValueError('native charged spectroscopy source changed during build')
-    report['source_bindings'] = pins
+    report['source_bindings'] = bound_pins(pins)
     with artifact.open('xb') as out:
         np.savez_compressed(out, **arrays)
     report['artifact'] = {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}

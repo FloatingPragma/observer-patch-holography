@@ -48,6 +48,12 @@ from tools import strict_json
 from . import record_code as code, parameter_selection as selection, slow_geometry
 from . import repair_field_attachment as field
 from ..observer.source_scalar import compiler
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 ANGLE = F(1, 256)
@@ -495,7 +501,7 @@ def source_bindings():
         'code/m1_source_realization/model.py', 'code/source_selection_model/response.json',
         'model/observer_particles/gauge_particle_identification.py',
         'model/observer_particles/representation_identification.py'}
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def _compare(expected, actual, path='receipt'):
@@ -523,7 +529,7 @@ def _compare(expected, actual, path='receipt'):
 def check(path):
     path = Path(path)
     report = strict_json.load(path)
-    if type(report) is not dict or report.get('source_bindings') != source_bindings():
+    if type(report) is not dict or bound_pins(report.get('source_bindings')) != source_bindings():
         raise ValueError('virtual-exchange source bindings differ')
     artifact = path.with_suffix('.npz')
     if report.get('artifact') != {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}:
@@ -555,7 +561,7 @@ def main():
     if args.output.exists() or artifact.exists():
         parser.error('choose fresh receipt and artifact paths')
     report, arrays = build()
-    report['source_bindings'] = source_bindings()
+    report['source_bindings'] = bound_pins(source_bindings())
     with artifact.open('xb') as output:
         np.savez_compressed(output, **arrays)
     report['artifact'] = {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}

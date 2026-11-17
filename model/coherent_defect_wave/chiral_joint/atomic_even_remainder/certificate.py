@@ -7,6 +7,12 @@ from model.particle_common_contract.provenance import import_closure
 from ..atomic_reference_control.lattice import atomic_certificate,hopping_certificate,gap_data,hopping_norm
 from .bounds import coefficient_certificate,quartic_remainder
 from .symmetry import certificate as symmetry_certificate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[4]
 PACKAGE='model/coherent_defect_wave/chiral_joint/atomic_even_remainder/'
@@ -26,7 +32,7 @@ def input_hashes():
     paths=import_closure(seeds)
     for name in sorted(paths):
         if not (ROOT/name).is_file():raise FileNotFoundError('missing even remainder import input: '+name)
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def certificate():
@@ -53,4 +59,4 @@ def certificate():
         'unique_interacting_ground_from_parity_alone':False,
         'unit_hopping_or_larger_spectral_lattice_transferred':False,
         'all_charged_intermediate_states_retained':True,'numerical_eigensolver_used':False,
-        'input_sha256':input_hashes()}
+        'input_sha256':bound_pins(input_hashes())}

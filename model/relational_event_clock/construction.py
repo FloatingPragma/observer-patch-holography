@@ -15,6 +15,12 @@ from ..relative_modular_dynamics import construction as modular
 from ..native_interface import construction as interface
 from ..primitive_observer import runtime
 from ..observer.scalar_response.experiment import canonical
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -407,7 +413,7 @@ def coherent_execution(law, cap=3):
 
 def run():
     return {'schema': 'oph.relational-event-clock.v1',
-        'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
+        'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
         'local_clock': palm_report(), 'continuing_two_event_laws': joint_report(),
         'invariance_and_controls': controls(),
         'complete_finite_executions': [finite_joint(False), finite_joint(True)],

@@ -13,6 +13,12 @@ from tools.build_completion_program import integration_source_paths
 from ..topological_defect_spectrum import packet as textured
 from ..native_odd_box_core import packet as original
 from . import algebra, response
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -32,8 +38,8 @@ def source_bindings():
         'independent_checks': [],
     })
     paths.add(PACKAGE+'/PROOF.md')
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(paths)})
 
 
 def inherited_custody():
@@ -42,10 +48,10 @@ def inherited_custody():
         parent = strict_json.load(ROOT/f'model/{name}/results.json')
         if (parent.get('schema') != 'oph.'+name+'.v1'
                 or parent.get('all_pass') is not True
-                or parent.get('source_bindings') != producer.source_bindings()
+                or bound_pins(parent.get('source_bindings')) != producer.source_bindings()
                 or parent.get('scope', {}).get('completion_gate_accepted') is not False):
             raise ValueError('missing, stale or promoted finite source: '+name)
-        for path, digest in parent['source_bindings'].items():
+        for path, digest in bound_pins(parent['source_bindings']).items():
             if hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != digest:
                 raise ValueError('inherited source digest changed: '+path)
         result[name] = {'complete_current_source_manifest_verified': True,
@@ -95,7 +101,7 @@ def validate(value, replay=None):
             or type(value['physical_comparison_count_added']) is not int
             or value['physical_comparison_count_added'] != 0):
         raise ValueError('finite pole evidence cannot accept physical completion')
-    if value['source_bindings'] != source_bindings():
+    if bound_pins(value['source_bindings']) != source_bindings():
         raise ValueError('response source manifest is incomplete or stale')
     for key, expected in [('response', response.certificate()),
                           ('currents', algebra.certificate()),
@@ -114,7 +120,7 @@ def _produce():
              'issues': [1140, 1142, 1143], 'gates': ['CP-04', 'CP-06', 'CP-07'],
              'response': response.certificate(), 'currents': algebra.certificate(),
              'scope': scope(), 'physical_comparison_count_added': 0,
-             'inherited_custody': inherited_custody(), 'source_bindings': pins}
+             'inherited_custody': inherited_custody(), 'source_bindings': bound_pins(pins)}
     validate(value)
     if source_bindings() != pins:
         raise ValueError('source changed during response replay')
@@ -131,7 +137,7 @@ def report():
                         '-m', 'model.defect_core_response.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.load(path)
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across the cold response replay')
     validate(value)
     return value

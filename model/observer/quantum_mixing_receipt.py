@@ -11,6 +11,12 @@ import json
 from pathlib import Path
 
 from . import quantum_mixing, quantum_memory
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -79,8 +85,8 @@ def carrier_spectrum():
 def run():
     return {
         "schema": "oph.observer.quantum_mixing.v1",
-        "source_sha256": {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
-                          for name in SOURCE_PATHS},
+        "source_sha256": bound_pins({name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+                          for name in SOURCE_PATHS}),
         "sectors": quantum_mixing.audit(),
         "carrier_spectrum": carrier_spectrum(),
         "memory": quantum_memory.audit(),

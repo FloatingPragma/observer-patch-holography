@@ -5,6 +5,12 @@ from functools import lru_cache
 import hashlib
 import json
 from pathlib import Path
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -53,10 +59,10 @@ def authenticate(root, pins):
 
 def load_inputs(root=ROOT):
     child=load_json(root/CHILD)
-    authenticate(root,child.get('source_bindings'))
+    authenticate(root,bound_pins(child.get('source_bindings')))
     candidate=load_json(root/MAP)
     parent=load_json(root/PARENT)
-    authenticate(root,parent.get('source_bindings'))
+    authenticate(root,bound_pins(parent.get('source_bindings')))
     refs=load_json(root/REFS)
     from tools.build_completion_program import integration_source_paths
     from . import (memory_diffusion, charged_field_admission, measured_mass_join,
@@ -83,7 +89,7 @@ def load_inputs(root=ROOT):
     paths=integration_source_paths(root,{
         'domain_and_proof':'model/particle_candidate_atlas/README.md',
         'source_receipts':[CHILD], 'independent_checks':sorted(direct)})
-    pins={name:digest(root/name) for name in sorted(paths)}
+    pins=bound_pins({name:digest(root/name) for name in sorted(paths)})
     return child,candidate,parent,refs,pins
 
 
@@ -228,7 +234,7 @@ def project(child,candidate,parent,refs,pins):
                      'optional_charged_GeV':[[str(v*electron) for v in box(r)] for r in ratios],
                      'electron_unit_is_supplied':True,
                      'optional_GeV_values_propagate_electron_uncertainty':False})
-    return {'schema':'oph.particle_candidate_atlas.v1','input_sha256':pins,
+    return {'schema':'oph.particle_candidate_atlas.v1','input_sha256':bound_pins(pins),
         'source_binding_count':len(pins),'candidate_rows':candidate['rows'],
         'source_weight_groups':groups,'protected_objects':defects['entries'],
         'reference':refs,'lepton_branches':rows,

@@ -5,6 +5,12 @@ import json
 from pathlib import Path
 
 from .bounds import SOURCE_INPUTS, certificate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -16,11 +22,11 @@ def build():
     paths.update(str(p.relative_to(ROOT)) for p in HERE.iterdir()
                  if p.suffix in ('.py', '.md'))
     def pins():
-        return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
-                for p in sorted(paths)}
+        return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
+                for p in sorted(paths)})
     before = pins()
     value = certificate()
-    value['input_sha256'] = before
+    value['input_sha256'] = bound_pins(before)
     if pins() != before:
         raise ValueError('source changed during locality replay')
     return json.dumps(value, indent=2, sort_keys=True, ensure_ascii=False)+'\n'

@@ -14,6 +14,12 @@ import numpy as np
 
 from .._source import ROOT, PIN, verify_sources
 from . import native_record_dynamics as native
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 TOLERANCE = 3e-12
@@ -104,14 +110,14 @@ def stable_report(raw, arrays, repo=ROOT):
         clean['floating_perron_value_absolute_error_upper_rational'] = '1/100000000000000'
         certificates.append(clean)
     result['exact_perron_root_certificates'] = certificates
-    names = sorted(raw['candidates']['C']['metadata']['source_hashes'])
-    result['source_sha256'] = verify_sources(repo, names)
+    names = sorted(bound_pins(raw['candidates']['C']['metadata']['source_hashes']))
+    result['source_sha256'] = bound_pins(verify_sources(repo, names))
     implementation = [HERE/'native_record_dynamics.py', HERE/'certificate.py',
                       HERE.parent/'_source.py', HERE.parent/'source_manifest.json']
     # Package-relative keys, the convention model/verify.py uses for this field.
-    result['implementation_sha256'] = {
+    result['implementation_sha256'] = bound_pins({
         os.path.relpath(path, HERE).replace(os.sep, '/'): hashlib.sha256(path.read_bytes()).hexdigest()
-        for path in implementation}
+        for path in implementation})
     result['array_contract'] = {}
     for name, array in sorted(arrays.items()):
         if not np.isfinite(array).all():

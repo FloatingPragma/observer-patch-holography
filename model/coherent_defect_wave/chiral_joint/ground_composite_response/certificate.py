@@ -6,6 +6,12 @@ from model.common_source.chiral_candidate import action
 from model.particle_common_contract.provenance import import_closure
 from .spectrum import certificate as spectral_certificate
 from .apparatus import certificate as apparatus_certificate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[4]
 PACKAGE='model/coherent_defect_wave/chiral_joint/ground_composite_response/'
@@ -25,7 +31,7 @@ def input_hashes():
     paths=import_closure(seeds)
     for name in sorted(paths):
         if not (ROOT/name).is_file():raise FileNotFoundError('missing ground response import input: '+name)
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def certificate():
@@ -44,4 +50,4 @@ def certificate():
             'unconstrained_or_boundary_compensated_reference':False,
             'interacting_many_cell_vacuum_or_dispersion_proved':False,
             'observed_relativistic_particle_identification_proved':False},
-        'input_sha256':input_hashes()}
+        'input_sha256':bound_pins(input_hashes())}

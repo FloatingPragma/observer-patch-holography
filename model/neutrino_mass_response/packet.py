@@ -5,6 +5,12 @@ from pathlib import Path
 
 from model.particle_common_contract.provenance import import_closure
 from . import comparison, neutral, self_energy, sterile, sterile_records, transport
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -16,12 +22,12 @@ def bindings():
         'model/defect_mass_join/PROOF.md',
         'model/coherent_defect_wave/chiral_joint/neutral_composite/PROOF.md',
         'model/coherent_defect_wave/chiral_joint/ground_composite_response/PROOF.md'})
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(seeds))}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(seeds))})
 
 
 def certificate():
     pins = bindings()
-    result = {'schema': 'oph.neutrino_mass_response.v1', 'source_bindings': pins,
+    result = {'schema': 'oph.neutrino_mass_response.v1', 'source_bindings': bound_pins(pins),
         'native_neutral_and_declared_composite_Majorana_operators': neutral.certificate(),
         'complete_few_site_neutral_transport': transport.calculate(),
         'complete_native_neutral_normal_selfenergy': self_energy.calculate(),

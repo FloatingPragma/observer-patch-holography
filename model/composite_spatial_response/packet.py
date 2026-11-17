@@ -13,6 +13,12 @@ from tools.build_completion_program import integration_source_paths
 from ..charged_composite_search import packet as inherited
 from ..centered_particle_spectrum.packet import inherited_inputs
 from . import certificate, source
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = Path(__file__).resolve().parent
@@ -32,7 +38,7 @@ def source_bindings():
     paths.update({'model/composite_spatial_response/README.md',
                   'model/charged_composite_search/witness.npz',
                   'model/centered_particle_spectrum/witness.npz'})
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def produce():
@@ -55,7 +61,7 @@ def produce():
               'inherited_ground_inputs': inherited_inputs(),
               'canonical_physical_premises_discharged': [],
               'integrated_gate_accepted': False, 'source_law_changed': False,
-              'source_bindings': pins}
+              'source_bindings': bound_pins(pins)}
     if pins != source_bindings():
         raise ValueError('composite spatial sources changed during exact replay')
     return result
@@ -79,7 +85,7 @@ def report():
         if process.returncode:
             raise RuntimeError('cold composite spatial replay failed:\n'+process.stderr)
         result = strict_json.load(destination)
-    if pins != source_bindings() or result['source_bindings'] != pins:
+    if pins != source_bindings() or bound_pins(result['source_bindings']) != pins:
         raise ValueError('composite spatial sources changed across cold replay')
     return result
 

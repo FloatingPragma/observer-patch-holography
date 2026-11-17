@@ -8,6 +8,12 @@ from pathlib import Path
 
 from tools import strict_json
 from . import comparison as c
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -20,7 +26,7 @@ SOURCE_FILES = tuple('model/native_clock_comparison/'+name for name in (
 def source_bindings():
     result = c.response.source_bindings()
     result.update(c.observable_packet.source_bindings())
-    result.update({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_FILES})
+    result.update(bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_FILES}))
     return dict(sorted(result.items()))
 
 
@@ -44,7 +50,7 @@ def produce():
                  'spatial_or_relativistic_clock_identification_proved': False,
                  'different_reference_or_general_encoding_ruled_out': False,
                  'particle_mass_interpretation': False},
-             'source_bindings': bindings}
+             'source_bindings': bound_pins(bindings)}
     if source_bindings() != bindings:
         raise ArithmeticError('clock comparison source files changed during replay')
     return value

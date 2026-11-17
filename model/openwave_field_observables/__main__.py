@@ -4,6 +4,12 @@ import hashlib
 import json
 from pathlib import Path
 from . import waves, electrostatic, mass_shell, orbitals
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -25,7 +31,7 @@ def produce():
              'model/openwave_field_observables/PROOF.md']
     return {'schema': 'oph.finite_field_observables.v1',
             'source_basis_commit': 'd88d4854744037accdee6a24cae21b1d7623daf1',
-            'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths},
+            'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}),
             'jobs': jobs, 'verdict': 'PASS_SCOPED_FIELD_OBSERVABLES'}
 
 

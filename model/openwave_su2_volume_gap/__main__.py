@@ -5,6 +5,12 @@ import json
 from pathlib import Path
 from .source import run
 import model.openwave_pure_su2_source.source as parent
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = Path(parent.__file__).resolve().parents[2]
@@ -17,10 +23,10 @@ def pins():
              'model/openwave_su2_transfer/transfer.py',
              'model/openwave_su2_transfer/PROOF.md',
              'model/openwave_su2_transfer/results.json')
-    result = {p: sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}
+    result = bound_pins({p: sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})
     for rel in ('model/openwave_pure_su2_source/results.json', 'model/openwave_su2_transfer/results.json'):
         receipt = json.loads((ROOT/rel).read_text())
-        for p, expected in receipt['source_sha256'].items():
+        for p, expected in bound_pins(receipt['source_sha256']).items():
             actual = sha256((ROOT/p).read_bytes()).hexdigest()
             assert actual == expected, ('stale parent', p)
             if p in result:
@@ -38,7 +44,7 @@ def main():
     group.add_argument('--write', action='store_true')
     group.add_argument('--check', action='store_true')
     args = parser.parse_args()
-    result = run(); result['source_sha256'] = pins()
+    result = run(); result['source_sha256'] = bound_pins(pins())
     text = json.dumps(result, sort_keys=True, indent=2, allow_nan=False)+'\n'
     output = HERE/'results.json'
     if args.write:

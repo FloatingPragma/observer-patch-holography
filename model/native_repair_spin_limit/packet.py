@@ -7,6 +7,12 @@ from pathlib import Path
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import algebra, bounds
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -26,7 +32,7 @@ def source_bindings():
         'source_receipts': list(PARENTS),
         'independent_checks': ['model/native_repair_spin_limit/PROOF.md'],
     })
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 _IMPORTED_BINDINGS = source_bindings()
@@ -42,13 +48,13 @@ def report():
             raise ValueError('specified source parent required: '+path)
         if path.endswith('bipartite_spin_limit/results.json') and parent.get('all_pass') is not True:
             raise ValueError('verified local spin theorem required')
-        for source, expected in parent.get('source_bindings', parent.get('source_sha256', {})).items():
+        for source, expected in bound_pins(parent.get('source_bindings', bound_pins(parent.get('source_sha256', {})))).items():
             if pins[source] != expected:
                 raise ValueError('inherited source custody changed: '+source)
     value = {
         'schema': 'oph.native_repair_spin_limit.v1', 'all_pass': True,
         'issues': [1138, 1142], 'gates': ['CP-02', 'CP-06'],
-        'source_bindings': pins,
+        'source_bindings': bound_pins(pins),
         'bounds': bounds.certificate(),
         'complete_source_controls': algebra.certificate(),
         'scope': 'Fixed positive homogeneous native C or E repair rate on every edge, bounded positive initial source energy density and period-two source marginal; complete local records and volume-independent interacting spin limit at fixed spacing.',

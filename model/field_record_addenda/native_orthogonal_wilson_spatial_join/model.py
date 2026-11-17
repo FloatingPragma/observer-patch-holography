@@ -3,6 +3,12 @@ from pathlib import Path
 from fractions import Fraction as F
 import argparse,hashlib,json,sys
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent;WORK=HERE.parent
 RER=HERE.parents[2]
@@ -24,9 +30,9 @@ def admit():
         base=WORK/name;assert digest(base/'research_reference.json')==sha,name
         v=json.loads((base/'research_reference.json').read_text());values[name]=v
         research[name+'/results.json']=sha
-        for f,h in v['owned_source_sha256'].items():
+        for f,h in bound_pins(v['owned_source_sha256']).items():
             assert digest(base/'retained'/(f+'.raw'))==h,(name,f);research[name+'/'+f]=h
-        for f,h in v.get('input_sha256',{}).items():
+        for f,h in bound_pins(v.get('input_sha256',{})).items():
             assert digest(RER/f)==h,f
             assert f not in public or public[f]==h
             public[f]=h
@@ -185,8 +191,8 @@ def scientific():
 
 def certificate():
     value=scientific();_,public,research=admit()
-    value['input_sha256']=public;value['research_input_sha256']=research
-    value['owned_source_sha256']={p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    value['input_sha256']=bound_pins(public);value['research_input_sha256']=research
+    value['owned_source_sha256']=bound_pins({p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})
     return value
 
 

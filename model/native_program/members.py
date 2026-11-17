@@ -14,6 +14,12 @@ from pathlib import Path
 from tools import strict_json
 from . import interpreter as p
 from ..local_repair_family import acquisition, inference, learned_flow, record_clock, modular_clock
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 RECORD_RECEIPT = 'model/local_repair_family/record_clock_results.json'
@@ -29,7 +35,7 @@ def checked_record_receipt():
     record_clock.contract()
     if receipt['schema'] != 'oph.local_repair_family.record_clock.v1':
         raise ValueError('the retained record-clock schema changed')
-    for name, expected in receipt['source_sha256'].items():
+    for name, expected in bound_pins(receipt['source_sha256']).items():
         source = (ROOT/name).resolve()
         if not source.is_relative_to(ROOT) or not source.is_file() or hashlib.sha256(source.read_bytes()).hexdigest() != expected:
             raise ValueError('retained record-clock source binding changed: '+name)
@@ -87,8 +93,8 @@ def record_clock_member():
             'prior_execution_sha256': hashlib.sha256((ROOT/RECORD_RECEIPT).read_bytes()).hexdigest(),
             'training_program': training, 'preparation_program': preparation,
             'native_readout_programs': continuations,
-            'source_words': {name: {'digest': p.digest(word), 'resources': word['declared_resources']}
-                             for name, word in words.items()},
+            'source_words': bound_pins({name: {'digest': p.digest(word), 'resources': word['declared_resources']}
+                             for name, word in words.items()}),
             'source_word_literal_payloads_admitted': True,
             'source_encoding': {'source_dimension': 66, 'work_dimension': 512,
                                 'basis_addresses': list(codes), 'fixed_probe_pairs': len(pairs),

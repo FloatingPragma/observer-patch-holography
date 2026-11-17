@@ -7,6 +7,12 @@ from ..atomic_reference_control.lattice import local_norm
 from ..atomic_momentum_response.model import reference_data
 from ..collective_spin_response.transfer import data as response_data
 from ..family_cell.quotient import outward, sqrt_interval
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[4]
 LOCAL_RECEIPT = 'model/coherent_defect_wave/chiral_joint/neutral_local_spectrum/results.json'
@@ -14,7 +20,7 @@ LOCAL_RECEIPT = 'model/coherent_defect_wave/chiral_joint/neutral_local_spectrum/
 
 def local_recipe():
     receipt = json.loads((ROOT/LOCAL_RECEIPT).read_text())
-    validate_pins(receipt['input_sha256'])
+    validate_pins(bound_pins(receipt['input_sha256']))
     local = receipt['complete_physical_spectrum']
     reference, ground = reference_data()
     if not (local['equitable_dimension']==403 and local['full_physical_cyclic_dimension']==49

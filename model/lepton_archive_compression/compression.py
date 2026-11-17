@@ -17,6 +17,12 @@ from model.lepton_mass_compiler import analyzer
 from model.native_flavor_orbit import intervals as iv
 from model.observer.source_scalar import compiler as native
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 THETA=F(2,9);TIME=F(1,7);LABELS=instrument.LABELS
@@ -29,7 +35,7 @@ def bindings():
         'model/lepton_mass_compiler/results.json','model/lepton_mass_compiler/PROOF.md',
         'model/observer/source_scalar/DERIVATION.md',native.RESPONSE,native.CONTROL_RECEIPT,
         'requirements.txt','model/requirements.txt'))
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))})
 
 
 def array_json(value):
@@ -265,7 +271,7 @@ def calculate():
             'source_preparation_cycle_measurement_and_archive_transport_costs_are_additional':True,
             'program_storage_classical_addressing_and_analog_precision_are_supplied':True,
             'information_dimension_equal_to_physical_work_claimed':False})
-    result={'schema':'oph.lepton_archive_compression.v1','source_bindings':pins,'all_checks_pass':True,
+    result={'schema':'oph.lepton_archive_compression.v1','source_bindings':bound_pins(pins),'all_checks_pass':True,
         'source_contract':{'source':'actual lepton_cycle mass instrument','theta_exact':str(THETA),
             'independent_fresh_source_pairs':True,'arbitrary_family_and_untouched_reference_inputs':True,
             'original_classical_outcomes':list(LABELS),'original_source_dimension_per_round':3600,

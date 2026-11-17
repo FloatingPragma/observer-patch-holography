@@ -32,6 +32,12 @@ import sympy as s
 from tools import strict_json
 from . import native_gauge_object as objects
 from . import native_virtual_exchange as virtual
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PORT_PAIRS = tuple(itertools.combinations_with_replacement(range(12), 2))
@@ -587,7 +593,7 @@ def source_bindings():
         'model/common_source/test_native_persistent_response.py',
         'model/common_source/native_gauge_object.py',
         'model/common_source/test_native_gauge_object.py'}
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def _compare(expected, actual, path='receipt'):
@@ -611,7 +617,7 @@ def check(path):
     path = Path(path)
     pins = source_bindings()
     report = strict_json.load(path)
-    if type(report) is not dict or report.get('source_bindings') != pins:
+    if type(report) is not dict or bound_pins(report.get('source_bindings')) != pins:
         raise ValueError('persistent-response source bindings differ')
     artifact = path.with_suffix('.npz')
     if report.get('artifact') != {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}:
@@ -648,7 +654,7 @@ def main():
     report, arrays = build()
     if source_bindings() != pins:
         raise ValueError('persistent-response sources changed during generation')
-    report['source_bindings'] = pins
+    report['source_bindings'] = bound_pins(pins)
     with artifact.open('xb') as output:
         np.savez_compressed(output, **arrays)
     report['artifact'] = {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}

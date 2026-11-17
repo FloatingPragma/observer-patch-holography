@@ -13,6 +13,12 @@ import numpy as np
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import algebra,bounds,circuits,execute,experiment,precision
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).with_name('results.json')
@@ -28,14 +34,14 @@ def source_bindings():
     paths=integration_source_paths(ROOT,{'domain_and_proof':'model/native_spin_observer/README.md',
         'source_receipts':[f'model/{p}/results.json' for p in PRIORS],'independent_checks':[]})
     paths.update({FRAGMENT,'model/native_spectral_detector/contract.cpp'})
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def custody():
     result={}
     for name in PRIORS:
         row=strict_json.load(ROOT/f'model/{name}/results.json')
-        changed=[p for p,d in row['source_bindings'].items() if hashlib.sha256((ROOT/p).read_bytes()).hexdigest()!=d]
+        changed=[p for p,d in bound_pins(row['source_bindings']).items() if hashlib.sha256((ROOT/p).read_bytes()).hexdigest()!=d]
         result[name]={'historical_all_pass':row['all_pass'] is True,'current_source_mismatches':changed,
                       'current_source_verified':not changed,'old_expensive_execution_repeated':False}
     return result
@@ -143,7 +149,7 @@ def produce():
     value={'schema':'oph.native_spin_observer.v1','new_checks_pass':True,'dependency_custody_pass':accepted,'all_pass':accepted,
            'theorem':theorem(),'algebra':algebra.certificate(),'precision':precision.certificate(),
            'bounds':bounds.certificate(),'native_error_certificates':experiment.analytic_errors(),
-           'execution':records,'prior_custody':prior,'source_bindings':pins}
+           'execution':records,'prior_custody':prior,'source_bindings':bound_pins(pins)}
     if source_bindings()!=pins:raise ValueError('source changed during native execution')
     validate(value,arrays);return value,arrays
 

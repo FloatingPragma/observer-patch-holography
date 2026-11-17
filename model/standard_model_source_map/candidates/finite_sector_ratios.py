@@ -5,6 +5,12 @@ from pathlib import Path
 
 from model.particle_common_contract import contract
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[3]
 HERE = Path(__file__).resolve().parent
@@ -36,7 +42,7 @@ def ratio_enclosure(numerator, denominator, ground, same_sector=False):
 
 def _receipt(path):
     value = strict_json.load(ROOT / path)
-    for name, expected in value['source_sha256'].items():
+    for name, expected in bound_pins(value['source_sha256']).items():
         if sha256((ROOT / name).read_bytes()).hexdigest() != expected:
             raise ValueError('source receipt input changed: '+name)
     bounds = ([value['selected_member_bound']] if 'selected_member_bound' in value
@@ -123,4 +129,4 @@ def certificate():
     result = calculate(sector,branch)
     return {'schema':'oph.finite_sector_ratio_certificate.v1', 'result':result,
             'result_sha256':contract.digest(result),
-            'source_sha256':{p:sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_INPUTS}}
+            'source_sha256':bound_pins({p:sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_INPUTS})}

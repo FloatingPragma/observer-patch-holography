@@ -1,6 +1,12 @@
 """Fresh native preparation/resolution and finite-pointer centroid receipt."""
 from pathlib import Path
 import hashlib,json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 from . import bounds as b
@@ -22,8 +28,8 @@ def raw_certificate():
     pins={}
     for name,sha in PARENTS.items():
         if digest(ROOT/name)!=sha:raise ValueError('frozen parent changed: '+name)
-        value=json.loads((ROOT/name).read_text());validate(value['input_sha256'])
-        for path,expected in value['input_sha256'].items():
+        value=json.loads((ROOT/name).read_text());validate(bound_pins(value['input_sha256']))
+        for path,expected in bound_pins(value['input_sha256']).items():
             if path in pins and pins[path]!=expected:raise ValueError('inconsistent source closure')
             pins[path]=expected
         pins[name]=sha
@@ -40,8 +46,8 @@ def raw_certificate():
       'clock_parent_only_source_independent_identities_used':True,
       'affine_state_energy_probability_or_H_transferred':False,
       'full_native_eigensolver_or_source_pointer_matrix_execution':False}
-    value['input_sha256']=dict(sorted(pins.items()))
-    value['owned_source_sha256']={p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    value['input_sha256']=bound_pins(dict(sorted(pins.items())))
+    value['owned_source_sha256']=bound_pins({p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})
     return value
 
 REFERENCE_SHA='412146a491d580c14280b77739a4d997d04e24b021c1b8fd3d09982786c7faa4'
@@ -49,7 +55,7 @@ REFERENCE_SHA='412146a491d580c14280b77739a4d997d04e24b021c1b8fd3d09982786c7faa4'
 def compare_research(value):
     path=HERE/'research_reference.json'
     if digest(path)!=REFERENCE_SHA:raise ValueError('immutable centroid research receipt changed')
-    expected=json.loads(path.read_text());validate(expected['input_sha256'])
+    expected=json.loads(path.read_text());validate(bound_pins(expected['input_sha256']))
     ignored={'schema','input_sha256','owned_source_sha256'}
     if {k:v for k,v in expected.items() if k not in ignored}!={k:v for k,v in value.items() if k not in ignored}:
         raise ValueError('fresh centroid science differs from research result')
@@ -63,7 +69,7 @@ def certificate():
     seeds={p.relative_to(ROOT).as_posix() for p in HERE.iterdir() if p.suffix in ('.py','.md')}
     seeds.add((HERE/'research_reference.json').relative_to(ROOT).as_posix())
     for relative in import_closure(seeds):value['input_sha256'][relative]=digest(ROOT/relative)
-    value['input_sha256']=dict(sorted(value['input_sha256'].items()))
+    value['input_sha256']=bound_pins(dict(sorted(bound_pins(value['input_sha256']).items())))
     value['independent_research_comparison']=comparison
     value['construction_scope']={
       'autonomous_source':'two complete original eight-cell h copies plus full30-mode static reference4N; preparation references retained',

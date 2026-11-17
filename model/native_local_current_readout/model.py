@@ -9,6 +9,12 @@ from model.native_higgs_current_response import model as response
 from model.coherent_defect_wave.chiral_joint.atomic_reference_control import lattice
 from model.coherent_defect_wave.chiral_joint.periodic_family.model import Configuration,kinetic_terms
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -32,7 +38,7 @@ def widen_probability(pair,error):
 def parent():
     require(digest(ROOT/PARENT)==PARENT_SHA,'frozen same-source current parent changed')
     value=json.loads((ROOT/PARENT).read_text())
-    for path,sha in value['input_sha256'].items():require(digest(ROOT/path)==sha,'source parent input differs: '+path)
+    for path,sha in bound_pins(value['input_sha256']).items():require(digest(ROOT/path)==sha,'source parent input differs: '+path)
     require(response.certificate()==value,'same-source current parent replay differs')
     return value
 
@@ -172,9 +178,9 @@ def calculate():
 
 def certificate():
     result=calculate();saved=parent()
-    paths=set(saved['input_sha256'])|{PARENT,'model/particle_common_contract/provenance.py'}
+    paths=set(bound_pins(saved['input_sha256']))|{PARENT,'model/particle_common_contract/provenance.py'}
     paths.update(str(p.relative_to(ROOT))for p in HERE.iterdir()if p.suffix in('.py','.md'))
     result=dict(result)
-    result['input_sha256']={p:digest(ROOT/p)for p in sorted(import_closure(paths))}
-    result['owned_source_sha256']={p.name:digest(p)for p in sorted(HERE.iterdir())if p.suffix in('.py','.md')}
+    result['input_sha256']=bound_pins({p:digest(ROOT/p)for p in sorted(import_closure(paths))})
+    result['owned_source_sha256']=bound_pins({p.name:digest(p)for p in sorted(HERE.iterdir())if p.suffix in('.py','.md')})
     return result

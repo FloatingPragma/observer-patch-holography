@@ -11,6 +11,12 @@ import json
 from pathlib import Path
 import numpy as np
 from scipy.linalg import block_diag, eigh, polar
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
@@ -62,7 +68,7 @@ def source_patch(repo=ROOT, charge=6):
         d["dV"] = dq @ v0
         return d
     return frame, {"commit": PIN, "charge_q6Y": charge,
-        "source_sha256": verified,
+        "source_sha256": bound_pins(verified),
         "configuration": "flat holonomy in direction0 of source side-two Euclidean stencil",
         "temporal_spin_boundary": "antiperiodic",
         "original_toron_per_link": [.17, -.11, .07, .03],

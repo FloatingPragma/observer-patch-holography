@@ -13,6 +13,12 @@ from tools.build_completion_program import integration_source_paths
 from ..radial_defect_gap import packet as gap_packet
 from ..defect_core_response import packet as pole_packet
 from . import algebra, core
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -28,7 +34,7 @@ def source_bindings():
         'independent_checks': [],
     })
     paths.add(PACKAGE+'/PROOF.md')
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def custody():
@@ -38,9 +44,9 @@ def custody():
         value = strict_json.load(ROOT/path)
         if (type(value) is not dict or value.get('schema') != 'oph.'+name+'.v1'
                 or value.get('all_pass') is not True
-                or value.get('source_bindings') != producer.source_bindings()):
+                or bound_pins(value.get('source_bindings')) != producer.source_bindings()):
             raise ValueError('complete current parent proof receipt required: '+name)
-        for source, digest in value['source_bindings'].items():
+        for source, digest in bound_pins(value['source_bindings']).items():
             if hashlib.sha256((ROOT/source).read_bytes()).hexdigest() != digest:
                 raise ValueError('inherited source binding changed: '+source)
         result[name] = {'receipt': path, 'complete_parent_source_manifest_verified': True,
@@ -92,7 +98,7 @@ def validate(value, replay=None):
             or type(value['physical_comparison_count_added']) is not int
             or value['physical_comparison_count_added'] != 0):
         raise ValueError('finite radial source cannot accept a physical comparison')
-    if value['source_bindings'] != source_bindings():
+    if bound_pins(value['source_bindings']) != source_bindings():
         raise ValueError('radial source manifest is incomplete or stale')
     if replay is not None and canonical(value) != canonical(replay):
         raise ValueError('retained radial source receipt differs from the cold replay')
@@ -105,7 +111,7 @@ def _produce():
     value = {'schema': 'oph.radial_interacting_core.v1', 'all_pass': True,
              'issues': [1139, 1142, 1143], 'gates': ['CP-03', 'CP-06', 'CP-07'],
              'algebra': algebra.certificate(), 'core': core.certificate(), 'scope': scope(),
-             'inherited_custody': custody(), 'source_bindings': pins,
+             'inherited_custody': custody(), 'source_bindings': bound_pins(pins),
              'physical_comparison_count_added': 0}
     validate(value)
     if source_bindings() != pins:
@@ -123,7 +129,7 @@ def report():
                         '-m', 'model.radial_interacting_core.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.load(path)
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across cold radial interacting replay')
     validate(value)
     return value
@@ -142,7 +148,7 @@ def main():
     else:
         (args.worker or args.write).write_text(canonical(value), encoding='utf-8', newline='\n')
     if not args.worker:
-        print(json.dumps({'all_pass': True, 'source_bindings': len(value['source_bindings']),
+        print(json.dumps({'all_pass': True, 'source_bindings': bound_pins(len(bound_pins(value['source_bindings']))),
                           'same_bounded_radial_interacting_gap': True,
                           'physical_identification': False, 'completion_gate_accepted': False}))
 

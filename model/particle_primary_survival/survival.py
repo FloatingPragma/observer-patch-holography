@@ -17,6 +17,12 @@ from model.particle_field_preparation import preparation
 from model.particle_local_wilson_density import density
 from model.native_quantum_gauss import algebra as native
 from model.particle_spatial_ground_state import ground
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS = (
     'model/particle_primary_survival/__init__.py',
@@ -225,6 +231,6 @@ def certificate():
             'native_source_witness':native_witness_control(),
             'finite_primary_witnesses':[bind_member(contract.member(n)) for n in (1,2)],
             'extreme_sector_bounds':[extreme_sector_bound(contract.member(n)) for n in (0,1,2,4)],
-            'source_sha256':hashes,'uniform_noncollapse_or_mass_prediction':False}
+            'source_sha256':bound_pins(hashes),'uniform_noncollapse_or_mass_prediction':False}
     if provenance.definition_hashes(paths) != hashes:raise ValueError('survival inputs changed during computation')
     return result

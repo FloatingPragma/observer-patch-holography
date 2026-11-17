@@ -12,6 +12,12 @@ from model.particle_primary_current_tail import model as form
 from model.particle_primary_spectral_scale import scale
 from model.particle_primary_joint_spectroscopy import spectroscopy
 from model.particle_spatial_ground_state import ground
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=(
  'model/particle_primary_critical_refinement/__init__.py',
@@ -191,6 +197,6 @@ def certificate():
     pins=provenance.definition_hashes(paths)
     result={'schema':'oph.primary_critical_refinement_certificate.v1',
         'members':[bind_member(contract.member(n)) for n in (0,1,2,8)],
-        'source_sha256':pins,'physical_mass_table_GeV':[]}
+        'source_sha256':bound_pins(pins),'physical_mass_table_GeV':[]}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('critical-profile inputs changed during replay')
     return result

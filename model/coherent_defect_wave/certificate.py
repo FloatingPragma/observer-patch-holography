@@ -7,6 +7,12 @@ import sympy as s
 from model.particle_common_contract.provenance import import_closure
 from .model import PROGRAM_ID, JointObserver, SparseState, combine
 from . import preparation, gauss
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -25,7 +31,7 @@ def input_hashes():
         'evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py'))
     paths = {ROOT/name for name in import_closure({str(p.relative_to(ROOT)) for p in paths})}
     paths = {p for p in paths if p.name in {q.name for q in p.parent.iterdir()}}
-    return {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def field_distribution(observer, state):
@@ -254,7 +260,7 @@ def structure_certificate():
 def certificate():
     return {
         'schema': 'oph.coherent_defect_wave.v1', 'program_id': PROGRAM_ID,
-        'input_sha256': input_hashes(),
+        'input_sha256': bound_pins(input_hashes()),
         'source': structure_certificate(),
         'reference': preparation.certificate(),
         'gauss': dict(gauss.certificate(), executed_constraint_readouts=constraint_execution_certificate()),

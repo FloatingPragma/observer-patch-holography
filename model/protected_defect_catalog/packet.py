@@ -18,6 +18,12 @@ from model.source_family_compatibility import nodal_locality, nodal_moment_bound
 from model.source_family_compatibility import source_action_identification, nodal_next_moments, native_lorentzian
 from model.source_family_compatibility import bulk_action_identification
 from . import pauli, charge, field, mechanism
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -42,7 +48,7 @@ def serialize(value):
 def bindings():
     for name in PARENTS:
         parent = strict_json.load(ROOT/name)
-        pins = parent.get('source_bindings', parent.get('source_sha256'))
+        pins = bound_pins(parent.get('source_bindings', bound_pins(parent.get('source_sha256'))))
         if not isinstance(pins, dict) or not pins:
             raise ValueError('catalogue parent has no source custody: '+name)
         for path, digest in pins.items():
@@ -53,7 +59,7 @@ def bindings():
         'domain_and_proof': 'model/protected_defect_catalog/PROOF.md',
         'source_receipts': list(PARENTS),
         'independent_checks': ['model/protected_defect_catalog/README.md']})
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def rows():
@@ -660,7 +666,7 @@ def build():
     high_field_spectral = high_field_attachment()
     if bindings() != pins:
         raise RuntimeError('catalogue source changed during construction')
-    return {'schema':'oph.protected_defect_catalog.v1', 'source_bindings':pins,
+    return {'schema':'oph.protected_defect_catalog.v1', 'source_bindings':bound_pins(pins),
             'bare_complete_branch_classification':bare_counts,
             'ordered_cover_complete_branch_classification':cover_counts,
             'selected_spin_complete_Pauli_classification':pauli.census(),

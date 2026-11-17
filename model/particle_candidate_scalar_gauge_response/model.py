@@ -17,6 +17,12 @@ from model.particle_primary_occupation_bound import model as occupation
 from model.particle_primary_refinement_response import model as refinement
 from model.particle_primary_variational_readout import variational
 from model.spin_packet_readout.bounds import sqrt_upper
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS = tuple('model/particle_candidate_scalar_gauge_response/' + n for n in
     ('__init__.py', '__main__.py', 'model.py', 'test_model.py', 'PROOF.md', 'README.md')) + (
@@ -283,7 +289,7 @@ def certificate():
     pins = provenance.definition_hashes(paths)
     value = {'schema': 'oph.particle_candidate_scalar_gauge_response.v1',
              'members': [bind_member(contract.member(n)) for n in (0, 1, 2, 8)],
-             'source_sha256': pins}
+             'source_sha256': bound_pins(pins)}
     if provenance.definition_hashes(paths) != pins:
         raise ValueError('scalar response inputs changed during replay')
     return value

@@ -8,6 +8,12 @@ import json
 import numpy as np
 import scipy.linalg as la
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 PACKAGE=ROOT/'model/openwave_lepton_phase_cycle'
@@ -110,7 +116,7 @@ def run():
     assert fractional>=5 and trace_error_bound(fractional,time=F(1,3))<=F(1,10)
 
     receipt=json.loads((PACKAGE/'results.json').read_text())
-    for path,expected in receipt['source_sha256'].items():
+    for path,expected in bound_pins(receipt['source_sha256']).items():
         assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==expected,path
     return {'schema':'oph.independent_lepton_phase_cycle_review.v1','all_pass':True,
         'exact_all16Fock_Z4_selection_and_negative_segment_control':True,
@@ -125,8 +131,8 @@ def run():
         'fractional_time_radius_regression_fixed_and_verified':True,
         'scientific_t1_result_affected_by_rounding_bug':False,
         'source_clock_boundary':'A new declared coherent controller at zero kinetic term; source-duration overhead and ancillary services retained; not autonomous laboratory evolution.',
-        'reviewed_sha256':{str((PACKAGE/name).relative_to(ROOT)):hashlib.sha256((PACKAGE/name).read_bytes()).hexdigest()
-                           for name in ('compiler.py','PROOF.md','results.json')}}
+        'reviewed_sha256':bound_pins({str((PACKAGE/name).relative_to(ROOT)):hashlib.sha256((PACKAGE/name).read_bytes()).hexdigest()
+                           for name in ('compiler.py','PROOF.md','results.json')})}
 
 
 if __name__=='__main__':

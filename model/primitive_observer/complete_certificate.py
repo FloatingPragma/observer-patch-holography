@@ -19,6 +19,12 @@ from ..common_source import continuation_bounds, exact_output, open_observer, pr
 from ..common_source import output_certificate as report
 from ..common_source.open_environment import Environment
 from . import exact_native, native, runtime
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 STEPS = 512
@@ -181,7 +187,7 @@ def run():
                         'positive_advantage_certified': advantage > 0})
     root = Path(__file__).resolve().parents[2]
     return {'schema': 'oph.primitive_observer.complete_certificate.v1',
-        'source_sha256': {name: hashlib.sha256((root/name).read_bytes()).hexdigest() for name in SOURCE_PATHS},
+        'source_sha256': bound_pins({name: hashlib.sha256((root/name).read_bytes()).hexdigest() for name in SOURCE_PATHS}),
         'steps': STEPS, 'outward_report_grid': str(F(1, report.GRID)),
         'noise_schedule': open_observer.canonical_environment().specification(),
         'unbounded_physical_service_obligations': {

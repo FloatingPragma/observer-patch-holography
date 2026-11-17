@@ -22,6 +22,12 @@ from ..observer import native, quantum_mixing as mixing
 from ..record_laws import burn_in
 from ..repair_identification import core as exact
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 STATES = tuple(native.states(binary=True))
@@ -282,7 +288,7 @@ def run():
     if radius != F(3, 55):
         raise ArithmeticError('Palm and attempt references were conflated')
     return {'schema': 'oph.passive_modular_observer.v1',
-        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
         'algebra_audits': algebras, 'coherent_block_indices': [i, j],
         'all_law_orbit_bound': {'attempts': attempts, 'trace_error_upper': str(tolerance),
             'pure_input_minimum_distance_from_any_modular_orbit': str(F(65, 66)-tolerance),

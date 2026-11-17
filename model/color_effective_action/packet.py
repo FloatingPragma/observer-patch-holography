@@ -9,6 +9,12 @@ from tools import strict_json
 from model.color_loop_readout.packet import bindings as parent_bindings
 from model.color_loop_readout.source import Controls, source_replay
 from . import action, link, rotor, nonabelian
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -55,7 +61,7 @@ def bindings():
                 add(target)
                 for alias in node.names:
                     add(target+'.'+alias.name)
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(names)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(names)})
 
 
 def canonical(value):
@@ -68,7 +74,7 @@ def build():
                                     action.F(7, 5), action.F(3, 2)))
     result = {
         'schema':'oph.color_effective_action.v1',
-        'source_bindings':before,
+        'source_bindings':bound_pins(before),
         'literal_source_replay':source_replay(),
         'native_link_coordinate_test':link.certificate(),
         'arbitrary_control_component_identities':action.component_certificate(),

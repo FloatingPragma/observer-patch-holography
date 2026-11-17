@@ -22,6 +22,12 @@ from scipy.linalg import expm, logm
 
 from tools import strict_json
 from . import action, history, protected_momentum as protected
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
@@ -476,7 +482,7 @@ def source_bindings():
     paths.add(Path(__file__))
     paths.update(ROOT/name for name in ("model/common_source/chiral_candidate/test_record_two_point.py",
         "model/common_source/hierarchy_diagnosis/audit.py", "model/common_source/replay.py", "tools/strict_json.py"))
-    return {path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def main():
@@ -488,7 +494,7 @@ def main():
     args = parser.parse_args()
     if args.check:
         retained = strict_json.load(args.check)
-        for name, digest in retained["source_bindings"].items():
+        for name, digest in bound_pins(retained["source_bindings"]).items():
             if hashlib.sha256((ROOT/name).read_bytes()).hexdigest() != digest:
                 raise ValueError("changed record-response source: "+name)
         steps = retained["source_steps"]
@@ -498,8 +504,8 @@ def main():
         steps = args.steps
     initial_bindings = source_bindings()
     report, arrays = execute(steps=steps)
-    report["source_bindings"] = source_bindings()
-    if initial_bindings != report["source_bindings"]:
+    report["source_bindings"] = bound_pins(source_bindings())
+    if initial_bindings != bound_pins(report["source_bindings"]):
         raise ValueError("record-response sources changed during execution")
     if args.check:
         from ..hierarchy_diagnosis.audit import compare_replay

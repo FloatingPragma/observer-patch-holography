@@ -15,6 +15,12 @@ from pathlib import Path
 import numpy as np
 import mpmath as mp
 import sympy as sp
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -146,7 +152,7 @@ def source():
     if digest(ROOT / PARENT) != PARENT_SHA:
         raise ValueError("the complete charged source receipt changed")
     saved = json.loads((ROOT / PARENT).read_text())
-    full.coarse.validate_pins(saved["input_sha256"])
+    full.coarse.validate_pins(bound_pins(saved["input_sha256"]))
     if saved != full.certificate():
         raise ValueError("complete actual-H source replay differs")
     return saved

@@ -1,16 +1,23 @@
 #!/usr/bin/env python3
 """Plan or replay live model receipts after source-only maintenance.
 
-Default is read-only and plans all registered live receipts. --execute supports
-only the explicitly reviewed, source-pinned path-output writers below; it refuses
-the complete operation before any writes if an affected writer is unsupported.
-Registered checker commands alone do not establish a safe writer interface.
-Supported producers and cold checkers run in dependency order; no receipt digest
-is patched.
-Frozen historical captures are excluded because they are not in REPLAYS.
-Non-provenance differences stop execution for review, retaining original bytes
-and command logs. Source/schema changes must be reviewed before this command;
-this maintenance operation does not promote scientific claims.
+Default is read-only and plans all registered live receipts (model/verify.py
+REPLAYS). With --discover it also plans the unregistered receipts whose owners
+tools/audit_receipt_sources.py finds from literal OUTPUT declarations.
+--execute runs the producer and the cold checker of every affected receipt in
+dependency order; no receipt digest is patched. Each producer's write and
+check interface is read from its own --help: a path-taking --write or
+--output writes a fresh candidate, which replaces the canonical outputs only
+after its cold checker passes; a flag-only --write writes in place, and the
+backed-up outputs are restored when the payload changes or the checker fails.
+
+Provenance is exactly the custody pins: the recognized source maps below and
+any other {path: sha256} map or {path, sha256} record list, whose prose and
+test entries (tools/pin_scope.py) may disappear, plus any SHA-256 value that
+changes to the current digest of a repository file other than the
+producer's own outputs. Every other difference stops the operation for
+review, retaining original bytes and command logs. Frozen historical captures
+are excluded because they are not in REPLAYS.
 Every invocation requires a new or empty output directory, so earlier audit
 logs and original-byte backups cannot be replaced by a later invocation.
 Run from the repository with its pinned Python environment.
@@ -23,45 +30,77 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import subprocess
 import sys
 import tempfile
 import threading
+import time
+
+try:
+    from tools.pin_scope import exempt
+except ImportError:  # executed as tools/replay_model_receipts.py or imported from tools/
+    from pin_scope import exempt
 
 REPOSITORY_FIELDS = {"sources", "source_sha256", "source_bindings", "input_sha256",
                      "source_binding_sha256", "source_control_bindings", "source_pins"}
 PACKAGE_LEVELS = {"implementation_sha256": 0, "source_interface_hashes": 1}
 ENDPOINT_PINS = "root.retrospective_endpoint_audit.source.pins"
-
-# Reviewed interfaces: both --write PATH and --check PATH honor the supplied
-# path; writers do not replace canonical outputs. A parser/source change needs
-# renewed review. Other REPLAYS entries may have pathless or different writers.
-SUPPORTED_WRITERS = {
-    ('model.laboratory_clock', None): ('model/laboratory_clock/__main__.py',
-        '4031dbfa8ab56b51e5de87f6371c9399ba864eb035967a5235637b906a9f37e7'),
-    ('model.native_clock.host_clock', None): ('model/native_clock/host_clock.py',
-        '0c803a72b0a0eede334fb77ee37c25d0e48195f6e66c2055b844163d8d62aa5f'),
-    ('model.native_clock.clock_bridge', None): ('model/native_clock/clock_bridge.py',
-        '466f9b99a3d105ccaa0c6981144b3087bafebcb9a5916af049c1ccbdede11be5'),
-    ('model.interacting_field', None): ('model/interacting_field/__main__.py',
-        '0e388f9f0deda353c3990af4157a8401038f5d7a1328c3d086630400112ef714'),
-}
-
-
-def writer_problem(root, row):
-    module, command, _ = row
-    contract = SUPPORTED_WRITERS.get((module, command))
-    if contract is None:
-        return "no reviewed path-output writer contract"
-    path, expected = contract
-    source = root / path
-    if not source.is_file() or digest(source) != expected:
-        return "reviewed writer source changed: " + path
-    return None
+HEX = re.compile(r"[0-9a-f]{64}\Z")
 
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+# Registered rows whose checker is a router: the receipt's producer.
+def writer_row(row):
+    module, command, receipt = row
+    if module == "model.replay_native_fixed":
+        from model.replay_native_fixed import OWNERS
+        return OWNERS[command], None
+    if module == "model.common_source.replay":
+        return f"model.common_source.{command}.run", None
+    return module, command
+
+
+def producer_help(root, module, command):
+    argv = [sys.executable, "-m", module] + ([command] if command is not None else []) + ["--help"]
+    completed = subprocess.run(argv, cwd=root, capture_output=True, text=True)
+    if completed.returncode:
+        return None, "--help failed: " + (completed.stdout + completed.stderr)[-400:]
+    return completed.stdout, None
+
+
+def writer_interface(root, row):
+    """Read a producer's write/check interface from its own --help.
+
+    write: ("path", flag) writes a fresh candidate at a given path,
+    ("inplace", "--write") rewrites the canonical outputs, and ("bare", None)
+    writes the canonical outputs when run without arguments (they are moved
+    aside first, since such producers refuse to overwrite).
+    """
+    module, command = writer_row(row)
+    text, problem = producer_help(root, module, command)
+    if problem:
+        return None, problem
+    for flag in ("--write", "--output", "--out"):
+        if re.search(re.escape(flag) + r" \[?[A-Z_]+", text):
+            write = ("path", flag)
+            break
+    else:
+        write = ("inplace", "--write") if re.search(r"--write\b", text) else ("bare", None)
+    if (module, command) != row[:2]:
+        text, problem = producer_help(root, row[0], row[1])
+        if problem:
+            return None, problem
+    if re.search(r"--check \[?[A-Z_]+", text):
+        check = "path"
+    elif re.search(r"--check\b", text):
+        check = "flag"
+    else:
+        return None, "no --check interface"
+    return {"write": write, "check": check}, None
 
 
 def source_maps(value, location="root"):
@@ -88,6 +127,8 @@ def resolve_map(root, receipt, key, child, here):
         if not isinstance(relative, str) or "://" in relative:
             if local_only:
                 raise ValueError(f"Invalid local source path: {receipt} at {here}")
+            continue
+        if exempt(relative):
             continue
         path = Path(relative)
         if path.is_absolute():
@@ -154,15 +195,22 @@ def owned_outputs(root, receipt, value):
     return tuple(sorted(paths))
 
 
-def output_owners(root, values):
-    owners, outputs = {}, {}
-    for receipt, value in values.items():
-        outputs[receipt] = owned_outputs(root, receipt, value)
-        for path in outputs[receipt]:
-            if path in owners:
-                raise ValueError(f"Multiple producers own {path}: {owners[path]}, {receipt}")
+def output_owners(root, values, optional=()):
+    """Map every output file to its producer; an optional producer that would
+    share an output with another one is dropped and returned."""
+    owners, outputs, dropped = {}, {}, []
+    for receipt in sorted(values, key=lambda name: name in optional):
+        paths = owned_outputs(root, receipt, values[receipt])
+        clash = [path for path in paths if path in owners]
+        if clash and receipt in optional:
+            dropped.append(receipt)
+            continue
+        if clash:
+            raise ValueError(f"Multiple producers own {clash[0]}: {owners[clash[0]]}, {receipt}")
+        outputs[receipt] = paths
+        for path in paths:
             owners[path] = receipt
-    return owners, outputs
+    return owners, outputs, dropped
 
 
 def bindings(root, receipt, value):
@@ -171,18 +219,90 @@ def bindings(root, receipt, value):
             yield here, relative, expected, target
 
 
+def path_like(key):
+    return isinstance(key, str) and "://" not in key and (
+        "/" in key or re.search(r"\.[A-Za-z0-9]{1,6}\Z", key) is not None)
+
+
+def pin_map(node):
+    """A {path: sha256} map, whatever its field name."""
+    return (isinstance(node, dict) and bool(node) and any(path_like(k) for k in node)
+            and all(isinstance(v, str) and HEX.match(v) for v in node.values()))
+
+
+def pin_records(node):
+    """A [{path, sha256, ...}] record list."""
+    return (isinstance(node, list) and bool(node)
+            and all(isinstance(r, dict) and isinstance(r.get("path"), str)
+                    and isinstance(r.get("sha256"), str) and HEX.match(r["sha256"]) for r in node))
+
+
+def hex_values(value, found=None):
+    found = set() if found is None else found
+    if isinstance(value, dict):
+        for child in value.values():
+            hex_values(child, found)
+    elif isinstance(value, list):
+        for child in value:
+            hex_values(child, found)
+    elif isinstance(value, str) and HEX.match(value):
+        found.add(value)
+    return found
+
+
 def science_payload(root, receipt, value):
-    # Preserve all paths, map structure, external metadata and non-source data.
-    # Only values which the authoritative source-map checker treats as local
-    # provenance are masked. New/removed keys or any other change remain visible.
+    """The receipt without its custody pins.
+
+    Removed: every local entry of a recognized source map (external metadata
+    in mixed ``sources`` maps stays), every {path: sha256} map under any field
+    name, and the digests and prose/test rows of {path, sha256} record lists.
+    Which files a map pins is custody; every other value remains visible.
+    """
     value = json.loads(json.dumps(value, allow_nan=False))
-    for key, child, here in source_maps(value):
-        for relative, expected, target in list(resolve_map(root, receipt, key, child, here)):
-            child[relative] = "<LOCAL_SOURCE_SHA256>"
+
+    def strip(node, location="root"):
+        if isinstance(node, dict):
+            for key, child in list(node.items()):
+                here = f"{location}.{key}"
+                recognized = key in REPOSITORY_FIELDS or key in PACKAGE_LEVELS or here == ENDPOINT_PINS
+                if recognized and isinstance(child, dict):
+                    base = (root / receipt).parents[PACKAGE_LEVELS[key]] if key in PACKAGE_LEVELS else root
+                    for relative in list(child):
+                        local = False
+                        if isinstance(relative, str) and "://" not in relative and not Path(relative).is_absolute():
+                            try:
+                                target = (base / relative).resolve()
+                                local = target.is_relative_to(root) and target.is_file()
+                            except (OSError, ValueError):
+                                local = False
+                        hexed = isinstance(child[relative], str) and HEX.match(child[relative])
+                        if local or exempt(relative) or (key != "sources" and hexed):
+                            del child[relative]
+                    node[key] = "<SOURCE_MAP>" if key != "sources" else child
+                    if key == "sources":
+                        strip(child, here)
+                elif pin_map(child):
+                    node[key] = "<PIN_MAP>"
+                elif pin_records(child):
+                    node[key] = [dict(row, sha256="<SHA256>") for row in child if not exempt(row["path"])]
+                else:
+                    strip(child, here)
+        elif isinstance(node, list):
+            for index, child in enumerate(node):
+                if pin_map(child):
+                    node[index] = "<PIN_MAP>"
+                else:
+                    strip(child, f"{location}[{index}]")
+    if pin_map(value):
+        return "<PIN_MAP>"
+    strip(value)
     return value
 
 
-def differences(left, right, path="root", limit=50):
+def differences(left, right, path="root", limit=50, file_digest=None):
+    """Differences of two payloads. A SHA-256 value that changes to a value for
+    which ``file_digest`` holds (the current digest of a repository file) is a
+    custody pin and no difference."""
     result = []
     if type(left) is not type(right):
         return [{"path": path, "old": repr(left)[:240], "new": repr(right)[:240]}]
@@ -192,18 +312,21 @@ def differences(left, right, path="root", limit=50):
                 result.append({"path": f"{path}.{key}", "old": repr(left.get(key))[:240],
                                "new": repr(right.get(key))[:240]})
             else:
-                result.extend(differences(left[key], right[key], f"{path}.{key}", limit))
+                result.extend(differences(left[key], right[key], f"{path}.{key}", limit, file_digest))
             if len(result) >= limit:
                 break
     elif isinstance(left, list):
         if len(left) != len(right):
             result.append({"path": path, "old_length": len(left), "new_length": len(right)})
         for i, (old, new) in enumerate(zip(left, right)):
-            result.extend(differences(old, new, f"{path}[{i}]", limit))
+            result.extend(differences(old, new, f"{path}[{i}]", limit, file_digest))
             if len(result) >= limit:
                 break
     elif left != right:
-        result.append({"path": path, "old": repr(left)[:240], "new": repr(right)[:240]})
+        pin = (file_digest is not None and isinstance(left, str) and isinstance(right, str)
+               and HEX.match(left) and HEX.match(right) and file_digest(right))
+        if not pin:
+            result.append({"path": path, "old": repr(left)[:240], "new": repr(right)[:240]})
     return result[:limit]
 
 
@@ -222,11 +345,33 @@ def topological(graph):
     return order
 
 
+def repository_digests(root):
+    """Current SHA-256 of every repository file (tracked files when in Git)."""
+    try:
+        listing = subprocess.run(["git", "ls-files", "-z"], cwd=root, capture_output=True, check=True).stdout
+        names = [name for name in listing.decode().split("\0") if name]
+    except (OSError, subprocess.CalledProcessError):
+        names = [p.relative_to(root).as_posix() for p in root.rglob("*")
+                 if p.is_file() and ".git" not in p.relative_to(root).parts]
+    digests = {}
+    for name in names:
+        path = root / name
+        if path.is_file() and not path.is_symlink():
+            digests[path.resolve()] = digest(path)
+    return digests
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path.cwd())
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--execute", action="store_true")
+    parser.add_argument("--discover", action="store_true",
+                        help="also plan unregistered receipts with a literal OUTPUT owner")
+    parser.add_argument("--keep-going", action="store_true",
+                        help="after a failure, still run receipts that do not depend on it")
+    parser.add_argument("--stop-after", type=float, metavar="MINUTES",
+                        help="start no producer after this many minutes; running ones finish")
     parser.add_argument("--jobs", type=int, default=1,
                         help="maximum simultaneous independent receipts (1 through 32)")
     args = parser.parse_args()
@@ -234,6 +379,7 @@ def main():
         parser.error("--jobs must be between 1 and 32")
     if args.output.exists() and (not args.output.is_dir() or any(args.output.iterdir())):
         parser.error("--output must be new or empty; preserve previous audit logs and backups")
+    started = time.monotonic()
     root = args.root.resolve()
     sys.path.insert(0, str(root))
     from model import verify
@@ -243,14 +389,75 @@ def main():
     replay = {row[2]: row for row in verify.REPLAYS}
     if len(replay) != len(verify.REPLAYS):
         raise ValueError("Duplicate registered receipt")
-    values = {name: load_receipt(root, name, strict_json) for name in replay}
-    by_path, outputs = output_owners(root, values)
+    discovered = set()
+    if args.discover:
+        from tools.audit_receipt_sources import discover_owners
+        owners, _ = discover_owners(root)
+        for receipt, owner in owners.items():
+            if receipt not in replay:
+                replay[receipt] = (owner.module, owner.command, receipt)
+                discovered.add(receipt)
+        # A package's results.json next to its __main__.py is that package's
+        # conventional output (python -m model.<package> --write/--check).
+        for main_file in sorted((root / "model").rglob("__main__.py")):
+            relative = main_file.parent.relative_to(root)
+            if {"historical", "predecessor"} & set(relative.parts):
+                continue
+            receipt = (relative / "results.json").as_posix()
+            if receipt not in replay and (root / receipt).is_file():
+                replay[receipt] = (".".join(relative.parts), None, receipt)
+                discovered.add(receipt)
+    values = {}
+    for name in list(replay):
+        try:
+            values[name] = load_receipt(root, name, strict_json)
+        except (OSError, ValueError, EOFError):
+            if name not in discovered:
+                raise
+            replay.pop(name)
+            discovered.discard(name)
+    by_path, outputs, dropped = output_owners(root, values, discovered)
+    for name in dropped:
+        replay.pop(name)
+        values.pop(name)
+        discovered.discard(name)
+    receipt_digests = {name: digest(root / name) for name in replay}
+    by_digest = {}
+    for name, value in receipt_digests.items():
+        by_digest.setdefault(value, set()).add(name)
     graph = {}
     initial = {}
     digests = {}
+    unreadable = {}
+    for name in sorted(discovered):
+        # A discovered receipt whose maps the authoritative checker would
+        # reject keeps its owning verifier and is not planned here.
+        try:
+            list(bindings(root, name, values[name]))
+        except ValueError as error:
+            unreadable[name] = str(error)
+            replay.pop(name)
+            values.pop(name)
+            outputs.pop(name)
+            discovered.discard(name)
+    by_path = {path: name for path, name in by_path.items() if name in replay}
+    by_digest = {found: names & set(replay) for found, names in by_digest.items()}
     for name, value in values.items():
         graph[name] = set()
-        for here, relative, expected, target in bindings(root, name, value):
+        try:
+            found = list(bindings(root, name, value))
+        except ValueError as error:
+            # A pinned file that no longer exists makes the receipt stale.
+            initial.setdefault(name, []).append({"error": str(error)})
+            found = []
+            for key, child, here in source_maps(value):
+                if not isinstance(child, dict):
+                    continue
+                base = (root / name).parents[PACKAGE_LEVELS[key]] if key in PACKAGE_LEVELS else root
+                for relative, expected in child.items():
+                    if isinstance(relative, str) and not exempt(relative) and (base / relative).is_file():
+                        found.append((here, relative, expected, (base / relative).resolve()))
+        for here, relative, expected, target in found:
             if target in by_path and by_path[target] != name:
                 graph[name].add(by_path[target])
             if target not in digests:
@@ -259,16 +466,20 @@ def main():
                 initial.setdefault(name, []).append({"map": here, "path": relative,
                     "target": target.relative_to(root).as_posix(), "expected": expected,
                     "actual": digests[target]})
+        # A receipt that records another receipt's digest outside a source map
+        # depends on it as well.
+        for found in hex_values(value):
+            graph[name].update(by_digest.get(found, set()) - {name})
     order = topological(graph)
     affected = set(initial)
     for name in order:
         if graph[name] & affected:
             affected.add(name)
     report = {"root": str(root), "authoritative_verifier_sha256": digest(root / "model/verify.py"),
-              "execute": args.execute, "jobs": args.jobs, "registered_count": len(replay),
+              "execute": args.execute, "jobs": args.jobs, "registered_count": len(verify.REPLAYS),
+              "discovered_count": len(discovered), "discovered": sorted(discovered),
+              "discovered_with_unreadable_source_maps": unreadable,
               "initial_stale": initial,
-              "unsupported_affected_writers": {name: problem for name in order
-                  if name in affected and (problem := writer_problem(root, replay[name]))},
               "affected_topological_order": [name for name in order if name in affected],
               "producer_outputs": {name: [p.relative_to(root).as_posix() for p in paths]
                                    for name, paths in outputs.items()},
@@ -281,21 +492,37 @@ def main():
         with report_lock:
             report_path.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
     save()
-    print(f"Registered={len(replay)}, directly stale={len(initial)}, affected={len(affected)}", flush=True)
+    print(f"Registered={len(verify.REPLAYS)}, discovered={len(discovered)}, "
+          f"directly stale={len(initial)}, affected={len(affected)}", flush=True)
     if not args.execute:
         print(f"Read-only plan: {report_path}", flush=True)
         return
-    if report["unsupported_affected_writers"]:
-        raise SystemExit("No producers started: unsupported or changed writer interfaces; "
-                         "inspect unsupported_affected_writers in " + str(report_path))
     environment = dict(os.environ)
     for var in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"):
         environment[var] = "1"
+    current = repository_digests(root)
+    holders = {}
+    for path, found in current.items():
+        holders.setdefault(found, set()).add(path)
+    current_lock = threading.Lock()
+    def file_digest_for(own):
+        def check(value):
+            with current_lock:
+                return bool(holders.get(value, set()) - own)
+        return check
+
     def execute_one(name):
         module, command, _ = replay[name]
+        interface, problem = writer_interface(root, replay[name])
+        if problem:
+            raise RuntimeError(f"{name}: {problem}")
         prefix = [sys.executable, "-W", "error", "-m", module]
         if command is not None:
             prefix.append(command)
+        writer_module, writer_command = writer_row(replay[name])
+        writer = [sys.executable, "-W", "error", "-m", writer_module]
+        if writer_command is not None:
+            writer.append(writer_command)
         before = load_receipt(root, name, strict_json)
         backed_up = {}
         for path in outputs[name]:
@@ -305,20 +532,23 @@ def main():
             backup.write_bytes(path.read_bytes())
             backed_up[relative.as_posix()] = digest(path)
         result = {"receipt": name, "before_sha256": digest(root / name),
-                  "backed_up_outputs": backed_up}
+                  "backed_up_outputs": backed_up, "interface": interface}
         with report_lock:
             report["results"].append(result)
             save()
         print(f"Replaying {name}", flush=True)
-        candidate_root = args.output.resolve() / "candidate"
+        log_stem = module + ("_" + command.replace("-", "") if command else "")
+        mode, flag = interface["write"]
+        candidate_root = args.output.resolve() / "candidate" if mode == "path" else root
         candidate = candidate_root / name
         candidate.parent.mkdir(parents=True, exist_ok=True)
-        for operation in ("write", "check"):
-            # A number of evidence producers correctly refuse to overwrite an
-            # existing path. Give every producer a fresh candidate path, and
-            # do not replace canonical outputs until its cold checker passes.
-            argv = prefix + ["--" + operation, str(candidate)]
-            log = args.output / (module + ("_" + command.replace("-", "") if command else "") + "." + operation + ".log")
+
+        def restore():
+            for relative in backed_up:
+                (root / relative).write_bytes((args.output / "before" / relative).read_bytes())
+
+        def run(operation, argv):
+            log = args.output / (log_stem + "." + operation + ".log")
             with report_lock:
                 result[operation] = {"argv": argv, "log": str(log)}
                 save()
@@ -328,70 +558,114 @@ def main():
                 result[operation]["returncode"] = completed.returncode
                 save()
             if completed.returncode:
+                if mode != "path":
+                    restore()
                 raise RuntimeError(f"{name} {operation} failed; inspect {log}")
-            if operation == "write":
-                after = load_receipt(candidate_root, name, strict_json)
-                diff = differences(science_payload(root, name, before), science_payload(root, name, after))
-                with report_lock:
-                    result["after_sha256"] = digest(candidate)
-                    result["non_provenance_differences"] = diff
-                    save()
-                if diff:
-                    raise RuntimeError(f"{name} changed non-provenance payload; backups={args.output / 'before'}")
+
+        # A number of evidence producers correctly refuse to overwrite an
+        # existing path. A path-taking producer writes a fresh candidate, and
+        # canonical outputs are replaced only after its cold checker passes.
+        if mode == "bare":
+            for relative in backed_up:
+                (root / relative).unlink()
+        run("write", writer + ([flag, str(candidate)] if mode == "path" else [flag] if flag else []))
+        try:
+            after = load_receipt(candidate_root, name, strict_json)
+        except (OSError, ValueError, EOFError):
+            if mode != "path":
+                restore()
+            raise RuntimeError(f"{name} write did not produce a readable receipt")
         candidate_outputs = owned_outputs(candidate_root, name, after)
+        own = set(candidate_outputs) | {root / relative for relative in backed_up}
+        own = {path.resolve() for path in own}
+        diff = differences(science_payload(root, name, before), science_payload(root, name, after),
+                           file_digest=file_digest_for(own))
+        with report_lock:
+            result["after_sha256"] = digest(candidate)
+            result["non_provenance_differences"] = diff
+            save()
+        if diff:
+            if mode != "path":
+                restore()
+            raise RuntimeError(f"{name} changed non-provenance payload; backups={args.output / 'before'}")
+        check_target = candidate if mode == "path" else root / name
+        run("check", prefix + (["--check", str(check_target)] if interface["check"] == "path" else ["--check"]))
         relative_outputs = {p.relative_to(candidate_root).as_posix(): p for p in candidate_outputs}
         if relative_outputs.keys() != backed_up.keys():
+            if mode != "path":
+                restore()
             raise RuntimeError(f"{name} changed its output catalogue; review candidate outputs")
-        if any(digest(root / relative) != expected for relative, expected in backed_up.items()):
-            raise RuntimeError(f"{name} canonical output changed during replay")
-        # Commit archives first and the receipt last. Dependent DAG nodes are
-        # released only after this entire operation returns successfully.
-        for relative in sorted(relative_outputs, key=lambda p: p == name):
-            destination = root / relative
-            with tempfile.NamedTemporaryFile(dir=destination.parent, prefix=".replay-",
-                                             delete=False) as stream:
-                temporary = Path(stream.name)
-                stream.write(relative_outputs[relative].read_bytes())
-            try:
-                os.replace(temporary, destination)
-            finally:
-                temporary.unlink(missing_ok=True)
+        if mode == "path":
+            if any(digest(root / relative) != expected for relative, expected in backed_up.items()):
+                raise RuntimeError(f"{name} canonical output changed during replay")
+            # Commit archives first and the receipt last. Dependent DAG nodes are
+            # released only after this entire operation returns successfully.
+            for relative in sorted(relative_outputs, key=lambda p: p == name):
+                destination = root / relative
+                with tempfile.NamedTemporaryFile(dir=destination.parent, prefix=".replay-",
+                                                 delete=False) as stream:
+                    temporary = Path(stream.name)
+                    stream.write(relative_outputs[relative].read_bytes())
+                try:
+                    os.replace(temporary, destination)
+                finally:
+                    temporary.unlink(missing_ok=True)
+        with current_lock:
+            for relative in relative_outputs:
+                path = (root / relative).resolve()
+                holders.get(current.get(path), set()).discard(path)
+                current[path] = digest(path)
+                holders.setdefault(current[path], set()).add(path)
         return name
 
     pending = set(affected)
     complete = set(replay) - affected
+    blocked = set()
     running = {}
     failures = []
+    stopped = False
     with ThreadPoolExecutor(max_workers=args.jobs) as pool:
         while pending or running:
-            if not failures:
+            if args.stop_after is not None and time.monotonic() - started > 60 * args.stop_after:
+                stopped = True
+            if not stopped and (args.keep_going or not failures):
                 ready = [name for name in order if name in pending and graph[name] <= complete]
                 for name in ready[:args.jobs - len(running)]:
                     pending.remove(name)
                     running[pool.submit(execute_one, name)] = name
             if not running:
-                if pending and not failures:
+                if pending and not failures and not stopped:
                     failures.append({"receipt": None, "error": "No ready DAG nodes remain"})
                 break
-            finished, _ = wait(running, return_when=FIRST_COMPLETED)
+            finished, _ = wait(running, timeout=60, return_when=FIRST_COMPLETED)
             for future in finished:
                 name = running.pop(future)
                 try:
                     future.result()
                 except Exception as error:
                     failures.append({"receipt": name, "error": str(error)})
+                    if args.keep_going:
+                        # Dependents of a failed receipt never start.
+                        for other in order:
+                            if other in pending and graph[other] & (blocked | {name}):
+                                pending.remove(other)
+                                blocked.add(other)
                 else:
                     complete.add(name)
             with report_lock:
                 report["failures"] = list(failures)
                 report["completed"] = sorted(complete & affected)
+                report["blocked_by_failure"] = sorted(blocked)
                 report["not_scheduled"] = sorted(pending)
                 report["running"] = sorted(running.values())
+                report["stopped_by_time_limit"] = stopped
                 save()
-        # Exiting the executor waits for every already-running producer. After
-        # the first failure no further node, dependent or independent, starts.
+        # Exiting the executor waits for every already-running producer.
+        # Without --keep-going no further node starts after the first failure.
     if failures:
         raise SystemExit("Stopped after awaiting running nodes: " + repr(failures))
+    if stopped:
+        raise SystemExit(f"Time limit reached; {len(pending)} affected receipts not started: {report_path}")
     # Fresh authoritative validation, not the local copy of discovery logic.
     verify.verify_receipt_source_bindings()
     report["authoritative_final_source_check"] = "PASS"

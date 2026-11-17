@@ -9,6 +9,12 @@ from itertools import product
 import json
 from pathlib import Path
 import sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -222,8 +228,8 @@ def run():
         }
     return {
         "schema": "oph.native_observer_capacity_join.v1",
-        "source_pins": {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
-                        for name in PUBLIC_SOURCES},
+        "source_pins": bound_pins({name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+                        for name in PUBLIC_SOURCES}),
         "allocation": {"working_dimension": 78, "terminal_tape_words": 36,
                        "terminal_sector_dimension": 2808, "all_phase_record_states": 43,
                        "total_hilbert_dimension": 3354,

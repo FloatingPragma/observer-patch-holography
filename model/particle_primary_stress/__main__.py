@@ -6,6 +6,12 @@ from pathlib import Path
 
 from model.particle_common_contract import contract
 from . import stress
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -14,12 +20,12 @@ OUTPUT = HERE/'results.json'
 
 def build():
     paths = set(stress.SOURCE_INPUTS)
-    paths.update(contract.member(0)['source']['implementation_sha256'])
+    paths.update(bound_pins(contract.member(0)['source']['implementation_sha256']))
     paths.update(str(p.relative_to(ROOT)) for p in HERE.iterdir()
                  if p.is_file() and p.suffix in ('.py', '.md'))
-    pins = {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    pins = bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
     result = stress.certificate()
-    result['input_sha256'] = pins
+    result['input_sha256'] = bound_pins(pins)
     if any(hashlib.sha256((ROOT/name).read_bytes()).hexdigest() != value for name, value in pins.items()):
         raise ValueError('inputs changed during primary energy replay')
     return json.dumps(result, indent=2, sort_keys=True, allow_nan=False)+'\n'

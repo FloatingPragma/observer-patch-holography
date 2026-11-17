@@ -13,6 +13,12 @@ import json
 from pathlib import Path
 
 from model.defect_integer_lift import model as native
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -168,7 +174,7 @@ def report():
     source_paths += [p.relative_to(ROOT).as_posix() for p in sorted(HERE.iterdir())
                      if p.suffix in ('.py', '.md')]
     return {'schema': 'oph.charge_conjugation_dynamics.v1',
-            'sources': {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in source_paths},
+            'sources': bound_pins({p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in source_paths}),
             'local': local_certificate(),
             'native_paired_history': paired_history(),
             'abundance_kernel': abundance_kernel_certificate(),

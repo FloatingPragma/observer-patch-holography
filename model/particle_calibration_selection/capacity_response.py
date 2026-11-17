@@ -13,6 +13,12 @@ from pathlib import Path
 import sympy as s
 
 from model.common_source import native_family_record_memory as memory
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 def _clean(matrix):
@@ -242,4 +248,4 @@ def certificate():
             'record_capacity_equals_cosmic_capacity': False,
             'mass_or_physical_self_energy_derived': False,
             'target_mass_input_used': False,
-            'source_sha256': {path: hashlib.sha256((root/path).read_bytes()).hexdigest() for path in pins}}
+            'source_sha256': bound_pins({path: hashlib.sha256((root/path).read_bytes()).hexdigest() for path in pins})}

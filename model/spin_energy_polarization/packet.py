@@ -9,6 +9,12 @@ from pathlib import Path
 
 from tools import strict_json
 from . import algebra, bounds, samples
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -46,7 +52,7 @@ def bindings():
         'Lean/QFT/CoarseEnergyWard.lean','Lean/Dynamics/WardLimitManifest.lean',
         'paper/tex_fragments/OPERATIONAL_CAUSAL_SELECTION.tex'))
     paths.update((HERE/'README.md',HERE/'PROOF.md'))
-    return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(paths)}
+    return bound_pins({p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(paths)})
 
 
 def claims():
@@ -71,7 +77,7 @@ def claims():
 def build():
     before=bindings()
     value={'schema':'oph.spin_energy_polarization.v1','all_pass':True,
-        'source_bindings':before,'exact_source_algebra':algebra.exact_checks(),
+        'source_bindings':bound_pins(before),'exact_source_algebra':algebra.exact_checks(),
         'translated_rational_source_meshes':serialize([samples.control(ch,n)for ch in ('Q','P')for n in (2,4,8,16)]),
         'general_mesh_bounds_per_kappa':serialize([bounds.mesh(ch,F(1,2**n),F(2),F(1),F(8),F(64),F(512))for ch in ('Q','P')for n in (2,4,8)]),
         'symmetric_Weyl_polarization_controls':serialize([bounds.mixed_kick(F(1,2**n),F(2),F(1),F(8),F(64),F(1),F(8),F(64),F(512))for n in (2,4,8)]),

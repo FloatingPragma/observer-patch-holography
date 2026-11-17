@@ -15,6 +15,12 @@ import tempfile
 
 from tools import strict_json
 from . import geometry, source
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -65,7 +71,7 @@ def source_bindings():
                 add_module(target)
                 for alias in node.names:
                     add_module(target+'.'+alias.name)
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def scope():
@@ -112,7 +118,7 @@ def _produce():
              'native_source': source.native_execution(),
              'geometry': geometry.certificate(),
              'finite_observation': observation_certificate(),
-             'scope': scope(), 'source_bindings': pins}
+             'scope': scope(), 'source_bindings': bound_pins(pins)}
     if source_bindings() != pins:
         raise ValueError('source changed during the geometry response replay')
     return value
@@ -129,7 +135,7 @@ def report():
                        cwd=ROOT, env=dict(os.environ, OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1'),
                        check=True, capture_output=True, text=True, timeout=300)
         value = strict_json.load(output)
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across the cold geometry response replay')
     return value
 

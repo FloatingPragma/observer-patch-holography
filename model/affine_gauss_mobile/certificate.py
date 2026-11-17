@@ -6,6 +6,12 @@ from pathlib import Path
 
 from model.particle_common_contract.provenance import import_closure
 from .model import calculate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -44,11 +50,11 @@ def input_hashes():
     seeds.update({str(REFERENCE.relative_to(ROOT)),'model/requirements.txt'})
     from .model import source,PARENT
     parent,parent_sha=source()
-    validate_pins(parent['input_sha256'])
-    seeds.update(parent['input_sha256'])
+    validate_pins(bound_pins(parent['input_sha256']))
+    seeds.update(bound_pins(parent['input_sha256']))
     seeds.add(PARENT)
     names=import_closure(seeds)
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def certificate():
@@ -57,7 +63,7 @@ def certificate():
     comparison=compare_research(value)
     value.pop('owned_source_sha256',None)
     value['schema']='oph.affine_gauss_mobile.v1'
-    value['input_sha256']=pins
+    value['input_sha256']=bound_pins(pins)
     value['independent_research_comparison']=comparison
     return value
 

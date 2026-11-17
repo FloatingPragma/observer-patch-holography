@@ -13,6 +13,12 @@ from . import families, field_panels, joint_panels, repair_panels, scenes_a, sce
 from model.particle_candidate_confirmation import model as identity_model
 from .canvas import AMBER, BG, Canvas, TEAL, VIOLET, n
 from .parts import SX, W
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -44,7 +50,7 @@ def sha(path):
 def receipt(path):
     """Read a receipt and check its complete producer custody."""
     result = json.loads(path.read_text())
-    pins = result['source_sha256']
+    pins = bound_pins(result['source_sha256'])
     if not pins:
         raise ValueError('missing source custody: ' + str(path))
     for relative, digest in pins.items():
@@ -95,14 +101,14 @@ def load():
     data['agreement'] = repair_panels.load_agreement()
     data['joint'] = joint_panels.load()
     data['field_records'] = field_panels.load()
-    data['inputs'] = {str(p.relative_to(ROOT)): sha(p)
-                      for p in (OUTPUTS, MASSES, DEPENDENCIES, MOMENTUM, CANDIDATES, GAUGE, IDENTITY_TESTS)}
+    data['inputs'] = bound_pins({str(p.relative_to(ROOT)): sha(p)
+                      for p in (OUTPUTS, MASSES, DEPENDENCIES, MOMENTUM, CANDIDATES, GAUGE, IDENTITY_TESTS)})
     data['inputs'].update(repair_panels.input_pins(data['repair']))
     data['inputs'].update(repair_panels.protection_pins(data['protection']))
     data['inputs'].update(repair_panels.agreement_pins(data['agreement']))
     data['inputs'].update(joint_panels.input_pins(data['joint']))
-    data['inputs'].update(data['field_records']['pins'])
-    data['inputs'].update(identity['source_sha256'])
+    data['inputs'].update(bound_pins(data['field_records']['pins']))
+    data['inputs'].update(bound_pins(identity['source_sha256']))
     return data
 
 
@@ -181,8 +187,8 @@ def build():
     root = check_links(svg)
     audit = {
         'schema': 'oph.particle_atlas_explainer.v3',
-        'input_sha256': data['inputs'],
-        'renderer_sha256': {name: sha(HERE / name) for name in SOURCES},
+        'input_sha256': bound_pins(data['inputs']),
+        'renderer_sha256': bound_pins({name: sha(HERE / name) for name in SOURCES}),
         'source_physical_identifications': [],
         'reference_masses_are_predictions': False,
         'candidate_mass_predictions_GeV': data['candidates']['mass_predictions_GeV'],

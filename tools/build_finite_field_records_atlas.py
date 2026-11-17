@@ -11,6 +11,10 @@ import struct
 import subprocess
 import textwrap
 import zlib
+try:
+    from tools.pin_scope import bound_pins
+except ImportError:  # run or imported from tools/ as a top-level module
+    from pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'docs/research/OPH_FINITE_FIELD_RECORDS.svg'
@@ -48,7 +52,7 @@ def render():
     ground = prep['bounds_exact']
     witness = spatial['bounds_exact']
     cb = charged['bounds_exact']
-    hashes = {name: hashlib.sha256((BASE / name / 'results.json').read_bytes()).hexdigest() for name in names}
+    hashes = bound_pins({name: hashlib.sha256((BASE / name / 'results.json').read_bytes()).hexdigest() for name in names})
     height = 815+515*len(names)
     parts = [f'<svg xmlns="http://www.w3.org/2000/svg" width="3600" height="{height}" viewBox="0 0 3600 {height}" role="img" aria-labelledby="title desc">',
         '<title id="title">Finite records: from an OPH source to a detector</title>',

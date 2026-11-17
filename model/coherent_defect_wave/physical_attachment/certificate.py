@@ -5,6 +5,12 @@ from pathlib import Path
 from model.particle_common_contract.provenance import import_closure
 from model.common_source.chiral_candidate import action
 from . import spin,chiral,compensator
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 
@@ -23,13 +29,13 @@ def input_hashes():
                   'evidence/native_geometric_source_20260925/spec.json',
                   'evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py',
                   'evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py'))
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(import_closure(seeds)) if (ROOT/name).is_file()}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(import_closure(seeds)) if (ROOT/name).is_file()})
 
 
 def certificate():
     return {'schema':'oph.coherent_defect_wave.physical_attachment.v1',
-            'input_sha256':input_hashes(),
+            'input_sha256':bound_pins(input_hashes()),
             'spin_and_current_attachment':spin.certificate(),
             'chiral_internal_attachment':chiral.certificate(),
             'charge_compensating_memory':compensator.certificate(),

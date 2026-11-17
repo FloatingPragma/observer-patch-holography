@@ -12,6 +12,10 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+try:
+    from tools.pin_scope import bound_pins
+except ImportError:  # run or imported from tools/ as a top-level module
+    from pin_scope import bound_pins
 
 if __package__:
     from tools import build_completion_program as retained
@@ -275,8 +279,8 @@ def ledger_view(root: Path = ROOT) -> dict:
     for foundation in program["foundations"]:
         row = dict(foundation)
         row["canonical_claim_status"] = claims[row["claim_id"]]["status"]
-        row["source_sha256"] = {name: hashlib.sha256(local_file(root, name).read_bytes()).hexdigest()
-                                for name in row["evidence"]}
+        row["source_sha256"] = bound_pins({name: hashlib.sha256(local_file(root, name).read_bytes()).hexdigest()
+                                for name in row["evidence"]})
         foundations.append(row)
     return dict(verification="Program structure and source custody only; not scientific gate acceptance or a new physical comparison",
                 parents=parents, hypothesis=hypothesis, program=program, retained_foundations=foundations)

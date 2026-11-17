@@ -11,6 +11,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import algebra, bounds
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -25,7 +31,7 @@ def source_bindings():
         'independent_checks': [],
     })
     paths.add(FRAGMENT)
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def prior_custody():
@@ -33,9 +39,9 @@ def prior_custody():
     for name in PRIORS:
         path = ROOT/f'model/{name}/results.json'
         row = strict_json.loads(path.read_text())
-        if not row.get('source_bindings'):
+        if not bound_pins(row.get('source_bindings')):
             raise ValueError('prior has no source manifest')
-        changed = sorted(p for p, digest in row['source_bindings'].items()
+        changed = sorted(p for p, digest in bound_pins(row['source_bindings']).items()
                          if hashlib.sha256((ROOT/p).read_bytes()).hexdigest() != digest)
         result[name] = {'historical_all_pass': row.get('all_pass') is True,
                         'current_source_mismatches': changed,
@@ -109,7 +115,7 @@ def _produce():
     value = {'schema': 'oph.strong_coupling_refinement.v1',
              'new_checks_pass': True, 'dependency_custody_pass': complete, 'all_pass': complete,
              'theorem': theorem(), 'bounds': bounds.certificate(), 'controls': algebra.certificate(),
-             'prior_custody': prior, 'source_bindings': pins,
+             'prior_custody': prior, 'source_bindings': bound_pins(pins),
              'proof_scope': 'Analytic graph and continuum proofs with exact integer/rational controls; inherited expensive runs are not replayed. Current source custody is distinct from historical receipt custody.'}
     validate(value)
     if source_bindings() != pins:
@@ -127,7 +133,7 @@ def report():
                         '-m', 'model.strong_coupling_refinement.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.loads(path.read_text())
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across cold replay')
     validate(value)
     return value

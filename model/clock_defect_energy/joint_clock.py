@@ -21,6 +21,12 @@ import numpy as np
 from model.native_modular_reference import history_clock as clock
 from model.observer import coherent_continuation as wave
 from .joins_contract import binding, check_receipt, source_bindings
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 OUTPUT = HERE / "joint_clock_results.json"
@@ -424,7 +430,7 @@ def run():
             "clock_readout_scope": "Known finite N in {1,2}; detector distributions differ, no one-shot or global phase unwrapping.",
             "physical_seconds_calibrated": False, "equal_generators_required": False,
             "single_native_clock_field_primitive_derived": False, "new_empirical_predictions": 0,
-            "source_sha256": source_bindings(paths)}
+            "source_sha256": bound_pins(source_bindings(paths))}
 
 
 def main():

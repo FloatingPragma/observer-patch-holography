@@ -33,6 +33,12 @@ from . import source_green as source
 from . import uniform_green as uniform
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(sorted(set((*continuum.SOURCE_PATHS,
@@ -1065,7 +1071,7 @@ def isotropic_comparison_bounds(level=0):
 
 def run():
     return {'schema': 'oph.native_compact_spatial_generator.v1',
-        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
         'contract': {'source': 'existing spherical shared-midpoint carrier joins with distinct ports',
             'space': 'mean-zero L2 of normalized auxiliary flat-polyhedron area',
             'observation_dictionary': 'normalized ancestral cell means',

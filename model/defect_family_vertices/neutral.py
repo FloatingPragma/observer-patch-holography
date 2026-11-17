@@ -11,6 +11,12 @@ from model.coherent_defect_wave.physical_attachment.chiral import representation
 from model.defect_particle_classes.model import patterns
 from .source import ROOT, ground_pair, encoded_value
 from .vertices import action, scalar_matrix
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 RECEIPT = 'model/coherent_defect_wave/chiral_joint/ground_composite_response/results.json'
 
@@ -47,7 +53,7 @@ def calculate():
                               'scalar_row': row, 'scalar_col': col,
                               'coefficient': str(cubic[0][1])}})
     receipt = json.loads((ROOT/RECEIPT).read_text())
-    for path, digest in receipt['input_sha256'].items():
+    for path, digest in bound_pins(receipt['input_sha256']).items():
         assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == digest, path
     spectrum = receipt['actual_ground_composite_spectrum']
     setting = spectrum['recorded_settings'][0]

@@ -10,6 +10,12 @@ import sympy as s
 from model.particle_common_contract.provenance import import_closure
 from .source import ROOT, CALIBRATION, fermions, bosons, sparse_record, authenticate
 from .readout import fermion_records, boson_records, neutrino_flavour_records
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 PION = 'model/pion_mass_readout/results.json'
@@ -24,13 +30,13 @@ def authenticated_receipt(name, hash_key):
 
 
 def bindings():
-    inherited = authenticate()['source_bindings']
+    inherited = bound_pins(authenticate()['source_bindings'])
     pion = authenticated_receipt(PION, 'source_sha256')
     paths = {path.relative_to(ROOT).as_posix() for path in HERE.iterdir() if path.suffix in ('.py', '.md')}
-    paths.update({CALIBRATION, PION, *inherited, *pion['source_sha256'],
+    paths.update({CALIBRATION, PION, *inherited, *bound_pins(pion['source_sha256']),
                   'model/common_source/calibrated_matching_results.json'})
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(import_closure(paths))}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(import_closure(paths))})
 
 
 def composite_controls():
@@ -165,7 +171,7 @@ def calculate():
             'interacting pole and decay-width matching', 'quark confinement and hadronic source transfer',
             'neutrino EFT running from oscillation scale to the common matching scale',
             'local gauge constraints and a controlled physical continuum identification'],
-        'input_sha256': pins}
+        'input_sha256': bound_pins(pins)}
     if pins != bindings():
         raise ValueError('conditional spectrum source changed during replay')
     return result

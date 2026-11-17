@@ -5,6 +5,12 @@ import json
 from pathlib import Path
 from model.lepton_mass_compiler.packet import bindings as original_bindings
 from .compiler import run
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -12,9 +18,9 @@ ROOT=HERE.parents[1]
 
 def produce():
     pins=original_bindings()
-    pins.update({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
-                 for p in HERE.iterdir() if p.suffix in ('.py','.md')})
-    result=run();result['source_sha256']=pins
+    pins.update(bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
+                 for p in HERE.iterdir() if p.suffix in ('.py','.md')}))
+    result=run();result['source_sha256']=bound_pins(pins)
     return result
 
 

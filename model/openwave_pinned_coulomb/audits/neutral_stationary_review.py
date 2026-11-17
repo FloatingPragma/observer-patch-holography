@@ -12,6 +12,12 @@ from model.coherent_defect_wave.chiral_joint.ground_composite_response.model imp
 from model.coherent_defect_wave.chiral_joint.local_reference import physical
 from model.coherent_defect_wave.chiral_joint.local_reference.reduction import quark_module,lepton_operators
 from model.coherent_defect_wave.chiral_higgs.model import higgs_memory
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[3]
 
 
@@ -66,15 +72,15 @@ def run():
         filter_values={'maximum_pass_error':mp.nstr(max(pass_errors),12),'maximum_stop_amplitude':mp.nstr(max(stop_errors),12),
             'complete_dimension_conditioning_leak':mp.nstr(actual_leak,12)}
     receipt_path=ROOT/'model/openwave_neutral_stationary/results.json';receipt=json.loads(receipt_path.read_text())
-    for p,hsh in receipt['input_sha256'].items():assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==hsh,p
-    paths=[*receipt['input_sha256'],'model/openwave_neutral_stationary/results.json',str(Path(__file__).relative_to(ROOT))]
+    for p,hsh in bound_pins(receipt['input_sha256']).items():assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==hsh,p
+    paths=[*bound_pins(receipt['input_sha256']),'model/openwave_neutral_stationary/results.json',str(Path(__file__).relative_to(ROOT))]
     return {'schema':'oph.independent_neutral_stationary_review.v1','verdict':'PASS',
         'independent_band_and_projector_controls':checks,'native_Gauss_embedding_four_nontrivial_generators':True,
         'independent_whitened_projector_error':float(projector_error),'filter_controls':filter_values,
         'mathematical_review':'Complete flux-support isolation, full-Q self-energy/Sylvester bounds, penalty-dependent exchange, graded momentum ranks, explicit Chebyshev contraction, full-dimension conditioning and complete51-record composition are consistent. The doubled link penalty and periodic source are explicit; no coefficient-one ground transfer occurs.',
         'scope_review':'The stationary accepted mixture is defined by an explicit polynomial on the same full source. It is a finite declared apparatus with success about2.85e-126 and degree167608, not a feasible primitive preparation or a physical relativistic neutrino/dark-matter identification.',
         'stationary_state_scope':'The source has an actual native profile, explicit stationary preparation, positive ground-relative zero-momentum energy and retained complements. Cosmological abundance and physical relativistic dispersion are separate unresolved quantities.',
-        'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(set(paths))}}
+        'source_sha256':bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(set(paths))})}
 
 
 if __name__=='__main__':

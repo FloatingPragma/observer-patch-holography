@@ -27,6 +27,12 @@ import numpy as np
 
 from . import local_bias as local
 from ..observer import native, record_recovery as records
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 DIMENSION = 66
@@ -291,15 +297,15 @@ def canonical_certificate():
 
 
 def source_bindings():
-    paths = set(local.contract()['source_sha256']) | {
+    paths = set(bound_pins(local.contract()['source_sha256'])) | {
         'model/local_repair_family/mixing.py', 'model/local_repair_family/test_mixing.py',
         'model/local_repair_family/local_bias.py', 'model/local_repair_family/campaign.json'}
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def report():
     return {'schema': 'oph.local_repair_family.mixing.v1',
-            'source_sha256': source_bindings(),
+            'source_sha256': bound_pins(source_bindings()),
             'general_family': general_certificate(), 'canonical': canonical_certificate(),
             'proof': [
                 'Every committed native branch is a partial injection. A distinct pair surviving a common history remains distinct; conditioning on the next event bounds its common-record weight by r.',

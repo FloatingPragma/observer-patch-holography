@@ -11,6 +11,12 @@ from .spectrum import (PROGRAM_ID,source_mass,symbol,energy,projectors,
 from .fock import act,exterior_matrix,rest_instrument
 from .source import certificate as source_certificate
 from .position import certificate as position_certificate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 
@@ -122,8 +128,8 @@ def hashes():
                   'evidence/native_geometric_source_20260925/spec.json',
                   'evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py',
                   'evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py'))
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(import_closure(paths)) if (ROOT/name).is_file()}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(import_closure(paths)) if (ROOT/name).is_file()})
 
 
 def certificate():
@@ -143,4 +149,4 @@ def certificate():
                      'five_faces_identified_as_five_measured_species':False,
                      'bosonic_collision_law_or_native_interaction_automatically_transferred':False,
                      'interacting_relativistic_limit_or_SM_or_GeV':False},
-            'input_sha256':hashes()}
+            'input_sha256':bound_pins(hashes())}

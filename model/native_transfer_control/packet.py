@@ -10,6 +10,12 @@ from tools import strict_json
 from model.native_coexistent_effects import packet as phase_packet
 from model.native_effect_synthesis import packet as synthesis_packet
 from . import control as c, spectral
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).with_name('results.json')
@@ -71,7 +77,7 @@ IMPORT_FILES=(
 
 def source_bindings():
     paths=set(SOURCE_FILES)|set(IMPORT_FILES)|set(phase_packet.source_bindings())|set(c.response.source_bindings())
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def word_record(word):
@@ -156,7 +162,7 @@ def produce():
                     'native_modular_and_transfer_clocks_identical':False,
                     'growing_coherent_service_embedding':False,
                     'physical_vacuum_relativistic_clock_or_particle_masses':False},
-           'source_bindings':before}
+           'source_bindings':bound_pins(before)}
     if source_bindings()!=before:raise ArithmeticError('source inputs changed during transfer replay')
     return value
 

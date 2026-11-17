@@ -15,6 +15,12 @@ from model.lepton_cycle import instrument
 from model.native_quantum_service_bridge import finite_compiler
 from model.observer.source_scalar import compiler as source
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 THETA=F(2,9);KICK=F(1,7)
@@ -25,7 +31,7 @@ def bindings():
     paths.update(('model/lepton_cycle/results.json','model/lepton_cycle/PROOF.md',
                   'model/observer/source_scalar/DERIVATION.md','model/native_quantum_service_bridge/PROOF.md',
                   source.RESPONSE,source.CONTROL_RECEIPT,'requirements.txt','model/requirements.txt'))
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))})
 
 
 def digest(tape):
@@ -283,13 +289,13 @@ def resources(steps):
 
 def calculate():
     pins=bindings();summary=source.source_summary();tape=words();blocks=compiled_blocks();literal=literal_kick_control();data=cycle()
-    result={'schema':'oph.lepton_service_compiler.v1','source_bindings':pins,'all_checks_pass':True,
+    result={'schema':'oph.lepton_service_compiler.v1','source_bindings':bound_pins(pins),'all_checks_pass':True,
         'source_contract':{'processor_dimension':6,'source_generators':12,'address_dimensions':[64,64],
             'native_address_support':[60,60],'family_dimension':3,'padded_family_dimension':4,
             'preparation':'source-word Householder on two supplied blank address registers, independent of the family and every reference',
             'clock':'one declared analyzer kick with angle h=1/7 per complete cycle','theta_exact':str(THETA),'kick_exact':str(KICK),
             'arbitrary_untouched_quantum_reference_retained':True,'source_summary':summary},
-        'compiled_words':{name:{'native_pulses':len(word),'sha256':digest(word)} for name,word in tape.items()},
+        'compiled_words':bound_pins({name:{'native_pulses':len(word),'sha256':digest(word)} for name,word in tape.items()}),
         'source_block_replay_errors':blocks['errors'],'literal_large_kick_control':literal,
         'complete_cycle_errors':data['errors'],'complete_service_controls':service_controls(),
         'correlated_source_countercontrol':data['correlated'],'quantum_archive_execution':histories(),

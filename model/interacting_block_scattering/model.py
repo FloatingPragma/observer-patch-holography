@@ -7,6 +7,12 @@ import json
 import math
 from pathlib import Path
 import sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 sys.dont_write_bytecode=True
 HERE=Path(__file__).resolve().parent
@@ -29,7 +35,7 @@ def source():
     for receipt in PARENTS:
         path=RER/receipt
         value=json.loads(path.read_text())
-        for name,pin in value['input_sha256'].items():
+        for name,pin in bound_pins(value['input_sha256']).items():
             relative=Path(name)
             if relative.is_absolute() or '..' in relative.parts:
                 raise ValueError('parent path must be repository relative: '+name)
@@ -363,7 +369,7 @@ def calculate():
     result={'schema':'oph.interacting_block_scattering.v1',
             'same_public_quadrature_receipt_sha256':sha,
             'validated_deterministic_trial_ancestor':NATIVE_PREPARATION_PARENT,
-            'source_input_sha256':q['input_sha256'],
+            'source_input_sha256':bound_pins(q['input_sha256']),
             'direct_capacity_matrix_checks':[exact_two_particle_matrix(N) for N in (2,3,8,64)],
             'independent_quartic_vertex':independent_bog_vertex(),
             'interval_certified_five_block_collision':direct,

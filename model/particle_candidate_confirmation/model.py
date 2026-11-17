@@ -6,6 +6,12 @@ from pathlib import Path
 
 from model.particle_common_contract import contract
 from . import catalogue, paths, steps
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
@@ -76,7 +82,7 @@ def read_inputs():
         value = json.loads(path.read_text())
         if value.get('schema') != SCHEMAS[role]:
             raise ValueError('candidate producer schema differs: ' + role)
-        ancestry = value.get('source_sha256')
+        ancestry = bound_pins(value.get('source_sha256'))
         if not ancestry:
             raise ValueError('missing candidate producer custody: ' + name)
         for relative, expected in ancestry.items():
@@ -259,9 +265,9 @@ def build():
         'target_rows': rows,
         'source_excitation_ids': [r['id'] for r in dictionary['source_excitation_rows']],
         'protected_catalogue_ids': [r['id'] for r in dictionary['protected_catalogue_rows']],
-        'evidence': {role: {'path': path, 'sha256': sha(ROOT / path),
+        'evidence': bound_pins({role: {'path': path, 'sha256': sha(ROOT / path),
                             'schema': values[role]['schema']}
-                     for role, path in INPUTS.items()},
+                     for role, path in INPUTS.items()}),
         'calculated_source_results': calculated_summary(values),
         'confirmation_plan': steps.plan(),
         'labelled_catalogue': catalogue.build(dictionary),
@@ -270,7 +276,7 @@ def build():
         'mass_predictions_GeV': [],
         'fit_parameters_used': [],
         'physical_gate_promotions': [],
-        'source_sha256': {**pins, **{p: sha(ROOT / p) for p in SOURCE_INPUTS}},
+        'source_sha256': bound_pins({**pins, **bound_pins({p: sha(ROOT / p) for p in SOURCE_INPUTS})}),
     }
     result['content_sha256'] = content_digest(result)
     validate(result, authenticated=(values, pins))
@@ -325,13 +331,13 @@ def validate(value, *, authenticated=None):
         raise ValueError('candidate identity result content differs')
     values, pins = read_inputs() if authenticated is None else authenticated
     dictionary = values['dictionary']
-    expected_evidence = {role: {'path': path, 'sha256': sha(ROOT / path),
+    expected_evidence = bound_pins({role: {'path': path, 'sha256': sha(ROOT / path),
                                  'schema': values[role]['schema']}
-                         for role, path in INPUTS.items()}
-    expected_pins = {**pins, **{p: sha(ROOT / p) for p in SOURCE_INPUTS}}
+                         for role, path in INPUTS.items()})
+    expected_pins = {**pins, **bound_pins({p: sha(ROOT / p) for p in SOURCE_INPUTS})}
     if (value['calculated_source_results'] != calculated_summary(values)
             or value['evidence'] != expected_evidence
-            or value['source_sha256'] != expected_pins
+            or bound_pins(value['source_sha256']) != expected_pins
             or value['source_excitation_ids'] != [r['id'] for r in dictionary['source_excitation_rows']]
             or value['protected_catalogue_ids'] != [r['id'] for r in dictionary['protected_catalogue_rows']]):
         raise ValueError('candidate identity result differs from authenticated producers')

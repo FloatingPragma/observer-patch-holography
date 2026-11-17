@@ -16,6 +16,12 @@ from ..relativistic_scalar.experiment import native_records, tv
 from ..relativistic_scalar.lattice import ScalarParameters
 from . import bounds, execution, recovery, source
 from .prediction import RecoveredField
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -208,7 +214,7 @@ def run():
             'independent_Bernoulli_budget': bounds.simultaneous_shot_count(F(1, 10**7), 176),
             'finite_sampling_was_executed': False},
         'independent_backend_audit': {**audit, 'absolute_coefficient_errors': audit_errors},
-        'source_binding_sha256': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_PATHS},
+        'source_binding_sha256': bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_PATHS}),
         'floating_or_physical_service_error_certified': False,
         'checks': checks, 'all_pass': all(checks.values()),
     }

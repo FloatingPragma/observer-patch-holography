@@ -12,6 +12,12 @@ from .defect_constraints import constraint_certificate
 from .defects import SOURCE_PATHS as DEFECT_SOURCES, defect_catalogue
 from .matching import example_certificate
 from .spectrum import build_catalogue
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -47,7 +53,7 @@ def source_bindings():
     inherited = {}
     for name in PARENTS:
         parent = strict_json.load(ROOT / name)
-        bindings = parent.get("source_bindings", parent.get("source_sha256"))
+        bindings = bound_pins(parent.get("source_bindings", bound_pins(parent.get("source_sha256"))))
         if type(bindings) is not dict or not bindings:
             raise ValueError("parent calculation lacks source bindings")
         for path, digest in bindings.items():
@@ -66,8 +72,8 @@ def source_bindings():
             paths.update(ref["path"] for ref in row["references"])
     paths.update(str(path.relative_to(ROOT)) for path in PACKAGE.iterdir()
                  if path.is_file() and path.suffix in {".py", ".md"})
-    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
-            for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+            for name in sorted(paths)})
 
 
 def report():
@@ -85,7 +91,7 @@ def report():
         "integrated_gate_accepted": False,
         "independently_predicted_measured_mass_count": 0,
         "source_selection_derived": False,
-        "source_bindings": bindings,
+        "source_bindings": bound_pins(bindings),
     }
     if source_bindings() != bindings:
         raise ValueError("source files changed during calculation")

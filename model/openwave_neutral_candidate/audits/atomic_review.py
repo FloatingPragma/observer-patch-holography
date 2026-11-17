@@ -5,6 +5,12 @@ import hashlib
 import json
 import numpy as np
 import scipy.linalg as la
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[2]
 TARGET=ROOT/'model/openwave_atomic_refinement'
@@ -44,9 +50,9 @@ def report():
     from model.openwave_atomic_refinement.refinement import spectrum
     paths=[TARGET/p for p in ('refinement.py','__main__.py','PROOF.md','results.json')]
     paths += [ROOT/'model/openwave_field_observables/orbitals.py',Path(__file__)]
-    pins={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+    pins=bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths})
     saved=json.loads((TARGET/'results.json').read_text())
-    assert all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h for p,h in saved['source_sha256'].items())
+    assert all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h for p,h in bound_pins(saved['source_sha256']).items())
     h,pot,lap,points,index=dense_atom(5,6.)
     allframes=[];allvalues=[];errors=[];dims=[]
     for parity in product((False,True),repeat=3):
@@ -90,7 +96,7 @@ def report():
     assert [row['grid'] for row in saved['spacing_rows']]==[71,95,127,159]
     assert saved['volume_rows'][0]==saved['spacing_rows'][0]
     assert not saved['continuum_spacing_error_certified']
-    result={'schema':'oph.independent_atomic_refinement_review.v1','input_sha256':pins,
+    result={'schema':'oph.independent_atomic_refinement_review.v1','input_sha256':bound_pins(pins),
         'dense_source_dimension':125,'complete_parity_dimensions':dims,
         'largest_compressed_operator_error':max(errors),'complete_spectral_union_error':union_error,
         'fixed_spacing_nested_comparisons':comparisons,

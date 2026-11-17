@@ -5,12 +5,18 @@ import numpy as np
 from scipy.linalg import eigh,expm
 from model.openwave_dynamic_wave.source import shape,geometry,block,field,packet,KAPPA
 from model.openwave_dynamic_stress.response import operators
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 ROOT=Path.cwd(); HERE=ROOT/'model/openwave_current_averaging/audits'; HERE.mkdir(exist_ok=True)
 paths=['model/openwave_dynamic_wave/results.json','model/openwave_dynamic_stress/results.json']
-receipts=[json.loads((ROOT/p).read_text())for p in paths];pins={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in paths}
+receipts=[json.loads((ROOT/p).read_text())for p in paths];pins=bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in paths})
 pins[str(Path(__file__).resolve().relative_to(ROOT))]=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
 for r in receipts:
- for p,h in r['source_sha256'].items():assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h
+ for p,h in bound_pins(r['source_sha256']).items():assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h
 s=shape();g=geometry();f=field();o=operators();L=s['L_exact'];W=s['F_exact'];sites=s['source_sites']
 assert W[sites,:].det()==1
 assert W.T*L*W==s['S_exact'] and W.T*W==s['M_exact']
@@ -58,5 +64,5 @@ for r in stress['all7_same_source_clock_ratios']:
  lo,hi=map(F,r['same_source_clock_frequency_ratio_interval']);assert float(lo)-2e-14<ratio<float(hi)+2e-14
 assert max(ratios)-min(ratios)>87e-6
 assert F(stress['exact_test_clock_theorem']['coefficient_exact'])==F(17,250)**2/F(9,50)
-result={'verdict':'PASS_INDEPENDENT_AUTONOMOUS_WAVE_STRESS_REVIEW','source_sha256':pins,'harmonic_projection_and_induced_mass_stiffness_exact':True,'all64_native_clock_blocks_checked':64,'full196_wave_blocks_recomputed':2,'finite_difference_force_error_max':max(errors),'boundary_corrected_Ehrenfest_residuals':ward,'complete_hit_timeout_records_retained':True,'independent_native_delay':delay,'independent_transverse_bending':bend,'energy_error_max':max(energyerrors),'clock_ratio_spread_ppm':(max(ratios)-min(ratios))*1e6,'scope':'Independent numerical controls of exact source identities and positive interval margins. Harmonic geometry, scalar metric, cap and preparation remain declared; no physical G, Einstein law, continuum, observed lensing or universal finite-strength redshift inferred.'}
+result={'verdict':'PASS_INDEPENDENT_AUTONOMOUS_WAVE_STRESS_REVIEW','source_sha256':bound_pins(pins),'harmonic_projection_and_induced_mass_stiffness_exact':True,'all64_native_clock_blocks_checked':64,'full196_wave_blocks_recomputed':2,'finite_difference_force_error_max':max(errors),'boundary_corrected_Ehrenfest_residuals':ward,'complete_hit_timeout_records_retained':True,'independent_native_delay':delay,'independent_transverse_bending':bend,'energy_error_max':max(energyerrors),'clock_ratio_spread_ppm':(max(ratios)-min(ratios))*1e6,'scope':'Independent numerical controls of exact source identities and positive interval margins. Harmonic geometry, scalar metric, cap and preparation remain declared; no physical G, Einstein law, continuum, observed lensing or universal finite-strength redshift inferred.'}
 out=HERE/'gravity_review.json';out.write_text(json.dumps(result,indent=2,sort_keys=True)+'\n');print(json.dumps(result,indent=2))

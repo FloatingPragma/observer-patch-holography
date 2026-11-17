@@ -11,6 +11,12 @@ from model.particle_primary_origin_momentum import model as origin
 from model.particle_primary_refinement_response import model as response
 from model.particle_filtered_probe import filter as apparatus
 from model.particle_spatial_ground_state import ground
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=(
  'model/particle_primary_momentum_transfer/__init__.py',
@@ -250,6 +256,6 @@ def certificate():
                 *row['K'].H*row['K']))) for row in fourier['rows']]},
         'rectangle_control':{'leakage':str(kernel_leakage()),
             'original_weight_lower_for_success_half':str(original_rectangle_lower('1/2',kernel_leakage()))},
-        'source_sha256':pins}
+        'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('momentum-transfer source changed during replay')
     return result

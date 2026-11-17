@@ -5,6 +5,12 @@ from pathlib import Path
 import hashlib,json,math
 import mpmath as mp
 from model.affine_gauss_spectrum import model as candidate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -96,6 +102,6 @@ def audit():
       'actual_ground_nonvacuum_probability_positive_lower':str(positive),
       'Schur_and_variational_proof_checked':True,'complete_preparation_fidelity_checked':True,
       'candidate_receipt_sha256':hashlib.sha256((ROOT/'model/affine_gauss_spectrum/results.json').read_bytes()).hexdigest(),
-      'candidate_source_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted((ROOT/'model/affine_gauss_spectrum').iterdir()) if p.suffix in ('.py','.md')},
-      'owned_source_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}}
+      'candidate_source_sha256':bound_pins({p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted((ROOT/'model/affine_gauss_spectrum').iterdir()) if p.suffix in ('.py','.md')}),
+      'owned_source_sha256':bound_pins({p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})}
     return result

@@ -7,6 +7,12 @@ from .algebra import local_certificate,cubic_trace_certificate
 from .criteria import ratio_moments,uniform_continuum_control
 from .experiment import finite_control
 from fractions import Fraction as F
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -30,7 +36,7 @@ def bindings():
     names=set(INPUTS)
     names.update(p.relative_to(ROOT).as_posix() for p in HERE.iterdir()
                  if p.suffix in ('.py','.md'))
-    return {n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in sorted(names)}
+    return bound_pins({n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in sorted(names)})
 
 
 def canonical(value):return json.dumps(value,sort_keys=True,allow_nan=False,separators=(',',':'))
@@ -44,7 +50,7 @@ def report():
             'mass_shell_established':False,'sharp_lattice_pole_established':False,
             'whole_response_concentration_necessary_for_any_sharp_branch':False,
             'physical_species_identified':False,'new_finite_attachment_claimed':False,
-            'new_checks_pass':True,'source_bindings':before,
+            'new_checks_pass':True,'source_bindings':bound_pins(before),
             'inherited_scope':{'old_full_receipt_closures_replayed':False,
                                'direct_mathematical_inputs_pinned':True,
                                'source_or_repair_law_changed':False},

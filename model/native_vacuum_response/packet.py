@@ -11,6 +11,12 @@ from tools import strict_json
 from ..native_correlation_preparation import packet as preparing
 from ..native_exchange_clock import packet as clock
 from . import response as r
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -20,7 +26,7 @@ SOURCE_FILES = tuple(f'model/native_vacuum_response/{name}' for name in (
 
 def source_bindings():
     names = set(preparing.source_bindings()) | set(clock.source_bindings()) | set(SOURCE_FILES)
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def canonical(value):
@@ -90,7 +96,7 @@ def produce():
     moments = r.exchange.moments(family, h, 2, 8)
     taylor = r.unitary_taylor(moments, F(1, 64))
     phase = phase_blindness()
-    value = {'schema': 'oph.native_vacuum_response.v1', 'source_bindings': before,
+    value = {'schema': 'oph.native_vacuum_response.v1', 'source_bindings': bound_pins(before),
         'local_source': {'ports': 12, 'seams': 30, 'occupation': 2,
             'probe_seams': (first, second), 'continuation': local,
             'exact_normalized_native_lag_scores': values,

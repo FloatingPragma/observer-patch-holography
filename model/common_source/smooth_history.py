@@ -16,6 +16,12 @@ import math
 from pathlib import Path
 
 from . import infinite_history as ih, protocol
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 @dataclass(frozen=True)
@@ -435,7 +441,7 @@ def run():
         rows.append(row)
     root = Path(__file__).resolve().parents[2]
     return {'schema': 'oph.common_source.smooth_history_enclosure.v1',
-            'source_sha256': {path: hashlib.sha256((root/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
+            'source_sha256': bound_pins({path: hashlib.sha256((root/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
             'currents': rows,
             'complete_native_composition': [
                 {'dimension': d, 'maximum_current_ideal_product_output_error_upper':

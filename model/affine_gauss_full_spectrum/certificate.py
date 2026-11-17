@@ -11,6 +11,12 @@ import mpmath as mp
 from model.affine_gauss_spectrum import model as coarse
 from .operator import HERE, ROOT, ActualOperator, algebraic_frame
 from .roundoff import U, q, evaluation_budget, sqrt_bounds, squared_norm_exact
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 PARENT='model/affine_gauss_spectrum/results.json'
 PARENT_SHA='632a3b6ae85c7f1fb67ce768a78b684972831eb1b194517b1dc9c2cb1affb9ff'
@@ -40,7 +46,7 @@ def norm_admission(vector):
 def replay():
     raw=(ROOT/PARENT).read_bytes()
     if hashlib.sha256(raw).hexdigest()!=PARENT_SHA:raise ValueError('coarse source certificate changed')
-    parent=json.loads(raw);coarse.validate_pins(parent['input_sha256'])
+    parent=json.loads(raw);coarse.validate_pins(bound_pins(parent['input_sha256']))
     if parent!=coarse.certificate():raise ValueError('full-complement parent replay differs')
     vector=np.load(HERE/'trial_state.npy',allow_pickle=False)
     mp.iv.dps=80
@@ -117,9 +123,9 @@ def certificate():
         'scope':{'finite_boundary_reference_problem':True,'photon_dressing_is_nonzero':True,
             'translation_invariant_mass_shell_identified':False,'Lorentz_spin_identified':False,
             'Standard_Model_identity':None,'mass_GeV':None}}
-    pins=dict(parent['input_sha256']);pins[PARENT]=PARENT_SHA
+    pins=dict(bound_pins(parent['input_sha256']));pins[PARENT]=PARENT_SHA
     for path in HERE.iterdir():
         if path.suffix in ('.py','.md','.npy'):
             pins[path.relative_to(ROOT).as_posix()]=hashlib.sha256(path.read_bytes()).hexdigest()
-    result['input_sha256']=dict(sorted(pins.items()))
+    result['input_sha256']=bound_pins(dict(sorted(pins.items())))
     return result

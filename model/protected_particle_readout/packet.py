@@ -15,6 +15,12 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from ..cube_eta_protection import repair
 from . import bounds, experiment, identification
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -33,7 +39,7 @@ def source_bindings():
     })
     paths.update(('model/protected_particle_readout/contract.json',
                   'paper/tex_fragments/PROTECTED_PARTICLE_READOUT.tex'))
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 _IMPORTED_BINDINGS = source_bindings()
@@ -127,7 +133,7 @@ def _produce():
              'executed_native_readout': experiment.report(),
              'prospective_spectral_resolution': identification.spectral_resolution_certificate(),
              'prospective_sampling_budget': identification.prospective_sampling_budget(),
-             'source_bindings': pins, 'replay_float_absolute_tolerance': REPLAY_ATOL,
+             'source_bindings': bound_pins(pins), 'replay_float_absolute_tolerance': REPLAY_ATOL,
              'integrated_gate_accepted': False, 'physical_particle_identification': False,
              'physical_hardware_execution_or_accuracy_proved': False,
              'primitive_or_field_or_repair_law_changed': False}
@@ -171,7 +177,7 @@ def report():
                                 cwd=ROOT, env=environment, capture_output=True, text=True, check=False)
         if result.returncode: raise RuntimeError('cold native readout failed: '+result.stderr[-4000:])
         value, arrays = read_pair(target)
-    if source_bindings() != pins or value['source_bindings'] != pins: raise ValueError('source changed across cold readout replay')
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins: raise ValueError('source changed across cold readout replay')
     return value, arrays
 
 

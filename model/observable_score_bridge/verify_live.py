@@ -7,6 +7,12 @@ import hashlib
 import json
 
 from .bridge import HERE, IDS, ROOT, authenticate, build, require
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 def verify_snapshot(live, proposed):
@@ -86,9 +92,9 @@ def certificate():
     result = verify_snapshot(live, proposed)
     paths = [HERE / name for name in ['live_status.json', 'verify_live.py',
              'LIVE_VERIFICATION.md', 'test_live.py', 'results.json']]
-    result['source_bindings'] = {
+    result['source_bindings'] = bound_pins({
         str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
-        for path in paths}
+        for path in paths})
     return result
 
 

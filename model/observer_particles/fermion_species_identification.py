@@ -14,6 +14,12 @@ import importlib.util
 import json
 from pathlib import Path
 import sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 sys.dont_write_bytecode = True
 import numpy as np
 
@@ -296,9 +302,9 @@ def main():
                      'code/a5_closure/manifests/family_band_attachment_reference.json',
                      'code/sm_fermion_current/quantum_link_receipt.json']:
         dependencies.add(PUBLIC/relative)
-    for relative in compiler.source_summary()['source_sha256']:
+    for relative in bound_pins(compiler.source_summary()['source_sha256']):
         dependencies.add(PUBLIC/relative)
-    result['source_sha256'] = {str(p.relative_to(ROOT)):sha(p) for p in sorted(dependencies)}
+    result['source_sha256'] = bound_pins({str(p.relative_to(ROOT)):sha(p) for p in sorted(dependencies)})
     result['producer_sha256']=sha(__file__)
     target=HERE/'results/fermion_species_identification.json'
     target.write_text(json.dumps(public_receipt(result),indent=2,sort_keys=True)+'\n', encoding='utf-8', newline='\n')

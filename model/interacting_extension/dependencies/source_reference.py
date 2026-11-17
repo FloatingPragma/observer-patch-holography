@@ -23,6 +23,12 @@ import numpy as np
 import sympy as sp
 
 from .._source import PIN, ROOT, verify_sources
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 HERE = Path(__file__).resolve().parent
 I3 = sp.eye(3)
 SQRT5 = sp.sqrt(5)
@@ -175,7 +181,7 @@ def _exact_data(repo_string):
     F = tuple(exact_matrix(projectors[k]-I3/3) for k in (0, 1, 4, 5, 8)) + C
     detY = exact_scalar(Y.det())
     assert detY.is_positive is True
-    return dict(repo=repo, source_hashes=hashes, frame=exact_matrix(frame),
+    return dict(repo=repo, source_hashes=bound_pins(hashes), frame=exact_matrix(frame),
                 projectors=projectors, seams=seams, raw_labels=raw_labels,
                 weights=weights, destinations=destinations, T=exact_matrix(T), pi=pi,
                 support=support, Y=Y, W=W, D=D, J=J, features=F, phase_features=C,

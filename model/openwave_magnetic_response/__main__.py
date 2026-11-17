@@ -4,6 +4,12 @@ import hashlib
 import json
 from pathlib import Path
 from .response import run
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -12,7 +18,7 @@ ROOT=HERE.parents[1]
 def produce():
     value=run()
     paths=[*sorted(HERE.glob('*.py')),HERE/'PROOF.md',ROOT/'model/native_mass_channels/algebra.py']
-    value['source_sha256']={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+    value['source_sha256']=bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths})
     return value
 
 

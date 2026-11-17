@@ -9,6 +9,12 @@ import numpy as np
 from tools import strict_json
 from . import detector as d, coverage as c
 from model.native_causal_dataflow import dataflow
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).with_name('results.json')
@@ -23,7 +29,7 @@ SOURCE_FILES=tuple('model/native_effect_coverage/'+name for name in (
 
 def source_bindings():
     paths=set(SOURCE_FILES)|{p for p in c.t.SOURCE_PATHS if not p.startswith('docs/')}
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def execution_certificate():
@@ -102,7 +108,7 @@ def produce():
                     'universal_Born_or_all_effect_coexistence_supplied':False,
                     'capacity_family_coherent_services_embedded':False,
                     'physical_QFT_or_particle_identification':False},
-           'source_bindings':bindings}
+           'source_bindings':bound_pins(bindings)}
     if source_bindings()!=bindings:
         raise ArithmeticError('effect coverage sources changed during replay')
     return value

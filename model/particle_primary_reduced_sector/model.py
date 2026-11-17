@@ -16,6 +16,12 @@ from model.particle_primary_survival import survival
 from model.particle_primary_channel_labels import channels
 from model.particle_primary_variational_readout import variational
 from model.particle_primary_joint_spectroscopy import spectroscopy
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=tuple(dict.fromkeys((
  *('model/particle_primary_reduced_sector/'+name for name in
@@ -262,6 +268,6 @@ def verify_bound(member,value):
 def certificate():
     paths=provenance.definition_inputs(SOURCE_INPUTS);pins=provenance.definition_hashes(paths)
     value={'schema':'oph.primary_reduced_sector_certificate.v1',
-        'selected_member_bound':bind_member(contract.member(0)),'source_sha256':pins}
+        'selected_member_bound':bind_member(contract.member(0)),'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('source inputs changed during reduced-sector replay')
     return value

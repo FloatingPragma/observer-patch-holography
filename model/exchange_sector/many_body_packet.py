@@ -13,6 +13,12 @@ import sys
 import tempfile
 
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -70,7 +76,7 @@ def source_bindings():
                 add(target)
                 for alias in node.names:
                     add(target+'.'+alias.name)
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def _report():
@@ -94,7 +100,7 @@ def _report():
               'nonabelian_many_particle_transport_classified': False,
               'refinement_or_continuum_equivalence_proved': False,
               'integrated_completion_gate_accepted': False,
-              'source_sha256': before}
+              'source_sha256': bound_pins(before)}
     if source_bindings() != before:
         raise RuntimeError('many-particle sources changed during replay')
     return result
@@ -116,7 +122,7 @@ def report():
                              text=True, encoding='utf-8', timeout=600)
     result = strict_json.loads(run.stdout)
     if (type(result) is not dict or set(result) != RESULT_KEYS
-            or result.get('source_sha256') != before
+            or bound_pins(result.get('source_sha256')) != before
             or source_bindings() != before):
         raise RuntimeError('fresh replay and current source custody disagree')
     if (result['schema'] != 'oph.native_many_body_statistics.receipt.v1'

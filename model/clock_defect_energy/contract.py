@@ -6,6 +6,12 @@ import json
 from pathlib import Path
 
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -72,7 +78,7 @@ def _metadata_only_predecessor_compatible(expected, current):
         if _canonical_digest(predecessor) != _PREDECESSOR_CANONICAL:
             return False
         control = strict_json.load(ROOT / _CONTROL)
-        sources = control["source_sha256"]
+        sources = bound_pins(control["source_sha256"])
         if (type(sources) is not dict or _DOCUMENT not in sources
                 or sources != source_bindings(sources)):
             return False
@@ -96,11 +102,11 @@ def load_contract(path=None):
             or value["boundary_status"] != "FROZEN_DIAGNOSTIC_CONTRACT"
             or value["predecessor"]["merged_into_main_claimed"] is not False):
         raise ValueError("diagnostic scope or pending dependency changed")
-    if type(value["source_sha256"]) is not dict or set(value["source_sha256"]) != REQUIRED_SOURCES:
+    if type(bound_pins(value["source_sha256"])) is not dict or set(bound_pins(value["source_sha256"])) != REQUIRED_SOURCES:
         raise ValueError("complete predecessor source bindings required")
-    current = source_bindings(value["source_sha256"])
-    if (current != value["source_sha256"]
-            and not _metadata_only_predecessor_compatible(value["source_sha256"], current)):
+    current = source_bindings(bound_pins(value["source_sha256"]))
+    if (current != bound_pins(value["source_sha256"])
+            and not _metadata_only_predecessor_compatible(bound_pins(value["source_sha256"]), current)):
         raise ValueError("predecessor source changed; review a new diagnostic contract")
     return value
 

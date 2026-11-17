@@ -7,6 +7,12 @@ from itertools import product
 from model.particle_common_contract import contract, provenance
 from model.particle_primary_covariant_stress import model as stress
 from model.particle_spatial_modular_response import regional
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS = tuple('model/particle_primary_geometric_cut/'+name for name in (
     '__init__.py', '__main__.py', 'model.py', 'test_model.py', 'PROOF.md', 'README.md')) + (
@@ -177,7 +183,7 @@ def certificate():
     value = {'schema': 'oph.primary_geometric_cut_certificate.v1',
         'cube_controls': [cube_control(n) for n in (2, 3)],
         'members': [bind_member(contract.member(n)) for n in (0, 1, 2, 8)],
-        'source_sha256': pins}
+        'source_sha256': bound_pins(pins)}
     if pins != provenance.definition_hashes(paths):
         raise ValueError('source changed during geometric-cut replay')
     return value

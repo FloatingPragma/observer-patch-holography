@@ -22,6 +22,12 @@ from model.interacting_field.lattice import real
 from model.particle_response import dimer
 from model.particle_response.spectrum import matrix
 from model.reference_observation.observation import frozen
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 PLANCK_J_S = F('6.62607015e-34')
 ELEMENTARY_CHARGE_C = F('1.602176634e-19')
@@ -212,7 +218,7 @@ class BenchmarkDictionary:
             'physical_clock_independently_calibrated':False,'electromagnetic_dynamics_derived':False,
             'Lorentz_representation_derived':False,'topological_defect_mapping_derived':False,
             'eligible_CP11_physical_comparisons_added':0,'OPH_universe_membership_confirmed':False,
-            'source_sha256':{p:hashlib.sha256((self.root/p).read_bytes()).hexdigest() for p in paths}}
+            'source_sha256':bound_pins({p:hashlib.sha256((self.root/p).read_bytes()).hexdigest() for p in paths})}
 
 
 def build(axis=0, *, root=ROOT):

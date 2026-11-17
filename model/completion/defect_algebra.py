@@ -18,6 +18,12 @@ from tools import strict_json
 from model.common_source import native_defect_decision as native_decision
 from model.observer import native
 from .family import binding
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -224,8 +230,8 @@ def report():
             "quantum_mixing_and_burn_in": "source forgetting for exogenous schedules with discarded records; not extended to adaptive retained-record dynamics",
             "new_content": "explicit full source branch *-algebra certificate and support-wise extension to the bounded classical-controller campaign",
         },
-        "source_sha256": {path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
-                          for path in paths},
+        "source_sha256": bound_pins({path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+                          for path in paths}),
     }
 
 

@@ -19,6 +19,12 @@ import sympy as s
 from tools import strict_json
 from ..native_born_bridge import certificate as born
 from ..native_equilibration import cut_completion as cut
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -271,7 +277,7 @@ def report():
     require(tape_increment == ((2, Q(2)),), 'retained native tape entropy omitted a branch')
     inherited_path = 'model/native_equilibration/record_results.json'
     inherited = strict_json.load(ROOT/inherited_path)
-    for path, expected in inherited['source_sha256'].items():
+    for path, expected in bound_pins(inherited['source_sha256']).items():
         require(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == expected,
                 f'stale inherited quantum thermodynamics source: {path}')
     paths = ['model/native_thermodynamic_bridge/certificate.py',
@@ -297,7 +303,7 @@ def report():
                                'complete_two_attempt_tape_entropy_increment': '2 log(2)'},
             'startup_control': startup_control(),
             'inherited_quantum_record_thermodynamics': {'receipt': inherited_path,
-                 'source_pins_verified': len(inherited['source_sha256']),
+                 'source_pins_verified': len(bound_pins(inherited['source_sha256'])),
                  'fresh_full_quantum_execution_or_new_quantum_entropy_proof': False},
             'scope': {'native_classical_heat_bath_attachment_derived': True,
                       'binary_sector_and_fair_coin_measure_supplied': True,
@@ -306,7 +312,7 @@ def report():
                       'uniform_reference_modular_energy_is_constant': True,
                       'physical_energy_temperature_clock_or_cooling_derived': False,
                       'zero_temperature_or_refinement_limit_claim': False},
-            'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}}
+            'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})}
 
 
 def main():

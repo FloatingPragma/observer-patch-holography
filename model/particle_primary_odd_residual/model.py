@@ -12,6 +12,12 @@ from model.particle_primary_residual_refinement import model as moments
 from model.particle_primary_response_moments import model as response
 from model.particle_primary_variational_readout import variational
 from model.spin_packet_readout.bounds import sqrt_upper
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=(
     'model/particle_primary_odd_residual/__init__.py',
@@ -333,6 +339,6 @@ def certificate():
         'q6_exact_second_action':q6_second_action_control(),
         'coherent_commutator':coherent_commutator_control(),
         'selected_member_bound':bind_member(contract.member(0)),
-        'source_sha256':pins,'physical_mass_table_GeV':[]}
+        'source_sha256':bound_pins(pins),'physical_mass_table_GeV':[]}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('odd residual input changed during replay')
     return contract.serial(result)

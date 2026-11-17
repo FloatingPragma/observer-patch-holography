@@ -33,6 +33,10 @@ from dataclasses import dataclass
 from decimal import Decimal, localcontext
 from pathlib import Path
 from typing import Any, Mapping, Sequence
+try:
+    from tools.pin_scope import bound_pins
+except ImportError:  # run or imported from tools/ as a top-level module
+    from pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -1486,7 +1490,7 @@ def build_quark_clebsch_audit(root: Path) -> dict[str, Any]:
         mcpr,
         selection,
         flag_fixture,
-        input_hashes=stored["dependency_audit"]["input_sha256"],
+        input_hashes=bound_pins(stored["dependency_audit"]["input_sha256"]),
     )
     require(
         artifact["predictions"] == stored["predictions"]
@@ -1717,15 +1721,15 @@ def build_quark_clebsch_audit(root: Path) -> dict[str, Any]:
 
 def build_report(root: Path = ROOT) -> dict[str, Any]:
     root = _resolve_root(root)
-    hashes = {
+    hashes = bound_pins({
         path.as_posix(): _sha256(root / path)
         for path in INPUT_PATHS
-    }
+    })
     report = {
         "schema": "oph.null_model_scorecard.v1",
         "status": "FAIL_CLOSED_NULL_MODEL_AUDIT",
         "physical_promotion": False,
-        "input_sha256": hashes,
+        "input_sha256": bound_pins(hashes),
         "constant_substitution": build_constant_scan(root),
         "selector_ablation": build_selector_ablation(root),
         "rscc_ablation": build_rscc_ablation(root),
@@ -2223,7 +2227,7 @@ def render_scorecard(report: Mapping[str, Any]) -> str:
         "| Input | SHA-256 |",
         "|---|---|",
     ]
-    for path, digest in sorted(report["input_sha256"].items()):
+    for path, digest in sorted(bound_pins(report["input_sha256"]).items()):
         lines.append(f"| `{path}` | `{digest}` |")
     lines.append("")
     text = "\n".join(lines)

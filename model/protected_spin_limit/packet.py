@@ -11,6 +11,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import algebra, bounds
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -28,14 +34,14 @@ def source_bindings():
         'domain_and_proof': 'model/protected_spin_limit/README.md',
         'source_receipts': list(PRIORS), 'independent_checks': []})
     paths.add(FRAGMENT)
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def prior_custody():
     result = {}
     for name in PRIORS:
         row = strict_json.loads((ROOT/name).read_text())
-        bindings = row.get('source_bindings', row.get('source_sha256'))
+        bindings = bound_pins(row.get('source_bindings', bound_pins(row.get('source_sha256'))))
         if not isinstance(bindings, dict) or not bindings:
             raise ValueError('missing prior source bindings')
         changed = sorted(p for p, digest in bindings.items()
@@ -96,7 +102,7 @@ def _produce():
     value = {'schema': 'oph.protected_spin_limit.v1', 'new_checks_pass': True,
              'dependency_custody_pass': complete, 'all_pass': complete,
              'theorem': theorem(), 'bounds': bounds.certificate(), 'controls': algebra.certificate(),
-             'prior_custody': prior, 'source_bindings': pins,
+             'prior_custody': prior, 'source_bindings': bound_pins(pins),
              'proof_scope': 'Analytic full-instrument, joint-limit, ground-state and finite-twist proofs; exact integer/rational controls. Numerical full-Fock histories are independent tests. Historical expensive experiments are not replayed.'}
     validate(value)
     if source_bindings() != pins:
@@ -113,7 +119,7 @@ def report():
                         '-m', 'model.protected_spin_limit.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.loads(path.read_text())
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across cold replay')
     validate(value)
     return value

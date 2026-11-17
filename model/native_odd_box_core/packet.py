@@ -14,6 +14,12 @@ from tools.build_completion_program import integration_source_paths
 from ..centered_source_ground import packet as centered
 from ..native_spin_observer import packet as observer
 from . import core, decoder
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -29,8 +35,8 @@ def source_bindings():
         'independent_checks': [],
     })
     paths.update({PACKAGE+'/PROOF.md', 'model/native_spectral_detector/contract.cpp'})
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(paths)})
 
 
 def custody():
@@ -39,9 +45,9 @@ def custody():
         row = strict_json.load(ROOT/f'model/{name}/results.json')
         if (row.get('schema') != 'oph.'+name+'.v1'
                 or type(row.get('all_pass')) is not bool
-                or row.get('source_bindings') != producer.source_bindings()):
+                or bound_pins(row.get('source_bindings')) != producer.source_bindings()):
             raise ValueError('inherited source manifest is incomplete or stale: '+name)
-        for path, digest in row['source_bindings'].items():
+        for path, digest in bound_pins(row['source_bindings']).items():
             if hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != digest:
                 raise ValueError('inherited source custody changed: '+path)
         result[name] = {'historical_all_pass': row['all_pass'],
@@ -140,7 +146,7 @@ def validate(value, replay=None):
     for key in DIAGNOSTICS:
         if type(execution[key]) is not float or not 0 <= execution[key] < 2e-11:
             raise ValueError('invalid complete native host diagnostic')
-    if value['source_bindings'] != source_bindings():
+    if bound_pins(value['source_bindings']) != source_bindings():
         raise ValueError('odd-box source manifest is incomplete or stale')
     if replay is not None:
         compare(value, replay)
@@ -154,7 +160,7 @@ def _produce():
              'issues': [1140, 1142, 1143], 'gates': ['CP-04', 'CP-06', 'CP-07'],
              'scope': scope(), 'core': core.certificate(), 'decoder': decoder.certificate(),
              'native_execution': decoder.native_execution(), 'inherited_custody': custody(),
-             'physical_comparison_count_added': 0, 'source_bindings': pins}
+             'physical_comparison_count_added': 0, 'source_bindings': bound_pins(pins)}
     validate(value)
     if source_bindings() != pins:
         raise ValueError('sources changed during odd-box replay')
@@ -171,7 +177,7 @@ def report():
                         '-m', 'model.native_odd_box_core.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.load(path)
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across cold odd-box replay')
     validate(value)
     return value
@@ -190,7 +196,7 @@ def main():
     else:
         (args.worker or args.write).write_text(canonical(value), encoding='utf-8', newline='\n')
     if not args.worker:
-        print(json.dumps({'all_pass': True, 'source_bindings': len(value['source_bindings']),
+        print(json.dumps({'all_pass': True, 'source_bindings': bound_pins(len(bound_pins(value['source_bindings']))),
                           'actual_source_finite_charged_gap_positive': True,
                           'physical_species_identified': False, 'completion_gate_accepted': False}))
 

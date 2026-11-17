@@ -8,6 +8,12 @@ from scipy import sparse
 from scipy.sparse.linalg import spsolve, eigsh
 from model.openwave_atomic_refinement.refinement import spectrum
 from model.openwave_field_observables.orbitals import reduced_hamiltonian
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 
@@ -81,9 +87,9 @@ def run():
         el=np.linalg.eigvalsh(ul.T@(hl@ul))
         assert np.all(el[:len(es)]<=es+1e-11)
     receipt=json.loads((ROOT/'model/openwave_atomic_refinement/results.json').read_text())
-    for path,digest in receipt['source_sha256'].items():
+    for path,digest in bound_pins(receipt['source_sha256']).items():
         assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==digest
-    paths=[*receipt['source_sha256'],'model/openwave_atomic_refinement/results.json',str(Path(__file__).relative_to(ROOT))]
+    paths=[*bound_pins(receipt['source_sha256']),'model/openwave_atomic_refinement/results.json',str(Path(__file__).relative_to(ROOT))]
     return {'schema':'oph.independent_atomic_refinement_review.v1','verdict':'PASS',
         'independent_method':'Direct sparse graph assembly and linear solve; full dense spectra versus eight independently normalized reflection-orbit frames.',
         'finite_grid_checks':checks,'fixed_spacing_all_parity_domain_comparison':True,
@@ -91,7 +97,7 @@ def run():
         'mutation_controls':['repulsive charge sign','wrong central-plane orbit normalization'],
         'review_conclusion':'Exact Dirichlet domain ordering and parity reduction are correct. Executed negative finite levels and separate spacing/volume diagnostics support hydrogen-like quantized standing waves. Supplied mass/kinetic/coupling, numerical eigenvalue indexing and physical precision/particle attachment are explicit limitations.',
         'continuum_or_outward_rounded_enclosure_claimed':False,
-        'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}}
+        'source_sha256':bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})}
 
 
 if __name__=='__main__':

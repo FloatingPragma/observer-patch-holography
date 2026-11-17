@@ -7,6 +7,12 @@ import numpy as np
 import sympy as s
 from scipy.linalg import eigh, expm
 from model.openwave_pure_su2_source.custody import ROOT
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 def car_preparation():
@@ -173,7 +179,7 @@ def run():
     rotor = json.loads((ROOT/'model/openwave_transverse_completion/results.json').read_text())
     for owner in (flux, rotor):
         assert owner['verdict'].startswith('PASS')
-        for path, digest in owner['source_sha256'].items():
+        for path, digest in bound_pins(owner['source_sha256']).items():
             assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == digest, path
     assert flux['preparation_and_failure']['native_pump']['exact_complete_Gram_sum'] == 'I_64'
     return {'schema': 'oph.independent_compact_gauge_completion_review.v1',

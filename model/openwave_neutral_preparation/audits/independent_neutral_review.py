@@ -5,6 +5,12 @@ import numpy as np
 from scipy.linalg import expm
 from model.coherent_defect_wave.chiral_joint.oriented_links.model import reverse_label
 from model.openwave_neutral_stationary.source import full_column
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[3]
 def change(key,axis):
  mask,links,scalars=key;bit=4>>axis;result=list(links)
@@ -62,6 +68,6 @@ def run():
  return {'verdict':'PASS','independent_translation_parity_relations':checks,'independent_complete_native_H_columns':column_checks,
   'independent_polar_density_and_stationarity_trials':trials,'maximum_error_over_bound':worst,
   'proof_review':'Full-link inversion/plane parity gives exact odd-sector momentum flatness. Complete local algebraic seeds and a contraction polar filter replace the full-dimension preparation penalty. Only reduced-source near-stationarity follows; primitive gates and moving-particle identity are unproved.',
-  'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in refs}}
+  'source_sha256':bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in refs})}
 if __name__=='__main__':
  v=run();Path(__file__).with_suffix('.json').write_text(json.dumps(v,indent=2,sort_keys=True)+'\n');print(v['verdict'])

@@ -13,6 +13,12 @@ from model.particle_primary_sector_threshold import model as sectors
 from model.particle_primary_joint_spectroscopy import spectroscopy
 from model.particle_primary_mass_readout import readout
 from model.spin_packet_readout.bounds import sqrt_upper
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=(
  'model/particle_primary_selected_odd_response/__init__.py',
@@ -206,7 +212,7 @@ def certificate():
         *conjugation.SOURCE_INPUTS,*sectors.SOURCE_INPUTS,*spectroscopy.SOURCE_INPUTS,*readout.SOURCE_INPUTS))
     pins=provenance.definition_hashes(paths)
     value={'schema':'oph.primary_selected_odd_response_certificate.v1',
-        'members':[bind_member(contract.member(n)) for n in (0,1,2,8)],'source_sha256':pins,
+        'members':[bind_member(contract.member(n)) for n in (0,1,2,8)],'source_sha256':bound_pins(pins),
         'fixed_finite_energy_survival_proved':False,'physical_mass_table_GeV':[]}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('source changed during replay')
     return value

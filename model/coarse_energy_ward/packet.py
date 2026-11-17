@@ -13,6 +13,12 @@ from tools import strict_json
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from ..full_fock_field.field import FieldGeometry
 from . import ward as w
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).with_name('results.json')
@@ -103,7 +109,7 @@ def run():
                               'Area normalization, generalized-entropy stationarity, positive Newton scale and all Einstein G1-G6 premises.',
                               'Actual source preparation and readout of the stated arbitrary local input; controller/failure-space energy.'],
                  'no_full_Einstein_Ward_or_Einstein_gate_accepted':True},
-        'source_sha256':{path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}}
+        'source_sha256':bound_pins({path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS})}
 
 
 def main():

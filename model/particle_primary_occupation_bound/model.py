@@ -12,6 +12,12 @@ from model.particle_primary_spectral_scale import scale
 from model.particle_primary_variational_readout import variational
 from model.particle_spatial_ground_state import ground
 from model.spin_packet_readout.bounds import sqrt_upper
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 SOURCE_INPUTS = (
@@ -184,7 +190,7 @@ def certificate():
         'larger_member_default_onsite_admission':retained_bound(one,'2/5','0'),
         'uniform_refinement_defect_or_weight_bound_proved':False,
         'endpoint_gap_or_mass_proved':False,'physical_mass_table_GeV':[],
-        'source_sha256':pins}
+        'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:
         raise ValueError('occupation-bound inputs changed during replay')
     return result

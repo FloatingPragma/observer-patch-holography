@@ -14,6 +14,12 @@ from model.openwave_infinite_current.__main__ import pins as current_pins
 from model.openwave_spatial_completion.spatial import analytic,shell_source
 from model.openwave_spatial_completion.__main__ import pins as spatial_pins
 from model.openwave_quantum_rotational.source import matter_exact
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[2];HERE=Path(__file__).resolve().parent
 
 def current_checks():
@@ -51,11 +57,11 @@ def spatial_checks():
 def certificate():
  required={};receipts={}
  for name,fn in(('openwave_local_gauss_quantum',gauss_pins),('openwave_infinite_current',current_pins),('openwave_spatial_completion',spatial_pins)):
-  path=ROOT/'model'/name/'results.json';r=json.loads(path.read_text());assert r['source_sha256']==fn();required.update(r['source_sha256']);receipts[str(path.relative_to(ROOT))]=hashlib.sha256(path.read_bytes()).hexdigest()
+  path=ROOT/'model'/name/'results.json';r=json.loads(path.read_text());assert bound_pins(r['source_sha256'])==fn();required.update(bound_pins(r['source_sha256']));receipts[str(path.relative_to(ROOT))]=hashlib.sha256(path.read_bytes()).hexdigest()
  assert set(SOURCE_FILES)<=set(gauss_pins())
  for p in import_closure({str(p.relative_to(ROOT))for p in HERE.glob('*.py')}):required[p]=hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
  control=finite_CAR_gauss_control();star=charged_block();assert star['star_exact_electric_energy_increment']=='1/16';assert star['star_field_energy_is_intrinsic_isolated_electron_rest_mass']is False
- return {'verdict':'PASS_INDEPENDENT_QUANTUM_DOMAIN_AND_GAUSS_REVIEW','source_sha256':{**required,**receipts},
+ return {'verdict':'PASS_INDEPENDENT_QUANTUM_DOMAIN_AND_GAUSS_REVIEW','source_sha256':bound_pins({**required,**receipts}),
   'local_Gauss':{'all16_words_and_complete_reference_records':control,'native_charge_domain':exact_charge_tree(),'star_conditional_GeV':star['conditional_GeV_using_unchanged_electron_unit'],
    'reviewed_tree_is_orbital_graph_not_physical_spatial_locality':True,'root_compensator_and_positive_electric_energy_retained':True},
   'infinite_current':current_checks(),'spatial_completion':spatial_checks(),

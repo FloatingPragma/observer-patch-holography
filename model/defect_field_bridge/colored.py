@@ -14,6 +14,12 @@ import sympy as s
 
 from ..defect_protection import protection
 from ..exchange_sector import statistics as native
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 def dimensions(dimension):
@@ -172,7 +178,7 @@ def certificate():
     names = ['model/defect_field_bridge/colored.py', 'model/defect_protection/protection.py',
              'model/exchange_sector/statistics.py']
     result['schema'] = 'oph.defect_field_bridge.colored_exchange.v1'
-    result['source_sha256'] = {name: hashlib.sha256((root/name).read_bytes()).hexdigest() for name in names}
+    result['source_sha256'] = bound_pins({name: hashlib.sha256((root/name).read_bytes()).hexdigest() for name in names})
     return result
 
 

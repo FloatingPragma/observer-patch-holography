@@ -5,6 +5,12 @@ import hashlib,json,itertools
 import numpy as np
 import sympy as s
 from model.common_source import native_matter_attachment as matter
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[3]
 
 def car(n,j):
@@ -69,14 +75,14 @@ def run():
         error=np.linalg.norm(H@H-expected);assert error<1e-13;errors.append(float(error))
     path=ROOT/'model/openwave_full_higgs_floor/results.json';receipt=json.loads(path.read_text())
     assert receipt['exact_native_symbol']['native_internal_rank']==14
-    refs=set(receipt['source_sha256'])|{'model/openwave_full_higgs_floor/results.json',str(Path(__file__).relative_to(ROOT))}
-    assert all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==v for p,v in receipt['source_sha256'].items())
+    refs=set(bound_pins(receipt['source_sha256']))|{'model/openwave_full_higgs_floor/results.json',str(Path(__file__).relative_to(ROOT))}
+    assert all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==v for p,v in bound_pins(receipt['source_sha256']).items())
     return {'verdict':'PASS','independent_full_CAR_floor_members':count,'minimum_numerical_operator_margin':minmargin,
       'native_internal_charge_support_rank':14,'neutral_kernel_dimension':1,
       'removed_quark_channel_charged_zero_controls':bad,'native_colour_singlet_sector_dimension':len(sector),
       'unique_native_colour_singlet_charge':'1','native_colour_singlet_quasiparticle_count':3,
       'all_eight_colour_generators_annihilate_singlet':True,'independent180row_squared_symbol_errors':errors,
       'scope':'Shared family coefficients and the analyzer are declared. The exact charged floor retains neutral zeros and spatial valleys; equal quark/lepton family spectra do not fit observed quark masses.',
-      'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(refs)}}
+      'source_sha256':bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(refs)})}
 if __name__=='__main__':
     r=run();Path(__file__).with_suffix('.json').write_text(json.dumps(r,indent=2,sort_keys=True)+'\n');print(r['verdict'])

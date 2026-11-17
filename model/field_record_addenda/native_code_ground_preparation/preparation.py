@@ -3,6 +3,12 @@ from pathlib import Path
 from fractions import Fraction as F
 from math import comb
 import hashlib,json,sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent
 RER = HERE.parents[2]
 from model.native_wilson_maxwell_refinement import bounds
@@ -14,7 +20,7 @@ def read_admitted():
     p=RER/PARENT
     assert hashlib.sha256(p.read_bytes()).hexdigest()==PARENT_SHA
     parent=json.loads(p.read_text())
-    for name,h in parent['input_sha256'].items():
+    for name,h in bound_pins(parent['input_sha256']).items():
         assert hashlib.sha256((RER/name).read_bytes()).hexdigest()==h,name
     old=json.loads((RER/'model/native_wilson_maxwell_ground/results.json').read_text())
     source=json.loads((RER/'model/native_wilson_maxwell/results.json').read_text())
@@ -110,10 +116,10 @@ def scientific():
 
 def certificate():
     value=scientific();parent=json.loads((RER/PARENT).read_text())
-    pins=dict(parent['input_sha256']);pins[PARENT]=PARENT_SHA
-    value['input_sha256']=pins
-    value['owned_source_sha256']={p.name:hashlib.sha256(p.read_bytes()).hexdigest()
-      for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    pins=dict(bound_pins(parent['input_sha256']));pins[PARENT]=PARENT_SHA
+    value['input_sha256']=bound_pins(pins)
+    value['owned_source_sha256']=bound_pins({p.name:hashlib.sha256(p.read_bytes()).hexdigest()
+      for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})
     return value
 
 if __name__=='__main__':

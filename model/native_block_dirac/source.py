@@ -5,6 +5,12 @@ import hashlib
 import json
 from pathlib import Path
 import sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -25,7 +31,7 @@ def admit():
     if digest(ROOT/PARENT) != PARENT_SHA:
         raise ValueError('the native constituent/reference receipt changed')
     saved = json.loads((ROOT/PARENT).read_text())
-    native.validate_pins(saved['input_sha256'])
+    native.validate_pins(bound_pins(saved['input_sha256']))
     if saved != native.certificate():
         raise ValueError('fresh native source/reference controls differ')
     ref = saved['local_reference']

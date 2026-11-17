@@ -17,6 +17,12 @@ from . import lattice as lt
 from . import reduction as rd
 from . import finite_size
 from . import comparison_budget
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).parent
 
@@ -435,9 +441,9 @@ def certificate(production: dict | None = None) -> dict:
     checks.update({'9_covariance.'+name: ok for name, ok in budget['checks'].items()})
     out["checks"] = checks
     out["all_checks_pass"] = all(checks.values())
-    out["input_sha256"] = {name: hashlib.sha256((HERE / name).read_bytes()).hexdigest()
+    out["input_sha256"] = bound_pins({name: hashlib.sha256((HERE / name).read_bytes()).hexdigest()
                            for name in ("production.json", "lattice.py", "reduction.py", "reweight.py", "kernels.py",
                                         "finite_size.py", "certificate.py", "comparison_budget.py")
-                           if (HERE / name).exists()}
-    out['input_sha256'].update(budget['input_sha256'])
+                           if (HERE / name).exists()})
+    out['input_sha256'].update(bound_pins(budget['input_sha256']))
     return json.loads(json.dumps(out))

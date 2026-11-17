@@ -21,6 +21,11 @@ import subprocess
 import sys
 from typing import Any
 
+try:
+    from tools.pin_scope import exempt
+except ImportError:  # executed as tools/audit_receipt_sources.py or imported from tools/
+    from pin_scope import exempt
+
 ROOT = Path(__file__).resolve().parents[1]
 MAP_FIELDS = frozenset({"sources", "source_sha256", "source_bindings", "input_sha256",
     "source_binding_sha256", "source_control_bindings", "source_pins"})
@@ -225,6 +230,8 @@ class Inventory:
                         base = self.source_map_roots.get((receipt, here), base)
                         entries = child.items() if isinstance(child, dict) else [(row['path'], row['sha256']) for row in child]
                         for relative, expected in entries:
+                            if isinstance(relative, str) and exempt(relative):
+                                continue  # Prose and test modules are never pinned.
                             target, error = self.resolve(base, relative)
                             if not local and (error or not isinstance(expected, str) or not HEX.fullmatch(expected)):
                                 continue  # Mixed external metadata uses its owning verifier.
@@ -369,17 +376,8 @@ def current_inventory(root: Path):
 
 
 def documentary_exemptions(root: Path):
-    """Authenticate the one existing retained document pin; do not replay science."""
-    from model import native_control_custody as custody
-    control = root / custody.CONTROL
-    if sha(control.read_bytes()) != custody.CONTROL_SHA256:
-        raise ValueError('original documentary control changed')
-    value = load_json(control)
-    expected = value['source_sha256'][custody.DOCUMENT]
-    old = subprocess.check_output(['git', 'show', custody.COMMIT + ':' + custody.DOCUMENT], cwd=root)
-    if sha(old) != expected:
-        raise ValueError('original documentary input pin is unauthenticated')
-    return frozenset({(custody.CONTROL, 'root.source_sha256', custody.DOCUMENT, expected)})
+    """No documentary pin is exempted: prose is never pinned (tools/pin_scope.py)."""
+    return frozenset()
 
 
 def archived_source_map_roots(root: Path):

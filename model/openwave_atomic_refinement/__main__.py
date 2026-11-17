@@ -2,6 +2,12 @@
 import argparse,hashlib,json
 from pathlib import Path
 from .refinement import run
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 
 
@@ -9,7 +15,7 @@ def produce():
     result=run()
     paths=[*sorted(HERE.glob('*.py')),*sorted(HERE.glob('*.md')),
         ROOT/'model/openwave_field_observables/orbitals.py']
-    result['source_sha256']={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+    result['source_sha256']=bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths})
     return result
 
 

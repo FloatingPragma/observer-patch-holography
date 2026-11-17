@@ -8,6 +8,12 @@ import sys
 import sympy as s
 from sympy.polys.matrices import DomainMatrix
 import mpmath as mp
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 RER=HERE.parents[1]
@@ -28,7 +34,7 @@ def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def admit():
     assert digest(RER/PARENT)==PARENT_SHA
     p=json.loads((RER/PARENT).read_text())
-    for name,h in p['input_sha256'].items():
+    for name,h in bound_pins(p['input_sha256']).items():
         assert digest(RER/name)==h,name
     return p
 

@@ -7,6 +7,12 @@ from pathlib import Path
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import energy
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -23,7 +29,7 @@ def bindings():
         'source_receipts': [PARENT],
         'independent_checks': ['model/spin_texture_energy/PROOF.md'],
     })
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 _IMPORTED_BINDINGS = bindings()
@@ -36,11 +42,11 @@ def report():
     parent = strict_json.load(ROOT/PARENT)
     if parent.get('schema') != 'oph.spin_canonical_energy.v1':
         raise ValueError('specified actual-ground source required')
-    for path, expected in parent['source_bindings'].items():
+    for path, expected in bound_pins(parent['source_bindings']).items():
         if pins[path] != expected:
             raise ValueError('inherited energy source changed: '+path)
     value = {'schema': 'oph.spin_texture_energy.v1', 'all_pass': True,
-             'source_bindings': pins, 'energy': energy.certificate(),
+             'source_bindings': bound_pins(pins), 'energy': energy.certificate(),
              'scope': 'Static nonlinear energy on the finite local-unitary orbit of the actual selected ordered spin ground; fixed-spacing and controlled long-wavelength texture families.',
              'parent_source_custody_checked': True,
              'inherited_expensive_producers_reexecuted': False}

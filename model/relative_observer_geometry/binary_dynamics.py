@@ -18,6 +18,12 @@ from ..primitive_observer import transfer
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from . import intrinsic_geometry as intrinsic
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -298,7 +304,7 @@ def run():
     if response['gram_qsqrt5'] != ng.recover(ng.execute_calibration())['gram_qsqrt5']:
         raise ArithmeticError('binary and integer calibration geometries disagree')
     return {'schema': 'oph.relative_observer_geometry.binary_dynamics.v1',
-            'sources': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+            'sources': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
             'calibration_seed': SEED, 'sampled_calibration': calibration,
             'calibration_stopping_certificate': stopping_certificate(kernel.seams, CAP),
             'binary_record_response': response,

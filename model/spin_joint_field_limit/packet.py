@@ -10,6 +10,12 @@ from pathlib import Path
 from tools import strict_json
 from . import algebra, bounds, clock_comparison, construction, force, joint_symmetry, ward, uniform_mode, uniform_spectral
 from . import arctan_bands, directed_bands, quantum_force_slack, speed_concentration
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -79,12 +85,12 @@ def bindings():
                 target=importlib.util.resolve_name(target,package) if node.level else target
                 add(target)
                 for alias in node.names:add(target+'.'+alias.name)
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def build():
     before=bindings()
-    value={'schema':'oph.spin_joint_field_limit.v1','source_bindings':before,
+    value={'schema':'oph.spin_joint_field_limit.v1','source_bindings':bound_pins(before),
         'actual_local_source_algebra':algebra.local_certificate(),
         'finite_selected_ground_controls':algebra.finite_ground_controls(),
         'joint_family':[bounds.family(n) for n in (2,8,32,128)],

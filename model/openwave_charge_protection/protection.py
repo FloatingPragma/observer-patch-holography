@@ -15,6 +15,12 @@ from model.lattice_texture_selection.shells import degree
 from model.defect_integer_lift import model as lift
 from model.coherent_defect_wave.physical_attachment.chiral import representation
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -206,8 +212,8 @@ def certificate():
     seeds=[str(p.relative_to(ROOT)) for p in HERE.iterdir() if p.suffix in ('.py','.md','.lean')]
     seeds+=['model/compact_defect_transport/PROOF.md','model/compact_defect_pair/PROOF.md',
             'model/defect_integer_lift/federation.json','model/defect_integer_lift/PROOF.md']
-    hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(seeds))}
-    return {'schema':'oph.winding_charge_protection.v1','input_sha256':hashes,
+    hashes=bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(seeds))})
+    return {'schema':'oph.winding_charge_protection.v1','input_sha256':bound_pins(hashes),
         'guarded_winding':texture_certificate(),'actual_integer_register':integer_lift_certificate(),
         'current_attachment':current_attachment_certificate(),
         'scope':{'minimal_unit_integer_winding_on_actual_texture':True,
@@ -222,7 +228,7 @@ def certificate():
 
 
 def validate_pins(value):
-    for name,expected in value['input_sha256'].items():
+    for name,expected in bound_pins(value['input_sha256']).items():
         path=Path(name)
         if path.is_absolute() or '..' in path.parts or hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=expected:
             raise ValueError('source pin mismatch: '+name)

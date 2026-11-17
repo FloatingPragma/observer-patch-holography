@@ -12,6 +12,12 @@ from model.native_correlation_sectors import packet as correlation_packet
 from model.native_sector_readout import packet as tree_packet
 from model.observer_time_fields import continuum_dynamics
 from . import response as r,records,smearing as w
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).with_name('results.json')
@@ -26,7 +32,7 @@ SOURCE_FILES=tuple(sorted(set((*continuum_dynamics.SOURCE_PATHS,
 
 def source_bindings():
     paths=set(SOURCE_FILES)|set(correlation_packet.source_bindings())|set(tree_packet.source_bindings())
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths) if not p.startswith('docs/')}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths) if not p.startswith('docs/')})
 
 
 def rational_tree(value):
@@ -127,7 +133,7 @@ def produce():
             'native_matrix_by_attempt':native,'killed_matrix_by_attempt':killed,
             'collision_error_at_four_attempts':errors,
             'local_boundary_at_four_attempts':r.local_error(family,q,probes[0],probes[2],4,1)}))
-    result={'schema':'oph.native_pair_response.v1','source_bindings':before,
+    result={'schema':'oph.native_pair_response.v1','source_bindings':bound_pins(before),
             'spatial_matrices':levels,'independent_controls':finite_controls(),
             'smooth_primitive_fields':smearings(),'native_record_access':operational_access(),
             'scope':{'same_working_q_reference_and_native_attempt_clock':True,

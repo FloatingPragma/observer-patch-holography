@@ -29,6 +29,12 @@ from . import native_persistent_response as response, record_code, native_routin
 from .mass_response import history
 from ..observer.source_scalar import compiler
 from ..observer.source_discrimination import circuit
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_ADMISSION = 2e-7
@@ -544,4 +550,4 @@ def _fixed_compare(expected, actual):
 def source_bindings():
     paths = set(comparison.source_bindings())|set(current.source_bindings())|{
         'model/common_source/native_response_reference.py', 'model/common_source/test_native_response_reference.py'}
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})

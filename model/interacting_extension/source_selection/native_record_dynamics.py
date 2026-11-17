@@ -37,6 +37,12 @@ from .._source import verify_sources
 
 import numpy as np
 import sympy as sp
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
@@ -88,7 +94,7 @@ def geometry_packet(repo):
     name = 'model/common_source/slow_geometry.py'
     hashes = verify_sources(repo, (name,))
     frame, projectors, seams = _geometry_from_text((repo/name).read_text())
-    return dict(frame=frame, projectors=projectors, seams=seams, source_hashes=hashes)
+    return dict(frame=frame, projectors=projectors, seams=seams, source_hashes=bound_pins(hashes))
 
 
 @dataclass(frozen=True)
@@ -186,13 +192,13 @@ def native_instrument(repo, candidate="C", *, binary=True):
             raise ArithmeticError("native branch is not injective on its support")
     if not np.all(np.count_nonzero(amp, axis=0) == 60):
         raise ArithmeticError("not every source event is retained")
-    hashes = dict(packet["source_hashes"])
+    hashes = dict(bound_pins(packet["source_hashes"]))
     hashes.update(source_hashes)
     hashes["model/observer/quantum_mixing.py"] = hashlib.sha256(
         (repo / "model/observer/quantum_mixing.py").read_bytes()).hexdigest()
     hashes["model/observer/source_discrimination/circuit.py"] = hashlib.sha256(circuit_path.read_bytes()).hexdigest()
     return Instrument(labels, dest, amp, costs, states, seams, {
-        "source_commit": PIN, "source_hashes": hashes,
+        "source_commit": PIN, "source_hashes": bound_pins(hashes),
         "candidate": candidate, "native_quantum_record_convention": "real positive lift",
         "seam_policy": "uniform independent choices on all thirty native seams",
         "seam_policy_uniqueness": "within memoryless seam-only policies under transitive carrier covariance",

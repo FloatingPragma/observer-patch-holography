@@ -11,6 +11,12 @@ from model.coherent_defect_wave.chiral_joint.interacting_charged_response.model 
 from model.coherent_defect_wave.chiral_joint.family_cell.quotient import outward, sqrt_interval
 from model.coherent_defect_wave.physical_attachment.chiral import representation
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -237,9 +243,9 @@ def certificate():
                   'model/openwave_current_coulomb/PROOF.md',
                   'model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json',
                   'model/coherent_defect_wave/chiral_joint/atomic_spin_geometry/results.json']
-    pins = {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
-            for p in sorted(import_closure(seed_paths))}
-    return {'schema':'oph.prepared_particle_readouts.v1', 'input_sha256':pins,
+    pins = bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
+            for p in sorted(import_closure(seed_paths))})
+    return {'schema':'oph.prepared_particle_readouts.v1', 'input_sha256':bound_pins(pins),
             'source':{'Hamiltonian':'same full N2 H0+2^-34 T+4 N_ref',
                 'full_hopping_perturbation_norm_upper':str(v),
                 'source_clock':'exp[-it(H_lambda+4 N_ref)]',
@@ -279,7 +285,7 @@ def certificate():
 
 
 def validate_pins(value):
-    for name, expected in value['input_sha256'].items():
+    for name, expected in bound_pins(value['input_sha256']).items():
         p = Path(name)
         if p.is_absolute() or '..' in p.parts or hashlib.sha256((ROOT/p).read_bytes()).hexdigest()!=expected:
             raise ValueError('source pin mismatch: '+name)

@@ -12,6 +12,12 @@ from ..native_vacuum_response import packet as ground
 from ..native_fair_local_preparation import packet as preparing
 from ..native_correlation_sectors import records
 from . import energy as e
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -21,7 +27,7 @@ SOURCE_FILES = tuple('model/native_energy_identification/'+name for name in (
 
 def source_bindings():
     paths = set(ground.source_bindings()) | set(preparing.source_bindings()) | set(SOURCE_FILES)
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def local_programs(first, second, lags, blocks=64):
@@ -53,7 +59,7 @@ def produce():
         'complete_setting_programs':local_programs(first,second,local['detector']['lag_attempts']),
         'estimation':e.estimation_budget(local['detector'],variance,error,F(1,100),F(1,100)),
         'resolution':e.resolution_budget(30,5,2,16,F(1,3))})
-    value = {'schema':'oph.native_energy_identification.v1', 'source_bindings':before,
+    value = {'schema':'oph.native_energy_identification.v1', 'source_bindings':bound_pins(before),
         'native_complete_record_attachment':records.pair_certificate(),
         'native_generator_attachment':clock.check_source_generator(),
         'local_prepared_histogram':local,

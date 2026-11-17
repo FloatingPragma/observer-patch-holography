@@ -10,6 +10,12 @@ from pathlib import Path
 import numpy as np
 
 from . import clock
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 FIELD_REPORT = ROOT/'model/defect_field_bridge/dynamics_results.json'
@@ -103,7 +109,7 @@ def build():
              ROOT/'model/common_source/mass_response/model.py',
              ROOT/'model/native_modular_reference/local_preparation.py']
     packet = {'schema':'oph.defect_field_clock.v1',
-              'source_sha256': {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
+              'source_sha256': bound_pins({p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in files}),
               'calibration': clock.calibration(), 'SI_unit_map': clock.si_calibration(),
               'ensemble_sampling_example': clock.sampling_envelope(10**7),
               'joint_state': 'For each retained native record: sum(source_factor tensor internal_factor) tensor clock_work_and_purifiers; all factors are kept without normalization.',

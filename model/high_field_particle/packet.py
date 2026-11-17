@@ -8,6 +8,12 @@ from pathlib import Path
 from tools import strict_json
 from model.defect_localization_readout import packet as native_dependencies
 from . import algebra, preparation, readout
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -51,15 +57,15 @@ def bindings():
     names = set(native_dependencies.bindings()) | set(PARENTS)
     names.update(p.relative_to(ROOT).as_posix() for p in HERE.iterdir()
                  if p.suffix in ('.py', '.md'))
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(names)})
 
 
 def build():
     before = bindings()
     value = {
         'schema': 'oph.high_field_particle.v1',
-        'source_bindings': before,
+        'source_bindings': bound_pins(before),
         'exact_source_algebra': algebra.certificate(),
         'complete_local_charge_creation': readout.creation_certificate(),
         'finite_ground_preparation_plan': readout.finite_preparation_example(),

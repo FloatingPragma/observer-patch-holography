@@ -12,6 +12,12 @@ import tempfile
 
 from tools import strict_json
 from . import algebra,finite,thermodynamics
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = Path(__file__).resolve().parent
@@ -78,7 +84,7 @@ def source_paths():
 
 
 def source_bindings():
-    return {path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(source_paths())}
+    return bound_pins({path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(source_paths())})
 
 
 def scope():
@@ -116,7 +122,7 @@ def produce():
               'radius_uniform_core_limit':algebra.radius_uniform_bound(1,1,algebra.F(1,12),1,1024),
               'localization_bounds':[algebra.localization_bound(i) for i in (1,2,4,8)],
               'scope':scope(),'canonical_physical_premises_discharged':[],
-              'source_bindings':pins}
+              'source_bindings':bound_pins(pins)}
     if pins != source_bindings():
         raise ValueError('source changed during calculation')
     return result
@@ -133,7 +139,7 @@ def report():
         if child.returncode:
             raise RuntimeError('cold interacting-defect worker failed:\n'+child.stdout+child.stderr)
         value = strict_json.load(path)
-    if value.get('source_bindings') != pins or pins != source_bindings():
+    if bound_pins(value.get('source_bindings')) != pins or pins != source_bindings():
         raise ValueError('source changed across calculation')
     return value
 
@@ -141,7 +147,7 @@ def report():
 def validate(value,replay=None):
     if canonical(value) != canonical(report() if replay is None else replay):
         raise ValueError('interacting-defect receipt differs from complete replay')
-    if value.get('source_bindings') != source_bindings():
+    if bound_pins(value.get('source_bindings')) != source_bindings():
         raise ValueError('interacting-defect source manifest is stale or incomplete')
 
 

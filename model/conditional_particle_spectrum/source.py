@@ -11,6 +11,12 @@ import sympy as s
 from model.common_source import calibrated_matter as matter
 from model.common_source.chiral_candidate import action, kinetic
 from model.coherent_defect_wave.chiral_higgs.model import higgs_memory
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 CALIBRATION = 'model/common_source/calibrated_matter_results.json'
@@ -35,7 +41,7 @@ def sparse_record(matrix):
 
 def authenticate():
     receipt = json.loads((ROOT/CALIBRATION).read_text())
-    for name, digest in receipt['source_bindings'].items():
+    for name, digest in bound_pins(receipt['source_bindings']).items():
         path = ROOT/name
         if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != digest:
             raise ValueError('calibrated action input differs: '+name)

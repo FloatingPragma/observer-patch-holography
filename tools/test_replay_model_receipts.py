@@ -83,18 +83,30 @@ def test_repeated_invocation_preserves_original_audit_bytes(tmp_path, monkeypatc
     assert original.read_bytes() == b"original audited report"
 
 
-def test_payload_audit_preserves_types_scope_and_source_path_catalog(tmp_path):
+def test_payload_audit_preserves_types_scope_and_masks_only_custody_pins(tmp_path):
     (tmp_path / "input").write_text("source")
-    old = {"sources": {"input": "old"}, "theorem": {"proved": True, "count": 3}}
+    (tmp_path / "README.md").write_text("prose")
+    old = {"sources": {"input": "old", "README.md": "prose pin"}, "theorem": {"proved": True, "count": 3}}
     refreshed = {"sources": {"input": "new"}, "theorem": {"proved": True, "count": 3}}
+    # A renewed digest and a dropped prose pin are custody, not payload.
     assert replay.differences(replay.science_payload(tmp_path, "receipt.json", old),
                               replay.science_payload(tmp_path, "receipt.json", refreshed)) == []
     refreshed["theorem"]["proved"] = 1
     assert replay.differences(replay.science_payload(tmp_path, "receipt.json", old),
                               replay.science_payload(tmp_path, "receipt.json", refreshed))
-    refreshed = {"sources": {}, "theorem": old["theorem"]}
-    assert replay.differences(replay.science_payload(tmp_path, "receipt.json", old),
-                              replay.science_payload(tmp_path, "receipt.json", refreshed))
+    # A {path: sha256} map under any field name is custody as well.
+    old = {"owned": {"model/a.py": "a" * 64, "model/a/README.md": "b" * 64}, "value": 2}
+    new = {"owned": {"model/a.py": "c" * 64, "tools/pin_scope.py": "d" * 64}, "value": 2}
+    assert replay.differences(replay.science_payload(tmp_path, "r.json", old),
+                              replay.science_payload(tmp_path, "r.json", new)) == []
+    # A digest outside a map is custody only when it becomes a current file digest.
+    old = {"parent_sha256": "a" * 64, "state_sha256": "b" * 64}
+    new = {"parent_sha256": "c" * 64, "state_sha256": "e" * 64}
+    current = {"c" * 64}
+    diff = replay.differences(replay.science_payload(tmp_path, "r.json", old),
+                              replay.science_payload(tmp_path, "r.json", new),
+                              file_digest=current.__contains__)
+    assert [row["path"] for row in diff] == ["root.state_sha256"]
 
 
 @pytest.mark.parametrize("bad_path", ["../outside", "/tmp/outside"])
@@ -109,7 +121,7 @@ def test_archive_ownership_includes_chunks_but_not_imported_outputs(tmp_path):
     value = {"complete_record_archive": {"files": [{"filename": "a.npz"},
                                                     {"filename": "a.state-0.npz"}]},
              "prior": {"artifact": {"filename": "imported.npz"}}}
-    owners, _ = replay.output_owners(tmp_path, {"a.json": value})
+    owners, _, _ = replay.output_owners(tmp_path, {"a.json": value})
     assert set(owners) == {tmp_path / p for p in ("a.json", "a.npz", "a.state-0.npz")}
     with pytest.raises(ValueError, match="Multiple producers"):
         replay.output_owners(tmp_path, {"a.json": value,
@@ -144,10 +156,9 @@ def test_parallel_replay_never_admits_failed_or_changed_premise(tmp_path, monkey
 
     verifier = types.SimpleNamespace(ROOT=root, REPLAYS=[(f"fake.{n}", None, p) for n, p in paths.items()],
                                      verify_receipt_source_bindings=final_check)
-    monkeypatch.setattr(replay, "SUPPORTED_WRITERS", {
-        (f"fake.{name}", None): ("model/verify.py", sha("model/verify.py"))
-        for name in paths
-    })
+    monkeypatch.setattr(replay, "writer_interface",
+                        lambda root, row: ({"write": ("path", "--write"), "check": "path"}, None))
+    monkeypatch.setattr(replay, "repository_digests", lambda root: {})
     fake_model = types.ModuleType("model")
     fake_model.verify = verifier
     fake_tools = types.ModuleType("tools")
@@ -223,46 +234,85 @@ def test_parallel_replay_never_admits_failed_or_changed_premise(tmp_path, monkey
         assert all(row["non_provenance_differences"] == [] for row in report["results"])
 
 
-def test_pathless_store_true_writer_is_rejected_before_any_producer(tmp_path, monkeypatch):
+WRITER = """import argparse, hashlib, json, os
+from pathlib import Path
+p = argparse.ArgumentParser()
+g = p.add_mutually_exclusive_group(required=True)
+g.add_argument('--write', {write})
+g.add_argument('--check', {check})
+a = p.parse_args()
+def build():
+    value = json.loads(Path('model/result.json').read_text())
+    value['sources'] = {{'input': hashlib.sha256(Path('input').read_bytes()).hexdigest()}}
+    if Path('CHANGE_SCIENCE').exists():
+        value['science'] = False
+    return value
+if a.write:
+    target = a.write if isinstance(a.write, str) else 'model/result.json'
+    Path(target).write_text(json.dumps(build()))
+else:
+    target = a.check if isinstance(a.check, str) else 'model/result.json'
+    assert json.loads(Path(target).read_text()) == build()
+"""
+
+
+def synthetic_root(tmp_path, monkeypatch, write, check):
     root = tmp_path.resolve()
     (root / "model").mkdir()
     (root / "model/verify.py").write_text("synthetic verifier")
     (root / "input").write_text("changed source")
-    marker = root / "CANONICAL_WAS_OVERWRITTEN"
-    source = root / "pathless.py"
-    source.write_text(
-        "import argparse\nfrom pathlib import Path\n"
-        "p = argparse.ArgumentParser()\np.add_argument('--write', action='store_true')\n"
-        "args, extra = p.parse_known_args()\n"
-        f"if args.write: Path({str(marker)!r}).write_text('unsafe canonical write')\n")
+    (root / "writer.py").write_text(WRITER.format(write=write, check=check))
     receipt = root / "model/result.json"
     receipt.write_text(json.dumps({"sources": {"input": "stale"}, "science": True}))
-    original = receipt.read_bytes()
+
+    def final_check():
+        value = json.loads(receipt.read_text())
+        assert value["sources"]["input"] == hashlib.sha256((root / "input").read_bytes()).hexdigest()
+
     model = types.ModuleType("model")
-    model.verify = types.SimpleNamespace(ROOT=root, REPLAYS=[("pathless", None, "model/result.json")])
+    model.verify = types.SimpleNamespace(ROOT=root, REPLAYS=[("writer", None, "model/result.json")],
+                                         verify_receipt_source_bindings=final_check)
     tools = types.ModuleType("tools")
     tools.strict_json = types.SimpleNamespace(loads=json.loads)
     monkeypatch.setitem(sys.modules, "model", model)
     monkeypatch.setitem(sys.modules, "tools", tools)
+    return root, receipt
+
+
+@pytest.mark.parametrize("write,check,expected", [
+    ("type=str", "type=str", {"write": ("path", "--write"), "check": "path"}),
+    ("action='store_true'", "nargs='?', const='model/result.json'", {"write": ("inplace", "--write"), "check": "path"}),
+    ("action='store_true'", "action='store_true'", {"write": ("inplace", "--write"), "check": "flag"}),
+])
+def test_writer_interface_is_read_from_the_producer_help(tmp_path, monkeypatch, write, check, expected):
+    root, _ = synthetic_root(tmp_path, monkeypatch, write, check)
+    assert replay.writer_interface(root, ("writer", None, "model/result.json")) == (expected, None)
+    (root / "checker.py").write_text("import argparse\np = argparse.ArgumentParser()\n"
+                                     "p.add_argument('--check')\np.parse_args()\n")
+    # A producer without a write option writes its outputs when run bare.
+    assert replay.writer_interface(root, ("checker", None, "model/result.json")) == (
+        {"write": ("bare", None), "check": "path"}, None)
+
+
+@pytest.mark.parametrize("write,check", [("type=str", "type=str"), ("action='store_true'", "action='store_true'")])
+@pytest.mark.parametrize("change_science", [False, True])
+def test_every_writer_interface_renews_pins_and_keeps_payload(tmp_path, monkeypatch, write, check, change_science):
+    root, receipt = synthetic_root(tmp_path, monkeypatch, write, check)
+    original = receipt.read_bytes()
+    if change_science:
+        (root / "CHANGE_SCIENCE").write_text("1")
+    monkeypatch.chdir(root)
     monkeypatch.setattr(sys, "argv", ["replay", "--root", str(root), "--output", str(root / "audit"), "--execute"])
-    def forbidden(*args, **kwargs):
-        pytest.fail("unsupported writer must never be invoked, even with --help")
-    monkeypatch.setattr(replay, "subprocess", types.SimpleNamespace(run=forbidden))
-    with pytest.raises(SystemExit, match="No producers started"):
+    if change_science:
+        with pytest.raises(SystemExit, match="Stopped"):
+            replay.main()
+        # The original bytes stay in place, whether the producer wrote a
+        # candidate or overwrote the canonical receipt.
+        assert receipt.read_bytes() == original
+    else:
         replay.main()
-    assert receipt.read_bytes() == original
-    assert not marker.exists()
-    assert not (root / "audit/before").exists()
+        value = json.loads(receipt.read_text())
+        assert value["science"] is True and value["sources"]["input"] != "stale"
+    assert (root / "audit/before/model/result.json").read_bytes() == original
     report = json.loads((root / "audit/report.json").read_text())
-    assert report["unsupported_affected_writers"] == {"model/result.json": "no reviewed path-output writer contract"}
-    assert report["results"] == []
-
-
-def test_reviewed_writer_parser_changes_require_new_review(tmp_path, monkeypatch):
-    source = tmp_path / "writer.py"
-    source.write_text("reviewed path-output writer")
-    monkeypatch.setattr(replay, "SUPPORTED_WRITERS", {("writer", None): ("writer.py", replay.digest(source))})
-    row = ("writer", None, "result.json")
-    assert replay.writer_problem(tmp_path, row) is None
-    source.write_text("changed parser or side effects")
-    assert replay.writer_problem(tmp_path, row) == "reviewed writer source changed: writer.py"
+    assert report["affected_topological_order"] == ["model/result.json"]

@@ -4,6 +4,12 @@ import json
 from pathlib import Path
 from model.particle_common_contract import contract,provenance
 from . import model
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 OUTPUT=HERE/'results.json'
@@ -14,7 +20,7 @@ def build():
     paths.update(str(p.relative_to(contract.ROOT)) for p in HERE.iterdir()
                  if p.is_file() and p.suffix in ('.py','.md'))
     paths=provenance.definition_inputs(paths);pins=provenance.definition_hashes(paths)
-    result=model.certificate();result['input_sha256']=pins
+    result=model.certificate();result['input_sha256']=bound_pins(pins)
     if provenance.definition_hashes(paths)!=pins:raise ValueError('energy source changed during replay')
     return json.dumps(result,sort_keys=True,indent=2,allow_nan=False)+'\n'
 

@@ -9,6 +9,12 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PATH = Path('model/completion/finite_record_dynamics.json')
@@ -50,7 +56,7 @@ def validate(packet, root=ROOT):
                 f'finite receipt changed: {path}')
         require((root / check).is_file(), f'missing owning check: {check}')
         receipt = json.loads((root / path).read_text())
-        bindings = receipt.get('source_bindings', receipt.get('input_sha256'))
+        bindings = bound_pins(receipt.get('source_bindings', bound_pins(receipt.get('input_sha256'))))
         require(isinstance(bindings, dict) and bindings, f'missing owning source bindings: {path}')
         for name, digest in bindings.items():
             source = (root / name).resolve()

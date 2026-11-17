@@ -18,6 +18,12 @@ from tools import strict_json
 from ..observer import native
 from ..common_source import slow_geometry
 from ..observer.scalar_response.experiment import canonical, compare_receipt
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = (
@@ -230,8 +236,8 @@ def run():
             'autonomous_source_hamiltonian_derived': False,
             'Lorentzian_continuum_action_or_lab_clock_established': False,
         },
-        'source_bindings': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                            for path in SOURCE_PATHS},
+        'source_bindings': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                            for path in SOURCE_PATHS}),
     }
 
 

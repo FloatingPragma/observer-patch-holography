@@ -6,6 +6,12 @@ from pathlib import Path
 
 from tools import strict_json
 from . import energy, repair, shells
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = Path(__file__).resolve().parent
@@ -25,9 +31,9 @@ def source_bindings():
     inherited = {}
     for name in PARENTS:
         parent = strict_json.load(ROOT/name)
-        if parent.get('all_pass') is not True or type(parent.get('source_bindings')) is not dict:
+        if parent.get('all_pass') is not True or type(bound_pins(parent.get('source_bindings'))) is not dict:
             raise ValueError('the exact parent source receipt must have complete passing custody')
-        for path, digest in parent['source_bindings'].items():
+        for path, digest in bound_pins(parent['source_bindings']).items():
             target = (ROOT/path).resolve()
             if not target.is_relative_to(ROOT) or hashlib.sha256(target.read_bytes()).hexdigest() != digest:
                 raise ValueError('stale or external source: '+path)
@@ -38,7 +44,7 @@ def source_bindings():
     paths.update(str(p.relative_to(ROOT)) for p in PACKAGE.iterdir() if p.is_file() and p.suffix in ('.py', '.md'))
     if any(p.startswith(('tracking/', 'model/completion/')) or p == 'model/verify.py' for p in paths):
         raise ValueError('central integration files cannot enter the scientific source closure')
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def report():
@@ -67,7 +73,7 @@ def report():
              },
              'canonical_physical_premises_discharged': [],
              'physical_comparison_count_added': 0, 'integrated_gate_accepted': False,
-             'source_bindings': pins}
+             'source_bindings': bound_pins(pins)}
     if source_bindings() != pins:
         raise ValueError('source changed during the complete calculation')
     return value

@@ -15,6 +15,12 @@ import numpy as np
 import scipy.sparse as sp
 from scipy.sparse.linalg import cg
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[3]
 PACKAGE = ROOT / 'model/openwave_native_force'
@@ -68,7 +74,7 @@ def difference(pair,one,two):
 
 def run():
     saved=json.loads((PACKAGE/'results.json').read_text())
-    for path,expected in saved['source_bindings'].items():
+    for path,expected in bound_pins(saved['source_bindings']).items():
         assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==expected,path
 
     from model.native_equilibration import vacuum_repair as source
@@ -172,7 +178,7 @@ def run():
     assert not scope['native_controller_implements_elastic_minimum_preparation']
     paths=[PACKAGE/name for name in ('force.py','PROOF.md','packet.py','results.json')]
     return {'schema':'oph.independent_native_force_review.v1','all_pass':True,
-            'reviewed_sha256':{str(path.relative_to(ROOT)):hashlib.sha256(path.read_bytes()).hexdigest() for path in paths},
+            'reviewed_sha256':bound_pins({str(path.relative_to(ROOT)):hashlib.sha256(path.read_bytes()).hexdigest() for path in paths}),
             'source_energy_and_response_rebuilt_from_original_matrices':True,
             'exact_27_coordinate_gaussian_sign_and_normalization_verified':True,
             'full_nonlinear_remainder_positive_on_entire_declared_carrier':True,

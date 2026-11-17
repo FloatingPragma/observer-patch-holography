@@ -6,6 +6,12 @@ import sympy as s
 from model.coherent_defect_wave.physical_attachment.chiral import representation
 from model.coherent_defect_wave.chiral_higgs.model import higgs_memory
 from model.coherent_defect_wave.chiral_joint.periodic_family.model import yukawa_words,kinetic_terms,Configuration
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[3]
 def review():
     receipt=json.loads((ROOT/'model/openwave_pinned_coulomb/results.json').read_text())
@@ -46,6 +52,6 @@ def review():
     return {'verdict':'PASS','native_local_hypercharge_Ward_words':ward,'actual_nonself_hopping_word_counts':counts,
         'independent_exact_Green_minimum_differences':exact,'independent_large_box_force_max_error':maximum,
         'proof_review':'Gauge multiplicity factorization and nonempty native character flux saturate the full pinned tensor lower bound. The unknown complete charged minimum cancels. Pinning is a constraint; no invariance, unrestricted screened force or physical alpha follows.',
-        'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in paths}}
+        'source_sha256':bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in paths})}
 if __name__=='__main__':
     v=review();Path(__file__).with_suffix('.json').write_text(json.dumps(v,indent=2,sort_keys=True)+'\n');print(v['verdict'])

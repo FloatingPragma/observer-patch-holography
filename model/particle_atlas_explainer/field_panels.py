@@ -6,6 +6,12 @@ from pathlib import Path
 
 from .canvas import AMBER, BLUE, MUTED, SOFT, TEAL, TEXT, VIOLET
 from .parts import CW, X0, card
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PATHS = {
@@ -195,14 +201,14 @@ def load():
     for name, relative in PATHS.items():
         path = ROOT / relative
         data[name] = json.loads(path.read_text())
-        local = data[name]['input_sha256']
+        local = bound_pins(data[name]['input_sha256'])
         for key, expected in local.items():
             target = (ROOT / key).resolve()
             if not target.is_relative_to(ROOT) or hashlib.sha256(target.read_bytes()).hexdigest() != expected:
                 raise ValueError('Field evidence changed: ' + key)
         pins.update(local)
         owned=dict(data[name].get('local_sha256', {}))
-        owned.update(data[name].get('owned_source_sha256', {}))
+        owned.update(bound_pins(data[name].get('owned_source_sha256', {})))
         for key, expected in owned.items():
             target=(path.parent/key).resolve()
             if not target.is_relative_to(ROOT) or hashlib.sha256(target.read_bytes()).hexdigest()!=expected:
@@ -210,7 +216,7 @@ def load():
             pins[target.relative_to(ROOT).as_posix()]=expected
         pins[relative] = hashlib.sha256(path.read_bytes()).hexdigest()
     validate(data)
-    data['pins'] = pins
+    data['pins'] = bound_pins(pins)
     return data
 
 

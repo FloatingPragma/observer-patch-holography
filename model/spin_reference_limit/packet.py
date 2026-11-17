@@ -7,6 +7,12 @@ from pathlib import Path
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import algebra, bounds
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -23,7 +29,7 @@ def source_bindings():
         'source_receipts': [PARENT],
         'independent_checks': ['model/spin_reference_limit/PROOF.md'],
     })
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 _IMPORTED_BINDINGS = source_bindings()
@@ -36,14 +42,14 @@ def report():
     parent = strict_json.load(ROOT/PARENT)
     if parent.get('all_pass') is not True or parent.get('schema') != 'oph.bipartite_spin_limit.v1':
         raise ValueError('verified local spin source required')
-    for path, expected in parent['source_bindings'].items():
+    for path, expected in bound_pins(parent['source_bindings']).items():
         if pins[path] != expected:
             raise ValueError('local spin source custody changed: '+path)
     result = {
         'schema': 'oph.spin_reference_limit.v1', 'all_pass': True,
         'issues': [1138, 1142], 'gates': ['CP-02', 'CP-06'],
         'bounds': bounds.certificate(), 'complete_carrier_controls': algebra.certificate(),
-        'source_bindings': pins,
+        'source_bindings': bound_pins(pins),
         'scope': 'Actual symmetry-averaged full-source grounds, faithful full-source Gibbs references, local ground condition and volume-uniform pressure bounds at fixed lattice spacing.',
         'state_selection_rule_is_a_specified_input': True,
         'parent_source_custody_checked': True,

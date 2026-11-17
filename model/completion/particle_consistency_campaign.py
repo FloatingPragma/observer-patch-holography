@@ -5,6 +5,12 @@ from pathlib import Path
 
 from tools import strict_json
 from .particle_derivation_campaign import ROOT, _bound_file, require
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 PATH = Path('model/completion/particle_consistency_campaign.json')
 CAMPAIGN = 'OPH-PARTICLE-CONSISTENCY-COMPONENTS-2026-11-04'
@@ -46,7 +52,7 @@ def validate(packet, root=ROOT):
     require(type(boundary) is dict and set(boundary) == set(BOUNDARY)
             and all(boundary[k] is v for k, v in BOUNDARY.items()),
             'unsupported physical or composition claim')
-    bindings = packet.get('source_bindings')
+    bindings = bound_pins(packet.get('source_bindings'))
     require(type(bindings) is dict and bindings, 'missing source bindings')
     for path, digest in bindings.items():
         _bound_file(root, path, digest, 'particle consistency source')

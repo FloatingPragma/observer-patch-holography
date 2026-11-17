@@ -7,6 +7,12 @@ from fractions import Fraction as F
 from pathlib import Path
 from tools import strict_json
 from . import algebra, bounds, finite
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -52,12 +58,12 @@ def bindings():
                 add(target)
                 for alias in node.names:
                     add(target+'.'+alias.name)
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def build():
     before = bindings()
-    value = {'schema': 'oph.spin_relaxed_response.v1', 'source_bindings': before,
+    value = {'schema': 'oph.spin_relaxed_response.v1', 'source_bindings': bound_pins(before),
              'exact_variational_controls': algebra.exact_checks(),
              'actual_continuum_response_bounds': [bounds.continuum_response(c, F(1, 1000), r)
                  for c in ('P', 'Q') for r in (F(1), F(1, 2), F(1, 4))],

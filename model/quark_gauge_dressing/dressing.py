@@ -16,6 +16,12 @@ from model.affine_gauss_source import model as gauge
 from model.defect_mass_join.source import car, one_cell_polynomial, representation
 from model.particle_common_contract.provenance import import_closure
 from . import symmetry
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -59,7 +65,7 @@ def geometry():
 
 def validate_parent():
     value = json.loads((ROOT/PARENT).read_text())
-    for name, expected in value['input_sha256'].items():
+    for name, expected in bound_pins(value['input_sha256']).items():
         if hashlib.sha256((ROOT/name).read_bytes()).hexdigest() != expected:
             raise ValueError('native quark source ancestry differs: '+name)
     assert value['same_source']['local'] == 'full native thirty-CAR plus five-state scalar, all Yukawa coefficients one'
@@ -135,12 +141,12 @@ def bindings():
         'code/electromagnetism/cone_whitney_bridge.py', 'code/electromagnetism/discrete_coulomb_green.py'})
     seeds.update(gauge.pins())
     seeds.update(gauge.cone.PIN_PATHS)
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(seeds))}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(seeds))})
 
 
 def certificate():
     pins = bindings()
-    result = serialize({'schema': 'oph.quark_gauge_dressing.v1', 'source_bindings': pins,
+    result = serialize({'schema': 'oph.quark_gauge_dressing.v1', 'source_bindings': bound_pins(pins),
         'full_joined_quark_symmetry': symmetry.certificate(),
         'native_charge_and_Gauss_transfer': column_charge_controls(),
         'complete_cone_electric_geometry': geometry(),

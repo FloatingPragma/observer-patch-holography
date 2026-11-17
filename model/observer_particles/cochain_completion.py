@@ -8,6 +8,12 @@ from __future__ import annotations
 from evidence_contract import public_receipt
 import hashlib,importlib.util,json,math,sys
 from pathlib import Path
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 sys.dont_write_bytecode=True
 import numpy as np
 import sympy as s
@@ -131,7 +137,7 @@ def main():
         p=getattr(module,'__file__',None)
         if p and Path(p).is_file() and Path(p).is_relative_to(PUBLIC):paths.append(Path(p))
     result={'status':'PASS_FULL_WHITNEY_COCHAIN_COMPLETION_WITH_SHARED_CONE_SCALAR_BLOCK',
-        'producer_sha256':sha(__file__),'source_sha256':{str(p.relative_to(ROOT)):sha(p) for p in sorted(set(paths))},
+        'producer_sha256':sha(__file__),'source_sha256':bound_pins({str(p.relative_to(ROOT)):sha(p) for p in sorted(set(paths))}),
         'artifacts':{artifact.name:sha(artifact)},'empirical_inputs':[],
         'existing_domain':{'name':'existing native-boundary tetrahedral cone','cochain_dimensions':sizes,
             'total_one_particle_dimension':total,'metric_and_lapse_consumed_from':'geometric_matter_join',

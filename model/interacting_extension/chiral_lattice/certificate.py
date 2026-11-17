@@ -11,6 +11,12 @@ import numpy as np
 from . import independent_audit, light_branch, rotor_response
 from .source_data import FILES, ROOT
 from .._source import PIN, verify_sources
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 OUTPUT = HERE / "results.json"
@@ -59,7 +65,7 @@ def report():
         raise ArithmeticError("Source changed during the finite replay")
     return {
         "schema": "oph.interacting_extension.propagation_certificate.v1",
-        "source_commit": PIN, "source_sha256": before,
+        "source_commit": PIN, "source_sha256": bound_pins(before),
         "free_control": {
             "lattice_sides": [32,64,128,256], "fixed_momentum": [1,1,1],
             "spatial_dimensions": 3, "all_component_count_L8": 30720,

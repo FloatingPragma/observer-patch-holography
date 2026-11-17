@@ -13,6 +13,12 @@ import numpy as np
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import circuits, detection
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = detection.ROOT
 HERE = Path(__file__).parent
@@ -34,7 +40,7 @@ def bindings():
                   'model/centered_particle_spectrum/witness.npz',
                   'model/charged_composite_search/witness.npz',
                   'model/native_spectral_detector/contract.cpp'})
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def validate(value, arrays):
@@ -93,7 +99,7 @@ def validate(value, arrays):
             or not 0 <= run['rounded_negative_slot_count'] <= 8*1008*4
             or not 0 <= run['rounded_negative_slot_mass'] <= 1e-30):
         raise ValueError('native floating roundoff exceeds its admission')
-    if value['source_bindings'] != bindings():
+    if bound_pins(value['source_bindings']) != bindings():
         raise ValueError('source dependency changed')
 
 
@@ -103,7 +109,7 @@ def produce():
     value = {'schema': 'oph.native_composite_probe.v1', 'all_pass': True,
              'issues': [1141, 1143], 'gates': ['CP-05', 'CP-07'],
              'all_pass_scope': 'finite native composite filter and complete records; no resolved energy clock',
-             **result, 'source_bindings': pins}
+             **result, 'source_bindings': bound_pins(pins)}
     validate(value, arrays)
     return value, arrays
 

@@ -8,6 +8,12 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import (algebra, fermion_attachment, kinetic_attachment, gauge_attachment,
               feedback_limit, source_mass_readout, koide_source)
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -29,7 +35,7 @@ def canonical(value):
 def source_bindings():
     for name in PARENTS:
         parent = strict_json.load(ROOT/name)
-        pins = parent.get('source_bindings', parent.get('source_sha256'))
+        pins = bound_pins(parent.get('source_bindings', bound_pins(parent.get('source_sha256'))))
         if not isinstance(pins, dict) or not pins:
             raise ValueError('unbound source parent')
         for path, expected in pins.items():
@@ -43,7 +49,7 @@ def source_bindings():
                                               ('README.md', 'FERMION_ATTACHMENT.md', 'KINETIC_ATTACHMENT.md',
                                                'GAUGE_ATTACHMENT.md', 'FEEDBACK_LIMIT.md', 'MASS_READOUT.md',
                                                'KOIDE_ATTACHMENT.md', 'KOIDE_SOURCE.md')]})
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 @lru_cache(maxsize=1)
@@ -109,7 +115,7 @@ def build():
                     'physical_pole_or_resonance_proved': False})
     result = {'schema': 'oph.standard_model_source_map.v1',
               'title': 'Standard Model target channels and computed source representations',
-              'source_bindings': pins,
+              'source_bindings': bound_pins(pins),
               'source_weights': list(algebra.source_components()),
               'complete_internal_component_match': components,
               'gauge_and_Higgs_readout': gauge,

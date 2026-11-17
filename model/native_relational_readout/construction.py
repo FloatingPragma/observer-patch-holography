@@ -22,6 +22,12 @@ from ..native_clock import clock
 from ..primitive_observer import runtime
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -346,7 +352,7 @@ def run():
     if delta != F(3644, 69069):
         raise ArithmeticError('the first-native-current phase discriminator changed')
     return {'schema': 'oph.native_relational_readout.v1', 'all_pass': True,
-            'sources': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
+            'sources': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
             'exact_first_current_measurement': exact,
             'same_moving_current_CP_map_for_both_candidates': True,
             'C_minus_E_plus_probability': str(delta),

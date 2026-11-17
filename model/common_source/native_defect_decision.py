@@ -28,6 +28,12 @@ from ..observer import native
 from ..observer.source_discrimination import circuit
 from ..repair_scheduler import coins
 from . import record_code, slow_geometry
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -309,8 +315,8 @@ def report():
                         "same_uniform_schedule_as_production_feedback": False,
                         "positive_all_seam_support_required_for_invariant_obstruction": True,
                         "next_obligation": "identify a nontrivial protected state/observable sector under a declared continuing law; an untested quantum/history sector or a changed law remains possible; propagation and conserved energy with clock/kinetic units must then be derived jointly, not fitted to repair counts"},
-            "source_sha256": {path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
-                              for path in source_paths}}
+            "source_sha256": bound_pins({path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+                              for path in source_paths})}
 
 
 def main():

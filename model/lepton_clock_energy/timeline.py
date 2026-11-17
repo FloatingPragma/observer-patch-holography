@@ -16,6 +16,12 @@ from model.lepton_cycle import composition
 from model.lepton_mass_compiler import analyzer
 from model.native_flavor_orbit import intervals as iv
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -257,7 +263,7 @@ def bindings():
                   'model/lepton_service_compiler/results.json',
                   'model/clocked_common_observer/README.md', 'model/lepton_mass_compiler/PROOF.md',
                   'Lean/Dynamics/ChoiCPTP.lean'))
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))})
 
 
 def certificate():
@@ -274,7 +280,7 @@ def certificate():
     if drift < 1e-5:
         raise ArithmeticError('slot-driven work failed to observe inserted idle')
     blocks = source_blocks()
-    result = {'schema': 'oph.lepton_clock_energy.v1', 'source_bindings': pins,
+    result = {'schema': 'oph.lepton_clock_energy.v1', 'source_bindings': bound_pins(pins),
               'all_checks_pass': True,
               'source_contract': {'native_clock_dimension': 66, 'original_address_pair_dimension': 3600,
                   'family_dimension': 3, 'source': 'declared product of the actual native C/E clock carrier and fresh coherent lepton cells, with event-triggered services',

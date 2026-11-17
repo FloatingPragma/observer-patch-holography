@@ -23,6 +23,12 @@ from . import native_response_reference as reference
 from . import native_response_biased as biased
 from . import native_response_dynamics as dynamics
 from . import native_response_cooling as cooling
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SCHEMA = 'oph.native_response_compatibility.v2'
@@ -49,8 +55,8 @@ def source_bindings():
         'native_response_cooling.py', 'test_native_response_cooling.py',
         'native_response_controller.py', 'test_native_response_controller.py'))
     paths.add('tools/strict_json.py')
-    return {path: hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
-            for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
+            for path in sorted(paths)})
 
 
 def execute():
@@ -172,7 +178,7 @@ def check(path):
     path = Path(path)
     pins = source_bindings()
     report = strict_json.load(path)
-    if type(report) is not dict or report.get('source_bindings') != pins:
+    if type(report) is not dict or bound_pins(report.get('source_bindings')) != pins:
         raise ValueError('response compatibility source bindings differ')
     artifact = path.with_suffix('.npz')
     expected = {'filename': artifact.name,
@@ -203,7 +209,7 @@ def write(path):
     report = json.loads(json.dumps(report, allow_nan=False))
     with artifact.open('xb') as output:
         np.savez_compressed(output, **arrays)
-    report['source_bindings'] = pins
+    report['source_bindings'] = bound_pins(pins)
     report['artifact'] = {'filename': artifact.name,
                           'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}
     with path.open('x', encoding='utf-8', newline='\n') as output:

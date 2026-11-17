@@ -27,6 +27,12 @@ from ..physical_space_time import local_continuum as spatial
 from ..physical_space_time import observation_process as observations
 from ..relative_observer_geometry import temporal_records as clocks
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = dynamics.ROOT
 SOURCE_PATHS = tuple(sorted(set((*dynamics.SOURCE_PATHS, *wave_reference.SOURCE_PATHS,
@@ -2005,7 +2011,7 @@ def product_clock_encoding_control(inverse_temperature=F(1)):
 def run():
     rows = {
         'schema': 'oph.observer_time_fields.continuum_dynamics.v1',
-        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
         'exact_native_wave_synthesis': exact_wave_synthesis(),
         'actual_native_propagators': native_propagator_control(),
         'all_level_propagation_bounds': [propagation_bounds(l) for l in (0, 1, 2, 4, 10)],

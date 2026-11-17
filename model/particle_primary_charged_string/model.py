@@ -12,6 +12,12 @@ from model.particle_primary_joint_spectroscopy import spectroscopy
 from model.particle_primary_mass_readout import readout
 from model.particle_primary_channel_labels import channels
 from model.spin_packet_readout.bounds import sqrt_upper
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=(
     'model/particle_primary_charged_string/__init__.py',
@@ -153,6 +159,6 @@ def certificate():
     paths=provenance.definition_inputs(SOURCE_INPUTS);pins=provenance.definition_hashes(paths)
     result={'schema':'oph.primary_charged_string.v1',
         'selected_member_bound':bind_member(contract.member(0)),
-        'endpoint_control':contract.serial(endpoint_control()),'source_sha256':pins}
+        'endpoint_control':contract.serial(endpoint_control()),'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('charged-string inputs changed during replay')
     return result

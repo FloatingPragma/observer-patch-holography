@@ -3,6 +3,10 @@ from pathlib import Path
 from hashlib import sha256
 import argparse,importlib,json
 from tools.native_execution_results import NAMES,TITLES,SHORTCUTS,project
+try:
+    from tools.pin_scope import bound_pins
+except ImportError:  # run or imported from tools/ as a top-level module
+    from pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[1]
 
 def generate():
@@ -10,7 +14,7 @@ def generate():
     for index,(name,title,shortcut)in enumerate(zip(NAMES,TITLES,SHORTCUTS,strict=True),1):
         prefix='model/openwave_'+name;receipt=ROOT/prefix/'results.json'
         value=json.loads(receipt.read_text());owner=importlib.import_module('model.openwave_'+name+'.__main__')
-        assert value['source_sha256']==owner.pins() and value['verdict'].startswith('PASS'),name
+        assert bound_pins(value['source_sha256'])==owner.pins() and value['verdict'].startswith('PASS'),name
         data[name]=value
         claims.append({'id':'native_execution_'+name,'task':index,'label':title,
             'status':'verified_in_stated_finite_domain','finite_theorem_shortcut':shortcut,
@@ -24,7 +28,7 @@ def generate():
     return {'schema':'oph.native_execution_claims.v1',
         'mission':'One specified executable construction reproduces compatible observer records for all physical observables.',
         'architecture_uniqueness_required':False,'claims':claims,
-        'canonical_source_sha256':{p:sha256((ROOT/p).read_bytes()).hexdigest()for p in canonical},
+        'canonical_source_sha256':bound_pins({p:sha256((ROOT/p).read_bytes()).hexdigest()for p in canonical}),
         'physical_premises_closed':[],'independent_physical_masses_GeV_added':[],
         'official_status':data['native_platform_gate']['official_status'],
         'complete_physical_mission_proved':False,

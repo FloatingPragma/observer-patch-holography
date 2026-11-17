@@ -1,6 +1,12 @@
 """Actual Wilson cone mismatch and an explicit orthogonal-regulator repair."""
 from pathlib import Path
 import hashlib,json,sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 import sympy as s
@@ -82,15 +88,15 @@ def finite_background_check():
 def certificate():
     parent=ROOT/'model/native_wilson_maxwell/results.json'
     data=json.loads(parent.read_text())
-    for name,expected in data['input_sha256'].items():
+    for name,expected in bound_pins(data['input_sha256']).items():
         assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
     return {'schema':'oph.research.wilson_common_cone_audit.v1',
             'source_parent_sha256':hashlib.sha256(parent.read_bytes()).hexdigest(),
             'algebra':algebra(),'finite_background':finite_background_check(),
             'references':['https://arxiv.org/abs/hep-lat/0306014','https://arxiv.org/abs/hep-lat/0409006'],
             'source_and_premises':'PROOF.md; altered regulator is a new source member, not a reinterpretation of the frozen source',
-            'owned_source_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest()
-                                   for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}}
+            'owned_source_sha256':bound_pins({p.name:hashlib.sha256(p.read_bytes()).hexdigest()
+                                   for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})}
 
 
 if __name__=='__main__':

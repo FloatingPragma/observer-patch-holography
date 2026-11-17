@@ -18,6 +18,12 @@ import numpy as np
 
 from . import construction as c
 from ..observer import native
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = c.ROOT
 _SOURCE_LIBRARY = 'evidence/observer_dynamics_20260925/oph-physics-sim'
@@ -425,7 +431,7 @@ def run():
     if lower <= F(1, 1000) or no_reset_difference < float(lower)-1e-14:
         raise ArithmeticError('the continuing-clock reset control lost its certified contrast')
     return {'schema': 'oph.transfer_modular_probe.event_clock.v1',
-        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
+        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
         'contract': {'clock_event': 'native port-zero incident attempt, including zero current',
             'phase_advance_per_event': 'one fixed derived U(1), with no variable phase input',
             'carrier_paused_during_disjoint_probe_source_services': True,

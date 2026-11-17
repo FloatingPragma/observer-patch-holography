@@ -11,6 +11,12 @@ from pathlib import Path
 
 import sympy as s
 from .._source import verify_sources
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 PIN = "3cf3c14810671a16e61b7915f69079a1773a12a2"
 ROOT = Path(__file__).resolve().parents[3]
@@ -140,10 +146,10 @@ def native_data(repo):
 def manifest(repo):
     repo = Path(repo)
     verify_sources(repo, SOURCE_NAMES)
-    hashes = {name: hashlib.sha256((repo / name).read_bytes()).hexdigest()
-              for name in SOURCE_NAMES}
+    hashes = bound_pins({name: hashlib.sha256((repo / name).read_bytes()).hexdigest()
+              for name in SOURCE_NAMES})
     return {"pinned_source_commit": PIN,
-            "source_sha256": hashes,
+            "source_sha256": bound_pins(hashes),
             "source_bytes_match_pinned_commit": True,
             "empirical_mass_or_mixing_inputs": []}
 

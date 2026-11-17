@@ -10,12 +10,21 @@ import importlib.util
 import hashlib
 import json
 from pathlib import Path
+try:
+    from tools.pin_scope import bound
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound
 
 ROOT=Path(__file__).resolve().parents[2]
 
 
 def import_closure(seeds):
-    paths=set(seeds);pending=list(paths);visited=set()
+    """Pinned repository paths: the seeds and their Python import closure,
+    without prose and test modules (tools/pin_scope.py), which are neither
+    walked nor returned."""
+    paths=set(bound(seeds));pending=list(paths);visited=set()
     def add_module(name):
         stem=name.replace('.','/')
         parts=stem.split('/')
@@ -39,4 +48,4 @@ def import_closure(seeds):
                 if node.level:target=importlib.util.resolve_name(target,package)
                 add_module(target)
                 for alias in node.names:add_module(target+'.'+alias.name)
-    return paths
+    return set(bound(paths))

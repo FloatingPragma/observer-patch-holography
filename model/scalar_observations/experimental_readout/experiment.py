@@ -6,6 +6,12 @@ import math
 
 from .data import FOLDER, load_observations
 from . import stats
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 
 def _serializable(value):
@@ -77,13 +83,13 @@ def run():
         'no_withheld_parameter_fit': not calibration['calibration_uses_withheld_values'],
         'both_extents_and_directions_reported': len(nominal) == 4,
         'exact_conditional_failure_budget_met': exact_failure <= F('0.05')}
-    source_hashes = {name: hashlib.sha256((FOLDER.parent/name).read_bytes()).hexdigest()
-                     for name in ('source.py', 'protocol.py', 'occupation_readout.py')}
+    source_hashes = bound_pins({name: hashlib.sha256((FOLDER.parent/name).read_bytes()).hexdigest()
+                     for name in ('source.py', 'protocol.py', 'occupation_readout.py')})
     receipt = {
         'schema': 'oph.scalar_observations.experimental_readout.v1',
         'protocol_sha256': hashlib.sha256(protocol_bytes).hexdigest(),
         'provenance': observations['provenance'],
-        'source_interface_hashes': source_hashes,
+        'source_interface_hashes': bound_pins(source_hashes),
         'orientation': observations['orientation'],
         'selection_note': protocol['selection_order'],
         'orientation_sensitivity_note': 'Numeric ingestion identified the conjugated array axis but not its direction; both sign conventions are reported without selecting by agreement.',

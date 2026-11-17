@@ -12,6 +12,12 @@ from ..observer_reconstruction.experiment import serializable
 from ..interacting_reconstruction.experiment import level, portable_bounds, SOURCE_PATHS as BASE_PATHS
 from ..interacting_reconstruction.execution import target_audit
 from . import bounds, recovery, source
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -69,8 +75,8 @@ def run():
         'levels': levels,
         'post_prediction_backend_audit': {**audit, 'absolute_coefficient_errors': errors,
                                           'product_generator_cap_certificate': cap},
-        'source_binding_sha256': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-                                  for name in SOURCE_PATHS},
+        'source_binding_sha256': bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+                                  for name in SOURCE_PATHS}),
         'floating_clock_and_physical_service_error_certified': False,
         'checks': checks, 'all_pass': all(checks.values()),
     }

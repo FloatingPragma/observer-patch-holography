@@ -15,6 +15,12 @@ import tempfile
 
 from tools import strict_json
 from ..completion.program_class_v2 import reviewed_contract_digest
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -87,7 +93,7 @@ def source_bindings():
                 add(target)
                 for alias in node.names:
                     add(target+'.'+alias.name)
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def _report():
@@ -103,7 +109,7 @@ def _report():
               'algebra_and_protection': occupation.certificate(),
               'source_observer': occupation_service.certificate(),
               'physical_comparison_count_added': 0,
-              **{key: False for key in FALSE_KEYS}, 'source_sha256': before}
+              **{key: False for key in FALSE_KEYS}, 'source_sha256': bound_pins(before)}
     if source_bindings() != before or class_contract_digest() != class_digest:
         raise RuntimeError('occupation sources changed during owned execution')
     return result
@@ -243,7 +249,7 @@ def report():
                              text=True, encoding='utf-8', timeout=900)
     result = strict_json.loads(run.stdout)
     if (type(result) is not dict or set(result) != RESULT_KEYS
-            or result.get('source_sha256') != before or source_bindings() != before
+            or bound_pins(result.get('source_sha256')) != before or source_bindings() != before
             or result.get('program_class_contract_sha256') != class_digest
             or class_contract_digest() != class_digest):
         raise RuntimeError('fresh occupation replay and current source custody disagree')

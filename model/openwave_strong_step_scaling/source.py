@@ -13,6 +13,12 @@ from model.openwave_nuclear_distance.spatial import carrier
 from model.openwave_common_hyperfine_spectrum import source as native
 
 from model.openwave_string_positive_cone.source import sqrt_interval
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 @lru_cache(None)
@@ -21,7 +27,7 @@ def shared_length_attachment():
     # this exact scale. This consumer reexecutes its own full native chains.
     root=Path(__file__).resolve().parents[2]
     parent=json.loads((root/'model/openwave_common_hyperfine_spectrum/results.json').read_text())
-    for path,digest in parent['source_sha256'].items():
+    for path,digest in bound_pins(parent['source_sha256']).items():
         assert hashlib.sha256((root/path).read_bytes()).hexdigest()==digest,path
     assert parent['parameters_rational']=={k:str(v)for k,v in native.parameters().items()}
     return parent['common_length_attachment']

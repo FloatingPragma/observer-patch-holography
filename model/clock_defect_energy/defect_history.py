@@ -22,6 +22,12 @@ from ..observer import native, native_loop_readout, record_recovery as records
 from ..observer import adaptive_record_recovery as adaptive
 from ..observer.source_discrimination import circuit
 from ..native_modular_reference import history_transport
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 OUTPUT = HERE / "defect_history_results.json"
@@ -536,7 +542,7 @@ def report():
                             "protected_localized_matter_or_mass": False,
                             "integrated_CP03_accepted": False,
                             "physical_comparison_count_added": 0},
-                  "source_sha256": contract.source_bindings(paths)})
+                  "source_sha256": bound_pins(contract.source_bindings(paths))})
 
 
 def main():

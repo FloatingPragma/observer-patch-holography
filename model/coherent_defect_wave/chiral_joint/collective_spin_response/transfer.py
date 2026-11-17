@@ -8,6 +8,12 @@ from ..family_cell.quotient import outward
 from .model import MAX_COUPLING
 from .residue import exact_data
 from .bounds import residue_errors, probability_interval
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[4]
 GEOMETRY_RECEIPT='model/coherent_defect_wave/chiral_joint/atomic_spin_geometry/results.json'
@@ -15,7 +21,7 @@ GEOMETRY_RECEIPT='model/coherent_defect_wave/chiral_joint/atomic_spin_geometry/r
 
 def geometry_data():
     receipt=json.loads((ROOT/GEOMETRY_RECEIPT).read_text())
-    validate_pins(receipt['input_sha256'])
+    validate_pins(bound_pins(receipt['input_sha256']))
     transfer=receipt['full_interacting_transfer'];spin=receipt['full_spin_spectrum']
     if (not transfer['unique_full_physical_interacting_ground_proved']
         or transfer['first_excited_cluster_rank'] != 3

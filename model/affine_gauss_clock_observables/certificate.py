@@ -10,6 +10,12 @@ import numpy as np
 from model.affine_gauss_charged_clock import certificate as clock
 from model.affine_gauss_full_spectrum import certificate as ground
 from model.affine_gauss_full_spectrum.roundoff import squared_norm_exact
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
@@ -47,7 +53,7 @@ def strings(interval):return [str(F(x)) for x in interval]
 def source():
     raw=(ROOT/PARENT).read_bytes()
     if hashlib.sha256(raw).hexdigest()!=PARENT_SHA:raise ValueError('frozen clock changed')
-    value=json.loads(raw);clock.validate_pins(value['input_sha256'])
+    value=json.loads(raw);clock.validate_pins(bound_pins(value['input_sha256']))
     if value!=clock.certificate():raise ValueError('fresh clock/source replay differs')
     return value
 
@@ -78,7 +84,7 @@ def certificate():
     positions=[{'source_vertex':r['source_vertex'],
                 'conditional_post_clock_probability_interval':strings(projector_bounds(r['actual_ground_position_probability'],fidelity))}
                for r in g['actual_ground_position_records']]
-    pins=dict(parent['input_sha256']);pins[PARENT]=PARENT_SHA
+    pins=dict(bound_pins(parent['input_sha256']));pins[PARENT]=PARENT_SHA
     pins['model/affine_gauss_full_spectrum/results.json']=hashlib.sha256((ROOT/'model/affine_gauss_full_spectrum/results.json').read_bytes()).hexdigest()
     for p in HERE.iterdir():
         if p.suffix in ('.py','.md'):pins[p.relative_to(ROOT).as_posix()]=hashlib.sha256(p.read_bytes()).hexdigest()
@@ -118,4 +124,4 @@ def certificate():
         'scope':{'finite_boundary_source':True,'Standard_Model_species':None,'mass_GeV':None,
                  'full_finite_clock_matrix_numerically_executed':False,
                  'complete_H_residual_and_exact_trial_projector_norms_replayed':True},
-        'input_sha256':dict(sorted(pins.items()))}
+        'input_sha256':bound_pins(dict(sorted(pins.items())))}

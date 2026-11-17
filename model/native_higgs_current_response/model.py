@@ -9,6 +9,12 @@ from model.native_higgs_filtered_state import model as filtered
 from model.native_weak_current_response.bounds import divide_positive, expand, probability, encode
 from model.native_weak_current_response.certificate import certificate as replay_weak
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -26,8 +32,8 @@ def parents():
     for name,expected in PARENTS.items():
         if digest(ROOT/name)!=expected: raise ValueError('frozen source differs: '+name)
         value=json.loads((ROOT/name).read_text())
-        filtered.higgs.validate(value['input_sha256'])
-        for owned,sha in value.get('owned_source_sha256',{}).items():
+        filtered.higgs.validate(bound_pins(value['input_sha256']))
+        for owned,sha in bound_pins(value.get('owned_source_sha256',{})).items():
             if digest((ROOT/name).parent/owned)!=sha: raise ValueError('owned source differs: '+owned)
         out[name]=value
     assert filtered.certificate()==out['model/native_higgs_filtered_state/results.json']
@@ -134,10 +140,10 @@ def calculate():
 
 def certificate():
     value=calculate(); seeds=set(PARENTS)
-    for parent in parents().values(): seeds.update(parent['input_sha256'])
+    for parent in parents().values(): seeds.update(bound_pins(parent['input_sha256']))
     seeds.update(str(path.relative_to(ROOT)) for path in HERE.iterdir() if path.suffix in ('.py','.md'))
     seeds.add('model/particle_common_contract/provenance.py')
     value=dict(value)
-    value['input_sha256']={name:digest(ROOT/name) for name in sorted(import_closure(seeds))}
-    value['owned_source_sha256']={path.name:digest(path) for path in sorted(HERE.iterdir()) if path.suffix in ('.py','.md')}
+    value['input_sha256']=bound_pins({name:digest(ROOT/name) for name in sorted(import_closure(seeds))})
+    value['owned_source_sha256']=bound_pins({path.name:digest(path) for path in sorted(HERE.iterdir()) if path.suffix in ('.py','.md')})
     return value

@@ -12,6 +12,12 @@ from model.particle_common_contract import contract, provenance
 from model.particle_primary_survival import survival
 from model.particle_spatial_ground_state import ground
 from model.particle_local_wilson_density import density
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS = (
     'model/particle_primary_spectral_scale/__init__.py',
@@ -212,7 +218,7 @@ def certificate():
         'distinct_polynomial_countercontrols':[polynomial_countercontrol(n) for n in (0,2,5)],
         'primary_dimensionless_gap_proved':False,
         'primary_fixed_band_noncollapse_proved':False,
-        'physical_mass_table_GeV':[], 'source_sha256':hashes}
+        'physical_mass_table_GeV':[], 'source_sha256':bound_pins(hashes)}
     if provenance.definition_hashes(paths)!=hashes:
         raise ValueError('spectral-scale inputs changed during computation')
     return result

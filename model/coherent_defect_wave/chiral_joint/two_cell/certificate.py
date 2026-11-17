@@ -9,6 +9,12 @@ from .spectrum import sector_certificate
 from .instrument import certificate_data as instrument_data
 from .readout import complete_experiment,unconditional_experiment,reflected_experiments
 from .symmetries import certificate as symmetry_data
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[4]
 LEAN_INPUTS=('Lean/QFT/EffectiveQuantumComparison.lean',
@@ -33,8 +39,8 @@ def input_hashes():
     seeds.update(LEAN_INPUTS)
     missing=sorted(name for name in seeds if not (ROOT/name).is_file())
     if missing:raise ValueError('missing two-cell source dependency: '+', '.join(missing))
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(set(import_closure(seeds))|seeds)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(set(import_closure(seeds))|seeds)})
 
 
 def certificate():
@@ -64,4 +70,4 @@ def certificate():
                  'interacting_relativistic_limit_proved':False,
                  'observed_species_identified':False,
                  'finite_gap_is_Clay_mass_gap':False},
-        'input_sha256':input_hashes()}
+        'input_sha256':bound_pins(input_hashes())}

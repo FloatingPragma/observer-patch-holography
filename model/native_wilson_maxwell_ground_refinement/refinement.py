@@ -4,6 +4,12 @@ from math import factorial,comb
 from pathlib import Path
 import hashlib,json,sys
 import mpmath as mp
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 RER=HERE.parents[1]
@@ -22,11 +28,11 @@ def admit():
     path=RER/PARENT
     assert hashlib.sha256(path.read_bytes()).hexdigest()==PARENT_SHA
     data=json.loads(path.read_text())
-    for name,h in data['input_sha256'].items():
+    for name,h in bound_pins(data['input_sha256']).items():
         assert hashlib.sha256((RER/name).read_bytes()).hexdigest()==h,name
     cutoff=RER/CUTOFF_PARENT
     assert hashlib.sha256(cutoff.read_bytes()).hexdigest()==CUTOFF_SHA
-    for name,h in json.loads(cutoff.read_text())['input_sha256'].items():
+    for name,h in bound_pins(json.loads(cutoff.read_text())['input_sha256']).items():
         assert hashlib.sha256((RER/name).read_bytes()).hexdigest()==h,name
     return data,ground.admit()
 

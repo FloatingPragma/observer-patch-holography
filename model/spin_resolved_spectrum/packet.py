@@ -11,6 +11,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import spin,spectrum
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -26,7 +32,7 @@ def source_bindings():
                               'model/spin_resolved_spectrum/test_packet.py'],
     })
     paths.add('paper/tex_fragments/SPIN_RESOLVED_SPECTRUM.tex')
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def validate(value):
@@ -63,7 +69,7 @@ def _produce():
     pins=source_bindings()
     value={'schema':'oph.spin_resolved_spectrum.v1','all_pass':True,
            'source_spin':spin.certificate(),'resolved_spectrum':spectrum.certificate(),
-           'source_bindings':pins,
+           'source_bindings':bound_pins(pins),
            'validation_boundary':'Exact full-source ladders and coherent moments extend the authenticated finite spectrum to every ground vector and linear CAR probe. Internal total-spin labels do not identify particle Lorentz spin, relativistic masses or species; dark-state energies and continuum limits remain uncomputed.'}
     if source_bindings()!=pins:raise ValueError('sources changed during spin-spectrum replay')
     validate(value)
@@ -81,7 +87,7 @@ def report():
                               cwd=ROOT,env=environment,capture_output=True,text=True)
         if worker.returncode:raise RuntimeError('fresh spin-spectrum worker failed: '+worker.stderr)
         result=strict_json.loads(path.read_text())
-    if source_bindings()!=pins or result['source_bindings']!=pins:
+    if source_bindings()!=pins or bound_pins(result['source_bindings'])!=pins:
         raise ValueError('sources changed across spin-spectrum replay')
     validate(result)
     return result
@@ -100,7 +106,7 @@ def main():
     elif args.write or args.worker:(args.write or args.worker).write_text(canonical(value))
     if not args.worker:
         print(json.dumps({'all_pass':True,'reachable_N5_dimension':1256,
-                          'mixed_reference_signed_poles':79,'source_bindings':len(value['source_bindings'])}))
+                          'mixed_reference_signed_poles':79,'source_bindings':bound_pins(len(bound_pins(value['source_bindings'])))}))
 
 
 if __name__=='__main__':main()

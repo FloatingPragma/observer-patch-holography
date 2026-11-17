@@ -14,6 +14,12 @@ from . import clock
 from ..interacting_field import source
 from ..observer.source_scalar import compiler
 from ..local_repair_family import inference
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -40,7 +46,7 @@ def _reference_density(state):
 def source_bindings():
     paths={p.relative_to(ROOT).as_posix() for p in HERE.glob('*.py')}
     paths.add('model/band_clock/README.md')
-    paths.update(compiler.source_summary()['source_sha256'])
+    paths.update(bound_pins(compiler.source_summary()['source_sha256']))
     paths.update(inference.source_bindings())
     paths.update((COUNTS,'model/particle_clock/clock.py',
         'model/bound_pair/fiber.py','model/bound_pair/protection.py','model/bound_pair/spectrum.py',
@@ -85,7 +91,7 @@ def source_bindings():
         for item in discovered-paths:
             paths.add(item)
             pending.append(item)
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def run():
@@ -131,7 +137,7 @@ def run():
             or abs(sum(_probabilities(output_values))-1)>2e-8
             or motion_tv<1e-4):
         raise ArithmeticError('complete moving-band source history failed its fixed gates')
-    return {'schema':'oph.band_clock.v1','source_bindings':source_bindings(),
+    return {'schema':'oph.band_clock.v1','source_bindings':bound_pins(source_bindings()),
             'scope':'SUPPLIED_FULL_FIELD_REFERENCE_AND_RECORD_RATE_TRANSFER_SERVICE',
             'action':{'same_periodic_Weyl_contact_action':True,'side':4,
                 'full_N2_dimension':space.dimension,'bound_band_dimension':64,

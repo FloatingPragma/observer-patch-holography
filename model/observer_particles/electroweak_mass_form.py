@@ -11,6 +11,12 @@ import json
 import math
 from pathlib import Path
 import numpy as np
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -45,7 +51,7 @@ def main():
     result = {
         'status':'PASS_CONDITIONAL_GAUGE_SOLUTION_TO_ELECTROWEAK_MASS_FORM',
         'producer_sha256':sha(__file__),
-        'source_sha256':{str(p.relative_to(ROOT)):sha(p) for p in (source,theorem)},
+        'source_sha256':bound_pins({str(p.relative_to(ROOT)):sha(p) for p in (source,theorem)}),
         'empirical_mass_or_coupling_inputs':[],
         'mass_form_divided_by_unspecified_vev_squared':matrix.tolist(),
         'eigenvalues_per_vev_squared':eig.tolist(),

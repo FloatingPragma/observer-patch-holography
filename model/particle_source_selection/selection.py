@@ -16,6 +16,12 @@ import sympy as s
 
 from model.common_source import native_family_record_memory as memory
 from model.common_source import native_gauge_object as geometry
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -185,7 +191,7 @@ def receipt():
         'native_record_certificate': source_certificate(),
         'phase_lift_counterfamily': phase_lift_certificate(),
         'general_real_twirl': {'singlet': str(singlet), 'doublet': str(doublet), 'doublet_multiplicity': 2},
-        'source_bindings': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCES},
+        'source_bindings': bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCES}),
     }
 
 

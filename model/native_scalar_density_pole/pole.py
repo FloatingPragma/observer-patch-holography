@@ -7,6 +7,12 @@ import sympy as s
 from model.defect_scalar_response.response import ground_pair, scalar_expectation
 from model.defect_family_vertices.source import encoded_value
 from model.coherent_defect_wave.chiral_higgs.model import higgs_memory
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -65,7 +71,7 @@ def build():
             'observed_Higgs_identification':False,'physical_rest_mass_GeV':None,
             'elementary_scalar_phi_poles_identical':False,
             'W_Z_photon_gluon_operators_added':False},
-        'source_bindings':bindings()}
+        'source_bindings':bound_pins(bindings())}
     return result
 
 
@@ -74,12 +80,12 @@ def bindings():
            'model/defect_scalar_response/response.py','model/defect_scalar_response/results.json',
            'model/defect_family_vertices/source.py','model/defect_family_vertices/results.json',
            'model/coherent_defect_wave/chiral_higgs/model.py']
-    out={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in names}
+    out=bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in names})
     # The exact ground projectors and literal CAR operators are transitive
     # dependencies, checked against the source packages' declared closures.
     for package in ['defect_scalar_response','defect_family_vertices']:
         receipt=json.loads((ROOT/f'model/{package}/results.json').read_text())
-        for p,digest in receipt['input_sha256'].items():
+        for p,digest in bound_pins(receipt['input_sha256']).items():
             candidate=ROOT/p
             if not candidate.is_file():raise ValueError('missing scalar ground input: '+p)
             actual=hashlib.sha256(candidate.read_bytes()).hexdigest()

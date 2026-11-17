@@ -5,6 +5,10 @@ import argparse
 import importlib
 import json
 from tools.native_bridge_results import NAMES,project
+try:
+    from tools.pin_scope import bound_pins
+except ImportError:  # run or imported from tools/ as a top-level module
+    from pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[1]
 SPECS=(
@@ -25,7 +29,7 @@ def generate():
     for name,(title,relation,shortcut)in zip(NAMES,SPECS,strict=True):
         prefix='model/openwave_'+name;path=ROOT/prefix/'results.json'
         value=json.loads(path.read_text());owner=importlib.import_module('model.openwave_'+name+'.__main__')
-        if value.get('source_sha256')!=owner.pins()or not value.get('verdict','').startswith('PASS_'):
+        if bound_pins(value.get('source_sha256'))!=owner.pins()or not value.get('verdict','').startswith('PASS_'):
             raise ValueError('source result lacks current original-owner custody: '+name)
         data[name]=value
         rows.append({'id':'source_record_'+name,'label':title,'owner_medium':'protocol_record',
@@ -39,7 +43,7 @@ def generate():
     return {'schema':'oph.native_process_bridge_claims.v1',
         'mission':'One specified self-referential executable process reproduces compatible observer records for all physical observables.',
         'architecture_uniqueness_required':False,'changes_existing_physical_statuses':False,
-        'canonical_source_sha256':{p:sha256((ROOT/p).read_bytes()).hexdigest()for p in canonical},
+        'canonical_source_sha256':bound_pins({p:sha256((ROOT/p).read_bytes()).hexdigest()for p in canonical}),
         'claims':rows,'physical_premises_closed':[],
         'independent_physical_masses_GeV_added':[],
         'official_status':data['m10_review_gate']['official_status'],

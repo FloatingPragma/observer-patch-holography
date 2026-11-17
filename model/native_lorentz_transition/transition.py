@@ -15,6 +15,12 @@ from ..common_source.null_tomography import (
     decode_null_charges, null_tomography_certificate, null_tomography_design,
 )
 from ..common_source.slow_geometry import ARCHIVE, SPEC, _dot, raw_frame, source
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 def q(value=0):
@@ -219,7 +225,7 @@ def source_contract():
     """Replay the existing source/Gram/decoder identities used by the theorem."""
     # The underlying source loader is cached. Recheck its retained bytes even
     # if a caller populated that cache before this certificate was requested.
-    pins = json.loads(SPEC.read_text())['source_sha256']
+    pins = bound_pins(json.loads(SPEC.read_text())['source_sha256'])
     for name in ('oph_exact/carrier.py', 'oph_fpe/dynamics/self_readback_repair_closure.py'):
         if hashlib.sha256((ARCHIVE / name).read_bytes()).hexdigest() != pins[name]:
             raise ValueError('the pinned native geometry source has changed')

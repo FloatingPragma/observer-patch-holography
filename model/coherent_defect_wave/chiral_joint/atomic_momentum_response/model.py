@@ -11,6 +11,12 @@ import sympy as s
 from ..periodic_family.model import Configuration, cells, cell_index
 from ..higgs_composites.certificate import validate_pins
 from ..model import clean
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[4]
 REFERENCE_RECEIPT = 'model/coherent_defect_wave/chiral_joint/local_reference/results.json'
@@ -18,7 +24,7 @@ REFERENCE_RECEIPT = 'model/coherent_defect_wave/chiral_joint/local_reference/res
 
 def reference_data():
     receipt = json.loads((ROOT / REFERENCE_RECEIPT).read_text())
-    validate_pins(receipt['input_sha256'])
+    validate_pins(bound_pins(receipt['input_sha256']))
     source = receipt['source']; reference = receipt['selected_stationary_reference']
     spectrum = receipt['global_physical_ground_and_gap']
     assert source['full_CAR_modes'] == 30 and source['full_scalar_states'] == 5

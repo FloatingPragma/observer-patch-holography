@@ -16,6 +16,12 @@ import zlib
 import numpy as np
 from scipy.integrate import solve_ivp
 from scipy.linalg import eigh, expm
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 FOLDER = Path(__file__).resolve().parent
 MODEL = FOLDER.parent
@@ -105,9 +111,9 @@ def run():
     return {
         'schema': 'oph.empirical_audit.retrospective.v1',
         'status': 'Already scored outcomes inspected; diagnostic comparison only. No fits.',
-        'input_sha256': {name: hashlib.sha256(
+        'input_sha256': bound_pins({name: hashlib.sha256(
             transfer_bytes if name == 'transfer_receipt' else path.read_bytes()).hexdigest()
-                         for name, path in paths.items()},
+                         for name, path in paths.items()}),
         'fixed_target_model': {
             'hamiltonian': 'delta*N+4000*cos((pi/3)*(a+a_dagger)+potential_phase)',
             'delta_per_second': float(2 * np.pi * 500),

@@ -12,6 +12,12 @@ import numpy as np
 from . import actuator as a, independent as independent
 from ..local_repair_family import inference, modular_clock
 from ..native_program import members
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -132,7 +138,7 @@ def report():
                 'prior_plus_two_requests_load_export_calls_upper': prior['complete_supplied_realization_load_export_calls_upper']+2*total_pulses},
             'training_or_preparation_reexecuted': False,
             'CP02_accepted': False, 'physical_time_energy_or_field_gravity_join': False,
-            'source_sha256': {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}}
+            'source_sha256': bound_pins({p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)})}
 
 
 def main():

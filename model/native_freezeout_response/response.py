@@ -12,6 +12,12 @@ from pathlib import Path
 from model.native_abundance_epochs import model as native
 from model.native_thermal_admission.thermal import classification, encode
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -24,7 +30,7 @@ def bindings():
         'model/native_thermal_admission/results.json','model/native_abundance_epochs/model.py',
         'model/native_abundance_epochs/PROOF.md','model/native_abundance_epochs/results.json',
         'Lean/Dynamics/ProtectedCharge.lean','Lean/Dynamics/ChargeConjugation.lean'})
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(paths))}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(paths))})
 
 
 def solve_many(matrix, rhs):
@@ -233,7 +239,7 @@ def certificate():
         all_saved_full_state_laws_normalized=all(sum(c['complete_state_law'])==1 for case in cases.values() for c in case['cuts']))
     if not all(checks.values()):raise ArithmeticError('native freezeout response check failed')
     if pins!=bindings():raise ArithmeticError('source changed during absorption calculation')
-    return dict(schema='oph.native_freezeout_response.v1',all_checks_pass=True,source_bindings=pins,
+    return dict(schema='oph.native_freezeout_response.v1',all_checks_pass=True,source_bindings=bound_pins(pins),
         state_order=[list(s) for s in native.STATES],
         recurrent_classes=[dict(id=i,states=[list(s) for s in part]) for i,part in enumerate(data['classes'])],
         all_state_hitting_data=[dict(state=list(s),class_probabilities=data['absorption'][s],

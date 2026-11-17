@@ -11,6 +11,12 @@ from pathlib import Path
 
 from model.native_abundance_epochs import model as native
 from model.particle_common_contract.provenance import import_closure
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -33,7 +39,7 @@ def source_bindings():
         'model/defect_integer_lift/federation.json', 'Lean/Dynamics/ProtectedCharge.lean',
         'Lean/Dynamics/PublicMarkov.lean', 'Lean/Dynamics/ChargeConjugation.lean',
         'Lean/Dynamics/StationaryLyapunov.lean'})
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))})
 
 
 def strongly_connected_components(matrix):
@@ -168,7 +174,7 @@ def certificate():
     if not all(checks.values()): raise ArithmeticError('native thermal admission check failed')
     if pins != source_bindings(): raise ArithmeticError('source changed during thermal admission')
     return dict(schema='oph.native_thermal_admission.v1', all_checks_pass=True,
-        source_bindings=pins, source_state_reference_clock=dict(
+        source_bindings=bound_pins(pins), source_state_reference_clock=dict(
             source='unchanged closed three-port/two-face native repair/register kernel',
             preparation='arbitrary distributions on the1296 states; full-support sector Gibbs is a tested comparison',
             clock='complete attempted native events including rejected/no-operation records',

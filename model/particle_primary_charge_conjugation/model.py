@@ -7,6 +7,12 @@ from model.particle_common_contract import contract, provenance
 from model.particle_local_wilson_density import density
 from model.particle_primary_channel_labels import channels
 from model.cubic_particle_channels import group
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 SOURCE_INPUTS=(
     'model/particle_primary_charge_conjugation/__init__.py',
@@ -104,6 +110,6 @@ def certificate():
     paths=provenance.definition_inputs((*SOURCE_INPUTS,*channels.SOURCE_INPUTS))
     pins=provenance.definition_hashes(paths)
     value={'schema':'oph.primary_charge_conjugation_certificate.v1',
-        'members':[bind_member(contract.member(n)) for n in (0,1,2,8)],'source_sha256':pins}
+        'members':[bind_member(contract.member(n)) for n in (0,1,2,8)],'source_sha256':bound_pins(pins)}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('source changed during replay')
     return value

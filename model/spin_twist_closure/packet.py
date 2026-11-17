@@ -9,6 +9,12 @@ from pathlib import Path
 
 from tools import strict_json
 from . import algebra, bounds, field_gap, polarization, readout, state_bounds
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -72,12 +78,12 @@ def bindings():
                 add(target)
                 for alias in node.names:
                     add(target+'.'+alias.name)
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def build():
     before = bindings()
-    value = {'schema':'oph.spin_twist_closure.v1','source_bindings':before,
+    value = {'schema':'oph.spin_twist_closure.v1','source_bindings':bound_pins(before),
         'actual_source_frame':algebra.source_frame_certificate(),
         'local_rotation_algebra':algebra.local_certificate(),
         'actual_source_force':algebra.source_force_certificate(),

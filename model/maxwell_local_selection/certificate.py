@@ -15,6 +15,12 @@ from pathlib import Path
 import re
 
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -261,7 +267,7 @@ def build():
                       'native_repair_implements_this_conservative_flow': False,
                       'continuum_or_photon_pole_identification': False,
                       'new_result_is_Lean_kernel_checked': False},
-            'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}}
+            'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})}
 
 
 def main():

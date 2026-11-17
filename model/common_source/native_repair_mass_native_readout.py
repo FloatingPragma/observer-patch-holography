@@ -20,6 +20,12 @@ from . import native_repair_mass_feedback as source
 from . import native_code_transport as transport
 from .mass_response import history
 from ..observer.source_scalar import compiler
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = source.ROOT
 STEPS = 8
@@ -355,4 +361,4 @@ def source_bindings():
     names = set(source.source_bindings()) | {
         'model/common_source/native_repair_mass_native_readout.py',
         'model/common_source/test_native_repair_mass_native_readout.py'}
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})

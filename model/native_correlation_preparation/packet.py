@@ -10,6 +10,12 @@ from pathlib import Path
 from tools import strict_json
 from ..native_correlation_sectors import packet as parent
 from . import preparation as p
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -25,8 +31,8 @@ def canonical(value):
 
 def source_bindings():
     paths = set(SOURCE_FILES) | set(parent.source_bindings())
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(paths) if not name.startswith('docs/')}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(paths) if not name.startswith('docs/')})
 
 
 def sparse_effect_controls():
@@ -63,7 +69,7 @@ def produce():
     before = source_bindings()
     result = {
         'schema': 'oph.native_correlation_preparation.v1',
-        'source_bindings': before,
+        'source_bindings': bound_pins(before),
         'complete_native_H66_effect_controls': [p.source_effect_control(0, 2, law)
                                                 for law in ('C', 'E', 'mixture')],
         'all_input_H66_prepared_response': p.prepared_h66_control(),

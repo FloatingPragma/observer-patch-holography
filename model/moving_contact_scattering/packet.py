@@ -8,6 +8,12 @@ from pathlib import Path
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import bounds, vacuum
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -32,7 +38,7 @@ def bindings():
         'independent_checks':['model/moving_contact_scattering/test_scattering.py',
                               'model/moving_contact_scattering/test_vacuum.py']})
     names.add('model/moving_contact_scattering/README.md')
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 _IMPORTED_BINDINGS=bindings()
@@ -41,7 +47,7 @@ _IMPORTED_BINDINGS=bindings()
 def build():
     before=bindings()
     if before!=_IMPORTED_BINDINGS:raise ValueError('source changed after import; use a fresh process')
-    value=serialize({'schema':'oph.moving_contact_scattering.v1','source_bindings':before,
+    value=serialize({'schema':'oph.moving_contact_scattering.v1','source_bindings':bound_pins(before),
         'coarea':bounds.coarea_certificate(),
         'additive_Fock_extension':vacuum.certificate(),
         'joined_finite_witness':bounds.joined_certificate(F(1,16384),1,1,1,1),

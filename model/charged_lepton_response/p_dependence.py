@@ -8,6 +8,12 @@ from model.native_flavor_orbit.intervals import I, pi_interval, sqrt_rational, r
 from model.mcpr_native_memory_bridge import construction, certificate as shape
 from model.mcpr_native_memory_bridge import packet as bridge_owner
 from model.pixel_mass_closure import packet as closure_owner
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = construction.ROOT
 REFERENCE = 'model/charged_lepton_response/calibration_reference.json'
@@ -74,7 +80,7 @@ def comparison(evaluation, reference):
 def authenticate(path, expected_bindings):
     """Authenticate a retained receipt and every complete official source pin."""
     value = strict_json.load(path)
-    if value.get('all_pass') is not True or value.get('source_bindings') != expected_bindings:
+    if value.get('all_pass') is not True or bound_pins(value.get('source_bindings')) != expected_bindings:
         raise ValueError('owning receipt is incomplete or not admitted')
     for name, digest in expected_bindings.items():
         source = (ROOT/name).resolve()
@@ -163,9 +169,9 @@ def certificate():
         raise RuntimeError('owning sources changed during bounded evaluation')
     receipt_paths = (bridge_owner.OUTPUT, closure_owner.OUTPUT, reference_path)
     return _json({'schema': 'oph.charged_lepton_response.capacity_dependence.v1',
-                  'authenticated_receipts_and_reference': {
+                  'authenticated_receipts_and_reference': bound_pins({
                       str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
-                      for p in receipt_paths},
+                      for p in receipt_paths}),
                   'authenticated_source_pin_counts': [len(bridge_pins), len(closure_pins)],
                   'branches': rows,
                   'source_law': 'MCPR declared response; delta=2/9+zeta, rho=sqrt(2) exp(-chi)',

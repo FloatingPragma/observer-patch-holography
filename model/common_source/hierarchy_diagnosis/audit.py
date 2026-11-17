@@ -16,6 +16,12 @@ import sympy as s
 
 from ..chiral_candidate import action, history, run as candidate_run
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 
 HERE = Path(__file__).resolve().parent
@@ -216,8 +222,8 @@ def _bindings(retained):
     paths += sorted(HERE.glob("*.py")) + sorted(HERE.glob("*.md"))
     paths += [ROOT/name for name in SOURCE_FILES]
     paths += [ROOT/"model/observer_time_fields/REFINEMENT.md"]
-    result = dict(retained["source_bindings"])
-    result.update({path.relative_to(ROOT).as_posix(): _hash(path) for path in paths})
+    result = dict(bound_pins(retained["source_bindings"]))
+    result.update(bound_pins({path.relative_to(ROOT).as_posix(): _hash(path) for path in paths}))
     return dict(sorted(result.items()))
 
 
@@ -234,7 +240,7 @@ def run():
     from .collective_response import report as collective_report
     from .native_exterior_attachment import report as exterior_report
     dynamics = dynamics_report()
-    if any(initial.get(name) != value for name, value in dynamics["source_bindings"].items()):
+    if any(initial.get(name) != value for name, value in bound_pins(dynamics["source_bindings"]).items()):
         raise RuntimeError("native response input missing from diagnosis custody")
     result = {
         "schema": "oph.hierarchy_diagnosis.v1",
@@ -255,7 +261,7 @@ def run():
             "all_OPH_architectures_excluded": False,
             "observed_particle_masses_derived": False,
         },
-        "source_bindings": initial,
+        "source_bindings": bound_pins(initial),
     }
     if _bindings(retained) != initial:
         raise RuntimeError("diagnosis inputs changed during calculation")

@@ -14,6 +14,12 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import exact, experiment
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -32,7 +38,7 @@ def source_bindings():
     })
     paths.update(('model/dark_spectral_source/contract.json',
                   'paper/tex_fragments/DARK_SPECTRAL_SOURCE.tex'))
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 _IMPORTED_BINDINGS = source_bindings()
@@ -147,7 +153,7 @@ def _produce():
              'primitive_or_repair_law_changed': False,
              'native_source_preparation_and_detector_executed': True,
              'physical_hardware_execution_or_accuracy_proved': False,
-             'source_bindings': pins,
+             'source_bindings': bound_pins(pins),
              'replay_float_absolute_tolerance': REPLAY_ATOL}
     if source_bindings() != pins:
         raise ValueError('source changed during dark source replay')
@@ -172,7 +178,7 @@ def report():
         if result.returncode:
             raise RuntimeError('cold dark-source replay failed: '+result.stderr[-3000:])
         value = strict_json.load(target)
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source manifest changed across cold replay')
     validate_accounting(value)
     return value

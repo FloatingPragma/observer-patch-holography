@@ -11,6 +11,12 @@ from ..clocked_common_observer import construction as work, experiment as budget
 from ..common_source import output_certificate as report
 from ..native_interface import construction as interface
 from . import construction as c
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -232,7 +238,7 @@ def run():
                 left[0]['phase_match_and_different_smooth_bits'],right[0]['phase_match_and_different_smooth_bits'],
                 error+2*implementation_error)})
     return {'schema': 'oph.clocked_quantum_readout.v1', 'all_pass': True,
-        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in source_paths()},
+        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in source_paths()}),
         'shared_source_mixer': implementation, 'histories': rows, 'candidate_discrimination': comparisons,
         'scope': {'same_stopped_native_and_interacting_work_history': True,
             'both_herald_signs_failure_and_unmeasured_timeouts_retained': True,

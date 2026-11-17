@@ -13,6 +13,12 @@ from ..common_source import calibrated_matter
 from ..common_source.chiral_candidate import gaussian_source
 from ..defect_protection import packet as protection_packet
 from . import propagation
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -25,8 +31,8 @@ def bindings():
         Path(gaussian_source.car_model.__file__),
         ROOT/'model/common_source/calibrated_matter_parameters.json']
     values = protection_packet.source_bindings()
-    values.update({p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
-                   for p in sorted(paths)})
+    values.update(bound_pins({p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+                   for p in sorted(paths)}))
     return dict(sorted(values.items()))
 
 
@@ -38,7 +44,7 @@ def main():
     args = parser.parse_args()
     pins = bindings()
     report, arrays = propagation.build()
-    report['source_sha256'] = pins
+    report['source_sha256'] = bound_pins(pins)
     if bindings() != pins:
         raise RuntimeError('source changed during propagation replay')
     if args.write:

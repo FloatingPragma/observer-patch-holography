@@ -17,6 +17,12 @@ import subprocess
 import tempfile
 
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -79,8 +85,8 @@ def repository_key(path, root):
 
 
 def source_bindings():
-    return {repository_key(p, ROOT): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in (Path(__file__), ADAPTER, PACKET)}
+    return bound_pins({repository_key(p, ROOT): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in (Path(__file__), ADAPTER, PACKET)})
 
 
 def smdr_inputs(packet=None, *, rounded=False):
@@ -151,7 +157,7 @@ def build_result(outputs, external_source):
     return {
         "schema": "oph.calibrated_matching.v1",
         "role": "external_SM_calibration_sanity_check_not_mass_derivation",
-        "source_bindings": source_bindings(), "external_source": external_source,
+        "source_bindings": bound_pins(source_bindings()), "external_source": external_source,
         "inputs": inputs, "external_outputs": outputs, "comparisons": rows,
         "summary": {
             "charged_mass_inputs_reproduced_within_quoted_one_sigma": all(

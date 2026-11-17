@@ -21,6 +21,12 @@ from model.common_source import native_gauge_object as geometry
 from model.common_source import native_matter_attachment as matter
 from model.local_repair_family import local_bias, modular_clock
 from model.observer import record_recovery
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -335,7 +341,7 @@ def source_bindings():
         'evidence/native_geometric_source_20260925/spec.json',
         'evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py',
         'evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py']
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})
 
 
 def report():
@@ -343,7 +349,7 @@ def report():
             'campaign': 'OPH-CURRENT-AND-CLOCK-FAMILY-2026-10-29-v1',
             'issue': 'https://github.com/FloatingPragma/observer-patch-holography/issues/1141',
             'pr1151_baseline': '67aa7b6f4a904a1a90ea6d77bf2f66c741f2ba0c',
-            'source_sha256': source_bindings(), 'anomaly_classification': anomaly_certificate(),
+            'source_sha256': bound_pins(source_bindings()), 'anomaly_classification': anomaly_certificate(),
             'clock_family_symmetry': family_certificate(),
             'scope': {'integrated_gate_accepted': False, 'physical_comparison_count_added': 0,
                       'anomaly_quantifier': 'vanishing fermionic trace contributions for arbitrary nonnegative integer copies of the five actual source-current blocks, with explicit left/right Weyl signs; no extra anomaly-canceling fields, Green-Schwarz terms or inflow',

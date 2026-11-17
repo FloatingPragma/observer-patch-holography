@@ -28,6 +28,12 @@ from ..halfline import pi_interval
 from ...calibrated_measurement.bounds import log_interval, root_interval
 from ...characteristic_constraints.bounds import trig_interval
 from ...scalar_observations.experimental_readout.stats import concentration_certificate
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 
 P0 = s.Rational(1, 3)
@@ -400,7 +406,7 @@ def source_bindings():
         'model/common_source/halfline.py', 'model/calibrated_measurement/bounds.py',
         'model/characteristic_constraints/bounds.py',
         'model/scalar_observations/experimental_readout/stats.py'}
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
 
 
 def canonical_report(report):
@@ -432,7 +438,7 @@ def check(path):
     json.dumps(document, allow_nan=False)
     if document.get('schema') != 'oph.chiral_candidate.dispersion_identifiability.v1':
         raise ValueError('wrong dispersion identifiability schema')
-    if document.get('source_bindings') != source_bindings():
+    if bound_pins(document.get('source_bindings')) != source_bindings():
         raise ValueError('dispersion identifiability source custody changed')
     artifact = document['artifact']
     if set(artifact) != {'filename', 'sha256'} or Path(artifact['filename']).name != artifact['filename']:
@@ -497,7 +503,7 @@ def main():
         parser.error('choose fresh comparison and companion paths')
     report, arrays = execute(steps=args.steps)
     report = canonical_report(report)
-    report['source_bindings'] = source_bindings()
+    report['source_bindings'] = bound_pins(source_bindings())
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with companion.open('xb') as stream:
         np.savez_compressed(stream, **arrays)

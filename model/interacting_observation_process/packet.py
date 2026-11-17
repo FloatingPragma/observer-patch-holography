@@ -13,6 +13,12 @@ import tempfile
 from tools import strict_json
 from ..compact_interacting_response import packet as compact_packet
 from . import bounds, experiment
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -55,7 +61,7 @@ def source_bindings():
                 add(target)
                 for alias in node.names:
                     add(target+'.'+alias.name)
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def canonical(value):
@@ -65,7 +71,7 @@ def canonical(value):
 def produce():
     pins = source_bindings()
     parent = strict_json.load(ROOT/PARENT)
-    if parent['source_bindings'] != compact_packet.source_bindings():
+    if bound_pins(parent['source_bindings']) != compact_packet.source_bindings():
         raise ValueError('the inherited compact source receipt is stale')
     inherited = parent['uniform_core_limit']
     if (parent['all_pass'] is not True or inherited['localized_annihilators'] != 180
@@ -95,7 +101,7 @@ def produce():
                         'Einstein_register_realized': False,
                         'integrated_gate_accepted': False},
               'canonical_physical_premises_discharged': [], 'physical_comparison_count_added': 0,
-              'source_bindings': pins}
+              'source_bindings': bound_pins(pins)}
     if pins != source_bindings():
         raise ValueError('source changed during observation-process replay')
     return result
@@ -113,7 +119,7 @@ def report():
         if result.returncode:
             raise RuntimeError('observation-process worker failed:\n'+result.stdout+result.stderr)
         value = strict_json.load(path)
-    if pins != source_bindings() or value['source_bindings'] != pins:
+    if pins != source_bindings() or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across cold observation-process replay')
     return value
 

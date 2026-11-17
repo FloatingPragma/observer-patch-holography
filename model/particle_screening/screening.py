@@ -20,6 +20,12 @@ from tools import strict_json
 from ..exchange_sector import sector
 from ..observer import adaptive_record_recovery as adaptive
 from ..observer import record_recovery as records
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -389,7 +395,7 @@ def source_bindings():
 
 def run():
     science = science_result()
-    return {**science, **campaign_binding(science), "source_sha256": source_bindings()}
+    return {**science, **campaign_binding(science), "source_sha256": bound_pins(source_bindings())}
 
 
 def check_receipt(path, expected):

@@ -5,6 +5,12 @@ from pathlib import Path
 from model.particle_common_contract.provenance import import_closure
 from ..higgs_composites.certificate import validate_pins
 from .model import polynomial_certificate, peter_weyl_transfer, family_transfer, rational_ring_records
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[4]
 CONSUMED = (
@@ -21,11 +27,11 @@ def input_hashes():
     seeds.update(CONSUMED)
     for name in CONSUMED:
         receipt = json.loads((ROOT/name).read_text())
-        validate_pins(receipt['input_sha256'])
-        seeds.update(receipt['input_sha256'])
+        validate_pins(bound_pins(receipt['input_sha256']))
+        seeds.update(bound_pins(receipt['input_sha256']))
     paths = set(import_closure(seeds)) | seeds
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-            for name in sorted(paths)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+            for name in sorted(paths)})
 
 
 def certificate():
@@ -44,4 +50,4 @@ def certificate():
             },
             'physical_scope':{'finite_unitary_records':True,
                 'relativistic_particle_identification':False,'physical_GeV_scale':False},
-            'input_sha256':pins, 'consumed_receipt_pins_validated':True}
+            'input_sha256':bound_pins(pins), 'consumed_receipt_pins_validated':True}

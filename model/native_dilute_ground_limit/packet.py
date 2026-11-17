@@ -10,6 +10,12 @@ from pathlib import Path
 from tools import strict_json
 from model.native_fair_local_preparation import packet as inherited
 from . import dilution as d
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -52,7 +58,7 @@ def source_bindings():
                 target=importlib.util.resolve_name(target,package)if node.level else target
                 add(target)
                 for alias in node.names:add(target+'.'+alias.name)
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()for name in sorted(paths)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()for name in sorted(paths)})
 
 
 def produce():
@@ -62,7 +68,7 @@ def produce():
         examples.append({'ports':ports,'total':2,
             'local_observable_bound':d.observable_bounds(ports,2,1,2),
             'complete_history_bound':d.history_bound(ports,2,(2,2,4))})
-    value={'schema':'oph.native_dilute_ground_limit.v1','source_bindings':before,
+    value={'schema':'oph.native_dilute_ground_limit.v1','source_bindings':bound_pins(before),
            'source_ground_dilution':examples,
            'literal_native_endpoint':d.native_endpoint_certificate(),
            'exact_density_ground_closure':d.density_closure_certificate(),

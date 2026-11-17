@@ -26,6 +26,10 @@ import sys
 from urllib.parse import quote
 
 from check_lean_theorem_count import DECL_RE, strip_comments
+try:
+    from tools.pin_scope import bound_pins
+except ImportError:  # run or imported from tools/ as a top-level module
+    from pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTER = Path("tracking/premise_register.json")
@@ -167,7 +171,7 @@ def validate_contracts(data: object, claims: list[dict], root: Path) -> list[str
         for field in ("scope", "limitations"):
             if not _text(binding.get(field)):
                 errors.append(f"{where}.{field}: nonempty restricted scope required")
-        _contract_sources(binding.get("sources"), f"{where}.sources", root, errors)
+        _contract_sources(bound_pins(binding.get("sources")), f"{where}.sources", root, errors)
     connections = data.get("connections")
     if not isinstance(connections, list):
         errors.append("contract_coverage.connections: expected a list")
@@ -205,7 +209,7 @@ def validate_contracts(data: object, claims: list[dict], root: Path) -> list[str
             if (not isinstance(maps, dict) or set(maps) != changed or
                     any(not _text(value) for value in maps.values())):
                 errors.append(f"{where}: explicit maps required for exactly changed coordinates {sorted(changed)}")
-        _contract_sources(connection.get("sources"), f"{where}.sources", root, errors)
+        _contract_sources(bound_pins(connection.get("sources")), f"{where}.sources", root, errors)
     for name, binding in by_id.items():
         facts = binding.get("requires")
         for fact in facts if isinstance(facts, list) and all(_text(x) for x in facts) else []:
@@ -349,7 +353,7 @@ def validate(data: object, premise_register: object, claim_registry: object,
                 values = _string_list(group[field], f"{where}.{field}", errors)
                 if set(values) - known:
                     errors.append(f"{where}.{field}: unknown references {sorted(set(values) - known)}")
-        sources = group.get("sources")
+        sources = bound_pins(group.get("sources"))
         if not isinstance(sources, list) or not sources:
             errors.append(f"{where}.sources: expected a nonempty list")
             continue
@@ -533,7 +537,7 @@ def render_contracts(data: dict, counts: dict) -> list[str]:
              "| --- | --- | --- | --- |"]
     for binding in bindings:
         sources = "; ".join(f"[{Path(s['path']).name}](../{quote(s['path'], safe='/')})"
-                            for s in binding["sources"])
+                            for s in bound_pins(binding["sources"]))
         lines.append("| " + " | ".join(map(_cell, [
             f"{binding['id']} (`{binding['domain']}`)", binding["scope"],
             binding["limitations"], sources])) + " |")
@@ -652,7 +656,7 @@ def render(data: dict, counts: dict) -> str:
             lines += ["Existing claim-row navigation (no new edges): " + ", ".join(
                 _code(c) for c in group["claims"]) + ".", ""]
         lines += ["Sources:", ""]
-        for source in group["sources"]:
+        for source in bound_pins(group["sources"]):
             label = source["label"].replace("[", "\\[").replace("]", "\\]")
             item = f"- [{label}](../{quote(source['path'], safe='/#')})"
             if "anchor" in source:

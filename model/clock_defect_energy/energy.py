@@ -22,6 +22,12 @@ from pathlib import Path
 from .contract import binding, source_bindings, check_receipt
 from ..observer import native, record_recovery as recovery
 from ..native_modular_reference import history_transport, history_clock
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 
@@ -238,7 +244,7 @@ def report():
                "model/native_modular_reference/local_preparation.py",
                "model/native_modular_reference/history_clock.py", "tools/strict_json.py")
     return _json({"schema": "oph.clock_defect_energy.energy.v1", "campaign": binding(),
-                  "source_sha256": source_bindings(sources),
+                  "source_sha256": bound_pins(source_bindings(sources)),
                   "maintenance": maintenance_certificate(),
                   "transported_reference_activity": transported_reference_activity(),
                   "source_cycles": {law: source_cycle(law) for law in ("C", "E")},

@@ -17,6 +17,12 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from . import comparison, detector, native_fft
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -31,7 +37,7 @@ def source_bindings():
     })
     paths.update(('model/particle_species_detector/physical_targets.json',
                   'paper/tex_fragments/PARTICLE_SPECIES_DETECTOR.tex'))
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 _IMPORTED_BINDINGS = source_bindings()
@@ -91,7 +97,7 @@ def _produce():
                        'occupation_or_abort_postselection_used': False,
                        'field_time_evolution_compiled_by_this_package': False,
                        'SI_unit_fit_performed': False},
-             'source_bindings': pins}
+             'source_bindings': bound_pins(pins)}
     if source_bindings() != pins:
         raise ValueError('source changed during detector construction')
     validate(value)
@@ -113,7 +119,7 @@ def report():
         if result.returncode:
             raise RuntimeError('cold model-particle detector failed: '+result.stderr[-4000:])
         value = strict_json.load(path)
-    if source_bindings() != pins or value['source_bindings'] != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
         raise ValueError('source changed across cold detector replay')
     validate(value)
     return value

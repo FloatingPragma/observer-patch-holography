@@ -5,6 +5,12 @@ import ast
 import hashlib
 import json
 from pathlib import Path
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 CAPTURE_SHA256 = '8a7590e9cd5aa13c7a703651c1851a46c51dfcffd49b125d072914434890900f'
 MANIFEST_SHA256 = '2368b601d1244066d34da17ca5218c250463a91d4c7060ca5e9af4a0516152fb'
@@ -45,7 +51,7 @@ def timed_source_ast(text):
 
 def analysis_bindings(root):
     root = Path(root)
-    return {path: _sha((root/path).read_bytes()) for path in ANALYSIS_INPUTS}
+    return bound_pins({path: _sha((root/path).read_bytes()) for path in ANALYSIS_INPUTS})
 
 
 def source_compatibility(raw, current, root, canonical):

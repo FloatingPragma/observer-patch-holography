@@ -8,12 +8,18 @@ from scipy.linalg import eigh
 from model.openwave_common_mass_source.source import full_source_terms,full_index,lepton_source,G
 from model.openwave_axial_state.source import sector,parameters,weights
 from model.openwave_baryon_weak_formfactors.native import currents
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 ROOT=Path(__file__).resolve().parents[2]
 TARGETS=('openwave_dressed_baryon_lines','openwave_beta_outgoing','openwave_meson_memory_window','openwave_common_mass_source')
 
 def load(package):
  d=json.loads((ROOT/'model'/package/'results.json').read_text());assert d['verdict'].startswith('PASS')
- for p,h in d['source_sha256'].items():assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h,(package,p)
+ for p,h in bound_pins(d['source_sha256']).items():assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h,(package,p)
  return d
 
 def integer_current_action(A,v):
@@ -75,7 +81,7 @@ def dressed_check(receipt):
    c=r['complete_prepared_spectrum_certificate'];D=c['dyadic_denominator'];O=np.asarray(c['dyadic_eigenframe'],dtype=object);O=np.vectorize(int,otypes=[object])(O);gram=O.T@O-D*D*np.eye(len(O),dtype=object);square=sum(int(x)*int(x)for row in gram for x in row);assert F(square,D**4)<=F(c['exact_Gram_error_upper'])**2
    weights=[F(z['dyadic_frame_probability'])for z in r['complete_spectral_clusters']];assert abs(sum(weights)-1)<=F(c['exact_Gram_error_upper'])
    out.append({'member':member['member'],'charge':q,'full_spin_dimension':d['spin_dimension'],'even_dimension':B.shape[1],'odd_dimension':C.shape[1],'native_reduction_error':float(err),'independent_exact_Gram_Frobenius_squared':str(F(square,D**4)),'all_spectral_clusters_retained':True})
- return {'sources':out,'analytical_checks':['polar-frame correction plus separated-projector bound4eta+4epsilon/gap','complete uniform-input failure and reference retained','discrete line differences do not establish an asymptotic decay endpoint','scalar filled-neutral source is distinct from chiral Dirac momentum source']}
+ return {'sources':bound_pins(out),'analytical_checks':['polar-frame correction plus separated-projector bound4eta+4epsilon/gap','complete uniform-input failure and reference retained','discrete line differences do not establish an asymptotic decay endpoint','scalar filled-neutral source is distinct from chiral Dirac momentum source']}
 
 def memory_check(receipt):
  from model.openwave_meson_memory_window.window import universal,certified_universal,taylor_first,G as gm

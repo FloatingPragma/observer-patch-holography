@@ -15,6 +15,12 @@ from model.particle_primary_pair_channels.model import passive_window
 from model.particle_primary_mass_readout import readout
 from model.particle_spatial_ground_state import ground
 from model.spin_packet_readout.bounds import sqrt_upper
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 
 SOURCE_INPUTS=(
@@ -267,7 +273,7 @@ def certificate():
     result={'schema':'oph.primary_refinement_response_certificate.v1',
         'members':[bind_member(contract.member(n)) for n in (0,1,2)],
         'uniform_defect_density_upper':str(uniform_density_bound()),
-        'source_sha256':pins,'source_state_clock_reference_changed':False,
+        'source_sha256':bound_pins(pins),'source_state_clock_reference_changed':False,
         'fixed_energy_continuum_response_proved':False,'physical_mass_table_GeV':[]}
     if provenance.definition_hashes(paths)!=pins:raise ValueError('refinement source changed during replay')
     return result

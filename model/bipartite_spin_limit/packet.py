@@ -7,6 +7,12 @@ from pathlib import Path
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import algebra, bounds, local
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -23,7 +29,7 @@ def source_bindings():
         'source_receipts': [PARENT],
         'independent_checks': ['model/bipartite_spin_limit/LOCAL_LIMIT.md'],
     })
-    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 _IMPORTED_BINDINGS = source_bindings()
@@ -34,14 +40,14 @@ def report():
     if pins != _IMPORTED_BINDINGS:
         raise ValueError('source changed after import; replay in a fresh interpreter')
     parent = strict_json.load(ROOT/PARENT)
-    mismatches = sorted(path for path, expected in parent['source_bindings'].items()
+    mismatches = sorted(path for path, expected in bound_pins(parent['source_bindings']).items()
                         if pins[path] != expected)
     if mismatches or parent.get('new_checks_pass') is not True:
         raise ValueError('parent source custody or finite checks failed: '+str(mismatches))
     result = {
         'schema': 'oph.bipartite_spin_limit.v1',
         'all_pass': True,
-        'source_bindings': pins,
+        'source_bindings': bound_pins(pins),
         'bounds': bounds.certificate(),
         'full_sector_controls': algebra.certificate(),
         'dressed_local_limit': local.certificate(),
