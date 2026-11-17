@@ -28,6 +28,17 @@ retain their own hypotheses and require an explicit source map.
 
 Use the [construction contract](model/CONSTRUCTION.md#what-is-being-built)
 and [executable-model hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md).
+
+## Particle masses: owner ruling of 2026-11-17
+
+OPH derives no particle mass so far. Every mass value in this repository is
+calibrated to a measurement, imported from the literature, set by a declared
+construction, or open. No text, table, figure, page or paper may present a
+particle mass, mass ratio or the Koide relation as derived, predicted,
+reproduced or matched. The official executable model is a calibrated test
+candidate, not yet a production-level model; say so wherever it is
+described. The search for the executable model's specification is the
+current main priority.
 The carrier, code, repair law, scheduler, preparation and observer apparatus
 may be declared design choices. Do not make proof that these choices are
 unique or forced by OPH a prerequisite for building the model or calculating
