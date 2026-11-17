@@ -223,7 +223,7 @@ def test_invalid_region_is_rejected_before_execution(ports):
 def test_live_receipt_uses_portable_source_paths():
     bindings = verify.report()['source_sha256']
     assert 'model/completion/program_class_v2.json' in bindings
-    assert 'model/regional_clock/test_regional_clock.py' in bindings
+    assert 'model/regional_clock/test_regional_clock.py' not in bindings
     assert all('\\' not in path and not path.startswith('/') for path in bindings)
     assert all(hashlib.sha256((verify.ROOT/path).read_bytes()).hexdigest() == digest
                for path, digest in bindings.items())

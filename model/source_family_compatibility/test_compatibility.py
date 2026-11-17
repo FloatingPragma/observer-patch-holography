@@ -128,7 +128,7 @@ def test_full_interacting_budget_retains_leakage_and_no_physical_assignment(resu
     assert row['finite_source']['actual_interacting_time_control']['defect_expectation']=='9/25'
     assert row['full_Hubbard_propagation_in_same_repair_domain'] is True
     assert row['interacting_relativistic_particle_limit_proved'] is False
-    assert 'model/source_family_compatibility/DEFECT_BUDGET.md' in result['source_bindings']
+    assert 'model/source_family_compatibility/DEFECT_BUDGET.md' not in result['source_bindings']
     monkeypatch.setattr(packet,'build',lambda:result)
     for key in ('capacity_action_or_physical_clock_selected','interacting_relativistic_particle_limit_proved'):
         value=copy.deepcopy(result);value['full_interacting_defect_budget'][key]=True

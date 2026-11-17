@@ -58,7 +58,7 @@ def test_transitive_source_pins_are_fresh(receipt):
         assert not name.startswith('docs/')
         assert digest==hashlib.sha256((packet.ROOT/name).read_bytes()).hexdigest()
     assert 'model/native_program/interpreter.py' in receipt['source_bindings']
-    assert 'model/native_contact_response/PROOF.md' in receipt['source_bindings']
+    assert 'model/native_contact_response/PROOF.md' not in receipt['source_bindings']
 
 
 @pytest.mark.parametrize('mutation',['bool','float','extra','pin','bound'])

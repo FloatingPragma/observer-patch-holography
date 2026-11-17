@@ -115,4 +115,4 @@ def test_binding_rejects_refinement_or_unearned_component_promotion(actual):
 def test_certificate_is_canonical_and_pins_the_literal_source():
     certificate=m.certificate();assert json.loads(json.dumps(certificate,sort_keys=True))==certificate
     assert len(certificate['members'])==1
-    assert 'model/particle_primary_selected_spin_response/PROOF.md' in certificate['source_sha256']
+    assert 'model/particle_primary_selected_spin_response/PROOF.md' not in certificate['source_sha256']

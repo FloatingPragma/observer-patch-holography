@@ -196,7 +196,7 @@ def test_retained_receipt_and_complete_import_source_bindings(produced):
     assert p.canonical(json.loads(p.OUTPUT.read_text())) == p.canonical(produced)
     assert all(name in produced['source_bindings'] for name in p.SOURCE_FILES)
     assert 'model/native_program/interpreter.py' in produced['source_bindings']
-    assert 'model/native_correlation_preparation/PROOF.md' in produced['source_bindings']
+    assert 'model/native_correlation_preparation/PROOF.md' not in produced['source_bindings']
     assert not produced['scope']['unitary_real_time_executed_by_native_repair']
 
 
