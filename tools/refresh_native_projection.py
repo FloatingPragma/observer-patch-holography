@@ -18,10 +18,6 @@ import os
 import stat
 import subprocess
 from tools.joint_observer_results import NAMES
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ImportError:  # run or imported from tools/ as a top-level module
-    from pin_scope import bound_pins, scoped
 
 ROOT=Path(__file__).resolve().parents[1]
 LEDGER='code/particles/runs/status/postdiction_ledger.json'
@@ -104,8 +100,8 @@ def classify_changes(base_oids,current_oids):
 
 def inventory(root):
     modes={p:mode for p,(mode,_)in base_tree(root,'HEAD').items()}
-    return bound_pins({p:sha256(read_path(root,p,modes.get(p))).hexdigest()
-            for p in sorted(current_names(root)-OUTPUTS)})
+    return {p:sha256(read_path(root,p,modes.get(p))).hexdigest()
+            for p in sorted(current_names(root)-OUTPUTS)}
 
 def authenticate_boundary(root,base,review=None):
     require(git(root,'rev-parse','HEAD').decode().strip()==base,'checkout differs from authenticated base')
@@ -113,7 +109,7 @@ def authenticate_boundary(root,base,review=None):
     data={p:read_path(root,p,tree.get(p,(None,None))[0])for p in sorted(names-OUTPUTS)}
     oids={p:blob_oid(b)for p,b in data.items()}
     changes=classify_changes({p:oid for p,(_,oid)in tree.items()},oids)
-    hashes=bound_pins({p:sha256(data[p]).hexdigest()for p in sorted(changes)})
+    hashes={p:sha256(data[p]).hexdigest()for p in sorted(changes)}
     report={'base_commit':base,'reviewed_changed_sha256':hashes,
             'retained_git_blob_count':len(tree),'all_other_base_blobs_exact':True,
             'canonical_full_builder_unchanged':True}
@@ -135,9 +131,9 @@ def retained_collector(old,fresh,receipt_sha):
 def completion_projection(old,fresh,old_paper_sha,new_paper_sha):
     retained=deepcopy(fresh);renewed=[]
     for i,row in enumerate(retained['retained_foundations']):
-        pins=bound_pins(row['source_sha256'])
+        pins=row['source_sha256']
         if PAPER in pins:
-            require(bound_pins(old['retained_foundations'][i]['source_sha256']).get(PAPER)==scoped(old_paper_sha),
+            require(old['retained_foundations'][i]['source_sha256'].get(PAPER)==old_paper_sha,
                     'legacy paper provenance is not the authenticated base file')
             require(pins[PAPER]==new_paper_sha,'current paper provenance differs')
             pins[PAPER]=old_paper_sha;renewed.append(i)
@@ -193,7 +189,7 @@ def refresh(root,base,review,write=False):
         expected_claim=json.dumps(generate(),sort_keys=True,indent=2,ensure_ascii=False)+'\n'
         require((root/'claims/joint_observer.json').read_text()==expected_claim,'joint claim register differs')
         fresh=collect(root)
-    new_receipts=bound_pins({f'model/{n}/results.json':sha256((root/f'model/{n}/results.json').read_bytes()).hexdigest()for n in NAMES})
+    new_receipts={f'model/{n}/results.json':sha256((root/f'model/{n}/results.json').read_bytes()).hexdigest()for n in NAMES}
     retained_collector(old['native_spatial_and_field_records'],fresh,new_receipts)
     completion=ledger_view(root)
     paper_renewal=completion_projection(old['executable_completion_program'],completion,
@@ -220,7 +216,7 @@ def refresh(root,base,review,write=False):
         'exact_same_file_presentation_renewal':paper_renewal,
         'collector_receipt_count':len(fresh['receipts_sha256']),
         'pure_source_parser_cache':cache_stats,
-        'output_sha256':bound_pins({p:sha256((root/p).read_bytes()).hexdigest()for p in sorted(OUTPUTS)}),
+        'output_sha256':{p:sha256((root/p).read_bytes()).hexdigest()for p in sorted(OUTPUTS)},
         'original_full_ledger_builder_reexecuted':False,
         'original_scientific_owners_reexecuted':False,'CI_run':False,
         'acceptance_scope':'Actual current native collector and completion view; unchanged canonical renderer; exact authenticated legacy source and value reuse.'}

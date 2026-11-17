@@ -15,10 +15,6 @@ import shutil
 from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 from typing import Any
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ImportError:  # run or imported from tools/ as a top-level module
-    from pin_scope import bound_pins, scoped
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -172,7 +168,7 @@ def validate_book_pdf_assets(
                 f"{expected_rendering_name}: rendering must be a regular tracked file"
             )
         source_digest = sha256_file(source_path)
-        if bound_pins(record["source_sha256"]) != scoped(source_digest):
+        if record["source_sha256"] != source_digest:
             raise BookAssetValidationError(
                 f"{source_name}: source SHA-256 mismatch; regenerate canonical renderings"
             )
