@@ -21,8 +21,14 @@ from pathlib import Path
 import numpy as np
 
 from tools import strict_json
-from tools.pin_scope import repo_sha256
+try:
+    from tools.pin_scope import repo_sha256
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import repo_sha256
 from ..local_repair_family import local_bias, modular_clock
+from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_BINDINGS = {
@@ -171,7 +177,7 @@ def report(root=ROOT):
     return {
         'schema': 'oph.completion.acceptance_audit.v1',
         'scope': 'finite inherited-product-reference clock extension exclusion',
-        'source_bindings': dict(SOURCE_BINDINGS),
+        'source_bindings': bound_pins(dict(SOURCE_BINDINGS)),
         'native_reference_level_multiplicities': dict(native_levels()),
         'native_tensor_reference': '(64/7505)^n*(25/8)^m, integer0<=m<=2n',
         'spectral_certificate': spectral_certificate(),

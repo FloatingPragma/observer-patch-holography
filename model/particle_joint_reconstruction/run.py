@@ -7,6 +7,12 @@ from pathlib import Path
 
 from model.particle_joint_reconstruction import candidate
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -123,11 +129,11 @@ def build():
         'proper_geometry_or_Einstein_limit_proved': False,
         'pure_Yang_Mills_gap_proved': False,
         'source_derived_particle_mass_table_GeV': [],
-        'input_sha256': {
+        'input_sha256': bound_pins({
             str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
             for path in [HERE/'dependencies.json', HERE/'run.py',
                          ROOT/'claims/ccf_lt2.json']
-        },
+        }),
     }
 
 
