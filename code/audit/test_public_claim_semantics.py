@@ -66,7 +66,7 @@ def test_fz10_public_wording_matches_the_frozen_decision_rule() -> None:
     # carrier's face symmetry; the owning papers and the FZ-10 register carry
     # the balance condition and its provenance.
     assert "so neither is a prediction" not in readme
-    assert "prémisse d’équilibre déclarée" in french
+    assert "ce n’est pas une dérivation de ces masses" in french
     assert "le programme de capacité demande si" in french
     assert "aucun des deux n’est une prédiction" not in french
 
@@ -121,6 +121,18 @@ def test_readme_case_section_remains_short_and_reader_facing() -> None:
         start = text.index(heading) + len(heading)
         body = text[start : text.index("\n## ", start)]
         bullets = re.split(r"(?m)^- ", body)[1:]
+        if not bullets:
+            # A short prose summary is the other admitted reader-facing form.
+            prose = re.sub(r"\[([^]]+)\]\([^)]+\)", r"\1", body)
+            words = re.findall(r"\b[\wÀ-ÿ]+(?:[-’'][\wÀ-ÿ]+)*\b", prose)
+            assert len(words) <= 2 * word_budget, (
+                f"{path.name} case summary has {len(words)} words; "
+                "detail belongs in the linked technical surfaces"
+            )
+            assert len(re.findall(r"\]\(", body)) <= 3, (
+                f"{path.name} case summary links more than three destinations"
+            )
+            continue
         assert 5 <= len(bullets) <= 8, f"{path.name} lists {len(bullets)} case bullets"
         for number, bullet in enumerate(bullets, start=1):
             assert bullet.startswith("**"), (
