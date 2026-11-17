@@ -1,0 +1,6 @@
+{
+  "utc": "2026-11-15T19:12:27.913309+00:00",
+  "reason": "Static pre-seal inspection found audit check-counter depended on first-record versus verification mode and the verification check mutated its own result. Check exclusive-create condition in both modes; keep final record comparison outside scientific counter. Numeric results and existing AUDIT.json unchanged.",
+  "audit_sha256": "4dfbf1397596bcbd2f3ff0260f72e0c71c675a47c502c19575bfa829b9fb1513",
+  "saved_audit_sha256": "861a56a36c191e2b69be3cb18ef8f782a1def207173606f83b5846f40e7cb103"
+}

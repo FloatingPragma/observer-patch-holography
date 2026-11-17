@@ -1,0 +1,105 @@
+{
+  "schema": "oph.obstruction_realizations.package.v1",
+  "files": {
+    "CORE_REPLAY.json": {
+      "sha256": "40ec92b5cb4b1d24d68d922179034dc034b421a89e7bb97141db6faeeeb40bc1",
+      "bytes": 2253
+    },
+    "CORE_REPLAY_TRANSFER.json": {
+      "sha256": "3c3cff4fd4e390e616dc2ef261e43001f1845a1786f3c182bb76329cd28e0cdb",
+      "bytes": 290929
+    },
+    "EXPORT_DRY_RUN.json": {
+      "sha256": "f893a71710264fda410e687391ff0beddf7ac8b151414ada31c474c9248dd2e2",
+      "bytes": 139
+    },
+    "EXPORT_MANIFEST.json": {
+      "sha256": "ec0d51f1fbf51d8facc26e121956b97b9d9ba7f00295bb25da3ab8ce54c56a1a",
+      "bytes": 552933
+    },
+    "INTEGRATION_CHECKS.json": {
+      "sha256": "0b5d1a609652f97d2da362683d40e6b47338942bed678572ec33d202a9af208c",
+      "bytes": 2217
+    },
+    "PROOF.md": {
+      "sha256": "71ef2f4586ad846d1b4835116eab86a5496d8e6f223ff03ab1f1fddead475015",
+      "bytes": 8976
+    },
+    "README.md": {
+      "sha256": "c97a604219c925aa816f7d1a01eacaf84d51c03d0d6da7f928a6bf22aa18de59",
+      "bytes": 1767
+    },
+    "SOURCE_REGISTER.json": {
+      "sha256": "72ccc4d8cdda6557e51445027fb1e24d9899775d7c17d626d5da765490c8c69d",
+      "bytes": 42941
+    },
+    "STATUS_CONTROLS.json": {
+      "sha256": "e95efa6756fb3c85212082a70c3c2ed54e56f928440c5cdcc513e2351359926f",
+      "bytes": 233
+    },
+    "VERIFICATION.json": {
+      "sha256": "dc57f5b7d00e202583856d5e568429a4126cfd60a5aa082bd84988b7ea79c5c7",
+      "bytes": 2052
+    },
+    "export_workspace.py": {
+      "sha256": "5ff7a5296b2448cefb2e51e1123cadb95ce9c43d23f844941b4de571c43e0832",
+      "bytes": 9002
+    },
+    "verify.py": {
+      "sha256": "623c35f79b45e03440d3bd6aea8e4af400bd4443bab71b3571b5dd8baa70ad52",
+      "bytes": 9257
+    },
+    "replay_logs/0-continuum_locality_bound-check.log": {
+      "sha256": "b27aae68c0fec9154c27eb92456becfd38cd4e082e49952727594b0bc97ee744",
+      "bytes": 561
+    },
+    "replay_logs/1-cell_entropy_limit-check.log": {
+      "sha256": "d4fb1d49af3cfa7088b54bbfbcfd5bdea4f4eaccf24823effc385cdbd23c3138",
+      "bytes": 2350
+    },
+    "replay_logs/2-vacuum_trace_review-consumers.log": {
+      "sha256": "5fcd5cb74a29c4001df68709e1db0423dcac84b54b671e3b94b92c8b08ebca18",
+      "bytes": 3830
+    },
+    "replay_logs/3-vacuum_trace_review-run.log": {
+      "sha256": "6c0bfaa27ded8bdba75658501ee08ef3c6881f283e97c4592a513a0c615d2bf1",
+      "bytes": 2795
+    },
+    "replay_logs/4-vacuum_trace_review-consumers.log": {
+      "sha256": "5fcd5cb74a29c4001df68709e1db0423dcac84b54b671e3b94b92c8b08ebca18",
+      "bytes": 3830
+    },
+    "replay_logs/5-row1_v3-verify.log": {
+      "sha256": "a083571aec366a544b1319a0cdc38494ffcd6a67e151e810ef9e749c44c85b6c",
+      "bytes": 1581
+    },
+    "replay_logs/additions-0-neutral_paths-exact_endpoints.log": {
+      "sha256": "d2afdb8e2bdf7d152626b510bf28e60b62e72829b8faafc47458a2d3b749861c",
+      "bytes": 76
+    },
+    "replay_logs/additions-1-neutral_paths-current_certificate.log": {
+      "sha256": "d82e731090db5dbcce03fa6ea2db9961ee8e5719d4a3a069ecce422dbebfcca9",
+      "bytes": 1407
+    },
+    "replay_logs/additions-2-joint_continuum_entropy-review.log": {
+      "sha256": "e9d1789dc41676caacd50f1ce50d990368e35770e92d850c5161559cd7460fb3",
+      "bytes": 5461
+    },
+    "replay_logs/gap_register.log": {
+      "sha256": "5925b9daa73688a0b3131bb9f4585fabca1d8ecf56c0d1b85604e889350b4b0e",
+      "bytes": 82
+    },
+    "replay_logs/paper_build.log": {
+      "sha256": "57485e80fe8b0320d37977e84900a409b4d8367ab3be61444fa48a0d36ee7f43",
+      "bytes": 393
+    },
+    "replay_logs/reader_style.log": {
+      "sha256": "c274b968e5456780d31bac9fd32b0d8f8cc70992c8fcfc4690c5848b3f46abe2",
+      "bytes": 22
+    }
+  },
+  "export_manifest_sha256": "ec0d51f1fbf51d8facc26e121956b97b9d9ba7f00295bb25da3ab8ce54c56a1a",
+  "scope": "Executable source snapshot and exact scientific boundaries. Consumed external claims remain explicit.",
+  "physical_rows_solved": false,
+  "official_rows_changed": false
+}

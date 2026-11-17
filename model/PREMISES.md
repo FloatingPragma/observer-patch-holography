@@ -1,25 +1,16 @@
 # OPH reverse-engineering table: model and theorem premises
 
-As of 2026-11-02. Generated from [the navigation map](../tracking/premise_register.json)
+Generated from [the navigation map](../tracking/premise_register.json)
 by `python tools/build_model_theorem_map.py`. Edit the input, then regenerate.
 
-This map connects the canonical premise identifiers and active model obligations to their construction evidence. It is navigation coverage, not an extraction of every paper or Lean antecedent and not a proof of discharge. Alternative branches retain their own hypotheses; cross-references do not change claim-registry dependency roles.
+The official executable law is [CCF-LT-2](SPEC.md). Its checked finite
+operator and diagnostic domains are bound in [the current claim register](../claims/ccf_lt2.json).
+Every component binding below retains its own source, state, reference, clock
+and observation domain; it discharges no CCF-LT-2 physical premise without
+an explicit same-source instantiation. The [dependency map](particle_joint_reconstruction/DEPENDENCIES.md)
+states the required spectrum, geometry and Einstein attachments.
 
-**Construct the simplest shared repair process satisfying the declared observational contract.** Architecture, observer services and the complete repair law can supply inputs. Their consequences need not be postulated again. A theorem attachment must identify the same states, instruments, retained records, access rules and scheduling domain; matching component formulas alone is insufficient. Unique selection of an implementation is separate from executing that implementation and testing its predictions.
-
-The live construction is `model/`. Its native C/E instruments determine local exchange and coherence laws, finite stationary preparation, field and event-clock statistics, and complete quantum observation bounds. The finite transfer logarithm, local Liouville generator and modular action on a chosen algebra/reference are distinct constructions. An observer-relative clock is an accessible record process; no preferred universal physical clock is required. Supplied scalar, gauge and matter actions are conditional benchmarks with their own occupation, temporal and spatial error contracts.
-
-**Completion concerns observations.** The intended effective quantum-field, classical and gravitational descriptions must reproduce compatible joint statistics and intervention responses within controlled regimes. Fields, metrics and manifolds need not be fundamental objects. Native source execution does not by itself establish physical spacetime or identify a laboratory apparatus. Public oscillator comparisons retain their calibration, postselection, coordinate and sampling limitations; numerical agreement, mathematical consistency and code fidelity are separate from physical identification.
-
-The entries distinguish finite executions, analytic bounds, imported theorem hypotheses and remaining physical attachments. Separate actions, preparations, detectors and approximation domains keep separate certificates. Reusing a theorem requires a valid map of its actual hypotheses, not a count of available results or the simultaneous imposition of incompatible branches.
-
-The [current physical bridge](SOURCE_SELECTION.md#current-bridge-to-physical-observations) distinguishes finite observer field/clock results, the remaining effective QFT and spacetime identification, and actual public-data tests. No federation is required for the completed single-carrier calculations. Issue #1077 owns the q=3 scalar-word deliverable; smaller executed histories do not replace it.
-
-Many entries cite executable model packages that supply finite instances of a premise interface: overlapping-observer and incident-clock quantum correspondences, compiled apparatus words and a compiled clock history, the active event clock and the inverse clock, the native continuum operator and causal placement, record-law identification, finite equilibration and retrospective public-data attachment audits. Such a citation supplies a finite instance on a stated domain. It discharges no canonical premise, changes no disposition and promotes no retrospective comparison to a prospective test.
-
-The exhaustive contract inventory below covers every registered claim and tracked Lean source module. Restricted same-model bindings retain all canonical inputs and require explicit domain maps before composition. Missing model realizations remain visible; coverage and typed compatibility do not certify scientific entailment or physical completion.
-
-The finite interfaces in [SAME_PROCESS_INTERFACES.md](completion/SAME_PROCESS_INTERFACES.md) and model/completion/finite_attachment_map.json assign all 84 canonical rows to completion owners. They record 140 realized scoped attachments among 145 reviewed domains and zero canonical physical discharges. The source particle map records complete finite spectral certificates, exact radial eta currents, native stationary flavor coefficients and ordered-spin texture energy bounds. The retained P-dependent lepton coefficient is realized by a chosen current-gated memory and a localized native-current operator construction. Its design inputs, static/weak-pulse domain, prescribed texture and unresolved continuum/physical identification joins are explicit. No common interacting relativistic particle spectrum and Einstein model is proved. Source-selected nature couplings and physical defect assignments are not established. Retrospective comparisons add zero eligible prospective tests. Guarded compact texture transport, a common 180-mode interacting memory core and its hopping-work derivative are proved on declared finite source domains. A separate native 60-state link gives local non-Abelian Gauss constraints. No full physical particle spectrum, interacting chiral continuum or Einstein realization is established.
+This map covers the canonical premise identifiers, component proof domains and current physical attachment obligations. It is navigation coverage, not a proof of discharge. The [same-source identification contract](SOURCE_SELECTION.md#same-source-identification) requires the actual CCF-LT-2 Hamiltonian, state, reference, clock and complete instrument. Separate component results retain their own hypotheses; no physical premise is promoted by a link or status label.
 
 These groups are workgroup navigation crosswalks, not claim-consumer edges or changes
 to proof status. A group links related construction, branch, downstream or metrology
@@ -41,9 +32,9 @@ explained in the [assumption dictionary](../claims/assumption_dictionary.md).
 | --- | ---: |
 | Canonical premise IDs represented in this crosswalk | 84/84 |
 | Model criteria represented | 12/12 |
-| Registered claims | 400 |
-| Unique ordinary `assumptions` names | 940 |
-| Unique `imported_results` names | 1215 |
+| Registered claims | 405 |
+| Unique ordinary `assumptions` names | 943 |
+| Unique `imported_results` names | 1228 |
 | Workgroups | 27 |
 | Assumption names explicitly linked by optional group fields | 33 |
 | Claims explicitly linked by optional group fields | 20 |
@@ -71,13 +62,13 @@ the ordinary-assumption inventory:
 | `null_decision_assumptions` | 1 | 2 | 2 | 0 |
 | `threshold_kinematic_assumptions` | 1 | 6 | 6 | 0 |
 
-Existing claim classifications: `explicit_edges`: 181; `explicit_non_consumer`: 219.
+Existing claim classifications: `explicit_edges`: 181; `explicit_non_consumer`: 224.
 
 ## What the current implementation does with each premise
 
-The executable construction in this directory is the current implementation of the
-specification's dynamical details; the twelve-port carrier is fixed, the details are not.
-For each canonical premise the register records whether this implementation derives it
+These statuses belong to the named component implementations and their own source domains.
+They do not assert that the official CCF-LT-2 law satisfies their hypotheses.
+For each canonical premise the register records whether a component derives it
 from native records, constructs an instance on declared inputs, proves an obstruction,
 takes it as a declared input, or does not address it. The status certifies no physical
 premise, and a theorem-library result holds on its premises whatever the status.
@@ -7225,7 +7216,7 @@ Sources:
 - [N4 shared bare-occupation response and finite memory certificate](../code/native_response/README.md).
 - [Live observer and repair-law implementation](../model/README.md).
 - [Reproducible package receipt and source verification](../model/verify.py).
-- [Counterexamples, identifiability and compatible constructions](../model/CONSTRUCTION.md); exact source anchor: ` ## Counterexamples and identifiability `.
+- [Official common-source construction and observation domain](../model/CONSTRUCTION.md); exact source anchor: ` ## What is being built `.
 - [Executed scalar detector and native feedback contract](../model/observer/scalar_response/README.md).
 - [Binary instrument, history law and inherited refinement bound](../model/observer/scalar_response/DERIVATION.md).
 - [Retained scalar-response execution and controls](../model/observer/scalar_response/results.json).
@@ -7244,7 +7235,7 @@ Sources:
 - [Implemented inputs and separate physical selection obligations](../model/SOURCE_SELECTION.md).
 - [Source-derived action and local quantum observation contract](../model/native_action/README.md).
 - [Exact complete-observation memory and local clocks](../model/joint_clock_process/README.md).
-- [Current finite-to-physical obligations and original scalar milestone scope](../model/SOURCE_SELECTION.md#current-bridge-to-physical-observations).
+- [Same-source physical attachment and supplied input ancestry](../model/SOURCE_SELECTION.md); exact source anchor: ` ## Same-source identification `.
 - [Single-carrier space, action, clock and federation audit](../model/PHYSICAL_AUDIT.md).
 - [Executed common field/clock/current history and exact effective correspondence](../model/observer_correspondence/README.md).
 - [Controlled finite bandwidth extension and matched low-mode observations](../model/interacting_band_extension/README.md).
@@ -8598,9 +8589,9 @@ anchors are not proofs. No entry silently discharges a canonical premise.
 
 | Coverage | Count |
 | --- | ---: |
-| Canonical claims retained | 400 |
+| Canonical claims retained | 405 |
 | Claims with restricted bindings | 69 |
-| Claims with open common-model mapping | 331 |
+| Claims with open common-model mapping | 336 |
 | Tracked Lean source modules retained | 700 |
 | Lean modules referenced by canonical evidence | 492 |
 | Public theorem/lemma declarations | 12965 |

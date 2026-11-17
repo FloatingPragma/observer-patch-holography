@@ -1,0 +1,91 @@
+{
+  "status": "IMPROVED_SOURCE_PLANAR_AND_LOW_MODE_COMPONENT_TEST",
+  "source_difference_order": 4,
+  "R": 1.5,
+  "area": [
+    {
+      "Nx": 64,
+      "nquad": 16,
+      "eta_per_coordinate_face": 0.031441213810391395,
+      "uniform_area_exponent": 1.9246032080210393
+    },
+    {
+      "Nx": 96,
+      "nquad": 24,
+      "eta_per_coordinate_face": 0.03144735607505645,
+      "uniform_area_exponent": 1.9234721359903173
+    }
+  ],
+  "eta_relative_resolution_difference": 0.00019535711000528977,
+  "modular": [
+    {
+      "L": 128,
+      "sigma": 0,
+      "expected": 40.74366543152521,
+      "floor_checks": [
+        {
+          "floor": 1e-11,
+          "coefficient": 40.64467703042529,
+          "ratio": 0.9975704591118274
+        },
+        {
+          "floor": 1e-13,
+          "coefficient": 40.644791010139784,
+          "ratio": 0.9975732565949031
+        },
+        {
+          "floor": 1e-15,
+          "coefficient": 40.644799024762776,
+          "ratio": 0.9975734533033462
+        }
+      ]
+    },
+    {
+      "L": 256,
+      "sigma": 0,
+      "expected": 81.48733086305042,
+      "floor_checks": [
+        {
+          "floor": 1e-11,
+          "coefficient": 81.4384758771402,
+          "ratio": 0.9994004591217706
+        },
+        {
+          "floor": 1e-13,
+          "coefficient": 81.43877278106112,
+          "ratio": 0.9994041026810547
+        },
+        {
+          "floor": 1e-15,
+          "coefficient": 81.43879935112808,
+          "ratio": 0.9994044287448328
+        }
+      ]
+    },
+    {
+      "L": 256,
+      "sigma": 0.1,
+      "expected": 90.05742826145149,
+      "floor_checks": [
+        {
+          "floor": 1e-11,
+          "coefficient": 90.01362659184066,
+          "ratio": 0.9995136251339127
+        },
+        {
+          "floor": 1e-13,
+          "coefficient": 90.01390167092627,
+          "ratio": 0.9995166796191554
+        },
+        {
+          "floor": 1e-15,
+          "coefficient": 90.01393544155286,
+          "ratio": 0.9995170546090616
+        }
+      ]
+    }
+  ],
+  "full_modular_operator_identity_proved": false,
+  "stationarity": false,
+  "physical_G": false
+}

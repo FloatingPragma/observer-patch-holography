@@ -1,16 +1,13 @@
 {
   "new_theorem_review_or_acceptance": false,
+  "official_model": "CCF-LT-2",
+  "programme_adoption_row_is_excluded": true,
   "retained_documentary_pins_claimed_current": false,
   "retained_review": {
     "path": "model/completion/theorem_map.json",
     "sha256": "4c64cec4dd0252f7b3d8c8e16b26a8498404cd1e9c496bc679555b33a92ed05d"
   },
   "reviewed_map_with_current_navigation": {
-    "campaign": {
-      "campaign_id": "OPH-CE-FINITE-MEMORY-2026-10-28-v1",
-      "path": "model/completion/campaign.json",
-      "sha256": "c2255052cbec88a0e12a8d065e57d055169e78a58db66e770ed8b2f346ea368f"
-    },
     "canonical_registry": "tracking/premise_register.json",
     "evidence": [
       "model/completion/adaptive_reference_results.json",
@@ -38,10 +35,6 @@
           "state": "66 binary total-two configurations",
           "visible_fibre": "for a fixed seam: all exterior occupations and total endpoint load"
         },
-        "owners": [
-          "CP-01",
-          "CP-02"
-        ],
         "remaining": [
           "The full78 reference supported on binary states is not faithful on M78.",
           "Quantum C is not an idempotent conditional expectation merely because its diagonal transition is.",
@@ -72,11 +65,6 @@
           "campaign": "controller chooses seams using committed current-sign memory; uniform exploration is only a positive support floor",
           "theorem_weights": "a:C->R in mixture_stationary are fixed coefficients independent of source x"
         },
-        "owners": [
-          "CP-01",
-          "CP-02",
-          "CP-13"
-        ],
         "remaining": [
           "A separate exact joint132-state calculation supplies a unique classical stationary law on129 recurrent states and a positive nonuniform66-state source marginal.",
           "Classical uniqueness does not establish uniqueness of the complete quantum fixed state.",
@@ -104,10 +92,6 @@
           "schedule": "fixed independent positive edge weights; records discarded",
           "state": "M66 or M78 native source"
         },
-        "owners": [
-          "CP-02",
-          "CP-03"
-        ],
         "remaining": [
           "Do not transfer the gap, reference or norm constants unchanged to record-controlled scheduling, held steps, or joint source-memory algebras.",
           "The full78 finite-time channel is not entanglement breaking; the binary sufficient certificate does not change that.",
@@ -132,9 +116,6 @@
           "controller": "finite classical control depending only on previous committed records",
           "record": "tagged C/E choice, seam, coin, value and hold tag; complete emitted history versus bounded working memory are distinct"
         },
-        "owners": [
-          "CP-01"
-        ],
         "remaining": [
           "Account export, retention, halt and continuation resources in CP-01.",
           "A generic finite controller and a fixed input model are not the original q=3 scalar recipe.",
@@ -161,11 +142,6 @@
           "composition": "classical mixture, conditioning and sequential feedback",
           "input": "diagonal source preparations and classical controller/record registers"
         },
-        "owners": [
-          "CP-01",
-          "CP-02",
-          "CP-06"
-        ],
         "remaining": [
           "Already-coherent input may retain coherence in complete terminal states; this is not equality of all quantum outputs to a classical process.",
           "No conclusion about other carrier/refinement or additional coherent-control families.",
@@ -191,10 +167,6 @@
           "independent_compatibility": "the existing fixed-history constraint problem is a separate construction, not identified with these stochastic native events",
           "native_process": "binary-shell load motion continues under admitted waits/swaps"
         },
-        "owners": [
-          "CP-01",
-          "CP-13"
-        ],
         "remaining": [
           "No transfer from fixed-DAG history repair to native instantaneous state convergence.",
           "Do not redefine compatibility as whichever states the update leaves fixed."
@@ -226,9 +198,6 @@
           "new_component": "exact nonuniform source/bit stationary diagonal reference on129-dimensional recurrent support; positive66-dimensional source marginal",
           "retained_benchmark": "sigma_beta=exp(-beta H)/Z on full supplied work algebra; modular s equals model t=-beta s"
         },
-        "owners": [
-          "CP-02"
-        ],
         "remaining": [
           "Joint state has rank129 rather than132; specify support compression before calling it faithful.",
           "The source marginal belongs to a correlated joint stationary state; its full matrix modular phases are not autonomous native evolution.",
@@ -260,9 +229,6 @@
           "new_control": "complete branch star-algebras on bare H78 and H66",
           "old_control": "P_collision onto12 double-load configurations in H78"
         },
-        "owners": [
-          "CP-03"
-        ],
         "remaining": [
           "A reducing sector is stricter than a forward-invariant subspace; binary H66 remains forward-invariant inside H78.",
           "History/controller encodings, metastable localized excitations, approximate lifetimes and enlarged/refining carriers are not excluded by this commutant calculation.",
@@ -287,11 +253,6 @@
           "current_campaign": "classical finite controller; no intermediate coherent recovery",
           "existing_code": "branch-specific coherent encoder and recovery satisfy flagged Knill--Laflamme identity"
         },
-        "owners": [
-          "CP-01",
-          "CP-03",
-          "CP-13"
-        ],
         "remaining": [
           "Admitting these recovery services changes the finite campaign contract.",
           "An encoded memory energy cost is not a derived rest/kinetic/gravitating defect energy."
@@ -317,11 +278,6 @@
           "premises": "same P,step,F,T,kappa; symmetric tensors; null matching; separate Ward/Bianchi divergence identities; component connectivity",
           "theorem": "einstein_equation_with_constant_symm"
         },
-        "owners": [
-          "CP-09",
-          "CP-10",
-          "CP-13"
-        ],
         "remaining": [
           "CP-09 must construct common geometry, modular stress/entropy and calibrated scale on one source/refinement tower.",
           "Do not identify Markov stationarity with fixed-proper-volume generalized entropy stationarity.",
@@ -331,31 +287,6 @@
           "tensor"
         ],
         "title": "Einstein tensor completion is conditional on actual common premises"
-      },
-      {
-        "canonical_premises": [],
-        "checked_premises": [
-          "The construction guide expressly states the large pulse word/state was not executed."
-        ],
-        "classification": "outside_current_campaign_unexecuted",
-        "conclusion": "The original mathematical/resource certificate remains unexecuted; this bounded campaign neither executes nor retires it from the broader completion program.",
-        "id": "TM-11",
-        "model_map": {
-          "current": "single total-two carrier and finite classical memory; no supplied scalar action or growing coherent apparatus",
-          "original": "q=3 eight-mode scalar history;8192-level onsite code;106-qubit field/pointer state"
-        },
-        "owners": [
-          "CP-00",
-          "CP-01",
-          "CP-13"
-        ],
-        "remaining": [
-          "A later explicit CP-00/CP-13 decision is needed to adopt or retire its broader active obligation."
-        ],
-        "sources": [
-          "construction"
-        ],
-        "title": "Preserve the original q=3 scalar preparation contract"
       }
     ],
     "preservation": [
@@ -364,7 +295,6 @@
       "Broader refinement, observer algebra, clock, energy and physical-dictionary obligations remain open."
     ],
     "registry_role": "source-bound scoped mappings and countercontrols; canonical scientific statuses remain owned by the existing premise and claim registers",
-    "review_date": "2026-10-28",
     "review_scope": "Actual source statements and proof steps inspected for this finite campaign. This is not a complete theorem-library audit or a new formal proof compilation.",
     "schema": "oph.completion.theorem_map.v1",
     "sources": {
@@ -390,13 +320,6 @@
           "theorem kl_push_le"
         ],
         "sha256": "6d1c8c2db46bba7bcb685d9f11f682ad4f96d01eff528d6f942e0f6666d87ce2"
-      },
-      "construction": {
-        "path": "model/CONSTRUCTION.md",
-        "reviewed_anchors": [
-          "The retained q=3 eight-mode preparation/history uses the same 8,192-level"
-        ],
-        "sha256": "51c44f4c482fb230a709e53512ca4c3e5428b755e5bfeb2cc671986ec2b0b1ba"
       },
       "dephasing": {
         "path": "Lean/Geometry/SourceRepairInstrument.lean",

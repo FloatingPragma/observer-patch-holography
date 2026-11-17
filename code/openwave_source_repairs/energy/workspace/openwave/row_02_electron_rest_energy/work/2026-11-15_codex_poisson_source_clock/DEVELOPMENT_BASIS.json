@@ -1,0 +1,68 @@
+{
+  "time_utc": "2026-11-15T16:53:14.206675+00:00",
+  "status": "disclosed development exact nullspace extraction before confirmatory freeze",
+  "basis_by_cell": [
+    [
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        -1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    ],
+    [
+      [
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        -1,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  ],
+  "graph_sha256": "2e8be4c030e8e04ab903adb5a8a786f11654ecca0380ee54d17509a707f49085",
+  "note": "Cell1 has external localports2,8,10, so the cell0 secondmode cannot be blindly shifted."
+}

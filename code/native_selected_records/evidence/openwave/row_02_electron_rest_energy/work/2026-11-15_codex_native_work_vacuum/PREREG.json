@@ -1,0 +1,11 @@
+{
+  "candidate": "A-native-triangle-vacuum-work-v1",
+  "type": "Prospective finite confirmatory execution following disclosed exploratory spectral design",
+  "program": "experiment.py",
+  "parameters": {"triangle_weights": [2,2,1], "cooling_steps": 8, "phase_bins": 256, "ramsey_words": [0,32]},
+  "expected_known_theory": "P eigenvalues 1,3/5,2/5; formula in PROOF.md. Pilot covers other full14-port graphs, not this executed program.",
+  "gates": {"source_and_completeness_residual_max": 1e-12, "cooling_probability_min": 1e-6, "compact_fidelity_min": 0.998, "positive_mode_fidelity_min": 0.99, "phase_error_max": 0.01, "pair_phase_error_max": 1e-12, "changed_law_fidelity_max": 0.8, "runtime_seconds_max": 60},
+  "controls": ["always-swap source with same graph and observer", "committed arc dephasing", "exclusive pair scheduling", "double tick sensitivity", "integer-clock alias", "binary zero/two-unit complement"],
+  "all_outcomes": "Every birth flag; every cooling first-failure flag; all256 phase bins/amplitudes; Ramsey binary laws; all work native columns and full traces; complement inputs.",
+  "physical_rest_mass_gate": "Not assumed. Integer-clock alias and operational work scope must be adversarially reviewed; no award request is authorized by arithmetic gates."
+}

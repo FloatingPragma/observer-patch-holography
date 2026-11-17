@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "producer_saved_data_unchanged": true,
+  "results": [
+    {
+      "label": "readonly_headline",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_interval_source_certificate/certificate.py"
+      ],
+      "exit_code": 0,
+      "seconds": 10.151696666012867,
+      "passed": true
+    },
+    {
+      "label": "impurity_gate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "-O",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/interval-certificate-cli-60fht1_a/impurity_gate.py",
+        "--k",
+        "0",
+        "--references",
+        "stationary",
+        "--record-to",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/interval-certificate-cli-60fht1_a/impurity_gate.json"
+      ],
+      "exit_code": 1,
+      "seconds": 0.2546125000080792,
+      "passed": true
+    },
+    {
+      "label": "wrong_source_spectrum",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "-O",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/interval-certificate-cli-60fht1_a/wrong_source_spectrum.py",
+        "--k",
+        "0",
+        "--references",
+        "stationary",
+        "--record-to",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/interval-certificate-cli-60fht1_a/wrong_source_spectrum.json"
+      ],
+      "exit_code": 1,
+      "seconds": 0.4300763749924954,
+      "passed": true
+    },
+    {
+      "label": "changed_saved_certificate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_interval_source_certificate/certificate.py",
+        "--verify",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/interval-certificate-cli-60fht1_a/changed.json"
+      ],
+      "exit_code": 1,
+      "seconds": 9.985438667004928,
+      "passed": true
+    },
+    {
+      "label": "refused_overwrite",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_interval_source_certificate/certificate.py",
+        "--record-to",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/interval-certificate-cli-60fht1_a/existing.json"
+      ],
+      "exit_code": 1,
+      "seconds": 0.11733358399942517,
+      "passed": true
+    }
+  ],
+  "credit": "Execution/integrity only; spectrum corruption is not a native competing law"
+}

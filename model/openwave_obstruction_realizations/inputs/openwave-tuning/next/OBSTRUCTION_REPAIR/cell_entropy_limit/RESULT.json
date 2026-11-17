@@ -1,0 +1,63 @@
+{
+  "schema": "oph.cell_entropy_limit.finite_control.v1",
+  "records": [
+    {
+      "cell_width_in_grid_sites": 32,
+      "observed_one_particle_dimension": 2,
+      "entropy": 1.3832527706287552,
+      "full_finite_region_entropy": 1.7667075846540379,
+      "S_3_over_2_offdiagonal_error": 0.8694428296396132,
+      "variance_identity_error": 8.36818612710723e-17,
+      "entropy_identity_error": 1.9984014443252818e-15
+    },
+    {
+      "cell_width_in_grid_sites": 16,
+      "observed_one_particle_dimension": 4,
+      "entropy": 2.2622706231055325,
+      "full_finite_region_entropy": 1.7667075846540379,
+      "S_3_over_2_offdiagonal_error": 1.0371862214101584,
+      "variance_identity_error": 2.1573062817416422e-16,
+      "entropy_identity_error": 8.881784197001252e-16
+    },
+    {
+      "cell_width_in_grid_sites": 8,
+      "observed_one_particle_dimension": 8,
+      "entropy": 3.508585995216257,
+      "full_finite_region_entropy": 1.7667075846540379,
+      "S_3_over_2_offdiagonal_error": 1.2477192003962958,
+      "variance_identity_error": 3.328722532472099e-16,
+      "entropy_identity_error": 1.7763568394002505e-15
+    },
+    {
+      "cell_width_in_grid_sites": 4,
+      "observed_one_particle_dimension": 16,
+      "entropy": 3.229539392675573,
+      "full_finite_region_entropy": 1.7667075846540379,
+      "S_3_over_2_offdiagonal_error": 0.9967193434398443,
+      "variance_identity_error": 7.892758530805813e-16,
+      "entropy_identity_error": 2.220446049250313e-15
+    },
+    {
+      "cell_width_in_grid_sites": 2,
+      "observed_one_particle_dimension": 32,
+      "entropy": 2.276015896085699,
+      "full_finite_region_entropy": 1.7667075846540379,
+      "S_3_over_2_offdiagonal_error": 0.5371114356227229,
+      "variance_identity_error": 1.4725589447992665e-15,
+      "entropy_identity_error": 7.993605777301127e-15
+    },
+    {
+      "cell_width_in_grid_sites": 1,
+      "observed_one_particle_dimension": 64,
+      "entropy": 1.7667075846540379,
+      "full_finite_region_entropy": 1.7667075846540379,
+      "S_3_over_2_offdiagonal_error": 0.0,
+      "variance_identity_error": 3.6373044674772506e-15,
+      "entropy_identity_error": 3.2529534621517087e-13
+    }
+  ],
+  "all_modes_retained": true,
+  "continuum_error_rate_certified": false,
+  "entropy_monotonicity_assumed": false,
+  "physical_gravity_solved": false
+}

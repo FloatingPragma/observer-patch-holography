@@ -1,0 +1,43 @@
+{
+  "schema": "oph.obstruction_repair.row1.freeze.v2",
+  "created_at": "2026-11-14T17:53:33+07:00",
+  "files_sha256": {
+    "EXACT_LAWS.json": "acf809b0ddd6e5278fd8836c6d3028ff2fb123a58a51dfff40899cd3e73318c5",
+    "EXAMPLES.json": "8997749bbbafaac214249a39bcfc7f9a32ba76d445545cf374e3c18db678b076",
+    "FINAL_CODE_RECHECK.json": "0604607c2b247a2b57a02657b04a103ffc745f2db1b2d03641c84b7a214b1ed3",
+    "PROOF.md": "7adbcb22ab548634c30bf2bfbf9dea0b0bc22492b95f8e73cd3663b9c9714231",
+    "README.md": "02c977f58f536ef9de3296d4a46564a8ce10341486f0e13f4b52c3b773b63c7b",
+    "RESULT.json": "c6149d5efbc1d0acd1fc50ef7c1a18481a2ace42a396d3d8dc61b70ccaa84f2b",
+    "closing_reader.py": "0a9f3fb66737343a2d805b8e0267c8cd5f5c8b6b5b2f0a8d55470f716b59f96a",
+    "phase_reader.py": "152de9ba4b06414d52a28b0e7095741e3c07bd6edfc4cf4e5d454cbd815433be",
+    "recheck.log": "ac547a3e54bfdd0bf7a585c5a9f14d09b26b870d9387167b9adb5d62d113d64c",
+    "run.log": "c6149d5efbc1d0acd1fc50ef7c1a18481a2ace42a396d3d8dc61b70ccaa84f2b",
+    "verify.py": "5c947dc04f1e9665d3d7a5bd65fb55ae0cd74bc59e1f5e7772dd75b0fa10a973"
+  },
+  "source_and_review_sha256": {
+    "reverse-engineering-reality/code/openwave_row1_integrity/DEPENDENCIES.json": "f739997eecfbdcd7f8496107351546e36bdb5bebad8657ce79a68444f3b90cb5",
+    "reverse-engineering-reality/code/openwave_row1_integrity/INPUTS.json": "a1b54baf086ed3a88a58bee6cb1bc892ef13e141e2caca532816e04ef53b7085",
+    "reverse-engineering-reality/code/openwave_row1_integrity/MANIFEST.json": "1f8c91d4820fa2fe5f439f0a8e344645b4c29b11e3541ac32b7c52a71f1d73c4",
+    "reverse-engineering-reality/code/openwave_row1_integrity/PORTABILITY.json": "68ca6a24e30a1392fab20f8fc9a3a2c8c03cd9daac461d0d0b94bac331e63912",
+    "reverse-engineering-reality/code/openwave_row1_integrity/RESULTS.json": "0aa759a0b429f15816cc31be7002dabbae5c32d44626ced9e1d522c305e23477",
+    "reverse-engineering-reality/code/openwave_row1_integrity/closing_sweep.py": "0f1ff01daf8aa2afa1c351eb93cdc6243bb1cbb6cced82b9be950baff47155ce",
+    "reverse-engineering-reality/code/openwave_row1_integrity/integrity.py": "323de3e3b5f9f89525dd17ff693755da071df06aeee9a8d58f38c15af06501c2",
+    "reverse-engineering-reality/code/openwave_row1_integrity/native_cycle_meter.py": "30195451af6091a032472f78db769a0483d4f3b3c2862532e25220203ba0034c",
+    "reverse-engineering-reality/code/openwave_row1_integrity/native_kernel.py": "b84e5ecdfbb8727a91571ac1b3ec6614f88ebf64b72fab0e8d35c338f08b1cff",
+    "reverse-engineering-reality/code/openwave_row1_integrity/run.py": "86b0711a34637105f3c0202d79383060fd4b6310414175ae59c85eecc8da6de7",
+    "reverse-engineering-reality/code/openwave_row1_integrity/source_packet.json": "07ecff52d11e4f7fcdf907b17488603b0d0a5ff1644b01c583a86ddbbd0ec2ea",
+    "reverse-engineering-reality/code/openwave_row1_integrity/strict_tape_validator.py": "6c2f1501a4596ba1a09e1e203ea9c0f2411f33286e8b77cc8467aaeacd0c576a",
+    "openwave-tuning/row_completion/ROW_01/GEOMETRY.json": "4027e358b2475efd6bf44e376d8b2d167610b15d00b79eda3907e9b5fcfcbfe9",
+    "openwave-tuning/row_completion/ROW_01/topology.py": "9f30570a6a41ce412a4dab039ef83f5c485ae5dfbd4729cb58cce8f22e8de671",
+    "openwave-tuning/next/OBSTRUCTION_REPAIR/row1/MANIFEST.json": "85f9eefcf4c2292c1a2f47f522149cf1e28852705376d3abc2a65024243c7f3a",
+    "openwave-push/reviews/ROW_01_ADAPTIVE_DECODER_FABLE_B/MANIFEST.json": "066b2a351c015de54fefacbd23ad21ce534f7ede5a221ba5ca4439743102c2dd",
+    "openwave-push/reviews/ROW_01_ADAPTIVE_DECODER_FABLE_B/REVIEW.md": "75a3f4b26f9845b1537f145413cdcbadbadd6946499e232b001ac78987d8dece",
+    "openwave-push/reviews/ROW_01_ADAPTIVE_DECODER_FABLE_B/audit.py": "e898137a0f35568ccb7525fbcd265a14ab7b0574827b651e9db28af8947acc80"
+  },
+  "independent_review_of_v2": "requested, not yet obtained",
+  "source_law_changed": false,
+  "new_observer_policy": true,
+  "arbitrary_field_authentication": false,
+  "official_rows_changed": [],
+  "physical_row_solved": false
+}

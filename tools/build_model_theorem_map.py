@@ -465,9 +465,9 @@ def render_discharge(counts: dict) -> list[str]:
     labels = dict(DISCHARGE_ORDER)
     lines = [
         "## What the current implementation does with each premise", "",
-        "The executable construction in this directory is the current implementation of the",
-        "specification's dynamical details; the twelve-port carrier is fixed, the details are not.",
-        "For each canonical premise the register records whether this implementation derives it",
+        "These statuses belong to the named component implementations and their own source domains.",
+        "They do not assert that the official CCF-LT-2 law satisfies their hypotheses.",
+        "For each canonical premise the register records whether a component derives it",
         "from native records, constructs an instance on declared inputs, proves an obstruction,",
         "takes it as a declared input, or does not address it. The status certifies no physical",
         "premise, and a theorem-library result holds on its premises whatever the status.", "",
@@ -569,8 +569,14 @@ def render(data: dict, counts: dict) -> str:
     """Deterministic Markdown; call after validate succeeds."""
     lines = [
         "# OPH reverse-engineering table: model and theorem premises", "",
-        f"As of {data['as_of']}. Generated from [the navigation map](../tracking/premise_register.json)",
+        "Generated from [the navigation map](../tracking/premise_register.json)",
         "by `python tools/build_model_theorem_map.py`. Edit the input, then regenerate.", "",
+        "The official executable law is [CCF-LT-2](SPEC.md). Its checked finite",
+        "operator and diagnostic domains are bound in [the current claim register](../claims/ccf_lt2.json).",
+        "Every component binding below retains its own source, state, reference, clock",
+        "and observation domain; it discharges no CCF-LT-2 physical premise without",
+        "an explicit same-source instantiation. The [dependency map](particle_joint_reconstruction/DEPENDENCIES.md)",
+        "states the required spectrum, geometry and Einstein attachments.", "",
         data["coverage_note"], "",
         "These groups are workgroup navigation crosswalks, not claim-consumer edges or changes",
         "to proof status. A group links related construction, branch, downstream or metrology",

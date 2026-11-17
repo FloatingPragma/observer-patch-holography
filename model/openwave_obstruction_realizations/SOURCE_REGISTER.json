@@ -1,0 +1,826 @@
+{
+  "schema": "oph.obstruction_realizations.sources.v1",
+  "source_ledger_sha256": "9f0cf551f2396064f4f5f8884366084b32dec3ec69f6701229947877361b777b",
+  "source_layout": "Evidence paths are relative to inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/.",
+  "components": [
+    {
+      "id": "G1",
+      "rows": [
+        26,
+        27
+      ],
+      "problem": "Einstein premises on fixed Dirac lattice",
+      "observed_failure": "Lapse/coframe rescalings of sin(H) produce no usable q\u00b2 entanglement area response.",
+      "possible_solution": "Scope the exact conformal obstruction; test allowed regulator/metric responses and native joint geometry changes.",
+      "completion_test": "A common source with independently identified stress, positive area-curvature response, stationarity, one clock, and controlled refinement.",
+      "status": "partial_component_repair",
+      "evidence": [
+        "gravity/RESULT.json",
+        "gravity/EXACT_WITNESS.json",
+        "gravity/REGULATOR_ORDER4_RESULT.json",
+        "gravity/CANDIDATE_CHECKS.json",
+        "gravity/curved_ball/MANIFEST.json",
+        "GRAVITY_WITNESS_REVIEW.json",
+        "gravity/entropy_equilibrium_candidate/MANIFEST.json",
+        "gravity/isotropic_shape_tangent/MANIFEST.sha256",
+        "gravity/covariant_coframe/MANIFEST.sha256",
+        "gravity/continuum_source/MANIFEST.sha256",
+        "gravity/cubic_reduction/MANIFEST.sha256",
+        "gravity/temporal_observer/MANIFEST.sha256",
+        "gravity/lapse_response/MANIFEST.sha256",
+        "gravity/spectral_flattening/MANIFEST.sha256",
+        "gravity/boost_orbit_observer/MANIFEST.sha256",
+        "CONTINUUM_GEOMETRY.md",
+        "gravity/full_cubic_sectors/MANIFEST.sha256",
+        "continuum_locality_bound/MANIFEST.json",
+        "gravity/continuum_cell_regions/MANIFEST.sha256",
+        "cell_entropy_limit/MANIFEST.json",
+        "gravity/neutral_mixture_entropy_bound/MANIFEST.sha256",
+        "gravity/joint_continuum_entropy/MANIFEST.sha256"
+      ],
+      "latest_result": "Finite continuum regional entropy and spatial covariance are proved. A distinct flattened time generator preserves the projector and Poincare algebra. Its canonical tilted-region area coefficient fails; the explicit boost-orbit apparatus instead has exact entropy invariance and a full-mode continuum quasi-locality bound. Actual multi-ball matter/geometry stationarity remains open. Root gives an explicit full-3D locality constant. Literal moving-cell CAR entropy now has an independently checked shape derivative; finite-box uniform cancellation improves to 0.00697%, with observer-cell refinement still required. A fixed-region theorem now proves dense nested cell-CAR entropy converges to the full regional value; no numerical mesh-error or derivative-limit rate is inferred. The complete finite three-cosine joint entropy ansatz fits its six training equations but fails unused regions by up to 31.63 percent and 9.82 percent for the two source widths. This ansatz is rejected as a universal realization; it is not a no-go for continuous geometry. An actual neutral mixture controls the matter entropy error to at most 0.5 percent in nine inspected regions."
+    },
+    {
+      "id": "G2",
+      "rows": [
+        26,
+        27,
+        28
+      ],
+      "problem": "Joint gravity source, units and universality",
+      "observed_failure": "Conditional Einstein theorem has no exhibited common source satisfying all premises; G and capacity remain unresolved.",
+      "possible_solution": "Reuse responsive geometry sources; derive clock and stress transfer and independent normalization; retain failures.",
+      "completion_test": "Execute source/probe/clock records; prove theorem hypotheses with common domains and vanishing error; no target-fitted G or Lambda.",
+      "status": "open",
+      "evidence": [
+        "gravity/STATUS.json",
+        "gravity/joint_selection_audit/MANIFEST.json",
+        "gravity/entropy_equilibrium_candidate/RESULT.json",
+        "GRAVITY_KERNEL_PROOF.md",
+        "gravity/entropy_equilibrium_candidate/MANIFEST.json",
+        "GRAVITY_KERNEL_REVIEW.json",
+        "gravity/pure_neutral_slater/PLAN.md",
+        "gravity/lapse_response/MANIFEST.sha256",
+        "gravity/clock_join/MANIFEST.sha256",
+        "gravity/boost_orbit_observer/MANIFEST.sha256",
+        "continuum_locality_bound/MANIFEST.json",
+        "gravity/continuum_cell_regions/MANIFEST.sha256",
+        "cell_entropy_limit/MANIFEST.json"
+      ],
+      "latest_result": "The lapse produces a nonzero regional entropy response but no independent lapse-selection equation. A conditional raw432 clock identification would miss the gravitational normalization by about 1.65e37; the premises of that identification are unproved. No source-derived Einstein/Poisson response or common interacting clock has yet been constructed."
+    },
+    {
+      "id": "S10",
+      "rows": [
+        10
+      ],
+      "problem": "Neutrino mixing",
+      "observed_failure": "Uncalibrated angles miss; calibrated member supplies observed oscillation parameters.",
+      "possible_solution": "Test exact symmetry restrictions and noncommuting source mixing; determine independently fixed coefficients.",
+      "completion_test": "Three-flavour propagation and unused oscillation comparisons on one source, clock and energy map.",
+      "status": "failed_candidate_replaced_search_active",
+      "evidence": [
+        "species_leptons/RESULT.json",
+        "species_leptons/PROOF.md",
+        "species_leptons/next_family/MANIFEST.json",
+        "species_leptons/memory_complement/MANIFEST.json",
+        "species_leptons/neutral_chain/MANIFEST.json",
+        "NEUTRAL_CHAIN_REVIEW.json",
+        "species_leptons/neutral_paths/PLAN.md",
+        "species_leptons/neutral_paths/MANIFEST.json"
+      ],
+      "latest_result": "Both the 33-field neutral chain and the preregistered 63-field parallel-path extension fail physical mixing and splitting. The 63-field source retains all 126 doubled internal bands; independent interval reconstruction certifies all 63 poles and complete character/current records with error at most 4.796e-23. Its splitting ratio lies strictly between 33/10000 and 34/10000, excluding any overall-scale repair. A distinct source construction is required; no spatial interacting vacuum is inferred."
+    },
+    {
+      "id": "S11",
+      "rows": [
+        11
+      ],
+      "problem": "Lepton masses",
+      "observed_failure": "Declared register gives a coarse near-match with retrospective phase/balance selection and precision muon residual.",
+      "possible_solution": "Separate ancestry from algebra; examine source-selected register and corrections without fitting held-out masses.",
+      "completion_test": "Identified charged minima and mass ratios with independent coefficient ancestry and controlled uncertainty.",
+      "status": "open",
+      "evidence": [
+        "species_leptons/RESULT.json",
+        "species_leptons/mass_response/MANIFEST.json",
+        "species_leptons/chiral_service/MANIFEST.json",
+        "species_leptons/chiral_vacuum/MANIFEST.json",
+        "species_leptons/chiral_ring4/MANIFEST.json",
+        "species_leptons/chiral_ring4_coulomb/MANIFEST.json",
+        "species_leptons/chiral_ring4_fidelity/MANIFEST.json",
+        "vacuum_trace_review/MANIFEST.json"
+      ],
+      "latest_result": "The complete four-cell, sixteen-mode U1 wall ring now has a certified unique infinite-rotor vacuum. Root independently rebuilds all analytic bands and interval canonical traces, giving a neutral gap at least 1/6, K4 fidelity above 0.999998707 and actual vacuum Green error below 0.000793274. This closes the prepared-to-vacuum transfer for this one-spin, one-dimensional finite-volume source; physical poles, continuum chiral protection and charged-family ratios remain open."
+    },
+    {
+      "id": "S14",
+      "rows": [
+        14
+      ],
+      "problem": "Neutron/proton ordering and charge profile",
+      "observed_failure": "Ordering inherited from number-energy inputs; uncalibrated splitting too small; limited spatial profile.",
+      "possible_solution": "Common colour-bound source with operator-generated up/down splitting and complete profile.",
+      "completion_test": "Sign, size and physical spatial profile from same nucleon source; no inserted n-p target.",
+      "status": "partial_component_repair",
+      "evidence": [
+        "hadrons/RESULT.json",
+        "hadrons/NATIVE_RESULT.json",
+        "HADRON_CURRENT_REVIEW.json"
+      ],
+      "latest_result": "A positive current-square interaction with inherited U=1 opens the beta threshold at a gap of 1.11317360314 electron units, but its physical splitting remains wrong. The newer symmetric spin/flavour vacuum still leaves proton and neutron degenerate."
+    },
+    {
+      "id": "S15",
+      "rows": [
+        15
+      ],
+      "problem": "Absolute baryon masses",
+      "observed_failure": "Calibrated masses reproduce input; electron-normalized uncalibrated source is over 500 times too light.",
+      "possible_solution": "Derive hadronic energy scale and mass renormalization on same colour source; test variational restrictions first.",
+      "completion_test": "Proton/neutron energies in one electron-anchored unit map with no hadronic target inputs and controlled errors.",
+      "status": "open_with_exact_exclusions",
+      "evidence": [
+        "hadrons/README.md",
+        "hadrons/MASS_ALTERNATIVES_MANIFEST.json",
+        "hadrons/VACUUM_ALTERNATIVES_MANIFEST.json",
+        "hadrons/STAGGERED_VACUUM_RESULT.json",
+        "hadrons/STAGGERED_CHAIN4_RESULT.json",
+        "hadrons/CHAIN4_MANIFEST.json",
+        "hadrons/SPINFUL_MANIFEST.json",
+        "hadrons/SPIN_FLAVOUR_MANIFEST.json",
+        "SPIN_FLAVOUR_REVIEW_MANIFEST.json",
+        "hadrons/shared_auxiliary/MANIFEST.json",
+        "SHARED_AUXILIARY_REVIEW_MANIFEST.json",
+        "hadrons/auxiliary_spin_refinement/MANIFEST.json",
+        "BARYON_SPIN_REVIEW_MANIFEST.json",
+        "hadrons/auxiliary_current_block/MANIFEST.json"
+      ],
+      "latest_result": "The complete 625-auxiliary source certifies a spin/isospin-singlet vacuum and lowest spin-half/isospin-half baryons at kappa 1 and 2; root independently verifies actual current covariances, six exact Schur tests and literal trial bounds. Conditional mass intervals still exclude the proton at kappa 1/2 and 2, and remain broad at kappa 1. A retained 40-state current block improves upper energies but fails to improve lower bounds; complete 122/152/100 physical zero-auxiliary sectors are now being retained."
+    },
+    {
+      "id": "S17",
+      "rows": [
+        17
+      ],
+      "problem": "Nuclear levels and halo lifetimes",
+      "observed_failure": "Held-out helion/alpha masses miss; no halo lifetime observable.",
+      "possible_solution": "Reuse complete nuclear interaction; derive missing independently fixed terms and outgoing continuum channel.",
+      "completion_test": "Held-out binding/levels and lifetime records with retained channels on same nucleon source.",
+      "status": "open_with_exact_exclusions",
+      "evidence": [
+        "hadrons/RESULT.json",
+        "NUCLEAR_THRESHOLD_MANIFEST.json",
+        "hadrons/SPIN_FLAVOUR_MANIFEST.json",
+        "SPIN_FLAVOUR_REVIEW_MANIFEST.json",
+        "hadrons/shared_auxiliary/MANIFEST.json",
+        "baryon_mobility/MANIFEST.json",
+        "hadrons/mobility_review/MANIFEST.json"
+      ],
+      "latest_result": "Complete 8464-state local-singlet triple-CAR motion is now constructed from the same hopping: its third-order transfer term is -t^3/Delta^2 P K^3 P. Independent raw-CAR controls confirm its coefficient and fermion parity. Full-source B2 spectroscopy, effective remainder, spatial dispersion, physical binding and outgoing halo lifetime remain open."
+    },
+    {
+      "id": "S25",
+      "rows": [
+        25
+      ],
+      "problem": "Beta decay",
+      "observed_failure": "Calibrated n-p threshold and axial coefficient; original doubled kinetic law has mirror-even position emission.",
+      "possible_solution": "Verify Wilson regulator repair and native weak/current transfer; derive threshold/axial normalization independently.",
+      "completion_test": "Identified neutron decay with real-space parity-odd emission, full channels and physical time normalization.",
+      "status": "partial_component_repair",
+      "evidence": [
+        "species_leptons/RESULT.json",
+        "species_leptons/AMENDED_CURRENT.json",
+        "species_leptons/FOR_CODEX.md",
+        "species_leptons/AMENDED_BETA.json",
+        "species_leptons/AMENDED_PROOF.md",
+        "species_leptons/MANIFEST.json",
+        "species_leptons/axial_dirac_bridge/MANIFEST.json",
+        "species_leptons/auxiliary_current/MANIFEST.json",
+        "species_leptons/fractional_dirac/MANIFEST.json",
+        "AUXILIARY_BOUND_MANIFEST.json"
+      ],
+      "latest_result": "The complete local auxiliary still has gA greater than 25/18. A new U3 fractional-charge Dirac service passes its 192-state gauge and 1,024-state CAR controls, with both bands and the auxiliary operator map retained. The interacting vacuum, physical gA, native execution, and Maxwell transfer remain open."
+    },
+    {
+      "id": "C22",
+      "rows": [
+        22
+      ],
+      "problem": "Confinement colour and scale",
+      "observed_failure": "One Abelian source cannot supply both isolated electric anchor and string confinement; tension ~1e-4 GeV/fm.",
+      "possible_solution": "Separate colour Gauss register, derive colour/electric scale relation, and execute same-source potential.",
+      "completion_test": "Linear colour potential at physical scale with one units map and independently fixed regime/couplings.",
+      "status": "partial_object_repair_scale_open",
+      "evidence": [
+        "hadrons/README.md",
+        "hadrons/RESULT.json",
+        "hadrons/CHAIN4_MANIFEST.json",
+        "STATIC_COLOUR_MANIFEST.json"
+      ],
+      "latest_result": "The actual static-probe potential on the signed vacuum shows strong screening and nonmonotonic short-distance sequences. Exact screening trial states and all 12 bare-string controls pass. No linear regime, physical tension, or common spatial clock has been established."
+    },
+    {
+      "id": "P1",
+      "rows": [
+        1
+      ],
+      "problem": "Charge evidence and platform scope",
+      "observed_failure": "Native integer/topology result exists; continuous emergence, absolute charge, field response and platform interpretation disputed.",
+      "possible_solution": "Audit existing neutral-start/continuous-field additions and native response; keep official and scientific decisions distinct.",
+      "completion_test": "Complete declared-source charge observable and rejecting controls; official cell only after platform adjudication.",
+      "status": "partial_component_repair",
+      "evidence": [
+        "row1/ADAPTIVE_RESULT.json",
+        "row1/NEUTRAL_RECORD_RESULT.json",
+        "row1/README.md",
+        "row1/MANIFEST.json",
+        "hadrons/row1_review/RESULT.json",
+        "row1_v2/RESULT.json",
+        "row1_v2/PROOF.md",
+        "row1_v2/MANIFEST.json",
+        "../../../../openwave-push/reviews/ROW_01_INTERFACE_V2_FABLE_B/MANIFEST.json",
+        "row1_v3/PLAN.md",
+        "row1_v3/MANIFEST.json"
+      ],
+      "latest_result": "Independent B051 review confirms six v1 defects repaired by v2. Frozen v3 enforces its registered sweep order: 532 sweeps, 13,300 regional/effect reads, 684 charges of each sign, 81 positive and 88 negative complete readouts, and 4,788 computed exact joint laws all pass. Actual hidden-event controls retain 218 admitted wrong within-sweep charges and 3,420 undetected post-sweep changes. A faithful event channel and field regularity remain explicit premises; physical charge and platform status remain open."
+    },
+    {
+      "id": "J1",
+      "rows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "problem": "One construction and complete source transfer",
+      "observed_failure": "Results on separate laws, references and units do not automatically coexist.",
+      "possible_solution": "Require explicit state/operator/clock/instrument transfer for each repair and freeze input ancestry.",
+      "completion_test": "One compatible executable construction with complete observer records; distinct variants labelled.",
+      "status": "open",
+      "evidence": [
+        "hadrons/README.md",
+        "row1/README.md",
+        "gravity/README.md",
+        "species_leptons/fractional_dirac/MANIFEST.json",
+        "species_leptons/chiral_service/MANIFEST.json",
+        "gravity/continuum_source/MANIFEST.sha256",
+        "SOURCE_JOIN_REGISTER.md",
+        "gravity/clock_join/MANIFEST.sha256",
+        "gravity/boost_orbit_observer/MANIFEST.sha256",
+        "hadrons/auxiliary_spin_refinement/MANIFEST.json",
+        "continuum_locality_bound/MANIFEST.json",
+        "gravity/continuum_cell_regions/MANIFEST.sha256",
+        "cell_entropy_limit/MANIFEST.json",
+        "species_leptons/chiral_ring4_fidelity/MANIFEST.json",
+        "vacuum_trace_review/MANIFEST.json"
+      ],
+      "latest_result": "Explicit source-bound maps now include the four-cell wall source actual vacuum/current transfer, full interacting baryon spin certificates and continuum observer entropy/refinement/locality results. These remain different Hamiltonians, vacua and clocks. Physical pole, Maxwell, weak-current and curved-gravity joins are still required before their successes can form one solved construction."
+    }
+  ],
+  "failed_constructions": [
+    {
+      "id": "F-G-DIRAC-HANDLES",
+      "issues": [
+        "G1"
+      ],
+      "construction": "F087 fixed Dirac sin(H) lapse/rest/coframe rescaling",
+      "failure": "No correct universal area-curvature coefficient on tested fixed-site balls.",
+      "scope": "Specific handles; exact zero-q\u00b2 claim false at finite mass; fixed proper volume not tested.",
+      "replacement": "G-WILSON4"
+    },
+    {
+      "id": "F-G-WILSON2",
+      "issues": [
+        "G1"
+      ],
+      "construction": "quadratic Wilson proper-regulator candidate",
+      "failure": "Area scaling exponent about0.98 to1.18 rather than2 in tested regime.",
+      "scope": "Tested dictionary and resolutions; retained in REGULATOR_RESULT.",
+      "replacement": "G-WILSON4"
+    },
+    {
+      "id": "F-N-SINGLEPHASE",
+      "issues": [
+        "S10"
+      ],
+      "construction": "same-real-frame single projector phase",
+      "failure": "Symmetric modulus cannot realize cited mixing angles for any CP phase or neutral column permutation.",
+      "scope": "Exact restricted-family obstruction.",
+      "replacement": "N-THREEPULSE"
+    },
+    {
+      "id": "F-N-THREEPULSE",
+      "issues": [
+        "S10"
+      ],
+      "construction": "predeclared ascending word(2,3,10),phase-i",
+      "failure": "Angles .04438,.12345,.17804 miss cited .308,.02215,.470.",
+      "scope": "This target-independent word; noncommuting general family remains open.",
+      "replacement": "Next physically selected noncommuting source"
+    },
+    {
+      "id": "F-L-ASYMPTOTIC",
+      "issues": [
+        "S11"
+      ],
+      "construction": "unmodified asymptotic lepton register",
+      "failure": "Muon comparison residual about9.83ppm; phase/balance selection retrospective.",
+      "scope": "Uncorrected source/pole identification.",
+      "replacement": "Actual interacting mass-shell correction"
+    },
+    {
+      "id": "F-H-FLAVOURSCALAR",
+      "issues": [
+        "S14",
+        "S25"
+      ],
+      "construction": "vectorlike0<a<b<1 plus flavour-symmetric binding",
+      "failure": "Gap b-a<1 electron unit; ground beta threshold closed for whole family.",
+      "scope": "Cannot repair by increasing runs or common flavour-independent energy.",
+      "replacement": "H-CURRENTSQUARE"
+    },
+    {
+      "id": "F-H-EMONLY",
+      "issues": [
+        "S14"
+      ],
+      "construction": "positive grounded electric extension at inherited1/16",
+      "failure": "Gap decreases from.116633 to.095833 electron units.",
+      "scope": "Tested complete two-cell projected source.",
+      "replacement": "H-CURRENTSQUARE"
+    },
+    {
+      "id": "F-H-STRINGMASS",
+      "issues": [
+        "S15",
+        "C22"
+      ],
+      "construction": "increase colour tension on old positive local-singlet action",
+      "failure": "Zero-span singlet trial keeps E<=57/16 source units independent of kappa.",
+      "scope": "Old electron-normalized source; not all colour theories.",
+      "replacement": "Actual common-vacuum rest-mass construction"
+    },
+    {
+      "id": "F-H-DENSITY",
+      "issues": [
+        "S15"
+      ],
+      "construction": "positive colour-baryon density square",
+      "failure": "InheritedU1 stays MeV scale; archivedU2048 gives~1.048GeV and has unresolved coefficient ancestry.",
+      "scope": "These named coefficients; no fitted search promoted.",
+      "replacement": "Common kinetic and interacting vacuum source"
+    },
+    {
+      "id": "F-H-RAWLIGHT",
+      "issues": [
+        "S15"
+      ],
+      "construction": "raw432 or3600 lepton clock with old onsite J1/4",
+      "failure": "Spin-energy lower bound exceeds proton target:~1.59 or1.27GeV.",
+      "scope": "Retained imposed spin term; scale conversion alone cannot fix.",
+      "replacement": "Derive spin/kinetic interaction on shared vacuum"
+    },
+    {
+      "id": "F-NUC-OSCILLATOR",
+      "issues": [
+        "S17"
+      ],
+      "construction": "existing four-site oscillator lowering",
+      "failure": "Zero helion action and alpha lowering<=63.875keV against >11.69MeV residual.",
+      "scope": "This interaction; halo lifetime absent.",
+      "replacement": "Independent charge-dependent nuclear/current interaction"
+    },
+    {
+      "id": "F-C-ABELIAN",
+      "issues": [
+        "C22"
+      ],
+      "construction": "single electric Abelian integer flux at K6 with electron anchor",
+      "failure": "String tension~1e-4GeV/fm and isolated electric/self-energy anchor incompatible with same confinement regime.",
+      "scope": "Same Abelian field and unit map.",
+      "replacement": "Distinct colour Gauss source with derived common scale"
+    },
+    {
+      "id": "F-B-DOUBLER",
+      "issues": [
+        "S25"
+      ],
+      "construction": "unregulated p=2sin(theta) beta kinetic law",
+      "failure": "Staggered mirror makes real-space emission asymmetry vanish despite momentum-label asymmetry.",
+      "scope": "Old doubled kinetic and complete symmetric records.",
+      "replacement": "B-WILSON3D"
+    },
+    {
+      "id": "F-P-FIXEDSAMPLER",
+      "issues": [
+        "P1"
+      ],
+      "construction": "old row1 |F_e|<=3 sampler",
+      "failure": "Honest four-turn native history refused.",
+      "scope": "Sampling diagnostic, not integer topology theorem.",
+      "replacement": "P-ADAPTIVE"
+    },
+    {
+      "id": "F-H-J0",
+      "issues": [
+        "S15"
+      ],
+      "construction": "remove imposed spin J while retaining old positive hopping/colour action",
+      "failure": "Uniform kinetic-plus-colour lower bound1/4 still too heavy on raw lepton clock.",
+      "scope": "All finite pathsL>=2 in this source; positive vacuum/reference assumed.",
+      "replacement": "H-SIGNEDVACUUM"
+    },
+    {
+      "id": "F-H-SIGNEDVAC2",
+      "issues": [
+        "S15"
+      ],
+      "construction": "two-site fullCAR SU3 signed-hopping vacuum, inherited\u03ba.5,1,2",
+      "failure": "Generated masses.780724,.353111,.163155GeV miss proton; no spin/flavour/3D dictionary.",
+      "scope": "These coefficients and two-site source, not full lattice colour theory.",
+      "replacement": "H-SIGNEDVAC4"
+    },
+    {
+      "id": "F-G-RECIPROCAL-STATIONARITY",
+      "issues": [
+        "G2"
+      ],
+      "construction": "Existing reciprocal 16-state area/geometry feedback",
+      "failure": "Allowed fixed-geometry fixed-volume matter tangent gives deltaS=2.87663 and deltaA=0; stationary feedback is not entropy stationarity.",
+      "scope": "This source and admissible tangent; not all geometry laws.",
+      "replacement": "G-ENTROPY-PREPARATION"
+    },
+    {
+      "id": "F-N-INDEPENDENT-FRAMES",
+      "issues": [
+        "S10"
+      ],
+      "construction": "Actual432 charged frame with five-state neutral memory; four predeclared transports",
+      "failure": "All four mixing triples miss and neutral lightest eigenvalue is34.23 times charged electron. Real neutral-frame subset forces equal charged-row moduli.",
+      "scope": "These complete source joins; complex independent families not excluded.",
+      "replacement": "N-SCHUR-MEMORY"
+    },
+    {
+      "id": "F-L-BARE-EM-TRANSPLANT",
+      "issues": [
+        "S11"
+      ],
+      "construction": "Actual register coefficients transplanted to D3 free-filled-reference leading electromagnetic correction",
+      "failure": "Exact compact-shell lower bound2765/1966976 on electron-minus-muon fractional response exceeds1405.71ppm, overshooting~9.83ppm discrepancy.",
+      "scope": "Strict leading correction with this attachment; higher orders and physical interacting pole not controlled.",
+      "replacement": "Actual interacting family response; no empirical counterterm"
+    },
+    {
+      "id": "F-L-COARSE-CORNERS",
+      "issues": [
+        "S11"
+      ],
+      "construction": "D3 cached tiny-mass electron grid after bare coefficient transplant",
+      "failure": "Seven unrefined sine corners contribute244.008 of diagnostic244.262; point artifacts cannot be promoted to integral/pole. Deleting points also uncertified.",
+      "scope": "This quadrature and tiny masses; exact compact-shell bound remains valid.",
+      "replacement": "Uniform corner refinement with error or exact nonsingular bounds"
+    },
+    {
+      "id": "F-H-SIGNEDVAC4",
+      "issues": [
+        "S15"
+      ],
+      "construction": "Four-site fullCAR SU3 signed-hopping vacuum, inherited kappa.5,1,2",
+      "failure": "Generated gap intervals near.541545,.271998,.140455GeV all miss, with material two-to-four-site volume shift.",
+      "scope": "Complete finite source; no physical spin/flavour/3D or continuum transfer.",
+      "replacement": "H-SPINFUL-VACUUM"
+    },
+    {
+      "id": "F-H-SPINFUL-TWOCELL",
+      "issues": [
+        "S14",
+        "S15"
+      ],
+      "construction": "Two-cell physical-spin SU3 vacuum with one flavour",
+      "failure": "Actual lowest baryon is spin3/2; spin1/2 exists only at6.45,11.12,21.95GeV for inherited couplings.",
+      "scope": "Complete finite source and all physical-spin sectors; no global exclusion of spin-flavour theory.",
+      "replacement": "H-SPINFLAVOUR-VACUUM"
+    },
+    {
+      "id": "F-NUC-SIGNEDVAC4",
+      "issues": [
+        "S17"
+      ],
+      "construction": "Four-site signed-colour vacuum as two-baryon binding candidate",
+      "failure": "Exact E12+E6\u22122E9 is positive at all three couplings, excesses.825626,.383071,.172526GeV on conditional clock. Leading virtual density interaction is repulsive.",
+      "scope": "Same-box test; N12 saturates box. No infinite-volume no-binding theorem or physical nucleon identification.",
+      "replacement": "Derived spin-flavour exchange plus genuine relative-coordinate channel"
+    },
+    {
+      "id": "F-N-MEMORY-MASS",
+      "issues": [
+        "S10",
+        "S11"
+      ],
+      "construction": "Existing recorded five-state memory complement as proposed neutral hierarchy",
+      "failure": "Complement poles have relaxation gap11/12, not sterile mass; completeCQ channel is dissipative and retains large leading Y coefficients. First coherent diagonal correction vanishes.",
+      "scope": "Actual recorded reset instrument; coherent service must be a new source.",
+      "replacement": "N-COHERENT-CHAIN"
+    },
+    {
+      "id": "F-N-COHERENT-CHAIN",
+      "issues": [
+        "S10"
+      ],
+      "construction": "Declared five-stage coherent sterile chain with native terminal Y",
+      "failure": "Lightness mechanism succeeds but atmospheric squared splitting.0161237eV\u00b2 and both mixing orientations miss. Heavy current weight~1/144 retained.",
+      "scope": "Declared33-field source; clock/native/interacting transfer unproved. Not a no-go for hierarchical mechanisms.",
+      "replacement": "Independent family dynamics; no target-selected terminal function"
+    },
+    {
+      "id": "F-G-ENTROPY-SELECTOR",
+      "issues": [
+        "G2"
+      ],
+      "construction": "Finite27-cell scalar entropy-feedback law with expected-volume region selector",
+      "failure": "Fits27 training entropies to4.8e-14 but withheld orientations residual3.9201; all81 equations residual2.5747. Selector response comparable to field response and nonzero uniform mode.",
+      "scope": "Coarse expected-volume model with no cutoff/ball separation; not literal fixed-volume or continuum no-go.",
+      "replacement": "G-COVARIANT-PULLBACK"
+    },
+    {
+      "id": "F-G-DIGITAL-SHAPE",
+      "issues": [
+        "G1",
+        "G2"
+      ],
+      "construction": "Isotropic neutral ensemble plus independently estimated digital-ball radius secants",
+      "failure": "Broad slope gives0.42percent held-radius agreement atq1, but narrow slopes disagree and q0 residual remains. Apparent profile depends on unvalidated shape derivative.",
+      "scope": "Finite digital shape dictionary; isotropic-source kernel agreement itself passes.",
+      "replacement": "G-COVARIANT-PULLBACK"
+    },
+    {
+      "id": "F-B-SPIN-AS-DIRAC",
+      "issues": [
+        "S25"
+      ],
+      "construction": "Existing two-spin colour source treated as full massive Dirac current carrier",
+      "failure": "Two local spin coordinates cannot supply3 spatialPauli alpha plus nonzero anticommuting beta; changing states without operator transport falsely drivesgA to0. Unit-charge Dirac source has no charge-preserving embedding of both fractional quarks.",
+      "scope": "Existing named local charge/spin dictionaries; actual extra Dirac service or staggered reconstruction remains allowed.",
+      "replacement": "B-FRACTIONAL-DIRAC-SERVICE"
+    },
+    {
+      "id": "F-B-AUXILIARY-STAR",
+      "issues": [
+        "S25"
+      ],
+      "construction": "Full positive-gap one-adjoint/vector-excitation dressing of local triquark source",
+      "failure": "Exact full-currentgA=(5/3)(1\u2212s\u00b2/3)>25/18. Fixed inherited couplings give1.652412,1.662887,1.665707; cannot reach physicaltarget within thisfamily.",
+      "scope": "Complete80-state physical sector of declared5500-state carrier; no exclusion of richer Dirac or auxiliary sources.",
+      "replacement": "B-FRACTIONAL-DIRAC-SERVICE"
+    },
+    {
+      "id": "F-C-BARE-TO-STATIC",
+      "issues": [
+        "C22"
+      ],
+      "construction": "Bare string coefficient identified as potential in four-site signed vacuum",
+      "failure": "Actual complete static-probe Cartan source stronglyscreens. Allthree finitepotentialsequences rise atd1,2 thenfall atd3; no linear regime in testedwindow. Exact screenedlocalGauss trials have zeroelectricfield.",
+      "scope": "NumericalRitz potentials with exacttrialupperbound on thisfinite1Dbox; no universal confinement no-go.",
+      "replacement": "Larger geometric/magnetic source and controlled intermediate-distance potential"
+    },
+    {
+      "id": "F-H-SU4-SOURCE",
+      "issues": [
+        "S14",
+        "S15",
+        "S17"
+      ],
+      "construction": "Complete 24-mode, two-cell SU3 spin/flavour vacuum at inherited couplings",
+      "failure": "All 129 energy certificates pass, but baryon masses 1.462435, 0.803376, and 0.370927 GeV miss. Nucleon/Delta and proton/neutron degeneracies remain. Binding is positive but does not reproduce physical nuclei.",
+      "scope": "This complete finite SU4 source. Binding and spin-half states are successful components.",
+      "replacement": "H-SHARED-AUXILIARY"
+    },
+    {
+      "id": "F-G-COVARIANT-ORDER2",
+      "issues": [
+        "G1"
+      ],
+      "construction": "Covariant proper-regulator field and geometric CAR pullback with ordinary spatial differences",
+      "failure": "At matched R/h=1.5 and radius 4.5, the uniform residual contaminates the first curvature signal by 57%, failing the unchanged 10% gate.",
+      "scope": "A finite representation and observer-map failure. The larger R/h=2 run stopped for resources, not a physical contradiction.",
+      "replacement": "G-IMPROVED-COVARIANT"
+    },
+    {
+      "id": "F-P-GENERATED-FIELD",
+      "issues": [
+        "P1"
+      ],
+      "construction": "v1 adaptive reader constructs the field from its claimed tape and drops field closure checks",
+      "failure": "The comparison is an identity; an unglued mutant is returned with degree about -0.034.",
+      "scope": "Frozen85f9eefc interface; the adaptive resolution theorem itself is valid.",
+      "replacement": "P-INDEPENDENT-FIELD"
+    },
+    {
+      "id": "F-P-PREPARATION-DEPENDENT",
+      "issues": [
+        "P1"
+      ],
+      "construction": "v1 neutral observer reconstructs from a remembered uniform start and prepared pair",
+      "failure": "No per-port array enters, but charge extraction still depends on the preparation history.",
+      "scope": "An observer-interface limitation, not a failure of the native invariant sector.",
+      "replacement": "P-CLOSING-ONLY"
+    },
+    {
+      "id": "F-L-WILSON-AXIAL",
+      "issues": [
+        "S11",
+        "J1"
+      ],
+      "construction": "Wilson or quartic beta regulator protected only by an energy-reflection grading",
+      "failure": "The physical axial charge does not commute with the beta term; the stated symmetries permit an additive mass.",
+      "scope": "Symmetry protection fails; this is not a computation of the full interacting mass.",
+      "replacement": "L-DOMAIN-WALL"
+    },
+    {
+      "id": "F-L-OVERLAP-ELECTRIC",
+      "issues": [
+        "S11",
+        "J1"
+      ],
+      "construction": "fixed-background spatial overlap axial charge transferred to a dynamical compact rotor",
+      "failure": "Exactly ||[E^2,q5] f_constant||=1/2; varying axial eigenvalues prevent a Berry commutator repair.",
+      "scope": "This spatial-overlap charge and electric Hamiltonian; no general overlap no-go.",
+      "replacement": "L-DOMAIN-WALL"
+    },
+    {
+      "id": "F-H-SHARED-AUX-KAPPA2",
+      "issues": [
+        "S15"
+      ],
+      "construction": "full625 shared-vacuum auxiliary source at inherited kappa2 as the lowest physical baryon",
+      "failure": "Exact gap enclosure[0.241161,0.678238]GeV excludes proton on the conditional raw432 map.",
+      "scope": "Lowest B1 line at kappa2 and this unit map; arbitrary higher excited lines and other couplings are not excluded.",
+      "replacement": "H-FULL-SPIN-BOUNDS"
+    },
+    {
+      "id": "F-H-EFFECTIVE-TRANSFER",
+      "issues": [
+        "S15",
+        "S17"
+      ],
+      "construction": "second-order local-singlet effective operator promoted to the full625 source",
+      "failure": "Uniform remainder has no positive resolvent margin at kappa1/2,1; at kappa2 it is1.016959 source units and too broad to transfer the effective baryon spin.",
+      "scope": "Failure of this quantitative remainder estimate, not a no-go for the full Hamiltonian.",
+      "replacement": "H-FULL-SPIN-BOUNDS"
+    },
+    {
+      "id": "F-G-QUARTIC-BOOST",
+      "issues": [
+        "G1",
+        "G2",
+        "J1"
+      ],
+      "construction": "quartic proper-regulator vacuum with weighted-energy boosts and tilted local spinor sampling",
+      "failure": "Exact boost defect4(Rp)^6 and extra real UV branches make the sampled tilted-plane covariance mixed; it is not the complete Cauchy vacuum.",
+      "scope": "This quartic time generator and four-component tilted sampling; finite entropy and spatial covariance remain valid.",
+      "replacement": "G-FLATTENED-GENERATOR"
+    },
+    {
+      "id": "F-L-ONECELL-WALL-VACUUM",
+      "issues": [
+        "S11",
+        "J1"
+      ],
+      "construction": "actual compact one-loop gauge rotor and full S2/S4 wall Fock vacuum",
+      "failure": "At zero input mass the vacuum puts at least95.3% probability in W>=1, violating the scalar localization hypothesis; charged-reference gaps remain large.",
+      "scope": "This finite one-cell loop with explicit charge references; no continuum pole or general domain-wall exclusion.",
+      "replacement": "L-MULTICELL-WALL"
+    },
+    {
+      "id": "F-G-FLAT-LOCAL-REGION",
+      "issues": [
+        "G1",
+        "G2",
+        "J1"
+      ],
+      "construction": "Flattened relativistic source with canonical positive-whitened tilted-plane local regions",
+      "failure": "At speed 0.6 the parallel proper-area coefficient is approximately half its rest value; halving normal spacing changes the values by less than one percent. Strict microscopic locality also fails.",
+      "scope": "The specified canonical local-plane apparatus, not the alternative boost-orbit apparatus or all continuum gravity.",
+      "replacement": "G-BOOST-ORBIT"
+    },
+    {
+      "id": "F-H-SPIN-REFINED-KAPPAHALF",
+      "issues": [
+        "S15"
+      ],
+      "construction": "Lowest baryon of the unchanged full625 auxiliary source at kappa 1/2 with the conditional raw432 energy map",
+      "failure": "Improved exact gap enclosure [1.059059714,2.195481157] GeV excludes the proton from below.",
+      "scope": "This source member and conditional unit identification; no general baryon or OPH exclusion.",
+      "replacement": "H-CURRENT-BLOCK"
+    },
+    {
+      "id": "F-G-CLOCK-RAW432",
+      "issues": [
+        "G2",
+        "J1"
+      ],
+      "construction": "Hypothetically identifying the raw432 bare mass slot with the responding gravity source clock and imposing the unproved Einstein premises",
+      "failure": "The resulting conditional dimensionless electron gravitational coupling is about 1.65e37 times the observed value.",
+      "scope": "Diagnostic incompatibility of simultaneous extra premises, not a valid OPH prediction; the interacting pole and clock transfer are absent.",
+      "replacement": "G-COMMON-CLOCK"
+    },
+    {
+      "id": "F-P-INCOMPLETE-CHANNEL",
+      "issues": [
+        "P1"
+      ],
+      "construction": "Thirty closing contrasts treated as a terminal charge observation without a complete source-event channel",
+      "failure": "Independent review B051 admits 3 of 400 concealed within-sweep transfers with a charge different from the true endpoint; later concealed motion is also indistinguishable.",
+      "scope": "A limit of this record-only observer when its channel premise is violated. It is not proof that faithful native records are impossible.",
+      "replacement": "P-FIXED-POLICY"
+    },
+    {
+      "id": "F-G-FINITE-BOOST-CLOSURE",
+      "issues": [
+        "G1",
+        "J1"
+      ],
+      "construction": "Complete finite Fourier boost closure used as a continuum spacelike operator-norm test",
+      "failure": "Sizable spacelike overlaps occur even for the exactly local continuum Dirac control because all finite momentum-edge modes are retained.",
+      "scope": "Failure of this finite approximation for the complete-mode locality observable; the separate continuum derivative bound avoids the cutoff.",
+      "replacement": "G-BOOST-ORBIT"
+    },
+    {
+      "id": "F-H-CURRENT-BLOCK-LOWER",
+      "issues": [
+        "S15",
+        "S17"
+      ],
+      "construction": "Forty-state actual low-quark/current block with complete H-squared leakage and uniform remaining complement bounds",
+      "failure": "All six variational upper endpoints and twelve exact positivity tests pass, but neither proposed lower-bound method improves the older twenty-state Schur bound. The new estimates still lose too much into other low quark representations.",
+      "scope": "Failure of these lower-bound estimates, not of the unchanged full625 Hamiltonian. Improved upper bounds and the older stronger lower bounds are retained.",
+      "replacement": "H-FULL-P0-SECTORS"
+    },
+    {
+      "id": "F-N-PARALLEL-PATH-SCALE",
+      "issues": [
+        "S10"
+      ],
+      "construction": "Preregistered 63-field parallel-path neutral source, all 126 doubled internal bands retained",
+      "failure": "Exact complete pole intervals bound the splitting ratio strictly between 33/10000 and 34/10000; mixing and splittings fail the physical comparison. An overall mass rescaling preserves this ratio and cannot repair the mismatch.",
+      "scope": "Finite internal one-particle source and complete character/current records; no computed spatial Fock vacuum. Independent interval reconstruction certifies all 63 poles and complete five-outcome records, with record error at most 4.796e-23.",
+      "replacement": "A distinct preregistered source construction with explicit input ancestry; no target-selected phase/path scan is treated as prediction.",
+      "evidence": [
+        "species_leptons/neutral_paths/MANIFEST.json"
+      ],
+      "manifest_sha256": "5254c5d4cc31a295ed0fbfdb96a1634110e255aff6830096e09b394ec9cef4f5"
+    },
+    {
+      "id": "F-G-JOINT-COSINE-HELDOUT",
+      "issues": [
+        "G1",
+        "G2"
+      ],
+      "construction": "Actual continuum cell-CAR joint entropy selection with three separable cosine field modes and rest-slice source regions",
+      "failure": "The six-variable rank-six fit interpolates its six equations to below 5.4e-15 but fails unused regions by 31.63 percent and 9.82 percent for the two source widths. Condition number is about 4.79e4.",
+      "scope": "Three-mode finite ansatz, fixed cell/box and rest-slice observers. This excludes that fit as a universal entropy-stationary construction, not continuous gravity in principle. The complete neutral-mixture matter entropy has an independent finite-amplitude bound.",
+      "replacement": "Covariant proper-cutoff and evolved-reference transport; full unused observer/region tests with controlled continuum errors.",
+      "evidence": [
+        "gravity/joint_continuum_entropy/MANIFEST.sha256"
+      ],
+      "manifest_sha256": "c06f6f0080c393e1febd2ae37d194b6152521de4400d74be1c81baf6ebd3eb19"
+    }
+  ],
+  "source_join_statement": "Separate constructions require explicit state, operator, reference and clock transfer before joint physical claims.",
+  "physical_rows_solved": false,
+  "official_rows_changed": false,
+  "owning_papers": [
+    "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+    "paper/executable_observer_construction.tex"
+  ]
+}

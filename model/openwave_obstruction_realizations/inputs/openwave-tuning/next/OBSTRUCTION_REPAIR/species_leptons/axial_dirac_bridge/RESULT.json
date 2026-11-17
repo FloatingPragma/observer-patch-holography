@@ -1,0 +1,94 @@
+{
+  "schema": "oph.axial_dirac_transfer_audit.v1",
+  "input_sha256": {
+    "openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/axial_dirac_bridge/PLAN.md": "5a1a895761f2030ebd2c4208ef82a3a9fe7a03bf5645c55d3447759235d9f586",
+    "openwave-tuning/next/CHAIN7/color_weak_native_join/PROOF.md": "5c539f4c71775cecaf472c460005c5584226d0978f830704adf727d1392d7fec",
+    "reverse-engineering-reality/model/openwave_common_mass_source/source.py": "eaba8b325d9623eaba5c061f4efba7044918029895815a66f32d10e0661cd7a2",
+    "reverse-engineering-reality/model/openwave_boosted_records/source.py": "80c81ed6100e167432d6d59516ca5765a53c210d96a1eb4b6eef193806da035a",
+    "openwave-tuning/common_dynamics/autonomous_dirac/PROOF.md": "6292f06bdc08de115780ab9d64720aaf0ce7061e92496486960a9877268572c5",
+    "openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/amended_current.py": "362d8ac4825f0e5bd027551046e82ed35b93d953d0d46a8e6fb9ecffdb693f15",
+    "openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/AMENDED_CURRENT.json": "69570cd4e7133367afd4a0bfa197ec663faa912df920410ba0b4de90f4718095",
+    "openwave-tuning/next/OBSTRUCTION_REPAIR/hadrons/audit.py": "3d51ee19d062dc3d508780dacb48007ff7a0eeb925e10da3860fa5ef268d929e",
+    "openwave-tuning/next/OBSTRUCTION_REPAIR/hadrons/inputs/0_source.py": "5dbc93e03ef0c34c1bb05045ddf352c92ea21693a4bf51826a5e1e44c03d86c4"
+  },
+  "local_massive_3plus1_Dirac_spin2_extension_exists": false,
+  "local_Clifford_scope": "fixed cell and fixed weak/colour charge: two physical spin coordinates; all3 spatial Pauli alphas held fixed",
+  "beta_anticommutant_solution": {
+    "b0": "0",
+    "b1": "0",
+    "b2": "0",
+    "b3": "0"
+  },
+  "unit_charge_Dirac_to_fractional_quark_intertwiner_exists": false,
+  "charge_scope": "single unit-charge one-particle carrier preserving the same charge observable; does not exclude an amended fractional-charge field source",
+  "exact_positive_spinor_isometry": true,
+  "exact_both_band_completeness": true,
+  "exact_positive_axial_projection": [
+    [
+      [
+        "px*pz/(E*(E + m))",
+        "(E*m + m**2 + px**2 - I*px*py)/(E*(E + m))"
+      ],
+      [
+        "(E*m + m**2 + px**2 + I*px*py)/(E*(E + m))",
+        "-px*pz/(E*(E + m))"
+      ]
+    ],
+    [
+      [
+        "py*pz/(E*(E + m))",
+        "-I*(E*m + m**2 + I*px*py + py**2)/(E*(E + m))"
+      ],
+      [
+        "I*(E*m + m**2 - I*px*py + py**2)/(E*(E + m))",
+        "-py*pz/(E*(E + m))"
+      ]
+    ],
+    [
+      [
+        "(E*m + m**2 + pz**2)/(E*(E + m))",
+        "pz*(px - I*py)/(E*(E + m))"
+      ],
+      [
+        "pz*(px + I*py)/(E*(E + m))",
+        "-(E*m + m**2 + pz**2)/(E*(E + m))"
+      ]
+    ]
+  ],
+  "exact_positive_vector_projection": [
+    "I",
+    "px I/E",
+    "py I/E",
+    "pz I/E"
+  ],
+  "exact_positive_axial_time_projection": "(p dot sigma)/E",
+  "isotropic_factor": "1/3+2m/(3E), conditional on an isotropic separable orbital average",
+  "physical_baryon_axial_factor_computed": false,
+  "actual_amended_source_control": {
+    "dimension": 120,
+    "original_vector": 0.9997181836196111,
+    "original_axial": 1.6659573521761073,
+    "consistently_transported_vector": 0.999718183619611,
+    "consistently_transported_axial": 1.6659573521761073,
+    "state_rotated_current_not_transported_vector": 0.999718183619611,
+    "state_rotated_current_not_transported_axial": -2.9043434324194095e-13,
+    "exact_charge_commutator_zero": true,
+    "current_transport_error": 1.1102230246251565e-16
+  },
+  "existing_bridges": {
+    "CHAIN7": "spin2 x weak2 quarks; zero free lepton generator; explicitly not identified with193-mode Dirac source",
+    "common192_CAR": "144 colourful modes use number/scalar hopping; Bogoliubov Dirac squares are installed only on48 lepton modes",
+    "boosted_records": "positive lepton kinetic extension on one-lepton/quark-vacuum reducing sector",
+    "autonomous_Dirac": "four spin components, unit electric charge, actual field/clock; no colour/weak quark attachment"
+  },
+  "missing_transfer": [
+    "extra Dirac/chiral quark coordinates or a proved staggered reconstruction retaining local charge",
+    "same-source relativistic quark Hamiltonian and interacting reference/ground",
+    "fractional electric and colour Gauss operator map",
+    "charged vector/axial current intertwining and complement leakage",
+    "shared kinetic/rest/field clock and units"
+  ],
+  "source_changed": false,
+  "empirical_axial_parameter_inserted": false,
+  "physical_axial_ratio_solved": false
+}

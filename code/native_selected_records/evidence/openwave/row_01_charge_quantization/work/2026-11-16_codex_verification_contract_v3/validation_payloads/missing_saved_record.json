@@ -1,0 +1,16 @@
+{
+  "label": "missing_saved_record",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_charge.py",
+    "--verify",
+    "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/missing.json"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_charge.py\", line 197, in <module>\n    _verify_or_record(_verification_payload)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_charge.py\", line 190, in _verify_or_record\n    expected = json.loads(saved.read_text())\n                          ~~~~~~~~~~~~~~~^^\n  File \"/Users/muellerberndt/.pyenv/versions/3.13.7/lib/python3.13/pathlib/_local.py\", line 546, in read_text\n    return PathBase.read_text(self, encoding, errors, newline)\n           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/.pyenv/versions/3.13.7/lib/python3.13/pathlib/_abc.py\", line 632, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:\n         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/.pyenv/versions/3.13.7/lib/python3.13/pathlib/_local.py\", line 537, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/missing.json'\n",
+  "expected_success": false,
+  "passed": true,
+  "seconds": 0.2197264999995241
+}

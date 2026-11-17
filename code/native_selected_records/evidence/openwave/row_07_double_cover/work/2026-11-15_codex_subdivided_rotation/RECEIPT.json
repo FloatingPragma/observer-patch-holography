@@ -1,0 +1,29 @@
+{
+  "candidate": "A-native-subdivided-observer-rotation-v3",
+  "official_status": "untested",
+  "G6": false,
+  "G9": false,
+  "claim": "Native observer-frame-driven planar holonomy with full-turn negative and two-turn positive interference, fine actual turns, same-geometry changed-law control and process preparation.",
+  "scope_excludes": [
+    "arbitrary-axis SO3",
+    "exchange statistics",
+    "standalone common charge/energy award"
+  ],
+  "records": {
+    "PILOT_RECEIPT.json": "b49b4b7dec637750b519cb1f92e3be9fdca9112664a174b9d3b0e41f80a4baf3",
+    "CONFIRM_RECEIPT.json": "80fe51683643d07c534ac11ac9c24468cf80d77b2a44a69b24e9d7290d495f30",
+    "ERROR_RECEIPT.json": "bcb458588b4dca31dd921891f3acafb39c5e703a142ad1309cc6329fe93038cc",
+    "COHERENCE_RECEIPT.json": "6be269e297e36c6c98370b46afb278bbb76b24f72533f1231f2e118dd0fdcbc5",
+    "SELECTOR_RECEIPT.json": "d1b015e50c9d2465e84b3fe15b567dd0e2b66da19f34e87f30fd8e45d2421dba",
+    "FIXED_REFERENCE_RECEIPT.json": "8f21dc19eec89f9a8ec9068281f76899dbc388e7d73a4bba6daf53151a704c17",
+    "INDEPENDENT_CHECK.json": "fb18c66659d8ef5a765c636c51ff40f19e876ff140599787e1b8b9aa29e04cf0",
+    "INDEPENDENT_ERROR.json": "c48f9b3843da33c39d4dbc5c64c25c32890e0ba6a930bd8c193684208308eebc",
+    "INDEPENDENT_FIXED_REFERENCE.json": "54aa53f29efcdea1098cd4e4fa6ba94941db7fb710a09781abac184c6c846c0e",
+    "DETECTOR_CHECK.json": "17cfe1cc8529233193e50e31f920a0ac0510d9d080b295a416de6a36114552c5",
+    "HEADLINE.json": "2abd0553782bb02d4a304b638c36e31448e65c377080e4ba8b3d26837483b48d",
+    "VALIDATION.json": "68e7b53f6eccd5be7bbf9af7f6cfeb8f4f1a775b88613c8bcc628d56ae3450db"
+  },
+  "all_original_pilots_and_unfavorable_cases_retained": true,
+  "native_runtime_counts": "METHOD.md",
+  "primary_payload": "headline.py"
+}

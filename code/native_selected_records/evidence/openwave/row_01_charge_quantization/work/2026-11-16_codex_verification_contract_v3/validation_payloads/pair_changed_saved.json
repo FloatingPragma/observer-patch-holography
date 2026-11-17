@@ -1,0 +1,14 @@
+{
+  "label": "pair_changed_saved",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_pair.py"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_pair.py\", line 114, in <module>\n    _verify_or_record(_verification_payload)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_pair.py\", line 108, in _verify_or_record\n    _require(json.dumps(actual, sort_keys=True, allow_nan=False) ==\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n             json.dumps(expected, sort_keys=True, allow_nan=False),\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n             'Saved evidence differs; verification never replaces it: '+str(saved))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_pair.py\", line 10, in _require\n    raise AssertionError(message)\nAssertionError: Saved evidence differs; verification never replaces it: /private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/data/m10_4_pair_summary.json\n",
+  "expected_success": false,
+  "passed": true,
+  "seconds": 0.05367100000148639
+}

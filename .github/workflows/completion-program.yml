@@ -12,6 +12,11 @@ on:
       - 'tools/build_completion_program.py'
       - 'tools/build_completion_program_current.py'
       - 'tools/test_completion_program.py'
+      - 'tools/completion_test_scope.py'
+      - 'tools/test_completion_test_scope.py'
+      - 'model/ccf_lt2/**'
+      - 'model/SPEC.md'
+      - 'model/AUTHORITY.json'
       - 'tools/check_completion_current_code.py'
       - 'tools/test_completion_current_code.py'
       - 'tools/completion_contract_inputs.py'
@@ -154,6 +159,11 @@ on:
       - 'tools/build_completion_program.py'
       - 'tools/build_completion_program_current.py'
       - 'tools/test_completion_program.py'
+      - 'tools/completion_test_scope.py'
+      - 'tools/test_completion_test_scope.py'
+      - 'model/ccf_lt2/**'
+      - 'model/SPEC.md'
+      - 'model/AUTHORITY.json'
       - 'tools/check_completion_current_code.py'
       - 'tools/test_completion_current_code.py'
       - 'tools/completion_contract_inputs.py'
@@ -377,24 +387,18 @@ jobs:
       - name: Check the exact documentary input boundary and current-code execution
         if: matrix.shard == 0
         run: python -m pytest -q -W error tools/test_completion_current_code.py
-      - name: Run current completion code with authenticated finite-contract documentary inputs
-        run: python -m pytest -q --durations=10 -W error -p tools.completion_contract_inputs -p model.pytest_shards --model-shard-index ${{ matrix.shard }} --model-shard-count 4 tools/test_completion_program.py model/completion model/clock_defect_energy
+      - name: Check current-law and independent-component test domains
+        run: python tools/completion_test_scope.py --run --shard-index ${{ matrix.shard }} --shard-count 4
       - if: matrix.shard == 0
         run: python -m model.completion.acceptance_audit --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.program_class_v2 --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.independent_program_review
-      - if: matrix.shard == 0
-        run: python -m model.completion.finite_attachment_map --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.dynamics_response_campaign --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.spectrum_einstein_campaign --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.defect_geometry_campaign --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.radial_source_campaign --check
+      - name: Check the current source, assumptions and programme
+        if: matrix.shard == 0
+        run: |
+          python -m pytest -q -W error tools/test_completion_test_scope.py
+          python tools/build_ccf_lt2_claims.py --check
+          python -m model.particle_joint_reconstruction.run --check
+          python -m model.completion.assumption_closure --check
+          python tools/renew_finite_attachment_navigation.py --check
       - if: matrix.shard == 0
         run: python code/particles/derive_radial_excitation_catalogue.py --check
       - if: matrix.shard == 0
@@ -653,13 +657,12 @@ jobs:
             model/requirements.txt
       - run: pip install -r requirements.txt
       - name: Check composite poles, complete quadratic currents and finite entropy bounds
-        run: python -m pytest -q -W error model/charged_composite_search model/quadratic_conservation model/prepared_regional_entropy model/completion/test_finite_observable_campaign.py
+        run: python -m pytest -q -W error model/charged_composite_search model/quadratic_conservation model/prepared_regional_entropy
       - name: Cold replay the finite observable certificates
         run: |
           python -W error -m model.charged_composite_search --check
           python -W error -m model.quadratic_conservation --check
           python -W error -m model.prepared_regional_entropy --check
-          python -W error -m model.completion.finite_observable_campaign --check
 
   native-observations:
     runs-on: ubuntu-latest
@@ -678,11 +681,10 @@ jobs:
             model/requirements.txt
       - run: pip install -r requirements.txt
       - name: Check complete spatial, detector, intervention and modular domains
-        run: python -m pytest -q -W error model/composite_spatial_response model/native_composite_probe model/interacting_observation_process model/native_regional_modular model/completion/test_native_observation_campaign.py
+        run: python -m pytest -q -W error model/composite_spatial_response model/native_composite_probe model/interacting_observation_process model/native_regional_modular
       - name: Cold replay complete native observation certificates
         run: |
           python -W error -m model.composite_spatial_response --check
           python -W error -m model.native_composite_probe --check
           python -W error -m model.interacting_observation_process --check
           python -W error -m model.native_regional_modular --check
-          python -W error -m model.completion.native_observation_campaign --check

@@ -21,13 +21,8 @@ from pathlib import Path
 import numpy as np
 
 from tools import strict_json
+from tools.pin_scope import repo_sha256
 from ..local_repair_family import local_bias, modular_clock
-try:
-    from tools.pin_scope import bound_pins, repo_sha256
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, repo_sha256
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_BINDINGS = {
@@ -168,8 +163,6 @@ def field_capacity(side):
 def report(root=ROOT):
     check_bindings(root)
     root = Path(root)
-    program = strict_json.load(root/'claims/completion_program.json')
-    stages = {row['id']: row for row in program['stages']}
     clock = strict_json.load(root/'model/particle_clock/results.json')
     if clock['field_dictionary']['beta_times_U'] != 'log(25/8)':
         raise ValueError('the source/field clock calibration changed')
@@ -178,17 +171,14 @@ def report(root=ROOT):
     return {
         'schema': 'oph.completion.acceptance_audit.v1',
         'scope': 'finite inherited-product-reference clock extension exclusion',
-        'source_bindings': bound_pins(dict(SOURCE_BINDINGS)),
+        'source_bindings': dict(SOURCE_BINDINGS),
         'native_reference_level_multiplicities': dict(native_levels()),
         'native_tensor_reference': '(64/7505)^n*(25/8)^m, integer0<=m<=2n',
         'spectral_certificate': spectral_certificate(),
         'capacity': [field_capacity(side) for side in (4, 6, 8, 12, 16)],
-        'gate_dependencies': {
-            gate: {'registry_status': stages[gate]['status'],
-                   'unaccepted_predecessors': [p for p in stages[gate]['requires']
-                                               if stages[p]['status'] != 'ACCEPTED']}
-            for gate in ('CP-00', 'CP-01', 'CP-13')},
-        'boundary_status': program['boundary_status'],
+        'official_model': 'CCF-LT-2',
+        'source_domain': 'independent native product-reference and eta-calibrated pair component',
+        'applies_to_official_model': False,
         'accepted_gate_changes': [],
         'whole_program_falsified': False,
         'canonical_premises_discharged': [],

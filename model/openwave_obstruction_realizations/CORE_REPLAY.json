@@ -1,0 +1,61 @@
+{
+  "schema": "oph.obstruction_realizations.verification.v1",
+  "export_manifest_sha256": "eed5604bb28029e6fd0ffec26f59aeb0a9b39283f7dfa5b9bb3adf1f0e168b85",
+  "files_checked": 888,
+  "mathematical_receipts": {
+    "kernel_bound": "2359296/6103515625",
+    "cell_controls": 6,
+    "vacuum_cases": 4,
+    "charge_laws": 4788,
+    "spin_certificates": 6,
+    "singlet_product_dimension": 8464,
+    "failed_constructions": 46
+  },
+  "changed_byte_control_rejected": true,
+  "physical_rows_solved": false,
+  "official_rows_changed": false,
+  "replay": {
+    "directory": "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-obstruction-replay-qa1128a9",
+    "commands": [
+      {
+        "script": "continuum_locality_bound/check.py",
+        "exit_code": 0,
+        "log": "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-obstruction-replay-qa1128a9/0-continuum_locality_bound-check.log"
+      },
+      {
+        "script": "cell_entropy_limit/check.py",
+        "exit_code": 0,
+        "log": "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-obstruction-replay-qa1128a9/1-cell_entropy_limit-check.log"
+      },
+      {
+        "script": "vacuum_trace_review/consumers.py",
+        "exit_code": 0,
+        "log": "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-obstruction-replay-qa1128a9/2-vacuum_trace_review-consumers.log"
+      },
+      {
+        "script": "vacuum_trace_review/run.py",
+        "exit_code": 0,
+        "log": "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-obstruction-replay-qa1128a9/3-vacuum_trace_review-run.log"
+      },
+      {
+        "script": "vacuum_trace_review/consumers.py",
+        "exit_code": 0,
+        "log": "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-obstruction-replay-qa1128a9/4-vacuum_trace_review-consumers.log"
+      },
+      {
+        "script": "row1_v3/verify.py",
+        "exit_code": 0,
+        "log": "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/oph-obstruction-replay-qa1128a9/5-row1_v3-verify.log"
+      }
+    ],
+    "checks": {
+      "kernel_bound": "2359296/6103515625",
+      "cell_controls": 6,
+      "vacuum_cases": 4,
+      "charge_laws": 4788,
+      "spin_certificates": 6,
+      "singlet_product_dimension": 8464,
+      "failed_constructions": 46
+    }
+  }
+}

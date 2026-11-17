@@ -1,0 +1,402 @@
+{
+  "status": "ALGEBRA_AND_ACTUAL_TILTED_CAR_COMPONENT",
+  "algebra": [
+    {
+      "p": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "unitarity": 2.2204460492623447e-16,
+      "hamiltonian_conjugation": 1.1125445368411026e-16,
+      "mass_shell": 2.7762722679765158e-18,
+      "projector": 1.5701743176632571e-16,
+      "boost_energy": 1.393839237558863e-16,
+      "boost_boost_zero_order": 3.3892838695924676e-16,
+      "rotation": 9.34428811515781e-18,
+      "first_derivative_control": 9.927249598393513e-11,
+      "second_derivative_control": 1.6144930837493314e-10
+    },
+    {
+      "p": [
+        1.0,
+        0.3,
+        0.4
+      ],
+      "unitarity": 4.843235875426093e-18,
+      "hamiltonian_conjugation": 2.392341361750431e-16,
+      "mass_shell": 1.1680417505638301e-17,
+      "projector": 1.6065300301495406e-16,
+      "boost_energy": 4.599913207009951e-16,
+      "boost_boost_zero_order": 4.824424635197135e-16,
+      "rotation": 2.0041875262216927e-16,
+      "first_derivative_control": 8.640456653966719e-11,
+      "second_derivative_control": 7.627182454842712e-10
+    },
+    {
+      "p": [
+        3.0,
+        2.0,
+        -1.0
+      ],
+      "unitarity": 1.3710806578495999e-17,
+      "hamiltonian_conjugation": 1.520096584826946e-15,
+      "mass_shell": 3.552713680979932e-15,
+      "projector": 1.688241870846954e-16,
+      "boost_energy": 1.1555244553385681e-15,
+      "boost_boost_zero_order": 4.0667636554804883e-16,
+      "rotation": 2.237726045655905e-16,
+      "first_derivative_control": 1.3785686084968455e-11,
+      "second_derivative_control": 4.645039067682951e-12
+    }
+  ],
+  "mass_extension": [
+    {
+      "mass": 0.01,
+      "samples": [
+        {
+          "p": 0.01,
+          "mass_shell": 5.421010862427522e-20,
+          "mass_dependent_conjugation": 3.469446951953614e-18,
+          "proper_projector_delta": 0.7653664027906203,
+          "fixed_massless_rotation_delta": 0.7653659408505514
+        },
+        {
+          "p": 1.0,
+          "mass_shell": 0.0,
+          "mass_dependent_conjugation": 2.220446049250313e-16,
+          "proper_projector_delta": 0.7607681238169205,
+          "fixed_massless_rotation_delta": 0.7561188494093943
+        },
+        {
+          "p": 10.0,
+          "mass_shell": 8.526512829121202e-14,
+          "mass_dependent_conjugation": 1.0908684959794519e-14,
+          "proper_projector_delta": 0.0009999986250023671,
+          "fixed_massless_rotation_delta": 1.7554167342883506e-16
+        },
+        {
+          "p": 100.0,
+          "mass_shell": 0.0,
+          "mass_dependent_conjugation": 3.563716377946972e-14,
+          "proper_projector_delta": 9.99999999899625e-07,
+          "fixed_massless_rotation_delta": 9.899999962609463e-05
+        }
+      ]
+    },
+    {
+      "mass": 1.0,
+      "samples": [
+        {
+          "p": 0.01,
+          "mass_shell": 4.440892098500626e-16,
+          "mass_dependent_conjugation": 9.80915185026648e-16,
+          "proper_projector_delta": 0.009999624924228174,
+          "fixed_massless_rotation_delta": 0.009998625036714814
+        },
+        {
+          "p": 1.0,
+          "mass_shell": 8.881784197001252e-16,
+          "mass_dependent_conjugation": 4.965068306494546e-16,
+          "proper_projector_delta": 0.45950584109472237,
+          "fixed_massless_rotation_delta": 1.3597399555105185e-16
+        },
+        {
+          "p": 10.0,
+          "mass_shell": 2.842170943040401e-14,
+          "mass_dependent_conjugation": 3.5709896874363505e-15,
+          "proper_projector_delta": 0.0009998996351117196,
+          "fixed_massless_rotation_delta": 0.09862863315451222
+        },
+        {
+          "p": 100.0,
+          "mass_shell": 7.275957614183426e-12,
+          "mass_dependent_conjugation": 2.980574786079603e-14,
+          "proper_projector_delta": 9.999999899996251e-07,
+          "fixed_massless_rotation_delta": 0.009998625036714687
+        }
+      ]
+    }
+  ],
+  "tilted_car": [
+    {
+      "u": 0.0,
+      "q": [
+        0.0001,
+        0.0002,
+        0.0
+      ],
+      "gram_min": 1.0,
+      "projector_defect": 0.0,
+      "negative_trace": 2.0,
+      "dirac_gram_relative_defect": 0.0,
+      "jacobians": [
+        1.0,
+        1.0
+      ],
+      "number_real_physical_bands": 4
+    },
+    {
+      "u": 0.0,
+      "q": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "gram_min": 1.0,
+      "projector_defect": 1.5701743176632571e-16,
+      "negative_trace": 2.0,
+      "dirac_gram_relative_defect": 0.0,
+      "jacobians": [
+        1.0,
+        1.0
+      ],
+      "number_real_physical_bands": 4
+    },
+    {
+      "u": 0.0,
+      "q": [
+        1.0,
+        0.2,
+        0.3
+      ],
+      "gram_min": 1.0,
+      "projector_defect": 1.2794950099411776e-16,
+      "negative_trace": 2.0,
+      "dirac_gram_relative_defect": 0.0,
+      "jacobians": [
+        1.0,
+        1.0
+      ],
+      "number_real_physical_bands": 4
+    },
+    {
+      "u": 0.0,
+      "q": [
+        10.0,
+        2.0,
+        3.0
+      ],
+      "gram_min": 1.0,
+      "projector_defect": 1.6875455217990122e-16,
+      "negative_trace": 2.0,
+      "dirac_gram_relative_defect": 0.0,
+      "jacobians": [
+        1.0,
+        1.0
+      ],
+      "number_real_physical_bands": 4
+    },
+    {
+      "u": 0.05,
+      "q": [
+        0.0001,
+        0.0002,
+        0.0
+      ],
+      "gram_min": 0.951189731211342,
+      "projector_defect": 3.3422138886441676e-16,
+      "negative_trace": 1.9999999999999996,
+      "dirac_gram_relative_defect": 1.0030183118524944e-12,
+      "jacobians": [
+        1.0215927255688206,
+        0.9769049588171902
+      ],
+      "number_real_physical_bands": 4
+    },
+    {
+      "u": 0.05,
+      "q": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "gram_min": 0.9512097492179263,
+      "projector_defect": 3.7394344724571575e-16,
+      "negative_trace": 2.0,
+      "dirac_gram_relative_defect": 0.0028015854906495324,
+      "jacobians": [
+        1.0122763292171655,
+        0.9855788661829739
+      ],
+      "number_real_physical_bands": 4
+    },
+    {
+      "u": 0.05,
+      "q": [
+        1.0,
+        0.2,
+        0.3
+      ],
+      "gram_min": 0.9168759996744623,
+      "projector_defect": 1.0881930545678692e-15,
+      "negative_trace": 2.000000000000001,
+      "dirac_gram_relative_defect": 0.10666105250572976,
+      "jacobians": [
+        1.0480451132227115,
+        0.9538823654154384
+      ],
+      "number_real_physical_bands": 4
+    },
+    {
+      "u": 0.05,
+      "q": [
+        10.0,
+        2.0,
+        3.0
+      ],
+      "gram_min": 0.9541572499616688,
+      "projector_defect": 2.243716380097966e-15,
+      "negative_trace": 1.9999999999999976,
+      "dirac_gram_relative_defect": 0.068611393996142,
+      "jacobians": [
+        1.0480451132227115,
+        0.9538823654154384
+      ],
+      "number_real_physical_bands": 4
+    },
+    {
+      "u": 0.3,
+      "q": [
+        0.0001,
+        0.0002,
+        0.0
+      ],
+      "gram_min": 0.7337993857053429,
+      "projector_defect": 1.1559451228433699e-16,
+      "negative_trace": 1.9999999999999998,
+      "dirac_gram_relative_defect": 6.739398760649838e-12,
+      "jacobians": [
+        1.1017551684960845,
+        0.8410945288907702
+      ],
+      "number_real_physical_bands": 4
+    },
+    {
+      "u": 0.3,
+      "q": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "gram_min": 0.7340157353468877,
+      "projector_defect": 1.3840872117222321e-15,
+      "negative_trace": 1.9999999999999982,
+      "dirac_gram_relative_defect": 0.018599112760772845,
+      "jacobians": [
+        1.0370915109771188,
+        0.883131180588264
+      ],
+      "number_real_physical_bands": 4
+    },
+    {
+      "u": 0.3,
+      "q": [
+        1.0,
+        0.2,
+        0.3
+      ],
+      "gram_min": 0.5660018861468402,
+      "projector_defect": 5.926590702706825e-16,
+      "negative_trace": 1.9999999999999996,
+      "dirac_gram_relative_defect": 0.5683316008033061,
+      "jacobians": [
+        1.3290064248341555,
+        0.7439768397834378
+      ],
+      "number_real_physical_bands": 4
+    },
+    {
+      "u": 0.3,
+      "q": [
+        10.0,
+        2.0,
+        3.0
+      ],
+      "gram_min": 0.7524406877198355,
+      "projector_defect": 1.1681754078242301e-15,
+      "negative_trace": 1.9999999999999987,
+      "dirac_gram_relative_defect": 0.39479950098847616,
+      "jacobians": [
+        1.3290064248341555,
+        0.7439768397834375
+      ],
+      "number_real_physical_bands": 4
+    },
+    {
+      "u": 0.6,
+      "q": [
+        0.0001,
+        0.0002,
+        0.0
+      ],
+      "gram_min": 0.4999999999999995,
+      "projector_defect": 5.317275247984523e-16,
+      "negative_trace": 2.0,
+      "dirac_gram_relative_defect": 2.1544559141951727e-11,
+      "jacobians": [
+        1.0933863424999781,
+        0.6307515885345045
+      ],
+      "number_real_physical_bands": 4
+    },
+    {
+      "u": 0.6,
+      "q": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "gram_min": 0.5025627501516737,
+      "projector_defect": 2.381817940780691e-16,
+      "negative_trace": 1.9999999999999998,
+      "dirac_gram_relative_defect": 0.05708580957286312,
+      "jacobians": [
+        0.9527855971885258,
+        0.6894431418144067
+      ],
+      "number_real_physical_bands": 4
+    },
+    {
+      "u": 0.6,
+      "q": [
+        1.0,
+        0.2,
+        0.3
+      ],
+      "gram_min": 0.31263669303130526,
+      "projector_defect": 2.0686175500920125e-15,
+      "negative_trace": 2.000000000000001,
+      "dirac_gram_relative_defect": 0.8663452363217894,
+      "jacobians": [
+        1.8366844143003414,
+        0.5113675337516062
+      ],
+      "number_real_physical_bands": 4
+    },
+    {
+      "u": 0.6,
+      "q": [
+        10.0,
+        2.0,
+        3.0
+      ],
+      "gram_min": 0.5444545180742902,
+      "projector_defect": 1.1842325656731313e-15,
+      "negative_trace": 2.0,
+      "dirac_gram_relative_defect": 0.7068675637201302,
+      "jacobians": [
+        1.8366844143003416,
+        0.5113675337516065
+      ],
+      "number_real_physical_bands": 4
+    }
+  ],
+  "claims_not_established": [
+    "geometric locality",
+    "all-observer area coefficient",
+    "joint selection",
+    "common interacting matter clock",
+    "physical G"
+  ]
+}

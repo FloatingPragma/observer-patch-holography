@@ -3,15 +3,14 @@
 **OPH développe une théorie exécutable d’un univers autoréférentiel d’observateurs, associant des constructions finies démontrées à des tests quantitatifs de leur interprétation physique.**
 
 <p align="center">
-  <a href="https://particles.floatingpragma.ai/"><img src="assets/particles-banner.gif" alt="Regardez un univers fabriquer ses propres particules : 81 920 observateurs, une seule règle locale de réparation. Ouvrir la simulation en direct sur particles.floatingpragma.ai." width="100%"></a>
+  <a href="https://particles.floatingpragma.ai/"><img src="assets/particles-banner.gif" alt="Regardez un univers fabriquer ses propres particules : 81 920 observateurs, une construction de matière, de champs et de registres. Ouvrir la simulation en direct sur particles.floatingpragma.ai." width="100%"></a>
 </p>
 <p align="center"><b>▶ <a href="https://particles.floatingpragma.ai/">Ouvrir la simulation en direct</a></b> · <a href="https://particles.floatingpragma.ai/?page=matches">Tous les accords avec notre univers</a> · <a href="https://particles.floatingpragma.ai/?page=journey">Des observateurs aux particules</a></p>
 
 [**Simulation en direct**](https://particles.floatingpragma.ai/) · [Article principal](https://philpapers.org/rec/MUEFOC) · [Livre](https://oph-book.floatingpragma.ai/) · [FAQ sur la réalité (en anglais)](https://floatingpragma.ai/faq/) · [Carnet](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) · [Bibliothèque Lean](Lean/) · [Reproduire](REPRODUCE.md) · [Pragma Research](https://floatingpragma.ai/) · [English](README.md)
 
-[![Mandatory Suite](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml)
-[![Lean CI](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml)
-[![Runnable observer model](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml)
+[![CI](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/ci.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/ci.yml)
+[![Lean](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean.yml)
 
 ## Mission
 
@@ -81,12 +80,18 @@ intemporelle et les horloges qu’elle contient.
 
 ## L’hypothèse exécutable
 
-Le pari concret est un programme. Une seule loi locale de réparation et de
-mémoire, sur un réseau de supports à douze ports, doit produire des observateurs
-dont les registres ressemblent à notre monde : des champs quantiques en 3+1
-dimensions, et la gravitation. Le programme crée des défauts de flux et des
-registres de champs quantiques. Identifier leurs excitations aux quarks et
-leptons observés fait partie du test physique.
+Le [modèle exécutable officiel](model/SPEC.md) réunit la matière native
+complète, le transport des leptons chargés et neutres, les courants faibles,
+les champs électriques et magnétiques et une réponse locale à l’énergie
+totale. Chaque sommet possède ses propres registres de volume, de capacité
+et de mémoire ; les composantes déconnectées évoluent indépendamment. La loi, les paramètres et la préparation sont fixés avant
+l’évolution. Les vérifications exactes portent sur les polynômes et des
+colonnes natives complètes ; les petites évolutions numériques ont leurs
+propres supports explicitement déclarés. Elles ne constituent pas une
+propagation arbitraire de l’état natif complet. Les preuves conditionnelles
+sur d’autres sources gardent leurs hypothèses, et leur transfert exige une
+identification démontrée. Le continuum commun et l’interprétation physique
+des particules et de la gravitation exigent les tests correspondants.
 
 L’[hypothèse](docs/OPH_EXECUTABLE_HYPOTHESIS.md) dit ce qui
 compterait comme un succès, et le [programme d’achèvement](docs/COMPLETION_PROGRAM.md)
@@ -95,6 +100,11 @@ rejoignent sur un même processus, soit une preuve montre que toute la classe
 de lois échoue.
 
 ## Points forts
+
+Les résultats ci-dessous portent sur les sources et les préparations
+explicitement déclarées dans leurs preuves. Leur transfert au modèle
+commun exige une identification démontrée ; ils ne sont pas tous des
+conséquences de son Hamiltonien.
 
 - **Des registres exacts de nombres quantiques.** Une construction fermionique
   déclarée réalise les quinze poids internes d’une génération du Modèle
@@ -148,7 +158,7 @@ de lois échoue.
   radiale déclarée de l’écran raffiné, une seule action fixe corrélations,
   réponse et horloge modulaire, et une théorie lisse de champ scalaire en
   dimension (1+3) reproduit tout ensemble fini de lectures conjointes. La direction radiale et les unités physiques sont des entrées.
-  [Verdict intégré](model/CONSTRUCTION.md#integrated-effective-description).
+  [Construction scalaire conditionnelle](model/relative_observer_geometry/README.md#lorentzian-density-of-the-product-wave).
 - **La physique standard à partir d’un accord fini.** Sous des prémisses
   énoncées, des théorèmes finis donnent à la spécification des structures
   familières : des registres publics indépendants de l’ordre des réparations ;
@@ -199,12 +209,12 @@ exécutable est un candidat jugé selon des critères d’acceptation déclarés
 Depuis la racine du dépôt, avec Python 3.11 ou plus récent :
 
 ```sh
-python3 -m model.observer run --trials 10000 --seed 42
+python3 -m model
 ```
 
-Cette commande exécute l’expérience minimale d’enregistrement et de
-rétroaction et affiche les scores des prévisions et l’empreinte du résultat.
-Le [guide du modèle](model/README.md) couvre le reste.
+Cette commande vérifie la source commune et ses expériences finies
+complètes. Le [guide du modèle](model/README.md) indique la reproduction
+intégrale de la source et les preuves des composants indépendants.
 
 ## Fondements mathématiques
 
@@ -309,12 +319,12 @@ entrées.
 ## Reproduire et vérifier
 
 Le [guide de reproduction](REPRODUCE.md) lance la suite de vérification depuis
-un clone propre. Le vérificateur du modèle rejoue les reçus déclarés dans `model/verify.py` ;
+un clone propre. Le vérificateur du modèle contrôle la source commune et ses résultats ;
 la suite de régression vérifie aussi des cas adverses :
 
 ```sh
 python -m pip install -r model/requirements.txt
-python -m model.verify
+python -m model
 python -m pytest -q -W error model
 ```
 
@@ -330,16 +340,16 @@ les introductions les plus accessibles.
 
 ## Contribuer
 
-La tâche consiste à faire qu’un seul processus d’observation et de réparation
-fournisse la physique effective : l’horloge de l’observateur, son interprétation
+La tâche consiste à faire que le même Hamiltonien et ses instruments
+fournissent la physique effective : l’horloge de l’observateur, son interprétation
 spatiale et ses mesures de champ sur les mêmes histoires, comparées à des
 observations indépendantes. Les
 contributions doivent résoudre une connexion nommée ou révéler un défaut du
-modèle commun ; le [guide de construction](model/CONSTRUCTION.md), le
-[guide des lois de réparation](model/CANDIDATES.md) et les
+modèle commun ; le [guide de construction](model/CONSTRUCTION.md), la
+[spécification du modèle](model/SPEC.md) et les
 [tâches de recherche](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+is%3Aopen+label%3Aprogram%3Aphysics)
-décrivent ce travail. Les publications d’articles suivent la
-[politique de publication](model/CONSTRUCTION.md#research-programme-and-paper-release-hold) ;
+décrivent ce travail. Les publications d’articles suivent le
+[guide des articles](paper/README.md#reproducibility) ;
 les PDF de la branche principale sont des aperçus des sources, et les versions
 déposées conservent leurs octets d’origine.
 

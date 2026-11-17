@@ -1,0 +1,12 @@
+{
+  "label": "pair_normal",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/verification-contract-original-jqsyqilx/m10_4_pair.py"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/verification-contract-original-jqsyqilx/m10_4_pair.py\", line 77, in <module>\n    assert energy[1]<1000\n           ^^^^^^^^^^^^^^\nAssertionError\n",
+  "seconds": 0.06270941700495314
+}

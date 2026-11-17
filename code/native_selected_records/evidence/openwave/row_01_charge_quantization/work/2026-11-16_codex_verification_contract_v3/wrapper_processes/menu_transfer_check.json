@@ -1,0 +1,17 @@
+{
+  "label": "menu_transfer_check",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "audit.py",
+    "../../work/2026-11-16_codex_common_reference_menu",
+    "6",
+    "stationary"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_01_charge_quantization/reviews/2026-11-16_codex_reference_menu_adversarial/audit.py\", line 48, in <module>\n    P=A.T@R@A;W=R@(2*A@A.T-np.eye(33));near(2*P,np.eye(3)-eps**2*(np.eye(3)-np.array([[.6,.2,.2],[.2,.7,.1],[.2,.1,.7]])),'native transfer')\n                                       ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_01_charge_quantization/reviews/2026-11-16_codex_reference_menu_adversarial/audit.py\", line 19, in near\n    def near(a,b,label,tol=3e-10):need(np.max(np.abs(np.asarray(a)-np.asarray(b)))<tol,label)\n                                  ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_01_charge_quantization/reviews/2026-11-16_codex_reference_menu_adversarial/audit.py\", line 17, in need\n    if not ok:raise AssertionError(label)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: native transfer\n",
+  "expected_success": false,
+  "passed": true,
+  "seconds": 3.8998091249959543
+}

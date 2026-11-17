@@ -1,0 +1,31 @@
+{
+  "G6_pass": false,
+  "G9_pass": false,
+  "checks": {
+    "clean_mutation_controls_passed": 2,
+    "combined_byte_replay": true,
+    "mutations_rejected": 13,
+    "separate_census_reader": true,
+    "separate_quarter_gate_reader": true,
+    "separate_trajectory_reader": true
+  },
+  "class": "same-group producer verification",
+  "native_calls": {
+    "census": 14520,
+    "held_changed_law_events": 384,
+    "persistent": 28685,
+    "quarter_gate": 6240,
+    "total": 49445
+  },
+  "physical_rest_energy_established": false,
+  "scientific_outputs": {
+    "MUTATION_RECEIPT.json": "bc7fcb03b06146c7a2b18e036473c315373bdc0986db59c031c663c1d94e0958",
+    "RECEIPT.json": "9700421d3b00c5a2ddb3a8aba0552c7e86968dedf961eed6534ffc500110b89b",
+    "RECORDS.json": "87e693d1e845bbf1d0efc723481184f8ae2e960b78fc85abc308c55948a61ce9",
+    "TRAJECTORIES.json": "9cb353dfceccd2b2fe4dd506e71939a4f738a539aeb6c9ac306e9a34c8993119",
+    "TRAJECTORY_RECEIPT.json": "b0bcecb903d5595837de6ebe0cc12de47d5304c721524577b93cc1ca4e89b1e8",
+    "TUNABILITY_RECEIPT.json": "f0bb4f7e938a92220cef4354af942b0a4b33f95f5e956e59e5dd3e65fe811cef",
+    "TUNABILITY_RECORDS.json": "76aacf30693e91e0797472f6b1c13bf1c44eb7c962cb1cfd6df7b31927393410"
+  },
+  "time": "2026-11-15T16:07:40.116485+00:00"
+}

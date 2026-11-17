@@ -1,0 +1,13 @@
+{
+ "candidate":"A-native-triangle-refined-work-v1",
+ "kind":"New prospective source-clock family following known fixed-clock alias",
+ "k_values":[0,1,2,3,4,5,6],
+ "epsilon_rule":"2^-k",
+ "source_ticket":"2k native blank coins, active iff all zero",
+ "counter_bins":"256*2^k",
+ "reader":"4-pole Prony, first8 moments fitted and remaining9 held out; source matrices forbidden as reader inputs",
+ "gates":{"frequency_error":1e-5,"heldout_error":1e-8,"counter_mass_error":1e-10,"positive_mode_fidelity_min":0.99,"work_phase_error":1e-12,"pair_operator_error":1e-10,"runtime_seconds":60},
+ "all_outcomes":"All selector tickets/current records, native source/work columns, work histories, Fourier bins, positive density, signed poles and heldout records",
+ "known_theory":"The analytic source-frequency bounds and native work compiler are known before this confirmatory execution; this is an implementation and detector test, not retrospective discovery.",
+ "ancestry":"Parent fixed-clock freeze and serialization-only replay remain untouched. No old energy scale is relabelled."
+}

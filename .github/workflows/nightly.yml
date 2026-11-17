@@ -259,24 +259,18 @@ jobs:
         run: python tools/build_completion_program_current.py --check
       - if: matrix.shard == 0
         run: python -m pytest -q -W error tools/test_numeric_evidence_medium.py
-      - name: Run current completion code
-        run: python -m pytest -q --durations=10 -W error -p model.pytest_shards --model-shard-index ${{ matrix.shard }} --model-shard-count 4 tools/test_completion_program.py model/completion model/clock_defect_energy
+      - name: Check current-law and independent-component test domains
+        run: python tools/completion_test_scope.py --run --shard-index ${{ matrix.shard }} --shard-count 4
       - if: matrix.shard == 0
         run: python -m model.completion.acceptance_audit --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.program_class_v2 --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.independent_program_review
-      - if: matrix.shard == 0
-        run: python -m model.completion.finite_attachment_map --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.dynamics_response_campaign --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.spectrum_einstein_campaign --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.defect_geometry_campaign --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.radial_source_campaign --check
+      - name: Check the current source, assumptions and programme
+        if: matrix.shard == 0
+        run: |
+          python -m pytest -q -W error tools/test_completion_test_scope.py
+          python tools/build_ccf_lt2_claims.py --check
+          python -m model.particle_joint_reconstruction.run --check
+          python -m model.completion.assumption_closure --check
+          python tools/renew_finite_attachment_navigation.py --check
       - if: matrix.shard == 0
         run: python code/particles/derive_radial_excitation_catalogue.py --check
       - if: matrix.shard == 0

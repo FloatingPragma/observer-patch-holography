@@ -1,0 +1,8 @@
+{
+  "code_sha256": "4eaa358798f5f7f191463dd85a99dc5eed12e6445794a268d4604ecb698a40ea",
+  "implementation_preflight": "An initial attempted audit stopped at its first mismatched coherent selector column before producing any receipt. It exposed an inverted conversion from recoded swap selector to the native endpoint coin. Corrected: coin=1-selector for occupied left, coin=selector for occupied right. No acceptance gate or source law was changed. Full evidence starts after this freeze.",
+  "preregistration_sha256": "74e2fb0d1b14cd7219d369948031c73a71a552401e9d737f02a378f0fe2bbc98",
+  "schema": "oph.spin_gauss_join.frozen_execution.v1",
+  "source_count": 192,
+  "source_pins_sha256": "7e647870609273097896d7b7aa6bed2808198c7af81484b0754489f088762f31"
+}

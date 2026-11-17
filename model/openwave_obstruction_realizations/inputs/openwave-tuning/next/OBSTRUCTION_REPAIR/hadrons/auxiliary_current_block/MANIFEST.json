@@ -1,0 +1,80 @@
+{
+  "schema": "oph.auxiliary_current_block.manifest.v1",
+  "scope": "Actual full625 current-image H/H2 moments, complete complement bounds, preserved unsuccessful lower bounds",
+  "files": [
+    {
+      "path": "ALGEBRA.md",
+      "sha256": "962b79e6eab7d70d9a2f20a3fff4a1f57add9c04628da7ec30d254d626526c0b",
+      "bytes": 5057
+    },
+    {
+      "path": "CURRENT_BLOCK.json",
+      "sha256": "d702c36023dd015d8d4a6f999f4769f52d5bc7276ed5416fe7c7a6527b0a4c57",
+      "bytes": 41149
+    },
+    {
+      "path": "CURRENT_BLOCK_RUN.log",
+      "sha256": "da33e59149a946c479b313ae823239e8b38929975ee396440880272d7b18dce8",
+      "bytes": 1102
+    },
+    {
+      "path": "FULL_CARRIER_CONTROL.json",
+      "sha256": "251eab0590cfc1888a6f0847d5378536dbda239c3d58f366c9d60781d3801992",
+      "bytes": 679
+    },
+    {
+      "path": "FULL_CARRIER_CONTROL_RUN.log",
+      "sha256": "994b545fec5c0937b116709991f553680091f471db8cca29f504446e673d9351",
+      "bytes": 191
+    },
+    {
+      "path": "MOMENTS.json",
+      "sha256": "105cb1a2509a778cd2f39fdafe0e696dedc5cc852a95856b0f90713616e5491a",
+      "bytes": 638244
+    },
+    {
+      "path": "MOMENTS_RUN.log",
+      "sha256": "d5f62e8abddb416364b4ca5c4b09420b2df3bf9782f7afbc519f73ef5e350b7c",
+      "bytes": 1956
+    },
+    {
+      "path": "RESULTS.md",
+      "sha256": "0124cbe92b251f77ef135583ea3cda675544bce05014a803ef998bd0468577e3",
+      "bytes": 1798
+    },
+    {
+      "path": "current_block.py",
+      "sha256": "1fdacc6cd1799005800c7387d8045d4f62d9eb4e3a6ed67903c639a26f0a5375",
+      "bytes": 8362
+    },
+    {
+      "path": "full_carrier_control.py",
+      "sha256": "9eea048cc4cfe25fb44106a30522022064e9accf4f42259831c7111f0909f2bd",
+      "bytes": 3347
+    },
+    {
+      "path": "moments.py",
+      "sha256": "0bc61d6a72d5f3e1bdbd4310064a2bd75d1f86fb07ca16fb5ee906e09a49757a",
+      "bytes": 4404
+    }
+  ],
+  "frozen_source_inputs": [
+    {
+      "path": "../auxiliary_spin_refinement/MANIFEST.json",
+      "sha256": "42ca8e704cf346a05d0fda5aacdcfecefea2a5d105896f4ce78f2ea46239ae0a"
+    },
+    {
+      "path": "../SPIN_FLAVOUR_MANIFEST.json",
+      "sha256": "238ad4d9145ebb6540d15718a03a0598b896d0c147aa652722380a650e0d3087"
+    },
+    {
+      "path": "../shared_auxiliary/MANIFEST.json",
+      "sha256": "89a96d322419720920e8d7694816126383847a0c0be3b1a14600782d0e0b2bfb"
+    },
+    {
+      "path": "../LOCAL_AUXILIARY_INTERFACE_MANIFEST.json",
+      "sha256": "f5fbd849224a569aebdc002ed2f620b3f6fe719c2caa21c72906f3a645031889"
+    }
+  ],
+  "physical_rows_solved": false
+}

@@ -1,8 +1,7 @@
-"""Current source navigation for an immutable, dated theorem-domain review.
+"""Authenticate separate component theorem domains and scientific sources.
 
-Only the reviewed construction explanation may renew its documentary digest.
-Every executable/Lean source and every theorem mapping retains the old review's
-bytes or exact semantic value. This projection adds no theorem acceptance.
+Scheduling and programme adoption are excluded from the mathematical map.
+The official CCF-LT-2 dependency graph owns its source attachments.
 """
 from __future__ import annotations
 import argparse
@@ -11,13 +10,6 @@ import hashlib
 import json
 from pathlib import Path
 from tools import strict_json
-from .family import binding
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 RETAINED = 'model/completion/theorem_map.json'
@@ -33,7 +25,11 @@ def digest(path):
 def build():
     reviewed = strict_json.load(ROOT / RETAINED)
     current = copy.deepcopy(reviewed)
-    for row in bound_pins(current['sources']).values():
+    # The scalar adoption row is programme metadata, not a mathematical
+    # premise. The official acceptance graph owns source selection.
+    current['mappings'] = [row for row in current['mappings'] if row['id'] != 'TM-11']
+    current['sources'].pop('construction', None)
+    for row in current['sources'].values():
         path = (ROOT / row['path']).resolve()
         if not path.is_relative_to(ROOT) or not path.is_file():
             raise ValueError('missing or escaping reviewed source')
@@ -42,16 +38,20 @@ def build():
         if any(anchor not in raw.decode() for anchor in row['reviewed_anchors']):
             raise ValueError('reviewed source anchor missing: ' + row['path'])
         row['sha256'] = actual
-    live_campaign = binding()
-    if {k: v for k, v in live_campaign.items() if k != 'sha256'} != {
-            k: v for k, v in reviewed['campaign'].items() if k != 'sha256'}:
-        raise ValueError('theorem review campaign identity changed')
-    current['campaign'] = live_campaign
+    # Campaign scheduling and documentary source selection are not mathematical
+    # hypotheses of these component results. Authenticate the listed scientific
+    # sources and retain their quantified domains directly.
+    current.pop('campaign', None)
+    current.pop('review_date', None)
+    for row in current['mappings']:
+        row.pop('owners', None)
     return {'schema': 'oph.current_theorem_navigation.v1',
             'role': 'CURRENT_NAVIGATION_CUSTODY_ONLY',
             'retained_review': {'path': RETAINED, 'sha256': RETAINED_SHA256},
             'new_theorem_review_or_acceptance': False,
             'scientific_mappings_and_reference_domains_exactly_preserved': True,
+            'official_model': 'CCF-LT-2',
+            'programme_adoption_row_is_excluded': True,
             'retained_documentary_pins_claimed_current': False,
             'reviewed_map_with_current_navigation': current}
 

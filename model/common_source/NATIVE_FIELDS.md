@@ -206,7 +206,7 @@ is therefore not relabeled as a result of this calculation.
 
 ## Existing quantum memory does not yet supply wave motion
 
-The [N4 construction](../CANDIDATES.md#n4-a-reciprocal-coherent-exchange)
+The [reciprocal coherent-response construction](../../code/native_response/README.md)
 already retains private quantum memory. Its positive memory statistic
 excludes a single closed heat mode, but does not demonstrate oscillation.
 On its binary load carrier, the existing forgotten-record channel `C_e`

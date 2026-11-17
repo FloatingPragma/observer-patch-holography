@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-15T20:17:23.751025+00:00",
+  "kind": "Additive scope correction; known result verification; recorded after first verification",
+  "execution_note": "The first preregistration wrapper used a workspace-relative path while cwd was the packet directory and failed before writing. The subsequent shell line created RESULT.json. This record is retrospective; no prospective discovery is claimed.",
+  "inputs": {
+    "check.py": "fe868bd996d349e09846542feeb84360838e18b972c1da85da19cf753b169813",
+    "README.md": "a78fce645ff7059b340deede34b4e797ced947af6b622a595dec0d01017c732b",
+    "/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_amplified_source_interval_v1/CERTIFICATE.json": "96e52814f637bfdbeb596c01dd345cefd0153af2073d39ac2e5bd982c22c8872"
+  },
+  "gates": "Exact native and all-case extrema remain below 0.01; native-only summary explicitly scoped; no data/gate/source mutation",
+  "external_G6": false
+}

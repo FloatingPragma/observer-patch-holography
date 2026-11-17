@@ -1,0 +1,38 @@
+{
+  "actual_handoffs": 24,
+  "all_graph_exclusions_connected": true,
+  "all_input_fair_request_bound": 544020,
+  "bindings": {
+    "CONSUMER_PREREG.json": "b41013b45ccdef36e260f3481151361ac08f836116dcbec6f117dd868933999f",
+    "CONSUMER_RESULT.json": "5a916f8599eb8a6544eb5c8cc18ba09ebc88ca960c5fca01ed811b7fcd8128d6",
+    "PREREG.json": "b9d5b3f76ddb818d928a783653daf63b28067f98f9e29eeee7ac5907f1e854a6",
+    "RECEIPT.json": "dc50dc3dc0dff7899f7b588dd024c9cc414d6c0c3a057b32db7a1734862978e3",
+    "RECORDS.json.gz": "7a1fc8445c12a1e621658bac8696e639dd3c189e02d8ecbcb66e8d16997a75e2",
+    "join_common.py": "7797064ee9688f3735c3c75b0136eb099e9257b87b804b9d1d6355bef0ee3313",
+    "observer.py": "277ec5aca08c04a6c2bcd5ac54e339747b37e71f15e149f330328a15a1cec44c",
+    "run.py": "c28ea7b0c38e966e5dab01da308dd5fa9b5ef4a4c0053d5c2e00a27b9f177aa7"
+  },
+  "common_density_independent_power_difference": 6.2758649354004196e-15,
+  "complete_endpoint_cases": 33282,
+  "complete_inconclusive_upper": "8501/288230376151711744",
+  "controls": 25,
+  "events_by_kind": {
+    "census": 2950,
+    "cleanup_contact": 132,
+    "cleanup_move": 700,
+    "forced_native_hold": 64,
+    "frame_move": 94,
+    "orientation_move": 236,
+    "retention_move": 64,
+    "selection_exchange": 175,
+    "selection_repair": 1161,
+    "swap_hold": 50
+  },
+  "no_unit_outcomes": 1,
+  "physical_sign_reversals": 12,
+  "producer_imports": [],
+  "record_only_census_cases": 50,
+  "same_group_only": true,
+  "seconds": 0.2953982089966303,
+  "strict_native_potential_decreases_checked": 1161
+}

@@ -1,0 +1,26 @@
+{
+  "custody_verified": true,
+  "environment": {
+    "BLAS_threads": 1,
+    "executable": "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "numpy": "2.3.5",
+    "python": "3.13.7 (main, Sep 20 2025, 15:59:55) [Clang 17.0.0 (clang-1700.0.13.5)]",
+    "scipy": "1.16.3"
+  },
+  "fresh_full_native_flow_claimed": false,
+  "mode": "native",
+  "native_execution": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "{\"coupled_energy_pass\": true, \"decoded\": {\"single\": 5.9999999999999964, \"pair\": 12.000000000000005, \"ratio\": 2.000000000000002, \"decoder\": \"-atan2(Y,X)/t;0<=single<=12,0<=pair<=24,t=1/10\"}, \"old_clock_mismatch\": 0.11531929972112251, \"joint_complete_error\": 0.00048366169431637764, \"seconds\": 5.9156307079974795}\n"
+  },
+  "npz_bytes_identical": true,
+  "original_producer_manifest_sha256": "251a574498aaa3e615c4b676a8f518c88d95bb5372b059018ce922a5fbd42fb8",
+  "routed_execution": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "{\"routed_join_pass\": true, \"actual_handoffs\": 12, \"complete_error\": 0.0004841318708469099, \"ratio_interval\": [1.999883624587696, 2.0001163823007317], \"seconds\": 0.38989470900560264}\n"
+  },
+  "scientific_json_identical": true,
+  "seconds": 8.188806374993874
+}

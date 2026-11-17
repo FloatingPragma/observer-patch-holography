@@ -1,0 +1,24 @@
+{
+  "candidate": "A-native-common-reference-menu-v1",
+  "cases": 224,
+  "compact_source_sha256": "038747b3f5bd7623785e4a767a8209973789a37875b0703074411d55df565085",
+  "comparison_kind": "Retrospective independent implementation; not another candidate run or external G6",
+  "exact_rational_control_laws": 112,
+  "matched_k6_pair_input_comparison": 1.7985612998927536e-14,
+  "maximum_differences": {
+    "analyzer_log": 2.8421709430404007e-13,
+    "clock_log": 2.8421709430404007e-13,
+    "normalized_coherence": 0.0,
+    "pair_log": 5.684341886080801e-13,
+    "pair_probability": 3.552713678800501e-15,
+    "path_probability": 5.551115123125783e-16,
+    "visibility": 4.440892098500626e-16
+  },
+  "maximum_probability_sum_defect": 2.185363001672158e-12,
+  "pair_excerpt_sha256": "040f35492c4ed4acd7770bbdeab774232b5dbe3871dda778f4b16f5863bfbdd7",
+  "passed": true,
+  "primary_manifest_sha256": "a9ced490f0bc6fee5ed08aacb6ef9c8613758ee1af243ce3e98aa153928ebf2c",
+  "source_commit": "b6df2961f4ec8fc9a9f70a3c65e39da8dafa7e60",
+  "source_correction_sha256": "768d3057b8b613e6f6ea1677c32a59fc352624a3564cbb6891fb6ed9961ca793",
+  "summary_sha256": "ea045cc10ecf1212d7574404181249ebd5fa73f36d2994a0c570efa1f554a00f"
+}

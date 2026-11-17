@@ -1,0 +1,31 @@
+{
+  "G6_pass": false,
+  "G9_pass": false,
+  "blocking": 0,
+  "bound_amendment_manifest": "1861b420260787509cc944f291919af901a87a7f5dc7ca8c86c91c7ab4cfe512",
+  "bound_manifest": "05af1f898eb98a68413084b3b01586e600c79aa231d2f0318f0f90b887158f32",
+  "findings": [
+    {
+      "id": "R7-1",
+      "issue": "Repeated96program two-turn result lacked its own complete first-rejection ledger; originalpolar192 was a different sequence.",
+      "resolution": "Separately preregistered sibling amendment retains192x384outcomes and matches independent rational success and per-stage probabilities.",
+      "state": "resolved"
+    }
+  ],
+  "full": false,
+  "mutation_checks": {
+    "invalid_coin": true,
+    "wrong_current_flag": true,
+    "wrong_rejection_probability": true
+  },
+  "party": "Codex CRT",
+  "physical_rotation_derived": false,
+  "reviewer": "row02 implementation worker, independent row07 review",
+  "row": 7,
+  "same_group": true,
+  "schema": "oph.row07.adversarial_review.v1",
+  "scope": "Full submitted finite conditional component and rejection-ledger amendment; physical row not satisfied",
+  "source_counts_verified": 100908,
+  "updated": "2026-11-15T16:14:09.868149+00:00",
+  "verdict": "FINITE_CONDITIONAL_COMPONENT_SUPPORTED_PHYSICAL_ROW_OPEN"
+}

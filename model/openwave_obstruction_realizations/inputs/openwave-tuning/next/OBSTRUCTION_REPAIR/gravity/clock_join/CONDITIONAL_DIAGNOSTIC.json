@@ -1,0 +1,29 @@
+{
+  "status": "CONDITIONAL_DIAGNOSTIC_NOT_A_VALIDATED_OPH_PREDICTION",
+  "inputs": {
+    "eta": 0.03144735607505645,
+    "mass_slot_midpoint": 0.000060300795404423236,
+    "NIST_electron_mass_kg": 9.1093837139e-31,
+    "NIST_Planck_mass_kg": 2.176434e-8
+  },
+  "conditional_G_source_units": 7.949793916007333,
+  "conditional_G_me_squared": 2.8906928755214786e-8,
+  "observed_dimensionless_electron_gravity": 1.7518099504973536e-45,
+  "conditional_ratio": 1.650117853652325e+37,
+  "required_mass_coefficient_if_eta_held_fixed": 1.484449949161201e-23,
+  "common_clock_identification_proved": false,
+  "mass_slot_is_interacting_pole": false,
+  "Jacobson_Einstein_premises_complete": false,
+  "R_selected_from_observed_G": false,
+  "Planck_length_map_imported": false,
+  "input_hashes": {
+    "COMMON_CLOCK_json": "46c45cd8515f75d252b9592bc4e5656d4d7ced6ea2ac0182c6bacc49db3729c7",
+    "IMPROVED_CHECKS_json": "c23795813a719f586959a3f1afe32712960975e41db4865b1747eafeb3d8c613"
+  },
+  "sources": {
+    "constants": "https://physics.nist.gov/cuu/Constants/Table/allascii.txt",
+    "conditional_G_relation": "https://arxiv.org/html/1505.04753v4#S5.E27",
+    "clock": "../../species_leptons/COMMON_CLOCK.json",
+    "eta": "../covariant_coframe/IMPROVED_CHECKS.json"
+  }
+}

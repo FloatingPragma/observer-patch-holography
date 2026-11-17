@@ -1,0 +1,12 @@
+{
+  "label": "reservoir_changed_saved_observation",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/verification-contract-original-jqsyqilx/reservoir/verify.py"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/verification-contract-original-jqsyqilx/reservoir/verify.py\", line 232, in <module>\n    print(json.dumps(check(Path(sys.argv[1]) if len(sys.argv)>1 else HERE),indent=2,sort_keys=True))\n                     ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/verification-contract-original-jqsyqilx/reservoir/verify.py\", line 225, in check\n    assert all(receipt[k] == value for k,value in values.items())\n           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "seconds": 4.603482624996104
+}

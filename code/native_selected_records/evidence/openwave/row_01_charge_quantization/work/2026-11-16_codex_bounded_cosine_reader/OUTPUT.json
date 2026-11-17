@@ -1,0 +1,2006 @@
+{
+  "candidate": "A-native-common-bounded-cosine-reader-v1",
+  "scope": "Verification-only bounded readout of sealed finite outcome laws; no new source experiment or finite-shot precision.",
+  "fixed_eta": 0.01,
+  "native_source_columns": [
+    [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      2,
+      0,
+      1,
+      2,
+      1
+    ],
+    [
+      0,
+      2,
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      3,
+      0,
+      1,
+      2,
+      1
+    ],
+    [
+      0,
+      3,
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      4,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      4,
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      1,
+      -1,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1,
+      -1,
+      0,
+      0
+    ],
+    [
+      1,
+      2,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      2,
+      1,
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      3,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      3,
+      1,
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      4,
+      0,
+      1,
+      2,
+      1
+    ],
+    [
+      1,
+      4,
+      1,
+      0,
+      1,
+      1
+    ],
+    [
+      2,
+      0,
+      0,
+      0,
+      2,
+      0
+    ],
+    [
+      2,
+      0,
+      1,
+      0,
+      2,
+      1
+    ],
+    [
+      2,
+      1,
+      0,
+      0,
+      2,
+      0
+    ],
+    [
+      2,
+      1,
+      1,
+      0,
+      2,
+      1
+    ],
+    [
+      2,
+      2,
+      0,
+      0,
+      2,
+      0
+    ],
+    [
+      2,
+      2,
+      1,
+      -1,
+      0,
+      0
+    ],
+    [
+      2,
+      3,
+      0,
+      0,
+      2,
+      0
+    ],
+    [
+      2,
+      3,
+      1,
+      -1,
+      0,
+      0
+    ],
+    [
+      2,
+      4,
+      0,
+      0,
+      2,
+      0
+    ],
+    [
+      2,
+      4,
+      1,
+      -1,
+      1,
+      0
+    ]
+  ],
+  "rows": [
+    {
+      "case": {
+        "M": 4,
+        "turns": 1,
+        "direction": 1,
+        "law": "native"
+      },
+      "record": {
+        "x_plus": 0.8122515617667198,
+        "x_minus": 0.18774843823328025,
+        "y_plus": 0.8883630411714384,
+        "y_minus": 0.11163695882856162
+      },
+      "reader": {
+        "frequency_interval": [
+          0.8751102325476426,
+          0.9011480940940414
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.6245031235334395,
+        "imaginary_moment_separate_sign_record": 0.7767260823428768,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "separate_numerical_source_audit": {
+        "actual_off_band_population": 8.630649195318085e-09,
+        "margin_to_fixed_certificate": 0.009999991369350805,
+        "positive_target_weight": 0.9972496042456784,
+        "negative_target_weight": 0.002750387123672386
+      },
+      "deterministic_perturbation_checks": [
+        {
+          "frequency_interval": [
+            0.8751102325476428,
+            0.9011532473967934
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6245011235334395,
+          "imaginary_moment_separate_sign_record": 0.7767260823428768,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        },
+        {
+          "frequency_interval": [
+            0.8751049689488857,
+            0.9011480940940413
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6245051235334396,
+          "imaginary_moment_separate_sign_record": 0.7767260823428768,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        }
+      ],
+      "original_four_pole_diagnostic": {
+        "all_poles": {
+          "imag": [
+            -0.8908589630344192,
+            -0.7810223088144429,
+            0.7810223088140478,
+            0.8907062269640715
+          ],
+          "real": [
+            0.45455726317963296,
+            0.6245031249993708,
+            0.6245031250000005,
+            0.4545781412534282
+          ]
+        },
+        "all_weights": {
+          "imag": [
+            -6.361853584226973e-15,
+            6.3813087553846965e-15,
+            4.9641112247500873e-14,
+            -4.964880198475937e-14
+          ],
+          "real": [
+            8.34870221972279e-12,
+            0.0027503871236873633,
+            0.9972496042456583,
+            8.622305516692651e-09
+          ]
+        },
+        "fit_condition": 12233836663278.82,
+        "frequency": 0.8963011412072732,
+        "heldout_error": 8.511850844570886e-14
+      }
+    },
+    {
+      "case": {
+        "M": 4,
+        "turns": 1,
+        "direction": 1,
+        "law": "swap"
+      },
+      "record": {
+        "x_plus": 0.8121546617228033,
+        "x_minus": 0.18784533827719674,
+        "y_plus": 0.8884270545457857,
+        "y_minus": 0.11157294545421426
+      },
+      "reader": {
+        "frequency_interval": [
+          0.8753652263206908,
+          0.9013977475659144
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.6243093234456065,
+        "imaginary_moment_separate_sign_record": 0.7768541090915715,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "separate_numerical_source_audit": {
+        "actual_off_band_population": 0.0011405136216027234,
+        "margin_to_fixed_certificate": 0.008859486378397277,
+        "positive_target_weight": 0.9961122360849937,
+        "negative_target_weight": 0.0027472502934037107
+      },
+      "deterministic_perturbation_checks": [
+        {
+          "frequency_interval": [
+            0.8753652263206909,
+            0.9014028998505054
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6243073234456065,
+          "imaginary_moment_separate_sign_record": 0.7768541090915715,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        },
+        {
+          "frequency_interval": [
+            0.8753599638421774,
+            0.9013977475659143
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6243113234456066,
+          "imaginary_moment_separate_sign_record": 0.7768541090915715,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        }
+      ],
+      "original_four_pole_diagnostic": {
+        "all_poles": {
+          "imag": [
+            -0.8907067798087922,
+            -0.781022308818304,
+            0.7810223088140501,
+            0.8907067703203343
+          ],
+          "real": [
+            0.45457832211931637,
+            0.6245031249985085,
+            0.6245031250000095,
+            0.45457832031898604
+          ]
+        },
+        "all_weights": {
+          "imag": [
+            -9.426751825337746e-14,
+            9.53447328970194e-14,
+            -8.147682784404298e-15,
+            7.0267998575021096e-15
+          ],
+          "real": [
+            1.1051957687089875e-06,
+            0.002747250293470418,
+            0.9961122360849002,
+            0.001139408425860613
+          ]
+        },
+        "fit_condition": 92556908.06459416,
+        "frequency": 0.8963011412072677,
+        "heldout_error": 2.6723603244612075e-13
+      }
+    },
+    {
+      "case": {
+        "M": 4,
+        "turns": 1,
+        "direction": -1,
+        "law": "native"
+      },
+      "record": {
+        "x_plus": 0.8122515617669321,
+        "x_minus": 0.18774843823306786,
+        "y_plus": 0.8883630411712979,
+        "y_minus": 0.11163695882870206
+      },
+      "reader": {
+        "frequency_interval": [
+          0.8751102325470836,
+          0.9011480940934942
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.6245031235338643,
+        "imaginary_moment_separate_sign_record": 0.7767260823425959,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "separate_numerical_source_audit": {
+        "actual_off_band_population": 8.628149195111234e-09,
+        "margin_to_fixed_certificate": 0.009999991371850805,
+        "positive_target_weight": 0.9972496042481716,
+        "negative_target_weight": 0.0027503871236792413
+      },
+      "deterministic_perturbation_checks": [
+        {
+          "frequency_interval": [
+            0.8751102325470838,
+            0.901153247396246
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6245011235338642,
+          "imaginary_moment_separate_sign_record": 0.7767260823425959,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        },
+        {
+          "frequency_interval": [
+            0.8751049689483268,
+            0.901148094093494
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6245051235338643,
+          "imaginary_moment_separate_sign_record": 0.7767260823425959,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        }
+      ],
+      "original_four_pole_diagnostic": {
+        "all_poles": {
+          "imag": [
+            -0.8920568999966112,
+            -0.7810223088172887,
+            0.781022308814041,
+            0.8907055493149549
+          ],
+          "real": [
+            0.45395734532180737,
+            0.624503124995522,
+            0.6245031250000084,
+            0.45457839414373574
+          ]
+        },
+        "all_weights": {
+          "imag": [
+            -4.592679391605712e-14,
+            4.4897922155533935e-14,
+            8.574715226315787e-14,
+            -8.472027825048602e-14
+          ],
+          "real": [
+            8.229034000994035e-12,
+            0.002750387123814084,
+            0.9972496042480757,
+            8.619881277772503e-09
+          ]
+        },
+        "fit_condition": 12232117162609.928,
+        "frequency": 0.8963011412072629,
+        "heldout_error": 3.040292440681929e-13
+      }
+    },
+    {
+      "case": {
+        "M": 4,
+        "turns": 1,
+        "direction": -1,
+        "law": "swap"
+      },
+      "record": {
+        "x_plus": 0.8121546617228034,
+        "x_minus": 0.18784533827719663,
+        "y_plus": 0.8884270545457857,
+        "y_minus": 0.11157294545421426
+      },
+      "reader": {
+        "frequency_interval": [
+          0.8753652263206905,
+          0.9013977475659142
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.6243093234456067,
+        "imaginary_moment_separate_sign_record": 0.7768541090915715,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "separate_numerical_source_audit": {
+        "actual_off_band_population": 0.0011405136216025014,
+        "margin_to_fixed_certificate": 0.008859486378397499,
+        "positive_target_weight": 0.9961122360849939,
+        "negative_target_weight": 0.0027472502934037264
+      },
+      "deterministic_perturbation_checks": [
+        {
+          "frequency_interval": [
+            0.8753652263206906,
+            0.9014028998505051
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6243073234456067,
+          "imaginary_moment_separate_sign_record": 0.7768541090915715,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        },
+        {
+          "frequency_interval": [
+            0.8753599638421771,
+            0.9013977475659141
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6243113234456068,
+          "imaginary_moment_separate_sign_record": 0.7768541090915715,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        }
+      ],
+      "original_four_pole_diagnostic": {
+        "all_poles": {
+          "imag": [
+            -0.8907067737546641,
+            -0.7810223088144072,
+            0.7810223088140494,
+            0.8907067703206759
+          ],
+          "real": [
+            0.4545783154633685,
+            0.6245031249972562,
+            0.6245031250000039,
+            0.4545783203133474
+          ]
+        },
+        "all_weights": {
+          "imag": [
+            1.2942096633673229e-14,
+            -1.3214562195483223e-14,
+            2.672129850526931e-14,
+            -2.6435745441940082e-14
+          ],
+          "real": [
+            1.105195764565897e-06,
+            0.0027472502934741084,
+            0.9961122360849538,
+            0.0011394084258075344
+          ]
+        },
+        "fit_condition": 92556907.13644044,
+        "frequency": 0.8963011412072716,
+        "heldout_error": 1.2860509645883926e-13
+      }
+    },
+    {
+      "case": {
+        "M": 4,
+        "turns": 2,
+        "direction": 1,
+        "law": "native"
+      },
+      "record": {
+        "x_plus": 0.8122515579071918,
+        "x_minus": 0.18774844209280817,
+        "y_plus": 0.8883630437210907,
+        "y_minus": 0.11163695627890935
+      },
+      "reader": {
+        "frequency_interval": [
+          0.8751102427051235,
+          0.9011481040387196
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.6245031158143837,
+        "imaginary_moment_separate_sign_record": 0.7767260874421813,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "separate_numerical_source_audit": {
+        "actual_off_band_population": 5.405695469029581e-08,
+        "margin_to_fixed_certificate": 0.00999994594304531,
+        "positive_target_weight": 0.9972495589443131,
+        "negative_target_weight": 0.0027503869987323365
+      },
+      "deterministic_perturbation_checks": [
+        {
+          "frequency_interval": [
+            0.8751102427051236,
+            0.9011532573414308
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6245011158143836,
+          "imaginary_moment_separate_sign_record": 0.7767260874421813,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        },
+        {
+          "frequency_interval": [
+            0.8751049791064113,
+            0.9011481040387195
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6245051158143837,
+          "imaginary_moment_separate_sign_record": 0.7767260874421813,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        }
+      ],
+      "original_four_pole_diagnostic": {
+        "all_poles": {
+          "imag": [
+            -0.8907653429974547,
+            -0.7810223088164296,
+            0.7810223088140618,
+            0.8907067716396833
+          ],
+          "real": [
+            0.454673996316528,
+            0.6245031250012558,
+            0.6245031250000086,
+            0.45457846336823055
+          ]
+        },
+        "all_weights": {
+          "imag": [
+            -6.711063789278126e-14,
+            6.95830466710697e-14,
+            -7.909075032099698e-14,
+            7.659023825496098e-14
+          ],
+          "real": [
+            5.23989748929857e-11,
+            0.002750386998717168,
+            0.9972495589442594,
+            5.400462461655139e-08
+          ]
+        },
+        "fit_condition": 1952654460977.683,
+        "frequency": 0.8963011412072757,
+        "heldout_error": 1.4905690194395787e-13
+      }
+    },
+    {
+      "case": {
+        "M": 4,
+        "turns": 2,
+        "direction": 1,
+        "law": "swap"
+      },
+      "record": {
+        "x_plus": 0.8121546617228034,
+        "x_minus": 0.18784533827719663,
+        "y_plus": 0.8884270545457859,
+        "y_minus": 0.11157294545421415
+      },
+      "reader": {
+        "frequency_interval": [
+          0.8753652263206905,
+          0.9013977475659142
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.6243093234456067,
+        "imaginary_moment_separate_sign_record": 0.7768541090915717,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "separate_numerical_source_audit": {
+        "actual_off_band_population": 0.0011405136216026124,
+        "margin_to_fixed_certificate": 0.008859486378397388,
+        "positive_target_weight": 0.9961122360849937,
+        "negative_target_weight": 0.0027472502934037086
+      },
+      "deterministic_perturbation_checks": [
+        {
+          "frequency_interval": [
+            0.8753652263206906,
+            0.9014028998505051
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6243073234456067,
+          "imaginary_moment_separate_sign_record": 0.7768541090915717,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        },
+        {
+          "frequency_interval": [
+            0.8753599638421771,
+            0.9013977475659141
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6243113234456068,
+          "imaginary_moment_separate_sign_record": 0.7768541090915717,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        }
+      ],
+      "original_four_pole_diagnostic": {
+        "all_poles": {
+          "imag": [
+            -0.8907067824970986,
+            -0.7810223088188433,
+            0.7810223088140462,
+            0.8907067703135935
+          ],
+          "real": [
+            0.4545783175571326,
+            0.6245031249958538,
+            0.6245031250000171,
+            0.45457832031895623
+          ]
+        },
+        "all_weights": {
+          "imag": [
+            -8.425712239020261e-14,
+            8.483177861892782e-14,
+            3.012932506249246e-14,
+            -3.0630103174691674e-14
+          ],
+          "real": [
+            1.1051957003330844e-06,
+            0.002747250293540887,
+            0.996112236084833,
+            0.0011394084259258096
+          ]
+        },
+        "fit_condition": 92556907.86259067,
+        "frequency": 0.8963011412072592,
+        "heldout_error": 3.253308155281536e-13
+      }
+    },
+    {
+      "case": {
+        "M": 4,
+        "turns": 2,
+        "direction": -1,
+        "law": "native"
+      },
+      "record": {
+        "x_plus": 0.8122515579077179,
+        "x_minus": 0.18774844209228214,
+        "y_plus": 0.888363043720743,
+        "y_minus": 0.11163695627925696
+      },
+      "reader": {
+        "frequency_interval": [
+          0.875110242703739,
+          0.9011481040373642
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.6245031158154357,
+        "imaginary_moment_separate_sign_record": 0.7767260874414861,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "separate_numerical_source_audit": {
+        "actual_off_band_population": 5.4050762532398267e-08,
+        "margin_to_fixed_certificate": 0.009999945949237468,
+        "positive_target_weight": 0.9972495589504882,
+        "negative_target_weight": 0.002750386998749432
+      },
+      "deterministic_perturbation_checks": [
+        {
+          "frequency_interval": [
+            0.8751102427037393,
+            0.9011532573400756
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6245011158154357,
+          "imaginary_moment_separate_sign_record": 0.7767260874414861,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        },
+        {
+          "frequency_interval": [
+            0.8751049791050268,
+            0.9011481040373641
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6245051158154358,
+          "imaginary_moment_separate_sign_record": 0.7767260874414861,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        }
+      ],
+      "original_four_pole_diagnostic": {
+        "all_poles": {
+          "imag": [
+            -0.890644897670205,
+            -0.7810223088158841,
+            0.7810223088140702,
+            0.8907069519783185
+          ],
+          "real": [
+            0.4548335622372758,
+            0.6245031250059263,
+            0.6245031250000024,
+            0.4545785082937545
+          ]
+        },
+        "all_weights": {
+          "imag": [
+            -8.327717356578801e-14,
+            8.681766120565421e-14,
+            -1.5757408309067115e-13,
+            1.5411355893364855e-13
+          ],
+          "real": [
+            5.2510159646339695e-11,
+            0.0027503869986140934,
+            0.9972495589505028,
+            5.399837255994879e-08
+          ]
+        },
+        "fit_condition": 1953035210484.9392,
+        "frequency": 0.8963011412072858,
+        "heldout_error": 2.929721755615376e-13
+      }
+    },
+    {
+      "case": {
+        "M": 4,
+        "turns": 2,
+        "direction": -1,
+        "law": "swap"
+      },
+      "record": {
+        "x_plus": 0.8121546617228034,
+        "x_minus": 0.18784533827719663,
+        "y_plus": 0.8884270545457857,
+        "y_minus": 0.11157294545421426
+      },
+      "reader": {
+        "frequency_interval": [
+          0.8753652263206905,
+          0.9013977475659142
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.6243093234456067,
+        "imaginary_moment_separate_sign_record": 0.7768541090915715,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "separate_numerical_source_audit": {
+        "actual_off_band_population": 0.0011405136216025014,
+        "margin_to_fixed_certificate": 0.008859486378397499,
+        "positive_target_weight": 0.9961122360849938,
+        "negative_target_weight": 0.002747250293403761
+      },
+      "deterministic_perturbation_checks": [
+        {
+          "frequency_interval": [
+            0.8753652263206906,
+            0.9014028998505051
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6243073234456067,
+          "imaginary_moment_separate_sign_record": 0.7768541090915715,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        },
+        {
+          "frequency_interval": [
+            0.8753599638421771,
+            0.9013977475659141
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6243113234456068,
+          "imaginary_moment_separate_sign_record": 0.7768541090915715,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        }
+      ],
+      "original_four_pole_diagnostic": {
+        "all_poles": {
+          "imag": [
+            -0.8907067804580666,
+            -0.78102230881752,
+            0.7810223088140451,
+            0.8907067703139502
+          ],
+          "real": [
+            0.45457831599415083,
+            0.6245031249958105,
+            0.6245031250000126,
+            0.45457832031765116
+          ]
+        },
+        "all_weights": {
+          "imag": [
+            -5.2898049750534425e-14,
+            5.330350964472573e-14,
+            4.623232119945631e-14,
+            -4.66154990250215e-14
+          ],
+          "real": [
+            1.1051957085766504e-06,
+            0.002747250293532165,
+            0.9961122360848585,
+            0.0011394084259006407
+          ]
+        },
+        "fit_condition": 92556907.71200918,
+        "frequency": 0.8963011412072621,
+        "heldout_error": 3.0785475526635807e-13
+      }
+    },
+    {
+      "case": {
+        "M": 8,
+        "turns": 1,
+        "direction": 1,
+        "law": "native"
+      },
+      "record": {
+        "x_plus": 0.8122515624754382,
+        "x_minus": 0.18774843752456183,
+        "y_plus": 0.8883630407032501,
+        "y_minus": 0.11163695929674988
+      },
+      "reader": {
+        "frequency_interval": [
+          0.8751102306824421,
+          0.9011480922679174
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.6245031249508763,
+        "imaginary_moment_separate_sign_record": 0.7767260814065002,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "separate_numerical_source_audit": {
+        "actual_off_band_population": 2.89095414274243e-10,
+        "margin_to_fixed_certificate": 0.009999999710904586,
+        "positive_target_weight": 0.9972496125642898,
+        "negative_target_weight": 0.0027503871466147602
+      },
+      "deterministic_perturbation_checks": [
+        {
+          "frequency_interval": [
+            0.8751102306824422,
+            0.9011532455706768
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6245011249508763,
+          "imaginary_moment_separate_sign_record": 0.7767260814065002,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        },
+        {
+          "frequency_interval": [
+            0.8751049670836769,
+            0.9011480922679173
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6245051249508764,
+          "imaginary_moment_separate_sign_record": 0.7767260814065002,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        }
+      ],
+      "original_four_pole_diagnostic": {
+        "all_poles": {
+          "imag": [
+            -0.9013270762936421,
+            -0.7810223088165857,
+            0.7810223088140602,
+            0.8907122241724671
+          ],
+          "real": [
+            0.47182105749392467,
+            0.6245031250011019,
+            0.6245031250000082,
+            0.4546065208193413
+          ]
+        },
+        "all_weights": {
+          "imag": [
+            -6.899719643924787e-14,
+            7.111630872571243e-14,
+            -7.91363295097912e-14,
+            7.718114017361463e-14
+          ],
+          "real": [
+            2.8693322986364036e-13,
+            0.002750387146608428,
+            0.9972496125642399,
+            2.888643074861165e-10
+          ]
+        },
+        "fit_condition": 371541870459968.5,
+        "frequency": 0.896301141207275,
+        "heldout_error": 1.79749327119097e-13
+      }
+    },
+    {
+      "case": {
+        "M": 8,
+        "turns": 1,
+        "direction": 1,
+        "law": "swap"
+      },
+      "record": {
+        "x_plus": 0.8121546617228033,
+        "x_minus": 0.18784533827719674,
+        "y_plus": 0.8884270545457857,
+        "y_minus": 0.11157294545421426
+      },
+      "reader": {
+        "frequency_interval": [
+          0.8753652263206908,
+          0.9013977475659144
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.6243093234456065,
+        "imaginary_moment_separate_sign_record": 0.7768541090915715,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "separate_numerical_source_audit": {
+        "actual_off_band_population": 0.0011405136216032785,
+        "margin_to_fixed_certificate": 0.008859486378396722,
+        "positive_target_weight": 0.9961122360849932,
+        "negative_target_weight": 0.002747250293403649
+      },
+      "deterministic_perturbation_checks": [
+        {
+          "frequency_interval": [
+            0.8753652263206909,
+            0.9014028998505054
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6243073234456065,
+          "imaginary_moment_separate_sign_record": 0.7768541090915715,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        },
+        {
+          "frequency_interval": [
+            0.8753599638421774,
+            0.9013977475659143
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6243113234456066,
+          "imaginary_moment_separate_sign_record": 0.7768541090915715,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        }
+      ],
+      "original_four_pole_diagnostic": {
+        "all_poles": {
+          "imag": [
+            -0.8907067749401253,
+            -0.7810223088179503,
+            0.7810223088140633,
+            0.8907067703259998
+          ],
+          "real": [
+            0.45457832772428186,
+            0.6245031250019241,
+            0.6245031250000107,
+            0.4545783203216399
+          ]
+        },
+        "all_weights": {
+          "imag": [
+            -1.0716844439773851e-13,
+            1.096313294745732e-13,
+            -1.0650549606133599e-13,
+            1.040468417190959e-13
+          ],
+          "real": [
+            1.1051958554799455e-06,
+            0.002747250293383073,
+            0.9961122360849292,
+            0.001139408425832416
+          ]
+        },
+        "fit_condition": 92556908.19254877,
+        "frequency": 0.896301141207275,
+        "heldout_error": 2.33143902644107e-13
+      }
+    },
+    {
+      "case": {
+        "M": 8,
+        "turns": 1,
+        "direction": -1,
+        "law": "native"
+      },
+      "record": {
+        "x_plus": 0.8122515624754383,
+        "x_minus": 0.18774843752456172,
+        "y_plus": 0.8883630407032501,
+        "y_minus": 0.11163695929674988
+      },
+      "reader": {
+        "frequency_interval": [
+          0.8751102306824418,
+          0.9011480922679171
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.6245031249508766,
+        "imaginary_moment_separate_sign_record": 0.7767260814065002,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "separate_numerical_source_audit": {
+        "actual_off_band_population": 2.890948591627307e-10,
+        "margin_to_fixed_certificate": 0.009999999710905141,
+        "positive_target_weight": 0.9972496125642902,
+        "negative_target_weight": 0.0027503871466147915
+      },
+      "deterministic_perturbation_checks": [
+        {
+          "frequency_interval": [
+            0.8751102306824419,
+            0.9011532455706764
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6245011249508765,
+          "imaginary_moment_separate_sign_record": 0.7767260814065002,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        },
+        {
+          "frequency_interval": [
+            0.8751049670836766,
+            0.901148092267917
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6245051249508766,
+          "imaginary_moment_separate_sign_record": 0.7767260814065002,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        }
+      ],
+      "original_four_pole_diagnostic": {
+        "all_poles": {
+          "imag": [
+            -0.915084318071751,
+            -0.7810223088174546,
+            0.7810223088140554,
+            0.8907003589956592
+          ],
+          "real": [
+            0.4687547419150928,
+            0.6245031249995625,
+            0.6245031250000087,
+            0.4546030844457948
+          ]
+        },
+        "all_weights": {
+          "imag": [
+            -7.567464427296453e-14,
+            7.690473356417376e-14,
+            -4.025709593525476e-14,
+            3.9130129742670034e-14
+          ],
+          "real": [
+            2.4142092600119e-13,
+            0.0027503871466549004,
+            0.9972496125642218,
+            2.8888191207892033e-10
+          ]
+        },
+        "fit_condition": 372640105668120.56,
+        "frequency": 0.8963011412072716,
+        "heldout_error": 1.9642218271823418e-13
+      }
+    },
+    {
+      "case": {
+        "M": 8,
+        "turns": 1,
+        "direction": -1,
+        "law": "swap"
+      },
+      "record": {
+        "x_plus": 0.8121546617228033,
+        "x_minus": 0.18784533827719674,
+        "y_plus": 0.8884270545457859,
+        "y_minus": 0.11157294545421415
+      },
+      "reader": {
+        "frequency_interval": [
+          0.8753652263206908,
+          0.9013977475659144
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.6243093234456065,
+        "imaginary_moment_separate_sign_record": 0.7768541090915717,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "separate_numerical_source_audit": {
+        "actual_off_band_population": 0.0011405136216030565,
+        "margin_to_fixed_certificate": 0.008859486378396944,
+        "positive_target_weight": 0.9961122360849934,
+        "negative_target_weight": 0.0027472502934036552
+      },
+      "deterministic_perturbation_checks": [
+        {
+          "frequency_interval": [
+            0.8753652263206909,
+            0.9014028998505054
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6243073234456065,
+          "imaginary_moment_separate_sign_record": 0.7768541090915717,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        },
+        {
+          "frequency_interval": [
+            0.8753599638421774,
+            0.9013977475659143
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6243113234456066,
+          "imaginary_moment_separate_sign_record": 0.7768541090915717,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        }
+      ],
+      "original_four_pole_diagnostic": {
+        "all_poles": {
+          "imag": [
+            -0.8907067775103636,
+            -0.7810223088163147,
+            0.781022308814048,
+            0.890706770317252
+          ],
+          "real": [
+            0.45457831676558724,
+            0.6245031249967647,
+            0.6245031250000098,
+            0.45457832031573114
+          ]
+        },
+        "all_weights": {
+          "imag": [
+            -3.330836615324185e-14,
+            3.3556487380391075e-14,
+            3.0394804431252527e-14,
+            -3.0736407457162666e-14
+          ],
+          "real": [
+            1.1051957409675192e-06,
+            0.002747250293499127,
+            0.9961122360848973,
+            0.0011394084258622892
+          ]
+        },
+        "fit_condition": 92556907.77479507,
+        "frequency": 0.8963011412072661,
+        "heldout_error": 2.0128358937010895e-13
+      }
+    },
+    {
+      "case": {
+        "M": 8,
+        "turns": 2,
+        "direction": 1,
+        "law": "native"
+      },
+      "record": {
+        "x_plus": 0.8122515624010518,
+        "x_minus": 0.18774843759894821,
+        "y_plus": 0.8883630407523908,
+        "y_minus": 0.11163695924760919
+      },
+      "reader": {
+        "frequency_interval": [
+          0.8751102308782117,
+          0.9011480924595856
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.6245031248021036,
+        "imaginary_moment_separate_sign_record": 0.7767260815047816,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "separate_numerical_source_audit": {
+        "actual_off_band_population": 1.1646176245605488e-09,
+        "margin_to_fixed_certificate": 0.009999998835382376,
+        "positive_target_weight": 0.9972496116911755,
+        "negative_target_weight": 0.0027503871442067602
+      },
+      "deterministic_perturbation_checks": [
+        {
+          "frequency_interval": [
+            0.8751102308782118,
+            0.901153245762344
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6245011248021035,
+          "imaginary_moment_separate_sign_record": 0.7767260815047816,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        },
+        {
+          "frequency_interval": [
+            0.8751049672794474,
+            0.9011480924595855
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6245051248021036,
+          "imaginary_moment_separate_sign_record": 0.7767260815047816,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        }
+      ],
+      "original_four_pole_diagnostic": {
+        "all_poles": {
+          "imag": [
+            -0.8939294667109017,
+            -0.7810223088164926,
+            0.7810223088140525,
+            0.890704842724426
+          ],
+          "real": [
+            0.45836818369112303,
+            0.6245031250006521,
+            0.6245031250000056,
+            0.45458233131388676
+          ]
+        },
+        "all_weights": {
+          "imag": [
+            -6.365178284643485e-14,
+            6.473136296186788e-14,
+            -1.264510156903973e-14,
+            1.1674887369310287e-14
+          ],
+          "real": [
+            1.128619395511332e-12,
+            0.0027503871442074264,
+            0.9972496116911248,
+            1.1635392926441366e-09
+          ]
+        },
+        "fit_condition": 91055744909801.73,
+        "frequency": 0.8963011412072722,
+        "heldout_error": 1.4042111886523477e-13
+      }
+    },
+    {
+      "case": {
+        "M": 8,
+        "turns": 2,
+        "direction": 1,
+        "law": "swap"
+      },
+      "record": {
+        "x_plus": 0.8121546617228034,
+        "x_minus": 0.18784533827719663,
+        "y_plus": 0.8884270545457857,
+        "y_minus": 0.11157294545421426
+      },
+      "reader": {
+        "frequency_interval": [
+          0.8753652263206905,
+          0.9013977475659142
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.6243093234456067,
+        "imaginary_moment_separate_sign_record": 0.7768541090915715,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "separate_numerical_source_audit": {
+        "actual_off_band_population": 0.0011405136216028344,
+        "margin_to_fixed_certificate": 0.008859486378397166,
+        "positive_target_weight": 0.9961122360849934,
+        "negative_target_weight": 0.0027472502934036717
+      },
+      "deterministic_perturbation_checks": [
+        {
+          "frequency_interval": [
+            0.8753652263206906,
+            0.9014028998505051
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6243073234456067,
+          "imaginary_moment_separate_sign_record": 0.7768541090915715,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        },
+        {
+          "frequency_interval": [
+            0.8753599638421771,
+            0.9013977475659141
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6243113234456068,
+          "imaginary_moment_separate_sign_record": 0.7768541090915715,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        }
+      ],
+      "original_four_pole_diagnostic": {
+        "all_poles": {
+          "imag": [
+            -0.8907067802391411,
+            -0.7810223088182832,
+            0.7810223088140466,
+            0.8907067703143418
+          ],
+          "real": [
+            0.4545783193278745,
+            0.624503124996964,
+            0.6245031250000118,
+            0.45457832031766776
+          ]
+        },
+        "all_weights": {
+          "imag": [
+            -7.97302306135173e-14,
+            8.127922402964201e-14,
+            3.700922217424583e-14,
+            -3.849871471058139e-14
+          ],
+          "real": [
+            1.1051957365212014e-06,
+            0.002747250293503966,
+            0.9961122360848635,
+            0.0011394084258959396
+          ]
+        },
+        "fit_condition": 92556908.11434735,
+        "frequency": 0.8963011412072636,
+        "heldout_error": 2.753749261028485e-13
+      }
+    },
+    {
+      "case": {
+        "M": 8,
+        "turns": 2,
+        "direction": -1,
+        "law": "native"
+      },
+      "record": {
+        "x_plus": 0.8122515624010518,
+        "x_minus": 0.18774843759894821,
+        "y_plus": 0.8883630407523908,
+        "y_minus": 0.11163695924760919
+      },
+      "reader": {
+        "frequency_interval": [
+          0.8751102308782117,
+          0.9011480924595856
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.6245031248021036,
+        "imaginary_moment_separate_sign_record": 0.7767260815047816,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "separate_numerical_source_audit": {
+        "actual_off_band_population": 1.1646168474044316e-09,
+        "margin_to_fixed_certificate": 0.009999998835383153,
+        "positive_target_weight": 0.9972496116911762,
+        "negative_target_weight": 0.002750387144206781
+      },
+      "deterministic_perturbation_checks": [
+        {
+          "frequency_interval": [
+            0.8751102308782118,
+            0.901153245762344
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6245011248021035,
+          "imaginary_moment_separate_sign_record": 0.7767260815047816,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        },
+        {
+          "frequency_interval": [
+            0.8751049672794474,
+            0.9011480924595855
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6245051248021036,
+          "imaginary_moment_separate_sign_record": 0.7767260815047816,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        }
+      ],
+      "original_four_pole_diagnostic": {
+        "all_poles": {
+          "imag": [
+            -0.8890490936584132,
+            -0.7810223088155103,
+            0.7810223088140616,
+            0.8907126453643796
+          ],
+          "real": [
+            0.4634898382629537,
+            0.6245031250043178,
+            0.6245031249999982,
+            0.45458092276277595
+          ]
+        },
+        "all_weights": {
+          "imag": [
+            -7.036106672827061e-14,
+            7.187553050852271e-14,
+            -7.27646132502895e-14,
+            7.132007226334463e-14
+          ],
+          "real": [
+            1.2248902843385125e-12,
+            0.002750387144109066,
+            0.9972496116912138,
+            1.1634521638628835e-09
+          ]
+        },
+        "fit_condition": 91091542252653.08,
+        "frequency": 0.8963011412072838,
+        "heldout_error": 1.870034579669501e-13
+      }
+    },
+    {
+      "case": {
+        "M": 8,
+        "turns": 2,
+        "direction": -1,
+        "law": "swap"
+      },
+      "record": {
+        "x_plus": 0.8121546617228033,
+        "x_minus": 0.18784533827719674,
+        "y_plus": 0.8884270545457857,
+        "y_minus": 0.11157294545421426
+      },
+      "reader": {
+        "frequency_interval": [
+          0.8753652263206908,
+          0.9013977475659144
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.6243093234456065,
+        "imaginary_moment_separate_sign_record": 0.7768541090915715,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "separate_numerical_source_audit": {
+        "actual_off_band_population": 0.0011405136216033895,
+        "margin_to_fixed_certificate": 0.00885948637839661,
+        "positive_target_weight": 0.996112236084993,
+        "negative_target_weight": 0.002747250293403755
+      },
+      "deterministic_perturbation_checks": [
+        {
+          "frequency_interval": [
+            0.8753652263206909,
+            0.9014028998505054
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6243073234456065,
+          "imaginary_moment_separate_sign_record": 0.7768541090915715,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        },
+        {
+          "frequency_interval": [
+            0.8753599638421774,
+            0.9013977475659143
+          ],
+          "chart": [
+            0.0,
+            3.141592653589793
+          ],
+          "real_moment": 0.6243113234456066,
+          "imaginary_moment_separate_sign_record": 0.7768541090915715,
+          "eta_external_certificate": 0.01,
+          "deterministic_probability_error": 1e-06,
+          "finite_shot_confidence_claim": false
+        }
+      ],
+      "original_four_pole_diagnostic": {
+        "all_poles": {
+          "imag": [
+            -0.890706782097155,
+            -0.7810223088195449,
+            0.7810223088140557,
+            0.890706770319851
+          ],
+          "real": [
+            0.4545783221971451,
+            0.6245031249979915,
+            0.6245031250000148,
+            0.4545783203208651
+          ]
+        },
+        "all_weights": {
+          "imag": [
+            -1.1922345536203994e-13,
+            1.2126750944300468e-13,
+            -4.552319151004929e-14,
+            4.345725336624249e-14
+          ],
+          "real": [
+            1.1051957477509791e-06,
+            0.002747250293492716,
+            0.9961122360848736,
+            0.0011394084258856906
+          ]
+        },
+        "fit_condition": 92556907.93986054,
+        "frequency": 0.896301141207267,
+        "heldout_error": 2.6736904355698843e-13
+      }
+    }
+  ],
+  "controls": [
+    {
+      "label": "same-band-negative",
+      "supplied_spectral_state_sensitivity_only": true,
+      "record": {
+        "x_plus": 0.8122515624999992,
+        "x_minus": 0.1877484375000008,
+        "y_plus": 0.10948884559297434,
+        "y_minus": 0.8905111544070257
+      },
+      "reader": {
+        "frequency_interval": [
+          0.8751102306178026,
+          0.9011480922046321
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.6245031249999984,
+        "imaginary_moment_separate_sign_record": -0.7810223088140513,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "source_frequency_audit": 0.8963011412072794
+    },
+    {
+      "label": "different-positive-band",
+      "supplied_spectral_state_sensitivity_only": true,
+      "record": {
+        "x_plus": 0.7272891601562511,
+        "x_minus": 0.2727108398437489,
+        "y_plus": 0.9453533851622423,
+        "y_minus": 0.05464661483775768
+      },
+      "reader": {
+        "frequency_interval": [
+          1.0823312392535445,
+          1.1050732224440287
+        ],
+        "chart": [
+          0.0,
+          3.141592653589793
+        ],
+        "real_moment": 0.4545783203125022,
+        "imaginary_moment_separate_sign_record": 0.8907067703244846,
+        "eta_external_certificate": 0.01,
+        "deterministic_probability_error": 0.0,
+        "finite_shot_confidence_claim": false
+      },
+      "source_frequency_audit": 1.098897591336523
+    },
+    {
+      "label": "retained-always-swap-source",
+      "source_file_sha256": "17fcdfee2cfc55c27de224bf14ef9c5635e51ed3954bc3f6bb2a80c3f1e2ed9d",
+      "off_band_population": 0.4285714285714284,
+      "certificate_accepted": false,
+      "reason": "The retained alternative source does not satisfy this fixed narrow-band certificate; no licensed narrow interval is reported.",
+      "original_rows": [
+        {
+          "k": 0,
+          "frequency": 1.3694384060045668,
+          "record": {
+            "time": 1,
+            "words": 1,
+            "x_plus": 0.5142857142857143,
+            "y_plus": 0.5
+          }
+        },
+        {
+          "k": 1,
+          "frequency": 1.2870022175865672,
+          "record": {
+            "time": 1,
+            "words": 2,
+            "x_plus": 0.5757142857142858,
+            "y_plus": 0.5
+          }
+        },
+        {
+          "k": 2,
+          "frequency": 1.270241717166087,
+          "record": {
+            "time": 1,
+            "words": 4,
+            "x_plus": 0.5871042410714287,
+            "y_plus": 0.5
+          }
+        },
+        {
+          "k": 3,
+          "frequency": 1.266232399398572,
+          "record": {
+            "time": 1,
+            "words": 8,
+            "x_plus": 0.5897872564507401,
+            "y_plus": 0.5
+          }
+        },
+        {
+          "k": 4,
+          "frequency": 1.2652406998180572,
+          "record": {
+            "time": 1,
+            "words": 16,
+            "x_plus": 0.5904485289813103,
+            "y_plus": 0.5
+          }
+        },
+        {
+          "k": 5,
+          "frequency": 1.2649934295272096,
+          "record": {
+            "time": 1,
+            "words": 32,
+            "x_plus": 0.5906132658676239,
+            "y_plus": 0.5
+          }
+        },
+        {
+          "k": 6,
+          "frequency": 1.2649316527173275,
+          "record": {
+            "time": 1,
+            "words": 64,
+            "x_plus": 0.5906544139344375,
+            "y_plus": 0.5
+          }
+        }
+      ]
+    }
+  ],
+  "detectors": [
+    {
+      "label": "binary normalization",
+      "rejected": true
+    },
+    {
+      "label": "invalid certificate",
+      "rejected": true
+    },
+    {
+      "label": "normalized but false source moment",
+      "rejected": true
+    },
+    {
+      "label": "false source band certificate",
+      "rejected": true
+    }
+  ],
+  "maximum_original_fit_condition": 372640105668120.56,
+  "maximum_interval_width": 0.026037861585475386,
+  "passed": true,
+  "seconds": 0.6044047500035958,
+  "external_G6": false,
+  "physical_mass_award": false
+}

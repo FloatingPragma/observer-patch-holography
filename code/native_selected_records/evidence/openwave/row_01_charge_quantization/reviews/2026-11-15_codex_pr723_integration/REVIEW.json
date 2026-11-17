@@ -1,0 +1,114 @@
+{
+  "verdict": "SCOPED_FINITE_COMPONENTS_SUPPORTED_PHYSICAL_ROWS_OPEN",
+  "same_group": true,
+  "external_G6": false,
+  "owner_G9": false,
+  "all_available_workers_used": 4,
+  "review_url": "https://github.com/openwave-labs/openwave/pull/723#pullrequestreview-5911443869",
+  "bound_manifests": {
+    "row_01_charge_quantization/work/2026-11-15_codex_pr723_unit_selection": {
+      "sha256": "35b67994df0c89d8478624815a95585293b99249da46b4dc90ba5fd27b72d5ae",
+      "files": 34
+    },
+    "row_02_electron_rest_energy/work/2026-11-15_codex_pr723_rest_selection": {
+      "sha256": "8c6d86aecb8c516afeca52bbe5db8f6014271e4c00c1c50af81cfdb2db117366",
+      "files": 68
+    },
+    "row_07_double_cover/work/2026-11-15_codex_pr723_rotation": {
+      "sha256": "05af1f898eb98a68413084b3b01586e600c79aa231d2f0318f0f90b887158f32",
+      "files": 53
+    },
+    "row_07_double_cover/work/2026-11-15_codex_pr723_rotation/berry": {
+      "sha256": "8add06ee1425a84e00997a7311f37ba222e7f77199487040506838cc21f00b7f",
+      "files": 30
+    },
+    "row_07_double_cover/work/2026-11-15_codex_pr723_two_turn_rejections": {
+      "sha256": "1861b420260787509cc944f291919af901a87a7f5dc7ca8c86c91c7ab4cfe512",
+      "files": 7
+    },
+    "row_01_charge_quantization/reviews/2026-11-15_codex_pr723_cross_review": {
+      "sha256": "949b0ef26f557f96b582c7860be4e11f2d27bb07a96432eb7294f7de89384e5a",
+      "files": 5
+    },
+    "row_02_electron_rest_energy/reviews/2026-11-15_codex_pr723_adversarial": {
+      "sha256": "b59a9c0e8d6f8b80a634563ec9e19d54fc5d2d16fb699c48cd8b5cedb417da16",
+      "files": 12
+    },
+    "row_07_double_cover/reviews/2026-11-15_codex_pr723_adversarial": {
+      "sha256": "760155ed834df197e359cd209580122f7b10f9c5ae8359af789c9a488f0a0caa",
+      "files": 5
+    },
+    "row_01_charge_quantization/reviews/2026-11-15_codex_pr723_common_instrument": {
+      "sha256": "d1d26e907932a04ad4ed3bb19cb556fd3e800161d56bcd9b0bd7987bbb85e10b",
+      "files": 6
+    }
+  },
+  "commands_passed": 9,
+  "total_command_seconds": 15.630708,
+  "remaining_requirements": {
+    "1": "Physical charge identification; integer alphabet and density promise remain supplied.",
+    "2": "Independent physical rest-energy/work and clock dictionary; modular gap remains tunable.",
+    "7": "Native coherent preparation/eraser/analyzer and physical spatial-rotation coupling; rare heralding and exact-sector sensitivity.",
+    "common": "Complete common native observer controller not implemented.",
+    "external": "New source adoption, prospective platform registration and other-group review not performed."
+  },
+  "remote_actions": [],
+  "compact_checks": [
+    {
+      "row": "01",
+      "passed": true,
+      "same_group": true,
+      "script": "row_01_charge_quantization/work/2026-11-15_codex_pr723_compact_review/compact_review.py",
+      "command": "python3 -I -S -B row_01_charge_quantization/work/2026-11-15_codex_pr723_compact_review/compact_review.py",
+      "script_sha256": "71654a88799844afc09fa41d7f846938c66aa834731c96f89028c91f10160c6c",
+      "manifest_sha256": "6e530cd4a71867d1a424b3d07f0e3fa834d2d3a413ab02c1a45b238dc905ea5b",
+      "lines": 114,
+      "stdlib_imports": [
+        "collections",
+        "itertools",
+        "json"
+      ],
+      "seconds": 1.6115755829960108,
+      "saved_output_matches": true,
+      "scope": "Full source inspected by integrator; standalone arithmetic recomputation, not full records or external acceptance."
+    },
+    {
+      "row": "02",
+      "passed": true,
+      "same_group": true,
+      "script": "row_02_electron_rest_energy/work/2026-11-15_codex_pr723_compact_review/compact_review.py",
+      "command": "python3 -I -S -B row_02_electron_rest_energy/work/2026-11-15_codex_pr723_compact_review/compact_review.py",
+      "script_sha256": "1ded33d378c25874e52a384012a4ba9ba207c0a7608e22d97a03b69e71aabe25",
+      "manifest_sha256": "b0af0ff53f6fa7fe72c44c84c840c60886e17effa0c357dbd871bc4dd05eeba0",
+      "lines": 123,
+      "stdlib_imports": [
+        "fractions",
+        "itertools",
+        "json",
+        "math"
+      ],
+      "seconds": 1.447733082997729,
+      "saved_output_matches": true,
+      "scope": "Full source inspected by integrator; standalone arithmetic recomputation, not full records or external acceptance."
+    },
+    {
+      "row": "07",
+      "passed": true,
+      "same_group": true,
+      "script": "row_07_double_cover/work/2026-11-15_codex_pr723_compact_review/compact_review.py",
+      "command": "python3 -I -S -B row_07_double_cover/work/2026-11-15_codex_pr723_compact_review/compact_review.py",
+      "script_sha256": "023ff958fd1eccc881a5e4bd0ffa509f26f95dbed40ddcfd0d7474231c89d923",
+      "manifest_sha256": "facb53706fbe0e7b897233c0099647e0d154f81ea7345742a231ab11924e303c",
+      "lines": 131,
+      "stdlib_imports": [
+        "fractions",
+        "json",
+        "math"
+      ],
+      "seconds": 0.19902241601084825,
+      "saved_output_matches": true,
+      "scope": "Full source inspected by integrator; standalone arithmetic recomputation, not full records or external acceptance."
+    }
+  ],
+  "compact_review_total_lines": 368
+}

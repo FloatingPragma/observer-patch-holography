@@ -1,0 +1,12 @@
+{
+  "schema": "oph.evidence_maintenance_artifacts.v1",
+  "scope": "Byte integrity of the named review, transition and readout artifacts; this is not a scientific replay certificate.",
+  "files": {
+    "model/completion/evidence_maintenance_review.json": "17a2fdaea5500dbf24e6d06f6f48fb3f446879dab677375cff045f7377a9b01c",
+    "model/completion/evidence_maintenance_transitions.json": "35fe3b5ff860bc3b775c0c818f126d9d4cab1ffb445a562b93635600b3d8bbb8",
+    "model/completion/ordered_spin_energy_readout.json": "196b08fba465d76f1b339b844c97a56696f5aa1135f69fc022e33731e0d2ae6a",
+    "model/completion/ORDERED_SPIN_ENERGY_READOUT.md": "83b31b8faf9145360292c28660a0a62e3b295bbd0e1f969685bb210ff18f1ab5",
+    "tools/read_ordered_spin_energies.py": "abb3847456eea96b2167a4c09784e2852183474f3ee4ae2828c7a5d2ab8581ce",
+    "tools/test_read_ordered_spin_energies.py": "5b0cfa6a58087a8666d7c0000f23a4e2f20a48f4c60334b9ff50a6308fa7bc4f"
+  }
+}

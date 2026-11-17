@@ -1,0 +1,13 @@
+{
+  "label": "readonly_headline",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_interval_source_certificate/certificate.py"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"progress_k\": 2, \"cases\": 32}\n{\"schema\": \"native-source-interval-certificate-v1\", \"passed\": true, \"known_result_verification\": true, \"mpmath_version\": \"1.3.0\", \"interval_dps\": 60, \"k_values\": [2], \"references\": [\"matched\", \"stationary\"], \"case_count\": 32, \"max_source_center_error_upper\": 5.02851437032771e-13, \"seconds\": 10.014558541995939, \"physical_error_model\": \"Exact declared native apparatus; certified arithmetic enclosure. Additional implementation perturbations require the separately stated conditional error theorem.\", \"external_G6\": false, \"physical_award\": false}\n",
+  "stderr": "",
+  "seconds": 10.151696666012867,
+  "passed": true
+}

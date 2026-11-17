@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-15T19:42:23.300488+00:00",
+  "scope": "Verification-only receipt integrity repair; complete run calculation unchanged; original frozen producer and evidence preserved",
+  "ancestor_experiment_sha256": "eec2c0c93ae0053d74bb9e4a1555c3e3d1d4e6ee519501c0f929aa3689bab335",
+  "experiment_v2_sha256": "a2f38aa4bf5dc940b3cb300e34a116fcb927f5c4a9db8d53086f8fcdf70a62df",
+  "evidence_sha256": "0e57bc531425dee074a0379b865636fe02ed85cb14f7067e20500d942c133d6b",
+  "receipt_sha256": "20cc66352de2bbe8e56f6bd96565465aceecb304a55e79228504e06f6d7e5bce",
+  "tests": [
+    "default clean read-only verification",
+    "actual scientific native/control discrimination predicate inverted under normal and -O",
+    "modified saved current",
+    "modified receipt field",
+    "existing first-record directory refuses overwrite",
+    "independent dropped/duplicated trial and column and first-event mutation rejection"
+  ]
+}

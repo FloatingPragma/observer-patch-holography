@@ -1,0 +1,293 @@
+{
+  "group": "payloads",
+  "passed": true,
+  "results": [
+    {
+      "label": "charge_verify",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_charge.py"
+      ],
+      "exit_code": 0,
+      "expected_success": true,
+      "passed": true,
+      "seconds": 0.14863029099069536
+    },
+    {
+      "label": "charge_mutant_normal",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_charge.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.16041799999948125
+    },
+    {
+      "label": "charge_mutant_optimized",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "-O",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_charge.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.16982616699533537
+    },
+    {
+      "label": "charge_changed_saved",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_charge.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.17779000000155065
+    },
+    {
+      "label": "energy_verify",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_energy.py"
+      ],
+      "exit_code": 0,
+      "expected_success": true,
+      "passed": true,
+      "seconds": 0.2765731250110548
+    },
+    {
+      "label": "energy_mutant_normal",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_energy.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.08459654200123623
+    },
+    {
+      "label": "energy_mutant_optimized",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "-O",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_energy.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.08806704099697527
+    },
+    {
+      "label": "energy_changed_saved",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_energy.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.2975101669871947
+    },
+    {
+      "label": "spin_verify",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_spin.py"
+      ],
+      "exit_code": 0,
+      "expected_success": true,
+      "passed": true,
+      "seconds": 0.1758821249968605
+    },
+    {
+      "label": "spin_mutant_normal",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_spin.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.04755845799809322
+    },
+    {
+      "label": "spin_mutant_optimized",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "-O",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_spin.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.04552970798977185
+    },
+    {
+      "label": "spin_changed_saved",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_spin.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.18426116699993145
+    },
+    {
+      "label": "common_verify",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_common.py"
+      ],
+      "exit_code": 0,
+      "expected_success": true,
+      "passed": true,
+      "seconds": 24.245186082989676
+    },
+    {
+      "label": "common_mutant_normal",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_common.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.15403316701122094
+    },
+    {
+      "label": "common_mutant_optimized",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "-O",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_common.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.14113495900528505
+    },
+    {
+      "label": "common_changed_saved",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_common.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 23.586717915997724
+    },
+    {
+      "label": "pair_verify",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_pair.py"
+      ],
+      "exit_code": 0,
+      "expected_success": true,
+      "passed": true,
+      "seconds": 0.04874337499495596
+    },
+    {
+      "label": "pair_mutant_normal",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_pair.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.06008808300248347
+    },
+    {
+      "label": "pair_mutant_optimized",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "-O",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_pair.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.05638962499506306
+    },
+    {
+      "label": "pair_changed_saved",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_pair.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.05367100000148639
+    },
+    {
+      "label": "first_record",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_charge.py",
+        "--record-to",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/first.json"
+      ],
+      "exit_code": 0,
+      "expected_success": true,
+      "passed": true,
+      "seconds": 0.21671762500773184
+    },
+    {
+      "label": "first_record_overwrite",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_charge.py",
+        "--record-to",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/first.json"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.21567200000572484
+    },
+    {
+      "label": "missing_saved_record",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/scripts/m10_4_charge.py",
+        "--verify",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-payloads-4_zj5sbz/missing.json"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.2197264999995241
+    }
+  ]
+}

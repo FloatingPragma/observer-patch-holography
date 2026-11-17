@@ -1,0 +1,1533 @@
+{
+  "status": "COMPLETE_SOURCE_TILTED_OBSERVER_TRANSFER_FAILS",
+  "R": 1.0,
+  "analytic_covariance_eigenvalues": [
+    0.10471529247895256,
+    0.8952847075210475
+  ],
+  "root_records": [
+    {
+      "tilt": 0.05,
+      "kappa": 0.01,
+      "roots": [
+        {
+          "k": [
+            -2.7166189039551623,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -54.53237807910329,
+          "jacobian": -3.0072516918459637,
+          "positive_weight": 0.3325295327662323,
+          "degeneracy": 2,
+          "unsquared_residual": 2.4511642715552284e-15
+        },
+        {
+          "k": [
+            -1.3599802620632981,
+            -2.349781221956731
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            -1.3599802620632981,
+            2.349781221956731
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            0.009523809523809353,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -0.009523809523812906,
+          "jacobian": 1.0500000000001306,
+          "positive_weight": 0.9523809523808339,
+          "degeneracy": 2,
+          "unsquared_residual": -1.734723475976807e-18
+        },
+        {
+          "k": [
+            0.010526315789474067,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 0.010526315789481227,
+          "jacobian": 0.9499999999997619,
+          "positive_weight": 1.0526315789476322,
+          "degeneracy": 2,
+          "unsquared_residual": 5.204170427930421e-18
+        },
+        {
+          "k": [
+            1.3532969209039885,
+            -2.3497812807481324
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            1.3532969209039885,
+            2.3497812807481324
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            2.7099354609604993,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 53.9987092192099,
+          "jacobian": -2.9777117224333347,
+          "positive_weight": 0.3358283451236231,
+          "degeneracy": 2,
+          "unsquared_residual": 4.227521110955479e-15
+        }
+      ],
+      "real_root_count": 4,
+      "complete_branch_modes": 8,
+      "complete_branch_occupations": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_real_branches_retained": true,
+      "negative_weights_used": false,
+      "sampled_field_components": 4,
+      "gram_eigenvalues": [
+        1.269830109779421,
+        1.269830109779421,
+        1.4035402994389006,
+        1.4035402994389006
+      ],
+      "dirac_normalized_gram_eigenvalues": [
+        1.3317010555604063,
+        1.3317010555604063,
+        1.3349858669571408,
+        1.3349858669571408
+      ],
+      "gram_limit_error": 0.0016525335117223428,
+      "whitened_covariance_eigenvalues": [
+        0.104233300985637,
+        0.10423330098563717,
+        0.8948433524085806,
+        0.8948433524085808
+      ],
+      "covariance_limit_error": 0.0004705677964781385,
+      "sampled_covariance_projector_defect": 0.09384913361803637,
+      "full_branch_covariance_projector_defect": 0.0,
+      "local_dirac_normalization_suffices": false
+    },
+    {
+      "tilt": 0.05,
+      "kappa": 0.001,
+      "roots": [
+        {
+          "k": [
+            -2.7136195156411302,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -54.29239031282259,
+          "jacobian": -2.993976808820869,
+          "positive_weight": 0.33400392316126004,
+          "degeneracy": 2,
+          "unsquared_residual": -5.542441505745899e-16
+        },
+        {
+          "k": [
+            -1.3569768421642574,
+            -2.349774180897376
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            -1.3569768421642574,
+            2.349774180897376
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            0.0009523809523809469,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -0.0009523809523809469,
+          "jacobian": 1.05,
+          "positive_weight": 0.9523809523809523,
+          "degeneracy": 2,
+          "unsquared_residual": -5.854691731421724e-18
+        },
+        {
+          "k": [
+            0.0010526315789473736,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 0.0010526315789473736,
+          "jacobian": 0.95,
+          "positive_weight": 1.0526315789473684,
+          "degeneracy": 2,
+          "unsquared_residual": 4.9873299934333204e-18
+        },
+        {
+          "k": [
+            1.3563085046877597,
+            -2.3497741809561683
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            1.3563085046877597,
+            2.3497741809561683
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            2.712951178062804,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 54.23902356125635,
+          "jacobian": -2.9910228253284163,
+          "positive_weight": 0.33433379094664695,
+          "degeneracy": 2,
+          "unsquared_residual": -1.3876920446076468e-14
+        }
+      ],
+      "real_root_count": 4,
+      "complete_branch_modes": 8,
+      "complete_branch_occupations": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_real_branches_retained": true,
+      "negative_weights_used": false,
+      "sampled_field_components": 4,
+      "gram_eigenvalues": [
+        1.2698411582687334,
+        1.2698411582687334,
+        1.4035090871674942,
+        1.4035090871674942
+      ],
+      "dirac_normalized_gram_eigenvalues": [
+        1.3331692207484274,
+        1.3331692207484283,
+        1.3334976484674703,
+        1.3334976484674703
+      ],
+      "gram_limit_error": 0.00016431513402492826,
+      "whitened_covariance_eigenvalues": [
+        0.10466693536771367,
+        0.10466693536771376,
+        0.8952406979136448,
+        0.8952406979136449
+      ],
+      "covariance_limit_error": 4.7315560047112015e-05,
+      "sampled_covariance_projector_defect": 0.09375982509584224,
+      "full_branch_covariance_projector_defect": 0.0,
+      "local_dirac_normalization_suffices": false
+    },
+    {
+      "tilt": 0.05,
+      "kappa": 0.0001,
+      "roots": [
+        {
+          "k": [
+            -2.7133188453697827,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -54.26837690739575,
+          "jacobian": -2.992647697338653,
+          "positive_weight": 0.33415226285716665,
+          "degeneracy": 2,
+          "unsquared_residual": 4.6519184988477735e-15
+        },
+        {
+          "k": [
+            -1.3566761311226192,
+            -2.3497741102224845
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            -1.3566761311226192,
+            2.3497741102224845
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            9.523809523809341e-05,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -9.523809523809341e-05,
+          "jacobian": 1.05,
+          "positive_weight": 0.9523809523809523,
+          "degeneracy": 2,
+          "unsquared_residual": -1.9244588561617704e-18
+        },
+        {
+          "k": [
+            0.00010526315789473892,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 0.00010526315789473892,
+          "jacobian": 0.95,
+          "positive_weight": 1.0526315789473684,
+          "degeneracy": 2,
+          "unsquared_residual": 1.9651164376299768e-18
+        },
+        {
+          "k": [
+            1.356609297371609,
+            -2.349774110222545
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            1.356609297371609,
+            2.349774110222545
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            2.7132520116186694,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 54.263040232373406,
+          "jacobian": -2.992352299002848,
+          "positive_weight": 0.33418524962225654,
+          "degeneracy": 2,
+          "unsquared_residual": -1.1212412292030405e-15
+        }
+      ],
+      "real_root_count": 4,
+      "complete_branch_modes": 8,
+      "complete_branch_occupations": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_real_branches_retained": true,
+      "negative_weights_used": false,
+      "sampled_field_components": 4,
+      "gram_eigenvalues": [
+        1.269841268725547,
+        1.269841268725547,
+        1.403508775082197,
+        1.403508775082197
+      ],
+      "dirac_normalized_gram_eigenvalues": [
+        1.3333169129868356,
+        1.3333169129868356,
+        1.3333497557053207,
+        1.3333497557053207
+      ],
+      "gram_limit_error": 1.6422371987401263e-05,
+      "whitened_covariance_eigenvalues": [
+        0.1047104550848688,
+        0.1047104550848689,
+        0.89528030793485,
+        0.8952803079348501
+      ],
+      "covariance_limit_error": 4.733797030365139e-06,
+      "sampled_covariance_projector_defect": 0.09375098154132933,
+      "full_branch_covariance_projector_defect": 0.0,
+      "local_dirac_normalization_suffices": false
+    },
+    {
+      "tilt": 0.1,
+      "kappa": 0.01,
+      "roots": [
+        {
+          "k": [
+            -2.1541853503451533,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -21.64185350345159,
+          "jacobian": -2.988707124617049,
+          "positive_weight": 0.3345928384093951,
+          "degeneracy": 2,
+          "unsquared_residual": 5.559788740505667e-15
+        },
+        {
+          "k": [
+            -1.0787761213939882,
+            -1.862681626453
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            -1.0787761213939882,
+            1.862681626453
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            0.009090909090908806,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -0.009090909090911372,
+          "jacobian": 1.1000000000001975,
+          "positive_weight": 0.9090909090907459,
+          "degeneracy": 2,
+          "unsquared_residual": -5.724587470723463e-17
+        },
+        {
+          "k": [
+            0.011111111111112348,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 0.011111111111122802,
+          "jacobian": 0.8999999999993414,
+          "positive_weight": 1.111111111111924,
+          "degeneracy": 2,
+          "unsquared_residual": 6.765421556309548e-17
+        },
+        {
+          "k": [
+            1.0720421706609167,
+            -1.8626817234406037
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            1.0720421706609167,
+            1.8626817234406037
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            2.1474512316092746,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 21.374512316092805,
+          "jacobian": -2.951232913256628,
+          "positive_weight": 0.33884143657659316,
+          "degeneracy": 2,
+          "unsquared_residual": -5.986530715595961e-15
+        }
+      ],
+      "real_root_count": 4,
+      "complete_branch_modes": 8,
+      "complete_branch_occupations": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_real_branches_retained": true,
+      "negative_weights_used": false,
+      "sampled_field_components": 4,
+      "gram_eigenvalues": [
+        1.212118027385819,
+        1.212118027385819,
+        1.4815182678028394,
+        1.4815182678028394
+      ],
+      "dirac_normalized_gram_eigenvalues": [
+        1.3312619517835729,
+        1.3312619517835729,
+        1.3354375883126002,
+        1.3354375883126002
+      ],
+      "gram_limit_error": 0.00210425405860315,
+      "whitened_covariance_eigenvalues": [
+        0.10407577024343938,
+        0.10407577024343952,
+        0.8947512761921008,
+        0.894751276192101
+      ],
+      "covariance_limit_error": 0.0006118128198957518,
+      "sampled_covariance_projector_defect": 0.09385430659575267,
+      "full_branch_covariance_projector_defect": 0.0,
+      "local_dirac_normalization_suffices": false
+    },
+    {
+      "tilt": 0.1,
+      "kappa": 0.001,
+      "roots": [
+        {
+          "k": [
+            -2.1511655062982578,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -21.521655062982678,
+          "jacobian": -2.9718733965605133,
+          "positive_weight": 0.33648808901393523,
+          "degeneracy": 2,
+          "unsquared_residual": 1.0103896885826913e-14
+        },
+        {
+          "k": [
+            -1.0757511032615321,
+            -1.8626725690143466
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            -1.0757511032615321,
+            1.8626725690143466
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            0.0009090909090908937,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -0.0009090909090908937,
+          "jacobian": 1.1,
+          "positive_weight": 0.9090909090909091,
+          "degeneracy": 2,
+          "unsquared_residual": -1.691355389077387e-17
+        },
+        {
+          "k": [
+            0.0011111111111111304,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 0.0011111111111111304,
+          "jacobian": 0.9,
+          "positive_weight": 1.1111111111111112,
+          "degeneracy": 2,
+          "unsquared_residual": 1.734723475976807e-17
+        },
+        {
+          "k": [
+            1.0750777026441314,
+            -1.8626725691113415
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            1.0750777026441314,
+            1.8626725691113415
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            2.150492105512858,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 21.494921055128607,
+          "jacobian": -2.968126003835847,
+          "positive_weight": 0.33691292037725273,
+          "degeneracy": 2,
+          "unsquared_residual": -2.774690199824903e-15
+        }
+      ],
+      "real_root_count": 4,
+      "complete_branch_modes": 8,
+      "complete_branch_occupations": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_real_branches_retained": true,
+      "negative_weights_used": false,
+      "sampled_field_components": 4,
+      "gram_eigenvalues": [
+        1.2121211803368197,
+        1.2121211803368201,
+        1.4814818492563873,
+        1.4814818492563877
+      ],
+      "dirac_normalized_gram_eigenvalues": [
+        1.333124771191218,
+        1.333124771191218,
+        1.333542224185066,
+        1.333542224185066
+      ],
+      "gram_limit_error": 0.0002088908508122156,
+      "whitened_covariance_eigenvalues": [
+        0.10465105235446538,
+        0.10465105235446569,
+        0.8952315503589712,
+        0.8952315503589723
+      ],
+      "covariance_limit_error": 6.16039745294783e-05,
+      "sampled_covariance_projector_defect": 0.09376028991794838,
+      "full_branch_covariance_projector_defect": 0.0,
+      "local_dirac_normalization_suffices": false
+    },
+    {
+      "tilt": 0.1,
+      "kappa": 0.0001,
+      "roots": [
+        {
+          "k": [
+            -2.1508625810850153,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -21.509625810850345,
+          "jacobian": -2.9701873666240455,
+          "positive_weight": 0.3366790968263438,
+          "degeneracy": 2,
+          "unsquared_residual": 1.930686242389984e-14
+        },
+        {
+          "k": [
+            -1.0754481255592867,
+            -1.8626724780039607
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            -1.0754481255592867,
+            1.8626724780039607
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            9.090909090909256e-05,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -9.090909090909256e-05,
+          "jacobian": 1.1,
+          "positive_weight": 0.9090909090909091,
+          "degeneracy": 2,
+          "unsquared_residual": 1.802486111757151e-18
+        },
+        {
+          "k": [
+            0.00011111111111110904,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 0.00011111111111110904,
+          "jacobian": 0.9,
+          "positive_weight": 1.1111111111111112,
+          "degeneracy": 2,
+          "unsquared_residual": -1.870248747537495e-18
+        },
+        {
+          "k": [
+            1.0753807854920003,
+            -1.8626724780040522
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            1.0753807854920003,
+            1.8626724780040522
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            2.150795241017563,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 21.506952410175806,
+          "jacobian": -2.969812627379989,
+          "positive_weight": 0.3367215799342244,
+          "degeneracy": 2,
+          "unsquared_residual": -1.799663120350542e-14
+        }
+      ],
+      "real_root_count": 4,
+      "complete_branch_modes": 8,
+      "complete_branch_occupations": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_real_branches_retained": true,
+      "negative_weights_used": false,
+      "sampled_field_components": 4,
+      "gram_eigenvalues": [
+        1.212121211803371,
+        1.212121211803371,
+        1.4814814851592173,
+        1.4814814851592173
+      ],
+      "dirac_normalized_gram_eigenvalues": [
+        1.333312462382512,
+        1.333312462382512,
+        1.3333542075712397,
+        1.3333542075712397
+      ],
+      "gram_limit_error": 2.0874237905532667e-05,
+      "whitened_covariance_eigenvalues": [
+        0.10470886547851618,
+        0.10470886547851621,
+        0.8952793937977722,
+        0.8952793937977723
+      ],
+      "covariance_limit_error": 6.164251324602965e-06,
+      "sampled_covariance_projector_defect": 0.09375102749080544,
+      "full_branch_covariance_projector_defect": 0.0,
+      "local_dirac_normalization_suffices": false
+    },
+    {
+      "tilt": 0.3,
+      "kappa": 0.01,
+      "roots": [
+        {
+          "k": [
+            -1.4741486122258947,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -4.9471620407529935,
+          "jacobian": -2.7589535311418256,
+          "positive_weight": 0.36245626782490176,
+          "degeneracy": 2,
+          "unsquared_residual": 3.3393426912553537e-15
+        },
+        {
+          "k": [
+            -0.738905634766127,
+            -1.273511331314302
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            -0.738905634766127,
+            1.273511331314302
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            0.007692307692307514,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -0.00769230769230831,
+          "jacobian": 1.3000000000002174,
+          "positive_weight": 0.7692307692306406,
+          "degeneracy": 2,
+          "unsquared_residual": 6.938893903907228e-18
+        },
+        {
+          "k": [
+            0.014285714285740292,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 0.014285714285801006,
+          "jacobian": 0.6999999999910751,
+          "positive_weight": 1.4285714285896427,
+          "degeneracy": 2,
+          "unsquared_residual": -8.673617379884035e-18
+        },
+        {
+          "k": [
+            0.7315798035375163,
+            -1.2735116362411008
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            0.7315798035375163,
+            1.2735116362411008
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            1.4668222527050656,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 4.856074175683547,
+          "jacobian": -2.7008768165939823,
+          "positive_weight": 0.37025013279246055,
+          "degeneracy": 2,
+          "unsquared_residual": 1.5629858518551032e-15
+        }
+      ],
+      "real_root_count": 4,
+      "complete_branch_modes": 8,
+      "complete_branch_occupations": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_real_branches_retained": true,
+      "negative_weights_used": false,
+      "sampled_field_components": 4,
+      "gram_eigenvalues": [
+        1.0256493053386002,
+        1.0256493053386002,
+        1.9048592930990456,
+        1.9048592930990456
+      ],
+      "dirac_normalized_gram_eigenvalues": [
+        1.330053172332375,
+        1.330053172332375,
+        1.3367007144917311,
+        1.3367007144917311
+      ],
+      "gram_limit_error": 0.003367347777701868,
+      "whitened_covariance_eigenvalues": [
+        0.10352670986942077,
+        0.10352670986942077,
+        0.8946135315535008,
+        0.8946135315535008
+      ],
+      "covariance_limit_error": 0.0010630775020638028,
+      "sampled_covariance_projector_defect": 0.09377676756956865,
+      "full_branch_covariance_projector_defect": 0.0,
+      "local_dirac_normalization_suffices": false
+    },
+    {
+      "tilt": 0.3,
+      "kappa": 0.001,
+      "roots": [
+        {
+          "k": [
+            -1.4708710209157017,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -4.906236736385666,
+          "jacobian": -2.732902917046627,
+          "positive_weight": 0.36591127835622955,
+          "degeneracy": 2,
+          "unsquared_residual": -1.8865117801247777e-15
+        },
+        {
+          "k": [
+            -0.7356186604652204,
+            -1.2734947814927438
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            -0.7356186604652204,
+            1.2734947814927438
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            0.0007692307692307688,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -0.0007692307692307688,
+          "jacobian": 1.3,
+          "positive_weight": 0.7692307692307692,
+          "degeneracy": 2,
+          "unsquared_residual": -6.505213034913027e-19
+        },
+        {
+          "k": [
+            0.0014285714285714294,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 0.0014285714285714294,
+          "jacobian": 0.7,
+          "positive_weight": 1.4285714285714286,
+          "degeneracy": 2,
+          "unsquared_residual": 6.505213034913027e-19
+        },
+        {
+          "k": [
+            0.7348860599086924,
+            -1.2734947817977105
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            0.7348860599086924,
+            1.2734947817977105
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            1.4701384198309522,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 4.897128066103156,
+          "jacobian": -2.7270953865815577,
+          "positive_weight": 0.36669051068782393,
+          "degeneracy": 2,
+          "unsquared_residual": 5.4409601824012555e-15
+        }
+      ],
+      "real_root_count": 4,
+      "complete_branch_modes": 8,
+      "complete_branch_occupations": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_real_branches_retained": true,
+      "negative_weights_used": false,
+      "sampled_field_components": 4,
+      "gram_eigenvalues": [
+        1.025641108585004,
+        1.025641108585004,
+        1.9047628782612471,
+        1.9047628782612471
+      ],
+      "dirac_normalized_gram_eigenvalues": [
+        1.3330016357295804,
+        1.3330016357295804,
+        1.333665902948261,
+        1.333665902948261
+      ],
+      "gram_limit_error": 0.0003325695815414864,
+      "whitened_covariance_eigenvalues": [
+        0.10459541148131839,
+        0.10459541148131841,
+        0.8952178486114579,
+        0.895217848611458
+      ],
+      "covariance_limit_error": 0.00010761627048649913,
+      "sampled_covariance_projector_defect": 0.09375237158669847,
+      "full_branch_covariance_projector_defect": 0.0,
+      "local_dirac_normalization_suffices": false
+    },
+    {
+      "tilt": 0.3,
+      "kappa": 0.0001,
+      "roots": [
+        {
+          "k": [
+            -1.470541543269947,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -4.902138477566501,
+          "jacobian": -2.730290367970925,
+          "positive_weight": 0.3662614100430541,
+          "degeneracy": 2,
+          "unsquared_residual": 3.3196508692975857e-15
+        },
+        {
+          "k": [
+            -0.7352890866531132,
+            -1.2734946146237478
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            -0.7352890866531132,
+            1.2734946146237478
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            7.692307692307679e-05,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -7.692307692307679e-05,
+          "jacobian": 1.3,
+          "positive_weight": 0.7692307692307692,
+          "degeneracy": 2,
+          "unsquared_residual": -1.7618285302889447e-19
+        },
+        {
+          "k": [
+            0.00014285714285714308,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 0.00014285714285714308,
+          "jacobian": 0.7,
+          "positive_weight": 1.4285714285714286,
+          "degeneracy": 2,
+          "unsquared_residual": 1.4907779871675686e-19
+        },
+        {
+          "k": [
+            0.7352158265800286,
+            -1.2734946146240513
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            0.7352158265800286,
+            1.2734946146240513
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            1.4704682831963334,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 4.901227610654444,
+          "jacobian": -2.72970961506538,
+          "positive_weight": 0.36633933312208694,
+          "degeneracy": 2,
+          "unsquared_residual": 2.1102640034714737e-16
+        }
+      ],
+      "real_root_count": 4,
+      "complete_branch_modes": 8,
+      "complete_branch_occupations": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_real_branches_retained": true,
+      "negative_weights_used": false,
+      "sampled_field_components": 4,
+      "gram_eigenvalues": [
+        1.02564102647048,
+        1.02564102647048,
+        1.9047619144968588,
+        1.9047619144968588
+      ],
+      "dirac_normalized_gram_eigenvalues": [
+        1.3333001245759297,
+        1.3333001245759297,
+        1.333366550810828,
+        1.333366550810828
+      ],
+      "gram_limit_error": 3.3217477461544576e-05,
+      "whitened_covariance_eigenvalues": [
+        0.10470329390774738,
+        0.10470329390774744,
+        0.8952780245528424,
+        0.8952780245528424
+      ],
+      "covariance_limit_error": 1.0774027144999643e-05,
+      "sampled_covariance_projector_defect": 0.09375023389475967,
+      "full_branch_covariance_projector_defect": 0.0,
+      "local_dirac_normalization_suffices": false
+    },
+    {
+      "tilt": 0.6,
+      "kappa": 0.01,
+      "roots": [
+        {
+          "k": [
+            -1.1057893985715597,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -1.8596489976192707,
+          "jacobian": -1.9658524992246855,
+          "positive_weight": 0.5086851635076339,
+          "degeneracy": 2,
+          "unsquared_residual": 2.6732088764802597e-15
+        },
+        {
+          "k": [
+            -0.555497631308155,
+            -0.9532373985625132
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            -0.555497631308155,
+            0.9532373985625132
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            0.0062499999999999275,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -0.006250000000000114,
+          "jacobian": 1.600000000000125,
+          "positive_weight": 0.6249999999999512,
+          "degeneracy": 2,
+          "unsquared_residual": -5.204170427930421e-18
+        },
+        {
+          "k": [
+            0.025000000004577642,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 0.025000000007629402,
+          "jacobian": 0.3999999994873048,
+          "positive_weight": 2.500000003204345,
+          "degeneracy": 2,
+          "unsquared_residual": 1.734723475976807e-18
+        },
+        {
+          "k": [
+            0.5450822468625522,
+            -0.9532396164348708
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            0.5450822468625522,
+            0.9532396164348708
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            1.095370167458188,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 1.8089502790969798,
+          "jacobian": -1.8735321421610318,
+          "positive_weight": 0.5337511844587554,
+          "degeneracy": 2,
+          "unsquared_residual": 8.673617379884035e-18
+        }
+      ],
+      "real_root_count": 4,
+      "complete_branch_modes": 8,
+      "complete_branch_occupations": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_real_branches_retained": true,
+      "negative_weights_used": false,
+      "sampled_field_components": 4,
+      "gram_eigenvalues": [
+        0.833354617033511,
+        0.833354617033511,
+        3.3340817341371745,
+        3.3340817341371745
+      ],
+      "dirac_normalized_gram_eigenvalues": [
+        1.3271839441655888,
+        1.3271839441655888,
+        1.3398461819191003,
+        1.3398461819191003
+      ],
+      "gram_limit_error": 0.006511933901941935,
+      "whitened_covariance_eigenvalues": [
+        0.10199059770552688,
+        0.10199059770552707,
+        0.8945214112674018,
+        0.894521411267402
+      ],
+      "covariance_limit_error": 0.0022950448809441193,
+      "sampled_covariance_projector_defect": 0.09340476269152187,
+      "full_branch_covariance_projector_defect": 0.0,
+      "local_dirac_normalization_suffices": false
+    },
+    {
+      "tilt": 0.6,
+      "kappa": 0.001,
+      "roots": [
+        {
+          "k": [
+            -1.1011626248943414,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -1.836937708157241,
+          "jacobian": -1.9246124159987823,
+          "positive_weight": 0.5195851339663355,
+          "degeneracy": 2,
+          "unsquared_residual": 3.2205141331509424e-15
+        },
+        {
+          "k": [
+            -0.5508417278372298,
+            -0.9531848340324929
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            -0.5508417278372298,
+            0.9531848340324929
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            0.0006250000000000004,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -0.0006250000000000004,
+          "jacobian": 1.6,
+          "positive_weight": 0.625,
+          "degeneracy": 2,
+          "unsquared_residual": 6.505213034913027e-19
+        },
+        {
+          "k": [
+            0.0024999999999999983,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 0.0024999999999999988,
+          "jacobian": 0.39999999999999947,
+          "positive_weight": 2.5000000000000036,
+          "degeneracy": 2,
+          "unsquared_residual": -8.673617379884035e-19
+        },
+        {
+          "k": [
+            0.5498000624519271,
+            -0.9531848362518511
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            0.5498000624519271,
+            0.9531848362518511
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            1.100120955664944,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 1.8318682594415738,
+          "jacobian": -1.915381432762238,
+          "positive_weight": 0.522089220922365,
+          "degeneracy": 2,
+          "unsquared_residual": -1.1015494072452725e-16
+        }
+      ],
+      "real_root_count": 4,
+      "complete_branch_modes": 8,
+      "complete_branch_occupations": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_real_branches_retained": true,
+      "negative_weights_used": false,
+      "sampled_field_components": 4,
+      "gram_eigenvalues": [
+        0.8333335472959629,
+        0.8333335472959629,
+        3.333340807592741,
+        3.333340807592741
+      ],
+      "dirac_normalized_gram_eigenvalues": [
+        1.3327041823310828,
+        1.3327041823310828,
+        1.3339661149667204,
+        1.3339661149667204
+      ],
+      "gram_limit_error": 0.0006327807178683198,
+      "whitened_covariance_eigenvalues": [
+        0.10443745337557439,
+        0.10443745337557446,
+        0.8952082453716181,
+        0.8952082453716182
+      ],
+      "covariance_limit_error": 0.00023593463413140725,
+      "sampled_covariance_projector_defect": 0.09371462407849629,
+      "full_branch_covariance_projector_defect": 0.0,
+      "local_dirac_normalization_suffices": false
+    },
+    {
+      "tilt": 0.6,
+      "kappa": 0.0001,
+      "roots": [
+        {
+          "k": [
+            -1.1006944933726697,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -1.8346574889544505,
+          "jacobian": -1.9204615178798177,
+          "positive_weight": 0.5207081686822844,
+          "degeneracy": 2,
+          "unsquared_residual": 6.5511561019721e-16
+        },
+        {
+          "k": [
+            -0.5503732883517216,
+            -0.9531842984172814
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            -0.5503732883517216,
+            0.9531842984172814
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            6.250000000000003e-05,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": -1,
+          "energy": -6.250000000000003e-05,
+          "jacobian": 1.6,
+          "positive_weight": 0.625,
+          "degeneracy": 2,
+          "unsquared_residual": 4.0657581468206416e-20
+        },
+        {
+          "k": [
+            0.00024999999999999995,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 0.00024999999999999995,
+          "jacobian": 0.4,
+          "positive_weight": 2.5,
+          "degeneracy": 2,
+          "unsquared_residual": -1.3552527156068805e-20
+        },
+        {
+          "k": [
+            0.550269121686336,
+            -0.9531842984195004
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            0.550269121686336,
+            0.9531842984195004
+          ],
+          "class_": "COMPLEX_NOT_IN_REAL_MOMENTUM_HILBERT_SPACE"
+        },
+        {
+          "k": [
+            1.1005903267034414,
+            0.0
+          ],
+          "class_": "REAL_PHYSICAL_BRANCH",
+          "band": 1,
+          "energy": 1.8341505445057402,
+          "jacobian": -1.9195384206080428,
+          "positive_weight": 0.5209585748657403,
+          "degeneracy": 2,
+          "unsquared_residual": -2.6755534636782596e-15
+        }
+      ],
+      "real_root_count": 4,
+      "complete_branch_modes": 8,
+      "complete_branch_occupations": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_real_branches_retained": true,
+      "negative_weights_used": false,
+      "sampled_field_components": 4,
+      "gram_eigenvalues": [
+        0.8333333354730716,
+        0.8333333354730716,
+        3.333333408074953,
+        3.333333408074953
+      ],
+      "dirac_normalized_gram_eigenvalues": [
+        1.333270256999595,
+        1.333270256999595,
+        1.3333964459729861,
+        1.3333964459729861
+      ],
+      "gram_limit_error": 6.31126387373726e-05,
+      "whitened_covariance_eigenvalues": [
+        0.10468745259408137,
+        0.1046874525940815,
+        0.8952770628158512,
+        0.8952770628158514
+      ],
+      "covariance_limit_error": 2.3653768112752438e-05,
+      "sampled_covariance_projector_defect": 0.09374645210155064,
+      "full_branch_covariance_projector_defect": 0.0,
+      "local_dirac_normalization_suffices": false
+    }
+  ],
+  "weighted_energy_boost": [
+    {
+      "momentum_times_R": 0.01,
+      "relative_boost_defect": 4.000000000000001e-12,
+      "anticommutator_identity_error": 0.0
+    },
+    {
+      "momentum_times_R": 0.1,
+      "relative_boost_defect": 4.0000000000000015e-06,
+      "anticommutator_identity_error": 0.0
+    },
+    {
+      "momentum_times_R": 0.3,
+      "relative_boost_defect": 0.0029159999999999993,
+      "anticommutator_identity_error": 0.0
+    },
+    {
+      "momentum_times_R": 1.0,
+      "relative_boost_defect": 4.0,
+      "anticommutator_identity_error": 0.0
+    },
+    {
+      "momentum_times_R": 3.0,
+      "relative_boost_defect": 2916.0,
+      "anticommutator_identity_error": 0.0
+    }
+  ],
+  "kappa_limit_has_extra_UV_branches": true,
+  "complete_positive_branch_register_available": true,
+  "complete_branch_register_is_proved_geometric_local_field": false,
+  "IR_Lorentz_errors_vanish": true,
+  "UV_eta_all_observer_transfer": false,
+  "lapse_equation_derived": false,
+  "physical_clock_join": false,
+  "algebra_checks_pass": true
+}

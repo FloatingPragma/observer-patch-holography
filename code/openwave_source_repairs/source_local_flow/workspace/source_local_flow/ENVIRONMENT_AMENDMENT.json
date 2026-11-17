@@ -1,0 +1,10 @@
+{
+  "command": "PYTHONINTMAXSTRDIGITS=0 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 -u run.py",
+  "environment_change": {
+    "PYTHONINTMAXSTRDIGITS": "0"
+  },
+  "prereg_sha256": "6ed69812035cfe531ff9e840085b26f2ba8e694ea62c805a4fca8ad8742ad152",
+  "reason": "The complete source/operator run finished, but converting exact composed rational error bounds to decimal strings exceeded Python default4300digit serialization cap. Inputs are fixed bounded local rational certificates. No arithmetic, source, gate or conclusion is changed. Prior log and exception retained.",
+  "source_and_gates_unchanged": true,
+  "utc": "2026-11-15T18:32:43.251338+00:00"
+}

@@ -1,0 +1,170 @@
+{
+  "scope": "Independent source/word compression at k=0; full flags and outward certificate are separate.",
+  "actual_preparation_success": 0.35299093966159006,
+  "native_selected_weight": 0.9999997381429304,
+  "swap_selected_weight": 0.6220839813374672,
+  "finite_selector_inactive_weight": "12739310815585727509885083/129911256651547238258524214960433758848927208779808",
+  "rows": [
+    {
+      "law": "native",
+      "stride": 1,
+      "turns": 1,
+      "direction": -1,
+      "visibility": -0.9924577614403072,
+      "selected_clock_given_entry_and_calibration": 0.03919188790288783,
+      "minus_probability": 0.9962288807201536,
+      "minus_exact_zero": null
+    },
+    {
+      "law": "native",
+      "stride": 1,
+      "turns": 1,
+      "direction": 1,
+      "visibility": -0.9924577440685001,
+      "selected_clock_given_entry_and_calibration": 0.03919188265090367,
+      "minus_probability": 0.9962288720342499,
+      "minus_exact_zero": null
+    },
+    {
+      "law": "native",
+      "stride": 1,
+      "turns": 2,
+      "direction": -1,
+      "visibility": 0.9703873588380836,
+      "selected_clock_given_entry_and_calibration": 0.03499257693794245,
+      "minus_probability": 0.014806320580958161,
+      "minus_exact_zero": null
+    },
+    {
+      "law": "native",
+      "stride": 1,
+      "turns": 2,
+      "direction": 1,
+      "visibility": 0.9703873253677893,
+      "selected_clock_given_entry_and_calibration": 0.034992572553829725,
+      "minus_probability": 0.014806337316105334,
+      "minus_exact_zero": null
+    },
+    {
+      "law": "native",
+      "stride": 2,
+      "turns": 1,
+      "direction": -1,
+      "visibility": -0.9883384238666175,
+      "selected_clock_given_entry_and_calibration": 0.03810309077082053,
+      "minus_probability": 0.9941692119333088,
+      "minus_exact_zero": null
+    },
+    {
+      "law": "native",
+      "stride": 2,
+      "turns": 1,
+      "direction": 1,
+      "visibility": -0.9883383823906897,
+      "selected_clock_given_entry_and_calibration": 0.03810308107411173,
+      "minus_probability": 0.9941691911953449,
+      "minus_exact_zero": null
+    },
+    {
+      "law": "native",
+      "stride": 2,
+      "turns": 2,
+      "direction": -1,
+      "visibility": 0.9546754133936735,
+      "selected_clock_given_entry_and_calibration": 0.03321288978205838,
+      "minus_probability": 0.022662293303163307,
+      "minus_exact_zero": null
+    },
+    {
+      "law": "native",
+      "stride": 2,
+      "turns": 2,
+      "direction": 1,
+      "visibility": 0.95467533508199,
+      "selected_clock_given_entry_and_calibration": 0.03321288202266363,
+      "minus_probability": 0.022662332459005022,
+      "minus_exact_zero": null
+    },
+    {
+      "law": "swap",
+      "stride": 1,
+      "turns": 1,
+      "direction": -1,
+      "visibility": 1.0,
+      "selected_clock_given_entry_and_calibration": 4.330472366045419e-49,
+      "minus_probability": 9.805726675006057e-48,
+      "minus_exact_zero": false
+    },
+    {
+      "law": "swap",
+      "stride": 1,
+      "turns": 1,
+      "direction": 1,
+      "visibility": 1.0,
+      "selected_clock_given_entry_and_calibration": 4.330472366045419e-49,
+      "minus_probability": 9.805726675006057e-48,
+      "minus_exact_zero": false
+    },
+    {
+      "law": "swap",
+      "stride": 1,
+      "turns": 2,
+      "direction": -1,
+      "visibility": 1.0,
+      "selected_clock_given_entry_and_calibration": 0.04409804229181604,
+      "minus_probability": 3.922290670002423e-47,
+      "minus_exact_zero": false
+    },
+    {
+      "law": "swap",
+      "stride": 1,
+      "turns": 2,
+      "direction": 1,
+      "visibility": 1.0,
+      "selected_clock_given_entry_and_calibration": 0.04409804229181604,
+      "minus_probability": 3.922290670002423e-47,
+      "minus_exact_zero": false
+    },
+    {
+      "law": "swap",
+      "stride": 2,
+      "turns": 1,
+      "direction": -1,
+      "visibility": 1.0,
+      "selected_clock_given_entry_and_calibration": 6.1891013082666896e-49,
+      "minus_probability": 1.4014322379386604e-47,
+      "minus_exact_zero": false
+    },
+    {
+      "law": "swap",
+      "stride": 2,
+      "turns": 1,
+      "direction": 1,
+      "visibility": 1.0,
+      "selected_clock_given_entry_and_calibration": 6.1891013082666896e-49,
+      "minus_probability": 1.4014322379386604e-47,
+      "minus_exact_zero": false
+    },
+    {
+      "law": "swap",
+      "stride": 2,
+      "turns": 2,
+      "direction": -1,
+      "visibility": 1.0,
+      "selected_clock_given_entry_and_calibration": 0.04409804229181604,
+      "minus_probability": 5.605728951754641e-47,
+      "minus_exact_zero": false
+    },
+    {
+      "law": "swap",
+      "stride": 2,
+      "turns": 2,
+      "direction": 1,
+      "visibility": 1.0,
+      "selected_clock_given_entry_and_calibration": 0.04409804229181604,
+      "minus_probability": 5.605728951754641e-47,
+      "minus_exact_zero": false
+    }
+  ],
+  "gates_pass": true
+}

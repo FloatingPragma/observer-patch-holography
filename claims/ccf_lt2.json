@@ -1,0 +1,68 @@
+{
+  "Einstein_route": {
+    "Newton_transfer": "The same tensor residual gives source error <=2 epsilon_E and exterior force error <=2 epsilon_E R^3/(3 r^2) under the static weak-field hypotheses.",
+    "decoder_norm": "17/8",
+    "required": "Actual common-source ten-probe regional data; errors o(ell^4), eta -> eta_*>0, common tensor/metric and reference limit, Ward/Bianchi and a shared physical scale.",
+    "tensor_error": "255*(e_bulk+eta*e_area+e_stationarity)/(32*pi*eta*ell^4)",
+    "theorem": "OPH.EinsteinBranch.Quantitative.small_ball_tensor_bound"
+  },
+  "calibration": "Parent empirical inputs and binary coefficients are retained; contact, family, kinetic, field, geometry and capacity parameters are declared construction inputs.",
+  "candidate": "A-ccf2-local-capacity-v2",
+  "edge": {
+    "matter_monomials": 63589,
+    "modes": 192
+  },
+  "evidence_sha256": {
+    "Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean": "f0631f3c7a5ed129984d8831cc957aed870a0e63a19a4dd31e0c358081d11ecc",
+    "model/SPEC.md": "0e6e91a9b14e54229a1646b8dd18b23b3e1c780cdc5b03a91592d19badae506c",
+    "model/ccf_lt2/EINSTEIN_BRIDGE.md": "16100bcac9f30ae0e6ee9fcd7f27c06f7d9515f15c3b707db116ed7377ce0183",
+    "model/ccf_lt2/RESULTS.json": "a3cab7335d632c3b66d0cd5ba8c4955290a880d33b80541c20b42c27079c9699",
+    "model/ccf_lt2/bridges/PROOF.md": "76f9685e008e916e0e4caf8509ea14b66213480c9a565b6346d35d903de4bd58",
+    "model/ccf_lt2/bridges/RESULTS.json": "83a201ccfffed9579ef2a24d0a42a98c90b6c7b59d9ed5e6a4f731d468dce695",
+    "model/matched_einstein_limit/PROOF.md": "4068c59b0a3bdca143e06b5f50a338623b4810d0f20444364c4a7eac86030738",
+    "model/openwave_gravity_capacity/Transfer.lean": "fb966aa40bf4266f63bd002242a5c4cb02e1915c0f957d459823ec2d84ae69e6",
+    "model/particle_joint_reconstruction/dependencies.json": "11b28fab479d2c3c56999f42e0c2d5519a65395e6350e598bf970b9f4c427d7d"
+  },
+  "law": "H_v2 = sum_v [A_v + M_v (g_v + N_v (h_v-e_v I) + e_v I - F I) + F I]",
+  "local_capacity_column_nonzero_outputs": [
+    4567,
+    4564
+  ],
+  "native_car_modes_per_vertex": 96,
+  "official_model": "CCF-LT-2",
+  "parent_polynomial_sha256": "591949feb5120a050c49a8b4edf52db9a920bfaf0db920d8c7937089b4613013",
+  "phase_instrument_initial_derivatives": [
+    "-9/32",
+    "9/32",
+    "0"
+  ],
+  "physical_boundary": {
+    "Einstein_premises_instantiated": false,
+    "arbitrary_full_native_state_propagation": false,
+    "independent_neutral_spectator_factorization": false,
+    "independent_physical_particle_masses_GeV": [],
+    "official_physical_row_awards": [],
+    "physical_Newton_G_or_cosmological_Lambda_derived": false,
+    "propagated_master_source_remote_detector_records": false,
+    "relativistic_interacting_continuum": false
+  },
+  "reference": {
+    "Gauss_reference_charge": 0,
+    "beta_exact": "1/1024",
+    "flux_cap": 6,
+    "geometry_dimension_per_vertex": 48
+  },
+  "runtime": "model/ccf_lt2",
+  "schema": "oph.ccf_lt2_claims.v1",
+  "specification": "model/SPEC.md",
+  "stationarity_countervariation_exact": "9/16384",
+  "triangle": {
+    "matter_monomials": 109675,
+    "modes": 288
+  },
+  "verified_scope": [
+    "Exact native parent regeneration, signed Dirac and current-square/family polynomial joins.",
+    "Full-polynomial Hermiticity, Gauss identities, complete energy allocation and literal local-capacity native columns.",
+    "Complete finite field, Dirac and local-capacity diagnostics, exact phase instrument, source sectors, faithful reference, coframe derivatives, shell and energy Ward checks."
+  ]
+}

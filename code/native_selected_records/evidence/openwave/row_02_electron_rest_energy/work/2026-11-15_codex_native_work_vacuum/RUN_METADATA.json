@@ -1,0 +1,35 @@
+{
+  "stage": "serialization-only complete replay",
+  "utc": "2026-11-15T16:41:24.546430+00:00",
+  "command": "python3 -B experiment_serialized.py",
+  "exit_code": 0,
+  "elapsed_seconds": 0.4835450829996262,
+  "freeze_sha256": "1a2809ebb536e536dbb96f92a4c61fe0ac6e570803c9746bdf8a1a7474255f8a",
+  "stdout_sha256": "8f651396edf9e10276f004aaa20015a458bcda5aa401e949b367e71d1c3349c0",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "external_prereg_cooling_min_pass": true,
+  "gates": {
+    "actual_copy_exchange": true,
+    "all_selection_outcomes_sum_one": true,
+    "changed_law_fails_selection": true,
+    "compact_selection": true,
+    "cooling_prediction": true,
+    "direct_compound_word": true,
+    "pair_phase_additive": true,
+    "phase_after_selection": true,
+    "physical_rest_energy_claim": false,
+    "positive_mode_fidelity": true,
+    "source_operator_residuals": true
+  },
+  "headline": {
+    "selection_success": 5.648662265855992e-06,
+    "selection_compact_fidelity": 0.998859473156513,
+    "clock_theta": 0.9272952180016123,
+    "measured_one_word_phase": 0.9263744781196357,
+    "anchored_pair_keV": 1022.0000000000002,
+    "second_band_predicted_keV": 638.8384229224783,
+    "native_events_literal_function_calls": 1230
+  },
+  "positive_fidelity": 0.9976303234811673,
+  "work_word_events": 21
+}

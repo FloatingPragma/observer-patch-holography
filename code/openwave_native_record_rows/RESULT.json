@@ -1,0 +1,403 @@
+{
+  "actual_native_calls_in_replay": 6582294,
+  "custody": "pass",
+  "drafts_executed": false,
+  "evidence_leaves": 663,
+  "executions": {
+    "confinement": {
+      "byte_replay": {
+        "SELF_CHECK.json": true
+      },
+      "reports": [
+        {
+          "all_pass": true,
+          "complete_flux_checks": [
+            {
+              "flux_states": 729,
+              "full_multiplicity_table_match": true,
+              "graph": "chain_7"
+            },
+            {
+              "flux_states": 729,
+              "full_multiplicity_table_match": true,
+              "graph": "cycle_6"
+            },
+            {
+              "flux_states": 2187,
+              "full_multiplicity_table_match": true,
+              "graph": "ladder_2_by_3"
+            },
+            {
+              "flux_states": 531441,
+              "full_multiplicity_table_match": true,
+              "graph": "cube"
+            }
+          ],
+          "copied_native_replay_calls": 663600,
+          "preparation_checks": [
+            {
+              "all_raw_letters_replayed": true,
+              "bits": 8,
+              "failures": 58,
+              "mutated": false,
+              "records": 147456
+            },
+            {
+              "all_raw_letters_replayed": true,
+              "bits": 12,
+              "failures": 24,
+              "mutated": false,
+              "records": 221184
+            },
+            {
+              "all_raw_letters_replayed": true,
+              "bits": 16,
+              "failures": 6,
+              "mutated": false,
+              "records": 294912
+            },
+            {
+              "all_raw_letters_replayed": true,
+              "bits": 16,
+              "failures": 1,
+              "mutated": true,
+              "records": 288
+            }
+          ],
+          "preregistration_leaves_unchanged": true,
+          "role": "producer self-check; not independent G6 review",
+          "runtime": {
+            "numpy": "2.3.5",
+            "platform": "macOS-15.3-arm64-arm-64bit-Mach-O",
+            "python": "3.13.7 (main, Sep 20 2025, 15:59:55) [Clang 17.0.0 (clang-1700.0.13.5)]"
+          },
+          "scope": "All raw source letters and all finite flux-sector multiplicities replayed. Matrix comparison is floating-point diagnostic, not certified exact-decoder forward error."
+        }
+      ],
+      "seconds": 2.397201583000424
+    },
+    "fixed_charge": {
+      "byte_replay": {
+        "RAW_RECORDS.jsonl.gz": true,
+        "RECEIPT.json": true,
+        "VERIFICATION.json": true
+      },
+      "reports": [
+        {
+          "full_load_dimension": 252,
+          "gates": {
+            "actual_capped_control_emission_exactly_zero": true,
+            "actual_capped_source_emission_above_one_ten_thousandth": true,
+            "actual_reference_and_all_core_representations_retained": true,
+            "all_caps_and_off_code_outcomes_retained": true,
+            "all_outgoing_polarizations_individually_neutral": true,
+            "complete_full_charge_sector_native_census": true,
+            "complete_positive_capped_transfer": true,
+            "exact_full_source_code_intertwiner": true,
+            "full_finite_products_and_error_bounds_retained": true,
+            "ideal_disabled_transport_stationary": true,
+            "nonradiating_quartet_pole_retained": true,
+            "radiating_time4_survival_below_one_fifth": true,
+            "spin_charge_family_interface_exact": true,
+            "two_spin_half_core_modes_same_charge": true
+          },
+          "macro_prefixes": 262080,
+          "native_calls": 2454480
+        },
+        {
+          "G6_pass": false,
+          "actual_finite_cap_full_products_verified": true,
+          "all_finite_product_probabilities_recomputed": true,
+          "all_full_charge_source_states_retained": 252,
+          "all_macro_prefixes_verified": 262080,
+          "all_native_calls_accounted": 2454480,
+          "all_off_code_states_retained": 220,
+          "all_outgoing_polarizations_individually_neutral": true,
+          "capped_control_emission_exact_zero_by_symmetry": true,
+          "full_source_matrices_reconstructed": true,
+          "initial_failed_attempt_retained": true,
+          "pass": true,
+          "physical_spin_or_lepton_assignment": false,
+          "receipt_sha256": "61de2e1d440a43a57f8947175376692f235ea88f3a3131fd90dc3611b06079f6",
+          "same_group": true,
+          "two_family_charge_and_spin_interface_verified": true
+        }
+      ],
+      "seconds": 8.172657707997132
+    },
+    "unified": {
+      "byte_replay": {},
+      "reports": [
+        {
+          "actual_native_calls_in_this_bundle_replay": 1009734,
+          "ancestor_replay_native_calls": 516897,
+          "boost_new_native_calls": 0,
+          "byte_replay": {
+            "boost/RECEIPT.json": true,
+            "unified/CONTROL_RECORDS.json.gz": true,
+            "unified/RECEIPT.json": true
+          },
+          "candidate": "MFR-unified-native-field-v1",
+          "copied_evidence_leaves": 409,
+          "custody": "pass",
+          "elapsed_seconds": 4.35795308300294,
+          "new_scientific_thresholds": false,
+          "official": "untested",
+          "replays": {
+            "boost": {
+              "all_registered_analysis_checks": "pass",
+              "candidate": "MFR-common-native-field-v1",
+              "iid_source_control": "zero separated OS covariance has no nonzero normalized packet",
+              "kind": "derived-state analysis; no new native calls or prepared-packet tapes",
+              "native_mass_squared": [
+                2.7639320225002075,
+                5.999999999999997,
+                7.23606797749979
+              ],
+              "official": "untested",
+              "quadrature_comparison_is_rigorous_error_bound": false,
+              "quadrature_order_comparison": 1.5765166949677223e-14,
+              "retained_source_record_sha256": "0f142024ff3b18ffc3ff5bc6f48d2e452b15a248da34fe07a7fb1b99955a607b",
+              "unboosted_control": "width ratio1 fails each 1% contraction gate",
+              "verified_source_branches": 37908
+            },
+            "free": {
+              "actual_native_calls": 169364,
+              "byte_replay": {
+                "RECEIPT.json": true,
+                "RECORDS.json.gz": true
+              },
+              "candidate": "MFR-common-native-field-v1",
+              "clock_ticks": [
+                4,
+                5,
+                3,
+                0
+              ],
+              "elapsed_seconds": 0.7772546670021256,
+              "first_tick_censor_tail": 0.07477076427429247,
+              "interpretation": "finite source replay plus separately bound full-limit theorem",
+              "official": "untested",
+              "population_block_length": 100000000,
+              "population_is_actual_tape": false,
+              "row": "both",
+              "row29": {
+                "electric_magnetic_relative_error": 0.00046080512555141925,
+                "full_two_polarization_causal_limit": "bound written proof; not inferred from curl null eigenvalue",
+                "negative_finite_contact_eigenvalues_retained": [
+                  -3.254948401393287e-05,
+                  -3.7229484012759755e-05,
+                  -3.839948401478631e-05
+                ],
+                "source_changed_iid_separated_covariance": [
+                  -3.3881317890172014e-21,
+                  -3.3881317890172014e-21,
+                  -3.3881317890172014e-21
+                ]
+              },
+              "row30": {
+                "full_common_speed_KG_limit": "bound written proof; finite N=3 is not the continuum",
+                "max_covariance_relative_error": 6.763001222132026e-05,
+                "max_first_hit_population_error": 4.1799896877137144e-14,
+                "max_source_eigenvector_residual": 2.4171868260546117e-14,
+                "native_internal_bands": [
+                  [
+                    1.5308297291861927e-15,
+                    1
+                  ],
+                  [
+                    2.763932022500209,
+                    3
+                  ],
+                  [
+                    5.999999999999997,
+                    5
+                  ],
+                  [
+                    7.23606797749979,
+                    3
+                  ]
+                ]
+              },
+              "unfinished_clock_intervals": 4
+            },
+            "orbital": {
+              "actual_censors": [
+                [
+                  [],
+                  [],
+                  [],
+                  []
+                ],
+                [
+                  [],
+                  [],
+                  [],
+                  []
+                ]
+              ],
+              "actual_clock_ticks": [
+                [
+                  5,
+                  2,
+                  2,
+                  3
+                ],
+                [
+                  3,
+                  1,
+                  1,
+                  2
+                ]
+              ],
+              "actual_inner_calls": 2613,
+              "actual_native_calls": 347533,
+              "auxiliary_holds": 9,
+              "byte_replay": {
+                "RECEIPT.json": true,
+                "RECORDS.json.gz": true
+              },
+              "candidate": "MFR-native-probe-binding",
+              "disabled_standing_ground_energies": [
+                1.5137756729244938,
+                2.06343706889556,
+                2.2111819310550698
+              ],
+              "elapsed_seconds": 1.8083920409990242,
+              "final_open_intervals": [
+                [
+                  5251,
+                  18363,
+                  1203,
+                  8281
+                ],
+                [
+                  6686,
+                  23319,
+                  8944,
+                  204
+                ]
+              ],
+              "hydrogenic_shells": "bound written controlled-limit theorem; not measured by this small run",
+              "max_clock_error": 4.1799896877137144e-14,
+              "max_covariance_relative_error": 7.957406017211621e-05,
+              "official": "untested",
+              "population_is_actual_long_tape": false,
+              "source_standing_ground_energies": [
+                1.3921440890513386,
+                1.800671286508059,
+                1.8652378371442
+              ],
+              "unchanged_massless_sector_error": 6.554099219475955e-16
+            },
+            "unified": {
+              "all_registered_checks": "pass",
+              "biased_absorbing_internal_ports": [
+                9,
+                11
+              ],
+              "biased_censors": [
+                [],
+                [],
+                [],
+                []
+              ],
+              "biased_census_native_calls": 12636,
+              "biased_clock_ticks": [
+                7,
+                3,
+                2,
+                6
+              ],
+              "biased_final_open_intervals": [
+                191,
+                1180,
+                2850,
+                10175
+              ],
+              "biased_internal_generator_eigenvalues": [
+                0,
+                0,
+                2,
+                2,
+                4,
+                4,
+                6,
+                6,
+                8,
+                8,
+                10,
+                10
+              ],
+              "biased_observed_downward_port_moves": 0,
+              "biased_observed_internal_moves": 4,
+              "biased_tape_native_calls": 132668,
+              "candidate": "MFR-unified-native-field-v1",
+              "changed_law_same_F12_population": [
+                {
+                  "biased_F12_covariance": 0.7497625830957817,
+                  "biased_cell_eigenvalue": [
+                    0.9995251661918327,
+                    0.0002741454269656624
+                  ],
+                  "biased_covariance": 0.12496043051596363,
+                  "biased_formula": 0.12496043051598607,
+                  "contact_adjusted_ratio": 0.7499999999998653,
+                  "fair_F12_covariance": 0.9997625830959164,
+                  "fair_covariance": 0.16662709718265276,
+                  "momentum": [
+                    1,
+                    1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "biased_F12_covariance": 0.9997625830956599,
+                  "biased_cell_eigenvalue": [
+                    0.9995251661918327,
+                    -5.86062685687706e-19
+                  ],
+                  "biased_covariance": 0.16662709718261,
+                  "biased_formula": 0.16662709718265276,
+                  "contact_adjusted_ratio": 0.9999999999997435,
+                  "fair_F12_covariance": 0.9997625830959164,
+                  "fair_covariance": 0.16662709718265276,
+                  "momentum": [
+                    1,
+                    -1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              "changed_population_is_actual_precision_estimate": false,
+              "control_raw_uncompressed_sha256": "80ea8f1ab702ac7ec5497e11107bf47892c7e7812f783e02a2f085618fa7feca",
+              "corrected_projector_polynomial_error": 9.769962616701378e-15,
+              "fair_observed_downward_port_moves": 59,
+              "initial_decoder_failure_retained_in_ancestor": true,
+              "minimal_electric_coupling_established": false,
+              "moving_target_covariance_established": false,
+              "official": "untested",
+              "source_comparison_native_calls": 347533,
+              "source_graphs_and_all_events_identical": true,
+              "source_macro_histories_exactly_reproduced": 262144,
+              "source_preparation_bits": [
+                true,
+                false
+              ],
+              "total_native_calls": 492837
+            }
+          },
+          "reused_ancestor_histories_are_independent_evidence": false,
+          "unified_candidate_native_calls": 492837
+        }
+      ],
+      "seconds": 4.517126000006101
+    }
+  },
+  "mode": "representative",
+  "official_awards_added": 0,
+  "replayed_ancestry_is_independent_evidence": false,
+  "seconds": 16.033110458003648
+}

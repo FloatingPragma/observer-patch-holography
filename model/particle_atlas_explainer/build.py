@@ -13,12 +13,6 @@ from . import families, field_panels, joint_panels, repair_panels, scenes_a, sce
 from model.particle_candidate_confirmation import model as identity_model
 from .canvas import AMBER, BG, Canvas, TEAL, VIOLET, n
 from .parts import SX, W
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -33,6 +27,9 @@ CANDIDATES = ROOT / 'model/standard_model_source_map/candidates/correspondence.j
 IDENTITY_TESTS = ROOT / 'model/particle_candidate_confirmation/results.json'
 GAUGE = ROOT / 'model/particle_primary_reduced_sector/results.json'
 SOURCES = ('__init__.py', 'canvas.py', 'parts.py', 'scenes_a.py', 'scenes_b.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'field_panels.py', 'build.py')
+NODE_IDS = ('fixed_program', 'physical_preparation', 'local_records', 'joint_refinement',
+            'relativistic_field', 'chiral_species_attachment', 'particle_observables',
+            'independent_comparison', 'pure_gauge_gap', 'geometric_gravity')
 
 CSS = ('@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}'
        '@keyframes hop{0%{opacity:0}1.5%,12.5%{opacity:1}14.5%,100%{opacity:0}}'
@@ -50,7 +47,7 @@ def sha(path):
 def receipt(path):
     """Read a receipt and check its complete producer custody."""
     result = json.loads(path.read_text())
-    pins = bound_pins(result['source_sha256'])
+    pins = result['source_sha256']
     if not pins:
         raise ValueError('missing source custody: ' + str(path))
     for relative, digest in pins.items():
@@ -58,6 +55,15 @@ def receipt(path):
         if not source.is_relative_to(ROOT) or sha(source) != digest:
             raise ValueError('stale source custody: ' + relative)
     return result
+
+
+def dependency_map():
+    deps = json.loads(DEPENDENCIES.read_text())
+    if (deps.get('primary_program') != 'CCF-LT-2'
+            or deps.get('candidate') != 'A-ccf2-local-capacity-v2'
+            or tuple(node['id'] for node in deps['nodes']) != NODE_IDS):
+        raise ValueError('dependency map does not match the official local-capacity law')
+    return deps
 
 
 def load():
@@ -82,8 +88,9 @@ def load():
     if refs['reference_data_are_source_predictions']:
         raise ValueError('reference masses changed their role')
     data['masses'] = {row['target']: row for row in refs['masses']}
-    deps = json.loads(DEPENDENCIES.read_text())
+    deps = dependency_map()
     data['nodes'] = [{'id': node['id'], 'status': node['status']} for node in deps['nodes']]
+    data['official_model'] = {'name': deps['primary_program'], 'candidate': deps['candidate']}
     candidates = receipt(CANDIDATES)
     if (candidates['physical_particle_map'] or candidates['mass_predictions_GeV']
             or candidates['fit_parameters_used']):
@@ -101,14 +108,14 @@ def load():
     data['agreement'] = repair_panels.load_agreement()
     data['joint'] = joint_panels.load()
     data['field_records'] = field_panels.load()
-    data['inputs'] = bound_pins({str(p.relative_to(ROOT)): sha(p)
-                      for p in (OUTPUTS, MASSES, DEPENDENCIES, MOMENTUM, CANDIDATES, GAUGE, IDENTITY_TESTS)})
+    data['inputs'] = {str(p.relative_to(ROOT)): sha(p)
+                      for p in (OUTPUTS, MASSES, DEPENDENCIES, MOMENTUM, CANDIDATES, GAUGE, IDENTITY_TESTS)}
     data['inputs'].update(repair_panels.input_pins(data['repair']))
     data['inputs'].update(repair_panels.protection_pins(data['protection']))
     data['inputs'].update(repair_panels.agreement_pins(data['agreement']))
     data['inputs'].update(joint_panels.input_pins(data['joint']))
-    data['inputs'].update(bound_pins(data['field_records']['pins']))
-    data['inputs'].update(bound_pins(identity['source_sha256']))
+    data['inputs'].update(data['field_records']['pins'])
+    data['inputs'].update(identity['source_sha256'])
     return data
 
 
@@ -150,11 +157,12 @@ def render(data):
 
     defs = ''.join(b.defs + c.defs)
     title = 'OPH particle atlas V3: from a twist to a particle'
-    desc = ('A dark-mode illustrated explainer in nine numbered steps. It follows a topological '
+    desc = ('CCF-LT-2 is the official local-capacity matter and field law. '
+            'This dark-mode illustrated explainer follows a topological '
             'defect through finite source examples and proposed physical interpretations. '
             'Each step distinguishes computed records from the proof required to identify '
             'physical position, momentum and mass. A receipt-bound panel links the candidate '
-            'map, isolated gauge transition, static loop fusion and executed contact control; '
+            'map, independent Wilson gauge transition, static loop fusion and separate contact control; '
             'A receipt-bound coherent seam-repair panel connects its declared reversible '
             'memory, stationary reference, apparatus and static gauge-flux response. '
             'A separate joint construction couples movable boundary flux to the wave, '
@@ -187,8 +195,9 @@ def build():
     root = check_links(svg)
     audit = {
         'schema': 'oph.particle_atlas_explainer.v3',
-        'input_sha256': bound_pins(data['inputs']),
-        'renderer_sha256': bound_pins({name: sha(HERE / name) for name in SOURCES}),
+        'official_model': data['official_model'],
+        'input_sha256': data['inputs'],
+        'renderer_sha256': {name: sha(HERE / name) for name in SOURCES},
         'source_physical_identifications': [],
         'reference_masses_are_predictions': False,
         'candidate_mass_predictions_GeV': data['candidates']['mass_predictions_GeV'],
@@ -196,8 +205,8 @@ def build():
         'candidate_identity_test_count': len(data['identity_tests']['target_rows']),
         'protected_catalogue_count': len(data['candidates']['protected_catalogue_rows']),
         'evidence_domains': {
-            'isolated_gauge_transition': 'rare empty-matter reducing sector, source units',
-            'static_loop_fusion': 'same primary source, no moving collision',
+            'isolated_gauge_transition': 'independent Wilson comparison, rare empty-matter reducing sector, source units',
+            'static_loop_fusion': 'independent Wilson comparison, no moving collision',
             'executed_contact_echo': 'separate supplied contact action and preparation',
             'named_roster': 'measured comparison inputs and candidate assignments',
             'coherent_seam_repair': 'declared reversible memory, same-walk reference and optional apparatus',

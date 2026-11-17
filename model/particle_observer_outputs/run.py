@@ -6,12 +6,6 @@ import os
 from pathlib import Path
 import sys
 import time
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -69,7 +63,7 @@ def build():
     from model.particle_physical_boundary_state import boundary as physical_boundary
     from model.particle_primary_locality import locality as primary_locality
     from model.particle_yang_mills_gap_contract import transfer as gap_transfer
-    inherited=bound_pins(json.loads(BASE.read_text())['input_sha256'])
+    inherited=json.loads(BASE.read_text())['input_sha256']
     for path,digest in inherited.items():
         if sha(ROOT/path)!=digest:
             raise ValueError('stale inherited source: '+path)
@@ -90,9 +84,12 @@ def build():
     paths.add('model/matched_einstein_limit/frame.py')
     paths.add('model/particle_common_contract/contract.json')
     paths.add('model/particle_joint_reconstruction/dependencies.json')
-    pins=bound_pins({p:sha(ROOT/p) for p in sorted(paths)})
+    pins={p:sha(ROOT/p) for p in sorted(paths)}
     report={'schema':'oph.complete_finite_observer_outputs.v1',
-            'input_sha256':bound_pins(pins),
+            'source_scope':'Independent Wilson, scalar and detector components; transfer to CCF-LT-2 requires an explicit source map.',
+            'official_model':'CCF-LT-2',
+            'official_master_source_records_executed':False,
+            'input_sha256':pins,
             'neutral_scalar':capture_certificate(higgs_records),
             'charged_scalar':capture_certificate(charged_higgs_records),
             'complete_apparatus':capture_certificate(readout_contract),

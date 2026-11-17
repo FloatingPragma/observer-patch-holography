@@ -1,0 +1,30 @@
+{
+  "artifacts": {
+    "maps.npz": "258c43dada2386e6760082281b55e78da65a17c22900a3f2ca5adbfbd0fe7bc4"
+  },
+  "elapsed_seconds": 2.113860625002417,
+  "prereg_sha256": "e68ea20fe8681e29fdf47aff3e475886b92f36178981033ec598eafe6069a38f",
+  "scientific": {
+    "512epoch_apparatus_error_upper": "1901193959447093003601640477758246557/10416666383333335260000000000000000000000",
+    "512epoch_ideal_bad_weight_upper": "1/65536",
+    "64epoch_tail_frobenius": 0.21246795878191133,
+    "64epoch_tail_operator_upper": "345706601810080450030897830310172687393620845144513647748711843132451318940468098103050260395255110377490694195018480185751935952866036153427291319652179334517045391/1626995962188193589940831390177732488008060812921286038341723436547975861401693833500806879244544617015795820545841009662825419287671684536766616630737777000000000000",
+    "all512_region_truth_columns_checked": true,
+    "candidate": "A-native-poisson-compact-energy-v1",
+    "certified_subblock_error_upper": "8627379258956136259971025032211253799021644613115171589511467467/163204645120053699859730525003399326818661241556064897335296000000000000",
+    "firstcell_selector_coin_tapes_reused": "sameuniform12selector, sourceaddresses0through11inexecutedroutes",
+    "fresh_raw_fullflow_columns_executed": false,
+    "full_row_solved": false,
+    "initial_dark_overlap_exact_zero": true,
+    "initial_source_address": 0,
+    "native_flow_program_reused": "the same full240word, with its arbitrary-input/operatorcertificate",
+    "native_processor_counts": {
+      "identity_applications": 0,
+      "native_matrix_executions": 11,
+      "pulse_applications": 84
+    },
+    "raw13qubit_witness_error": 1.9106961698752443e-14,
+    "region_word_pulses": 680,
+    "selected_density": "P_D0/2 in the ideal limit"
+  }
+}

@@ -1,0 +1,313 @@
+{
+  "schema": 1,
+  "providers": [
+    {
+      "source": "openwave/row_01_charge_quantization/work/2026-11-15_codex_pr723_unit_selection",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/work/2026-11-15_codex_pr723_unit_selection",
+      "manifest_sha256": "35b67994df0c89d8478624815a95585293b99249da46b4dc90ba5fd27b72d5ae",
+      "files": 34
+    },
+    {
+      "source": "openwave/row_02_electron_rest_energy/work/2026-11-15_codex_pr723_rest_selection",
+      "snapshot": "evidence/openwave/row_02_electron_rest_energy/work/2026-11-15_codex_pr723_rest_selection",
+      "manifest_sha256": "8c6d86aecb8c516afeca52bbe5db8f6014271e4c00c1c50af81cfdb2db117366",
+      "files": 68
+    },
+    {
+      "source": "openwave/row_07_double_cover/work/2026-11-15_codex_pr723_rotation",
+      "snapshot": "evidence/openwave/row_07_double_cover/work/2026-11-15_codex_pr723_rotation",
+      "manifest_sha256": "05af1f898eb98a68413084b3b01586e600c79aa231d2f0318f0f90b887158f32",
+      "files": 53
+    },
+    {
+      "source": "openwave/row_07_double_cover/work/2026-11-15_codex_pr723_rotation/berry",
+      "snapshot": "evidence/openwave/row_07_double_cover/work/2026-11-15_codex_pr723_rotation/berry",
+      "manifest_sha256": "8add06ee1425a84e00997a7311f37ba222e7f77199487040506838cc21f00b7f",
+      "files": 30
+    },
+    {
+      "source": "openwave/row_07_double_cover/work/2026-11-15_codex_pr723_two_turn_rejections",
+      "snapshot": "evidence/openwave/row_07_double_cover/work/2026-11-15_codex_pr723_two_turn_rejections",
+      "manifest_sha256": "1861b420260787509cc944f291919af901a87a7f5dc7ca8c86c91c7ab4cfe512",
+      "files": 7
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/reviews/2026-11-15_codex_pr723_cross_review",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/reviews/2026-11-15_codex_pr723_cross_review",
+      "manifest_sha256": "949b0ef26f557f96b582c7860be4e11f2d27bb07a96432eb7294f7de89384e5a",
+      "files": 5
+    },
+    {
+      "source": "openwave/row_02_electron_rest_energy/reviews/2026-11-15_codex_pr723_adversarial",
+      "snapshot": "evidence/openwave/row_02_electron_rest_energy/reviews/2026-11-15_codex_pr723_adversarial",
+      "manifest_sha256": "b59a9c0e8d6f8b80a634563ec9e19d54fc5d2d16fb699c48cd8b5cedb417da16",
+      "files": 12
+    },
+    {
+      "source": "openwave/row_07_double_cover/reviews/2026-11-15_codex_pr723_adversarial",
+      "snapshot": "evidence/openwave/row_07_double_cover/reviews/2026-11-15_codex_pr723_adversarial",
+      "manifest_sha256": "760155ed834df197e359cd209580122f7b10f9c5ae8359af789c9a488f0a0caa",
+      "files": 5
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/reviews/2026-11-15_codex_pr723_common_instrument",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/reviews/2026-11-15_codex_pr723_common_instrument",
+      "manifest_sha256": "d1d26e907932a04ad4ed3bb19cb556fd3e800161d56bcd9b0bd7987bbb85e10b",
+      "files": 6
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/reviews/2026-11-15_codex_pr723_integration",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/reviews/2026-11-15_codex_pr723_integration",
+      "manifest_sha256": "1c4f861dcaeb8178c5fa3f03ad931a51f6a2cf36828d4a3d9e439742c65d51fd",
+      "files": 30
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/work/2026-11-15_codex_pr723_compact_review",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/work/2026-11-15_codex_pr723_compact_review",
+      "manifest_sha256": "6e530cd4a71867d1a424b3d07f0e3fa834d2d3a413ab02c1a45b238dc905ea5b",
+      "files": 4
+    },
+    {
+      "source": "openwave/row_02_electron_rest_energy/work/2026-11-15_codex_pr723_compact_review",
+      "snapshot": "evidence/openwave/row_02_electron_rest_energy/work/2026-11-15_codex_pr723_compact_review",
+      "manifest_sha256": "b0af0ff53f6fa7fe72c44c84c840c60886e17effa0c357dbd871bc4dd05eeba0",
+      "files": 4
+    },
+    {
+      "source": "openwave/row_07_double_cover/work/2026-11-15_codex_pr723_compact_review",
+      "snapshot": "evidence/openwave/row_07_double_cover/work/2026-11-15_codex_pr723_compact_review",
+      "manifest_sha256": "facb53706fbe0e7b897233c0099647e0d154f81ea7345742a231ab11924e303c",
+      "files": 4
+    },
+    {
+      "source": "openwave/row_02_electron_rest_energy/reviews/2026-11-15_codex_twin_mode_bound",
+      "snapshot": "evidence/openwave/row_02_electron_rest_energy/reviews/2026-11-15_codex_twin_mode_bound",
+      "manifest_sha256": "eeaf1051b2e98d76c5f8e459c6c33c6c77fab9371acd936a5e35e3ac6a1bb12b",
+      "files": 5
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/work/2026-11-15_codex_pr723_vacuum_reservoir",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/work/2026-11-15_codex_pr723_vacuum_reservoir",
+      "manifest_sha256": "b3d8a83c29a372d1ce4d6dd894584d6aa410cc77e8010acc47c9af8fa1fa60d5",
+      "files": 43
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/reviews/2026-11-15_codex_pr723_resubmission_gates_v2",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/reviews/2026-11-15_codex_pr723_resubmission_gates_v2",
+      "manifest_sha256": "4ccf175416450c5708f958fc94ebb57c850596caa5f9c50977b03b61f6e02a3d",
+      "files": 5
+    },
+    {
+      "source": "openwave/row_02_electron_rest_energy/work/2026-11-15_codex_native_work_vacuum",
+      "snapshot": "evidence/openwave/row_02_electron_rest_energy/work/2026-11-15_codex_native_work_vacuum",
+      "manifest_sha256": "05600a1a1fbb2487ac9506a326bf33d8eb2902a74339f6e960cf98d9a4658795",
+      "files": 50
+    },
+    {
+      "source": "openwave/row_02_electron_rest_energy/work/2026-11-16_codex_native_word_continuum",
+      "snapshot": "evidence/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_native_word_continuum",
+      "manifest_sha256": "cc3843b762b9aaf80874a5e84394c6b70e989de627bf6928493d4a7bbf1253ba",
+      "files": 7
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/work/2026-11-15_codex_common_selected_source",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/work/2026-11-15_codex_common_selected_source",
+      "manifest_sha256": "89bd1d876a6c428e20f1f0477f3b539c84b1e27292bb32f05e209f97f85887fe",
+      "files": 53
+    },
+    {
+      "source": "openwave/row_07_double_cover/work/2026-11-15_codex_native_rotating_observer",
+      "snapshot": "evidence/openwave/row_07_double_cover/work/2026-11-15_codex_native_rotating_observer",
+      "manifest_sha256": "4bff13d99b5b2b53809956d84f7e118eac4e174510680c5bce1770a38c2ad999",
+      "files": 41
+    },
+    {
+      "source": "openwave/row_07_double_cover/work/2026-11-15_codex_subdivided_rotation",
+      "snapshot": "evidence/openwave/row_07_double_cover/work/2026-11-15_codex_subdivided_rotation",
+      "manifest_sha256": "47e7b8f355f156aa7f2790c71c21d0e9c117be6834428f68383669ede778ff38",
+      "files": 47
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/work/2026-11-16_codex_bounded_cosine_reader",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/work/2026-11-16_codex_bounded_cosine_reader",
+      "manifest_sha256": "9315e2f41cb3029b26e8e6ee12482f22c6353d05ab95d5f83d1a2ed4c2815259",
+      "files": 17
+    },
+    {
+      "source": "openwave/row_07_double_cover/reviews/2026-11-15_codex_subdivided_adversarial",
+      "snapshot": "evidence/openwave/row_07_double_cover/reviews/2026-11-15_codex_subdivided_adversarial",
+      "manifest_sha256": "8b4dd28faf355192c76649233fd128f55aa994153af40acc891e2988d1dc72f8",
+      "files": 8
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/reviews/2026-11-16_codex_common_selected_adversarial",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/reviews/2026-11-16_codex_common_selected_adversarial",
+      "manifest_sha256": "95ba0784aafb9f2c9d0708c75feb0c63a92503abaf3c3aa0f8d1f218a23cfbbf",
+      "files": 4
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/reviews/2026-11-16_codex_bounded_reader_review",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/reviews/2026-11-16_codex_bounded_reader_review",
+      "manifest_sha256": "1b57cb76d90725ce919e4ead04a5889f777fba67f7ce44adc2daa32060a2fef3",
+      "files": 5
+    },
+    {
+      "source": "openwave/row_02_electron_rest_energy/reviews/2026-11-15_codex_native_work_vacuum_self_review",
+      "snapshot": "evidence/openwave/row_02_electron_rest_energy/reviews/2026-11-15_codex_native_work_vacuum_self_review",
+      "manifest_sha256": "46b871140219e95a0c4e85fa34e82aa704ce9b4106ae7994ed8c5250777ae034",
+      "files": 3
+    },
+    {
+      "source": "openwave/row_07_double_cover/reviews/2026-11-15_codex_native_rotating_observer",
+      "snapshot": "evidence/openwave/row_07_double_cover/reviews/2026-11-15_codex_native_rotating_observer",
+      "manifest_sha256": "7b74f3c3b9d611ddd5c466731837b68091a897cf25141959372fbf669e7a01fb",
+      "files": 3
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/work/2026-11-16_codex_common_refinement_family",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/work/2026-11-16_codex_common_refinement_family",
+      "manifest_sha256": "5286dcb2f634427f05e4ce1c2db05613c754470e15c5cb7d957ddc51825bfa15",
+      "files": 81
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/reviews/2026-11-16_codex_common_family_adversarial",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/reviews/2026-11-16_codex_common_family_adversarial",
+      "manifest_sha256": "3a71b70d8086c4f004bf36db7b642e4662b0b1f8a209006b6737f27462b7a979",
+      "files": 23
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/work/2026-11-16_codex_pair_stride_readout",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/work/2026-11-16_codex_pair_stride_readout",
+      "manifest_sha256": "9f135a99c10789e971a75e1f1d7dae4795ac9a72d386a62c63f31a93cf68834a",
+      "files": 17
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/reviews/2026-11-16_codex_pair_stride_audit",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/reviews/2026-11-16_codex_pair_stride_audit",
+      "manifest_sha256": "ed5378d999f43f3c4885f324d50d2552a68f8661a4f4521e7d02098901445096",
+      "files": 6
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/reviews/2026-11-16_codex_common_family_gates",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/reviews/2026-11-16_codex_common_family_gates",
+      "manifest_sha256": "2a4acaea4937f45cdd8a247f266c39dbf5a2e80d3ded543130a85b09de70f1ff",
+      "files": 4
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/work/2026-11-16_codex_common_reference_menu",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/work/2026-11-16_codex_common_reference_menu",
+      "manifest_sha256": "a9ced490f0bc6fee5ed08aacb6ef9c8613758ee1af243ce3e98aa153928ebf2c",
+      "files": 86
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/reviews/2026-11-16_codex_reference_menu_adversarial",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/reviews/2026-11-16_codex_reference_menu_adversarial",
+      "manifest_sha256": "e93f4164f8b7b4e3b3a1f8960b8f00963c12f935d262aea71a289fb06d13a696",
+      "files": 35
+    },
+    {
+      "source": "openwave/row_07_double_cover/reviews/2026-11-16_codex_common_stationary_audit",
+      "snapshot": "evidence/openwave/row_07_double_cover/reviews/2026-11-16_codex_common_stationary_audit",
+      "manifest_sha256": "312e04d85f760d0ec77dc1ce2988ad0b062c5f9c5c51128e0b64e1b8a832a492",
+      "files": 18
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/work/2026-11-16_codex_record_only_admission_v2",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/work/2026-11-16_codex_record_only_admission_v2",
+      "manifest_sha256": "ba4fc9e36bf41592b272feee134c4bdd54d67c51416c8f992416535d536c9f2f",
+      "files": 45
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/work/2026-11-16_codex_admission_coverage_amendment",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/work/2026-11-16_codex_admission_coverage_amendment",
+      "manifest_sha256": "f697fd2c0fa1784baf1df69e28c5a6bcc8334530eeb178dbb68cb60a54a936ac",
+      "files": 14
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/reviews/2026-11-16_codex_admission_root_review",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/reviews/2026-11-16_codex_admission_root_review",
+      "manifest_sha256": "d401d8641fa4ea584a2abca24216d68d5103f8b91debc78bc9218630ec486b45",
+      "files": 11
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/work/2026-11-16_codex_verification_contract_v3",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/work/2026-11-16_codex_verification_contract_v3",
+      "manifest_sha256": "b25c9c07328cc62fe7852261af837ddf5d33a03d3031dd74b54d56c74ac1dd42",
+      "files": 146
+    },
+    {
+      "source": "openwave/row_01_charge_quantization/reviews/2026-11-16_codex_verification_contract_adversarial",
+      "snapshot": "evidence/openwave/row_01_charge_quantization/reviews/2026-11-16_codex_verification_contract_adversarial",
+      "manifest_sha256": "3cc460b3798a3b8dcd132a0dc2cfd0f514a4022c354152d4f7af564fb878e068",
+      "files": 7
+    },
+    {
+      "source": "openwave/row_02_electron_rest_energy/work/2026-11-16_codex_interval_source_certificate",
+      "snapshot": "evidence/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_interval_source_certificate",
+      "manifest_sha256": "d3f822f12db642dfe6847765b203d6e716b4177c1e4291360178b1883ca16b91",
+      "files": 34
+    },
+    {
+      "source": "openwave/row_02_electron_rest_energy/reviews/2026-11-16_codex_interval_source_adversarial",
+      "snapshot": "evidence/openwave/row_02_electron_rest_energy/reviews/2026-11-16_codex_interval_source_adversarial",
+      "manifest_sha256": "c2b739e55489a1ffe89f2d1d7a473cef029592491fab7d9277f85400dc6eb605",
+      "files": 22
+    },
+    {
+      "source": "openwave/row_02_electron_rest_energy/work/2026-11-16_codex_record_calibration_v1",
+      "snapshot": "evidence/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_record_calibration_v1",
+      "manifest_sha256": "0f7152d640b26d10e7b8e1af40205f72417f778d6f2aec798eac3e36544388c8",
+      "files": 36
+    },
+    {
+      "source": "openwave/row_02_electron_rest_energy/work/2026-11-16_codex_amplified_common_pair_v1",
+      "snapshot": "evidence/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_amplified_common_pair_v1",
+      "manifest_sha256": "84911912c6b9f629d3a365fbff969b26d629e632f04f438c7975c845b88ba684",
+      "files": 23
+    },
+    {
+      "source": "openwave/row_02_electron_rest_energy/work/2026-11-16_codex_amplified_source_interval_v1",
+      "snapshot": "evidence/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_amplified_source_interval_v1",
+      "manifest_sha256": "85ac553dd7cca56f2895d4c1881680f816636379b301489d3ece050f7ef31f24",
+      "files": 16
+    },
+    {
+      "source": "openwave/row_02_electron_rest_energy/reviews/2026-11-16_codex_amplified_interval_adversarial",
+      "snapshot": "evidence/openwave/row_02_electron_rest_energy/reviews/2026-11-16_codex_amplified_interval_adversarial",
+      "manifest_sha256": "dd0e3023c48a03c530ae3d1d62a683a20cf7b1b60095d65ed6998d73a43acdd8",
+      "files": 23
+    },
+    {
+      "source": "openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial",
+      "snapshot": "evidence/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial",
+      "manifest_sha256": "edbf1a5cb1070d2e597a1a90677039ab7e2d0fa310178f8d74d770eaa59fc427",
+      "files": 43
+    },
+    {
+      "source": "openwave/row_02_electron_rest_energy/work/2026-11-16_codex_amplified_interval_scope",
+      "snapshot": "evidence/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_amplified_interval_scope",
+      "manifest_sha256": "e345f106d05f2bb0b14ec0e30e0fa48973333aa3a0ace893f850d23f5cd6ac05",
+      "files": 5
+    },
+    {
+      "source": "openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2",
+      "snapshot": "evidence/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2",
+      "manifest_sha256": "1ec6c010935e341800f3b07f4dffb8a0b2a781c9bf7db1860bd2d299c22dfcf6",
+      "files": 364
+    },
+    {
+      "source": "openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_producer_checklist",
+      "snapshot": "evidence/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_producer_checklist",
+      "manifest_sha256": "870647288bc9cae87fdd6cb9dcda7bccdddfdbabc5fbd7834d840e5736a9b6fc",
+      "files": 4
+    },
+    {
+      "source": "openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1",
+      "snapshot": "evidence/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1",
+      "manifest_sha256": "a40e29e59a3ce249300cad99b3e504108c43d7b14c0eb5c84f7de76eff9f33ad",
+      "files": 32
+    }
+  ],
+  "source_policy": "Exact sealed packets; historical results and failures retained. Distinct candidates are not one physical claim.",
+  "official_awards_added": 0
+}

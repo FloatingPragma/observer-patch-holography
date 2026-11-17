@@ -1,0 +1,73 @@
+{
+  "L12_effective_coupling_intervals": [
+    [
+      "4897825813885143441453786315953/5070602400912917605986812821504",
+      "4897825813885143441453786315955/5070602400912917605986812821504"
+    ],
+    [
+      "2195635245840476761639769790215/2535301200456458802993406410752",
+      "274454405730059595204971223777/316912650057057350374175801344"
+    ],
+    [
+      "896364335596578238699711011639/1267650600228229401496703205376",
+      "1792728671193156477399422023279/2535301200456458802993406410752"
+    ],
+    [
+      "1/2",
+      "1/2"
+    ],
+    [
+      "328092117874707621663735567349/1267650600228229401496703205376",
+      "656184235749415243327471134699/2535301200456458802993406410752"
+    ],
+    [
+      "0",
+      "0"
+    ]
+  ],
+  "cases": [
+    {
+      "L": 8,
+      "all_native_response_inputs": 16,
+      "all_pair_rows_checked": 28,
+      "bound_mode_residual": 0,
+      "d": 1,
+      "pair_response_coefficient_residual": 0,
+      "point_response_coefficient_residual": 0
+    },
+    {
+      "L": 12,
+      "all_native_response_inputs": 24,
+      "all_pair_rows_checked": 66,
+      "bound_mode_residual": 0,
+      "d": 1,
+      "pair_response_coefficient_residual": 0,
+      "point_response_coefficient_residual": 0
+    },
+    {
+      "L": 4,
+      "all_native_response_inputs": 64,
+      "all_pair_rows_checked": 120,
+      "bound_mode_residual": 0,
+      "d": 2,
+      "pair_response_coefficient_residual": 0,
+      "point_response_coefficient_residual": 0
+    },
+    {
+      "L": 4,
+      "all_native_response_inputs": 384,
+      "all_pair_rows_checked": 2016,
+      "bound_mode_residual": 0,
+      "d": 3,
+      "pair_response_coefficient_residual": 0,
+      "point_response_coefficient_residual": 0
+    }
+  ],
+  "full_native_and_current_replay": true,
+  "imports_producer_or_native": false,
+  "literal_native_calls_in_producer": 1114640,
+  "pass": true,
+  "raw_records": 1114640,
+  "receipt_sha256": "5a79d071b226fc25e222222d143743aa97055d09b021d98d3ce72b4843f769c4",
+  "scope": "Exact current response and spectral compact core. No coherent source-state preparation, continuum physical core or universal running claim."
+}

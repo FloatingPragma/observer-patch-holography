@@ -1,0 +1,362 @@
+{
+  "status": "ACTUAL_CANONICAL_TILTED_PLANE_ENTROPY",
+  "configuration": {
+    "count": 256,
+    "h": 0.125,
+    "radial": 32,
+    "angular": 8,
+    "cutoff": 10.0,
+    "speeds": [
+      0.0,
+      0.6
+    ],
+    "orientations": [
+      "parallel"
+    ],
+    "output": "OBSERVER_AREA_FINE.json"
+  },
+  "physical_normal_box": 32.0,
+  "regional_width": 16.0,
+  "rows": [
+    {
+      "orientation": "parallel",
+      "speed": 0.0,
+      "eta_per_proper_face": 0.07340174410249625,
+      "max_projector_entry_defect": 2.220446049250313e-16,
+      "samples": [
+        {
+          "transverse_radius": 0.01368069075259215,
+          "mean_entropy": 3.4647431691654136,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 0.07194244227365865,
+          "mean_entropy": 3.1080739267438173,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 0.17618872206246805,
+          "mean_entropy": 2.6095399338134113,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 0.32546962031130167,
+          "mean_entropy": 2.15349720756759,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 0.5183942211697395,
+          "mean_entropy": 1.7065912363440363,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 0.7531619313371501,
+          "mean_entropy": 1.1443650589217058,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 1.0275810201602882,
+          "mean_entropy": 0.5351097160937343,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 1.3390894062985514,
+          "mean_entropy": 0.18394185336400903,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 1.6847786653489238,
+          "mean_entropy": 0.06014962089637793,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 2.0614212137961885,
+          "mean_entropy": 0.02110528418496519,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 2.4655004553388533,
+          "mean_entropy": 0.008119781816876049,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 2.8932436193468236,
+          "mean_entropy": 0.003411555564602577,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 3.3406569885893616,
+          "mean_entropy": 0.001552006067033073,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 3.8035631887393144,
+          "mean_entropy": 0.000758071453924651,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 4.277640192086017,
+          "mean_entropy": 0.0003946550760285106,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 4.758461671561308,
+          "mean_entropy": 0.00021763553861963981,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 5.241538328438692,
+          "mean_entropy": 0.00012647365769203722,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 5.722359807913983,
+          "mean_entropy": 7.711720136433336e-05,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 6.196436811260685,
+          "mean_entropy": 4.915992463016037e-05,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 6.659343011410639,
+          "mean_entropy": 3.2663207187300664e-05,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 7.106756380653176,
+          "mean_entropy": 2.256208106830122e-05,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 7.534499544661147,
+          "mean_entropy": 1.6166925612446574e-05,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 7.938578786203811,
+          "mean_entropy": 1.1994979763248147e-05,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 8.315221334651076,
+          "mean_entropy": 9.200452943418127e-06,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 8.660910593701448,
+          "mean_entropy": 7.285665254730412e-06,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 8.972418979839711,
+          "mean_entropy": 5.949479680925714e-06,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 9.24683806866285,
+          "mean_entropy": 5.005104182558306e-06,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 9.48160577883026,
+          "mean_entropy": 4.3342536670629505e-06,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 9.674530379688699,
+          "mean_entropy": 3.860902191593926e-06,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 9.823811277937532,
+          "mean_entropy": 3.5359160191279076e-06,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 9.928057557726342,
+          "mean_entropy": 3.327936885641308e-06,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 9.986319309247408,
+          "mean_entropy": 3.217964622848816e-06,
+          "angular_range": 0.0
+        }
+      ]
+    },
+    {
+      "orientation": "parallel",
+      "speed": 0.6,
+      "eta_per_proper_face": 0.03592362805842309,
+      "max_projector_entry_defect": 4.3298697960381105e-15,
+      "samples": [
+        {
+          "transverse_radius": 0.01368069075259215,
+          "mean_entropy": 2.952662741608574,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 0.07194244227365865,
+          "mean_entropy": 2.5906344031860384,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 0.17618872206246805,
+          "mean_entropy": 2.0669296186294854,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 0.32546962031130167,
+          "mean_entropy": 1.5634737533595287,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 0.5183942211697395,
+          "mean_entropy": 1.0298829251043151,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 0.7531619313371501,
+          "mean_entropy": 0.4728306547753585,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 1.0275810201602882,
+          "mean_entropy": 0.17306816478082598,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 1.3390894062985514,
+          "mean_entropy": 0.05466709356828364,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 1.6847786653489238,
+          "mean_entropy": 0.017069435710305232,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 2.0614212137961885,
+          "mean_entropy": 0.005803506991339488,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 2.4655004553388533,
+          "mean_entropy": 0.002179241075351434,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 2.8932436193468236,
+          "mean_entropy": 0.0008971012291400437,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 3.3406569885893616,
+          "mean_entropy": 0.0004007133200014173,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 3.8035631887393144,
+          "mean_entropy": 0.00019242491532124703,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 4.277640192086017,
+          "mean_entropy": 9.85820621579167e-05,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 4.758461671561308,
+          "mean_entropy": 5.354950348427189e-05,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 5.241538328438692,
+          "mean_entropy": 3.068792805286224e-05,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 5.722359807913983,
+          "mean_entropy": 1.8478709151880666e-05,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 6.196436811260685,
+          "mean_entropy": 1.1652103877780993e-05,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 6.659343011410639,
+          "mean_entropy": 7.672138263811128e-06,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 7.106756380653176,
+          "mean_entropy": 5.261507622710568e-06,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 7.534499544661147,
+          "mean_entropy": 3.7497312291404274e-06,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 7.938578786203811,
+          "mean_entropy": 2.7713522166890987e-06,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 8.315221334651076,
+          "mean_entropy": 2.1202013022357724e-06,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 8.660910593701448,
+          "mean_entropy": 1.6762431205348019e-06,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 8.972418979839711,
+          "mean_entropy": 1.367551059098592e-06,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 9.24683806866285,
+          "mean_entropy": 1.1499157583673444e-06,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 9.48160577883026,
+          "mean_entropy": 9.955608300001805e-07,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 9.674530379688699,
+          "mean_entropy": 8.867435210832976e-07,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 9.823811277937532,
+          "mean_entropy": 8.120715270273293e-07,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 9.928057557726342,
+          "mean_entropy": 7.642918233599256e-07,
+          "angular_range": 0.0
+        },
+        {
+          "transverse_radius": 9.986319309247408,
+          "mean_entropy": 7.390302793487761e-07,
+          "angular_range": 0.0
+        }
+      ]
+    }
+  ],
+  "cpu_seconds": 11.372999,
+  "source": "Continuous positive flattened quartic projector, R=1",
+  "algebra": "Full Gram-whitened sampled source fields; original finite-entropy local modes at speed zero.",
+  "full_covariant_region_net_proved": false
+}

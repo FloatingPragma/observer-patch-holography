@@ -1,5 +1,26 @@
 # OPH paper content inventory: specialist roles and actual shared inputs.
 shared_fragments:
+  paper/tex_fragments/COMMON_MATTER_FIELD_RESPONSE.tex:
+    role: official common native matter, signed Dirac transport, weak currents, electromagnetic fields and per-vertex total-energy response with exact execution scope
+    included_by:
+    - executable_observer_construction
+    - deriving_the_particle_zoo_from_observer_consistency
+    - from_observer_consensus_to_standard_physics
+  paper/tex_fragments/DYNAMIC_UNIT_SELECTION_AND_LOCAL_PHASES.tex:
+    role: native vacuum-reservoir unit selection, transported word-clock limit, planar frame holonomy and conditional same-state measurement join
+    included_by:
+    - executable_observer_construction
+    - deriving_the_particle_zoo_from_observer_consistency
+  paper/tex_fragments/NATIVE_SELECTION_AND_SOURCE_RESPONSE.tex:
+    role: native unit selection and coupled response, complete source flow, common energy and joint spatial instruments, compact contact and a separate symmetric scalar orbital
+    included_by:
+    - executable_observer_construction
+    - deriving_the_particle_zoo_from_observer_consistency
+  paper/tex_fragments/RETAINED_CHARGED_OBSERVER_RECORDS.tex:
+    role: native current occupation queries, complete relative spectral poles, retained count and family instruments, and conditional charged energy interpretation
+    included_by:
+    - executable_observer_construction
+    - deriving_the_particle_zoo_from_observer_consistency
   paper/tex_fragments/PIXEL_MASS_CLOSURE.tex:
     role: conditional pixel feedback with common mass coefficients, certified roots and a census-scale exclusion
     included_by:
@@ -42,7 +63,8 @@ papers:
   executable_observer_construction:
     role: tower layers 2-4 as executed on one process
     lead_material:
-    - specification of carrier, native repair, memory, observer algebra and services
+    - official common matter, field and local capacity and energy-response specification
+    - independent finite repair, memory and observer-algebra services
     - complete finite observer, field and clock records
     - controlled field limits, physical interpretation and counterexamples
     detailed_status_home:

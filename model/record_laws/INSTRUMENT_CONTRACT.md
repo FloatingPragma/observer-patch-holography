@@ -42,7 +42,7 @@ The repository's executed C/E instruments already satisfy these additional
 conditions; their existing predictions and receipts are unchanged. The
 counterexample is a finite mathematical instrument, not a new physical
 implementation of coherent record access. It specializes the existing
-[continuation/access distinction](../SOURCE_SELECTION.md#operational-equivalence-and-interface-contracts)
+[complete-record contract](../OBSERVER_RELATIVE_RECOVERY.md#complete-records)
 to the channel classification and requires no federation, scheduler or
 physical clock.
 

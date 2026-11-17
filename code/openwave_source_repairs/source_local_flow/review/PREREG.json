@@ -1,0 +1,19 @@
+{
+  "frozen_utc": "2026-11-15T18:43:53.323005+00:00",
+  "scope": "Final core + native-pointer + explicit copied-common ancestry/zero-overlap review; earlier core and pointer runs retained. Numeric results are already known; this is reproducibility and hypothesis verification.",
+  "check_sha256": "2229fb33e0fb5afd3c252ab1faef1c863c379d37b6d483376a167260c138645f",
+  "producer_prereg_sha256": "6ed69812035cfe531ff9e840085b26f2ba8e694ea62c805a4fca8ad8742ad152",
+  "producer_receipt_sha256": "dab7f3e5e6aaceebdb1777e36a44fcd1beb5902c1950383e4e363c9e4d350323",
+  "observer_receipt_sha256": "a02ef7882c34bc098db4cd7f14a1aaf72dd72d19d8470f9dc2f873f1171cc901",
+  "producer_imports": false,
+  "amendment": "Final named-gate fail-closed assertions and independent clock audit; science and thresholds unchanged; ancestry_v3 preserved.",
+  "clock_check_sha256": "da27b5fd6c0bceeff840aa94f43f0b94b3c76e819cb094f3ad690d4df58f3ead",
+  "clock_receipt_sha256": "a0b3c1b13db62f2b32d2d7af8511630c7f43b7b9c61d448a6fde19593a48f274",
+  "latest_master_sha256": {
+    "AGENTS.md": "f2ded8e3cd2620269b766eaf70a0acfe0bebb4f866e7cb1eb1a8e7a5a3ab78fd",
+    "CAUTIONS.md": "3f2ef5433513d8d6ed3796c64c2dfdb52cb2a6ca301c2f5bef1cf4a5df32c6f7",
+    "SUBMISSION_CHECKLIST.md": "f8a08b120f8f298fccee025398341c210f67f58e1ca1c5198a3bf94262c8a501"
+  },
+  "replay_audit_sha256": "0b17a4cf6f8b961228b568c658ed58efc692ec115d12c01804b21df0743be07c",
+  "replay_audit_scope": "Known-result clean verification and deliberate false named-gate rejection, prospective before first audit execution; no scientific thresholds changed."
+}

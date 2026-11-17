@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/pilot.py", line 114, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/pilot.py", line 105, in main
+    result = run()
+  File "/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/pilot.py", line 40, in run
+    prepared = {k:input_state(k) for k in (0,6)}
+                  ~~~~~~~~~~~^^^
+  File "/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/pilot.py", line 32, in input_state
+    reencoder = np.einsum('kxa,xb->kab',cl['qpe'][1:cl['Q']//2],OPTICAL)
+  File "/Users/muellerberndt/.pyenv/versions/3.13.7/lib/python3.13/site-packages/numpy/_core/einsumfunc.py", line 1423, in einsum
+    return c_einsum(*operands, **kwargs)
+ValueError: operands could not be broadcast together with remapped shapes [original->remapped]: (127,33,3)->(127,3,newaxis,33) (3,2)->(2,3) 

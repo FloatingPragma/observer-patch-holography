@@ -1,0 +1,68 @@
+{
+  "bindings": {
+    "work/2026-11-15_codex_poisson_source_clock/MANIFEST.sha256": "df3d14945f606605509b86b69dfc7a5c53ce90619ef30a167017159f813f4c5b",
+    "work/2026-11-15_codex_poisson_source_clock/RECEIPT.json": "050c6e1dcc44c07d877dd75d0cf1097bccc75b5b0e4cf35ffad031737628af54",
+    "work/2026-11-15_codex_poisson_source_clock/RECORDS.json.gz": "5eba501d5c0a76788f818d99907aff006d8fecafb0b76843d8e6ee7b01c8885e",
+    "work/2026-11-15_codex_poisson_source_clock/native_event.py": "60e1cef4192dfc532df32b8a665b921ca058b5f56526543c9134d62d58b5ffd4",
+    "work/2026-11-15_codex_signed_pair_loading/MANIFEST.sha256": "38bec22e0628bae1381d67d8171a757e7298a1ac5f283c4c9be71e71ce9a124a",
+    "work/2026-11-15_codex_signed_pair_loading/RECORDS.json.gz": "394c90df4bb88343c687cf19a73072023c352df6985814e0e297868f62af1984",
+    "work/2026-11-15_codex_source_repair_v2/COUPLED_ENERGY_DESIGN.md": "057885f99915627a8cc61f4eb7e8821dfe9f5ab4ec4633a3ca2d5aaba5ec1757",
+    "work/2026-11-15_codex_source_repair_v2/PREREG_COUPLED_ENERGY.json": "14f995a9000b9a569a21d27ed6e302c1c59e0aea780090ba4da36cca72908fa6",
+    "work/2026-11-15_codex_source_repair_v2/PREREG_ROUTED_JOIN.json": "0ec7342d82bfa226f74c2e37dec48d37c44619da10cab8ee2511ec3211a6f166",
+    "work/2026-11-15_codex_source_repair_v2/SHARP_FLOW_CERTIFICATE.json": "d8cff040fc562c3089f0aef5497e3e5e15ff42f42f1bc2ed25d88c3bbcff0ac5",
+    "work/2026-11-15_codex_source_repair_v2/coupled_energy/RECEIPT.json": "d52a298000f47e4d4cbfcf915b7ab3227a467437b5d5cf37cf7861b772eeef35",
+    "work/2026-11-15_codex_source_repair_v2/coupled_energy/maps.npz": "1312a37baa15fa145610c1654e70db654bac2190b6e630d7c7e2addd3e32f31f",
+    "work/2026-11-15_codex_source_repair_v2/first_cell_certified/RECEIPT.json": "a3f2d2e19f8db896c66e23e380fd13004b369d28fd365c37012fd2f820648743",
+    "work/2026-11-15_codex_source_repair_v2/first_cell_certified/maps.npz": "258c43dada2386e6760082281b55e78da65a17c22900a3f2ca5adbfbd0fe7bc4",
+    "work/2026-11-15_codex_source_repair_v2/join_routed_source.py": "6159798f5cb61e273997cbfd0763c8b7a43e0b1d22d3fb6cf7203c6a47b156f0",
+    "work/2026-11-15_codex_source_repair_v2/poisson_energy/RECEIPT.json": "8d9ce0b57951bd850ca33a1646c9cbff8362c7916f9157ea45a75bc76bd7c52d",
+    "work/2026-11-15_codex_source_repair_v2/poisson_energy/source_sector_maps.npz": "ed91bb05c6b1149799b5617daac5375ca56f53cc6e45e781242b7745242f8597",
+    "work/2026-11-15_codex_source_repair_v2/routed_join/RECEIPT.json": "90d58c2946ffea2e21154ff28684ccc818b11bc5c421ea6eb1252d66b4eff2f9",
+    "work/2026-11-15_codex_source_repair_v2/routed_join/maps.npz": "c4fdc62a1c20767ae649e2726309731f1612e11aad5b445feea6d2db3b67c1e7",
+    "work/2026-11-15_codex_source_repair_v2/run_coupled_energy.py": "e53faad7dc7937e3f1d2a13167bdc5394a1eed040e74a0f8a5abc2e8f9c61ad6",
+    "work/2026-11-15_codex_source_repair_v2/second_cell/RECEIPT.json": "c2948770b887e4fc2ac1f5ffb463c4ff8da900ad87c06161d4ef5c02bd39c938",
+    "work/2026-11-15_codex_source_repair_v2/second_cell/maps.npz": "7a57b4f0220623d59b8a3fa9db3321119370eff868751c1c1995f74784077ea3",
+    "work/2026-11-16_codex_signed_pair_routing/MANIFEST.sha256": "61751b389bb7b1b048f446fcd9d59927fd5f97e4f859a04fcac2fd517ef30e01",
+    "work/2026-11-16_codex_signed_pair_routing/RECEIPT.json": "049995b1e5c25a3c2c479241c0e4486c49b1bd1f3fefe5f861df75135f06cb32",
+    "work/2026-11-16_codex_signed_pair_routing/RECORDS.json.gz": "d8e92d01b23b0d78b127bd4bfc0de0d4a3ed68153b57ae0e189cd228df909705"
+  },
+  "complete_join_error_with_route_timeout": 0.0004841318708469099,
+  "exact_signed_source_mode_columns": 80640,
+  "independent_assembly_checks_pass": true,
+  "independent_short_energy_intervals": {
+    "pair": [
+      11.986306668454557,
+      12.013693331545454
+    ],
+    "single": [
+      5.992905829164792,
+      6.007094170835201
+    ]
+  },
+  "long_intervals_unwrapped_only_by_short_records": {
+    "pair": [
+      11.999657656961363,
+      12.000342343038634
+    ],
+    "single": [
+      5.999822635979119,
+      6.000177364020879
+    ]
+  },
+  "native_route_consumer_binding_in_final_producer": "Verified separately frozen routed_join; all12 source prefixes/densities and complete records agree.",
+  "old_fixed_count_ratio": 2.004796181413584,
+  "pair_keV_at_single511_anchor_interval": [
+    1021.9406345345359,
+    1022.0593689753339
+  ],
+  "pair_to_single_ratio_interval": [
+    1.999883824920814,
+    2.0001161819478157
+  ],
+  "per_flag_native_pointer_rows_checked": 24,
+  "producer_modules_imported": false,
+  "same_source_routed_handoffs": 12,
+  "scientific_scope": "Complete energy-output arithmetic and exact source values; physical interpretation/other-group G6 not certified here.",
+  "seconds": 1.3797388750099344,
+  "unrouted_actual_source_handoffs": 12
+}

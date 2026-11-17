@@ -1,0 +1,9 @@
+{
+  "utc_recorded": "2026-11-15T17:21:35.550642+00:00",
+  "command": "python3 -B code/native_selected_records/verify.py --replay-current",
+  "exit_code": 1,
+  "scope": "Integration output parser only; sealed scientific sources were not modified.",
+  "error": "JSONDecodeError: Extra data: line32 column1(char1058). One headline emits multiple consecutive JSON documents; initial harness assumed one.",
+  "repair": "Decode the complete JSON stream, retaining every record and rejecting non-JSON tails; preserve per-job failure in the returned receipt.",
+  "scientific_verdict": "No scientific failure inferred from the harness parser abort; complete rerun required."
+}

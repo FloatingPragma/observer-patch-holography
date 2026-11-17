@@ -1,5 +1,10 @@
 # OPH Claim Registry
 
+The official executable model is [CCF-LT-2](../model/SPEC.md). Its
+[finite claim register](ccf_lt2.json) binds the native polynomial and local-capacity
+response checks. Other claims retain their stated source, preparation,
+reference, clock and observation domains; a common name supplies no transfer.
+
 The papers are the standalone source for their theorems, assumptions,
 falsifiers and claim boundaries. Executed constructions may instead name a
 self-contained protocol record as their owner. This directory contains the
@@ -43,7 +48,7 @@ instance, observational equivalence to an effective field description, and
 agreement with physical data are separate claims. An `emitted_artifact` row
 can establish the second without establishing the last two. Its evidence
 must identify the actual state sector, instruments, scheduler, observer access
-and retained outputs. The [complete-output criterion](../model/CONSTRUCTION.md#the-observable-correspondence-to-establish)
+and retained outputs. The [complete-output criterion](../model/CONSTRUCTION.md#completion-target-and-acceptance-criteria)
 states the operational comparison; counts of theorem references do not
 discharge its physical hypotheses. Retrospective conditional fits belong in
 the observation/postdiction ledgers and cannot become prospective prediction
@@ -242,10 +247,9 @@ history state. A wave claim requires an actual observable/clock pairing and
 its propagation law. No physical wave, continuum or empirical premise is
 discharged by that restriction.
 
-## Audit #1078 attachment corrections
+## Independent source controls
 
-The [construction guide](../model/CONSTRUCTION.md#retained-audit-controls)
-records the dispositions of issues #1087–#1090. Their exact controls reject
+Exact component controls reject
 the whole-simple-algebra central-port identification, the original
 same-marked-action triplet identification, unrestricted extension of the
 single-product feedback exclusion, and selection of inertia from the
@@ -316,11 +320,51 @@ custody and numerical replay with `--check`. The shared-event-register claims
 in `joint_observer.json` retain their separate finite domains; no additive
 many-load or physical-clock transfer is inferred.
 
-[`openwave_signed_source.json`](openwave_signed_source.json) records three results
-on one signed source of the twelve-port carrier: charge in whole units (integer
-face certificate and a law-dependent stopped flow), a positive rest energy of a
-compact charged state with 511 keV as the unit calibration, and a measured
-current covariance that returns under the executed half-turn while the nonzero
-mean reverses. `python3 tools/build_openwave_signed_source_claim.py --check`
-recomputes all three from the carrier graph and the native rule and checks the
-sealed evidence in [`code/openwave_signed_source/`](../code/openwave_signed_source/).
+[`openwave_signed_source.json`](openwave_signed_source.json) records finite
+integer-current bookkeeping and a native stopped response, a compact
+transfer-spectrum calculation with a retained separated-pair excess, and a
+current covariance with an executed geometric half-turn. These original
+calculations do not establish charge selection, physical rest energy or a
+dynamical double cover. The archived PR #723 decision confirmed the arithmetic
+without awarding any submitted cell. `python3 tools/build_openwave_signed_source_claim.py --check`
+recomputes the finite quantities and checks the sealed evidence in
+[`code/openwave_signed_source/`](../code/openwave_signed_source/).
+
+[`openwave_source_repairs.json`](openwave_source_repairs.json) binds the
+constructive source results: arbitrary-background unit selection and current
+response, native apolar mixing, actual unit and signed-pair handoffs, the native
+event-count clock, source-selected operational energy with its separated-pair
+test, and the same compact source's selected spatial return. The common
+packet checks the actual handoff, broad loader before assay choice, identical
+preparation histories and complete joint error accounting for these assays.
+Corrected compact contact and the separate symmetric scalar graph retain their
+own domains. Each claim names its falsifier, measured scope and immutable
+packet. The [portable source package](../code/openwave_source_repairs/README.md)
+contains complete outcomes, failed predecessors and separate implementations.
+Unknown-total preparation adds an adaptive shortest-path cleanup theorem
+and actual canonical handoffs without supplied unit totals. The full-pair
+spatial claim checks one global rotation and all joint position outcomes;
+its orthogonal-product bound retains the assumptions that marginal tests
+cannot establish.
+The source-local continuation derives charged edge projections and the
+collision-Dirichlet pair generator, then implements its local words with
+complete native pointer and count-clock records. The common construction
+binds the unknown-total pair, a separately admitted physical single
+calibration and both full-source assays without a compact-sector filter.
+Regenerate with `python3 tools/build_openwave_source_repair_claims.py --write`
+and check with `--check`. Its local finite results confer no other-group G6,
+upstream award or transfer between different physical candidates.
+
+[`openwave_rows_11_20_components.json`](openwave_rows_11_20_components.json)
+binds charged occupation, retained family queries and current-record spectral
+components. It distinguishes original producer pause snapshots from the
+separately sealed same-group review of the complete 32-state relative poles
+and retained count/family instrument. The
+[owning package](../model/observer_lepton_components/README.md) contains the
+proof, portable review closure and replay commands. Its custody check is
+`python3 model/observer_lepton_components/verify.py --check`.
+The [paper fragment](../paper/tex_fragments/RETAINED_CHARGED_OBSERVER_RECORDS.tex)
+states the finite results and their supplied preparation and coherent
+services in both the executable-observer and particle papers. These records
+establish no physical lepton spectrum, empirical mass prediction or
+other-group confirmation.

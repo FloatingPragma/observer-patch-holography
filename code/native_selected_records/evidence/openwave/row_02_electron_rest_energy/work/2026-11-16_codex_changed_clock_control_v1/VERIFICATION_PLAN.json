@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-11-15T20:19:53.631333+00:00",
+  "kind": "post-run verification-only",
+  "code_sha256": "4f2bed4b7d532b5d4999c3afdfde296a7716a9488ca916294a3e4697834c2567",
+  "independent_check_sha256": "7ca8030ff35c8e48fbb6275e78390839be61a8a3e524313a82f3e1e5a01605f4",
+  "predicates": [
+    "optimized read-only pass",
+    "saved mutation reject",
+    "exclusive first-record overwrite reject",
+    "actual frame sign plant rejects",
+    "actual ineffective clock source rejects native prediction",
+    "invalid coin rejects",
+    "dropped joint column rejects",
+    "counter probability mutation rejects"
+  ]
+}

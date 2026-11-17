@@ -1,0 +1,160 @@
+{
+  "scope": "Independent finite Bloch, spectral and geometric diagnostics; no gravity row solved.",
+  "inputs": {
+    "openwave-push/blockers/X1f_entanglement_area_response/stage2_lib.py": "f972e7306ea26dc6ef7c71ed247cc8863e3bb181e47e31463a352d0be636261b",
+    "openwave-push/blockers/X1f_entanglement_area_response/stage2_SOLUTION.md": "b3a3a79ee5900cde45f70156187eca7f77a8e055ed54d79d1f84a610d7d73e64",
+    "openwave-push/blockers/X1f_entanglement_area_response/stage2_VERDICT.md": "35fa363a74c1b52a79bcf4aac384be233d1b53e68ed136ec2e0dc34c31924217",
+    "openwave-push/blockers/X1f_entanglement_area_response/stage2_part_chi_mu0p05_L32.json": "13a8eff8901213b22818d960e59682f16b1cce8fc6ceba2bb755f6297af93c96",
+    "reverse-engineering-reality/model/matched_einstein_limit/PROOF.md": "4068c59b0a3bdca143e06b5f50a338623b4810d0f20444364c4a7eac86030738"
+  },
+  "analytic_quadratic_coefficients": [
+    {
+      "mu": 0.0,
+      "L": 12,
+      "chi_q2": 1.556821854514039e-32,
+      "gap_on_quadrature": 0.3952847075210469
+    },
+    {
+      "mu": 0.0,
+      "L": 20,
+      "chi_q2": 1.5764691461420105e-32,
+      "gap_on_quadrature": 0.25345907522226546
+    },
+    {
+      "mu": 0.0,
+      "L": 28,
+      "chi_q2": 1.638332636340876e-32,
+      "gap_on_quadrature": 0.18542414092009313
+    },
+    {
+      "mu": 0.05,
+      "L": 12,
+      "chi_q2": 2.7111070084003527e-05,
+      "gap_on_quadrature": 0.3947713576356443
+    },
+    {
+      "mu": 0.05,
+      "L": 20,
+      "chi_q2": 2.4884518180017156e-05,
+      "gap_on_quadrature": 0.2531314815008677
+    },
+    {
+      "mu": 0.05,
+      "L": 28,
+      "chi_q2": 2.4283655694861526e-05,
+      "gap_on_quadrature": 0.1851859258595277
+    }
+  ],
+  "finite_q_checks": [
+    {
+      "q": 0.02,
+      "chi_over_q2": 3.7588083221178585e-05,
+      "analytic_chi_q2": 2.4884518180017156e-05
+    },
+    {
+      "q": 0.01,
+      "chi_over_q2": 2.8070833682425846e-05,
+      "analytic_chi_q2": 2.4884518180017156e-05
+    },
+    {
+      "q": 0.005,
+      "chi_over_q2": 2.568174926193334e-05,
+      "analytic_chi_q2": 2.4884518180017156e-05
+    },
+    {
+      "q": 0.002,
+      "chi_over_q2": 2.501210437966781e-05,
+      "analytic_chi_q2": 2.4884518180017156e-05
+    }
+  ],
+  "producer_reproduction": {
+    "L": 32,
+    "mu": 0.05,
+    "q": 0.19634954084936207,
+    "ours": 3.6121233730276306e-05,
+    "producer": 3.6121233730276285e-05,
+    "absolute_error": 2.0328790734103208e-20
+  },
+  "fixed_proper_volume_geometry": [
+    {
+      "a": -0.04,
+      "ell": 0.6,
+      "radius": 0.6052856121314169,
+      "volume_residual": 1.1102230246251565e-16,
+      "area_contrast": -0.052925596271400366,
+      "leading_area_contrast": -0.05211525221187037,
+      "ratio": 1.015549076808371,
+      "wrong_fixed_coordinate_ratio": 2.4643431259442043
+    },
+    {
+      "a": -0.04,
+      "ell": 0.3,
+      "radius": 0.3006511179310286,
+      "volume_residual": 1.3877787807814457e-17,
+      "area_contrast": -0.0032696644485377124,
+      "leading_area_contrast": -0.003257203263241898,
+      "ratio": 1.0038257315521082,
+      "wrong_fixed_coordinate_ratio": 2.4910215611759052
+    },
+    {
+      "a": -0.04,
+      "ell": 0.15,
+      "radius": 0.15008109699775213,
+      "volume_residual": -3.469446951953614e-18,
+      "area_contrast": -0.00020376914475433994,
+      "leading_area_contrast": -0.00020357520395261863,
+      "ratio": 1.0009526739895418,
+      "wrong_fixed_coordinate_ratio": 2.497751349392649
+    },
+    {
+      "a": 0.04,
+      "ell": 0.6,
+      "radius": 0.5949128685338981,
+      "volume_residual": 4.440892098500626e-16,
+      "area_contrast": 0.051338110507813894,
+      "leading_area_contrast": 0.05211525221187037,
+      "ratio": 0.9850880179779795,
+      "wrong_fixed_coordinate_ratio": 2.536348102721794
+    },
+    {
+      "a": 0.04,
+      "ell": 0.3,
+      "radius": 0.2993550808977575,
+      "volume_residual": 4.163336342344337e-17,
+      "area_contrast": 0.0032448716981414716,
+      "leading_area_contrast": 0.003257203263241898,
+      "ratio": 0.9962140633838882,
+      "wrong_fixed_coordinate_ratio": 2.5090216389360886
+    },
+    {
+      "a": 0.04,
+      "ell": 0.15,
+      "radius": 0.14991909670844242,
+      "volume_residual": -5.204170427930421e-18,
+      "area_contrast": 0.0002033817694610529,
+      "leading_area_contrast": 0.00020357520395261863,
+      "ratio": 0.9990498131019397,
+      "wrong_fixed_coordinate_ratio": 2.5022513506078248
+    }
+  ],
+  "fixed_graph_diagnostic": {
+    "reference_entropy": 1.3158872376770958,
+    "uniform_scale_entropy": 1.3158872376770223,
+    "speed_minus_entropy": 1.3079653628024048,
+    "speed_plus_entropy": 1.3237108457719002,
+    "dS_dspeed": 0.7872741484747703,
+    "scope": "Declared one-dimensional regulator control only"
+  },
+  "checks": {
+    "massless_q2_zero": true,
+    "massive_q2_nonzero": true,
+    "massive_q2_not_roundoff": true,
+    "finite_q_approaches_derivative": true,
+    "producer_value_reproduced": true,
+    "fixed_volume_geometric_limit": true,
+    "wrong_volume_rejected": true,
+    "overall_scaling_null": true,
+    "relative_regulator_changes_entropy": true
+  },
+  "all_checks_pass": true
+}

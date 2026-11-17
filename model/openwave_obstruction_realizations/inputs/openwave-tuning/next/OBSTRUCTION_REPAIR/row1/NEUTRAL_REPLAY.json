@@ -1,0 +1,284 @@
+{
+ "N0": {
+  "coded_rule_equals_native": true,
+  "mutated_rules_differ": {
+   "coin": true,
+   "half": true,
+   "swap": true
+  },
+  "pass": true
+ },
+ "case_population": {
+  "both": 390144,
+  "deficit alone": 390144,
+  "excess alone": 390144,
+  "neither": 390144,
+  "removed": 897024,
+  "vacuum": 4096
+ },
+ "evidence": "none: development seed",
+ "gates": {
+  "N0": true,
+  "N1": true,
+  "N2": true,
+  "N3": true,
+  "N4": true
+ },
+ "inputs": {
+  "anchor": "development-1",
+  "checkpoints": [
+   0,
+   1,
+   2,
+   4,
+   8,
+   16,
+   32,
+   64,
+   128,
+   256
+  ],
+  "filling": 1,
+  "inputs_sha256": "f7abaeb56c533cbb94cd435313d64f69003c22022af3c96c6d0ce85c801dfa13",
+  "pair_events_sha256": "d7ff5515da867d998eea667ed526a9c3329ac684e4ec95fbe740a1184aded88a",
+  "pair_histories": 60,
+  "stack_events": 2000,
+  "stacks": [
+   2,
+   3,
+   4
+  ]
+ },
+ "kept": [
+  "the prepared pair (the rule creates none)",
+  "registers zeroed at the neutral start",
+  "the integer loads of the rule",
+  "a reader of loads and of cut registers, not record-only",
+  "addressed seams and fair coins"
+ ],
+ "min_case": 50,
+ "mode": "development",
+ "mutations": {
+  "coin": {
+   "fired": true,
+   "gates": {
+    "N1": true,
+    "N2": false,
+    "N3": false
+   },
+   "must_be_red": [
+    "N3"
+   ],
+   "must_stay_green": [
+    "N1"
+   ],
+   "pair": {
+    "case_violations": 192512,
+    "cases": {
+     "both": 13312,
+     "deficit alone": 13312,
+     "excess alone": 13312,
+     "fragment": 192512,
+     "neither": 13312
+    },
+    "distinct_moving_currents": 2,
+    "flux_differs_from_charge": 0,
+    "load_violations": 21,
+    "moving_currents": {
+     "-1": 44,
+     "1": 52
+    },
+    "multiplicity_violations": 47,
+    "readings": 245760
+   }
+  },
+  "erase": {
+   "fired": true,
+   "gates": {
+    "N1": false,
+    "N2": false,
+    "N3": true
+   },
+   "must_be_red": [
+    "N1"
+   ],
+   "must_stay_green": [],
+   "pair": {
+    "case_violations": 29696,
+    "cases": {
+     "both": 57344,
+     "deficit alone": 57344,
+     "excess alone": 57344,
+     "neither": 57344,
+     "removed": 16384
+    },
+    "distinct_moving_currents": 2,
+    "flux_differs_from_charge": 29696,
+    "load_violations": 0,
+    "moving_currents": {
+     "-1": 7,
+     "1": 3
+    },
+    "multiplicity_violations": 0,
+    "readings": 245760
+   }
+  },
+  "half": {
+   "fired": true,
+   "gates": {
+    "N1": true,
+    "N2": false,
+    "N3": false
+   },
+   "must_be_red": [
+    "N2",
+    "N3"
+   ],
+   "must_stay_green": [
+    "N1"
+   ],
+   "pair": {
+    "case_violations": 106496,
+    "cases": {
+     "both": 32768,
+     "deficit alone": 32768,
+     "excess alone": 32768,
+     "fragment": 106496,
+     "neither": 32768,
+     "removed": 8192
+    },
+    "distinct_moving_currents": 12,
+    "flux_differs_from_charge": 0,
+    "load_violations": 26,
+    "moving_currents": {
+     "-1/2": 9,
+     "-1/4": 6,
+     "-1/8": 4,
+     "1/2": 5,
+     "1/4": 5,
+     "1/8": 3
+    },
+    "multiplicity_violations": 26,
+    "readings": 245760
+   }
+  },
+  "opencut": {
+   "fired": true,
+   "gates": {
+    "N1": false,
+    "N2": false,
+    "N3": true
+   },
+   "must_be_red": [
+    "N1"
+   ],
+   "must_stay_green": [],
+   "pair": {
+    "case_violations": 40960,
+    "cases": {
+     "both": 57344,
+     "deficit alone": 57344,
+     "excess alone": 57344,
+     "neither": 57344,
+     "removed": 16384
+    },
+    "distinct_moving_currents": 2,
+    "flux_differs_from_charge": 40960,
+    "load_violations": 0,
+    "moving_currents": {
+     "-1": 7,
+     "1": 3
+    },
+    "multiplicity_violations": 0,
+    "readings": 245760
+   }
+  },
+  "swap": {
+   "fired": true,
+   "gates": {
+    "N4": false
+   },
+   "must_be_red": [
+    "N4"
+   ],
+   "must_stay_green": [],
+   "stacks": [
+    {
+     "histories": 8,
+     "separated_into_units": 0,
+     "units": 2
+    },
+    {
+     "histories": 8,
+     "separated_into_units": 0,
+     "units": 3
+    },
+    {
+     "histories": 8,
+     "separated_into_units": 0,
+     "units": 4
+    }
+   ]
+  }
+ },
+ "official_rows_changed": [],
+ "outside": "the declared load sector of the candidate (total 1 or 2), its counters, closing sweep and pointer",
+ "package_pins": {
+  "openwave-tuning/row_completion/ROW_01/GEOMETRY.json": "4027e358b2475efd6bf44e376d8b2d167610b15d00b79eda3907e9b5fcfcbfe9",
+  "reverse-engineering-reality/code/openwave_row1_integrity/native_kernel.py": "b84e5ecdfbb8727a91571ac1b3ec6614f88ebf64b72fab0e8d35c338f08b1cff"
+ },
+ "pair": {
+  "case_violations": 0,
+  "cases": {
+   "both": 390144,
+   "deficit alone": 390144,
+   "excess alone": 390144,
+   "neither": 390144,
+   "removed": 897024
+  },
+  "distinct_moving_currents": 2,
+  "flux_differs_from_charge": 0,
+  "load_violations": 0,
+  "moving_currents": {
+   "-1": 352,
+   "1": 357
+  },
+  "multiplicity_violations": 0,
+  "readings": 2457600
+ },
+ "removed": "the per-port reference G: the reference of a region is its size times the present mean load",
+ "schema": "oph.m10_2.neutral_start_arm.v1",
+ "script_sha256": "623d441ef6503331eba389606ecfee55fdaf359ad4eab8d3c8c36ef2cffd0f8e",
+ "snapshot_manifest_sha256": "86c990ef3c5f051b656aa45c1d4dfb037c72772419fe9862df9b9ec098c86d7c",
+ "stacks": [
+  {
+   "histories": 8,
+   "separated_into_units": 8,
+   "units": 2
+  },
+  {
+   "histories": 8,
+   "separated_into_units": 8,
+   "units": 3
+  },
+  {
+   "histories": 8,
+   "separated_into_units": 8,
+   "units": 4
+  }
+ ],
+ "task": "M10.2",
+ "vacuum": {
+  "case_violations": 0,
+  "cases": {
+   "vacuum": 4096
+  },
+  "distinct_moving_currents": 0,
+  "flux_differs_from_charge": 0,
+  "load_violations": 0,
+  "moving_currents": {},
+  "multiplicity_violations": 0,
+  "readings": 4096
+ },
+ "verdict": "every gate holds and every mutation fires"
+}

@@ -1,0 +1,172 @@
+{
+  "schema": "oph.obstruction_repair.nuclear_threshold_independent.v1",
+  "independently_reconstructed_CAR_and_highest_weight_kernel": true,
+  "exact_ground_brackets_verified": 9,
+  "checks": [
+    {
+      "kappa": "1/2",
+      "N": 3,
+      "independent_dimension": 20,
+      "Cartan_weight_dimension": 64,
+      "inertia": [
+        0,
+        1
+      ]
+    },
+    {
+      "kappa": "1/2",
+      "N": 6,
+      "independent_dimension": 50,
+      "Cartan_weight_dimension": 216,
+      "inertia": [
+        0,
+        1
+      ]
+    },
+    {
+      "kappa": "1/2",
+      "N": 9,
+      "independent_dimension": 20,
+      "Cartan_weight_dimension": 64,
+      "inertia": [
+        0,
+        1
+      ]
+    },
+    {
+      "kappa": "1",
+      "N": 3,
+      "independent_dimension": 20,
+      "Cartan_weight_dimension": 64,
+      "inertia": [
+        0,
+        1
+      ]
+    },
+    {
+      "kappa": "1",
+      "N": 6,
+      "independent_dimension": 50,
+      "Cartan_weight_dimension": 216,
+      "inertia": [
+        0,
+        1
+      ]
+    },
+    {
+      "kappa": "1",
+      "N": 9,
+      "independent_dimension": 20,
+      "Cartan_weight_dimension": 64,
+      "inertia": [
+        0,
+        1
+      ]
+    },
+    {
+      "kappa": "2",
+      "N": 3,
+      "independent_dimension": 20,
+      "Cartan_weight_dimension": 64,
+      "inertia": [
+        0,
+        1
+      ]
+    },
+    {
+      "kappa": "2",
+      "N": 6,
+      "independent_dimension": 50,
+      "Cartan_weight_dimension": 216,
+      "inertia": [
+        0,
+        1
+      ]
+    },
+    {
+      "kappa": "2",
+      "N": 9,
+      "independent_dimension": 20,
+      "Cartan_weight_dimension": 64,
+      "inertia": [
+        0,
+        1
+      ]
+    }
+  ],
+  "thresholds": [
+    {
+      "kappa": "1/2",
+      "excess_over_twice_same_box_single_gap_exact": [
+        "9742862725615216036173451360551726749671274825873431202949/100000000000000000000000000000000000000000000000000000000000",
+        "9742863854408549527791392389448273250328725174126568797051/100000000000000000000000000000000000000000000000000000000000"
+      ],
+      "conditional_GeV": [
+        0.8256263613300355,
+        0.8256264569858566
+      ],
+      "below_same_box_two_particle_reference": false,
+      "infinite_volume_binding_test": false
+    },
+    {
+      "kappa": "1",
+      "excess_over_twice_same_box_single_gap_exact": [
+        "4520461795836401720377552923051726749671274825873431202949/100000000000000000000000000000000000000000000000000000000000",
+        "4520462924629735211995493951948273250328725174126568797051/100000000000000000000000000000000000000000000000000000000000"
+      ],
+      "conditional_GeV": [
+        0.3830714369212438,
+        0.3830715325770647
+      ],
+      "below_same_box_two_particle_reference": false,
+      "infinite_volume_binding_test": false
+    },
+    {
+      "kappa": "2",
+      "excess_over_twice_same_box_single_gap_exact": [
+        "2035902248680306215616810735551726749671274825873431202949/100000000000000000000000000000000000000000000000000000000000",
+        "2035903377473639707234751764448273250328725174126568797051/100000000000000000000000000000000000000000000000000000000000"
+      ],
+      "conditional_GeV": [
+        0.17252573632001142,
+        0.17252583197583238
+      ],
+      "below_same_box_two_particle_reference": false,
+      "infinite_volume_binding_test": false
+    }
+  ],
+  "order2_density_coefficient": "positive 9 t^2/(2 kappa)",
+  "order2_one_body_term": "-9 t^2/(4 kappa) sum_edges(n_x+n_y)",
+  "order2_identity_checks": [
+    {
+      "nx": 0,
+      "ny": 0,
+      "domainwall": 0
+    },
+    {
+      "nx": 0,
+      "ny": 1,
+      "domainwall": 1
+    },
+    {
+      "nx": 1,
+      "ny": 0,
+      "domainwall": 1
+    },
+    {
+      "nx": 1,
+      "ny": 1,
+      "domainwall": 0
+    }
+  ],
+  "no_claim_that_negative_virtual_shift_implies_binding": true,
+  "physical_spin_flavour_nucleus_identification": false,
+  "continuum_or_halo_lifetime_present": false,
+  "physical_nuclear_row_solved": false,
+  "pins": {
+    "hadrons/STAGGERED_CHAIN4_RESULT.json": "f5378298cce1afe991b3010191e65e2b25c71cc4a4b2a7337e92ecdc64ac290a",
+    "hadrons/RAW_COEFFICIENT_INPUTS.json": "b870e162c9f3d20ada8d360b492e4fba6a18b3da1eaeeb8ed46839c13169c95f",
+    "hadrons/CHAIN4_MANIFEST.json": "151d71d7ca04beace23e4a4a5217fdd753b90d73cd2bbadaf9b51d05c615adfc",
+    "hadrons/INDUCED_INTERACTION_RESULT.json": "9a2ae111db9275eea3ce36469288ac61a0e20c8b842e02a16f86d0c2285424f7"
+  }
+}

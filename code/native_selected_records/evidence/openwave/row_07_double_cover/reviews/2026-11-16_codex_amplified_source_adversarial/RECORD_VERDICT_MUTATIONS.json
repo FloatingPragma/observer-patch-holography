@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "calculation_AST_unchanged": true,
+  "saved_receipt_unchanged": true,
+  "saved_sha256": "4157dd03ff69dd1c1a4fe590506a49e96c590d288e41504c1285c4790195a4b8",
+  "rows": [
+    {
+      "mutation": "false_status",
+      "returncode": 1,
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 225, in <module>\n    need(saved['passed']is True and saved['same_group']is True and saved['external_G6']is False and saved['no_producer_imports']is True,'Saved scientific verdict flags differ')\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 17, in need\n    if not ok:raise AssertionError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Saved scientific verdict flags differ\n",
+      "optimized": true
+    },
+    {
+      "mutation": "bad_residual",
+      "returncode": 1,
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/audit_records.py\", line 226, in <module>\n    need(type(saved['maximum_absolute_defect'])in(int,float)and 0<=saved['maximum_absolute_defect']<2e-9,'Saved record residual exceeds fixed bound')\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial/circuits.py\", line 17, in need\n    if not ok:raise AssertionError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Saved record residual exceeds fixed bound\n",
+      "optimized": true
+    }
+  ]
+}

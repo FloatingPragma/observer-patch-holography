@@ -1,0 +1,19 @@
+{
+  "utc": "2026-11-15T18:54:14.083342+00:00",
+  "kind": "outward arithmetic verification of known224 source results, source-blind interval reader and full selected-cost comparison",
+  "source_files": {
+    "DESIGN.md": "3d0a2c9f694a1f266fa2fadd33ee5438f3643ffde67af3ae083a438edda78832",
+    "interval_math.py": "aec061cb289f3e61a6e30cb40a40c5f1b4fc995d3f26c24694cfceb6a4930bf2",
+    "interval_reader.py": "06668a44aa4a635f1fd0243ea6ec020765f3856b75d71dbb6a17a9b3f984d5f6",
+    "certificate.py": "d3c3094869ddb2a3089545262f53ac63bd485518b37472a60d39335d12a59c11"
+  },
+  "prior_attempts": [
+    "attempts/01_iv_conjugation_api",
+    "attempts/02_nominal_interval_pilot"
+  ],
+  "changes": "Explicit interval conjugation API repair, rigorous inverse-branch reader and complete-cost comparison; same source and gates, no result substitution",
+  "commands": [
+    "python3 -B certificate.py --record-to HEADLINE.json",
+    "python3 -B certificate.py --k 0 1 2 3 4 5 6 --record-to CERTIFICATE.json"
+  ]
+}

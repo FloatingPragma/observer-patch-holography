@@ -7859,50 +7859,23 @@ def _render_md(ledger: dict[str, Any]) -> str:
     completion = ledger.get("executable_completion_program")
     if completion is not None:
         program = completion["program"]
-        add("## Completion target and retained foundations")
+        add("## Common-source physical acceptance")
         add("")
-        add("The [executable hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) asks one native "
-            "process to supply observer clocks, defect/maintenance energy, interacting "
-            "field/particle observations and realized Einstein premises. The "
-            "[completion DAG and issue owners](COMPLETION_PROGRAM.md) order the "
-            "missing joins. Program `" + program["program_id"] + "` has boundary `" +
-            program["boundary_status"] + "` and decision `" + program["decision"] + "`.")
+        add("The official executable model is [CCF-LT-2](../model/SPEC.md). "
+            "Its complete native matter, field and local-capacity energy-response law "
+            "has [source-bound finite checks](../claims/ccf_lt2.json). The "
+            "[acceptance graph](COMPLETION_PROGRAM.md) requires actual "
+            "same-source spectrum, clock, geometry and Einstein attachments. "
+            "Component postdictions and conditional theorems below retain "
+            "their own stated sources and calibration ancestry.")
         add("")
-        add("The [current continuum and entropy results]"
-            "(../model/completion/CONTINUUM_FIELD_AND_ENTROPY.md) and "
-            "[mass and energy table](../model/completion/PARTICLE_MASS_TABLE.md) "
-            "collect the component proofs and certified readouts. "
-            "Their source-bound progress is retained in the machine-readable "
-            "ledger; component progress does not identify measured particles "
-            "or accept an integrated physical gate.")
-        add("")
-        add("The existing modular-clock candidate, rank-three response geometry and "
-            "conditional 3+1 field construction are retained foundations, together "
-            "with finite interaction histories and the conditional Einstein kernel. "
-            "They are components to extend, not work to restart. The local band's "
-            "rank three does not alone derive three field-space dimensions: the "
-            "native screen is two-dimensional and the radial extension retains its "
-            "declared inputs. Physical clock calibration and the common interacting "
-            "defect/energy/gravity joins remain open.")
-        add("")
-        add("| Foundation | Achieved component | Remaining join | Canonical claim |")
-        add("| --- | --- | --- | --- |")
-        for row in completion["retained_foundations"]:
-            add("| " + " | ".join(_cell(row[key]) for key in
-                ("title", "achieved", "boundary", "claim_id")) + " |")
-        add("")
-        add("| Gate | Task | Status | Issue |")
-        add("| --- | --- | --- | --- |")
+        add("| Acceptance condition | Domain | Status |")
+        add("| --- | --- | --- |")
         for row in program["stages"]:
-            add(f"| {row['id']} | {_cell(row['title'])} | {row['status']} | "
-                f"[#{row['issue']}](https://github.com/FloatingPragma/observer-patch-holography/issues/{row['issue']}) |")
+            add("| " + " | ".join(_cell(row[key]) for key in
+                ("title", "domain", "status")) + " |")
         add("")
-        add("CP-13 maps the finite theorems to the actual model and assigns premise "
-            "proofs to the owning gates; irrelevant/redundant branches leave the "
-            "active chain with provenance preserved. CP-12 owns scoped obstruction "
-            "and stopping decisions. A whole-program no-go requires coverage of "
-            "every frozen admissible realization; a failed candidate or exhausted "
-            "budget is not that verdict. " + completion["verification"] + ".")
+        add(completion["verification"] + ".")
         add("")
     add("## How to read the tiers and classes")
     add("")

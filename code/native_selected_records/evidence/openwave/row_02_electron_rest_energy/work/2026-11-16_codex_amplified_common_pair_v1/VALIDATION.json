@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "optimized_saved_replay",
+      "exit": 0,
+      "predicate": null
+    },
+    {
+      "name": "actual_global_source_guard_optimized",
+      "exit": 1,
+      "predicate": "global current differs from actual calibration"
+    },
+    {
+      "name": "changed_saved_verdict",
+      "exit": 1,
+      "predicate": "saved common evidence differs"
+    },
+    {
+      "name": "exclusive_first_record",
+      "exit": 1,
+      "predicate": "refusing to overwrite common evidence"
+    }
+  ],
+  "saved_evidence_unchanged": true,
+  "source_sha256": "39358cb4cd7eecedfcc6c58832d3c87e51f14e9405a32309b9e3c6be80e3470b",
+  "mutation_scope": "Integrity and actual scientific guard; native competing-law evidence is separate.",
+  "external_G6": false
+}

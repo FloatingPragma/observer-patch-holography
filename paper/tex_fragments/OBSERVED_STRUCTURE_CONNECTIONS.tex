@@ -18,9 +18,10 @@ continuously divided within a fixed native representation. This is a
 finite compact-current realization of charge quantization, with the
 complete source calculations in \path{model/openwave_charge_protection}
 and \path{model/openwave_native_charge_flux}. On the signed source of the
-twelve-port cell the face certificate makes the measured charge integral:
+twelve-port cell the face certificate describes the supplied integer image:
 the class of one signed pair is primitive, so two sharp half-valued
-daughter charges lie outside the measured source image
+daughter charges lie outside the measured source image. Source selection
+of an electric unit does not follow from this certificate
 (\path{code/openwave_signed_source/}).
 
 \paragraph{Charged rest energy.}
@@ -29,9 +30,10 @@ to a dressed charged state, including the root-reference field.
 Equal-depth tree dressing adds its explicit electric energy without
 changing the matter current on its finite-orbital member. On the full
 $240$-port graph the compact charged state of the signed source has the
-positive rest energy $E_6=-1260\log(209/210)$ above the constant mode.
+positive logarithmic transfer value $E_6=-1260\log(209/210)$ above the constant mode.
 Setting it to $511$~keV is the calibration that fixes the energy unit, so
-the electron value is an input and not a prediction
+the electron value is an input. The transfer eigenrelation alone supplies
+neither dynamical selection nor physical rest energy
 (\path{code/openwave_signed_source/}).
 
 \paragraph{Particle persistence.}
@@ -66,7 +68,8 @@ particle; physical species identification is an additional comparison.
 \paragraph{Rotation periods of records.}
 On the signed source, the executed proper half-turn of the cell returns
 the first-current covariance and reverses its mean, and the full turn
-returns both (\path{code/openwave_signed_source/}). Literal proper cube
+returns both. Equivariance and parity imply these moments; they supply no
+dynamical double-cover test (\path{code/openwave_signed_source/}). Literal proper cube
 rotations also act on the kinetic/pairing source and its filled
 reference: an odd state changes sign under $2\pi$ relative to an idle
 reference and returns under $4\pi$. Complete oriented spin-frame records

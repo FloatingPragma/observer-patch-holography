@@ -1,0 +1,82 @@
+{
+  "all_failures_retained": true,
+  "candidate": "A-native-triality-string-v1",
+  "changed_law_control_rejected": true,
+  "class_": "N+ with conditional colour interface",
+  "clocks": {
+    "count_per_address_coefficient": "3/4",
+    "physical_clock": "unidentified",
+    "whole_layer_coefficient": "log(4)"
+  },
+  "endpoint_pairs": 79,
+  "exact_character_slope": [
+    {
+      "count_energy": "3/4",
+      "distance": 1,
+      "exact_one_layer_character": "1/4",
+      "hold_character": "1",
+      "hold_energy": "0",
+      "layer_energy": 1.3862943611198906
+    },
+    {
+      "count_energy": "3/2",
+      "distance": 2,
+      "exact_one_layer_character": "1/16",
+      "hold_character": "1",
+      "hold_energy": "0",
+      "layer_energy": 2.772588722239781
+    },
+    {
+      "count_energy": "9/4",
+      "distance": 3,
+      "exact_one_layer_character": "1/64",
+      "hold_character": "1",
+      "hold_energy": "0",
+      "layer_energy": 4.1588830833596715
+    },
+    {
+      "count_energy": "3",
+      "distance": 4,
+      "exact_one_layer_character": "1/256",
+      "hold_character": "1",
+      "hold_energy": "0",
+      "layer_energy": 5.545177444479562
+    },
+    {
+      "count_energy": "15/4",
+      "distance": 5,
+      "exact_one_layer_character": "1/1024",
+      "hold_character": "1",
+      "hold_energy": "0",
+      "layer_energy": 6.931471805599453
+    },
+    {
+      "count_energy": "9/2",
+      "distance": 6,
+      "exact_one_layer_character": "1/4096",
+      "hold_character": "1",
+      "hold_energy": "0",
+      "layer_energy": 8.317766166719343
+    }
+  ],
+  "exact_flux_ground_energy_gate": true,
+  "exact_local_histories_per_law": 24,
+  "exact_local_source_gate": true,
+  "full_flux_states": 535086,
+  "full_row_criterion": "OPEN: physical endpoints, shared clock/ruler and ~1 GeV/fm tension",
+  "mutated_hold_calls": 336,
+  "native_calls": 663600,
+  "native_preparation_diagnostic_gates": [
+    true,
+    true,
+    true
+  ],
+  "native_preparation_precision_gates": [
+    true,
+    true,
+    true
+  ],
+  "native_sha256": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+  "no_source_execution_for_flux_enumeration": true,
+  "row": 22
+}

@@ -1,0 +1,1 @@
+🚧 No cell change requested. Native record capacity is distinct from port count. Fixed capacity implies vacuum-like pressure only with a derived stress and spacetime attachment. The source selects neither that coupling nor a cosmological amplitude here. Capacity selection, horizon identification and expansion records remain open.

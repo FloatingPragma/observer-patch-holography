@@ -1,0 +1,14 @@
+{
+  "label": "job_21_scientific_predicate",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "selector_check.py"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_01_charge_quantization/work/2026-11-16_codex_common_refinement_family/selector_check.py\", line 42, in <module>\n    if __name__=='__main__':print(json.dumps(run(Path(__file__).resolve().parent),indent=2,sort_keys=True))\n                                             ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_01_charge_quantization/work/2026-11-16_codex_common_refinement_family/selector_check.py\", line 31, in run\n    assert not (total==Fraction(s['success_probability']) and total+Fraction(s['timeout_probability'])==1)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "expected_success": false,
+  "passed": true,
+  "seconds": 0.7232067080039997
+}

@@ -1,0 +1,200 @@
+{
+  "checks": {
+    "same_polar_program_twice_positive": true,
+    "same_polar_program_twice_visibility_positive": true
+  },
+  "cos_tolerance": "1e-60 (far above truncated-series/pi error)",
+  "decimal_precision": 80,
+  "portable_input": "recorded integer weights in ROTOR_RECEIPT.json; no libm weight regeneration",
+  "source_calls_reexecuted": 0,
+  "tie_cases": [
+    {
+      "coupling": "polar",
+      "equally_valid_remainder_choices": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "recorded_weights": [
+        27,
+        27,
+        10
+      ],
+      "step": 16
+    },
+    {
+      "coupling": "polar",
+      "equally_valid_remainder_choices": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "recorded_weights": [
+        10,
+        27,
+        27
+      ],
+      "step": 48
+    },
+    {
+      "coupling": "polar",
+      "equally_valid_remainder_choices": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "recorded_weights": [
+        27,
+        11,
+        26
+      ],
+      "step": 80
+    },
+    {
+      "coupling": "apolar",
+      "equally_valid_remainder_choices": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "recorded_weights": [
+        27,
+        27,
+        10
+      ],
+      "step": 8
+    },
+    {
+      "coupling": "apolar",
+      "equally_valid_remainder_choices": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "recorded_weights": [
+        10,
+        27,
+        27
+      ],
+      "step": 24
+    },
+    {
+      "coupling": "apolar",
+      "equally_valid_remainder_choices": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "recorded_weights": [
+        27,
+        11,
+        26
+      ],
+      "step": 40
+    },
+    {
+      "coupling": "apolar",
+      "equally_valid_remainder_choices": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "recorded_weights": [
+        27,
+        26,
+        11
+      ],
+      "step": 56
+    },
+    {
+      "coupling": "apolar",
+      "equally_valid_remainder_choices": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "recorded_weights": [
+        11,
+        26,
+        27
+      ],
+      "step": 72
+    },
+    {
+      "coupling": "apolar",
+      "equally_valid_remainder_choices": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "recorded_weights": [
+        26,
+        11,
+        27
+      ],
+      "step": 88
+    }
+  ],
+  "two_turn_exact_check": {
+    "exact_visibility_denominator": "2212949924709512067156526156487440517629487649614317698964402776544140192134151404904978723475092126675843713136187400026375254440479373611676056157342189896392489696653706107240934533387287472667197824598396768580245967880507850773724578323817408607010228173074676535160572336278787072038555771255145888769913057131340649030603191038867943505110512527535803014091788652244292132620803593218509661227717311936330775134493204117422109208702479491926960405962522402976777696096912993099312223199360472780001195675252221078268975690569503542101422207732749709358337533280598389500150969670620871972163124800424645841223111317198752738176552710667403030187761100260104723011740673",
+    "exact_visibility_numerator": "2194949800572345833504696762634382565128743979569089734246256711836976484987249829994487160299196432836922184723874342136728184113799026065036172684635817976899785193652354636146614828424026221403231360303849469842025016437554485852506974073740418267893989455740006526253304747373172285797264089294150281603832849388990318621360315801206091639431963175915381630568157725921763152588411638890310658757992195099301635965856691483230165922846713483435633225667661848253851487737759155520583038821990400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "log10_success": -170.03720805884083,
+    "negative_cross_amplitude_exact": false,
+    "visibility": 0.9918660047675824
+  },
+  "two_turns": {
+    "conditional_minus_probability": 0.00406699761619,
+    "events_per_arm": 192,
+    "log10_attempts_per_success": 170.037208059,
+    "log10_initial_constant_amplitude_for_one_percent_final_leakage": -41.2418571941,
+    "log10_original_success_probability": -170.037208059,
+    "loop_overlap_initial": 0.998664740954,
+    "reference_overlap_initial": 1.0,
+    "relative_visibility": 0.991866004768
+  }
+}

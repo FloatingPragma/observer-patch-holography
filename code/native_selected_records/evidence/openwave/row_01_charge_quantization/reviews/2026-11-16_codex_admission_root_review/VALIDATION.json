@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "case": "held_out_default",
+      "exit": 0,
+      "intended_predicate": null
+    },
+    {
+      "case": "held_out_optimized",
+      "exit": 0,
+      "intended_predicate": null
+    },
+    {
+      "case": "coverage_amendment",
+      "exit": 0,
+      "intended_predicate": null
+    },
+    {
+      "case": "changed_frozen_evidence",
+      "exit": 1,
+      "intended_predicate": "saved audit differs"
+    },
+    {
+      "case": "exclusive_record_creation",
+      "exit": 1,
+      "intended_predicate": "refusing to overwrite evidence"
+    },
+    {
+      "case": "actual_census_guard_optimized",
+      "exit": 1,
+      "intended_predicate": "hidden initial-state reconstruction"
+    }
+  ],
+  "sealed_source_leaves": {
+    "2026-11-16_codex_record_only_admission_v2": 45,
+    "2026-11-16_codex_admission_coverage_amendment": 14
+  },
+  "held_out_cases": 480,
+  "source_events": 59852,
+  "saved_bytes_and_metadata_unchanged": true,
+  "review_group": "Codex",
+  "external_G6": false
+}

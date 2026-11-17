@@ -1,7 +1,7 @@
-"""Current candidate SVG: frozen numerical atlas plus authenticated source families.
+"""Current candidate SVG: independent numerical atlas and source families.
 
-The numerical comparison producer remains immutable. This leaf owns the public
-candidate SVG and verifies the retained base before adding confirmation evidence.
+This leaf owns the public candidate SVG and verifies its numerical comparison
+before adding confirmation evidence within each component's source domain.
 """
 import argparse
 from html import escape
@@ -15,21 +15,16 @@ from model.particle_candidate_atlas import builder as base
 from . import build, families, field_panels, joint_panels, repair_panels
 from .canvas import BG, Canvas, MUTED, TEAL, TEXT
 from .parts import CW, W, X0
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = build.ROOT
 HERE = Path(__file__).resolve().parent
 OUTPUT = ROOT/'docs/research/OPH_PARTICLE_CANDIDATE_ATLAS.svg'
 AUDIT = HERE/'candidate_view_audit.json'
-SOURCES = ('candidate_view.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'field_panels.py', 'canvas.py', 'parts.py', 'test_candidate_view.py')
+SOURCES = ('candidate_view.py', 'build.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'field_panels.py', 'canvas.py', 'parts.py', 'test_candidate_view.py')
 
 
 def load():
+    build.dependency_map()
     comparison, original_svg = base.build()
     confirmation = build.receipt(build.IDENTITY_TESTS)
     build.identity_model.validate(confirmation)
@@ -47,10 +42,11 @@ def render(original_svg, confirmation, repair=None, protection=None, agreement=N
     c.caps(X0, 54, 'Finite-source candidate evidence', TEAL, 14)
     c.text(X0, 106, 'The source catalogue and the tests for a particle', 40, TEXT, 700)
     y = c.para(X0, 151, CW,
-        'The numerical comparisons above retain their declared action, calibration and '
-        'mass conventions. The following source catalogue and complete detector results '
-        'use the candidate confirmation receipt. Neither table assigns a physical species '
-        'or a source-derived GeV mass.', 21, MUTED, 1.42)+72
+        'CCF-LT-2 is the official matter, field and local-capacity law. These independent '
+        'numerical comparisons retain their own action, calibration and mass conventions. '
+        'The source catalogue and complete detector results use the candidate confirmation '
+        'receipt. Neither table assigns a physical species or source-derived GeV mass.',
+        21, MUTED, 1.42)+72
     data = {'identity_tests': confirmation, 'repair': repair or repair_panels.load(),
             'protection': protection or repair_panels.load_protection(),
             'agreement': agreement or repair_panels.load_agreement(),
@@ -90,16 +86,17 @@ def produce():
     field = field_panels.load()
     svg = render(old_svg, confirmation, repair, protection, agreement, joint, field)
     build.check_links(svg)
-    pins = {**bound_pins(comparison['input_sha256']), **bound_pins(confirmation['source_sha256']),
-            str(build.IDENTITY_TESTS.relative_to(ROOT)): build.sha(build.IDENTITY_TESTS)}
+    pins = {**comparison['input_sha256'], **confirmation['source_sha256'],
+            str(build.IDENTITY_TESTS.relative_to(ROOT)): build.sha(build.IDENTITY_TESTS),
+            str(build.DEPENDENCIES.relative_to(ROOT)): build.sha(build.DEPENDENCIES)}
     pins.update(repair_panels.input_pins(repair))
     pins.update(repair_panels.protection_pins(protection))
     pins.update(repair_panels.agreement_pins(agreement))
     pins.update(joint_panels.input_pins(joint))
-    pins.update(bound_pins(field['pins']))
+    pins.update(field['pins'])
     audit = {'schema': 'oph.particle_candidate_current_view.v1',
-             'input_sha256': bound_pins(pins),
-             'renderer_sha256': bound_pins({name: build.sha(HERE/name) for name in SOURCES}),
+             'input_sha256': pins,
+             'renderer_sha256': {name: build.sha(HERE/name) for name in SOURCES},
              'retained_numerical_svg_sha256': hashlib.sha256(old_svg.encode()).hexdigest(),
              'retained_numerical_audit_sha256': hashlib.sha256(base.canonical(comparison).encode()).hexdigest(),
              'confirmation_result_sha256': confirmation['content_sha256'],

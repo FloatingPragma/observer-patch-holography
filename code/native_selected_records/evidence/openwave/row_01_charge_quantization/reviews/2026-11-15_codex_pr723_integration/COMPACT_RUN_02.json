@@ -1,0 +1,19 @@
+{
+  "row": "02",
+  "passed": true,
+  "same_group": true,
+  "script": "row_02_electron_rest_energy/work/2026-11-15_codex_pr723_compact_review/compact_review.py",
+  "command": "python3 -I -S -B row_02_electron_rest_energy/work/2026-11-15_codex_pr723_compact_review/compact_review.py",
+  "script_sha256": "1ded33d378c25874e52a384012a4ba9ba207c0a7608e22d97a03b69e71aabe25",
+  "manifest_sha256": "b0af0ff53f6fa7fe72c44c84c840c60886e17effa0c357dbd871bc4dd05eeba0",
+  "lines": 123,
+  "stdlib_imports": [
+    "fractions",
+    "itertools",
+    "json",
+    "math"
+  ],
+  "seconds": 1.447733082997729,
+  "saved_output_matches": true,
+  "scope": "Full source inspected by integrator; standalone arithmetic recomputation, not full records or external acceptance."
+}

@@ -1,0 +1,1 @@
+🚧 Full-graph compact signed pair gives native contact probability1/1260; HOLD and HOLD/SWAP give0 under the same reader. Complete source outcomes and independent arithmetic are retained. Preparation and ideal ray certificate are supplied. Radiation and autonomous energy transfer are outside this component. No cell change requested.

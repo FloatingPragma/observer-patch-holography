@@ -5,150 +5,59 @@ commands verify that the claim registry is internally connected and that the
 public test collection imports without error. Individual evidence families
 then have their own theorem, certificate, or experimental acceptance rule.
 
-## Runnable observer and repair-law model
+## Official executable model
 
-The live [model implementation](model/README.md) has a separate clean-clone
-reproduction gate. From the repository root:
+[CCF-LT-2](model/SPEC.md) is the official common finite matter, field and
+response construction. Its runtime and scientific inputs are packaged in
+[model/ccf_lt2](model/ccf_lt2/README.md). From the repository root:
 
 ```sh
 python -m pip install -r model/requirements.txt
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model
+python -m pytest -q -W error model/ccf_lt2
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.ccf_lt2.bridges.verify
+python tools/check_ccf_lt2_authority.py
+```
+
+The default command reconstructs the complete native source, checks the
+edge and triangle polynomials and applies the per-vertex response/capacity
+operator to complete native columns. It also executes the finite component
+experiments and strictly compares all scientific results and local input
+bindings. It needs neither sibling research checkouts nor a Git-history
+checkout. A disagreement fails verification. The bridge replay checks the complete phase
+instrument, reference support, source sectors, mechanical derivatives and
+refining shell. With the pinned Lean toolchain installed,
+`python -m model.ccf_lt2.bridges.verify_lean` kernel-checks its two finite
+mathematical interfaces. Add `--authority-dir ../openwave/candidates/current`
+to the authority check to compare the supplied specification directly.
+
+For the short component-only replay use `python -m model --headline`.
+To regenerate the single maintained full result set explicitly use
+`python -m model --output model/ccf_lt2/RESULTS.json`; for the small set use
+`python -m model --headline --output model/ccf_lt2/HEADLINE.json`.
+Regeneration writes results; verification with no output flag compares them.
+
+The [official source dependency map](model/particle_joint_reconstruction/DEPENDENCIES.md)
+records proof and empirical attachment domains. Complete native columns are
+not arbitrary full-state propagation. The finite matrix witnesses have
+separate declared carriers unless an exact reducing proof is supplied.
+
+## Component proof and calculation suites
+
+The other packages retain their source-specific mathematical checks.
+Their successful replay does not establish an unproved transfer to the
+official model. The complete component regression and receipt checks are:
+
+```sh
 python -m model.verify_current
 python -m pytest -q -W error -p tools.completion_contract_inputs model
 ```
 
-The finite completion and clock contracts consume two authenticated documentary
-inputs from their recorded Git ancestors. The explicit test plugin preserves
-every current executable, scientific receipt and test; only those two contract
-readers use the private documentary view. This checks the retained finite
-premise and does not validate the current hypothesis prose or declare it
-equivalent. The current native-control producer is replayed separately with a
-complete scientific-payload comparison.
-
-The current verifier preserves the artifact checks and replay order in
-`model/verify.py`, replacing one backend-sensitive protected-readout comparison
-with its [complete interval validator](model/protected_readout_numerics/PROOF.md).
-The original producer, raw archive and verifier remain unchanged. The validator
-executes that producer and checks every output against the same finite circuit;
-it does not relax physical claims. Two complete-measurement consumers also run
-their unchanged producers with the explicitly authenticated current parent
-receipt; their retained scientific records and original verifier stay intact.
-This replay inventory is narrower than all
-retained results: native-link selection and holonomy reconstruction, for
-example, are replayed by their model regression tests. Run both commands;
-neither artifact hashing nor one replay command replaces the other tests.
-The standalone source-field and particle checks used by CI are listed below.
-
-The finite observer contributes the exact native observer, its
-quantum mixing and record capacity, a 20,000-trial sequential run, complete
-record recovery, the P-dependent binary detector with 200,000 trials and
-the observer-local incident-tick calculation. The field detectors
-contribute the scalar detector with native feedback, its retained two-read
-continuation, its local evolution and the source-compiled two-site
-apparatus. The prediction package and the source-executed C/E experiment
-contribute the instrument comparison. The common interacting source
-contributes its finite execution, the infinite-occupation history, the
-complete sharp-output comparison, the observer readout, smooth-detector and
-thermal-clock bridges, the causal cones and the native field relations.
-Its corrected native-memory history adds a source encoder and recovery,
-complete logical/reference comparisons, and the matched passive failure control.
-The [mixed-state observer](model/common_source/OPEN_HISTORY.md) additionally
-executes the finite source environment through the four-read continuation,
-checks complete quantum outputs and fresh-draw controls, and attaches the
-same corrected/passive native memory with separate error and resource budgets.
-The [smooth-history certificate](model/common_source/SMOOTH_HISTORY.md)
-compares all 16 retained work outputs with the infinite history for each of
-the three native-current preparations, including later feedback and the
-gauge clock probe. Its state-specific bound is separate from the broader
-uniform occupation theorem and from numerical or physical service errors.
-The native coherent-continuation and source-selection receipts retain their
-distinct phase-sensitive observation contracts.
-The spatial Bose and canonical scalar branches add complete interacting
-histories and approximation certificates. The shared scalar observations
-add spatial and occupation comparisons, the retrospective published-data
-readout check and the separate source-executed calibrated readout.
-The [observer-record reconstruction](model/observer_reconstruction/README.md)
-adds executed free-field and clock records, record-only spatial/spectral
-identification, withheld detector predictions and an exact native response
-geometry. Its normal-mode occupation bound and noncommuting-phase control
-retain the supplied-action and finite-identification scope.
-The [binary geometry](model/relative_observer_geometry/README.md) checks a
-current-only calibration, quantum occupation response and finite propagation
-on the clocks' native sector. The [host-clock comparison](model/native_clock/README.md)
-replays actual recorded native calls and recalculates their held-out timing
-tests; reproduction checks the retained measurements rather than requiring
-another machine to reproduce their timestamps.
-The [joint clock bridge](model/native_clock/CLOCK_BRIDGE.md) retains zero-hit
-and movement-count correlations, propagates exact finite count uncertainty,
-and preserves the recorded workload-control rejection. The
-[field refinement](model/observer_time_fields/REFINEMENT.md) also evaluates
-canonical fixed-number preparations with their conservation correlations.
-[Temporal records](model/relative_observer_geometry/README.md#temporal-hilbert-space-reconstructed-from-field-records)
-reconstruct an exact elementary cyclic transfer and a separate, bounded
-two-vector compression on the actual screens. Their preparation and clock
-domains remain distinct; these checks do not establish physical time.
-The [Bell-record replay](model/predictions/BELL_RECORDS.md) reproduces a public
-fixed-count comparison against local factorized classical responses. It is
-a retrospective boundary test, not a prospective OPH validation.
-The tests independently check endpoint arithmetic,
-all retained histories, classical-record preservation, quantum coherence,
-controls, capacity and
-the stopping-time null. The exact native observer and P-response runtime
-use the Python standard library; the complete test and local-tick route
-uses the pinned model requirements. Individual commands and scope are in
-[observer/](model/observer/README.md),
-[observer/p_response/](model/observer/p_response/README.md),
-[observer/scalar_response/](model/observer/scalar_response/README.md), and
-[local_tick/](model/local_tick/README.md).
-
-The complete smooth-history comparison can also be replayed directly:
-
-```sh
-python -m model.common_source.smooth_history --check model/common_source/smooth_history_results.json
-```
-
-Focused field, temporal, clock-conversion and public-data replays are:
-
-```sh
-python -m model.observer_time_fields.canonical_sector --check model/observer_time_fields/canonical_sector_results.json
-python -m model.relative_observer_geometry.temporal_records --check model/relative_observer_geometry/temporal_results.json
-python -m model.native_clock.clock_bridge --check model/native_clock/clock_bridge_results.json
-python -m model.predictions.bell_records --check model/predictions/bell_results.json
-```
-
-The scalar adapter executes the supplied field instrument and its conditional
-branches, with the original-action vacuum and native record-only continuation.
-Its retained [prediction protocol](model/observer/scalar_response/PREDICTION.md)
-compares the feedback statistic with null and reversal controls and transfers
-the existing scalar refinement error to the complete history law. These are
-conditional software tests; the scalar action, Born readout and model-time
-convention are supplied, and independent physical comparison is separate.
-
-The [nightly workflow](.github/workflows/nightly.yml) checks every model
-artifact hash and receipt source binding, runs the complete model regression
-and replays every receipt on a schedule and on manual dispatch.
-It also executes the following
-standalone source-field and particle checks in the model environment:
-
-```sh
-python code/source_scalar_time_refinement/verify_source_scalar_time_refinement.py
-python -m model.common_source.repair_field_attachment --check model/common_source/repair_field_attachment_results.json
-python -m model.common_source.native_staggered_field --check model/common_source/native_staggered_field_results.json
-python -m model.common_source.native_field_history --check model/common_source/native_field_history_results.json
-python -m model.common_source.native_charged_spectrum --check model/common_source/native_charged_spectrum_results.json
-python -m model.common_source.native_code_transport --check model/common_source/native_code_transport_results.json
-python -m model.common_source.native_charged_spectroscopy --check model/common_source/native_charged_spectroscopy_results.json
-python -m model.native_equilibration.wedge_modular --check model/native_equilibration/wedge_modular_results.json
-python -B model/observer_particles/run.py --verify-only
-python -B model/observer_particles/run.py
-```
-
-Together these commands reproduce the workflow's separate gates; running
-only `model.verify_current` does not. They supplement the source-frozen mandatory runner below.
-Neither that runner nor a bare `python -m pytest` includes the new `model/`
-tests: invoke the model commands explicitly when changing this implementation.
-The finite observer construction is executable with declared apparatus and
-accepted closure inputs; no hardware fabrication, calibrated physical clock
-or whole-universe implementation is inferred from a passing run.
+Component suites that bind fixed documentary premises use their explicit
+input adapters. These validate those premises, not an equivalence between
+another Hamiltonian and CCF-LT-2. The
+[CI workflow](.github/workflows/ci.yml) checks the official
+model in its own job and retains the separate component suites.
 
 ## Additional component calculations
 
@@ -239,7 +148,7 @@ lake build Geometry.NativeGeometricSourceIdentification CommonHistoryFeedback Ge
 The general spectral error estimate and oscillator pulse argument are
 analytical; these finite Lean modules do not formalize those entire proofs.
 
-## Passive-memory requirements of the earlier source lane
+## Component passive-memory requirements
 
 The exact nonlinear-record classification, finite native-zero reset bound,
 fresh-zero approximate construction and ancillary quadratic budget have a
@@ -447,7 +356,7 @@ Einstein-branch axiom check. `Lean/README.md` documents the layout;
 
 A new paper release follows the owner's approval of a recorded model
 milestone under the
-[model research policy](model/CONSTRUCTION.md#research-programme-and-paper-release-hold);
+[model acceptance contract](model/CONSTRUCTION.md#completion-target-and-acceptance-criteria);
 the [paper set](docs/PAPER_SET.md) records the milestone and the role of each
 paper. Correctness fixes, errata, review builds and their validation continue
 between releases. The publication commands below require that maintainer

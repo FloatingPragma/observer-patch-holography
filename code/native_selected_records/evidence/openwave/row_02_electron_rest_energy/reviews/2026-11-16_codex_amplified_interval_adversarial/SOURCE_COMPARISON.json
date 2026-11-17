@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "producer_imports": false,
+  "source_index_sha256": "9a2fc39dcc8637c3d21ff9df873079e64787dfbeff4df5662a8d410028c14811",
+  "certificate_sha256": "96e52814f637bfdbeb596c01dd345cefd0153af2073d39ac2e5bd982c22c8872",
+  "case_count": 256,
+  "checked_source_files": 272,
+  "target_flag_stages": 147456,
+  "marker_hops": 36864,
+  "stored_ramsey_records": 8704,
+  "max_absolute_residuals": {
+    "visibility": 3.1530333899354446e-14,
+    "selected_cost": 2.46150322347205e-13,
+    "signed_weight": 9.192646643896296e-14,
+    "optical_subspace": 2.2322685012526288e-13,
+    "ramsey_pair_probability": 8.315570454442422e-14,
+    "first_failure_mass": 1.1051382031723733e-11,
+    "preparation_success": 2.0433654768226006e-13,
+    "counter_decode_success": 5.463407504180395e-13,
+    "clock_eigenblock": 3.2068129580216374e-15
+  },
+  "predeclared_float_comparison_tolerance": 1e-08,
+  "seconds": 24.87197166700207,
+  "scope": "Stored full actual source matrices/flags and positive-counter densities agree with the exact finite-source certificate. Floating source centers are not claimed to be exact dyadic interval points. No laboratory/hardware realization or external G6."
+}

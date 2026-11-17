@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/work/2026-11-15_codex_common_selected_source/headline_v2.py", line 15, in <module>
+    assert json.dumps(fresh,sort_keys=True,separators=(',',':'))==json.dumps(recorded,sort_keys=True,separators=(',',':'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

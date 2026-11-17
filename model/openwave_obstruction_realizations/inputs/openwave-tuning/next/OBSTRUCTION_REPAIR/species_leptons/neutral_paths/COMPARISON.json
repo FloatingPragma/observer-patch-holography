@@ -1,0 +1,74 @@
+{
+  "reference_comparison_inputs": {
+    "sin2_12_13_23": [
+      0.308,
+      0.02215,
+      0.47
+    ],
+    "asymmetric_one_sigma_minus": [
+      0.011,
+      0.00058,
+      0.013
+    ],
+    "asymmetric_one_sigma_plus": [
+      0.012,
+      0.00056,
+      0.017
+    ],
+    "splitting_ratio": 0.029805,
+    "splittings_eV2": [
+      7.49e-05,
+      0.002513
+    ],
+    "source": "Frozen ROW_10_symmetry/PROOF.md, NuFIT6.0 normal ordering IC24+SK comparison",
+    "independent_current_dataset_verification": false
+  },
+  "source_chosen_with_problem_known": true,
+  "source_PLAN_fixed_before_this_candidate_run": true,
+  "parameters_retuned_after_comparison": false,
+  "polar_angle_diagnostic": [
+    0.047282741736621024,
+    0.8500925774867089,
+    0.8048432845282465
+  ],
+  "angle_pulls_against_frozen_packet": [
+    -23.701568933034455,
+    1478.468888369123,
+    19.696663795779205
+  ],
+  "all_three_within_three_sigma": false,
+  "physical_light_current_exactly_unitary": false,
+  "actual_heavy_current_weights": [
+    "0.00693287630601950268862683518472646957045260761594447879589654",
+    "0.00693287607866996405983320142595040717673040219987565451995128",
+    "0.0069434846457294667198883208183007631100980141326716771479183"
+  ],
+  "full_pole_splitting_ratio": 0.0033219479678541883,
+  "ratio_over_reference": 0.11145606334018414,
+  "overall_mass_rescaling_can_repair_splitting_ratio": false,
+  "conditional_mass_eV": [
+    "0.000102918299067846741990397768886736007728780139686074493453637",
+    "0.00232366264631627774963320113266829334447084670396132736965976",
+    "0.0402764958752594116230491299527893684805855100281676714271914"
+  ],
+  "conditional_splittings_eV2": [
+    "0.00000538881591760254815770596055587230137448358025994629688613872",
+    "0.0016221855278135053792128366789160797250039378911064189839594"
+  ],
+  "zero_phase_control": {
+    "complete_basis_equivalence_verified": true,
+    "bright_Weyl_modes": 33,
+    "dark_Weyl_modes": 30,
+    "dark_Dirac_pairs": 15,
+    "dark_masses_exact": 1,
+    "dark_current_exact": 0,
+    "real_chain_orientation": [
+      0.024932774808821046,
+      0.4879449214551501,
+      0.952914914625565
+    ]
+  },
+  "source_lightness_mechanism_verified": true,
+  "measured_neutrino_spectrum_and_mixing_solved": false,
+  "physical_interacting_source_or_native_compiler_transfer": false
+}

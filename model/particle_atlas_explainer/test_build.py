@@ -58,6 +58,21 @@ def test_dependency_strip_follows_the_register(data):
     assert done[:3] == [True, True, True] and not any(done[3:])
 
 
+@pytest.mark.parametrize('field,value', [('candidate', 'another-source'),
+                                       ('primary_program', 'another-program')])
+def test_incompatible_dependency_source_is_rejected(monkeypatch, field, value):
+    original = build.json.loads
+
+    def changed(text):
+        result = original(text)
+        if isinstance(result, dict) and 'primary_program' in result:
+            result[field] = value
+        return result
+    monkeypatch.setattr(build.json, 'loads', changed)
+    with pytest.raises(ValueError, match='official local-capacity law'):
+        build.load()
+
+
 def test_evidence_panel_uses_receipts_and_keeps_domains_separate(data):
     def visible_text(value):
         return ' '.join(' '.join(ET.fromstring(value).itertext()).split())

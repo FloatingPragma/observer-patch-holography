@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "k": 0,
+      "exit_code": 1,
+      "exception": "AssertionError: raw Ramsey record law",
+      "cause": "reviewer loop index overwrote refinement k",
+      "source": "audit_initial.py"
+    },
+    {
+      "k": 2,
+      "exit_code": 1,
+      "exception": "AssertionError: raw Ramsey record law",
+      "cause": "reviewer loop index overwrote refinement k",
+      "source": "audit_initial.py"
+    }
+  ]
+}

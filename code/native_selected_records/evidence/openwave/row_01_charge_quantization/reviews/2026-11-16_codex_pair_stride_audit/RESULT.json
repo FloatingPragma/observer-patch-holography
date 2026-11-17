@@ -1,0 +1,1380 @@
+{
+  "passed": true,
+  "same_group": true,
+  "external_G6": false,
+  "producer_imports": [],
+  "counts": {
+    "source_columns": 210,
+    "source_cases": 112,
+    "pair_moments": 224,
+    "corner_cases": 1792,
+    "interior_perturbations": 3584,
+    "controls": 17,
+    "full_chart_plants": 12291,
+    "false_principal_branch_rejections": 112
+  },
+  "extrema": {
+    "pair_off_band_max": 0.007752865737574832,
+    "minimum_density_eigenvalue": -4.795256061773527e-16,
+    "minimum_positive_f_weight": 0.9961122360849959,
+    "maximum_negative_f_weight": 0.002750387146614821,
+    "maximum_probability_residual": 1.7763568394002505e-14,
+    "maximum_certificate_residual": 1.3140651761167632e-12
+  },
+  "rows": [
+    {
+      "k": 0,
+      "case": [
+        4,
+        1,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.002458081796161582,
+      "positive_f_weight": 0.9987694448465525,
+      "negative_f_weight": 0.0012305465239738525
+    },
+    {
+      "k": 0,
+      "case": [
+        4,
+        1,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.004734096620723771,
+      "positive_f_weight": 0.997629386390289,
+      "negative_f_weight": 0.0012291419005366706
+    },
+    {
+      "k": 0,
+      "case": [
+        4,
+        1,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.0024580817941624034,
+      "positive_f_weight": 0.9987694448475534,
+      "negative_f_weight": 0.0012305465239750262
+    },
+    {
+      "k": 0,
+      "case": [
+        4,
+        1,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.004734096620723105,
+      "positive_f_weight": 0.9976293863902893,
+      "negative_f_weight": 0.0012291419005366882
+    },
+    {
+      "k": 0,
+      "case": [
+        4,
+        2,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.0024581724187964227,
+      "positive_f_weight": 0.9987693994794762,
+      "negative_f_weight": 0.0012305464680787224
+    },
+    {
+      "k": 0,
+      "case": [
+        4,
+        2,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.004734096620724437,
+      "positive_f_weight": 0.9976293863902886,
+      "negative_f_weight": 0.0012291419005366895
+    },
+    {
+      "k": 0,
+      "case": [
+        4,
+        2,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.002458172413844051,
+      "positive_f_weight": 0.9987693994819554,
+      "negative_f_weight": 0.001230546468081763
+    },
+    {
+      "k": 0,
+      "case": [
+        4,
+        2,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.004734096620723549,
+      "positive_f_weight": 0.9976293863902891,
+      "negative_f_weight": 0.0012291419005367099
+    },
+    {
+      "k": 0,
+      "case": [
+        8,
+        1,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.002458065156372591,
+      "positive_f_weight": 0.9987694531766851,
+      "negative_f_weight": 0.0012305465342370928
+    },
+    {
+      "k": 0,
+      "case": [
+        8,
+        1,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.004734096620723105,
+      "positive_f_weight": 0.9976293863902893,
+      "negative_f_weight": 0.0012291419005367246
+    },
+    {
+      "k": 0,
+      "case": [
+        8,
+        1,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.0024580651563721467,
+      "positive_f_weight": 0.9987694531766853,
+      "negative_f_weight": 0.0012305465342370482
+    },
+    {
+      "k": 0,
+      "case": [
+        8,
+        1,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.004734096620723105,
+      "positive_f_weight": 0.9976293863902893,
+      "negative_f_weight": 0.001229141900536757
+    },
+    {
+      "k": 0,
+      "case": [
+        8,
+        2,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.0024580669030269675,
+      "positive_f_weight": 0.9987694523022832,
+      "negative_f_weight": 0.0012305465331597406
+    },
+    {
+      "k": 0,
+      "case": [
+        8,
+        2,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.004734096620722217,
+      "positive_f_weight": 0.9976293863902898,
+      "negative_f_weight": 0.0012291419005367292
+    },
+    {
+      "k": 0,
+      "case": [
+        8,
+        2,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.0024580669030265234,
+      "positive_f_weight": 0.9987694523022834,
+      "negative_f_weight": 0.0012305465331597357
+    },
+    {
+      "k": 0,
+      "case": [
+        8,
+        2,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.004734096620723771,
+      "positive_f_weight": 0.997629386390289,
+      "negative_f_weight": 0.0012291419005366925
+    },
+    {
+      "k": 1,
+      "case": [
+        4,
+        1,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.0027565491450374235,
+      "positive_f_weight": 0.9986198205440608,
+      "negative_f_weight": 0.0013801708264864372
+    },
+    {
+      "k": 1,
+      "case": [
+        4,
+        1,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.005031639521662967,
+      "positive_f_weight": 0.9974800549146638,
+      "negative_f_weight": 0.001378595581094411
+    },
+    {
+      "k": 1,
+      "case": [
+        4,
+        1,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.002756549143567044,
+      "positive_f_weight": 0.998619820544797,
+      "negative_f_weight": 0.0013801708264874835
+    },
+    {
+      "k": 1,
+      "case": [
+        4,
+        1,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.0050316395216642995,
+      "positive_f_weight": 0.9974800549146632,
+      "negative_f_weight": 0.0013785955810944029
+    },
+    {
+      "k": 1,
+      "case": [
+        4,
+        2,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.0027566397413395505,
+      "positive_f_weight": 0.9986197751833894,
+      "negative_f_weight": 0.0013801707637944329
+    },
+    {
+      "k": 1,
+      "case": [
+        4,
+        2,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.005031639521663411,
+      "positive_f_weight": 0.9974800549146636,
+      "negative_f_weight": 0.001378595581094442
+    },
+    {
+      "k": 1,
+      "case": [
+        4,
+        2,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.0027566397376964646,
+      "positive_f_weight": 0.9986197751852135,
+      "negative_f_weight": 0.001380170763796979
+    },
+    {
+      "k": 1,
+      "case": [
+        4,
+        2,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.005031639521663633,
+      "positive_f_weight": 0.9974800549146635,
+      "negative_f_weight": 0.0013785955810943953
+    },
+    {
+      "k": 1,
+      "case": [
+        8,
+        1,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.0027565325102757443,
+      "positive_f_weight": 0.9986198288729211,
+      "negative_f_weight": 0.0013801708379976305
+    },
+    {
+      "k": 1,
+      "case": [
+        8,
+        1,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.005031639521663411,
+      "positive_f_weight": 0.9974800549146636,
+      "negative_f_weight": 0.0013785955810944404
+    },
+    {
+      "k": 1,
+      "case": [
+        8,
+        1,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.0027565325102757443,
+      "positive_f_weight": 0.9986198288729211,
+      "negative_f_weight": 0.0013801708379975013
+    },
+    {
+      "k": 1,
+      "case": [
+        8,
+        1,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.005031639521663189,
+      "positive_f_weight": 0.9974800549146637,
+      "negative_f_weight": 0.0013785955810943795
+    },
+    {
+      "k": 1,
+      "case": [
+        8,
+        2,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.0027565342564309647,
+      "positive_f_weight": 0.9986198279986385,
+      "negative_f_weight": 0.0013801708367893154
+    },
+    {
+      "k": 1,
+      "case": [
+        8,
+        2,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.005031639521663411,
+      "positive_f_weight": 0.9974800549146636,
+      "negative_f_weight": 0.0013785955810943647
+    },
+    {
+      "k": 1,
+      "case": [
+        8,
+        2,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.0027565342564305206,
+      "positive_f_weight": 0.9986198279986387,
+      "negative_f_weight": 0.0013801708367892798
+    },
+    {
+      "k": 1,
+      "case": [
+        8,
+        2,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.005031639521662967,
+      "positive_f_weight": 0.9974800549146638,
+      "negative_f_weight": 0.0013785955810943708
+    },
+    {
+      "k": 2,
+      "case": [
+        4,
+        1,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.005485662202501684,
+      "positive_f_weight": 0.9972496042456814,
+      "negative_f_weight": 0.0027503871236722963
+    },
+    {
+      "k": 2,
+      "case": [
+        4,
+        1,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.0077528657375735,
+      "positive_f_weight": 0.9961122360849965,
+      "negative_f_weight": 0.0027472502934037064
+    },
+    {
+      "k": 2,
+      "case": [
+        4,
+        1,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.0054856621975292175,
+      "positive_f_weight": 0.9972496042481745,
+      "negative_f_weight": 0.002750387123679222
+    },
+    {
+      "k": 2,
+      "case": [
+        4,
+        1,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.007752865737572834,
+      "positive_f_weight": 0.9961122360849969,
+      "negative_f_weight": 0.002747250293403728
+    },
+    {
+      "k": 2,
+      "case": [
+        4,
+        2,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.005485752556724122,
+      "positive_f_weight": 0.9972495589443161,
+      "negative_f_weight": 0.002750386998732386
+    },
+    {
+      "k": 2,
+      "case": [
+        4,
+        2,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007752865737573056,
+      "positive_f_weight": 0.9961122360849968,
+      "negative_f_weight": 0.00274725029340373
+    },
+    {
+      "k": 2,
+      "case": [
+        4,
+        2,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.0054857525444076405,
+      "positive_f_weight": 0.9972495589504913,
+      "negative_f_weight": 0.0027503869987494304
+    },
+    {
+      "k": 2,
+      "case": [
+        4,
+        2,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.007752865737572612,
+      "positive_f_weight": 0.996112236084997,
+      "negative_f_weight": 0.0027472502934037407
+    },
+    {
+      "k": 2,
+      "case": [
+        8,
+        1,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.0054856456109114715,
+      "positive_f_weight": 0.9972496125642929,
+      "negative_f_weight": 0.0027503871466147455
+    },
+    {
+      "k": 2,
+      "case": [
+        8,
+        1,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007752865737573944,
+      "positive_f_weight": 0.9961122360849963,
+      "negative_f_weight": 0.0027472502934036466
+    },
+    {
+      "k": 2,
+      "case": [
+        8,
+        1,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.005485645610911027,
+      "positive_f_weight": 0.9972496125642931,
+      "negative_f_weight": 0.002750387146614821
+    },
+    {
+      "k": 2,
+      "case": [
+        8,
+        1,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.007752865737573722,
+      "positive_f_weight": 0.9961122360849964,
+      "negative_f_weight": 0.0027472502934036682
+    },
+    {
+      "k": 2,
+      "case": [
+        8,
+        2,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.0054856473523503535,
+      "positive_f_weight": 0.9972496116911787,
+      "negative_f_weight": 0.002750387144206807
+    },
+    {
+      "k": 2,
+      "case": [
+        8,
+        2,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007752865737573722,
+      "positive_f_weight": 0.9961122360849964,
+      "negative_f_weight": 0.002747250293403684
+    },
+    {
+      "k": 2,
+      "case": [
+        8,
+        2,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.005485647352349465,
+      "positive_f_weight": 0.9972496116911791,
+      "negative_f_weight": 0.0027503871442067975
+    },
+    {
+      "k": 2,
+      "case": [
+        8,
+        2,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.007752865737574832,
+      "positive_f_weight": 0.9961122360849959,
+      "negative_f_weight": 0.0027472502934037337
+    },
+    {
+      "k": 3,
+      "case": [
+        4,
+        1,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.005398278350336572,
+      "positive_f_weight": 0.9972935359002664,
+      "negative_f_weight": 0.00270645546934591
+    },
+    {
+      "k": 3,
+      "case": [
+        4,
+        1,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007672298881161832,
+      "positive_f_weight": 0.9961527959931716,
+      "negative_f_weight": 0.0027033597290754005
+    },
+    {
+      "k": 3,
+      "case": [
+        4,
+        1,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.005398278345782326,
+      "positive_f_weight": 0.9972935359025497,
+      "negative_f_weight": 0.002706455469352142
+    },
+    {
+      "k": 3,
+      "case": [
+        4,
+        1,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.00767229888116161,
+      "positive_f_weight": 0.9961527959931717,
+      "negative_f_weight": 0.0027033597290754127
+    },
+    {
+      "k": 3,
+      "case": [
+        4,
+        2,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.0053983687105898515,
+      "positive_f_weight": 0.9972934905978621,
+      "negative_f_weight": 0.0027064553464042334
+    },
+    {
+      "k": 3,
+      "case": [
+        4,
+        2,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007672298881162942,
+      "positive_f_weight": 0.9961527959931711,
+      "negative_f_weight": 0.0027033597290753043
+    },
+    {
+      "k": 3,
+      "case": [
+        4,
+        2,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.00539836869931043,
+      "positive_f_weight": 0.9972934906035171,
+      "negative_f_weight": 0.0027064553464196165
+    },
+    {
+      "k": 3,
+      "case": [
+        4,
+        2,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.007672298881162054,
+      "positive_f_weight": 0.9961527959931715,
+      "negative_f_weight": 0.002703359729075323
+    },
+    {
+      "k": 3,
+      "case": [
+        8,
+        1,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.005398261757791789,
+      "positive_f_weight": 0.997293544218992,
+      "negative_f_weight": 0.0027064554919213717
+    },
+    {
+      "k": 3,
+      "case": [
+        8,
+        1,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007672298881161388,
+      "positive_f_weight": 0.9961527959931719,
+      "negative_f_weight": 0.002703359729075368
+    },
+    {
+      "k": 3,
+      "case": [
+        8,
+        1,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.005398261757791123,
+      "positive_f_weight": 0.9972935442189923,
+      "negative_f_weight": 0.002706455491921294
+    },
+    {
+      "k": 3,
+      "case": [
+        8,
+        1,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.007672298881162054,
+      "positive_f_weight": 0.9961527959931715,
+      "negative_f_weight": 0.002703359729075342
+    },
+    {
+      "k": 3,
+      "case": [
+        8,
+        2,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.00539826349935324,
+      "positive_f_weight": 0.9972935433458545,
+      "negative_f_weight": 0.00270645548955176
+    },
+    {
+      "k": 3,
+      "case": [
+        8,
+        2,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007672298881161166,
+      "positive_f_weight": 0.996152795993172,
+      "negative_f_weight": 0.00270335972907541
+    },
+    {
+      "k": 3,
+      "case": [
+        8,
+        2,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.005398263499351907,
+      "positive_f_weight": 0.9972935433458552,
+      "negative_f_weight": 0.0027064554895517637
+    },
+    {
+      "k": 3,
+      "case": [
+        8,
+        2,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.007672298881163386,
+      "positive_f_weight": 0.9961527959931709,
+      "negative_f_weight": 0.0027033597290753476
+    },
+    {
+      "k": 4,
+      "case": [
+        4,
+        1,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.005322548996330223,
+      "positive_f_weight": 0.9973316051940233,
+      "negative_f_weight": 0.0026683861756818866
+    },
+    {
+      "k": 4,
+      "case": [
+        4,
+        1,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007597487754806398,
+      "positive_f_weight": 0.9961904477785861,
+      "negative_f_weight": 0.0026653329798784283
+    },
+    {
+      "k": 4,
+      "case": [
+        4,
+        1,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.00532254899198914,
+      "positive_f_weight": 0.9973316051961997,
+      "negative_f_weight": 0.00266838617568763
+    },
+    {
+      "k": 4,
+      "case": [
+        4,
+        1,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.007597487754806398,
+      "positive_f_weight": 0.9961904477785861,
+      "negative_f_weight": 0.0026653329798783593
+    },
+    {
+      "k": 4,
+      "case": [
+        4,
+        2,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.005322639362903225,
+      "positive_f_weight": 0.9973315598901706,
+      "negative_f_weight": 0.002668386054470212
+    },
+    {
+      "k": 4,
+      "case": [
+        4,
+        2,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007597487754807286,
+      "positive_f_weight": 0.9961904477785857,
+      "negative_f_weight": 0.0026653329798783662
+    },
+    {
+      "k": 4,
+      "case": [
+        4,
+        2,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.005322639352149938,
+      "positive_f_weight": 0.9973315598955617,
+      "negative_f_weight": 0.0026683860544846182
+    },
+    {
+      "k": 4,
+      "case": [
+        4,
+        2,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.007597487754805954,
+      "positive_f_weight": 0.9961904477785863,
+      "negative_f_weight": 0.002665332979878388
+    },
+    {
+      "k": 4,
+      "case": [
+        8,
+        1,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.005322532402703528,
+      "positive_f_weight": 0.9973316135129755,
+      "negative_f_weight": 0.0026683861979394353
+    },
+    {
+      "k": 4,
+      "case": [
+        8,
+        1,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007597487754806398,
+      "positive_f_weight": 0.9961904477785861,
+      "negative_f_weight": 0.0026653329798783662
+    },
+    {
+      "k": 4,
+      "case": [
+        8,
+        1,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.005322532402703528,
+      "positive_f_weight": 0.9973316135129755,
+      "negative_f_weight": 0.0026683861979393624
+    },
+    {
+      "k": 4,
+      "case": [
+        8,
+        1,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.007597487754806398,
+      "positive_f_weight": 0.9961904477785861,
+      "negative_f_weight": 0.0026653329798784382
+    },
+    {
+      "k": 4,
+      "case": [
+        8,
+        2,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.005322534144390212,
+      "positive_f_weight": 0.9973316126398084,
+      "negative_f_weight": 0.00266838619560326
+    },
+    {
+      "k": 4,
+      "case": [
+        8,
+        2,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007597487754805954,
+      "positive_f_weight": 0.9961904477785863,
+      "negative_f_weight": 0.0026653329798784087
+    },
+    {
+      "k": 4,
+      "case": [
+        8,
+        2,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.00532253414438888,
+      "positive_f_weight": 0.9973316126398091,
+      "negative_f_weight": 0.0026683861956032055
+    },
+    {
+      "k": 4,
+      "case": [
+        8,
+        2,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.007597487754806398,
+      "positive_f_weight": 0.9961904477785861,
+      "negative_f_weight": 0.0026653329798784244
+    },
+    {
+      "k": 5,
+      "case": [
+        4,
+        1,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.005300414365502215,
+      "positive_f_weight": 0.9973427317657129,
+      "negative_f_weight": 0.00265725960401694
+    },
+    {
+      "k": 5,
+      "case": [
+        4,
+        1,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007575481963495778,
+      "positive_f_weight": 0.9962015223627294,
+      "negative_f_weight": 0.002654219034762516
+    },
+    {
+      "k": 5,
+      "case": [
+        4,
+        1,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.0053004143612231935,
+      "positive_f_weight": 0.997342731767858,
+      "negative_f_weight": 0.0026572596040226925
+    },
+    {
+      "k": 5,
+      "case": [
+        4,
+        1,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.007575481963495556,
+      "positive_f_weight": 0.9962015223627295,
+      "negative_f_weight": 0.0026542190347626244
+    },
+    {
+      "k": 5,
+      "case": [
+        4,
+        2,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.005300504733940725,
+      "positive_f_weight": 0.9973426864614277,
+      "negative_f_weight": 0.002657259483311066
+    },
+    {
+      "k": 5,
+      "case": [
+        4,
+        2,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007575481963496222,
+      "positive_f_weight": 0.9962015223627292,
+      "negative_f_weight": 0.0026542190347625906
+    },
+    {
+      "k": 5,
+      "case": [
+        4,
+        2,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.005300504723341648,
+      "positive_f_weight": 0.9973426864667413,
+      "negative_f_weight": 0.002657259483325137
+    },
+    {
+      "k": 5,
+      "case": [
+        4,
+        2,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.007575481963495556,
+      "positive_f_weight": 0.9962015223627295,
+      "negative_f_weight": 0.0026542190347626175
+    },
+    {
+      "k": 5,
+      "case": [
+        8,
+        1,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.005300397771555776,
+      "positive_f_weight": 0.997342740084733,
+      "negative_f_weight": 0.0026572596261816477
+    },
+    {
+      "k": 5,
+      "case": [
+        8,
+        1,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007575481963495778,
+      "positive_f_weight": 0.9962015223627294,
+      "negative_f_weight": 0.002654219034762581
+    },
+    {
+      "k": 5,
+      "case": [
+        8,
+        1,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.005300397771555332,
+      "positive_f_weight": 0.9973427400847332,
+      "negative_f_weight": 0.0026572596261816893
+    },
+    {
+      "k": 5,
+      "case": [
+        8,
+        1,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.00757548196349489,
+      "positive_f_weight": 0.9962015223627299,
+      "negative_f_weight": 0.0026542190347625676
+    },
+    {
+      "k": 5,
+      "case": [
+        8,
+        2,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.005300399513278653,
+      "positive_f_weight": 0.9973427392115575,
+      "negative_f_weight": 0.002657259623855231
+    },
+    {
+      "k": 5,
+      "case": [
+        8,
+        2,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007575481963495334,
+      "positive_f_weight": 0.9962015223627296,
+      "negative_f_weight": 0.0026542190347626027
+    },
+    {
+      "k": 5,
+      "case": [
+        8,
+        2,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.005300399513277765,
+      "positive_f_weight": 0.9973427392115579,
+      "negative_f_weight": 0.002657259623855191
+    },
+    {
+      "k": 5,
+      "case": [
+        8,
+        2,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.007575481963495112,
+      "positive_f_weight": 0.9962015223627297,
+      "negative_f_weight": 0.002654219034762581
+    },
+    {
+      "k": 6,
+      "case": [
+        4,
+        1,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.005294684059461319,
+      "positive_f_weight": 0.9973456122186838,
+      "negative_f_weight": 0.0026543791510527867
+    },
+    {
+      "k": 6,
+      "case": [
+        4,
+        1,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007569753424234493,
+      "positive_f_weight": 0.9962044052110653,
+      "negative_f_weight": 0.0026513418929038
+    },
+    {
+      "k": 6,
+      "case": [
+        4,
+        1,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.005294684055200172,
+      "positive_f_weight": 0.99734561222082,
+      "negative_f_weight": 0.002654379151058494
+    },
+    {
+      "k": 6,
+      "case": [
+        4,
+        1,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.007569753424234937,
+      "positive_f_weight": 0.9962044052110651,
+      "negative_f_weight": 0.0026513418929038314
+    },
+    {
+      "k": 6,
+      "case": [
+        4,
+        2,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.005294774428381999,
+      "positive_f_weight": 0.997345566914287,
+      "negative_f_weight": 0.002654379030477712
+    },
+    {
+      "k": 6,
+      "case": [
+        4,
+        2,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007569753424234715,
+      "positive_f_weight": 0.9962044052110652,
+      "negative_f_weight": 0.0026513418929038075
+    },
+    {
+      "k": 6,
+      "case": [
+        4,
+        2,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.0052947744178277745,
+      "positive_f_weight": 0.9973455669195781,
+      "negative_f_weight": 0.0026543790304917768
+    },
+    {
+      "k": 6,
+      "case": [
+        4,
+        2,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.007569753424234493,
+      "positive_f_weight": 0.9962044052110653,
+      "negative_f_weight": 0.002651341892903779
+    },
+    {
+      "k": 6,
+      "case": [
+        8,
+        1,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.005294667465432501,
+      "positive_f_weight": 0.9973456205377214,
+      "negative_f_weight": 0.0026543791731934007
+    },
+    {
+      "k": 6,
+      "case": [
+        8,
+        1,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007569753424235159,
+      "positive_f_weight": 0.996204405211065,
+      "negative_f_weight": 0.0026513418929038583
+    },
+    {
+      "k": 6,
+      "case": [
+        8,
+        1,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.005294667465431835,
+      "positive_f_weight": 0.9973456205377217,
+      "negative_f_weight": 0.0026543791731934276
+    },
+    {
+      "k": 6,
+      "case": [
+        8,
+        1,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.0075697534242356035,
+      "positive_f_weight": 0.9962044052110648,
+      "negative_f_weight": 0.002651341892903827
+    },
+    {
+      "k": 6,
+      "case": [
+        8,
+        2,
+        1,
+        "native"
+      ],
+      "pair_off_band": 0.005294669207164815,
+      "positive_f_weight": 0.9973456196645436,
+      "negative_f_weight": 0.0026543791708695907
+    },
+    {
+      "k": 6,
+      "case": [
+        8,
+        2,
+        1,
+        "swap"
+      ],
+      "pair_off_band": 0.007569753424234271,
+      "positive_f_weight": 0.9962044052110655,
+      "negative_f_weight": 0.0026513418929038418
+    },
+    {
+      "k": 6,
+      "case": [
+        8,
+        2,
+        -1,
+        "native"
+      ],
+      "pair_off_band": 0.005294669207163927,
+      "positive_f_weight": 0.997345619664544,
+      "negative_f_weight": 0.002654379170869548
+    },
+    {
+      "k": 6,
+      "case": [
+        8,
+        2,
+        -1,
+        "swap"
+      ],
+      "pair_off_band": 0.007569753424236048,
+      "positive_f_weight": 0.9962044052110646,
+      "negative_f_weight": 0.002651341892903807
+    }
+  ],
+  "k6_bounded_energy_union": [
+    1020.9476186057414,
+    1022.5493850396473
+  ],
+  "k6_all_allowed_perturbations_energy_envelope": [
+    1020.9461574777814,
+    1022.5508518143406
+  ],
+  "old_pair_keV": 1024.4508487023415,
+  "seconds": 9.441109125007642
+}

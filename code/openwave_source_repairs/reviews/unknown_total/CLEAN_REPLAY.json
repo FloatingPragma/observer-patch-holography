@@ -1,0 +1,27 @@
+{
+  "producer_manifest_sha256": "ac8c53cd5d0621a8d896ea26c0f83fb24d10e63740944e519d5e95649072a8f3",
+  "all_manifest_files_checked": 87,
+  "all_producer_bytes_unchanged_in_clean_replay": true,
+  "runs": [
+    {
+      "command": [
+        "-B",
+        "headline.py"
+      ],
+      "seconds": 0.5986122090107528,
+      "exit_code": 0,
+      "stdout": "{\"all_gates_pass\": true, \"complete_outcomes\": {\"handoff\": 24, \"no_unit\": 1, \"selection_rejected\": 25}, \"controller_seed_independent_of_K\": true, \"literal_native_calls\": 5576, \"preparation_inconclusive_upper\": \"8501/288230376151711744\", \"replay_changes_evidence\": false, \"seconds\": 0.5460140420036623}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "-B",
+        "check.py"
+      ],
+      "seconds": 0.40127104199200403,
+      "exit_code": 0,
+      "stdout": "{\"actual_handoffs\": 24, \"physical_sign_reversals\": 12, \"complete_endpoint_cases\": 33282, \"common_density_independent_power_difference\": 6.2758649354004196e-15, \"seconds\": 0.2523360000050161}\n",
+      "stderr": ""
+    }
+  ]
+}

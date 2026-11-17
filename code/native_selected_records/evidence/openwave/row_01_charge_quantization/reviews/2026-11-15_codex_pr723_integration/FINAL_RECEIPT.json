@@ -1,0 +1,120 @@
+{
+  "passed": true,
+  "same_group": true,
+  "external_G6": false,
+  "physical_rows_awarded": false,
+  "python": "3.13.7",
+  "manifests": {
+    "row_01_charge_quantization/work/2026-11-15_codex_pr723_unit_selection": {
+      "sha256": "35b67994df0c89d8478624815a95585293b99249da46b4dc90ba5fd27b72d5ae",
+      "files": 34
+    },
+    "row_02_electron_rest_energy/work/2026-11-15_codex_pr723_rest_selection": {
+      "sha256": "8c6d86aecb8c516afeca52bbe5db8f6014271e4c00c1c50af81cfdb2db117366",
+      "files": 68
+    },
+    "row_07_double_cover/work/2026-11-15_codex_pr723_rotation": {
+      "sha256": "05af1f898eb98a68413084b3b01586e600c79aa231d2f0318f0f90b887158f32",
+      "files": 53
+    },
+    "row_07_double_cover/work/2026-11-15_codex_pr723_rotation/berry": {
+      "sha256": "8add06ee1425a84e00997a7311f37ba222e7f77199487040506838cc21f00b7f",
+      "files": 30
+    },
+    "row_07_double_cover/work/2026-11-15_codex_pr723_two_turn_rejections": {
+      "sha256": "1861b420260787509cc944f291919af901a87a7f5dc7ca8c86c91c7ab4cfe512",
+      "files": 7
+    },
+    "row_01_charge_quantization/reviews/2026-11-15_codex_pr723_cross_review": {
+      "sha256": "949b0ef26f557f96b582c7860be4e11f2d27bb07a96432eb7294f7de89384e5a",
+      "files": 5
+    },
+    "row_02_electron_rest_energy/reviews/2026-11-15_codex_pr723_adversarial": {
+      "sha256": "b59a9c0e8d6f8b80a634563ec9e19d54fc5d2d16fb699c48cd8b5cedb417da16",
+      "files": 12
+    },
+    "row_07_double_cover/reviews/2026-11-15_codex_pr723_adversarial": {
+      "sha256": "760155ed834df197e359cd209580122f7b10f9c5ae8359af789c9a488f0a0caa",
+      "files": 5
+    },
+    "row_01_charge_quantization/reviews/2026-11-15_codex_pr723_common_instrument": {
+      "sha256": "d1d26e907932a04ad4ed3bb19cb556fd3e800161d56bcd9b0bd7987bbb85e10b",
+      "files": 6
+    }
+  },
+  "runs": [
+    {
+      "directory": "row_01_charge_quantization/work/2026-11-15_codex_pr723_unit_selection",
+      "command": "python3 -B headline_strict.py",
+      "exit_code": 0,
+      "seconds": 5.320439,
+      "stdout_sha256": "a4ae8bf0d457f0b114b2f234dba56cfcf23f0b449ebf8bf87f22a0812b65da4b",
+      "stderr": ""
+    },
+    {
+      "directory": "row_02_electron_rest_energy/work/2026-11-15_codex_pr723_rest_selection",
+      "command": "python3 -B headline.py",
+      "exit_code": 0,
+      "seconds": 2.39855,
+      "stdout_sha256": "cca3d7ec0a8f0c6b0f76010bb9707f202b7b7fe54beb5f752042f550a7c69b74",
+      "stderr": ""
+    },
+    {
+      "directory": "row_02_electron_rest_energy/work/2026-11-15_codex_pr723_rest_selection",
+      "command": "python3 -B independent_check.py",
+      "exit_code": 0,
+      "seconds": 0.783878,
+      "stdout_sha256": "597f4d6f2c3a5b6365ac8025a1502abee6ce3d9f140cc9c654d91539a2524cd5",
+      "stderr": ""
+    },
+    {
+      "directory": "row_02_electron_rest_energy/work/2026-11-15_codex_pr723_rest_selection",
+      "command": "python3 -B trajectory_check.py",
+      "exit_code": 0,
+      "seconds": 0.423718,
+      "stdout_sha256": "64c70dfb27cde0ba178ff8e6895ea1d973a6cb7315a4fb0c571dc931570454a6",
+      "stderr": ""
+    },
+    {
+      "directory": "row_02_electron_rest_energy/work/2026-11-15_codex_pr723_rest_selection",
+      "command": "python3 -B tunability.py",
+      "exit_code": 0,
+      "seconds": 0.187855,
+      "stdout_sha256": "070abb17a78ab6512b6afa338950fc04ddd0a2d81682d046756660ecae06598c",
+      "stderr": ""
+    },
+    {
+      "directory": "row_02_electron_rest_energy/work/2026-11-15_codex_pr723_rest_selection",
+      "command": "python3 -B tunability_check.py",
+      "exit_code": 0,
+      "seconds": 0.136679,
+      "stdout_sha256": "79785dc64c6e63d8588d02b8eb9a8fa09a6e8fce111f78712b567513cbf1ba9a",
+      "stderr": ""
+    },
+    {
+      "directory": "row_07_double_cover/work/2026-11-15_codex_pr723_rotation",
+      "command": "python3 -B replay_all.py",
+      "exit_code": 0,
+      "seconds": 5.428653,
+      "stdout_sha256": "937dfae405aebe74d4ee40d3180d62fecd53c33befa3192f941268a26d9e80de",
+      "stderr": ""
+    },
+    {
+      "directory": "row_07_double_cover/work/2026-11-15_codex_pr723_two_turn_rejections",
+      "command": "python3 -B headline.py",
+      "exit_code": 0,
+      "seconds": 0.755041,
+      "stdout_sha256": "d8ef8b64d481e10b69c248cc1267bc9e3e209fbae82f97a4c471ee9053e841e5",
+      "stderr": ""
+    },
+    {
+      "directory": "row_01_charge_quantization/reviews/2026-11-15_codex_pr723_common_instrument",
+      "command": "python3 -B test_common_instrument.py",
+      "exit_code": 0,
+      "seconds": 0.195895,
+      "stdout_sha256": "6b7db9dd64e4c447ad8a27dfb3ca113941c4d5da7882218e96fc1b68d2e519e0",
+      "stderr": ""
+    }
+  ],
+  "scope": "Finite follow-up experiments, independent readers and complete outcome checks; no physical claim or external award inferred."
+}

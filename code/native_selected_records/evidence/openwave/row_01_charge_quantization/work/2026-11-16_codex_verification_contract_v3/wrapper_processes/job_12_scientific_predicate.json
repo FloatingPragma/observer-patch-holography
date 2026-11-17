@@ -1,0 +1,14 @@
+{
+  "label": "job_12_scientific_predicate",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "audit.py"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-wrapper-mutants-md4vdzlp/source/evidence/openwave/row_01_charge_quantization/reviews/2026-11-16_codex_bounded_reader_review/audit.py\", line 33, in <module>\n    assert not (len(interior) == 2)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "expected_success": false,
+  "passed": true,
+  "seconds": 1.1715555419941666
+}

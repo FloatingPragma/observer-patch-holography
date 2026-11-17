@@ -1,0 +1,52 @@
+{
+ "schema": "oph.openwave.review.full_row.manifest.v1",
+ "sealed_at": "Sat Nov 14 18:28:45 +07 2026",
+ "directory": "openwave-push/reviews/ROW_10_FABLE_B",
+ "row": 10,
+ "reviewer": "Fable-B/ROW_10_FABLE_B",
+ "full_criterion_met": false,
+ "candidate_manifest_reviewed": {
+  "path": "openwave-push/rowfull/ROW_10_symmetry/MANIFEST.json",
+  "sha256": "4855979585e0fbc523e080dfaeee00dc097730f1988adcaec5d564e125c7ea3d"
+ },
+ "criterion_file": {
+  "path": "openwave-tuning/row_completion/ROW_10/TASK.md",
+  "sha256": "277590eae05029086698d605a753945255efce94ac05b57e3f8f81cb3471253f"
+ },
+ "audit_note": "audit.py was changed once between its two runs (per-angle count by clustering); RESULT.json and RUN.log are the second run; the first log is kept. audit_neutral_coefficient.py was added and run before the seal.",
+ "files_sha256": {
+  "FILES_READ.json": "49d20f027206e7ea2565200cc2280a5767ec14b2e19582fdb599116f8937d81a",
+  "PREREG_AUDIT.json": "220ef760dd527d35055f4bfa34fc5d83c0df5357a047cc3d578b59f8ff5ae259",
+  "RESULT.json": "2356bd81f5279bd1d3ea97755f4c795a38b44c186013c7707bd1a8a97a1c1933",
+  "RESULT_NEUTRAL_COEFFICIENT.json": "31ab67e7c27a8081de99a5c92b98cca9927d85f2d1a7cf00799a579b57e9af21",
+  "REVIEW.json": "df8c306b40ba841e9baa8d531758e45c80abc8da8517911c7c04e3b385e64e54",
+  "REVIEW.md": "e8a7f76f406734abf6c3ece4b03f539c2c3a65bacb9988e9122af6ebe5fa6382",
+  "RUN.log": "e70b8c984f97dacce51354c7239b99e2e6a8f5ce59e941e2d9ecad3f5812e784",
+  "RUN_NEUTRAL_COEFFICIENT.log": "43edc64c051bba73514242db9ceaf623cd35193c2a1527b28a177f918a4894e8",
+  "RUN_first_run_per_angle_count_by_fixed_rounding.log": "0e45edc15e6956ede43503fd1f3216a10c3e04b1b7861d45a945d37070dd3e5f",
+  "audit.py": "2856f40dc3dae74540b7d328ba817658f9475c6c397343a41aebc87590a29699",
+  "audit_neutral_coefficient.py": "040c6c6c104306aa4b3be838db9bcebc0517e02b78a2db8c2136887c568e3e74",
+  "consumed/COPIED_AT.txt": "04b0f14bb687c29d923a77cc08e5579f0962e9aeb7f2e5e8fff558d574ba473a",
+  "consumed/candidate/ANGLES.md": "761ee5dde4b250cd0148cdabb676c39234b30d4418bfc378d5c299661d8080b6",
+  "consumed/candidate/CANDIDATE.json": "f032f6749c6d98852f24459b49b5f6e456e481b63acde59844962e88a6799558",
+  "consumed/candidate/CRITERION.json": "32fb40800864ebbf782b2d63d33370bfe6f259097b7ead87068046ffb120e2ae",
+  "consumed/candidate/FOR_REVIEWERS.md": "6c970d83a066f4f6b5e506519c1e63e84ec5b69b720998c80cb0b2ada5101941",
+  "consumed/candidate/JOIN.md": "f03cbda48c885953b13ffc73a5eeaf5bb3079f30f1dfbbc6a3424ec6efcd3243",
+  "consumed/candidate/MANIFEST.json": "4855979585e0fbc523e080dfaeee00dc097730f1988adcaec5d564e125c7ea3d",
+  "consumed/candidate/PATTERNS.md": "2b66634548d735f0f734ce53b779b890d5522c0c681ecaea2c5664cbee19ed8b",
+  "consumed/candidate/PREREGISTRATION.md": "3b5de5834cfe443082775a471f0c9223e27621a80629498c7d8644e94ee75b75",
+  "consumed/candidate/PROOF.md": "1d498ca6b59815a07db4a1dc7b82b6a77c043c5a48e10e32df611d54c5a0b36c",
+  "consumed/candidate/SELECTION.md": "408c584dd552a3065697c67dd960cd03d12add5a36857772bc9772c6dd167683",
+  "consumed/candidate/STATUS.md": "56840e0d92ccbbac28b91e2c32d466f6cad4ae90d0cc18f21039c66e55dda872",
+  "consumed/candidate/angles.json": "4c55b181329cd45c82352d24b2f03d8975015e8b8f689c690c9d0f37b15dae7e",
+  "consumed/candidate/patterns.json": "4016fc7cb0d2b530591641ad4bbcd06c90f976c7cb9117cd4c924539b90630c6",
+  "consumed/other/SD11C_PROOF.md": "efbf5c1a7a34250b3381e1457a0346c525be5afdf91246ea2d7c56a6978850d7",
+  "consumed/other/openwave_neutrino_oscillation_PROOF.md": "8ec558e66c92f315d8634a75f374250fc2c0dc930ba00a5a1aa52734969539c8",
+  "consumed/task/B_BRIEF.md": "8e58fbb2d004a272a0b8d967b38f76029e9f0db49f1e94302990968e4236f3c1",
+  "consumed/task/INTERNAL_VALIDATION.json": "ff1ff57e0caf3aac9df37e6f4c90690c42a89c71e3e5d3574febe046e626c310",
+  "consumed/task/REVIEW_BRIEF.md": "aaac917aff29c0b31eff8036826bdaa8bec07b0c76428e1392988120eb14f5b8",
+  "consumed/task/TASK.md": "277590eae05029086698d605a753945255efce94ac05b57e3f8f81cb3471253f",
+  "consumed/task/W3_reviews.md": "ddf26745f07f5e559bbad9b54c4754ed93684fdce1d22d3a9688c6d58d0d3578"
+ },
+ "file_count": 32
+}

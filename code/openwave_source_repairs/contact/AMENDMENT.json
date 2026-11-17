@@ -1,0 +1,12 @@
+{
+  "at_utc": "2026-11-15T16:31:09.844317+00:00",
+  "diagnosis": "Proposed g uses bridge ports1 and10; local-cell eigenvector is not full OLD240 eigenvector. Full-graph nullspace restricted to first12 has basis F=(e4-e5-e6+e7), G=(-e5-e6+e8+e11). F dot G=2; normalized wedge has24 unit coefficients.",
+  "exploration": "Exact SymPy nullspace inspected before frozen confirmatory run; analytic correction is disclosed, not a prospective discovery.",
+  "failed_checks": [
+    "full_native_mean_eigenrelation_including_vacuum",
+    "full_single_modes_6",
+    "full_tensor_and_dirichlet_eigenrelation"
+  ],
+  "old_receipt_sha256": "4a580fe5835ddb4d4206566f2532ba4538a04ecc6da459b98f83d2f1460ce7b7",
+  "predecessor": "row_08_annihilation/work/2026-11-15_codex_compact_contact_audit"
+}

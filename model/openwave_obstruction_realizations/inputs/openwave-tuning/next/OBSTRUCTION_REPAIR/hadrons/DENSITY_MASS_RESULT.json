@@ -1,0 +1,833 @@
+{
+  "schema": "oph.obstruction_repair.density_mass.v1",
+  "mechanism": "H -> H + U sum_x B_c,x^2, and same U on the existing local colour cost; B_c signed native baryon current",
+  "archive": "reverse-engineering-reality/model/openwave_calibrated_hadrons/PROOF.md",
+  "new_fitted_coefficient": false,
+  "native_particle_projector_used": false,
+  "vacuum_and_electron_sector_unchanged": true,
+  "full_Fock_positivity_preserved": true,
+  "zero_span_trial_obstruction_removed": true,
+  "scale_selected_by_vacuum_or_Gauss_law": false,
+  "ground_reference_shift_changes_excitation_gap": false,
+  "exact_pattern_count": 69,
+  "patterns": [
+    {
+      "L": 2,
+      "occupations": [
+        3,
+        0
+      ],
+      "colour_plus_density": "1",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 2,
+      "occupations": [
+        2,
+        1
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 2,
+      "occupations": [
+        1,
+        2
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 2,
+      "occupations": [
+        0,
+        3
+      ],
+      "colour_plus_density": "1",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 3,
+      "occupations": [
+        3,
+        0,
+        0
+      ],
+      "colour_plus_density": "1",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 3,
+      "occupations": [
+        2,
+        1,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 3,
+      "occupations": [
+        2,
+        0,
+        1
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "4/3"
+    },
+    {
+      "L": 3,
+      "occupations": [
+        1,
+        2,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 3,
+      "occupations": [
+        1,
+        1,
+        1
+      ],
+      "colour_plus_density": "13/3",
+      "nonnegative_string_remainder": "2/3"
+    },
+    {
+      "L": 3,
+      "occupations": [
+        1,
+        0,
+        2
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "4/3"
+    },
+    {
+      "L": 3,
+      "occupations": [
+        0,
+        3,
+        0
+      ],
+      "colour_plus_density": "1",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 3,
+      "occupations": [
+        0,
+        2,
+        1
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 3,
+      "occupations": [
+        0,
+        1,
+        2
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 3,
+      "occupations": [
+        0,
+        0,
+        3
+      ],
+      "colour_plus_density": "1",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        3,
+        0,
+        0,
+        0
+      ],
+      "colour_plus_density": "1",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        2,
+        1,
+        0,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        2,
+        0,
+        1,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "4/3"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        2,
+        0,
+        0,
+        1
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "8/3"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        1,
+        2,
+        0,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "colour_plus_density": "13/3",
+      "nonnegative_string_remainder": "2/3"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "colour_plus_density": "13/3",
+      "nonnegative_string_remainder": "2"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        1,
+        0,
+        2,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "4/3"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "colour_plus_density": "13/3",
+      "nonnegative_string_remainder": "2"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        1,
+        0,
+        0,
+        2
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "8/3"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        0,
+        3,
+        0,
+        0
+      ],
+      "colour_plus_density": "1",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        0,
+        2,
+        1,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        0,
+        2,
+        0,
+        1
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "4/3"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "colour_plus_density": "13/3",
+      "nonnegative_string_remainder": "2/3"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        0,
+        1,
+        0,
+        2
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "4/3"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "colour_plus_density": "1",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        0,
+        0,
+        2,
+        1
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        0,
+        0,
+        1,
+        2
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 4,
+      "occupations": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "colour_plus_density": "1",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "colour_plus_density": "1",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "4/3"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        2,
+        0,
+        0,
+        1,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "8/3"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "4"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "colour_plus_density": "13/3",
+      "nonnegative_string_remainder": "2/3"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "colour_plus_density": "13/3",
+      "nonnegative_string_remainder": "2"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "colour_plus_density": "13/3",
+      "nonnegative_string_remainder": "10/3"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "4/3"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "colour_plus_density": "13/3",
+      "nonnegative_string_remainder": "2"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "colour_plus_density": "13/3",
+      "nonnegative_string_remainder": "10/3"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "8/3"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "colour_plus_density": "13/3",
+      "nonnegative_string_remainder": "10/3"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "4"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        3,
+        0,
+        0,
+        0
+      ],
+      "colour_plus_density": "1",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        2,
+        1,
+        0,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "4/3"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        2,
+        0,
+        0,
+        1
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "8/3"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        1,
+        2,
+        0,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "colour_plus_density": "13/3",
+      "nonnegative_string_remainder": "2/3"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "colour_plus_density": "13/3",
+      "nonnegative_string_remainder": "2"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        1,
+        0,
+        2,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "4/3"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "colour_plus_density": "13/3",
+      "nonnegative_string_remainder": "2"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        1,
+        0,
+        0,
+        2
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "8/3"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        0,
+        3,
+        0,
+        0
+      ],
+      "colour_plus_density": "1",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        0,
+        2,
+        1,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        0,
+        2,
+        0,
+        1
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "4/3"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "colour_plus_density": "13/3",
+      "nonnegative_string_remainder": "2/3"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        0,
+        1,
+        0,
+        2
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "4/3"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      "colour_plus_density": "1",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        0,
+        0,
+        2,
+        1
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "colour_plus_density": "29/9",
+      "nonnegative_string_remainder": "0"
+    },
+    {
+      "L": 5,
+      "occupations": [
+        0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "colour_plus_density": "1",
+      "nonnegative_string_remainder": "0"
+    }
+  ],
+  "rows": [
+    {
+      "U": "1",
+      "A_equals_U": true,
+      "source_interval": [
+        "67/16",
+        "73/16"
+      ],
+      "archive_ancestry": "bridge fixed U=1",
+      "mass_interval_GeV": [
+        "3423692969623/1600000000000000",
+        "3730292340037/1600000000000000"
+      ],
+      "mass_interval_GeV_decimal": [
+        0.002139808106014375,
+        0.002331432712523125
+      ],
+      "proton_target_in_interval": false,
+      "distance_to_proton_GeV": "1497505050747963/1600000000000000"
+    },
+    {
+      "U": "2048",
+      "A_equals_U": true,
+      "source_interval": [
+        "32819/16",
+        "32825/16"
+      ],
+      "archive_ancestry": "pre-existing declared U=2048; independent target ancestry unproved",
+      "mass_interval_GeV": [
+        "1677047456269511/1600000000000000",
+        "67094162225597/64000000000000"
+      ],
+      "mass_interval_GeV_decimal": [
+        1.0481546601684444,
+        1.0483462847749532
+      ],
+      "proton_target_in_interval": false,
+      "distance_to_proton_GeV": "175812113181511/1600000000000000"
+    }
+  ],
+  "full_physical_mass_solution": false,
+  "unresolved": "The positive density mechanism generates a nonzero colour-singlet rest cost, but its coefficient is still a dimensionless architecture input. The vacuum and Gauss constraints admit every positive U. Both unretuned inherited values miss the proton comparison."
+}

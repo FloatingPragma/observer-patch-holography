@@ -1,0 +1,42 @@
+{
+  "candidate": "A-old240-source-local-count-flow-v1",
+  "configuration": {
+    "attempt": "v2",
+    "steps": 128,
+    "times": [
+      0.1,
+      4
+    ]
+  },
+  "files": {
+    "DESIGN.md": "a419f84c51894e7ff284994517c2ca2d7965dbbecf2d1c44d9532bec7e2a8692",
+    "finalize.py": "f75b65163387a8d9dd4a4d2b68f784796aa96635b1e8606d3797aa82b6cac220",
+    "inputs/certificate.json": "365e4458f564c6f0c4145e6fc9c91a24cdb205a4d2f9b3da1b7d40f4d9746e7d",
+    "inputs/common_INTERFACE_MAPS.npz": "566c6ba1aae3c998da1426ff28ab2d49406dc5e3382f862a6e4828ac96f05fe4",
+    "inputs/common_MANIFEST.sha256": "7f82c85d715dfbdd5334ecbf5fa406a7753bb533eb6506b7ebf7c6283d81c7e5",
+    "inputs/common_RECEIPT.json": "38fe9334d5a4c5aebf1b42e2c3406b4325d889fc36d20f20a6a0efd8dab9d1ec",
+    "inputs/graph.json": "fe6b604e3be87b32a1e3c8944b2259618aaeedf209d11008f82c8b96797ab037",
+    "inputs/intervals.py": "9bf23ce452acf22c79db8582cebcedd47c4309646b8a34788d61d90f2fcf1591",
+    "inputs/native_event.py": "60e1cef4192dfc532df32b8a665b921ca058b5f56526543c9134d62d58b5ffd4",
+    "local_flow.py": "06cc6b779e501f135849dabdf5b6a4c68805417b542778a711b24eb6a916f8b0",
+    "native_catalog.py": "36d5ca9f97b5478c116d4fb5ba2ff60c7aab86c33a3e2a984b9578aec6a8a146",
+    "provider/code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
+    "provider/code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
+    "provider/model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "rounding.py": "cd5beab2c9282a271097cd476065e003892b125d59f0daf64efeed1d738140ee",
+    "run.py": "96bfbc16e67f802afc33ea8feadb063ab31765fbd2de427ca9d291179ad6d353"
+  },
+  "numeric_gates": {
+    "complete_error_each": 0.001,
+    "contact_unrestricted_tensor_difference": 0.1,
+    "local_12column_residual": 1e-13,
+    "pair_keV_upper_below": 1024.45085,
+    "ratio_interval_contains": 2,
+    "same_reader_held_seam_fringe_separation": 0.05
+  },
+  "observer_predecessor": "Native observer computation completed but JSON serialization of a NumPy boolean failed; code, freeze, log and partial matrices retained.",
+  "predecessor_prereg_sha256": "795f637481b4fc327fac6e20336302a1120bbc608e46eaa42591cc03f49b570e",
+  "prior_results": "V1 numerical gates all pass; V1 calls were equivalent local endpoint-formula evaluations, not calls to the copied pinned kernel. V1 source/receipt/output remain. Root review demands fail-closed exits, literal kernel binding, full pair-reflection truth/phase, classically typed source scope and complete directed/whole-propagation rounding. This is a confirmatory implementation/accounting amendment, not a blind discovery.",
+  "typed_domain": "Coherences within the accepted classically typed charged distinct-pair chart only. A separately prepared physical zero source supplies the zero reference; no free coherent charged/vacuum type encoding is claimed.",
+  "utc": "2026-11-15T18:29:24.896309+00:00"
+}

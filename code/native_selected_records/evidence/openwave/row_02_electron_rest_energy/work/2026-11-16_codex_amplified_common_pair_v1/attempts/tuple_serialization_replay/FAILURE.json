@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-15T19:38:30.998098+00:00",
+  "failed_command": "python3 -B join.py",
+  "failed_predicate": "saved common evidence differs",
+  "cause": "In-memory graph edges are tuples; JSON roundtrip represents them as lists. Exact original comparison rejected a byte-equivalent scientific record.",
+  "verified_scientific_difference_after_JSON_normalization": false,
+  "repair": "Normalize the generated JSON value before strict comparison; no evidence writes or numerical tolerance.",
+  "preserve_saved_evidence_sha256": "39358cb4cd7eecedfcc6c58832d3c87e51f14e9405a32309b9e3c6be80e3470b"
+}

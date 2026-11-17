@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "candidate": "A-native-multiload-unit-selection-v1",
+  "registered_utc": "2026-11-15T15:54:02.663211+00:00",
+  "registration_scope": "row-local prospective execution; no platform registration",
+  "files": {
+    "CELL.md": "4c8a4ec709d32092c8106ffc19160b4c5b6aeea26f4918056fc2acfbdec69e5c",
+    "CLAUSES.md": "b74edff22d279102defca99f18b14b1f1b3b40de776f0cb113cf8200226918b9",
+    "CONTROLS.md": "a5b081a31434c70d4e15ad2110ca7e55428801edbbe1fc6a2ec27d8053903c04",
+    "DESIGN.md": "5001765561a41636870bf1eb8ffbbaaa3542ac363a08277cf42615da5e1c133f",
+    "ORIGINS.json": "516345ddc686e306c40f4becb395c73fd7439c3d9b0d710c32a12a8ff24c1aab",
+    "PIN.md": "d1e0d51cccd02f810972e85983a8c918b9da9b117d34f2add04bfe35dba12645",
+    "PROOF.md": "d932aeb0e10a0b80768c12586eb310695cb3710d458c7b2c0a2317e12be6681b",
+    "RESPONSE_TO_REVIEW.md": "5c99cfd86bb53eb137734839cd8a6d9cf91cd4cad44335ddc6eefe4c41182cd2",
+    "TASK.md": "75cc417a195d91fa94cba31e59b93e1077fb3d5c7cd5f4303ef6256baf96eab5",
+    "experiment.py": "2f191ffcd7fd0fa3f66cc36ce218652e1cd485524af74999bbdab85ba4aa3442",
+    "headline.py": "a7c3007a799f6f18a995012608f7cc348e63d830e6b6043b0c688a5f40e84051",
+    "native_pin.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "seams.json": "7ce94f057fa081c9902caed98151e7a2cfeb7735e2dc5c8dd79f9052bc30fdf2",
+    "source.py": "b38b01e242ca05e2f7bb5ee9b223b5ead6156bc01356107eece97d3b4b587ef8",
+    "verify.py": "dbc36bd3a7d308e2e1ae1fe08f8ce8194845727f83c59909fddceaa4e3c72fde"
+  },
+  "planned_command": "python3 experiment.py --output .",
+  "seeds": "72301000..72301047;72301900..72301903;72301999",
+  "prior_exploration_disclosed": "Q2 pilot before this registration; see ORIGINS.json"
+}

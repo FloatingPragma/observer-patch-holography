@@ -1,0 +1,317 @@
+{
+  "all_pass": true,
+  "artifacts": {
+    "complete_actions.npz": "fc3cbd5fc1d28751b2a4a203324144f4ccba7039e1fe078ed6eb8723e81c5e17",
+    "complete_outcomes.json": "269c9e8eef4f33e98e9bb4d096d08d0d4c3a5c52885c6d89c9c4359ed67b71c8",
+    "prepared_branches.jsonl.gz": "4299655a5feed3ad0940140b11bb6c167a3a45ddfc0983a9a2f467414da23bf4"
+  },
+  "candidate": "A-old240-compact-contact-v2",
+  "checks": {
+    "addressed_contact_predictions": true,
+    "all_instrument_outcomes_complete": true,
+    "antisymmetric_pair_norm_support": true,
+    "complete_reference_witness": true,
+    "detector_native_domain_sensitivity": true,
+    "eigenray_does_not_imply_unread_persistence": true,
+    "f_g_norm_and_overlap": true,
+    "fixed_psi_detector_sees_coherence": true,
+    "full_graph_degree_bound": true,
+    "full_native_mean_eigenrelation_including_vacuum": true,
+    "full_single_modes_6": true,
+    "full_tensor_and_dirichlet_eigenrelation": true,
+    "hold_does_not_have_claimed_transfer_energy": true,
+    "record_merge_mutation_detected": true,
+    "sign_mutation_eigen_detector": true,
+    "source_law_contact_control": true,
+    "unchanged_published_complete_source_action": true
+  },
+  "contact": {
+    "addressed_current_minus": "1/24",
+    "addressed_current_plus": "1/24",
+    "addressed_each_coin_current": "1/48",
+    "addressed_total": "1/12",
+    "selected_edge": [
+      4,
+      5
+    ],
+    "selected_edge_index": 20,
+    "support_edge_indices": [
+      20,
+      22,
+      24,
+      25,
+      26,
+      28
+    ],
+    "uniform_total": "1/1260"
+  },
+  "controls": {
+    "hold_pair_energy": "0",
+    "incorrect_coherent_current_merge_norm2": "2",
+    "initial_psi_certificate": {
+      "coherent": "1",
+      "dephased": "1/24",
+      "sign_flip": "121/144"
+    },
+    "sign_mutation_eigen_residual_max": 4,
+    "source_domain_detector_cases": [
+      [
+        "positive_contact",
+        0,
+        1,
+        true
+      ],
+      [
+        "positive_contact",
+        1,
+        1,
+        true
+      ],
+      [
+        "negative_contact",
+        0,
+        -1,
+        true
+      ],
+      [
+        "negative_contact",
+        1,
+        -1,
+        true
+      ],
+      [
+        "vacuum",
+        0,
+        0,
+        false
+      ],
+      [
+        "vacuum",
+        1,
+        0,
+        false
+      ],
+      [
+        "noncontact",
+        0,
+        0,
+        false
+      ],
+      [
+        "noncontact",
+        1,
+        0,
+        false
+      ]
+    ],
+    "swap_hold_retains_E12_eigenray": true
+  },
+  "energy": {
+    "E12_formula": "-1260 log(104/105)",
+    "E12_interval": [
+      "13935439168060169205385629098511051192114403125982998217228530322447998163/1155747841431777473534075025907114684790772795165739953517913818359375000",
+      "41806317504180507616156887295533153576343209377948994651685590967370709173/3467243524295332420602225077721344054372318385497219860553741455078125000"
+    ],
+    "E6_formula": "-1260 log(209/210)",
+    "E6_interval": [
+      "29854533860900499251105626120719798688122941570725412982761902737029309663268606433/4963899181372078063978357777881410304897717757803360000000000000000000000000000000",
+      "985199617409716475286485661983753356708057071833938628431142790321967218888010240033/163808672985278576111285806670086540061624686007510880000000000000000000000000000000"
+    ],
+    "finite_clock_excess_formula": "1260 log(43681/43680)",
+    "finite_clock_excess_positive": true,
+    "pair_keV_if_E6_is_511_interval": [
+      "1009288584196606291648940939775976504778558261874389439423670176097445262415209141633024/985199617409716475286485661983753356708057071833938628431142790321967218888010240033",
+      "91753507654236935604449176343270591343505296534035403583970016008917291692251087372288/89563601582701497753316878362159396064368824712176238948285708211087928989805819299"
+    ],
+    "physical_energy_or_clock_validated": false,
+    "positive_Dirichlet_floor": "103/105",
+    "transfer_eigenvalue": "104/105"
+  },
+  "graph": {
+    "max_degree": 6,
+    "ports": 240,
+    "seams": 630
+  },
+  "outcome_totals": {
+    "hold": {
+      "contact": "0",
+      "dephased_psi_click": "1/24",
+      "probability": "1",
+      "psi_click": "1",
+      "sign_plant_psi_click": "121/144",
+      "vacuum": "0",
+      "valid_complement": "0"
+    },
+    "native": {
+      "contact": "1/1260",
+      "dephased_psi_click": "313/7560",
+      "probability": "1",
+      "psi_click": "932/945",
+      "sign_plant_psi_click": "4177/5040",
+      "vacuum": "1/1260",
+      "valid_complement": "7/540"
+    },
+    "swap_hold": {
+      "contact": "0",
+      "dephased_psi_click": "179/4320",
+      "probability": "1",
+      "psi_click": "59779/60480",
+      "sign_plant_psi_click": "299/360",
+      "vacuum": "0",
+      "valid_complement": "701/60480"
+    }
+  },
+  "prereg_sha256": "38f20b863ceb0328e96f0e244f6d6b00794f83daef432967c97de1fac7c5b8d6",
+  "reference_witness": {
+    "basis_injection_contexts": 3780,
+    "body_total": "3/4",
+    "coefficients": [
+      "1/2",
+      "i/2",
+      "1/2",
+      "-i/2"
+    ],
+    "inputs": [
+      0,
+      1,
+      256,
+      65535
+    ],
+    "invalid_flag": "1/4",
+    "invalid_projector_rank": 8175,
+    "reference_labels": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "trace": "1"
+  },
+  "schema": "oph.old240.compact_contact_audit.v1",
+  "scope": {
+    "autonomous_energy_transfer": false,
+    "dynamical_state_selection": false,
+    "external_review": false,
+    "native_compiled_pair_preparation": false,
+    "native_compiled_psi_projector": false,
+    "platform_award": false,
+    "radiation": false,
+    "sharp_transfer_energy": true
+  },
+  "source": {
+    "action_sha256": "8530cf9102dd174dbd1f1c54dd19ece0d692552498216fa59f8bee04e30105da",
+    "body_contexts": 1260,
+    "fine_injections": 3780,
+    "full_columns_checked": 82575360,
+    "invalid_columns": 8175,
+    "literal_native_calls": 30266,
+    "prepared_scalar_columns": 30240,
+    "sparse_changed_columns": 602280,
+    "valid_pair_columns": 57361,
+    "zero_current_identity_columns": 71672580
+  },
+  "state": {
+    "amplitude_denominator": "sqrt(24)",
+    "pair_residual_max": 0,
+    "prepared_not_selected": true,
+    "squared_norm": "1",
+    "support": [
+      [
+        1029,
+        -1
+      ],
+      [
+        1030,
+        -1
+      ],
+      [
+        1032,
+        1
+      ],
+      [
+        1035,
+        1
+      ],
+      [
+        1284,
+        1
+      ],
+      [
+        1287,
+        1
+      ],
+      [
+        1288,
+        -1
+      ],
+      [
+        1291,
+        -1
+      ],
+      [
+        1540,
+        1
+      ],
+      [
+        1543,
+        1
+      ],
+      [
+        1544,
+        -1
+      ],
+      [
+        1547,
+        -1
+      ],
+      [
+        1797,
+        -1
+      ],
+      [
+        1798,
+        -1
+      ],
+      [
+        1800,
+        1
+      ],
+      [
+        1803,
+        1
+      ],
+      [
+        2052,
+        -1
+      ],
+      [
+        2053,
+        1
+      ],
+      [
+        2054,
+        1
+      ],
+      [
+        2055,
+        -1
+      ],
+      [
+        2820,
+        -1
+      ],
+      [
+        2821,
+        1
+      ],
+      [
+        2822,
+        1
+      ],
+      [
+        2823,
+        -1
+      ]
+    ]
+  }
+}

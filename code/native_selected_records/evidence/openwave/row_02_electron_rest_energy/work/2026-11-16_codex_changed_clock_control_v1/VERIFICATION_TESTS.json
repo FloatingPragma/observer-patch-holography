@@ -1,0 +1,113 @@
+{
+  "passed": true,
+  "tests": [
+    {
+      "name": "optimized_read_only",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python",
+        "-B",
+        "-O",
+        "experiment.py"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "passed": true,
+      "seconds": 19.15462133300025,
+      "stdout": "{\"k\": 0, \"cases\": 16}\n{\n  \"candidate\": \"A-native-changed-clock-control-v1\",\n  \"passed\": true,\n  \"k_values\": [\n    0\n  ],\n  \"case_count\": 16,\n  \"seconds\": 9.482829333996051,\n  \"literal_provider_endpoint_calls\": {\n    \"native\": 73800,\n    \"swap_hold\": 0,\n    \"swap\": 0\n  },\n  \"word_updates_are_literal_native_calls\": false,\n  \"readout_scope\": \"Exact represented source record laws; no finite-shot precision claim\",\n  \"external_G6\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "changed_saved_evidence",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python",
+        "-B",
+        "-O",
+        "experiment.py",
+        "--verify",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/changed-clock-contract-4744c413/damaged.json.gz"
+      ],
+      "exit_code": 1,
+      "expected": 1,
+      "passed": true,
+      "seconds": 18.408576249988982,
+      "stdout": "{\"k\": 0, \"cases\": 16}\n",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/experiment.py\", line 138, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/experiment.py\", line 129, in main\n    old=json.loads(gzip.decompress((args.verify or HERE/'HEADLINE.json.gz').read_bytes()));a=dict(result);b=dict(old);a.pop('seconds');b.pop('seconds');require(a==b,'saved changed-clock evidence differs')\n                                                                                                                                                        ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/experiment.py\", line 27, in require\n    if not ok:raise ValueError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: saved changed-clock evidence differs\n"
+    },
+    {
+      "name": "exclusive_first_record",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python",
+        "-B",
+        "-O",
+        "experiment.py",
+        "--record-to",
+        "/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/HEADLINE.json.gz"
+      ],
+      "exit_code": 1,
+      "expected": 1,
+      "passed": true,
+      "seconds": 0.310753666999517,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/experiment.py\", line 138, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/experiment.py\", line 123, in main\n    if args.record_to is not None:require(not args.record_to.exists(),'refusing evidence overwrite')\n                                  ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/experiment.py\", line 27, in require\n    if not ok:raise ValueError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: refusing evidence overwrite\n"
+    },
+    {
+      "name": "actual_native_frame_sign_plant",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python",
+        "-B",
+        "-O",
+        "-c",
+        "import experiment as e; old=e.p.run_case\ndef changed(*a,**k):\n r=old(*a,**k);r['visibility']=-r['visibility'];return r\ne.p.run_case=changed;e.run([0])"
+      ],
+      "exit_code": 1,
+      "expected": 1,
+      "passed": true,
+      "seconds": 4.978010291000828,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 4, in <module>\n    e.p.run_case=changed;e.run([0])\n                         ~~~~~^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/experiment.py\", line 66, in run\n    require(result['visibility']<-.98 if turns==1 else result['visibility']>.96,'same native frame sign/return gate')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/experiment.py\", line 27, in require\n    if not ok:raise ValueError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: same native frame sign/return gate\n"
+    },
+    {
+      "name": "physically_ineffective_changed_clock",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python",
+        "-B",
+        "-O",
+        "-c",
+        "import experiment as e; old=e.source_join.event\ne.source_join.event=lambda q,edge,coin,law:old(q,edge,coin,'native')\ne.run([0])"
+      ],
+      "exit_code": 1,
+      "expected": 1,
+      "passed": true,
+      "seconds": 5.8267391250119545,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n    e.run([0])\n    ~~~~~^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/experiment.py\", line 95, in run\n    if clock_law=='swap':require(not low<=native_prediction<=high,'changed-clock detector did not reject native prediction')\n                         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/experiment.py\", line 27, in require\n    if not ok:raise ValueError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: changed-clock detector did not reject native prediction\n"
+    },
+    {
+      "name": "invalid_observed_coin",
+      "exit_code": 1,
+      "passed": true,
+      "seconds": 2.091234874998918,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import independent_check as a,gzip,json;d=json.loads(gzip.decompress((a.HERE/'HEADLINE.json.gz').read_bytes()));d['source_join']['pairs'][0]['sources'][0]['events'][0][1][2]=2;a.verify(d)\n                                                                                                                                                                                    ~~~~~~~~^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/independent_check.py\", line 26, in verify\n    for stage,r in s['events']:step(q,r,row['clock_law'] if stage in ('clock_probe','clock_blank') else 'native');counts['events']+=1\n                               ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/independent_check.py\", line 13, in step\n    a,b,c,j=r;require(type(c) is int and c in (0,1),'actual coin domain');new=q[b] if law=='swap' else (q[a]+q[b]+c)//2\n              ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/independent_check.py\", line 8, in require\n    if not ok:raise ValueError(why)\n              ^^^^^^^^^^^^^^^^^^^^^\nValueError: actual coin domain\n"
+    },
+    {
+      "name": "dropped_joint_column",
+      "exit_code": 1,
+      "passed": true,
+      "seconds": 2.9865482080058428,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import independent_check as a,gzip,json;d=json.loads(gzip.decompress((a.HERE/'HEADLINE.json.gz').read_bytes()));d['source_join']['pairs'][0]['joint_columns'].pop();a.verify(d)\n                                                                                                                                                                        ~~~~~~~~^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/independent_check.py\", line 41, in verify\n    base=row['sources'][0]['final']+row['sources'][1]['final'];require(len(row['joint_columns'])==2178,'joint column count');seen=set()\n                                                               ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/independent_check.py\", line 8, in require\n    if not ok:raise ValueError(why)\n              ^^^^^^^^^^^^^^^^^^^^^\nValueError: joint column count\n"
+    },
+    {
+      "name": "changed_counter_bin",
+      "exit_code": 1,
+      "passed": true,
+      "seconds": 4.092928999991273,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import independent_check as a,gzip,json;d=json.loads(gzip.decompress((a.HERE/'HEADLINE.json.gz').read_bytes()));d['clocks']['native:-1:0']['input']['counter_probabilities'][0]+=.01;a.verify(d)\n                                                                                                                                                                                         ~~~~~~~~^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/independent_check.py\", line 61, in verify\n    ops=np.fft.fft(np.asarray(words),axis=0)/q;native=array(data['native_preparation'][str(sign)]['final_factor']);waves=ops@native;prob=np.sum(abs(waves)**2,axis=(1,2));entry=record['input'];close(prob,entry['counter_probabilities'],'full initial counter bins');counts['counter_bins']+=q\n                                                                                                                                                                                                ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/independent_check.py\", line 20, in close\n    error=float(np.max(abs(np.asarray(x)-np.asarray(y))));worst=max(worst,error);require(error<tol,label)\n                                                                                 ~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_changed_clock_control_v1/independent_check.py\", line 8, in require\n    if not ok:raise ValueError(why)\n              ^^^^^^^^^^^^^^^^^^^^^\nValueError: full initial counter bins\n"
+    }
+  ],
+  "saved_bytes_mtime_inode_unchanged": true,
+  "science_scope": "Detector and execution diagnostics only; changed-clock science is the separately frozen source experiment.",
+  "seconds": 70.54200741600653
+}
