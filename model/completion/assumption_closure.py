@@ -588,7 +588,9 @@ def validate(value: dict, *, verify_bindings: bool = True) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--write", action="store_true", help="write reviewed input inventory and source bindings")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--write", action="store_true", help="write reviewed input inventory and source bindings")
+    mode.add_argument("--check", action="store_true", help="validate current inventory and source bindings")
     args = parser.parse_args()
     if args.write:
         value = build_inventory()

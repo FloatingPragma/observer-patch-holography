@@ -4,7 +4,7 @@
     "result": {
       "additional_error_if_comparing_ideal_temporal_filter": "15975714591800481505/1180591620717411303424",
       "all_failures_and_reference_retained": true,
-      "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
+      "clock_id": "2e65c4dd1193362129d42b2559fd5f0ce086fcda6962b92d13c0751d035c11dc",
       "compact_two_bit_Ramsey_carrier_bound_applies": false,
       "complete_error_to_exact_two_clock_finite_spatial_instrument_upper": "321685687669321/164703078062662272",
       "complete_fine_outcomes": 40564819207303340847894502572032,
@@ -15,7 +15,7 @@
         "Cayley_substeps_per_base_tick": 54794159,
         "alias_probability_upper": 0,
         "clock_histogram_executed": false,
-        "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
+        "clock_id": "2e65c4dd1193362129d42b2559fd5f0ce086fcda6962b92d13c0751d035c11dc",
         "clock_plan": {
           "clock_qubits": 51,
           "clock_size": 2251799813685248,
@@ -27,15 +27,15 @@
         "clock_step": "7/31495815168",
         "energy_resolution": "1/64",
         "maximum_source_time_per_readout": "15762598695796729/31495815168",
-        "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
+        "member_id": "2d0133d8999cc47b05af23ad8b1e01bce743949b06b71000729b6fcaa8927a3f",
         "one_complete_clock_error_upper": "321685687669321/329406156125324544",
-        "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
+        "reference_id": "e1c9c8257eaa55de920e5d706bd2a9c624801377955a2d84d22d7c2aed2945ee",
         "signed_energy_center_formula": "2pi*(a if 2a<J else a-J)/(J*tau)",
         "source_energy_zero_changed": false,
-        "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
+        "source_id": "d2e48eb0c506efd4f14173636ea4c4bf3e702323ecf8237f379fcc6691cc824c",
         "source_norm_upper": "7873953792/7",
         "source_spectrum_phase_radius_upper": "1/4",
-        "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
+        "state_id": "17a939b545e60b9e27ed23e9de141d4cb01122b5a86d42ae35b84d54a53086fa",
         "two_complete_clock_error_upper": "321685687669321/164703078062662272"
       },
       "full_joint_primary_histogram_computed": false,
@@ -43,10 +43,10 @@
       "initial_energy_record_retained": true,
       "initial_source_marginal_preserved": true,
       "joint_source_law": "sum_ij p_i |K_(b,k),ji|^2 |F_a(E_i)|^2 |F_c(E_j)|^2",
-      "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
-      "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
+      "member_id": "2d0133d8999cc47b05af23ad8b1e01bce743949b06b71000729b6fcaa8927a3f",
+      "reference_id": "e1c9c8257eaa55de920e5d706bd2a9c624801377955a2d84d22d7c2aed2945ee",
       "resolved_primary_ridge_or_branch_computed": false,
-      "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
+      "source_id": "d2e48eb0c506efd4f14173636ea4c4bf3e702323ecf8237f379fcc6691cc824c",
       "spatial_label_is_conserved_momentum": false,
       "spatial_plan": {
         "actual_source_momentum_PVM_proved": false,
@@ -75,7 +75,7 @@
               "0",
               "0"
             ],
-            "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
+            "clock_id": "2e65c4dd1193362129d42b2559fd5f0ce086fcda6962b92d13c0751d035c11dc",
             "commutes_all_local_Gauss_constraints": true,
             "filter": "f_T(s)=(1-abs(s)/T)_+/T",
             "filtered_norm_upper": "1",
@@ -84,7 +84,7 @@
             "individual_filtered_observable_is_a_PVM_projection": false,
             "integer_Q6_charge": 1,
             "kind": "plaquette",
-            "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
+            "member_id": "2d0133d8999cc47b05af23ad8b1e01bce743949b06b71000729b6fcaa8927a3f",
             "nearest_lower_owner_cell": [
               14,
               16,
@@ -96,12 +96,12 @@
               0,
               1
             ],
-            "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
+            "reference_id": "e1c9c8257eaa55de920e5d706bd2a9c624801377955a2d84d22d7c2aed2945ee",
             "sequence_time_Lipschitz_upper": "200000",
             "sequence_uniform_norm_upper": "1",
             "source_even": true,
-            "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
-            "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
+            "source_id": "d2e48eb0c506efd4f14173636ea4c4bf3e702323ecf8237f379fcc6691cc824c",
+            "state_id": "17a939b545e60b9e27ed23e9de141d4cb01122b5a86d42ae35b84d54a53086fa",
             "stationary_algebra_includes_idle_reference": false,
             "unsmeared_norm_upper": "1",
             "unsmeared_owner_support": [
@@ -137,7 +137,7 @@
               "0",
               "0"
             ],
-            "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
+            "clock_id": "2e65c4dd1193362129d42b2559fd5f0ce086fcda6962b92d13c0751d035c11dc",
             "commutes_all_local_Gauss_constraints": true,
             "filter": "f_T(s)=(1-abs(s)/T)_+/T",
             "filtered_norm_upper": "1",
@@ -146,7 +146,7 @@
             "individual_filtered_observable_is_a_PVM_projection": false,
             "integer_Q6_charge": 1,
             "kind": "plaquette",
-            "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
+            "member_id": "2d0133d8999cc47b05af23ad8b1e01bce743949b06b71000729b6fcaa8927a3f",
             "nearest_lower_owner_cell": [
               15,
               16,
@@ -158,12 +158,12 @@
               0,
               1
             ],
-            "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
+            "reference_id": "e1c9c8257eaa55de920e5d706bd2a9c624801377955a2d84d22d7c2aed2945ee",
             "sequence_time_Lipschitz_upper": "200000",
             "sequence_uniform_norm_upper": "1",
             "source_even": true,
-            "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
-            "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
+            "source_id": "d2e48eb0c506efd4f14173636ea4c4bf3e702323ecf8237f379fcc6691cc824c",
+            "state_id": "17a939b545e60b9e27ed23e9de141d4cb01122b5a86d42ae35b84d54a53086fa",
             "stationary_algebra_includes_idle_reference": false,
             "unsmeared_norm_upper": "1",
             "unsmeared_owner_support": [
@@ -199,7 +199,7 @@
               "0",
               "0"
             ],
-            "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
+            "clock_id": "2e65c4dd1193362129d42b2559fd5f0ce086fcda6962b92d13c0751d035c11dc",
             "commutes_all_local_Gauss_constraints": true,
             "filter": "f_T(s)=(1-abs(s)/T)_+/T",
             "filtered_norm_upper": "1",
@@ -208,7 +208,7 @@
             "individual_filtered_observable_is_a_PVM_projection": false,
             "integer_Q6_charge": 1,
             "kind": "plaquette",
-            "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
+            "member_id": "2d0133d8999cc47b05af23ad8b1e01bce743949b06b71000729b6fcaa8927a3f",
             "nearest_lower_owner_cell": [
               16,
               16,
@@ -220,12 +220,12 @@
               0,
               1
             ],
-            "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
+            "reference_id": "e1c9c8257eaa55de920e5d706bd2a9c624801377955a2d84d22d7c2aed2945ee",
             "sequence_time_Lipschitz_upper": "200000",
             "sequence_uniform_norm_upper": "1",
             "source_even": true,
-            "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
-            "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
+            "source_id": "d2e48eb0c506efd4f14173636ea4c4bf3e702323ecf8237f379fcc6691cc824c",
+            "state_id": "17a939b545e60b9e27ed23e9de141d4cb01122b5a86d42ae35b84d54a53086fa",
             "stationary_algebra_includes_idle_reference": false,
             "unsmeared_norm_upper": "1",
             "unsmeared_owner_support": [
@@ -261,7 +261,7 @@
               "0",
               "0"
             ],
-            "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
+            "clock_id": "2e65c4dd1193362129d42b2559fd5f0ce086fcda6962b92d13c0751d035c11dc",
             "commutes_all_local_Gauss_constraints": true,
             "filter": "f_T(s)=(1-abs(s)/T)_+/T",
             "filtered_norm_upper": "1",
@@ -270,7 +270,7 @@
             "individual_filtered_observable_is_a_PVM_projection": false,
             "integer_Q6_charge": 1,
             "kind": "plaquette",
-            "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
+            "member_id": "2d0133d8999cc47b05af23ad8b1e01bce743949b06b71000729b6fcaa8927a3f",
             "nearest_lower_owner_cell": [
               17,
               16,
@@ -282,12 +282,12 @@
               0,
               1
             ],
-            "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
+            "reference_id": "e1c9c8257eaa55de920e5d706bd2a9c624801377955a2d84d22d7c2aed2945ee",
             "sequence_time_Lipschitz_upper": "200000",
             "sequence_uniform_norm_upper": "1",
             "source_even": true,
-            "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
-            "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
+            "source_id": "d2e48eb0c506efd4f14173636ea4c4bf3e702323ecf8237f379fcc6691cc824c",
+            "state_id": "17a939b545e60b9e27ed23e9de141d4cb01122b5a86d42ae35b84d54a53086fa",
             "stationary_algebra_includes_idle_reference": false,
             "unsmeared_norm_upper": "1",
             "unsmeared_owner_support": [
@@ -314,7 +314,7 @@
           "B_j",
           "sqrt(I-B_j^2)"
         ],
-        "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
+        "clock_id": "2e65c4dd1193362129d42b2559fd5f0ce086fcda6962b92d13c0751d035c11dc",
         "complete_error_to_ideal_filtered_aperture_upper": "15975714591800481505/1180591620717411303424",
         "direct_complete_Kraus_formula": "K_(b,k)=M^-1 sum_j exp(-2pi i k j/M) C_(b,j)",
         "filter_errors": {
@@ -348,7 +348,7 @@
         },
         "fine_outcomes": 8,
         "full_primary_probabilities_computed": false,
-        "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
+        "member_id": "2d0133d8999cc47b05af23ad8b1e01bce743949b06b71000729b6fcaa8927a3f",
         "neutral_address_dimension": 4,
         "neutral_probe_dimension": 2,
         "open_source_incidence": {
@@ -384,7 +384,7 @@
           "owned_outgoing_links_per_cell": 3,
           "side": 32
         },
-        "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
+        "reference_id": "e1c9c8257eaa55de920e5d706bd2a9c624801377955a2d84d22d7c2aed2945ee",
         "same_GNS_spatial_implementation_proved": false,
         "selected_preparation_momentum_concentration_proved": false,
         "separate_unfiltered_original_blank_weight_each_label_lower": {
@@ -406,7 +406,7 @@
             "0",
             "0"
           ],
-          "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
+          "clock_id": "2e65c4dd1193362129d42b2559fd5f0ce086fcda6962b92d13c0751d035c11dc",
           "commutes_all_local_Gauss_constraints": true,
           "filter": "f_T(s)=(1-abs(s)/T)_+/T",
           "filtered_norm_upper": "1",
@@ -415,7 +415,7 @@
           "individual_filtered_observable_is_a_PVM_projection": false,
           "integer_Q6_charge": 1,
           "kind": "plaquette",
-          "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
+          "member_id": "2d0133d8999cc47b05af23ad8b1e01bce743949b06b71000729b6fcaa8927a3f",
           "nearest_lower_owner_cell": [
             18,
             16,
@@ -427,12 +427,12 @@
             0,
             1
           ],
-          "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
+          "reference_id": "e1c9c8257eaa55de920e5d706bd2a9c624801377955a2d84d22d7c2aed2945ee",
           "sequence_time_Lipschitz_upper": "200000",
           "sequence_uniform_norm_upper": "1",
           "source_even": true,
-          "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
-          "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
+          "source_id": "d2e48eb0c506efd4f14173636ea4c4bf3e702323ecf8237f379fcc6691cc824c",
+          "state_id": "17a939b545e60b9e27ed23e9de141d4cb01122b5a86d42ae35b84d54a53086fa",
           "stationary_algebra_includes_idle_reference": false,
           "unsmeared_norm_upper": "1",
           "unsmeared_owner_support": [
@@ -454,12 +454,12 @@
           ],
           "zero_reason": null
         },
-        "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
+        "source_id": "d2e48eb0c506efd4f14173636ea4c4bf3e702323ecf8237f379fcc6691cc824c",
         "source_operator_description_workspace_or_gate_cost_bounded": false,
         "source_state_or_idle_reference_replaced": false,
         "source_translation_unitary_applied": false,
         "spatial_state_invariance_necessary_for_every_implementation": false,
-        "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
+        "state_id": "17a939b545e60b9e27ed23e9de141d4cb01122b5a86d42ae35b84d54a53086fa",
         "unfiltered_blank_loop_geometry": {
           "anchors": [
             [
@@ -715,38 +715,38 @@
         "wavevector_labels_are_conserved_particle_momenta": false
       },
       "spatial_register_dimension": 8,
-      "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
+      "state_id": "17a939b545e60b9e27ed23e9de141d4cb01122b5a86d42ae35b84d54a53086fa",
       "two_energy_register_dimensions": [
         2251799813685248,
         2251799813685248
       ]
     },
-    "result_sha256": "b2c9a57db268614778d897d1739a65a7397b204d07c1834f9071d1a9bf5a5df9",
+    "result_sha256": "09d1bb34474c7292023055e5a35e0d9820297b49b0355b062667df4f558aaf7a",
     "schema": "oph.primary_joint_energy_spatial_records.v1"
   },
   "authenticated_physical_ground_bracket_same_aperture_member": {
     "actual_source_eigenvalue_or_histogram_executed": false,
-    "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
+    "clock_id": "2e65c4dd1193362129d42b2559fd5f0ce086fcda6962b92d13c0751d035c11dc",
     "ground_energy_interval": [
       "-883722895339994966004218832706689905882110512207970619471432745483192871190348204352171470424391427697280/68692153255589000285794750107756083856414687812102450908077149337265776496325800344050025061820337",
       "-50685622132835611/4294967296"
     ],
     "lower_bound_producer": "actual physical endpoint lower bound at coupling one",
-    "lower_producer_receipt_sha256": "d54c35184011f7e89aa8b8dc5f32b2c096e4c98d5b0ef3cee553503c996ba08b",
-    "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
+    "lower_producer_receipt_sha256": "a74664200658896e19db69be09e1600eb60d393298a4dcc7f013695af73a953f",
+    "member_id": "2d0133d8999cc47b05af23ad8b1e01bce743949b06b71000729b6fcaa8927a3f",
     "producer_results_recomputed": true,
-    "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
+    "reference_id": "e1c9c8257eaa55de920e5d706bd2a9c624801377955a2d84d22d7c2aed2945ee",
     "selected_mean_source_energy_interval": [
       "-883722895339994966004218832706689905882110512207970619471432745483192871190348204352171470424391427697280/68692153255589000285794750107756083856414687812102450908077149337265776496325800344050025061820337",
       "-50685622065726747/4294967296"
     ],
-    "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
-    "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
+    "source_id": "d2e48eb0c506efd4f14173636ea4c4bf3e702323ecf8237f379fcc6691cc824c",
+    "state_id": "17a939b545e60b9e27ed23e9de141d4cb01122b5a86d42ae35b84d54a53086fa",
     "trial_replaces_selected_preparation": false,
     "trial_residual_is_an_excitation_or_gap": false,
     "upper_bound_producer": "actual physical packet Rayleigh quotient at coupling one",
     "upper_outward_rounding_error_upper": "1/4294967296",
-    "upper_producer_receipt_sha256": "9038ec038cb98bac28da8b09a2e889a795c4778d538c22aab07f59ba778b8923"
+    "upper_producer_receipt_sha256": "3c993b288cde5881a59700957fb59e7ff38091239825929e25bfabd0c4c46f6b"
   },
   "independent_exact_control": {
     "all_records": 64,
@@ -2358,7 +2358,7 @@
       "base": 2,
       "exponent": 2079515726736787840
     },
-    "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
+    "clock_id": "2e65c4dd1193362129d42b2559fd5f0ce086fcda6962b92d13c0751d035c11dc",
     "clock_step": "7/31495815168",
     "energy_resolution": {
       "base": 2,
@@ -2371,7 +2371,7 @@
       "exponent": 4159031453473575680
     },
     "huge_register_or_pulse_tape_allocated": false,
-    "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
+    "member_id": "2d0133d8999cc47b05af23ad8b1e01bce743949b06b71000729b6fcaa8927a3f",
     "norm_squared_commutator_on_physical_blank": "4949/5",
     "one_complete_clock_allowance": {
       "base": 2,
@@ -2400,16 +2400,16 @@
       "coefficient": "79527/299183360690083594240",
       "negative_exponent": 1386343817824525166
     },
-    "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
+    "reference_id": "e1c9c8257eaa55de920e5d706bd2a9c624801377955a2d84d22d7c2aed2945ee",
     "reported_transfer_lower": {
       "base": 2,
       "coefficient": "2",
       "negative_exponent": 693171908912262583
     },
     "reported_transfer_upper": "source_width + lower_reported_endpoint",
-    "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
+    "source_id": "d2e48eb0c506efd4f14173636ea4c4bf3e702323ecf8237f379fcc6691cc824c",
     "spatial_filter_used": "none; exact direct algebraic contraction dilation",
-    "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
+    "state_id": "17a939b545e60b9e27ed23e9de141d4cb01122b5a86d42ae35b84d54a53086fa",
     "uniform_refinement_weight_or_mass_proved": false,
     "wavevector_index": 0,
     "wavevector_zero_identified_as_rest_frame": false

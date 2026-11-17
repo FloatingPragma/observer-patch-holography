@@ -37,3 +37,50 @@ def test_duplicate_domain_is_rejected(monkeypatch):
     monkeypatch.setattr(scope, 'CURRENT', (*scope.CURRENT, scope.COMPONENTS[0]))
     with pytest.raises(ValueError, match='explicit source domain'):
         scope.paths()
+
+
+def test_model_suite_covers_every_model_collection_unit():
+    selected = scope.model_paths()
+    for path in (scope.ROOT / 'model').rglob('test_*.py'):
+        relative = path.relative_to(scope.ROOT / 'model')
+        if relative.parts[0] == 'completion' or any(
+                part.startswith('.') or part == '__pycache__' for part in relative.parts):
+            continue
+        assert 'model/' + relative.parts[0] in selected, str(path)
+    assert len(selected) == len(set(selected))
+    assert 'model/ccf_lt2' in selected
+    assert 'model/completion/test_assumption_closure.py' in selected
+    assert 'model/completion' not in selected
+
+
+def test_new_model_package_and_root_test_are_automatically_covered(tmp_path):
+    completion = tmp_path / 'model/completion'
+    completion.mkdir(parents=True)
+    for path in (scope.ROOT / 'model/completion').glob('test_*.py'):
+        (completion / path.name).touch()
+    novel = tmp_path / 'model/new_quantum_operator/nested'
+    novel.mkdir(parents=True)
+    (novel / 'test_exact_current.py').touch()
+    (tmp_path / 'model/test_new_gauss.py').touch()
+    custom = tmp_path / 'model/custom_collection'
+    custom.mkdir()
+    (custom / 'conftest.py').touch()
+    selected = scope.model_paths(tmp_path)
+    assert 'model/new_quantum_operator' in selected
+    assert 'model/test_new_gauss.py' in selected
+    assert 'model/custom_collection' in selected
+
+
+def test_only_explicitly_isolated_custody_node_can_be_deselected():
+    command = scope.command(model_suite=True, shard_index=3, shard_count=16,
+                            deselect=[scope.ISOLATED_CUSTODY_TEST])
+    assert command.count('--deselect') == 1
+    assert command[command.index('--deselect')+1] == scope.ISOLATED_CUSTODY_TEST
+    assert command[command.index('--model-shard-index')+1] == '3'
+    assert command[command.index('--model-shard-count')+1] == '16'
+    assert 'model/charged_lepton_response' in command
+    assert 'model/ccf_lt2' in command
+    with pytest.raises(ValueError, match='separately executed'):
+        scope.command(model_suite=True, deselect=['model/ccf_lt2/test_integrity.py::test_source'])
+    with pytest.raises(ValueError, match='separately executed'):
+        scope.command(deselect=[scope.ISOLATED_CUSTODY_TEST])

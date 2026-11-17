@@ -95,23 +95,62 @@ def paths(root=ROOT):
     return selected
 
 
+ISOLATED_CUSTODY_TEST = (
+    "model/charged_lepton_response/test_packet.py::"
+    "test_generated_results_and_runtime_custody"
+)
+
+
+def model_paths(root=ROOT):
+    """Cover every model test outside completion without altering collection."""
+    root = Path(root)
+    model = root / "model"
+    # Group by the same top-level packages traversed by `pytest model`.
+    # Existing pytest ignore rules still govern descendants of each package.
+    outside = {
+        "model/" + path.name for path in model.iterdir()
+        if path.name not in {"completion", "__pycache__"} and not path.name.startswith(".")
+        and (path.is_dir() or (path.name.startswith("test_") and path.suffix == ".py"))
+    }
+    selected_completion = [name for name in paths(root)
+                           if name.startswith("model/completion/")]
+    return sorted(outside) + selected_completion
+
+
+def command(*, root=ROOT, model_suite=False, shard_index=0, shard_count=1, deselect=()):
+    if not 0 <= shard_index < shard_count:
+        raise ValueError("shard index must be in 0..shard-count-1")
+    if (len(deselect) != len(set(deselect))
+            or any(name != ISOLATED_CUSTODY_TEST for name in deselect)
+            or (deselect and not model_suite)):
+        raise ValueError("only the separately executed charged-lepton custody test may be deselected")
+    selected = model_paths(root) if model_suite else paths(root)
+    argv = [sys.executable, "-m", "pytest", "-q", "--durations=30", "-W", "error",
+            "-p", "tools.completion_contract_inputs", "-p", "model.pytest_shards",
+            "--model-shard-index", str(shard_index), "--model-shard-count", str(shard_count)]
+    for name in deselect:
+        argv += ["--deselect", name]
+    return argv + selected
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run", action="store_true")
+    parser.add_argument("--model-suite", action="store_true")
+    parser.add_argument("--deselect", action="append", default=[])
     parser.add_argument("--shard-index", type=int, default=0)
     parser.add_argument("--shard-count", type=int, default=1)
     args = parser.parse_args()
-    if not 0 <= args.shard_index < args.shard_count:
-        parser.error("shard index must be in 0..shard-count-1")
-    selected = paths()
+    try:
+        argv = command(model_suite=args.model_suite, shard_index=args.shard_index,
+                       shard_count=args.shard_count, deselect=args.deselect)
+    except ValueError as exc:
+        parser.error(str(exc))
     if not args.run:
+        selected = model_paths() if args.model_suite else paths()
         print("\n".join(selected))
         return
-    command = [sys.executable, "-m", "pytest", "-q", "--durations=10", "-W", "error",
-               "-p", "tools.completion_contract_inputs", "-p", "model.pytest_shards",
-               "--model-shard-index", str(args.shard_index),
-               "--model-shard-count", str(args.shard_count), *selected]
-    raise SystemExit(subprocess.call(command, cwd=ROOT))
+    raise SystemExit(subprocess.call(argv, cwd=ROOT))
 
 
 if __name__ == "__main__":

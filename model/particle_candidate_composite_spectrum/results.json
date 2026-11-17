@@ -2,7 +2,7 @@
   "schema": "oph.particle_candidate_composite_spectrum.v1",
   "selected_member_bound": {
     "result": {
-      "clock_id": "642db923a91dfa03f063797f3f24f645186602ac5cb967b6eb142a12e4e8ace2",
+      "clock_id": "6181a20d5eaebccfac4f38c959d58557986f508ff6a555fd692c977d13ce0f91",
       "common_original_spatial_energy_contrast": {
         "all_forty_components_uniform_setting_joint_weight_multiplier": "1/40",
         "common_witness_lower": "1/972",
@@ -40,7 +40,7 @@
         "Cayley_substeps_per_base_tick": 214040,
         "alias_probability_upper": 0,
         "clock_histogram_executed": false,
-        "clock_id": "642db923a91dfa03f063797f3f24f645186602ac5cb967b6eb142a12e4e8ace2",
+        "clock_id": "6181a20d5eaebccfac4f38c959d58557986f508ff6a555fd692c977d13ce0f91",
         "clock_plan": {
           "clock_qubits": 35,
           "clock_size": 34359738368,
@@ -52,15 +52,15 @@
         "clock_step": "7/285360",
         "energy_resolution": "1/64",
         "maximum_source_time_per_readout": "240518168569/285360",
-        "member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
+        "member_id": "50e32d7596b5d8c3783c658f235e4f87f7afade67aa95466b07404257e0154da",
         "one_complete_clock_error_upper": "34359738367/35184477388800",
-        "reference_id": "f150192f59366d08f619a67947adab5f8f89ae6613d5ffcfc80aacd224af0eed",
+        "reference_id": "746b1526b871f5f62268286d753bbcd4a8aec1a14d2e9df66fd5452eeb923972",
         "signed_energy_center_formula": "2pi*(a if 2a<J else a-J)/(J*tau)",
         "source_energy_zero_changed": false,
-        "source_id": "3538402120a7dd58c91cf70364a5e824b6df0d17ebd11bad58ea1a4977041ad8",
+        "source_id": "30cbf53c2fa322e0503620e2c109cb81e8c881982afd983850c0ed305b841d27",
         "source_norm_upper": "71340/7",
         "source_spectrum_phase_radius_upper": "1/4",
-        "state_id": "e41e09d434143ce9dc70a94feb9fbac915de08d868f6eae3df07385b9849086a",
+        "state_id": "18d67e35f5256562c14a4b17cb3e04a792614876d167d0833f42b79b925a7f5d",
         "two_complete_clock_error_upper": "34359738367/17592238694400"
       },
       "complete_instrument": {
@@ -6732,7 +6732,7 @@
       ],
       "isolated_line_or_relativistic_dispersion_proved": false,
       "mass_predictions_GeV": [],
-      "member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
+      "member_id": "50e32d7596b5d8c3783c658f235e4f87f7afade67aa95466b07404257e0154da",
       "named_physical_particles_identified": false,
       "native_charge_order": [
         -4,
@@ -6751,13 +6751,13 @@
       "physical_floor_payload_sha256": "767a15df6e813b185a7ab118e2e382aa278b98159ce8160a3e4f853941b26284",
       "physical_neutrino_or_neutron_identified": false,
       "physical_particle_map": [],
-      "reference_id": "f150192f59366d08f619a67947adab5f8f89ae6613d5ffcfc80aacd224af0eed",
-      "sector_threshold_bound_sha256": "08a625877fc54973e508ec255ebd1c0cb169a5b80c2931fac95f5e1eb54fb166",
-      "source_id": "3538402120a7dd58c91cf70364a5e824b6df0d17ebd11bad58ea1a4977041ad8",
+      "reference_id": "746b1526b871f5f62268286d753bbcd4a8aec1a14d2e9df66fd5452eeb923972",
+      "sector_threshold_bound_sha256": "1d2f295fbc75b2bbd31bae45aac03f9e335dcc8b5f5e2828c62ded424b5ec0c2",
+      "source_id": "30cbf53c2fa322e0503620e2c109cb81e8c881982afd983850c0ed305b841d27",
       "source_or_observer_conserved_momentum_identified": false,
-      "state_id": "e41e09d434143ce9dc70a94feb9fbac915de08d868f6eae3df07385b9849086a"
+      "state_id": "18d67e35f5256562c14a4b17cb3e04a792614876d167d0833f42b79b925a7f5d"
     },
-    "result_sha256": "4c7737fb636b1a7e57ed3d08cbab8a71d4d2136298172f44a065d001c4cc011e",
+    "result_sha256": "10c52f605452807c13d6b69c02bd7e188820d5a9cac501f29e26c80980cc992b",
     "schema": "oph.particle_candidate_composite_spectrum_member.v1"
   },
   "source_sha256": {

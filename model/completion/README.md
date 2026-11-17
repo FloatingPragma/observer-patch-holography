@@ -20,7 +20,11 @@ and [spectral readouts](PARTICLE_MASS_TABLE.md). Each result retains its stated
 carrier, action, reference and clock. A C/E repair carrier, radial source or
 supplied field action is not the CCF-LT-2 Hamiltonian. The component class
 review in `program_class_v2.json` is not current model adoption; its signed
-review is not re-used to accept CCF-LT-2.
+review is not re-used to accept CCF-LT-2. The local `program_class_v2.json`,
+`program_class_v2_review.json`, `finite_attachment_map.json` and
+`component_interfaces.json` are non-authoritative component fixtures. The field-record supplement
+checks its declared signed parent directly against sealed Git bytes and checks
+the live native member separately.
 
 Run the current dependency and premise checks from the repository root:
 

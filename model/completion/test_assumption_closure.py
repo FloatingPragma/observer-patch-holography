@@ -199,3 +199,13 @@ def test_current_source_domains_are_not_transferred(inventory):
     for item in inventory['joint_inputs']:
         assert item['source_domain']==('pure_gauge_required' if item['id'].startswith('pure_YM') else 'ccf_lt2')
     assert 'Separate finite Wilson comparison' in inventory['domains']['wilson_comparison']['domain']
+
+
+def test_public_check_cli_is_read_only():
+    import subprocess
+    import sys
+    before = ac.PATH.read_bytes()
+    completed = subprocess.run([sys.executable, '-m', 'model.completion.assumption_closure', '--check'],
+                               cwd=ac.ROOT, capture_output=True, text=True)
+    assert completed.returncode == 0, completed.stdout + completed.stderr
+    assert ac.PATH.read_bytes() == before

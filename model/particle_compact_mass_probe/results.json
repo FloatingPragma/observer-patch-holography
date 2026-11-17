@@ -1574,10 +1574,10 @@
   "selected_members": [
     {
       "claim": "compact complete readout of the original finite filtered response",
-      "clock_id": "7c3cadd40490e28ba0148164978288a829f4a6785f96251ddf0a063588826779",
-      "member_id": "036f8623be95538437f6fd04da020a34a87ed2febc64fb5ed51c36643e2f41bb",
+      "clock_id": "9476fd33ca84f08de1956f9c48ae8f63c93c3e39224fb7dd1bd3913c90509d2b",
+      "member_id": "1e9b9fc917c24ddd106071836aaa1fe8969e3167452b3e40ec2f9ec5ca0b8347",
       "program": "oph.open_wilson_gauss_observer.v1",
-      "reference_id": "a90f305e3109494a396209b9c274dc0582dcf14f4fe725b9af49da677e0d30cc",
+      "reference_id": "c2d8018d51749751b1beab03ebf583caffd0780fac02879f5c7c3c7031c1d627",
       "result": {
         "Cayley_subdivisions_in_operator_definition": {
           "base": 2,
@@ -1615,7 +1615,7 @@
           "total_self_contained_executable_capacity_proved": false
         },
         "claim": "compact complete readout of the original finite filtered response",
-        "clock_id": "7c3cadd40490e28ba0148164978288a829f4a6785f96251ddf0a063588826779",
+        "clock_id": "9476fd33ca84f08de1956f9c48ae8f63c93c3e39224fb7dd1bd3913c90509d2b",
         "complement_Kraus_operator": "sqrt(I-B_tilde^2)",
         "complete_failure_channel_equal_to_selector_apparatus": false,
         "conditional_compiler": {
@@ -1654,9 +1654,9 @@
           "coefficient": "67861722341/7118479994858074275840",
           "negative_exponent": 33469453062583
         },
-        "inherited_finite_filter_witness_sha256": "5a79c38f9f185c2b3efeed6708b6c9c24f5b65a49a968ced567262da32576783",
+        "inherited_finite_filter_witness_sha256": "e2fb9dbce8481141c4a8c71e3758b023044ad9db7929a51a0be4f8754e91e0d1",
         "large_primary_operator_or_root_materialized": false,
-        "member_id": "036f8623be95538437f6fd04da020a34a87ed2febc64fb5ed51c36643e2f41bb",
+        "member_id": "1e9b9fc917c24ddd106071836aaa1fe8969e3167452b3e40ec2f9ec5ca0b8347",
         "original_transfer_and_final_excitation_band_weight_lower": {
           "base": 2,
           "coefficient": "1512052172057/156606559886877634068480",
@@ -1684,7 +1684,7 @@
             "0",
             "0"
           ],
-          "clock_id": "7c3cadd40490e28ba0148164978288a829f4a6785f96251ddf0a063588826779",
+          "clock_id": "9476fd33ca84f08de1956f9c48ae8f63c93c3e39224fb7dd1bd3913c90509d2b",
           "commutes_all_local_Gauss_constraints": true,
           "filter": "f_T(s)=(1-abs(s)/T)_+/T",
           "filtered_norm_upper": "1",
@@ -1693,7 +1693,7 @@
           "individual_filtered_observable_is_a_PVM_projection": false,
           "integer_Q6_charge": 1,
           "kind": "plaquette",
-          "member_id": "036f8623be95538437f6fd04da020a34a87ed2febc64fb5ed51c36643e2f41bb",
+          "member_id": "1e9b9fc917c24ddd106071836aaa1fe8969e3167452b3e40ec2f9ec5ca0b8347",
           "nearest_lower_owner_cell": [
             4,
             4,
@@ -1705,12 +1705,12 @@
             0,
             1
           ],
-          "reference_id": "a90f305e3109494a396209b9c274dc0582dcf14f4fe725b9af49da677e0d30cc",
+          "reference_id": "c2d8018d51749751b1beab03ebf583caffd0780fac02879f5c7c3c7031c1d627",
           "sequence_time_Lipschitz_upper": "62717952/7",
           "sequence_uniform_norm_upper": "1",
           "source_even": true,
-          "source_id": "048c2a73119e3877f70dcf6af9189e35394fa86e2cd88f7077aa92ed48d5a395",
-          "state_id": "4b27640be1f5d4b2086e3c04af4e330956ab6f756abcd42595383e2564fa6d44",
+          "source_id": "9de4fb8e6e3a5a7ff86034ee57d08bacff956ae81711f09477876a7c4bfd07b8",
+          "state_id": "bf0b5700a6ab23d12ea53270d46db4b021d12fe334e94cb4d16e8ab6642e2a5b",
           "stationary_algebra_includes_idle_reference": false,
           "unsmeared_norm_upper": "1",
           "unsmeared_owner_support": [
@@ -1738,28 +1738,28 @@
           "exponent": 33469453062623
         },
         "reference_actively_counter_evolved": false,
-        "reference_id": "a90f305e3109494a396209b9c274dc0582dcf14f4fe725b9af49da677e0d30cc",
+        "reference_id": "c2d8018d51749751b1beab03ebf583caffd0780fac02879f5c7c3c7031c1d627",
         "reference_idle_H": 0,
         "rest_mass_or_fixed_band_noncollapse_proved": false,
         "same_blank_Ramsey_Kraus_operators_on_all_inputs": true,
         "same_original_F0_ReF_ImF_as_selector_apparatus": true,
         "source_energy_zero_changed": false,
-        "source_id": "048c2a73119e3877f70dcf6af9189e35394fa86e2cd88f7077aa92ed48d5a395",
-        "state_id": "4b27640be1f5d4b2086e3c04af4e330956ab6f756abcd42595383e2564fa6d44",
+        "source_id": "9de4fb8e6e3a5a7ff86034ee57d08bacff956ae81711f09477876a7c4bfd07b8",
+        "state_id": "bf0b5700a6ab23d12ea53270d46db4b021d12fe334e94cb4d16e8ab6642e2a5b",
         "success_Kraus_operator": "B_tilde",
         "target_operator": "the identical finite Cayley/quadrature B_tilde"
       },
-      "result_sha256": "26db80deab6fa2feb6d2eb2e25fb16c76ed789818396a212cce5f294735c8fff",
+      "result_sha256": "b556dab4d37d5a785cd242511f1fea294b00a2c9e50d00676fb189d27dfae9ba",
       "schema": "oph.compact_primary_mass_probe_bound.v1",
-      "source_id": "048c2a73119e3877f70dcf6af9189e35394fa86e2cd88f7077aa92ed48d5a395",
-      "state_id": "4b27640be1f5d4b2086e3c04af4e330956ab6f756abcd42595383e2564fa6d44"
+      "source_id": "9de4fb8e6e3a5a7ff86034ee57d08bacff956ae81711f09477876a7c4bfd07b8",
+      "state_id": "bf0b5700a6ab23d12ea53270d46db4b021d12fe334e94cb4d16e8ab6642e2a5b"
     },
     {
       "claim": "compact complete readout of the original finite filtered response",
-      "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
-      "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
+      "clock_id": "2e65c4dd1193362129d42b2559fd5f0ce086fcda6962b92d13c0751d035c11dc",
+      "member_id": "2d0133d8999cc47b05af23ad8b1e01bce743949b06b71000729b6fcaa8927a3f",
       "program": "oph.open_wilson_gauss_observer.v1",
-      "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
+      "reference_id": "e1c9c8257eaa55de920e5d706bd2a9c624801377955a2d84d22d7c2aed2945ee",
       "result": {
         "Cayley_subdivisions_in_operator_definition": {
           "base": 2,
@@ -1797,7 +1797,7 @@
           "total_self_contained_executable_capacity_proved": false
         },
         "claim": "compact complete readout of the original finite filtered response",
-        "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
+        "clock_id": "2e65c4dd1193362129d42b2559fd5f0ce086fcda6962b92d13c0751d035c11dc",
         "complement_Kraus_operator": "sqrt(I-B_tilde^2)",
         "complete_failure_channel_equal_to_selector_apparatus": false,
         "conditional_compiler": {
@@ -1836,9 +1836,9 @@
           "coefficient": "746478945751/1340035092130227856594698240",
           "negative_exponent": 1386343817824525166
         },
-        "inherited_finite_filter_witness_sha256": "685c4340a96c46001d7e357924e4dcbe1a324de73b07ff496fd8e4a3d8c8c9c5",
+        "inherited_finite_filter_witness_sha256": "ce7f6bb7503bfba5fa9bf5c0d6e4053f9d5e3251e75db7538ef146866cbe4c34",
         "large_primary_operator_or_root_materialized": false,
-        "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
+        "member_id": "2d0133d8999cc47b05af23ad8b1e01bce743949b06b71000729b6fcaa8927a3f",
         "original_transfer_and_final_excitation_band_weight_lower": {
           "base": 2,
           "coefficient": "1512052172057/2680070184260455713189396480",
@@ -1866,7 +1866,7 @@
             "0",
             "0"
           ],
-          "clock_id": "bc19886e63f8027f996c4466f07829c2685d2a1f024d4245372ac02ae9af6ac5",
+          "clock_id": "2e65c4dd1193362129d42b2559fd5f0ce086fcda6962b92d13c0751d035c11dc",
           "commutes_all_local_Gauss_constraints": true,
           "filter": "f_T(s)=(1-abs(s)/T)_+/T",
           "filtered_norm_upper": "1",
@@ -1875,7 +1875,7 @@
           "individual_filtered_observable_is_a_PVM_projection": false,
           "integer_Q6_charge": 1,
           "kind": "plaquette",
-          "member_id": "3700710f0851d5d9da3f2c95a06bcfb2d416a965249127d36c579d30ea59bf0a",
+          "member_id": "2d0133d8999cc47b05af23ad8b1e01bce743949b06b71000729b6fcaa8927a3f",
           "nearest_lower_owner_cell": [
             16,
             16,
@@ -1887,12 +1887,12 @@
             0,
             1
           ],
-          "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
+          "reference_id": "e1c9c8257eaa55de920e5d706bd2a9c624801377955a2d84d22d7c2aed2945ee",
           "sequence_time_Lipschitz_upper": "16409296896/7",
           "sequence_uniform_norm_upper": "1",
           "source_even": true,
-          "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
-          "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
+          "source_id": "d2e48eb0c506efd4f14173636ea4c4bf3e702323ecf8237f379fcc6691cc824c",
+          "state_id": "17a939b545e60b9e27ed23e9de141d4cb01122b5a86d42ae35b84d54a53086fa",
           "stationary_algebra_includes_idle_reference": false,
           "unsmeared_norm_upper": "1",
           "unsmeared_owner_support": [
@@ -1920,21 +1920,21 @@
           "exponent": 1386343817824525220
         },
         "reference_actively_counter_evolved": false,
-        "reference_id": "32e3fbb6cc0a72c982d19a0371c0cbcf52a1320512a768e1e4a225602a6b6214",
+        "reference_id": "e1c9c8257eaa55de920e5d706bd2a9c624801377955a2d84d22d7c2aed2945ee",
         "reference_idle_H": 0,
         "rest_mass_or_fixed_band_noncollapse_proved": false,
         "same_blank_Ramsey_Kraus_operators_on_all_inputs": true,
         "same_original_F0_ReF_ImF_as_selector_apparatus": true,
         "source_energy_zero_changed": false,
-        "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
-        "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324",
+        "source_id": "d2e48eb0c506efd4f14173636ea4c4bf3e702323ecf8237f379fcc6691cc824c",
+        "state_id": "17a939b545e60b9e27ed23e9de141d4cb01122b5a86d42ae35b84d54a53086fa",
         "success_Kraus_operator": "B_tilde",
         "target_operator": "the identical finite Cayley/quadrature B_tilde"
       },
-      "result_sha256": "4a71c2fbc37bd32b8eb290d5d2b38cf301117a1c73938544f530aa197b9e1efc",
+      "result_sha256": "2e683545a4a5ad6d27e4f87dfc131155be8fa46a2fadef9e787ef69afff1e475",
       "schema": "oph.compact_primary_mass_probe_bound.v1",
-      "source_id": "9467be1a00977064a4403bcc20ed5e31f7b14dbd4592a7149b3698ddb8c0c268",
-      "state_id": "8bfae8204ae9be521bcbf6da9fe11dff29ca374bd312ee5e2a1e84ccdee94324"
+      "source_id": "d2e48eb0c506efd4f14173636ea4c4bf3e702323ecf8237f379fcc6691cc824c",
+      "state_id": "17a939b545e60b9e27ed23e9de141d4cb01122b5a86d42ae35b84d54a53086fa"
     }
   ],
   "total_executable_capacity_or_efficient_realization_proved": false
