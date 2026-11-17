@@ -298,3 +298,11 @@ def test_every_writer_interface_renews_pins_and_keeps_payload(tmp_path, monkeypa
     assert (root / "audit/before/model/result.json").read_bytes() == original
     report = json.loads((root / "audit/report.json").read_text())
     assert report["affected_topological_order"] == ["model/result.json"]
+
+
+def test_float_tolerance_is_opt_in_and_relative():
+    old, new = {"x": 0.1149304962433270, "y": 1.0}, {"x": 0.114930496243327, "y": 1.0}
+    old["x"] = 0.11493049624332707
+    assert replay.differences(old, new)
+    assert replay.differences(old, new, float_tolerance=1e-12) == []
+    assert replay.differences({"x": 1.0}, {"x": 1.001}, float_tolerance=1e-9)

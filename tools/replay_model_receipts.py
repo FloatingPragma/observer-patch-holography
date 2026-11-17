@@ -305,11 +305,15 @@ def science_payload(root, receipt, value):
     return value
 
 
-def differences(left, right, path="root", limit=50, file_digest=None):
+def differences(left, right, path="root", limit=50, file_digest=None, float_tolerance=None):
     """Differences of two payloads. A SHA-256 value that changes to a value for
     which ``file_digest`` holds (the current digest of a repository file) is a
-    custody pin and no difference."""
+    custody pin and no difference. With ``float_tolerance`` (relative, with an
+    absolute floor of 1e-12), floats that agree to it are no difference."""
     result = []
+    if (float_tolerance is not None and isinstance(left, float) and isinstance(right, float)
+            and abs(left - right) <= max(1e-12, float_tolerance * max(abs(left), abs(right)))):
+        return result
     if type(left) is not type(right):
         return [{"path": path, "old": repr(left)[:240], "new": repr(right)[:240]}]
     if isinstance(left, dict):
@@ -318,14 +322,14 @@ def differences(left, right, path="root", limit=50, file_digest=None):
                 result.append({"path": f"{path}.{key}", "old": repr(left.get(key))[:240],
                                "new": repr(right.get(key))[:240]})
             else:
-                result.extend(differences(left[key], right[key], f"{path}.{key}", limit, file_digest))
+                result.extend(differences(left[key], right[key], f"{path}.{key}", limit, file_digest, float_tolerance))
             if len(result) >= limit:
                 break
     elif isinstance(left, list):
         if len(left) != len(right):
             result.append({"path": path, "old_length": len(left), "new_length": len(right)})
         for i, (old, new) in enumerate(zip(left, right)):
-            result.extend(differences(old, new, f"{path}[{i}]", limit, file_digest))
+            result.extend(differences(old, new, f"{path}[{i}]", limit, file_digest, float_tolerance))
             if len(result) >= limit:
                 break
     elif left != right:
@@ -378,6 +382,9 @@ def main():
                         help="after a failure, still run receipts that do not depend on it")
     parser.add_argument("--stop-after", type=float, metavar="MINUTES",
                         help="start no producer after this many minutes; running ones finish")
+    parser.add_argument("--float-tolerance", type=float, metavar="REL",
+                        help="treat floats that agree to this relative tolerance as equal "
+                             "(numerical replay noise across hosts); off by default")
     parser.add_argument("--jobs", type=int, default=1,
                         help="maximum simultaneous independent receipts (1 through 32)")
     args = parser.parse_args()
@@ -611,7 +618,7 @@ def main():
         own = set(candidate_outputs) | {root / relative for relative in backed_up}
         own = {path.resolve() for path in own}
         diff = differences(science_payload(root, name, before), science_payload(root, name, after),
-                           file_digest=file_digest_for(own))
+                           file_digest=file_digest_for(own), float_tolerance=args.float_tolerance)
         with report_lock:
             result["after_sha256"] = digest(candidate)
             result["non_provenance_differences"] = diff
