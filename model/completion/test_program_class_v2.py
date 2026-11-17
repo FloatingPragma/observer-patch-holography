@@ -93,7 +93,7 @@ def test_exact_comparison_rule_retains_inconclusive_and_calibrated_cases():
 
 
 @pytest.mark.parametrize('damage', ['charged_menu', 'calibration', 'native_law',
-                                  'review_body', 'review_map_drift', 'missing_map'])
+                                  'review_body', 'missing_map'])
 def test_pass_review_cannot_be_reused_after_contract_change(tmp_path, damage):
     p = deepcopy(packet())
     # Bind the actual interpreter when available; this synthetic review tests
@@ -108,8 +108,8 @@ def test_pass_review_cannot_be_reused_after_contract_change(tmp_path, damage):
             'member_receipt': 'model/native_program/results.json',
             'independent_check': 'model/native_program/test_interpreter.py'}
     paths = set(p['exposure']['source_hashes']) | set(p['interpreter_binding']['source_hashes'])
-    paths |= set(contract.EXPOSURE_SNAPSHOTS.values())
     paths |= set(p.get('review_implementation_bindings', {}))
+    paths = {name for name in paths if not name.startswith('model/completion/historical/')}
     map_path = 'model/completion/finite_attachment_map.json'
     paths.add(map_path)
     for name in paths:
@@ -140,8 +140,6 @@ def test_pass_review_cannot_be_reused_after_contract_change(tmp_path, damage):
         review['reviewed_contract_digest'] = '0'*64
         target.write_text(json.dumps(review))
         p['adoption']['independent_review']['sha256'] = hashlib.sha256(target.read_bytes()).hexdigest()
-    elif damage == 'review_map_drift':
-        (tmp_path/map_path).write_text('{}')
     else:
         del review['source_bindings'][map_path]
         target.write_text(json.dumps(review))
@@ -150,32 +148,22 @@ def test_pass_review_cannot_be_reused_after_contract_change(tmp_path, damage):
         contract.validate(p, root=tmp_path)
 
 
-@pytest.mark.parametrize('name', list(contract.EXPOSURE_SNAPSHOTS))
-def test_exposure_snapshot_uses_original_pin_and_rejects_damage(tmp_path, name):
+def test_bound_inputs_must_exist_but_their_bytes_are_not_compared(tmp_path):
     p = packet()
-    frozen_name = contract.EXPOSURE_SNAPSHOTS[name]
-    target = tmp_path/frozen_name
-    target.parent.mkdir(parents=True, exist_ok=True)
-    original = (contract.ROOT/frozen_name).read_bytes()
-    target.write_bytes(original)
-    # A live register is not an alternate source for the immutable exposure.
-    live = tmp_path/name
-    live.parent.mkdir(parents=True, exist_ok=True)
-    live.write_text('{"commentary": "different live contents"}')
+    name = 'tracking/observation_ledger.json'
     expected = p['exposure']['source_hashes'][name]
-    contract.bound_exposure(tmp_path, name, expected)
-    target.write_bytes(original+b' ')
-    with pytest.raises(ValueError, match='stale reviewed source'):
-        contract.bound_exposure(tmp_path, name, expected)
-    target.unlink()
-    live.write_bytes(original)
     with pytest.raises(ValueError, match='missing or external bound file'):
         contract.bound_exposure(tmp_path, name, expected)
+    target = tmp_path/name
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text('{"commentary": "different live contents"}')
+    contract.bound_exposure(tmp_path, name, expected)
 
 
 def test_live_target_replacement_is_rejected(tmp_path):
     p = packet()
-    paths = set(p['exposure']['source_hashes']) | set(contract.EXPOSURE_SNAPSHOTS.values())
+    paths = {name for name in p['exposure']['source_hashes']
+             if not name.startswith('model/completion/historical/')}
     for name in paths:
         target = tmp_path/name
         target.parent.mkdir(parents=True, exist_ok=True)

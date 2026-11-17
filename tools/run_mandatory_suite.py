@@ -8,11 +8,16 @@ This is the one command REPRODUCE.md documents and CI enforces:
     python tools/run_mandatory_suite.py --certificates # + exact certificate suites
     python tools/run_mandatory_suite.py --certificate-smoke-only
     python tools/run_mandatory_suite.py --shard-index 0 --shard-count 2
+    python tools/run_mandatory_suite.py --shard-index 0 --shard-count 2 --skip-long
+    python tools/run_mandatory_suite.py --long-only
 
 CI can partition the standard suite into nonempty contiguous shards. The
 zero-based shard index and shard count must be supplied together; sharding
 cannot be combined with full or certificate modes. Concatenating the shard
-command lists reproduces the unchanged standard list in order.
+command lists reproduces the unchanged standard list in order. The standard
+steps in LONG_STEP_TITLES take most of a shard's time; CI runs the shards with
+--skip-long and those steps as a job of their own with --long-only, so the
+two command lists together are again the standard list.
 
 The standard suite runs every register validation, certificate check,
 independent replay, and fast mutation gate. Five long-running replay and
@@ -1472,6 +1477,16 @@ HEAVY_STEP_TITLES: frozenset[str] = frozenset(
 )
 
 
+# Standard steps that CI runs as a job of their own (--long-only) and leaves
+# out of the shards (--skip-long). Each entry must match a MANDATORY_STEPS
+# title exactly and must not be a heavy step.
+LONG_STEP_TITLES: frozenset[str] = frozenset(
+    {
+        "Execute the three-axiom campaign certificate suites",
+    }
+)
+
+
 def run_steps(steps: list[tuple[str, list[str]]]) -> None:
     for title, command in steps:
         print(f"==> {title}", flush=True)
@@ -1503,6 +1518,16 @@ def main() -> None:
         help="recompute and verify only the two canonical exact certificate receipts",
     )
     parser.add_argument(
+        "--skip-long",
+        action="store_true",
+        help="leave out the standard steps in LONG_STEP_TITLES",
+    )
+    parser.add_argument(
+        "--long-only",
+        action="store_true",
+        help="execute only the standard steps in LONG_STEP_TITLES",
+    )
+    parser.add_argument(
         "--shard-index", type=int,
         help="zero-based index of a standard-suite shard (requires --shard-count)",
     )
@@ -1520,6 +1545,13 @@ def main() -> None:
             parser.error("--shard-index and --shard-count must be supplied together")
         if args.full or args.certificates or args.certificates_only or args.certificate_smoke_only:
             parser.error("sharding is available only for the standard suite")
+    if args.skip_long and args.long_only:
+        parser.error("--skip-long and --long-only are mutually exclusive")
+    if (args.skip_long or args.long_only) and (
+            args.full or args.certificates or args.certificates_only or args.certificate_smoke_only):
+        parser.error("--skip-long and --long-only apply only to the standard suite")
+    if args.long_only and sharded:
+        parser.error("--long-only cannot be sharded")
 
     mandatory_titles = {title for title, _ in MANDATORY_STEPS}
     unknown_heavy = HEAVY_STEP_TITLES - mandatory_titles
@@ -1527,6 +1559,12 @@ def main() -> None:
         raise SystemExit(
             "HEAVY_STEP_TITLES entries missing from MANDATORY_STEPS: "
             + ", ".join(sorted(unknown_heavy))
+        )
+    unknown_long = LONG_STEP_TITLES - (mandatory_titles - HEAVY_STEP_TITLES)
+    if unknown_long and (args.skip_long or args.long_only):
+        raise SystemExit(
+            "LONG_STEP_TITLES entries missing from the standard steps: "
+            + ", ".join(sorted(unknown_long))
         )
 
     if args.certificates_only or args.certificate_smoke_only:
@@ -1543,6 +1581,11 @@ def main() -> None:
         )
         for title in sorted(HEAVY_STEP_TITLES):
             print(f"  - {title}")
+        if args.skip_long:
+            steps = [step for step in steps if step[0] not in LONG_STEP_TITLES]
+            print(f"skipping {len(LONG_STEP_TITLES)} long standard steps (run with --long-only)")
+        elif args.long_only:
+            steps = [step for step in steps if step[0] in LONG_STEP_TITLES]
     if sharded:
         total = len(steps)
         if not 1 <= args.shard_count <= total:
@@ -1567,6 +1610,8 @@ def main() -> None:
         print("certificate smoke suite OK")
     elif args.full:
         print("mandatory suite OK (full)")
+    elif args.long_only:
+        print("mandatory long steps OK")
     elif sharded:
         print(
             f"mandatory shard OK ({args.shard_index + 1}/{args.shard_count}; "

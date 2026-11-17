@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 2431,
+  "surface_count": 2428,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -3357,21 +3357,6 @@
     },
     {
       "path": "model/completion/defect_algebra.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/completion/historical/field_current_records_inputs/claims/assumption_dictionary.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/completion/historical/field_current_records_inputs/model/protected_defect_catalog/PROOF.receipt-bound.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/completion/historical/source_records_inputs/claims/assumption_dictionary.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

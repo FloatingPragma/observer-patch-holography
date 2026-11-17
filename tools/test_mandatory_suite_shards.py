@@ -164,3 +164,43 @@ def test_failed_child_stops_its_shard_and_cannot_report_success(monkeypatch, cap
         runner.main()
     assert commands == [["fails"]]
     assert "shard OK" not in capsys.readouterr().out
+
+
+@pytest.mark.parametrize("count", [1, 10])
+def test_long_steps_run_once_between_skipping_shards_and_their_own_job(dispatch, capsys, count):
+    invoke, _ = dispatch
+    standard = _standard_steps()
+    long_commands = [command for title, command in standard if title in runner.LONG_STEP_TITLES]
+    assert len(long_commands) == len(runner.LONG_STEP_TITLES) >= 1
+    partitions = [invoke("--shard-index", str(index), "--shard-count", str(count), "--skip-long")
+                  for index in range(count)]
+    assert all(partitions)
+    long_only = invoke("--long-only")
+    assert "mandatory long steps OK" in capsys.readouterr().out
+    assert long_only == long_commands
+    shards = [command for partition in partitions for command in partition]
+    assert not any(command in long_commands for command in shards)
+    # The shards and the long job together are exactly the standard list.
+    assert sorted(map(tuple, shards + long_only)) == sorted(tuple(command) for _, command in standard)
+
+
+@pytest.mark.parametrize("arguments,message", [
+    (["--skip-long", "--long-only"], "mutually exclusive"),
+    (["--long-only", "--full"], "only to the standard suite"),
+    (["--skip-long", "--certificates-only"], "only to the standard suite"),
+    (["--long-only", "--shard-index", "0", "--shard-count", "2"], "cannot be sharded"),
+])
+def test_long_step_options_reject_other_modes(dispatch, capsys, arguments, message):
+    invoke, commands = dispatch
+    with pytest.raises(SystemExit):
+        invoke(*arguments)
+    assert message in capsys.readouterr().err
+    assert commands == []
+
+
+def test_unknown_long_step_title_fails_closed(monkeypatch, dispatch):
+    monkeypatch.setattr(runner, "LONG_STEP_TITLES", frozenset({"missing step"}))
+    invoke, commands = dispatch
+    with pytest.raises(SystemExit, match="LONG_STEP_TITLES entries missing"):
+        invoke("--long-only")
+    assert commands == []

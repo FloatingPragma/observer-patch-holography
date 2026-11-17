@@ -67,7 +67,6 @@ jobs:
   suite:
     name: Mandatory suite (shard ${{ matrix.shard }})
     runs-on: ubuntu-latest
-    # The last shard holds the three-axiom certificate campaign (about 20 min).
     timeout-minutes: 40
     strategy:
       fail-fast: false
@@ -102,7 +101,27 @@ jobs:
         if: matrix.shard == 0
         run: python -m pytest -q --confcutdir=code/ibm_quantum_cloud/tests code/ibm_quantum_cloud/tests/test_stage1_markov_fingerprint.py
       - name: Mandatory suite shard
-        run: python tools/run_mandatory_suite.py --shard-index ${{ matrix.shard }} --shard-count 10
+        run: python tools/run_mandatory_suite.py --shard-index ${{ matrix.shard }} --shard-count 10 --skip-long
+
+  suite-long:
+    # The long standard steps (the three-axiom certificate campaign, about
+    # 20 minutes) run here, outside the shards.
+    name: Mandatory suite (long steps)
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          filter: blob:none
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements.txt
+      - run: python -m pip install -r requirements.txt
+      - name: Mandatory suite long steps
+        run: python tools/run_mandatory_suite.py --long-only
 
   lanes:
     name: Replays (${{ matrix.profile }} ${{ matrix.bucket }})
@@ -254,7 +273,7 @@ jobs:
   ci-ok:
     name: CI result
     if: always()
-    needs: [gates, suite, lanes, paper-preview]
+    needs: [gates, suite, suite-long, lanes, paper-preview]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

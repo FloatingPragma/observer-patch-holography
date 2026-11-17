@@ -9,7 +9,9 @@ Three workflows run the repository checks.
     theorem oracle, the Lean `native_decide` inventory and the Lean CI budget
     wiring.
   * `suite`: the standard steps of `tools/run_mandatory_suite.py` in ten
-    shards. Shard 0 also runs the additional evidence tests.
+    shards (`--skip-long`). Shard 0 also runs the additional evidence tests.
+  * `suite-long`: the long standard steps (`--long-only`, the three-axiom
+    certificate campaign).
   * `lanes`: the replay lanes of `tools/ci_lanes.py` (tier `push`), packed by
     their measured minutes into fixed buckets per install profile.
   * `paper-preview`: rebuilds every review PDF and the book and requires the
@@ -39,22 +41,36 @@ Receipts bind the code that produces or verifies a result and the data it
 reads. `code/pin_scope.py` (loaded from tools/ and model/ through
 `tools/pin_scope.py`) defines what a pin may bind: prose, papers,
 documentation, READMEs, workflow files, Git attribute files and test modules
-are never pinned. Verifiers that use it drop such entries from recorded pin
-maps before comparing, so editing prose does not require renewing their
-receipts.
+are never pinned. Builders leave such paths out of the maps they write, and
+verifiers drop them from recorded maps before comparing, so editing prose or
+a test never requires renewing a receipt.
 
-Four old workflow files stay byte-identical because receipts or pinned tests
-read them, and several hundred downstream receipts would otherwise need
-renewal:
+Only receipts carry pins. Review, campaign, class and work-queue records name
+the files and receipts they rely on, and their checkers keep their structural
+and scientific assertions, but they do not compare recorded digests: each
+receipt is checked by its own source map and replay, and git history records
+earlier bytes. Package manifests under `model/` (`model/verify.py` PACKETS)
+bind data artifacts only, not code or JSON receipts.
 
-* `m1-source-realization.yml` and `source-gravity-admissibility.yml`: pinned by
-  the receipts of those two lanes, which downstream receipts pin in turn.
-* `observer-model.yml` (disabled in Actions): pinned by
-  `model/completion/component_interfaces.json` and by the completion program's
-  integration contracts.
-* `completion-program.yml`: read by test modules whose bytes the charged
-  dynamics receipt and the completion review records pin.
+## Regenerating receipts
 
-Their commands also run in ci.yml or nightly.yml. Disable them in Actions
-(`gh workflow disable <name>`); delete them once the receipts that pin them
-are rebuilt under the pin rule above.
+After a change to code that receipts pin, `python tools/replay_model_receipts.py
+--output <new dir>` lists the stale receipts and their dependency order
+without writing. To regenerate them on Linux, dispatch the nightly workflow in
+regenerate mode:
+
+    gh workflow run nightly.yml --ref <branch> -f regenerate=true
+
+It runs only `tools/replay_model_receipts.py --execute --discover --keep-going`,
+which replays every stale registered or discovered receipt with its own
+producer in dependency order, and uploads the changed files and the report as
+the `regenerated-receipts` artifact. A producer whose payload changes beyond
+its pins stops for review and keeps its original bytes.
+
+Two old workflow files stay byte-identical because the receipts of their
+lanes pin them, and several openwave package manifests and model receipts pin
+those receipts in turn: `m1-source-realization.yml` and
+`source-gravity-admissibility.yml`. `observer-model.yml` and
+`completion-program.yml` are read only by older workflow-structure tests.
+Their commands also run in ci.yml or nightly.yml; they are disabled in
+Actions.

@@ -12,6 +12,7 @@ from fractions import Fraction as F
 import hashlib
 import json
 from pathlib import Path
+import subprocess
 
 from tools import strict_json
 try:
@@ -23,6 +24,16 @@ except ModuleNotFoundError:  # run as a script: put the repository root on sys.p
 
 ROOT = Path(__file__).resolve().parents[2]
 PATH = Path('model/completion/program_class_v2.json')
+# The observation ledger as exposed when the class was proposed, read from
+# git history (the retired model/completion/historical/ archive held a copy).
+FROZEN_EXPOSURE = ('b37ba4dae0e069dc030ceb0f130e52905fbb5465',
+                   'model/completion/historical/exposure/observation_ledger.json')
+
+
+def frozen_observations(root=ROOT):
+    commit, path = FROZEN_EXPOSURE
+    data = subprocess.check_output(['git', 'show', f'{commit}:{path}'], cwd=root)
+    return strict_json.loads(data.decode('utf-8'))['rows']
 def require(condition, message):
     if not condition:
         raise ValueError(message)
@@ -150,6 +161,10 @@ def validate(packet, root=ROOT):
         require(name in bindings, f'unbound prior exposure register: {name}')
     observations = strict_json.load(root/'tracking/observation_ledger.json')['rows']
     require(len(observations) == 71, 'observation target inventory changed; review successor contract')
+    frozen = frozen_observations()
+    require({r['id']: r['target'] for r in observations} ==
+            {r['id']: r['target'] for r in frozen},
+            'live observation identities or physical targets differ from frozen exposure')
     require(packet['targets']['structural_menu']['selection'].startswith('all71'),
             'physical target menu silently narrowed')
     require(packet['predecessor']['old_finite_campaigns_preserved'] is True and
