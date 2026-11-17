@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-WORKFLOW = ROOT / ".github" / "workflows" / "lean-ci.yml"
+WORKFLOW = ROOT / ".github" / "workflows" / "lean.yml"
 LAKEFILE = ROOT / "Lean" / "lakefile.lean"
 
 
@@ -146,7 +146,7 @@ def validate(workflow: str, lakefile: str) -> list[str]:
         "Lean/Screen/GoldenSectorPSL2F5Representations.lean",
         "Lean/Screen/OPHScreen.lean",
         "Lean/lean-toolchain Lean/lakefile.lean Lean/lake-manifest.json",
-        ".github/workflows/lean-ci.yml",
+        ".github/workflows/lean.yml",
     ):
         if path not in golden:
             errors.append(f"the typed golden-sector change detector is missing {path!r}")
@@ -154,7 +154,7 @@ def validate(workflow: str, lakefile: str) -> list[str]:
     for path in (
         "Lean/OphGap Lean/OphGap.lean",
         "Lean/lean-toolchain Lean/lakefile.lean Lean/lake-manifest.json",
-        ".github/workflows/lean-ci.yml",
+        ".github/workflows/lean.yml",
     ):
         if path not in ophgap:
             errors.append(f"the OphGap change detector is missing {path!r}")

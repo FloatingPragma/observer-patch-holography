@@ -353,8 +353,3 @@ def test_verifier_with_producers_disabled():
     assert result.returncode == 0, result.stderr
 
 
-def test_workflow_covers_every_bound_source():
-    text = (verify.ROOT/'.github/workflows/m1-fixed-noise.yml').read_text(encoding='utf-8')
-    patterns = re.findall(r'^      - "([^"]+)"', text, re.M)
-    assert all(any(fnmatch.fnmatch(path, pattern) for pattern in patterns) for path in verify.SOURCES)
-    assert '"claims/claim_registry.yaml"' in text

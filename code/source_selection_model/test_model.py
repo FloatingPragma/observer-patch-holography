@@ -249,12 +249,12 @@ def test_source_edit_invalidates_actual_cli_receipt(tmp_path):
     import shutil
     from source_selection_model.verify import pins
     clone = tmp_path/"source"
-    for relative in list(pins()) + ["code/source_selection_model/receipt.json"]:
+    for relative in list(pins()) + ["code/source_selection_model/receipt.json", "code/pin_scope.py"]:
         target = clone/relative
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(ROOT/relative, target)
-    changed = clone/"code/source_selection_model/DERIVATION.md"
-    changed.write_bytes(changed.read_bytes()+b"\nChanged model membership.\n")
+    changed = clone/"code/source_selection_model/geometry.py"
+    changed.write_bytes(changed.read_bytes()+b"\n# Changed model membership.\n")
     env = dict(os.environ, PYTHONPATH=str(clone/"code"))
     result = subprocess.run([sys.executable, "-m", "source_selection_model.verify"],
                             cwd=clone, env=env, capture_output=True, text=True)
@@ -270,5 +270,5 @@ def test_lean_gate_covers_every_declaration():
     assert len(names) == 15
     assert {"OPH.SourceSelectionLocality."+n for n in names} == set(
         re.findall(r"^audit_reusable_bus_axioms (\S+)$", gate, re.M))
-    ci = (ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8")
+    ci = (ROOT/".github/workflows/lean.yml").read_text(encoding="utf-8")
     assert '"Geometry.SourceSelectionLocalityAxiomAudit"' in ci

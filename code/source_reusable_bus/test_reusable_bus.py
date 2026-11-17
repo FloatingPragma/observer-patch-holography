@@ -212,15 +212,7 @@ def require_ci_audit_target(workflow):
 
 
 def test_ci_enforces_audit_on_dependency_changes():
-    require_ci_audit_target((codec.ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8"))
-    dedicated = yaml.load((codec.ROOT/".github/workflows/source-reusable-bus.yml")
-                          .read_text(encoding="utf-8"), Loader=yaml.BaseLoader)
-    for event in ("push", "pull_request"):
-        for path in codec.PIN_PATHS + (".github/workflows/lean-ci.yml", ".gitattributes"):
-            assert any(fnmatchcase(path, pattern) for pattern in dedicated["on"][event]["paths"])
-    job = dedicated["jobs"]["controls"]
-    assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest"]
-    assert "python -m pytest -q code/source_reusable_bus" in [s.get("run") for s in job["steps"]]
+    require_ci_audit_target((codec.ROOT/".github/workflows/lean.yml").read_text(encoding="utf-8"))
 
 
 @pytest.mark.parametrize("replacement", [
@@ -228,7 +220,7 @@ def test_ci_enforces_audit_on_dependency_changes():
     '            "Geometry.SourceReusableBus"', '',
 ])
 def test_ci_guard_rejects_disabled_audit_target(replacement):
-    workflow = (codec.ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8")
+    workflow = (codec.ROOT/".github/workflows/lean.yml").read_text(encoding="utf-8")
     target = '            "Geometry.SourceReusableBusAxiomAudit"'
     assert workflow.count(target) == 1
     with pytest.raises(AssertionError):

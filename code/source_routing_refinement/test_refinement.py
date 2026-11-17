@@ -177,21 +177,6 @@ def test_inherited_imports_are_isolated(monkeypatch):
     assert all(sys.modules[name] is sentinel for name, sentinel in sentinels.items())
 
 
-def test_dedicated_ci_preserves_the_frozen_mandatory_runner():
-    projection = verify.codec.load_json(verify.ROOT/"code/invariant_mining/outputs/source_projection.json")
-    pin = next(row for row in projection["control_documents"] if row["path"] == "tools/run_mandatory_suite.py")
-    runner = (verify.ROOT/pin["path"]).read_bytes()
-    assert "sha256:"+hashlib.sha256(runner).hexdigest() == pin["sha256"]
-    workflow = yaml.load((verify.ROOT/".github/workflows/source-routing-refinement.yml").read_text(encoding="utf-8"),
-                         Loader=yaml.BaseLoader)
-    job = workflow["jobs"]["controls"]
-    assert set(job["strategy"]["matrix"]["os"]) == {"ubuntu-latest"}
-    assert any(s.get("run") == "python -m pytest -q code/source_routing_refinement" for s in job["steps"])
-    for trigger in ("push", "pull_request"):
-        assert "code/source_routing_refinement/**" in workflow["on"][trigger]["paths"]
-        assert "code/source_read_routing/**" in workflow["on"][trigger]["paths"]
-
-
 def test_axiom_audit_covers_every_refinement_theorem():
     directory = verify.ROOT/"Lean/Geometry"
     declarations = set()

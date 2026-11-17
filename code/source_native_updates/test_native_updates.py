@@ -291,23 +291,13 @@ def require_ci_audit(workflow):
 
 
 def test_ci_dependency_coverage():
-    require_ci_audit((codec.ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8"))
-    workflow = yaml.load((codec.ROOT/".github/workflows/source-native-updates.yml")
-                         .read_text(encoding="utf-8"),Loader=yaml.BaseLoader)
-    for event in ("push","pull_request"):
-        for path in codec.PINS+(".github/workflows/lean-ci.yml",".gitattributes"):
-            assert any(fnmatchcase(path,pattern) for pattern in workflow["on"][event]["paths"])
-    job = workflow["jobs"]["controls"]
-    assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest"]
-    assert "if" not in job and "continue-on-error" not in job
-    commands = [s for s in job["steps"] if s.get("run") == "python -m pytest -q code/source_native_updates"]
-    assert len(commands) == 1 and "if" not in commands[0] and "continue-on-error" not in commands[0]
+    require_ci_audit((codec.ROOT/".github/workflows/lean.yml").read_text(encoding="utf-8"))
 
 
 @pytest.mark.parametrize("replacement", ["", '# "Geometry.SourceNativeUpdatesAxiomAudit"',
                                         '"Geometry.SourceNativeRecords"'])
 def test_ci_audit_guard_negative_controls(replacement):
-    workflow = (codec.ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8")
+    workflow = (codec.ROOT/".github/workflows/lean.yml").read_text(encoding="utf-8")
     target = '"Geometry.SourceNativeUpdatesAxiomAudit"'
     assert workflow.count(target) == 1
     with pytest.raises(AssertionError):

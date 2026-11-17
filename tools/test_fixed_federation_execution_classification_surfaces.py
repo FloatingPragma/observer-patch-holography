@@ -145,7 +145,7 @@ def test_umbrellas_register_each_new_module_once() -> None:
 
 def test_typed_execution_audit_is_kernel_checked_in_lean_ci() -> None:
     audit = _text("Lean/Tower/FixedFederationExecutionAudit.lean")
-    workflow = _text(".github/workflows/lean-ci.yml")
+    workflow = _text(".github/workflows/lean.yml")
     mandatory = _text("tools/run_mandatory_suite.py")
     checker = _text("tools/check_fixed_federation_execution_audit.py")
     assert "example (L : List Node)" in audit

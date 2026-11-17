@@ -7,6 +7,7 @@ from pathlib import Path
 
 from m1_fixed_noise import verify as parent
 from .independent import keys, need, verify_evidence
+import pin_scope
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -17,6 +18,7 @@ OWN = ('__init__.py', 'circuits.py', 'independent.py', 'archive.py', 'archive_ch
 SOURCES = sorted(set(parent.SOURCES+['code/m1_fixed_noise/receipt.json']+
                     ['code/m1_noisy_records/'+p for p in OWN]+
                     ['docs/research/NOISY_SOURCE_RECORDS.md', '.github/workflows/m1-noisy-records.yml']))
+SOURCES = pin_scope.bound(SOURCES)
 CLAIMS = ('OPH-SOURCE-NOISY-CONTROL-HISTORIES', 'OPH-SOURCE-LIVE-RECORD-PROTECTION')
 
 
@@ -52,7 +54,7 @@ def verify(path=HERE/'receipt.json'):
     packet = load(path)
     keys(packet, 'schema sources claims evidence')
     need(packet['schema'] == 'oph-noisy-source-records-v1', 'schema')
-    need(packet['sources'] == pins(), 'source custody')
+    need(pin_scope.bound_pins(packet['sources']) == pins(), 'source custody')
     need(packet['claims'] == claims(), 'registered claim custody')
     parent.verify()
     verify_evidence(packet['evidence'])

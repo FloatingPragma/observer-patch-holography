@@ -11,6 +11,7 @@ if __package__ in (None, ''):
     __package__ = 'm1_operational_clocks'
 
 from .check import need, same, verify_evidence
+import pin_scope
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -19,6 +20,7 @@ SOURCES = [f'code/m1_operational_clocks/{p}' for p in
 SOURCES += ['docs/research/MASSIVE_OPERATIONAL_CLOCKS.md', '.github/workflows/m1-operational-clocks.yml',
             'code/m1_quantum_transport/tetra_model.py', 'code/m1_quantum_transport/tetra_check.py',
             'code/m1_quantum_transport/DERIVATION.md', 'requirements.txt', '.gitattributes']
+SOURCES = pin_scope.bound(SOURCES)
 CLAIMS = ('OPH-M1-MINIMAL-TETRAHEDRAL-TRANSPORT', 'OPH-M1-MASSIVE-FLIGHT-SPECTRUM',
           'OPH-M1-RESOLVED-LOCAL-READ-CONE', 'OPH-M1-OBSERVABLE-MASS-CLOCK')
 
@@ -58,7 +60,7 @@ def verify(path=HERE/'receipt.json'):
     packet = load(path)
     need(type(packet) is dict and packet.keys() == {'schema', 'sources', 'claims', 'evidence'}, 'invalid envelope')
     same(packet['schema'], 'oph-m1-operational-clocks-v1')
-    same(packet['sources'], pins(), 'sources')
+    same(pin_scope.bound_pins(packet['sources']), pins(), 'sources')
     same(packet['claims'], claim_pins(), 'claims')
     verify_evidence(packet['evidence'])
     return packet

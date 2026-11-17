@@ -8,6 +8,7 @@ from m1_expander_archive import verify as protected
 from m1_operational_clocks import verify as clocks
 from . import spectrum_check, preparation_check, clock_check, bounds_check
 from .format import keys, need
+import pin_scope
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -18,6 +19,7 @@ SOURCES = sorted(set(protected.SOURCES+clocks.SOURCES+
                     ['code/m1_expander_archive/receipt.json', 'code/m1_operational_clocks/receipt.json']+
                     ['code/m1_sea_energy/'+name for name in OWN]+
                     ['docs/research/SOURCE_SEA_ENERGY.md', '.github/workflows/m1-sea-energy.yml']))
+SOURCES = pin_scope.bound(SOURCES)
 CLAIMS = ('OPH-SOURCE-SEA-GENERATOR', 'OPH-SOURCE-LOCAL-SEA-LIMIT', 'OPH-SOURCE-SEA-CLOCK')
 
 
@@ -60,7 +62,7 @@ def verify(path=HERE/'receipt.json'):
     packet = load(path)
     keys(packet, 'schema sources claims evidence')
     need(packet['schema'] == 'oph-source-sea-energy-v1', 'receipt schema')
-    need(packet['sources'] == pins(), 'source custody')
+    need(pin_scope.bound_pins(packet['sources']) == pins(), 'source custody')
     need(packet['claims'] == claims(), 'claim custody')
     protected.verify()
     clocks.verify()

@@ -312,11 +312,3 @@ def test_checker_does_not_import_producer():
     assert 'np.linalg.eig' not in (verify.HERE/'check.py').read_text(encoding='utf-8')
 
 
-def test_ci_covers_every_pinned_source():
-    import yaml
-    workflow = yaml.safe_load((verify.ROOT/'.github/workflows/m1-operational-clocks.yml').read_text(encoding='utf-8'))
-    trigger = workflow.get('on', workflow.get(True))
-    import fnmatch
-    patterns = trigger['pull_request']['paths']
-    for path in verify.SOURCES:
-        assert any(fnmatch.fnmatchcase(path, pattern) for pattern in patterns), path

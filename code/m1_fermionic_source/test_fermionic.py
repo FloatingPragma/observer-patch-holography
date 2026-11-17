@@ -395,8 +395,3 @@ def test_checker_runs_with_producers_disabled():
     assert result.returncode == 0, result.stderr
 
 
-def test_workflow_covers_every_custody_input():
-    workflow = (verify.ROOT/'.github/workflows/m1-fermionic-source.yml').read_text(encoding='utf-8')
-    patterns = re.findall(r'^      - "([^"]+)"', workflow, re.M)
-    assert all(any(fnmatch.fnmatch(p, pattern) for pattern in patterns) for p in verify.SOURCES)
-    assert '"claims/claim_registry.yaml"' in workflow

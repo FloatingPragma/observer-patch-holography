@@ -260,17 +260,6 @@ def test_parent_claims_are_unique_and_required(tmp_path):
             verify.parent_claims(path)
 
 
-def test_every_pinned_source_triggers_ci_and_axiom_audit():
-    import fnmatch
-    import yaml
-    workflow = yaml.safe_load((verify.ROOT/".github/workflows/m1-quantum-transport.yml").read_text(encoding="utf-8"))
-    triggers = workflow.get("on", workflow.get(True))
-    patterns = triggers["pull_request"]["paths"]
-    for path in [*verify.SOURCE_FILES, "claims/claim_registry.yaml"]:
-        assert any(fnmatch.fnmatchcase(path, pattern) for pattern in patterns), path
-    assert "Geometry.M1QuantumTransportAxiomAudit" in (verify.ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8")
-
-
 def test_all_cone_dynamics_against_explicit_error_bound():
     with mp.workdps(45):
         pauli = (mp.matrix([[0, 1], [1, 0]]), mp.matrix([[0, -1j], [1j, 0]]),

@@ -15,6 +15,17 @@ else:
     from experiment import ARCHIVE, HERE, ROOT, save_json, sha
 
 
+def _load_pin_scope():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("pin_scope", Path(__file__).resolve().parents[1]/"pin_scope.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+pin_scope = _load_pin_scope()
+
+
 def wiring_census():
     rows = []
     for level in (3, 4, 5):
@@ -121,10 +132,8 @@ def assemble(output, mirror=True):
         path.write_text(json.dumps(old, indent=1)+"\n", encoding="utf-8", newline="\n")
     excluded = {"archive_manifest.json"}
     files = [p for p in output.rglob("*") if p.is_file() and p.name not in excluded]
-    source_files = [p for p in HERE.rglob("*") if p.is_file() and "__pycache__" not in p.parts]
-    workflow = ROOT/".github/workflows/support-wiring.yml"
-    if workflow.exists():
-        source_files.append(workflow)
+    source_files = [p for p in HERE.rglob("*") if p.is_file() and "__pycache__" not in p.parts
+                    and not pin_scope.exempt(p.relative_to(ROOT).as_posix())]
     inventory = {"schema": "oph.support_wiring.archive.v1",
                  "artifacts": {p.relative_to(output).as_posix(): {"sha256": sha(p), "bytes": p.stat().st_size} for p in sorted(files)},
                  "sources": {p.relative_to(ROOT).as_posix(): sha(p) for p in sorted(source_files)},

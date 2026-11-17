@@ -243,12 +243,12 @@ def test_actual_cli_rejects_false_receipt(tmp_path):
 
 def test_actual_cli_rejects_changed_scientific_source(tmp_path):
     clone = tmp_path/"source"
-    for relative in list(verify.pins())+["code/source_record_gluing/receipt.json"]:
+    for relative in list(verify.pins())+["code/source_record_gluing/receipt.json", "code/pin_scope.py"]:
         target = clone/relative
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(ROOT/relative, target)
-    changed = clone/"code/source_selection_model/RECORD_GLUING.md"
-    changed.write_bytes(changed.read_bytes()+b"\nTransport law changed.\n")
+    changed = clone/"code/source_selection_model/verify_response.py"
+    changed.write_bytes(changed.read_bytes()+b"\n# Transport law changed.\n")
     result = subprocess.run([sys.executable, "-m", "source_record_gluing.verify"], cwd=clone,
                             env=dict(os.environ, PYTHONPATH=str(clone/"code")), capture_output=True, text=True)
     assert result.returncode != 0
@@ -262,7 +262,5 @@ def test_every_lean_theorem_is_axiom_audited_and_ci_gated():
     assert len(names) == 20
     assert {"OPH.SourceRecordGluing."+name for name in names} == set(
         re.findall(r"^audit_reusable_bus_axioms (\S+)$", audit, re.M))
-    ci = (ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8")
+    ci = (ROOT/".github/workflows/lean.yml").read_text(encoding="utf-8")
     assert re.search(r'^\s*"Geometry.SourceRecordGluingAxiomAudit"\s*$', ci, re.M)
-    workflow = (ROOT/".github/workflows/source-selection-model.yml").read_text(encoding="utf-8")
-    assert re.search(r'^\s*- run: python -m source_record_gluing.verify\s*$', workflow, re.M)

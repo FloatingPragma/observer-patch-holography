@@ -639,7 +639,7 @@ def test_all_public_lean_results_have_transitive_audits_and_ci():
     assert {"OPH.M1Necessity."+n for n in names} == set(re.findall(r'^audit_m1_necessity (OPH\.\S+)',gate,re.M))
     assert '#guard_msgs in\naudit_m1_necessity sorryAx' in gate
     assert '#guard_msgs in\naudit_m1_necessity Lean.ofReduceBool' in gate
-    ci = (ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8")
+    ci = (ROOT/".github/workflows/lean.yml").read_text(encoding="utf-8")
     assert re.search(r'^\s*"Geometry.M1NecessityAxiomAudit"\s*$',ci,re.M)
 
 

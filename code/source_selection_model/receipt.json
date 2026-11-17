@@ -303,8 +303,6 @@
     ]
   },
   "source_pins": {
-    ".github/workflows/lean-ci.yml": "61722dbceb2a41994a348ece6a5b62e64ff9e4735c640966c6072a35d73e3b60",
-    ".github/workflows/source-selection-model.yml": "77db88a0e697cbe2d98891caa3f6a10ac6464be987e7e54ce8728b417d7e940f",
     "Lean/Geometry.lean": "38938cb733cd1411ff1d17a76c7990afc980115f29b1cb774f3bcc2749c40f79",
     "Lean/Geometry/SourceEncodedMemory.lean": "67f98a7bf3d76d1a705a979200169ef4d34b2f8ae5bd4875fee857b2db1fca24",
     "Lean/Geometry/SourceReusableBus.lean": "25dc38bdcfe71a4d5860be4e0051dd16bd3083c9bdc8c5befcc162ba421f57d2",
@@ -318,10 +316,6 @@
     "code/a5_closure/echosahedral_selector_certificate.py": "e140adad7fe3162e38dbe44736669d9ea35f98a94acf90625d09fce9766385f7",
     "code/a5_closure/port_current_inner_certificate.py": "8ac3f51d08155decc328ebb8c12909bf92f9a50313f14ebc0faf70c0d2513436",
     "code/a5_closure/response_grammar_completeness_certificate.py": "5e3f0c52208619a1609fd3c002ed48bdfa480d8adaa92bf2c91b769c5e556338",
-    "code/source_selection_model/CONTRACT.md": "9c7506b7c136fdbb1cac1138ca68ce57c75d2cfcccbb45bc149c5a41da65cbcc",
-    "code/source_selection_model/DERIVATION.md": "e53df3ae59398a6abe2ad3b85f7871ff7ea728e72bd9de073af8bf398a86dcbe",
-    "code/source_selection_model/README.md": "7c64dcfcfee37552ce7e0930bdd626a780e3dd52b5c94289cbc7030526c8b0bf",
-    "code/source_selection_model/RECORD_GLUING.md": "7919b97e9dde9fbd952c2f6bf0dcdcbfc83bdcd45d1a2c83d59250e7ccd7203b",
     "code/source_selection_model/__init__.py": "0ef4f07dd260ca06c04365934aa374efff3cfa851e2967d8edf231f76b51080c",
     "code/source_selection_model/channels.py": "d2bb168af9c2bf5b9d940af30db7d51d03f6b11e4fef5783145f901f554d67f9",
     "code/source_selection_model/finite_model.py": "baf2567d811298f3d3e1cea55335d1aeb9ab4f66c44d30950f3a0a5ad63e92f7",
@@ -331,10 +325,7 @@
     "code/source_selection_model/records.py": "51c787929b826cb61a23b2fc29c1e2aac2b816e10dde743a05c4d30fc0aabccd",
     "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
     "code/source_selection_model/response.py": "c66160a6b6246692e19b32e9b00383c8abca8b493655cf534932bfcd900e8400",
-    "code/source_selection_model/test_model.py": "20470af5055377ab5f16d6a98fde4b7bea4cd2cde524b151b7ce935e8e2ee443",
-    "code/source_selection_model/verify.py": "2b9b7dbc81a60fb9172f553c0f8828fba70e44254d33606b977477a5327b1f7c",
-    "code/source_selection_model/verify_response.py": "1aaa22195b7241aaf61f0bda60940907f2416f406c53f81ebb3418005d95900e",
-    "docs/AXIOM_REFERENCE.md": "1605ed5d16f90547f8297c228099751fa2b114a57bf5e64f7ccd7c2f5bb33e07",
-    "paper/tex_fragments/SOURCE_RECORD_GLUING.tex": "89447e65e21d886c2bfc3840ea7582ead77910a6b10d193761bd27782795e878"
+    "code/source_selection_model/verify.py": "eb4f58904d7c1e6a5395e52dbac78869a3875d5609779242630e026a21ff4ceb",
+    "code/source_selection_model/verify_response.py": "1aaa22195b7241aaf61f0bda60940907f2416f406c53f81ebb3418005d95900e"
   }
 }

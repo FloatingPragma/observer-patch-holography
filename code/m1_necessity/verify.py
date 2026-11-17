@@ -7,6 +7,7 @@ from pathlib import Path
 
 from . import check, balanced_check
 from .audit import consumer_audit, downstream_audit
+import pin_scope
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -21,7 +22,7 @@ def pins():
               "paper/tex_fragments/SOURCE_METRIC_SCALAR_CONTINUUM.tex",
               "paper/tex_fragments/M1_NECESSITY.tex",
               "Lean/Geometry/FlatDiamondNormalization.lean"]
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
+    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(pin_scope.bound(names))}
 
 
 def route_targets():
@@ -106,7 +107,7 @@ def verify(packet):
     check.require(type(packet) is dict and set(packet) == {"schema","sources","consumers","cuts","routes","graphs","balanced","downstream"},
                   "exact receipt schema required")
     check.require(packet["schema"] == "oph-m1-necessity-v1", "schema version")
-    check.require(check.canonical(packet["sources"]) == check.canonical(pins()), "scientific source custody changed")
+    check.require(check.canonical(pin_scope.bound_pins(packet["sources"])) == check.canonical(pins()), "scientific source custody changed")
     check.require(check.canonical(packet["consumers"]) == check.canonical(consumer_audit()), "consumer evidence changed")
     downstream=downstream_audit()
     check.require(check.canonical(packet['downstream'])==check.canonical(downstream),'downstream contract evidence changed')

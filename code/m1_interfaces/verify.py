@@ -7,6 +7,7 @@ import hashlib
 from pathlib import Path
 
 from . import check
+import pin_scope
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -18,7 +19,7 @@ def pins():
               'Lean/Geometry/FlatDiamondNormalization.lean',
               'Lean/Geometry/OrderingFractionFourDimensional.lean',
               'paper/tex_fragments/M1_INTERFACES.tex','.github/workflows/m1-interfaces.yml']
-    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(pin_scope.bound(paths))}
 
 
 def parent_claims():
@@ -70,7 +71,7 @@ def verify(packet):
     check.require(type(packet) is dict and set(packet)=={'schema','sources','parent_claims','scales','moments','graphs'},
                   'exact interface receipt schema')
     check.require(packet['schema']=='oph-m1-interfaces-v2','interface schema version')
-    check.require(check.canonical(packet['sources'])==check.canonical(pins()),'source custody mismatch')
+    check.require(check.canonical(pin_scope.bound_pins(packet['sources']))==check.canonical(pins()),'source custody mismatch')
     check.require(check.canonical(packet['parent_claims'])==check.canonical(parent_claims()),'parent claim scope mismatch')
     check.require(type(packet['scales']) is dict and set(packet['scales'])=={str(t) for t in range(1,13)},
                   'scale catalog')

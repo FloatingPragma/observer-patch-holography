@@ -1,0 +1,766 @@
+name: Nightly
+
+# Heavy replays that never block a push. A failed scheduled run on main opens
+# or updates one GitHub issue labelled nightly-failure. Dispatch it on any
+# branch with: gh workflow run nightly.yml --ref <branch>
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nightly-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  PYTHONUTF8: '1'
+
+jobs:
+  mandatory-full:
+    name: Mandatory suite (full)
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+
+      - name: Install pinned dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Regression-test the Lean CI runtime ceiling
+        run: python -m pytest -q tools/test_check_lean_ci_budget.py
+
+      - name: Verify numerical recovery bounds without optional hardware SDKs
+        run: python -m pytest -q --confcutdir=code/ibm_quantum_cloud/tests code/ibm_quantum_cloud/tests/test_stage1_markov_fingerprint.py
+
+      - name: Run the full mandatory suite
+        run: python tools/run_mandatory_suite.py --full
+
+      - name: Verify additional scientific evidence
+        run: |
+          python -m pytest -q code/P_derivation/test_selection_accounting.py code/P_derivation/test_printed_pair_identity.py evidence/source_net_causal_poset/manifold_refinement/test_verify.py code/particles/flavor/test_full_entropy_w5_selector.py code/particles/flavor/test_conditional_quark_mass_replay.py code/particles/flavor/test_verify_conditional_quark_mass_replay.py code/particles/flavor/test_compare_conditional_quark_masses.py code/particles/calibration/test_conditional_top_fixed_p.py code/particles/flavor/test_source_w5_response_constraints.py code/particles/flavor/test_native_repair_flavor_constraints.py code/particles/calibration/test_top_positive_capacity_band.py code/particles/flavor/test_native_record_renewal.py code/particles/flavor/test_exterior_higgs_response.py code/particles/calibration/test_source_ew_vev_matching.py code/particles/calibration/test_verify_source_ew_vev_matching.py code/particles/calibration/test_compare_source_ew_vev_matching.py code/geometry/test_collar_scaling_boundaries.py code/thermodynamics/test_collar_stationary_regressions.py code/thermodynamics/test_exact_count_chain_controls.py evidence/exact_federation_tower_20260924/test_streamed_expectations.py evidence/observer_dynamics_20260925/sim-analysis/codex/boltzmann/test_forward_contract.py evidence/observer_dynamics_20260925/sim-analysis/codex/boltzmann_data/test_audit_inputs.py evidence/observer_dynamics_20260925/sim-analysis/codex/causal/test_experiment.py evidence/observer_dynamics_20260925/sim-analysis/codex/dynamics/test_dynamics.py evidence/observer_dynamics_20260925/sim-analysis/codex/inflation/native_history/test_native_history.py evidence/observer_dynamics_20260925/sim-analysis/codex/necessity/boundary_bulk/test_boundary_bulk.py evidence/observer_dynamics_20260925/sim-analysis/codex/necessity/event_records/test_event_records.py evidence/observer_dynamics_20260925/sim-analysis/codex/necessity/temporal_filters/test_temporal_filters.py evidence/observer_dynamics_20260925/sim-analysis/codex/observation/test_conditional_bridges.py evidence/observer_dynamics_20260925/sim-analysis/codex/observation/test_observations.py evidence/observer_dynamics_20260925/sim-analysis/codex/observer_cmb/test_measured_comparison.py evidence/observer_dynamics_20260925/sim-analysis/codex/observer_cmb/test_observer_spectrum.py evidence/observer_dynamics_20260925/sim-analysis/codex/primordial/test_sources.py evidence/observer_dynamics_20260925/sim-analysis/codex/source_derivation/innovations/test_extract.py evidence/observer_dynamics_20260925/sim-analysis/codex/source_derivation/innovations/test_nested.py evidence/observer_dynamics_20260925/sim-analysis/codex/source_derivation/native/test_native_source.py evidence/observer_dynamics_20260925/sim-analysis/scripts/test_codex_causal_cosmology_audit.py evidence/observer_dynamics_20260925/sim-analysis/tests/test_codex_golden_fourier.py evidence/observer_dynamics_20260925/sim-analysis/tests/test_codex_scale_ensemble.py evidence/exact_federation_tower_20260924/test_verify_tower.py tools/test_check_docs_policy.py code/a5_closure/tests/test_galois_port_frame_certificate.py code/a5_closure/tests/test_galois_source_response_pins.py code/a5_closure/tests/test_port_support_source_audit.py code/a5_closure/tests/test_port_gram_support_attachment.py
+          # This file and evidence/source_net_causal_poset/manifold_refinement/test_verify.py
+          # share a basename, so pytest's prepend import mode needs separate processes.
+          python -m pytest -q evidence/observer_dynamics_20260925/lean/test_verify.py
+
+      - name: Verify sampled-manifold evidence
+        env:
+          PYTHONPATH: ${{ github.workspace }}/evidence/source_net_causal_poset/manifold_sampled
+        run: python -m pytest -q evidence/source_net_causal_poset/manifold_sampled/tests/test_exact_source_net_manifold_sampled.py evidence/source_net_causal_poset/manifold_sampled/tests/test_retained_receipt_mutations.py
+
+      - name: Check the documentation policy on changed files
+        if: github.event_name == 'pull_request'
+        run: python tools/check_docs_policy.py --changed "${{ github.event.pull_request.base.sha }}"
+
+  certificates:
+    name: Exhaustive exact certificates
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          filter: blob:none
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements.txt
+      - run: python -m pip install -r requirements.txt
+      - run: python tools/run_mandatory_suite.py --certificates-only
+
+  lanes:
+    name: Nightly replays (${{ matrix.profile }} ${{ matrix.bucket }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {profile: root, requirements: requirements.txt, buckets: 2, bucket: 0}
+          - {profile: root, requirements: requirements.txt, buckets: 2, bucket: 1}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          filter: blob:none
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: ${{ matrix.requirements }}
+      - run: python -m pip install -r ${{ matrix.requirements }}
+      - run: python tools/ci_lanes.py run --tier nightly --profile ${{ matrix.profile }} --buckets ${{ matrix.buckets }} --bucket ${{ matrix.bucket }}
+
+  observer-construction:
+    name: Observer construction (shard ${{ matrix.shard }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5]
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_CORETYPE: Haswell
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          filter: blob:none
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: model/requirements.txt
+      - run: python -m pip install -r model/requirements.txt
+      - name: Fetch the model's recorded base release
+        run: git fetch --no-tags --depth=1 https://github.com/FloatingPragma/observer-patch-holography.git refs/tags/r2053:refs/tags/r2053
+      - name: Verify the recorded base release commit
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          import subprocess
+          expected = json.loads(Path("model/common_source/mass_response/results.json").read_text(encoding="utf-8"))["base_release_commit"]
+          actual = subprocess.check_output(["git", "rev-parse", "r2053^{commit}"], text=True).strip()
+          if actual != expected:
+              raise SystemExit(f"Recorded base release mismatch: {actual} != {expected}")
+      - name: Hash-only receipt check
+        if: matrix.shard == 0
+        run: python -m model.verify_current --hashes-only
+      - run: python -m model.verify_current --shard-index ${{ matrix.shard }} --shard-count 6
+      - if: matrix.shard == 2
+        run: python code/source_scalar_time_refinement/verify_source_scalar_time_refinement.py
+
+  observer-regression:
+    name: Observer regression (shard ${{ matrix.shard }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_CORETYPE: Haswell
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          filter: blob:none
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: model/requirements.txt
+      - run: python -m pip install -r model/requirements.txt
+      - name: Retained custody suites
+        if: matrix.shard == 0
+        run: |
+          python tools/check_retained_completion_custody.py
+          python tools/check_retained_field_custody.py
+          python tools/check_retained_source_records_custody.py
+          python -m pytest -q -W error tools/test_field_current_documentary_owners.py tools/test_retained_source_records_custody.py
+      - name: Native field receipt portability
+        if: matrix.shard == 0
+        run: python -m model.common_source.repair_field_attachment --check model/common_source/repair_field_attachment_results.json
+      - name: Native count-derived fields, defects, entropy and particle response
+        if: matrix.shard == 0
+        shell: python
+        run: |
+          import subprocess
+          import sys
+          for package in ("native_modular_dynamics", "native_quantum_defects", "native_gravity_response",
+                          "particle_finite_response", "particle_memory_response", "particle_record_equivalence"):
+              subprocess.run([sys.executable, "-m", f"model.{package}.certificate", "--check"], check=True)
+      - name: Source field, object, spectroscopy and vacuum receipts
+        if: matrix.shard == 0
+        shell: python
+        run: |
+          import subprocess
+          import sys
+          for package, name in (
+              ("common_source", "native_staggered_field"),
+              ("common_source", "native_field_history"),
+              ("common_source", "native_charged_spectrum"),
+              ("common_source", "native_code_transport"),
+              ("common_source", "native_charged_spectroscopy"),
+              ("native_equilibration", "wedge_modular"),
+          ):
+              subprocess.run([sys.executable, "-m", f"model.{package}.{name}",
+                              "--check", f"model/{package}/{name}_results.json"], check=True)
+      - name: Charged-lepton runtime custody in an isolated session
+        if: matrix.shard == 0
+        run: python -m pytest -q -W error model/charged_lepton_response/test_packet.py::test_generated_results_and_runtime_custody
+      - name: Complete model regression shard
+        run: >-
+          python -m pytest -q -W error --durations=30 -p model.pytest_shards
+          --model-shard-index ${{ matrix.shard }} --model-shard-count 16
+          --deselect model/charged_lepton_response/test_packet.py::test_generated_results_and_runtime_custody
+          model
+      - if: matrix.shard == 0
+        run: |
+          python -B model/observer_particles/run.py --verify-only
+          python -B model/observer_particles/run.py
+
+  exact-interface:
+    name: Exact particle interface tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_CORETYPE: Haswell
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          filter: blob:none
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: model/requirements.txt
+      - run: python -m pip install -r model/requirements.txt
+      - run: python tools/immutable_walsh_replay.py --audit "$RUNNER_TEMP/exact-interface-audit.json"
+
+  completion-retained-custody:
+    name: Retained 0194 custody regression
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Fetch the immutable custody checkpoint
+        run: git fetch --no-tags --depth=1 https://github.com/FloatingPragma/observer-patch-holography.git 0194fc685be3f7ba5f732681713c9cfd04e5290f
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            model/requirements.txt
+      - name: Install the retained checkpoint requirements
+        run: |
+          git show 0194fc685be3f7ba5f732681713c9cfd04e5290f:model/requirements.txt > "$RUNNER_TEMP/oph-retained-requirements.txt"
+          python -m pip install -r "$RUNNER_TEMP/oph-retained-requirements.txt"
+      - name: Run all 53 original tests in their authenticated historical tree
+        run: python tools/check_retained_completion_custody.py
+
+  # These commands ran serially in one job of about 30 minutes; the same
+  # commands run here as parallel jobs.
+
+  completion-retained-field-custody:
+    name: Retained c7 field custody regression
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Fetch the immutable field checkpoint
+        run: git fetch --no-tags --depth=1 https://github.com/FloatingPragma/observer-patch-holography.git c7b09261853f5a3c5a67e21294c3d9511ed59fc7
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            model/requirements.txt
+      - name: Install the field checkpoint requirements
+        run: |
+          git show c7b09261853f5a3c5a67e21294c3d9511ed59fc7:model/requirements.txt > "$RUNNER_TEMP/oph-retained-field-requirements.txt"
+          python -m pip install -r "$RUNNER_TEMP/oph-retained-field-requirements.txt"
+      - name: Run all 31 original field tests in their authenticated tree
+        run: python tools/check_retained_field_custody.py
+
+  completion-program-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            model/requirements.txt
+      - run: pip install -r requirements.txt
+      - if: matrix.shard == 0
+        run: python tools/build_completion_program_current.py --check
+      - name: Run all 73 original source-record tests in their authenticated tree
+        if: matrix.shard == 0
+        run: python tools/check_retained_source_records_custody.py
+      - name: Check the current owner and routing contracts
+        if: matrix.shard == 0
+        run: python -m pytest -q -W error tools/test_field_current_documentary_owners.py tools/test_retained_source_records_custody.py tools/test_diagnostic_parent_custody.py tools/test_numeric_evidence_medium.py
+      # The old source-record CLIs belong to the separately executed 73-case
+      # authority. Current science and current publication are checked separately.
+      - name: Check the exact documentary input boundary and current-code execution
+        if: matrix.shard == 0
+        run: python -m pytest -q -W error tools/test_completion_current_code.py
+      - name: Run current completion code with authenticated finite-contract documentary inputs
+        run: python -m pytest -q --durations=10 -W error -p tools.completion_contract_inputs -p model.pytest_shards --model-shard-index ${{ matrix.shard }} --model-shard-count 4 tools/test_completion_program.py model/completion model/clock_defect_energy
+      - if: matrix.shard == 0
+        run: python -m model.completion.acceptance_audit --check
+      - if: matrix.shard == 0
+        run: python -m model.completion.program_class_v2 --check
+      - if: matrix.shard == 0
+        run: python -m model.completion.independent_program_review
+      - if: matrix.shard == 0
+        run: python -m model.completion.finite_attachment_map --check
+      - if: matrix.shard == 0
+        run: python -m model.completion.dynamics_response_campaign --check
+      - if: matrix.shard == 0
+        run: python -m model.completion.spectrum_einstein_campaign --check
+      - if: matrix.shard == 0
+        run: python -m model.completion.defect_geometry_campaign --check
+      - if: matrix.shard == 0
+        run: python -m model.completion.radial_source_campaign --check
+      - if: matrix.shard == 0
+        run: python code/particles/derive_radial_excitation_catalogue.py --check
+      - if: matrix.shard == 0
+        run: python -m pytest -q -W error code/particles/test_radial_excitation_catalogue.py
+
+  particle-extensions-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2]
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_CORETYPE: Haswell
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: model/requirements.txt
+      - run: python -m pip install -r model/requirements.txt
+      - name: Prepare the pinned OpenWave kernel runtime
+        if: matrix.shard == 1
+        run: |
+          python -m pip install taichi==1.7.4
+          git init "$RUNNER_TEMP/oph-openwave-kernel"
+          git -C "$RUNNER_TEMP/oph-openwave-kernel" fetch --depth=1 https://github.com/openwave-labs/openwave.git ef55175d04737e73c92f33f9f9cf3d17c593da54
+          git -C "$RUNNER_TEMP/oph-openwave-kernel" checkout --detach FETCH_HEAD
+          echo "OPH_OPENWAVE_ROOT=$RUNNER_TEMP/oph-openwave-kernel" >> "$GITHUB_ENV"
+          echo "OPH_TAICHI_PYTHON=$(command -v python)" >> "$GITHUB_ENV"
+      - run: python -m model.verify_particle_extensions --shard-index ${{ matrix.shard }} --shard-count 3
+
+  native-binary-source-refinement:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_CORETYPE: Haswell
+      OPH_REQUIRE_KERNEL_TESTS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r model/requirements.txt
+      - name: Install pinned elan
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          curl -sSfL -o elan.tar.gz https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz
+          echo '42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  elan.tar.gz' | sha256sum -c -
+          tar xzf elan.tar.gz
+          ./elan-init -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch pinned Mathlib artifacts
+        working-directory: Lean
+        run: lake exe cache get
+      - name: Check retained source receipt and kernel mutation controls
+        # The verifier enrolls tools.strict_json itself and rejects source
+        # modules loaded before its enrollment, so this package runs on its
+        # own, before any other test module can import it.
+        run: python -m pytest -q -W error --noconftest --basetemp "$RUNNER_TEMP/native-source-tests" model/native_binary_source_refinement
+
+  source-ew-matching:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout research source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Checkout pinned matching library
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: davidgrobertson/SMDR
+          ref: 5c4dd92c918cadb7f91ad3795694f8398b5c287a
+          path: .smdr-replay
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Independently verify source, VEV, one-loop matching and conventions
+        run: python -m pytest -q code/particles/calibration/test_conditional_top_fixed_p.py code/particles/calibration/test_source_ew_vev_matching.py code/particles/calibration/test_verify_source_ew_vev_matching.py code/particles/calibration/test_compare_source_ew_vev_matching.py
+      - name: Rebuild and execute every retained multiloop matching control
+        # GCC spends over 18 minutes optimizing the upstream effpot.c alone.
+        # Clang preserves the library's precision and all replay controls.
+        run: |
+          mkdir -p .source-ew-diagnostics
+          python code/particles/calibration/source_ew_vev_matching.py --smdr-dir .smdr-replay --build --refresh --output .source-ew-diagnostics/fresh-receipt.json --cc clang
+      - name: Record all numerical deltas and enforce unchanged validation
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+          import sys
+
+          sys.path.insert(0, 'code/particles/calibration')
+          import source_ew_vev_matching as producer
+
+          fresh_path = Path('.source-ew-diagnostics/fresh-receipt.json')
+          cached = json.loads(producer.RECEIPT.read_text())
+          fresh = json.loads(fresh_path.read_text())
+          numbers, failures = [], []
+
+          def inspect(expected, actual, path='root', matching_order=None):
+              if isinstance(expected, dict) and isinstance(actual, dict):
+                  order = expected.get('matching_order', matching_order)
+                  if expected.keys() != actual.keys():
+                      failures.append({'path': path, 'error': 'key mismatch',
+                                       'expected_keys': sorted(expected),
+                                       'actual_keys': sorted(actual)})
+                  for key in sorted(expected.keys() & actual.keys()):
+                      inspect(expected[key], actual[key], f'{path}/{key}', order)
+                  return
+              if isinstance(expected, list) and isinstance(actual, list):
+                  if len(expected) != len(actual):
+                      failures.append({'path': path, 'error': 'list length mismatch',
+                                       'expected_length': len(expected),
+                                       'actual_length': len(actual)})
+                  for index, (old, new) in enumerate(zip(expected, actual)):
+                      inspect(old, new, f'{path}/{index}', matching_order)
+                  return
+              error = None
+              try:
+                  producer.compare(expected, actual, path, matching_order=matching_order)
+              except ValueError as exc:
+                  error = str(exc)
+                  failures.append({'path': path, 'error': error,
+                                   'expected': expected, 'actual': actual})
+              if all(isinstance(value, (int, float)) and not isinstance(value, bool)
+                     and math.isfinite(value) for value in (expected, actual)):
+                  delta = actual - expected
+                  numbers.append({'path': path, 'expected': expected, 'actual': actual,
+                                  'signed_delta': delta, 'absolute_delta': abs(delta),
+                                  'relative_delta': delta / expected if expected else None,
+                                  'current_tolerance_passed': error is None})
+
+          inspect(cached, fresh)
+          report = {'schema': 'oph.source_ew_replay_diagnostics.v1',
+                    'retained_receipt': producer.RECEIPT.relative_to(producer.ROOT).as_posix(),
+                    'fresh_receipt': fresh_path.as_posix(),
+                    'numeric_leaf_count': len(numbers), 'mismatch_count': len(failures),
+                    'numeric_deltas': numbers, 'mismatches': failures,
+                    'tolerances': 'Unmodified source_ew_vev_matching.compare; diagnostics do not relax validation.'}
+          Path('.source-ew-diagnostics/numeric-deltas.json').write_text(
+              json.dumps(report, indent=2, sort_keys=True, allow_nan=False) + '\n')
+          producer.compare(cached, fresh)
+          producer.validate_cached(cached)
+          print('Fresh source EW replay and retained receipt validation: PASS')
+          PY
+      - name: Preserve fresh receipt and numerical diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: source-ew-matching-diagnostics
+          path: .source-ew-diagnostics/*.json
+          include-hidden-files: true
+          if-no-files-found: warn
+
+  source-operation-reads:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          path: oph
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: MarioPoneder/oph-physics-sim
+          ref: 84d46b97b07965406c608e1465bec18b2a308372
+          path: simulator
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: "3.12"
+      - run: pip install -e "./simulator[test]"
+      - name: Pinned simulator regressions and hostile inputs
+        working-directory: simulator
+        run: python -m pytest -q tests/test_primitive_source_reads.py tests/test_ordered_port_response_diagnostic.py tests/test_physical_h3_kms_source_capture.py
+      - name: Independent retained evidence and hostile inputs
+        working-directory: oph
+        env:
+          PYTHONPATH: code
+        run: |
+          python -m source_operation_reads.verify
+          python -m pytest -q code/source_operation_reads
+      - name: Recompute native operations from pinned source
+        working-directory: oph
+        env:
+          PYTHONPATH: code
+        run: python -m source_operation_reads.check_live ../simulator
+
+  openwave-joint-model:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install './code/openwave_candidate/candidate[integration,test]'
+      - name: Candidate scientific and broken-control tests
+        run: python -m pytest -q code/openwave_candidate/candidate/tests tools/test_openwave_joint_claims.py
+      - name: Portable preparation gates
+        run: |
+          python code/openwave_candidate/platform_packet/validate.py
+          python -m unittest discover -s code/openwave_candidate/platform_packet -p 'test_validate.py'
+          python -m unittest discover -s code/openwave_candidate/integration -p 'test_assess.py'
+          python code/openwave_candidate/integration/run.py
+      - name: Recompute source-bound assessment and claims
+        run: |
+          python code/openwave_candidate/integration/assess.py --output /tmp/openwave-assessment.json
+          python code/openwave_candidate/integration/assess.py --verify /tmp/openwave-assessment.json
+          python tools/check_openwave_assessment_replay.py code/openwave_candidate/integration/assessment.json /tmp/openwave-assessment.json
+          python -m tools.build_openwave_joint_claims --check
+
+  openwave-partial-records:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r code/openwave_static_signed_source/requirements.txt pytest
+      - name: Evidence custody, sealed receipts and independent recomputation
+        run: python -B code/openwave_partial_records/verify.py
+      - name: Tests and claim ledger
+        run: |
+          python -m pytest -q code/openwave_partial_records
+          python tools/build_openwave_partial_records_claim.py --check
+
+  openwave-signed-source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r code/openwave_static_signed_source/requirements.txt pytest
+      - name: Published evidence custody and full experiment replay
+        run: |
+          python -B code/openwave_static_signed_source/replay.py --verify-only
+          python -B code/openwave_static_signed_source/replay.py
+      - name: Independent recomputation and claim ledger
+        run: |
+          python -m pytest -q code/openwave_signed_source
+          python tools/build_openwave_signed_source_claim.py --check
+
+  lean-full:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      LEAN_NUM_THREADS: "1"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install elan
+        run: |
+          set -euo pipefail
+          # Pinned elan release, verified against its published sha256.
+          elan_version=v4.2.4
+          elan_sha256=42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63
+          cd "$RUNNER_TEMP"
+          curl -sSfL -o elan.tar.gz \
+            "https://github.com/leanprover/elan/releases/download/${elan_version}/elan-x86_64-unknown-linux-gnu.tar.gz"
+          echo "${elan_sha256}  elan.tar.gz" | sha256sum -c -
+          tar xzf elan.tar.gz
+          ./elan-init -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Restore Lake build cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            Lean/.lake/build
+            Lean/ObservableNormalForms/.lake/build
+          key: lean-core-v3-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            lean-core-v3-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}-
+
+      - name: Check zero proof debt and no axiom declarations
+        working-directory: Lean
+        run: |
+          set -euo pipefail
+          if rg -n '^\s*(sorry|admit)\b|(:=|\bby|\bexact|\brefine|·)\s*(sorry|admit)\b' \
+              . --glob '*.lean' --glob '!**/.lake/**'; then
+            echo "Unexpected Lean admission." >&2
+            exit 1
+          fi
+          if rg -n '^\s*(@\[[^]]*\]\s*)?((private|protected|noncomputable|unsafe)\s+)*axiom\s+[^\s:({\[]+\s*[:({\[]' \
+              . --glob '*.lean' --glob '!**/.lake/**'; then
+            echo "Unexpected axiom declaration in the Lean tree." >&2
+            exit 1
+          fi
+
+      - name: Fetch Mathlib olean cache
+        working-directory: Lean
+        run: lake exe cache get
+
+      - name: Build the complete default target set
+        working-directory: Lean
+        run: |
+          set -euo pipefail
+          # Record host pressure without process arguments or environment data.
+          python3 -u - <<'PY' &
+          import datetime
+          import pathlib
+          import subprocess
+          import time
+
+          while True:
+              print("Lean host snapshot", datetime.datetime.now(datetime.timezone.utc).isoformat(), flush=True)
+              for command in (["free", "-m"], ["df", "-h", "."]):
+                  subprocess.run(command, check=False, timeout=10)
+              for name in ("/sys/fs/cgroup/memory.events", "/sys/fs/cgroup/memory/memory.failcnt"):
+                  path = pathlib.Path(name)
+                  if path.is_file():
+                      print(name, path.read_text(), flush=True)
+              processes = subprocess.run(["ps", "-eo", "pid,comm,rss", "--sort=-rss"],
+                                         capture_output=True, text=True, check=False, timeout=10)
+              print("\n".join(processes.stdout.splitlines()[:12]), flush=True)
+              time.sleep(60)
+          PY
+          monitor_pid=$!
+          finish() {
+            build_status=$?
+            trap - EXIT
+            kill "$monitor_pid" 2>/dev/null || true
+            wait "$monitor_pid" 2>/dev/null || true
+            exit "$build_status"
+          }
+          trap finish EXIT
+          trap 'echo "Lean build received SIGTERM" >&2; exit 143' TERM
+          lake build 2>&1 | tee full-build.log
+          if grep -F 'declaration uses `sorry`' full-build.log; then
+            echo "Unexpected Lean proof-debt state in the nightly full build." >&2
+            exit 1
+          fi
+
+      - name: Run the FZ-12 joint-threshold certificate suite
+        # The producer replays `lake build SeamCurrentPhotonLeptonThreshold`
+        # and its axiom audit, so it runs after the full build rather than in
+        # the Python-only mandatory suite.
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet pytest==9.1.1 sympy==1.14.0 mpmath==1.3.0
+          python3 -m pytest -q code/a5_fingerprint/test_fz12_joint_threshold_certificate.py
+
+      - name: Build the frozen OphGap certificate
+        working-directory: Lean
+        run: lake build OphGap
+
+      - name: Build the neutral submission artifact
+        working-directory: Lean/ObservableNormalForms
+        run: |
+          lake exe cache get
+          lake build
+
+      - name: Save Lake build cache
+        # Completed artifacts may be reused after a failed build; Lake still
+        # checks source/dependency traces. Saving never turns a failure green.
+        if: always() && !cancelled()
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            Lean/.lake/build
+            Lean/ObservableNormalForms/.lake/build
+          key: lean-core-v3-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+
+  release-channel:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+
+      - name: Check latest public release assets
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python tools/check_github_release_channel.py
+
+  report:
+    name: Report nightly failures
+    if: always() && github.event_name == 'schedule' && contains(join(needs.*.result, ' '), 'failure')
+    needs: [mandatory-full, certificates, lanes, observer-construction, observer-regression, exact-interface, completion-retained-custody, completion-retained-field-custody, completion-program-contract, particle-extensions-replay, native-binary-source-refinement, source-ew-matching, source-operation-reads, openwave-joint-model, openwave-partial-records, openwave-signed-source, lean-full, release-channel]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    steps:
+      - name: Open or update the nightly failure issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          RESULTS: ${{ toJSON(needs) }}
+        run: |
+          set -euo pipefail
+          failed="$(printf '%s' "$RESULTS" | python3 -c 'import json,sys; d=json.load(sys.stdin); print("\n".join("- " + k for k, v in sorted(d.items()) if v["result"] == "failure"))')"
+          body="$(printf 'Nightly run %s failed on %s.\n\nFailed jobs:\n%s\n' "$RUN_URL" "$(date -u +%Y-%m-%d)" "$failed")"
+          gh label create nightly-failure --color B60205 --description "Nightly CI failed" 2>/dev/null || true
+          number="$(gh issue list --state open --label nightly-failure --json number --jq '.[0].number // empty')"
+          if [ -n "$number" ]; then
+            gh issue comment "$number" --body "$body"
+          else
+            gh issue create --title "Nightly CI failure" --label nightly-failure --body "$body"
+          fi

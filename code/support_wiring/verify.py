@@ -25,6 +25,17 @@ ROOT = HERE.parents[1]
 DEFAULT = ROOT / "evidence/support_wiring_776"
 
 
+def _load_pin_scope():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("pin_scope", Path(__file__).resolve().parents[1]/"pin_scope.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+pin_scope = _load_pin_scope()
+
+
 def require(condition, message):
     if not condition:
         raise ValueError(message)
@@ -618,11 +629,11 @@ def verify_inventory(output):
         require(".." not in Path(name).parts and not Path(name).is_absolute(), "safe archive path")
         path = output/name
         require(path.stat().st_size == pin["bytes"] and digest(path) == pin["sha256"], "archive artifact digest: "+name)
-    expected_sources = {p.relative_to(ROOT).as_posix() for p in HERE.rglob("*")
-                        if p.is_file() and "__pycache__" not in p.parts}
-    expected_sources.add(".github/workflows/support-wiring.yml")
-    require(set(manifest["sources"]) == expected_sources, "complete source inventory")
-    for name, pin in manifest["sources"].items():
+    expected_sources = set(pin_scope.bound(p.relative_to(ROOT).as_posix() for p in HERE.rglob("*")
+                                           if p.is_file() and "__pycache__" not in p.parts))
+    sources = pin_scope.bound_pins(manifest["sources"])
+    require(set(sources) == expected_sources, "complete source inventory")
+    for name, pin in sources.items():
         require(digest(ROOT/name) == pin, "source digest: "+name)
     require(manifest["mirror"] == "evidence/source_net_causal_poset/support_wiring_receipt.json", "mirror location")
     if output.resolve() == DEFAULT.resolve():

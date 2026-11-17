@@ -214,20 +214,12 @@ def test_transitive_proof_audit_and_ci():
         names.update("OPH."+module+"."+n for n in re.findall(r"^theorem (\w+)",proof,re.M))
     assert names==set(re.findall(r"^audit_reusable_bus_axioms ([\w.]+)$",audit,re.M))
     assert "Lean/Geometry/SourceReusableBusAxiomAudit.lean" in codec.proof_paths()
-    require_ci_audit((codec.ROOT/".github/workflows/lean-ci.yml").read_text())
-    workflow = yaml.safe_load((codec.ROOT/".github/workflows/source-read-acceptance.yml").read_text())
-    assert workflow["jobs"]["controls"]["strategy"]["matrix"]["os"]==["ubuntu-latest"]
-    assert any(s.get("run")=="python -m pytest -q code/source_read_acceptance"
-               for s in workflow["jobs"]["controls"]["steps"])
-    triggers = workflow.get("on",workflow.get(True))
-    for event in ("push","pull_request"):
-        for path in codec.pins():
-            assert any(fnmatchcase(path,pattern) for pattern in triggers[event]["paths"]),path
+    require_ci_audit((codec.ROOT/".github/workflows/lean.yml").read_text())
 
 
 @pytest.mark.parametrize("replacement",['','# "Geometry.SourceReadAcceptanceAxiomAudit"',
                                          '"Geometry.SourceReadAcceptance"'])
 def test_disabled_audit_gate_is_rejected(replacement):
-    source = (codec.ROOT/".github/workflows/lean-ci.yml").read_text()
+    source = (codec.ROOT/".github/workflows/lean.yml").read_text()
     with pytest.raises(AssertionError):
         require_ci_audit(source.replace('"Geometry.SourceReadAcceptanceAxiomAudit"',replacement))

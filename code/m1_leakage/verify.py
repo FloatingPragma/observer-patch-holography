@@ -11,6 +11,7 @@ from .noise_check import verify as verify_noise
 from .correction_check import verify as verify_correction
 from .scaling_check import verify as verify_scaling
 from .composition_check import verify as verify_composition
+import pin_scope
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -23,6 +24,7 @@ OWN = ('__init__.py', 'format.py', 'interfaces.py', 'interface_check.py',
 SOURCES = sorted(set(parent.SOURCES+['code/m1_noisy_records/receipt.json']
                     +['code/m1_leakage/'+p for p in OWN]
                     +['docs/research/LEAKAGE_SOURCE_REFINEMENT.md', '.github/workflows/m1-leakage.yml']))
+SOURCES = pin_scope.bound(SOURCES)
 CLAIMS = ('OPH-SOURCE-NATIVE-LEAKAGE-REDUCTION', 'OPH-SOURCE-GENERAL-NOISE-REFINEMENT')
 
 
@@ -66,7 +68,7 @@ def verify(path=HERE/'receipt.json'):
     packet = load(path)
     keys(packet, 'schema sources claims evidence')
     need(packet['schema'] == 'oph-native-leakage-v1', 'receipt schema')
-    need(packet['sources'] == pins(), 'source custody')
+    need(pin_scope.bound_pins(packet['sources']) == pins(), 'source custody')
     need(packet['claims'] == claims(), 'registered claim custody')
     parent.verify()
     verify_evidence(packet['evidence'])

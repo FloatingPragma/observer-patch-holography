@@ -1,4 +1,8 @@
-name: Lean CI
+name: Lean
+
+# Change-aware Lean build with the cached Mathlib artifacts. Every job stays
+# under 30 minutes; tools/check_lean_ci_budget.py guards that wiring. The
+# exhaustive default build runs in nightly.yml.
 
 on:
   workflow_dispatch:
@@ -9,33 +13,31 @@ on:
       - "claims/frozen_prediction_register.json"
       - "code/a5_fingerprint/spin_six_primitive_port_prediction.py"
       - "code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json"
-      - "code/a5_fingerprint/test_spin_six_primitive_port_prediction.py"
-      - "code/audit/test_fz_registry_gates.py"
       - "code/audit/test_e4_absence_guards.py"
       - "code/b15_matter_freeze/**"
       - "code/b16_lattices/**"
-      - "docs/FROZEN_PREDICTION_LADDER.md"
       - "tools/build_fz_registry.py"
+      - "tools/check_fixed_federation_execution_audit.py"
       - "tools/check_lean_native_decide_inventory.py"
-      - ".github/workflows/lean-ci.yml"
+      - "tools/check_lean_ci_budget.py"
+      - ".github/workflows/lean.yml"
   pull_request:
     paths:
       - "Lean/**"
       - "claims/frozen_prediction_register.json"
       - "code/a5_fingerprint/spin_six_primitive_port_prediction.py"
       - "code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json"
-      - "code/a5_fingerprint/test_spin_six_primitive_port_prediction.py"
-      - "code/audit/test_fz_registry_gates.py"
       - "code/audit/test_e4_absence_guards.py"
       - "code/b15_matter_freeze/**"
       - "code/b16_lattices/**"
-      - "docs/FROZEN_PREDICTION_LADDER.md"
       - "tools/build_fz_registry.py"
+      - "tools/check_fixed_federation_execution_audit.py"
       - "tools/check_lean_native_decide_inventory.py"
-      - ".github/workflows/lean-ci.yml"
+      - "tools/check_lean_ci_budget.py"
+      - ".github/workflows/lean.yml"
 
 concurrency:
-  group: lean-ci-${{ github.event.pull_request.number || github.ref }}
+  group: lean-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 permissions:
@@ -409,7 +411,7 @@ jobs:
               Lean/Screen/GoldenSectorPSL2F5Representations.lean \
               Lean/Screen/OPHScreen.lean \
               Lean/lean-toolchain Lean/lakefile.lean Lean/lake-manifest.json \
-              .github/workflows/lean-ci.yml; then
+              .github/workflows/lean.yml; then
             echo "required=false" >> "$GITHUB_OUTPUT"
           else
             echo "required=true" >> "$GITHUB_OUTPUT"
@@ -550,7 +552,7 @@ jobs:
           if git diff --quiet "$base" "$head" -- \
               Lean/OphGap Lean/OphGap.lean \
               Lean/lean-toolchain Lean/lakefile.lean Lean/lake-manifest.json \
-              .github/workflows/lean-ci.yml; then
+              .github/workflows/lean.yml; then
             echo "required=false" >> "$GITHUB_OUTPUT"
           else
             echo "required=true" >> "$GITHUB_OUTPUT"

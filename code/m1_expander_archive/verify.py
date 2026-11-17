@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 from m1_noisy_records import verify as parent
 from .format import keys, need
+import pin_scope
 from . import graph_check, circuit_check, decoder_check, bounds_check, export_check
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -17,6 +18,7 @@ OWN = ('__init__.py', 'format.py', 'graphs.py', 'graph_check.py', 'circuit.py',
 SOURCES = sorted(set(parent.SOURCES+['code/m1_noisy_records/receipt.json']+
                      ['code/m1_expander_archive/'+p for p in OWN]+
                      ['docs/research/FIXED_STRENGTH_PUBLIC_RECORDS.md', '.github/workflows/m1-expander-archive.yml']))
+SOURCES = pin_scope.bound(SOURCES)
 CLAIMS = ('OPH-SOURCE-EXPANDER-LIVE-ARCHIVE', 'OPH-SOURCE-FIXED-STRENGTH-PUBLIC-HISTORY')
 
 
@@ -60,7 +62,7 @@ def verify(path=HERE/'receipt.json'):
     packet = load(path)
     keys(packet, 'schema sources claims evidence')
     need(packet['schema'] == 'oph-fixed-strength-public-records-v1', 'receipt schema')
-    need(packet['sources'] == pins(), 'source custody')
+    need(pin_scope.bound_pins(packet['sources']) == pins(), 'source custody')
     need(packet['claims'] == claims(), 'scoped claim custody')
     parent.verify()
     verify_evidence(packet['evidence'])

@@ -24,15 +24,6 @@ def test_independent_live_source_reconstruction(packet):
     assert independent.verify(packet)["raw_maps"] == 60
 
 
-def test_ci_push_and_pr_triggers_cover_the_whole_source_closure():
-    workflow = (producer.ROOT / ".github/workflows/arithmon-interface-contracts.yml").read_text()
-    sections = [workflow.split("  push:", 1)[1].split("  pull_request:", 1)[0],
-                workflow.split("  pull_request:", 1)[1].split("jobs:", 1)[0]]
-    for section in sections:
-        patterns = re.findall(r"- '([^']+)'", section)
-        assert all(any(fnmatch.fnmatch(path, pattern) for pattern in patterns) for path in producer.SOURCES)
-
-
 def test_every_seed_relabeling_has_typed_action_without_selecting(packet):
     group = [tuple(p) for p in packet["seed"]["raw_maps"]]
     identity = tuple(range(12))

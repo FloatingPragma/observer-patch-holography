@@ -35,8 +35,6 @@
   ],
   "total_reference_events": 5344106,
   "source_pins": {
-    ".github/workflows/lean-ci.yml": "61722dbceb2a41994a348ece6a5b62e64ff9e4735c640966c6072a35d73e3b60",
-    ".github/workflows/source-selection-model.yml": "77db88a0e697cbe2d98891caa3f6a10ac6464be987e7e54ce8728b417d7e940f",
     "Lean/Geometry.lean": "38938cb733cd1411ff1d17a76c7990afc980115f29b1cb774f3bcc2749c40f79",
     "Lean/Geometry/FlatDiamondError.lean": "cd6c0a4334f185c528fb5692ee83d5411485153ffe78bf714568aa9442e94325",
     "Lean/Geometry/FlatDiamondVolume.lean": "606664950e8caa745566a90f73239958fbc6f3abc007b9c07fa61b89303c8382",
@@ -99,17 +97,12 @@
     "Lean/lean-toolchain": "7dc000621e0046d1aada809e2b7177e64454645cf4c741e9daaf79c99ec2e7a2",
     "code/a5_closure/echosahedral_selector_certificate.py": "e140adad7fe3162e38dbe44736669d9ea35f98a94acf90625d09fce9766385f7",
     "code/a5_closure/port_current_inner_certificate.py": "8ac3f51d08155decc328ebb8c12909bf92f9a50313f14ebc0faf70c0d2513436",
-    "code/source_record_gluing/README.md": "83e71f8daebe46ba5d271802533f22392f3c2265557d287dbb1b4ecd1cf0bd64",
     "code/source_record_gluing/__init__.py": "e8d91f371dc9306036fb6c10916180f80a662fee56abdb0ae76fbda7486bc440",
     "code/source_record_gluing/build.py": "5ac195227817c223fe22869f7e1ee3ca4d84faf461784f0e5aaa858b05eec330",
     "code/source_record_gluing/capture.json": "8cecea769b0a978f4fce61f2d26e2e3f55534d75d457aa0a9c5bf57b31e65c9c",
     "code/source_record_gluing/check_process.py": "2d3664a74cc5f0de891f996d12ad204d33c75744ff9662dbfaadb90b96708b15",
     "code/source_record_gluing/process.py": "4e39712fe28dda32cd7da37bdf0e50d9d8bd435f1f828d411dc950f20336342f",
-    "code/source_record_gluing/test_process.py": "f0a4c748e6c7650874d76a7a571f665f0d1b0a322fe673016d0093d9449d9112",
-    "code/source_record_gluing/verify.py": "6b32a1791389bf8f3febc79c9af5bab0695eaf9c861b16fe48685edf47d9b40a",
-    "code/source_selection_model/CONTRACT.md": "9c7506b7c136fdbb1cac1138ca68ce57c75d2cfcccbb45bc149c5a41da65cbcc",
-    "code/source_selection_model/RECORD_GLUING.md": "7919b97e9dde9fbd952c2f6bf0dcdcbfc83bdcd45d1a2c83d59250e7ccd7203b",
-    "code/source_selection_model/verify_response.py": "1aaa22195b7241aaf61f0bda60940907f2416f406c53f81ebb3418005d95900e",
-    "paper/tex_fragments/SOURCE_RECORD_GLUING.tex": "89447e65e21d886c2bfc3840ea7582ead77910a6b10d193761bd27782795e878"
+    "code/source_record_gluing/verify.py": "75698eea829a4ef19c0984a3672a31ab1fd6f929895f5642b5a92ccf45cd9f5f",
+    "code/source_selection_model/verify_response.py": "1aaa22195b7241aaf61f0bda60940907f2416f406c53f81ebb3418005d95900e"
   }
 }
