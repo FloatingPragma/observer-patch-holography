@@ -21,11 +21,11 @@ from ..particle_screening import screening
 from ..observer import record_recovery as records
 from ..observer.source_discrimination import circuit
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -88,7 +88,7 @@ def campaign_binding() -> dict:
     # The frozen campaign names its predecessor inputs; their current bytes
     # are bound by this receipt's own source map.
     if (type(bound_pins(campaign.get("source_sha256"))) is not dict
-            or set(bound_pins(campaign["source_sha256"])) != set(BASE_SOURCES)):
+            or set(bound_pins(campaign["source_sha256"])) != scoped(set(BASE_SOURCES))):
         raise ValueError("predecessor source-bound input changed")
     return {"campaign_id": campaign["campaign_id"],
             "contract_sha256": digest("model/active_code_energy/campaign.json")}

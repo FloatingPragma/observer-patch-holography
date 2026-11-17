@@ -14,11 +14,11 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import circuits, detection
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = detection.ROOT
 HERE = Path(__file__).parent
@@ -99,7 +99,7 @@ def validate(value, arrays):
             or not 0 <= run['rounded_negative_slot_count'] <= 8*1008*4
             or not 0 <= run['rounded_negative_slot_mass'] <= 1e-30):
         raise ValueError('native floating roundoff exceeds its admission')
-    if bound_pins(value['source_bindings']) != bindings():
+    if bound_pins(value['source_bindings']) != scoped(bindings()):
         raise ValueError('source dependency changed')
 
 

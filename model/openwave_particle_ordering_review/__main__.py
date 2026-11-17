@@ -12,11 +12,11 @@ from model.openwave_baryon_ordering.__main__ import pins as baryon_pins
 from model.openwave_baryon_ordering.source import balanced_baryon,one_body
 from model.openwave_baryon_ordering.calculation import ratio_intervals
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 ROOT=Path(__file__).resolve().parents[2];HERE=Path(__file__).resolve().parent
 
 def algebra_checks():
@@ -71,7 +71,7 @@ def baryon_checks(receipt):
 def certificate():
  inputs={};data={}
  for name,fn in(('openwave_vectorlike_flavour',flavour_pins),('openwave_baryon_ordering',baryon_pins)):
-  path=ROOT/'model'/name/'results.json';r=json.loads(path.read_text());assert bound_pins(r['source_sha256'])==fn();data[name]=r;inputs.update(bound_pins(r['source_sha256']));inputs[str(path.relative_to(ROOT))]=hashlib.sha256(path.read_bytes()).hexdigest()
+  path=ROOT/'model'/name/'results.json';r=json.loads(path.read_text());assert bound_pins(r['source_sha256'])==scoped(fn());data[name]=r;inputs.update(bound_pins(r['source_sha256']));inputs[str(path.relative_to(ROOT))]=hashlib.sha256(path.read_bytes()).hexdigest()
  for p in import_closure({str(p.relative_to(ROOT))for p in HERE.glob('*.py')}):inputs[p]=hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
  return {'verdict':'PASS_INDEPENDENT_VECTORLIKE_BARYON_ORDERING_REVIEW','source_sha256':bound_pins(inputs),
   'vectorlike_algebra':algebra_checks(),'baryon_spectrum_and_records':baryon_checks(data['openwave_baryon_ordering']),

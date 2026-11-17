@@ -45,11 +45,11 @@ from ..observer import native
 from ..observer.source_discrimination import circuit, experiment as native_source
 from ..observer.source_scalar import compiler
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -578,7 +578,7 @@ def _compare(expected, actual, path='report'):
 
 def check(path):
     path = Path(path); retained = strict_json.load(path)
-    if type(retained) is not dict or bound_pins(retained.get('source_bindings')) != source_bindings():
+    if type(retained) is not dict or bound_pins(retained.get('source_bindings')) != scoped(source_bindings()):
         raise ValueError('reciprocal finite source custody differs')
     artifact = path.with_suffix('.npz')
     if retained.get('artifact') != {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}:

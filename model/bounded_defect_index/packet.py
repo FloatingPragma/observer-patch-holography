@@ -13,11 +13,11 @@ from tools.build_completion_program import integration_source_paths
 from ..topological_defect_spectrum import packet as parent_packet
 from . import algebra, bounds
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -40,7 +40,7 @@ def inherited_custody():
     value = strict_json.load(ROOT/PRIOR)
     if (type(value) is not dict or value.get('schema') != 'oph.topological_defect_spectrum.v1'
             or value.get('all_pass') is not True
-            or bound_pins(value.get('source_bindings')) != parent_packet.source_bindings()):
+            or bound_pins(value.get('source_bindings')) != scoped(parent_packet.source_bindings())):
         raise ValueError('the complete unchanged topological spectrum source is required')
     for path, digest in bound_pins(value['source_bindings']).items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != digest:
@@ -100,7 +100,7 @@ def validate(value, replay=None):
         raise ValueError('the inherited proof verification boundary changed')
     if replay is not None and canonical(value) != canonical(replay):
         raise ValueError('the bounded index receipt differs from the fresh replay')
-    if bound_pins(value['source_bindings']) != source_bindings():
+    if bound_pins(value['source_bindings']) != scoped(source_bindings()):
         raise ValueError('the bounded index source manifest is incomplete or stale')
 
 
@@ -128,7 +128,7 @@ def report():
                         '-m', 'model.bounded_defect_index.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.load(path)
-    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != scoped(pins):
         raise ValueError('source changed across the cold index replay')
     validate(value)
     return value

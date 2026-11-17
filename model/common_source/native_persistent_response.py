@@ -33,11 +33,11 @@ from tools import strict_json
 from . import native_gauge_object as objects
 from . import native_virtual_exchange as virtual
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 PORT_PAIRS = tuple(itertools.combinations_with_replacement(range(12), 2))
@@ -617,7 +617,7 @@ def check(path):
     path = Path(path)
     pins = source_bindings()
     report = strict_json.load(path)
-    if type(report) is not dict or bound_pins(report.get('source_bindings')) != pins:
+    if type(report) is not dict or bound_pins(report.get('source_bindings')) != scoped(pins):
         raise ValueError('persistent-response source bindings differ')
     artifact = path.with_suffix('.npz')
     if report.get('artifact') != {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}:

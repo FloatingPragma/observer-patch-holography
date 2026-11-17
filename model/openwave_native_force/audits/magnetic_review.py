@@ -12,11 +12,11 @@ import sympy as s
 
 from model.openwave_magnetic_response import response as producer
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[3]
 
@@ -152,7 +152,7 @@ def run():
     assert np.array_equal(spin@spin, np.eye(16))
     assert np.allclose((spin/2)@(spin/2), np.eye(16)/4)
     assert np.linalg.norm(np.kron(np.eye(16), curvature)-np.kron(spin, curvature)) > .01
-    if pins != bound_pins({str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}):
+    if scoped(pins) != bound_pins({str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}):
         raise ValueError('magnetic inputs changed during independent audit')
     return {'schema': 'oph.independent_magnetic_response_audit.v1',
             'verdict': 'PASS_CONDITIONAL_SPIN_CURVATURE_RESPONSE', 'source_sha256': bound_pins(dict(sorted(pins.items()))),

@@ -65,3 +65,17 @@ def repo_sha256(path) -> str:
 
     root = Path(__file__).resolve().parents[1]
     return hashlib.sha256((root / str(path)).read_bytes()).hexdigest()
+
+
+def scoped(value):
+    """``value`` without exempt paths, keeping its type.
+
+    A comparison with a filtered pin map applies this to the other side: a
+    map loses its exempt keys, a set, list or tuple of paths its exempt
+    members. Any other value is returned unchanged.
+    """
+    if isinstance(value, dict):
+        return bound_pins(value)
+    if isinstance(value, (set, frozenset, list, tuple)) and all(isinstance(v, str) for v in value):
+        return type(value)(bound(value))
+    return value

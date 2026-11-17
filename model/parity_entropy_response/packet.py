@@ -15,11 +15,11 @@ from ..matter_geometry_response import packet as geometry_packet
 from ..radial_interacting_core import packet as core_packet
 from . import modular, records, regional
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = 'model/parity_entropy_response'
@@ -47,7 +47,7 @@ def custody():
         value = strict_json.load(ROOT/path)
         if (type(value) is not dict or value.get('schema') != 'oph.'+name+'.v1'
                 or value.get('all_pass') is not True
-                or bound_pins(value.get('source_bindings')) != producer.source_bindings()):
+                or bound_pins(value.get('source_bindings')) != scoped(producer.source_bindings())):
             raise ValueError('complete current parent source receipt required: '+name)
         for source, digest in bound_pins(value['source_bindings']).items():
             if hashlib.sha256((ROOT/source).read_bytes()).hexdigest() != digest:
@@ -149,7 +149,7 @@ def report():
                         '-m', 'model.parity_entropy_response.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True, timeout=300)
         value = strict_json.load(path)
-    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != scoped(pins):
         raise ValueError('source changed across cold regional entropy replay')
     validate(value)
     return value

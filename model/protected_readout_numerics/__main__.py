@@ -4,11 +4,11 @@ from pathlib import Path
 from . import model
 from model.protected_particle_readout import packet
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 def main():
@@ -26,7 +26,7 @@ def main():
     for name in('contract.json','retained.json'):pins[str((model.HERE/name).relative_to(model.ROOT))]=model.digest(model.HERE/name)
     spec,_,_=model.specification();pins[spec['retained_array']]=spec['retained_array_sha256']
     if a.check:
-        saved=json.loads(a.check.read_text());model.require(bound_pins(saved['input_sha256'])==pins,'numerical successor source changed')
+        saved=json.loads(a.check.read_text());model.require(bound_pins(saved['input_sha256'])==scoped(pins),'numerical successor source changed')
     fresh=packet.report()
     result=model.report(fresh);diagnostics=result.pop('backend_replay_diagnostics')
     result['input_sha256']=bound_pins(pins);result['owned_source_sha256']=bound_pins(own)

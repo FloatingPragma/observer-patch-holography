@@ -12,11 +12,11 @@ import sympy as s
 
 from model.openwave_field_observables import lattice, orbitals, mass_shell
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -154,7 +154,7 @@ def run():
     assert worst_shell<3e-14
     h=mass_shell.hamiltonian((.3,.2,-.1),.25,masses)
     assert abs(np.trace(h+.025*np.eye(16)))>.39
-    if pins != bound_pins({str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in files}):
+    if scoped(pins) != bound_pins({str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in files}):
         raise ValueError('field source changed during independent audit')
     return {'schema':'oph.independent_field_observables_audit.v1','verdict':'PASS_SCOPED_CONSEQUENCES',
             'source_sha256':bound_pins(dict(sorted(pins.items()))),

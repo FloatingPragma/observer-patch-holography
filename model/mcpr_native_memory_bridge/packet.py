@@ -10,11 +10,11 @@ from tools import strict_json
 from . import construction as c
 from .certificate import admissibility
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = c.ROOT
 PACKAGE = Path(__file__).resolve().parent
@@ -142,7 +142,7 @@ def report():
 
 
 def validate(value):
-    if bound_pins(value.get('source_bindings')) != source_bindings():
+    if bound_pins(value.get('source_bindings')) != scoped(source_bindings()):
         raise ValueError('stale or incomplete source manifest')
     for row in value.get('designs',[]):
         independent_check(row)

@@ -7,11 +7,11 @@ from pathlib import Path
 
 from tools import strict_json
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -56,7 +56,7 @@ def load_contract(path=None):
             or value["boundary_status"] != "FROZEN_DIAGNOSTIC_CONTRACT"
             or value["predecessor"]["merged_into_main_claimed"] is not False):
         raise ValueError("diagnostic scope or pending dependency changed")
-    if type(bound_pins(value["source_sha256"])) is not dict or set(bound_pins(value["source_sha256"])) != REQUIRED_SOURCES:
+    if type(bound_pins(value["source_sha256"])) is not dict or set(bound_pins(value["source_sha256"])) != scoped(REQUIRED_SOURCES):
         raise ValueError("complete predecessor source bindings required")
     # The frozen contract names its predecessor sources; their current bytes
     # are bound by the receipts that read them, not compared here.

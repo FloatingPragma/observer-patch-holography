@@ -16,11 +16,11 @@ import tempfile
 from tools import strict_json
 from ..completion.program_class_v2 import reviewed_contract_digest
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -249,7 +249,7 @@ def report():
                              text=True, encoding='utf-8', timeout=900)
     result = strict_json.loads(run.stdout)
     if (type(result) is not dict or set(result) != RESULT_KEYS
-            or bound_pins(result.get('source_sha256')) != before or source_bindings() != before
+            or bound_pins(result.get('source_sha256')) != scoped(before) or source_bindings() != before
             or result.get('program_class_contract_sha256') != class_digest
             or class_contract_digest() != class_digest):
         raise RuntimeError('fresh occupation replay and current source custody disagree')

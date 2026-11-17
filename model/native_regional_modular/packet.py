@@ -13,11 +13,11 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import flow
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -113,7 +113,7 @@ def report():
                         '-m', 'model.native_regional_modular.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         result = strict_json.load(path)
-    if bindings() != pins or bound_pins(result['source_bindings']) != pins:
+    if bindings() != pins or bound_pins(result['source_bindings']) != scoped(pins):
         raise ValueError('regional modular sources changed across cold replay')
     return result
 

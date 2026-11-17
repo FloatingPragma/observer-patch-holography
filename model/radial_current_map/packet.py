@@ -14,11 +14,11 @@ from ..common_source import native_matter_attachment
 from ..radial_interacting_core import packet as core_packet
 from . import algebra, controls, representation
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = 'model/radial_current_map'
@@ -41,7 +41,7 @@ def custody():
     for path, producer, schema in zip(PARENTS, (core_packet, native_matter_attachment),
             ('oph.radial_interacting_core.v1', 'oph.native_matter_attachment.v1'), strict=True):
         value = strict_json.load(ROOT/path)
-        if value.get('schema') != schema or bound_pins(value.get('source_bindings')) != producer.source_bindings():
+        if value.get('schema') != schema or bound_pins(value.get('source_bindings')) != scoped(producer.source_bindings()):
             raise ValueError('the current complete source parent is required: '+path)
         if path == PARENTS[0] and value.get('all_pass') is not True:
             raise ValueError('the complete interacting isolation receipt must pass')
@@ -105,7 +105,7 @@ def report():
                        cwd=ROOT, check=True, capture_output=True, text=True, timeout=600,
                        env=dict(os.environ, OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1'))
         value = strict_json.load(output)
-    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != scoped(pins):
         raise ValueError('source changed across cold current-map replay')
     validate(value, value)
     return value

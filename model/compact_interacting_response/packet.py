@@ -15,11 +15,11 @@ from model.interacting_defect_response import packet as radial_packet
 from tools import strict_json
 from . import algebra, finite
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = Path(__file__).resolve().parent
@@ -124,7 +124,7 @@ def report():
         if result.returncode:
             raise RuntimeError('compact interaction worker failed:\n'+result.stdout+result.stderr)
         value = strict_json.load(path)
-    if bound_pins(value['source_bindings']) != pins or source_bindings() != pins:
+    if bound_pins(value['source_bindings']) != scoped(pins) or source_bindings() != pins:
         raise ValueError('source changed across compact interacting replay')
     return value
 
@@ -132,7 +132,7 @@ def report():
 def validate(value, replay=None):
     if canonical(value) != canonical(report() if replay is None else replay):
         raise ValueError('compact interacting receipt differs from complete replay')
-    if bound_pins(value.get('source_bindings')) != source_bindings():
+    if bound_pins(value.get('source_bindings')) != scoped(source_bindings()):
         raise ValueError('compact interacting source manifest is stale')
 
 

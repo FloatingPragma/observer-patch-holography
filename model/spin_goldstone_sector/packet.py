@@ -12,11 +12,11 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import algebra, bounds, infrared, experiment
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -103,7 +103,7 @@ def validate(value):
         inherited[PRIORS[0]]['historical_all_pass'] is True)
     if value.get('dependency_custody_pass') is not passed or value.get('all_pass') is not passed:
         raise ValueError('inherited dependency status concealed')
-    if canonical(bound_pins(value.get('source_bindings'))) != canonical(source_bindings()):
+    if canonical(bound_pins(value.get('source_bindings'))) != scoped(canonical(source_bindings())):
         raise ValueError('current source bindings changed')
 
 
@@ -132,7 +132,7 @@ def report():
                         '-m', 'model.spin_goldstone_sector.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.loads(path.read_text())
-    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != scoped(pins):
         raise ValueError('source changed across cold replay')
     validate(value)
     return value

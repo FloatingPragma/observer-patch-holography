@@ -20,11 +20,11 @@ from tools import strict_json
 from . import learned_clock as learned, reference_tomography as prior
 from . import native_census as census
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 common, full, local = learned.common, learned.full, learned.local
 history, cap = learned.history, learned.cap
@@ -308,7 +308,7 @@ def _compare_receipt(supplied, actual):
                 'successful_error_multiplied_by_herald_probability_for_admission': False}}
         expected = strict_json.loads(full.preparation.canonical(expected))
         full.corner.compare_receipt({key: receipt[key] for key in expected}, expected)
-        if set(bound_pins(receipt['source_sha256'])) != set(SOURCE_PATHS):
+        if set(bound_pins(receipt['source_sha256'])) != scoped(set(SOURCE_PATHS)):
             raise ValueError('the complete declared source custody is required')
         for path, digest in bound_pins(receipt['source_sha256']).items():
             if hashlib.sha256((common.ROOT/path).read_bytes()).hexdigest() != digest:

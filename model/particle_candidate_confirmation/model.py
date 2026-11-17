@@ -7,11 +7,11 @@ from pathlib import Path
 from model.particle_common_contract import contract
 from . import catalogue, paths, steps
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
@@ -337,7 +337,7 @@ def validate(value, *, authenticated=None):
     expected_pins = {**pins, **bound_pins({p: sha(ROOT / p) for p in SOURCE_INPUTS})}
     if (value['calculated_source_results'] != calculated_summary(values)
             or value['evidence'] != expected_evidence
-            or bound_pins(value['source_sha256']) != expected_pins
+            or bound_pins(value['source_sha256']) != scoped(expected_pins)
             or value['source_excitation_ids'] != [r['id'] for r in dictionary['source_excitation_rows']]
             or value['protected_catalogue_ids'] != [r['id'] for r in dictionary['protected_catalogue_rows']]):
         raise ValueError('candidate identity result differs from authenticated producers')

@@ -7,11 +7,11 @@ from tools.build_completion_program import integration_source_paths
 from ..centered_source_ground import cube as ground_input
 from . import certificate,source
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 ROOT=Path(__file__).resolve().parents[2]
 DIRECTORY=Path(__file__).resolve().parent
 OUTPUT=DIRECTORY/'results.json'
@@ -84,7 +84,7 @@ def report():
         proc=subprocess.run([sys.executable,'-W','error','-X','pycache_prefix='+str(Path(temp)/'pycache'),'-m','model.centered_neutral_spectrum.packet','--worker',str(dest)],cwd=ROOT,env=env,capture_output=True,text=True)
         if proc.returncode:raise RuntimeError('cold neutral replay failed:\n'+proc.stderr)
         result=strict_json.loads(dest.read_text())
-    if pins!=bindings() or bound_pins(result['source_bindings'])!=pins:raise ValueError('source changed across cold replay')
+    if pins!=bindings() or bound_pins(result['source_bindings'])!=scoped(pins):raise ValueError('source changed across cold replay')
     validate(result);return result
 
 

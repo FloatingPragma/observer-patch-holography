@@ -5,9 +5,9 @@ import hashlib
 import importlib
 import json
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ImportError:  # run or imported from tools/ as a top-level module
-    from pin_scope import bound_pins
+    from pin_scope import bound_pins, scoped
 
 PACKAGES = (
     'hadron_refinement_flow', 'strange_composites', 'light_nuclear_curve',
@@ -80,7 +80,7 @@ def collect(root):
         value=json.loads(path.read_text())
         owner=importlib.import_module('model.'+package_module(name)+'.__main__')
         expected=owner.pins()
-        if not expected or bound_pins(value.get('source_sha256')) != expected:
+        if not expected or bound_pins(value.get('source_sha256')) != scoped(expected):
             raise ValueError('physical result inventory changed: '+name)
         if not str(value.get('verdict','')).startswith('PASS'):
             raise ValueError('physical result producer failed: '+name)

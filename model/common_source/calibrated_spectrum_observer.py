@@ -29,11 +29,11 @@ from ..calibrated_measurement.bounds import root_interval
 from .halfline import pi_interval
 from ..scalar_observations.experimental_readout.stats import concentration_certificate
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -528,7 +528,7 @@ def compare_execution(report, arrays, fresh_report, fresh_arrays):
 
 def check(path):
     report = strict_json.load(path)
-    if type(report) is not dict or bound_pins(report.get('source_bindings')) != source_bindings():
+    if type(report) is not dict or bound_pins(report.get('source_bindings')) != scoped(source_bindings()):
         raise ValueError('retained source bindings differ from the current closed source set')
     artifact = path.with_suffix('.npz')
     if report.get('artifact') != {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}:

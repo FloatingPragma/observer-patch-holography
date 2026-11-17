@@ -6,11 +6,11 @@ from pathlib import Path
 from tools import strict_json
 from . import algebra,bounds,controls
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -82,7 +82,7 @@ def validate(value):
             raise ArithmeticError('modular proof, scope or historical record changed: '+key)
     if value.get('dependency_custody_pass') is not False or value.get('all_pass') is not False:
         raise ArithmeticError('unreplayed historical custody cannot be promoted')
-    if bound_pins(value.get('source_bindings'))!=source_bindings():
+    if bound_pins(value.get('source_bindings'))!=scoped(source_bindings()):
         raise ArithmeticError('current direct mathematical source bindings changed')
 
 

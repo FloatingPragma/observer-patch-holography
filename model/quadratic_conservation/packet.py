@@ -13,11 +13,11 @@ import tempfile
 from tools import strict_json
 from . import algebra
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -95,7 +95,7 @@ def report():
                         '-m', 'model.quadratic_conservation.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.load(path)
-    if pins != source_bindings() or bound_pins(value['source_bindings']) != pins:
+    if pins != source_bindings() or bound_pins(value['source_bindings']) != scoped(pins):
         raise ValueError('quadratic conservation sources changed across cold replay')
     return value
 

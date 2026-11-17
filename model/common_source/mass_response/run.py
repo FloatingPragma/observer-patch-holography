@@ -19,11 +19,11 @@ from . import dispersion, experiment as e, gap_certificate, hubbard, model, nati
 from ...observer.source_scalar import compiler
 from tools import strict_json
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -195,7 +195,7 @@ def run():
         },
     }
     document["source_bindings"] = bound_pins(source_bindings())
-    if bound_pins(document["source_bindings"]) != initial_bindings:
+    if bound_pins(document["source_bindings"]) != scoped(initial_bindings):
         raise RuntimeError("source files changed during execution; no receipt is valid")
     return document
 

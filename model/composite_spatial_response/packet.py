@@ -14,11 +14,11 @@ from ..charged_composite_search import packet as inherited
 from ..centered_particle_spectrum.packet import inherited_inputs
 from . import certificate, source
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = Path(__file__).resolve().parent
@@ -85,7 +85,7 @@ def report():
         if process.returncode:
             raise RuntimeError('cold composite spatial replay failed:\n'+process.stderr)
         result = strict_json.load(destination)
-    if pins != source_bindings() or bound_pins(result['source_bindings']) != pins:
+    if pins != source_bindings() or bound_pins(result['source_bindings']) != scoped(pins):
         raise ValueError('composite spatial sources changed across cold replay')
     return result
 

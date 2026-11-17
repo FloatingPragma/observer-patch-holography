@@ -19,9 +19,9 @@ import stat
 import subprocess
 from tools.joint_observer_results import NAMES
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ImportError:  # run or imported from tools/ as a top-level module
-    from pin_scope import bound_pins
+    from pin_scope import bound_pins, scoped
 
 ROOT=Path(__file__).resolve().parents[1]
 LEDGER='code/particles/runs/status/postdiction_ledger.json'
@@ -137,7 +137,7 @@ def completion_projection(old,fresh,old_paper_sha,new_paper_sha):
     for i,row in enumerate(retained['retained_foundations']):
         pins=bound_pins(row['source_sha256'])
         if PAPER in pins:
-            require(bound_pins(old['retained_foundations'][i]['source_sha256']).get(PAPER)==old_paper_sha,
+            require(bound_pins(old['retained_foundations'][i]['source_sha256']).get(PAPER)==scoped(old_paper_sha),
                     'legacy paper provenance is not the authenticated base file')
             require(pins[PAPER]==new_paper_sha,'current paper provenance differs')
             pins[PAPER]=old_paper_sha;renewed.append(i)

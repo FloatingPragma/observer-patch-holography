@@ -14,11 +14,11 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import native, spectrum
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -82,7 +82,7 @@ def report():
         if run.returncode:
             raise RuntimeError('cold one-particle search failed: '+run.stderr[-4000:])
         value = strict_json.load(path)
-    if pins != bindings() or bound_pins(value['source_bindings']) != pins:
+    if pins != bindings() or bound_pins(value['source_bindings']) != scoped(pins):
         raise ValueError('source changed across cold replay')
     return value
 

@@ -10,11 +10,11 @@ from pathlib import Path
 
 from tools import strict_json
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 PATH = Path('model/completion/finite_observable_campaign.json')
@@ -94,7 +94,7 @@ def validate_family(packet, root, *, path, campaign, components, issues, owners,
         evidence = set(source['witnesses'] + source['countercontrols'])
         required_sources.update(evidence)
         require(evidence <= set(bindings) and all(
-            bindings[p] == bound_pins(finite['source_bindings']).get(p) for p in evidence),
+            scoped(bindings[p]) == bound_pins(finite['source_bindings']).get(p) for p in evidence),
             'missing or conflicting reviewed evidence')
         receipt_path = f'model/{name}/results.json'
         require(receipt_path in evidence, 'missing component receipt')

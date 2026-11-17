@@ -15,11 +15,11 @@ from ..centered_source_ground import packet as centered
 from ..native_spin_observer import packet as observer
 from . import core, decoder
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -45,7 +45,7 @@ def custody():
         row = strict_json.load(ROOT/f'model/{name}/results.json')
         if (row.get('schema') != 'oph.'+name+'.v1'
                 or type(row.get('all_pass')) is not bool
-                or bound_pins(row.get('source_bindings')) != producer.source_bindings()):
+                or bound_pins(row.get('source_bindings')) != scoped(producer.source_bindings())):
             raise ValueError('inherited source manifest is incomplete or stale: '+name)
         for path, digest in bound_pins(row['source_bindings']).items():
             if hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != digest:
@@ -146,7 +146,7 @@ def validate(value, replay=None):
     for key in DIAGNOSTICS:
         if type(execution[key]) is not float or not 0 <= execution[key] < 2e-11:
             raise ValueError('invalid complete native host diagnostic')
-    if bound_pins(value['source_bindings']) != source_bindings():
+    if bound_pins(value['source_bindings']) != scoped(source_bindings()):
         raise ValueError('odd-box source manifest is incomplete or stale')
     if replay is not None:
         compare(value, replay)
@@ -177,7 +177,7 @@ def report():
                         '-m', 'model.native_odd_box_core.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.load(path)
-    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != scoped(pins):
         raise ValueError('source changed across cold odd-box replay')
     validate(value)
     return value

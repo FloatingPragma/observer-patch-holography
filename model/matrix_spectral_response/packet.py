@@ -12,11 +12,11 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import matrix, identification
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -106,7 +106,7 @@ def report():
                               cwd=ROOT,env=environment,capture_output=True,text=True)
         if worker.returncode:raise RuntimeError('fresh matrix worker failed: '+worker.stderr)
         result=strict_json.loads(path.read_text())
-    if source_bindings()!=pins or bound_pins(result['source_bindings'])!=pins:
+    if source_bindings()!=pins or bound_pins(result['source_bindings'])!=scoped(pins):
         raise ValueError('source changed across fresh matrix response replay')
     validate(result)
     return result

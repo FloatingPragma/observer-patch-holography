@@ -7,11 +7,11 @@ from ..certified_reference.packet import SOURCE_PATHS
 from ..plaquette_reference.preparation import error_theorem
 from ..regional_modular_expansion.expansion import logarithm_tail
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -30,7 +30,7 @@ def source_bounds(prior):
     """Recompute the regional bounds from the retained literal control proof."""
     if prior.get('schema') != 'oph.certified_reference.v1' or prior.get('all_pass') is not True:
         raise ValueError('a passing literal-source certificate is required')
-    if set(bound_pins(prior['source_sha256'])) != set(SOURCE_PATHS):
+    if set(bound_pins(prior['source_sha256'])) != scoped(set(SOURCE_PATHS)):
         raise ValueError('literal source certificate custody coverage changed')
     for path, digest in bound_pins(prior['source_sha256']).items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != digest:

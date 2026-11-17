@@ -14,11 +14,11 @@ from ..mass_response import experiment as e, model
 from ..mass_response import run as mass_run
 from tools import strict_json
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 HERE = Path(__file__).resolve().parent
@@ -174,7 +174,7 @@ def run():
         },
         "source_bindings": bound_pins(_bindings(mass, family, public_bindings)),
     }
-    if bound_pins(result["source_bindings"]) != initial_bindings:
+    if bound_pins(result["source_bindings"]) != scoped(initial_bindings):
         raise RuntimeError("source changed during particle audit")
     return result, arrays
 

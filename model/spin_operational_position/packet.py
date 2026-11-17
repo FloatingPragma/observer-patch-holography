@@ -11,11 +11,11 @@ from pathlib import Path
 from tools import strict_json
 from . import bounds, circuits, experiment, geometry, generic
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -125,7 +125,7 @@ def _build():
 
 def build():
     value = deepcopy(_build())
-    if bound_pins(value['source_bindings']) != bindings():
+    if bound_pins(value['source_bindings']) != scoped(bindings()):
         raise RuntimeError('source changed after the cached detector replay')
     return value
 

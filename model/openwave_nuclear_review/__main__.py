@@ -7,11 +7,11 @@ from model.openwave_six_quark.__main__ import pins as nuclear_pins
 from model.openwave_baryon_ordering.__main__ import pins as baryon_pins
 from model.particle_common_contract.provenance import import_closure
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 ROOT=Path(__file__).resolve().parents[2];HERE=Path(__file__).resolve().parent
 
 def partitions(n,minimum=1):
@@ -21,7 +21,7 @@ def partitions(n,minimum=1):
 
 def certificate():
  d=reduction();path=ROOT/'model/openwave_six_quark/results.json';r=json.loads(path.read_text());bpath=ROOT/'model/openwave_baryon_ordering/results.json';b=json.loads(bpath.read_text())
- assert bound_pins(r['source_sha256'])==nuclear_pins() and bound_pins(b['source_sha256'])==baryon_pins()
+ assert bound_pins(r['source_sha256'])==scoped(nuclear_pins()) and bound_pins(b['source_sha256'])==scoped(baryon_pins())
  t=r['positive_bound_state'];v=list(map(int,t['full_Cartan_sector_integer_coefficients']));norm=sum(x*x for x in v);assert norm==int(t['exact_trial_squared_norm'])
  moment=F(0);charge=F(0);N6=0;fixed_colour=0
  for index,amp in zip(d['keep'],v):

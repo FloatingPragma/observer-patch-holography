@@ -14,11 +14,11 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import target,tree,bounds,experiment,execute
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -89,7 +89,7 @@ def validate(value,arrays):
     prior=value['prior_custody'];accepted=all(r['historical_all_pass'] and r['current_source_verified'] for r in prior.values())
     if value.get('dependency_custody_pass') is not accepted or value.get('all_pass') is not accepted:
         raise ValueError('inherited pending custody hidden')
-    if bound_pins(value.get('source_bindings'))!=source_bindings():raise ValueError('current source binding changed')
+    if bound_pins(value.get('source_bindings'))!=scoped(source_bindings()):raise ValueError('current source binding changed')
     shapes={'hidden_success':(65536,1),'prepared_ground':(65536,1),
             'tree_failure_weights':(262137,4),'frame_failure_weights':(184,4),
             'tree_block_offsets':(32765,2),'charge_success':(131072,1),

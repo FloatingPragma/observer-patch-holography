@@ -4,11 +4,11 @@ from fractions import Fraction as F
 from model.native_flavor_orbit import packet as flavor, intervals as iv
 from tools import strict_json
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 def _box(pair):
@@ -92,7 +92,7 @@ def certificate(*, cold_replay=False):
         raise ValueError('the replay policy must be a boolean')
     pins = flavor.source_bindings()
     source = flavor.report() if cold_replay else strict_json.load(flavor.OUTPUT)
-    if bound_pins(source.get('source_bindings')) != pins or pins != flavor.source_bindings():
+    if bound_pins(source.get('source_bindings')) != scoped(pins) or pins != flavor.source_bindings():
         raise ValueError('native flavor receipt is stale or incompletely bound')
     result = summarize(source)
     result['authenticated_source_bindings'] = bound_pins(source['source_bindings'])

@@ -17,11 +17,11 @@ from tools.build_completion_program import integration_source_paths
 from ..centered_particle_spectrum import packet as inherited
 from . import certificate
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 DIRECTORY = Path(__file__).resolve().parent
@@ -114,7 +114,7 @@ def report():
         if process.returncode:
             raise RuntimeError('cold composite replay failed:\n'+process.stderr)
         result = strict_json.loads(destination.read_text())
-    if pins != bindings() or bound_pins(result['source_bindings']) != pins:
+    if pins != bindings() or bound_pins(result['source_bindings']) != scoped(pins):
         raise ValueError('source changed across cold composite replay')
     validate(result)
     return result

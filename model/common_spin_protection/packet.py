@@ -15,11 +15,11 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import history, spectrum, spin
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -132,7 +132,7 @@ def report():
         if result.returncode:
             raise RuntimeError('cold common-spin replay failed: '+result.stderr[-3000:])
         value = strict_json.load(target)
-    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != scoped(pins):
         raise ValueError('source manifest changed across cold replay')
     validate_joint_probabilities(value)
     return value

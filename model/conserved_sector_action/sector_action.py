@@ -18,11 +18,11 @@ from ..clock_defect_energy import reference_balance
 from ..exchange_sector import sector
 from ..observer import record_recovery as records
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -176,7 +176,7 @@ def report() -> dict:
         raise ValueError("sector action campaign changed")
     # The frozen campaign names its predecessor inputs; their current bytes
     # are bound by this receipt's own source map.
-    if set(bound_pins(campaign.get("source_sha256"))) != set(predecessor_bindings()):
+    if set(bound_pins(campaign.get("source_sha256"))) != scoped(set(predecessor_bindings())):
         raise ValueError("sector action predecessor binding changed")
     kernels = {law: native_kernel(law) for law in ("C", "E")}
     if kernels["C"] != kernels["E"]:

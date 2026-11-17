@@ -12,11 +12,11 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import bounds,cube,dimer,faithfulness,gap,particles
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).resolve().parent/'results.json'
@@ -37,7 +37,7 @@ def source_bindings():
 def validate(value):
     if value.get('schema')!='oph.centered_source_ground.v1' or value.get('all_pass') is not True:
         raise ValueError('invalid centered-source receipt')
-    if bound_pins(value.get('source_bindings')) != source_bindings():
+    if bound_pins(value.get('source_bindings')) != scoped(source_bindings()):
         raise ValueError('centered-source receipt has incomplete or stale custody')
     row=value['cube']['bounds']
     if row['centered_global_ground_number']!=8 or row['old_N4_ground_remains_centered_ground'] is not False:
@@ -159,7 +159,7 @@ def report():
                         '-m','model.centered_source_ground.packet','--worker',str(path)],
                        cwd=ROOT,env=env,check=True,capture_output=True,text=True)
         value=strict_json.loads(path.read_text())
-    if source_bindings()!=pins or bound_pins(value['source_bindings'])!=pins:
+    if source_bindings()!=pins or bound_pins(value['source_bindings'])!=scoped(pins):
         raise ValueError('source changed across cold replay')
     validate(value);return value
 

@@ -4,9 +4,9 @@ from hashlib import sha256
 import argparse,importlib,json
 from tools.native_execution_results import NAMES,TITLES,SHORTCUTS,project
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ImportError:  # run or imported from tools/ as a top-level module
-    from pin_scope import bound_pins
+    from pin_scope import bound_pins, scoped
 ROOT=Path(__file__).resolve().parents[1]
 
 def generate():
@@ -14,7 +14,7 @@ def generate():
     for index,(name,title,shortcut)in enumerate(zip(NAMES,TITLES,SHORTCUTS,strict=True),1):
         prefix='model/openwave_'+name;receipt=ROOT/prefix/'results.json'
         value=json.loads(receipt.read_text());owner=importlib.import_module('model.openwave_'+name+'.__main__')
-        assert bound_pins(value['source_sha256'])==owner.pins() and value['verdict'].startswith('PASS'),name
+        assert bound_pins(value['source_sha256'])==scoped(owner.pins()) and value['verdict'].startswith('PASS'),name
         data[name]=value
         claims.append({'id':'native_execution_'+name,'task':index,'label':title,
             'status':'verified_in_stated_finite_domain','finite_theorem_shortcut':shortcut,

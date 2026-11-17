@@ -22,9 +22,9 @@ from book_pdf_assets import (
 )
 from reproducible_build_env import build_environment
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ImportError:  # run or imported from tools/ as a top-level module
-    from pin_scope import bound_pins
+    from pin_scope import bound_pins, scoped
 
 
 BUILD_DIR = REPO_ROOT.parent / "temp" / "book_pdf_asset_generation"
@@ -74,7 +74,7 @@ def reusable_renderings() -> dict[str, Path]:
         rendering_path = REPO_ROOT / Path(expected_rendering)
         if not source_path.is_file() or not rendering_path.is_file():
             continue
-        if bound_pins(record.get("source_sha256")) != sha256_file(source_path):
+        if bound_pins(record.get("source_sha256")) != scoped(sha256_file(source_path)):
             continue
         if record.get("rendering_sha256") != sha256_file(rendering_path):
             continue

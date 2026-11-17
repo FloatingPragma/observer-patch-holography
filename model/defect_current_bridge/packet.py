@@ -12,11 +12,11 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import algebra, controls
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = Path(__file__).resolve().parent
@@ -116,7 +116,7 @@ def report():
         if child.returncode:
             raise RuntimeError('cold defect-current worker failed:\n'+child.stderr)
         value = strict_json.load(path)
-    if bound_pins(value.get('source_bindings')) != pins or pins != source_bindings():
+    if bound_pins(value.get('source_bindings')) != scoped(pins) or pins != source_bindings():
         raise ValueError('source changed across calculation')
     return value
 
@@ -124,7 +124,7 @@ def report():
 def validate(value, replay=None):
     if canonical(value) != canonical(report() if replay is None else replay):
         raise ValueError('defect-current receipt differs from complete replay')
-    if bound_pins(value.get('source_bindings')) != source_bindings():
+    if bound_pins(value.get('source_bindings')) != scoped(source_bindings()):
         raise ValueError('defect-current manifest is incomplete or stale')
 
 

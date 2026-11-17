@@ -13,11 +13,11 @@ from tools.build_completion_program import integration_source_paths
 from ..native_mass_channels import packet as parent_packet
 from . import algebra, bulk, core, lattice, lattice_bounds, sampling
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -47,7 +47,7 @@ def inherited_custody():
             or type(prior.get('physical_comparison_count_added')) is not int
             or prior['physical_comparison_count_added'] != 0):
         raise ValueError('the complete native mass source receipt is required')
-    if bound_pins(prior.get('source_bindings')) != parent_packet.source_bindings():
+    if bound_pins(prior.get('source_bindings')) != scoped(parent_packet.source_bindings()):
         raise ValueError('native mass source manifest is incomplete or stale')
     for path, digest in bound_pins(prior['source_bindings']).items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != digest:
@@ -116,7 +116,7 @@ def validate(value, replay=None):
         raise ValueError('complete source spectrum or finite interacting core was lost')
     if replay is not None and canonical(value) != canonical(replay):
         raise ValueError('defect spectrum receipt differs from the fresh replay')
-    if bound_pins(value['source_bindings']) != source_bindings():
+    if bound_pins(value['source_bindings']) != scoped(source_bindings()):
         raise ValueError('defect spectrum source manifest is incomplete or stale')
 
 
@@ -146,7 +146,7 @@ def report():
                         '-m', 'model.topological_defect_spectrum.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.load(path)
-    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != scoped(pins):
         raise ValueError('source changed across the cold defect spectrum replay')
     validate(value)
     return value

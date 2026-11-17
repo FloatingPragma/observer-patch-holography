@@ -5,11 +5,11 @@ from pathlib import Path
 import mpmath as mp
 import numpy as np
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 ROOT=Path(__file__).resolve().parents[2];HERE=Path(__file__).resolve().parent
 
 def high(value):
@@ -18,7 +18,7 @@ def high(value):
 def pins():
     from model.openwave_boosted_records.__main__ import pins as parent_pins
     target=ROOT/'model/openwave_boosted_records/results.json';saved=json.loads(target.read_text());out=parent_pins()
-    assert bound_pins(saved['source_sha256'])==out
+    assert bound_pins(saved['source_sha256'])==scoped(out)
     for f in(target,HERE/'__init__.py',HERE/'__main__.py'):
         out[str(f.relative_to(ROOT))]=hashlib.sha256(f.read_bytes()).hexdigest()
     return dict(sorted(out.items()))

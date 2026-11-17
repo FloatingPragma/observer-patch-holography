@@ -11,11 +11,11 @@ import tempfile
 from tools import strict_json
 from . import native, readout, spectrum, topology
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = Path(__file__).resolve().parent
@@ -100,7 +100,7 @@ def report():
         if child.returncode:
             raise RuntimeError('cold Majorana worker failed:\n'+child.stderr)
         value = strict_json.load(path)
-    if bound_pins(value.get('source_bindings')) != pins or pins != source_bindings():
+    if bound_pins(value.get('source_bindings')) != scoped(pins) or pins != source_bindings():
         raise ValueError('source changed across the cold calculation')
     return value
 
@@ -108,7 +108,7 @@ def report():
 def validate(value, replay=None):
     if canonical(value) != canonical(report() if replay is None else replay):
         raise ValueError('Majorana bridge differs from the complete fresh calculation')
-    if bound_pins(value.get('source_bindings')) != source_bindings():
+    if bound_pins(value.get('source_bindings')) != scoped(source_bindings()):
         raise ValueError('Majorana bridge source manifest is incomplete or stale')
 
 

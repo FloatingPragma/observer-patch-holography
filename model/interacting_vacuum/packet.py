@@ -12,11 +12,11 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import charged, global_ground, ground
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -95,7 +95,7 @@ def report():
         if worker.returncode:
             raise RuntimeError('fresh exact ground worker failed: '+worker.stderr)
         result = strict_json.loads(path.read_text())
-    if source_bindings() != _IMPORTED_BINDINGS or bound_pins(result['source_bindings']) != _IMPORTED_BINDINGS:
+    if source_bindings() != _IMPORTED_BINDINGS or bound_pins(result['source_bindings']) != scoped(_IMPORTED_BINDINGS):
         raise ValueError('source changed across cold replay')
     validate(result)
     return result

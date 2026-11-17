@@ -15,3 +15,4 @@ exempt = _MODULE.exempt
 bound = _MODULE.bound
 bound_pins = _MODULE.bound_pins
 repo_sha256 = _MODULE.repo_sha256
+scoped = _MODULE.scoped

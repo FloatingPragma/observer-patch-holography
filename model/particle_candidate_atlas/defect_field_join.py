@@ -10,11 +10,11 @@ from model.compact_defect_pair import topology, spectral
 from model.standard_model_source_map import koide_source
 from model.common_source.chiral_candidate import action
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT=Path(spectral.__file__).resolve().parents[2]
 
@@ -98,11 +98,11 @@ def source_receipt():
     pins={}
     for name in required:
         key='model/compact_defect_pair/'+name;digest=hashlib.sha256((ROOT/key).read_bytes()).hexdigest()
-        if bound_pins(value['source_bindings']).get(key)!=digest:raise ValueError('compact source proof/input changed')
+        if bound_pins(value['source_bindings']).get(key)!=scoped(digest):raise ValueError('compact source proof/input changed')
         pins[key]=digest
     for key in action.SOURCE_FILES:
         digest=hashlib.sha256((ROOT/key).read_bytes()).hexdigest()
-        if bound_pins(value['source_bindings']).get(key)!=digest:raise ValueError('the inherited action fixture changed')
+        if bound_pins(value['source_bindings']).get(key)!=scoped(digest):raise ValueError('the inherited action fixture changed')
         pins[key]=digest
     if value['complete_exact_certificate']['exact_core_band_dimension']!=4 or value['infinite_volume']['nonzero_isolated_band_dimension']!=4:
         raise ValueError('owning complete cluster count changed')

@@ -13,11 +13,11 @@ import tempfile
 from tools import strict_json
 from . import certification, spectral, topology
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = Path(__file__).resolve().parent
@@ -138,7 +138,7 @@ def report():
         if child.returncode:
             raise RuntimeError('compact-pair worker failed:\n'+child.stderr)
         result = strict_json.load(path)
-    if bound_pins(result['source_bindings']) != pins or source_bindings() != pins:
+    if bound_pins(result['source_bindings']) != scoped(pins) or source_bindings() != pins:
         raise ValueError('source changed across cold replay')
     return result
 

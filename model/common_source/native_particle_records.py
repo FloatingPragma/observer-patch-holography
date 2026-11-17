@@ -31,11 +31,11 @@ from . import calibrated_matter as calibration
 from .chiral_candidate import action
 from ..observer.source_scalar import compiler
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 TIMES = (F(1, 512), F(1, 4), F(128), F(129))
@@ -531,7 +531,7 @@ def compare_execution(report, arrays, fresh, outputs):
 
 def check(path):
     path = Path(path); pins = source_bindings(); report = strict_json.load(path)
-    if type(report) is not dict or bound_pins(report.get('source_bindings')) != pins: raise ValueError('joint-record source pins differ')
+    if type(report) is not dict or bound_pins(report.get('source_bindings')) != scoped(pins): raise ValueError('joint-record source pins differ')
     artifact = path.with_suffix('.npz')
     if report.get('artifact') != {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}:
         raise ValueError('joint-record binary custody differs')

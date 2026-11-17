@@ -14,11 +14,11 @@ from ..radial_reused_readout import packet as parent
 from ..radial_interacting_core.core import encode
 from . import algebra, bounds, commands, controls
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = 'model/radial_drift_readout'
@@ -42,7 +42,7 @@ def custody():
     value = strict_json.load(ROOT/PARENT)
     if (type(value) is not dict or value.get('schema') != 'oph.radial_reused_readout.v1'
             or value.get('all_pass') is not True
-            or bound_pins(value.get('source_bindings')) != parent.source_bindings()):
+            or bound_pins(value.get('source_bindings')) != scoped(parent.source_bindings())):
         raise ValueError('the complete current same-field native instrument receipt is required')
     for path, digest in bound_pins(value['source_bindings']).items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != digest:
@@ -109,7 +109,7 @@ def report():
                        cwd=ROOT, check=True, capture_output=True, text=True, timeout=300,
                        env=dict(os.environ, OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1'))
         value = strict_json.load(output)
-    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != scoped(pins):
         raise ValueError('source changed across cold drift-readout replay')
     validate(value, value)
     return value

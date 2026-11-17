@@ -19,11 +19,11 @@ from tools.build_completion_program import integration_source_paths
 from ..centered_source_ground import packet as centered_packet
 from . import algebra
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -65,7 +65,7 @@ def validate(value):
             or value['physical_comparison_count_added'] != 0
             or value['integrated_gate_accepted'] is not False):
         raise ValueError('a finite catalogue cannot accept a physical completion gate')
-    if bound_pins(value['source_bindings']) != source_bindings():
+    if bound_pins(value['source_bindings']) != scoped(source_bindings()):
         raise ValueError('mass catalogue source manifest is incomplete or stale')
 
 
@@ -73,7 +73,7 @@ def _produce():
     pins = source_bindings()
     parent = strict_json.load(ROOT/PARENT)
     if (type(parent) is not dict
-            or bound_pins(parent.get('source_bindings')) != centered_packet.source_bindings()):
+            or bound_pins(parent.get('source_bindings')) != scoped(centered_packet.source_bindings())):
         raise ValueError('centered reference source manifest is incomplete or stale')
     try:
         centered_packet.validate(parent)
@@ -106,7 +106,7 @@ def report():
                         '-m', 'model.native_mass_channels.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.load(path)
-    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != scoped(pins):
         raise ValueError('sources changed across cold mass replay')
     validate(value)
     return value

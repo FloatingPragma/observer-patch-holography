@@ -9,11 +9,11 @@ from .closure import ROOT, DESIGNS, certificate, Point
 from . import census, exclusion, memory, replay
 from .sources import DEPENDENCIES
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 PACKAGE=Path(__file__).resolve().parent
 OUTPUT=PACKAGE/'results.json'
@@ -76,7 +76,7 @@ def report():
 
 
 def validate(value):
-    if bound_pins(value.get('source_bindings')) != source_bindings():
+    if bound_pins(value.get('source_bindings')) != scoped(source_bindings()):
         raise ValueError('source bindings are incomplete or stale')
     if canonical(value) != canonical(report()):
         raise ValueError('receipt differs from complete recomputation')

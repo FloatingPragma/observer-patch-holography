@@ -32,11 +32,11 @@ from .chiral_candidate import gaussian_source as g, kinetic, protected_momentum 
 from .chiral_candidate import dispersion_identifiability as bounds
 from ..calibrated_measurement.bounds import root_interval
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -983,7 +983,7 @@ def check(path):
     path = Path(path)
     report = strict_json.load(path)
     _finite_json(report)
-    if type(report) is not dict or bound_pins(report.get("source_bindings")) != source_bindings():
+    if type(report) is not dict or bound_pins(report.get("source_bindings")) != scoped(source_bindings()):
         raise ValueError("retained transport closed source bindings differ")
     artifact = path.with_suffix(".npz")
     if report.get("artifact") != {"filename": artifact.name,

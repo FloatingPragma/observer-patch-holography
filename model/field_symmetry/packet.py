@@ -15,11 +15,11 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import readout, symmetry
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -108,7 +108,7 @@ def report():
     if (type(result) is not dict or result.keys() != keys
             or result['schema'] != 'oph.field_symmetry.v1'):
         raise ValueError('fresh source replay returned an incomplete payload')
-    if bound_pins(result['source_bindings']) != bindings or source_bindings() != bindings:
+    if bound_pins(result['source_bindings']) != scoped(bindings) or source_bindings() != bindings:
         raise ValueError('source changed across fresh replay')
     compare(result, result)  # Also reject nonfinite diagnostics from child JSON.
     _worker_inventory(result)

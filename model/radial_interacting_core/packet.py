@@ -14,11 +14,11 @@ from ..radial_defect_gap import packet as gap_packet
 from ..defect_core_response import packet as pole_packet
 from . import algebra, core
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -44,7 +44,7 @@ def custody():
         value = strict_json.load(ROOT/path)
         if (type(value) is not dict or value.get('schema') != 'oph.'+name+'.v1'
                 or value.get('all_pass') is not True
-                or bound_pins(value.get('source_bindings')) != producer.source_bindings()):
+                or bound_pins(value.get('source_bindings')) != scoped(producer.source_bindings())):
             raise ValueError('complete current parent proof receipt required: '+name)
         for source, digest in bound_pins(value['source_bindings']).items():
             if hashlib.sha256((ROOT/source).read_bytes()).hexdigest() != digest:
@@ -98,7 +98,7 @@ def validate(value, replay=None):
             or type(value['physical_comparison_count_added']) is not int
             or value['physical_comparison_count_added'] != 0):
         raise ValueError('finite radial source cannot accept a physical comparison')
-    if bound_pins(value['source_bindings']) != source_bindings():
+    if bound_pins(value['source_bindings']) != scoped(source_bindings()):
         raise ValueError('radial source manifest is incomplete or stale')
     if replay is not None and canonical(value) != canonical(replay):
         raise ValueError('retained radial source receipt differs from the cold replay')
@@ -129,7 +129,7 @@ def report():
                         '-m', 'model.radial_interacting_core.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.load(path)
-    if source_bindings() != pins or bound_pins(value['source_bindings']) != pins:
+    if source_bindings() != pins or bound_pins(value['source_bindings']) != scoped(pins):
         raise ValueError('source changed across cold radial interacting replay')
     validate(value)
     return value

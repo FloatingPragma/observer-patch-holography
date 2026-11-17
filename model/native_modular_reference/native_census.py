@@ -38,11 +38,11 @@ from . import reference_tomography as old, local_preparation as local
 from ..native_interface import construction as interface
 from ..observer import native, quantum_mixing
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('native_census_results.json')
@@ -698,7 +698,7 @@ def _compare_receipt(supplied, actual):
                     or value['schema'] != SCHEMA
                     or canonical(value['identification']) != canonical(identification)
                     or canonical(value['scope']) != canonical(scope())
-                    or canonical(bound_pins(value['source_sha256'])) != canonical(custody)):
+                    or canonical(bound_pins(value['source_sha256'])) != scoped(canonical(custody))):
                 return False
             row = value['continuing_execution']
             if type(row['law']) is not str or row['law'] not in ('C', 'E'):

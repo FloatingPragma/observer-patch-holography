@@ -8,11 +8,11 @@ from model.protected_particle_readout import packet,experiment
 from model.cube_eta_protection import repair
 from . import kernel,interval_replay,arithmetic
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -125,7 +125,7 @@ def numerical_paths(value):
 
 def compare_science(old,fresh):
     """Only independently validated diagnostic fields use the successor rule."""
-    _,_,pins=specification();require(bound_pins(fresh['source_bindings'])==pins,'fresh source pins changed')
+    _,_,pins=specification();require(bound_pins(fresh['source_bindings'])==scoped(pins),'fresh source pins changed')
     baseline=copy.deepcopy(old);baseline['source_bindings']=bound_pins(pins)
     allowed=numerical_paths(old)
     def walk(a,b,path='receipt'):

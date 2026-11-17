@@ -34,11 +34,11 @@ from .mass_response import history
 from ..observer.source_scalar import compiler
 from ..observer.source_discrimination import circuit
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -696,7 +696,7 @@ def check(path):
     path = Path(path)
     report = strict_json.load(path)
     pins = source_bindings()
-    if type(report) is not dict or bound_pins(report.get('source_bindings')) != pins:
+    if type(report) is not dict or bound_pins(report.get('source_bindings')) != scoped(pins):
         raise ValueError('native charged spectroscopy source bindings differ')
     artifact = path.with_suffix('.npz')
     if report.get('artifact') != {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}:

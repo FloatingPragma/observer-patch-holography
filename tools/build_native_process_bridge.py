@@ -6,9 +6,9 @@ import importlib
 import json
 from tools.native_bridge_results import NAMES,project
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ImportError:  # run or imported from tools/ as a top-level module
-    from pin_scope import bound_pins
+    from pin_scope import bound_pins, scoped
 
 ROOT=Path(__file__).resolve().parents[1]
 SPECS=(
@@ -29,7 +29,7 @@ def generate():
     for name,(title,relation,shortcut)in zip(NAMES,SPECS,strict=True):
         prefix='model/openwave_'+name;path=ROOT/prefix/'results.json'
         value=json.loads(path.read_text());owner=importlib.import_module('model.openwave_'+name+'.__main__')
-        if bound_pins(value.get('source_sha256'))!=owner.pins()or not value.get('verdict','').startswith('PASS_'):
+        if bound_pins(value.get('source_sha256'))!=scoped(owner.pins())or not value.get('verdict','').startswith('PASS_'):
             raise ValueError('source result lacks current original-owner custody: '+name)
         data[name]=value
         rows.append({'id':'source_record_'+name,'label':title,'owner_medium':'protocol_record',

@@ -12,11 +12,11 @@ from tools import strict_json
 from ..weighted_source_family import packet as parent
 from . import limit
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -32,7 +32,7 @@ SOURCE_FILES = tuple(sorted(set((*parent.SOURCE_FILES,
 
 def source_bindings():
     inherited = parent.source_bindings()
-    if bound_pins(strict_json.load(parent.OUTPUT)['source_bindings']) != inherited:
+    if bound_pins(strict_json.load(parent.OUTPUT)['source_bindings']) != scoped(inherited):
         raise ValueError('the weighted family source receipt is stale')
     inherited.update(bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
                       for name in SOURCE_FILES}))

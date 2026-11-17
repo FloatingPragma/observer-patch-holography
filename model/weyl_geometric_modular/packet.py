@@ -7,11 +7,11 @@ from pathlib import Path
 from tools import strict_json
 from . import algebra, entropy, geometry
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
@@ -124,7 +124,7 @@ def validate(result):
     for key, expected_value in flags.items():
         if type(result.get(key)) is not type(expected_value) or result[key] != expected_value:
             raise ArithmeticError('misleading status flag: '+key)
-    if bound_pins(result.get('source_bindings')) != source_bindings():
+    if bound_pins(result.get('source_bindings')) != scoped(source_bindings()):
         raise ArithmeticError('current narrow mathematical source bindings changed')
 
 

@@ -23,11 +23,11 @@ from . import intervals as iv
 from .__main__ import compare as numerical_compare
 from .experiment import PARAMETERS, CASES, run
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 FOLDER = Path(__file__).resolve().parent
@@ -166,7 +166,7 @@ def validate_prediction(prediction):
     if digest(prediction['settings']) != digest(settings()):
         raise ValueError('Fixed transfer settings changed')
     bindings = bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_PATHS})
-    if bound_pins(prediction['source_bindings']) != bindings:
+    if bound_pins(prediction['source_bindings']) != scoped(bindings):
         raise ValueError('Certificate source bindings changed')
     if [r['case'] for r in prediction['runs']] != list(CASES_ORDER):
         raise ValueError('All five cases in their fixed order are required')

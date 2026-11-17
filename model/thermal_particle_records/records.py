@@ -18,11 +18,11 @@ from scipy.special import logsumexp
 from model.particle_thermal_history import thermodynamics as thermal
 from model.particle_common_contract.provenance import import_closure
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT=Path(__file__).resolve().parents[2];HERE=Path(__file__).resolve().parent
 TEMPERATURES=(.1,1.,10.,100.)
@@ -50,7 +50,7 @@ def inputs():
     identity=authenticate(ROOT/'model/particle_joint_mass_identity/results.json')
     gibbs=authenticate(ROOT/'model/particle_thermal_history/results.json')
     common='model/conditional_particle_spectrum/results.json';digest=hashlib.sha256((ROOT/common).read_bytes()).hexdigest()
-    if bound_pins(identity['source_bindings']).get(common)!=digest or bound_pins(gibbs['source_bindings']).get(common)!=digest:
+    if bound_pins(identity['source_bindings']).get(common)!=scoped(digest) or bound_pins(gibbs['source_bindings']).get(common)!=scoped(digest):
         raise ValueError('the group and Gibbs producers do not bind the same quadratic source')
     groups=identity['complete_calibrated_joint_instrument']['joint_groups']
     source=authenticate(ROOT/common)

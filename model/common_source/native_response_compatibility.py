@@ -24,11 +24,11 @@ from . import native_response_biased as biased
 from . import native_response_dynamics as dynamics
 from . import native_response_cooling as cooling
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 SCHEMA = 'oph.native_response_compatibility.v2'
@@ -178,7 +178,7 @@ def check(path):
     path = Path(path)
     pins = source_bindings()
     report = strict_json.load(path)
-    if type(report) is not dict or bound_pins(report.get('source_bindings')) != pins:
+    if type(report) is not dict or bound_pins(report.get('source_bindings')) != scoped(pins):
         raise ValueError('response compatibility source bindings differ')
     artifact = path.with_suffix('.npz')
     expected = {'filename': artifact.name,

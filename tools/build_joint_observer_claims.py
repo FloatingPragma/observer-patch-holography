@@ -4,16 +4,16 @@ from hashlib import sha256
 import argparse,importlib,json
 from tools.joint_observer_results import NAMES,TITLES,project
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ImportError:  # run or imported from tools/ as a top-level module
-    from pin_scope import bound_pins
+    from pin_scope import bound_pins, scoped
 ROOT=Path(__file__).resolve().parents[1]
 def generate():
     data={};claims=[]
     for name,title in zip(NAMES,TITLES,strict=True):
         path=f'model/{name}/results.json';value=json.loads((ROOT/path).read_text())
         owner=importlib.import_module(f'model.{name}.__main__')
-        if bound_pins(value.get('source_sha256'))!=owner.pins()or not value.get('verdict','').startswith('PASS'):
+        if bound_pins(value.get('source_sha256'))!=scoped(owner.pins())or not value.get('verdict','').startswith('PASS'):
             raise ValueError('joint source custody or acceptance changed: '+name)
         data[name]=value
         claims.append({'id':'joint_observer_'+name,'label':title,'status':'verified_in_stated_finite_domain',

@@ -9,11 +9,11 @@ from pathlib import Path
 from . import verify as retained
 from tools import strict_json
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[1]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, scoped
 
 BASE_REPLAYS_SHA256='87c475d86192b569fe969485ee0bab67bf16d7bfe3251713b9ffb62a3ee1fdfa'
 LEGACY=('model.protected_particle_readout',None,'model/protected_particle_readout/results.json')
@@ -44,7 +44,7 @@ def verify_successor_source_bindings():
     spec,_,_=model.specification();pins[spec['retained_array']]=spec['retained_array_sha256']
     # Prose and test entries (tools/pin_scope.py) are neither pinned nor compared.
     pins,owned=bound_pins(pins),bound_pins(owned)
-    if bound_pins(value.get('input_sha256'))!=pins or bound_pins(value.get('owned_source_sha256'))!=owned:
+    if bound_pins(value.get('input_sha256'))!=scoped(pins) or bound_pins(value.get('owned_source_sha256'))!=scoped(owned):
         raise ValueError('numerical successor source scope or custody changed')
 
 
