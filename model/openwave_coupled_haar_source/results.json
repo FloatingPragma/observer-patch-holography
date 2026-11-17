@@ -290,14 +290,19 @@
   "source": "Full L2(SU2^7,Haar) Gauss quotient on two adjacent plaquettes; no representation cutoff in the Hamiltonian",
   "source_sha256": {
     "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/openwave_coupled_haar_source/PAPER_RESULT.tex": "35861df91c9f0394964718056768bc69ea54d4945e00deca81ae0cc3bcddd334",
+    "model/openwave_coupled_haar_source/PROOF.md": "744a4d2410d71eb209776fed971a8f639054107227208d8bea3baa78e468446a",
+    "model/openwave_coupled_haar_source/README.md": "23b3d7f49575c6ecf31a2ec62866c825f8cf431ff4c0c101745b92266801c73d",
     "model/openwave_coupled_haar_source/__init__.py": "3ba98ac48553fbc485c20e140ac10bfde6f559bce7d50eb60d6d2596cbc2a7e4",
     "model/openwave_coupled_haar_source/__main__.py": "ec8dd5f2bc3847be0d084f0f55436b70b326b88c750f17052c2d404fe90ff432",
     "model/openwave_coupled_haar_source/source.py": "d7975ebe3587a034ff7b2d9f3cc43055727612bf2ea69a8c122fe2b54a71cc54",
+    "model/openwave_coupled_haar_source/test_source.py": "f981b4e3937acb107c1f53127ce89171bb6d98294cb6184d822c81e1fd635c6c",
+    "model/openwave_pure_su2_source/PROOF.md": "e50bb8725b9b5512125188ecb56af2554c3cd7f6dd8a723ce5d14ce4baabb404",
     "model/openwave_pure_su2_source/__init__.py": "a14883ed7a07b449b6f6c726910ac722588f85c8494301f1a9fd053df872bb7e",
-    "model/openwave_pure_su2_source/custody.py": "8dfbc5329188c3b1f0d8b4eab32f2cbc48356d74f681be000c1e179f23818d85",
+    "model/openwave_pure_su2_source/custody.py": "514ad4f0d20fdc7956643ead12275abcc40c688c2e2604ef712a562c2e51c206",
     "model/openwave_pure_su2_source/source.py": "cee741a4033ffe611166d5f6026b27cb513f4d55ea63624fab5fb33c53713c9c",
     "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
-    "model/particle_common_contract/provenance.py": "b93d8f5963e11601fd8854e22d29672f436135f349a5fc85b082f29e4afd271a"
+    "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723"
   },
   "verdict": "PASS_EXACT_SHARED_EDGE_GAUSS_SOURCE"
 }
