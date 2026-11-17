@@ -243,12 +243,12 @@ def test_actual_cli_rejects_false_receipt(tmp_path):
 
 def test_actual_cli_rejects_changed_scientific_source(tmp_path):
     clone = tmp_path/"source"
-    for relative in list(verify.pins())+["code/source_record_gluing/receipt.json"]:
+    for relative in list(verify.pins())+["code/source_record_gluing/receipt.json", "code/pin_scope.py"]:
         target = clone/relative
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(ROOT/relative, target)
-    changed = clone/"code/source_selection_model/RECORD_GLUING.md"
-    changed.write_bytes(changed.read_bytes()+b"\nTransport law changed.\n")
+    changed = clone/"code/source_selection_model/verify_response.py"
+    changed.write_bytes(changed.read_bytes()+b"\n# Transport law changed.\n")
     result = subprocess.run([sys.executable, "-m", "source_record_gluing.verify"], cwd=clone,
                             env=dict(os.environ, PYTHONPATH=str(clone/"code")), capture_output=True, text=True)
     assert result.returncode != 0

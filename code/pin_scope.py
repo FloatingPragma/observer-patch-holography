@@ -42,5 +42,11 @@ def bound(paths):
 
 
 def bound_pins(pins):
-    """The bindable entries of a recorded ``{path: digest}`` map."""
+    """The bindable entries of a recorded ``{path: digest}`` map.
+
+    A value that is not a map is returned unchanged, so the caller's own
+    comparison rejects it.
+    """
+    if not isinstance(pins, dict):
+        return pins
     return {path: digest for path, digest in pins.items() if not exempt(path)}
