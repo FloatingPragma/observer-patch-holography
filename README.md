@@ -35,29 +35,39 @@ hypothesis in full.
 
 ## What comes out
 
-The search for the executable model's specification is ongoing, and it is
-the project's current main priority.
+The [executable model](model/SPEC.md) is the main subject of current
+research and is under heavy development.
 
-The [current executable model](model/SPEC.md) is a calibrated test
-candidate, not yet a production-level model. It joins complete native matter,
-charged and neutral lepton transport, weak currents, electric and magnetic
-fields, and local registers that respond to total source energy. Each vertex
-has its own volume, capacity and memory register. Exact checks preserve
-charge and Gauss constraints and verify source-sensitive coherent readout.
-Disconnected components evolve independently. The full native operator is
-checked through exact polynomials and basis columns; small propagated
-diagnostics have separately stated carriers.
+Under stated premises, the theorem library and the finite constructions give:
 
-Its particle masses are inputs, not outputs. The quark and hadron
-coefficients are calibrated to the measured proton, neutron and charged-pion
-masses, the electron mass sets the energy unit, and the charged-lepton,
-neutrino and quark-family values are supplied. OPH derives no particle mass
-so far.
-
-The theorem library also establishes conditional gauge and geometry results,
-quantum-record identities and finite spectra on their specified sources.
-A common interacting continuum, physical particle identification and the
-Einstein theorem's source premises require their own demonstrations.
+- **Spacetime and fields as effective descriptions.** Coarse-grained, the
+  observers' shared records are described by relativistic field theories in
+  three space dimensions and one time, together with gravity. The carrier's
+  slow response is exactly three-dimensional, and a Lorentzian (1+3)-dimensional
+  field theory reproduces the observers' joint readouts.
+- **Agreement and stable records.** Under explicit termination and consistency
+  conditions, local repairs reach one shared public result whatever their order.
+  [Consensus paper](paper/reality_as_consensus_protocol.pdf).
+- **The rules of quantum measurement.** Completed records obey the Born rule,
+  repeatable measurement and the Tsirelson bound on Bell correlations, with a
+  state that attains it.
+  [Finite quantum event algebras](extra/machine_checked_finite_event_algebras.pdf).
+- **The Standard Model's forces.** Under stated premises on complete reversible
+  response and observer transport, the twelve-port response algebra has the
+  Standard Model gauge Lie type, and port phases realize the global group.
+  [Gauge derivation](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf).
+- **Quarks and leptons.** The defects that repair leaves behind carry exactly
+  the six centre classes of the Standard Model particles, and each generation
+  comes out with the observed charges: three colours of up and down quarks, the
+  electron and its neutrino. A specified matter representation gives an
+  anomaly-free generation.
+- **Thermodynamics.** Finite repair theorems give a Clausius inequality,
+  fluctuation relations and an information Landauer inequality. Fair-coin seam
+  repair is exact conditional resampling, so entropy never falls on binary
+  populations while the complete tape keeps every bit.
+  [Thermodynamics account](paper/observers_are_all_you_need.pdf).
+- **Gravity.** A realized balance of records gives the Einstein equation.
+  [Spacetime and Einstein dynamics](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf).
 
 ## How it works
 

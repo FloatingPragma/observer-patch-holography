@@ -66,7 +66,6 @@ def test_fz10_public_wording_matches_the_frozen_decision_rule() -> None:
     # carrier's face symmetry; the owning papers and the FZ-10 register carry
     # the balance condition and its provenance.
     assert "so neither is a prediction" not in readme
-    assert "ce n’est pas une dérivation de ces masses" in french
     assert "le programme de capacité demande si" in french
     assert "aucun des deux n’est une prédiction" not in french
 

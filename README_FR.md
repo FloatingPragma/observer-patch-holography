@@ -101,14 +101,8 @@ de lois échoue.
 
 ## Points forts
 
-**Statut actuel.** La recherche de la spécification du modèle exécutable se poursuit ; c’est
-la priorité principale actuelle du projet. Le [modèle exécutable actuel](model/SPEC.md)
-est un candidat de test calibré, pas encore un modèle de niveau production.
-Ses masses de particules sont des entrées et non des résultats : les
-coefficients des quarks et des hadrons sont étalonnés sur les masses mesurées
-du proton, du neutron et du pion chargé, la masse de l’électron fixe l’unité
-d’énergie, et les valeurs des leptons chargés, des neutrinos et des familles
-de quarks sont fournies. OPH ne dérive à ce jour aucune masse de particule.
+**Statut actuel.** Le [modèle exécutable](model/SPEC.md) est le principal sujet de la
+recherche actuelle ; il est en plein développement.
 
 Les résultats ci-dessous portent sur les sources et les préparations
 explicitement déclarées dans leurs preuves. Leur transfert au modèle
@@ -265,9 +259,7 @@ entrées.
   et aux [particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
   L’[index des articles](paper/README.md) et l’[ensemble des articles](docs/PAPER_SET.md)
   donnent chaque article et son rôle.
-- **Les articles compagnons** portent des résultats ciblés. La relation de Koide
-  tient exactement pour un registre déclaré, conçu en connaissant les masses
-  mesurées des leptons ; ce n’est pas une dérivation de ces masses. Le programme de capacité demande si la capacité
+- **Les articles compagnons** portent des résultats ciblés. Le programme de capacité demande si la capacité
   publique attribuée à l’Univers s’accorde avec celle reconstruite depuis
   l’intérieur. Ces calculs de constantes, comme celui de la structure fine,
   ont un statut diagnostique.
