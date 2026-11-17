@@ -18,12 +18,6 @@ import numpy as np
 from ..observer import native
 from ..native_quantum_history import construction as quantum
 from ..primitive_observer import runtime
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -339,7 +333,7 @@ def run():
             'stationary_herald_probability_asserted_for_entangled_override': False})
     delta = quantum.quantum_memory.phase_pair_signal(4)
     return {'schema': 'oph.native_interface.v1', 'all_pass': True,
-        'sources': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
+        'sources': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
         'native_reachability_and_record_audit': audits,
         'complete_heralded_measurements': rows,
         'native_phase_pointer': [pointer_audit(law) for law in ('C', 'E')],

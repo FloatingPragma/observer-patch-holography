@@ -27,12 +27,6 @@ from ..physical_space_time import local_continuum as spatial_limit
 from ..physical_space_time import source_green as spatial_source
 from . import inverse_clock as preparation
 from . import prepared_clock_source as source
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 INITIAL = (0,)*10+(1, 1)
@@ -180,7 +174,7 @@ def checkpoint(*, intervention=1):
         rows.append([list(key), value.astype("<c16", copy=False).tobytes().hex()])
     payload = {
         "schema": "oph.prepared_clock.prefix.v1", "intervention": intervention,
-        "source_sha256": bound_pins(bindings()),
+        "source_sha256": bindings(),
         "completed_preparation_sha256": _completed_digest(prepared),
         "live_arrays_complex128_little_endian": rows,
     }
@@ -327,7 +321,7 @@ def bindings():
     paths = {*preparation.SOURCE_PATHS, *spatial_limit.SOURCE_PATHS,
              "model/predictions/prepared_clock.py", "model/predictions/prepared_clock_source.py",
              "tools/strict_json.py", OPTICAL_DATA}
-    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
+    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
 
 
 def error_budget():
@@ -1219,7 +1213,7 @@ def run():
     groups = native_histories()
     native_json = json.dumps(groups, separators=(",", ":"))
     return preparation._json({
-        "schema": "oph.prepared_clock.v1", "source_sha256": bound_pins(bindings()),
+        "schema": "oph.prepared_clock.v1", "source_sha256": bindings(),
         "complete_sampler_intervals": sampler_contract(),
         "native_record_groups": [{"control": list(key), "tape_count": len(tapes)}
                                   for key, tapes in groups],

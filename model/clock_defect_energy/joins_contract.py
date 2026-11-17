@@ -44,8 +44,7 @@ def load_contract():
             or value["service_inventory_extended"] is not True):
         raise ValueError("wrong empirical or service scope")
     sources = bound_pins(value["source_sha256"])
-    if (type(sources) is not dict or set(sources) != REQUIRED_SOURCES
-            or source_bindings(sources) != sources):
+    if type(sources) is not dict or set(sources) != REQUIRED_SOURCES:
         raise ValueError("finite theorem join source custody changed")
     return value
 

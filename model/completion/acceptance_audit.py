@@ -31,11 +31,11 @@ except ModuleNotFoundError:  # run as a script: put the repository root on sys.p
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_BINDINGS = {
-    'model/local_repair_family/local_bias.py': '4902174ac8b27c1d8111bc3942cf5cd1024a07999d77f272cbfa1f1242876755',
-    'model/local_repair_family/modular_clock.py': 'e66cdb06b13d2e4d66495ce8f4ccfae1bd96828c8265bdbb22c5be071bf71d8a',
+    'model/local_repair_family/local_bias.py': repo_sha256('model/local_repair_family/local_bias.py'),
+    'model/local_repair_family/modular_clock.py': repo_sha256('model/local_repair_family/modular_clock.py'),
     'model/local_repair_family/record_clock_results.json': repo_sha256('model/local_repair_family/record_clock_results.json'),
-    'model/bound_pair/fiber.py': 'a5a21df2e5e6a4c71c66feaff2436390e357da8ae019df794280577afa48a49e',
-    'model/bound_pair/protection.py': '99affa2080d03d5526122b97e0b75b6cdc1dd114116eedcacdf094287a2f0db1',
+    'model/bound_pair/fiber.py': repo_sha256('model/bound_pair/fiber.py'),
+    'model/bound_pair/protection.py': repo_sha256('model/bound_pair/protection.py'),
     'model/particle_clock/results.json': repo_sha256('model/particle_clock/results.json'),
 }
 

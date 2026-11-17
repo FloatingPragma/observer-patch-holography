@@ -19,12 +19,6 @@ import numpy as np
 
 from ..observer import native, quantum_memory, quantum_mixing as mixing
 from ..primitive_observer import runtime
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -413,7 +407,7 @@ def run():
             'checkpoint_after_native_attempts': 2, 'checkpoint_independently_replayed': True,
             'checkpoint_complete_cq_distance_diagnostic': bounded(runtime.complete_distance(continued, direct), 'checkpoint')})
     return {'schema': 'oph.native_quantum_history.v1', 'all_pass': True,
-        'sources': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
+        'sources': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
         'operator_transfer': candidates, 'executed_phase_measurements': rows,
         'operator_space_quadratic_form': operator_action_summary(),
         'fractional_channel_obstruction': fractional_obstruction(),

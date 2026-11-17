@@ -15,6 +15,10 @@ from pathlib import Path
 import types
 import numpy as np
 try:
+    from tools.pin_scope import bound_pins
+except ImportError:  # run or imported from tools/ as a top-level module
+    from pin_scope import bound_pins
+try:
     from tools.pin_scope import repo_sha256
 except ImportError:  # run or imported from tools/ as a top-level module
     from pin_scope import repo_sha256
@@ -186,7 +190,7 @@ def report(root):
       'Hamiltonian':'H_B=J sum_12edges(S_x dot S_y-1/4)-B sum_x epsilon_x S_x^1',
       'graph':'open2x2x2cube','sites':8,'Hilbert_dimension':SIZE,'J':'1','B_over_J':'1/4',
       'source_energy_unit':'J','relative_reference':'Delta_1=E_1-E_0 of the same H_B',
-      'source_bindings':dict(PINS),'tool_sha256':hashlib.sha256(tool_bytes).hexdigest(),
+      'source_bindings':bound_pins(dict(PINS)),'tool_sha256':hashlib.sha256(tool_bytes).hexdigest(),
       'independent_exact_certificate':certificate,'all_ordered_levels':rows,
       'isolated_clusters':clusters,'cluster_count':len(clusters),'total_certified_states':SIZE,
       'exact_degeneracies_identified':False,'all_levels_detector_visible_claimed':False,

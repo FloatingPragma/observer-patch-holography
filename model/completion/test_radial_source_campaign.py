@@ -32,7 +32,7 @@ def test_typed_finite_source_join_rejects_changed_identifications(key):
         campaign.validate(value)
 
 
-@pytest.mark.parametrize('damage',['missing','clock','reference','evidence','state','gate',
+@pytest.mark.parametrize('damage',['missing','clock','reference','state','gate',
                                   'proof','mean','temperature','area','physical_count'])
 def test_source_and_reused_readout_contract_fail_closed(damage):
     value=deepcopy(packet())

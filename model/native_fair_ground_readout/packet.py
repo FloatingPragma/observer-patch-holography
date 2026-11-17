@@ -10,6 +10,12 @@ from model.completion import native_measurement_parent_adapter as parent_custody
 from model.native_energy_measurement import packet as measurement_owner
 from model.native_energy_measurement import measurement, spectral
 from . import preparation, reference
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -43,7 +49,7 @@ def canonical(value):
 
 def source_bindings():
     paths = set(measurement_owner.source_bindings()) | set(OWNED_FILES) | set(ADDITIONAL_FILES) | set(parent_custody.SOURCE_FILES)
-    return {path: hashlib.sha256((ROOT / path).read_bytes()).hexdigest() for path in sorted(paths)}
+    return bound_pins({path: hashlib.sha256((ROOT / path).read_bytes()).hexdigest() for path in sorted(paths)})
 
 
 def owning_measurement():
@@ -56,7 +62,7 @@ def owning_measurement():
                               'live sources or consumed bounds differ: '+str(error)) from error
     retained = strict_json.load(measurement_owner.OUTPUT)
     expected = {
-        'source_bindings': measurement_owner.source_bindings(),
+        'source_bindings': bound_pins(measurement_owner.source_bindings()),
         'spectral_certificate': spectral.certify(),
         'complete_instrument_budget': measurement.budget(),
         'counted_energy_label_intervals': spectral.energy_labels()}
@@ -78,7 +84,7 @@ def produce():
     owner = owning_measurement()
     value = {
         'schema': 'oph.native_fair_ground_readout.v1',
-        'source_bindings': before,
+        'source_bindings': bound_pins(before),
         'inherited_complete_energy_measurement': owner,
         'thermal_vacuum_test': reference.thermal_witness(),
         'executed_fair_ground_preparation': preparation.run(),

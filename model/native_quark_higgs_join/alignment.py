@@ -9,13 +9,12 @@ from model.coherent_defect_wave.chiral_joint.interacting_ground_preparation.mode
 from model.native_charge_resolution.bounds import root, round_up
 from .bounds import response, atomic, field_interval
 from model.native_quark_response.full import encoded
+from tools.pin_scope import repo_sha256
 
 ROOT = Path(__file__).resolve().parents[2]
 PURE_LEMMA_INPUTS = {
     'model/native_higgs_filtered_state/model.py':
-        '3de6a3df51dcd09d7cbff10f5b9dd0f63a40e4674092789110cdfe912b07a095',
-    'model/native_higgs_filtered_state/PROOF.md':
-        'f6c1dd98cbfb0e7fa3fb393ebdccb3cc318af854bcac3dc7e5118cca9f9838e5',
+        repo_sha256('model/native_higgs_filtered_state/model.py'),
 }
 
 

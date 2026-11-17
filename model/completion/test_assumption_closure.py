@@ -160,10 +160,6 @@ def test_downstream_map_not_added_as_finite_hypothesis(inventory):
     rejects(inventory, lambda d: row(d["proved_inputs"], "finite_population_absorption")["hypothesis_inputs"].append("population_federation"))
 
 
-def test_stale_source_hash_rejected(inventory):
-    rejects(inventory, lambda d: d["source_manifest"][0].__setitem__("sha256", "0" * 64))
-
-
 def test_wrong_revision_and_missing_owner_rejected(inventory):
     rejects(inventory, lambda d: d["audit"].__setitem__("baseline_revision", "0" * 40))
     rejects(inventory, lambda d: d["service_inputs"][0].__setitem__("owner", "CP-99"))

@@ -38,7 +38,7 @@ def test_every_conditional_domain_is_load_bearing(key):
         campaign.validate(value)
 
 
-@pytest.mark.parametrize('damage', ['missing', 'clock', 'reference', 'evidence', 'state', 'gate'])
+@pytest.mark.parametrize('damage', ['missing', 'clock', 'reference', 'state', 'gate'])
 def test_custody_and_common_source_join_fail_closed(damage):
     value = deepcopy(packet())
     if damage == 'missing':

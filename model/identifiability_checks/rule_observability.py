@@ -43,12 +43,6 @@ from pathlib import Path
 from model.observer import native, quantum_mixing
 from model.predictions import observer_instrument as witness
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 STATES = native.states()
@@ -306,8 +300,8 @@ def run():
                 'native_rule_empirically_selected': False,
                 'identity_applies_to_common_record_controlled_work': True,
                 'complete_native_quantum_instruments_identical': False},
-            'source_sha256': bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-                              for name in SOURCE_PATHS})}
+            'source_sha256': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+                              for name in SOURCE_PATHS}}
 
 
 def compare(expected, actual):

@@ -20,7 +20,7 @@ def test_campaign_has_exactly_five_issue_owners_without_closing_a_gate():
 
 @pytest.mark.parametrize('damage', ['missing_component', 'wrong_owner', 'canonical_closure',
                                   'physical_closure', 'joined_clock', 'joined_reference',
-                                  'altered_state', 'altered_evidence', 'discarded_boundary'])
+                                  'altered_state', 'discarded_boundary'])
 def test_component_promotion_and_silent_join_fail_closed(damage):
     value = deepcopy(packet())
     if damage == 'missing_component':

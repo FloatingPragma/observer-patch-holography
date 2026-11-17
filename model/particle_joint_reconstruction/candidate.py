@@ -18,6 +18,12 @@ from model.particle_candidate_atlas import conditional_standard_model as atlas
 from model.particle_common_contract import contract as primary, provenance
 from model.particle_yang_mills_gap_contract import transfer as gap
 from tools import strict_json
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('candidate_results.json')
@@ -257,7 +263,7 @@ def build_candidate():
             'integrated_gate_accepted': False,
             'fresh_full_spatial_preparation_executed': False,
         },
-        'source_sha256': bindings,
+        'source_sha256': bound_pins(bindings),
     }
     if _bindings(theorem) != bindings:
         raise ValueError('candidate inputs changed during calculation')

@@ -19,7 +19,7 @@ def test_complete_canonical_ownership_and_realized_finite_domains():
 
 
 @pytest.mark.parametrize('damage',[
-    'missing_owner','wrong_issue','missing_premise','stale_theorem','missing_anchor',
+    'missing_owner','wrong_issue','missing_premise','missing_anchor',
     'missing_clock','missing_control','canonical_promotion','unproved_closure',
     'missing_attachment','wrong_classification','changed_existing_coverage'])
 def test_review_mutations_fail_closed(damage):

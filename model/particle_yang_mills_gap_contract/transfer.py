@@ -9,6 +9,12 @@ import json
 from pathlib import Path
 
 import sympy as s
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 # The owning PROOF.md carries the complete computational criterion. The
@@ -213,8 +219,8 @@ def certificate():
     lap=s.Matrix([[1,-1,0],[-1,2,-1],[0,-1,1]])
     coupled=s.eye(3)-lap/4; uniform=s.ones(3,1)/s.sqrt(3)
     return {'schema':'oph.euclidean_gap_transfer.v1',
-        'source_sha256':{path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                         for path in SOURCE_INPUTS},
+        'source_sha256':bound_pins({path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                         for path in SOURCE_INPUTS}),
         'finite_nonuniform_vacuum':finite_transfer(t,omega,[a]),
         'finite_coupled_source':finite_transfer(coupled,uniform,
             [s.diag(-1,0,1),s.diag(1,-2,1)],ratio='3/4'),

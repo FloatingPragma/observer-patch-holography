@@ -13,6 +13,12 @@ import math
 from pathlib import Path
 import random
 import sys
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
+    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
@@ -259,7 +265,7 @@ def run():
               discrepancy < 6*samples["standard_error_of_mean"] and sum(r["count"] for r in samples["terminal_word_counts"]) == SAMPLE_COUNT)
         return {"schema": "oph.p_response.v1", "all_pass": all(checks.values()), "checks": checks,
                 "assumption": "P and N closure outputs are accepted for this conditional hardware design; N is not fitted or used to alter the local coupling",
-                "source_pins": PINS, "source_branch": {
+                "source_pins": bound_pins(PINS), "source_branch": {
                     "mode": MODE, "scale": "declared low-energy Thomson structured-running branch",
                     "P": show(p), "P_imported_interval": box,
                     "alpha": show(point["alpha"]), "inverse_alpha": show(point["inverse"]),

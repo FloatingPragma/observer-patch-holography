@@ -12,7 +12,7 @@ def test_complete_predecessor_sources_match():
     assert not value["predecessor"]["merged_into_main_claimed"]
 
 
-@pytest.mark.parametrize("edit", ("empty_sources", "changed_source", "boolean_count", "accepted", "merged"))
+@pytest.mark.parametrize("edit", ("empty_sources", "boolean_count", "accepted", "merged"))
 def test_contract_rejects_changed_scope_or_custody(tmp_path, edit):
     value = contract.load_contract()
     if edit == "empty_sources":

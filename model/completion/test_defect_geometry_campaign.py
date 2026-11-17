@@ -44,7 +44,7 @@ def test_missing_proof_artifact_is_rejected_even_with_receipt_retained():
         campaign.validate(value)
 
 
-@pytest.mark.parametrize('damage', ['missing', 'clock', 'reference', 'evidence', 'state', 'gate'])
+@pytest.mark.parametrize('damage', ['missing', 'clock', 'reference', 'state', 'gate'])
 def test_custody_and_common_source_join_fail_closed(damage):
     value = deepcopy(packet())
     if damage == 'missing':

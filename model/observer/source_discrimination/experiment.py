@@ -21,12 +21,6 @@ from model.observer.source_scalar import compiler as source
 from model.observer.scalar_response.experiment import canonical, compare_receipt
 from model.predictions import observer_instrument as target, protocol
 from . import circuit
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[3]
 SEED = 2026101203
@@ -328,7 +322,7 @@ def run(seed=SEED):
                 "algorithm": "one Python Random.random uniform threshold per attempted trial; cumulative executed branch norms",
                 "probability_source": "unnormalized source-word branch norms, normalized only for the classical sampler",
                 "target_probabilities_substituted": False},
-            "source": source.source_summary(), "sources": bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in pins}),
+            "source": source.source_summary(), "sources": {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in pins},
             "protocol_sha256": protocol.digest(plan), "candidates": records,
             "readout_certificate": readout_certificate(),
             "parity_refinement_certificate": parity_refinement_certificate(),

@@ -18,6 +18,12 @@ from ..completion import observer as original
 from ..completion.family import FamilyParameters
 from ..federated_quantum_sector import construction as sector
 from ..federated_observer import refinement
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -27,7 +33,7 @@ OUTPUT = HERE/'results.json'
 def source_bindings():
     """Transitive repository Python imports, retained source/data and initializers."""
     retained = members.checked_record_receipt()
-    paths = set(retained['source_sha256']) | set(sector.SOURCE_PATHS)
+    paths = set(bound_pins(retained['source_sha256'])) | set(sector.SOURCE_PATHS)
     paths.update(p.relative_to(ROOT).as_posix() for p in HERE.glob('*.py'))
     paths.update(('model/native_program/README.md', members.RECORD_RECEIPT,
                   'model/completion/observer.py', 'model/completion/family.py',
@@ -66,7 +72,7 @@ def source_bindings():
                 add_module(target)
                 for alias in node.names:
                     add_module(target+'.'+alias.name)
-    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def instrument_certificate():
@@ -185,7 +191,7 @@ def service_witness():
 
 def report():
     bindings = source_bindings()
-    result = {'schema': 'oph.native_program.receipt.v1', 'source_sha256': bindings,
+    result = {'schema': 'oph.native_program.receipt.v1', 'source_sha256': bound_pins(bindings),
               'instrument_certificate': instrument_certificate(),
               'native_continuing_witness': native_witness(),
               'original_H78_observer': original_observer_witness(),

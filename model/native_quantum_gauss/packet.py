@@ -8,6 +8,12 @@ from pathlib import Path
 
 from tools import strict_json
 from . import algebra
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = Path(__file__).resolve().parent
@@ -51,7 +57,7 @@ def source_bindings():
                 add(target)
                 for alias in node.names:
                     add(target+'.'+alias.name)
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def produce():
@@ -79,7 +85,7 @@ def produce():
                 'continuum_chirality_or_regulator_anomaly_cancellation': False,
                 'physical_mass_or_coupling_calibration': False,
                 'integrated_gate_accepted': False},
-            'canonical_physical_premises_discharged': [], 'source_bindings': pins}
+            'canonical_physical_premises_discharged': [], 'source_bindings': bound_pins(pins)}
 
 
 def canonical(value):

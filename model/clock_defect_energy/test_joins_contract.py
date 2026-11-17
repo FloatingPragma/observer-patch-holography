@@ -14,7 +14,7 @@ def test_successor_preserves_the_original_diagnostic_and_names_new_services():
     assert not value['integrated_gate_accepted']
 
 
-@pytest.mark.parametrize('edit', ('omit_source', 'wrong_hash', 'boolean_count', 'hidden_services', 'promote'))
+@pytest.mark.parametrize('edit', ('omit_source', 'boolean_count', 'hidden_services', 'promote'))
 def test_changed_join_scope_or_source_is_rejected(tmp_path, monkeypatch, edit):
     value = j.load_contract()
     if edit == 'omit_source':

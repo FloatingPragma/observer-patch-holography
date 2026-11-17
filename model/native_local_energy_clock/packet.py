@@ -13,6 +13,12 @@ from ..native_energy_measurement import packet as measurement_owner
 from ..native_energy_measurement import measurement, spectral
 from model.observer.quantum_mixing import seams
 from model.federated_observer import source
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -31,7 +37,7 @@ def canonical(value):
 def source_bindings():
     paths=set(exchange_owner.source_bindings())|set(measurement_owner.source_bindings())|set(SOURCE_FILES)|set(parent_custody.SOURCE_FILES)
     paths.add(measurement_owner.OUTPUT.relative_to(measurement_owner.ROOT).as_posix())
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def owning_measurement():
@@ -43,7 +49,7 @@ def owning_measurement():
     except ValueError as error:
         raise ValueError('audited complete measurement receipt bytes differ: '+str(error)) from error
     value=strict_json.load(measurement_owner.OUTPUT)
-    expected={'source_bindings':measurement_owner.source_bindings(),
+    expected={'source_bindings':bound_pins(measurement_owner.source_bindings()),
               'spectral_certificate':spectral.certify(),
               'complete_instrument_budget':measurement.budget(),
               'counted_energy_label_intervals':[[str(x) for x in pair] for pair in spectral.energy_labels()]}
@@ -128,7 +134,7 @@ def produce():
     value=serial(compute())
     value['source_controls']=source_controls()
     value['owning_measurement_attachment']=owning_measurement()
-    value['source_bindings']=before
+    value['source_bindings']=bound_pins(before)
     if source_bindings()!=before:
         raise ArithmeticError('source bytes changed during energy-clock replay')
     return value

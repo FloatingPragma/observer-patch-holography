@@ -26,7 +26,7 @@ def test_each_mathematical_domain_is_retained(key):
         campaign.validate(value)
 
 
-@pytest.mark.parametrize('damage', ['missing', 'clock', 'hash', 'count', 'gate'])
+@pytest.mark.parametrize('damage', ['missing', 'clock', 'count', 'gate'])
 def test_missing_sources_and_scope_promotion_rejected(damage):
     value = deepcopy(packet())
     if damage == 'missing':

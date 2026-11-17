@@ -20,6 +20,10 @@ from fractions import Fraction
 import hashlib
 from pathlib import Path
 import types
+try:
+    from tools.pin_scope import bound_pins
+except ImportError:  # run or imported from tools/ as a top-level module
+    from pin_scope import bound_pins
 
 SYNTHESIS_PATH = "model/native_effect_synthesis/synthesis.py"
 SYNTHESIS_SHA256 = "559ea14f06b7d30ab017b2113feeeebc4d90a517bf85257fd3251d098cb4e372"
@@ -142,7 +146,7 @@ class SynthesisAdapter:
         self.installed = False
 
     def evidence(self):
-        return {"source": SYNTHESIS_PATH, "source_sha256": SYNTHESIS_SHA256,
+        return {"source": SYNTHESIS_PATH, "source_sha256": bound_pins(SYNTHESIS_SHA256),
                 "functions": list(FUNCTIONS), "algorithm_changed": True,
                 "algorithm": "exact integer/Fraction radix-two Walsh butterfly",
                 "proof": "H_(2N)=[[H_N,H_N],[H_N,-H_N]], hence H_N^2=N I by induction",

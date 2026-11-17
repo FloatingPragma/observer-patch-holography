@@ -17,12 +17,6 @@ from pathlib import Path
 from . import modular_optical as inherited
 from ..observer import coherent_continuation as continuation
 from ..record_laws import burn_in
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 source, exact, ROOT = inherited.source, inherited.exact, inherited.ROOT
 SOURCE_PATHS = tuple(sorted(set((
@@ -806,7 +800,7 @@ def run():
     required = sum((variance_coefficient(n) for n in range(1, 7)), F())/(radius**2*F(9, 1000))
     sufficient_windows = -((-required.numerator)//required.denominator)
     return _json({'schema': 'oph.inverse_record_modular_clock.v1',
-        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
+        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
         'visible_input': 'complete binary current tape including every zero-current attempt record',
         'exact_source_mean': mean, 'exact_joint_products': joint, 'exact_covariances': c,
         'Hankel_determinant': determinant, 'recurrence_trace': trace, 'recurrence_product': product,

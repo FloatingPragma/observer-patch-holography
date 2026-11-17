@@ -21,12 +21,6 @@ from ..native_interface import construction as interface
 from ..native_quantum_history import construction as quantum
 from ..observer.source_discrimination import circuit
 from ..observer.source_scalar import compiler
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -298,7 +292,7 @@ def run():
             'binary_array_bounds_include_all_eight_seam_coordinates': True,
             'physical_service_error_upper': None})
     return {'schema': 'oph.compiled_native_interface.v1', 'all_pass': True,
-        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
+        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
         'source_operations': rows,
         'exact_operator_checks': effect_audit,
         'encoding': {'binary_dimension': 66, 'full_carrier_dimension': 78,

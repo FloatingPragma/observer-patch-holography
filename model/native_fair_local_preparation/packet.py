@@ -9,6 +9,12 @@ from tools import strict_json
 from model.native_sector_readout import packet as inherited
 from model.native_effect_synthesis import packet as coherent_sources
 from . import preparation as p, coupling, witness
+try:
+    from tools.pin_scope import bound_pins
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).with_name('results.json')
@@ -41,7 +47,7 @@ def source_bindings():
                 target=importlib.util.resolve_name(target,package) if node.level else target
                 add(target)
                 for alias in node.names:add(target+'.'+alias.name)
-    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
+    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
 
 
 def endpoint_control():
@@ -99,7 +105,7 @@ def produce():
                      'physical_vacuum_derived':False,
                      'physical_clock_QFT_or_particle_masses_derived':False,
                      'native_program_grammar_or_host_limits_changed':False},
-            'source_bindings':bindings}
+            'source_bindings':bound_pins(bindings)}
     if source_bindings()!=bindings:raise ArithmeticError('preparation source bytes changed during replay')
     return result
 
