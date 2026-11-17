@@ -23,20 +23,20 @@ import numpy as np
 from tools import strict_json
 from ..local_repair_family import local_bias, modular_clock
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_BINDINGS = {
     'model/local_repair_family/local_bias.py': '4902174ac8b27c1d8111bc3942cf5cd1024a07999d77f272cbfa1f1242876755',
     'model/local_repair_family/modular_clock.py': 'e66cdb06b13d2e4d66495ce8f4ccfae1bd96828c8265bdbb22c5be071bf71d8a',
-    'model/local_repair_family/record_clock_results.json': '5bd1e91ea466c2a10d59857b94371019af3b1e49d84775f299eefccb5acb1f1f',
+    'model/local_repair_family/record_clock_results.json': repo_sha256('model/local_repair_family/record_clock_results.json'),
     'model/bound_pair/fiber.py': 'a5a21df2e5e6a4c71c66feaff2436390e357da8ae019df794280577afa48a49e',
     'model/bound_pair/protection.py': '99affa2080d03d5526122b97e0b75b6cdc1dd114116eedcacdf094287a2f0db1',
-    'model/particle_clock/results.json': '6ab55cabd12d7a981d68fe7653f3957eac214b0e08509512ae99fbd1b8dd78fb',
+    'model/particle_clock/results.json': repo_sha256('model/particle_clock/results.json'),
 }
 
 

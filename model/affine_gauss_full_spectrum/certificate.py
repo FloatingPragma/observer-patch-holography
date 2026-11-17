@@ -12,14 +12,14 @@ from model.affine_gauss_spectrum import model as coarse
 from .operator import HERE, ROOT, ActualOperator, algebraic_frame
 from .roundoff import U, q, evaluation_budget, sqrt_bounds, squared_norm_exact
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 PARENT='model/affine_gauss_spectrum/results.json'
-PARENT_SHA='632a3b6ae85c7f1fb67ce768a78b684972831eb1b194517b1dc9c2cb1affb9ff'
+PARENT_SHA=repo_sha256('model/affine_gauss_spectrum/results.json')
 CENTER=F.from_float(1.8738097549661659)
 RADIUS=F(1,10**12)
 

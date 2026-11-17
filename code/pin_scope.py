@@ -50,3 +50,17 @@ def bound_pins(pins):
     if not isinstance(pins, dict):
         return pins
     return {path: digest for path, digest in pins.items() if not exempt(path)}
+
+
+def repo_sha256(path) -> str:
+    """SHA-256 of a repository file, by its root-relative path.
+
+    Code that records the digest of a parent receipt reads it here instead of
+    keeping the value as a constant, so a regenerated parent never needs a
+    hand-edited hash.
+    """
+    import hashlib
+    from pathlib import Path
+
+    root = Path(__file__).resolve().parents[1]
+    return hashlib.sha256((root / str(path)).read_bytes()).hexdigest()

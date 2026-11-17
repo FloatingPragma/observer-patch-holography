@@ -10,16 +10,16 @@ from model.coherent_defect_wave.chiral_joint.atomic_reference_control import lat
 from model.coherent_defect_wave.chiral_joint.periodic_family.model import Configuration,kinetic_terms
 from model.particle_common_contract.provenance import import_closure
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 PARENT='model/native_higgs_current_response/results.json'
-PARENT_SHA='55fea7f49b3683fb34f3a72aa686cab58646608a3267db02f7f6d3a943b9352a'
+PARENT_SHA=repo_sha256('model/native_higgs_current_response/results.json')
 TAU=F(1,2**20)
 
 

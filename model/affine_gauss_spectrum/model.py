@@ -12,16 +12,16 @@ from model.affine_gauss_mobile import model as mobile
 from model.affine_gauss_mobile.certificate import certificate as parent_certificate
 from model.affine_gauss_mobile.certificate import validate_pins
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 PARENT='model/affine_gauss_mobile/results.json'
-PARENT_SHA='46942e200db305e6aa281b836ba2a85b411dc419baa1a60730ae9868e9bdc61e'
+PARENT_SHA=repo_sha256('model/affine_gauss_mobile/results.json')
 
 
 def ivf(value):

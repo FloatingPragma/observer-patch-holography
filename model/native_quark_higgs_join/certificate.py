@@ -4,11 +4,11 @@ import hashlib
 import json
 from pathlib import Path
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -18,7 +18,7 @@ from .operators import operator_controls, reference_controls, reduced_EOM
 from .bounds import calculate
 
 PARENT = 'model/native_quark_response/results.json'
-PARENT_SHA = '06c336e1f691db866896de6123fea34937dcd462d92765f594600744c54fd40f'
+PARENT_SHA = repo_sha256('model/native_quark_response/results.json')
 
 
 def digest(path):

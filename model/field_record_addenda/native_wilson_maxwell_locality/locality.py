@@ -3,11 +3,11 @@ from fractions import Fraction as F
 from pathlib import Path
 import hashlib,json,sys
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 HERE=Path(__file__).resolve().parent
 RER = HERE.parents[2]
 from model.native_wilson_maxwell import field
@@ -19,7 +19,7 @@ import mpmath as mp
 from math import comb
 
 PARENT='model/native_wilson_maxwell_ground_refinement/results.json'
-PARENT_SHA='e5a40a0d4e8d183c933232758f211bcd44bf81944429867da4048c184fc7b96a'
+PARENT_SHA=repo_sha256('model/native_wilson_maxwell_ground_refinement/results.json')
 
 
 def admit():

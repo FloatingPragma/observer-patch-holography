@@ -2,19 +2,19 @@
 from pathlib import Path
 import argparse,hashlib,json
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 from . import bounds
 from model.particle_common_contract.provenance import import_closure
 PARENTS={
- 'model/native_weak_current_interface/results.json':'db5ae5c7b9f43762a4cdb7128761d8f2014cf3c60d0c9f324569d27d1d7b3f66',
- 'model/coherent_defect_wave/chiral_joint/interacting_charged_response/results.json':'e135f7b15460427068dd18541b0f7990a3d259d298467604283841c68f75ab34',
- 'model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json':'7335d80394ab25ab949ca0e359e70a8eca55636256255b684c68086be2a8c7a6'}
+ 'model/native_weak_current_interface/results.json':repo_sha256('model/native_weak_current_interface/results.json'),
+ 'model/coherent_defect_wave/chiral_joint/interacting_charged_response/results.json':repo_sha256('model/coherent_defect_wave/chiral_joint/interacting_charged_response/results.json'),
+ 'model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json':repo_sha256('model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json')}
 
 def digest(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 def validate(pins):

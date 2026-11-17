@@ -15,16 +15,16 @@ from model.native_wilson_maxwell_ground import ground
 from model.coherent_defect_wave.chiral_joint.charged_ground_exchange.resolvent import field_data
 from ..provenance import import_closure
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 HERE=Path(__file__).resolve().parent
 ROOT=a.ROOT
 PARENT='model/native_wilson_maxwell/results.json'
-PARENT_SHA='eba4963148b62f6841a038119ed5b9baf4a6f142009915b31e49d72dacd12b72'
+PARENT_SHA=repo_sha256('model/native_wilson_maxwell/results.json')
 CONE=HERE.parent/'native_wilson_cone_audit'
 CONE_SHA='5a24c444fec3ca0a03f59dde8fd52614669b9d9c730dcd4887563727c4cfa62b'
 

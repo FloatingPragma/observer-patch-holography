@@ -4,11 +4,11 @@ import hashlib
 import json
 from pathlib import Path
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -22,15 +22,15 @@ from .full import windows
 
 PARENTS = {
     'model/coherent_defect_wave/chiral_joint/local_reference/results.json':
-        '0f8db24b8e5ed7312f39484247a482be216bbd6944ab3b56cf0929ba8b4e138c',
+        repo_sha256('model/coherent_defect_wave/chiral_joint/local_reference/results.json'),
     'model/coherent_defect_wave/chiral_joint/interacting_charged_response/results.json':
-        'e135f7b15460427068dd18541b0f7990a3d259d298467604283841c68f75ab34',
+        repo_sha256('model/coherent_defect_wave/chiral_joint/interacting_charged_response/results.json'),
     'model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json':
-        '7335d80394ab25ab949ca0e359e70a8eca55636256255b684c68086be2a8c7a6',
+        repo_sha256('model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json'),
     'model/native_charge_resolution/results.json':
-        'f22c9a266a43de8aaae776b1293894081c3dc20b7d8e5678e30ef6af993dd19e',
+        repo_sha256('model/native_charge_resolution/results.json'),
     'model/coherent_defect_wave/chiral_joint/interacting_charge_conjugation/results.json':
-        'f5852be27204dde1bc46df2517d476e737506fc36758c3497536f37ff00a3f64',
+        repo_sha256('model/coherent_defect_wave/chiral_joint/interacting_charge_conjugation/results.json'),
 }
 
 

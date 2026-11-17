@@ -33,10 +33,16 @@ from pathlib import Path
 
 from tools import strict_json
 from . import transfer
+try:
+    from tools.pin_scope import repo_sha256
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import repo_sha256
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = 'model/occupation_control/transfer_results.json.gz'
-SOURCE_SHA256 = '2ce0e18bb4030ef4b67451ce99e28cf53798ceeb4eb22b0a1c7e0bd73898cebe'
+SOURCE_SHA256 = repo_sha256('model/occupation_control/transfer_results.json.gz')
 SCHEMA = 'oph.occupation_control.shared_calibration.v2'
 CASES = tuple('abcde')
 CONTRACT = {

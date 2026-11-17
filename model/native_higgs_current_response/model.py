@@ -10,17 +10,17 @@ from model.native_weak_current_response.bounds import divide_positive, expand, p
 from model.native_weak_current_response.certificate import certificate as replay_weak
 from model.particle_common_contract.provenance import import_closure
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 PARENTS={
-    'model/native_higgs_filtered_state/results.json':'19527188c4ffa855df73330c5fc1d9efead08308e0c7719e6f67fd845e901029',
-    'model/native_weak_current_response/results.json':'8415fe269dfa3c18b2136c3505e1fd2c701456120b1dd395dc6bd1499a7dd3d1'}
+    'model/native_higgs_filtered_state/results.json':repo_sha256('model/native_higgs_filtered_state/results.json'),
+    'model/native_weak_current_response/results.json':repo_sha256('model/native_weak_current_response/results.json')}
 
 
 def digest(path): return hashlib.sha256(path.read_bytes()).hexdigest()

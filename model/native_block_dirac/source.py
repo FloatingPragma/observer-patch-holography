@@ -6,11 +6,11 @@ import json
 from pathlib import Path
 import sys
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -18,7 +18,7 @@ sys.path.insert(0, str(ROOT))
 from model.native_abelian_field_join import certificate as native
 
 PARENT = 'model/native_abelian_field_join/results.json'
-PARENT_SHA = 'f6aadcd79eec889de0c3243925c950e482bd456ea5c22fcab6a8406978472327'
+PARENT_SHA = repo_sha256('model/native_abelian_field_join/results.json')
 PREPARATION = 'model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json'
 
 

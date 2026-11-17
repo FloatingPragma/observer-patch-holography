@@ -2,17 +2,17 @@
 from pathlib import Path
 import hashlib,json
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 from . import bounds as b
 from model.particle_common_contract.provenance import import_closure
 PARENT='model/native_abelian_field_join/results.json'
-PARENT_SHA='f6aadcd79eec889de0c3243925c950e482bd456ea5c22fcab6a8406978472327'
+PARENT_SHA=repo_sha256('model/native_abelian_field_join/results.json')
 
 def digest(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 

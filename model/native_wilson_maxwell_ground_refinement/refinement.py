@@ -5,11 +5,11 @@ from pathlib import Path
 import hashlib,json,sys
 import mpmath as mp
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 HERE=Path(__file__).resolve().parent
 RER=HERE.parents[1]
@@ -19,9 +19,9 @@ from model.native_wilson_maxwell_refinement import bounds
 from model.affine_gauss_mobile.model import rounded
 
 PARENT='model/native_wilson_maxwell_ground/results.json'
-PARENT_SHA='0e9edccffa2d8571f0b325feaee7c49408714d7b838e3e1c57ec6a183c15fa17'
+PARENT_SHA=repo_sha256('model/native_wilson_maxwell_ground/results.json')
 CUTOFF_PARENT='model/native_wilson_maxwell_refinement/results.json'
-CUTOFF_SHA='49da49cb0745d1f78563f50fd4f6829e45e957d2bec7e4a87064075ce0a202ec'
+CUTOFF_SHA=repo_sha256('model/native_wilson_maxwell_refinement/results.json')
 
 
 def admit():

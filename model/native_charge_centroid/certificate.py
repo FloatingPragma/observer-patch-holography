@@ -2,18 +2,18 @@
 from pathlib import Path
 import hashlib,json
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 from . import bounds as b
 from model.particle_common_contract.provenance import import_closure
 PARENTS={
- 'model/native_charge_resolution/results.json':'f22c9a266a43de8aaae776b1293894081c3dc20b7d8e5678e30ef6af993dd19e',
- 'model/affine_gauss_charged_clock/results.json':'7c8f0214f1412e38bdc410c607d0a8f8765df323c3a33a778da923f3892e8613'}
+ 'model/native_charge_resolution/results.json':repo_sha256('model/native_charge_resolution/results.json'),
+ 'model/affine_gauss_charged_clock/results.json':repo_sha256('model/affine_gauss_charged_clock/results.json')}
 PREPARATION='model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json'
 
 def digest(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()

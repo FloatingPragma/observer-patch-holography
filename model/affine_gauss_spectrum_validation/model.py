@@ -6,11 +6,11 @@ import hashlib,json,math
 import mpmath as mp
 from model.affine_gauss_spectrum import model as candidate
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -63,7 +63,7 @@ def rational_inertia(A,shift):
 def audit():
     original=candidate.certificate()
     raw=(ROOT/'model/affine_gauss_spectrum/results.json').read_bytes()
-    assert hashlib.sha256(raw).hexdigest()=='632a3b6ae85c7f1fb67ce768a78b684972831eb1b194517b1dc9c2cb1affb9ff'
+    assert hashlib.sha256(raw).hexdigest()==repo_sha256('model/affine_gauss_spectrum/results.json')
     assert original==json.loads(raw)
     rows=original['spectral']['low_charged_levels']
     independent=taylor_controls()

@@ -9,11 +9,11 @@ import sympy as s
 from sympy.polys.matrices import DomainMatrix
 import mpmath as mp
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 HERE=Path(__file__).resolve().parent
 RER=HERE.parents[1]
@@ -24,7 +24,7 @@ from model.affine_gauss_mobile.model import ivalue,rounded
 from model.native_block_dirac import algebra as native_code
 
 PARENT='model/native_wilson_maxwell/results.json'
-PARENT_SHA='eba4963148b62f6841a038119ed5b9baf4a6f142009915b31e49d72dacd12b72'
+PARENT_SHA=repo_sha256('model/native_wilson_maxwell/results.json')
 GEOMETRY='model/coherent_defect_wave/chiral_joint/atomic_spin_geometry/results.json'
 
 

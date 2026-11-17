@@ -7,11 +7,11 @@ from math import comb
 from pathlib import Path
 import sys
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 HERE=Path(__file__).resolve().parent
 RER=HERE.parents[1]
@@ -19,7 +19,7 @@ sys.path.insert(0,str(RER))
 from model.native_wilson_maxwell_refinement import bounds,algebra
 from model.particle_common_contract.provenance import import_closure
 PARENT='model/native_wilson_maxwell/results.json'
-PARENT_SHA='eba4963148b62f6841a038119ed5b9baf4a6f142009915b31e49d72dacd12b72'
+PARENT_SHA=repo_sha256('model/native_wilson_maxwell/results.json')
 RESEARCH=HERE/'research_reference.json'
 RESEARCH_SHA='e8ae519a5d5247de12cfaa90d8b63f870f0bd72110fe88c39e892fbc429394d9'
 

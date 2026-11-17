@@ -6,11 +6,11 @@ from pathlib import Path
 import argparse, hashlib, importlib.util, json, sys
 import sympy as s
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 HERE=Path(__file__).resolve().parent; WORK=HERE.parent
 RER=HERE.parents[2]
@@ -22,9 +22,9 @@ from model.particle_common_contract.provenance import import_closure
 BRIDGE=WORK/'native_orthogonal_wilson_bridge'
 BRIDGE_SHA='75590a8e62090717d5b91ada6ac472498952c3b4ace19b15de815419ecdadc6c'
 SOURCE='model/native_wilson_maxwell/results.json'
-SOURCE_SHA='eba4963148b62f6841a038119ed5b9baf4a6f142009915b31e49d72dacd12b72'
+SOURCE_SHA=repo_sha256('model/native_wilson_maxwell/results.json')
 CLOCK='model/affine_gauss_charged_clock/results.json'
-CLOCK_SHA='7c8f0214f1412e38bdc410c607d0a8f8765df323c3a33a778da923f3892e8613'
+CLOCK_SHA=repo_sha256('model/affine_gauss_charged_clock/results.json')
 
 def digest(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 def enc(x,upper=True):return str(rounded(x,upper))

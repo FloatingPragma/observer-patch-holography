@@ -9,11 +9,11 @@ import sys
 
 import sympy as s
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
@@ -24,7 +24,7 @@ from model.coherent_defect_wave.chiral_source.model import PAULI
 TRANSPORT = HERE.parent / 'native_quark_transport'
 from ..native_quark_transport import transport
 PARENT = 'model/native_quark_response/results.json'
-PARENT_SHA = '06c336e1f691db866896de6123fea34937dcd462d92765f594600744c54fd40f'
+PARENT_SHA = repo_sha256('model/native_quark_response/results.json')
 TRANSPORT_SHA = '5395b4e4601fba2b8f95366103b06ee62fe88c6fc67dee6c2363c81dda42f57e'
 LAMBDA = F(1, 2**34)
 TIME = F(1)

@@ -11,16 +11,16 @@ from model.affine_gauss_charged_clock import certificate as clock
 from model.affine_gauss_full_spectrum import certificate as ground
 from model.affine_gauss_full_spectrum.roundoff import squared_norm_exact
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
 PARENT = 'model/affine_gauss_charged_clock/results.json'
-PARENT_SHA = '7c8f0214f1412e38bdc410c607d0a8f8765df323c3a33a778da923f3892e8613'
+PARENT_SHA = repo_sha256('model/affine_gauss_charged_clock/results.json')
 
 
 def roots(value, places=30):

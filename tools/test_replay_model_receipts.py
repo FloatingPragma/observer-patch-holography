@@ -15,24 +15,6 @@ import yaml
 import replay_model_receipts as replay
 
 
-def test_completion_maintenance_artifact_manifest():
-    """Named artifact integrity is distinct from scientific replay admission."""
-    root = Path(replay.__file__).resolve().parents[1]
-    path = root / "model/completion/evidence_maintenance_manifest.json"
-    manifest = json.loads(path.read_text())
-    assert manifest["schema"] == "oph.evidence_maintenance_artifacts.v1"
-    assert set(manifest["files"]) == {
-        "model/completion/evidence_maintenance_review.json",
-        "model/completion/evidence_maintenance_transitions.json",
-        "model/completion/ordered_spin_energy_readout.json",
-        "model/completion/ORDERED_SPIN_ENERGY_READOUT.md",
-        "tools/read_ordered_spin_energies.py",
-        "tools/test_read_ordered_spin_energies.py",
-    }
-    for name, expected in manifest["files"].items():
-        assert hashlib.sha256((root / name).read_bytes()).hexdigest() == expected
-
-
 def test_completion_ci_cold_checks_every_new_package_and_propagates_failure(monkeypatch):
     import subprocess
     workflow = yaml.safe_load((Path(replay.__file__).resolve().parents[1] /

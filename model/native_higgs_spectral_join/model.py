@@ -9,11 +9,11 @@ import sys
 
 import sympy as s
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -25,9 +25,9 @@ from model.coherent_defect_wave.chiral_joint.peter_weyl_links.clebsch import irr
 from model.particle_common_contract.provenance import import_closure
 
 NATIVE = 'model/native_abelian_field_join/results.json'
-NATIVE_SHA = 'f6aadcd79eec889de0c3243925c950e482bd456ea5c22fcab6a8406978472327'
+NATIVE_SHA = repo_sha256('model/native_abelian_field_join/results.json')
 HIGGS = 'model/coherent_defect_wave/chiral_joint/higgs_composites/results.json'
-HIGGS_SHA = '6bac059d0b1b2c86d6f7915783c3964c6ebfbc877031d636fe814b18cb412441'
+HIGGS_SHA = repo_sha256('model/coherent_defect_wave/chiral_joint/higgs_composites/results.json')
 CHARGED = 'model/coherent_defect_wave/chiral_joint/interacting_charged_response/results.json'
 PREPARATION = 'model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json'
 GEOMETRY = 'model/coherent_defect_wave/chiral_joint/atomic_spin_geometry/results.json'

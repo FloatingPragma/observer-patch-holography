@@ -7,6 +7,12 @@ import json
 from math import isqrt
 from pathlib import Path
 import sys
+try:
+    from tools.pin_scope import repo_sha256
+except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
+    from tools.pin_scope import repo_sha256
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -18,10 +24,10 @@ from model.native_block_dirac import algebra as dirac
 from model.particle_common_contract.provenance import import_closure
 
 PARENTS = {
-    'model/native_weak_current_interface/results.json': 'db5ae5c7b9f43762a4cdb7128761d8f2014cf3c60d0c9f324569d27d1d7b3f66',
-    'model/native_higgs_spectral_join/results.json': '5749af81e1612f0658733b51acd52c2d08a1a69d174a3707989094d66d149973',
-    'model/native_charge_resolution/results.json': 'f22c9a266a43de8aaae776b1293894081c3dc20b7d8e5678e30ef6af993dd19e',
-    'model/native_block_dirac/results.json': '355dcc45b548203733d1ec6de5e9ffbd82512696976959464d2e1a0c8a70df14'}
+    'model/native_weak_current_interface/results.json': repo_sha256('model/native_weak_current_interface/results.json'),
+    'model/native_higgs_spectral_join/results.json': repo_sha256('model/native_higgs_spectral_join/results.json'),
+    'model/native_charge_resolution/results.json': repo_sha256('model/native_charge_resolution/results.json'),
+    'model/native_block_dirac/results.json': repo_sha256('model/native_block_dirac/results.json')}
 SCALE = 2**128
 RESEARCH = HERE/'research_reference.json'
 RESEARCH_SHA = '13200ce38d74e97c6fee01f985032f6d5a3a3c18a0beb8d6aa8aa399d34561a8'

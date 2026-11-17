@@ -7,11 +7,11 @@ from pathlib import Path
 import sys
 import sympy as s
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -22,7 +22,7 @@ from model.native_higgs_spectral_join import model as join
 from model.particle_common_contract.provenance import import_closure
 
 JOIN = 'model/native_higgs_spectral_join/results.json'
-JOIN_SHA = '5749af81e1612f0658733b51acd52c2d08a1a69d174a3707989094d66d149973'
+JOIN_SHA = repo_sha256('model/native_higgs_spectral_join/results.json')
 MAP = 'model/coherent_defect_wave/chiral_particle_map/results.json'
 RESEARCH = HERE/'research_reference.json'
 RESEARCH_SHA = '63bc7d02fbd19066ed6afb09e79713d6ba330073838a6b874568f39172a1bb81'

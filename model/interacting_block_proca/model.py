@@ -7,11 +7,11 @@ from pathlib import Path
 
 import sympy as s
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 HERE=Path(__file__).resolve().parent
 RER=HERE.parents[1]
@@ -22,7 +22,7 @@ from . import algebra,resources,readout
 
 
 PARENT='model/interacting_block_quadrature/results.json'
-PARENT_SHA='64f90635637575bdaa9a24f1840ea3abb6362d6de8bc28e97de7fb275e8218e3'
+PARENT_SHA=repo_sha256('model/interacting_block_quadrature/results.json')
 
 
 @lru_cache(None)

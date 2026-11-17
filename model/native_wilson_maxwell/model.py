@@ -8,11 +8,11 @@ from pathlib import Path
 import sys
 import mpmath as mp
 try:
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
     import sys as _sys
     _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
+    from tools.pin_scope import bound_pins, repo_sha256
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -23,7 +23,7 @@ from model.native_block_dirac.resources import bounds as interval_bounds
 from model.particle_common_contract.provenance import import_closure
 
 PARENT='model/native_higgs_filtered_state/results.json'
-PARENT_SHA='19527188c4ffa855df73330c5fc1d9efead08308e0c7719e6f67fd845e901029'
+PARENT_SHA=repo_sha256('model/native_higgs_filtered_state/results.json')
 PEER_SHA='f646ac992fc589a042b1ddb635f6d7f288943d7bec15aeca846badda4608cb7e'
 RESEARCH=HERE/'research_reference.json'
 RESEARCH_SHA='2fcb312421565591e3a62308986b98d3803519320949185ef72e9c8f19c4495e'
