@@ -16,12 +16,6 @@ import json
 import math
 from pathlib import Path
 import sys
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 RER = HERE.parents[1]
@@ -464,7 +458,7 @@ def run():
             'control_precision_bound': 'eta_op <= sum_p ||D_p|| |delta c_p| by unitary Duhamel',
             'records': 'success, every native coin/current or contrast, export failures, and reset timeouts; no conditioning denominator',
         },
-        'source_sha256': bound_pins({name: hashlib.sha256((RER / name).read_bytes()).hexdigest() for name in source_files}),
-        'implementation_sha256': bound_pins({path.name: hashlib.sha256(path.read_bytes()).hexdigest()
-                                  for path in (HERE / 'construction.py', HERE / 'finite_compiler.py', HERE / 'test_compiler.py')}),
+        'source_sha256': {name: hashlib.sha256((RER / name).read_bytes()).hexdigest() for name in source_files},
+        'implementation_sha256': {path.name: hashlib.sha256(path.read_bytes()).hexdigest()
+                                  for path in (HERE / 'construction.py', HERE / 'finite_compiler.py', HERE / 'test_compiler.py')},
     }

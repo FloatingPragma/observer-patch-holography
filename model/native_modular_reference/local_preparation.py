@@ -44,12 +44,6 @@ from ..native_equilibration import cut_completion as cut
 from ..observer import native, quantum_mixing
 from ..repair_scheduler import coins
 from . import common_caps
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 CORE, CAPS = common_caps.CORE, common_caps.CAPS
 ROOT = Path(__file__).resolve().parents[2]
@@ -503,8 +497,8 @@ def run():
                 "maximum_complete_halftrace_diagnostic": float(np.max(deviations)),
                 "basis_zero_output_flag_probabilities_diagnostic":
                     {flag: float(m[:, 0].sum()) for flag, m in maps.items()}},
-            "source_sha256": bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-                              for path in SOURCE_PATHS})}
+            "source_sha256": {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+                              for path in SOURCE_PATHS}}
 
 
 def compare_receipt(supplied, actual):

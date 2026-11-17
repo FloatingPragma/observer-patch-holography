@@ -48,12 +48,6 @@ from tools import strict_json
 from . import common_caps as common, local_preparation as local
 from ..native_equilibration import common_variation as variation
 from ..observer import native
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name("reference_tomography_results.json")
@@ -418,7 +412,7 @@ def run(trials=1 << 24, *, seed=20261024):
                              "model/native_equilibration/common_variation.py"))))
     return {"schema": "oph.native_modular_reference.reference_tomography.v1",
             "identification": exact_identification(), "continuing_execution": execution,
-            "source_sha256": bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}),
+            "source_sha256": {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths},
             "scope": {"fixed_known_reference_weights_used_by_estimator": False,
                       "full_state_tomography": False, "independent_copies_required": False,
                       "finite_physical_service_accuracy_established": False,

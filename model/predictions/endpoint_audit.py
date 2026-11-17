@@ -14,12 +14,6 @@ import json
 from pathlib import Path
 
 from model.observer.p_response import experiment as response
-try:
-    from tools.pin_scope import bound_pins, repo_sha256
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, repo_sha256
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -28,8 +22,8 @@ RECEIPT = "model/observer/p_response/results.json"
 CONSUMER = "model/observer/p_response/experiment.py"
 SOURCE_PINS = {
     **response.PINS,
-    CONSUMER: repo_sha256(CONSUMER),
-    RECEIPT: repo_sha256(RECEIPT),
+    CONSUMER: "44049e5702af83ab8a62e40f8f7d3b25b088ed24e47078a0b412c3b2400ed61e",
+    RECEIPT: "e050ec01837c59459b0ea1c1f839f8993d5930b97276b972ee82c3366f9ad91f",
 }
 
 # Published, previously examined data: never call this a prospective freeze.
@@ -92,7 +86,7 @@ def _read_sources(root):
     certificate = json.loads((root / response.CERT).read_text())
     receipt = json.loads((root / RECEIPT).read_text())
     if (response.MODE != MODE or receipt["source_branch"]["mode"] != MODE
-            or bound_pins(receipt["source_pins"]) != response.PINS):
+            or receipt["source_pins"] != response.PINS):
         raise ValueError("Inherited detector and audit do not use the same pinned branch")
     if (certificate["promotion_allowed"] is not False
             or certificate["exact_alpha_promoted"] is not False
@@ -147,7 +141,7 @@ def audit(target=None, *, root=None):
         "target_sha256": TARGET_SHA256,
         "source": {
             "mode": MODE,
-            "pins": bound_pins(dict(SOURCE_PINS)),
+            "pins": dict(SOURCE_PINS),
             "certificate": response.CERT,
             "certificate_replayed_here": False,
             "artifact_hashes_verified": True,

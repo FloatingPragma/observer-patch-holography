@@ -4,10 +4,6 @@ import hashlib
 import json
 from fractions import Fraction
 from pathlib import Path
-try:
-    from tools.pin_scope import bound_pins
-except ImportError:  # run or imported from tools/ as a top-level module
-    from pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = ROOT / 'code/openwave_row1_native'
@@ -87,7 +83,7 @@ def build(package=PACKAGE):
     for filename in whitelist:
         require(inside(package, filename).is_file(), 'missing public file: ' + filename)
     for ledger in (manifest, outputs):
-        for filename, expected in bound_pins(ledger['files_sha256']).items():
+        for filename, expected in ledger['files_sha256'].items():
             require(filename in whitelist, 'hashed file outside whitelist')
             require(sha(inside(package, filename)) == expected, 'stale public file: ' + filename)
     primary = json.loads((package/'PRIMARY_RESULT.json').read_text())
@@ -165,7 +161,7 @@ def build(package=PACKAGE):
         path = package/'provenance'/filename
         review = json.loads(path.read_text())
         passed(review, filename, REVIEW_CHECKS[filename])
-        for original, expected in bound_pins(review['source_sha256']).items():
+        for original, expected in review['source_sha256'].items():
             require(original in custody and custody[original]['sha256'] == expected,
                     'review target mismatch: ' + original)
         reviews.append({'path': 'code/openwave_row1_native/provenance/' + filename,
@@ -175,7 +171,7 @@ def build(package=PACKAGE):
     packet = json.loads((package/'source_packet.json').read_text())
     original_spatial = json.loads((package/'provenance/NATIVE_DUAL_WINDING.json').read_text())
     require(packet['spatial_result'] == original_spatial, 'source packet changed audited histories')
-    sources = bound_pins({'code/openwave_row1_native/' + name: sha(package/name) for name in whitelist})
+    sources = {'code/openwave_row1_native/' + name: sha(package/name) for name in whitelist}
     sources['tools/build_openwave_native_row1_claim.py'] = sha(Path(__file__))
     return {
         'schema': 'oph.native_spatial_charge_claim.v1',
@@ -200,7 +196,7 @@ def build(package=PACKAGE):
         'opposing_interpretation': 'Independent opposing reviews confirm the finite identities and support at most a partial physical interpretation because the integer unit is supplied by the source law and the phase is an observer encoding. Numerical agreement is not an agreement to award validation.',
         'law_control_addendum': 'code/openwave_row1_protocol/law_controls.py enumerates fresh development histories and executes fractional, integer-fragmenting and omitted-record laws with fixed sampling; its separately pinned receipt does not alter frozen primary provenance.',
         'reproduce': 'python3 code/openwave_row1_native/run.py --output /tmp/openwave-native-row1.json',
-        'source_sha256': bound_pins(sources),
+        'source_sha256': sources,
     }
 
 

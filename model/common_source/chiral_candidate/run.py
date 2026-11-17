@@ -13,12 +13,6 @@ from . import action, hierarchy_controls, history, kinetic, spacetime_attachment
 from ..particle_identification import run as particle_run
 from ..mass_response import experiment as e
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins
 
 
 HERE = Path(__file__).resolve().parent
@@ -41,15 +35,15 @@ def _check_bindings(bindings):
 
 def _bindings(action_report,geometry_report):
     baseline = strict_json.load(BASELINE)
-    result = dict(bound_pins(baseline["source_bindings"]))
+    result = dict(baseline["source_bindings"])
     for report in (action_report,geometry_report):
-        for name,value in bound_pins(report["source_bindings"]).items():
+        for name,value in report["source_bindings"].items():
             if name in result and result[name] != value:
                 raise ValueError(f"inconsistent source custody: {name}")
             result[name] = value
     paths = [p for p in HERE.glob("*.py") if not p.name.startswith("test_")]
     paths += list(HERE.glob("*.md"))+[BASELINE,BASELINE.with_suffix(".npz"),NOTE,SPECTRAL_RESPONSE]
-    result.update(bound_pins({path.relative_to(ROOT).as_posix():_hash(path) for path in paths}))
+    result.update({path.relative_to(ROOT).as_posix():_hash(path) for path in paths})
     return dict(sorted(result.items()))
 
 
@@ -89,9 +83,9 @@ def run():
             "observed_standard_model_mass_spectrum_derived":False,
             "physical_particle_identification_complete":False,
         },
-        "source_bindings":bound_pins(_bindings(matter,geometry)),
+        "source_bindings":_bindings(matter,geometry),
     }
-    if bound_pins(result["source_bindings"]) != initial:
+    if result["source_bindings"] != initial:
         raise RuntimeError("candidate files changed during execution")
     _check_bindings(initial)
     return result,arrays
@@ -107,9 +101,9 @@ def verify(path):
     required.add(BASELINE.relative_to(ROOT).as_posix())
     required.add(NOTE.relative_to(ROOT).as_posix())
     required.add(SPECTRAL_RESPONSE.relative_to(ROOT).as_posix())
-    if not required <= set(bound_pins(document["source_bindings"])):
+    if not required <= set(document["source_bindings"]):
         raise ValueError("incomplete chiral source custody")
-    _check_bindings(bound_pins(document["source_bindings"]))
+    _check_bindings(document["source_bindings"])
     artifact = document["artifact"]
     if Path(artifact["filename"]).name != artifact["filename"]:
         raise ValueError("quantum artifact must be adjacent to receipt")

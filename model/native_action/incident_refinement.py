@@ -18,12 +18,6 @@ from ..observer.scalar_response.experiment import canonical, compare_receipt
 from . import screen_compatibility as screen
 from . import stopped_control
 from . import clock_histories
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -244,8 +238,8 @@ def run():
             'uniform_full_source_scheduler_not_selected_subgraph_scheduler': True,
             'all_level_refinement_or_relativistic_field_limit_proved': False,
             'physical_duration_calibration_or_density_selection_derived': False},
-        'source_bindings': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
-                            for p in sorted(set(paths))})}
+        'source_bindings': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
+                            for p in sorted(set(paths))}}
 
 
 def main():

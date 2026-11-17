@@ -18,12 +18,6 @@ import sympy as s
 
 from tools import strict_json
 from . import native_gauge_object as objects, slow_geometry
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = objects.ROOT
 BENCHMARK = 'model/common_source/chiral_candidate/results.json'
@@ -283,4 +277,4 @@ def source_bindings():
         'model/common_source/test_native_mass_holonomy.py',
         'model/common_source/native_matter_attachment.py',
         'model/common_source/test_native_matter_attachment.py'}
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}

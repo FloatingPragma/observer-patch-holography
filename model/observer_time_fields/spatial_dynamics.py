@@ -21,12 +21,6 @@ from model.observer import native
 from model.observer import coherent_continuation as coherent
 from model.physical_space_time import source_green
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(sorted(set((*source_green.SOURCE_PATHS, *coherent.SOURCE_PATHS,
@@ -399,7 +393,7 @@ def run():
             'theorem_operator_bound': F(1, 8)})
     incident_spectrum()
     return _json({'schema': 'oph.observer_time_fields.spatial_dynamics.v1',
-        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
+        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
         'native': {'ports': 12, 'sector_dimension': 66, 'branches': data['branches'],
                    'stationary_susceptibility': F(5, 33)},
         'two_time_correlations': correlations, 'native_geometric_discount': discounted,

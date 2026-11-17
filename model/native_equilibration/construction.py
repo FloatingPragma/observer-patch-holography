@@ -17,12 +17,6 @@ import numpy as np
 
 from ..federated_observer import source
 from ..observer import native
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(sorted(set((*source.SOURCE_PATHS,
@@ -201,8 +195,8 @@ def run():
                          'preparation': preparation_budget(dimension,
                              F(cert['quantum_gap_lower_per_attempt']), 10)})
     return {'schema': 'native-equilibration-v1',
-        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
-                          for p in SOURCE_PATHS}),
+        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
+                          for p in SOURCE_PATHS},
         'theorem_attachment': {
             'existing_proof': 'model/observer/QUANTUM_MIXING.md equations (1)-(4)',
             'external_input': 'Caputo-Liggett-Richthammer (2010), Section 4.1.1 equation (4.1)',

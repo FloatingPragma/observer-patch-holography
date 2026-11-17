@@ -21,12 +21,6 @@ import sympy as s
 
 from . import action
 from ..hierarchy_diagnosis import collective_response as collective
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -66,7 +60,7 @@ def _packets():
     spatial = json.loads((RESULTS/"shared_spatial_matter.json").read_text())
     # Check the complete existing provenance rather than running its producers.
     for packet in (geometry,spatial):
-        for name,expected in bound_pins(packet["source_sha256"]).items():
+        for name,expected in packet["source_sha256"].items():
             if _hash(ROOT/name)!=expected:
                 raise ArithmeticError(f"retained spacetime source changed: {name}")
         for name,expected in packet["artifacts"].items():
@@ -336,11 +330,11 @@ def report():
     if (extra["node_modes"],extra["edge_modes"],extra["zero_energy_modes"])!=(720,2850,2130):
         raise ArithmeticError("retained incidence-domain dimensions changed")
     boundary=geometry["radial_first_order_boundary_control"]
-    bindings=bound_pins({name:_hash(ROOT/name) for name in (*SOURCE_FILES,*collective.preparation.SOURCE_PATHS)})
+    bindings={name:_hash(ROOT/name) for name in (*SOURCE_FILES,*collective.preparation.SOURCE_PATHS)}
     bindings[Path(__file__).relative_to(ROOT).as_posix()]=_hash(Path(__file__))
     bindings["model/common_source/chiral_candidate/action.py"]=_hash(Path(action.__file__))
     for packet in (geometry,spatial):
-        bindings.update(bound_pins(packet["source_sha256"]))
+        bindings.update(packet["source_sha256"])
         bindings.update({(RESULTS/name).relative_to(ROOT).as_posix():digest for name,digest in packet["artifacts"].items()})
     return {
         "schema":"oph.chiral_candidate.frozen_spacetime_attachment.v1",
@@ -398,7 +392,7 @@ def report():
                  "boundary_spin_connection_and_curvature_controls_completed":False,
                  "physical_particles_or_Standard_Model_masses_identified":False,
                  "new_empirical_mass_inputs":[]},
-        "source_bindings":bound_pins(dict(sorted(bindings.items())))}
+        "source_bindings":dict(sorted(bindings.items()))}
 
 
 if __name__=="__main__":

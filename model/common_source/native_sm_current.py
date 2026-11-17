@@ -32,12 +32,6 @@ from . import native_gauge_object as objects
 from . import native_code_transport as transport
 from .mass_response import history
 from ..observer.source_scalar import compiler
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_ADMISSION = 4e-8
@@ -562,7 +556,7 @@ def source_bindings():
         'model/common_source/native_sm_current.py', 'model/common_source/test_native_sm_current.py',
         'model/observer/source_scalar/compiler.py', 'model/common_source/mass_response/history.py',
         'code/source_selection_model/response.json', 'code/m1_source_realization/receipt.json', 'tools/strict_json.py'}
-    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
+    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
 
 
 def _compare(expected, actual, path='receipt'):
@@ -613,7 +607,7 @@ def compare_execution(report, arrays, fresh, fresh_arrays):
 
 def check(path):
     path = Path(path); pins = source_bindings(); report = strict_json.load(path)
-    if type(report) is not dict or bound_pins(report.get('source_bindings')) != pins:
+    if type(report) is not dict or report.get('source_bindings') != pins:
         raise ValueError('native current source bindings differ')
     artifact = path.with_suffix('.npz')
     if report.get('artifact') != {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}:
@@ -641,7 +635,7 @@ def main():
     pins = source_bindings(); report, arrays = execute()
     if source_bindings() != pins:
         raise ValueError('native current sources changed during generation')
-    report['source_bindings'] = bound_pins(pins)
+    report['source_bindings'] = pins
     with artifact.open('xb') as output:
         np.savez_compressed(output, **arrays)
     report['artifact'] = {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}

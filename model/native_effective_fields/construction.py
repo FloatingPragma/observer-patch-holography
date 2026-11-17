@@ -25,12 +25,6 @@ from ..observer.scalar_response.experiment import canonical
 from ..primitive_observer import runtime, transfer
 from ..federated_quantum_sector import construction as quantum
 from . import charged_reference, charged_reference_source
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -506,7 +500,7 @@ def run():
     if any(F(row['connected_four_point']) == 0 for row in predictions):
         raise ArithmeticError('a native non-Gaussian four-point witness vanished')
     return {'schema': 'oph.native_effective_fields.v1', 'all_pass': True,
-        'source_sha256': bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS}),
+        'source_sha256': {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in SOURCE_PATHS},
         'local_source_field': local_field_audit(), 'controlled_logarithm': logarithm_audit(),
         'finite_spatial_support': spatial_locality_audit(),
         'observer_record_spectral_reduction': record_spectral_reduction(),

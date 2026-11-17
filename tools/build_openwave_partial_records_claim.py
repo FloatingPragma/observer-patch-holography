@@ -4,10 +4,6 @@ import argparse
 import hashlib
 import importlib.util
 import json
-try:
-    from tools.pin_scope import bound_pins
-except ImportError:  # run or imported from tools/ as a top-level module
-    from pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = ROOT / 'code/openwave_partial_records'
@@ -101,11 +97,11 @@ def generate():
                      'providers': verification['providers'],
                      'recomputed': verification['recomputed']},
         'official_OpenWave_awards_added': 0,
-        'source_sha256': bound_pins({str(p.relative_to(ROOT)): sha(p) for p in
+        'source_sha256': {str(p.relative_to(ROOT)): sha(p) for p in
                           [Path(__file__), PACKAGE / 'verify.py', PACKAGE / 'recompute.py',
                            PACKAGE / 'PROOF.md', PACKAGE / 'EVIDENCE.json',
                            ROOT / 'code/openwave_static_signed_source/evidence/openwave/shared/'
-                                  'localized_rest_join/evidence/graph.json']}),
+                                  'localized_rest_join/evidence/graph.json']},
     }
 
 

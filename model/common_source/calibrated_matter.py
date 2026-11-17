@@ -26,12 +26,6 @@ import sympy as s
 from tools import strict_json
 from .chiral_candidate import action as source
 from .chiral_candidate import kinetic
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -407,7 +401,7 @@ def source_bindings():
              "model/observer_particles/results/neutrino_action_operators.json",
              "model/observer_particles/results/neutrino_action_extension.json",
              "model/observer_particles/neutrino_action_extension.py"}
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
 
 
 def _serialize(matrix):
@@ -491,7 +485,7 @@ def report():
                       "nonperturbative_chiral_measure_or_continuum_limit_constructed": False,
                       "source_pulses_executed_by_this_operator_module": False,
                       "physical_parameters_derived_from_native_repair": False},
-            "source_bindings": bound_pins(source_bindings())}
+            "source_bindings": source_bindings()}
 
 
 def _compare(left, right, path="root"):

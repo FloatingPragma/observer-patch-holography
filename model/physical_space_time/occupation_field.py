@@ -25,12 +25,6 @@ from . import causal_placement
 from ..observer import native
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 FORMAL_SOURCE_PATHS = (
@@ -560,7 +554,7 @@ def run():
     if correction == sp.zeros(12):
         raise ArithmeticError('the negative control lost its random-clock sampling defect')
     return {'schema': 'oph.physical_space_time.occupation_field.v1',
-            'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
+            'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
             'contract': {'stationary_binary_total': 2, 'ports': 12,
                          'stationary_configurations': 66, 'native_branch_checks': checks,
                          'clock_names': ['native attempts', 'port-zero incident attempts'],

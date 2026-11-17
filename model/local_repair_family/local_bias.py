@@ -20,12 +20,6 @@ from pathlib import Path
 from tools import strict_json
 from ..observer import native, record_recovery as records
 from ..native_modular_reference import common_caps
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -260,8 +254,8 @@ def contract(path=CONTRACT):
             'law_tags': ['C', 'E'], 'source_and_record_independent_selection': True}
     if json.dumps(value['parameter_boundary'], sort_keys=True) != json.dumps(expected_boundary, sort_keys=True):
         raise ValueError('declared parameter boundary differs from executable family')
-    # The frozen campaign names its predecessor sources; their current bytes
-    # are bound by the receipts that read them, not compared here.
+    if source_bindings(value['source_sha256']) != value['source_sha256']:
+        raise ValueError('predecessor sources changed')
     return value
 
 
@@ -287,10 +281,10 @@ def report():
     paths = ['model/local_repair_family/local_bias.py', 'model/local_repair_family/test_local_bias.py',
              'model/local_repair_family/README.md', 'model/local_repair_family/campaign.json',
              'model/completion/defect_algebra.py', 'model/completion/defect_algebra_results.json',
-             'tools/strict_json.py', *bound_pins(frozen['source_sha256'])]
+             'tools/strict_json.py', *frozen['source_sha256']]
     return encode({'schema': 'oph.local_repair_family.v1',
         'campaign_id': CAMPAIGN, 'contract_sha256': hashlib.sha256(CONTRACT.read_bytes()).hexdigest(),
-        'source_sha256': bound_pins(source_bindings(paths)),
+        'source_sha256': source_bindings(paths),
         'uniform_control': exact_certificate(uniform),
         'biased_control': exact_certificate(biased),
         'held_nonuniform_scheduler_control': exact_certificate(nonuniform_selector),

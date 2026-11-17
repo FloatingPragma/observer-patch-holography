@@ -33,12 +33,6 @@ from .mass_response import history
 from ..observer import native
 from ..observer.source_discrimination import circuit
 from ..observer.source_scalar import compiler
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -721,7 +715,7 @@ def source_bindings():
         'model/common_source/native_code_transport.py', 'model/common_source/test_native_code_transport.py',
         'model/common_source/native_gauge_object.py',
         'model/common_source/mass_response/history.py', 'tools/strict_json.py'}
-    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)})
+    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
 
 
 def _compare(left, right, path='receipt'):
@@ -782,7 +776,7 @@ def check(path):
     path = Path(path)
     report = strict_json.load(path)
     pins = source_bindings()
-    if type(report) is not dict or bound_pins(report.get('source_bindings')) != pins:
+    if type(report) is not dict or report.get('source_bindings') != pins:
         raise ValueError('transported code source bindings differ')
     artifact = path.with_suffix('.npz')
     if report.get('artifact') != {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}:
@@ -814,7 +808,7 @@ def main():
     report, arrays = execute()
     if source_bindings() != pins:
         raise ValueError('native code source changed during build')
-    report['source_bindings'] = bound_pins(pins)
+    report['source_bindings'] = pins
     with artifact.open('xb') as out:
         np.savez_compressed(out, **arrays)
     report['artifact'] = {'filename': artifact.name, 'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}

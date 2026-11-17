@@ -16,12 +16,6 @@ from pathlib import Path
 import random
 
 from model.observer import native
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[3]
 PARENT = "code/source_scalar_packet/source_common_scalar_receipt.json"
@@ -40,7 +34,7 @@ def sources():
         if hashlib.sha256((ROOT / name).read_bytes()).hexdigest() != expected:
             raise ValueError(f"Source pin mismatch: {name}")
     parent = json.loads((ROOT / PARENT).read_text())
-    for name, pin in bound_pins(parent["source_pins"]).items():
+    for name, pin in parent["source_pins"].items():
         if hashlib.sha256((ROOT / name).read_bytes()).hexdigest() != pin["sha256"]:
             raise ValueError(f"Scalar parent source pin mismatch: {name}")
     return parent
@@ -236,7 +230,7 @@ def run(trials=TRIALS, seed=SEED):
         executions.append({"q": q, "responses": responses,
                            "terminal_field_branches": branches, "sample": sampled})
     result = {
-        "schema": "oph.observer.scalar_response.v1", "source_pins": bound_pins(PINS),
+        "schema": "oph.observer.scalar_response.v1", "source_pins": PINS,
         "scope": {
             "construction": "native current -> supplied reversible scalar apparatus -> binary record -> native feedback",
             "time": "declared scalar model coordinate c*t/L, not native count or laboratory time",

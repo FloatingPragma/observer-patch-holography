@@ -19,12 +19,6 @@ from ..native_quantum_history import construction as quantum
 from ..primitive_observer import runtime, transfer
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_PATHS = tuple(sorted(set((*transfer.SOURCE_PATHS, *quantum.SOURCE_PATHS,
@@ -258,7 +252,7 @@ def run():
         raise ArithmeticError('the exact clock correction constants changed')
     return {
         'schema': 'oph.single_carrier_clock_comparison.v1', 'all_pass': True,
-        'sources': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS}),
+        'sources': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_PATHS},
         'source': {'carriers': 1, 'ports': 12, 'seams': 30, 'binary_total_two_states': 66,
                    'movement_degree_sum': 600, 'uniform_independent_seam_coin_scheduler': True,
                    'stationary_initial_state_required_for_rate_and_limit': False,

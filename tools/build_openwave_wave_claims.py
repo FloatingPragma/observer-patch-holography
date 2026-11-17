@@ -3,10 +3,6 @@ from pathlib import Path
 import argparse
 import hashlib
 import json
-try:
-    from tools.pin_scope import bound_pins
-except ImportError:  # run or imported from tools/ as a top-level module
-    from pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = ROOT / 'code/openwave_wave_rows'
@@ -19,7 +15,7 @@ def sha(path):
 
 def generate():
     public = json.loads((PACKAGE / 'PUBLIC_MANIFEST.json').read_text())
-    for name, expected in bound_pins(public['files_sha256']).items():
+    for name, expected in public['files_sha256'].items():
         path = PACKAGE / name
         if path.is_symlink() or sha(path) != expected:
             raise ValueError('Changed public wave evidence: ' + name)
@@ -56,9 +52,9 @@ def generate():
             'official_OpenWave_awards_added': 0, 'all31_complete': False,
             'one_interacting_continuum_construction_established': False,
             'public_replay': 'python3 code/openwave_wave_rows/replay.py --mode all',
-            'source_sha256': bound_pins({str(path.relative_to(ROOT)): sha(path) for path in
+            'source_sha256': {str(path.relative_to(ROOT)): sha(path) for path in
                 [Path(__file__), PACKAGE / 'PUBLIC_MANIFEST.json', PACKAGE / 'SNAPSHOT_MANIFEST.json',
-                 PACKAGE / 'VALIDATION.json', PACKAGE / 'RESULT.json']})}
+                 PACKAGE / 'VALIDATION.json', PACKAGE / 'RESULT.json']}}
 
 
 def main():
