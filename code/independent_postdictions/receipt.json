@@ -179,15 +179,11 @@
   },
   "schema": "oph-independent-postdictions-v1",
   "sources": {
-    ".gitattributes": "1a98c3cd59c686c9ffc2d0bbce4acf0068e86653d3b05a2fe8e88316a18ae575",
-    ".github/workflows/independent-postdictions.yml": "055a76a03e1255988adf4b4ad894acff0794d0dd7dd110ad9ded3d1bc16a72aa",
     "code/P_derivation/codata_2022_alpha_fixture.json": "e5a967c2895c51ce11574da0d5fda9630b05d9162335a1e9e06da12cfecc9930",
     "code/P_derivation/paper_math.py": "bda031185dca55e54f4c6c0c020e9fac2e2ba5db5193998135f294898af620b8",
     "code/P_derivation/runtime/p_closure_trunk_current.json": "2deb03e66c4c8dcbbd36781edb298cf7e7489086254a31f1721f0ee9fdfacbd9",
     "code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json": "20ab213f836fbe95149d4b40ba57aa144038580a0acb899322f4b72d963c2ad6",
     "code/P_derivation/runtime/selection_accounting.json": "137acd6c9c32b20602aeeb4057564089214c97c1f9c76b3e196218cfe779571c",
-    "code/independent_postdictions/CONTRACT.md": "383151f9578f4ec97de05b45106048784cbb67e07be98b4c103a41a198fcf00d",
-    "code/independent_postdictions/README.md": "22470f6193e1a9ea25b0743dd6f80ba536f21206545e50d9afef1cdf511a9666",
     "code/independent_postdictions/__init__.py": "bf5bcf72e6e09908e4e305ef6bc6c0485cc9da6da082b10d53a127ccb564f334",
     "code/independent_postdictions/admission.py": "2f35785c18ce46c887b686500d48486ea316210226d4b6fe2a2a4e5e1ebea0e2",
     "code/independent_postdictions/build.py": "7f1f4cf5fed7d6548b06577e83b3d8506e28993eaee9f98f20f8eb3195286edb",
@@ -198,17 +194,12 @@
     "code/independent_postdictions/inputs.json": "57c1a6807852f96b39b0572bc74ae7cda19ec2f4e717e0f217524fe5ab954e82",
     "code/independent_postdictions/protocol.json": "10a12908d2f696342bc3b78e88669aeaa41cbd0179d826e7510c2c6e96aa846d",
     "code/independent_postdictions/replay.py": "d8d75d0f56d8bb6430ed4d5f13fd27e8811ef3d60a640b6af86b9b2192329ae3",
-    "code/independent_postdictions/test_reproduction.py": "385cc8277bd8709aef8158cef3e7af9b25700e44f991b8235f14ae273773f8df",
-    "code/independent_postdictions/verify.py": "13069cc1f0419fabe8f8c8c76aeae5daffdf99f6c6bd0446f00f5e825aa9743f",
+    "code/independent_postdictions/verify.py": "166cc5f0b316760edadbd06b2af21ec90a193eb076541341476a1c010f7b7d88",
     "code/particles/leptons/koide_balance_comparison_certificate.py": "8fc62909c338c6e984ff974596f0e7d510f6dbd44d1e7481688ca9506002dfbd",
     "code/particles/runs/leptons/koide_balance_comparison.json": "09efbad8de813790d10671b425daef69429831c58daa212f4be131c61f653898",
-    "docs/research/INDEPENDENT_POSTDICTION_COMPARISON.md": "cd80847b786efc28244888c4483c6bea4f31ef269181b17aceb1c1090ef6ecee",
-    "evidence/custody/falsification/frozen_targets/fz10_2026-07-28/frozen_target_koide_conditional_tau_2026-07-28.md": "1b15fdc304223bc7b4c6e3916e222a67564b6bd6edc128414b66c450b259a5ee",
     "evidence/custody/falsification/frozen_targets/fz10_2026-07-28/koide_balance_comparison_frozen_2026-07-28.json": "09efbad8de813790d10671b425daef69429831c58daa212f4be131c61f653898",
-    "paper/deriving_the_particle_zoo_from_observer_consistency.tex": "4bc907c88df71c94de16329ef37e8756cbd81b1de1c7c277cb0c2c10bedb8b6b",
     "projection:canonical_FZ10_FZ11": "6eadb3e6c2526f9bd45772f5a5b762595c92593531a9d438c947177331df734b",
     "projection:claim_and_assumptions": "07256a27f278c889044b6489fb7ced2303ea1db51893bb7d1d0b31782751ea69",
-    "requirements.txt": "c699c1ccca0b69d4359816fc02bc7f5645967a532322a8a453ee0d9c1fc7c41f",
-    "tracking/null_model_scorecard.md": "99537ade6f09d805fbf568ecfffbd6542b877725eba0fd04c48261dbedcce51f"
+    "requirements.txt": "c699c1ccca0b69d4359816fc02bc7f5645967a532322a8a453ee0d9c1fc7c41f"
   }
 }
