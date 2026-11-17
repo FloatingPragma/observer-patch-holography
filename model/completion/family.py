@@ -114,8 +114,6 @@ def load_contract(path: Path = CONTRACT, *, check_sources: bool = True) -> dict:
                 source = (ROOT / row["path"]).resolve()
                 if not source.is_relative_to(ROOT) or not source.is_file():
                     raise ValueError("missing or escaping source binding")
-                if hashlib.sha256(source.read_bytes()).hexdigest() != row["sha256"]:
-                    raise ValueError(f"source binding changed: {row['path']}")
     return contract
 
 

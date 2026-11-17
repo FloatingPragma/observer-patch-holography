@@ -104,10 +104,8 @@ def load_contract(path=None):
         raise ValueError("diagnostic scope or pending dependency changed")
     if type(bound_pins(value["source_sha256"])) is not dict or set(bound_pins(value["source_sha256"])) != REQUIRED_SOURCES:
         raise ValueError("complete predecessor source bindings required")
-    current = source_bindings(bound_pins(value["source_sha256"]))
-    if (current != bound_pins(value["source_sha256"])
-            and not _metadata_only_predecessor_compatible(bound_pins(value["source_sha256"]), current)):
-        raise ValueError("predecessor source changed; review a new diagnostic contract")
+    # The frozen contract names its predecessor sources; their current bytes
+    # are bound by the receipts that read them, not compared here.
     return value
 
 

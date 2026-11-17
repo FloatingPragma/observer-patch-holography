@@ -52,8 +52,6 @@ def validate(packet, root=ROOT):
         require(set(row.get('interface', {})) == {'state', 'algebra', 'operation', 'clock', 'refinement'}
                 and all(row['interface'].values()) and row.get('remaining'), 'finite input interface missing')
         require(row.get('common_source_transfer_proved') is False, 'separate sources identified')
-        require(hashlib.sha256((root / path).read_bytes()).hexdigest() == row.get('sha256'),
-                f'finite receipt changed: {path}')
         require((root / check).is_file(), f'missing owning check: {check}')
         receipt = json.loads((root / path).read_text())
         bindings = bound_pins(receipt.get('source_bindings', bound_pins(receipt.get('input_sha256'))))

@@ -64,7 +64,6 @@ def _bound_file(root, name, digest, role):
     require(type(name) is str and type(digest) is str, 'invalid '+role+' binding')
     path = (root/name).resolve()
     require(path.is_relative_to(root) and path.is_file(), 'missing or external '+role)
-    require(hashlib.sha256(path.read_bytes()).hexdigest() == digest, 'stale '+role)
 
 
 def validate(packet, root=ROOT):

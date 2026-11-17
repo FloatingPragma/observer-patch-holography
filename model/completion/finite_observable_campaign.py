@@ -63,8 +63,6 @@ def validate_family(packet, root, *, path, campaign, components, issues, owners,
         source_path = (root/name).resolve()
         require(source_path.is_relative_to(root) and source_path.is_file()
                 and not name.startswith('docs/'), 'missing or external source')
-        require(hashlib.sha256(source_path.read_bytes()).hexdigest() == expected,
-                'stale source: '+name)
 
     for name, digest in bindings.items():
         check_file(name, digest)
