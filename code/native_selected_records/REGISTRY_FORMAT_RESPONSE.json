@@ -1,0 +1,20 @@
+{
+  "scope": "Serialization correction to claim_context dependencies; no scientific statement or premise_dependency classification changed.",
+  "cause": "build_claim_views.py requires objects with claim_id and role, not string identifiers.",
+  "claim_id": "OPH-NATIVE-SELECTED-STATE-JOIN",
+  "dependency_objects": [
+    {
+      "claim_id": "OPH-NATIVE-DYNAMIC-UNIT-SELECTION",
+      "role": "supplies the conditional unit-selection entry mechanism"
+    },
+    {
+      "claim_id": "OPH-NATIVE-TRANSPORTED-CLOCK-LIMIT",
+      "role": "supplies the source clock and native copy-transport component"
+    },
+    {
+      "claim_id": "OPH-NATIVE-PLANAR-ROTATION-HOLONOMY",
+      "role": "supplies the finite planar rotation component joined by complete maps"
+    }
+  ],
+  "premise_projection": "fb6f5934d0fb0b7972545f1a56e72abda7d9968f4c17e8892e340bc7e9f96cc9"
+}

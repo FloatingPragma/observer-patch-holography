@@ -1,0 +1,89 @@
+{
+  "schema": "oph.baryon_spin.root_review.v1",
+  "all_checks_pass": true,
+  "current_covariance_checks": [
+    {
+      "name": "delta",
+      "full_CAR_carrier_dimension": 4408,
+      "actual_current_image_reassembled": true,
+      "outside_low_block_current_covariance_rank": 16,
+      "compressed_square_is_not_full_square": true
+    },
+    {
+      "name": "nucleon",
+      "full_CAR_carrier_dimension": 14376,
+      "actual_current_image_reassembled": true,
+      "outside_low_block_current_covariance_rank": 18,
+      "compressed_square_is_not_full_square": true
+    }
+  ],
+  "matrix_checks": [
+    {
+      "kappa": "1/2",
+      "name": "delta",
+      "exact_negative_inertia_of_minus_B": 20,
+      "literal_full_source_trial_verified": true
+    },
+    {
+      "kappa": "1/2",
+      "name": "nucleon",
+      "exact_negative_inertia_of_minus_B": 20,
+      "literal_full_source_trial_verified": true
+    },
+    {
+      "kappa": "1",
+      "name": "delta",
+      "exact_negative_inertia_of_minus_B": 20,
+      "literal_full_source_trial_verified": true
+    },
+    {
+      "kappa": "1",
+      "name": "nucleon",
+      "exact_negative_inertia_of_minus_B": 20,
+      "literal_full_source_trial_verified": true
+    },
+    {
+      "kappa": "2",
+      "name": "delta",
+      "exact_negative_inertia_of_minus_B": 20,
+      "literal_full_source_trial_verified": true
+    },
+    {
+      "kappa": "2",
+      "name": "nucleon",
+      "exact_negative_inertia_of_minus_B": 20,
+      "literal_full_source_trial_verified": true
+    }
+  ],
+  "exact_matrix_certificate_count": 6,
+  "pins": {
+    "hadrons/auxiliary_spin_refinement/MANIFEST.json": "42ca8e704cf346a05d0fda5aacdcfecefea2a5d105896f4ce78f2ea46239ae0a",
+    "hadrons/auxiliary_spin_refinement/BARYON_STATES.json": "319b18fcb1a0bb64877eb20b162c66715cad9d9b669978a3cf38ae56f1355b8b",
+    "hadrons/auxiliary_spin_refinement/MATRIX_FESHBACH.json": "3d7f044259b382b60b6d4a8d5abc16348f432ce1b3e5992ca5a71caa117f7bc5",
+    "hadrons/auxiliary_spin_refinement/Q_COLOUR_BOUNDS.json": "e0a5eda6443637b6d513d155f1d0ac686430cdf4eba917d73766b74e026a1107",
+    "hadrons/auxiliary_spin_refinement/BRANCHING.json": "b34c4ca2bfcd827b25929ab05cb6ed8279eacb90159a422908f782076fdf3337",
+    "hadrons/auxiliary_spin_refinement/SUMMARY.json": "92b5a76bbec8dc089885c8f5e4e2f42c6625e33d0113d769065b8f1d20e005fa",
+    "hadrons/RAW_COEFFICIENT_INPUTS.json": "b870e162c9f3d20ada8d360b492e4fba6a18b3da1eaeeb8ed46839c13169c95f",
+    "nuclear_threshold.py": "4263ef1d8fe2fdba2cadafee9a45f41bc53df951cba3092b857669b751b1ac6d",
+    "hadrons/auxiliary_spin_refinement/CAR_STATE_delta.npz": "26f83f8ffe55908a084a9ffe07b0cd7868da65976bff5282e5c705c4ccf4786b",
+    "hadrons/auxiliary_spin_refinement/OPERATORS_delta.npz": "c1b51107e55d6455310bd2fb70be7e7934e445727db6c1df87a152bd502fd2ef",
+    "hadrons/auxiliary_spin_refinement/CAR_STATE_nucleon.npz": "476267fe5625970a6045e15be18eab1ff28e53f21a3c9f269028629c5bb9d0fc",
+    "hadrons/auxiliary_spin_refinement/OPERATORS_nucleon.npz": "264b615925befa2dfcb7a3edf5f698a6b82f2f6d1be41c11cbc4ce306134a70b"
+  },
+  "consumed_not_independently_rederived": [
+    "full-CAR component operators",
+    "Q-sector colour/spin character and lower bounds",
+    "old-source other-irrep enclosures",
+    "particle-hole auxiliary intertwiner",
+    "double-commutator trial identity"
+  ],
+  "independently_reassembled": [
+    "actual raw-carrier frame/component forms",
+    "full current square and its outside-block covariance",
+    "six rational Schur-positivity certificates",
+    "six literal trial moments and upper bounds",
+    "spin comparisons and same-vacuum mass subtraction"
+  ],
+  "full_source_component_result": "spin/isospin-half lowest baryons at kappa1 and2, conditional on consumed Q/character certificates",
+  "physical_rows_solved": false
+}

@@ -1,0 +1,2 @@
+# Controls
+Hold every event: zero native response and no binding, retained separately without using a zero denominator. Point-source paired response: normalized coefficient1 at every nonzero scale, same graph and attempt law. Entire independent two-source total-momentum-pi sector: energy2d/W, compared with bound(2d-1)/W. Classical uniform adjacent-bond mixture: identical diagonal response, explicitly retained; response alone cannot certify its coherent spectral identity. No lattice-size clock variation is renamed running.

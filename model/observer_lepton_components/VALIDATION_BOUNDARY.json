@@ -1,0 +1,34 @@
+{
+  "all_pass": true,
+  "tests": [
+    {
+      "case": "unchanged register",
+      "optimized": false,
+      "exit_code": 0,
+      "expected_exit": "zero",
+      "stdout_sha256": "b2266f9c2f30e89addf41e781b8e8f81a24f321111b6efa185622ca861f60667"
+    },
+    {
+      "case": "false G6 promotion",
+      "optimized": false,
+      "exit_code": 1,
+      "expected_exit": "nonzero",
+      "reason": "ValueError: Component review scope changed"
+    },
+    {
+      "case": "unchanged register",
+      "optimized": true,
+      "exit_code": 0,
+      "expected_exit": "zero",
+      "stdout_sha256": "b2266f9c2f30e89addf41e781b8e8f81a24f321111b6efa185622ca861f60667"
+    },
+    {
+      "case": "false G6 promotion",
+      "optimized": true,
+      "exit_code": 1,
+      "expected_exit": "nonzero",
+      "reason": "ValueError: Component review scope changed"
+    }
+  ],
+  "scope": "Custody and scope guard checks only; no additional physical experiment"
+}

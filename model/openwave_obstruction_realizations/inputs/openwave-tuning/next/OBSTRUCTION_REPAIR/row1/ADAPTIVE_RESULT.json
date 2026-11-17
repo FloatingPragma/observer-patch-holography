@@ -1,0 +1,87 @@
+{
+  "schema": "oph.obstruction_repair.adaptive_phase.v1",
+  "problem_solved": "fixed-resolution refusal on the honest four-turn witness",
+  "source_law_changed": false,
+  "decoder_amendment": true,
+  "physical_charge_identification_solved": false,
+  "official_rows_changed": [],
+  "native_witness": {
+    "current": [
+      0,
+      -4,
+      0,
+      1,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "final_loads": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "exact_degree": 1,
+    "old_rejects": true,
+    "amended_readout": {
+      "status": "read",
+      "phase_degree": 1.0000000000000004,
+      "required_samples": 101,
+      "sample_budget": 100000,
+      "max_principal_increment": 0.669366108505649,
+      "analytic_increment_bound": 0.7853981633974483,
+      "resolutions": {
+        "1": 40,
+        "5": 8,
+        "18": 8,
+        "21": 8,
+        "22": 32
+      }
+    }
+  },
+  "diagnostic_reads": 168,
+  "max_absolute_error": 5.684341886080802e-14,
+  "controls": {
+    "old_cap_rejects_witness": true,
+    "budget_stop_retained": true,
+    "huge_integer_stops_before_float_conversion": true,
+    "fractional_input_rejected": true
+  },
+  "pins": {
+    "openwave-tuning/row_completion/ROW_01/GEOMETRY.json": "4027e358b2475efd6bf44e376d8b2d167610b15d00b79eda3907e9b5fcfcbfe9",
+    "openwave-push/b/G1_row1_strengthen/proposed_public/witness_four_turns.json": "6d4023c230c5475f1ece15e5f7ec35d44d579a27f7395756a75d524ccdfd7056",
+    "openwave-tuning/row_completion/ROW_01/topology.py": "9f30570a6a41ce412a4dab039ef83f5c485ae5dfbd4729cb58cce8f22e8de671",
+    "reverse-engineering-reality/code/openwave_row1_integrity/native_kernel.py": "b84e5ecdfbb8727a91571ac1b3ec6614f88ebf64b72fab0e8d35c338f08b1cff"
+  }
+}

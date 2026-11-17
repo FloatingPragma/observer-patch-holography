@@ -45,9 +45,11 @@ nor an Einstein continuum identification.
 
 This paper sits at layers 4 and 6 of the tower. Its hypothesis is that the
 clocks, causal order and spatial geometry an observer reads are produced by the
-same native repair process that runs the executable observer~\cite{ophmodel},
-and that Einstein dynamics is the coarse-scale response of that process to its
-own matter.
+same common matter and field source that runs the executable observer~\cite{ophmodel},
+and that Einstein dynamics is the coarse-scale response of that source to its
+own matter. The finite repair examples below are separately declared
+services; their geometric conclusions require a proved attachment to the
+common source.
 
 The paper proves finite and analytic theorems under displayed premises. The
 rank-three source Gram quotient and its $1+3$ Lorentz carrier are exact. On
@@ -101,6 +103,131 @@ entropy cannot meet (G2) or (G4) on any refinement tower, would refute this
 gravitational branch. A refinement tower on which every component premise
 holds while the composed Einstein relation fails would contradict the stated
 implication.
+
+\subsection*{The common-source attachment}
+
+The official executable law couples complete native matter and rotor
+fields to a bounded local response coordinate and an independent
+volume/capacity/memory register at every vertex. The common construction,
+designated CCF-LT-2 (CCF-2 in its source algebra), is specified in
+\path{model/SPEC.md} and \path{model/ccf_lt2/}. Let $h_v$ be its Hermitian,
+gauge-invariant source shards; $g_v$ contains the local response kinetic
+and regulator energy and half each incident gradient energy. With positive
+lapses $N_v,M_v$, local references $e_v$ and one common outer reference $F$,
+\begin{align*}
+ k_v&=g_v+N_v(h_v-e_vI)+e_vI,\\
+ K_v&=A_v+M_v(k_v-FI)+FI,\qquad H=\sum_vK_v.
+\end{align*}
+Every source scalar and the complete response energy enter this law.
+Disconnected components have commuting Hamiltonians and factorized
+unitaries. Exact native columns establish its tensor action and Gauss
+preservation; a separate finite diagnostic gives a distant clock response
+to neutral energy. The local energy currents $i[K_v,K_w]$ are antisymmetric
+and give exact regional continuity and composable coarse maps. These
+identities do not identify a symmetric Lorentz stress tensor.
+
+The supplied Gauss-supported Gibbs family at cutoff six and inverse
+temperature $\beta=1/1024$ is
+$\rho=P_Ge^{-\beta H}/Z$. If $\|H\|\leq M$ and
+$d=\operatorname{rank}P_G$, then $\rho\geq\lambda P_G$ with
+$\lambda=e^{-2\beta M}/d$. Ordered regional partial traces compose and
+retain all supported boundary-charge sectors. On their support,
+$\rho_R\geq\lambda P_R$ and $Q_R=-\log\rho_R$ exists. For a normalized
+same-support state $\tau_R$,
+\[
+ S(\tau_R)-S(\rho_R)=\operatorname{Tr}[(\tau_R-\rho_R)Q_R]
+                         -D(\tau_R\Vert\rho_R).
+\]
+For operator-norm distance at most $\lambda/2$, the remainder is bounded
+by $\|\tau_R-\rho_R\|_{\mathrm{HS}}^2/\lambda$. This finite reference
+has no asserted efficient preparation, physical vacuum selection or
+uniform refinement floor.
+
+The angular and radial carrier subdivides each tetrahedral face at
+$n=2^m$ and uses radii $1+j/n$. It has $(2n^2+2)(n+1)$ vertices,
+exact chain and edge-path identities and prism-cell diameter at most
+$(8\sqrt6+1)/n$. Thus its complete cells shrink in every spatial direction.
+The constant-coframe adapter acts on an edge direction $d$ through
+$p=V^{-T}d$, replacing the Dirac derivative by $\sum_Ap_AD_A$, multiplying
+the Wilson term by $p\cdot p$ and adding the shift term $(b\cdot p)P$.
+Electric weights multiply by $d^{\mathsf T}V^{\mathsf T}Vd/\det V$;
+magnetic weights use the corresponding face normal. The parent and contact
+terms retain their coefficients. At $V=I,b=0$ the complete source is
+recovered, giving six strain and three shift mechanical derivatives.
+These are finite source variations without a spatially varying spin
+connection or an identified physical metric.
+
+The quantitative matched-regional theorem is a reusable route to the
+Einstein conclusion. In units $\hbar=c=1$, use signature $(-,+,+,+)$
+and the ten future unit timelike probes
+\[
+ (1,0,0,0),\qquad (5/3,\pm(4/3)e_i)\ (i=1,2,3),\qquad
+ (3,2,2,0),\ (3,2,0,2),\ (3,0,2,2),
+\]
+where $e_i$ are the three spatial unit vectors in one common orthonormal
+frame. For symmetric tensors $G,T$, put $C_\ell=4\pi\ell^4/15$ and require
+the same regional readouts $s_r,a_r$ to satisfy the following bounds with
+nonnegative errors:
+\begin{align*}
+ |s_r-2\pi C_\ell T(u_r,u_r)|&\leq e_{\mathrm{bulk}},\\
+ |a_r+C_\ell(G(u_r,u_r)-\Lambda)|&\leq e_{\mathrm{area}},\\
+ |s_r+\eta a_r|&\leq e_{\mathrm{stationarity}},\qquad \eta>0,\quad\ell>0.
+\end{align*}
+The exact finite decoder, with sharp constant $17/8$, gives
+\[
+ \max_{\mu,\nu}\left|G_{\mu\nu}+\Lambda g_{\mu\nu}
+              -\frac{2\pi}{\eta}T_{\mu\nu}\right|
+ \leq\frac{255}{32\pi\eta\ell^4}
+       (e_{\mathrm{bulk}}+\eta e_{\mathrm{area}}+e_{\mathrm{stationarity}}).
+\]
+This implication does not separately assume null-tensor balance.
+Its exact formal statement is
+\path{Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean};
+the common-frame limit is specified in \path{model/matched_einstein_limit/PROOF.md}.
+On a shared sequence $\ell_n\to0$, the errors must be $o(\ell_n^4)$,
+$\eta_n\to\eta_*>0$, and the tensors and vacuum references must converge.
+Identifying the geometry tensor with the Einstein tensor of an actual
+nondegenerate Lorentz metric then gives $G_N=1/(4\eta_*)$ in the stated
+units. Ward and Bianchi conservation, metric compatibility, connectedness
+and spacetime-independent $\eta_*$ supply a constant vacuum term; its value
+requires a reference.
+
+The finite reference, shrinking carrier, mechanical derivatives and energy
+continuity do not supply a physical regional modular kernel, area functional,
+fixed-proper-volume stationarity estimate or common-metric limit with these
+errors. Source, reference and instrument refinement maps and hard-wall flux
+tails need compatible control. On a uniform cubic grid, the analytic choice
+$g_E=g^2/a$, $g_B=c^2/(g^2a)$ matches the free low-momentum field and
+Dirac speeds; that analytic family has no executed refinement certificate.
+Irregular-shell metric weights and the interacting limit are additional
+conditions. These are attachment conditions, without an impossibility
+claim for emergent tensor geometry.
+
+One unrestricted stationarity shortcut fails exactly. Take the full-source
+Gibbs entropy, diagonal area and volume, and admit all trace- and
+mean-volume-preserving state variations. The native pair entry $z=9/32$
+gives an off-diagonal variation with no area or volume change but
+\[
+ \frac{d}{d\epsilon}(S+\eta A)\bigg|_0=2\beta z=\frac9{16384}\ne0.
+\]
+This excludes that stated shortcut. It does not exclude regional entropy
+with a justified class of joint source and geometry variations.
+
+The conditional minimization of an unbounded continuous coordinate with
+commuting static source $T$ gives
+$-g^2T^{\mathsf T}L_D^{-1}T/(2\kappa)$. It is not the exact elimination of
+the bounded noncommuting quantum response. After the Einstein attachment,
+the static spherical pressureless weak-field limit gives
+\[
+ \Delta\Phi=4\pi G_N\rho+\tfrac12(E_{00}+E_{11}+E_{22}+E_{33}).
+\]
+An Einstein residual bounded componentwise by $\epsilon_E$ gives source
+error at most $2\epsilon_E$; for support inside radius $R$, regularity at the
+origin and zero potential at infinity imply
+$|\delta\Phi'(r)|\leq2\epsilon_E R^3/(3r^2)$ for $r\geq R$.
+This is the retained Newtonian transfer, with its boundary, weak-field and
+propagation assumptions. The supplied finite capacity potential selects no
+physical cosmological constant.
 
 \section*{Derivation map}
 \addcontentsline{toc}{section}{Derivation map}
@@ -239,7 +366,7 @@ source-derived chart transition or physical-null interpretation.
 \begin{figure}[!htb]
 \centering
 \input{tex_fragments/figures/FIG_EINSTEIN_CHAIN.tex}
-\caption{The Einstein equation as tensor completion of a realized null balance. Balance on the nine design directions is equivalent to balance on every null vector, and the tensor step is machine-checked from that premise. Realizations (G1) to (G6) on one refinement tower would supply it; the executable construction's static radial product fails it for its own scalar excitation.}
+\caption{The Einstein equation as tensor completion of a realized null balance. Balance on the nine design directions is equivalent to balance on every null vector, and the tensor step is machine-checked from that premise. Realizations (G1) to (G6) on one refinement tower would supply it; the separate scalar construction's static radial product fails it for its own scalar excitation.}
 \label{fig:einstein-chain}
 \end{figure}
 
@@ -281,9 +408,9 @@ This supplies a finite entropy--energy relation. It does not select
 $\beta$, identify a reduced regional state with the Gibbs state of its bare
 local Hamiltonian, or supply geometric entropy stationarity.
 
-\paragraph{The executable construction.}
+\paragraph{The separate scalar construction.}
 On a declared radial product over its refining spherical source, the native
-wave action of the executable construction has coefficient density
+wave action of the separate scalar construction has coefficient density
 $C=\mu\,\mathrm{diag}(-1,a)$, and $g=\sqrt{-\det C}\,C^{-1}$ has signature
 $(-,+,+,+)$ almost everywhere. Smoothing the angular variables converges in
 the norm-resolvent sense, so every fixed finite menu of observer readouts is

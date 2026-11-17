@@ -1,0 +1,7 @@
+{
+  "kind": "independent verifier numerical representation repair",
+  "utc": "2026-11-15T18:01:50.124922+00:00",
+  "reason": "The first spectral verifier treated the plane filter as a scalar while storing an unprojected three-position floating density. Roundoff outside the optical subspace was then amplified. The corrected verifier represents that exact invariant plane in its two orthonormal coordinates, where the stated scalar action and probability cost are valid. Primary source and science gates unchanged.",
+  "old_source_sha256": "20e12ed79a410537fff0c9f60da56ab95ed73f18977818bea3544551880cffb1",
+  "source_sha256": "ea0ce2c570c6535c403686ae149878530ba9daafca5f242ebd777538229395e3"
+}

@@ -37,7 +37,7 @@ checks every column exactly. It also retains the subnormalized density of
 each record branch.
 
 These are the C/E channels specified in the
-[candidate catalogue](../CANDIDATES.md#record-laws).
+[record-law construction](../record_laws/README.md).
 The calculation here adds a fixed discrimination experiment and its complete
 count decision rule. It does not introduce a distinct general channel theorem.
 

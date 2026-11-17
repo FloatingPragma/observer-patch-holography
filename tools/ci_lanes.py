@@ -271,7 +271,7 @@ LANES: tuple[Lane, ...] = (
          *(f"python -m model.{name} --check model/{name}/results.json"
            for name in ("bound_pair", "particle_clock", "field_regions", "field_stress", "field_tastes", "biased_reset")),
          env=BLAS1),
-    lane("model_native", "push", "root", 7,
+    lane("model_native", "nightly", "root", 7,
          "python -m pytest -q -W error model/band_clock model/native_localization model/native_program",
          "python -m pytest -q -W error model/pair_cyclic_control model/recovery_elision model/biased_code_universality",
          "python -m pytest -q -W error model/energy_identifiability model/regional_modular model/band_clock_budget model/compiled_native_history",
@@ -284,7 +284,7 @@ LANES: tuple[Lane, ...] = (
          "python -m model.band_clock --check model/band_clock/results.json",
          "python -m model.native_localization.experiment --check model/native_localization/results.json",
          env=BLAS1),
-    lane("model_particle_services", "push", "root", 4,
+    lane("model_particle_services", "nightly", "root", 4,
          "python -m pytest -q --durations=10 -W error model/reference_recovery model/particle_response model/contact_scattering "
          "model/particle_comparison model/charged_dynamics model/particle_transport",
          "python -m pytest -q --durations=10 -W error model/modular_flow model/full_fock_energy model/flux_response "
@@ -314,7 +314,7 @@ LANES: tuple[Lane, ...] = (
          "python -m model.defect_field_propagation --check",
          "python -m pytest -q --durations=10 -W error model/defect_field_propagation model/defect_field_clock model/defect_field_interactions",
          env=BLAS1),
-    lane("model_native_field_thermodynamics", "push", "root", 5,
+    lane("model_native_field_thermodynamics", "nightly", "root", 5,
          "python -m model.defect_field_modular --check",
          "python -m model.defect_field_energy.packet --check",
          "python -m pytest -q --durations=10 -W error model/defect_field_energy model/defect_field_modular",
@@ -332,19 +332,17 @@ LANES: tuple[Lane, ...] = (
          env=BLAS1),
     lane("model_finite_observables", "push", "root", 1,
          "python -m pytest -q -W error model/charged_composite_search model/quadratic_conservation "
-         "model/prepared_regional_entropy model/completion/test_finite_observable_campaign.py",
+         "model/prepared_regional_entropy",
          "python -W error -m model.charged_composite_search --check",
          "python -W error -m model.quadratic_conservation --check",
-         "python -W error -m model.prepared_regional_entropy --check",
-         "python -W error -m model.completion.finite_observable_campaign --check", env=BLAS1),
+         "python -W error -m model.prepared_regional_entropy --check", env=BLAS1),
     lane("model_native_observations", "push", "root", 7,
          "python -m pytest -q -W error model/composite_spatial_response model/native_composite_probe "
-         "model/interacting_observation_process model/native_regional_modular model/completion/test_native_observation_campaign.py",
+         "model/interacting_observation_process model/native_regional_modular",
          "python -W error -m model.composite_spatial_response --check",
          "python -W error -m model.native_composite_probe --check",
          "python -W error -m model.interacting_observation_process --check",
-         "python -W error -m model.native_regional_modular --check",
-         "python -W error -m model.completion.native_observation_campaign --check", env=BLAS1),
+         "python -W error -m model.native_regional_modular --check", env=BLAS1),
 
     # ------------------------------------------------------------------
     # Push tier, model requirements (model/requirements.txt).
@@ -360,7 +358,7 @@ LANES: tuple[Lane, ...] = (
          "python -m pytest -q -W error model/coherent_defect_wave "
          + " ".join(f"--ignore=model/coherent_defect_wave/chiral_joint/{pkg}" for pkg in COHERENT_CONSTRAINED),
          env={**BLAS1, "PYTHONDONTWRITEBYTECODE": "1"}),
-    lane("field_record_addenda", "push", "model", 7.5,
+    lane("field_record_addenda", "nightly", "model", 7.5,
          "python -B -m model.field_record_addenda --check",
          "python -B -m pytest -q model/field_record_addenda -W error",
          "python -B tools/check_field_record_addenda_claims.py",

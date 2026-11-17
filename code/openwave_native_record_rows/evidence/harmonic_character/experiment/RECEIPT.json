@@ -1,0 +1,287 @@
+{
+  "G6_pass": false,
+  "actual_joint_counter_tape": false,
+  "all_mode_positive_floor": "97/101",
+  "all_pass": true,
+  "candidate": "A-native-harmonic-character-v1",
+  "cases": {
+    "hold_mutation": {
+      "accepted": 65536,
+      "phase_negative": 0,
+      "phase_sum": 65536,
+      "rejected": 0,
+      "transitions": [
+        [
+          8192,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          8192,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          8192,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          8192,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          8192,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          8192,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          8192,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          8192
+        ]
+      ]
+    },
+    "native": {
+      "accepted": 45248,
+      "phase_negative": 896,
+      "phase_sum": 43456,
+      "rejected": 20288,
+      "transitions": [
+        [
+          5544,
+          56,
+          0,
+          0,
+          0,
+          0,
+          0,
+          56
+        ],
+        [
+          56,
+          5544,
+          56,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          56,
+          5544,
+          56,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          56,
+          5544,
+          56,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          56,
+          5544,
+          56,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          56,
+          5544,
+          56,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          56,
+          5544,
+          56
+        ],
+        [
+          56,
+          0,
+          0,
+          0,
+          0,
+          0,
+          56,
+          5544
+        ]
+      ]
+    }
+  },
+  "checks": {
+    "all_rejected_words_retained": true,
+    "changed_law_gap": true,
+    "exact_connected_kernel": true,
+    "hold_character_one": true,
+    "native_negative_phases_retained": true,
+    "positive_character": true,
+    "record_rows": true,
+    "uniform_native_counter": true
+  },
+  "conditional_kernel": [
+    [
+      "99/101",
+      "1/101",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/101"
+    ],
+    [
+      "1/101",
+      "99/101",
+      "1/101",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1/101",
+      "99/101",
+      "1/101",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "1/101",
+      "99/101",
+      "1/101",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "1/101",
+      "99/101",
+      "1/101",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/101",
+      "99/101",
+      "1/101",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/101",
+      "99/101",
+      "1/101"
+    ],
+    [
+      "1/101",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/101",
+      "99/101"
+    ]
+  ],
+  "counter_archive_sha256": "39937d1516d9fa48853004fff98149f42b5117ec9413afe9a26e086599d56565",
+  "derived_counter_rows": 131072,
+  "k4_character": "97/101",
+  "new_full_source_word_calls": 0,
+  "new_native_calls": 48,
+  "new_preparations": 16,
+  "physical_Maxwell_execution": false,
+  "reused_mutation_events": 98304,
+  "reused_native_calls": 98304,
+  "source_archive_sha256": "43bec8c495e9740e87947bbf3f0d0988c6fc084c4f1794ee5c6733241056a457"
+}

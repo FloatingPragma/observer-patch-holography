@@ -1,0 +1,100 @@
+{
+  "schema": "oph.root.latest_freeze_audit.v1",
+  "created_at": "2026-11-14T18:25:40.990453+07:00",
+  "manifests": [
+    {
+      "manifest": "baryon_mobility/MANIFEST.json",
+      "sha256": "275fc3aa8a995a73c892b6f140fbe6069d260f88a438e5efeed03b51ae7253e6",
+      "own_files_checked": 13
+    },
+    {
+      "manifest": "species_leptons/chiral_ring4/MANIFEST.json",
+      "sha256": "9cbfad0966962e59ad6424a59925cae61ca53b7f4dbb553e62d37228d507d0ff",
+      "own_files_checked": 33
+    },
+    {
+      "manifest": "gravity/lapse_response/MANIFEST.sha256",
+      "sha256": "bbb5c023ce12dc8d6337696eed690f735935673fb007939c5232807309debc9f",
+      "own_files_checked": 7
+    },
+    {
+      "manifest": "gravity/clock_join/MANIFEST.sha256",
+      "sha256": "f4c01fbd7473ee5ecd3b9d63a4ffda927f85e9aa818b7d756b36f90d0f97b9f3",
+      "own_files_checked": 2
+    },
+    {
+      "manifest": "gravity/spectral_flattening/MANIFEST.sha256",
+      "sha256": "58333de8e6adea1343152630d229908dedac9a23a609dfcc57a12e573572eaa2",
+      "own_files_checked": 13
+    },
+    {
+      "manifest": "gravity/boost_orbit_observer/MANIFEST.sha256",
+      "sha256": "ba5fcc1dce4e6473f1b2503073134155a433015251d59ce1232be2d686e4933d",
+      "own_files_checked": 9
+    },
+    {
+      "manifest": "gravity/full_cubic_sectors/MANIFEST.sha256",
+      "sha256": "b1788d55eeec13c9161b7e5e4390e17427dbc342370fa104289ac9095b5b3e1d",
+      "own_files_checked": 5
+    },
+    {
+      "manifest": "hadrons/auxiliary_spin_refinement/MANIFEST.json",
+      "sha256": "42ca8e704cf346a05d0fda5aacdcfecefea2a5d105896f4ce78f2ea46239ae0a",
+      "own_files_checked": 29
+    },
+    {
+      "manifest": "hadrons/mobility_review/MANIFEST.json",
+      "sha256": "1da0a8db1355b58c884bfd1a353d13d162d57f27f8145928f602b45125861a13",
+      "own_files_checked": 3
+    },
+    {
+      "manifest": "BARYON_SPIN_REVIEW_MANIFEST.json",
+      "sha256": "a1d0027c6a84af0287811712d4c252a3102c4019bbad4d8bd052c888fc8e36d3",
+      "own_files_checked": 6
+    },
+    {
+      "manifest": "continuum_locality_bound/MANIFEST.json",
+      "sha256": "9a667822002f23b04d673623905d5ddb4aacf3f1b131848123a71d568e53231d",
+      "own_files_checked": 5
+    },
+    {
+      "manifest": "gravity/continuum_cell_regions/MANIFEST.sha256",
+      "sha256": "9cd6729df4bbe04d6a10046b975b9350ea533f2efeeb0cc3d37a4d9f5f0760bd",
+      "own_files_checked": 8
+    },
+    {
+      "manifest": "cell_entropy_limit/MANIFEST.json",
+      "sha256": "f2f32c249adb7a41ecf91080fc8fce242cc5fabe9a2860aaec2140898b6a75df",
+      "own_files_checked": 4
+    },
+    {
+      "manifest": "species_leptons/chiral_ring4_coulomb/MANIFEST.json",
+      "sha256": "deed27e01f002d986253614d8dca0f1d5bc1e153de04f2b2b139440007dd9135",
+      "own_files_checked": 13
+    },
+    {
+      "manifest": "row1_v3/MANIFEST.json",
+      "sha256": "b32d94576c857bd062c447c112c383a58afd08b7afe800919115748a9f669ba1",
+      "own_files_checked": 11
+    },
+    {
+      "manifest": "species_leptons/chiral_ring4_fidelity/MANIFEST.json",
+      "sha256": "00b9669980263529c589e8ada00861616c2de5f5d4320357d4aa9614b8e08b92",
+      "own_files_checked": 14
+    },
+    {
+      "manifest": "vacuum_trace_review/MANIFEST.json",
+      "sha256": "eeffd476b732b2706d390cd8b6deaf952ced1f3c92d0de591bc2913bdc2babce",
+      "own_files_checked": 9
+    },
+    {
+      "manifest": "hadrons/auxiliary_current_block/MANIFEST.json",
+      "sha256": "426a10925701d5a4f7cde3cfb6a168095aff4e517427b33c2cc18c211f9466a4",
+      "own_files_checked": 11
+    }
+  ],
+  "total_own_files": 195,
+  "mismatches": [],
+  "scope": "Freeze integrity only; not independent mathematical validation",
+  "updated_at": "2026-11-14T18:55:01.629136+07:00"
+}

@@ -1,0 +1,32 @@
+{
+  "checked_utc": "2026-11-15T18:56:19.401899+00:00",
+  "producer_manifest_sha256": "5cd7a135f811d1debfaeab274d5544937829d351604748f848c1b151ede3d521",
+  "verified_producer_files": 79,
+  "producer_prereg_sha256": "670884461bcc4456aa44425258e96a686accad81e37b8fd6c9c66d4c25ad9a04",
+  "producer_receipt_sha256": "ab33c17ff058045f760f4caa8f39d93750e54e99e9f76f8dc047d4dc58639147",
+  "final_claim_wording_sha256": {
+    "README.md": "945eac6fd6b2b77fe4575c13cbe243c01b03bfa3941dacef55bc47b7c3d08efe",
+    "OUTCOMES.md": "136c874293f29a6b90ff4c11894e866ecd44249314e091daf6968e111b6d1c0b",
+    "PROTOCOL.md": "aacd4e454964f0125e936a45c47203e791329a9cff37dc43dcdc245708a418fc",
+    "CLAUSES.md": "eca8fa07e823a0492f43cac9dec8e2c8a2cc39654606b5016015e8b3f6b721bd",
+    "CELL.md": "e7f3649f48e8e17825b42ada141f2a4fd7cc75c6573f38264a66b1995f8dfd20",
+    "BRIDGE_PROOF.md": "10fd29b16f96d62b8bdfc06ac065e4cbeea5c6c84a8b2e79f68ad3c70aafc462"
+  },
+  "latest_master_sha256": {
+    "AGENTS.md": "f2ded8e3cd2620269b766eaf70a0acfe0bebb4f866e7cb1eb1a8e7a5a3ab78fd",
+    "CAUTIONS.md": "3f2ef5433513d8d6ed3796c64c2dfdb52cb2a6ca301c2f5bef1cf4a5df32c6f7",
+    "SUBMISSION_CHECKLIST.md": "f8a08b120f8f298fccee025398341c210f67f58e1ca1c5198a3bf94262c8a501"
+  },
+  "reviewer": "Codex charge_repair; same group",
+  "other_group_G6": false,
+  "external_runtime_input_clarification": {
+    "path": "../selected_source_common_v2_checklist/INTERPRETATION_CLARIFICATION.md",
+    "sha256": "e0fa8a4adedba3037851203bb021c78feca5d2dc49f0bb08935657010c6987b7",
+    "renewed_items": [
+      "A4",
+      "D1",
+      "F1"
+    ],
+    "verdict": "PASS: exact runtime dataflow is edge list/time/refinement; source action records independently verify the fixed-kernel normal form. Original frozen CANDIDATE wording corrected externally."
+  }
+}

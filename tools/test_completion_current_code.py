@@ -39,6 +39,27 @@ def test_only_exact_two_git_authenticated_documentary_inputs():
                for name, data in docs.items())
 
 
+def test_standalone_collection_uses_explicit_source_domains(monkeypatch):
+    from tools import completion_test_scope as scope
+    calls = []
+
+    def collect_only(argv, **kwargs):
+        calls.append((argv, kwargs))
+        return subprocess.CompletedProcess(argv, 0, "test_probe.py::test_probe\n", "")
+
+    monkeypatch.setattr(current.subprocess, "run", collect_only)
+    assert current.collect(current.ROOT) == ("test_probe.py::test_probe",)
+    argv, options = calls[0]
+    assert options["cwd"] == current.ROOT
+    assert "--collect-only" in argv
+    assert "model/completion" not in argv
+    assert "tools/test_completion_program.py" in argv
+    for name in (*scope.CURRENT, *scope.COMPONENTS):
+        assert "model/completion/" + name in argv
+    for name in scope.COMPONENT_ROUTING:
+        assert "model/completion/" + name not in argv
+
+
 def test_current_modified_code_is_executed_and_failure_is_not_hidden(source, tmp_path):
     root, docs = source
     (root / "test_probe.py").write_text("def test_current_code(): assert False, 'CURRENT CODE EXECUTED'\n")

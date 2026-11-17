@@ -1,0 +1,184 @@
+{
+  "python": "3.13.7 (main, Sep 20 2025, 15:59:55) [Clang 17.0.0 (clang-1700.0.13.5)]",
+  "platform": "macOS-15.3-arm64-arm-64bit-Mach-O",
+  "threads": 1,
+  "read_only_clean_replays": 2,
+  "false_named_gates": 20,
+  "all_passed": true,
+  "rows": [
+    {
+      "test": "clean_check_math.py",
+      "exit": 0,
+      "seconds": 3.0853159580001375,
+      "stdout": "{\"common_full_state_ancestry_bound\": true, \"exact_source_norm_bounds\": [12, 24], \"exterior_square_identity\": true, \"extra_native_terminal_matrices_checked\": 3, \"full_72273600_circuit_reexecution\": false, \"full_local_dirichlet_identity\": true, \"ideal_preparation_trace_distance\": 8.142178164541606e-09, \"independently_decoded_pair_keV\": [1021.907171405832, 1022.0928281835603], \"literal_new_native_calls\": 0, \"local_charged_columns\": 24, \"native_matrices_checked\": 19, \"native_pointer_max_difference\": 1.7763568394002505e-15, \"native_pointer_outcomes_checked\": 32, \"observer_receipt_bound\": true, \"observer_receipt_sha256\": \"a02ef7882c34bc098db4cd7f14a1aaf72dd72d19d8470f9dc2f873f1171cc901\", \"producer_imports\": false, \"producer_prereg_sha256\": \"6ed69812035cfe531ff9e840085b26f2ba8e694ea62c805a4fca8ad8742ad152\", \"producer_receipt_sha256\": \"dab7f3e5e6aaceebdb1777e36a44fcd1beb5902c1950383e4e363c9e4d350323\", \"program_duration_rounding\": {\"0.1\": \"7/360287970189639680\", \"4\": \"0\"}, \"seconds\": 2.9646826249954756, \"selected_full_128step_reexecution\": false, \"single_control_macrosteps_reexecuted\": 256, \"source_single_values\": [\"6\", \"6\", \"6\", \"6\"], \"zero_overlap_seeds_checked\": [0, 14]}\n",
+      "stderr": ""
+    },
+    {
+      "test": "clean_check_clock.py",
+      "exit": 0,
+      "seconds": 0.05854245800583158,
+      "stdout": "{\"all_huge_histories_materialized\": false, \"arbitrary_reference_factorization_checked\": true, \"clock_receipt_sha256\": \"a0b3c1b13db62f2b32d2d7af8511630c7f43b7b9c61d448a6fde19593a48f274\", \"clock_scale_and_counter_supplied\": true, \"duration_ratio\": 40, \"literal_new_native_calls\": 0, \"literal_zero_source_records_checked\": 258, \"producer_imports\": false, \"programmes_checked\": 4, \"rate\": 154395440640, \"slots_per_inherited_tick\": 122536064}\n",
+      "stderr": ""
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "attempts/v2/RECEIPT.json",
+      "gate": "both_complete_errors_below_001",
+      "exit": 1,
+      "seconds": 0.12366116599878296,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 325, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 128, in main\n    assert r['all_gates_pass'] and all(r['gates'].values()), 'rejected scientific gate in source result'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: rejected scientific gate in source result\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "attempts/v2/RECEIPT.json",
+      "gate": "changed_seam_same_reader_separates",
+      "exit": 1,
+      "seconds": 0.11859945900505409,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 325, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 128, in main\n    assert r['all_gates_pass'] and all(r['gates'].values()), 'rejected scientific gate in source result'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: rejected scientific gate in source result\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "attempts/v2/RECEIPT.json",
+      "gate": "contact_distinguishes_unrestricted_tensor",
+      "exit": 1,
+      "seconds": 0.1260551250015851,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 325, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 128, in main\n    assert r['all_gates_pass'] and all(r['gates'].values()), 'rejected scientific gate in source result'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: rejected scientific gate in source result\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "attempts/v2/RECEIPT.json",
+      "gate": "full_coupled_reflection_checked",
+      "exit": 1,
+      "seconds": 0.11970720899989828,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 325, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 128, in main\n    assert r['all_gates_pass'] and all(r['gates'].values()), 'rejected scientific gate in source result'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: rejected scientific gate in source result\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "attempts/v2/RECEIPT.json",
+      "gate": "local_full12_column_match",
+      "exit": 1,
+      "seconds": 0.11286725000536535,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 325, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 128, in main\n    assert r['all_gates_pass'] and all(r['gates'].values()), 'rejected scientific gate in source result'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: rejected scientific gate in source result\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "attempts/v2/RECEIPT.json",
+      "gate": "pair_interval_contains2",
+      "exit": 1,
+      "seconds": 0.12121174999629147,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 325, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 128, in main\n    assert r['all_gates_pass'] and all(r['gates'].values()), 'rejected scientific gate in source result'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: rejected scientific gate in source result\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "attempts/v2/RECEIPT.json",
+      "gate": "pair_interval_excludes_old1024_45085",
+      "exit": 1,
+      "seconds": 0.10729404199810233,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 325, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 128, in main\n    assert r['all_gates_pass'] and all(r['gates'].values()), 'rejected scientific gate in source result'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: rejected scientific gate in source result\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "attempts/v2/RECEIPT.json",
+      "gate": "source_local_hermitian_and_complete",
+      "exit": 1,
+      "seconds": 0.10051491699414328,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 325, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 128, in main\n    assert r['all_gates_pass'] and all(r['gates'].values()), 'rejected scientific gate in source result'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: rejected scientific gate in source result\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "attempts/v2/RECEIPT.json",
+      "gate": "vacuum_zero_by_source_action",
+      "exit": 1,
+      "seconds": 0.10049104200152215,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 325, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 128, in main\n    assert r['all_gates_pass'] and all(r['gates'].values()), 'rejected scientific gate in source result'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: rejected scientific gate in source result\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "observer/RECEIPT.json",
+      "gate": "HOLD_and_vacuum_reference_zero",
+      "exit": 1,
+      "seconds": 2.1283163749903906,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 325, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 244, in main\n    assert observed['all_gates_pass'] and all(observed['gates'].values()), 'rejected scientific gate in observer result'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: rejected scientific gate in observer result\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "observer/RECEIPT.json",
+      "gate": "complete_reference_mass_residual",
+      "exit": 1,
+      "seconds": 2.987410292000277,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 325, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 244, in main\n    assert observed['all_gates_pass'] and all(observed['gates'].values()), 'rejected scientific gate in observer result'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: rejected scientific gate in observer result\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "observer/RECEIPT.json",
+      "gate": "native_pointer_centres_match_source_interference",
+      "exit": 1,
+      "seconds": 3.1975258340098662,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 325, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 244, in main\n    assert observed['all_gates_pass'] and all(observed['gates'].values()), 'rejected scientific gate in observer result'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: rejected scientific gate in observer result\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "observer/RECEIPT.json",
+      "gate": "pair_interval_contains2_and_excludes_old",
+      "exit": 1,
+      "seconds": 3.042414291994646,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 325, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 244, in main\n    assert observed['all_gates_pass'] and all(observed['gates'].values()), 'rejected scientific gate in observer result'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: rejected scientific gate in observer result\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "observer/RECEIPT.json",
+      "gate": "same_source_word_resolves_preparation",
+      "exit": 1,
+      "seconds": 2.9224466669984395,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 325, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_math.py\", line 244, in main\n    assert observed['all_gates_pass'] and all(observed['gates'].values()), 'rejected scientific gate in observer result'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: rejected scientific gate in observer result\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "clock/RECEIPT.json",
+      "gate": "duration_ratio_exact40",
+      "exit": 1,
+      "seconds": 0.0894527499913238,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_clock.py\", line 49, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_clock.py\", line 11, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "clock/RECEIPT.json",
+      "gate": "finite_counter_capacity",
+      "exit": 1,
+      "seconds": 0.0932217500085244,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_clock.py\", line 49, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_clock.py\", line 11, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "clock/RECEIPT.json",
+      "gate": "native_zero_source_branches_exact",
+      "exit": 1,
+      "seconds": 0.08264262499869801,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_clock.py\", line 49, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_clock.py\", line 11, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "clock/RECEIPT.json",
+      "gate": "nonnegative_integral_padding",
+      "exit": 1,
+      "seconds": 0.09040483400167432,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_clock.py\", line 49, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_clock.py\", line 11, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "clock/RECEIPT.json",
+      "gate": "same_clock_count_for_both_objects",
+      "exit": 1,
+      "seconds": 0.09621416698792018,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_clock.py\", line 49, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_clock.py\", line 11, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "receipt": "clock/RECEIPT.json",
+      "gate": "source_tick_conversion_exact",
+      "exit": 1,
+      "seconds": 0.07722108300367836,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_clock.py\", line 49, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-energy-review-7rke722c/review/check_clock.py\", line 11, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    }
+  ]
+}

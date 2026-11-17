@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 2431,
+  "surface_count": 2674,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -201,6 +201,11 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/COMMON_MATTER_FIELD_RESPONSE.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/COMMON_MATTER_METRIC_AND_RESPONSE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
@@ -317,6 +322,11 @@
     },
     {
       "path": "paper/tex_fragments/DILUTE_MOMENTUM_WARD.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/DYNAMIC_UNIT_SELECTION_AND_LOCAL_PHASES.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -596,6 +606,11 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/NATIVE_RECORD_FIELDS_AND_INTERACTIONS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/NATIVE_RECORD_OPERATIONS.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
@@ -612,6 +627,11 @@
     },
     {
       "path": "paper/tex_fragments/NATIVE_REPAIR_RESPONSE_AND_RECORDS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/NATIVE_SELECTION_AND_SOURCE_RESPONSE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -981,6 +1001,11 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/RETAINED_CHARGED_OBSERVER_RECORDS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/RETARDED_MATTER_RESPONSE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
@@ -1007,6 +1032,11 @@
     },
     {
       "path": "paper/tex_fragments/SHRINKING_MODULAR_ENTROPY.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/SIGNED_SOURCE_PARTICLE_RECORDS.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -1851,6 +1881,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/OBSERVER_RELATIVE_RECOVERY.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1872,6 +1907,11 @@
     },
     {
       "path": "model/SOURCE_SELECTION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/SPEC.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2122,6 +2162,66 @@
     },
     {
       "path": "model/carrier_selection_reduction/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/ccf_lt2/DIRAC_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/ccf_lt2/EINSTEIN_BRIDGE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/ccf_lt2/FIELD_PREPARATION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/ccf_lt2/GEOMETRY_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/ccf_lt2/INTERACTIONS_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/ccf_lt2/JOINT_GEOMETRY_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/ccf_lt2/LOCAL_GEOMETRY_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/ccf_lt2/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/ccf_lt2/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/ccf_lt2/bridges/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/ccf_lt2/bridges/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/ccf_lt2/bridges/SCALING.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -5841,6 +5941,316 @@
       "allowlisted": false
     },
     {
+      "path": "model/observer_lepton_components/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/REVIEW.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/SUBMISSION_CHECKLIST.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/TASK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/frozen_sources/reverse-engineering-reality/model/native_circulation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_intrinsic_phase_process/CELL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_intrinsic_phase_process/CLAUSES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_intrinsic_phase_process/CONTROLS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_intrinsic_phase_process/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_intrinsic_phase_process/METHOD_NOTE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_intrinsic_phase_process/PIN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_intrinsic_phase_process/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_intrinsic_phase_process/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_intrinsic_phase_process/REPRODUCTION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_intrinsic_phase_process/RESUME.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_intrinsic_phase_process/TASK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_intrinsic_phase_process/TASK_FIRST_UNEXECUTED.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_retained_family_oracle/CELL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_retained_family_oracle/CLAUSES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_retained_family_oracle/CONTROLS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_retained_family_oracle/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_retained_family_oracle/METHOD_NOTE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_retained_family_oracle/PIN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_retained_family_oracle/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_retained_family_oracle/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_retained_family_oracle/RESUME.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/paused_originals/20261115_codex_retained_family_oracle/TASK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/work/20261114_codex_closed_clock/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/work/20261114_codex_count_return/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/work/20261114_codex_family_filter/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/work/20261114_codex_mass_spatial_join/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/work/20261114_codex_observer_selection/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/work/20261114_codex_observer_time_audit/AUDIT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/work/20261114_codex_recode_channel/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/work/20261114_codex_record_energy/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/work/20261114_codex_same_source_spatial/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/work/20261115_codex_common_energy_join/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/work/20261115_codex_family_charge_join/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/work/20261115_codex_native_occupation_query/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/work/20261115_codex_phase_selection/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/work/20261115_codex_relational_frame/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/work/20261115_codex_stationary_dressed/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/work/20261115_codex_three_families/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/row_11_lepton_masses/work/20261115_codex_vacuum_control/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/shared/magnetic_source_join/NEXT_INTERFACE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/shared/magnetic_source_join/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/shared/native_current_clock/INTERVAL_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/shared/native_current_clock/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/shared/spin_gauge_join/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/shared/spin_gauge_join/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/openwave/shared/spin_gauge_join/TASK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/reverse-engineering-reality/docs/OPH_EXECUTABLE_HYPOTHESIS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/reverse-engineering-reality/model/finite_family_clock/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/reverse-engineering-reality/model/lepton_mass_compiler/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/reverse-engineering-reality/model/lepton_register_round/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/reverse-engineering-reality/model/native_circulation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/reverse-engineering-reality/model/native_electric_gauss/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/reverse-engineering-reality/model/native_observer_program/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/observer_lepton_components/completion/workspace/reverse-engineering-reality/model/native_quantum_reconstruction/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/observer_particles/DERIVATION.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -7377,6 +7787,776 @@
     },
     {
       "path": "model/openwave_nuclear_refinement/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/blockers/X1f_entanglement_area_response/stage2_SOLUTION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/blockers/X1f_entanglement_area_response/stage2_VERDICT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/reviews/ROW_01_ADAPTIVE_DECODER_FABLE_B/REVIEW.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/reviews/ROW_01_INTERFACE_V2_FABLE_B/REVIEW.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/reviews/ROW_10_FABLE_B/REVIEW.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/reviews/ROW_10_FABLE_B/consumed/candidate/ANGLES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/reviews/ROW_10_FABLE_B/consumed/candidate/FOR_REVIEWERS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/reviews/ROW_10_FABLE_B/consumed/candidate/JOIN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/reviews/ROW_10_FABLE_B/consumed/candidate/PATTERNS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/reviews/ROW_10_FABLE_B/consumed/candidate/PREREGISTRATION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/reviews/ROW_10_FABLE_B/consumed/candidate/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/reviews/ROW_10_FABLE_B/consumed/candidate/SELECTION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/reviews/ROW_10_FABLE_B/consumed/candidate/STATUS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/reviews/ROW_10_FABLE_B/consumed/other/SD11C_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/reviews/ROW_10_FABLE_B/consumed/other/openwave_neutrino_oscillation_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/reviews/ROW_10_FABLE_B/consumed/task/B_BRIEF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/reviews/ROW_10_FABLE_B/consumed/task/REVIEW_BRIEF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/reviews/ROW_10_FABLE_B/consumed/task/TASK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/reviews/ROW_10_FABLE_B/consumed/task/W3_reviews.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/rowfull/ROW_10_symmetry/ANGLES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-push/rowfull/ROW_11/STATUS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/common_dynamics/autonomous_dirac/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/common_dynamics/color_fractional_winding/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/CHAIN3/species_reuse_connection/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/CHAIN7/color_weak_native_join/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/CONTINUUM_GEOMETRY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/GRAVITY_KERNEL_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/NUCLEAR_THRESHOLD_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/SOURCE_JOIN_REGISTER.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/STATIC_COLOUR_PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/STATIC_COLOUR_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/baryon_mobility/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/baryon_mobility/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/cell_entropy_limit/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/continuum_locality_bound/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/continuum_locality_bound/REVIEW_NOTE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/boost_orbit_observer/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/boost_orbit_observer/QUASILOCAL_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/boost_orbit_observer/VERDICT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/clock_join/VERDICT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/continuum_cell_regions/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/continuum_cell_regions/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/continuum_cell_regions/VERDICT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/continuum_source/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/continuum_source/VERDICT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/covariant_coframe/FOR_CODEX.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/covariant_coframe/NEXT_CANDIDATES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/covariant_coframe/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/covariant_coframe/VERDICT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/covariant_coframe/improved_R1p5/GATES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/covariant_coframe/refinement_R1p5/GATES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/covariant_coframe/refinement_R2/GATES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/cubic_reduction/GATES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/cubic_reduction/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/cubic_reduction/VERDICT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/curved_ball/FOR_CODEX.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/curved_ball/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/curved_ball/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/curved_ball/VERDICT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/entropy_equilibrium_candidate/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/entropy_equilibrium_candidate/VERDICT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/full_cubic_sectors/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/full_cubic_sectors/VERDICT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/isotropic_shape_tangent/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/isotropic_shape_tangent/VERDICT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/joint_continuum_entropy/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/joint_continuum_entropy/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/joint_continuum_entropy/VERDICT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/joint_selection_audit/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/lapse_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/neutral_mixture_entropy_bound/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/neutral_mixture_entropy_bound/VERDICT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/pure_neutral_slater/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/pure_neutral_slater/VERDICT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/spectral_flattening/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/spectral_flattening/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/spectral_flattening/VERDICT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/temporal_observer/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/temporal_observer/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/gravity/temporal_observer/VERDICT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/hadrons/CHAIN4_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/hadrons/LOCAL_SPIN_FLAVOUR_CURRENT_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/hadrons/MASS_ALTERNATIVES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/hadrons/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/hadrons/SPINFUL_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/hadrons/SPIN_FLAVOUR_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/hadrons/STAGGERED_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/hadrons/auxiliary_current_block/ALGEBRA.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/hadrons/auxiliary_current_block/RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/hadrons/auxiliary_spin_refinement/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/hadrons/shared_auxiliary/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/row1/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/row1_v2/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/row1_v2/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/row1_v3/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/row1_v3/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/row1_v3/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/AMENDED_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/FOR_CODEX.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/auxiliary_current/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/auxiliary_current/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/axial_dirac_bridge/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/axial_dirac_bridge/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_ring/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_ring/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_ring/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_ring4/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_ring4/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_ring4/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_ring4_coulomb/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_ring4_coulomb/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_ring4_coulomb/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_ring4_fidelity/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_ring4_fidelity/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_ring4_fidelity/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_service/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_service/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_service/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_service/inputs/spatial_overlap_proof.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_vacuum/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_vacuum/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/chiral_vacuum/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/fractional_dirac/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/fractional_dirac/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/mass_response/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/mass_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/memory_complement/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/memory_complement/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/neutral_chain/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/neutral_chain/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/neutral_paths/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/neutral_paths/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/neutral_paths/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/next_family/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/species_leptons/next_family/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/vacuum_trace_review/PLAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/openwave-tuning/next/OBSTRUCTION_REPAIR/vacuum_trace_review/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/reverse-engineering-reality/code/openwave_row1_integrity/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/reverse-engineering-reality/code/openwave_row1_integrity/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/reverse-engineering-reality/code/openwave_row1_integrity/provenance/AU5_FREEZE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/reverse-engineering-reality/code/openwave_row1_integrity/provenance/AU5_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/reverse-engineering-reality/code/openwave_row1_integrity/provenance/AU5_REVIEW_FOR_CODEX.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/reverse-engineering-reality/model/coherent_defect_wave/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/reverse-engineering-reality/model/higgs_curvature_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/reverse-engineering-reality/model/matched_einstein_limit/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/reverse-engineering-reality/model/particle_geometric_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/reverse-engineering-reality/model/reciprocal_area_dynamics/DERIVATION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_obstruction_realizations/inputs/reverse-engineering-reality/model/reciprocal_area_dynamics/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -10701,6 +11881,11 @@
       "allowlisted": false
     },
     {
+      "path": "claims/ccf_lt2.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
       "path": "claims/coherent_integration.json",
       "glob": "claims/*.json",
       "allowlisted": false
@@ -10746,6 +11931,11 @@
       "allowlisted": false
     },
     {
+      "path": "claims/native_selected_records.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
       "path": "claims/openwave_autonomous_car_native.json",
       "glob": "claims/*.json",
       "allowlisted": false
@@ -10781,12 +11971,22 @@
       "allowlisted": false
     },
     {
+      "path": "claims/openwave_native_record_rows.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
       "path": "claims/openwave_native_row1.json",
       "glob": "claims/*.json",
       "allowlisted": false
     },
     {
       "path": "claims/openwave_partial_records.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/openwave_particle_records.json",
       "glob": "claims/*.json",
       "allowlisted": false
     },
@@ -10801,7 +12001,22 @@
       "allowlisted": false
     },
     {
+      "path": "claims/openwave_rows_11_20_components.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
       "path": "claims/openwave_signed_source.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/openwave_source_repair_verification.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "claims/openwave_source_repairs.json",
       "glob": "claims/*.json",
       "allowlisted": false
     },

@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "actual_continued_sources": 32,
+  "signed_optical_parameter_pairs": 290,
+  "all_four_charge_sign_products": true,
+  "whole_signed_clock_bridge": {
+    "coin_flip_permutation": [
+      1,
+      0,
+      3,
+      2,
+      5,
+      4,
+      7,
+      6,
+      9,
+      8,
+      10,
+      12,
+      11,
+      14,
+      13,
+      16,
+      15,
+      18,
+      17,
+      20,
+      19,
+      21,
+      23,
+      22,
+      25,
+      24,
+      27,
+      26,
+      29,
+      28,
+      31,
+      30,
+      32
+    ],
+    "source_catalog_pairs": 288,
+    "clock_refinements": 7,
+    "corresponding_case_pairs": 128,
+    "returned_density_pairs": 256,
+    "maximum_matrix_defect": 2.2591402272114562e-15,
+    "meaning": "Exact literal signed conjugacy and actual finite density covariance support all four independently admitted charge-sign products; no marginal-only composition inference."
+  },
+  "providers": {
+    "row_02_electron_rest_energy/work/2026-11-16_codex_amplified_source_interval_v1": {
+      "manifest_sha256": "85ac553dd7cca56f2895d4c1881680f816636379b301489d3ece050f7ef31f24",
+      "leaves": 16
+    },
+    "row_07_double_cover/reviews/2026-11-16_codex_amplified_source_adversarial": {
+      "manifest_sha256": "edbf1a5cb1070d2e597a1a90677039ab7e2d0fa310178f8d74d770eaa59fc427",
+      "leaves": 43
+    },
+    "row_02_electron_rest_energy/work/2026-11-16_codex_record_calibration_v1": {
+      "manifest_sha256": "0f7152d640b26d10e7b8e1af40205f72417f778d6f2aec798eac3e36544388c8",
+      "leaves": 36
+    },
+    "row_02_electron_rest_energy/reviews/2026-11-16_codex_amplified_interval_adversarial": {
+      "manifest_sha256": "dd0e3023c48a03c530ae3d1d62a683a20cf7b1b60095d65ed6998d73a43acdd8",
+      "leaves": 23
+    }
+  },
+  "interval_certificate_sha256": "96e52814f637bfdbeb596c01dd345cefd0153af2073d39ac2e5bd982c22c8872",
+  "actual_source_sha256": "39358cb4cd7eecedfcc6c58832d3c87e51f14e9405a32309b9e3c6be80e3470b",
+  "scope": "Actual common entry, complete primitive tensor operator, identical full local compiler inputs, reviewed signed state covariance and fresh finite pair interval.",
+  "physical_claim_proof": "PROOF.md",
+  "external_G6": false
+}

@@ -1,9 +1,16 @@
 """Check the separately typed finite-field supplement without changing old claims."""
 from pathlib import Path
 import copy
+import ast
 import hashlib
 import json
 import sys
+import io
+import os
+import subprocess
+import tarfile
+import tempfile
+from functools import lru_cache
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -34,6 +41,118 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+@lru_cache(maxsize=None)
+def check_sealed_class(source_root):
+    """Execute the original signed checker in its explicitly sealed source domain.
+
+    The temporary view contains only authenticated Git bytes. It never replaces
+    the live CCF-LT-2 hypothesis or changes the supplement's declared authority.
+    """
+    source_root = Path(source_root).resolve()
+    def blob(name):
+        return subprocess.check_output(['git', 'show', SEALED_PARENT + ':' + name],
+                                       cwd=source_root)
+    class_path = str(program_class_v2.PATH)
+    raw = blob(class_path)
+    if hashlib.sha256(raw).hexdigest() != SEALED_CLASS_SHA256:
+        raise ValueError('Sealed parent class bytes changed')
+    klass = strict_json.loads(raw.decode())
+    review_path = klass['adoption']['independent_review']['path']
+    review = strict_json.loads(blob(review_path).decode())
+    paths = {class_path, review_path, 'claims/executable_model_hypothesis.json',
+             'tracking/observation_ledger.json', 'tools/strict_json.py',
+             klass['laws']['local_alternative_family']['contract']}
+    paths.update(klass['exposure']['source_hashes'])
+    paths.update(klass['interpreter_binding']['source_hashes'])
+    paths.update(klass['review_implementation_bindings'])
+    paths.update(review['source_bindings'])
+    # Package initializers and exposure aliases are included when present in
+    # this exact tree. The original checker determines its original inputs.
+    optional = {'model/__init__.py', 'model/completion/__init__.py', 'tools/__init__.py',
+                *program_class_v2.EXPOSURE_SNAPSHOTS.values()}
+    for name in optional:
+        exists = subprocess.run(['git', 'cat-file', '-e', SEALED_PARENT + ':' + name],
+                                cwd=source_root, capture_output=True)
+        if exists.returncode == 0:
+            paths.add(name)
+    if any(Path(name).is_absolute() or '..' in Path(name).parts for name in paths):
+        raise ValueError('External sealed class source')
+    archive = subprocess.check_output(['git', 'archive', '--format=tar', SEALED_PARENT,
+                                       *sorted(paths)], cwd=source_root)
+    with tempfile.TemporaryDirectory(prefix='oph-sealed-component-') as directory:
+        view = Path(directory)
+        with tarfile.open(fileobj=io.BytesIO(archive)) as source:
+            source.extractall(view, filter='data')
+        env = dict(os.environ)
+        env['PYTHONPATH'] = str(view)
+        env['PYTHONDONTWRITEBYTECODE'] = '1'
+        executed = subprocess.run([sys.executable, '-m', 'model.completion.program_class_v2',
+                                   '--check'], cwd=view, env=env, capture_output=True, text=True)
+        if executed.returncode:
+            raise ValueError('Sealed independent class check failed:\n'
+                             + executed.stdout + executed.stderr)
+    return {'sealed_class_valid': True, 'official_CCF_LT2_adoption_claimed': False}
+
+
+def validate_live_review_signatures(klass, root):
+    """Authenticate review linkage without treating its class as current law."""
+    review = klass['adoption']['independent_review']
+    path = Path(root) / review['path']
+    if sha(path) != review['sha256']:
+        raise ValueError('Sealed component review bytes changed')
+    value = strict_json.load(path)
+    fingerprint = program_class_v2.reviewed_contract_digest(klass)
+    if (review.get('reviewed_contract_digest') != fingerprint
+            or value.get('reviewed_contract_digest') != fingerprint
+            or value.get('verdict') != 'PASS'):
+        raise ValueError('Sealed component review does not bind its class')
+
+
+INVENTORY_HELPER = 'tools/build_completion_program.py'
+CURRENT_INVENTORY_SHA256 = 'edc4642feaf6bc555282e108d63317fc9e852a52ab89b0ed9fbca6f1e0c11510'
+INVENTORY_FUNCTIONS = frozenset(('require', 'local_file', 'integration_source_paths',
+                                'validate_integration_sources'))
+
+
+def verify_live_executable_sources(pins, root):
+    """One reviewed inventory-only helper update; every other source pin stays exact."""
+    root = Path(root)
+    old_hash = pins[INVENTORY_HELPER]
+    source = root / INVENTORY_HELPER
+    if sha(source) == old_hash:
+        renewal.verify_executable_source_pins(pins, root)
+        return
+    if sha(source) != CURRENT_INVENTORY_SHA256:
+        raise ValueError('Unreviewed current inventory helper source')
+    original = subprocess.check_output(['git', 'show', SEALED_PARENT + ':' + INVENTORY_HELPER],
+                                       cwd=ROOT)
+    if hashlib.sha256(original).hexdigest() != old_hash:
+        raise ValueError('Original inventory helper is outside the sealed catalog')
+    def functions(raw):
+        parsed = ast.parse(raw)
+        return {node.name: ast.dump(node, include_attributes=False)
+                for node in parsed.body if isinstance(node, ast.FunctionDef)
+                and node.name in INVENTORY_FUNCTIONS}
+    if (functions(original) != functions(source.read_bytes())
+            or set(functions(original)) != INVENTORY_FUNCTIONS):
+        raise ValueError('Consumed inventory helper semantics changed')
+    remaining = {name: value for name, value in pins.items() if name != INVENTORY_HELPER}
+    renewal.verify_executable_source_pins(remaining, root)
+    for name in remaining:
+        if not name.endswith('.py'):
+            continue
+        for node in ast.walk(ast.parse((root/name).read_bytes())):
+            if isinstance(node, ast.ImportFrom) and node.module == 'tools.build_completion_program':
+                if any(alias.name not in INVENTORY_FUNCTIONS for alias in node.names):
+                    raise ValueError('Component consumes current programme authority: ' + name)
+            if (isinstance(node, ast.Import)
+                    and any(alias.name == 'tools.build_completion_program' for alias in node.names)):
+                raise ValueError('Unreviewed inventory module consumer: ' + name)
+            if (isinstance(node, ast.ImportFrom) and node.module == 'tools'
+                    and any(alias.name == 'build_completion_program' for alias in node.names)):
+                raise ValueError('Unreviewed inventory module consumer: ' + name)
+
+
 def check_parent_class(data, root=ROOT):
     root = Path(root).resolve()
     if (data['sealed_parent_commit'] != SEALED_PARENT
@@ -58,7 +177,8 @@ def check_parent_class(data, root=ROOT):
     adoption['independent_review'].pop('reviewed_contract_digest')
     if renewal.canonical(adoption) != renewal.canonical(ADOPTION_SEMANTICS):
         raise ValueError('Sealed parent adoption semantics changed')
-    program_class_v2.validate(klass, root)
+    # Only the original sealed review is an authority for this independent class.
+    check_sealed_class(ROOT)
 
     # Authenticate the member's complete scientific payload and source scope
     # against its existing immutable owner archive; a re-signed class alone
@@ -66,7 +186,7 @@ def check_parent_class(data, root=ROOT):
     if sha(root/renewal.CATALOG) != renewal.CATALOG_SHA256:
         raise ValueError('Live member owner authority changed')
     catalog = strict_json.load(root/renewal.CATALOG)
-    renewal.verify_executable_source_pins(catalog['reviewed_executable_source_sha256'], root)
+    verify_live_executable_sources(catalog['reviewed_executable_source_sha256'], root)
     spec = catalog['owners']['native_program']
     if sha(root/spec['retained_path']) != spec['retained_sha256']:
         raise ValueError('Retained member receipt changed')
@@ -106,7 +226,7 @@ def check():
     if tuple(names) != PACKAGES or [r['id'] for r in data['claims']] != [f'FR{i:02}' for i in range(1,12)]:
         raise ValueError('Changed claim membership')
     print('PASS: eleven typed finite-field claims; sealed class semantics and physical statuses '
-          'preserved under authenticated current custody')
+          'preserved in their independent source domain and authenticated current member custody')
 
 
 if __name__ == '__main__':

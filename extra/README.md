@@ -2,7 +2,7 @@
 
 The main reading route lives in [`paper/`](../paper/). This directory contains focused TeX papers that develop one mathematical, physical, computational, or interpretive branch in depth. Research notes written in Markdown live in [`docs/research/`](../docs/research/).
 
-The papers sit in one tower over the [executable-model hypothesis](../docs/OPH_EXECUTABLE_HYPOTHESIS.md): a simple, fully specified local repair and memory law on the proposed carrier architecture must admit continuing observers whose records have the observed quantum-field description and a common classical-gravity limit. Each layer proves finite theorems under displayed premises; a conclusion passes to the next layer only when that premise is realized on the same model process. The [completion program](../docs/COMPLETION_PROGRAM.md) lists the layers and the open joins.
+The papers sit in one tower over the [executable-model hypothesis](../docs/OPH_EXECUTABLE_HYPOTHESIS.md): the official [CCF-LT-2 specification](../model/SPEC.md) couples native matter, fields and local capacity and memory. Its physical interpretation requires continuing observers with the observed quantum-field records and a common classical-gravity limit. Each layer proves finite theorems under displayed premises; a conclusion passes to the next layer only when that premise is realized on the same model process. The [completion program](../docs/COMPLETION_PROGRAM.md) lists the layers and the open joins.
 
 ## Layer 1: repair mathematics
 

@@ -1,0 +1,285 @@
+{
+  "passed": true,
+  "distinct_entry_mutations": 21,
+  "repeated_parameter_domains": "independent.py k1..6 and alternate spin receipt share audited code; all execute unmutated in full replay",
+  "test_copy_prereg_rebinding": "Reservoir headline.py only; original immutable registration unchanged.",
+  "scientific_emergence_credit": false,
+  "results": [
+    {
+      "label": "job_01_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "headline.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.3394953329989221,
+      "mutation_fragment": "r.stdout==expected"
+    },
+    {
+      "label": "job_02_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "check.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.2814602919970639,
+      "mutation_fragment": "len(old['source_records'])==30"
+    },
+    {
+      "label": "job_03_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "detector_check.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.26286579099541996,
+      "mutation_fragment": "max(abs(np.array(planted)-np.array(actual)-.1))<1e-6"
+    },
+    {
+      "label": "job_04_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "check.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.18508920801104978,
+      "mutation_fragment": "np.max(abs(values-np.array([0.,4.,6.])))<1e-12"
+    },
+    {
+      "label": "job_05_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "headline.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.07387466600630432,
+      "mutation_fragment": "visibility < 0 if law == \"native\" and turns == 1 else visibility > 0"
+    },
+    {
+      "label": "job_06_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "independent_check.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.5018089999939548,
+      "mutation_fragment": "preparation == F(case[\"preparation\"][\"accepted_probability\"])"
+    },
+    {
+      "label": "job_08_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "independent_error.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.3196189580048667,
+      "mutation_fragment": "max(errors) < 2e-10"
+    },
+    {
+      "label": "job_09_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "detector_check.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.2365340000105789,
+      "mutation_fragment": "v0 == F(case[\"exact_visibility\"])"
+    },
+    {
+      "label": "job_10_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "headline_v2.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 6.948538542012102,
+      "mutation_fragment": "json.dumps(fresh,sort_keys=True,separators=(',',':'))==json.dumps(recorded,sort_keys=True,separators=(',',':'))"
+    },
+    {
+      "label": "job_11_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "check.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.8454694170068251,
+      "mutation_fragment": "-1e-10<=eta<=ETA"
+    },
+    {
+      "label": "job_12_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "audit.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 1.1715555419941666,
+      "mutation_fragment": "len(interior) == 2"
+    },
+    {
+      "label": "job_13_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "headline.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 17.628220208993298,
+      "mutation_fragment": "json.loads(json.dumps(fresh))==stored"
+    },
+    {
+      "label": "job_14_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "independent.py",
+        "--k",
+        "0"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.7843706249987008,
+      "mutation_fragment": "error<tol"
+    },
+    {
+      "label": "job_21_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "selector_check.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.7232067080039997,
+      "mutation_fragment": "total==Fraction(s['success_probability']) and total+Fraction(s['timeout_probability'])==1"
+    },
+    {
+      "label": "job_22_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "experiment.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.7794137919991044,
+      "mutation_fragment": "result['unique_component']"
+    },
+    {
+      "label": "job_23_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "headline.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.05377279099775478,
+      "mutation_fragment": "energy[1]<OLD_PAIR"
+    },
+    {
+      "label": "job_24_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "audit.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.7823738330043852,
+      "mutation_fragment": "residual < tolerance"
+    },
+    {
+      "label": "job_25_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "headline.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 13.25332749998779,
+      "mutation_fragment": "stable(actual)==stable(filed)"
+    },
+    {
+      "label": "job_27_scientific_predicate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "spectral_check.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 0.20163179200608283,
+      "mutation_fragment": "np.linalg.norm(np.einsum('rxa,rxb->ab',F.conj(),F)-np.eye(4))<1e-9"
+    },
+    {
+      "label": "reservoir_primary_gate",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "headline.py"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 13.5627465830039
+    },
+    {
+      "label": "menu_transfer_check",
+      "command": [
+        "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+        "-B",
+        "audit.py",
+        "../../work/2026-11-16_codex_common_reference_menu",
+        "6",
+        "stationary"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "passed": true,
+      "seconds": 3.8998091249959543
+    }
+  ]
+}

@@ -2,12 +2,12 @@
   "catch_all_docs_exception": false,
   "edges": [
     {
-      "legacy_bytes_authenticated": true,
-      "legacy_map": "source_sha256",
+      "binding_map": "source_sha256",
+      "current_bytes_authenticated": true,
       "owner": "model/local_repair_family/record_clock_results.json",
-      "owner_sha256": "ea709f6bb519b780b4be325ccb2a549f24fd89ac7a03048b7afd45f43171bf66",
+      "owner_sha256": "0ce4cdfb456cf28239f80a23cb807e8573c0c912b820d6df595a6b14f892fd0d",
       "presentation_path": "docs/INTERPRETATION_AND_TERMS.md",
-      "presentation_sha256": "d7ced4cd1b1480b228037e960250c87f47bf57bc59232207b1050806aaa1f19f",
+      "presentation_sha256": "06eb1786de2db5fe35e69e4d7bd943a079a487b6233dd42607d46685e82bdb12",
       "provider": "model/native_modular_reference/construction.py",
       "provider_sha256": "4c3ce7e8cfe111b8f4d6fc260976416b14118d62bcea6fc9cf276055ef208a1f",
       "read_trace": {
@@ -17,14 +17,14 @@
         ],
         "read_domain": "Returned SHA256 custody map only; downstream record_clock merges provider maps without reading presentation contents."
       },
-      "role": "retained_presentation_provenance",
+      "role": "presentation_provenance",
       "scientific_input": false
     },
     {
-      "legacy_bytes_authenticated": true,
-      "legacy_map": "source_sha256",
+      "binding_map": "source_sha256",
+      "current_bytes_authenticated": true,
       "owner": "model/local_repair_family/record_clock_results.json",
-      "owner_sha256": "ea709f6bb519b780b4be325ccb2a549f24fd89ac7a03048b7afd45f43171bf66",
+      "owner_sha256": "0ce4cdfb456cf28239f80a23cb807e8573c0c912b820d6df595a6b14f892fd0d",
       "presentation_path": "docs/research/COHERENT_SOURCE_CLOCKS.md",
       "presentation_sha256": "3daa10fa2fe85979c55e72e8dee18649d80d276b85db4654fa2d5097c98b5557",
       "provider": "model/compiled_native_interface/construction.py",
@@ -36,16 +36,16 @@
         ],
         "read_domain": "Returned SHA256 custody map only; downstream record_clock merges provider maps without reading presentation contents."
       },
-      "role": "retained_presentation_provenance",
+      "role": "presentation_provenance",
       "scientific_input": false
     },
     {
-      "legacy_bytes_authenticated": true,
-      "legacy_map": "source_bindings",
+      "binding_map": "source_bindings",
+      "current_bytes_authenticated": true,
       "owner": "model/common_source/chiral_candidate/results.json",
-      "owner_sha256": "5594b66a30a5f9a0c76dc40c750b4409bb14a25c0b5ec4a2906bc6061ee8f999",
+      "owner_sha256": "d767beaaef2583fe49c93b982622ae49e01de0e33f30f24e472fbafd97441c33",
       "presentation_path": "docs/research/OPH_PARTICLE_MASS_RESPONSE.md",
-      "presentation_sha256": "dbe5a66b9d9d28683e1d9d444ec931a61dd42756b3d7b284d2db70802b3a86a2",
+      "presentation_sha256": "7c08248e02f5167764dc4c0007b14b311525b90ddd11c0a4562786a555357bb3",
       "provider": "model/common_source/chiral_candidate/run.py",
       "provider_sha256": "3a6746e9ef8e0bb893927bbeefc7e9a764e77c32bf3033c8283f746914a8598c",
       "read_trace": {
@@ -56,15 +56,14 @@
         ],
         "read_domain": "_bindings hashes bytes; verify checks required custody membership. run obtains physical outputs independently from action, geometry, history and hierarchy controls."
       },
-      "role": "retained_presentation_provenance",
+      "role": "presentation_provenance",
       "scientific_input": false
     }
   ],
-  "raw_legacy_audit_exit_status_is_not_changed": true,
-  "raw_legacy_documentary_policy_findings_retained": 3,
-  "schema": "oph.presentation_dependency_role_review.v1",
-  "scientific_outputs_or_immutable_selection_goldens_changed": false,
-  "scope": "Exact inherited edge roles only. The original raw no-docs audit retains its three findings; this checker authenticates all original bytes and does not award a physical claim.",
+  "exact_presentation_edge_count": 3,
+  "schema": "oph.presentation_dependency_role_review.v2",
+  "scientific_outputs_recomputed": false,
+  "scope": "Only the three enumerated presentation roles. Every operative input is authenticated; this check awards no physical claim.",
   "source_sha256": {
     "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
     "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
@@ -80,7 +79,7 @@
     "model/common_source/chiral_candidate/hierarchy_controls.py": "91baa39d1c8c950162c0aaf35228694110e5e738eb9ae84027a2ffc8545d9a46",
     "model/common_source/chiral_candidate/history.py": "265e73ac87321ebd514b97af2c7c4c0bb376144f60e53d10bfd46662ce2d8db4",
     "model/common_source/chiral_candidate/kinetic.py": "ef6e5199ded96f6249076732603749809c9e623b1249f80efc97bc6b7d9fccb5",
-    "model/common_source/chiral_candidate/results.json": "55e017c64bd434ea206814449b2058cd74d0be3f9609141477b3db0ccde39f36",
+    "model/common_source/chiral_candidate/results.json": "d767beaaef2583fe49c93b982622ae49e01de0e33f30f24e472fbafd97441c33",
     "model/common_source/chiral_candidate/run.py": "3a6746e9ef8e0bb893927bbeefc7e9a764e77c32bf3033c8283f746914a8598c",
     "model/common_source/chiral_candidate/spacetime_attachment.py": "fa1a55c076de8f4a79e96fb14f3a98644f62e712a43b4f78a3169d3d0c5495e4",
     "model/common_source/composition.py": "0da19f182d52049e1521ff4f6ae85184af8f993a66373fbf228716149472d6cc",
@@ -175,7 +174,7 @@
     "model/laboratory_clock/event_geometry.py": "937174335bd528ed1beee023d9b32166a957320f80a00d658c8eb36a29001a15",
     "model/local_repair_family/__init__.py": "66020f42442bef5fb6a1af13b74f96d9cc7fee99f0792216b6b0fbfa734450a9",
     "model/local_repair_family/local_bias.py": "4902174ac8b27c1d8111bc3942cf5cd1024a07999d77f272cbfa1f1242876755",
-    "model/local_repair_family/record_clock_results.json": "5bd1e91ea466c2a10d59857b94371019af3b1e49d84775f299eefccb5acb1f1f",
+    "model/local_repair_family/record_clock_results.json": "0ce4cdfb456cf28239f80a23cb807e8573c0c912b820d6df595a6b14f892fd0d",
     "model/native_action/__init__.py": "fb3c52e07daa664dd0a0c44ee06fa93f9cfceb0c572f3924478cb198a5a5c9c8",
     "model/native_action/clock_histories.py": "41c698d743a98abf12912e4ab55e2ec91f3c4e8285e2f0c7015e01d3b0036f9f",
     "model/native_action/construction.py": "b05c885a104f36f1bf68b288a58d6c16d86678a19ae8867e544df5c22d82039c",
@@ -322,14 +321,14 @@
     "model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
     "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
     "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
-    "model/publication_dependency_roles/README.md": "b09925a18410d441adc2124e75c943305b3b56d9a4731e5fed2cb1a8c36ddd41",
+    "model/publication_dependency_roles/README.md": "8dfc33e33df872d38c9b32a9cc513796b54e86b89d5027e74e1f6c95ecabd311",
     "model/publication_dependency_roles/__init__.py": "c8dbd22b396c559d2d3011b349f6aa976065c6ea30e96417048b03027842941f",
     "model/publication_dependency_roles/__main__.py": "1e02c7eea40f6ae3c71cb9c45973cf04f130924f5e38611b4b9e7f4b98680e1b",
-    "model/publication_dependency_roles/check.py": "10dd1f6ae50b2860c4c2a55c3f2d785dc505f67e7a5c1b190282c8ebb017e50b",
+    "model/publication_dependency_roles/check.py": "c17d061bf58fee58ce95b2cc1ede1f4412e55f2d6cce4d18c7faaedd3885c5f3",
     "model/publication_dependency_roles/paper_check.py": "cda8d0d1a681c353c6fc1185cd095eaec410e84614b8054bcded73a6e138fab8",
-    "model/publication_dependency_roles/roles.json": "7981c7a3b3cddedd1ad33c10e0869db29c85e297a82427d63498861ff8bed08b",
+    "model/publication_dependency_roles/roles.json": "6875a6c81892894494641e155a294588c5d8aa646f27a3cc346411634a3d7b5b",
     "model/publication_dependency_roles/test_paper_boundary.py": "e738a73a354f7fbe9950d1f351cc3519c92f23dc915c38adb1d37b57a9e59e66",
-    "model/publication_dependency_roles/test_roles.py": "e1fb286afc38c6e1202073b67caf1d7ab5ae4316de9d289b887fba129964fea3",
+    "model/publication_dependency_roles/test_roles.py": "2e3804117b5034a5939800d441f29ee9d777642b3eb162b69d41b50ec5862c6e",
     "model/record_laws/__init__.py": "1b66289fa4160260460fa4e947b1f7339fe0e8d7382fe6848c0029896c02bd19",
     "model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5",
     "model/record_laws/family.py": "ac615e49101faa9a7b0b42d07f01ff44f342c20195ea5f6e5f88743bd11b4919",
@@ -363,5 +362,6 @@
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
   },
   "typed_scientific_evidence_uses_document_prose": false,
-  "verdict": "PASS_THREE_EXACT_PRESENTATION_ROLES_WITH_IMMUTABLE_ANCESTRY"
+  "validation_mode": "Exact current bindings and AST role checks; no physical replay.",
+  "verdict": "PASS_THREE_EXACT_CURRENT_PRESENTATION_ROLES"
 }

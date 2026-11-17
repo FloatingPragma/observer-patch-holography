@@ -1,0 +1,620 @@
+{
+  "schema": "oph.obstruction_repair.static_colour_probe.v1",
+  "complete_Cartan_carrier": true,
+  "exact_colour_commutators": true,
+  "nonsinglet_penalty_exclusion_proved": true,
+  "fixed_fermion_number": 6,
+  "source_changed_by_declared_static_probes": true,
+  "rows": [
+    {
+      "fermion_number": 0,
+      "dimension": 3,
+      "kappa": 0.5,
+      "separation": 0,
+      "low_ritz_values": [
+        -6.059967342745645e-14,
+        304.5,
+        304.5
+      ],
+      "residuals": [
+        6.664649746944184e-14,
+        4.263256414560601e-14,
+        7.180328251296537e-14
+      ],
+      "total_colour_casimirs": [
+        -4.273250414185694e-17,
+        3.0,
+        3.0
+      ],
+      "reference_vacuum": 0.0,
+      "potential_from_original_vacuum": -6.059967342745645e-14,
+      "bare_cost": 0.0,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 0,
+      "dimension": 3,
+      "kappa": 1.0,
+      "separation": 0,
+      "low_ritz_values": [
+        -2.275957200481571e-14,
+        309.0,
+        309.0
+      ],
+      "residuals": [
+        1.9525199431879052e-14,
+        3.1776437161565096e-14,
+        1.3655743202889425e-14
+      ],
+      "total_colour_casimirs": [
+        -4.2732504141856984e-17,
+        3.0000000000000004,
+        3.0
+      ],
+      "reference_vacuum": 0.0,
+      "potential_from_original_vacuum": -2.275957200481571e-14,
+      "bare_cost": 0.0,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 0,
+      "dimension": 3,
+      "kappa": 2.0,
+      "separation": 0,
+      "low_ritz_values": [
+        2.8421709430404e-14,
+        318.0,
+        318.0
+      ],
+      "residuals": [
+        4.846476395584282e-14,
+        4.0194366942304644e-14,
+        5.3644800141730896e-14
+      ],
+      "total_colour_casimirs": [
+        4.273250414185704e-17,
+        2.9999999999999987,
+        2.9999999999999987
+      ],
+      "reference_vacuum": 0.0,
+      "potential_from_original_vacuum": 2.8421709430404e-14,
+      "bare_cost": 0.0,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 0,
+      "dimension": 3,
+      "kappa": 0.5,
+      "separation": 1,
+      "low_ritz_values": [
+        0.6666666666666007,
+        303.66666666666663,
+        303.66666666666663
+      ],
+      "residuals": [
+        5.663682819295434e-14,
+        5.123796534383003e-14,
+        3.039355928425378e-14
+      ],
+      "total_colour_casimirs": [
+        -4.2732504141856984e-17,
+        3.0000000000000004,
+        3.0
+      ],
+      "reference_vacuum": 0.0,
+      "potential_from_original_vacuum": 0.6666666666666007,
+      "bare_cost": 0.6666666666666666,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 0,
+      "dimension": 3,
+      "kappa": 1.0,
+      "separation": 1,
+      "low_ritz_values": [
+        1.3333333333333384,
+        307.3333333333333,
+        307.33333333333337
+      ],
+      "residuals": [
+        9.552435292694305e-15,
+        2.887689873627682e-14,
+        5.684341886080802e-14
+      ],
+      "total_colour_casimirs": [
+        -4.2732504141856984e-17,
+        3.0,
+        3.0000000000000004
+      ],
+      "reference_vacuum": 0.0,
+      "potential_from_original_vacuum": 1.3333333333333384,
+      "bare_cost": 1.3333333333333333,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 0,
+      "dimension": 3,
+      "kappa": 2.0,
+      "separation": 1,
+      "low_ritz_values": [
+        2.666666666666657,
+        314.6666666666667,
+        314.66666666666674
+      ],
+      "residuals": [
+        8.36333296225569e-14,
+        2.842170943040401e-14,
+        1.2058310082691391e-13
+      ],
+      "total_colour_casimirs": [
+        2.629536350736706e-31,
+        2.9999999999999996,
+        2.9999999999999987
+      ],
+      "reference_vacuum": 0.0,
+      "potential_from_original_vacuum": 2.666666666666657,
+      "bare_cost": 2.6666666666666665,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 0,
+      "dimension": 3,
+      "kappa": 0.5,
+      "separation": 2,
+      "low_ritz_values": [
+        1.3333333333332857,
+        302.8333333333333,
+        302.83333333333337
+      ],
+      "residuals": [
+        7.807599512870232e-14,
+        4.0194366942304644e-14,
+        5.684341886080802e-14
+      ],
+      "total_colour_casimirs": [
+        4.273250414185707e-17,
+        2.9999999999999996,
+        3.0
+      ],
+      "reference_vacuum": 0.0,
+      "potential_from_original_vacuum": 1.3333333333332857,
+      "bare_cost": 1.3333333333333333,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 0,
+      "dimension": 3,
+      "kappa": 1.0,
+      "separation": 2,
+      "low_ritz_values": [
+        2.66666666666664,
+        305.66666666666663,
+        305.6666666666667
+      ],
+      "residuals": [
+        1.3941147927047715e-14,
+        3.1776437161565096e-14,
+        3.039355928425378e-14
+      ],
+      "total_colour_casimirs": [
+        -4.2732504141856984e-17,
+        3.0000000000000004,
+        3.0
+      ],
+      "reference_vacuum": 0.0,
+      "potential_from_original_vacuum": 2.66666666666664,
+      "bare_cost": 2.6666666666666665,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 0,
+      "dimension": 3,
+      "kappa": 2.0,
+      "separation": 2,
+      "low_ritz_values": [
+        5.333333333333307,
+        311.3333333333333,
+        311.33333333333337
+      ],
+      "residuals": [
+        4.39154608086841e-14,
+        6.83906443639813e-14,
+        9.099386826154683e-14
+      ],
+      "total_colour_casimirs": [
+        -4.273250414185694e-17,
+        3.0,
+        3.0
+      ],
+      "reference_vacuum": 0.0,
+      "potential_from_original_vacuum": 5.333333333333307,
+      "bare_cost": 5.333333333333333,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 0,
+      "dimension": 3,
+      "kappa": 0.5,
+      "separation": 3,
+      "low_ritz_values": [
+        1.9999999999999827,
+        301.99999999999994,
+        302.0
+      ],
+      "residuals": [
+        3.101797029997573e-14,
+        8.644125458514252e-14,
+        3.555994740789168e-14
+      ],
+      "total_colour_casimirs": [
+        8.217301096052206e-33,
+        3.0,
+        3.0
+      ],
+      "reference_vacuum": 0.0,
+      "potential_from_original_vacuum": 1.9999999999999827,
+      "bare_cost": 2.0,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 0,
+      "dimension": 3,
+      "kappa": 1.0,
+      "separation": 3,
+      "low_ritz_values": [
+        4.0000000000000275,
+        304.0,
+        304.0
+      ],
+      "residuals": [
+        6.147067378847125e-14,
+        3.1776437161565096e-14,
+        3.2829578306128264e-14
+      ],
+      "total_colour_casimirs": [
+        4.273250414185707e-17,
+        3.0,
+        3.0
+      ],
+      "reference_vacuum": 0.0,
+      "potential_from_original_vacuum": 4.0000000000000275,
+      "bare_cost": 4.0,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 0,
+      "dimension": 3,
+      "kappa": 2.0,
+      "separation": 3,
+      "low_ritz_values": [
+        7.999999999999992,
+        308.0,
+        308.0
+      ],
+      "residuals": [
+        1.1648350771590544e-14,
+        3.1776437161565096e-14,
+        4.3423205532347834e-14
+      ],
+      "total_colour_casimirs": [
+        -4.2732504141856984e-17,
+        3.0000000000000004,
+        3.0
+      ],
+      "reference_vacuum": 0.0,
+      "potential_from_original_vacuum": 7.999999999999992,
+      "bare_cost": 8.0,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 6,
+      "dimension": 1224,
+      "kappa": 0.5,
+      "separation": 0,
+      "low_ritz_values": [
+        -0.225239518657275,
+        -0.20464547725122978,
+        -0.14329323900337979
+      ],
+      "residuals": [
+        5.389277199549915e-13,
+        5.894942460028675e-13,
+        1.1262996533453433e-12
+      ],
+      "total_colour_casimirs": [
+        -2.3869118177701857e-17,
+        -2.3844964308099442e-17,
+        2.4537493673711437e-18
+      ],
+      "reference_vacuum": -0.22523951902985573,
+      "potential_from_original_vacuum": 3.7258071627910283e-10,
+      "bare_cost": 0.0,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 6,
+      "dimension": 1224,
+      "kappa": 1.0,
+      "separation": 0,
+      "low_ritz_values": [
+        -0.10939925969721098,
+        -0.10534436651862579,
+        -0.0710649015228059
+      ],
+      "residuals": [
+        5.946173315702316e-13,
+        8.475626071025047e-13,
+        9.222302889452069e-13
+      ],
+      "total_colour_casimirs": [
+        -4.792060426309619e-17,
+        -2.978389837634989e-18,
+        2.09931861708535e-18
+      ],
+      "reference_vacuum": -0.10939926002174616,
+      "potential_from_original_vacuum": 3.2453517651021e-10,
+      "bare_cost": 0.0,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 6,
+      "dimension": 1224,
+      "kappa": 2.0,
+      "separation": 0,
+      "low_ritz_values": [
+        -0.053507986725117807,
+        -0.052592735620023486,
+        -0.03526648885307798
+      ],
+      "residuals": [
+        1.989525263350657e-12,
+        8.931340813275457e-13,
+        3.9309217008543105e-12
+      ],
+      "total_colour_casimirs": [
+        -7.088099368158881e-19,
+        3.1163995662518755e-19,
+        4.436337526391976e-19
+      ],
+      "reference_vacuum": -0.05350798740983009,
+      "potential_from_original_vacuum": 6.847122868691713e-10,
+      "bare_cost": 0.0,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 6,
+      "dimension": 1224,
+      "kappa": 0.5,
+      "separation": 1,
+      "low_ritz_values": [
+        -0.1648522246039085,
+        -0.11873206845698421,
+        0.3997342280602866
+      ],
+      "residuals": [
+        4.894011227221759e-13,
+        5.798255531871741e-13,
+        1.1219852092528843e-12
+      ],
+      "total_colour_casimirs": [
+        -1.703361824925424e-17,
+        -7.476076466885725e-17,
+        -2.535853474041144e-17
+      ],
+      "reference_vacuum": -0.22523951902985573,
+      "potential_from_original_vacuum": 0.06038729442594723,
+      "bare_cost": 0.6666666666666666,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 6,
+      "dimension": 1224,
+      "kappa": 1.0,
+      "separation": 1,
+      "low_ritz_values": [
+        -0.08033773315308795,
+        -0.06377509410003902,
+        1.0876267662910166
+      ],
+      "residuals": [
+        4.466598562935353e-13,
+        6.9643447897541e-13,
+        1.8037771652690172e-12
+      ],
+      "total_colour_casimirs": [
+        5.632659363240339e-17,
+        5.2170951254691e-17,
+        -1.0872828697935508e-17
+      ],
+      "reference_vacuum": -0.10939926002174616,
+      "potential_from_original_vacuum": 0.029061526868658205,
+      "bare_cost": 1.3333333333333333,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 6,
+      "dimension": 1224,
+      "kappa": 2.0,
+      "separation": 1,
+      "low_ritz_values": [
+        -0.03923433856999906,
+        -0.03289134210096021,
+        2.4174698396843586
+      ],
+      "residuals": [
+        7.207146343701761e-13,
+        8.042287504402041e-13,
+        2.7264655565763436e-12
+      ],
+      "total_colour_casimirs": [
+        2.1393703446782193e-17,
+        -3.0663646360428335e-17,
+        7.03797931381027e-17
+      ],
+      "reference_vacuum": -0.05350798740983009,
+      "potential_from_original_vacuum": 0.014273648839831031,
+      "bare_cost": 2.6666666666666665,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 6,
+      "dimension": 1224,
+      "kappa": 0.5,
+      "separation": 2,
+      "low_ritz_values": [
+        -0.11695976631324251,
+        -0.09301052478733414,
+        0.400376693185136
+      ],
+      "residuals": [
+        6.577253513578185e-13,
+        6.287459484492669e-13,
+        7.875894681002874e-13
+      ],
+      "total_colour_casimirs": [
+        -9.326281700230222e-18,
+        4.725710342966881e-17,
+        -4.886042048734123e-17
+      ],
+      "reference_vacuum": -0.22523951902985573,
+      "potential_from_original_vacuum": 0.10827975271661322,
+      "bare_cost": 1.3333333333333333,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 6,
+      "dimension": 1224,
+      "kappa": 1.0,
+      "separation": 2,
+      "low_ritz_values": [
+        -0.05858686299252192,
+        -0.04677295828201605,
+        1.1112428547421127
+      ],
+      "residuals": [
+        5.957831128054499e-13,
+        5.705048689391018e-13,
+        1.2328358397468106e-12
+      ],
+      "total_colour_casimirs": [
+        -2.513202350760563e-17,
+        2.492376088276765e-17,
+        9.368398632384898e-18
+      ],
+      "reference_vacuum": -0.10939926002174616,
+      "potential_from_original_vacuum": 0.050812397029224236,
+      "bare_cost": 2.6666666666666665,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 6,
+      "dimension": 1224,
+      "kappa": 2.0,
+      "separation": 2,
+      "low_ritz_values": [
+        -0.029296885693287263,
+        -0.023424190993330932,
+        2.4674912897865795
+      ],
+      "residuals": [
+        6.127184157757331e-13,
+        8.876906028629726e-13,
+        2.0913614499698896e-12
+      ],
+      "total_colour_casimirs": [
+        -4.850485381998041e-17,
+        2.261646620769871e-19,
+        -3.487253124451182e-18
+      ],
+      "reference_vacuum": -0.05350798740983009,
+      "potential_from_original_vacuum": 0.02421110171654283,
+      "bare_cost": 5.333333333333333,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 6,
+      "dimension": 1224,
+      "kappa": 0.5,
+      "separation": 3,
+      "low_ritz_values": [
+        -0.16575669741419802,
+        -0.10689328608200122,
+        0.4176088580670437
+      ],
+      "residuals": [
+        6.304525041443703e-13,
+        5.026636482954265e-13,
+        7.263633664773471e-13
+      ],
+      "total_colour_casimirs": [
+        6.540495214706326e-17,
+        6.79847342287882e-17,
+        -2.1668219631663937e-18
+      ],
+      "reference_vacuum": -0.22523951902985573,
+      "potential_from_original_vacuum": 0.05948282161565771,
+      "bare_cost": 2.0,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 6,
+      "dimension": 1224,
+      "kappa": 1.0,
+      "separation": 3,
+      "low_ritz_values": [
+        -0.08281730419528675,
+        -0.05697660437979751,
+        1.0886470231914673
+      ],
+      "residuals": [
+        5.477015758511585e-13,
+        5.229530150623811e-13,
+        1.2034349774629675e-12
+      ],
+      "total_colour_casimirs": [
+        4.3919744895076646e-17,
+        4.863314689759279e-17,
+        8.75056331337645e-18
+      ],
+      "reference_vacuum": -0.10939926002174616,
+      "potential_from_original_vacuum": 0.026581955826459405,
+      "bare_cost": 4.0,
+      "rigorous_ground_interval": false
+    },
+    {
+      "fermion_number": 6,
+      "dimension": 1224,
+      "kappa": 2.0,
+      "separation": 3,
+      "low_ritz_values": [
+        -0.04094764500358601,
+        -0.029173623414041158,
+        2.4184512680690364
+      ],
+      "residuals": [
+        5.751252118054221e-13,
+        7.54912839207367e-13,
+        2.1663364447706605e-12
+      ],
+      "total_colour_casimirs": [
+        1.2994798651549987e-18,
+        3.516030169827199e-17,
+        1.0055177260875404e-16
+      ],
+      "reference_vacuum": -0.05350798740983009,
+      "potential_from_original_vacuum": 0.012560342406244082,
+      "bare_cost": 8.0,
+      "rigorous_ground_interval": false
+    }
+  ],
+  "infinitely_separated_probe_limit": false,
+  "physical_string_tension_solved": false,
+  "common_spatial_clock_transfer": false,
+  "native_probe_program_executed": false,
+  "pins": {
+    "STATIC_COLOUR_PLAN.md": "6a2dc0e4f2ce97d3aaf82077e6c7639240948543bbe3d6e3675cf2023ae27fc5",
+    "hadrons/RAW_COEFFICIENT_INPUTS.json": "b870e162c9f3d20ada8d360b492e4fba6a18b3da1eaeeb8ed46839c13169c95f",
+    "hadrons/STAGGERED_CHAIN4_RESULT.json": "f5378298cce1afe991b3010191e65e2b25c71cc4a4b2a7337e92ecdc64ac290a",
+    "hadrons/CHAIN4_MANIFEST.json": "151d71d7ca04beace23e4a4a5217fdd753b90d73cd2bbadaf9b51d05c615adfc"
+  }
+}

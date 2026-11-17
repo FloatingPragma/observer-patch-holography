@@ -1,0 +1,403 @@
+{
+  "passed": true,
+  "registrations": {
+    "PREREG.json": {
+      "sha256": "fdf849a329c3f081b4b13403431cf92e637310a7b5724208b1690a2b52d3086b",
+      "files": {
+        "core.py": {
+          "sha256": "15200c4374e6428dbc5cee321d049a1fc51e70c881832ae88ea4066f371ba7a7",
+          "matching_preserved_paths": [
+            "core.py"
+          ]
+        },
+        "experiment.py": {
+          "sha256": "fdb12cbd094784491980a22260c955af6cfb86889ef94214d3e3a22fb5859a1a",
+          "matching_preserved_paths": [
+            "amendments/python_json_container_types/experiment.py"
+          ]
+        },
+        "native_selectors.py": {
+          "sha256": "acb443bd800a2f053befecf72b3351421d6488927e5eba5d6ee53cdb48d41102",
+          "matching_preserved_paths": [
+            "native_selectors.py"
+          ]
+        },
+        "reader.py": {
+          "sha256": "109e2afc366ccabaec4ffbb7d81ebd7b435f540ffa78bd164894d0d30708350f",
+          "matching_preserved_paths": [
+            "reader.py"
+          ]
+        },
+        "DESIGN.md": {
+          "sha256": "166043e265d23baa1924d9c4dbd745fc251708014c651c8f04c617968d70186e",
+          "matching_preserved_paths": [
+            "DESIGN.md"
+          ]
+        },
+        "TASK.md": {
+          "sha256": "f3bf2f827933a29779af8fe203ac552a16f73d084448ccae2c1069c4e59e17e4",
+          "matching_preserved_paths": [
+            "TASK.md"
+          ]
+        },
+        "INPUTS.json": {
+          "sha256": "93d11225e3b8dcb57cbdae81bf9d8af32c2c921c174c04ccf335b38cb312cd7e",
+          "matching_preserved_paths": [
+            "INPUTS.json"
+          ]
+        }
+      },
+      "utc": "2026-11-15T17:58:43.844435+00:00"
+    },
+    "AMENDMENT_PREREG.json": {
+      "sha256": "ff5ebbf4479409440f64612e2f4c4839e862a4fee5f2fec0a4bea00ac3fa27e4",
+      "files": {
+        "core.py": {
+          "sha256": "15200c4374e6428dbc5cee321d049a1fc51e70c881832ae88ea4066f371ba7a7",
+          "matching_preserved_paths": [
+            "core.py"
+          ]
+        },
+        "experiment.py": {
+          "sha256": "7d773885838e8b6c5903a46688627e24d82204490a8ffbea2710b6b593ac3305",
+          "matching_preserved_paths": [
+            "experiment.py"
+          ]
+        },
+        "native_selectors.py": {
+          "sha256": "acb443bd800a2f053befecf72b3351421d6488927e5eba5d6ee53cdb48d41102",
+          "matching_preserved_paths": [
+            "native_selectors.py"
+          ]
+        },
+        "reader.py": {
+          "sha256": "109e2afc366ccabaec4ffbb7d81ebd7b435f540ffa78bd164894d0d30708350f",
+          "matching_preserved_paths": [
+            "reader.py"
+          ]
+        },
+        "DESIGN.md": {
+          "sha256": "166043e265d23baa1924d9c4dbd745fc251708014c651c8f04c617968d70186e",
+          "matching_preserved_paths": [
+            "DESIGN.md"
+          ]
+        },
+        "TASK.md": {
+          "sha256": "f3bf2f827933a29779af8fe203ac552a16f73d084448ccae2c1069c4e59e17e4",
+          "matching_preserved_paths": [
+            "TASK.md"
+          ]
+        },
+        "INPUTS.json": {
+          "sha256": "93d11225e3b8dcb57cbdae81bf9d8af32c2c921c174c04ccf335b38cb312cd7e",
+          "matching_preserved_paths": [
+            "INPUTS.json"
+          ]
+        }
+      },
+      "utc": "2026-11-15T17:59:38.299819+00:00"
+    },
+    "EXACT_PATH_PREREG.json": {
+      "sha256": "697338de4e24f3e4678d098eac87efd812ce9073ac28d6cb8aca9e2535c93c16",
+      "files": {
+        "exact_path_amendment.py": {
+          "sha256": "a7d7b10c35bd19df162cede3b8449580b4653d474fe3884eacc73b122f930ce9",
+          "matching_preserved_paths": [
+            "amendments/exact_slot_count/exact_path_amendment.py"
+          ]
+        },
+        "EXACT_PATH_AMENDMENT.md": {
+          "sha256": "bee2516fbdb6b5c5193e81b03cee0f7f40f6aea3127c0cb21466b25e319432a0",
+          "matching_preserved_paths": [
+            "amendments/exact_slot_count/EXACT_PATH_AMENDMENT.md"
+          ]
+        },
+        "PROOF.md": {
+          "sha256": "39811261e3a93b5a82ee2f46c4fc8550069bc6b52acbd676bc6b4569290c83d0",
+          "matching_preserved_paths": [
+            "amendments/exact_slot_count/PROOF.md"
+          ]
+        },
+        "EXACT_SWAP_BLOCKS.json": {
+          "sha256": "2fca58fb3936c831a6794d10fc8caeda157996721c8163315940e43d30bc72b9",
+          "matching_preserved_paths": [
+            "EXACT_SWAP_BLOCKS.json"
+          ]
+        },
+        "RECEIPT.json": {
+          "sha256": "36e9f3e2af40d282c0600698b4826e9cf4258705bf3512379f47e9382491bab0",
+          "matching_preserved_paths": [
+            "RECEIPT.json"
+          ]
+        },
+        "PREREG.json": {
+          "sha256": "fdf849a329c3f081b4b13403431cf92e637310a7b5724208b1690a2b52d3086b",
+          "matching_preserved_paths": [
+            "PREREG.json",
+            "amendments/python_json_container_types/PREREG.json"
+          ]
+        },
+        "AMENDMENT_PREREG.json": {
+          "sha256": "ff5ebbf4479409440f64612e2f4c4839e862a4fee5f2fec0a4bea00ac3fa27e4",
+          "matching_preserved_paths": [
+            "AMENDMENT_PREREG.json"
+          ]
+        },
+        "k0_matched/EVIDENCE.json.gz": {
+          "sha256": "184d15c4457d8e5942db7d605c5be453bff24aaa231c0d1c6a3e0f340465843a",
+          "matching_preserved_paths": [
+            "k0_matched/EVIDENCE.json.gz"
+          ]
+        },
+        "k0_stationary/EVIDENCE.json.gz": {
+          "sha256": "c9d6269de49d24f445eab5399f040c173f44382c4dc65a4bcaa20dcf3563e4a3",
+          "matching_preserved_paths": [
+            "k0_stationary/EVIDENCE.json.gz"
+          ]
+        },
+        "k1_matched/EVIDENCE.json.gz": {
+          "sha256": "306ee4949153c03d0315028c74da1467aefbdd46a233e75ee03b9e16f0a0be99",
+          "matching_preserved_paths": [
+            "k1_matched/EVIDENCE.json.gz"
+          ]
+        },
+        "k1_stationary/EVIDENCE.json.gz": {
+          "sha256": "e62bf8fdde850b0113a022cfb723af05e7d9761d1fb63bc8ec1241d404336229",
+          "matching_preserved_paths": [
+            "k1_stationary/EVIDENCE.json.gz"
+          ]
+        },
+        "k2_matched/EVIDENCE.json.gz": {
+          "sha256": "016cd07fc2824bd625ea7ea2fb7222721a65483a322223cc75e46570aa39df24",
+          "matching_preserved_paths": [
+            "k2_matched/EVIDENCE.json.gz"
+          ]
+        },
+        "k2_stationary/EVIDENCE.json.gz": {
+          "sha256": "56580793f287ac74f23fb432264ec0a2dd1514d73b101928dd1f37ad08ca5a2a",
+          "matching_preserved_paths": [
+            "k2_stationary/EVIDENCE.json.gz"
+          ]
+        },
+        "k3_matched/EVIDENCE.json.gz": {
+          "sha256": "7f5b51a61c6bfdc377c57b093b97015b12233f2e79a9f8890497ec2150322b07",
+          "matching_preserved_paths": [
+            "k3_matched/EVIDENCE.json.gz"
+          ]
+        },
+        "k3_stationary/EVIDENCE.json.gz": {
+          "sha256": "cfd1b5e65ed3ccc39531c7481c9580de882d9bc24d1ab89c157d11d6b2aaec44",
+          "matching_preserved_paths": [
+            "k3_stationary/EVIDENCE.json.gz"
+          ]
+        },
+        "k4_matched/EVIDENCE.json.gz": {
+          "sha256": "42ee89143df5e2d8855bcd7225f15392d7366bd1dd63cfff8ab3a80ced195f98",
+          "matching_preserved_paths": [
+            "k4_matched/EVIDENCE.json.gz"
+          ]
+        },
+        "k4_stationary/EVIDENCE.json.gz": {
+          "sha256": "84b702cff2ed3342f93d1ffb4ec334ce40be760ecc47cc2153c50b292a53c4c2",
+          "matching_preserved_paths": [
+            "k4_stationary/EVIDENCE.json.gz"
+          ]
+        },
+        "k5_matched/EVIDENCE.json.gz": {
+          "sha256": "c90790b9fa21c85fa382740bbb0e724db850bc0f953eb1f57bec95e351682eb3",
+          "matching_preserved_paths": [
+            "k5_matched/EVIDENCE.json.gz"
+          ]
+        },
+        "k5_stationary/EVIDENCE.json.gz": {
+          "sha256": "816f5fc1f6e424e8ebc671e761c375092ae50df4f0347be59894fcd259536b65",
+          "matching_preserved_paths": [
+            "k5_stationary/EVIDENCE.json.gz"
+          ]
+        },
+        "k6_matched/EVIDENCE.json.gz": {
+          "sha256": "6f5f63c3699f8fc9ddbf2e8fc8bc052abfebb6b9b5be5c692c10035ae4b7831f",
+          "matching_preserved_paths": [
+            "k6_matched/EVIDENCE.json.gz"
+          ]
+        },
+        "k6_stationary/EVIDENCE.json.gz": {
+          "sha256": "0a15bc53a5a229c04692017c11041607570c8c4c4d6af3347d30faf0731e6db9",
+          "matching_preserved_paths": [
+            "k6_stationary/EVIDENCE.json.gz"
+          ]
+        }
+      },
+      "utc": "2026-11-15T18:05:19.971681+00:00"
+    },
+    "EXACT_PATH_COUNT_AMENDMENT.json": {
+      "sha256": "acfb5b4774c61947919c74a319a3893b517f28f60eb21b75e024b82ad1adca62",
+      "files": {
+        "exact_path_amendment.py": {
+          "sha256": "77a26bf8bd84584ad61d61d417d8ed611db3adda8f5c2b5b3634641c03141b3c",
+          "matching_preserved_paths": [
+            "exact_path_amendment.py"
+          ]
+        },
+        "EXACT_PATH_AMENDMENT.md": {
+          "sha256": "8f5e719d3f00f89bacf30d0ddf80384b11b93fec72bd1a48ca870094ef025cf4",
+          "matching_preserved_paths": [
+            "EXACT_PATH_AMENDMENT.md"
+          ]
+        },
+        "PROOF.md": {
+          "sha256": "0e8932b0ed086fb8d7ff4aff0d820f96f2b42d6e2e878141b3a7ba776ff755db",
+          "matching_preserved_paths": [
+            "PROOF.md"
+          ]
+        },
+        "EXACT_SWAP_BLOCKS.json": {
+          "sha256": "2fca58fb3936c831a6794d10fc8caeda157996721c8163315940e43d30bc72b9",
+          "matching_preserved_paths": [
+            "EXACT_SWAP_BLOCKS.json"
+          ]
+        },
+        "RECEIPT.json": {
+          "sha256": "36e9f3e2af40d282c0600698b4826e9cf4258705bf3512379f47e9382491bab0",
+          "matching_preserved_paths": [
+            "RECEIPT.json"
+          ]
+        },
+        "PREREG.json": {
+          "sha256": "fdf849a329c3f081b4b13403431cf92e637310a7b5724208b1690a2b52d3086b",
+          "matching_preserved_paths": [
+            "PREREG.json",
+            "amendments/python_json_container_types/PREREG.json"
+          ]
+        },
+        "AMENDMENT_PREREG.json": {
+          "sha256": "ff5ebbf4479409440f64612e2f4c4839e862a4fee5f2fec0a4bea00ac3fa27e4",
+          "matching_preserved_paths": [
+            "AMENDMENT_PREREG.json"
+          ]
+        },
+        "k0_matched/EVIDENCE.json.gz": {
+          "sha256": "184d15c4457d8e5942db7d605c5be453bff24aaa231c0d1c6a3e0f340465843a",
+          "matching_preserved_paths": [
+            "k0_matched/EVIDENCE.json.gz"
+          ]
+        },
+        "k0_stationary/EVIDENCE.json.gz": {
+          "sha256": "c9d6269de49d24f445eab5399f040c173f44382c4dc65a4bcaa20dcf3563e4a3",
+          "matching_preserved_paths": [
+            "k0_stationary/EVIDENCE.json.gz"
+          ]
+        },
+        "k1_matched/EVIDENCE.json.gz": {
+          "sha256": "306ee4949153c03d0315028c74da1467aefbdd46a233e75ee03b9e16f0a0be99",
+          "matching_preserved_paths": [
+            "k1_matched/EVIDENCE.json.gz"
+          ]
+        },
+        "k1_stationary/EVIDENCE.json.gz": {
+          "sha256": "e62bf8fdde850b0113a022cfb723af05e7d9761d1fb63bc8ec1241d404336229",
+          "matching_preserved_paths": [
+            "k1_stationary/EVIDENCE.json.gz"
+          ]
+        },
+        "k2_matched/EVIDENCE.json.gz": {
+          "sha256": "016cd07fc2824bd625ea7ea2fb7222721a65483a322223cc75e46570aa39df24",
+          "matching_preserved_paths": [
+            "k2_matched/EVIDENCE.json.gz"
+          ]
+        },
+        "k2_stationary/EVIDENCE.json.gz": {
+          "sha256": "56580793f287ac74f23fb432264ec0a2dd1514d73b101928dd1f37ad08ca5a2a",
+          "matching_preserved_paths": [
+            "k2_stationary/EVIDENCE.json.gz"
+          ]
+        },
+        "k3_matched/EVIDENCE.json.gz": {
+          "sha256": "7f5b51a61c6bfdc377c57b093b97015b12233f2e79a9f8890497ec2150322b07",
+          "matching_preserved_paths": [
+            "k3_matched/EVIDENCE.json.gz"
+          ]
+        },
+        "k3_stationary/EVIDENCE.json.gz": {
+          "sha256": "cfd1b5e65ed3ccc39531c7481c9580de882d9bc24d1ab89c157d11d6b2aaec44",
+          "matching_preserved_paths": [
+            "k3_stationary/EVIDENCE.json.gz"
+          ]
+        },
+        "k4_matched/EVIDENCE.json.gz": {
+          "sha256": "42ee89143df5e2d8855bcd7225f15392d7366bd1dd63cfff8ab3a80ced195f98",
+          "matching_preserved_paths": [
+            "k4_matched/EVIDENCE.json.gz"
+          ]
+        },
+        "k4_stationary/EVIDENCE.json.gz": {
+          "sha256": "84b702cff2ed3342f93d1ffb4ec334ce40be760ecc47cc2153c50b292a53c4c2",
+          "matching_preserved_paths": [
+            "k4_stationary/EVIDENCE.json.gz"
+          ]
+        },
+        "k5_matched/EVIDENCE.json.gz": {
+          "sha256": "c90790b9fa21c85fa382740bbb0e724db850bc0f953eb1f57bec95e351682eb3",
+          "matching_preserved_paths": [
+            "k5_matched/EVIDENCE.json.gz"
+          ]
+        },
+        "k5_stationary/EVIDENCE.json.gz": {
+          "sha256": "816f5fc1f6e424e8ebc671e761c375092ae50df4f0347be59894fcd259536b65",
+          "matching_preserved_paths": [
+            "k5_stationary/EVIDENCE.json.gz"
+          ]
+        },
+        "k6_matched/EVIDENCE.json.gz": {
+          "sha256": "6f5f63c3699f8fc9ddbf2e8fc8bc052abfebb6b9b5be5c692c10035ae4b7831f",
+          "matching_preserved_paths": [
+            "k6_matched/EVIDENCE.json.gz"
+          ]
+        },
+        "k6_stationary/EVIDENCE.json.gz": {
+          "sha256": "0a15bc53a5a229c04692017c11041607570c8c4c4d6af3347d30faf0731e6db9",
+          "matching_preserved_paths": [
+            "k6_stationary/EVIDENCE.json.gz"
+          ]
+        }
+      },
+      "utc": "2026-11-15T18:06:29.587415+00:00"
+    }
+  },
+  "exact_legacy_cases_preserved": 112,
+  "mutations": [
+    {
+      "name": "stationary_native_event",
+      "rejected": true,
+      "returncode": 1,
+      "error": "AssertionError: literal reference hold without endpoint event"
+    },
+    {
+      "name": "reference_crossblock",
+      "rejected": true,
+      "returncode": 1,
+      "error": "AssertionError: full reencoded outer crossblocks"
+    },
+    {
+      "name": "pair_cost_factor",
+      "rejected": true,
+      "returncode": 1,
+      "error": "AssertionError: complete single/pair cost"
+    },
+    {
+      "name": "physical_control_law",
+      "rejected": true,
+      "returncode": 1,
+      "error": "AssertionError: amendment physical path outcomes"
+    },
+    {
+      "name": "stride8_record",
+      "rejected": true,
+      "returncode": 1,
+      "error": "AssertionError: complete pair Ramsey law"
+    }
+  ],
+  "seconds": 54.656411707997904,
+  "same_group_only": true,
+  "producer_imports": false
+}

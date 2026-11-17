@@ -1,0 +1,12 @@
+{
+ "schema": "fable_b.row10.review.prereg.v1",
+ "written": "2026-11-14 18:16 +07, before the first run of audit.py (its hash is printed at the start of RUN.log)",
+ "own_construction": "the 120 automorphisms of the carrier's seam graph by backtracking (the reviewer's code of the row-25 addendum, copied), the 60 of determinant +1 as rotation matrices on an own embedding of the ports, the conjugate triplet by sqrt5 -> -sqrt5 on the identified entries, subgroups by closure of all pairs of elements, lines by character projectors, squared moduli Tr(P Q), patterns up to row and column permutations",
+ "expected_if_the_candidate_is_exact": {"rotations": 60, "subgroups": 59, "subgroups_by_order": {"1": 1, "2": 15, "3": 10, "4": 5, "5": 6, "6": 10, "10": 6, "12": 5, "60": 1},
+  "basis_fixing": 21, "ordered_pairs_per_triplet": 441, "patterns_menu_H": 7, "patterns_all": 12, "menu_H_labelled_matrices": 85, "menu_H_triples": 79, "menu_X_triples": 114, "menu_A_triples": 162, "menu_R_triples": 34,
+  "fixed_columns_with_G_e_of_order_3": 4, "nearest_chi2_menu_H": 480.6, "nearest_sin2": [0.22588, 0.01621, 0.77412]},
+ "tolerances": {"entry_equality": 1e-10, "chi2_abs": 0.05, "haar_probability_abs": 0.0005, "oscillation_abs": 1e-3},
+ "reference_values_as_the_candidate_states_them": {"s12": [0.308, 0.012, 0.011], "s13": [0.02215, 0.00056, 0.00058], "s23": [0.470, 0.017, 0.013], "r": 0.029805, "note": "NuFIT 6.0, normal ordering, IC24 with SK atmospheric data; not checked against the publication here (no network)"},
+ "haar_null": {"draws_qr": 400000, "draws_factorised": 4000000, "seed": 1014},
+ "oscillation": {"method": "fourth-order Runge-Kutta integration of i dpsi/dx = 2 U diag(0, r, 1) U^+ psi from x = 0 to pi/2 in 4000 steps, compared with the closed form", "mass_sets": ["levels 0.0020642, 0.0636598, 0.9342760 (the repository's, as the candidate quotes them)", "r = 0.029805 (reference, input)"]}
+}

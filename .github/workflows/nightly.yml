@@ -92,6 +92,7 @@ jobs:
         include:
           - {profile: root, requirements: requirements.txt, buckets: 2, bucket: 0}
           - {profile: root, requirements: requirements.txt, buckets: 2, bucket: 1}
+          - {profile: model, requirements: model/requirements.txt, buckets: 1, bucket: 0}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -213,10 +214,9 @@ jobs:
         run: python -m pytest -q -W error model/charged_lepton_response/test_packet.py::test_generated_results_and_runtime_custody
       - name: Complete model regression shard
         run: >-
-          python -m pytest -q -W error --durations=30 -p model.pytest_shards
-          --model-shard-index ${{ matrix.shard }} --model-shard-count 16
+          python tools/completion_test_scope.py --run --model-suite
+          --shard-index ${{ matrix.shard }} --shard-count 16
           --deselect model/charged_lepton_response/test_packet.py::test_generated_results_and_runtime_custody
-          model
       - if: matrix.shard == 0
         run: |
           python -B model/observer_particles/run.py --verify-only
@@ -326,24 +326,18 @@ jobs:
       - name: Check the exact documentary input boundary and current-code execution
         if: matrix.shard == 0
         run: python -m pytest -q -W error tools/test_completion_current_code.py
-      - name: Run current completion code with authenticated finite-contract documentary inputs
-        run: python -m pytest -q --durations=10 -W error -p tools.completion_contract_inputs -p model.pytest_shards --model-shard-index ${{ matrix.shard }} --model-shard-count 4 tools/test_completion_program.py model/completion model/clock_defect_energy
+      - name: Check current-law and independent-component test domains
+        run: python tools/completion_test_scope.py --run --shard-index ${{ matrix.shard }} --shard-count 4
       - if: matrix.shard == 0
         run: python -m model.completion.acceptance_audit --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.program_class_v2 --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.independent_program_review
-      - if: matrix.shard == 0
-        run: python -m model.completion.finite_attachment_map --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.dynamics_response_campaign --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.spectrum_einstein_campaign --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.defect_geometry_campaign --check
-      - if: matrix.shard == 0
-        run: python -m model.completion.radial_source_campaign --check
+      - name: Check the current source, assumptions and programme
+        if: matrix.shard == 0
+        run: |
+          python -m pytest -q -W error tools/test_completion_test_scope.py
+          python tools/build_ccf_lt2_claims.py --check
+          python -m model.particle_joint_reconstruction.run --check
+          python -m model.completion.assumption_closure --check
+          python tools/renew_finite_attachment_navigation.py --check
       - if: matrix.shard == 0
         run: python code/particles/derive_radial_excitation_catalogue.py --check
       - if: matrix.shard == 0

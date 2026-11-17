@@ -1,0 +1,25 @@
+{
+  "schema": "oph.baryon_mobility.freeze.v1",
+  "created_at": "2026-11-14T18:20:29.147741+07:00",
+  "files": {
+    "CONTROL_DYNAMICS.json": "0c7c224f060091b781074fd24de41913414fb30e243340ff5bcf1c85e4e34a6e",
+    "CONTROL_DYNAMICS.log": "99262f1d735dee249b0c94123739a4dfb02dbbcafdc9f3701d8aad4bb12293dc",
+    "CONTROL_DYNAMICS_INITIAL.log": "99262f1d735dee249b0c94123739a4dfb02dbbcafdc9f3701d8aad4bb12293dc",
+    "INITIAL_RUN.log": "eb6867123f57a9d01840a570bd3f401de19814a2ff87376ed2b4da3a8b242b08",
+    "LOCAL_TRIPLES.json": "d76503f914bcf611caa30e0dcfb76bbb43ca133e4a93a398713a404b6b49dd20",
+    "PLAN.md": "158c48eb71cabf85f12e040d638ab5f28111808c4a59cd11e268b69f06337ac7",
+    "PRODUCT_GRAM.npz": "1dce1f291309818fae3920e4658c1666747dccc13e51d618f8af2e013c4a3821",
+    "PROOF.md": "74ec613acaa81597c4ca83bb8a1079b7e5c86ebd4af090e858839b533d00eed9",
+    "RESULT.json": "da6272a11619f6ceeddd06a4f9f8dd1045123a8102ea390a43245632d37c14d3",
+    "RUN.log": "eb6867123f57a9d01840a570bd3f401de19814a2ff87376ed2b4da3a8b242b08",
+    "TRIPLE_TRANSFER_NUMERATOR.npz": "96dfd21c3c761efb4c980c293e6879ba636ccbf45140b0cddd56fa5d71abca03",
+    "control_dynamics.py": "3f1f83649a02ca2b644b7a08cf7aae8c8c2b9bcefa9a52fd7de9fae9e93cb4ac",
+    "run.py": "a9373b161699eabc8114b31afddb4537b95e6d69cf78b5d1844171741c26efc5"
+  },
+  "source_pins": {
+    "openwave-tuning/next/OBSTRUCTION_REPAIR/hadrons/shared_auxiliary/MANIFEST.json": "89a96d322419720920e8d7694816126383847a0c0be3b1a14600782d0e0b2bfb",
+    "openwave-tuning/next/OBSTRUCTION_REPAIR/hadrons/shared_auxiliary/LOCAL_OPERATORS.json": "3d7cf8a26edcb3120c3c368b98947a82260f904f19d50cef71117f4f5d8ad803"
+  },
+  "scope": "Complete local-singlet third-order transfer term and exact raw-CAR controls; no full effective remainder or physical nuclear spectrum",
+  "physical_rows_solved": false
+}

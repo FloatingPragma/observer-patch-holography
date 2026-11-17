@@ -24,7 +24,7 @@ these files are ledger sources and which are rendered views.
   premise discharge. GitHub owns
   tasks and the claim registry owns established claim scope; the model
   programme is in
-  [Model construction](../model/CONSTRUCTION.md#work-ownership-and-claim-accounting).
+  [Model construction](../model/CONSTRUCTION.md#completion-target-and-acceptance-criteria).
 - [`observation_ledger.json`](observation_ledger.json) is the observation
   ledger source of the predictions-and-tests ledger. Its rows are the
   observation targets, grouped by historical V3 lane; its `instruments` section is the emergent-instrument

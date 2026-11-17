@@ -1,0 +1,206 @@
+{
+  "all_passed": true,
+  "candidate": "A-native-common-refinement-family-v1",
+  "cases": 112,
+  "fixed_pair_eta": 0.01,
+  "fixed_single_eta": 0.002,
+  "literal_family_calls": {
+    "native": 596264,
+    "swap": 21420,
+    "swap_hold": 344064
+  },
+  "one_limiting_anchor_keV": 511,
+  "pair_excess_resolution": "first-stride intervals do not exclude old +2.45085keV; no narrower claim",
+  "rows": [
+    {
+      "calculation_seconds": 2.836293625005055,
+      "cases": 16,
+      "k": 0,
+      "max_pair_off_band": 0.004734096620725591,
+      "max_single_off_band": 0.0011414717091751828,
+      "pair_frequency_interval_union": [
+        1.8437211685766397,
+        1.8652759091093127
+      ],
+      "pair_keV_interval_union": [
+        1053.346238377889,
+        1065.6607929028721
+      ],
+      "pair_keV_source_prediction": 1059.5560179003287,
+      "passed": true,
+      "single_frequency_interval_union": [
+        0.9232811489892055,
+        0.9285825407222602
+      ],
+      "single_keV_interval_union": [
+        527.4847096341556,
+        530.5134762043696
+      ],
+      "single_keV_source_prediction": 529.7780089501643,
+      "single_source_prediction": 0.9272952180016122
+    },
+    {
+      "calculation_seconds": 3.326951374998316,
+      "cases": 16,
+      "k": 1,
+      "max_pair_off_band": 0.005031639521666507,
+      "max_single_off_band": 0.0011413495042435931,
+      "pair_frequency_interval_union": [
+        1.7926171737178054,
+        1.8138416852850718
+      ],
+      "pair_keV_interval_union": [
+        1024.1497407360068,
+        1036.2756303780113
+      ],
+      "pair_keV_source_prediction": 1030.7141962901787,
+      "passed": true,
+      "single_frequency_interval_union": [
+        0.8979090662172793,
+        0.903278696567714
+      ],
+      "single_keV_interval_union": [
+        512.9892488220128,
+        516.0570011630441
+      ],
+      "single_keV_source_prediction": 515.3570981450894,
+      "single_source_prediction": 0.9020536235925248
+    },
+    {
+      "calculation_seconds": 3.1701049999974202,
+      "cases": 16,
+      "k": 2,
+      "max_pair_off_band": 0.00775286573758052,
+      "max_single_off_band": 0.0011405136216032586,
+      "pair_frequency_interval_union": [
+        1.777620482868599,
+        1.798765982762896
+      ],
+      "pair_keV_interval_union": [
+        1015.5819007809431,
+        1027.662649839909
+      ],
+      "pair_keV_source_prediction": 1024.1412331056058,
+      "passed": true,
+      "single_frequency_interval_union": [
+        0.8921258826014249,
+        0.8975126694562819
+      ],
+      "single_keV_interval_union": [
+        509.6852271448566,
+        512.76278126053
+      ],
+      "single_keV_source_prediction": 512.0706165528029,
+      "single_source_prediction": 0.896301141207277
+    },
+    {
+      "calculation_seconds": 3.5072131659981096,
+      "cases": 16,
+      "k": 3,
+      "max_pair_off_band": 0.007672298881181244,
+      "max_single_off_band": 0.0011438442777627345,
+      "pair_frequency_interval_union": [
+        1.7749116176905992,
+        1.796041261905629
+      ],
+      "pair_keV_interval_union": [
+        1014.0342844742313,
+        1026.1059749399578
+      ],
+      "pair_keV_source_prediction": 1022.5330415971555,
+      "passed": true,
+      "single_frequency_interval_union": [
+        0.8907108681631213,
+        0.8961027161726899
+      ],
+      "single_keV_interval_union": [
+        508.87680764995645,
+        511.95725328109756
+      ],
+      "single_keV_source_prediction": 511.26652079857774,
+      "single_source_prediction": 0.8948936948144265
+    },
+    {
+      "calculation_seconds": 3.9783012910047546,
+      "cases": 16,
+      "k": 4,
+      "max_pair_off_band": 0.007597487754946225,
+      "max_single_off_band": 0.0011442192416059264,
+      "pair_frequency_interval_union": [
+        1.7743056214640334,
+        1.7954315067182334
+      ],
+      "pair_keV_interval_union": [
+        1013.688069516892,
+        1025.7576124305278
+      ],
+      "pair_keV_source_prediction": 1022.1331197218813,
+      "passed": true,
+      "single_frequency_interval_union": [
+        0.8903589817037378,
+        0.8957519948506348
+      ],
+      "single_keV_interval_union": [
+        508.67576950783115,
+        511.75688079983416
+      ],
+      "single_keV_source_prediction": 511.06655986094063,
+      "single_source_prediction": 0.8945436938364216
+    },
+    {
+      "calculation_seconds": 4.213270916996407,
+      "cases": 16,
+      "k": 5,
+      "max_pair_off_band": 0.007575481963682993,
+      "max_single_off_band": 0.001144258602602192,
+      "pair_frequency_interval_union": [
+        1.774158349159946,
+        1.7952833001240198
+      ],
+      "pair_keV_interval_union": [
+        1013.6039305862491,
+        1025.6729397255774
+      ],
+      "pair_keV_source_prediction": 1022.0332711534721,
+      "passed": true,
+      "single_frequency_interval_union": [
+        0.8902711259301104,
+        0.8956644185801282
+      ],
+      "single_keV_interval_union": [
+        508.6255761541682,
+        511.7068471305996
+      ],
+      "single_keV_source_prediction": 511.01663557673606,
+      "single_source_prediction": 0.8944563090276472
+    },
+    {
+      "calculation_seconds": 6.5444841669959715,
+      "cases": 16,
+      "k": 6,
+      "max_pair_off_band": 0.0075697534255470865,
+      "max_single_off_band": 0.0011442528966918802,
+      "pair_frequency_interval_union": [
+        1.7741217906225513,
+        1.795246503586419
+      ],
+      "pair_keV_interval_union": [
+        1013.5830441319947,
+        1025.6519172981475
+      ],
+      "pair_keV_source_prediction": 1022.0083172400449,
+      "passed": true,
+      "single_frequency_interval_union": [
+        0.8902491692135149,
+        0.8956425283797161
+      ],
+      "single_keV_interval_union": [
+        508.61303194454086,
+        511.6943409226901
+      ],
+      "single_keV_source_prediction": 511.00415862002245,
+      "single_source_prediction": 0.8944344700269709
+    }
+  ],
+  "total_calculation_seconds": 27.576619540996035
+}

@@ -1,0 +1,50 @@
+{
+  "exit_code": 0,
+  "stderr": "",
+  "stdout": {
+    "all_bound_family_cases": 112,
+    "all_bound_family_passed": true,
+    "candidate": "A-native-common-refinement-family-v1",
+    "external_G6": false,
+    "finest_complete_payload_equal_except_runtime": true,
+    "fresh_finest_cases": 16,
+    "pair_domain_equal_except_runtime": true,
+    "pair_independent_audit": {
+      "evidence_sha256": "761b5fa497c6dd1ceb8c5c1daed540f17c895c46fc860cf03ea1f98049d59c4a",
+      "external_G6": false,
+      "global_classical_events": 33090,
+      "joint_columns": 2178,
+      "passed": true,
+      "same_group": true,
+      "seconds": 0.09563295800762717
+    },
+    "physical_award": false,
+    "representative_independent_audit": {
+      "catalog_rebuild_error": 1.1102230246251565e-16,
+      "committed_path_control_visibility": 0.0,
+      "complete_catalog_count": 78,
+      "current_only_reconstructions": 12,
+      "evidence_sha256": "9dd9936cf365f8a0eb4cb33ba9e6110db841470145f844eda5ce067e09ed2023",
+      "external_G6": false,
+      "higher_mode_reader_frequency": 1.1592794807274085,
+      "k": 0,
+      "maximum_stable_interval_width": 0.005015697038337152,
+      "passed": true,
+      "retained_marker_histories": 7776,
+      "rotation_instrument_stages": 2160,
+      "route_native_calls": 14,
+      "same_group": true,
+      "same_object_cases": 16,
+      "seconds": 1.8330039160064189,
+      "synthetic_reader_plants": [
+        -0.6,
+        0.0,
+        0.6000000000000001
+      ]
+    },
+    "same_group": true,
+    "seconds": 15.705446416992345
+  },
+  "temporary_copy": true,
+  "wall_seconds": 16.75544333399739
+}

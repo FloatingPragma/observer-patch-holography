@@ -86,6 +86,9 @@ def build():
     paths.add('model/particle_joint_reconstruction/dependencies.json')
     pins={p:sha(ROOT/p) for p in sorted(paths)}
     report={'schema':'oph.complete_finite_observer_outputs.v1',
+            'source_scope':'Independent Wilson, scalar and detector components; transfer to CCF-LT-2 requires an explicit source map.',
+            'official_model':'CCF-LT-2',
+            'official_master_source_records_executed':False,
             'input_sha256':pins,
             'neutral_scalar':capture_certificate(higgs_records),
             'charged_scalar':capture_certificate(charged_higgs_records),

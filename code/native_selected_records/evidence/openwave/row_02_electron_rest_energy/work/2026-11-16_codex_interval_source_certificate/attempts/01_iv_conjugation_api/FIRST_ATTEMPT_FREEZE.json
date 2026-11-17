@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-15T18:50:36.977056+00:00",
+  "kind": "verification of known source results; first interval-certificate attempt",
+  "files": {
+    "DESIGN.md": "3d0a2c9f694a1f266fa2fadd33ee5438f3643ffde67af3ae083a438edda78832",
+    "interval_math.py": "2d62a7be7b65d46e517acad6cf6cae21b302999d6b2542e2d2baec68c9cd63ef",
+    "certificate.py": "c16c075a68a71171c89661b38cc040361068dd992f6dae6d412affe3a90dee0a"
+  },
+  "source_manifest_sha256": "a9ced490f0bc6fee5ed08aacb6ef9c8613758ee1af243ce3e98aa153928ebf2c",
+  "criteria": {
+    "CAUTIONS.md": "3f2ef5433513d8d6ed3796c64c2dfdb52cb2a6ca301c2f5bef1cf4a5df32c6f7",
+    "SUBMISSION_CHECKLIST.md": "f8a08b120f8f298fccee025398341c210f67f58e1ca1c5198a3bf94262c8a501"
+  },
+  "first_command": "python3 -B certificate.py --k 0 --references stationary --record-to PILOT_K0.json",
+  "known_prior": "All nominal224 results/oldsource impurity margins known; no prospective discovery claim",
+  "gates": "DESIGN.md"
+}

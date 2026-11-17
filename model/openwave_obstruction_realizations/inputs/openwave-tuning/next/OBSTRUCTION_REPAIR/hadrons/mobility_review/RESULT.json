@@ -1,0 +1,48 @@
+{
+  "schema": "oph.hadrons.mobility_independent_review.v1",
+  "producer_code_imported": false,
+  "complete8464_matrix_reconstruction_claim": false,
+  "raw24CAR_controls": [
+    {
+      "left_quark_number": 0,
+      "right_quark_number": 3,
+      "raw24CAR_Kcubed_matrix_element": 6,
+      "parity_formula": 6,
+      "omitted_parity_formula": 6,
+      "parity_omission_changes_sign": false,
+      "one_hop_Casimir6_eigenvalue": 8
+    },
+    {
+      "left_quark_number": 3,
+      "right_quark_number": 3,
+      "raw24CAR_Kcubed_matrix_element": 6,
+      "parity_formula": 6,
+      "omitted_parity_formula": -6,
+      "parity_omission_changes_sign": true,
+      "one_hop_Casimir6_eigenvalue": 8
+    },
+    {
+      "left_quark_number": 6,
+      "right_quark_number": 3,
+      "raw24CAR_Kcubed_matrix_element": 6,
+      "parity_formula": 6,
+      "omitted_parity_formula": 6,
+      "parity_omission_changes_sign": false,
+      "one_hop_Casimir6_eigenvalue": 8
+    },
+    {
+      "left_quark_number": 9,
+      "right_quark_number": 3,
+      "raw24CAR_Kcubed_matrix_element": 6,
+      "parity_formula": 6,
+      "omitted_parity_formula": -6,
+      "parity_omission_changes_sign": true,
+      "one_hop_Casimir6_eigenvalue": 8
+    }
+  ],
+  "leading_baryon_transfer_amplitude": "27/(4096*kappa^2)",
+  "outside_resolvent_argument": "P K Q H0^-1=Delta^-1 P K Q and H0^-1 Q K P=Delta^-1 Q K P; no assumption on all two-hop intermediates",
+  "normalization_terms": "At order3, two hopping factors plus PVP mass have net local transfer0, not3; mixed auxiliary factors cannot replace three hops",
+  "physical_halo_or_full_Heff3_claim": false,
+  "all_checks_passed": true
+}

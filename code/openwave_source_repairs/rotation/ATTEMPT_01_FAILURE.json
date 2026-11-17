@@ -1,0 +1,9 @@
+{
+  "time": "2026-11-15T16:34:58.518814+00:00",
+  "attempt": 1,
+  "command": "PYTHONDONTWRITEBYTECODE=1 python3 headline.py --record",
+  "exit_code": 1,
+  "failure": "Python 3.13 integer-to-string safety cap (4300 decimal digits) prevented printing exact finite discovery fractions. The failure occurred before any receipt or source scientific gate result.",
+  "correction": "Retry unchanged frozen code with PYTHONINTMAXSTRDIGITS=0. Input bounds stay SEARCH_CAP=256 and SELECTOR_CAP=16.",
+  "source_changed": false
+}

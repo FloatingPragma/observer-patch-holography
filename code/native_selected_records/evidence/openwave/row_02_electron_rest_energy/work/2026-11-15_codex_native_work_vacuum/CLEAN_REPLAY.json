@@ -1,0 +1,27 @@
+{
+  "utc": "2026-11-15T16:53:56.819960+00:00",
+  "scope": "Clean temporary-directory copy; no producer-source imports or network; original packet unchanged",
+  "runs": [
+    {
+      "command": "python3 -B headline.py",
+      "exit_code": 0,
+      "seconds": 1.813298916007625,
+      "stdout_sha256": "05c8300283b2141f856cdab4cdd5d2f9912feaa95ef63cc6f2e9273c3f945d55",
+      "stderr": ""
+    },
+    {
+      "command": "python3 -B check.py",
+      "exit_code": 0,
+      "seconds": 0.6337766250071581,
+      "stdout_sha256": "c36a512139ca3dfcd5f2e95c03bc7994a6f0753f6ed2d43fef3400705c967346",
+      "stderr": ""
+    },
+    {
+      "command": "python3 -B detector_check.py",
+      "exit_code": 0,
+      "seconds": 0.30549370899097994,
+      "stdout_sha256": "fc50583323ede6a2dee44ee863b15d641b2e028ea7b891863cc557871f5b5128",
+      "stderr": ""
+    }
+  ]
+}

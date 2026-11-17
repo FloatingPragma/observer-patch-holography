@@ -133,7 +133,6 @@ def test_acceptance_report_does_not_falsify_the_whole_program():
     assert result['canonical_premises_discharged'] == []
     assert not result['whole_program_falsified']
     assert result['physical_comparison_count_added'] == 0
-    program = strict_json.load(audit.ROOT/'claims/completion_program.json')
-    stages = {row['id']: row for row in program['stages']}
-    expected = [gate for gate in stages['CP-13']['requires'] if stages[gate]['status'] != 'ACCEPTED']
-    assert result['gate_dependencies']['CP-13']['unaccepted_predecessors'] == expected
+    assert result['official_model'] == 'CCF-LT-2'
+    assert not result['applies_to_official_model']
+    assert 'independent native product-reference' in result['source_domain']

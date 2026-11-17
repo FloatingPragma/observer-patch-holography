@@ -1,0 +1,15 @@
+{
+  "files": {
+    "compile_apparatus.py": "428c413326dfc01621f45bd1877b6da543d95cd035d13ce0f8602153b87cfa00"
+  },
+  "gates": {
+    "512_epoch_complete_error": 0.0005,
+    "clean_truth_columns": 512,
+    "pointer_probability_error": 1e-08,
+    "raw_quantum_operator_witness_error": 1e-08,
+    "seed_operator_error": 1e-09
+  },
+  "prior_knowledge": "Boolean comparator formula and existing native CCX/pointer source certificates; no comparator run before freeze",
+  "scope": "complete native comparator, pointer, selector and reinjection route supplement",
+  "utc": "2026-11-15T16:36:29.625982+00:00"
+}

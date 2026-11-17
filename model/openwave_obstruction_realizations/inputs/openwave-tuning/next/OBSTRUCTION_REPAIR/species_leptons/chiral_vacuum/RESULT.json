@@ -1,0 +1,2926 @@
+[
+  {
+    "S": 2,
+    "mass_label": "zero",
+    "mass": 0.0,
+    "K": 4,
+    "all_number_sectors": [
+      {
+        "N": 0,
+        "dimension": 9,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 1.1438849039914225e-12,
+          "residual_bound": 1.0042539203186058e-10,
+          "finite_eigenvalue_error_bound": 1.0042539203191802e-10,
+          "polar_operator_error_bound": 1.0500128725021567e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": 0.0,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 6.249999999,
+          "coarse_infinite_ground_lower": -1.0042544573707346e-10,
+          "finite_ground_upper": 1.0042539203191802e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.5999744006655854e-19,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 9.815070491643474e-25,
+          "perturbed_finite_lower": -1.0500128725021567e-10,
+          "certified_infinite_ground_lower": -0.0001
+        }
+      },
+      {
+        "N": 1,
+        "dimension": 36,
+        "ground": -19.725146385647406,
+        "first_gap": 1.5246979445263378,
+        "ground_residual": 1.5013665351414925e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 3.310304480442636e-12,
+          "residual_bound": 1.3383740593391994e-10,
+          "finite_eigenvalue_error_bound": 1.3383740593414147e-10,
+          "polar_operator_error_bound": 2.0560215231897128e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -12.94427190999916,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": -22.69427191099916,
+          "coarse_infinite_ground_lower": -29.346288688474914,
+          "finite_ground_upper": -19.72514638551357,
+          "candidate_lower": -19.725246385647406,
+          "candidate_verified": false
+        }
+      },
+      {
+        "N": 2,
+        "dimension": 54,
+        "ground": -31.986251757164673,
+        "first_gap": 2.0143611737343186,
+        "ground_residual": 2.811362577141632e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 6.190670319694965e-12,
+          "residual_bound": 1.8518025624458812e-10,
+          "finite_eigenvalue_error_bound": 1.8518025624516133e-10,
+          "polar_operator_error_bound": 3.9325146459361565e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -17.88854381999832,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": -34.265960818967834,
+          "coarse_infinite_ground_lower": -44.497089903221934,
+          "finite_ground_upper": -31.98625175697949,
+          "candidate_lower": -31.986351757164673,
+          "candidate_verified": false
+        }
+      },
+      {
+        "N": 3,
+        "dimension": 36,
+        "ground": -19.725146385647406,
+        "first_gap": 1.5246979445263378,
+        "ground_residual": 1.5013665351414925e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 3.310304480442636e-12,
+          "residual_bound": 1.3383740593391994e-10,
+          "finite_eigenvalue_error_bound": 1.3383740593414147e-10,
+          "polar_operator_error_bound": 2.0560215231897128e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -12.94427190999916,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": -22.69427191099916,
+          "coarse_infinite_ground_lower": -29.346288688474914,
+          "finite_ground_upper": -19.72514638551357,
+          "candidate_lower": -19.725246385647406,
+          "candidate_verified": false
+        },
+        "particle_hole_of": 1
+      },
+      {
+        "N": 4,
+        "dimension": 9,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 1.1438849039914225e-12,
+          "residual_bound": 1.0042539203186058e-10,
+          "finite_eigenvalue_error_bound": 1.0042539203191802e-10,
+          "polar_operator_error_bound": 1.0500128725021567e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": 0.0,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 6.249999999,
+          "coarse_infinite_ground_lower": -1.0042544573707346e-10,
+          "finite_ground_upper": 1.0042539203191802e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.5999744006655854e-19,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 9.815070491643474e-25,
+          "perturbed_finite_lower": -1.0500128725021567e-10,
+          "certified_infinite_ground_lower": -0.0001
+        },
+        "particle_hole_of": 0
+      }
+    ],
+    "vacuum_number": 2,
+    "global_number_sector_certified": true,
+    "vacuum_energy": -31.986251757164673,
+    "holonomy_cos_mean": -0.9298028601020061,
+    "holonomy_sin_mean": 0.0,
+    "vacuum_edge_flux_probability": 0.006910190352510983,
+    "axial_mean": 2.407633025443868e-17,
+    "midpoint_commutator_on_vacuum_norm": 11.832873036034085,
+    "particle_lowest_gap": 12.261105371517267,
+    "hole_lowest_gap": 12.261105371517267,
+    "charged_transition_infinite_interval": [
+      2.639963068504578,
+      24.771943517708365
+    ],
+    "boundary_CAR_sum_error": 6.661699998128046e-16,
+    "complete_particle_levels": 36,
+    "complete_hole_levels": 36,
+    "zero_frequency_Green_real": [
+      [
+        -0.03133730812715252,
+        -4.178987824016495e-18
+      ],
+      [
+        -4.1789878240164946e-18,
+        0.03133730812715252
+      ]
+    ],
+    "zero_frequency_Green_imag": [
+      [
+        0.0,
+        2.8766721609472696e-18
+      ],
+      [
+        -2.8766721609472708e-18,
+        0.0
+      ]
+    ],
+    "minus_G_inverse_Pauli_coefficients": {
+      "I": 0.0,
+      "X": 4.255471928858488e-15,
+      "Y": 2.929321200480118e-15,
+      "Z": 31.910845562817826
+    },
+    "electron_pole_identification": false,
+    "elapsed_seconds": 0.031475067138671875
+  },
+  {
+    "S": 2,
+    "mass_label": "zero",
+    "mass": 0.0,
+    "K": 8,
+    "all_number_sectors": [
+      {
+        "N": 0,
+        "dimension": 17,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 1.513367126586688e-12,
+          "residual_bound": 1.051229104209608e-10,
+          "finite_eigenvalue_error_bound": 1.0512291042104035e-10,
+          "polar_operator_error_bound": 1.2933820685576288e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": 0.0,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 20.249999999,
+          "coarse_infinite_ground_lower": -1.0512124504202802e-10,
+          "finite_ground_upper": 1.0512291042104035e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 4.9382472187761175e-20,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 1.71791185963326e-24,
+          "perturbed_finite_lower": -1.2933820685576288e-10,
+          "certified_infinite_ground_lower": -0.0001
+        }
+      },
+      {
+        "N": 1,
+        "dimension": 68,
+        "ground": -19.7276348964631,
+        "first_gap": 1.4985811738938288,
+        "ground_residual": 2.7051217954305387e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 9.226572602859842e-12,
+          "residual_bound": 2.3699802168614913e-10,
+          "finite_eigenvalue_error_bound": 2.3699802168724246e-10,
+          "polar_operator_error_bound": 5.346442563277655e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -12.94427190999916,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": -8.69427191099916,
+          "coarse_infinite_ground_lower": -23.92865759308892,
+          "finite_ground_upper": -19.727634896226103,
+          "candidate_lower": -19.7277348964631,
+          "candidate_verified": false,
+          "edge_schur_delta": 5.800536069257397,
+          "low_space_dimension": 16,
+          "edge_low_space_norm_squared_upper": 0.03400334701500463,
+          "perturbed_finite_lower": -20.069179858592765,
+          "certified_infinite_ground_lower": -23.92865759308892
+        }
+      },
+      {
+        "N": 2,
+        "dimension": 102,
+        "ground": -32.00336138620079,
+        "first_gap": 1.881881300694058,
+        "ground_residual": 4.1612865301358914e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.949684513159214e-11,
+          "residual_bound": 4.3570057494808685e-10,
+          "finite_eigenvalue_error_bound": 4.3570057495233427e-10,
+          "polar_operator_error_bound": 1.2747501089038253e-09,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -17.88854381999832,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": -20.26596081896784,
+          "coarse_infinite_ground_lower": -38.879920733115874,
+          "finite_ground_upper": -32.00336138576509,
+          "candidate_lower": -32.00346138620079,
+          "candidate_verified": false,
+          "edge_schur_delta": 10.905217792275065,
+          "low_space_dimension": 13,
+          "edge_low_space_norm_squared_upper": 0.5704036706267207,
+          "perturbed_finite_lower": -41.26445932587429,
+          "certified_infinite_ground_lower": -38.879920733115874
+        }
+      },
+      {
+        "N": 3,
+        "dimension": 68,
+        "ground": -19.7276348964631,
+        "first_gap": 1.4985811738938288,
+        "ground_residual": 2.7051217954305387e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 9.226572602859842e-12,
+          "residual_bound": 2.3699802168614913e-10,
+          "finite_eigenvalue_error_bound": 2.3699802168724246e-10,
+          "polar_operator_error_bound": 5.346442563277655e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -12.94427190999916,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": -8.69427191099916,
+          "coarse_infinite_ground_lower": -23.92865759308892,
+          "finite_ground_upper": -19.727634896226103,
+          "candidate_lower": -19.7277348964631,
+          "candidate_verified": false,
+          "edge_schur_delta": 5.800536069257397,
+          "low_space_dimension": 16,
+          "edge_low_space_norm_squared_upper": 0.03400334701500463,
+          "perturbed_finite_lower": -20.069179858592765,
+          "certified_infinite_ground_lower": -23.92865759308892
+        },
+        "particle_hole_of": 1
+      },
+      {
+        "N": 4,
+        "dimension": 17,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 1.513367126586688e-12,
+          "residual_bound": 1.051229104209608e-10,
+          "finite_eigenvalue_error_bound": 1.0512291042104035e-10,
+          "polar_operator_error_bound": 1.2933820685576288e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": 0.0,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 20.249999999,
+          "coarse_infinite_ground_lower": -1.0512124504202802e-10,
+          "finite_ground_upper": 1.0512291042104035e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 4.9382472187761175e-20,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 1.71791185963326e-24,
+          "perturbed_finite_lower": -1.2933820685576288e-10,
+          "certified_infinite_ground_lower": -0.0001
+        },
+        "particle_hole_of": 0
+      }
+    ],
+    "vacuum_number": 2,
+    "global_number_sector_certified": true,
+    "vacuum_energy": -32.00336138620079,
+    "holonomy_cos_mean": -0.9360411790167884,
+    "holonomy_sin_mean": -5.551115123125783e-17,
+    "vacuum_edge_flux_probability": 8.327500057481446e-08,
+    "axial_mean": 4.3419532462243166e-18,
+    "midpoint_commutator_on_vacuum_norm": 11.818695484700202,
+    "particle_lowest_gap": 12.275726489737686,
+    "hole_lowest_gap": 12.275726489737686,
+    "charged_transition_infinite_interval": [
+      8.074703792676168,
+      19.15228583688977
+    ],
+    "boundary_CAR_sum_error": 1.1105651270149163e-15,
+    "complete_particle_levels": 68,
+    "complete_hole_levels": 68,
+    "zero_frequency_Green_real": [
+      [
+        -0.03131884395377707,
+        6.980864233406624e-18
+      ],
+      [
+        6.980864233406633e-18,
+        0.03131884395377707
+      ]
+    ],
+    "zero_frequency_Green_imag": [
+      [
+        0.0,
+        -1.8102786781436978e-17
+      ],
+      [
+        1.8102786781436978e-17,
+        0.0
+      ]
+    ],
+    "minus_G_inverse_Pauli_coefficients": {
+      "I": 0.0,
+      "X": -7.117012783311967e-15,
+      "Y": -1.8455847389283152e-14,
+      "Z": 31.92965875355688
+    },
+    "electron_pole_identification": false,
+    "elapsed_seconds": 0.2866630554199219
+  },
+  {
+    "S": 2,
+    "mass_label": "zero",
+    "mass": 0.0,
+    "K": 16,
+    "all_number_sectors": [
+      {
+        "N": 0,
+        "dimension": 33,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 2.9344525981069856e-12,
+          "residual_bound": 1.6902597515023946e-10,
+          "finite_eigenvalue_error_bound": 1.6902597515048746e-10,
+          "polar_operator_error_bound": 3.568366310668727e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": 0.0,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 72.249999999,
+          "coarse_infinite_ground_lower": -1.6902390598261263e-10,
+          "finite_ground_upper": 1.6902597515048746e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.384081129318632e-20,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 6.458650355665806e-24,
+          "perturbed_finite_lower": -3.568366310668727e-10,
+          "certified_infinite_ground_lower": -0.0001
+        }
+      },
+      {
+        "N": 1,
+        "dimension": 132,
+        "ground": -19.727634896701208,
+        "first_gap": 1.498581165404513,
+        "ground_residual": 3.32090498219477e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 3.197107856036912e-11,
+          "residual_bound": 1.2070132092522775e-09,
+          "finite_eigenvalue_error_bound": 1.2070132092715723e-09,
+          "polar_operator_error_bound": 3.735542500257585e-09,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -12.94427190999916,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": 43.305728089000844,
+          "coarse_infinite_ground_lower": -20.727121880703464,
+          "finite_ground_upper": -19.727634895494194,
+          "candidate_lower": -19.727734896701207,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.0153337129917357,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 7.668292687885824e-22,
+          "perturbed_finite_lower": -19.727634900436755,
+          "certified_infinite_ground_lower": -19.727734896701207
+        }
+      },
+      {
+        "N": 2,
+        "dimension": 198,
+        "ground": -32.00336144187198,
+        "first_gap": 1.8818796660523134,
+        "ground_residual": 5.951883349498288e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 7.066949122306542e-11,
+          "residual_bound": 2.6129952133119434e-09,
+          "finite_eigenvalue_error_bound": 2.612995213404273e-09,
+          "polar_operator_error_bound": 8.869251065782728e-09,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -17.88854381999832,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": 31.73403918103216,
+          "coarse_infinite_ground_lower": -33.95202441816619,
+          "finite_ground_upper": -32.00336143925899,
+          "candidate_lower": -32.003461441871984,
+          "candidate_verified": true,
+          "edge_schur_delta": 2.0082368899264695,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 4.278304473447019e-21,
+          "perturbed_finite_lower": -32.00336145074123,
+          "certified_infinite_ground_lower": -32.003461441871984
+        }
+      },
+      {
+        "N": 3,
+        "dimension": 132,
+        "ground": -19.727634896701208,
+        "first_gap": 1.498581165404513,
+        "ground_residual": 3.32090498219477e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 3.197107856036912e-11,
+          "residual_bound": 1.2070132092522775e-09,
+          "finite_eigenvalue_error_bound": 1.2070132092715723e-09,
+          "polar_operator_error_bound": 3.735542500257585e-09,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -12.94427190999916,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": 43.305728089000844,
+          "coarse_infinite_ground_lower": -20.727121880703464,
+          "finite_ground_upper": -19.727634895494194,
+          "candidate_lower": -19.727734896701207,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.0153337129917357,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 7.668292687885824e-22,
+          "perturbed_finite_lower": -19.727634900436755,
+          "certified_infinite_ground_lower": -19.727734896701207
+        },
+        "particle_hole_of": 1
+      },
+      {
+        "N": 4,
+        "dimension": 33,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 2.9344525981069856e-12,
+          "residual_bound": 1.6902597515023946e-10,
+          "finite_eigenvalue_error_bound": 1.6902597515048746e-10,
+          "polar_operator_error_bound": 3.568366310668727e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": 0.0,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 72.249999999,
+          "coarse_infinite_ground_lower": -1.6902390598261263e-10,
+          "finite_ground_upper": 1.6902597515048746e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.384081129318632e-20,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 6.458650355665806e-24,
+          "perturbed_finite_lower": -3.568366310668727e-10,
+          "certified_infinite_ground_lower": -0.0001
+        },
+        "particle_hole_of": 0
+      }
+    ],
+    "vacuum_number": 2,
+    "global_number_sector_certified": true,
+    "vacuum_energy": -32.00336144187198,
+    "holonomy_cos_mean": -0.9360412511988625,
+    "holonomy_sin_mean": 0.0,
+    "vacuum_edge_flux_probability": 5.358314068587528e-27,
+    "axial_mean": -8.67361737989341e-18,
+    "midpoint_commutator_on_vacuum_norm": 11.818695301642231,
+    "particle_lowest_gap": 12.275726545170773,
+    "hole_lowest_gap": 12.275726545170773,
+    "charged_transition_infinite_interval": [
+      12.27562654255778,
+      12.27582654637779
+    ],
+    "boundary_CAR_sum_error": 8.07214249535171e-18,
+    "complete_particle_levels": 132,
+    "complete_hole_levels": 132,
+    "zero_frequency_Green_real": [
+      [
+        -0.03131884396648833,
+        -1.4820963241952446e-18
+      ],
+      [
+        -1.4820963241952492e-18,
+        0.03131884396648833
+      ]
+    ],
+    "zero_frequency_Green_imag": [
+      [
+        8.673617379884035e-19,
+        3.749318510646806e-17
+      ],
+      [
+        -3.749318510646804e-17,
+        -8.673617379884035e-19
+      ]
+    ],
+    "minus_G_inverse_Pauli_coefficients": {
+      "I": 0.0,
+      "X": 1.5110018078216643e-15,
+      "Y": 3.822441871828186e-14,
+      "Z": 31.92965874059771
+    },
+    "electron_pole_identification": false,
+    "elapsed_seconds": 0.6827960014343262
+  },
+  {
+    "S": 2,
+    "mass_label": "register_electron",
+    "mass": 6.0300795404423236e-05,
+    "K": 4,
+    "all_number_sectors": [
+      {
+        "N": 0,
+        "dimension": 9,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 1.1438849039914225e-12,
+          "residual_bound": 1.0042539203186058e-10,
+          "finite_eigenvalue_error_bound": 1.0042539203191802e-10,
+          "polar_operator_error_bound": 1.0500128725021567e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -6.0300795404423236e-05,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 6.249939698204596,
+          "coarse_infinite_ground_lower": -1.0042544573707346e-10,
+          "finite_ground_upper": 1.0042539203191802e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.599989837324174e-19,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 9.815070491643474e-25,
+          "perturbed_finite_lower": -1.0500128725021567e-10,
+          "certified_infinite_ground_lower": -0.0001
+        }
+      },
+      {
+        "N": 1,
+        "dimension": 36,
+        "ground": -19.725124115154852,
+        "first_gap": 1.5246966593693045,
+        "ground_residual": 1.6242884310680237e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 3.3099180848608183e-12,
+          "residual_bound": 1.3383344507833735e-10,
+          "finite_eigenvalue_error_bound": 1.3383344507855885e-10,
+          "polar_operator_error_bound": 2.0558849331070495e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -12.944332210794563,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": -22.694332211794563,
+          "coarse_infinite_ground_lower": -29.346315236515714,
+          "finite_ground_upper": -19.725124115021018,
+          "candidate_lower": -19.72522411515485,
+          "candidate_verified": false
+        }
+      },
+      {
+        "N": 2,
+        "dimension": 54,
+        "ground": -31.986266158749793,
+        "first_gap": 2.014361970910244,
+        "ground_residual": 2.8225409792958536e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 6.189436986281886e-12,
+          "residual_bound": 1.8516486604437192e-10,
+          "finite_eigenvalue_error_bound": 1.8516486604494495e-10,
+          "polar_operator_error_bound": 3.9319138853725455e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -17.888604120793723,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": -34.266021119763245,
+          "coarse_infinite_ground_lower": -44.4971295549583,
+          "finite_ground_upper": -31.98626615856463,
+          "candidate_lower": -31.986366158749792,
+          "candidate_verified": false
+        }
+      },
+      {
+        "N": 3,
+        "dimension": 36,
+        "ground": -19.725124115154852,
+        "first_gap": 1.5246966593693045,
+        "ground_residual": 1.6242884310680237e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 3.3099180848608183e-12,
+          "residual_bound": 1.3383344507833735e-10,
+          "finite_eigenvalue_error_bound": 1.3383344507855885e-10,
+          "polar_operator_error_bound": 2.0558849331070495e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -12.944332210794563,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": -22.694332211794563,
+          "coarse_infinite_ground_lower": -29.346315236515714,
+          "finite_ground_upper": -19.725124115021018,
+          "candidate_lower": -19.72522411515485,
+          "candidate_verified": false
+        },
+        "particle_hole_of": 1
+      },
+      {
+        "N": 4,
+        "dimension": 9,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 1.1438849039914225e-12,
+          "residual_bound": 1.0042539203186058e-10,
+          "finite_eigenvalue_error_bound": 1.0042539203191802e-10,
+          "polar_operator_error_bound": 1.0500128725021567e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -6.0300795404423236e-05,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 6.249939698204596,
+          "coarse_infinite_ground_lower": -1.0042544573707346e-10,
+          "finite_ground_upper": 1.0042539203191802e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.599989837324174e-19,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 9.815070491643474e-25,
+          "perturbed_finite_lower": -1.0500128725021567e-10,
+          "certified_infinite_ground_lower": -0.0001
+        },
+        "particle_hole_of": 0
+      }
+    ],
+    "vacuum_number": 2,
+    "global_number_sector_certified": true,
+    "vacuum_energy": -31.986266158749793,
+    "holonomy_cos_mean": -0.9298028797545441,
+    "holonomy_sin_mean": -1.6653345369377348e-16,
+    "vacuum_edge_flux_probability": 0.006910191209601893,
+    "axial_mean": 3.5361469208927354e-17,
+    "midpoint_commutator_on_vacuum_norm": 11.832951203551783,
+    "particle_lowest_gap": 12.26114204359494,
+    "hole_lowest_gap": 12.26114204359494,
+    "charged_transition_infinite_interval": [
+      2.6399509220489144,
+      24.77200543993728
+    ],
+    "boundary_CAR_sum_error": 6.661348148122438e-16,
+    "complete_particle_levels": 36,
+    "complete_hole_levels": 36,
+    "zero_frequency_Green_real": [
+      [
+        -0.03133726003732525,
+        8.65295530052205e-18
+      ],
+      [
+        8.652955300522047e-18,
+        0.03133726003732525
+      ]
+    ],
+    "zero_frequency_Green_imag": [
+      [
+        0.0,
+        -1.5721402847731434e-17
+      ],
+      [
+        1.5721402847731434e-17,
+        0.0
+      ]
+    ],
+    "minus_G_inverse_Pauli_coefficients": {
+      "I": 0.0,
+      "X": -8.811349290386407e-15,
+      "Y": -1.60091861121575e-14,
+      "Z": 31.910894532863363
+    },
+    "electron_pole_identification": false,
+    "elapsed_seconds": 0.36218810081481934
+  },
+  {
+    "S": 2,
+    "mass_label": "register_electron",
+    "mass": 6.0300795404423236e-05,
+    "K": 8,
+    "all_number_sectors": [
+      {
+        "N": 0,
+        "dimension": 17,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 1.513367126586688e-12,
+          "residual_bound": 1.051229104209608e-10,
+          "finite_eigenvalue_error_bound": 1.0512291042104035e-10,
+          "polar_operator_error_bound": 1.2933820685576288e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -6.0300795404423236e-05,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 20.249939698204596,
+          "coarse_infinite_ground_lower": -1.0512124504202802e-10,
+          "finite_ground_upper": 1.0512291042104035e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 4.938261923944089e-20,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 1.71791185963326e-24,
+          "perturbed_finite_lower": -1.2933820685576288e-10,
+          "certified_infinite_ground_lower": -0.0001
+        }
+      },
+      {
+        "N": 1,
+        "dimension": 68,
+        "ground": -19.727612614179925,
+        "first_gap": 1.4985799993060773,
+        "ground_residual": 3.5519297513242444e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 9.227305026923472e-12,
+          "residual_bound": 2.3699622621863416e-10,
+          "finite_eigenvalue_error_bound": 2.369962262197276e-10,
+          "polar_operator_error_bound": 5.34656600822619e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -12.944332210794563,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": -8.694332211794563,
+          "coarse_infinite_ground_lower": -23.928653161449077,
+          "finite_ground_upper": -19.727612613942927,
+          "candidate_lower": -19.727712614179925,
+          "candidate_verified": false,
+          "edge_schur_delta": 5.800579485337379,
+          "low_space_dimension": 16,
+          "edge_low_space_norm_squared_upper": 0.034003018440460955,
+          "perturbed_finite_lower": -20.06915949068054,
+          "certified_infinite_ground_lower": -23.928653161449077
+        }
+      },
+      {
+        "N": 2,
+        "dimension": 102,
+        "ground": -32.00337580394547,
+        "first_gap": 1.8818819860830835,
+        "ground_residual": 4.563915456746165e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.949709849456091e-11,
+          "residual_bound": 4.357173141409972e-10,
+          "finite_eigenvalue_error_bound": 4.357173141452448e-10,
+          "polar_operator_error_bound": 1.2747862450962913e-09,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -17.888604120793723,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": -20.266021119763245,
+          "coarse_infinite_ground_lower": -38.87994752871497,
+          "finite_ground_upper": -32.00337580350975,
+          "candidate_lower": -32.00347580394547,
+          "candidate_verified": false,
+          "edge_schur_delta": 10.905260422016742,
+          "low_space_dimension": 13,
+          "edge_low_space_norm_squared_upper": 0.570403873730443,
+          "perturbed_finite_lower": -41.2645198148944,
+          "certified_infinite_ground_lower": -38.87994752871497
+        }
+      },
+      {
+        "N": 3,
+        "dimension": 68,
+        "ground": -19.727612614179925,
+        "first_gap": 1.4985799993060773,
+        "ground_residual": 3.5519297513242444e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 9.227305026923472e-12,
+          "residual_bound": 2.3699622621863416e-10,
+          "finite_eigenvalue_error_bound": 2.369962262197276e-10,
+          "polar_operator_error_bound": 5.34656600822619e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -12.944332210794563,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": -8.694332211794563,
+          "coarse_infinite_ground_lower": -23.928653161449077,
+          "finite_ground_upper": -19.727612613942927,
+          "candidate_lower": -19.727712614179925,
+          "candidate_verified": false,
+          "edge_schur_delta": 5.800579485337379,
+          "low_space_dimension": 16,
+          "edge_low_space_norm_squared_upper": 0.034003018440460955,
+          "perturbed_finite_lower": -20.06915949068054,
+          "certified_infinite_ground_lower": -23.928653161449077
+        },
+        "particle_hole_of": 1
+      },
+      {
+        "N": 4,
+        "dimension": 17,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 1.513367126586688e-12,
+          "residual_bound": 1.051229104209608e-10,
+          "finite_eigenvalue_error_bound": 1.0512291042104035e-10,
+          "polar_operator_error_bound": 1.2933820685576288e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -6.0300795404423236e-05,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 20.249939698204596,
+          "coarse_infinite_ground_lower": -1.0512124504202802e-10,
+          "finite_ground_upper": 1.0512291042104035e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 4.938261923944089e-20,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 1.71791185963326e-24,
+          "perturbed_finite_lower": -1.2933820685576288e-10,
+          "certified_infinite_ground_lower": -0.0001
+        },
+        "particle_hole_of": 0
+      }
+    ],
+    "vacuum_number": 2,
+    "global_number_sector_certified": true,
+    "vacuum_energy": -32.00337580394547,
+    "holonomy_cos_mean": -0.9360411995588465,
+    "holonomy_sin_mean": -1.6653345369377348e-16,
+    "vacuum_edge_flux_probability": 8.327524002356968e-08,
+    "axial_mean": -2.3482789616372238e-18,
+    "midpoint_commutator_on_vacuum_norm": 11.818773980829778,
+    "particle_lowest_gap": 12.275763189765541,
+    "hole_lowest_gap": 12.275763189765541,
+    "charged_transition_infinite_interval": [
+      8.07472264206067,
+      19.152334914772045
+    ],
+    "boundary_CAR_sum_error": 9.9953033999778e-16,
+    "complete_particle_levels": 68,
+    "complete_hole_levels": 68,
+    "zero_frequency_Green_real": [
+      [
+        -0.0313187951100506,
+        2.9585273343864208e-18
+      ],
+      [
+        2.9585273343864142e-18,
+        0.0313187951100506
+      ]
+    ],
+    "zero_frequency_Green_imag": [
+      [
+        0.0,
+        1.8213428263666344e-18
+      ],
+      [
+        -1.8213428263666244e-18,
+        0.0
+      ]
+    ],
+    "minus_G_inverse_Pauli_coefficients": {
+      "I": 0.0,
+      "X": -3.016237220880494e-15,
+      "Y": 1.856870464240632e-15,
+      "Z": 31.929708549965493
+    },
+    "electron_pole_identification": false,
+    "elapsed_seconds": 0.21946191787719727
+  },
+  {
+    "S": 2,
+    "mass_label": "register_electron",
+    "mass": 6.0300795404423236e-05,
+    "K": 16,
+    "all_number_sectors": [
+      {
+        "N": 0,
+        "dimension": 33,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 2.9344525981069856e-12,
+          "residual_bound": 1.6902597515023946e-10,
+          "finite_eigenvalue_error_bound": 1.6902597515048746e-10,
+          "polar_operator_error_bound": 3.568366310668727e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -6.0300795404423236e-05,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 72.24993969820459,
+          "coarse_infinite_ground_lower": -1.6902390598261263e-10,
+          "finite_ground_upper": 1.6902597515048746e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.3840822844902187e-20,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 6.458650355665806e-24,
+          "perturbed_finite_lower": -3.568366310668727e-10,
+          "certified_infinite_ground_lower": -0.0001
+        }
+      },
+      {
+        "N": 1,
+        "dimension": 132,
+        "ground": -19.727612614418046,
+        "first_gap": 1.4985799908168964,
+        "ground_residual": 4.321681279029487e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 3.197253920805239e-11,
+          "residual_bound": 1.207023038093169e-09,
+          "finite_eigenvalue_error_bound": 1.2070230381124648e-09,
+          "polar_operator_error_bound": 3.73565710024508e-09,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -12.944332210794563,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": 43.30566778820544,
+          "coarse_infinite_ground_lower": -20.727100867647575,
+          "finite_ground_upper": -19.727612613211022,
+          "candidate_lower": -19.727712614418046,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.015335043229512,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 7.668936011664142e-22,
+          "perturbed_finite_lower": -19.7276126181537,
+          "certified_infinite_ground_lower": -19.727712614418046
+        }
+      },
+      {
+        "N": 2,
+        "dimension": 198,
+        "ground": -32.00337585961691,
+        "first_gap": 1.8818803514345959,
+        "ground_residual": 4.1056553937879046e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 7.067016485690025e-11,
+          "residual_bound": 2.6130165594260977e-09,
+          "finite_eigenvalue_error_bound": 2.613016559518429e-09,
+          "polar_operator_error_bound": 8.86931285452919e-09,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -17.888604120793723,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": 31.733978880236755,
+          "coarse_infinite_ground_lower": -33.95204015787495,
+          "finite_ground_upper": -32.003375857003896,
+          "candidate_lower": -32.00347585961691,
+          "candidate_verified": true,
+          "edge_schur_delta": 2.008238335607584,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 4.2783598369906966e-21,
+          "perturbed_finite_lower": -32.00337586848622,
+          "certified_infinite_ground_lower": -32.00347585961691
+        }
+      },
+      {
+        "N": 3,
+        "dimension": 132,
+        "ground": -19.727612614418046,
+        "first_gap": 1.4985799908168964,
+        "ground_residual": 4.321681279029487e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 3.197253920805239e-11,
+          "residual_bound": 1.207023038093169e-09,
+          "finite_eigenvalue_error_bound": 1.2070230381124648e-09,
+          "polar_operator_error_bound": 3.73565710024508e-09,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -12.944332210794563,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": 43.30566778820544,
+          "coarse_infinite_ground_lower": -20.727100867647575,
+          "finite_ground_upper": -19.727612613211022,
+          "candidate_lower": -19.727712614418046,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.015335043229512,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 7.668936011664142e-22,
+          "perturbed_finite_lower": -19.7276126181537,
+          "certified_infinite_ground_lower": -19.727712614418046
+        },
+        "particle_hole_of": 1
+      },
+      {
+        "N": 4,
+        "dimension": 33,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 2.9344525981069856e-12,
+          "residual_bound": 1.6902597515023946e-10,
+          "finite_eigenvalue_error_bound": 1.6902597515048746e-10,
+          "polar_operator_error_bound": 3.568366310668727e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -6.0300795404423236e-05,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 72.24993969820459,
+          "coarse_infinite_ground_lower": -1.6902390598261263e-10,
+          "finite_ground_upper": 1.6902597515048746e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.3840822844902187e-20,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 6.458650355665806e-24,
+          "perturbed_finite_lower": -3.568366310668727e-10,
+          "certified_infinite_ground_lower": -0.0001
+        },
+        "particle_hole_of": 0
+      }
+    ],
+    "vacuum_number": 2,
+    "global_number_sector_certified": true,
+    "vacuum_energy": -32.00337585961691,
+    "holonomy_cos_mean": -0.9360412717411608,
+    "holonomy_sin_mean": -5.551115123125783e-17,
+    "vacuum_edge_flux_probability": 5.35986233107865e-27,
+    "axial_mean": 5.2041704279210474e-18,
+    "midpoint_commutator_on_vacuum_norm": 11.818773797775513,
+    "particle_lowest_gap": 12.275763245198863,
+    "hole_lowest_gap": 12.275763245198863,
+    "charged_transition_infinite_interval": [
+      12.27566324258585,
+      12.27586324640589
+    ],
+    "boundary_CAR_sum_error": 8.882107502179435e-16,
+    "complete_particle_levels": 132,
+    "complete_hole_levels": 132,
+    "zero_frequency_Green_real": [
+      [
+        -0.03131879512275376,
+        9.38800507312456e-19
+      ],
+      [
+        9.388005073124684e-19,
+        0.03131879512275376
+      ]
+    ],
+    "zero_frequency_Green_imag": [
+      [
+        -8.673617379884035e-19,
+        -2.113914171248225e-19
+      ],
+      [
+        2.1139141712486593e-19,
+        8.673617379884035e-19
+      ]
+    ],
+    "minus_G_inverse_Pauli_coefficients": {
+      "I": 0.0,
+      "X": -9.571130196867113e-16,
+      "Y": -2.155148788313049e-16,
+      "Z": 31.929708537014537
+    },
+    "electron_pole_identification": false,
+    "elapsed_seconds": 0.9333329200744629
+  },
+  {
+    "S": 4,
+    "mass_label": "zero",
+    "mass": 0.0,
+    "K": 4,
+    "all_number_sectors": [
+      {
+        "N": 0,
+        "dimension": 9,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 1.1438849039914225e-12,
+          "residual_bound": 1.0042539203186058e-10,
+          "finite_eigenvalue_error_bound": 1.0042539203191802e-10,
+          "polar_operator_error_bound": 1.0500128725021567e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": 0.0,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 6.249999999,
+          "coarse_infinite_ground_lower": -1.0042544573707346e-10,
+          "finite_ground_upper": 1.0042539203191802e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.5999744006655854e-19,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 9.815070491643474e-25,
+          "perturbed_finite_lower": -1.0500128725021567e-10,
+          "certified_infinite_ground_lower": -0.0001
+        }
+      },
+      {
+        "N": 1,
+        "dimension": 72,
+        "ground": -22.0095881587525,
+        "first_gap": 1.5997985446488059,
+        "ground_residual": 1.722416844951329e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.0223197491223454e-11,
+          "residual_bound": 2.358806821627726e-10,
+          "finite_eigenvalue_error_bound": 2.358806821639783e-10,
+          "polar_operator_error_bound": 4.805838070486134e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -15.035081932574535,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": -24.785081933574535,
+          "coarse_infinite_ground_lower": -31.516808024202604,
+          "finite_ground_upper": -22.009588158516618,
+          "candidate_lower": -22.0096881587525,
+          "candidate_verified": false
+        }
+      },
+      {
+        "N": 2,
+        "dimension": 252,
+        "ground": -41.15439536862279,
+        "first_gap": 2.3326847641346617,
+        "ground_residual": 4.3960588913165017e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.1384219807072178e-10,
+          "residual_bound": 2.1581081994100498e-09,
+          "finite_eigenvalue_error_bound": 2.158108199532892e-09,
+          "polar_operator_error_bound": 7.0292582123169295e-09,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -27.29179302247818,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": -43.669210021447704,
+          "coarse_infinite_ground_lower": -53.79517096760713,
+          "finite_ground_upper": -41.154395366464676,
+          "candidate_lower": -41.15449536862279,
+          "candidate_verified": false
+        }
+      },
+      {
+        "N": 3,
+        "dimension": 504,
+        "ground": -55.63083720754547,
+        "first_gap": 2.874180785214321,
+        "ground_residual": 6.548121512226742e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 4.5228697341390947e-10,
+          "residual_bound": 9.128019680792997e-09,
+          "finite_eigenvalue_error_bound": 9.12801968285724e-09,
+          "polar_operator_error_bound": 3.499000303771601e-08,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -35.29179302247819,
+          "coupling_norm_upper": 16.000000001,
+          "discarded_block_lower": -61.041793023478185,
+          "coarse_infinite_ground_lower": -74.56344088891728,
+          "finite_ground_upper": -55.630837198417446,
+          "candidate_lower": -55.63093720754547,
+          "candidate_verified": false
+        }
+      },
+      {
+        "N": 4,
+        "dimension": 630,
+        "ground": -65.52804276681408,
+        "first_gap": 3.1978409622331725,
+        "ground_residual": 9.029835320591361e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 7.061140016598092e-10,
+          "residual_bound": 1.4596978913666721e-08,
+          "finite_eigenvalue_error_bound": 1.4596978918820286e-08,
+          "polar_operator_error_bound": 6.192275385832829e-08,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -38.07016386514907,
+          "coupling_norm_upper": 19.595917943265423,
+          "discarded_block_lower": -71.01199975067992,
+          "coarse_infinite_ground_lower": -88.05684632842954,
+          "finite_ground_upper": -65.5280427522171,
+          "candidate_lower": -65.52814276681409,
+          "candidate_verified": false
+        }
+      },
+      {
+        "N": 5,
+        "dimension": 504,
+        "ground": -55.63083720754547,
+        "first_gap": 2.874180785214321,
+        "ground_residual": 6.548121512226742e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 4.5228697341390947e-10,
+          "residual_bound": 9.128019680792997e-09,
+          "finite_eigenvalue_error_bound": 9.12801968285724e-09,
+          "polar_operator_error_bound": 3.499000303771601e-08,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -35.29179302247819,
+          "coupling_norm_upper": 16.000000001,
+          "discarded_block_lower": -61.041793023478185,
+          "coarse_infinite_ground_lower": -74.56344088891728,
+          "finite_ground_upper": -55.630837198417446,
+          "candidate_lower": -55.63093720754547,
+          "candidate_verified": false
+        },
+        "particle_hole_of": 3
+      },
+      {
+        "N": 6,
+        "dimension": 252,
+        "ground": -41.15439536862279,
+        "first_gap": 2.3326847641346617,
+        "ground_residual": 4.3960588913165017e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.1384219807072178e-10,
+          "residual_bound": 2.1581081994100498e-09,
+          "finite_eigenvalue_error_bound": 2.158108199532892e-09,
+          "polar_operator_error_bound": 7.0292582123169295e-09,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -27.29179302247818,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": -43.669210021447704,
+          "coarse_infinite_ground_lower": -53.79517096760713,
+          "finite_ground_upper": -41.154395366464676,
+          "candidate_lower": -41.15449536862279,
+          "candidate_verified": false
+        },
+        "particle_hole_of": 2
+      },
+      {
+        "N": 7,
+        "dimension": 72,
+        "ground": -22.0095881587525,
+        "first_gap": 1.5997985446488059,
+        "ground_residual": 1.722416844951329e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.0223197491223454e-11,
+          "residual_bound": 2.358806821627726e-10,
+          "finite_eigenvalue_error_bound": 2.358806821639783e-10,
+          "polar_operator_error_bound": 4.805838070486134e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -15.035081932574535,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": -24.785081933574535,
+          "coarse_infinite_ground_lower": -31.516808024202604,
+          "finite_ground_upper": -22.009588158516618,
+          "candidate_lower": -22.0096881587525,
+          "candidate_verified": false
+        },
+        "particle_hole_of": 1
+      },
+      {
+        "N": 8,
+        "dimension": 9,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 1.1438849039914225e-12,
+          "residual_bound": 1.0042539203186058e-10,
+          "finite_eigenvalue_error_bound": 1.0042539203191802e-10,
+          "polar_operator_error_bound": 1.0500128725021567e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": 0.0,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 6.249999999,
+          "coarse_infinite_ground_lower": -1.0042544573707346e-10,
+          "finite_ground_upper": 1.0042539203191802e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.5999744006655854e-19,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 9.815070491643474e-25,
+          "perturbed_finite_lower": -1.0500128725021567e-10,
+          "certified_infinite_ground_lower": -0.0001
+        },
+        "particle_hole_of": 0
+      }
+    ],
+    "vacuum_number": 4,
+    "global_number_sector_certified": false,
+    "vacuum_energy": -65.52804276681408,
+    "holonomy_cos_mean": -0.9375283982416702,
+    "holonomy_sin_mean": 2.220446049250313e-16,
+    "vacuum_edge_flux_probability": 0.01400780631933031,
+    "axial_mean": -1.1510449218709042e-16,
+    "midpoint_commutator_on_vacuum_norm": 11.863800970167574,
+    "particle_lowest_gap": 9.897205559268613,
+    "hole_lowest_gap": 9.897205559268613,
+    "charged_transition_infinite_interval": [
+      -9.03539813670018,
+      32.4260091300121
+    ],
+    "boundary_CAR_sum_error": 8.881784929587483e-16,
+    "complete_particle_levels": 504,
+    "complete_hole_levels": 504,
+    "zero_frequency_Green_real": [
+      [
+        -0.00792633836472547,
+        -1.8953486227126266e-17
+      ],
+      [
+        -1.8953486227126266e-17,
+        0.00792633836472554
+      ]
+    ],
+    "zero_frequency_Green_imag": [
+      [
+        0.0,
+        -2.5185913343938487e-18
+      ],
+      [
+        2.5185913343938487e-18,
+        -8.673617379884035e-19
+      ]
+    ],
+    "minus_G_inverse_Pauli_coefficients": {
+      "I": 5.471179065352771e-13,
+      "X": 3.0167817234966863e-13,
+      "Y": -4.0087824559062716e-14,
+      "Z": 126.16165926631254
+    },
+    "electron_pole_identification": false,
+    "elapsed_seconds": 4.748102903366089
+  },
+  {
+    "S": 4,
+    "mass_label": "zero",
+    "mass": 0.0,
+    "K": 8,
+    "all_number_sectors": [
+      {
+        "N": 0,
+        "dimension": 17,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 1.513367126586688e-12,
+          "residual_bound": 1.051229104209608e-10,
+          "finite_eigenvalue_error_bound": 1.0512291042104035e-10,
+          "polar_operator_error_bound": 1.2933820685576288e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": 0.0,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 20.249999999,
+          "coarse_infinite_ground_lower": -1.0512124504202802e-10,
+          "finite_ground_upper": 1.0512291042104035e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 4.9382472187761175e-20,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 1.71791185963326e-24,
+          "perturbed_finite_lower": -1.2933820685576288e-10,
+          "certified_infinite_ground_lower": -0.0001
+        }
+      },
+      {
+        "N": 1,
+        "dimension": 136,
+        "ground": -22.01283934204438,
+        "first_gap": 1.566854354058588,
+        "ground_residual": 2.9454899285377865e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 3.387842870224618e-11,
+          "residual_bound": 6.491659616762916e-10,
+          "finite_eigenvalue_error_bound": 6.491659616872879e-10,
+          "polar_operator_error_bound": 1.8162455989359726e-09,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -15.035081932574535,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": -10.785081933574535,
+          "coarse_infinite_ground_lower": -26.17217065969332,
+          "finite_ground_upper": -22.012839341395214,
+          "candidate_lower": -22.01293934204438,
+          "candidate_verified": false,
+          "edge_schur_delta": 5.700108015953335,
+          "low_space_dimension": 20,
+          "edge_low_space_norm_squared_upper": 0.018441589353589014,
+          "perturbed_finite_lower": -22.20475904754799,
+          "certified_infinite_ground_lower": -26.17217065969332
+        }
+      },
+      {
+        "N": 2,
+        "dimension": 476,
+        "ground": -41.18208526518764,
+        "first_gap": 2.13374297367767,
+        "ground_residual": 5.072137286985328e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 4.0354269818531366e-10,
+          "residual_bound": 8.084770929611758e-09,
+          "finite_eigenvalue_error_bound": 8.084770931243033e-09,
+          "polar_operator_error_bound": 2.9082583248173962e-08,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -27.29179302247818,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": -29.669210021447704,
+          "coarse_infinite_ground_lower": -48.11960582295079,
+          "finite_ground_upper": -41.18208525710287,
+          "candidate_lower": -41.18218526518764,
+          "candidate_verified": false,
+          "edge_schur_delta": 11.117890667942339,
+          "low_space_dimension": 53,
+          "edge_low_space_norm_squared_upper": 1,
+          "perturbed_finite_lower": -56.718217644637335,
+          "certified_infinite_ground_lower": -48.11960582295079
+        }
+      },
+      {
+        "N": 3,
+        "dimension": 952,
+        "ground": -55.70000009145378,
+        "first_gap": 2.4555900293470927,
+        "ground_residual": 7.3816586717214e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.6110356671420089e-09,
+          "residual_bound": 3.471078845603524e-08,
+          "finite_eigenvalue_error_bound": 3.47107884839954e-08,
+          "polar_operator_error_bound": 1.4035678973775545e-07,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -35.29179302247819,
+          "coupling_norm_upper": 16.000000001,
+          "discarded_block_lower": -47.041793023478185,
+          "coarse_infinite_ground_lower": -67.94621369366565,
+          "finite_ground_upper": -55.700000056742994,
+          "candidate_lower": -55.700100091453784,
+          "candidate_verified": false,
+          "edge_schur_delta": 29.566980937747616,
+          "low_space_dimension": 445,
+          "edge_low_space_norm_squared_upper": 1,
+          "perturbed_finite_lower": -97.3416605569783,
+          "certified_infinite_ground_lower": -67.94621369366565
+        }
+      },
+      {
+        "N": 4,
+        "dimension": 1190,
+        "ground": -65.64419574191882,
+        "first_gap": 2.5749785032126624,
+        "ground_residual": 2.0811526950142086e-13,
+        "finite_certificate": {
+          "orthogonality_bound": 2.51663625596716e-09,
+          "residual_bound": 5.5508019429525675e-08,
+          "finite_eigenvalue_error_bound": 5.550801949937242e-08,
+          "polar_operator_error_bound": 2.437497498820824e-07,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -38.07016386514907,
+          "coupling_norm_upper": 19.595917943265423,
+          "discarded_block_lower": -57.01199975067991,
+          "coarse_infinite_ground_lower": -81.39370771211806,
+          "finite_ground_upper": -65.6441956864108,
+          "candidate_lower": -65.64429574191882,
+          "candidate_verified": false,
+          "edge_schur_delta": 44.484109491718186,
+          "low_space_dimension": 969,
+          "edge_low_space_norm_squared_upper": 1,
+          "perturbed_finite_lower": -128.3959544566486,
+          "certified_infinite_ground_lower": -81.39370771211806
+        }
+      },
+      {
+        "N": 5,
+        "dimension": 952,
+        "ground": -55.70000009145378,
+        "first_gap": 2.4555900293470927,
+        "ground_residual": 7.3816586717214e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.6110356671420089e-09,
+          "residual_bound": 3.471078845603524e-08,
+          "finite_eigenvalue_error_bound": 3.47107884839954e-08,
+          "polar_operator_error_bound": 1.4035678973775545e-07,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -35.29179302247819,
+          "coupling_norm_upper": 16.000000001,
+          "discarded_block_lower": -47.041793023478185,
+          "coarse_infinite_ground_lower": -67.94621369366565,
+          "finite_ground_upper": -55.700000056742994,
+          "candidate_lower": -55.700100091453784,
+          "candidate_verified": false,
+          "edge_schur_delta": 29.566980937747616,
+          "low_space_dimension": 445,
+          "edge_low_space_norm_squared_upper": 1,
+          "perturbed_finite_lower": -97.3416605569783,
+          "certified_infinite_ground_lower": -67.94621369366565
+        },
+        "particle_hole_of": 3
+      },
+      {
+        "N": 6,
+        "dimension": 476,
+        "ground": -41.18208526518764,
+        "first_gap": 2.13374297367767,
+        "ground_residual": 5.072137286985328e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 4.0354269818531366e-10,
+          "residual_bound": 8.084770929611758e-09,
+          "finite_eigenvalue_error_bound": 8.084770931243033e-09,
+          "polar_operator_error_bound": 2.9082583248173962e-08,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -27.29179302247818,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": -29.669210021447704,
+          "coarse_infinite_ground_lower": -48.11960582295079,
+          "finite_ground_upper": -41.18208525710287,
+          "candidate_lower": -41.18218526518764,
+          "candidate_verified": false,
+          "edge_schur_delta": 11.117890667942339,
+          "low_space_dimension": 53,
+          "edge_low_space_norm_squared_upper": 1,
+          "perturbed_finite_lower": -56.718217644637335,
+          "certified_infinite_ground_lower": -48.11960582295079
+        },
+        "particle_hole_of": 2
+      },
+      {
+        "N": 7,
+        "dimension": 136,
+        "ground": -22.01283934204438,
+        "first_gap": 1.566854354058588,
+        "ground_residual": 2.9454899285377865e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 3.387842870224618e-11,
+          "residual_bound": 6.491659616762916e-10,
+          "finite_eigenvalue_error_bound": 6.491659616872879e-10,
+          "polar_operator_error_bound": 1.8162455989359726e-09,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -15.035081932574535,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": -10.785081933574535,
+          "coarse_infinite_ground_lower": -26.17217065969332,
+          "finite_ground_upper": -22.012839341395214,
+          "candidate_lower": -22.01293934204438,
+          "candidate_verified": false,
+          "edge_schur_delta": 5.700108015953335,
+          "low_space_dimension": 20,
+          "edge_low_space_norm_squared_upper": 0.018441589353589014,
+          "perturbed_finite_lower": -22.20475904754799,
+          "certified_infinite_ground_lower": -26.17217065969332
+        },
+        "particle_hole_of": 1
+      },
+      {
+        "N": 8,
+        "dimension": 17,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 1.513367126586688e-12,
+          "residual_bound": 1.051229104209608e-10,
+          "finite_eigenvalue_error_bound": 1.0512291042104035e-10,
+          "polar_operator_error_bound": 1.2933820685576288e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": 0.0,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 20.249999999,
+          "coarse_infinite_ground_lower": -1.0512124504202802e-10,
+          "finite_ground_upper": 1.0512291042104035e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 4.9382472187761175e-20,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 1.71791185963326e-24,
+          "perturbed_finite_lower": -1.2933820685576288e-10,
+          "certified_infinite_ground_lower": -0.0001
+        },
+        "particle_hole_of": 0
+      }
+    ],
+    "vacuum_number": 4,
+    "global_number_sector_certified": false,
+    "vacuum_energy": -65.64419574191882,
+    "holonomy_cos_mean": -0.9531189327793101,
+    "holonomy_sin_mean": 3.885780586188048e-16,
+    "vacuum_edge_flux_probability": 5.772742484164356e-06,
+    "axial_mean": -1.5079157814515321e-18,
+    "midpoint_commutator_on_vacuum_norm": 11.82795444448229,
+    "particle_lowest_gap": 9.944195650465034,
+    "hole_lowest_gap": 9.94419565046504,
+    "charged_transition_infinite_interval": [
+      -2.3020180072548584,
+      25.693707655375064
+    ],
+    "boundary_CAR_sum_error": 2.4424936881877945e-15,
+    "complete_particle_levels": 952,
+    "complete_hole_levels": 952,
+    "zero_frequency_Green_real": [
+      [
+        -0.007864888555624432,
+        -9.539208006456708e-18
+      ],
+      [
+        -9.539208006456708e-18,
+        0.007864888555624453
+      ]
+    ],
+    "zero_frequency_Green_imag": [
+      [
+        1.734723475976807e-18,
+        5.806532847675428e-18
+      ],
+      [
+        -5.806532847675426e-18,
+        0.0
+      ]
+    ],
+    "minus_G_inverse_Pauli_coefficients": {
+      "I": 1.6342482922482304e-13,
+      "X": 1.5421519687753817e-13,
+      "Y": 9.387106410448962e-14,
+      "Z": 127.14738332622233
+    },
+    "electron_pole_identification": false,
+    "elapsed_seconds": 24.152623176574707
+  },
+  {
+    "S": 4,
+    "mass_label": "zero",
+    "mass": 0.0,
+    "K": 16,
+    "all_number_sectors": [
+      {
+        "N": 0,
+        "dimension": 33,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 2.9344525981069856e-12,
+          "residual_bound": 1.6902597515023946e-10,
+          "finite_eigenvalue_error_bound": 1.6902597515048746e-10,
+          "polar_operator_error_bound": 3.568366310668727e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": 0.0,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 72.249999999,
+          "coarse_infinite_ground_lower": -1.6902390598261263e-10,
+          "finite_ground_upper": 1.6902597515048746e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.384081129318632e-20,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 6.458650355665806e-24,
+          "perturbed_finite_lower": -3.568366310668727e-10,
+          "certified_infinite_ground_lower": -0.0001
+        }
+      },
+      {
+        "N": 1,
+        "dimension": 264,
+        "ground": -22.012839342626595,
+        "first_gap": 1.5668543338067984,
+        "ground_residual": 3.567025013861233e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.248411977295784e-10,
+          "residual_bound": 4.455164460620757e-09,
+          "finite_eigenvalue_error_bound": 4.455164460898851e-09,
+          "polar_operator_error_bound": 1.459516988508123e-08,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -15.035081932574535,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": 41.21491806642547,
+          "coarse_infinite_ground_lower": -23.00934743504939,
+          "finite_ground_upper": -22.012839338171432,
+          "candidate_lower": -22.012939342626595,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.0122120634572918,
+          "low_space_dimension": 2,
+          "edge_low_space_norm_squared_upper": 7.793062522705668e-21,
+          "perturbed_finite_lower": -22.012839357221768,
+          "certified_infinite_ground_lower": -22.012939342626595
+        }
+      },
+      {
+        "N": 2,
+        "dimension": 924,
+        "ground": -41.182085597355105,
+        "first_gap": 2.133734066184111,
+        "ground_residual": 1.156844811804299e-13,
+        "finite_certificate": {
+          "orthogonality_bound": 1.5177292819882361e-09,
+          "residual_bound": 5.4864564345967214e-08,
+          "finite_eigenvalue_error_bound": 5.4864564387601994e-08,
+          "polar_operator_error_bound": 2.0286483634190882e-07,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -27.29179302247818,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": 22.330789978552296,
+          "coarse_infinite_ground_lower": -43.13723846594972,
+          "finite_ground_upper": -41.18208554249054,
+          "candidate_lower": -41.18218559735511,
+          "candidate_verified": true,
+          "edge_schur_delta": 2.0153362184967776,
+          "low_space_dimension": 4,
+          "edge_low_space_norm_squared_upper": 2.5154560087644185e-18,
+          "perturbed_finite_lower": -41.182085800219944,
+          "certified_infinite_ground_lower": -41.18218559735511
+        }
+      },
+      {
+        "N": 3,
+        "dimension": 1848,
+        "ground": -55.70000464739357,
+        "first_gap": 2.4554861561536327,
+        "ground_residual": 1.7323663237965992e-13,
+        "finite_certificate": {
+          "orthogonality_bound": 6.067666287455404e-09,
+          "residual_bound": 2.2363433712271367e-07,
+          "finite_eigenvalue_error_bound": 2.2363433780118296e-07,
+          "polar_operator_error_bound": 8.916241991993553e-07,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -35.29179302247819,
+          "coupling_norm_upper": 16.000000001,
+          "discarded_block_lower": 4.9582069765218115,
+          "coarse_infinite_ground_lower": -59.66163627043633,
+          "finite_ground_upper": -55.70000442375923,
+          "candidate_lower": -55.70010464739357,
+          "candidate_verified": true,
+          "edge_schur_delta": 4.220361450533161,
+          "low_space_dimension": 8,
+          "edge_low_space_norm_squared_upper": 3.7466713947252737e-16,
+          "perturbed_finite_lower": -55.70000553901777,
+          "certified_infinite_ground_lower": -55.70010464739357
+        }
+      },
+      {
+        "N": 4,
+        "dimension": 2310,
+        "ground": -65.64421296493401,
+        "first_gap": 2.574628059263034,
+        "ground_residual": 1.5695839740771858e-13,
+        "finite_certificate": {
+          "orthogonality_bound": 9.480073962421087e-09,
+          "residual_bound": 3.518575056097446e-07,
+          "finite_eigenvalue_error_bound": 3.518575072775622e-07,
+          "polar_operator_error_bound": 1.4749942334412798e-06,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -38.07016386514907,
+          "coupling_norm_upper": 19.595917943265423,
+          "discarded_block_lower": -5.011999750679916,
+          "coarse_infinite_ground_lower": -71.42611659690726,
+          "finite_ground_upper": -65.6442126130765,
+          "candidate_lower": -65.64431296493402,
+          "candidate_verified": true,
+          "edge_schur_delta": 6.333256636313142,
+          "low_space_dimension": 6,
+          "edge_low_space_norm_squared_upper": 5.068551361951298e-13,
+          "perturbed_finite_lower": -65.64421443993379,
+          "certified_infinite_ground_lower": -65.64431296493402
+        }
+      },
+      {
+        "N": 5,
+        "dimension": 1848,
+        "ground": -55.70000464739357,
+        "first_gap": 2.4554861561536327,
+        "ground_residual": 1.7323663237965992e-13,
+        "finite_certificate": {
+          "orthogonality_bound": 6.067666287455404e-09,
+          "residual_bound": 2.2363433712271367e-07,
+          "finite_eigenvalue_error_bound": 2.2363433780118296e-07,
+          "polar_operator_error_bound": 8.916241991993553e-07,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -35.29179302247819,
+          "coupling_norm_upper": 16.000000001,
+          "discarded_block_lower": 4.9582069765218115,
+          "coarse_infinite_ground_lower": -59.66163627043633,
+          "finite_ground_upper": -55.70000442375923,
+          "candidate_lower": -55.70010464739357,
+          "candidate_verified": true,
+          "edge_schur_delta": 4.220361450533161,
+          "low_space_dimension": 8,
+          "edge_low_space_norm_squared_upper": 3.7466713947252737e-16,
+          "perturbed_finite_lower": -55.70000553901777,
+          "certified_infinite_ground_lower": -55.70010464739357
+        },
+        "particle_hole_of": 3
+      },
+      {
+        "N": 6,
+        "dimension": 924,
+        "ground": -41.182085597355105,
+        "first_gap": 2.133734066184111,
+        "ground_residual": 1.156844811804299e-13,
+        "finite_certificate": {
+          "orthogonality_bound": 1.5177292819882361e-09,
+          "residual_bound": 5.4864564345967214e-08,
+          "finite_eigenvalue_error_bound": 5.4864564387601994e-08,
+          "polar_operator_error_bound": 2.0286483634190882e-07,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -27.29179302247818,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": 22.330789978552296,
+          "coarse_infinite_ground_lower": -43.13723846594972,
+          "finite_ground_upper": -41.18208554249054,
+          "candidate_lower": -41.18218559735511,
+          "candidate_verified": true,
+          "edge_schur_delta": 2.0153362184967776,
+          "low_space_dimension": 4,
+          "edge_low_space_norm_squared_upper": 2.5154560087644185e-18,
+          "perturbed_finite_lower": -41.182085800219944,
+          "certified_infinite_ground_lower": -41.18218559735511
+        },
+        "particle_hole_of": 2
+      },
+      {
+        "N": 7,
+        "dimension": 264,
+        "ground": -22.012839342626595,
+        "first_gap": 1.5668543338067984,
+        "ground_residual": 3.567025013861233e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.248411977295784e-10,
+          "residual_bound": 4.455164460620757e-09,
+          "finite_eigenvalue_error_bound": 4.455164460898851e-09,
+          "polar_operator_error_bound": 1.459516988508123e-08,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -15.035081932574535,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": 41.21491806642547,
+          "coarse_infinite_ground_lower": -23.00934743504939,
+          "finite_ground_upper": -22.012839338171432,
+          "candidate_lower": -22.012939342626595,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.0122120634572918,
+          "low_space_dimension": 2,
+          "edge_low_space_norm_squared_upper": 7.793062522705668e-21,
+          "perturbed_finite_lower": -22.012839357221768,
+          "certified_infinite_ground_lower": -22.012939342626595
+        },
+        "particle_hole_of": 1
+      },
+      {
+        "N": 8,
+        "dimension": 33,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 2.9344525981069856e-12,
+          "residual_bound": 1.6902597515023946e-10,
+          "finite_eigenvalue_error_bound": 1.6902597515048746e-10,
+          "polar_operator_error_bound": 3.568366310668727e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": 0.0,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 72.249999999,
+          "coarse_infinite_ground_lower": -1.6902390598261263e-10,
+          "finite_ground_upper": 1.6902597515048746e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.384081129318632e-20,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 6.458650355665806e-24,
+          "perturbed_finite_lower": -3.568366310668727e-10,
+          "certified_infinite_ground_lower": -0.0001
+        },
+        "particle_hole_of": 0
+      }
+    ],
+    "vacuum_number": 4,
+    "global_number_sector_certified": true,
+    "vacuum_energy": -65.64421296493401,
+    "holonomy_cos_mean": -0.9531267170862867,
+    "holonomy_sin_mean": 5.551115123125783e-17,
+    "vacuum_edge_flux_probability": 5.672009109532177e-20,
+    "axial_mean": -3.871139536543133e-18,
+    "midpoint_commutator_on_vacuum_norm": 11.827933636587954,
+    "particle_lowest_gap": 9.944208317540458,
+    "hole_lowest_gap": 9.944208317540443,
+    "charged_transition_infinite_interval": [
+      9.944107965682932,
+      9.944308541174784
+    ],
+    "boundary_CAR_sum_error": 4.443516763780343e-16,
+    "complete_particle_levels": 1848,
+    "complete_hole_levels": 1848,
+    "zero_frequency_Green_real": [
+      [
+        -0.007864880143741024,
+        2.7891366096800632e-18
+      ],
+      [
+        2.789136609680068e-18,
+        0.007864880143741152
+      ]
+    ],
+    "zero_frequency_Green_imag": [
+      [
+        0.0,
+        2.762761482395911e-17
+      ],
+      [
+        -2.7627614823959122e-17,
+        -1.734723475976807e-18
+      ]
+    ],
+    "minus_G_inverse_Pauli_coefficients": {
+      "I": 1.0373923942097463e-12,
+      "X": -4.509055376240949e-14,
+      "Y": 4.4664160486917345e-13,
+      "Z": 127.14751931671904
+    },
+    "electron_pole_identification": false,
+    "elapsed_seconds": 207.4747850894928
+  },
+  {
+    "S": 4,
+    "mass_label": "register_electron",
+    "mass": 6.0300795404423236e-05,
+    "K": 4,
+    "all_number_sectors": [
+      {
+        "N": 0,
+        "dimension": 9,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 1.1438849039914225e-12,
+          "residual_bound": 1.0042539203186058e-10,
+          "finite_eigenvalue_error_bound": 1.0042539203191802e-10,
+          "polar_operator_error_bound": 1.0500128725021567e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -6.0300795404423236e-05,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 6.249939698204596,
+          "coarse_infinite_ground_lower": -1.0042544573707346e-10,
+          "finite_ground_upper": 1.0042539203191802e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.599989837324174e-19,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 9.815070491643474e-25,
+          "perturbed_finite_lower": -1.0500128725021567e-10,
+          "certified_infinite_ground_lower": -0.0001
+        }
+      },
+      {
+        "N": 1,
+        "dimension": 72,
+        "ground": -22.009583388107963,
+        "first_gap": 1.5997982234457595,
+        "ground_residual": 2.594427609937853e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.0222920375919912e-11,
+          "residual_bound": 2.358817388173964e-10,
+          "finite_eigenvalue_error_bound": 2.358817388186021e-10,
+          "polar_operator_error_bound": 4.805741869514853e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -15.035142233369939,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": -24.78514223436994,
+          "coarse_infinite_ground_lower": -31.5168413502126,
+          "finite_ground_upper": -22.00958338787208,
+          "candidate_lower": -22.009683388107963,
+          "candidate_verified": false
+        }
+      },
+      {
+        "N": 2,
+        "dimension": 252,
+        "ground": -41.15440646072435,
+        "first_gap": 2.332685372320171,
+        "ground_residual": 8.567363794220342e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.1384039611020257e-10,
+          "residual_bound": 2.158111510499263e-09,
+          "finite_eigenvalue_error_bound": 2.158111510622103e-09,
+          "polar_operator_error_bound": 7.029186776967083e-09,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -27.291853323273585,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": -43.6692703222431,
+          "coarse_infinite_ground_lower": -53.79520938187905,
+          "finite_ground_upper": -41.15440645856624,
+          "candidate_lower": -41.154506460724356,
+          "candidate_verified": false
+        }
+      },
+      {
+        "N": 3,
+        "dimension": 504,
+        "ground": -55.630824566150324,
+        "first_gap": 2.8741802465374704,
+        "ground_residual": 5.929554702664812e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 4.522878370228843e-10,
+          "residual_bound": 9.128001780781745e-09,
+          "finite_eigenvalue_error_bound": 9.128001782845988e-09,
+          "polar_operator_error_bound": 3.499003018861414e-08,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -35.29185332327359,
+          "coupling_norm_upper": 16.000000001,
+          "discarded_block_lower": -61.04185332427359,
+          "coarse_infinite_ground_lower": -74.56347079932391,
+          "finite_ground_upper": -55.63082455702232,
+          "candidate_lower": -55.63092456615033,
+          "candidate_verified": false
+        }
+      },
+      {
+        "N": 4,
+        "dimension": 630,
+        "ground": -65.5280449662242,
+        "first_gap": 3.1978411183818594,
+        "ground_residual": 9.346135405610771e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 7.061130579343269e-10,
+          "residual_bound": 1.4596992838471031e-08,
+          "finite_eigenvalue_error_bound": 1.4596992843624597e-08,
+          "polar_operator_error_bound": 6.19227098071525e-08,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -38.070224165944474,
+          "coupling_norm_upper": 19.595917943265423,
+          "discarded_block_lower": -71.01206005147533,
+          "coarse_infinite_ground_lower": -88.05688160428116,
+          "finite_ground_upper": -65.52804495162721,
+          "candidate_lower": -65.5281449662242,
+          "candidate_verified": false
+        }
+      },
+      {
+        "N": 5,
+        "dimension": 504,
+        "ground": -55.630824566150324,
+        "first_gap": 2.8741802465374704,
+        "ground_residual": 5.929554702664812e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 4.522878370228843e-10,
+          "residual_bound": 9.128001780781745e-09,
+          "finite_eigenvalue_error_bound": 9.128001782845988e-09,
+          "polar_operator_error_bound": 3.499003018861414e-08,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -35.29185332327359,
+          "coupling_norm_upper": 16.000000001,
+          "discarded_block_lower": -61.04185332427359,
+          "coarse_infinite_ground_lower": -74.56347079932391,
+          "finite_ground_upper": -55.63082455702232,
+          "candidate_lower": -55.63092456615033,
+          "candidate_verified": false
+        },
+        "particle_hole_of": 3
+      },
+      {
+        "N": 6,
+        "dimension": 252,
+        "ground": -41.15440646072435,
+        "first_gap": 2.332685372320171,
+        "ground_residual": 8.567363794220342e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.1384039611020257e-10,
+          "residual_bound": 2.158111510499263e-09,
+          "finite_eigenvalue_error_bound": 2.158111510622103e-09,
+          "polar_operator_error_bound": 7.029186776967083e-09,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -27.291853323273585,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": -43.6692703222431,
+          "coarse_infinite_ground_lower": -53.79520938187905,
+          "finite_ground_upper": -41.15440645856624,
+          "candidate_lower": -41.154506460724356,
+          "candidate_verified": false
+        },
+        "particle_hole_of": 2
+      },
+      {
+        "N": 7,
+        "dimension": 72,
+        "ground": -22.009583388107963,
+        "first_gap": 1.5997982234457595,
+        "ground_residual": 2.594427609937853e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.0222920375919912e-11,
+          "residual_bound": 2.358817388173964e-10,
+          "finite_eigenvalue_error_bound": 2.358817388186021e-10,
+          "polar_operator_error_bound": 4.805741869514853e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -15.035142233369939,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": -24.78514223436994,
+          "coarse_infinite_ground_lower": -31.5168413502126,
+          "finite_ground_upper": -22.00958338787208,
+          "candidate_lower": -22.009683388107963,
+          "candidate_verified": false
+        },
+        "particle_hole_of": 1
+      },
+      {
+        "N": 8,
+        "dimension": 9,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 1.1438849039914225e-12,
+          "residual_bound": 1.0042539203186058e-10,
+          "finite_eigenvalue_error_bound": 1.0042539203191802e-10,
+          "polar_operator_error_bound": 1.0500128725021567e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -6.0300795404423236e-05,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 6.249939698204596,
+          "coarse_infinite_ground_lower": -1.0042544573707346e-10,
+          "finite_ground_upper": 1.0042539203191802e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.599989837324174e-19,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 9.815070491643474e-25,
+          "perturbed_finite_lower": -1.0500128725021567e-10,
+          "certified_infinite_ground_lower": -0.0001
+        },
+        "particle_hole_of": 0
+      }
+    ],
+    "vacuum_number": 4,
+    "global_number_sector_certified": false,
+    "vacuum_energy": -65.5280449662242,
+    "holonomy_cos_mean": -0.9375284018462519,
+    "holonomy_sin_mean": -8.881784197001252e-16,
+    "vacuum_edge_flux_probability": 0.01400780473104831,
+    "axial_mean": 1.1248151019295922e-17,
+    "midpoint_commutator_on_vacuum_norm": 11.86380600650948,
+    "particle_lowest_gap": 9.89722040007387,
+    "hole_lowest_gap": 9.897220400073877,
+    "charged_transition_infinite_interval": [
+      -9.0354258476967,
+      32.42605704725884
+    ],
+    "boundary_CAR_sum_error": 2.2204517972571204e-16,
+    "complete_particle_levels": 504,
+    "complete_hole_levels": 504,
+    "zero_frequency_Green_real": [
+      [
+        -0.007926344023654455,
+        3.142707680763029e-17
+      ],
+      [
+        3.142707680763029e-17,
+        0.007926344023654476
+      ]
+    ],
+    "zero_frequency_Green_imag": [
+      [
+        0.0,
+        -2.158960316059654e-17
+      ],
+      [
+        2.1589603160596548e-17,
+        8.673617379884035e-19
+      ]
+    ],
+    "minus_G_inverse_Pauli_coefficients": {
+      "I": 1.6342482922482304e-13,
+      "X": -5.002166589559535e-13,
+      "Y": -3.436361334935375e-13,
+      "Z": 126.16156919453854
+    },
+    "electron_pole_identification": false,
+    "elapsed_seconds": 3.060586929321289
+  },
+  {
+    "S": 4,
+    "mass_label": "register_electron",
+    "mass": 6.0300795404423236e-05,
+    "K": 8,
+    "all_number_sectors": [
+      {
+        "N": 0,
+        "dimension": 17,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 1.513367126586688e-12,
+          "residual_bound": 1.051229104209608e-10,
+          "finite_eigenvalue_error_bound": 1.0512291042104035e-10,
+          "polar_operator_error_bound": 1.2933820685576288e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -6.0300795404423236e-05,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 20.249939698204596,
+          "coarse_infinite_ground_lower": -1.0512124504202802e-10,
+          "finite_ground_upper": 1.0512291042104035e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 4.938261923944089e-20,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 1.71791185963326e-24,
+          "perturbed_finite_lower": -1.2933820685576288e-10,
+          "certified_infinite_ground_lower": -0.0001
+        }
+      },
+      {
+        "N": 1,
+        "dimension": 136,
+        "ground": -22.012834567776164,
+        "first_gap": 1.5668540653467211,
+        "ground_residual": 3.0184005762734036e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 3.38775925715082e-11,
+          "residual_bound": 6.491551725710847e-10,
+          "finite_eigenvalue_error_bound": 6.491551725820806e-10,
+          "polar_operator_error_bound": 1.8162040720877444e-09,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -15.035142233369939,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": -10.785142234369939,
+          "coarse_infinite_ground_lower": -26.172179732945963,
+          "finite_ground_upper": -22.01283456712701,
+          "candidate_lower": -22.012934567776163,
+          "candidate_verified": false,
+          "edge_schur_delta": 5.70014105315965,
+          "low_space_dimension": 20,
+          "edge_low_space_norm_squared_upper": 0.018441556436064543,
+          "perturbed_finite_lower": -22.20475617682799,
+          "certified_infinite_ground_lower": -26.172179732945963
+        }
+      },
+      {
+        "N": 2,
+        "dimension": 476,
+        "ground": -41.18209638100766,
+        "first_gap": 2.133743429473526,
+        "ground_residual": 5.074990214505112e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 4.035417803181696e-10,
+          "residual_bound": 8.084758870663495e-09,
+          "finite_eigenvalue_error_bound": 8.084758872294765e-09,
+          "polar_operator_error_bound": 2.9082529193681517e-08,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -27.291853323273585,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": -29.669270322243108,
+          "coarse_infinite_ground_lower": -48.119630379111996,
+          "finite_ground_upper": -41.1820963729229,
+          "candidate_lower": -41.182196381007664,
+          "candidate_verified": false,
+          "edge_schur_delta": 11.117938165266304,
+          "low_space_dimension": 53,
+          "edge_low_space_norm_squared_upper": 1,
+          "perturbed_finite_lower": -56.71830757799373,
+          "certified_infinite_ground_lower": -48.119630379111996
+        }
+      },
+      {
+        "N": 3,
+        "dimension": 952,
+        "ground": -55.69998742679092,
+        "first_gap": 2.455589636861447,
+        "ground_residual": 8.079063460088837e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.6110348671581074e-09,
+          "residual_bound": 3.4710762577729114e-08,
+          "finite_eigenvalue_error_bound": 3.471076260568924e-08,
+          "polar_operator_error_bound": 1.4035668550036318e-07,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -35.29185332327359,
+          "coupling_norm_upper": 16.000000001,
+          "discarded_block_lower": -47.04185332427359,
+          "coarse_infinite_ground_lower": -67.94622798329327,
+          "finite_ground_upper": -55.69998739208015,
+          "candidate_lower": -55.70008742679092,
+          "candidate_verified": false,
+          "edge_schur_delta": 29.567230107299757,
+          "low_space_dimension": 445,
+          "edge_low_space_norm_squared_upper": 1,
+          "perturbed_finite_lower": -97.34207290785122,
+          "certified_infinite_ground_lower": -67.94622798329327
+        }
+      },
+      {
+        "N": 4,
+        "dimension": 1190,
+        "ground": -65.6441979342527,
+        "first_gap": 2.5749786650786177,
+        "ground_residual": 1.7050415617447462e-13,
+        "finite_certificate": {
+          "orthogonality_bound": 2.5166361459561217e-09,
+          "residual_bound": 5.55080358076549e-08,
+          "finite_eigenvalue_error_bound": 5.5508035877501666e-08,
+          "polar_operator_error_bound": 2.437497723552217e-07,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -38.070224165944474,
+          "coupling_norm_upper": 19.595917943265423,
+          "discarded_block_lower": -57.012060051475316,
+          "coarse_infinite_ground_lower": -81.39373270915898,
+          "finite_ground_upper": -65.64419787874466,
+          "candidate_lower": -65.6442979342527,
+          "candidate_verified": false,
+          "edge_schur_delta": 44.48440893934694,
+          "low_space_dimension": 969,
+          "edge_low_space_norm_squared_upper": 1,
+          "perturbed_finite_lower": -128.3964674697538,
+          "certified_infinite_ground_lower": -81.39373270915898
+        }
+      },
+      {
+        "N": 5,
+        "dimension": 952,
+        "ground": -55.69998742679092,
+        "first_gap": 2.455589636861447,
+        "ground_residual": 8.079063460088837e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.6110348671581074e-09,
+          "residual_bound": 3.4710762577729114e-08,
+          "finite_eigenvalue_error_bound": 3.471076260568924e-08,
+          "polar_operator_error_bound": 1.4035668550036318e-07,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -35.29185332327359,
+          "coupling_norm_upper": 16.000000001,
+          "discarded_block_lower": -47.04185332427359,
+          "coarse_infinite_ground_lower": -67.94622798329327,
+          "finite_ground_upper": -55.69998739208015,
+          "candidate_lower": -55.70008742679092,
+          "candidate_verified": false,
+          "edge_schur_delta": 29.567230107299757,
+          "low_space_dimension": 445,
+          "edge_low_space_norm_squared_upper": 1,
+          "perturbed_finite_lower": -97.34207290785122,
+          "certified_infinite_ground_lower": -67.94622798329327
+        },
+        "particle_hole_of": 3
+      },
+      {
+        "N": 6,
+        "dimension": 476,
+        "ground": -41.18209638100766,
+        "first_gap": 2.133743429473526,
+        "ground_residual": 5.074990214505112e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 4.035417803181696e-10,
+          "residual_bound": 8.084758870663495e-09,
+          "finite_eigenvalue_error_bound": 8.084758872294765e-09,
+          "polar_operator_error_bound": 2.9082529193681517e-08,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -27.291853323273585,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": -29.669270322243108,
+          "coarse_infinite_ground_lower": -48.119630379111996,
+          "finite_ground_upper": -41.1820963729229,
+          "candidate_lower": -41.182196381007664,
+          "candidate_verified": false,
+          "edge_schur_delta": 11.117938165266304,
+          "low_space_dimension": 53,
+          "edge_low_space_norm_squared_upper": 1,
+          "perturbed_finite_lower": -56.71830757799373,
+          "certified_infinite_ground_lower": -48.119630379111996
+        },
+        "particle_hole_of": 2
+      },
+      {
+        "N": 7,
+        "dimension": 136,
+        "ground": -22.012834567776164,
+        "first_gap": 1.5668540653467211,
+        "ground_residual": 3.0184005762734036e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 3.38775925715082e-11,
+          "residual_bound": 6.491551725710847e-10,
+          "finite_eigenvalue_error_bound": 6.491551725820806e-10,
+          "polar_operator_error_bound": 1.8162040720877444e-09,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -15.035142233369939,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": -10.785142234369939,
+          "coarse_infinite_ground_lower": -26.172179732945963,
+          "finite_ground_upper": -22.01283456712701,
+          "candidate_lower": -22.012934567776163,
+          "candidate_verified": false,
+          "edge_schur_delta": 5.70014105315965,
+          "low_space_dimension": 20,
+          "edge_low_space_norm_squared_upper": 0.018441556436064543,
+          "perturbed_finite_lower": -22.20475617682799,
+          "certified_infinite_ground_lower": -26.172179732945963
+        },
+        "particle_hole_of": 1
+      },
+      {
+        "N": 8,
+        "dimension": 17,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 1.513367126586688e-12,
+          "residual_bound": 1.051229104209608e-10,
+          "finite_eigenvalue_error_bound": 1.0512291042104035e-10,
+          "polar_operator_error_bound": 1.2933820685576288e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -6.0300795404423236e-05,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 20.249939698204596,
+          "coarse_infinite_ground_lower": -1.0512124504202802e-10,
+          "finite_ground_upper": 1.0512291042104035e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 4.938261923944089e-20,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 1.71791185963326e-24,
+          "perturbed_finite_lower": -1.2933820685576288e-10,
+          "certified_infinite_ground_lower": -0.0001
+        },
+        "particle_hole_of": 0
+      }
+    ],
+    "vacuum_number": 4,
+    "global_number_sector_certified": false,
+    "vacuum_energy": -65.6441979342527,
+    "holonomy_cos_mean": -0.9531189346373657,
+    "holonomy_sin_mean": -1.6653345369377348e-16,
+    "vacuum_edge_flux_probability": 5.77274233856362e-06,
+    "axial_mean": 2.508205001458238e-18,
+    "midpoint_commutator_on_vacuum_norm": 11.827959512089267,
+    "particle_lowest_gap": 9.944210507461783,
+    "hole_lowest_gap": 9.944210507461783,
+    "charged_transition_infinite_interval": [
+      -2.3020301045486065,
+      25.69374531707883
+    ],
+    "boundary_CAR_sum_error": 1.7763771321048458e-15,
+    "complete_particle_levels": 952,
+    "complete_hole_levels": 952,
+    "zero_frequency_Green_real": [
+      [
+        -0.007864892580329977,
+        1.5837943665049085e-18
+      ],
+      [
+        1.5837943665049081e-18,
+        0.007864892580329907
+      ]
+    ],
+    "zero_frequency_Green_imag": [
+      [
+        3.469446951953614e-18,
+        -1.0624809823044423e-17
+      ],
+      [
+        1.0624809823044423e-17,
+        0.0
+      ]
+    ],
+    "minus_G_inverse_Pauli_coefficients": {
+      "I": -5.613287612504791e-13,
+      "X": -2.5604317455226207e-14,
+      "Y": -1.7176535626337078e-13,
+      "Z": 127.14731826102687
+    },
+    "electron_pole_identification": false,
+    "elapsed_seconds": 21.738910913467407
+  },
+  {
+    "S": 4,
+    "mass_label": "register_electron",
+    "mass": 6.0300795404423236e-05,
+    "K": 16,
+    "all_number_sectors": [
+      {
+        "N": 0,
+        "dimension": 33,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 2.9344525981069856e-12,
+          "residual_bound": 1.6902597515023946e-10,
+          "finite_eigenvalue_error_bound": 1.6902597515048746e-10,
+          "polar_operator_error_bound": 3.568366310668727e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -6.0300795404423236e-05,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 72.24993969820459,
+          "coarse_infinite_ground_lower": -1.6902390598261263e-10,
+          "finite_ground_upper": 1.6902597515048746e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.3840822844902187e-20,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 6.458650355665806e-24,
+          "perturbed_finite_lower": -3.568366310668727e-10,
+          "certified_infinite_ground_lower": -0.0001
+        }
+      },
+      {
+        "N": 1,
+        "dimension": 264,
+        "ground": -22.01283456835842,
+        "first_gap": 1.566854045095031,
+        "ground_residual": 4.933988992395668e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.2484141119382248e-10,
+          "residual_bound": 4.455202338774935e-09,
+          "finite_eigenvalue_error_bound": 4.455202339053032e-09,
+          "polar_operator_error_bound": 1.4595207301151721e-08,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -15.035142233369939,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": 41.214857765630065,
+          "coarse_infinite_ground_lower": -23.009343655064015,
+          "finite_ground_upper": -22.01283456390322,
+          "candidate_lower": -22.01293456835842,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.0122131052422718,
+          "low_space_dimension": 2,
+          "edge_low_space_norm_squared_upper": 7.793050455334858e-21,
+          "perturbed_finite_lower": -22.01283458295363,
+          "certified_infinite_ground_lower": -22.01293456835842
+        }
+      },
+      {
+        "N": 2,
+        "dimension": 924,
+        "ground": -41.18209671317602,
+        "first_gap": 2.1337345219561783,
+        "ground_residual": 6.496906141165989e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.5177257409742988e-09,
+          "residual_bound": 5.486447618694621e-08,
+          "finite_eigenvalue_error_bound": 5.486447622858082e-08,
+          "polar_operator_error_bound": 2.0286441666987594e-07,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -27.291853323273585,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": 22.330729677756892,
+          "coarse_infinite_ground_lower": -43.13725100804869,
+          "finite_ground_upper": -41.18209665831154,
+          "candidate_lower": -41.182196713176026,
+          "candidate_verified": true,
+          "edge_schur_delta": 2.015337779191051,
+          "low_space_dimension": 4,
+          "edge_low_space_norm_squared_upper": 2.51544585066922e-18,
+          "perturbed_finite_lower": -41.182096916040436,
+          "certified_infinite_ground_lower": -41.182196713176026
+        }
+      },
+      {
+        "N": 3,
+        "dimension": 1848,
+        "ground": -55.69999198272471,
+        "first_gap": 2.455485763801043,
+        "ground_residual": 1.2748554746745324e-13,
+        "finite_certificate": {
+          "orthogonality_bound": 6.067663599170351e-09,
+          "residual_bound": 2.2363421441664932e-07,
+          "finite_eigenvalue_error_bound": 2.2363421509511792e-07,
+          "polar_operator_error_bound": 8.916237078938131e-07,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -35.29185332327359,
+          "coupling_norm_upper": 16.000000001,
+          "discarded_block_lower": 4.958146675726407,
+          "coarse_infinite_ground_lower": -59.661627820645585,
+          "finite_ground_upper": -55.699991759090494,
+          "candidate_lower": -55.700091982724715,
+          "candidate_verified": true,
+          "edge_schur_delta": 4.220366527182918,
+          "low_space_dimension": 8,
+          "edge_low_space_norm_squared_upper": 3.7466599586950597e-16,
+          "perturbed_finite_lower": -55.699992874348425,
+          "certified_infinite_ground_lower": -55.700091982724715
+        }
+      },
+      {
+        "N": 4,
+        "dimension": 2310,
+        "ground": -65.64421515726977,
+        "first_gap": 2.5746282210897533,
+        "ground_residual": 2.06028489672709e-13,
+        "finite_certificate": {
+          "orthogonality_bound": 9.480072536740748e-09,
+          "residual_bound": 3.5185770031062064e-07,
+          "finite_eigenvalue_error_bound": 3.518577019784389e-07,
+          "polar_operator_error_bound": 1.4749942977753026e-06,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -38.070224165944474,
+          "coupling_norm_upper": 19.595917943265423,
+          "discarded_block_lower": -5.01206005147532,
+          "coarse_infinite_ground_lower": -71.42612344293106,
+          "finite_ground_upper": -65.64421480541206,
+          "candidate_lower": -65.64431515726977,
+          "candidate_verified": true,
+          "edge_schur_delta": 6.333262705950285,
+          "low_space_dimension": 6,
+          "edge_low_space_norm_squared_upper": 5.068555823270121e-13,
+          "perturbed_finite_lower": -65.6442166322696,
+          "certified_infinite_ground_lower": -65.64431515726977
+        }
+      },
+      {
+        "N": 5,
+        "dimension": 1848,
+        "ground": -55.69999198272471,
+        "first_gap": 2.455485763801043,
+        "ground_residual": 1.2748554746745324e-13,
+        "finite_certificate": {
+          "orthogonality_bound": 6.067663599170351e-09,
+          "residual_bound": 2.2363421441664932e-07,
+          "finite_eigenvalue_error_bound": 2.2363421509511792e-07,
+          "polar_operator_error_bound": 8.916237078938131e-07,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -35.29185332327359,
+          "coupling_norm_upper": 16.000000001,
+          "discarded_block_lower": 4.958146675726407,
+          "coarse_infinite_ground_lower": -59.661627820645585,
+          "finite_ground_upper": -55.699991759090494,
+          "candidate_lower": -55.700091982724715,
+          "candidate_verified": true,
+          "edge_schur_delta": 4.220366527182918,
+          "low_space_dimension": 8,
+          "edge_low_space_norm_squared_upper": 3.7466599586950597e-16,
+          "perturbed_finite_lower": -55.699992874348425,
+          "certified_infinite_ground_lower": -55.700091982724715
+        },
+        "particle_hole_of": 3
+      },
+      {
+        "N": 6,
+        "dimension": 924,
+        "ground": -41.18209671317602,
+        "first_gap": 2.1337345219561783,
+        "ground_residual": 6.496906141165989e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.5177257409742988e-09,
+          "residual_bound": 5.486447618694621e-08,
+          "finite_eigenvalue_error_bound": 5.486447622858082e-08,
+          "polar_operator_error_bound": 2.0286441666987594e-07,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -27.291853323273585,
+          "coupling_norm_upper": 11.313708499984761,
+          "discarded_block_lower": 22.330729677756892,
+          "coarse_infinite_ground_lower": -43.13725100804869,
+          "finite_ground_upper": -41.18209665831154,
+          "candidate_lower": -41.182196713176026,
+          "candidate_verified": true,
+          "edge_schur_delta": 2.015337779191051,
+          "low_space_dimension": 4,
+          "edge_low_space_norm_squared_upper": 2.51544585066922e-18,
+          "perturbed_finite_lower": -41.182096916040436,
+          "certified_infinite_ground_lower": -41.182196713176026
+        },
+        "particle_hole_of": 2
+      },
+      {
+        "N": 7,
+        "dimension": 264,
+        "ground": -22.01283456835842,
+        "first_gap": 1.566854045095031,
+        "ground_residual": 4.933988992395668e-14,
+        "finite_certificate": {
+          "orthogonality_bound": 1.2484141119382248e-10,
+          "residual_bound": 4.455202338774935e-09,
+          "finite_eigenvalue_error_bound": 4.455202339053032e-09,
+          "polar_operator_error_bound": 1.4595207301151721e-08,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -15.035142233369939,
+          "coupling_norm_upper": 8.000000001,
+          "discarded_block_lower": 41.214857765630065,
+          "coarse_infinite_ground_lower": -23.009343655064015,
+          "finite_ground_upper": -22.01283456390322,
+          "candidate_lower": -22.01293456835842,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.0122131052422718,
+          "low_space_dimension": 2,
+          "edge_low_space_norm_squared_upper": 7.793050455334858e-21,
+          "perturbed_finite_lower": -22.01283458295363,
+          "certified_infinite_ground_lower": -22.01293456835842
+        },
+        "particle_hole_of": 1
+      },
+      {
+        "N": 8,
+        "dimension": 33,
+        "ground": 0.0,
+        "first_gap": 0.25,
+        "ground_residual": 0.0,
+        "finite_certificate": {
+          "orthogonality_bound": 2.9344525981069856e-12,
+          "residual_bound": 1.6902597515023946e-10,
+          "finite_eigenvalue_error_bound": 1.6902597515048746e-10,
+          "polar_operator_error_bound": 3.568366310668727e-10,
+          "roundoff_model": "IEEE double; complex dot <=16n real operations; assembly margin1e-10"
+        },
+        "infinite_tail": {
+          "A_lower_formula_value": -6.0300795404423236e-05,
+          "coupling_norm_upper": 1e-09,
+          "discarded_block_lower": 72.24993969820459,
+          "coarse_infinite_ground_lower": -1.6902390598261263e-10,
+          "finite_ground_upper": 1.6902597515048746e-10,
+          "candidate_lower": -0.0001,
+          "candidate_verified": true,
+          "edge_schur_delta": 1.3840822844902187e-20,
+          "low_space_dimension": 3,
+          "edge_low_space_norm_squared_upper": 6.458650355665806e-24,
+          "perturbed_finite_lower": -3.568366310668727e-10,
+          "certified_infinite_ground_lower": -0.0001
+        },
+        "particle_hole_of": 0
+      }
+    ],
+    "vacuum_number": 4,
+    "global_number_sector_certified": true,
+    "vacuum_energy": -65.64421515726977,
+    "holonomy_cos_mean": -0.9531267189443868,
+    "holonomy_sin_mean": -2.7755575615628914e-16,
+    "vacuum_edge_flux_probability": 5.672012903433305e-20,
+    "axial_mean": 7.34937356690878e-18,
+    "midpoint_commutator_on_vacuum_norm": 11.82793870422201,
+    "particle_lowest_gap": 9.944223174545051,
+    "hole_lowest_gap": 9.944223174545058,
+    "charged_transition_infinite_interval": [
+      9.944122822687348,
+      9.944323398179279
+    ],
+    "boundary_CAR_sum_error": 8.882272085028914e-16,
+    "complete_particle_levels": 1848,
+    "complete_hole_levels": 1848,
+    "zero_frequency_Green_real": [
+      [
+        -0.007864884167548152,
+        7.05296853262348e-18
+      ],
+      [
+        7.052968532623474e-18,
+        0.00786488416754811
+      ]
+    ],
+    "zero_frequency_Green_imag": [
+      [
+        1.734723475976807e-18,
+        -1.1890180888011445e-17
+      ],
+      [
+        1.1890180888011443e-17,
+        0.0
+      ]
+    ],
+    "minus_G_inverse_Pauli_coefficients": {
+      "I": -3.410605131648481e-13,
+      "X": -1.140216403492446e-13,
+      "Y": -1.9222231357326244e-13,
+      "Z": 127.14745426590929
+    },
+    "electron_pole_identification": false,
+    "elapsed_seconds": 174.8484082221985
+  }
+]

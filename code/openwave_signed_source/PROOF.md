@@ -1,4 +1,4 @@
-# Charge, rest energy and frame on one signed source
+# Current response, transfer spectrum and frame on one signed source
 
 One construction carries all three results: the twelve-port carrier, a signed
 source on it, and the native repair law read by a complete current pointer.
@@ -10,13 +10,14 @@ and field.
 
 ## Carrier, source and instrument
 
-On a seam (a,b) native repair records
+On a seam (a,b), define endpoint contrast d and updated source q' by
 
     d = q_a - q_b,
     j = (d - (2c-1)(|d| mod 2))/2,
     q' = q - j e_a + j e_b,
 
-with coin c. Given q', the seam, c and j, the input q is unique. Every branch of
+with coin c. The emitted native record is (c,j); d is an input contrast, and q' is the
+source update. Given q', the seam, c and j, the input q is unique. Every branch of
 the positive-amplitude lift is therefore a partial injection, and the branch
 effects together with the invalid sector sum to the identity: the source carries
 a complete quantum instrument. The one-particle chart has 256 addresses and the
@@ -26,7 +27,7 @@ whole experiment, reset failures included. The sealed run makes 435,080 literal
 native calls; a standalone copy of the published tree replays it from its own
 root.
 
-## 1. Charge comes in whole units
+## 1. Integer current image and native response
 
 Integrated current F obeys BF = q_initial - q_terminal, with B the port-seam
 incidence. On the twelve-port cell (30 seams, 20 triangular faces) rank B = 11
@@ -40,6 +41,10 @@ daughter charges lie outside the measured source image. A state that gives
 probability 1/2 to each of two integer outcomes is a probabilistic alternative
 between whole charges; it is not a pair of fractional charges.
 
+The integer state alphabet supplies this exclusion. The homology calculation
+identifies that alphabet's image; it does not show that the dynamics selects an
+electric unit. The stopped response below is a distinct consequence of the law.
+
 The response depends on the law. Native expected seam current is d/2, so the
 stopped mean flow is
 
@@ -52,7 +57,7 @@ same incidence decoder as two sharp halves and rejected. On the full 240-port
 graph the integer image C_1/ker B = im B is the zero-total source lattice; the
 sphere-face certificate is stated for the cell.
 
-## 2. Rest energy of a compact charged state
+## 2. Logarithmic transfer spectrum of a compact ray
 
 The full graph has 240 ports and 630 seams; its one-particle transfer is
 T = I - L/1260. The four-port charged ray f = (|4> - |5> - |6> + |7>)/2 satisfies
@@ -65,11 +70,16 @@ for f and for the disjoint pair f (x) g (g on ports 16 to 19). The value 511 keV
 is the permitted calibration that fixes the unit; it is not a predicted number.
 With that one unit the pair comes out at 1024.4508487 keV, 2.45 keV above twice
 511 keV; the excess E_12 - 2E_6 = 1260 log(43681/43680) belongs to the finite
-clock. The spectrum also has lower nonconstant modes (the difference of the
+clock convention. It fails separated-copy additivity under that convention;
+identifying it with a physical correction requires an operational argument.
+The spectrum also has lower nonconstant modes (the difference of the
 first two cell indicators has Rayleigh quotient 1/3), and the energy pointer
 |f><f| certifies the eigenray while every complementary outcome is kept as an
 unresolved-energy outcome. The energy uses only the full 630-seam kernel;
 addressing the 30 cell seams for the charge and frame assays leaves it unchanged.
+An eigenray of the mean transfer and its ray projector do not establish
+dynamical state selection, persistence under the unread complete channel or
+physical rest energy.
 
 ## 3. Field and frame under a half-turn
 
@@ -83,8 +93,10 @@ Delta = j(v_b - v_a). Summing all 60 alternatives for each of the 12 sources
 Mean and covariance are measured independently from the current records. The
 executed proper half-turn R = diag(-1,-1,1) returns C and reverses m; R^2 returns
 both. The covariance differs between non-antipodal axes, the fixed-seam native law
-fails the source-axis and shape gates, and an off-axis plant is detected, so the
-return is a property of the records and not of the reader. The executed rotation
+fails the source-axis and shape gates, and an off-axis plant is detected. The
+fixed-seam control breaks the symmetry responsible for the return. Equivariance
+and parity imply these moment periods, so this assay does not isolate a
+source-dynamical antipodal identification or a coherent spinor sign. The executed rotation
 is a finite symmetry of the addressed cell; it is kept distinct from any
 continuous interpolation and carries no exchange-statistics claim.
 

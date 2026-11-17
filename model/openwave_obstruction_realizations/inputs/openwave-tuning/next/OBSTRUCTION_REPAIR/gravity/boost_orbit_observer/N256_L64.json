@@ -1,0 +1,286 @@
+{
+  "status": "COMPLETE_FINITE_BOOST_ORBIT_APPARATUS",
+  "configuration": {
+    "count": 256,
+    "box": 64.0,
+    "output": "N256_L64.json"
+  },
+  "spacing": 0.25,
+  "retained_modes": 1024,
+  "finite_generator_closure": "Pinch {x,p}/2 into positive/negative momentum blocks; no mode removed. Complete self-adjoint finite boost, with continuum geometric accuracy assessed separately.",
+  "raw_to_pinched_relative_frobenius": 0.03142264790746349,
+  "unitarity_error": 6.264583202389416e-15,
+  "composition_error": 7.015595349217983e-14,
+  "vacuum_commutator_error": 3.5363207874663557e-16,
+  "wavepacket_controls": [
+    {
+      "rapidity": 0.2,
+      "p0": 1.0,
+      "width": 0.3,
+      "alpha": -1.0,
+      "analytic_wavepacket_error": 0.0003929373121195827,
+      "analytic_norm": 1.0
+    },
+    {
+      "rapidity": 0.2,
+      "p0": 1.0,
+      "width": 0.3,
+      "alpha": 1.0,
+      "analytic_wavepacket_error": 0.0004141862020041264,
+      "analytic_norm": 1.0000000000000002
+    },
+    {
+      "rapidity": 0.2,
+      "p0": 3.0,
+      "width": 0.5,
+      "alpha": -1.0,
+      "analytic_wavepacket_error": 1.1744581161135357e-09,
+      "analytic_norm": 0.9999999999999997
+    },
+    {
+      "rapidity": 0.2,
+      "p0": 3.0,
+      "width": 0.5,
+      "alpha": 1.0,
+      "analytic_wavepacket_error": 1.228357954962267e-09,
+      "analytic_norm": 0.9999999999999998
+    },
+    {
+      "rapidity": 0.5,
+      "p0": 1.0,
+      "width": 0.3,
+      "alpha": -1.0,
+      "analytic_wavepacket_error": 0.0005829290731481263,
+      "analytic_norm": 1.0000000000000004
+    },
+    {
+      "rapidity": 0.5,
+      "p0": 1.0,
+      "width": 0.3,
+      "alpha": 1.0,
+      "analytic_wavepacket_error": 0.0006688891339561526,
+      "analytic_norm": 0.9999999999999991
+    },
+    {
+      "rapidity": 0.5,
+      "p0": 3.0,
+      "width": 0.5,
+      "alpha": -1.0,
+      "analytic_wavepacket_error": 1.7521654000250118e-09,
+      "analytic_norm": 0.9999999999999998
+    },
+    {
+      "rapidity": 0.5,
+      "p0": 3.0,
+      "width": 0.5,
+      "alpha": 1.0,
+      "analytic_wavepacket_error": 1.9761913379077266e-09,
+      "analytic_norm": 0.9999999999999998
+    }
+  ],
+  "regions": [
+    {
+      "ell": 2.0,
+      "rapidity": 0.3,
+      "speed": 0.2913126124515909,
+      "regional_modes": 68,
+      "entropy_unboosted": 2.8956057123215544,
+      "entropy_boosted": 2.8956057123231997,
+      "entropy_difference": 1.645350522494482e-12,
+      "frame_gram_error": 7.54886545919759e-13,
+      "overlaps": [
+        {
+          "margin": 1.0,
+          "centre_distance": 5.699717615152006,
+          "flat_overlap_operator_norm": 0.215500755644543,
+          "dirac_overlap_operator_norm": 0.2508498542139765,
+          "flat_overlap_mean_square": 0.004227296700425338
+        },
+        {
+          "margin": 2.0,
+          "centre_distance": 6.699717615152006,
+          "flat_overlap_operator_norm": 0.14348747429061545,
+          "dirac_overlap_operator_norm": 0.1927943513172645,
+          "flat_overlap_mean_square": 0.0021303299423634284
+        },
+        {
+          "margin": 4.0,
+          "centre_distance": 8.699717615152007,
+          "flat_overlap_operator_norm": 0.11160954470807881,
+          "dirac_overlap_operator_norm": 0.13759789129476618,
+          "flat_overlap_mean_square": 0.0012078500408193226
+        }
+      ]
+    },
+    {
+      "ell": 2.0,
+      "rapidity": 0.6,
+      "speed": 0.5370495669980352,
+      "regional_modes": 68,
+      "entropy_unboosted": 2.8956057123215544,
+      "entropy_boosted": 2.8956057123227676,
+      "entropy_difference": 1.213251721310371e-12,
+      "frame_gram_error": 7.069000701601353e-13,
+      "overlaps": [
+        {
+          "margin": 1.0,
+          "centre_distance": 6.644237600781018,
+          "flat_overlap_operator_norm": 0.2163080055260187,
+          "dirac_overlap_operator_norm": 0.2731999062032254,
+          "flat_overlap_mean_square": 0.004456088852640334
+        },
+        {
+          "margin": 2.0,
+          "centre_distance": 7.644237600781018,
+          "flat_overlap_operator_norm": 0.172749292761676,
+          "dirac_overlap_operator_norm": 0.2167269954931256,
+          "flat_overlap_mean_square": 0.002598137291977697
+        },
+        {
+          "margin": 4.0,
+          "centre_distance": 9.644237600781018,
+          "flat_overlap_operator_norm": 0.173717197600211,
+          "dirac_overlap_operator_norm": 0.16398562472969738,
+          "flat_overlap_mean_square": 0.0017737045322861217
+        }
+      ]
+    },
+    {
+      "ell": 4.0,
+      "rapidity": 0.3,
+      "speed": 0.2913126124515909,
+      "regional_modes": 132,
+      "entropy_unboosted": 3.382234125245982,
+      "entropy_boosted": 3.382234125259076,
+      "entropy_difference": 1.3093970352429096e-11,
+      "frame_gram_error": 1.0065812541782761e-12,
+      "overlaps": [
+        {
+          "margin": 1.0,
+          "centre_distance": 10.399435230304013,
+          "flat_overlap_operator_norm": 0.2349656551554224,
+          "dirac_overlap_operator_norm": 0.2974924148425957,
+          "flat_overlap_mean_square": 0.002926975692653545
+        },
+        {
+          "margin": 2.0,
+          "centre_distance": 11.399435230304013,
+          "flat_overlap_operator_norm": 0.18681005756516916,
+          "dirac_overlap_operator_norm": 0.2418119293801092,
+          "flat_overlap_mean_square": 0.0018979609367059244
+        },
+        {
+          "margin": 4.0,
+          "centre_distance": 13.399435230304013,
+          "flat_overlap_operator_norm": 0.18183127353049305,
+          "dirac_overlap_operator_norm": 0.18484085374242157,
+          "flat_overlap_mean_square": 0.0013514400722210377
+        }
+      ]
+    },
+    {
+      "ell": 4.0,
+      "rapidity": 0.6,
+      "speed": 0.5370495669980352,
+      "regional_modes": 132,
+      "entropy_unboosted": 3.382234125245982,
+      "entropy_boosted": 3.3822341252583326,
+      "entropy_difference": 1.2350565015140091e-11,
+      "frame_gram_error": 9.38003740819466e-13,
+      "overlaps": [
+        {
+          "margin": 1.0,
+          "centre_distance": 12.288475201562036,
+          "flat_overlap_operator_norm": 0.32349313603203866,
+          "dirac_overlap_operator_norm": 0.317995368214156,
+          "flat_overlap_mean_square": 0.003979261008681794
+        },
+        {
+          "margin": 2.0,
+          "centre_distance": 13.288475201562036,
+          "flat_overlap_operator_norm": 0.39389196930531195,
+          "dirac_overlap_operator_norm": 0.3631394215245049,
+          "flat_overlap_mean_square": 0.003941248337131541
+        },
+        {
+          "margin": 4.0,
+          "centre_distance": 15.288475201562036,
+          "flat_overlap_operator_norm": 0.8447144948501107,
+          "dirac_overlap_operator_norm": 0.9067268757588854,
+          "flat_overlap_mean_square": 0.02245269255983143
+        }
+      ]
+    },
+    {
+      "ell": 8.0,
+      "rapidity": 0.3,
+      "speed": 0.2913126124515909,
+      "regional_modes": 260,
+      "entropy_unboosted": 3.7874064116314345,
+      "entropy_boosted": 3.7874064116681034,
+      "entropy_difference": 3.666889014652952e-11,
+      "frame_gram_error": 1.3823444879533823e-12,
+      "overlaps": [
+        {
+          "margin": 1.0,
+          "centre_distance": 19.798870460608025,
+          "flat_overlap_operator_norm": 0.9979245515454072,
+          "dirac_overlap_operator_norm": 0.9998866416134348,
+          "flat_overlap_mean_square": 0.03687785743542948
+        },
+        {
+          "margin": 2.0,
+          "centre_distance": 20.798870460608025,
+          "flat_overlap_operator_norm": 0.999027744627347,
+          "dirac_overlap_operator_norm": 0.9999274098553157,
+          "flat_overlap_mean_square": 0.04378233997028581
+        },
+        {
+          "margin": 4.0,
+          "centre_distance": 22.798870460608025,
+          "excluded": "Geometric interval reaches the finite box boundary; no locality value claimed."
+        },
+        {
+          "margin": 8.0,
+          "centre_distance": 26.798870460608025,
+          "excluded": "Geometric interval reaches the finite box boundary; no locality value claimed."
+        }
+      ]
+    },
+    {
+      "ell": 8.0,
+      "rapidity": 0.6,
+      "speed": 0.5370495669980352,
+      "regional_modes": 260,
+      "entropy_unboosted": 3.7874064116314345,
+      "entropy_boosted": 3.787406411667429,
+      "entropy_difference": 3.5994318636767275e-11,
+      "frame_gram_error": 1.2616446480275256e-12,
+      "overlaps": [
+        {
+          "margin": 1.0,
+          "centre_distance": 23.576950403124073,
+          "excluded": "Geometric interval reaches the finite box boundary; no locality value claimed."
+        },
+        {
+          "margin": 2.0,
+          "centre_distance": 24.576950403124073,
+          "excluded": "Geometric interval reaches the finite box boundary; no locality value claimed."
+        },
+        {
+          "margin": 4.0,
+          "centre_distance": 26.576950403124073,
+          "excluded": "Geometric interval reaches the finite box boundary; no locality value claimed."
+        },
+        {
+          "margin": 8.0,
+          "centre_distance": 30.576950403124073,
+          "excluded": "Geometric interval reaches the finite box boundary; no locality value claimed."
+        }
+      ]
+    }
+  ],
+  "cpu_seconds": 1.2942209999999998,
+  "full_3d_geometric_locality": false,
+  "stationarity_or_physical_G": false
+}

@@ -1,0 +1,32 @@
+{
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "runs": [
+    {
+      "checks": 26,
+      "exit_code": 0,
+      "native_calls": 37462,
+      "script": "audit.py",
+      "seconds": 15.174394540998037
+    },
+    {
+      "exit_code": 0,
+      "pair_columns": 8290304,
+      "script": "independent_check.py",
+      "seconds": 2.0652556250133784
+    },
+    {
+      "escape": "1/506",
+      "exit_code": 0,
+      "fidelity": "11867/12144",
+      "imports_producer": false,
+      "lower_Rayleigh": "2/37",
+      "script": "check_scalar.py",
+      "seconds": 0.232401375
+    }
+  ],
+  "same_group": true
+}

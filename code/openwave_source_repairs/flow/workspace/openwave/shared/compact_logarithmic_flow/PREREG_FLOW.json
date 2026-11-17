@@ -1,0 +1,22 @@
+{
+  "candidate": "A-signed-compact-log-flow-v1",
+  "created_utc": "2026-11-15T16:20:40.518293+00:00",
+  "files": {
+    "openwave/shared/compact_logarithmic_flow/DEVELOPMENT.json": "50fc5d108de06eb54dc7efa71ae7e4e90c2335f6ea03d70834aa85d0ba1eb2f0",
+    "openwave/shared/compact_logarithmic_flow/DEVELOPMENT_PILOT.json": "e401e9fd43537476ea5e9d7cc44d5115e7ccff4b8ce78aa01954929b65e4c92b",
+    "openwave/shared/compact_logarithmic_flow/PROOF.md": "d8b2136df19ca4de0fe9a9403f694c96c15e315f7b9b7f0ff6fa0bf1a93b2bd5",
+    "openwave/shared/compact_logarithmic_flow/SOURCE_PINS.json": "17dc7223e4b138a20268b01bad2fe5ae2f6a32f4e3554387a32569fb7a9f7a71",
+    "openwave/shared/compact_logarithmic_flow/SOURCE_PINS_FLOW.json": "6e1d44985652d9ba54216a2b500452c6ccde689b33d564ab0787414beb0d5bba",
+    "openwave/shared/compact_logarithmic_flow/STAGE2_DESIGN.md": "8f566b022fb2c2b60162d023f7c9ae24710d2d52c65725cd15575d668e9a9dca",
+    "openwave/shared/compact_logarithmic_flow/STAGE2_TASK.md": "66b8f846a83479306f3aac65945b51a71b3ac34b2c38be833d52d3d819327ccb",
+    "openwave/shared/compact_logarithmic_flow/certify.py": "dbb35467ce3319a6d62d55ed7bce19bd1492d355b68c85a75a8b7dd97cabbdb6",
+    "openwave/shared/compact_logarithmic_flow/headline.py": "54d53ace4581a35e3c62494e2ddf559831f813e3bef195b921e98cc27052aca6",
+    "openwave/shared/compact_logarithmic_flow/native_words.py": "89b54a6517e6ba2dabcce3c17cafe2e8852d27531fc1cb6b01d635c47e01ec16",
+    "openwave/shared/compact_logarithmic_flow/proposal.json": "b52f5af5d48b3733c70757fdc03c0585a5ae67301b08a88d2f522e600f7ce99f",
+    "openwave/shared/compact_logarithmic_flow/reference.py": "be32b415b07e318896856d7f98204b39225228854e4004c40d3e5c7c4871d3d7",
+    "openwave/shared/compact_logarithmic_flow/run_flow.py": "5344e3f6b4f112dac173014e8cb8d7bac316e58b8f5c52d5e17c5fbb3e956e45",
+    "openwave/shared/compact_logarithmic_flow/source_columns.npz": "f69b15e8fe1abfb6ebd957cc8c3b1f065c3c952c2381b8d26924fced23ede6bf"
+  },
+  "prior_knowledge": "stage1 and eigenray theorem known; exact certificate, one native preparer and CCX benchmark recorded as development",
+  "stage": "stage2 complete source-word implementation and controls; local freeze, not platform registration"
+}

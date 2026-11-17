@@ -1,0 +1,15 @@
+{
+  "authority_directory": "../openwave/candidates/current",
+  "authority_sha256": {
+    "DESIGN.md": "303c3720a46593904ad42e3bec4fd76822590dbb8b8f9f8e63f00ff0a5e5fc2a",
+    "SPEC.md": "904e8a3bf588c53ee77f0d273e66f6b7a2609fbf6b55c7c69f6b62c637cfd45e"
+  },
+  "candidate": "A-ccf2-local-capacity-v2",
+  "design_equivalence": "Concise rationale preserves design choices, calibration ancestry, evidence scopes and physical obligations.",
+  "display_name": "CCF-LT-2",
+  "local_sha256": {
+    "model/DESIGN.md": "353e4ccb145df5f6689ca5c91df638e4cd1956141fb0033191587fadb5216862",
+    "model/SPEC.md": "0e6e91a9b14e54229a1646b8dd18b23b3e1c780cdc5b03a91592d19badae506c"
+  },
+  "specification_equivalence": "Sections 1\u20138 preserve mathematical and operational definitions. Explicit replacements adapt local snapshot loading, evidence links and state-only wording. Math delimiters and empty lines are normalized by tools/check_ccf_lt2_authority.py; the implementation map identifies the self-contained RER package."
+}

@@ -1,0 +1,18 @@
+{
+  "row": "07",
+  "passed": true,
+  "same_group": true,
+  "script": "row_07_double_cover/work/2026-11-15_codex_pr723_compact_review/compact_review.py",
+  "command": "python3 -I -S -B row_07_double_cover/work/2026-11-15_codex_pr723_compact_review/compact_review.py",
+  "script_sha256": "023ff958fd1eccc881a5e4bd0ffa509f26f95dbed40ddcfd0d7474231c89d923",
+  "manifest_sha256": "facb53706fbe0e7b897233c0099647e0d154f81ea7345742a231ab11924e303c",
+  "lines": 131,
+  "stdlib_imports": [
+    "fractions",
+    "json",
+    "math"
+  ],
+  "seconds": 0.19902241601084825,
+  "saved_output_matches": true,
+  "scope": "Full source inspected by integrator; standalone arithmetic recomputation, not full records or external acceptance."
+}

@@ -1,0 +1,27 @@
+{
+  "binding_sha256": "fd19d65b05ef0cfdb42670fa53e27ff82c2ab9545433c771719ec3d5508e0814",
+  "tests": [
+    {
+      "name": "negative path probability",
+      "returncode": 1,
+      "rejected": true,
+      "seconds": 0.2563830409926595,
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/audit_saved.py\", line 77, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/audit_saved.py\", line 56, in main\n    with opener(args.case,'rt')as stream:case(json.load(stream))\n                                         ~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/audit_saved.py\", line 38, in case\n    probabilities(returned['path_probabilities_plus_minus'],'physical path')\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/audit_saved.py\", line 22, in probabilities\n    require(all(type(v)is float and math.isfinite(v)and v>=0 for v in values),name+' negative or invalid probability')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/audit_saved.py\", line 17, in require\n    if not value:raise RuntimeError(message)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: physical path negative or invalid probability\n"
+    },
+    {
+      "name": "wrong fixed parity",
+      "returncode": 1,
+      "rejected": true,
+      "seconds": 0.20338804100174457,
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/audit_saved.py\", line 77, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/audit_saved.py\", line 56, in main\n    with opener(args.case,'rt')as stream:case(json.load(stream))\n                                         ~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/audit_saved.py\", line 41, in case\n    require(record['selected_path']==('minus'if record['turns']%2 else'plus'),'Law-dependent continuation setting')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/audit_saved.py\", line 17, in require\n    if not value:raise RuntimeError(message)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Law-dependent continuation setting\n"
+    },
+    {
+      "name": "tiny positive control probability set to zero",
+      "returncode": 1,
+      "rejected": true,
+      "seconds": 0.30425812500470784,
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/audit_saved.py\", line 77, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/audit_saved.py\", line 56, in main\n    with opener(args.case,'rt')as stream:case(json.load(stream))\n                                         ~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/audit_saved.py\", line 42, in case\n    confirm.exact_path_semantics(record)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/confirm.py\", line 61, in exact_path_semantics\n    require((observed>0)==(exact>0),'A positive exact branch was lost or a zero branch invented')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_07_double_cover/work/2026-11-16_codex_stationary_readout_repair_v2/amplified_native.py\", line 20, in require\n    raise RuntimeError(message)\nRuntimeError: A positive exact branch was lost or a zero branch invented\n"
+    }
+  ],
+  "all_rejected": true
+}

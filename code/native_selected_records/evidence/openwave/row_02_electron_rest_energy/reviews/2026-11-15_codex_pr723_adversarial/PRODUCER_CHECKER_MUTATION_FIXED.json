@@ -1,0 +1,12 @@
+{
+  "first_before": {
+    "exit_code": 1,
+    "rejected": true,
+    "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/row02-reader-fixed-sshnxmhl/trajectory_check.py\", line 94, in <module>\n    assert before==[int(pa[previous_a]==ta),int(pb[previous_b]==tb)]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "first_selector": {
+    "exit_code": 1,
+    "rejected": true,
+    "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/row02-reader-fixed-2xbh6jxn/trajectory_check.py\", line 100, in <module>\n    assert delta==((2,0) if c==0 else (0,2))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  }
+}

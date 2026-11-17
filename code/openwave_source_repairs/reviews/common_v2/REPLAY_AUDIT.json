@@ -1,0 +1,121 @@
+{
+  "all_passed": true,
+  "read_only_bytes_unchanged": true,
+  "false_named_gate_cases": 15,
+  "python": "3.13.7 (main, Sep 20 2025, 15:59:55) [Clang 17.0.0 (clang-1700.0.13.5)]",
+  "platform": "macOS-15.3-arm64-arm-64bit-Mach-O",
+  "rows": [
+    {
+      "test": "clean_read_only",
+      "exit": 0,
+      "seconds": 2.052390791999642,
+      "stdout": "{\"active_control_lower\": \"35196052839803/1000000000000000\", \"actual_handoffs\": 24, \"all_complete_error_compositions_checked\": true, \"calibration_events_reconstructed\": 235225, \"clock_rate\": 154395440640, \"exact_joint_density_entries\": 20736, \"extraction_inconclusive_upper\": \"8501/288230376151711744\", \"floating_decoder_compared_not_new_interval_certificate\": true, \"full_joint_bins_per_assay\": 65536, \"independent_density_error\": 1.0149078136311898e-15, \"independent_full_instrument_error\": 9.645062526431047e-16, \"independent_native_pointer_error\": 1.2212453270876722e-15, \"joint_spatial_TV_upper\": \"24118365127/25000000000000\", \"literal_new_native_calls\": 0, \"main_source_events_reconstructed\": 5562, \"other_group_G6\": false, \"pair_keV_certified\": [1021.9071714058297, 1022.0928281835631], \"physical_sign_reversals\": 12, \"producer_imports\": false, \"producer_prereg_sha256\": \"670884461bcc4456aa44425258e96a686accad81e37b8fd6c9c66d4c25ad9a04\", \"producer_receipt_sha256\": \"ab33c17ff058045f760f4caa8f39d93750e54e99e9f76f8dc047d4dc58639147\", \"record_only_censuses\": 100, \"seconds\": 1.9296629590098746, \"separate_positive_only_calibrations\": 36}\n",
+      "stderr": ""
+    },
+    {
+      "test": "false_named_gate",
+      "gate": "all24_actual_unknown_total_sources_join",
+      "exit": 1,
+      "seconds": 0.12575362500501797,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 227, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 122, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "gate": "complete_unfiltered_full_joint_reader",
+      "exit": 1,
+      "seconds": 0.13565904200368095,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 227, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 122, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "gate": "finite_joint_return_bound",
+      "exit": 1,
+      "seconds": 0.13225824999972247,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 227, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 122, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "gate": "no_new_literal_native_execution_claimed",
+      "exit": 1,
+      "seconds": 0.1297259999992093,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 227, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 122, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "gate": "same_chart_active_dephasing_separates",
+      "exit": 1,
+      "seconds": 0.14405149999947753,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 227, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 122, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "gate": "same_clock_realized_for_both_source_objects",
+      "exit": 1,
+      "seconds": 0.1495052500104066,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 227, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 122, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "gate": "same_full_preparation_and_broad_loader",
+      "exit": 1,
+      "seconds": 0.1627832920057699,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 227, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 122, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "gate": "same_native_energy_pointer_records",
+      "exit": 1,
+      "seconds": 0.13539241699618287,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 227, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 122, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "gate": "same_whole_selected_body_for_both_assays",
+      "exit": 1,
+      "seconds": 0.13612350000767037,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 227, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 122, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "gate": "separate_actual_one_unit_calibration_joins_same_positive_preparation",
+      "exit": 1,
+      "seconds": 0.1315811670065159,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 227, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 122, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "gate": "single_anchor_pair_prediction_excludes_prior_excess",
+      "exit": 1,
+      "seconds": 0.13717904200893827,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 227, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 122, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "gate": "single_global_physical_halfturn_and_current_frame",
+      "exit": 1,
+      "seconds": 0.12324920800165273,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 227, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 122, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "gate": "source_law_control_separates_after_complete_error",
+      "exit": 1,
+      "seconds": 0.15314220899017528,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 227, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 122, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "gate": "two_independent_record_decoders_resolve_windings",
+      "exit": 1,
+      "seconds": 0.116758292002487,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 227, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 122, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "false_named_gate",
+      "gate": "zero_and_all_controls_retained",
+      "exit": 1,
+      "seconds": 0.13171162499929778,
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 227, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/openwave-common-review-wz72q1pr/review/check.py\", line 122, in main\n    assert r['all_gates_pass'] and all(r['gates'].values())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    }
+  ]
+}

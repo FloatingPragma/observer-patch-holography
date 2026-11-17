@@ -1,0 +1,155 @@
+{
+  "status": "CONSTRUCTIVE_CURVED_SOURCE_RESPONSE_BULK_PREMISE_PARTIAL",
+  "rows": [
+    {
+      "L": 24,
+      "radius": 3,
+      "cells": 123,
+      "curved_entropy_response": 2.1053083013525296,
+      "proper_volume_first_derivative": -1.3279377597541497e-12,
+      "smooth_ratio": 1.0426984146570908,
+      "discrete_volume_ratio": 1.0587119232944928,
+      "bulk_ratio": 0.7687766848743062,
+      "unresolved_eigenvalues": 0,
+      "uniform_full_H_scaling_control": 4.4887883845981606e-17,
+      "file": "RESULT_L24_r3_R1.json",
+      "refined_planar_eta": 0.0678259521212135,
+      "smooth_ratio_refined_eta": 1.042237304779229,
+      "discrete_volume_ratio_refined_eta": 1.0582437318032827
+    },
+    {
+      "L": 24,
+      "radius": 4,
+      "cells": 257,
+      "curved_entropy_response": 5.429547799123412,
+      "proper_volume_first_derivative": 2.488675931999751e-12,
+      "smooth_ratio": 1.037336032074784,
+      "discrete_volume_ratio": 1.031501788434754,
+      "bulk_ratio": 0.8774664947962194,
+      "unresolved_eigenvalues": 28,
+      "uniform_full_H_scaling_control": 6.119081012739839e-17,
+      "file": "RESULT_L24_r4_R1.json",
+      "refined_planar_eta": 0.0678259521212135,
+      "smooth_ratio_refined_eta": 1.0368772935897843,
+      "discrete_volume_ratio_refined_eta": 1.031045630012536
+    },
+    {
+      "L": 40,
+      "radius": 4,
+      "cells": 257,
+      "curved_entropy_response": 2.0813661627110633,
+      "proper_volume_first_derivative": -5.475619957451272e-12,
+      "smooth_ratio": 1.0514427622055846,
+      "discrete_volume_ratio": 1.0448217952339407,
+      "bulk_ratio": 0.8911652281541813,
+      "unresolved_eigenvalues": 28,
+      "uniform_full_H_scaling_control": 9.360969517150885e-17,
+      "file": "RESULT_L40_r4_R1.json",
+      "refined_planar_eta": 0.0678259521212135,
+      "smooth_ratio_refined_eta": 1.0509777853370637,
+      "discrete_volume_ratio_refined_eta": 1.044359746338867
+    },
+    {
+      "L": 24,
+      "radius": 4,
+      "cells": 257,
+      "curved_entropy_response": 5.429547799123412,
+      "proper_volume_first_derivative": 2.488675931999751e-12,
+      "smooth_ratio": 1.037336032074784,
+      "discrete_volume_ratio": 1.031501788434754,
+      "bulk_ratio": 0.8774664947962194,
+      "unresolved_eigenvalues": 28,
+      "uniform_full_H_scaling_control": 6.119081012739839e-17,
+      "file": "RESULT_L24_r4_R1_radial.json",
+      "refined_planar_eta": 0.0678259521212135,
+      "smooth_ratio_refined_eta": 1.0368772935897843,
+      "discrete_volume_ratio_refined_eta": 1.031045630012536,
+      "exact_radial": {
+        "introduced_after_cosine_diagnostics": true,
+        "profile": "periodic signed-coordinate r^2 minus regional mean r^2",
+        "axis_symmetry_defect": 3.164524640274873e-13,
+        "regional_mean_r2": 9.29182879377432,
+        "proper_volume_first_derivative": -6.394884621840902e-13,
+        "entropy_response": 174.99944327120198,
+        "smooth_fixed_volume_area_prediction": 164.92873802919667,
+        "discrete_volume_area_prediction": 166.03500818064632,
+        "smooth_ratio": 1.0610609488821927,
+        "discrete_volume_ratio": 1.053991234672644
+      }
+    }
+  ],
+  "dense_control": {
+    "hamiltonian_tangent_absolute_error": 5.865249249836779e-06,
+    "bloch_derivative": 2.549025554344604,
+    "full_matrix_entropy_derivatives": [
+      {
+        "epsilon": 0.0001,
+        "derivative": 2.5490254304511017
+      },
+      {
+        "epsilon": 1e-05,
+        "derivative": 2.5490255512128357
+      }
+    ],
+    "absolute_difference": 3.1317681781217743e-09,
+    "pass": true
+  },
+  "physics_completed": false,
+  "source_native_derivation": false,
+  "generalized_entropy_stationarity": false,
+  "same_source_findings": [
+    "Nonzero correct-sign fixed-volume curvature entropy response on fixed graph",
+    "Independent planar normalization predicts curvature coefficient within about 3 to 6 percent on executed balls",
+    "Same-ball modular coefficient 77 to 89 percent of continuum target",
+    "Exact radial profile confirms cosine result, not a uniform-area-only test"
+  ],
+  "remaining": [
+    "Discrete/smooth region and finite-regulator error bounds",
+    "3D bulk and area refinement with error o(ell^4) or explicit mesoscopic residual",
+    "All ten observer directions and common stress/clock",
+    "Native selection of new source and reference",
+    "Source-derived generalized entropy stationarity",
+    "Physical eta/G normalization and vacuum Lambda"
+  ],
+  "modular_floor_control": {
+    "records": [
+      {
+        "floor": 1e-11,
+        "entropy_response": 5.429547799182218,
+        "bulk_coefficient": 1117.6908633369462
+      },
+      {
+        "floor": 1e-12,
+        "entropy_response": 5.429547799134258,
+        "bulk_coefficient": 1117.6908639945839
+      },
+      {
+        "floor": 1e-13,
+        "entropy_response": 5.429547799123655,
+        "bulk_coefficient": 1117.6908640366087
+      },
+      {
+        "floor": 1e-14,
+        "entropy_response": 5.429547799122501,
+        "bulk_coefficient": 1117.6908640697452
+      },
+      {
+        "floor": 1e-15,
+        "entropy_response": 5.429547799122476,
+        "bulk_coefficient": 1117.6908640738288
+      }
+    ],
+    "minimum_restricted_eigenvalue": -5.309028334902619e-18,
+    "maximum_restricted_eigenvalue": 0.9999999999999999,
+    "independent_response_difference": 2.424727085781342e-13,
+    "independent_bulk_difference": 1.1368683772161603e-12,
+    "checks": {
+      "independent_realspace_response_agrees": true,
+      "independent_bulk_agrees": true,
+      "response_floor_spread_below_point_one_percent": true,
+      "bulk_floor_spread_below_point_one_percent": true
+    },
+    "pass": true
+  },
+  "source_brief_sha256": "99c5e64b9a4abef17d4a1309792c2773e80ce94a0a3d1400b725dfc1c58250f9"
+}

@@ -1,0 +1,41 @@
+{
+  "candidate": "A-old240-aligned-pair-spatial-readout-v1",
+  "external_transfer": false,
+  "files": {
+    "DESIGN.md": "32381595acc70800b81bd2aa4f030c5464f2c72ca82181c1166f54a0ecfbabca",
+    "ORIGINS.json": "63f275fc299aae04cf04e03d0a3f86fade9acf3225015d6c55575e211f91660b",
+    "PROOF.md": "1c1ff425fb3f9f29b9a316d50d035cd674bb0b2f066b9961d266c1d8f90c4c11",
+    "guardrails/AGENTS.md": "f2ded8e3cd2620269b766eaf70a0acfe0bebb4f866e7cb1eb1a8e7a5a3ab78fd",
+    "guardrails/CAUTIONS.md": "df9732800b3a12e8228a65218ff8e1c4ec40418852db31cb37d7e7447bcfd781",
+    "guardrails/SUBMISSION_CHECKLIST.md": "1f0180a97b8b2e5762b85ce2920e37944d94f51862a0eb81193011a69bf276b0",
+    "headline.py": "4eaa4f0e3b7460ffc1beba310ff62fc6569e5d9b7d2e36d6383f6f39d72da59b",
+    "inputs/FIELD_A_RESULT.json": "671e7f6d121a09b6240c376f706c03919f7d9395a887623980a9c95ddbcefb9b",
+    "inputs/SHARP_FLOW_CERTIFICATE.json": "d8cff040fc562c3089f0aef5497e3e5e15ff42f42f1bc2ed25d88c3bbcff0ac5",
+    "inputs/common_CONTROLS.md": "49968de9f7f50f034cb624674171f74fc0d4784fd7e0bd17bc40bbe0ac83348b",
+    "inputs/common_MANIFEST.sha256": "7f82c85d715dfbdd5334ecbf5fa406a7753bb533eb6506b7ebf7c6283d81c7e5",
+    "inputs/common_MAPS.npz": "566c6ba1aae3c998da1426ff28ab2d49406dc5e3382f862a6e4828ac96f05fe4",
+    "inputs/common_PROOF.md": "a7adf48f2ee1f4103223766114923c34af074ca05cec4111e43b429f667c7463",
+    "inputs/common_PROTOCOL.md": "f702bd8268d9fdcff105ee1a67d90ba20857a2467f0e3f0c649ff9ebb2101ceb",
+    "inputs/common_RECEIPT.json": "38fe9334d5a4c5aebf1b42e2c3406b4325d889fc36d20f20a6a0efd8dab9d1ec",
+    "inputs/first_RECEIPT.json": "a3f2d2e19f8db896c66e23e380fd13004b369d28fd365c37012fd2f820648743",
+    "inputs/first_maps.npz": "258c43dada2386e6760082281b55e78da65a17c22900a3f2ca5adbfbd0fe7bc4",
+    "inputs/graph.json": "2e8be4c030e8e04ab903adb5a8a786f11654ecca0380ee54d17509a707f49085",
+    "inputs/pointer_witness.npz": "e10be118d917014fa18e4d99a96adb12d669d38b4164576cbfdc5807e5c44f5f",
+    "inputs/route_HANDOFFS.json": "e78e6dfdd395fbde140e98590c461438198d1394e4ec09510838d5a9f5412c9d",
+    "inputs/route_RECEIPT.json": "049995b1e5c25a3c2c479241c0e4486c49b1bd1f3fefe5f861df75135f06cb32",
+    "inputs/route_RECORDS.json.gz": "d8e92d01b23b0d78b127bd4bfc0de0d4a3ed68153b57ae0e189cd228df909705",
+    "inputs/second_RECEIPT.json": "c2948770b887e4fc2ac1f5ffb463c4ff8da900ad87c06161d4ef5c02bd39c938",
+    "inputs/second_maps.npz": "7a57b4f0220623d59b8a3fa9db3321119370eff868751c1c1995f74784077ea3",
+    "run_pair.py": "03f1f1f19531d6d61a9bbdefe86dce4d05612290989f0864fe7a5c054c3b09bb"
+  },
+  "frozen_utc": "2026-11-15T18:18:11.517881+00:00",
+  "gates": {
+    "active_control_lower_greater_than": "3/100",
+    "all_outcomes": 65536,
+    "joint_halfturn_upper_less_than": "11/10000",
+    "polar_detector_TV_greater_than": "99/100",
+    "unequal_detector_TV_greater_than": "49/100"
+  },
+  "known_before_run": "Native positive-marginal result, invariant sector axes, analytical unaligned whole-pair TV1/3. New chart target-informed; this run tests new full joint interface/complete accounting, not blind discovery.",
+  "same_group_only": true
+}

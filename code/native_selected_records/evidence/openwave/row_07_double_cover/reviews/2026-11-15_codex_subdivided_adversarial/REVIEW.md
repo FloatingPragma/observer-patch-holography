@@ -1,0 +1,35 @@
+# Scientific review of the subdivided native rotation instrument
+
+Verdict: the sealed packet supports its stated finite planar observer-frame holonomy claim. This is a same-group Codex review, not external G6, an official cell decision or an empirical spin identification.
+
+## Exact subject and independence
+
+The subject is `work/2026-11-15_codex_subdivided_rotation`, manifest SHA256 `47e7b8f355f156aa7f2790c71c21d0e9c117be6834428f68383669ede778ff38` (47 checked leaves), including the 55-word `CELL.md`, SHA256 `9cd34cb1a66a9b764b10d2076fe77f3fe5a577751e464e73bdbd9318e61dfd59`. The primary source, preparation, marker, error, commitment, selector and stationary-reference programs were read in full. The two scripts here import no producer code. They reconstruct endpoint columns, instruments, states, probabilities and frame geometry independently using NumPy, standard Python and exact rational arithmetic where stated. Floating comparisons are not represented as symbolic proofs. These are verification of existing results, not prospectively discovered experiments.
+
+`AUDIT.json` verifies all 16 main cases, 153,792 outcome flags, 4,752 marker histories and 864 actual frame steps. `FIXED_AUDIT.json` verifies all four stationary-reference cases, 60,480 flags, 792 histories and 144 steps. `ERROR_COHERENCE_AUDIT.json` verifies 158,688 error-audit flags, 2,100 outer-reference blocks, 540 committed-record stages and 960 native selector words. `CUSTODY_AND_MUTATIONS.json` verifies custody and rejects altered current, angle and flag-probability records. These counts are inspected records and matrix/rational calculations, not independently sampled native experiments.
+
+Run `python3 -B audit.py ../../work/2026-11-15_codex_subdivided_rotation`, with the optional second argument `FIXED_REFERENCE_RECEIPT.json` for the fixed reference; run `python3 -B error_and_coherence_audit.py` from this directory for the remaining audit. NumPy is required. The saved outputs are the review record. No sealed producer file was modified.
+
+## Scientific clauses
+
+A3 and B2 are supported for the declared graph, controller and coherent apparatus. The marker actually traverses 12 or 24 adjacent positions; currents decode each movement, and coordinates determine the local radial frame. Its largest angular increments are 40.894 and 23.414 degrees respectively. The one-turn and two-turn windings are resolved by these increments, rather than inferred from three aliased 120-degree samples. The target source follows a declared local incidence interpolation at the recorded marker position. Architecture and Cartesian embedding are supplied; the native law determines the transfer columns used by that controller.
+
+The all-input preparation has native effect eigenvalues 1/72, 1/48 and 7/144. Its accepted output factors as the contrast ray even with an untouched reference. It therefore removes arbitrary input contamination without installing that ray as the initial target state. Every subsequent eraser and contrast instrument is complete. Ticket, addressed seam, coin and target current remain coherent; the addressed-seam workspace is reversibly uncomputed using the retained path, marker and ticket. Only the declared marker and warmup records are committed. The outer-arm interference requires this coherent memory. The exact same candidate with target records committed loses the strong signed fringe, which is a scientific coherence comparison rather than an integrity test.
+
+For A4 and C4, the supported interpretation is one-axis planar observer-frame holonomy. With a matched zero-winding retraced reference, native M=8 visibility is -0.9992123702 after one turn and +0.9968506062 after two. Under the same geometric controller and optical reader the always-swap law has positive unit visibility. In the optical plane its instantaneous map is traceless, and an even fourth power supplies the positive scalar control. Thus the native signed fringe is not forced by the marker's winding or by the final reader alone. No inserted half-angle matrix or phase pulse creates the result. This supports the narrower coherent route; it does not prove arbitrary-axis SO(3) action or an exchange theorem, and neither is imposed as a prerequisite for this limited claim.
+
+The matched reference is a moving, zero-winding retraced circuit, not a stationary branch. The separately complete stationary-reference experiment retains native signs at much smaller visibilities: -4.1347398576e-5 and +8.5475227855e-10. Its swap controls are positive. The stationary branch has no marker events and no varying coupling. Those exact values support the literal rotated/unrotated comparison without borrowing the high-visibility matched-reference gate.
+
+The phase-error evidence covers the explicit tested set {0,+0.01,-0.01} radians on the stated uniform-input audit. It does not prove a uniform interval robustness theorem. The retained +/-0.1 stress cases are separate. All rarity, failures and rejected flags remain: M=8 native matched success has log10 probabilities about -121.034 and -240.608. These are exact finite-instrument laws evaluated with rational/floating arithmetic, not an achieved rare-herald sampling campaign.
+
+## Findings and repairs
+
+1. The initial implementation represented the dyadic source selector by equal weights without executing its advertised native blank-bit words. The separately registered selector supplement resolves that gap: all 960 words reproduce the source catalog, and literal blank/target calls and expected endpoint costs are distinct. The three-way preparation and plane selectors remain explicitly declared coherent apparatus. No claim that a finite dyadic sampler exactly realizes three equiprobable labels is made.
+2. The high-visibility reference is retraced rather than stationary. The separate complete stationary-reference supplement resolves the evidential ambiguity. Both protocols and their different visibilities remain explicit.
+3. Target flags must be coherently erased, not copied and ignored. The source description accounts for the retained and uncomputed workspace, and the exact-v3 commitment diagnostic confirms the distinction. A classical mixture over addressed source labels is not an implementation of this coherent instrument.
+
+No unresolved technical blocker was found for the finite component claim. The official row status remains governed by the maintainer's decision and the full submission checklist. This review neither supplies external confirmation nor silently changes the upstream candidate pin.
+
+## Registry semantics
+
+`OPH-NATIVE-PLANAR-ROTATION-HOLONOMY` is justified as `conditional_implication` with `explicit_non_consumer` for the declared finite source and apparatus. Its proof consumes no endogenous apparatus theorem, empirical fermion identification or general field reconstruction. Those cannot be inferred by relabeling this finite result. Scientific review of a partial cell proposal remains distinct from admitting this precisely scoped mathematical claim.

@@ -1,0 +1,16 @@
+{
+  "label": "first_record_overwrite_rejected",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-pair-receipt-t7178ar0/pair/pair_source.py",
+    "--record-to",
+    "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-pair-receipt-t7178ar0/first"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-pair-receipt-t7178ar0/pair/pair_source.py\", line 95, in <module>\n    _require(not args.record_to.exists(), 'First-record directory already exists')\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-pair-receipt-t7178ar0/pair/pair_source.py\", line 6, in _require\n    raise AssertionError(message)\nAssertionError: First-record directory already exists\n",
+  "expected_success": false,
+  "passed": true,
+  "seconds": 0.17673887500131968
+}

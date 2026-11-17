@@ -1,30 +1,20 @@
-"""Tests for the canonical completion-issue printer."""
-
-import build_completion_program_current as program
-import print_completion_issue
-
-
-def packet():
-    return program.load_program()[0]
+"""Printing acceptance contracts does not publish or award their conclusions."""
+from tools import build_completion_program as program
+from tools import print_completion_issue as printer
 
 
-def test_dependency_checkbox_matches_predecessor_status():
-    contract = packet()
-    by_id = {stage["id"]: stage for stage in contract["stages"]}
-    for stage in contract["stages"]:
-        body = print_completion_issue.issue_body(stage, contract)
-        for dependency in stage["requires"]:
-            predecessor = by_id[dependency]
-            mark = "x" if predecessor["status"] == "ACCEPTED" else " "
-            line = (f"- [{mark}] {program.issue_link(predecessor['issue'])}: "
-                    f"{predecessor['title']}")
-            assert line in body
-            opposite = f"- [{' ' if mark == 'x' else 'x'}] {program.issue_link(predecessor['issue'])}:"
-            assert opposite not in body
+def test_printed_contract_has_exact_domain_and_acceptance():
+    p,_=program.load_program()
+    for stage in p['stages']:
+        body=printer.issue_body(stage,p,include_work_queue=False)
+        assert stage['domain'] in body
+        assert all(item in body for item in stage['acceptance'])
+        assert body==program.render_issue(stage,p)
 
 
-def test_printer_only_changes_dependency_checkboxes():
-    contract = packet()
-    for stage in contract["stages"]:
-        body = print_completion_issue.issue_body(stage, contract, include_work_queue=False)
-        assert body.replace("- [x] ", "- [ ] ") == program.render_issue(stage, contract)
+def test_scoped_tasks_are_attached_only_to_owner():
+    p,_=program.load_program()
+    stage=next(s for s in p['stages'] if s['id']=='geometric_gravity')
+    body=printer.issue_body(stage,p)
+    assert 'Same-source calculations' in body
+    assert 'OPH.EinsteinBranch.Quantitative.small_ball_tensor_bound' in body

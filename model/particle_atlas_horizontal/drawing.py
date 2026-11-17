@@ -201,7 +201,7 @@ def render(data):
     c.text(M+4200,520,'DASHED: a physical connection to derive',41,ORANGE,700)
     c.text(M+8700,520,'BLUE: a supplied field model or calibration',41,BLUE,700)
     c.text(M+14300,520,'RED: an excluded shortcut',41,RED,700)
-    c.para(M,620,W-2*M,'SIMULATION-GENERATED OBSERVABLES: the executable produces finite events and records. Observers compare their meanings and use field equations to describe the agreed events. The middle panels show candidate descriptions and their dependencies, not an objective continuum world forming.',47,INK)
+    c.para(M,620,W-2*M,'OFFICIAL MODEL: CCF-LT-2 produces finite source records. Its dependency panel states the same-source physical conditions. Other panels show independent declared constructions and comparison targets; their numerical results require an explicit source map before transfer.',47,INK)
     col=(W-2*M)/8
     for i,s in enumerate(stages):
         x=M+i*col

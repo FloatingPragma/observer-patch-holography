@@ -64,6 +64,31 @@ jobs:
         if: github.event_name == 'pull_request'
         run: python tools/check_docs_policy.py --changed "${{ github.event.pull_request.base.sha }}"
 
+  official-model:
+    name: CCF-LT-2 complete source and response
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: model/requirements.txt
+      - run: python -m pip install -r model/requirements.txt
+      - run: python tools/check_ccf_lt2_authority.py
+      - run: python -m pytest -q -W error tools/test_completion_test_scope.py
+      - run: python -m model
+      - run: python -m pytest -q -W error model/ccf_lt2
+      - run: python -m model.ccf_lt2.bridges.verify
+      - run: python tools/build_ccf_lt2_claims.py --check
+      - run: python tools/build_native_execution_claims.py --check
+      - run: python tools/build_completion_work_queue.py --check
+      - run: python tools/refresh_native_projection.py --check
   suite:
     name: Mandatory suite (shard ${{ matrix.shard }})
     runs-on: ubuntu-latest
@@ -254,7 +279,7 @@ jobs:
   ci-ok:
     name: CI result
     if: always()
-    needs: [gates, suite, lanes, paper-preview]
+    needs: [gates, official-model, suite, lanes, paper-preview]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

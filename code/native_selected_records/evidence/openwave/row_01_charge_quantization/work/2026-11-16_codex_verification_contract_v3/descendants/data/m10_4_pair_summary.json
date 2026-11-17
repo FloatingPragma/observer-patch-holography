@@ -1,0 +1,697 @@
+{
+  "rows": [
+    {
+      "case": {
+        "M": 4,
+        "turns": 1,
+        "direction": 1,
+        "law": "native"
+      },
+      "reader": {
+        "first_interval": [
+          1.774080540230626,
+          1.794835683272629
+        ],
+        "stride_phase_interval": [
+          1.7297077367097142,
+          1.7502847667295403
+        ],
+        "all_compatible_branches": [
+          {
+            "winding": 2,
+            "sign": 1,
+            "interval": [
+              1.787009793883611,
+              1.7895819226360892
+            ]
+          }
+        ],
+        "frequency_components": [
+          [
+            1.787009793883611,
+            1.7895819226360892
+          ]
+        ],
+        "unique_component": true,
+        "stride": 8,
+        "eta_external_certificate": 0.01,
+        "probability_error": 2e-05,
+        "finite_shot_confidence_claim": false
+      },
+      "energy_interval_keV": [
+        1020.9461584611096,
+        1022.4156551465212
+      ]
+    },
+    {
+      "case": {
+        "M": 4,
+        "turns": 1,
+        "direction": 1,
+        "law": "swap"
+      },
+      "reader": {
+        "first_interval": [
+          1.7745307698322232,
+          1.795287947367729
+        ],
+        "stride_phase_interval": [
+          1.7315941828951096,
+          1.7521778951182738
+        ],
+        "all_compatible_branches": [
+          {
+            "winding": 2,
+            "sign": 1,
+            "interval": [
+              1.7872455996567853,
+              1.7898185636846808
+            ]
+          }
+        ],
+        "frequency_components": [
+          [
+            1.7872455996567853,
+            1.7898185636846808
+          ]
+        ],
+        "unique_component": true,
+        "stride": 8,
+        "eta_external_certificate": 0.01,
+        "probability_error": 2e-05,
+        "finite_shot_confidence_claim": false
+      },
+      "energy_interval_keV": [
+        1021.0808779232465,
+        1022.5508518143407
+      ]
+    },
+    {
+      "case": {
+        "M": 4,
+        "turns": 1,
+        "direction": -1,
+        "law": "native"
+      },
+      "reader": {
+        "first_interval": [
+          1.7740805402297832,
+          1.7948356832717827
+        ],
+        "stride_phase_interval": [
+          1.7297077367061782,
+          1.7502847667259918
+        ],
+        "all_compatible_branches": [
+          {
+            "winding": 2,
+            "sign": 1,
+            "interval": [
+              1.7870097938831688,
+              1.7895819226356455
+            ]
+          }
+        ],
+        "frequency_components": [
+          [
+            1.7870097938831688,
+            1.7895819226356455
+          ]
+        ],
+        "unique_component": true,
+        "stride": 8,
+        "eta_external_certificate": 0.01,
+        "probability_error": 2e-05,
+        "finite_shot_confidence_claim": false
+      },
+      "energy_interval_keV": [
+        1020.9461584608571,
+        1022.4156551462678
+      ]
+    },
+    {
+      "case": {
+        "M": 4,
+        "turns": 1,
+        "direction": -1,
+        "law": "swap"
+      },
+      "reader": {
+        "first_interval": [
+          1.7745307698322232,
+          1.795287947367729
+        ],
+        "stride_phase_interval": [
+          1.7315941828951098,
+          1.752177895118274
+        ],
+        "all_compatible_branches": [
+          {
+            "winding": 2,
+            "sign": 1,
+            "interval": [
+              1.7872455996567853,
+              1.7898185636846808
+            ]
+          }
+        ],
+        "frequency_components": [
+          [
+            1.7872455996567853,
+            1.7898185636846808
+          ]
+        ],
+        "unique_component": true,
+        "stride": 8,
+        "eta_external_certificate": 0.01,
+        "probability_error": 2e-05,
+        "finite_shot_confidence_claim": false
+      },
+      "energy_interval_keV": [
+        1021.0808779232465,
+        1022.5508518143407
+      ]
+    },
+    {
+      "case": {
+        "M": 4,
+        "turns": 2,
+        "direction": 1,
+        "law": "native"
+      },
+      "reader": {
+        "first_interval": [
+          1.774080558104179,
+          1.7948357012268572
+        ],
+        "stride_phase_interval": [
+          1.7297078116956424,
+          1.7502848419795354
+        ],
+        "all_compatible_branches": [
+          {
+            "winding": 2,
+            "sign": 1,
+            "interval": [
+              1.7870098032568518,
+              1.7895819320423385
+            ]
+          }
+        ],
+        "frequency_components": [
+          [
+            1.7870098032568518,
+            1.7895819320423385
+          ]
+        ],
+        "unique_component": true,
+        "stride": 8,
+        "eta_external_certificate": 0.01,
+        "probability_error": 2e-05,
+        "finite_shot_confidence_claim": false
+      },
+      "energy_interval_keV": [
+        1020.9461638161862,
+        1022.4156605204561
+      ]
+    },
+    {
+      "case": {
+        "M": 4,
+        "turns": 2,
+        "direction": 1,
+        "law": "swap"
+      },
+      "reader": {
+        "first_interval": [
+          1.7745307698322228,
+          1.7952879473677288
+        ],
+        "stride_phase_interval": [
+          1.7315941828951091,
+          1.7521778951182734
+        ],
+        "all_compatible_branches": [
+          {
+            "winding": 2,
+            "sign": 1,
+            "interval": [
+              1.787245599656785,
+              1.7898185636846806
+            ]
+          }
+        ],
+        "frequency_components": [
+          [
+            1.787245599656785,
+            1.7898185636846806
+          ]
+        ],
+        "unique_component": true,
+        "stride": 8,
+        "eta_external_certificate": 0.01,
+        "probability_error": 2e-05,
+        "finite_shot_confidence_claim": false
+      },
+      "energy_interval_keV": [
+        1021.0808779232464,
+        1022.5508518143406
+      ]
+    },
+    {
+      "case": {
+        "M": 4,
+        "turns": 2,
+        "direction": -1,
+        "law": "native"
+      },
+      "reader": {
+        "first_interval": [
+          1.7740805581020918,
+          1.7948357012247604
+        ],
+        "stride_phase_interval": [
+          1.729707811686885,
+          1.7502848419707473
+        ],
+        "all_compatible_branches": [
+          {
+            "winding": 2,
+            "sign": 1,
+            "interval": [
+              1.787009803255757,
+              1.78958193204124
+            ]
+          }
+        ],
+        "frequency_components": [
+          [
+            1.787009803255757,
+            1.78958193204124
+          ]
+        ],
+        "unique_component": true,
+        "stride": 8,
+        "eta_external_certificate": 0.01,
+        "probability_error": 2e-05,
+        "finite_shot_confidence_claim": false
+      },
+      "energy_interval_keV": [
+        1020.9461638155608,
+        1022.4156605198285
+      ]
+    },
+    {
+      "case": {
+        "M": 4,
+        "turns": 2,
+        "direction": -1,
+        "law": "swap"
+      },
+      "reader": {
+        "first_interval": [
+          1.7745307698322232,
+          1.7952879473677292
+        ],
+        "stride_phase_interval": [
+          1.7315941828951098,
+          1.752177895118274
+        ],
+        "all_compatible_branches": [
+          {
+            "winding": 2,
+            "sign": 1,
+            "interval": [
+              1.7872455996567853,
+              1.7898185636846808
+            ]
+          }
+        ],
+        "frequency_components": [
+          [
+            1.7872455996567853,
+            1.7898185636846808
+          ]
+        ],
+        "unique_component": true,
+        "stride": 8,
+        "eta_external_certificate": 0.01,
+        "probability_error": 2e-05,
+        "finite_shot_confidence_claim": false
+      },
+      "energy_interval_keV": [
+        1021.0808779232465,
+        1022.5508518143407
+      ]
+    },
+    {
+      "case": {
+        "M": 8,
+        "turns": 1,
+        "direction": 1,
+        "law": "native"
+      },
+      "reader": {
+        "first_interval": [
+          1.7740805369485875,
+          1.7948356799757768
+        ],
+        "stride_phase_interval": [
+          1.7297077229403932,
+          1.7502847529117298
+        ],
+        "all_compatible_branches": [
+          {
+            "winding": 2,
+            "sign": 1,
+            "interval": [
+              1.7870097921624457,
+              1.7895819209088628
+            ]
+          }
+        ],
+        "frequency_components": [
+          [
+            1.7870097921624457,
+            1.7895819209088628
+          ]
+        ],
+        "unique_component": true,
+        "stride": 8,
+        "eta_external_certificate": 0.01,
+        "probability_error": 2e-05,
+        "finite_shot_confidence_claim": false
+      },
+      "energy_interval_keV": [
+        1020.9461574777815,
+        1022.4156541597303
+      ]
+    },
+    {
+      "case": {
+        "M": 8,
+        "turns": 1,
+        "direction": 1,
+        "law": "swap"
+      },
+      "reader": {
+        "first_interval": [
+          1.774530769832223,
+          1.7952879473677288
+        ],
+        "stride_phase_interval": [
+          1.7315941828951098,
+          1.752177895118274
+        ],
+        "all_compatible_branches": [
+          {
+            "winding": 2,
+            "sign": 1,
+            "interval": [
+              1.7872455996567853,
+              1.7898185636846808
+            ]
+          }
+        ],
+        "frequency_components": [
+          [
+            1.7872455996567853,
+            1.7898185636846808
+          ]
+        ],
+        "unique_component": true,
+        "stride": 8,
+        "eta_external_certificate": 0.01,
+        "probability_error": 2e-05,
+        "finite_shot_confidence_claim": false
+      },
+      "energy_interval_keV": [
+        1021.0808779232465,
+        1022.5508518143407
+      ]
+    },
+    {
+      "case": {
+        "M": 8,
+        "turns": 1,
+        "direction": -1,
+        "law": "native"
+      },
+      "reader": {
+        "first_interval": [
+          1.7740805369485873,
+          1.7948356799757765
+        ],
+        "stride_phase_interval": [
+          1.7297077229403928,
+          1.7502847529117291
+        ],
+        "all_compatible_branches": [
+          {
+            "winding": 2,
+            "sign": 1,
+            "interval": [
+              1.7870097921624457,
+              1.7895819209088626
+            ]
+          }
+        ],
+        "frequency_components": [
+          [
+            1.7870097921624457,
+            1.7895819209088626
+          ]
+        ],
+        "unique_component": true,
+        "stride": 8,
+        "eta_external_certificate": 0.01,
+        "probability_error": 2e-05,
+        "finite_shot_confidence_claim": false
+      },
+      "energy_interval_keV": [
+        1020.9461574777815,
+        1022.4156541597301
+      ]
+    },
+    {
+      "case": {
+        "M": 8,
+        "turns": 1,
+        "direction": -1,
+        "law": "swap"
+      },
+      "reader": {
+        "first_interval": [
+          1.7745307698322232,
+          1.795287947367729
+        ],
+        "stride_phase_interval": [
+          1.7315941828951102,
+          1.7521778951182747
+        ],
+        "all_compatible_branches": [
+          {
+            "winding": 2,
+            "sign": 1,
+            "interval": [
+              1.7872455996567853,
+              1.7898185636846808
+            ]
+          }
+        ],
+        "frequency_components": [
+          [
+            1.7872455996567853,
+            1.7898185636846808
+          ]
+        ],
+        "unique_component": true,
+        "stride": 8,
+        "eta_external_certificate": 0.01,
+        "probability_error": 2e-05,
+        "finite_shot_confidence_claim": false
+      },
+      "energy_interval_keV": [
+        1021.0808779232465,
+        1022.5508518143407
+      ]
+    },
+    {
+      "case": {
+        "M": 8,
+        "turns": 2,
+        "direction": 1,
+        "law": "native"
+      },
+      "reader": {
+        "first_interval": [
+          1.7740805372930748,
+          1.794835680321819
+        ],
+        "stride_phase_interval": [
+          1.72970772438564,
+          1.750284754362066
+        ],
+        "all_compatible_branches": [
+          {
+            "winding": 2,
+            "sign": 1,
+            "interval": [
+              1.7870097923431016,
+              1.789581921090155
+            ]
+          }
+        ],
+        "frequency_components": [
+          [
+            1.7870097923431016,
+            1.789581921090155
+          ]
+        ],
+        "unique_component": true,
+        "stride": 8,
+        "eta_external_certificate": 0.01,
+        "probability_error": 2e-05,
+        "finite_shot_confidence_claim": false
+      },
+      "energy_interval_keV": [
+        1020.946157580993,
+        1022.4156542633052
+      ]
+    },
+    {
+      "case": {
+        "M": 8,
+        "turns": 2,
+        "direction": 1,
+        "law": "swap"
+      },
+      "reader": {
+        "first_interval": [
+          1.7745307698322232,
+          1.795287947367729
+        ],
+        "stride_phase_interval": [
+          1.7315941828951096,
+          1.752177895118274
+        ],
+        "all_compatible_branches": [
+          {
+            "winding": 2,
+            "sign": 1,
+            "interval": [
+              1.7872455996567853,
+              1.7898185636846808
+            ]
+          }
+        ],
+        "frequency_components": [
+          [
+            1.7872455996567853,
+            1.7898185636846808
+          ]
+        ],
+        "unique_component": true,
+        "stride": 8,
+        "eta_external_certificate": 0.01,
+        "probability_error": 2e-05,
+        "finite_shot_confidence_claim": false
+      },
+      "energy_interval_keV": [
+        1021.0808779232465,
+        1022.5508518143407
+      ]
+    },
+    {
+      "case": {
+        "M": 8,
+        "turns": 2,
+        "direction": -1,
+        "law": "native"
+      },
+      "reader": {
+        "first_interval": [
+          1.7740805372930737,
+          1.794835680321818
+        ],
+        "stride_phase_interval": [
+          1.7297077243856394,
+          1.7502847543620654
+        ],
+        "all_compatible_branches": [
+          {
+            "winding": 2,
+            "sign": 1,
+            "interval": [
+              1.7870097923431014,
+              1.7895819210901547
+            ]
+          }
+        ],
+        "frequency_components": [
+          [
+            1.7870097923431014,
+            1.7895819210901547
+          ]
+        ],
+        "unique_component": true,
+        "stride": 8,
+        "eta_external_certificate": 0.01,
+        "probability_error": 2e-05,
+        "finite_shot_confidence_claim": false
+      },
+      "energy_interval_keV": [
+        1020.9461575809929,
+        1022.4156542633051
+      ]
+    },
+    {
+      "case": {
+        "M": 8,
+        "turns": 2,
+        "direction": -1,
+        "law": "swap"
+      },
+      "reader": {
+        "first_interval": [
+          1.7745307698322232,
+          1.7952879473677292
+        ],
+        "stride_phase_interval": [
+          1.7315941828951107,
+          1.752177895118275
+        ],
+        "all_compatible_branches": [
+          {
+            "winding": 2,
+            "sign": 1,
+            "interval": [
+              1.7872455996567853,
+              1.7898185636846808
+            ]
+          }
+        ],
+        "frequency_components": [
+          [
+            1.7872455996567853,
+            1.7898185636846808
+          ]
+        ],
+        "unique_component": true,
+        "stride": 8,
+        "eta_external_certificate": 0.01,
+        "probability_error": 2e-05,
+        "finite_shot_confidence_claim": false
+      },
+      "energy_interval_keV": [
+        1021.0808779232465,
+        1022.5508518143407
+      ]
+    }
+  ],
+  "source_certificate_verified_here": false,
+  "eta_external_hypothesis": 0.01,
+  "deterministic_probability_error": 1e-05,
+  "no_finite_shot_confidence_claim": true,
+  "passed": true
+}

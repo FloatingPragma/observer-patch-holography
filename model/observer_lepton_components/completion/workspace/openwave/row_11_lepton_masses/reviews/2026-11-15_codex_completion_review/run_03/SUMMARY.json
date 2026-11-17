@@ -1,0 +1,82 @@
+{
+  "all_pass": true,
+  "prereg_sha256": "2daef438d719860c94f0db62b3cc00825c0b867674dd51ecc00ec3cb2d9e99e3",
+  "runs": [
+    {
+      "all_pass": true,
+      "command": [
+        "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+        "-I",
+        "-B",
+        "/Users/muellerberndt/Projects/oph-meta/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/phase_check.py"
+      ],
+      "exit_code": 0,
+      "job": "phase_independent",
+      "seconds": 10.856704042002093,
+      "started_at_utc": "2026-11-15T16:28:56.515541+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "9e9dbf92c7f9aac7f872100292f129fd22db2cb9eb23e2fab841390809768553"
+    },
+    {
+      "all_pass": true,
+      "command": [
+        "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+        "-I",
+        "-B",
+        "/Users/muellerberndt/Projects/oph-meta/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/replay_child.py",
+        "--root",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/row11_completion_o_wktyjz",
+        "--packet",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/row11_completion_o_wktyjz/openwave/row_11_lepton_masses/work/20261115_codex_intrinsic_phase_process",
+        "--extra",
+        "/Users/muellerberndt/Projects/oph-meta/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/SUPPLEMENTARY_SOURCES.json"
+      ],
+      "exit_code": 0,
+      "job": "20261115_codex_intrinsic_phase_process_replay",
+      "seconds": 1.7707957090024138,
+      "started_at_utc": "2026-11-15T16:29:07.374912+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "362401689ca3bebcbfbef9ac4ef904cbd389a2d42cba915b8252f66fef52fbcc"
+    },
+    {
+      "all_pass": true,
+      "command": [
+        "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+        "-I",
+        "-B",
+        "/Users/muellerberndt/Projects/oph-meta/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/replay_child.py",
+        "--root",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/row11_completion_o_wktyjz",
+        "--packet",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/row11_completion_o_wktyjz/openwave/row_11_lepton_masses/work/20261115_codex_retained_family_oracle",
+        "--extra",
+        "/Users/muellerberndt/Projects/oph-meta/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/SUPPLEMENTARY_SOURCES.json"
+      ],
+      "exit_code": 0,
+      "job": "20261115_codex_retained_family_oracle_replay",
+      "seconds": 14.094257250006194,
+      "started_at_utc": "2026-11-15T16:29:09.146645+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c3fc865a729a9d3c7c769bd05910af3c42a744f17b1c685f94228272b1a7fa7f"
+    },
+    {
+      "all_pass": true,
+      "command": [
+        "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+        "-I",
+        "-B",
+        "/Users/muellerberndt/Projects/oph-meta/openwave/row_11_lepton_masses/reviews/2026-11-15_codex_completion_review/oracle_check.py",
+        "--packet",
+        "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/row11_completion_o_wktyjz/openwave/row_11_lepton_masses/work/20261115_codex_retained_family_oracle"
+      ],
+      "exit_code": 0,
+      "job": "oracle_independent",
+      "seconds": 20.27097545900324,
+      "started_at_utc": "2026-11-15T16:29:23.243997+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "73b837d046b23920457ddbed2487368ece772354d5e96086ee5ef803c6455cfb"
+    }
+  ],
+  "schema": "row11.completion_run.v1",
+  "seconds": 47.49043316701136
+}

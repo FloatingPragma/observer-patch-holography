@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-15T19:06:55.504680+00:00",
+  "mode": "Known-result verification amendment; no new source law or discovery",
+  "prior_finding": "Root static review suspects missing exact catalog and input-domain multiplicity checks. New mutation outcomes not yet executed.",
+  "files": {
+    "probe_gaps.py": "68f1b453524b6660a1d157845ddf6e2891edcd66e9318f0dac8257592d11426e",
+    "../2026-11-16_codex_record_only_admission_v2/check.py": "b55cbc74ab44b63213cc5ad4b87e469b4e3a2d0ef9b9396f6ccf8760f3e55b26",
+    "../2026-11-16_codex_record_only_admission_v2/records/EVIDENCE.json.gz": "b9bbbccaf593d81483a0f3c77f582056a5c562130cf59cff47470b5d7191dc97",
+    "../2026-11-16_codex_record_only_admission_v2/MANIFEST.sha256": "ba4fc9e36bf41592b272feee134c4bdd54d67c51416c8f992416535d536c9f2f"
+  },
+  "expected_old_reader_accepts": [
+    "drop_column",
+    "duplicate_column",
+    "duplicate_stream_input",
+    "duplicate_other_total_input"
+  ],
+  "expected_old_reader_rejects": [
+    "drop_input_without_replacement"
+  ],
+  "repair_plan": "Require exact per-success 30-key native catalog and 25920 total; reconstruct initial source from census; identify both public streams from complete observed coin tapes, independent of seed/total/file/order metadata; compare decoded domain multiset to fixed registered grid."
+}

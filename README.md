@@ -8,9 +8,8 @@
 <p align="center"><b><a href="https://philpapers.org/rec/MUEFOC">Synthesis paper</a> · <a href="https://oph-book.floatingpragma.ai/">Book</a> · <a href="https://floatingpragma.ai/faq/">Reality FAQ</a> · <a href="https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a">Notebook</a> · <a href="https://particles.floatingpragma.ai/">Simulation</a></b></p>
 
 <p align="center">
-<a href="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml"><img src="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml/badge.svg" alt="Mandatory Suite"></a>
-<a href="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml"><img src="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml/badge.svg" alt="Lean CI"></a>
-<a href="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml"><img src="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml/badge.svg" alt="Runnable observer model"></a>
+<a href="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/ci.yml"><img src="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+<a href="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean.yml"><img src="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean.yml/badge.svg" alt="Lean"></a>
 </p>
 
 ## The idea
@@ -21,8 +20,9 @@ is *consistently*: mathematical and logical consistency, free of contradiction.
 OPH aims to show that the universe it constructs on this basis is precisely
 the one we inhabit.
 
-Small observers keep local records, compare them with their neighbours and
-repair every disagreement with one local rule. Whatever survives every
+Small observers keep local records and compare them with their neighbours.
+The executable construction specifies their matter, fields, preparation and
+measurement law before a run. Whatever survives every
 comparison is public fact. OPH asks whether such a process, fully specified
 and executed, produces observers whose shared records look like our world:
 three-dimensional space, quantum measurement, the Standard Model's forces and
@@ -35,40 +35,49 @@ hypothesis in full.
 
 ## What comes out
 
-One declared observer architecture, a network of twelve-port carriers with a
-single repair and memory law, yields:
+The [executable model](model/SPEC.md) is the main subject of current
+research and is under heavy development.
+
+Under stated premises, the theorem library and the finite constructions give:
 
 - **Spacetime and fields as effective descriptions.** Coarse-grained, the
   observers' shared records are described by relativistic field theories in
   three space dimensions and one time, together with gravity. The carrier's
   slow response is exactly three-dimensional, and a Lorentzian (1+3)-dimensional
   field theory reproduces the observers' joint readouts.
+- **Agreement and stable records.** Under explicit termination and consistency
+  conditions, local repairs reach one shared public result whatever their order.
+  [Consensus paper](paper/reality_as_consensus_protocol.pdf).
 - **The rules of quantum measurement.** Completed records obey the Born rule,
-  repeatable measurement and the Tsirelson bound on Bell correlations.
-- **The Standard Model's forces.** Under stated premises the gauge structure
-  is that of the Standard Model.
-- **Quarks and leptons.** Each generation of matter comes out with exactly the
-  observed charges: three colours of up and down quarks, the electron and its
-  neutrino. A generation register gives the charged-lepton mass ratios
-  206.770316 and 3477.4728, within 0.001 and 0.003 per cent of measurement, so
-  the muon and tau masses follow from the electron's. The Koide relation
-  follows from the carrier's face symmetry.
-- **The early-universe transitions.** Lattice runs of the same model reproduce
-  the electroweak crossover near 161 GeV and colour deconfinement.
+  repeatable measurement and the Tsirelson bound on Bell correlations, with a
+  state that attains it.
+  [Finite quantum event algebras](extra/machine_checked_finite_event_algebras.pdf).
+- **The Standard Model's forces.** Under stated premises on complete reversible
+  response and observer transport, the twelve-port response algebra has the
+  Standard Model gauge Lie type, and port phases realize the global group.
+  [Gauge derivation](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf).
+- **Quarks and leptons.** The defects that repair leaves behind carry exactly
+  the six centre classes of the Standard Model particles, and each generation
+  comes out with the observed charges: three colours of up and down quarks, the
+  electron and its neutrino. A specified matter representation gives an
+  anomaly-free generation.
+- **Thermodynamics.** Finite repair theorems give a Clausius inequality,
+  fluctuation relations and an information Landauer inequality. Fair-coin seam
+  repair is exact conditional resampling, so entropy never falls on binary
+  populations while the complete tape keeps every bit.
+  [Thermodynamics account](paper/observers_are_all_you_need.pdf).
 - **Gravity.** A realized balance of records gives the Einstein equation.
-
-Each result keeps its calibrated inputs and the conditions of its physical
-identification. The [matches page](https://particles.floatingpragma.ai/?page=matches)
-lists every comparison with nature, partial matches and open items included.
+  [Spacetime and Einstein dynamics](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf).
 
 ## How it works
 
-The concrete bet is a program: one local repair law on a network of
-twelve-port carriers. The [executable hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md)
-says what counts as success, and the [completion program](docs/COMPLETION_PROGRAM.md)
-splits the remaining work into gates with stopping rules. The design choices
-may be reverse-engineered; the test is that one fully specified program runs
-and reproduces what observers measure.
+One fixed Hamiltonian evolves matter, fields and response registers. A
+complete detector retains every outcome, and its measurement work is
+separate from energy-conserving free evolution. The creator supplies the
+law and initial preparation; simulated observers need not install their
+own interactions. The [executable hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md)
+states the physical test: a fully specified construction must reproduce
+what observers measure.
 
 ## Mathematics you can check
 
@@ -91,11 +100,12 @@ construction can fail.
 From the repository root, with Python 3.11 or newer:
 
 ```sh
-python3 -m model.observer run --trials 10000 --seed 42
+python3 -m model
 ```
 
-This runs the minimal record-and-feedback experiment and prints forecast
-scores and a result hash. The [model guide](model/README.md) covers the rest.
+This checks the common source and its complete finite diagnostics. The
+[model guide](model/README.md) explains the full source replay and the
+separate component proofs.
 
 ## Papers
 
@@ -135,7 +145,7 @@ a clean clone:
 
 ```sh
 python -m pip install -r model/requirements.txt
-python -m model.verify
+python -m model
 python -m pytest -q -W error model
 ```
 
@@ -148,7 +158,7 @@ the gentlest introductions.
 Contributions should connect one more piece of observed physics to the
 running observer, or expose a failure in it. The
 [construction guide](model/CONSTRUCTION.md), the
-[repair-law guide](model/CANDIDATES.md) and the
+[model specification](model/SPEC.md) and the
 [research issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+is%3Aopen+label%3Aprogram%3Aphysics)
 set out the work. Main-branch PDFs are source previews; deposited releases
 keep their original bytes.

@@ -1,0 +1,74 @@
+{
+  "schema": "oph.root.vacuum_trace_consumers.v1",
+  "larger_cut_offset_exact": "1/6",
+  "source_parameters_changed": false,
+  "complete_source_shared_between_K2_and_K4": true,
+  "all_four_counts_pass": true,
+  "consumers": [
+    {
+      "case": "zero_K2",
+      "larger_cut_eigen_count_upper": 1.9784702627078021,
+      "shared_K4_cut_exact": "-27773256551827447/300000000000000",
+      "neutral_gap_lower_exact": "1/6",
+      "same_source_ground_energy_interval_exact": [
+        "-7245639900122875992718892225873368731443/78125000000000000000000000000000000000",
+        "-9274418850609149/100000000000000"
+      ],
+      "residual_weight_upper_exact": "1",
+      "energy_weight_upper_exact": "1215064740363915656676677620106194329/39063019253435009406676677620106194329",
+      "ground_fidelity_lower_exact": "37847954513071093750000000000000000000/39063019253435009406676677620106194329",
+      "ground_fidelity_lower": 0.9688947561252048,
+      "actual_vacuum_Green_error_upper": 0.16507923031798713,
+      "previous_frozen_Green_error_upper": 0.849595936552424
+    },
+    {
+      "case": "zero_K4",
+      "larger_cut_eigen_count_upper": 1.965695989184916,
+      "shared_K4_cut_exact": "-27773256551827447/300000000000000",
+      "neutral_gap_lower_exact": "1/6",
+      "same_source_ground_energy_interval_exact": [
+        "-7245639900122875992718892225873368731443/78125000000000000000000000000000000000",
+        "-9274418850609149/100000000000000"
+      ],
+      "residual_weight_upper_exact": "50503435009406676677620106194329/39062500000000000000000000000000000000",
+      "energy_weight_upper_exact": "519253435009406676677620106194329/39063019253435009406676677620106194329",
+      "ground_fidelity_lower_exact": "39062449496564990593323322379893805671/39062500000000000000000000000000000000",
+      "ground_fidelity_lower": 0.9999987071120637,
+      "actual_vacuum_Green_error_upper": 0.000793217042538275,
+      "previous_frozen_Green_error_upper": 0.0010450423065353435
+    },
+    {
+      "case": "register_electron_K2",
+      "larger_cut_eigen_count_upper": 1.978984927346674,
+      "shared_K4_cut_exact": "-6943316620022899/75000000000000",
+      "neutral_gap_lower_exact": "1/6",
+      "same_source_ground_energy_interval_exact": [
+        "-1811410621402098714670469955409108454003/19531250000000000000000000000000000000",
+        "-2318605540007633/25000000000000"
+      ],
+      "residual_weight_upper_exact": "1",
+      "energy_weight_upper_exact": "303764430817628386409866227325362009/9765754813406300261409866227325362009",
+      "ground_fidelity_lower_exact": "9461990382588671875000000000000000000/9765754813406300261409866227325362009",
+      "ground_fidelity_lower": 0.9688949357605595,
+      "actual_vacuum_Green_error_upper": 0.16509028840940737,
+      "previous_frozen_Green_error_upper": 0.8496634914012585
+    },
+    {
+      "case": "register_electron_K4",
+      "larger_cut_eigen_count_upper": 1.9662074044049573,
+      "shared_K4_cut_exact": "-6943316620022899/75000000000000",
+      "neutral_gap_lower_exact": "1/6",
+      "same_source_ground_energy_interval_exact": [
+        "-1811410621402098714670469955409108454003/19531250000000000000000000000000000000",
+        "-2318605540007633/25000000000000"
+      ],
+      "residual_weight_upper_exact": "12625906300261409866227325362009/9765625000000000000000000000000000000",
+      "energy_weight_upper_exact": "129813406300261409866227325362009/9765754813406300261409866227325362009",
+      "ground_fidelity_lower_exact": "9765612374093699738590133772674637991/9765625000000000000000000000000000000",
+      "ground_fidelity_lower": 0.9999987071071949,
+      "actual_vacuum_Green_error_upper": 0.0007932730582032905,
+      "previous_frozen_Green_error_upper": 0.0010451162076852195
+    }
+  ],
+  "physical_lepton_pole_or_ratio_claim": false
+}

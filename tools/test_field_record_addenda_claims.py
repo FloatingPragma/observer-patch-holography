@@ -44,7 +44,10 @@ def repository(tmp_path):
         target = tmp_path/name
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(claims.ROOT/name, target)
-    return tmp_path
+    try:
+        yield tmp_path
+    finally:
+        shutil.rmtree(tmp_path)
 
 
 def resign(root):
@@ -88,8 +91,8 @@ def test_coherently_resigned_member_cannot_change_science_or_scope(data, reposit
         del member['source_sha256'][next(iter(member['source_sha256']))]
     write(repository, name, member)
     klass = resign(repository)
-    # The live class/review signatures alone accept this coherent forgery.
-    claims.program_class_v2.validate(klass, repository)
+    # Coherent review signatures cannot authorize changed live member science.
+    claims.validate_live_review_signatures(klass, repository)
     with pytest.raises(ValueError, match='scientific payload|source map scope'):
         claims.check_parent_class(data, repository)
 
@@ -124,5 +127,34 @@ def test_actual_sources_and_original_member_authorities_remain_exact(data, repos
               'archive': spec['retained_path'], 'catalog': claims.renewal.CATALOG}[damage]
     with (repository/target).open('a') as output:
         output.write('\n')
-    with pytest.raises(ValueError, match='stale reviewed source|Retained member|owner authority'):
+    with pytest.raises(ValueError, match='stale reviewed source|reviewed transitive executable source changed|Retained member|owner authority'):
         claims.check_parent_class(data, repository)
+
+
+def test_sealed_component_does_not_adopt_current_hypothesis(data, repository):
+    write(repository, 'claims/executable_model_hypothesis.json', {'unrelated_current_law': True})
+    claims.check_parent_class(data, repository)
+    result = claims.check_sealed_class(claims.ROOT)
+    assert result == {'sealed_class_valid': True, 'official_CCF_LT2_adoption_claimed': False}
+
+
+def test_original_sealed_class_bytes_remain_exact(monkeypatch):
+    original = claims.subprocess.check_output
+    def changed(command, **kwargs):
+        raw = original(command, **kwargs)
+        if command[:2] == ['git', 'show'] and command[2].endswith(':' + str(claims.program_class_v2.PATH)):
+            return raw + b' '
+        return raw
+    monkeypatch.setattr(claims.subprocess, 'check_output', changed)
+    with pytest.raises(ValueError, match='Sealed parent class bytes'):
+        claims.check_sealed_class.__wrapped__(claims.ROOT)
+
+
+def test_inventory_helper_change_needs_exact_consumed_semantics(repository, monkeypatch):
+    catalog = load(repository, claims.renewal.CATALOG)
+    target = repository / claims.INVENTORY_HELPER
+    text = target.read_text().replace('if not condition:', 'if condition:', 1)
+    target.write_text(text)
+    monkeypatch.setattr(claims, 'CURRENT_INVENTORY_SHA256', claims.sha(target))
+    with pytest.raises(ValueError, match='Consumed inventory helper semantics'):
+        claims.verify_live_executable_sources(catalog['reviewed_executable_source_sha256'], repository)

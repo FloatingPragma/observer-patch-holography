@@ -1,0 +1,15 @@
+{
+  "label": "changed_observable",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "-O",
+    "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-parser-jitluw04/probe.py"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-parser-jitluw04/probe.py\", line 3, in <module>\n    f([{'passed': True, 'observation': 2}],{'expected_output': [{'passed': True, 'observation': 1}], 'required_verdict_paths': [[0, 'passed']], 'runtime_paths': []})\n    ~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/work/2026-11-16_codex_verification_contract_v3/descendants/verify_source.py\", line 55, in check_output\n    require(json.dumps(normalized,sort_keys=True,allow_nan=False)==\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n            json.dumps(reference,sort_keys=True,allow_nan=False),'Saved scientific output differs')\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/work/2026-11-16_codex_verification_contract_v3/descendants/verify_source.py\", line 22, in require\n    raise AssertionError(message)\nAssertionError: Saved scientific output differs\n",
+  "expected_success": false,
+  "passed": true,
+  "seconds": 0.06590129199321382
+}

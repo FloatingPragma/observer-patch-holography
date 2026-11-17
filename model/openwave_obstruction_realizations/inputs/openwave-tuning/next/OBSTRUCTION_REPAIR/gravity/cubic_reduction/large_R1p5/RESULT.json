@@ -1,0 +1,172 @@
+{
+  "status": "LARGE_BALL_EXACT_G1_MATTER_COMPONENT",
+  "metadata": {
+    "L": 96,
+    "R": 1.5,
+    "radii": [
+      6,
+      9
+    ],
+    "widths": [
+      27,
+      36
+    ],
+    "full_largest_ball_modes": 12284,
+    "reduced_G1_multiplicity": 1050,
+    "G1_dimension": 2,
+    "orbits": 142,
+    "parity_copies_retained": true,
+    "largest_dense_matrix_bytes": 17640000,
+    "source_difference_order": 4,
+    "geometry_response": false
+  },
+  "balls": [
+    {
+      "radius": 6,
+      "ell_over_R": 4.0,
+      "cells": 925,
+      "G1_multiplicity": 326,
+      "records": [
+        {
+          "width": 27,
+          "actual_total_energy": 0.5054027186983945,
+          "entropy_change": 0.05203360856466954,
+          "first_derivative": 0.053559099202894526,
+          "relative_first_law_remainder": 0.028482380415810676,
+          "continuum_ball_modular_energy": 0.05796697571089685,
+          "modular_ratio": 0.9239588325258494,
+          "finite_entropy_ratio": 0.8976422855692999,
+          "floor_checks": [
+            {
+              "floor": 1e-11,
+              "entropy_change": 0.05203360838446747,
+              "first_derivative": 0.05355909916537692
+            },
+            {
+              "floor": 1e-13,
+              "entropy_change": 0.05203360856466954,
+              "first_derivative": 0.053559099202894526
+            },
+            {
+              "floor": 1e-15,
+              "entropy_change": 0.05203360856842698,
+              "first_derivative": 0.05355909920376461
+            }
+          ]
+        },
+        {
+          "width": 36,
+          "actual_total_energy": 0.45825512685929326,
+          "entropy_change": 0.020688101446446616,
+          "first_derivative": 0.020938127762525276,
+          "relative_first_law_remainder": 0.011941197365609415,
+          "continuum_ball_modular_energy": 0.022618416100000854,
+          "modular_ratio": 0.9257114941184801,
+          "finite_entropy_ratio": 0.9146573904635982,
+          "floor_checks": [
+            {
+              "floor": 1e-11,
+              "entropy_change": 0.02068810134625254,
+              "first_derivative": 0.020938127749832072
+            },
+            {
+              "floor": 1e-13,
+              "entropy_change": 0.020688101446446616,
+              "first_derivative": 0.020938127762525276
+            },
+            {
+              "floor": 1e-15,
+              "entropy_change": 0.02068810144914046,
+              "first_derivative": 0.020938127762824443
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "radius": 9,
+      "ell_over_R": 6.0,
+      "cells": 3071,
+      "G1_multiplicity": 1050,
+      "records": [
+        {
+          "width": 27,
+          "actual_total_energy": 0.5054027186983945,
+          "entropy_change": 0.24181368003003545,
+          "first_derivative": 0.2657453565061513,
+          "relative_first_law_remainder": 0.09005491870395814,
+          "continuum_ball_modular_energy": 0.28120803814706763,
+          "modular_ratio": 0.9450133725095383,
+          "finite_entropy_ratio": 0.8599102700740385,
+          "floor_checks": [
+            {
+              "floor": 1e-11,
+              "entropy_change": 0.24181367968956113,
+              "first_derivative": 0.2657453557347019
+            },
+            {
+              "floor": 1e-13,
+              "entropy_change": 0.24181368003003545,
+              "first_derivative": 0.2657453565061513
+            },
+            {
+              "floor": 1e-15,
+              "entropy_change": 0.24181368003115455,
+              "first_derivative": 0.26574535650934694
+            }
+          ]
+        },
+        {
+          "width": 36,
+          "actual_total_energy": 0.45825512685929326,
+          "entropy_change": 0.10173352342945918,
+          "first_derivative": 0.1061713496341472,
+          "relative_first_law_remainder": 0.04179871707367571,
+          "continuum_ball_modular_energy": 0.11186140370122788,
+          "modular_ratio": 0.9491329995976242,
+          "finite_entropy_ratio": 0.909460457882154,
+          "floor_checks": [
+            {
+              "floor": 1e-11,
+              "entropy_change": 0.10173352310288575,
+              "first_derivative": 0.10617134940547171
+            },
+            {
+              "floor": 1e-13,
+              "entropy_change": 0.10173352342945918,
+              "first_derivative": 0.1061713496341472
+            },
+            {
+              "floor": 1e-15,
+              "entropy_change": 0.10173352343199848,
+              "first_derivative": 0.1061713496350311
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source_preparations": [
+    {
+      "width": 27,
+      "energy": 0.5054027186983945,
+      "gram_errors": {
+        "particle": 2.220446049250313e-16,
+        "hole": 1.7763568394002505e-15
+      }
+    },
+    {
+      "width": 36,
+      "energy": 0.45825512685929326,
+      "gram_errors": {
+        "particle": 8.883970918260496e-16,
+        "hole": 6.845417898134113e-16
+      }
+    }
+  ],
+  "all_unchanged_sectors_cancel_by_validated_symmetry": true,
+  "geometry_response_reduced": false,
+  "global_periodic_equilibrium": false,
+  "lapse_response": false,
+  "cpu_seconds": 35.745692
+}

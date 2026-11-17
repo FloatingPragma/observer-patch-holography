@@ -1,5 +1,11 @@
 # Native particles, currents and mass operators
 
+The official source is [CCF-LT-2](../../model/SPEC.md), with its
+[source-specific dependency map](../../model/particle_joint_reconstruction/DEPENDENCIES.md).
+The component calculations below have their stated Hamiltonians, states and
+measurement domains. Their spectra, geometry and clock values require an
+explicit checked connection before use as outputs of the official law.
+
 <a id="the-actual-mass-generating-operator"></a>
 <a id="complete-records-and-the-interacting-requirement"></a>
 

@@ -1,0 +1,13 @@
+# A finite-entropy observer orbit with controlled macroscopic locality
+
+The declared apparatus R_(g,B)=U_flat(g) chi_B U_flat(g)† starts from the original finite-entropy regional algebra and uses the actual complete positive-source boost. Exact continuum group composition, same-observer nesting and vacuum entropy invariance follow from its explicit unitary construction. It is distinct from both the failed canonical tilted-plane map and the divergent transported Dirac net.
+
+Three complete finite approximants retain 1024 or 2048 modes, use boxes 64R/128R and spacings R/4/R/8, and record the finite boost-boundary closure. Composition errors are of order 1e-13 and vacuum-commutator errors below 1e-15. Boosted regional entropies agree with their actual unboosted values to within 2e-10 for every tested radius and speed. Held-out Gaussian wave packets centred at pR=3 reproduce the analytic continuum boost within about 2e-9; packets centred at pR=1 with width0.3 reach errors around 7e-4. These are declared-domain checks, not a uniform approximation over all momenta.
+
+Complete-mode finite-cutoff spacelike overlaps remain large, including in the ordinary Dirac control. They are preserved as a failure of this finite boost closure to approximate full continuum locality uniformly; no Dirac-control subtraction is used.
+
+A separate continuum proof avoids that finite cutoff. The sixth momentum derivatives of the actual three-dimensional dressing V are integrable. This gives a full-operator spatial tail bound delta_3(r) <= C_3 (R/r)^3 with a finite, source-defined constant C_3, and a cross-observer CAR overlap bound delta_3(g/2)+delta_3(g/[2 exp(|z|)]) for geometric spacelike margin g. All ultraviolet bands remain. C_3 is defined explicitly but has not yet been evaluated numerically.
+
+In the one-dimensional sector the coefficient is explicitly bounded by [155+(5739/256)pi]/(3pi), without numerical quadrature or fitted data. `BOUND.json` evaluates the resulting full continuum operator bounds. This proves approximate macroscopic localization as R/g tends to zero, not strict microscopic locality. Increasing a ball radius while holding the boundary gap fixed does not improve this bound.
+
+This is a constructive observer-component repair for a declared continuous source. Curved-spacetime transport, joint actual-entropy equilibrium across unused balls and observers, a lapse/attraction mechanism, native OPH apparatus records, chiral/interacting matter compatibility, and the physical gravitational coefficient remain separate obligations. None has been inferred merely from entropy invariance.

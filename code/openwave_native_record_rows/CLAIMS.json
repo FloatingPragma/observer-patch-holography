@@ -1,0 +1,141 @@
+{
+  "official_awards_added": 0,
+  "one_interacting_physical_candidate": false,
+  "physical_predictions_added": 0,
+  "primitive_endpoint_sha256": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+  "rows": [
+    {
+      "G6_awarded": false,
+      "boundary": "Moving charged apparatus and minimal gauge coupling unproved",
+      "candidate": "MFR-unified-native-field-v1",
+      "criterion": "Lorentz covariance (+ Coulomb = EM)",
+      "kind": "proved_free_component",
+      "official_status": "untested",
+      "review_group": "Codex same-group",
+      "row": 21,
+      "source_package": "unified",
+      "statement": "Lorentz-covariant free action, common causal cone and controlled boosted-intensity contraction"
+    },
+    {
+      "G6_awarded": false,
+      "boundary": "Physical quark endpoints, common ruler and unfitted GeV/fm tension unproved",
+      "candidate": "A-native-triality-string-v1",
+      "criterion": "Strong force: confinement",
+      "kind": "proved_native_component",
+      "official_status": "untested",
+      "review_group": "Codex same-group",
+      "row": 22,
+      "source_package": "confinement",
+      "statement": "Complete Gauss-fibre linear triality potential over full SU3 space"
+    },
+    {
+      "G6_awarded": false,
+      "boundary": "Physical charge normalization and universal beta functions outside the finite claim",
+      "candidate": "A-bound-core-response-v1",
+      "criterion": "Running coupling",
+      "kind": "proved_finite_component",
+      "official_status": "untested",
+      "review_group": "Codex same-group",
+      "row": 23,
+      "source_package": "core_response",
+      "statement": "Finite scale-dependent bound-core current response and core onset"
+    },
+    {
+      "G6_awarded": false,
+      "boundary": "Physical lepton, spacetime-spin and mass-clock identification unproved",
+      "candidate": "A-native-fixed-charge-core-v1",
+      "criterion": "Weak force: muon decay",
+      "kind": "proved_native_component",
+      "official_status": "untested",
+      "review_group": "Codex same-group",
+      "row": 24,
+      "source_package": "fixed_charge",
+      "statement": "Two fixed-charge core doublets and individually neutral outgoing polarizations; full capped probability0.010820639808072026 versus0"
+    },
+    {
+      "G6_awarded": false,
+      "boundary": "No native neutron, physical weak chirality or beta-decay claim",
+      "candidate": "A",
+      "criterion": "Weak force: beta decay (n \u2192 p)",
+      "kind": "written_unexecuted_audit",
+      "official_status": "untested",
+      "review_group": "Codex same-group",
+      "row": 25,
+      "source_package": "parity_audit",
+      "statement": "Complete Q8 parity exchanges all faithful-sector cones"
+    },
+    {
+      "G6_awarded": false,
+      "boundary": "Capacity-to-inertial-mass identification and unfitted Newton strength unproved",
+      "candidate": "A-native-harmonic-lapse-GR7",
+      "criterion": "Gravity: Newton limit (GEM)",
+      "kind": "proved_native_component",
+      "official_status": "untested",
+      "review_group": "Codex same-group",
+      "row": 26,
+      "source_package": "harmonic_lapse",
+      "statement": "Native scalar lapse and reciprocal weighted-hit response, with compatible positive Maxwell components"
+    },
+    {
+      "G6_awarded": false,
+      "boundary": "Full proof adjudication and finite curved-source Maxwell witness absent",
+      "candidate": "A-native-harmonic-lapse-GR7",
+      "criterion": "Gravity: local metric phenomena",
+      "kind": "unexecuted_incompletely_reviewed_draft",
+      "official_status": "untested",
+      "review_group": "Codex same-group",
+      "row": 27,
+      "source_package": "light_clock_draft",
+      "statement": "Constructive common-lapse WKB/capacity calculation with finite corrections"
+    },
+    {
+      "G6_awarded": false,
+      "boundary": "Source-derived cosmological constant and expansion observable absent",
+      "candidate": "A",
+      "criterion": "Cosmology: \u039b / cosmic acceleration",
+      "kind": "scoped_diagnostic",
+      "official_status": "untested",
+      "review_group": "Codex same-group",
+      "row": 28,
+      "source_package": "cosmology_diagnostic",
+      "statement": "Operational boundary and normalization diagnostic"
+    },
+    {
+      "G6_awarded": false,
+      "boundary": "Owner pin, external full review and platform execution absent; charged coupling separate",
+      "candidate": "MFR-unified-native-field-v1",
+      "criterion": "EM waves (Maxwell)",
+      "kind": "proved_mathematical_clause",
+      "official_status": "untested",
+      "review_group": "Codex same-group",
+      "row": 29,
+      "source_package": "unified",
+      "statement": "Common native Gaussian Maxwell limit, two transverse physical polarizations and shared ruler/clock"
+    },
+    {
+      "G6_awarded": false,
+      "boundary": "Owner pin, external full review and platform execution absent; physical species separate",
+      "candidate": "MFR-unified-native-field-v1",
+      "criterion": "Quantum wave equation (Klein-Gordon)",
+      "kind": "proved_mathematical_clause",
+      "official_status": "untested",
+      "review_group": "Codex same-group",
+      "row": 30,
+      "source_package": "unified",
+      "statement": "Common native massive scalar limit with source bands and same ruler/clock"
+    },
+    {
+      "G6_awarded": false,
+      "boundary": "Owner pin, external full review and platform execution absent; physical atom/electric dictionary separate",
+      "candidate": "MFR-unified-native-field-v1",
+      "criterion": "Orbital quantization (atomic structure)",
+      "kind": "proved_mathematical_clause",
+      "official_status": "untested",
+      "review_group": "Codex same-group",
+      "row": 31,
+      "source_package": "unified",
+      "statement": "Native first-hit attraction and controlled hydrogen-like standing shells with n\u00b2 multiplicity"
+    }
+  ],
+  "schema": "oph.native_record_rows.scope.v1"
+}

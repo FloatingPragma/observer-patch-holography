@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-15T19:38:15.866862+00:00",
+  "failure": "Registration wrapper used unresolved Path dot parent, so calibration PREREG was not found; a subsequent shell line executed despite the failure. No prospective registration file existed before this first paired execution.",
+  "retained_result": "Passed16pairs32sources4020continuingevents69696globalcolumns0.631605seconds",
+  "disposition": "Retain original files and label this execution unregistered pilot. The successor run is frozen known-result verification, not first-run prospective discovery. No scientific source/gates are altered.",
+  "implementation_prevention": "Registration and execution use separate sequential tool calls; the latter is not invoked until successful registration is observed.",
+  "files": {
+    "join.py": "eedacecb234ed2b81204d9ae6025198c101fa77c9fef3f939bf6ef34a22ce119",
+    "DESIGN.md": "b1ccfa146719559e92e32add8357c180fa7624d98f469c254124d4850a80c264",
+    "SOURCE_JOIN.json.gz": "39358cb4cd7eecedfcc6c58832d3c87e51f14e9405a32309b9e3c6be80e3470b"
+  }
+}

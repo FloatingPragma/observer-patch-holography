@@ -1,0 +1,192 @@
+{
+  "status": "COMPLETED_REST_SLICE_PREPARATION_DIAGNOSTIC_WITH_HELD_OUT_FAILURE",
+  "solutions": [
+    {
+      "width": 4.0,
+      "rank": 6,
+      "condition_number": 47942.67542957423,
+      "max_training_absolute_residual": 5.329070518200751e-15,
+      "max_held_relative": 0.31630584335113054,
+      "max_held_axis_relative": 0.07586350951957846,
+      "unused_central_radius": [
+        {
+          "radius": 7,
+          "centre": [
+            0,
+            0,
+            0
+          ],
+          "actual_matter_entropy_tangent": 5.953889166774507,
+          "predicted_geometry_entropy_tangent": -5.87217290405764,
+          "total_residual": 0.08171626271686705,
+          "relative_residual": 0.013724854532543553
+        }
+      ],
+      "max_unused_radius_relative": 0.2478329289979487,
+      "worst_held": [
+        {
+          "radius": 6,
+          "centre": [
+            4,
+            4,
+            4
+          ],
+          "actual_matter_entropy_tangent": 1.597035770985288,
+          "predicted_geometry_entropy_tangent": -1.0918840245818635,
+          "total_residual": 0.5051517464034245,
+          "relative_residual": 0.31630584335113054
+        },
+        {
+          "radius": 7,
+          "centre": [
+            4,
+            4,
+            4
+          ],
+          "actual_matter_entropy_tangent": 2.772854391621818,
+          "predicted_geometry_entropy_tangent": -2.0856497660613575,
+          "total_residual": 0.6872046255604602,
+          "relative_residual": 0.2478329289979487
+        },
+        {
+          "radius": 8,
+          "centre": [
+            4,
+            4,
+            4
+          ],
+          "actual_matter_entropy_tangent": 4.469697018278118,
+          "predicted_geometry_entropy_tangent": -3.586393494938026,
+          "total_residual": 0.8833035233400919,
+          "relative_residual": 0.1976204471417105
+        }
+      ],
+      "sigma_amplitudes": [
+        1.7796426595911061,
+        0.9935431935074228,
+        -0.1410721676001942
+      ],
+      "lapse_amplitudes": [
+        -20.260950075475797,
+        5.83455998477793,
+        0.39687287906341273
+      ],
+      "sigma_centre": 2.632113685498335,
+      "lapse_centre": -14.029517211634456
+    },
+    {
+      "width": 6.0,
+      "rank": 6,
+      "condition_number": 47942.67542957423,
+      "max_training_absolute_residual": 2.6645352591003757e-15,
+      "max_held_relative": 0.09824135153922858,
+      "max_held_axis_relative": 0.041092092382659796,
+      "unused_central_radius": [
+        {
+          "radius": 7,
+          "centre": [
+            0,
+            0,
+            0
+          ],
+          "actual_matter_entropy_tangent": 1.7549460981050018,
+          "predicted_geometry_entropy_tangent": -1.7421731222577583,
+          "total_residual": 0.012772975847243462,
+          "relative_residual": 0.0072782724557955225
+        }
+      ],
+      "max_unused_radius_relative": 0.08166949240948815,
+      "worst_held": [
+        {
+          "radius": 6,
+          "centre": [
+            4,
+            4,
+            4
+          ],
+          "actual_matter_entropy_tangent": 0.6197021991746412,
+          "predicted_geometry_entropy_tangent": -0.5588218175758922,
+          "total_residual": 0.06088038159874898,
+          "relative_residual": 0.09824135153922858
+        },
+        {
+          "radius": 7,
+          "centre": [
+            4,
+            4,
+            4
+          ],
+          "actual_matter_entropy_tangent": 1.1187000470568171,
+          "predicted_geometry_entropy_tangent": -1.0273363820552164,
+          "total_residual": 0.09136366500160076,
+          "relative_residual": 0.08166949240948815
+        },
+        {
+          "radius": 8,
+          "centre": [
+            4,
+            4,
+            4
+          ],
+          "actual_matter_entropy_tangent": 1.8724585165027336,
+          "predicted_geometry_entropy_tangent": -1.7399263384111054,
+          "total_residual": 0.1325321780916282,
+          "relative_residual": 0.07077976730783009
+        }
+      ],
+      "sigma_amplitudes": [
+        0.8130281570867347,
+        0.23830335326907265,
+        -0.03231610025302558
+      ],
+      "lapse_amplitudes": [
+        -3.2222437692745554,
+        -0.18724930717625887,
+        0.2039493798310562
+      ],
+      "sigma_centre": 1.0190154101027817,
+      "lapse_centre": -3.205543696619758
+    }
+  ],
+  "uniform_gate": [
+    {
+      "radius": 3.0,
+      "worst_uniform_contamination": 0.008553767424663003
+    },
+    {
+      "radius": 3.5,
+      "worst_uniform_contamination": 0.009563610133384236
+    },
+    {
+      "radius": 4.0,
+      "worst_uniform_contamination": 0.010373296343091648
+    }
+  ],
+  "common_mixture_epsilon": 2.7203573416161335e-08,
+  "common_mixture_energy": 6.368328938317655e-08,
+  "max_actual_matter_entropy_bound_fraction": 0.004999999999028962,
+  "periodic_mean_rows": [
+    {
+      "radius": 3.0,
+      "values": [
+        0.12782505396867672,
+        0.0917398954883259
+      ]
+    },
+    {
+      "radius": 3.5,
+      "values": [
+        0.23399908247444934,
+        0.1741278206303899
+      ]
+    },
+    {
+      "radius": 4.0,
+      "values": [
+        0.40272656778210614,
+        0.3074346859745066
+      ]
+    }
+  ],
+  "scope": "Three separable axis-cosine modes, rest-slice finite cell observers and finite torus only. Failure does not exclude fuller geometry bases or gravity. No independent all-timelike-observer lapse equation or finite-geometry entropy pass."
+}

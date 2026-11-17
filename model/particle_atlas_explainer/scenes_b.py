@@ -98,8 +98,8 @@ def step5(c, data, y):
            'A finite causal bound alone does not establish this identification with light.',
            17.5, SOFT, 1.46)
     return status(c, X0, yb + h + 16, CW,
-                  'Record-controlled moves carry a twist across the carrier, hop by hop. Influence '
-                  'spreads inside a cone, and the bound holds uniformly as the lattice is refined.',
+                  'Independent record-controlled moves carry a twist across the carrier. The '
+                  'separate locality theorem requires its stated uniform refinement bounds.',
                   'Free motion of a defect under the repair law alone, with its own momentum and '
                   'energy law, and Lorentz symmetry of the limit.')
 
@@ -233,7 +233,7 @@ def step67(c, data, y):
     c.text(x + w - 46, iy + 37, 'same state', 13.5, MUTED, anchor='end')
     return status(c, X0, y + h + 16, CW,
                   'Complete position records and conserved crystal-momentum records of one finite '
-                  'field, with exact Born weights and a finite uncertainty relation. The selected '
+                  'component field, with exact Born weights and a finite uncertainty relation. Its '
                   'source has a complete spatial Fourier readout. A detector coupled to the '
                   'protected charge has a different click law in each sector.',
                   'The position detector of a moving defect in the selected program. Translation '
@@ -313,8 +313,8 @@ def step8(c, data, y):
            f'{round(ratio, -3):,.0f} electron masses. These comparison values do not set '
            f'the source energies.', 16.5, MUTED, 1.45)
     return status(c, X0, yb + h + 16, CW,
-                  'The law E² = (pc)² + (mc²)² holds for the declared free field action in its '
-                  'stated limit. The interacting primary source has a rigorously isolated '
+                  'The law E² = (pc)² + (mc²)² holds for the separate free field action in its '
+                  'stated limit. The independent Wilson comparison has a rigorously isolated '
                   'gauge transition near 63 source energy units in a rare empty-matter sector.',
                   'An excitation that survives with a fixed energy band, its momentum shell, '
                   'and the rest mass of a defect computed from its repair cost. No mass in GeV '
@@ -403,9 +403,9 @@ def step9(c, data, y):
            'description, with a stated domain and error bounds. No extra continuum universe is '
            'produced underneath.', 17, SOFT, 1.46)
     return status(c, X0, yb + h + 16, CW,
-                  'The selected program has one observable algebra, a stationary limiting state, '
-                  'positive energy and convergent finite detector histories. Record copies and '
-                  'observer dictionaries glue into one shared event description.',
+                  'Separate component theorems construct an observable algebra, stationary limit, '
+                  'positive energy and convergent detector histories under their hypotheses. '
+                  'Record copies and observer dictionaries admit a shared event description.',
                   'A nontrivial interacting relativistic field in that limit. Agreement between '
                   'observers fixes neither the Born weights nor a relativistic field limit.')
 
@@ -537,9 +537,9 @@ def evidence(c, data, y):
     c.caps(X0, y + 10, 'Evidence behind the picture', TEAL, 14)
     c.text(X0, y + 60, 'Which links are computed?', 40, TEXT, 700, ls=-0.4)
     yb = c.para(X0, y + 100, 1320,
-                'The picture is a proposed physical interpretation. These linked receipts tell '
-                'us what the specified finite programs actually establish, including their '
-                'source domains and detector failures.', 22, MUTED, 1.4) + 6
+                'These independent Wilson and detector examples retain their own sources and '
+                'preparations. Their receipts do not establish the proposed physical '
+                'interpretation for CCF-LT-2.', 22, MUTED, 1.4) + 6
     gap, h = 24, 344
     w = (CW - gap) / 2
     low, high = spectrum['gap_interval_decimal_display_only']
@@ -560,7 +560,7 @@ def evidence(c, data, y):
          'Protected labels, source excitations and named targets are separate tables.',
          'Inspect the candidate correspondence',
          '../../model/standard_model_source_map/candidates/CANDIDATES.md'),
-        ('An isolated source transition', TEAL,
+        ('An independent Wilson transition', TEAL,
          f'{float(low):.6f} < energy gap < {float(high):.6f}',
          'This exact interacting gauge line uses source energy units. Its certified record '
          'comes from a rare empty-matter sector. A complete loop menu couples to six scalar, '
@@ -575,7 +575,7 @@ def evidence(c, data, y):
          'gives zero within the stated numerical tolerance. Its exact ideal-word signal is '
          f'greater than {float(Fraction(lower)):.7f}. This is a separate supplied contact '
          'action and preparation. A 32-row moving-packet control is also executed.',
-         'Primary-source moving collisions and the separate fine-grid packet run are unexecuted.',
+         'Wilson-source moving collisions and the separate fine-grid packet run are unexecuted.',
          'Inspect the complete collision controls',
          '../../model/standard_model_source_map/candidates/CANDIDATES.md#finite-energies-ratios-and-collisions'),
         ('The mass comparison is a test', RED,
@@ -621,8 +621,8 @@ def evidence(c, data, y):
 
 
 # ---------------------------------------------------------------- standing
-NODE_LABELS = (('Program, reference', 'and clock'), ('State and', 'boundary charges'),
-               ('Local records', 'and causality'), ('One state,', 'one limit'),
+NODE_LABELS = (('Local-capacity law', 'and references'), ('Finite Gibbs state', 'and charges'),
+               ('Local operators', 'and instruments'), ('One state,', 'one limit'),
                ('Relativistic', 'interacting field'), ('Matter, species', 'and defects'),
                ('Spectrum,', 'decays'), ('Independent', 'comparison'),
                ('Yang–Mills', 'gap'), ('Geometry', 'and gravity'))
@@ -632,8 +632,9 @@ def standing(c, data, y):
     c.caps(X0, y + 10, 'Where the program stands', TEAL, 14)
     c.text(X0, y + 60, 'Ten requirements, one construction', 40, TEXT, 700, ls=-0.4)
     yb = c.para(X0, y + 100, 1260,
-                'Every claim about fields and particles runs through one dependency map on one '
-                'program, state, reference and clock.', 22, MUTED, 1.4) + 6
+                'The current dependency map belongs to CCF-LT-2. Its first three finite '
+                'constructions do not assert propagated full-source records or a physical continuum.',
+                22, MUTED, 1.4) + 6
     h = 372
     card(c, X0, yb, CW, h)
     nodes = data['nodes']
@@ -662,8 +663,8 @@ def standing(c, data, y):
                    'middle', maxw=step - 4)
     # where this atlas attaches
     ax = pos[5][0]
-    c.text(ax + 84, ny + 130, 'the defect chain of this atlas enters here:', 14, AMBER, 600)
-    c.text(ax + 84, ny + 149, 'creation, protection and field attachment', 14, AMBER, 600)
+    c.text(ax + 84, ny + 130, 'these component examples require attachment:', 14, AMBER, 600)
+    c.text(ax + 84, ny + 149, 'one source, preparation and complete detector', 14, AMBER, 600)
     c.qarrow(ax + 76, ny + 132, ax + 24, ny + 130, ax + 10, ny + 92, AMBER, 1.5, 7)
     ly = yb + h - 92
     c.circle(X0 + 46, ly - 5, 8, TEAL)
@@ -686,11 +687,11 @@ LINKS = (('Book, chapter 6: the leftover', '../../book/07-chapter-06.md'),
          ('Creating and transporting a twist', '../../model/particle_observer_outputs/HOLONOMY_TRANSPORT.md'),
          ('A protected label read by a detector', '../../model/particle_defect_attachment/PROOF.md'),
          ('Position and crystal-momentum records', '../../model/particle_joint_translation_readout/README.md'),
-         ('One source, state, reference and clock', '../../model/particle_common_contract/README.md'),
+         ('CCF-LT-2: official model specification', '../../model/SPEC.md'),
          ('Candidate map and collision evidence', '../../model/standard_model_source_map/candidates/CANDIDATES.md'),
          ('Candidate-by-candidate identity tests', '../../model/particle_candidate_confirmation/RESULTS.md'),
-         ('Isolated gauge transition', '../../model/particle_primary_reduced_sector/PROOF.md'),
-         ('Source charge and spin records', '../../model/particle_primary_regional_fermion/PROOF.md'),
+         ('Wilson comparison: isolated transition', '../../model/particle_primary_reduced_sector/PROOF.md'),
+         ('Wilson comparison: charge and spin', '../../model/particle_primary_regional_fermion/PROOF.md'),
          ('Equal work need not preserve finite energy', '../../model/particle_primary_equal_work_control/PROOF.md'),
          ('The executable-model hypothesis', '../OPH_EXECUTABLE_HYPOTHESIS.md'),
          ('Labelled source families and chronology', '../../model/particle_candidate_confirmation/CATALOGUE.md'))

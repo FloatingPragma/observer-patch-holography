@@ -1,0 +1,1188 @@
+{
+  "schema": "oph.obstruction_repair.spin_flavour_census.v1",
+  "full_CAR_dimension": 16777216,
+  "exact_character_total": 16777216,
+  "character_weight_count": 58065,
+  "colour": "SU3",
+  "spin_flavour": "SU4 with alpha=(up-spin up-flavour,up-spin down-flavour,down-spin up-flavour,down-spin down-flavour)",
+  "architecture": "two spatial cells with spin/flavour independent hopping and electric cut Casimir",
+  "sectors": [
+    {
+      "N": 0,
+      "colour_Cartan_zero_dimension": 1,
+      "colour_singlet_dimension": 1,
+      "SU4_irreps": [
+        {
+          "U4_highest_weight": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            0,
+            0
+          ],
+          "SU4_dimension": 1,
+          "multiplicity": 1,
+          "joint_colour_and_flavour_weight_dimension": 1
+        }
+      ],
+      "total_highest_weight_matrix_size": 1,
+      "largest_highest_weight_matrix_size": 1
+    },
+    {
+      "N": 3,
+      "colour_Cartan_zero_dimension": 512,
+      "colour_singlet_dimension": 120,
+      "SU4_irreps": [
+        {
+          "U4_highest_weight": [
+            2,
+            1,
+            0,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            1,
+            1,
+            0
+          ],
+          "SU4_dimension": 20,
+          "multiplicity": 2,
+          "joint_colour_and_flavour_weight_dimension": 24
+        },
+        {
+          "U4_highest_weight": [
+            3,
+            0,
+            0,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            3,
+            0,
+            0
+          ],
+          "SU4_dimension": 20,
+          "multiplicity": 4,
+          "joint_colour_and_flavour_weight_dimension": 8
+        }
+      ],
+      "total_highest_weight_matrix_size": 6,
+      "largest_highest_weight_matrix_size": 4
+    },
+    {
+      "N": 6,
+      "colour_Cartan_zero_dimension": 21952,
+      "colour_singlet_dimension": 2520,
+      "SU4_irreps": [
+        {
+          "U4_highest_weight": [
+            2,
+            2,
+            1,
+            1
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            1,
+            0
+          ],
+          "SU4_dimension": 6,
+          "multiplicity": 3,
+          "joint_colour_and_flavour_weight_dimension": 1176
+        },
+        {
+          "U4_highest_weight": [
+            2,
+            2,
+            2,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            0,
+            2
+          ],
+          "SU4_dimension": 10,
+          "multiplicity": 1,
+          "joint_colour_and_flavour_weight_dimension": 534
+        },
+        {
+          "U4_highest_weight": [
+            3,
+            1,
+            1,
+            1
+          ],
+          "SU4_Dynkin_labels": [
+            2,
+            0,
+            0
+          ],
+          "SU4_dimension": 10,
+          "multiplicity": 1,
+          "joint_colour_and_flavour_weight_dimension": 672
+        },
+        {
+          "U4_highest_weight": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            1,
+            1,
+            1
+          ],
+          "SU4_dimension": 64,
+          "multiplicity": 8,
+          "joint_colour_and_flavour_weight_dimension": 312
+        },
+        {
+          "U4_highest_weight": [
+            3,
+            3,
+            0,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            3,
+            0
+          ],
+          "SU4_dimension": 50,
+          "multiplicity": 10,
+          "joint_colour_and_flavour_weight_dimension": 88
+        },
+        {
+          "U4_highest_weight": [
+            4,
+            1,
+            1,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            3,
+            0,
+            1
+          ],
+          "SU4_dimension": 70,
+          "multiplicity": 3,
+          "joint_colour_and_flavour_weight_dimension": 108
+        },
+        {
+          "U4_highest_weight": [
+            4,
+            2,
+            0,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            2,
+            2,
+            0
+          ],
+          "SU4_dimension": 126,
+          "multiplicity": 6,
+          "joint_colour_and_flavour_weight_dimension": 51
+        },
+        {
+          "U4_highest_weight": [
+            5,
+            1,
+            0,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            4,
+            1,
+            0
+          ],
+          "SU4_dimension": 140,
+          "multiplicity": 3,
+          "joint_colour_and_flavour_weight_dimension": 12
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            0,
+            0,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            6,
+            0,
+            0
+          ],
+          "SU4_dimension": 84,
+          "multiplicity": 1,
+          "joint_colour_and_flavour_weight_dimension": 1
+        }
+      ],
+      "total_highest_weight_matrix_size": 36,
+      "largest_highest_weight_matrix_size": 10
+    },
+    {
+      "N": 9,
+      "colour_Cartan_zero_dimension": 175616,
+      "colour_singlet_dimension": 14112,
+      "SU4_irreps": [
+        {
+          "U4_highest_weight": [
+            3,
+            2,
+            2,
+            2
+          ],
+          "SU4_Dynkin_labels": [
+            1,
+            0,
+            0
+          ],
+          "SU4_dimension": 4,
+          "multiplicity": 4,
+          "joint_colour_and_flavour_weight_dimension": 8016
+        },
+        {
+          "U4_highest_weight": [
+            3,
+            3,
+            2,
+            1
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            1,
+            1
+          ],
+          "SU4_dimension": 20,
+          "multiplicity": 20,
+          "joint_colour_and_flavour_weight_dimension": 4560
+        },
+        {
+          "U4_highest_weight": [
+            3,
+            3,
+            3,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            0,
+            3
+          ],
+          "SU4_dimension": 20,
+          "multiplicity": 20,
+          "joint_colour_and_flavour_weight_dimension": 1184
+        },
+        {
+          "U4_highest_weight": [
+            4,
+            2,
+            2,
+            1
+          ],
+          "SU4_Dynkin_labels": [
+            2,
+            0,
+            1
+          ],
+          "SU4_dimension": 36,
+          "multiplicity": 12,
+          "joint_colour_and_flavour_weight_dimension": 2688
+        },
+        {
+          "U4_highest_weight": [
+            4,
+            3,
+            1,
+            1
+          ],
+          "SU4_Dynkin_labels": [
+            1,
+            2,
+            0
+          ],
+          "SU4_dimension": 60,
+          "multiplicity": 12,
+          "joint_colour_and_flavour_weight_dimension": 1536
+        },
+        {
+          "U4_highest_weight": [
+            4,
+            3,
+            2,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            1,
+            1,
+            2
+          ],
+          "SU4_dimension": 140,
+          "multiplicity": 20,
+          "joint_colour_and_flavour_weight_dimension": 696
+        },
+        {
+          "U4_highest_weight": [
+            4,
+            4,
+            1,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            3,
+            1
+          ],
+          "SU4_dimension": 140,
+          "multiplicity": 4,
+          "joint_colour_and_flavour_weight_dimension": 240
+        },
+        {
+          "U4_highest_weight": [
+            5,
+            2,
+            1,
+            1
+          ],
+          "SU4_Dynkin_labels": [
+            3,
+            1,
+            0
+          ],
+          "SU4_dimension": 84,
+          "multiplicity": 6,
+          "joint_colour_and_flavour_weight_dimension": 528
+        },
+        {
+          "U4_highest_weight": [
+            5,
+            2,
+            2,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            3,
+            0,
+            2
+          ],
+          "SU4_dimension": 160,
+          "multiplicity": 4,
+          "joint_colour_and_flavour_weight_dimension": 240
+        },
+        {
+          "U4_highest_weight": [
+            5,
+            3,
+            1,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            2,
+            2,
+            1
+          ],
+          "SU4_dimension": 360,
+          "multiplicity": 12,
+          "joint_colour_and_flavour_weight_dimension": 144
+        },
+        {
+          "U4_highest_weight": [
+            5,
+            4,
+            0,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            1,
+            4,
+            0
+          ],
+          "SU4_dimension": 280,
+          "multiplicity": 2,
+          "joint_colour_and_flavour_weight_dimension": 24
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            2,
+            1,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            4,
+            1,
+            1
+          ],
+          "SU4_dimension": 420,
+          "multiplicity": 2,
+          "joint_colour_and_flavour_weight_dimension": 24
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            3,
+            0,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            3,
+            3,
+            0
+          ],
+          "SU4_dimension": 480,
+          "multiplicity": 4,
+          "joint_colour_and_flavour_weight_dimension": 8
+        }
+      ],
+      "total_highest_weight_matrix_size": 122,
+      "largest_highest_weight_matrix_size": 20
+    },
+    {
+      "N": 12,
+      "colour_Cartan_zero_dimension": 343000,
+      "colour_singlet_dimension": 24696,
+      "SU4_irreps": [
+        {
+          "U4_highest_weight": [
+            3,
+            3,
+            3,
+            3
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            0,
+            0
+          ],
+          "SU4_dimension": 1,
+          "multiplicity": 35,
+          "joint_colour_and_flavour_weight_dimension": 17824
+        },
+        {
+          "U4_highest_weight": [
+            4,
+            3,
+            3,
+            2
+          ],
+          "SU4_Dynkin_labels": [
+            1,
+            0,
+            1
+          ],
+          "SU4_dimension": 15,
+          "multiplicity": 45,
+          "joint_colour_and_flavour_weight_dimension": 10464
+        },
+        {
+          "U4_highest_weight": [
+            4,
+            4,
+            2,
+            2
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            2,
+            0
+          ],
+          "SU4_dimension": 20,
+          "multiplicity": 20,
+          "joint_colour_and_flavour_weight_dimension": 6159
+        },
+        {
+          "U4_highest_weight": [
+            4,
+            4,
+            3,
+            1
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            1,
+            2
+          ],
+          "SU4_dimension": 45,
+          "multiplicity": 15,
+          "joint_colour_and_flavour_weight_dimension": 3504
+        },
+        {
+          "U4_highest_weight": [
+            4,
+            4,
+            4,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            0,
+            4
+          ],
+          "SU4_dimension": 35,
+          "multiplicity": 1,
+          "joint_colour_and_flavour_weight_dimension": 534
+        },
+        {
+          "U4_highest_weight": [
+            5,
+            3,
+            2,
+            2
+          ],
+          "SU4_Dynkin_labels": [
+            2,
+            1,
+            0
+          ],
+          "SU4_dimension": 45,
+          "multiplicity": 15,
+          "joint_colour_and_flavour_weight_dimension": 3504
+        },
+        {
+          "U4_highest_weight": [
+            5,
+            3,
+            3,
+            1
+          ],
+          "SU4_Dynkin_labels": [
+            2,
+            0,
+            2
+          ],
+          "SU4_dimension": 84,
+          "multiplicity": 30,
+          "joint_colour_and_flavour_weight_dimension": 2016
+        },
+        {
+          "U4_highest_weight": [
+            5,
+            4,
+            2,
+            1
+          ],
+          "SU4_Dynkin_labels": [
+            1,
+            2,
+            1
+          ],
+          "SU4_dimension": 175,
+          "multiplicity": 19,
+          "joint_colour_and_flavour_weight_dimension": 1188
+        },
+        {
+          "U4_highest_weight": [
+            5,
+            4,
+            3,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            1,
+            1,
+            3
+          ],
+          "SU4_dimension": 256,
+          "multiplicity": 8,
+          "joint_colour_and_flavour_weight_dimension": 312
+        },
+        {
+          "U4_highest_weight": [
+            5,
+            5,
+            1,
+            1
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            4,
+            0
+          ],
+          "SU4_dimension": 105,
+          "multiplicity": 6,
+          "joint_colour_and_flavour_weight_dimension": 240
+        },
+        {
+          "U4_highest_weight": [
+            5,
+            5,
+            2,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            3,
+            2
+          ],
+          "SU4_dimension": 280,
+          "multiplicity": 3,
+          "joint_colour_and_flavour_weight_dimension": 108
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            2,
+            2,
+            2
+          ],
+          "SU4_Dynkin_labels": [
+            4,
+            0,
+            0
+          ],
+          "SU4_dimension": 35,
+          "multiplicity": 1,
+          "joint_colour_and_flavour_weight_dimension": 534
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            3,
+            2,
+            1
+          ],
+          "SU4_Dynkin_labels": [
+            3,
+            1,
+            1
+          ],
+          "SU4_dimension": 256,
+          "multiplicity": 8,
+          "joint_colour_and_flavour_weight_dimension": 312
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            3,
+            3,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            3,
+            0,
+            3
+          ],
+          "SU4_dimension": 300,
+          "multiplicity": 10,
+          "joint_colour_and_flavour_weight_dimension": 88
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            4,
+            1,
+            1
+          ],
+          "SU4_Dynkin_labels": [
+            2,
+            3,
+            0
+          ],
+          "SU4_dimension": 280,
+          "multiplicity": 3,
+          "joint_colour_and_flavour_weight_dimension": 108
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            4,
+            2,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            2,
+            2,
+            2
+          ],
+          "SU4_dimension": 729,
+          "multiplicity": 6,
+          "joint_colour_and_flavour_weight_dimension": 51
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            5,
+            1,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            1,
+            4,
+            1
+          ],
+          "SU4_dimension": 735,
+          "multiplicity": 3,
+          "joint_colour_and_flavour_weight_dimension": 12
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            6,
+            0,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            6,
+            0
+          ],
+          "SU4_dimension": 336,
+          "multiplicity": 1,
+          "joint_colour_and_flavour_weight_dimension": 1
+        }
+      ],
+      "total_highest_weight_matrix_size": 229,
+      "largest_highest_weight_matrix_size": 45
+    },
+    {
+      "N": 15,
+      "colour_Cartan_zero_dimension": 175616,
+      "colour_singlet_dimension": 14112,
+      "SU4_irreps": [
+        {
+          "U4_highest_weight": [
+            4,
+            4,
+            4,
+            3
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            0,
+            1
+          ],
+          "SU4_dimension": 4,
+          "multiplicity": 4,
+          "joint_colour_and_flavour_weight_dimension": 8016
+        },
+        {
+          "U4_highest_weight": [
+            5,
+            4,
+            3,
+            3
+          ],
+          "SU4_Dynkin_labels": [
+            1,
+            1,
+            0
+          ],
+          "SU4_dimension": 20,
+          "multiplicity": 20,
+          "joint_colour_and_flavour_weight_dimension": 4560
+        },
+        {
+          "U4_highest_weight": [
+            5,
+            4,
+            4,
+            2
+          ],
+          "SU4_Dynkin_labels": [
+            1,
+            0,
+            2
+          ],
+          "SU4_dimension": 36,
+          "multiplicity": 12,
+          "joint_colour_and_flavour_weight_dimension": 2688
+        },
+        {
+          "U4_highest_weight": [
+            5,
+            5,
+            3,
+            2
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            2,
+            1
+          ],
+          "SU4_dimension": 60,
+          "multiplicity": 12,
+          "joint_colour_and_flavour_weight_dimension": 1536
+        },
+        {
+          "U4_highest_weight": [
+            5,
+            5,
+            4,
+            1
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            1,
+            3
+          ],
+          "SU4_dimension": 84,
+          "multiplicity": 6,
+          "joint_colour_and_flavour_weight_dimension": 528
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            3,
+            3,
+            3
+          ],
+          "SU4_Dynkin_labels": [
+            3,
+            0,
+            0
+          ],
+          "SU4_dimension": 20,
+          "multiplicity": 20,
+          "joint_colour_and_flavour_weight_dimension": 1184
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            4,
+            3,
+            2
+          ],
+          "SU4_Dynkin_labels": [
+            2,
+            1,
+            1
+          ],
+          "SU4_dimension": 140,
+          "multiplicity": 20,
+          "joint_colour_and_flavour_weight_dimension": 696
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            4,
+            4,
+            1
+          ],
+          "SU4_Dynkin_labels": [
+            2,
+            0,
+            3
+          ],
+          "SU4_dimension": 160,
+          "multiplicity": 4,
+          "joint_colour_and_flavour_weight_dimension": 240
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            5,
+            2,
+            2
+          ],
+          "SU4_Dynkin_labels": [
+            1,
+            3,
+            0
+          ],
+          "SU4_dimension": 140,
+          "multiplicity": 4,
+          "joint_colour_and_flavour_weight_dimension": 240
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            5,
+            3,
+            1
+          ],
+          "SU4_Dynkin_labels": [
+            1,
+            2,
+            2
+          ],
+          "SU4_dimension": 360,
+          "multiplicity": 12,
+          "joint_colour_and_flavour_weight_dimension": 144
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            5,
+            4,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            1,
+            1,
+            4
+          ],
+          "SU4_dimension": 420,
+          "multiplicity": 2,
+          "joint_colour_and_flavour_weight_dimension": 24
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            6,
+            2,
+            1
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            4,
+            1
+          ],
+          "SU4_dimension": 280,
+          "multiplicity": 2,
+          "joint_colour_and_flavour_weight_dimension": 24
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            6,
+            3,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            3,
+            3
+          ],
+          "SU4_dimension": 480,
+          "multiplicity": 4,
+          "joint_colour_and_flavour_weight_dimension": 8
+        }
+      ],
+      "total_highest_weight_matrix_size": 122,
+      "largest_highest_weight_matrix_size": 20
+    },
+    {
+      "N": 18,
+      "colour_Cartan_zero_dimension": 21952,
+      "colour_singlet_dimension": 2520,
+      "SU4_irreps": [
+        {
+          "U4_highest_weight": [
+            5,
+            5,
+            4,
+            4
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            1,
+            0
+          ],
+          "SU4_dimension": 6,
+          "multiplicity": 3,
+          "joint_colour_and_flavour_weight_dimension": 1176
+        },
+        {
+          "U4_highest_weight": [
+            5,
+            5,
+            5,
+            3
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            0,
+            2
+          ],
+          "SU4_dimension": 10,
+          "multiplicity": 1,
+          "joint_colour_and_flavour_weight_dimension": 672
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            4,
+            4,
+            4
+          ],
+          "SU4_Dynkin_labels": [
+            2,
+            0,
+            0
+          ],
+          "SU4_dimension": 10,
+          "multiplicity": 1,
+          "joint_colour_and_flavour_weight_dimension": 534
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            5,
+            4,
+            3
+          ],
+          "SU4_Dynkin_labels": [
+            1,
+            1,
+            1
+          ],
+          "SU4_dimension": 64,
+          "multiplicity": 8,
+          "joint_colour_and_flavour_weight_dimension": 312
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            5,
+            5,
+            2
+          ],
+          "SU4_Dynkin_labels": [
+            1,
+            0,
+            3
+          ],
+          "SU4_dimension": 70,
+          "multiplicity": 3,
+          "joint_colour_and_flavour_weight_dimension": 108
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            6,
+            3,
+            3
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            3,
+            0
+          ],
+          "SU4_dimension": 50,
+          "multiplicity": 10,
+          "joint_colour_and_flavour_weight_dimension": 88
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            6,
+            4,
+            2
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            2,
+            2
+          ],
+          "SU4_dimension": 126,
+          "multiplicity": 6,
+          "joint_colour_and_flavour_weight_dimension": 51
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            6,
+            5,
+            1
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            1,
+            4
+          ],
+          "SU4_dimension": 140,
+          "multiplicity": 3,
+          "joint_colour_and_flavour_weight_dimension": 12
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            6,
+            6,
+            0
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            0,
+            6
+          ],
+          "SU4_dimension": 84,
+          "multiplicity": 1,
+          "joint_colour_and_flavour_weight_dimension": 1
+        }
+      ],
+      "total_highest_weight_matrix_size": 36,
+      "largest_highest_weight_matrix_size": 10
+    },
+    {
+      "N": 21,
+      "colour_Cartan_zero_dimension": 512,
+      "colour_singlet_dimension": 120,
+      "SU4_irreps": [
+        {
+          "U4_highest_weight": [
+            6,
+            6,
+            5,
+            4
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            1,
+            1
+          ],
+          "SU4_dimension": 20,
+          "multiplicity": 2,
+          "joint_colour_and_flavour_weight_dimension": 24
+        },
+        {
+          "U4_highest_weight": [
+            6,
+            6,
+            6,
+            3
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            0,
+            3
+          ],
+          "SU4_dimension": 20,
+          "multiplicity": 4,
+          "joint_colour_and_flavour_weight_dimension": 8
+        }
+      ],
+      "total_highest_weight_matrix_size": 6,
+      "largest_highest_weight_matrix_size": 4
+    },
+    {
+      "N": 24,
+      "colour_Cartan_zero_dimension": 1,
+      "colour_singlet_dimension": 1,
+      "SU4_irreps": [
+        {
+          "U4_highest_weight": [
+            6,
+            6,
+            6,
+            6
+          ],
+          "SU4_Dynkin_labels": [
+            0,
+            0,
+            0
+          ],
+          "SU4_dimension": 1,
+          "multiplicity": 1,
+          "joint_colour_and_flavour_weight_dimension": 1
+        }
+      ],
+      "total_highest_weight_matrix_size": 1,
+      "largest_highest_weight_matrix_size": 1
+    }
+  ],
+  "full_symmetry_reconstruction_exact": true,
+  "spectrum_computed": false,
+  "ground_vacuum_irrep_established": false,
+  "nucleon_delta_split_forbidden_within_same_SU4_irrep": true,
+  "symmetric_three_index_SU4_branching": {
+    "spin3/2_isospin3/2_dimension": 16,
+    "spin1/2_isospin1/2_dimension": 4
+  }
+}

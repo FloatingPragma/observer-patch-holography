@@ -8,11 +8,11 @@ Solid arrows are proved steps under their premises; dashed arrows identify
 physical connections to derive. The scientific classifications and numerical
 reference values are inherited from the authenticated vertical atlas.
 
-The one-program panel fixes the source, physical preparation, retained
-reference and Hamiltonian clock of the [primary contract](../particle_common_contract/PROOF.md).
-It verifies the actual consumer receipts before rendering. Separate scalar
-and directional controls retain their own domains; matching labels cannot
-transfer their detector laws to the selected spatial state.
+The dependency panel follows the official [CCF-LT-2 specification](../SPEC.md)
+and its authenticated native-column and theorem-bridge results. The Wilson,
+scalar, ground-state and detector panels retain their independent component
+sources. Their numerical values and reference data are unchanged; transfer
+to the official model requires an explicit source map.
 
 The outer panels show finite defect operations at the left and observer
 interpretation at the right. They explain preparation, work exchange,
@@ -41,7 +41,7 @@ color and neutrino sectors. Its formulas follow from the declared action;
 the adjacent source explanations retain their finite domains. The
 [complete observer outputs](../particle_observer_outputs/README.md) supply
 concrete interacting scalar records and a controlled gauge-field experiment.
-The six-obligation panel connects the protected-label interaction, complete
+The component-domain panel connects the protected-label interaction, complete
 detector laws, fixed-spacing causal bounds and actual energy currents to
 their physical acceptance criteria. The defect endpoint includes a separate
 controller-work experiment; its probabilities are not substituted for the

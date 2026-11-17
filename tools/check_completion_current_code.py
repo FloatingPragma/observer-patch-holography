@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Test current completion code with its two authenticated documentary inputs.
+"""Test explicit completion domains with two authenticated documentary inputs.
 
 The finite campaign identifies documentary inputs by their frozen bytes. The
 current hypothesis is neither substituted publicly nor claimed equivalent.
@@ -19,7 +19,6 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-TESTS = ("tools/test_completion_program.py", "model/completion", "model/clock_defect_energy")
 DOCUMENTS = {
     "docs/OPH_EXECUTABLE_HYPOTHESIS.md": {
         "commit": "9de91f9f0e01cb8fb185886a4e79579bb8b5a7a8",
@@ -122,7 +121,18 @@ def environment(view):
                 PYTEST_DISABLE_PLUGIN_AUTOLOAD="1", PYTEST_ADDOPTS="", PYTEST_PLUGINS="", OPENBLAS_NUM_THREADS="1", OMP_NUM_THREADS="1")
 
 
-def collect(view, tests=TESTS):
+def selected_tests(root=ROOT):
+    """Use the same current-law and component domains as the CI command."""
+    try:
+        from tools import completion_test_scope
+    except ModuleNotFoundError:
+        import completion_test_scope
+    return tuple(completion_test_scope.paths(root))
+
+
+def collect(view, tests=None):
+    if tests is None:
+        tests = selected_tests(view)
     command = [sys.executable, "-m", "pytest", "--collect-only", "-q", *tests]
     result = subprocess.run(command, cwd=view, env=environment(view), capture_output=True, text=True)
     require(result.returncode == 0, "current test collection failed:\n" + result.stdout + result.stderr)
@@ -170,7 +180,8 @@ def execute(*, root=ROOT):
     root = Path(root).resolve()
     before = current_files(root)
     documents = authenticated_documents(root)
-    original_ids = collect(root)
+    tests = selected_tests(root)
+    original_ids = collect(root, tests)
     # Current prose remains current. Its scientific producer runs against that
     # prose and its entire non-provenance result must match retained evidence.
     live = subprocess.run([sys.executable, "tools/renew_native_defect_live.py", "--check"],
@@ -179,12 +190,12 @@ def execute(*, root=ROOT):
     with tempfile.TemporaryDirectory(prefix="oph-completion-current-code-") as folder:
         view = Path(folder) / "view"
         install_current_inputs(root, view, before, documents)
-        copied_ids = collect(view)
+        copied_ids = collect(view, tests)
         require(copied_ids == original_ids, "current test inventory changed in documentary view")
         report_path = Path(folder) / "execution.json"
         result = subprocess.run([sys.executable, "-m", "pytest", "-q", "--durations=10", "-W", "error",
                                  "-p", "tools.check_completion_current_code",
-                                 "--oph-execution-report", str(report_path), *TESTS],
+                                 "--oph-execution-report", str(report_path), *tests],
                                 cwd=view, env=environment(view), capture_output=True, text=True)
         print(result.stdout, end="", flush=True)
         if result.stderr:
@@ -195,7 +206,7 @@ def execute(*, root=ROOT):
     require(current_files(root) == before, "current worktree changed during complete regression")
     return {
         "schema": "oph.current_completion_code_frozen_documentary_inputs.v1",
-        "scope": "current executable code and complete tests on the retained finite documentary contract",
+        "scope": "current-law and independent-component test domains with exact documentary inputs",
         "current_input_file_count": len(before), "test_count": len(original_ids),
         "test_inventory_sha256": sha("\n".join(original_ids).encode()),
         "current_worktree_manifest_sha256": sha(json.dumps(before, sort_keys=True).encode()),

@@ -1,0 +1,40 @@
+{
+  "schema": "oph.lepton_completion.integration_validation.v1",
+  "all_pass": true,
+  "scope": "Exact component-review reproduction and source custody; no new physical discovery or award",
+  "claim_register_sha256": "a0198655082224044c33a890ff77339bc27be94f179f42185b2c5e1b7442e092",
+  "portable_manifest_sha256": "4b5d22aae764b3784f73abc239c152f1296ff8d145cc43bcc8f28a2b6ceb60a2",
+  "portable_source_unchanged_after_replay": true,
+  "four_review_jobs_passed": true,
+  "actual_replay_seconds": 63.512406917026965,
+  "original_recorded_review_seconds": 47.49043316701136,
+  "runtime_note": "Recorded wall times are distinct executions; no sub-minute claim is made for this integration run.",
+  "scope_guard_normal_and_optimized": true,
+  "reader_style_check": "PASS",
+  "same_group_scientific_cross_review": "Codex energy worker, read-only: no scientific finding; no independent external G6",
+  "evidence": {
+    "validation_replay/20261115_codex_intrinsic_phase_process_replay.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "validation_replay/20261115_codex_intrinsic_phase_process_replay.stdout": "f7cdca145993254405bed323a90404057851ab4c58a90847ba73834d46698239",
+    "validation_replay/20261115_codex_retained_family_oracle_replay.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "validation_replay/20261115_codex_retained_family_oracle_replay.stdout": "c4adba4cdf8b63bc02277525cae4a59b460d38cc136a76dc693ffc96b28fb4ee",
+    "validation_replay/PORTABLE_REPLAY.json": "71c8f07f3ee33e293d41519430dacbf020add883a8c7a2a6529c7fd0bb5b9321",
+    "validation_replay/RUNS.json": "86292f008c1fe27e8bdf182bb3b993111290df449fb295c81dc847a3723b8611",
+    "validation_replay/SUMMARY.json": "4c4dda78df6958b40e48fc3f15b64e757fd5626ca6e0736458b89bf9e273028c",
+    "validation_replay/oracle_independent.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "validation_replay/oracle_independent.stdout": "945e55a97c24cd08851927764a33c5a65fd4a5e2a723cbb7bfe0ee210597f964",
+    "validation_replay/phase_independent.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "validation_replay/phase_independent.stdout": "cce59edb337f1c45b0e3426b3892431cb565284c4a3b1deecf1a70e8bcaa6ad2",
+    "validation_replay/wrapper.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "validation_replay/wrapper.stdout": "81c67b53d6bc03bdc66d9ada5fca104f224369b6798c3e0b30e18bf4f5e8dca8"
+  },
+  "prose_parameter_domain_binding": {
+    "scope": "Explicit logarithmic-domain statement; executable closure and recorded four-job replay unchanged",
+    "integration_sources": {
+      "reverse-engineering-reality/model/observer_lepton_components/verify.py": "89347a49072f86d1adb9c2a5d918f337d45172677390d6aa035e1668d636049e",
+      "reverse-engineering-reality/model/observer_lepton_components/completion_replay.py": "f3d038b47921e80808aa0dc74dea95dc3eacff46a8adeeb71b81b471e8646f05",
+      "reverse-engineering-reality/model/observer_lepton_components/PROOF.md": "f8370d5bcf9c636cba5241d1fd2bab95d92178f0b06ebfdf0af652b83409df07",
+      "reverse-engineering-reality/model/observer_lepton_components/README.md": "bb14f2eedde8468541e81e198932b3ca2b901faf10d7b9355c41adf0667e01ab",
+      "reverse-engineering-reality/paper/tex_fragments/RETAINED_CHARGED_OBSERVER_RECORDS.tex": "6a6c049856cff3268f7fe31abeb8c47243583e840b188fe897a9c0967cfed8f0"
+    }
+  }
+}

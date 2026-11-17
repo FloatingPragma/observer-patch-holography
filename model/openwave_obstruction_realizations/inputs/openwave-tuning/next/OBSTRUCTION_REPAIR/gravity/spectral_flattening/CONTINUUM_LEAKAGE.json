@@ -1,0 +1,56 @@
+{
+  "status": "CONTINUUM_NONZERO_SPACELIKE_PROPAGATOR",
+  "source": "R=1 positive flattening, ky=kz=0 exact continuum sector",
+  "rows": [
+    {
+      "time": 4.0,
+      "spacelike_gap": 1.0,
+      "kernel_alpha": 0.12806359502927456,
+      "kernel_beta_imag": 0.09821679759313912,
+      "kernel_operator_norm": 0.22628039262241367,
+      "quadrature_error_bound": 8.869209692994305e-12
+    },
+    {
+      "time": 4.0,
+      "spacelike_gap": 2.0,
+      "kernel_alpha": 0.03506398165634789,
+      "kernel_beta_imag": -0.007006539718393211,
+      "kernel_operator_norm": 0.0420705213747411,
+      "quadrature_error_bound": 8.861441025706761e-12
+    },
+    {
+      "time": 4.0,
+      "spacelike_gap": 4.0,
+      "kernel_alpha": -0.012497397475432243,
+      "kernel_beta_imag": -0.01876829471189332,
+      "kernel_operator_norm": 0.03126569218732556,
+      "quadrature_error_bound": 6.972879828754312e-12
+    },
+    {
+      "time": 4.0,
+      "spacelike_gap": 8.0,
+      "kernel_alpha": 0.0014264864061957125,
+      "kernel_beta_imag": 0.0015187876315485417,
+      "kernel_operator_norm": 0.0029452740377442542,
+      "quadrature_error_bound": 7.703178378310264e-12
+    },
+    {
+      "time": 4.0,
+      "spacelike_gap": 12.0,
+      "kernel_alpha": -0.0001463506775942288,
+      "kernel_beta_imag": -0.00014912548254261676,
+      "kernel_operator_norm": 0.00029547616013684554,
+      "quadrature_error_bound": 5.875984046346762e-12
+    },
+    {
+      "time": 4.0,
+      "spacelike_gap": 16.0,
+      "kernel_alpha": 1.4011014739121077e-05,
+      "kernel_beta_imag": 1.3628336392227972e-05,
+      "kernel_operator_norm": 2.763935113134905e-05,
+      "quadrature_error_bound": 9.885865725955351e-12
+    }
+  ],
+  "strict_microcausality": false,
+  "scope": "Pointwise kernel, not a full 3D regional norm. Finite Fourier edge and worst-case UV operator norms require separate treatment."
+}

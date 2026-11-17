@@ -1,0 +1,32 @@
+{
+  "schema": "oph.obstruction_repair.spin_flavour.retained_attempts.v1",
+  "attempts": [
+    {
+      "artifact": "SPIN_FLAVOUR_SOURCE_FIRST_RUN.log",
+      "type": "implementation edge case",
+      "result": "The zero-particle sector has an empty raising-operator codomain. A maximum over an empty array failed.",
+      "repair": "Return the exact empty vector for a zero-row operator."
+    },
+    {
+      "artifact": "SPIN_FLAVOUR_SOURCE_SLOW_ALGORITHM_RUN.log",
+      "source": "spin_flavour_source_slow_algorithm.py",
+      "type": "bounded execution stopped for performance",
+      "result": "Completed all N<=9 irreps and the35-dimensional N12 SU4 singlet; Python scalar big-integer Gram products stalled progress in the45-dimensional competing block.",
+      "repair": "Replace only exact integer matrix multiplication with bounded signed10-bit limb products, independently compared against direct arbitrary-precision arithmetic. Source Hamiltonian, vectors, projection, symmetry and parameters unchanged."
+    },
+    {
+      "artifact": "SPIN_FLAVOUR_SYMMETRY_FIRST_RUN.log",
+      "type": "symbolic equality normalization",
+      "result": "A correct composed complex unitary tree gauge was not automatically simplified by structural matrix equality.",
+      "repair": "Apply exact symbolic simplification before equality; no source or assertion changed."
+    },
+    {
+      "artifact": "SPIN_FLAVOUR_SOURCE_SINGLETON_FIRST_RUN.log",
+      "type": "empty diagnostic after zero random seed",
+      "result": "Every nontrivial block completed; last one-dimensional weight carrier drew the zero seed and its progress maximum was empty.",
+      "repair": "Use the canonical unit vector for a one-dimensional carrier; retain an explicit empty maximum default. Actual CAR constraints still verify the resulting vector."
+    }
+  ],
+  "physical_misses_retained_in_spectrum_result": true,
+  "empirical_parameter_retuning": false
+}

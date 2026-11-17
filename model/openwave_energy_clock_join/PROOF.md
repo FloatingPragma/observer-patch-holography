@@ -19,6 +19,11 @@ preparation is compiled by that parent. The official M10.2 candidate
 `A-static-signed-source-v1` at `c330c6e7f23506b5f87c339cd73906928c1a7cd9`
 is a separate contract. No future candidate selection is inferred.
 
+The repository's official executable model, [CCF-LT-2](../SPEC.md), has a
+distinct source and Hamiltonian. The spectral and instrument statements here
+apply only to the declared static diagnostic; no source or observation map
+to CCF-LT-2 is supplied.
+
 The tested hypothesis is the positive-branch relation
 
     E_i = k theta_i,   k = E_f/theta_f,

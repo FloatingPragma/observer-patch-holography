@@ -55,6 +55,7 @@ PUBLISHED_README_GLOB = "README*.md"
 VENDORED_DIRECTORY_NAMES = frozenset(
     {"node_modules", "site-packages", "vendor", "third_party", "__pycache__"}
 )
+SEALED_SNAPSHOT_DIRECTORIES = frozenset({"evidence", "workspace"})
 LEDGER_RELATIVE = Path("code/particles/runs/status/postdiction_ledger.json")
 COMPARISON_TABLE_SURFACE_RULE = (
     "every_published_readme_comparison_table_is_declared_row_for_row"
@@ -804,6 +805,9 @@ def iter_published_readmes(root: Path) -> list[Path]:
         if any(part.startswith(".") for part in parts):
             continue
         if any(part in VENDORED_DIRECTORY_NAMES for part in parts):
+            continue
+        # Sealed snapshot copies inside code packages are archived inputs.
+        if len(parts) > 3 and parts[0] == "code" and parts[2] in SEALED_SNAPSHOT_DIRECTORIES:
             continue
         paths.append(path)
     return sorted(paths)

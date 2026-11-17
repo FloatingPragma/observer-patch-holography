@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_interval_source_certificate/certificate.py", line 52, in <module>
+    BD = adj(B)
+  File "/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_interval_source_certificate/interval_math.py", line 93, in adj
+    return [[a[j][i].conjugate() for j in range(len(a))] for i in range(len(a[0]))]
+             ~~~~~~~~~~~~~~~~~^^
+  File "/Users/muellerberndt/.local/lib/python3.13/site-packages/mpmath/ctx_iv.py", line 205, in conjugate
+    return s.ctx.make_mpc((a, mpf_neg(b)))
+                              ~~~~~~~^^^
+  File "/Users/muellerberndt/.local/lib/python3.13/site-packages/mpmath/libmp/libmpf.py", line 667, in mpf_neg
+    sign, man, exp, bc = s
+    ^^^^^^^^^^^^^^^^^^
+ValueError: not enough values to unpack (expected 4, got 2)

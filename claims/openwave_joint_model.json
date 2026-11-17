@@ -829,16 +829,17 @@
     },
     {
       "candidate_id": "signed-source-static-v1",
-      "ledger": "claims/openwave_signed_source.json",
-      "ledger_sha256": "3f3b125afd0e5bb93ad78394eeaa691de504ccc583b2214b05c55aa264dbcf02",
-      "official_OpenWave_awards_added": 0,
-      "scope": "One signed source on the twelve-port carrier under the native repair law, with a complete quantum instrument and current pointer; the same work register is prepared, evolved and read.",
-      "transfer_to_this_canonical_source": false,
-      "validated_rows": [
+      "finite_arithmetic_rows": [
         1,
         2,
         7
-      ]
+      ],
+      "ledger": "claims/openwave_signed_source.json",
+      "ledger_sha256": "5078372f1b877de3c94de4ff32976f8739f34c3517b0005e06b272a625227882",
+      "official_OpenWave_awards_added": 0,
+      "scope": "One signed source on the twelve-port carrier under the native repair law, with a complete quantum instrument and current pointer; the same work register is prepared, evolved and read.",
+      "transfer_to_this_canonical_source": false,
+      "validated_rows": []
     },
     {
       "candidate_id": "native-local12-dirac-noncompact-quadratic-v4-proposed",
@@ -1066,7 +1067,7 @@
     "code/openwave_candidate/validation/observables/spacetime/stacked_wavepacket.svg": "48a1f0bfe7697eb972218a68dcd6f0a7834d02eb1e09d13ece6399ea4a4f863f",
     "code/openwave_candidate/validation/observables/spacetime/test_independent_stacked.py": "2acd9b945281c894b63d48e958c1455c99c27df1bc8654f2b9fd4b8ef7f99181",
     "code/openwave_candidate/validation/observables/spacetime/test_stacked_assumptions.py": "73d3d148e3c88b82fd17b8f77345c40f345a5b11c7b93b7f7aec8dc9c9a24c74",
-    "tools/build_openwave_joint_claims.py": "d7dfd973064a93f5c1c7437d425af35799ec25683d7bc453ea872ea561268fd7",
+    "tools/build_openwave_joint_claims.py": "3b90aab75ea5fa9be3b42b0e23aef0eea8082dde75276de87f2ace43cdf2169c",
     "tools/check_openwave_assessment_replay.py": "765efb63988bb4f725426da9df1469523ec3cdd18d079684bf8f77f21416eeb9"
   }
 }

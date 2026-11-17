@@ -41,11 +41,10 @@ def hero(c, data):
     c.text(X0, 228, 'The proposed path from a protected source defect to an observer’s particle record',
            25, SOFT, maxw=CW)
     y = c.para(X0, 284, 1250,
-               'The OPH simulation runs small observers that compare records and repair mismatches. '
-               'Its hypothesis connects matter to protected {a|defects}. This illustrated path joins '
-               'finite examples with the proposed physical interpretation. Each caption separates '
-               'computed records from the proof needed to identify {v|position}, '
-               '{v|velocity} and {v|mass} on one source.', 21, MUTED, 1.5)
+               'CCF-LT-2 is the official matter, field and local-capacity Hamiltonian. This atlas '
+               'illustrates separate finite component examples, including protected {a|defects} '
+               'and observer records. Their proposed connections to {v|position}, {v|velocity} '
+               'and {v|mass} require proof on that common source.', 21, MUTED, 1.5)
 
     # --- triptych: program, records, description
     py, ph = 410, 292
@@ -126,7 +125,7 @@ def hero(c, data):
 
     cy = py + ph + 38
     for x, col, lab, body in (
-            (X0 + 8, TEAL, 'What the program runs', 'Observers, seams and repair records. Protection depends on the allowed moves.'),
+            (X0 + 8, TEAL, 'Finite component examples', 'Observers, seams and repair records. Protection depends on the allowed moves.'),
             (bx + 4, AMBER, 'What gets recorded', 'Clicks that observers compare and agree on.'),
             (zx + 8, VIOLET, 'The physical target', 'A controlled particle description with position, velocity and mass.')):
         c.caps(x, cy, lab, col, 14)

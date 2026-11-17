@@ -4,7 +4,7 @@ This directory contains publicly released research companions, not journal-publi
 
 Each paper opens with the shared statement of the [executable-model hypothesis](../docs/OPH_EXECUTABLE_HYPOTHESIS.md) and the tower, followed by its own hypothesis, its finite theorems, the joins the executable model must realize before its conclusions apply, and the result that would refute the branch. Supplied spatial domains, FLRW backgrounds, species content, record-production profiles, radial lifts and clock calibrations are premises of the corresponding branch. Their use establishes no preferred clock of the underlying observer network. Modular parameters, record precedence and calibrated local duration have distinct roles; see the [working terms](../docs/INTERPRETATION_AND_TERMS.md).
 
-The executable model supplies native repair, records, local event clocks and a two-dimensional screen continuum. It supplies no covariant cosmological source, physical scale, radial lift, expanding background, photon sector or quantum vacuum, so every cosmological conclusion here is a conditional implication until those joins are made on the same process.
+The official [CCF-LT-2 specification](../model/SPEC.md) supplies a finite matter and field Hamiltonian with local capacity, a finite Gibbs preparation and mechanical mesh and coframe interfaces. Physical spacetime, cosmological preparation, calibrated scales and photon transport require further attachment. The repair, record and screen-continuum comparisons below retain their independent sources.
 
 ## Paper Map
 

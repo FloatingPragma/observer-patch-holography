@@ -1,0 +1,77 @@
+{
+  "status": "ANTIPERIODIC_MASSLESS_CONTINUUM_CELL_CONTROL",
+  "rows": [
+    {
+      "L": 16,
+      "h": 0.5,
+      "R": 1.0,
+      "mass": 0.0,
+      "twist": 0.5,
+      "aliases": 1,
+      "entropy": 0.663899430593636,
+      "metric_response": 1.4639377119226467,
+      "shape_response": -1.6050844013889538,
+      "uniform_fixed_volume_residual": -0.14114668946630715,
+      "relative_uniform_residual": 0.09641577528659583
+    },
+    {
+      "L": 16,
+      "h": 0.5,
+      "R": 1.0,
+      "mass": 0.0,
+      "twist": 0.5,
+      "aliases": 2,
+      "entropy": 0.6639026157913308,
+      "metric_response": 1.4639550340863128,
+      "shape_response": -1.6051012524966553,
+      "uniform_fixed_volume_residual": -0.14114621841034247,
+      "relative_uniform_residual": 0.09641431268306339
+    },
+    {
+      "L": 24,
+      "h": 0.5,
+      "R": 1.0,
+      "mass": 0.0,
+      "twist": 0.5,
+      "aliases": 1,
+      "entropy": 0.6526437598293021,
+      "metric_response": 1.590709896707161,
+      "shape_response": -1.579328972575716,
+      "uniform_fixed_volume_residual": 0.01138092413144487,
+      "relative_uniform_residual": 0.007154619553825547
+    },
+    {
+      "L": 24,
+      "h": 0.5,
+      "R": 1.0,
+      "mass": 0.0,
+      "twist": 0.5,
+      "aliases": 2,
+      "entropy": 0.6526469310310088,
+      "metric_response": 1.5907271137886652,
+      "shape_response": -1.5793458655038741,
+      "uniform_fixed_volume_residual": 0.011381248284791035,
+      "relative_uniform_residual": 0.007154745893331822
+    },
+    {
+      "L": 40,
+      "h": 0.5,
+      "R": 1.0,
+      "mass": 0.0,
+      "twist": 0.5,
+      "aliases": 1,
+      "entropy": 0.6529249576279736,
+      "metric_response": 1.580151183191696,
+      "shape_response": -1.5800410185230311,
+      "uniform_fixed_volume_residual": 0.00011016466866475838,
+      "relative_uniform_residual": 6.97178028511426e-05
+    }
+  ],
+  "literal_control": {
+    "finite_entropy_derivative": -1.6050844146836551,
+    "analytic_shape_derivative": -1.6050844013889538,
+    "matrix_derivative_error": 2.2082197443898803e-09,
+    "entropy_derivative_error": 1.3294701339816584e-08
+  },
+  "cpu_seconds": 6.331389
+}

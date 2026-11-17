@@ -1,7 +1,7 @@
-"""Current candidate SVG: frozen numerical atlas plus authenticated source families.
+"""Current candidate SVG: independent numerical atlas and source families.
 
-The numerical comparison producer remains immutable. This leaf owns the public
-candidate SVG and verifies the retained base before adding confirmation evidence.
+This leaf owns the public candidate SVG and verifies its numerical comparison
+before adding confirmation evidence within each component's source domain.
 """
 import argparse
 from html import escape
@@ -20,10 +20,11 @@ ROOT = build.ROOT
 HERE = Path(__file__).resolve().parent
 OUTPUT = ROOT/'docs/research/OPH_PARTICLE_CANDIDATE_ATLAS.svg'
 AUDIT = HERE/'candidate_view_audit.json'
-SOURCES = ('candidate_view.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'field_panels.py', 'canvas.py', 'parts.py', 'test_candidate_view.py')
+SOURCES = ('candidate_view.py', 'build.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'field_panels.py', 'canvas.py', 'parts.py', 'test_candidate_view.py')
 
 
 def load():
+    build.dependency_map()
     comparison, original_svg = base.build()
     confirmation = build.receipt(build.IDENTITY_TESTS)
     build.identity_model.validate(confirmation)
@@ -41,10 +42,11 @@ def render(original_svg, confirmation, repair=None, protection=None, agreement=N
     c.caps(X0, 54, 'Finite-source candidate evidence', TEAL, 14)
     c.text(X0, 106, 'The source catalogue and the tests for a particle', 40, TEXT, 700)
     y = c.para(X0, 151, CW,
-        'The numerical comparisons above retain their declared action, calibration and '
-        'mass conventions. The following source catalogue and complete detector results '
-        'use the candidate confirmation receipt. Neither table assigns a physical species '
-        'or a source-derived GeV mass.', 21, MUTED, 1.42)+72
+        'CCF-LT-2 is the official matter, field and local-capacity law. These independent '
+        'numerical comparisons retain their own action, calibration and mass conventions. '
+        'The source catalogue and complete detector results use the candidate confirmation '
+        'receipt. Neither table assigns a physical species or source-derived GeV mass.',
+        21, MUTED, 1.42)+72
     data = {'identity_tests': confirmation, 'repair': repair or repair_panels.load(),
             'protection': protection or repair_panels.load_protection(),
             'agreement': agreement or repair_panels.load_agreement(),
@@ -85,7 +87,8 @@ def produce():
     svg = render(old_svg, confirmation, repair, protection, agreement, joint, field)
     build.check_links(svg)
     pins = {**comparison['input_sha256'], **confirmation['source_sha256'],
-            str(build.IDENTITY_TESTS.relative_to(ROOT)): build.sha(build.IDENTITY_TESTS)}
+            str(build.IDENTITY_TESTS.relative_to(ROOT)): build.sha(build.IDENTITY_TESTS),
+            str(build.DEPENDENCIES.relative_to(ROOT)): build.sha(build.DEPENDENCIES)}
     pins.update(repair_panels.input_pins(repair))
     pins.update(repair_panels.protection_pins(protection))
     pins.update(repair_panels.agreement_pins(agreement))

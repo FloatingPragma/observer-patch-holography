@@ -1,0 +1,39 @@
+{
+  "candidate": "A-old240-source-local-count-flow-v1",
+  "files": {
+    "DESIGN.md": "a419f84c51894e7ff284994517c2ca2d7965dbbecf2d1c44d9532bec7e2a8692",
+    "PREREG.json": "6ed69812035cfe531ff9e840085b26f2ba8e694ea62c805a4fca8ad8742ad152",
+    "attempts/v2/NATIVE_M6.npz": "fc4472f8b4a00f4cb9a1e0c9fe9f08e09d15f1b2a0691a07677335119b77c061",
+    "attempts/v2/RECEIPT.json": "dab7f3e5e6aaceebdb1777e36a44fcd1beb5902c1950383e4e363c9e4d350323",
+    "attempts/v2/SOURCE_OUTPUTS.npz": "2086270c7208eadb12d6c300191699d1f9da15e385600d689d63d9ccdd724ae9",
+    "finalize.py": "f75b65163387a8d9dd4a4d2b68f784796aa96635b1e8606d3797aa82b6cac220",
+    "inputs/certificate.json": "365e4458f564c6f0c4145e6fc9c91a24cdb205a4d2f9b3da1b7d40f4d9746e7d",
+    "inputs/common_INTERFACE_MAPS.npz": "566c6ba1aae3c998da1426ff28ab2d49406dc5e3382f862a6e4828ac96f05fe4",
+    "inputs/common_MANIFEST.sha256": "7f82c85d715dfbdd5334ecbf5fa406a7753bb533eb6506b7ebf7c6283d81c7e5",
+    "inputs/common_RECEIPT.json": "38fe9334d5a4c5aebf1b42e2c3406b4325d889fc36d20f20a6a0efd8dab9d1ec",
+    "inputs/graph.json": "fe6b604e3be87b32a1e3c8944b2259618aaeedf209d11008f82c8b96797ab037",
+    "inputs/intervals.py": "9bf23ce452acf22c79db8582cebcedd47c4309646b8a34788d61d90f2fcf1591",
+    "inputs/native_event.py": "60e1cef4192dfc532df32b8a665b921ca058b5f56526543c9134d62d58b5ffd4",
+    "inputs/native_pointer.npz": "e019a2e75b92b976664047b5afe4aea8bf35a71fd588a6fa0baeef20670bf513",
+    "inputs/native_pointer_origin.json": "5dea61cebde3757cbf4fef19bacd5f0395f5d052e2d91301ddb00b70ccb57f4a",
+    "local_flow.py": "06cc6b779e501f135849dabdf5b6a4c68805417b542778a711b24eb6a916f8b0",
+    "native_catalog.py": "36d5ca9f97b5478c116d4fb5ba2ff60c7aab86c33a3e2a984b9578aec6a8a146",
+    "observe_native.py": "b11afbd6af9c946d82c5b5a45137d6d38c8f8a2928fa11daad42cc16e285f2cb",
+    "provider/code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
+    "provider/code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
+    "provider/model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "rounding.py": "cd5beab2c9282a271097cd476065e003892b125d59f0daf64efeed1d738140ee",
+    "run.py": "96bfbc16e67f802afc33ea8feadb063ab31765fbd2de427ca9d291179ad6d353"
+  },
+  "flow_attempt": "attempts/v2",
+  "numeric_gates": {
+    "mass_residual": 1e-12,
+    "native_fringe_centre_difference": 5e-12,
+    "pair_keV_upper_below": 1024.45085,
+    "ratio_interval_contains": 2,
+    "unprepared_coordinate_fringe_separation": 0.05
+  },
+  "predecessor": "attempts/observer_v1_serialization_failure",
+  "prior_knowledge": "V1 native observer computation reached serialization and failed on NumPy boolean; retained. V2 flow is known. This amendment uses V2 complete bounds, serializes native booleans, fails closed, and prospectively adds an unpreparedcoordinate through the same unfiltered source word.",
+  "utc": "2026-11-15T18:35:52.762980+00:00"
+}

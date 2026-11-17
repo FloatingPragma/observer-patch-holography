@@ -1,0 +1,16 @@
+{
+  "schema": "oph.obstruction_repair.gravity_continuum_kernel_review.v1",
+  "source_entropy_kernel_used": false,
+  "exact_fixed_volume_plane_wave_identity": true,
+  "modular_kernel": "4*pi*r**4*(-3*z*cos(z) + (3 - z**2)*sin(z))/z**5",
+  "area_kernel": "8*pi*eta*r**2*sin(z)/z - 24*pi*eta*r**2*(-z*cos(z) + sin(z))/z**3",
+  "identity": "K_r(q) = -2 eta |q|^2 W_r(q)",
+  "zero_mode_area_response": "0",
+  "quadratic_coframe_fixed_volume_area": "16*pi*a*r**4/5",
+  "conditional_entropy_balance": "Delta sigma = -pi T00/eta",
+  "conditional_point_profile": "sigma = E/(4 eta r), given asymptotically flat boundary",
+  "microscopic_eta_or_equilibrium_derived_here": false,
+  "lapse_one_resting_probe_acceleration": "0",
+  "source_lapse_and_attractive_gravity_constructed": false,
+  "necessary_next_test": "Independent temporal/boosted source response, not setting lapse from desired potential"
+}

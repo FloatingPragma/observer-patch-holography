@@ -1,5 +1,10 @@
 # Contract for complete simulation-generated observer records
 
+These are independent Wilson, scalar and detector component calculations.
+The official [CCF-LT-2 model](../SPEC.md) has its own Hamiltonian, preparation
+and instruments. Using these component records for that model requires an
+explicit source map; the report does not execute its master-source records.
+
 The authenticated report combines constructions with stated carriers,
 actions and preparations. Combining their evidence does not identify
 distinct Hamiltonians or convert a finite spectral label into a physical

@@ -1,0 +1,48 @@
+{
+  "G6_pass": false,
+  "adaptive_records_checked": 261057,
+  "all_adaptive_rng_choices_replayed": true,
+  "all_current_only_routes_and_feedback_replayed": true,
+  "all_source_calls_accounted": 305157,
+  "branch_records_checked": 44100,
+  "exact_orbit_probabilities_verified": true,
+  "exact_probe_cap_probabilities_verified": true,
+  "exact_uniform_well_bound": "85 lambda / 99",
+  "packet_receipt_sha256": "ebfa1f659dd4f5cd9a3ed6122b883476f06b3e61a318cf58de8a63c79ec31b45",
+  "packet_records_sha256": "d1de92b3f0ce58c28be0ca38327d03917b48d86922b9092434c7efd11c2e0f10",
+  "pass": true,
+  "preparation_failure_scope": "25 * 2^-128 per attempt; exact ideal capped-probe kernel is not the history-dependent fully capped marginal",
+  "same_group": true,
+  "stats": [
+    {
+      "censors": 0,
+      "cost": 4096,
+      "hit_count": 4096,
+      "move_count": 0
+    },
+    {
+      "censors": 0,
+      "cost": 65015,
+      "hit_count": 916,
+      "move_count": 1575
+    },
+    {
+      "censors": 0,
+      "cost": 66052,
+      "hit_count": 400,
+      "move_count": 1874
+    },
+    {
+      "censors": 0,
+      "cost": 59187,
+      "hit_count": 204,
+      "move_count": 1934
+    },
+    {
+      "censors": 0,
+      "cost": 66707,
+      "hit_count": 921,
+      "move_count": 2087
+    }
+  ]
+}

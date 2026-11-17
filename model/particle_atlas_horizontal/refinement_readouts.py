@@ -63,7 +63,7 @@ def render(c, data, y):
     work=geometry['shared_quantum_rotor_work']
     records=state['complete_flux_records']
     c.items.append('<g id="refinement-thermal-geometry">')
-    c.text(M,y,'REFINEMENT, PREPARATION AND MECHANICAL RESPONSE',88,INK,700,serif=True)
+    c.text(M,y,'WILSON COMPARISON: REFINEMENT, PREPARATION AND RESPONSE',88,INK,700,serif=True)
     c.para(M,y+160,W-2*M,
            'A causal estimate constrains how records can influence one another. A prepared state fixes their probabilities. A specified deformation of the action makes work and pressure measurable. These are distinct premises; a continuum spacetime description needs their common physical identification.',
            61,INK,max_y=y+350)

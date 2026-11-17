@@ -17,6 +17,8 @@ AUDIT = HERE/'audit.json'
 V1 = ROOT/'model/particle_candidate_atlas/audit.json'
 OUTPUTS = ROOT/'model/particle_observer_outputs/results.json'
 DEPENDENCIES = ROOT/'model/particle_joint_reconstruction/dependencies.json'
+OFFICIAL = ROOT/'model/ccf_lt2/RESULTS.json'
+OFFICIAL_BRIDGES = ROOT/'model/ccf_lt2/bridges/RESULTS.json'
 CANDIDATES = ROOT/'model/standard_model_source_map/candidates/correspondence.json'
 IDENTITY_TESTS = ROOT/'model/particle_candidate_confirmation/results.json'
 PRIMARY_PROOFS = tuple('model/'+owner+'/PROOF.md' for owner in (
@@ -124,6 +126,11 @@ def load():
           'endpoints':endpoints.certificate(), 'double_path':measurement.double_path_certificate()}
     for name in CONTENT:data[Path(name).stem]=json.loads((HERE/name).read_text())
     data['joint_dependencies']=json.loads(DEPENDENCIES.read_text())
+    from tools.build_ccf_lt2_claims import validate_receipt
+    from model.ccf_lt2.bridges.verify import validate_saved
+    data['official_runtime']=json.loads(OFFICIAL.read_text())
+    validate_receipt(data['official_runtime'])
+    data['official_bridges']=validate_saved()
     data['observer_outputs']=json.loads(OUTPUTS.read_text())
     data['primary_response_receipt_records'],response_paths=scientific_receipt_records()
     data['candidate_correspondence']=json.loads(CANDIDATES.read_text())
@@ -158,6 +165,8 @@ def load():
                   'model/particle_joint_reconstruction/DEPENDENCIES.md',
                   data['joint_dependencies']['conditional_candidate']['proof'],
                   data['joint_dependencies']['conditional_candidate']['producer']})
+    paths.update({str(OFFICIAL.relative_to(ROOT)),str(OFFICIAL_BRIDGES.relative_to(ROOT))})
+    paths.update(data['official_bridges']['scientific_inputs_sha256'])
     paths.update(PRIMARY_PROOFS)
     paths.update(response_paths)
     paths.update(candidate['source_sha256'])
@@ -186,6 +195,10 @@ def load():
 
 def validate_content(data):
     source_connections.validate(data['joint_dependencies'])
+    if data['observer_outputs'].get('official_master_source_records_executed') is not False:
+        raise ValueError('component observer outputs cannot be promoted to official model records')
+    if data['observer_outputs'].get('source_scope') != 'Independent Wilson, scalar and detector components; transfer to CCF-LT-2 requires an explicit source map.':
+        raise ValueError('component observer source scope changed')
     ids=[t for lane in data['families']['lanes'] for t in lane['target_ids']]
     expected={r['target'] for r in data['v1']['candidate_rows']}
     if len(ids)!=18 or len(set(ids))!=18 or set(ids)!=expected:
@@ -261,7 +274,7 @@ def reader(svg,data):
         ('particle_spatial_ground_state','Gap-free full spatial low-energy preparation'),
         ('particle_ground_spectral_records','Charge-conjugate thresholds and complete source-energy records'),
         ('particle_gauge_characteristics','Native trace-dual gauge and matter characteristics'),
-        ('particle_common_contract','One selected source, state, reference and clock'),
+        ('particle_common_contract','Independent Wilson source, state, reference and clock'),
         ('particle_gauss_ground_state','Physical Gauss preparation on the full spatial carrier'),
         ('particle_charged_residue','Original charged-threshold weights'),
         ('particle_spatial_modular_response','Physical regional support and modular response'),
@@ -324,7 +337,7 @@ def reader(svg,data):
         ('particle_positive_window','Original positive-energy window weight from complete records'),
         ('particle_yang_mills_gap_contract','Same-clock local correlations and a continuum spectral-gap criterion'))]
     extra += [{'label':label, 'path':'model/particle_joint_reconstruction/'+name} for name,label in (
-        ('DEPENDENCIES.md','Mass-first dependency graph with deferred pure-gauge and gravity branches'),
+        ('DEPENDENCIES.md','Official CCF-LT-2 dependency graph and conditional branches'),
         ('CANDIDATE.md','Conditional chiral gauge-Higgs candidate and calibrated spectrum conventions'))]
     extra.append({'label':'All-time gap control from conserved energy and its refinement boundary',
                   'path':'model/particle_field_preparation/REFINEMENT.md'})
@@ -334,19 +347,22 @@ def reader(svg,data):
               {'label':'Neutral composite current selection and coherent occupation-increment records','path':'model/particle_candidate_composites/PROOF.md'},
               {'label':'Gauge-loop scalar/vector response and exact physical current exclusions','path':'model/particle_candidate_bosons/PROOF.md'},
               {'label':'Exact finite-sector ratio exclusion','path':'model/standard_model_source_map/candidates/FINITE_SECTOR_RATIOS.md'},
-              {'label':'Static Wilson-loop fusion on the primary source','path':'model/particle_primary_loop_fusion/PROOF.md'},
+              {'label':'Static Wilson-loop fusion on the independent comparison source','path':'model/particle_primary_loop_fusion/PROOF.md'},
               {'label':'Same-source exact work with an elastic spectral limit','path':'model/particle_primary_equal_work_control/PROOF.md'}]
     for item in links([data[k] for k in ('story','families','measurement_content','theorems','field_nature')]+[extra]):
         href=item['path']+('#'+item['anchor'] if item.get('anchor') else '')
         if href in seen:continue
         seen.add(href)
         url=href if href.startswith('https://') else '../../'+href
-        full_links.append(f'<li><a href="{escape(url,quote=True)}" target="_blank">{escape(item["label"])}</a></li>')
+        label=item['label']
+        if item['path'].startswith('model/particle_primary_'):
+            label='Independent Wilson component: '+label
+        full_links.append(f'<li><a href="{escape(url,quote=True)}" target="_blank">{escape(label)}</a></li>')
     return '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>OPH particle atlas v2: illustrated reader</title>
 <style>*{box-sizing:border-box}body{margin:0;height:100vh;display:flex;flex-direction:column;overflow:hidden;background:#fbf8f0;color:#142c3c;font:15px Arial,sans-serif}header{min-height:76px;flex-shrink:0;background:#142c3c;color:white;display:flex;gap:10px;align-items:center;padding:12px 18px;flex-wrap:wrap;position:relative;z-index:3}header strong{font:22px Georgia,serif;margin-right:12px}button,a.download{border:1px solid #789ba7;background:#244454;color:white;border-radius:6px;padding:9px 13px;cursor:pointer;text-decoration:none;font-size:14px}button:hover,a.download:hover{background:#397078}#hint{font-size:12px;color:#b9d2db;margin-left:auto}#viewport{flex:1;min-height:0;overflow:hidden;touch-action:none;cursor:grab;position:relative}#art{transform-origin:0 0;position:absolute;left:0;top:0}#art svg{display:block;max-width:none}#zoom{min-width:48px;text-align:center}#refs{display:none;position:fixed;right:0;top:0;width:min(560px,90vw);height:100vh;overflow:auto;background:#fffaf0;border-left:1px solid #ccd5d5;z-index:4;padding:22px}#refs a{color:#285b9f}#refs li{margin:11px 0}#refs h2{font:26px Georgia,serif}#nav{position:fixed;bottom:20px;right:22px;z-index:3;display:flex;gap:8px}#nav button{box-shadow:0 3px 12px #0002}@media(max-width:850px){header{min-height:118px;max-height:40vh;overflow:auto;align-content:flex-start}#hint{display:none}}@media print{header,#nav,#refs{display:none}#viewport{overflow:visible;height:auto}#art{position:static;transform:none!important}#art svg{width:100%;height:auto}}</style>
-<header><strong>Simulation-generated observables</strong><button data-row="origin">Defect origins</button><button data-row="story">Derivation chain</button><button data-row="observers">Observers & meaning</button><button data-row="experiment">The experiment</button><button data-row="theorems">Theorem bridges</button><button data-row="endpoints">Endpoints & slits</button><button data-row="families">Every family</button><button data-row="particles">Mass references</button><button data-row="bestguess">Best-guess map</button><button data-row="comparisons">Masses & collisions</button><button data-row="fieldnature">Photon, Higgs & matter</button><button data-row="requirements">Ten dependencies</button><button data-row="readouts">Actual field readouts</button><button data-row="contract">One program</button><button data-row="ground">Ground states &amp; cones</button><button data-row="refinement">Refinement & pressure</button><button data-row="calibrations">Remove calibrations</button><button id="overview">Overview</button><button id="references">Proofs & papers</button><a class="download" href="OPH_PARTICLE_ATLAS_V2.svg" download>SVG ↓</a><span style="flex-basis:100%;font-size:13px;color:#f2d79a">Named fields: photon · Higgs · W and Z · gluons · electron, muon, tau · quarks · neutrinos. Gold boxes show comparison particles; arrows show the construction and its proof boundaries.</span><span id="hint">Drag to pan · wheel to zoom · click blue proof links</span></header>
-<main id="viewport" aria-label="Draggable and zoomable particle atlas"><div id="art">'''+svg+'''</div></main><aside id="refs"><button id="closeRefs">Close</button><h2>Exact proofs and paper sections</h2><p>Full references behind the illustrated steps. Supplied hypotheses and unproved bridges are labeled in the spread.</p><ul>'''+''.join(full_links)+'''</ul></aside>
+<header><strong>Simulation-generated observables</strong><button data-row="origin">Defect origins</button><button data-row="story">Derivation chain</button><button data-row="observers">Observers & meaning</button><button data-row="experiment">The experiment</button><button data-row="theorems">Theorem bridges</button><button data-row="endpoints">Endpoints & slits</button><button data-row="families">Every family</button><button data-row="particles">Mass references</button><button data-row="bestguess">Comparison map</button><button data-row="comparisons">Masses & collisions</button><button data-row="fieldnature">Photon, Higgs & matter</button><button data-row="requirements">Ten dependencies</button><button data-row="readouts">Component readouts</button><button data-row="contract">Wilson comparison</button><button data-row="ground">Ground states &amp; cones</button><button data-row="refinement">Refinement & pressure</button><button data-row="calibrations">Remove calibrations</button><button id="overview">Overview</button><button id="references">Proofs & papers</button><a class="download" href="OPH_PARTICLE_ATLAS_V2.svg" download>SVG ↓</a><span style="flex-basis:100%;font-size:13px;color:#f2d79a">Named fields: photon · Higgs · W and Z · gluons · electron, muon, tau · quarks · neutrinos. Gold boxes show comparison particles; arrows show the construction and its proof boundaries.</span><span id="hint">Drag to pan · wheel to zoom · click blue proof links</span></header>
+<main id="viewport" aria-label="Draggable and zoomable particle atlas"><div id="art">'''+svg+'''</div></main><aside id="refs"><button id="closeRefs">Close</button><h2>Exact proofs and paper sections</h2><p>Official CCF-LT-2 definitions and independent component proofs. Wilson and scalar records require an explicit source map before transfer to the official model.</p><ul>'''+''.join(full_links)+'''</ul></aside>
 <nav id="nav"><button id="left" aria-label="Pan left">←</button><button id="right" aria-label="Pan right">→</button><button id="out" aria-label="Zoom out">−</button><button id="in" aria-label="Zoom in">+</button><button id="zoom">100%</button></nav>
 <script>
 const viewport=document.querySelector('#viewport'),art=document.querySelector('#art');let scale=.25,x=0,y=0,drag=null;
@@ -412,7 +428,12 @@ def build():
             'source_scientific_experiments_replayed_by_atlas':False},
         'common_construction_specification_resolved':True,
         'finite_physical_preparation_including_boundary_charges_resolved':True,
-        'finite_primary_local_records_and_uniform_influence_constructed':True,
+        'official_model':'CCF-LT-2',
+        'official_candidate':'A-ccf2-local-capacity-v2',
+        'official_literal_native_column_outputs':[row['complete_nonzero_outputs'] for row in data['official_runtime']['actual_local_capacity_join']['columns']],
+        'official_arbitrary_native_state_propagation':False,
+        'independent_component_uniform_influence_transferred_to_official_model':False,
+        'independent_component_scope':data['observer_outputs']['source_scope'],
         'unified_dependency_status':{
             node['id']:node['status'] for node in data['joint_dependencies']['nodes']},
         'physical_continuum_and_spectrum_resolved':False,

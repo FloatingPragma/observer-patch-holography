@@ -6,40 +6,24 @@ Numeric values and measured references on this page are read mechanically from t
 
 Retained alternatives, calibrations and rejected candidates have separate domains. Selecting a favorable mass row for each family does not produce one particle spectrum. Identification must follow the same source object or excitation through its state, charge and symmetry action, repair dynamics, propagation, detector records, clock and jointly normalized kinetic and energy response. Repair counts, disagreement and path surprisal alone do not supply mass units; a topological invariant must be demonstrated if invoked. The [field-reconstruction guide](research/OPH_FIELD_RECONSTRUCTION.md) states this common-object contract and the current gaps.
 
-## Completion target and retained foundations
+## Common-source physical acceptance
 
-The [executable hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) asks one native process to supply observer clocks, defect/maintenance energy, interacting field/particle observations and realized Einstein premises. The [completion DAG and issue owners](COMPLETION_PROGRAM.md) order the missing joins. Program `OPH-EXECUTABLE-COMPLETION-2026-10-29-v2` has boundary `FROZEN` and decision `NOT_DECIDED`.
+The official executable model is [CCF-LT-2](../model/SPEC.md). Its complete native matter, field and local-capacity energy-response law has [source-bound finite checks](../claims/ccf_lt2.json). The [acceptance graph](COMPLETION_PROGRAM.md) requires actual same-source spectrum, clock, geometry and Einstein attachments. Component postdictions and conditional theorems below retain their own stated sources and calibration ancestry.
 
-The [current continuum and entropy results](../model/completion/CONTINUUM_FIELD_AND_ENTROPY.md) and [mass and energy table](../model/completion/PARTICLE_MASS_TABLE.md) collect the component proofs and certified readouts. Their source-bound progress is retained in the machine-readable ledger; component progress does not identify measured particles or accept an integrated physical gate.
+| Acceptance condition | Domain | Status |
+| --- | --- | --- |
+| Fix the program, reference and clock | The finite CCF-LT-2 graph family, with 96 native CAR modes per vertex, integer electric links, and the independent per-vertex local-capacity response law. | finite_constructed |
+| Prepare the physical state with its boundary charges | Declared preparations, retained charge references and the faithful beta=1/1024 Gibbs family on the complete Gauss-zero cap6 support; arbitrary native propagation is not asserted. | finite_constructed |
+| Control local dynamics and complete instruments | Full native polynomial and local-capacity basis columns, exact initial complete phase instrument, and separate complete finite field, Dirac and geometry diagnostics. | finite_constructed |
+| Take one state and correlation limit | A common angular/radial, matter, field-cutoff, geometry, clock and reference refinement for H_v2. | physical_proof_required |
+| Reconstruct a nontrivial interacting relativistic field | Interacting matter, electromagnetic field and geometry records on one Lorentzian physical interpretation. | physical_proof_required |
+| Attach chiral matter, species and any claimed defects | Actual dressed native currents and charged/neutral lepton plus colour-family operators on H_v2. | physical_proof_required |
+| Calculate the full spectrum and its interactions | Same-source interacting vacuum, thresholds, inclusive channels, scattering and decay records. | physical_proof_required |
+| Compare independent observable records | Independent physical comparisons in one declared clock, energy, charge and geometry dictionary. | physical_proof_required |
+| Establish a pure Yang-Mills continuum gap on its own branch | A separately supplied pure compact-simple gauge source or proved decoupling/reducing map. | conditional_criterion |
+| Recover proper geometry and Einstein dynamics | Matched regional entropy/area/stress estimates for the complete CCF-LT-2 energy response and one physical refinement. | physical_proof_required |
 
-The existing modular-clock candidate, rank-three response geometry and conditional 3+1 field construction are retained foundations, together with finite interaction histories and the conditional Einstein kernel. They are components to extend, not work to restart. The local band's rank three does not alone derive three field-space dimensions: the native screen is two-dimensional and the radial extension retains its declared inputs. Physical clock calibration and the common interacting defect/energy/gravity joins remain open.
-
-| Foundation | Achieved component | Remaining join | Canonical claim |
-| --- | --- | --- | --- |
-| Native rank-three slow response and intrinsic carrier geometry | The uniform native repair mean selects a normalized rank-three Gram band; exact quotient, proper-action and completion results connect it to the carrier response and signed records. | This is a response/metric result, not a physical position or a complete 3+1 field theory. Finite nonconstant modes remain; the limiting normalization and calibration schedule matter. | OPH-GR-PORT-RESPONSE-COMPLETION |
-| Candidate observer clocks with an implemented modular-flow relation | Finite faithful-reference preparation and active modular histories provide continuing clock/readout constructions. Native-return histories reconstruct a reference proportional to exp(-arccos K), with finite-cap errors; complete native quadrature records support operational parameter inference. On the declared Gibbs product branch, modular flow equals the rescaled Hamiltonian flow and clocked field measurements share that reference. | Reference/access choice, compiled controls and branch-specific clock conversion remain explicit. The native-return reconstructed reference is not its coherent preparation, and matching phase magnitudes does not execute every modular intervention. Passive repair, every regional modular flow and physical laboratory duration are not thereby identified. | OPH-MODEL-NATIVE-PROCESS-RECOVERY |
-| Common native field generator and conditional 3+1 Lorentzian field readout | The refining native screen has a common positive continuum operator. A declared radial product builds on that response structure and supports one smooth static 1+3 scalar description of finite admissible joint clock, field and response menus at any positive tolerance. | The native screen has spectral dimension two. Rank three of the local slow band alone does not derive three spatial field dimensions; radial interval/filter, encoded fields, action, active controls and units retain their stated inputs. The claim is conditional and does not supply the Standard Model continuum. | OPH-MODEL-NATIVE-PROCESS-RECOVERY |
-| Interacting field projections and same-reference modular measurement histories | A finite coupled matter/link/scalar source and a separate same-product quartic projection execute complete quantum records and feedback, with occupation bounds and declared Gibbs/modular readout histories. | The supplied actions, projected spatial modes, coupling, temperature and access services keep their own contracts. These constructions are reusable interaction and observation machinery, not a single source-derived chiral Standard Model. | OPH-MODEL-COMMON-SOURCE-EXECUTION |
-| Finite conditional Einstein tensor-completion kernel | The finite theorem chain composes the stated null-balance and conservation premises into the Einstein tensor relation up to the metric term; source-direction tomography supplies a finite completeness witness on its stated carrier. | One source tower realizing the geometric modular/stress/entropy and scale hypotheses remains required. Proving this implication does not establish physical gravity or a quantum graviton. | OPH-GR-SOURCE-DIRECTION-EINSTEIN-COMPOSITION |
-
-| Gate | Task | Status | Issue |
-| --- | --- | --- | --- |
-| CP-00 | Freeze the executable program class and decision contract | ACCEPTED | [#1135](https://github.com/FloatingPragma/observer-patch-holography/issues/1135) |
-| CP-01 | Execute one continuing native observer with accounted resources | ACCEPTED | [#1136](https://github.com/FloatingPragma/observer-patch-holography/issues/1136) |
-| CP-13 | Integrate finite theorems and curate the active proof chain | ACCEPTED | [#1137](https://github.com/FloatingPragma/observer-patch-holography/issues/1137) |
-| CP-02 | Construct the continuing regime, faithful reference and local modular clocks | IN_PROGRESS | [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) |
-| CP-03 | Exhibit a localized native defect and its protecting invariant | IN_PROGRESS | [#1139](https://github.com/FloatingPragma/observer-patch-holography/issues/1139) |
-| CP-04 | Derive common defect maintenance energy, kinetics and conserved stress | IN_PROGRESS | [#1140](https://github.com/FloatingPragma/observer-patch-holography/issues/1140) |
-| CP-05 | Transport the same defects and derive particle identity and currents | IN_PROGRESS | [#1141](https://github.com/FloatingPragma/observer-patch-holography/issues/1141) |
-| CP-06 | Obtain one interacting chiral 3+1 field description from native records | IN_PROGRESS | [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) |
-| CP-07 | Freeze the physical dictionary and derive the matched particle spectrum | IN_PROGRESS | [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) |
-| CP-08 | Construct responsive geometry and causal clocks on the same source | IN_PROGRESS | [#1144](https://github.com/FloatingPragma/observer-patch-holography/issues/1144) |
-| CP-09 | Realize the joint modular, stress and entropy premises G1--G6 | IN_PROGRESS | [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145) |
-| CP-10 | Compose the realized Einstein response with matter and clock readouts | OPEN | [#1146](https://github.com/FloatingPragma/observer-patch-holography/issues/1146) |
-| CP-11 | Run joint independent physical tests and decide the completion milestone | OPEN | [#1147](https://github.com/FloatingPragma/observer-patch-holography/issues/1147) |
-| CP-12 | Audit obstructions and apply candidate, class and program stopping rules | IN_PROGRESS | [#1148](https://github.com/FloatingPragma/observer-patch-holography/issues/1148) |
-
-CP-13 maps the finite theorems to the actual model and assigns premise proofs to the owning gates; irrelevant/redundant branches leave the active chain with provenance preserved. CP-12 owns scoped obstruction and stopping decisions. A whole-program no-go requires coverage of every frozen admissible realization; a failed candidate or exhausted budget is not that verdict. Program structure and source custody only; not scientific gate acceptance or a new physical comparison.
+Source contract and dependency structure only; not scientific gate acceptance or a physical comparison.
 
 ## How to read the tiers and classes
 

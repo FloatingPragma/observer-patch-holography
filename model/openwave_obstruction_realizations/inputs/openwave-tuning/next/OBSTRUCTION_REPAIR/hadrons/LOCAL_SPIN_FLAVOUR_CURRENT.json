@@ -1,0 +1,81 @@
+{
+  "schema": "oph.obstruction_repair.local_spin_flavour_current.v1",
+  "full_quark_CAR_dimension": 4096,
+  "complete_three_quark_CAR_dimension": 220,
+  "colour_singlet_triquark_dimension": 20,
+  "actual_spin_and_isospin_currents": true,
+  "exact_adjoint_zero_weight_dimension": 40,
+  "exact_colour_adjoint_multiplicity": 20,
+  "all_highest_weight_branches": [
+    {
+      "twice_spin": 1,
+      "twice_isospin": 1,
+      "highest_weight_multiplicity": 1,
+      "complete_dimension": 4,
+      "mixed_current_square_eigenvalue": "4"
+    },
+    {
+      "twice_spin": 3,
+      "twice_isospin": 3,
+      "highest_weight_multiplicity": 1,
+      "complete_dimension": 16,
+      "mixed_current_square_eigenvalue": "2"
+    }
+  ],
+  "exact_mixed_current_identity": "sum_ai G_ai^2 = 9/2 - (2/3) S^2 on the complete colour-singlet 3-quark sector",
+  "current": "G_ai=sum_flavour,spin,colour c\u2020 (T_a tensor sigma_i/2) c",
+  "generator_normalization": "tr(T_a T_b)=delta_ab/2; sigma_i/2 spin",
+  "proposed_auxiliary_source": "H_aux=3*kappa*P_adjoint_vector + t sum_ai (|ai><0|+|0><ai|)G_ai",
+  "auxiliary_carrier": "one scalar vacuum plus an SU3 adjoint times physical-spin vector, dimension25",
+  "literal_auxiliary_gap_ancestry": "kappa times SU3 adjoint quadratic Casimir3",
+  "literal_current_coupling_ancestry": "inherited source t=1/8, declared new architecture; not forced by OPH",
+  "zero_quark_sector_auxiliary_vacuum_unchanged": true,
+  "source_wide_ground_vacuum_preserved": false,
+  "caveat": "negative local baryon shift can alter the full vacuum; actual joint two-cell source must be re-grounded",
+  "all_physical_one_cell_N3_plus_auxiliary_colour_singlet_dimension": 80,
+  "accessible_coupled_doublets": 20,
+  "retained_dark_auxiliary_states": 40,
+  "shifts": [
+    {
+      "kappa": "1/2",
+      "auxiliary_adjoint_electric_gap": "3/2",
+      "current_coupling": "1/8",
+      "exact_formula": "E_minus(lambda)=(Delta-sqrt(Delta^2+4*g^2*lambda))/2",
+      "lower_energies_source_diagnostic": {
+        "1": -0.04056941504209488,
+        "3": -0.020551750371122002
+      },
+      "delta_minus_nucleon_source_diagnostic": 0.02001766467097288,
+      "conditional_delta_minus_nucleon_GeV_diagnostic": 0.16963301352043356
+    },
+    {
+      "kappa": "1",
+      "auxiliary_adjoint_electric_gap": "3",
+      "current_coupling": "1/8",
+      "exact_formula": "E_minus(lambda)=(Delta-sqrt(Delta^2+4*g^2*lambda))/2",
+      "lower_energies_source_diagnostic": {
+        "1": -0.020690632574554835,
+        "3": -0.010380746699321541
+      },
+      "delta_minus_nucleon_source_diagnostic": 0.010309885875233293,
+      "conditional_delta_minus_nucleon_GeV_diagnostic": 0.08736768443341988
+    },
+    {
+      "kappa": "2",
+      "auxiliary_adjoint_electric_gap": "6",
+      "current_coupling": "1/8",
+      "exact_formula": "E_minus(lambda)=(Delta-sqrt(Delta^2+4*g^2*lambda))/2",
+      "lower_energies_source_diagnostic": {
+        "1": -0.010398644698073944,
+        "3": -0.005203820042826823
+      },
+      "delta_minus_nucleon_source_diagnostic": 0.005194824655247121,
+      "conditional_delta_minus_nucleon_GeV_diagnostic": 0.04402180651260698
+    }
+  ],
+  "empirical_hyperfine_fit": false,
+  "auxiliary_candidate_joined_to_two_cell_vacuum": false,
+  "common_Dirac_or_magnetic_field_transfer": false,
+  "physical_mass_prediction": false,
+  "native_preparation_and_all_records_executed": false
+}

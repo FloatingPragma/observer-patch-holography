@@ -1,0 +1,699 @@
+{
+  "status": "SOURCE_KERNELS_WITH_DIGITAL_SHAPE_DISCRETIZATION_UNCERTAINTY",
+  "packet": {
+    "L": 40,
+    "R": 1,
+    "envelope_width": 6.0,
+    "branches": 4,
+    "each_branch_exact_particle_hole": true,
+    "particle_norms": [
+      0.9999999999999781,
+      0.9999999999999959,
+      0.9999999999999781,
+      0.9999999999999958
+    ],
+    "hole_norms": [
+      0.999999999999996,
+      0.9999999999999779,
+      0.9999999999999962,
+      0.9999999999999775
+    ],
+    "energy": 0.5281718932041801,
+    "spinor_seed_average": true,
+    "cubic_invariant_envelope": true,
+    "lapse": 1
+  },
+  "independent_shape_estimates": true,
+  "shape_spread_is_certified_bound": false,
+  "continuum_dilation_proxy_is_independent_shape_estimate": false,
+  "prepared_common_global_geometry": false,
+  "stationarity_proved": false,
+  "physical_G_used": false,
+  "eta_for_postsolve_comparison": 0.0678259521212135,
+  "balls": [
+    {
+      "r2": 9,
+      "cells": 123,
+      "shape_slopes": {
+        "secant_8_10": 0.05108728774473607,
+        "secant_6_12": 0.04778232248668235,
+        "continuum_dilation_proxy_only": 0.04753460492807362
+      },
+      "modes": [
+        {
+          "shift": [
+            0,
+            0,
+            0
+          ],
+          "q2": 0.0,
+          "J_real": 193.58653868281087,
+          "T_real": 0.5281718932041769,
+          "continuum_modular_weight": 75.89397055834021,
+          "bulk_ratio": 0.7686218487297798,
+          "methods": {
+            "secant_8_10": {
+              "dS_dV": 0.05108728774473607,
+              "fixed_volume_tangent_K": [
+                -1.3109399593484454,
+                -5.380490866492652e-16
+              ],
+              "inferred_sigma": [
+                147.67002661130715,
+                -6.070611830043745e-14
+              ],
+              "area_kernel_ratio": null,
+              "sigma_over_energy": 279.5870596510934
+            },
+            "secant_6_12": {
+              "dS_dV": 0.04778232248668235,
+              "fixed_volume_tangent_K": [
+                -0.09140777912661946,
+                -5.380490866492652e-16
+              ],
+              "inferred_sigma": [
+                2117.8343958521496,
+                -1.2467507979789218e-11
+              ],
+              "area_kernel_ratio": null,
+              "sigma_over_energy": 4009.7445984946653
+            },
+            "continuum_dilation_proxy_only": {
+              "dS_dV": 0.04753460492807362,
+              "fixed_volume_tangent_K": [
+                0.0,
+                -5.380490866492652e-16
+              ],
+              "inferred_sigma": null,
+              "area_kernel_ratio": null,
+              "sigma_over_energy": null
+            }
+          },
+          "postsolve_tower_sigma_over_energy": null
+        },
+        {
+          "shift": [
+            1,
+            0,
+            0
+          ],
+          "q2": 0.024674011002723394,
+          "J_real": 164.76439675245334,
+          "T_real": 0.45509966048621675,
+          "continuum_modular_weight": 74.62914380110696,
+          "bulk_ratio": 0.7720910774755225,
+          "methods": {
+            "secant_8_10": {
+              "dS_dV": 0.05108728774473607,
+              "fixed_volume_tangent_K": [
+                -1.5440249251789133,
+                -4.769450459574109e-15
+              ],
+              "inferred_sigma": [
+                106.71096953526273,
+                -1.192330401714623e-12
+              ],
+              "area_kernel_ratio": 6.181305367652593,
+              "sigma_over_energy": 234.4782446580063
+            },
+            "secant_6_12": {
+              "dS_dV": 0.04778232248668235,
+              "fixed_volume_tangent_K": [
+                -0.35313882452270207,
+                -4.769450459574109e-15
+              ],
+              "inferred_sigma": [
+                466.57117629347835,
+                -1.0073441493184452e-11
+              ],
+              "area_kernel_ratio": 1.4137459026419328,
+              "sigma_over_energy": 1025.20660154966
+            },
+            "continuum_dilation_proxy_only": {
+              "dS_dV": 0.04753460492807362,
+              "fixed_volume_tangent_K": [
+                -0.2638781593109414,
+                -4.769450459574109e-15
+              ],
+              "inferred_sigma": [
+                624.3957331773823,
+                -1.6333521896689517e-11
+              ],
+              "area_kernel_ratio": 1.0564023002193463,
+              "sigma_over_energy": 1371.99780046044
+            }
+          },
+          "postsolve_tower_sigma_over_energy": 1877.2158811124739
+        },
+        {
+          "shift": [
+            2,
+            0,
+            0
+          ],
+          "q2": 0.09869604401089357,
+          "J_real": 102.62028873549929,
+          "T_real": 0.29337904762764805,
+          "continuum_modular_weight": 70.93256833862739,
+          "bulk_ratio": 0.784835401213896,
+          "methods": {
+            "secant_8_10": {
+              "dS_dV": 0.05108728774473607,
+              "fixed_volume_tangent_K": [
+                -2.170129685163058,
+                -1.1037490366128111e-15
+              ],
+              "inferred_sigma": [
+                47.28762959978987,
+                -7.130195541971558e-13
+              ],
+              "area_kernel_ratio": 2.2851481561654277,
+              "sigma_over_energy": 161.18270879318746
+            },
+            "secant_6_12": {
+              "dS_dV": 0.04778232248668235,
+              "fixed_volume_tangent_K": [
+                -1.0625653314564723,
+                -1.1037490366128111e-15
+              ],
+              "inferred_sigma": [
+                96.57786274170672,
+                -1.5074357318003694e-12
+              ],
+              "area_kernel_ratio": 1.1188820763034821,
+              "sigma_over_energy": 329.19141132492115
+            },
+            "continuum_dilation_proxy_only": {
+              "dS_dV": 0.04753460492807362,
+              "fixed_volume_tangent_K": [
+                -0.9795498936894109,
+                -1.1037490366128111e-15
+              ],
+              "inferred_sigma": [
+                104.76269702708726,
+                -1.6444113376401934e-12
+              ],
+              "area_kernel_ratio": 1.0314667592172997,
+              "sigma_over_energy": 357.0899076611987
+            }
+          },
+          "postsolve_tower_sigma_over_energy": 469.30397027811847
+        },
+        {
+          "shift": [
+            0,
+            1,
+            0
+          ],
+          "q2": 0.024674011002723394,
+          "J_real": 164.76439675245643,
+          "T_real": 0.45509966048621137,
+          "continuum_modular_weight": 74.62914380110696,
+          "bulk_ratio": 0.7720910774755462,
+          "methods": {
+            "secant_8_10": {
+              "dS_dV": 0.05108728774473607,
+              "fixed_volume_tangent_K": [
+                -1.5440249251786504,
+                -6.6332138792327875e-15
+              ],
+              "inferred_sigma": [
+                106.71096953528291,
+                -1.431308095718638e-12
+              ],
+              "area_kernel_ratio": 6.18130536765154,
+              "sigma_over_energy": 234.47824465805343
+            },
+            "secant_6_12": {
+              "dS_dV": 0.04778232248668235,
+              "fixed_volume_tangent_K": [
+                -0.3531388245224427,
+                -6.63761697746288e-15
+              ],
+              "inferred_sigma": [
+                466.57117629382975,
+                -1.3023375321005556e-11
+              ],
+              "area_kernel_ratio": 1.4137459026408945,
+              "sigma_over_energy": 1025.2066015504442
+            },
+            "continuum_dilation_proxy_only": {
+              "dS_dV": 0.04753460492807362,
+              "fixed_volume_tangent_K": [
+                -0.26387815931068204,
+                -6.637947003547486e-15
+              ],
+              "inferred_sigma": [
+                624.3957331780077,
+                -2.1399438635010753e-11
+              ],
+              "area_kernel_ratio": 1.056402300218308,
+              "sigma_over_energy": 1371.9978004618304
+            }
+          },
+          "postsolve_tower_sigma_over_energy": 1877.2158811124739
+        },
+        {
+          "shift": [
+            0,
+            0,
+            1
+          ],
+          "q2": 0.024674011002723394,
+          "J_real": 164.7643967524567,
+          "T_real": 0.4550996604862114,
+          "continuum_modular_weight": 74.62914380110696,
+          "bulk_ratio": 0.7720910774755473,
+          "methods": {
+            "secant_8_10": {
+              "dS_dV": 0.05108728774473607,
+              "fixed_volume_tangent_K": [
+                -1.5440249251788885,
+                -1.2067229677529246e-14
+              ],
+              "inferred_sigma": [
+                106.71096953526663,
+                1.6903262424608434e-12
+              ],
+              "area_kernel_ratio": 6.181305367652493,
+              "sigma_over_energy": 234.47824465801762
+            },
+            "secant_6_12": {
+              "dS_dV": 0.04778232248668235,
+              "fixed_volume_tangent_K": [
+                -0.35313882452268075,
+                -1.2070532001201815e-14
+              ],
+              "inferred_sigma": [
+                466.571176293516,
+                -4.910676950051628e-12
+              ],
+              "area_kernel_ratio": 1.4137459026418473,
+              "sigma_over_energy": 1025.2066015497546
+            },
+            "continuum_dilation_proxy_only": {
+              "dS_dV": 0.04753460492807362,
+              "fixed_volume_tangent_K": [
+                -0.26387815931092007,
+                -1.207077952076527e-14
+              ],
+              "inferred_sigma": [
+                624.3957331774454,
+                -1.3791712091132182e-11
+              ],
+              "area_kernel_ratio": 1.0564023002192608,
+              "sigma_over_energy": 1371.9978004605946
+            }
+          },
+          "postsolve_tower_sigma_over_energy": 1877.2158811124739
+        },
+        {
+          "shift": [
+            1,
+            1,
+            0
+          ],
+          "q2": 0.04934802200544679,
+          "J_real": 140.4851226526992,
+          "T_real": 0.3925513955044776,
+          "continuum_modular_weight": 73.38075086563417,
+          "bulk_ratio": 0.7761966958353728,
+          "methods": {
+            "secant_8_10": {
+              "dS_dV": 0.05108728774473607,
+              "fixed_volume_tangent_K": [
+                -1.7660745513861684,
+                -8.550040647022659e-15
+              ],
+              "inferred_sigma": [
+                79.54654153327463,
+                -1.769479365621545e-12
+              ],
+              "area_kernel_ratio": 3.5952677311329366,
+              "sigma_over_energy": 202.63981339576537
+            },
+            "secant_6_12": {
+              "dS_dV": 0.04778232248668235,
+              "fixed_volume_tangent_K": [
+                -0.6032804845874402,
+                -8.550040647022659e-15
+              ],
+              "inferred_sigma": [
+                232.86866762940534,
+                -7.35303561173634e-12
+              ],
+              "area_kernel_ratio": 1.2281219144214952,
+              "sigma_over_energy": 593.2182901302389
+            },
+            "continuum_dilation_proxy_only": {
+              "dS_dV": 0.04753460492807362,
+              "fixed_volume_tangent_K": [
+                -0.5161254058191602,
+                -8.550040647022659e-15
+              ],
+              "inferred_sigma": [
+                272.1918376208016,
+                -9.246120293689416e-12
+              ],
+              "area_kernel_ratio": 1.0506968776052379,
+              "sigma_over_energy": 693.3915934014223
+            }
+          },
+          "postsolve_tower_sigma_over_energy": 938.6079405562369
+        }
+      ]
+    },
+    {
+      "r2": 16,
+      "cells": 257,
+      "shape_slopes": {
+        "secant_14_17": 0.04446773726187891,
+        "secant_12_20": 0.037366078039510885,
+        "continuum_dilation_proxy_only": 0.036905513743600474
+      },
+      "modes": [
+        {
+          "shift": [
+            0,
+            0,
+            0
+          ],
+          "q2": 0.0,
+          "J_real": 576.8230150540204,
+          "T_real": 0.5281718932041769,
+          "continuum_modular_weight": 202.72685842140302,
+          "bulk_ratio": 0.8573855013259343,
+          "methods": {
+            "secant_14_17": {
+              "dS_dV": 0.04446773726187891,
+              "fixed_volume_tangent_K": [
+                -5.830474332592669,
+                2.721428651671172e-16
+              ],
+              "inferred_sigma": [
+                98.9324336494457,
+                5.846202056795981e-15
+              ],
+              "area_kernel_ratio": null,
+              "sigma_over_energy": 187.31105331877458
+            },
+            "secant_12_20": {
+              "dS_dV": 0.037366078039510885,
+              "fixed_volume_tangent_K": [
+                -0.35509507214692704,
+                2.721428651671172e-16
+              ],
+              "inferred_sigma": [
+                1624.4185298503646,
+                1.2651155233214232e-12
+              ],
+              "area_kernel_ratio": null,
+              "sigma_over_energy": 3075.5489846227174
+            },
+            "continuum_dilation_proxy_only": {
+              "dS_dV": 0.036905513743600474,
+              "fixed_volume_tangent_K": [
+                0.0,
+                2.721428651671172e-16
+              ],
+              "inferred_sigma": null,
+              "area_kernel_ratio": null,
+              "sigma_over_energy": null
+            }
+          },
+          "postsolve_tower_sigma_over_energy": null
+        },
+        {
+          "shift": [
+            1,
+            0,
+            0
+          ],
+          "q2": 0.024674011002723394,
+          "J_real": 485.15332717282837,
+          "T_real": 0.45509966048621675,
+          "continuum_modular_weight": 197.2277635263306,
+          "bulk_ratio": 0.8602498076655825,
+          "methods": {
+            "secant_14_17": {
+              "dS_dV": 0.04446773726187891,
+              "fixed_volume_tangent_K": [
+                -6.304439217558031,
+                -1.4373235457734724e-14
+              ],
+              "inferred_sigma": [
+                76.95423977150314,
+                -1.0091332843512738e-12
+              ],
+              "area_kernel_ratio": 9.55020652113055,
+              "sigma_over_energy": 169.0931601427415
+            },
+            "secant_12_20": {
+              "dS_dV": 0.037366078039510885,
+              "fixed_volume_tangent_K": [
+                -1.035495798107462,
+                -1.4373235457734724e-14
+              ],
+              "inferred_sigma": [
+                468.5227386335372,
+                -1.1579115731321144e-11
+              ],
+              "area_kernel_ratio": 1.568608782228796,
+              "sigma_over_energy": 1029.494810286124
+            },
+            "continuum_dilation_proxy_only": {
+              "dS_dV": 0.036905513743600474,
+              "fixed_volume_tangent_K": [
+                -0.6937887209039104,
+                -1.4373235457734724e-14
+              ],
+              "inferred_sigma": [
+                699.2810816248799,
+                -2.206272489309369e-11
+              ],
+              "area_kernel_ratio": 1.0509777853373934,
+              "sigma_over_energy": 1536.544942436973
+            }
+          },
+          "postsolve_tower_sigma_over_energy": 1877.2158811124739
+        },
+        {
+          "shift": [
+            2,
+            0,
+            0
+          ],
+          "q2": 0.09869604401089357,
+          "J_real": 290.52592611527024,
+          "T_real": 0.29337904762764805,
+          "continuum_modular_weight": 181.4212243959765,
+          "bulk_ratio": 0.8687360380320573,
+          "methods": {
+            "secant_14_17": {
+              "dS_dV": 0.04446773726187891,
+              "fixed_volume_tangent_K": [
+                -7.4775900781429065,
+                -3.080807215693204e-16
+              ],
+              "inferred_sigma": [
+                38.85288215577386,
+                -9.533373547859664e-13
+              ],
+              "area_kernel_ratio": 3.07856210897117,
+              "sigma_over_energy": 132.43236853466547
+            },
+            "secant_12_20": {
+              "dS_dV": 0.037366078039510885,
+              "fixed_volume_tangent_K": [
+                -2.7954514104584582,
+                -4.5946169273824e-16
+              ],
+              "inferred_sigma": [
+                103.92809012109552,
+                -2.562894518826946e-12
+              ],
+              "area_kernel_ratio": 1.1509016541121704,
+              "sigma_over_energy": 354.2451001920198
+            },
+            "continuum_dilation_proxy_only": {
+              "dS_dV": 0.036905513743600474,
+              "fixed_volume_tangent_K": [
+                -2.4918004140765255,
+                -4.692792111825282e-16
+              ],
+              "inferred_sigma": [
+                116.5927754382129,
+                -2.8780036500820376e-12
+              ],
+              "area_kernel_ratio": 1.025886984674056,
+              "sigma_over_energy": 397.4134362389456
+            }
+          },
+          "postsolve_tower_sigma_over_energy": 469.30397027811847
+        },
+        {
+          "shift": [
+            0,
+            1,
+            0
+          ],
+          "q2": 0.024674011002723394,
+          "J_real": 485.1533271728248,
+          "T_real": 0.45509966048621137,
+          "continuum_modular_weight": 197.2277635263306,
+          "bulk_ratio": 0.8602498076655863,
+          "methods": {
+            "secant_14_17": {
+              "dS_dV": 0.04446773726187891,
+              "fixed_volume_tangent_K": [
+                -6.3044392175574835,
+                -2.0683434011635736e-14
+              ],
+              "inferred_sigma": [
+                76.95423977150925,
+                -2.0033427186029807e-12
+              ],
+              "area_kernel_ratio": 9.55020652112972,
+              "sigma_over_energy": 169.09316014275694
+            },
+            "secant_12_20": {
+              "dS_dV": 0.037366078039510885,
+              "fixed_volume_tangent_K": [
+                -1.0354957981069148,
+                -2.070235663303185e-14
+              ],
+              "inferred_sigma": [
+                468.5227386337813,
+                -2.0026927511374975e-11
+              ],
+              "area_kernel_ratio": 1.5686087822279673,
+              "sigma_over_energy": 1029.4948102866726
+            },
+            "continuum_dilation_proxy_only": {
+              "dS_dV": 0.036905513743600474,
+              "fixed_volume_tangent_K": [
+                -0.6937887209033633,
+                -2.070358382283739e-14
+              ],
+              "inferred_sigma": [
+                699.2810816254262,
+                -3.6777621459559187e-11
+              ],
+              "area_kernel_ratio": 1.0509777853365645,
+              "sigma_over_energy": 1536.5449424381916
+            }
+          },
+          "postsolve_tower_sigma_over_energy": 1877.2158811124739
+        },
+        {
+          "shift": [
+            0,
+            0,
+            1
+          ],
+          "q2": 0.024674011002723394,
+          "J_real": 485.1533271728265,
+          "T_real": 0.4550996604862114,
+          "continuum_modular_weight": 197.2277635263306,
+          "bulk_ratio": 0.8602498076655892,
+          "methods": {
+            "secant_14_17": {
+              "dS_dV": 0.04446773726187891,
+              "fixed_volume_tangent_K": [
+                -6.304439217558112,
+                3.4838509818321234e-14
+              ],
+              "inferred_sigma": [
+                76.95423977150185,
+                9.50571390769755e-13
+              ],
+              "area_kernel_ratio": 9.550206521130672,
+              "sigma_over_energy": 169.09316014274066
+            },
+            "secant_12_20": {
+              "dS_dV": 0.037366078039510885,
+              "fixed_volume_tangent_K": [
+                -1.0354957981075437,
+                3.4857432439717346e-14
+              ],
+              "inferred_sigma": [
+                468.52273863349836,
+                1.896999317766918e-11
+              ],
+              "area_kernel_ratio": 1.5686087822289199,
+              "sigma_over_energy": 1029.4948102860508
+            },
+            "continuum_dilation_proxy_only": {
+              "dS_dV": 0.036905513743600474,
+              "fixed_volume_tangent_K": [
+                -0.6937887209039921,
+                3.4858659629522883e-14
+              ],
+              "inferred_sigma": [
+                699.2810816247948,
+                3.990818658865387e-11
+              ],
+              "area_kernel_ratio": 1.050977785337517,
+              "sigma_over_energy": 1536.544942436804
+            }
+          },
+          "postsolve_tower_sigma_over_energy": 1877.2158811124739
+        },
+        {
+          "shift": [
+            1,
+            1,
+            0
+          ],
+          "q2": 0.04934802200544679,
+          "J_real": 408.48386854852464,
+          "T_real": 0.3925513955044776,
+          "continuum_modular_weight": 191.84513622418308,
+          "bulk_ratio": 0.8632721360145642,
+          "methods": {
+            "secant_14_17": {
+              "dS_dV": 0.04446773726187891,
+              "fixed_volume_tangent_K": [
+                -6.739269117064879,
+                -5.6481010713570335e-15
+              ],
+              "inferred_sigma": [
+                60.612488009149224,
+                -2.098389804967458e-12
+              ],
+              "area_kernel_ratio": 5.247668128619586,
+              "sigma_over_energy": 154.40650244346884
+            },
+            "secant_12_20": {
+              "dS_dV": 0.037366078039510885,
+              "fixed_volume_tangent_K": [
+                -1.671060288520863,
+                -5.6481010713570335e-15
+              ],
+              "inferred_sigma": [
+                244.44591936900952,
+                -9.0840070301906e-12
+              ],
+              "area_kernel_ratio": 1.3012048732210262,
+              "sigma_over_energy": 622.7106110649944
+            },
+            "continuum_dilation_proxy_only": {
+              "dS_dV": 0.036905513743600474,
+              "fixed_volume_tangent_K": [
+                -1.3423714627753007,
+                -5.6481010713570335e-15
+              ],
+              "inferred_sigma": [
+                304.30017314581477,
+                -1.1560128261066478e-11
+              ],
+              "area_kernel_ratio": 1.045264674790488,
+              "sigma_over_energy": 775.1855594724126
+            }
+          },
+          "postsolve_tower_sigma_over_energy": 938.6079405562369
+        }
+      ]
+    }
+  ]
+}

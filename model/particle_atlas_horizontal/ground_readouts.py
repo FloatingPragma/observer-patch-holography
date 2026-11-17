@@ -55,7 +55,7 @@ def render(canvas, data, y):
     gauge = report['gauge_matter_characteristics']
     native = ground['native208']; cooled = records['cooled_source_records']
     c.items.append('<g id="ground-records-common-cone">')
-    c.text(M,y,'LOW-ENERGY PREPARATION → CHARGED RECORDS → COMMON WAVE SPEED',86,INK,700,serif=True)
+    c.text(M,y,'COMPONENT GROUND STATES, CHARGED RECORDS AND WAVE SPEED',86,INK,700,serif=True)
     c.para(M,y+170,W-2*M,
            'An excitation is measured relative to a preparation. First control how much energy that preparation can release. Then read every charged branch on the same clock. Finally compare spatial propagation: a finite transition frequency needs this connection before it can represent a particle mass.',
            60,INK,max_y=y+440)

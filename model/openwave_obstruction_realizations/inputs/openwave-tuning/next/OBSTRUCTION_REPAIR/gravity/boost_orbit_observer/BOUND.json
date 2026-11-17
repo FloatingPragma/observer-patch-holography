@@ -1,0 +1,99 @@
+{
+  "status": "ANALYTIC_FULL_CONTINUUM_ONE_DIMENSIONAL_OPERATOR_BOUND",
+  "M4_upper_bound": 225.42812593340557,
+  "tail_coefficient": 23.91866703616252,
+  "rows": [
+    {
+      "rapidity": 0.3,
+      "gap_over_R": 16,
+      "raw_analytic_upper_bound": 0.16161932596295903,
+      "operator_norm_upper_bound": 0.16161932596295903
+    },
+    {
+      "rapidity": 0.3,
+      "gap_over_R": 32,
+      "raw_analytic_upper_bound": 0.02020241574536988,
+      "operator_norm_upper_bound": 0.02020241574536988
+    },
+    {
+      "rapidity": 0.3,
+      "gap_over_R": 64,
+      "raw_analytic_upper_bound": 0.002525301968171235,
+      "operator_norm_upper_bound": 0.002525301968171235
+    },
+    {
+      "rapidity": 0.3,
+      "gap_over_R": 128,
+      "raw_analytic_upper_bound": 0.00031566274602140435,
+      "operator_norm_upper_bound": 0.00031566274602140435
+    },
+    {
+      "rapidity": 0.3,
+      "gap_over_R": 1000,
+      "raw_analytic_upper_bound": 6.619927591442805e-07,
+      "operator_norm_upper_bound": 6.619927591442805e-07
+    },
+    {
+      "rapidity": 0.6,
+      "gap_over_R": 16,
+      "raw_analytic_upper_bound": 0.3293323641086339,
+      "operator_norm_upper_bound": 0.3293323641086339
+    },
+    {
+      "rapidity": 0.6,
+      "gap_over_R": 32,
+      "raw_analytic_upper_bound": 0.04116654551357924,
+      "operator_norm_upper_bound": 0.04116654551357924
+    },
+    {
+      "rapidity": 0.6,
+      "gap_over_R": 64,
+      "raw_analytic_upper_bound": 0.005145818189197405,
+      "operator_norm_upper_bound": 0.005145818189197405
+    },
+    {
+      "rapidity": 0.6,
+      "gap_over_R": 128,
+      "raw_analytic_upper_bound": 0.0006432272736496756,
+      "operator_norm_upper_bound": 0.0006432272736496756
+    },
+    {
+      "rapidity": 0.6,
+      "gap_over_R": 1000,
+      "raw_analytic_upper_bound": 1.348945363388965e-06,
+      "operator_norm_upper_bound": 1.348945363388965e-06
+    },
+    {
+      "rapidity": 1.0,
+      "gap_over_R": 16,
+      "raw_analytic_upper_bound": 0.9850350330946025,
+      "operator_norm_upper_bound": 0.9850350330946025
+    },
+    {
+      "rapidity": 1.0,
+      "gap_over_R": 32,
+      "raw_analytic_upper_bound": 0.12312937913682531,
+      "operator_norm_upper_bound": 0.12312937913682531
+    },
+    {
+      "rapidity": 1.0,
+      "gap_over_R": 64,
+      "raw_analytic_upper_bound": 0.015391172392103164,
+      "operator_norm_upper_bound": 0.015391172392103164
+    },
+    {
+      "rapidity": 1.0,
+      "gap_over_R": 128,
+      "raw_analytic_upper_bound": 0.0019238965490128955,
+      "operator_norm_upper_bound": 0.0019238965490128955
+    },
+    {
+      "rapidity": 1.0,
+      "gap_over_R": 1000,
+      "raw_analytic_upper_bound": 4.034703495555492e-06,
+      "operator_norm_upper_bound": 4.034703495555492e-06
+    }
+  ],
+  "three_dimensional_bound": "M6/(6 pi^2) (R/r)^3, with source-defined M6 finite but not yet numerically evaluated",
+  "no_modes_discarded": true
+}

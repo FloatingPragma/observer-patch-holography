@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "-O",
+    "certificate.py"
+  ],
+  "actual_status": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/source-sign-plant-j7yfsxs8/certificate.py\", line 147, in <module>\n    main()\n    ~~~~^^\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/source-sign-plant-j7yfsxs8/certificate.py\", line 133, in main\n    result = run(args.k)\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/source-sign-plant-j7yfsxs8/certificate.py\", line 104, in run\n    result = case(position, gram, z, cached_arms[sign, law, stride, turns, direction],\n                  setting, data['classical_timeout_union_bound_each'])\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/source-sign-plant-j7yfsxs8/evaluator.py\", line 139, in case\n    require(visibility < real('-.98') if turns == 1 else visibility > minimum_return, 'native sign/return gate')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/private/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/source-sign-plant-j7yfsxs8/interval_math.py\", line 11, in require\n    raise ValueError(message)\nValueError: native sign/return gate\n",
+  "seconds": 7.393937166008982,
+  "passed": true,
+  "scope": "Planted phase detector sensitivity, not scientific alternative law"
+}

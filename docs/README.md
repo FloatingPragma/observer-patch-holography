@@ -24,7 +24,8 @@ physical universe has been reconstructed.
 | [`registers/`](registers/) | Generated V3 registers and ledgers |
 | [`research/`](research/) | Research notes, each verified by a code lane |
 | [`policies/`](policies/) | Data, hardware-evidence and writing policies |
-| [`EXECUTABLE_PROGRAM_CLASS_V2_PROPOSAL.md`](EXECUTABLE_PROGRAM_CLASS_V2_PROPOSAL.md) | Program-class V2 proposal bound to the completion registry, marked `PROPOSED_FOR_INDEPENDENT_REVIEW` |
+| [`COMPLETION_PROGRAM.md`](COMPLETION_PROGRAM.md) | Common-source finite checks and physical acceptance conditions |
+| [`EXECUTABLE_PROGRAM_CLASS_V2_PROPOSAL.md`](EXECUTABLE_PROGRAM_CLASS_V2_PROPOSAL.md) | Program-class V2 contract bound to the completion registry |
 
 ## Rules for this directory
 
@@ -77,7 +78,7 @@ physical universe has been reconstructed.
 - [The Paper Set](PAPER_SET.md) records the model milestone, the role of each
   paper and the archived papers.
 - [Executable Hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) states the common
-  clock, defect/energy, interacting-field and Einstein-premise target.
+  clock, common-energy, interacting-field and Einstein-premise target.
   [Completion Program](COMPLETION_PROGRAM.md) assigns its construction gates,
   retained results, dependencies and next work.
 - [Current field, particle and entropy results](../model/completion/CONTINUUM_FIELD_AND_ENTROPY.md)
@@ -94,7 +95,7 @@ physical universe has been reconstructed.
   theorem-library premises A1, A2 and A3. It is retained byte-identical for
   pinned receipts; its "three core axioms" wording is superseded by the
   [basis](BASIS.md).
-- [Source and Repair-Law Selection](../model/SOURCE_SELECTION.md) separates
+- [Source and Parameter Contract](../model/SOURCE_SELECTION.md) separates
   the executable candidate inputs, derived consequences and physical identification.
 - [Frozen-Prediction Ladder](FROZEN_PREDICTION_LADDER.md) records tests whose
   conditions are fixed before the comparison data are examined.
@@ -114,90 +115,29 @@ assign bounded work on the common repair model, its tests and existing-evidence
 audits. Historical closure issues retain their scientific boundaries;
 administrative closure does not discharge a physical premise.
 
-## Model Construction Status
+## Executable model
 
-**Find the simplest shared repair rule that satisfies the known constraints.**
-Reuse the existing arguments before adding mechanisms; require geometry,
-reversible response and clocks to connect through the same source process.
+[CCF-LT-2](../model/SPEC.md) is the official finite matter, field and response
+construction. Its [implementation](../model/ccf_lt2/README.md) regenerates the
+native operator, complete finite diagnostics and local energy response.
+The [construction contract](../model/CONSTRUCTION.md) specifies the joint law,
+preparations and instruments. The [dependency map](../model/particle_joint_reconstruction/DEPENDENCIES.md)
+connects mathematical proofs to the actual source and distinguishes physical
+attachment obligations.
 
-[Established Mathematics for Observer Agreement](AGREEMENT_RESEARCH_FOUNDATIONS.md)
-maps distributed recovery, sheaf diffusion, boundary extension and contextuality
-to explicit candidate obligations. Its work products govern theorem reuse and
-the distinction between recovery, exact agreement and physical law selection.
+[Source inputs](../model/SOURCE_SELECTION.md), [family and controls](../model/CANDIDATES.md),
+[observer records](../model/OBSERVER_RELATIVE_RECOVERY.md) and
+[physical scope](../model/PHYSICAL_AUDIT.md) state the model's contracts.
+The complete operator replay is `python -m model`; finite matrix experiments
+have their stated carriers, and full-native column action is not arbitrary
+many-body state evolution.
 
-[Repair Laws](../model/CANDIDATES.md) explains which parts of the repair law
-are forced, which are free, which members of the admissible family the model
-executes, and which tests tell them apart. This
-maintained research summary has a separate role from the generated registers.
-
-[Runnable Model](../model/README.md) is the live home of observer and
-repair-law construction, including executable native and P-dependent binary
-observers, capacity checks and local-tick results. Its
-[construction guide](../model/CONSTRUCTION.md) records the contracts,
-constructed connections and missing physical inputs. Its
-[work ownership](../model/CONSTRUCTION.md#work-ownership-and-claim-accounting) links
-parallel construction, physical tests and audits; its [release policy](../model/CONSTRUCTION.md#research-programme-and-paper-release-hold)
-ties paper releases to an approved model milestone, which the
-[paper set](PAPER_SET.md) records. Tested model code, correctness fixes and
-reproducibility checks are published between releases.
-
-The [finite completion campaign](../model/completion/README.md) joins a
-continuing C/E observer to exact stationary references of its finite
-source/record marginal. Its two scoped obstructions constrain the candidate:
-no nontrivial source charge commutes with every active branch, and the
-admitted real operations cannot implement the tested nontrivial modular
-action on the fixed full support algebra. The
-[branch proof](../model/completion/defect_algebra.md) and
-[clock-access proof](../model/completion/MODULAR_ACCESS.md) state the domains
-and controls. The [finite clock, defect and energy campaigns](../model/clock_defect_energy/README.md)
-extend this work under separate source-bound contracts. Their
-[continuation](../model/clock_defect_energy/CONTINUATION.md),
-[clock-reference](../model/clock_defect_energy/CLOCK_WAVE.md),
-[localization](../model/clock_defect_energy/LOCALIZED.md) and
-[activity/energy](../model/clock_defect_energy/ENERGY.md) tests delimit specific
-candidate joins. Existing native-return clocks and operational field bridges
-retain their positive results.
-
-Four constructive applications build on those tests:
-[all-core clock services](../model/clock_defect_energy/CLOCK_SERVICES.md),
-a [complete joint clock/field experiment](../model/clock_defect_energy/JOINT_CLOCK.md),
-an [integral exchange-history class](../model/clock_defect_energy/DEFECT_HISTORY.md),
-and a [native current form with independent mode inertia](../model/clock_defect_energy/MODE_ENERGY.md).
-The history class supplies neither a protected particle nor a fermionic phase;
-the mode response supplies no defect mass or gravitational stress. The
-[source-pulse Ramsey service](../model/clock_defect_energy/RAMSEY_SERVICE.md)
-executes a controlled density-sector readout with complete joint C/E records
-and selected continuation; the full binary-source wave and physical clock
-remain open. The
-[bounded local repair family](../model/local_repair_family/README.md)
-preserves a faithful nonuniform reference under a changed endpoint coin, while
-the [reference-balance test](../model/clock_defect_energy/REFERENCE_BALANCE.md)
-constructs a stationary co-moving source/core measure under the unchanged law.
-Their state spaces and scheduling premises differ. The
-[sharp exchange-sector packet](../model/exchange_sector/README.md) tests the
-full exterior, odd closed histories and an actively corrected code, with
-recovery costs retained. The
-[current native particle/mass join](research/OPH_NATIVE_PARTICLE_MASS_JOIN.md)
-keeps these candidate results and their physical boundary beside the earlier
-source-bound mass audit. The
-[completion plan](COMPLETION_PROGRAM.md) tracks the shared remaining joins.
-These finite results add no physical comparison or integrated gate acceptance.
-
-The follow-up [clock-count inference](../model/clock_defect_energy/CLOCK_COUNT_INFERENCE.md),
-[cap-screening construction](../model/particle_screening/README.md) and
-[same-code energy audit](../model/active_code_energy/README.md) advance three
-parallel joins. The joint detector improves inference of a shared native
-incident count, an improved corrected qubit attains its exact one-port
-screening bound, and sector reweighting exposes the missing energy selection.
-Each packet maps the relevant finite theorem to its actual state, record
-menu and schedule.
-
-The [model–theorem premise map](../model/PREMISES.md) connects the candidate
-to existing theorem premises and their closure conditions. It is generated
-from the model map in `tracking/` and checks references and coverage, without
-certifying that every theorem antecedent has been extracted or discharged.
-The scientific claim registry retains authority over established claims;
-these documents track the construction intended to supply their inputs.
+Other model and code packages contain conditional mathematical components.
+Their equations and proof domains remain explicit. Source-dependent spectra,
+geometry, clocks and numerical records are not predictions of the official
+law without a checked connection. [Established Mathematics for Observer
+Agreement](AGREEMENT_RESEARCH_FOUNDATIONS.md) describes the general theorem
+reuse requirements.
 
 ## Registers
 

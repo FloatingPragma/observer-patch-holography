@@ -1,0 +1,40 @@
+{
+  "schema": "oph.autonomous.generator.root.audit.v1",
+  "component_checks_pass": true,
+  "full_criterion_met": false,
+  "source_pins": {
+    "openwave-tuning/common_dynamics/autonomous_dirac/MANIFEST.json": "44c008892484f8d346fe5f8e29cf29a5a185159e7f748e295cce86b3457756d1",
+    "openwave-tuning/common_dynamics/autonomous_dirac/source.py": "18610ec7b286192ca64f3727d33d7689a9a2ad73da929eda1e5076cd0eb1df6e",
+    "openwave-tuning/common_dynamics/autonomous_dirac/route_contract.py": "1d5978eb4a12bc668907e9ad9c86c40b9e322d3250a99fa19b8e5a302ac91fa1",
+    "openwave-tuning/common_dynamics/autonomous_dirac/PROOF.md": "6292f06bdc08de115780ab9d64720aaf0ce7061e92496486960a9877268572c5",
+    "openwave-tuning/common_dynamics/autonomous_dirac/CONTRACT.json": "89aec3133cecf1b291f9037d40bd0c617af18dcc5a1081a1263830d1879df39f",
+    "openwave-tuning/common_dynamics/autonomous_dirac/RUN.log": "0245ffed1741c0dfd752e05d220d864e8240f111e725a929541e71cfbb7e412b",
+    "openwave-tuning/common_dynamics/autonomous_dirac/FLOATING_HOLONOMY_RUN.log": "0245ffed1741c0dfd752e05d220d864e8240f111e725a929541e71cfbb7e412b",
+    "openwave-tuning/common_dynamics/autonomous_dirac/RATIONAL_BASIS_CONTROL_FAILURE.log": "a001dc5e1fabf557b65bf7d467441c61d1925764622b143f73e1559b88e66476",
+    "openwave-tuning/common_dynamics/autonomous_dirac/UNSCALED_PROTOTYPE_CONTRACT.json": "ed325f8a0eff3fd32c621f3fe8cfacd2f5d26113e346bf8b0f9bfc71126f6705",
+    "openwave-tuning/common_dynamics/autonomous_dirac/UNSCALED_PROTOTYPE_RUN.log": "f6494bf03c356333d4e7050d1bc49169eb9da8e16deb67e31764257c53d7d305",
+    "openwave-tuning/common_dynamics/autonomous_dirac/freeze.py": "584d266518ccf049afea5474a28a4258dc75f4cce9a01e4eeee10408bc8711b1",
+    "openwave-tuning/common_dynamics/autonomous_dirac/inputs/openwave_dirac_field_connection_PROOF.md": "8203b4dfbda699758a392b1502643117fd002ca6ef2df937075e5f4e25068a09",
+    "openwave-tuning/common_dynamics/autonomous_dirac/inputs/openwave_dirac_maxwell_refinement_PROOF.md": "0364253b020470522f499370bf7397fc98364ad58cd72c50a2a4e79be15b7f97",
+    "openwave-tuning/common_dynamics/autonomous_dirac/inputs/native_field_connection_COORDINATES.json": "236a846ff8f4409e67b3311badde63afe8c2f45416a1a4c6898a435ef337fb01",
+    "openwave-tuning/next/CHAIN3/native_field_connection/MANIFEST.json": "719036fe46769e68202731f765045dc3d75ebc8fe6e901e85319ce435776779f",
+    "openwave-tuning/row_completion/ROW_05/STATIONARY_OBSERVABLES_MANIFEST.json": "aa700d40c4bc0c307f7f8637c18f10c5601e187aa9459c2cb280f4676da271d9",
+    "openwave-tuning/row_completion/ROW_19/OPTICAL_MANIFEST.json": "70dd9f356d001112b31a7c2da3353e46df87d77fab7ebc3626b92a613971071a",
+    "openwave-tuning/next/CHAIN3/native_field_connection/COORDINATES.json": "236a846ff8f4409e67b3311badde63afe8c2f45416a1a4c6898a435ef337fb01",
+    "reverse-engineering-reality/model/openwave_dirac_maxwell_refinement/PROOF.md": "0364253b020470522f499370bf7397fc98364ad58cd72c50a2a4e79be15b7f97",
+    "reverse-engineering-reality/model/openwave_dirac_field_connection/PROOF.md": "8203b4dfbda699758a392b1502643117fd002ca6ef2df937075e5f4e25068a09",
+    "openwave-tuning/common_dynamics/autonomous_dirac/FRAME_SCOPE_MANIFEST.json": "71efd702dd1254e33439dd2b048d8de0853b0101b2717a259339ccb9dd499a2f",
+    "openwave-tuning/common_dynamics/autonomous_dirac/EXACT_FRAME_SCOPE.md": "5214372020d7d5cd26bbab6a69ee374251ea53a7fa479752dd8143e3781969fb",
+    "openwave-tuning/common_dynamics/autonomous_dirac/freeze_frame_scope.py": "4b76da720203ec23e93e576f2f028a5536c8020d2c9090fb9766b5ae780c7a4e"
+  },
+  "actual_routes_independently_rebuilt": 48,
+  "exact_block_involution_and_compression": true,
+  "scalar_complete_instrument_checks": 112,
+  "controls": {
+    "route_sign_mutations_detected": true,
+    "nontrivial_holonomy_not_bare_swap": true,
+    "discarding_failure_changes_complete_law": true
+  },
+  "execution_scope": "Integer route and exact block algebra plus scalar analytic-bound diagnostics; no new full field or native pulse execution.",
+  "audit_sha256": "628b31ea72d42d2ad0bd918ea2a0c401eb5fc6b777e3ea91bd795dac3f8ce24b"
+}

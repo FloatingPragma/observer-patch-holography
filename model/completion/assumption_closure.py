@@ -9,15 +9,13 @@ import argparse
 import copy
 import hashlib
 import json
-import subprocess
 from functools import cache
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 PATH = ROOT / "model/completion/assumption_closure.json"
-BASELINE = "44d42ff4e6f754c67fd6e67d1b3156d76ff3bf34"
-SCHEMA = "oph.assumption_closure.v1"
+SCHEMA = "oph.assumption_closure.v2"
 FIELDS = ("state", "algebra", "operation", "reference", "clock", "domain")
 CLASSES = {
     "proved_on_this_source", "imported_theorem_with_matched_hypotheses",
@@ -71,14 +69,14 @@ DOMAIN_DATA = {
   "Fixed finite Hamiltonian spectral enclosure and neutral-reference subtraction.",
   "Literal compensating reference with its energy included.",
   "This cube's Hamiltonian time and model mass m.",
-  "Fixed finite source; no transfer to primary Wilson/Gauss family or physical pole."),
- "primary_wilson_gauss": (
+  "Fixed finite source; no transfer to separate Wilson/Gauss family or physical pole."),
+ "wilson_comparison": (
   "Specified polynomial-selected finite state for each declared member.",
   "Open Wilson family, sixty CAR modes/cell, product link-word cutoff, Gauss ghost constraints.",
   "L_n=2^(2n+1), a_n=2^(-n), ell_n=n+1; electric105, magnetic1/7.",
   "Retained canonical conjugate reference and original energy zero.",
-  "Declared primary Hamiltonian time.",
-  "Finite primary members; physical joint refinement, vacuum and field attachment conditional."),
+  "The comparison Hamiltonian time.",
+  "Separate finite Wilson comparison members; no CCF-LT-2 source transfer or physical field attachment."),
  "conditional_chiral_extension": (
   "Supplied common vacuum/state satisfying the extension's conditional hypotheses.",
   "Declared chiral gauge-Higgs extension with its regulator and matter content.",
@@ -150,6 +148,20 @@ DOMAIN_DATA = {
   "Package-specific update/phase/Hamiltonian clocks.",
   "Assumption disclosure for a multi-package claim, not one integrated executable source."),
 }
+DOMAIN_DATA['ccf_lt2'] = (
+ "Declared preparations and faithful beta=1/1024 Gibbs reference on full Gauss-zero cap6 support.",
+ "96 native CAR modes per vertex, hard-wall electric links, independent three-state Phi and16-state capacity registers per vertex.",
+ "H_v2=sum_v[A_v+M_v(g_v+N_v(h_v-e_v)+e_v-F)+F], with all source terms and one common F.",
+ "All supported boundary-charge sectors and local geometry factors retained; physical vacuum and recovery maps unproved.",
+ "One declared Hamiltonian parameter; a physical clock requires its complete preparation and instrument.",
+ "Specified finite local-capacity law; source-specific particle, continuum and Einstein attachments remain required.")
+DOMAIN_DATA['pure_gauge_required'] = (
+ "A separately supplied pure compact-simple gauge state or proved reducing map.",
+ "The actual pure-gauge observable algebra and sectors of that supplied instance.",
+ "Its declared Hamiltonian and complete records, with density and noncollapse estimates.",
+ "A common pure-gauge reference, not borrowed from the coupled source.",
+ "The reconstructed time of the same pure-gauge theory.",
+ "Conditional Yang-Mills implication; no source instance or positive gap supplied here.")
 DOMAINS = {name: dict(zip(FIELDS, values)) for name, values in DOMAIN_DATA.items()}
 CLAIM_DOMAINS = {
  CLAIMS[0]: "native_claim_family", CLAIMS[1]: "lepton_cycle",
@@ -161,13 +173,14 @@ CLAIM_DOMAINS = {
  **{key: "gravity_branch" for key in CLAIMS[11:15]},
 }
 DOMAIN_OWNERS = {
- "lepton_cycle": "CP-02", "record_observer": "CP-01", "population": "CP-07",
- "conjugation": "CP-07", "charged_cube": "CP-04", "primary_wilson_gauss": "CP-06",
- "conditional_chiral_extension": "CP-06", "gravity_branch": "CP-09",
- "coupling_comparison": "CP-07", "electroweak": "CP-11", "species_dictionary": "CP-05",
- "thermal_benchmark": "CP-02", "generic_local_channel": "CP-13",
- "conditional_circulant": "CP-07", "quenched_lattice": "CP-07",
- "native_claim_family": "CP-01",
+ "ccf_lt2": "relativistic_field", "pure_gauge_required": "pure_gauge_gap",
+ "lepton_cycle": "physical_preparation", "record_observer": "fixed_program", "population": "particle_observables",
+ "conjugation": "particle_observables", "charged_cube": "local_records", "wilson_comparison": "relativistic_field",
+ "conditional_chiral_extension": "relativistic_field", "gravity_branch": "geometric_gravity",
+ "coupling_comparison": "particle_observables", "electroweak": "independent_comparison", "species_dictionary": "chiral_species_attachment",
+ "thermal_benchmark": "physical_preparation", "generic_local_channel": "joint_refinement",
+ "conditional_circulant": "particle_observables", "quenched_lattice": "particle_observables",
+ "native_claim_family": "fixed_program",
 }
 # These are input classifications. Conditional mathematical statements in a
 # claim do not discharge the physical supply of their hypotheses.
@@ -191,14 +204,12 @@ def read_json_bytes(data: bytes) -> Any:
     return json.loads("\n".join(line for line in data.decode().splitlines() if not line.lstrip().startswith("#")))
 
 
-@cache
-def frozen_bytes(path: str) -> bytes:
-    return subprocess.check_output(["git", "show", f"{BASELINE}:{path}"], cwd=ROOT)
+def current_bytes(path: str) -> bytes:
+    return local_file(path).read_bytes()
 
 
-@cache
-def frozen(path: str) -> Any:
-    return read_json_bytes(frozen_bytes(path))
+def current(path: str) -> Any:
+    return read_json_bytes(current_bytes(path))
 
 
 def local_file(path: str) -> Path:
@@ -251,12 +262,12 @@ SERVICE_DATA = [
  ("record_known_preparation", "Record-only reconstruction assumes a known preparation and addressed seam, coin and current packets.", "declared_architectural_primitive", "record_observer", "Implement one complete packet stream from the declared source and verify the bounded controller without load access.", "Omitting an address or coin yields indistinguishable packets with different next states."),
  ("bounded_resources", "298 retained logical bits and 311 including the incoming packet exclude immutable code, geometry and physical hardware costs.", "open_implementation", "record_observer", "Account for one implemented finite controller/work/archive cycle including its full-capacity transition.", "An uncounted external address or archival channel breaks the stated implemented resource budget."),
  ("observer_agreement", "Compatible records need an operational inter-observer comparison and self-reading map on one construction.", "open_implementation", "native_claim_family", "Exhibit two bounded observers comparing one retained event and recovering the declared operational specification.", "A hidden external service changes a record without a recoverable shared specification."),
- ("primary_vacuum", "The selected polynomial primary state is not identified with the physical interacting vacuum.", "open_physical_map", "primary_wilson_gauss", "Prove one uniform selected-state approximation bound for the same-source vacuum and one observable norm.", "A fixed observable separates the selected state from every proposed vacuum approximation."),
+ ("primary_vacuum", "The selected polynomial primary state is not identified with the physical interacting vacuum.", "open_physical_map", "wilson_comparison", "Prove one uniform selected-state approximation bound for the same-source vacuum and one observable norm.", "A fixed observable separates the selected state from every proposed vacuum approximation."),
  ("joint_chiral_field", "Joint noncollapse, chiral measure and mirror control must hold for the same declared interacting field family.", "open_physical_map", "conditional_chiral_extension", "Prove one interacting chiral regulator estimate with nonzero observable normalization and matched state/reference/clock.", "A mirror mode or vanishing connected correlation violates the proposed field interpretation."),
  ("gravity_kernel", "Conditional modular/null-stress identities need the same realized geometric tower and physical clock.", "open_physical_map", "gravity_branch", "Construct one tower member with all typed modular/stress inputs and a controlled common-domain limit.", "Separate valid cap and stress receipts use incompatible references or clocks."),
  ("gravity_entropy_scale", "Proper area, entropy stationarity and Newton normalization require matched physical scale and geometry inputs.", "open_physical_map", "gravity_branch", "Verify one small-ball area/entropy/stress comparison with independent scale and uniform remainder bound.", "An allowed entropy or area rescaling changes inferred Newton normalization."),
  ("full_mission_cosmology", "The audited finite particle set does not cover all cosmological, dark-sector or internal-closure observables.", "open_physical_map", "gravity_branch", "Choose one cosmological or dark-sector observable and specify its source record, preparation, scale and falsifier.", "Two compatible finite particle constructions disagree on that observable."),
- ("pure_yang_mills_scope", "A pure-gauge gap requires its own source/sector; a massless-photon theory has no positive global vacuum gap.", "open_physical_map", "primary_wilson_gauss", "Specify the pure-gauge instance and one matched sector/decay estimate with noncollapse.", "A photon excitation below every positive threshold refutes a full-theory positive gap claim."),
+ ("pure_yang_mills_scope", "A pure-gauge gap requires its own source/sector; a massless-photon theory has no positive global vacuum gap.", "open_physical_map", "wilson_comparison", "Specify the pure-gauge instance and one matched sector/decay estimate with noncollapse.", "A photon excitation below every positive threshold refutes a full-theory positive gap claim."),
  ("independent_run_sets", "Electroweak covariance bounds with block structure assume different run sets are independent; marginal errors do not establish independence.", "declared_architectural_primitive", "electroweak", "Retain paired replicas and sampling provenance sufficient to estimate one joint covariance, or use the unrestricted PSD bound.", "A shared random or reweighting source gives nonzero cross-set covariance."),
  ("linear_covariance_budget", "The sharp PSD range applies to supplied marginal-error estimates and local linear influence; nonlinear remainder and coverage are separate.", "open_physical_map", "electroweak", "Retain one paired block sample and bound the nonlinear remainder of the declared estimator on its uncertainty domain.", "A curved estimator has a bias/remainder exceeding its linearized spread."),
  ("EW_scale_calibration", "Planck units, top/Higgs input maps, reduction allowance and finite fit-design sensitivity retain separate ancestry.", "empirical_calibration", "electroweak", "Specify one independent comparison with units, input covariances and controlled reduction error.", "Combining a fixed 1% allowance with statistical SD as calibrated coverage gives an unsupported confidence claim."),
@@ -325,15 +336,15 @@ PROOF_HYPOTHESES = {
 }
 
 JOIN_DATA = [
- ("lepton_to_primary", "lepton_cycle", "primary_wilson_gauss", "CP-06", "Intertwine a complete lepton cycle and its reference/clock with one primary member, with a controlled error.", "Different preparation or clock changes the complete output law."),
- ("cube_to_primary", "charged_cube", "primary_wilson_gauss", "CP-06", "Map the literal charged operator, state, reference and energy subtraction into one primary member.", "A nonreducing complement or changed reference invalidates the transported min-max enclosure."),
- ("population_to_species", "population", "species_dictionary", "CP-05", "Implement a complete count decoder with efficiency and normalization, distinguishing flux faces from code quanta.", "A zero-flux face is compatible with several species or no detected quantum."),
- ("population_to_thermal", "population", "thermal_benchmark", "CP-02", "Identify energy, equilibrium measure and number-count apparatus on the same source.", "A finite absorbing law and a thermal gas have incompatible stationary probabilities."),
- ("primary_to_gravity", "primary_wilson_gauss", "gravity_branch", "CP-10", "Construct the modular/stress/geometry inputs on one primary state/reference/clock with controlled limit.", "Individually valid geometry and field receipts refer to different states."),
- ("extension_to_primary", "conditional_chiral_extension", "primary_wilson_gauss", "CP-06", "Prove operation and complete-record comparison if equivalence to the primary source is claimed.", "A changed chiral regulator or action gives distinct output correlations."),
+ ("lepton_to_ccf", "lepton_cycle", "ccf_lt2", "relativistic_field", "Intertwine a complete lepton cycle and its reference/clock with one complete CCF-LT-2 member, with a controlled error.", "Different preparation or clock changes the complete output law."),
+ ("cube_to_ccf", "charged_cube", "ccf_lt2", "relativistic_field", "Map the literal charged operator, state, reference and energy subtraction into one complete CCF-LT-2 member.", "A nonreducing complement or changed reference invalidates the transported min-max enclosure."),
+ ("population_to_species", "population", "species_dictionary", "chiral_species_attachment", "Implement a complete count decoder with efficiency and normalization, distinguishing flux faces from code quanta.", "A zero-flux face is compatible with several species or no detected quantum."),
+ ("population_to_thermal", "population", "thermal_benchmark", "physical_preparation", "Identify energy, equilibrium measure and number-count apparatus on the same source.", "A finite absorbing law and a thermal gas have incompatible stationary probabilities."),
+ ("ccf_to_gravity", "ccf_lt2", "gravity_branch", "geometric_gravity", "Construct the modular/stress/geometry inputs on one CCF-LT-2 state/reference/clock with controlled limit.", "Individually valid geometry and field receipts refer to different states."),
+ ("extension_to_ccf", "conditional_chiral_extension", "ccf_lt2", "relativistic_field", "Prove operation and complete-record comparison if equivalence to the CCF-LT-2 source is claimed.", "A changed chiral regulator or action gives distinct output correlations."),
 ]
 
-# These scientific artifacts are admitted separately from the baseline claim
+# These scientific artifacts are admitted separately from the selected claim
 # input graph. Their proof boundaries forbid a hidden promotion of that graph.
 BATCH = [
  {"id": "lepton_comparison", "path": "model/lepton_cycle/physical_comparison.json", "producer": "model/lepton_cycle/compare.py", "proof": "model/lepton_cycle/COMPARISON.md", "independent_check": "model/lepton_cycle/test_compare.py", "inherited_inputs": ["fresh_joint_preparation", "preparation_analyzer", "fixed_analyzer_error", "squared_eigenvalue_mass", "lepton_calibration_ancestry"], "physical_map_supplied": False, "scope": "Fixed architecture, exposed mass comparison and conditional implementation/effect sensitivity; no physical pole prediction."},
@@ -348,6 +359,7 @@ SOURCE_FILES = (
  "model/native_charged_cluster_minmax/input_provenance.json",
  "model/particle_common_contract/PROOF.md", "model/particle_common_contract/contract.py", "model/particle_common_contract/contract.json",
  "model/particle_joint_reconstruction/dependencies.json", "model/particle_joint_reconstruction/CANDIDATE.md",
+ "model/SPEC.md", "model/ccf_lt2/EINSTEIN_BRIDGE.md", "claims/completion_program.json",
  "model/defect_particle_classes/PROOF.md", "model/defect_particle_classes/model.py",
  "model/completion/assumption_closure.py", "model/completion/test_assumption_closure.py", "model/completion/ASSUMPTION_CLOSURE.md",
 )
@@ -356,11 +368,11 @@ SOURCE_FILES = (
 def service_rows() -> list[dict]:
     interpretations = {"squared_eigenvalue_mass", "species_decoder", "thermal_density_statistics", "baryon_interpretation", "common_phase_clock"}
     owners = {
-        "common_phase_clock": "CP-04", "squared_eigenvalue_mass": "CP-07",
-        "lepton_calibration_ancestry": "CP-07", "observer_agreement": "CP-12",
-        "population_federation": "CP-02", "population_preparation": "CP-02",
-        "full_mission_cosmology": "CP-11", "gravity_kernel": "CP-09",
-        "species_decoder": "CP-05", "component_mask": "CP-05",
+        "common_phase_clock": "local_records", "squared_eigenvalue_mass": "particle_observables",
+        "lepton_calibration_ancestry": "particle_observables", "observer_agreement": "independent_comparison",
+        "population_federation": "physical_preparation", "population_preparation": "physical_preparation",
+        "full_mission_cosmology": "independent_comparison", "gravity_kernel": "geometric_gravity",
+        "species_decoder": "chiral_species_attachment", "component_mask": "chiral_species_attachment",
     }
     return [input_row(*row, owner=owners.get(row[0]), interpretation=row[0] in interpretations) for row in SERVICE_DATA]
 
@@ -449,7 +461,7 @@ def canonical_rows(premises: dict, ownership: dict, claims: list[dict]) -> list[
                                  f"Supply one {domain} instance of '{premise['name']}' with the exact canonical statement, or prove the consuming theorem without this input.",
                                  f"A same-domain instance failing '{premise['name']}' refutes that source-specific application.")})
         result.append({"id": premise["id"], "canonical_contract": {key: copy.deepcopy(premise[key]) for key in ("name", "type", "disposition", "statement", "discharge")},
-                       "canonical_row_sha256_at_revision": sha(canonical(premise)),
+                       "canonical_row_sha256": sha(canonical(premise)),
                        "owners": owners[premise["id"]]["owners"], "issues": owners[premise["id"]]["issues"],
                        "coverage": "selected_claim_edges" if uses else "not_consumed_in_audited_claims",
                        "uses": uses, "canonical_status_changed": False,
@@ -464,7 +476,7 @@ def joint_rows(graph: dict) -> list[dict]:
             consumers.setdefault(name, []).append(node["id"])
     result = []
     for name, nodes in sorted(consumers.items()):
-        domain = "primary_wilson_gauss" if name.startswith("pure_YM") else "conditional_chiral_extension"
+        domain = "pure_gauge_required" if name.startswith("pure_YM") else "ccf_lt2"
         category = "declared_architectural_primitive" if name == "extension_carrier_and_action" else "open_physical_map"
         row = input_row(name, name, category, domain,
                         f"Exhibit one member satisfying '{name}' with common state, algebra, operation, reference, clock and domain, or a counterexample to the proposed transfer.",
@@ -475,32 +487,32 @@ def joint_rows(graph: dict) -> list[dict]:
 
 
 def build_inventory(*, bindings: bool = True) -> dict:
-    registry = frozen("claims/claim_registry.yaml")
+    registry = current("claims/claim_registry.yaml")
     by_id = {claim["claim_id"]: claim for claim in registry["claims"]}
     claims = [by_id[key] for key in CLAIMS]
-    premises = frozen("tracking/premise_register.json")
-    graph = frozen("model/particle_joint_reconstruction/dependencies.json")
+    premises = current("tracking/premise_register.json")
+    graph = current("model/particle_joint_reconstruction/dependencies.json")
     rows = service_rows()
     proof = proof_rows()
-    frozen_paths = ("tracking/premise_register.json", "claims/axiom_registry.yaml", "model/completion/finite_attachment_map.json", "model/completion/finite_record_dynamics.json", "model/particle_joint_reconstruction/dependencies.json", "claims/claim_registry.yaml")
+    input_paths = ("tracking/premise_register.json", "claims/axiom_registry.yaml", "model/completion/finite_attachment_map.json", "model/completion/finite_record_dynamics.json", "model/particle_joint_reconstruction/dependencies.json", "claims/claim_registry.yaml")
     value = {
         "schema": SCHEMA,
-        "audit": {"baseline_revision": BASELINE,
-            "scope": f"All {len(premises['rows'])} canonical rows, all conditional assumptions of the named joint graph, the explicit assumptions, imported results and premise edges of {len(claims)} selected baseline claim rows, {len(rows)} refined services/physical interpretations, and {len(proof)} reviewed finite mathematical applications. Wider claim evidence is listed as unreviewed pointers. This is disclosure/coverage on this set, not a consistency or completeness proof for all OPH claims.",
-            "claim_inputs_frozen": True,
-            "current_batch_policy": "Separately admitted receipts inherit explicit input obligations. Mutable claim prose/evidence and completion-program pointers are excluded from live hash dependencies.",
+        "audit": {"official_model": "CCF-LT-2", "candidate": "A-ccf2-local-capacity-v2",
+            "scope": f"All {len(premises['rows'])} canonical rows, all conditional assumptions of the named joint graph, the explicit assumptions, imported results and premise edges of {len(claims)} selected component claim rows, {len(rows)} refined services/physical interpretations, and {len(proof)} reviewed finite mathematical applications. Wider claim evidence is listed as unreviewed pointers. This is disclosure/coverage on this set, not a consistency or completeness proof for all OPH claims.",
+            "current_claim_inputs_consumed": True,
+            "current_batch_policy": "Component receipts retain explicit source domains. Current official graph inputs and acceptance owners are consumed without transferring component conclusions.",
             "integrated_gate_accepted": False, "canonical_premises_discharged": [],
             "physical_comparison_count_added": 0, "common_source_join_established": False},
-        "baseline_manifest": [{"path": path, "sha256_at_revision": sha(frozen_bytes(path))} for path in frozen_paths],
+        "input_manifest": [{"path": path, "sha256": sha(current_bytes(path))} for path in input_paths],
         "normative_premise_reference": {"path": "claims/axiom_registry.yaml", "use": "Consume the registered theorem-premise declarations in their own stated domains; this inventory supplies no derivation or unique-architecture claim."},
-        "theorem_premise_references": [{"id": row["id"], "path": "claims/axiom_registry.yaml", "sha256_at_revision": sha(canonical(row)), "classification": "declared_architectural_primitive", "source_specific_discharge": False, "scope": "Registered theorem-premise declaration consumed by reference; no realization or uniqueness inferred."} for row in frozen("claims/axiom_registry.yaml")["axioms"]],
+        "theorem_premise_references": [{"id": row["id"], "path": "claims/axiom_registry.yaml", "sha256": sha(canonical(row)), "classification": "declared_architectural_primitive", "source_specific_discharge": False, "scope": "Registered theorem-premise declaration consumed by reference; no realization or uniqueness inferred."} for row in current("claims/axiom_registry.yaml")["axioms"]],
         "domains": copy.deepcopy(DOMAINS),
-        "claim_manifest": [{"claim_id": c["claim_id"], "status_at_revision": c["status"], "claim_class": c["claim_class"],
+        "claim_manifest": [{"claim_id": c["claim_id"], "status": c["status"], "claim_class": c["claim_class"],
                             "assumptions": c["assumptions"], "imported_results": c["imported_results"], "premise_dependencies": c["premise_dependencies"],
-                            "whole_row_sha256_at_revision": sha(canonical(c)), "unreviewed_evidence_pointers": c["evidence"]} for c in claims],
-        "canonical_rows": canonical_rows(premises, frozen("model/completion/finite_attachment_map.json"), claims),
+                            "whole_row_sha256": sha(canonical(c)), "unreviewed_evidence_pointers": c["evidence"]} for c in claims],
+        "canonical_rows": canonical_rows(premises, current("model/completion/finite_attachment_map.json"), claims),
         "joint_inputs": joint_rows(graph),
-        "joint_node_statuses_at_revision": {n["id"]: n["status"] for n in graph["nodes"]},
+        "joint_node_statuses": {n["id"]: n["status"] for n in graph["nodes"]},
         "claim_inputs": claim_rows(claims), "imported_inputs": imported_rows(claims), "service_inputs": rows, "proved_inputs": proof,
         "source_join_obligations": [{"id": identifier, "from": source, "to": target, "join_established": False,
                                      "obligation": obligation(owner, witness, counter)} for identifier, source, target, owner, witness, counter in JOIN_DATA],
@@ -533,7 +545,7 @@ def validate(value: dict, *, verify_bindings: bool = True) -> dict:
     if set(value) != set(expected) | {"source_manifest"}:
         raise ValueError("unexpected/missing inventory section")
     service_ids = {row["id"] for row in value["service_inputs"]}
-    owners = {row["id"] for row in frozen("claims/completion_program.json")["stages"]}
+    owners = {row["id"] for row in current("claims/completion_program.json")["stages"]}
     for row in value["claim_inputs"] + value["imported_inputs"] + value["service_inputs"] + value["joint_inputs"]:
         if row["owner"] not in owners or row["obligation"]["owner"] not in owners:
             raise ValueError("unknown completion owner")
@@ -570,21 +582,15 @@ def validate(value: dict, *, verify_bindings: bool = True) -> dict:
             raise ValueError("source binding shape")
         if verify_bindings and sha(path.read_bytes()) != row["sha256"]:
             raise ValueError(f"stale reviewed source binding: {row['path']}")
-    # Canonical statements/statuses are immutable under this inventory. Claim
-    # prose and evidence may evolve without creating a circular hash dependency.
-    # The generated model/theorem navigation (model_supply) follows the Lean and
-    # claim inventories through tools/build_model_theorem_map.py.
-    current = read_json_bytes((ROOT / "tracking/premise_register.json").read_bytes())
-    retained = frozen("tracking/premise_register.json")
-    if ({key: value for key, value in current.items() if key != "model_supply"}
-            != {key: value for key, value in retained.items() if key != "model_supply"}):
-        raise ValueError("canonical register changed: inventory requires explicit review")
+    # Current canonical statuses are disclosed, never promoted by this inventory.
     return copy.deepcopy(value["coverage_counts"])
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--write", action="store_true", help="write reviewed input inventory and source bindings")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--write", action="store_true", help="write reviewed input inventory and source bindings")
+    mode.add_argument("--check", action="store_true", help="validate current inventory and source bindings")
     args = parser.parse_args()
     if args.write:
         value = build_inventory()

@@ -1,0 +1,14 @@
+{
+  "label": "changed_saved_receipt",
+  "command": [
+    "/Users/muellerberndt/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-pair-receipt-t7178ar0/pair/pair_source.py"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-pair-receipt-t7178ar0/pair/pair_source.py\", line 107, in <module>\n    _require(saved_receipt[key] == result[key], 'Saved pair receipt differs: '+key)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/cs/8xy0p1_95kb3pmy4xws26cfw0000gn/T/contract-pair-receipt-t7178ar0/pair/pair_source.py\", line 6, in _require\n    raise AssertionError(message)\nAssertionError: Saved pair receipt differs: literal_native_calls\n",
+  "expected_success": false,
+  "passed": true,
+  "seconds": 0.95400037500076
+}

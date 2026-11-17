@@ -25,9 +25,9 @@ def render(canvas,data,y):
     from .observer_wings import ReadableCanvas
     c=ReadableCanvas(canvas);member=validate(data['observer_outputs'])
     c.items.append('<g id="one-source-state-reference-clock">')
-    c.text(M,y,'ONE PROGRAM THROUGH EVERY CLAIMED STEP',84,INK,700,serif=True)
+    c.text(M,y,'INDEPENDENT WILSON COMPARISON: ONE DECLARED PROGRAM',84,INK,700,serif=True)
     c.para(M,y+145,W-2*M,
-        'Dependencies 1–3: one finite program has a physical Gauss preparation with boundary charges and complete local records with uniform influence bounds. The four objects below stay together in every admitted calculation. Joint physical refinement is a separate theorem.',
+        'This independent Wilson component has a Gauss preparation, complete local records and its own influence bounds. Its source, state, reference and clock stay together. These results require a source map before use for CCF-LT-2.',
         58,INK,max_y=y+350)
     top=y+420;column=(W-2*M)/4;inside=column-270
     rows=[
@@ -58,7 +58,7 @@ def render(canvas,data,y):
         c.link(x+110,top+1310,'Definition, actual consumer and proof',link,43)
         if j<3:c.line(x+column-45,top+680,x+column+30,top+680,TEAL,6,arrow=True)
     c.para(M,top+1500,W-2*M,
-        'Verified joins: fixed source → physical preparation → complete boundary-charge records with uniform causal bounds and the full idle reference retained. Eleven supported charge sectors are not eleven particle species. The common quadratic speed does not prove Lorentz covariance. The interacting particle theory and the pure Yang–Mills gap have separate physical proof conditions.',
+        'Wilson-component joins: fixed source → physical preparation → complete boundary-charge records with uniform causal bounds and the full idle reference retained. Eleven supported charge sectors are not eleven particle species. The common quadratic speed does not prove Lorentz covariance. The interacting particle theory and the pure Yang–Mills gap have separate physical proof conditions.',
         56,BLUE,max_y=top+1710)
     c.items.append('</g>')
     return top+1750

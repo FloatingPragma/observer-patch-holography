@@ -1,0 +1,50 @@
+{
+  "charge_coverage": {
+    "changed_law_calls": 300,
+    "control_rejections": 150,
+    "native_calls": 41083,
+    "native_pair_handoffs": 144,
+    "tape_only_replays": 300,
+    "trials": 300,
+    "zero_no_unit_outcomes": 6
+  },
+  "claim_metadata_refresh_only": [
+    "code/openwave_source_repairs/README.md",
+    "code/openwave_source_repairs/replay.py"
+  ],
+  "classification": "verification_only; scientific statements and hypotheses unchanged",
+  "energy_audit": {
+    "complete_two_arm_allowance": 0.002816202,
+    "held_edge_fringe_difference": 0.701323253,
+    "hold_calls": 480,
+    "literal_native_endpoint_calls": 604346
+  },
+  "evidence_sha256": {
+    "openwave/row_01_charge_quantization/work/2026-11-16_codex_unknown_total_record_audit_v3/MANIFEST.sha256": "fa54aafb8ac37b0d8f5cddaf09721cf62cdea1d3bb5df1092105a9a693d29ba7",
+    "openwave/row_02_electron_rest_energy/reviews/2026-11-16_codex_current_energy_contract/MANIFEST.sha256": "7982b5a9bb7f9d24e139b5d71457187a848d681fc8ff13ca68500e80e6e84e70",
+    "openwave/row_07_double_cover/work/2026-11-16_codex_joint_replay_contract_v1/MANIFEST.sha256": "0269f0c9670d625f4994d486a92b4866669da4c988494e92cc595bbcdfa515fd",
+    "openwave/shared/2026-11-16_selected_source_pass_closure/rer_replay/REPLAY_CHECKS.json": "fb3e7a3e35e79b6224db8e02842c6b7f6abee99f58a9cdb5b90496b7bb3fd2d2"
+  },
+  "full_other_group_G6": false,
+  "inherited_child_optimization_reset": 0,
+  "official_OpenWave_awards_added": 0,
+  "optimized_parent_supported": true,
+  "paper_impact": "The16 finite scientific statements and owning paper fragment are unchanged; these records strengthen input coverage and executable verification without a new physical claim.",
+  "preserved_failed_attempt": "openwave/shared/2026-11-16_selected_source_pass_closure/rer_replay/first_attempt",
+  "replay_jobs_passed": 32,
+  "scientific_baseline_claim_register_sha256": "18073c18ef84c9cd712a4570254fc5a74ec7aa61a979b59b852eff0d531087a7",
+  "scientific_baseline_commit": "2328e5a69ce0a69d7b73f2a609203655cd01ee74",
+  "scientific_claim_count": 16,
+  "scientific_claim_register": "claims/openwave_source_repairs.json",
+  "scientific_claim_register_sha256": "65f385f7b48dbad702c499632e265910ef8e5c90983edb06321d6238c002de17",
+  "source_candidate": "A-old240-record-selected-local-generator-v2",
+  "source_manifests_unchanged": 17,
+  "spatial_repair": {
+    "actual_subprocess_checks": 44,
+    "joint_bins_per_case": 65536,
+    "scientific_bounds_unchanged": true,
+    "tensor_entries": 20736
+  },
+  "verification_entrypoint": "code/openwave_source_repairs/replay.py",
+  "verification_entrypoint_sha256": "b1f51bcaa016e4093472cdaca6b6c4877ae48a7693bc6e7839625170f9af0d83"
+}

@@ -1,5 +1,11 @@
 # Field response and particle identification from observer records
 
+The official source is [CCF-LT-2](../../model/SPEC.md), with its
+[source-specific dependency map](../../model/particle_joint_reconstruction/DEPENDENCIES.md).
+The component calculations below have their stated Hamiltonians, states and
+measurement domains. Their spectra, geometry and clock values require an
+explicit checked connection before use as outputs of the official law.
+
 <a id="other-source-branches-and-the-physical-join"></a>
 <a id="particle-formation-and-observer-time"></a>
 <a id="declared-field-programs-and-complete-observer-outputs"></a>
@@ -51,7 +57,7 @@ interpretation on that member. Separately declared rotational and quantum
 radiation extensions supply exact torque balance, an analytic magnetic
 response near`g=2`, and current-derived pair-to-radiation conversion. Their
 source boundaries and preparation services are stated in the
-[recovery guide](../../model/OBSERVER_RELATIVE_RECOVERY.md#localized-particles-and-autonomous-finite-interactions).
+[native quantum rotational construction](../../model/openwave_quantum_rotational/PROOF.md).
 
 The [quantum rotational member](../../model/openwave_quantum_rotational/PROOF.md)
 puts the localized charged ground, full dressed `J²=3/4`, actual current and

@@ -1,6 +1,6 @@
 # One N4 process: central ports, geometry and a non-native timing response
 
-The [N4 candidate](../../model/CANDIDATES.md#n4-a-reciprocal-coherent-exchange)
+The [independent N4 component](source.py)
 retains native port geometry but has a certified memory signal beyond native
 heat dynamics. A minimal twelve-block address carrier preserves its complete
 quantum channel and supports a full abstract A1–A3 construction. The resulting

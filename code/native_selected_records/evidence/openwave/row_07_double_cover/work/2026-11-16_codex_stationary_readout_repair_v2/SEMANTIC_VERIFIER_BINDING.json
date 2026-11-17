@@ -1,0 +1,14 @@
+{
+  "time_utc": "2026-11-15T20:16:19.108238+00:00",
+  "scope": "Verification-only semantic descendant. No scientific source, outcome, gate or candidate change.",
+  "files": {
+    "audit_saved.py": "c555ecdb8d6e66dde24f8033848b2fe70c9c5900444e50eb5be2e8bc61547af8",
+    "replay.py": "b64b79927e8b92328872339f78f2485609ab558067029aca8c46170ad9085025",
+    "verify_v6.py": "7dffc42708d76a1cc3997e22c8178436cab6e5dce32865723635f338ee72b1c3"
+  },
+  "tests": [
+    "negative path probability",
+    "wrong fixed parity",
+    "tiny positive control probability set to zero"
+  ]
+}

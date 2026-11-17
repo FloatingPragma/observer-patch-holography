@@ -1,0 +1,14 @@
+{
+  "files": {
+    "mutation_check.py": "f06c90b27c51ca5c8b23bc1ff105501f6e19c752b7a937f817e27d77ac5df0f7",
+    "trajectory_check.py": "1dba6e8ef0caf163ecb7e3bc07b779a229718ee82e4a596521d13d7804a9c4a9"
+  },
+  "finding": "Same-group adversarial review showed first paired epoch before-state not checked. Preserve original readers/receipts and add three first-boundary regression mutants. Producer scientific trajectories unchanged.",
+  "gate": "13 mutants reject; two clean controls pass.",
+  "new_mutations": [
+    "first pair before-state",
+    "first exclusive selector",
+    "first pair event boundary"
+  ],
+  "time": "2026-11-15T16:04:00.154399+00:00"
+}

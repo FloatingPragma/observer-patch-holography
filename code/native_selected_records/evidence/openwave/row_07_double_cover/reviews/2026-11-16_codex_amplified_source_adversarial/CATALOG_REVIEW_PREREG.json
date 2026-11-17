@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-15T19:46:51.615217+00:00",
+  "mode": "Independent verification of known source construction; no prospective discovery",
+  "files": {
+    "audit_catalog.py": "bd931e909b7d578c05b1d3127679b73b90eef9d4a157983242defd17e694561c",
+    "circuits.py": "ad8e1d351cb263166795606154819846a065f022a077cf149b3cee80eb5aa72c",
+    "exact_phase.py": "94ad586a528fbc8cc50ac56d2951db310378ec3fc814faac28a6ba47cb05e59a"
+  },
+  "producer_inputs": {
+    "PREREG_V5.json": "9bc4493587ff794c521b1ebe74c596c43ce3eca6518f93383e8a9c9d85deb3c5",
+    "CONFIRMATION/CATALOG.json.gz": "813b8c2aa45b1f08b2010f53e7ad7f705635059560ba9eb70cfd5a50dfc002ab",
+    "CONFIRMATION/PREPARATION.json.gz": "ef449037d53703c0d8f183edca2b72fd7ad227c203aaaeb1a1ceaa2187c35e6c"
+  },
+  "gates": "Rebuild all complete forward/adjoint instruments and source columns without producer imports; exact actual phase rounding cells; true energy-coordinate routing; exact source query counts; native/fixed-calibration controls distinguished."
+}
