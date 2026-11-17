@@ -593,8 +593,26 @@ def main():
             with report_lock:
                 result[operation] = {"argv": argv, "log": str(log)}
                 save()
-            with log.open("w") as stream:
-                completed = subprocess.run(argv, cwd=root, env=environment, stdout=stream, stderr=subprocess.STDOUT)
+            printed = args.output / (log_stem + "." + operation + ".stdout")
+            if operation == "write" and mode == "bare":
+                # A bare producer may print its receipt instead of writing it.
+                with log.open("w") as stream, printed.open("w") as out:
+                    completed = subprocess.run(argv, cwd=root, env=environment, stdout=out, stderr=stream)
+                receipt_path = root / name
+                if not completed.returncode and not receipt_path.exists():
+                    text = printed.read_text()
+                    try:
+                        strict_json.loads(text)
+                    except ValueError:
+                        pass
+                    else:
+                        receipt_path.write_text(text)
+                stream_text = printed.read_text()
+                with log.open("a") as stream:
+                    stream.write(stream_text)
+            else:
+                with log.open("w") as stream:
+                    completed = subprocess.run(argv, cwd=root, env=environment, stdout=stream, stderr=subprocess.STDOUT)
             with report_lock:
                 result[operation]["returncode"] = completed.returncode
                 save()
