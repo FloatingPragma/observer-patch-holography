@@ -309,7 +309,8 @@ def differences(left, right, path="root", limit=50, file_digest=None, float_tole
     """Differences of two payloads. A SHA-256 value that changes to a value for
     which ``file_digest`` holds (the current digest of a repository file) is a
     custody pin and no difference. With ``float_tolerance`` (relative, with an
-    absolute floor of 1e-12), floats that agree to it are no difference."""
+    absolute floor of 1e-12), floats that agree to it are no difference; this
+    classifies differences for a report and never admits a changed payload."""
     result = []
     if (float_tolerance is not None and isinstance(left, float) and isinstance(right, float)
             and abs(left - right) <= max(1e-12, float_tolerance * max(abs(left), abs(right)))):
@@ -383,8 +384,9 @@ def main():
     parser.add_argument("--stop-after", type=float, metavar="MINUTES",
                         help="start no producer after this many minutes; running ones finish")
     parser.add_argument("--float-tolerance", type=float, metavar="REL",
-                        help="treat floats that agree to this relative tolerance as equal "
-                             "(numerical replay noise across hosts); off by default")
+                        help="report only: also record which payload differences remain "
+                             "beyond this relative float tolerance; any payload difference "
+                             "still stops the receipt and keeps its original bytes")
     parser.add_argument("--jobs", type=int, default=1,
                         help="maximum simultaneous independent receipts (1 through 32)")
     args = parser.parse_args()
@@ -618,10 +620,15 @@ def main():
         own = set(candidate_outputs) | {root / relative for relative in backed_up}
         own = {path.resolve() for path in own}
         diff = differences(science_payload(root, name, before), science_payload(root, name, after),
-                           file_digest=file_digest_for(own), float_tolerance=args.float_tolerance)
+                           file_digest=file_digest_for(own))
         with report_lock:
             result["after_sha256"] = digest(candidate)
             result["non_provenance_differences"] = diff
+            if diff and args.float_tolerance is not None:
+                # Classification for the report only; science compares exactly.
+                result["differences_beyond_float_tolerance"] = differences(
+                    science_payload(root, name, before), science_payload(root, name, after),
+                    file_digest=file_digest_for(own), float_tolerance=args.float_tolerance)
             save()
         if diff:
             if mode != "path":
