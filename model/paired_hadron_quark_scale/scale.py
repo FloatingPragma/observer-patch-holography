@@ -7,12 +7,6 @@ import numpy as np
 from model.correlated_hadron_spectrum import fit
 from model.quenched_hadron_binding import analysis as old
 from model.particle_common_contract.provenance import import_closure
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 HBARC=.1973269804  # GeV fm: same decimal conversion in retained HAD/had_site.py.raw.
@@ -24,11 +18,11 @@ def bindings():
     paths.update(('model/correlated_hadron_spectrum/results.json','model/correlated_hadron_spectrum/PROOF.md',
                   'model/quenched_hadron_binding/recorded_tables.json','model/quenched_hadron_binding/results.json',
                   'model/quenched_hadron_binding/inputs/HAD/had_site.py.raw'))
-    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))})
+    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))}
 
 
 def authenticate(value):
-    for path,digest in bound_pins(value['source_bindings']).items():
+    for path,digest in value['source_bindings'].items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=digest:raise ValueError('changed parent: '+path)
 
 
@@ -102,7 +96,7 @@ def calculate():
     unpaired=np.array([.5*(1/r['kappa_phys']-1/cs['central']['kappa_c']) for r in cs['paired_replicas']])
     small=primary['central']['a_mq/ratio_tuned'];identity=cs['central']['mpi2_phys']/(2*cs['central']['slope_mpi2'])
     if abs(small-identity)>1e-14:raise ArithmeticError('tuned bare mass identity failed')
-    result={'schema':'oph.paired_hadron_quark_scale.v1','source_bindings':bound_pins(pins),'all_checks_pass':True,
+    result={'schema':'oph.paired_hadron_quark_scale.v1','source_bindings':pins,'all_checks_pass':True,
         'source_lattice':parent['source_lattice'],'all_input_kappas':dump['kappas'],'chiral_fit_kappas':parent['kappas_used'],
         'frozen_parent_fits_reused':48,'paired_stream_count':32,'paired_chains':chains,
         'conditional_coordinates':variants,'crossed_fit_choices':cross,'crossed_fit_sensitivity':shifts,

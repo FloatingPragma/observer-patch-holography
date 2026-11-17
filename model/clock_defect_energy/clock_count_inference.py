@@ -19,12 +19,6 @@ import numpy as np
 from tools import strict_json
 from . import joint_clock, ramsey_service
 from .joins_contract import source_bindings, check_receipt
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
@@ -38,7 +32,7 @@ Y = tuple((current, sign) for current in CURRENTS for sign in SIGNS)
 
 def _pred(name):
     receipt = strict_json.load(HERE / name)
-    if source_bindings(bound_pins(receipt["source_sha256"])) != bound_pins(receipt["source_sha256"]):
+    if source_bindings(receipt["source_sha256"]) != receipt["source_sha256"]:
         raise ValueError(f"{name} source custody changed")
     return receipt
 
@@ -269,7 +263,7 @@ def run():
             "affine_three_event_comparison_claimed": False,
             "native_family_changed": False,
             "integrated_gate_accepted": False,
-            "source_sha256": bound_pins(source_bindings(paths))}
+            "source_sha256": source_bindings(paths)}
 
 
 def main():

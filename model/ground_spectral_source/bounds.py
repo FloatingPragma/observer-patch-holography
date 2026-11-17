@@ -12,12 +12,6 @@ from model.interacting_field import source
 from model.full_fock_field.local_simulation import split_bound
 from model.cube_eta_protection.cube import GEOMETRY
 from . import preparation as p, circuits as c
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 TIME = F(1)
@@ -78,7 +72,7 @@ def spectral_rows():
     path = root/'model/retarded_matter_response/results.json'
     value = json.loads(path.read_text())
     if value.get('all_pass') is not True: raise ArithmeticError('unproved charged spectral source')
-    for name, digest in bound_pins(value['source_bindings']).items():
+    for name, digest in value['source_bindings'].items():
         if hashlib.sha256((root/name).read_bytes()).hexdigest() != digest:
             raise ArithmeticError('charged spectral source changed: '+name)
     rows = value['resolved_local_spectrum']['rows']

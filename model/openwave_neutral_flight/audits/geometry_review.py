@@ -5,12 +5,6 @@ from pathlib import Path
 import mpmath as mp
 import numpy as np
 from scipy.linalg import eigh,expm
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[3]
 HERE=Path(__file__).resolve().parent
@@ -130,8 +124,8 @@ def run():
     inputs=[GEOMETRY,WAVES,Path(__file__)]
     for package in('openwave_quantum_geometry','openwave_wave_deflection'):
         inputs += list((ROOT/'model'/package).glob('*.py'))+[(ROOT/'model'/package/'PROOF.md')]
-    pins=bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(set(inputs))})
-    return {'schema':'oph.independent_quantum_geometry_wave_review.v1','source_sha256':bound_pins(pins),
+    pins={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(set(inputs))}
+    return {'schema':'oph.independent_quantum_geometry_wave_review.v1','source_sha256':pins,
             'quantum_geometry':native_geometry_review(geometry),'planar_wave':planar_review(waves),
             'analytic_review':'polar bound 2R+120eta covers every64 native sector; exact rational witness uses partial-transpose operator norm<=1; finite wave gamma=-1 residual distinguishes the principal ray law',
             'arithmetic_scope':'exact integer Gram and rational bound reconstruction, independent65-digit source/witness diagnostic, independent full961-mode dense wave diagnostic; source interval proofs retain their stated scope',

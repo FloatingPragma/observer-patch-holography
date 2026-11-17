@@ -11,12 +11,6 @@ from pathlib import Path
 from tools import strict_json
 from ..particle_screening import screening
 from . import protocol
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -83,10 +77,9 @@ def campaign_binding(science):
         if type(campaign.get(key)) is not type(value) or campaign[key] != value:
             raise ValueError("screened-recovery campaign scope changed")
     source = campaign.get("predecessor_source_sha256")
-    # The frozen campaign names its predecessor sources; their current bytes
-    # are bound by the receipts that read them.
     if (type(source) is not dict or set(source) != set(PREDECESSOR_FILES)
-            or any(type(digest) is not str for digest in source.values())):
+            or any(type(digest) is not str or digest != _sha(path)
+                   for path, digest in source.items())):
         raise ValueError("screened-recovery predecessor source changed")
     result_hash = hashlib.sha256(_canonical(science)).hexdigest()
     if campaign.get("science_result_sha256") != result_hash:
@@ -113,7 +106,7 @@ def execution_diagnostics():
         "source_replay": protocol.source_replay_report(),
         "source_composition": protocol.source_composition_report(),
         **campaign_binding(science),
-        "source_sha256": bound_pins(source_bindings()),
+        "source_sha256": source_bindings(),
     }
 
 

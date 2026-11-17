@@ -12,12 +12,6 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import cube, repair, spectrum, source
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -36,7 +30,7 @@ def source_bindings():
     })
     paths.update(('model/cube_eta_protection/contract.json',
                   'paper/tex_fragments/CUBE_ETA_PROTECTION.tex'))
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
 
 
 _IMPORTED_BINDINGS = source_bindings()
@@ -117,7 +111,7 @@ def _produce():
              'physical_particle_identification': False, 'primitive_or_repair_law_changed': False,
              'native_time_dependent_detector_executed': False,
              'physical_hardware_execution_or_accuracy_proved': False,
-             'source_bindings': bound_pins(pins), 'replay_float_absolute_tolerance': REPLAY_ATOL}
+             'source_bindings': pins, 'replay_float_absolute_tolerance': REPLAY_ATOL}
     if source_bindings() != pins: raise ValueError('source changed during cube eta replay')
     validate_accounting(value)
     json.dumps(value, allow_nan=False)
@@ -135,7 +129,7 @@ def report():
                                 cwd=ROOT, env=environment, capture_output=True, text=True, check=False)
         if result.returncode: raise RuntimeError('cold cube eta replay failed: '+result.stderr[-3000:])
         value = strict_json.load(target)
-    if source_bindings() != pins or bound_pins(value['source_bindings']) != scoped(pins): raise ValueError('source manifest changed across cold replay')
+    if source_bindings() != pins or value['source_bindings'] != pins: raise ValueError('source manifest changed across cold replay')
     validate_accounting(value)
     return value
 

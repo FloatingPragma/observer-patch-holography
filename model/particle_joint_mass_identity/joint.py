@@ -20,12 +20,6 @@ from model.coherent_defect_wave.mass_instrument import model as apparatus
 from model.lepton_mass_compiler import analyzer,compiler
 from model.native_flavor_orbit import intervals as iv
 from model.particle_common_contract.provenance import import_closure
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 
@@ -35,13 +29,13 @@ def bindings():
     paths.update(('model/conditional_particle_spectrum/results.json','model/conditional_particle_spectrum/PROOF.md',
                   'model/lepton_mass_compiler/results.json','model/lepton_mass_compiler/PROOF.md',
                   'model/lepton_cycle/experimental_inputs.json','requirements.txt','model/requirements.txt'))
-    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))})
+    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))}
 
 
 def authenticate():
     for name in ('conditional_particle_spectrum','lepton_mass_compiler'):
         value=json.loads((ROOT/'model'/name/'results.json').read_text())
-        for path,digest in bound_pins(value.get('source_bindings',bound_pins(value.get('input_sha256',{})))).items():
+        for path,digest in value.get('source_bindings',value.get('input_sha256',{})).items():
             if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=digest:
                 raise ValueError('changed source: '+path)
 
@@ -318,7 +312,7 @@ def calculate():
             'empirical_inputs':row.get('empirical_inputs',['matched gauge/scalar parameters and supplied running Higgs background']),
             'native_prediction':False})
     if len(targets)!=17:raise ArithmeticError('target inventory changed')
-    result={'schema':'oph.particle_joint_mass_identity.v1','source_bindings':bound_pins(pins),'all_checks_pass':True,
+    result={'schema':'oph.particle_joint_mass_identity.v1','source_bindings':pins,'all_checks_pass':True,
             'calibrated_fermion_joint':f,'calibrated_boson_joint':b,'complete_calibrated_joint_instrument':joint,
             'conditional_GeV_targets':targets,'compiled_lepton_joint':compiled_lepton_joint(),
             'scope':{'actual_same_source_joint_observable_constructed':True,

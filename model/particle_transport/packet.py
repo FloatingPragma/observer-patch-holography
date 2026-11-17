@@ -13,12 +13,6 @@ from tools import strict_json
 from ..observer.source_scalar import compiler
 from ..common_source import slow_geometry
 from . import algebra, detector, source
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -79,8 +73,8 @@ def source_bindings():
                 stem = module_root.joinpath(*name.split('.'))
                 pending.extend(candidate for candidate in (stem.with_suffix('.py'), stem/'__init__.py')
                                if candidate.is_file())
-    return bound_pins({p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in sorted(visited)})
+    return {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(visited)}
 
 
 _IMPORTED_BINDINGS = source_bindings()
@@ -138,7 +132,7 @@ def report():
         'failed_dispersion_benchmark_repaired': False,
         'native_topological_protection_established': False,
         'replay_float_absolute_tolerance': REPLAY_ATOL,
-        'source_bindings': bound_pins(pins),
+        'source_bindings': pins,
     }
     if source_bindings() != pins:
         raise ArithmeticError('sources changed during charged-particle replay')

@@ -11,12 +11,6 @@ from scipy.linalg import eigh
 
 from model.native_thermal_completion import bath
 from model.particle_common_contract.provenance import import_closure
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 PARENT='model/native_thermal_completion/results.json'
@@ -24,7 +18,7 @@ PARENT='model/native_thermal_completion/results.json'
 
 def authenticate():
     value=json.loads((ROOT/PARENT).read_text())
-    for path,digest in bound_pins(value['source_bindings']).items():
+    for path,digest in value['source_bindings'].items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=digest:
             raise ValueError('changed bath source: '+path)
     return value
@@ -34,7 +28,7 @@ def bindings():
     paths={str(p.relative_to(ROOT)) for p in HERE.iterdir() if p.suffix in ('.py','.md')}
     paths|={PARENT,'model/native_thermal_completion/PROOF.md','model/native_thermal_admission/PROOF.md',
             'Lean/Dynamics/StationaryLyapunov.lean','model/requirements.txt'}
-    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))})
+    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(paths))}
 
 
 def sqrt_box(value,bits=180):
@@ -174,7 +168,7 @@ def certificate():
                 'complete_original_state_probabilities':stage['complete_state_probabilities'],
                 'exact_component_Gibbs_probabilities':[str(x) for x in target]})
         schedules.append({'steps_per_setting':experiment['steps_per_temperature'],'stages':stages})
-    result={'schema':'oph.native_bath_mixing.v1','source_bindings':bound_pins(pins),'all_checks_pass':True,
+    result={'schema':'oph.native_bath_mixing.v1','source_bindings':pins,'all_checks_pass':True,
         'complete_state_count':1296,'retained_components':26,'temperature_rows':temperatures,
         'certified_cooling_lag':schedules,
         'conditional_TV_bound':'TV(p_C P_C^n, pi_C)<=min(1,sqrt(1/pi_C,min-1)*(1-gap_C)^n/2)',

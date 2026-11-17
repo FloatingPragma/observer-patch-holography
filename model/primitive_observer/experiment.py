@@ -14,12 +14,6 @@ from ..anharmonic_transfer import calibration, data
 from ..anharmonic_transfer import experiment as prior
 from ..common_source.open_observer import SOURCE_PATHS as COMMON_SOURCES
 from . import anharmonic, runtime
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 FOLDER = Path(__file__).resolve().parent
@@ -223,7 +217,7 @@ def run(*, progress=None):
         'no_later_data_refit': not laboratory['prediction']['positive_time_outcomes_used'],
     }
     return {'schema': 'oph.primitive_observer.results.v1',
-            'source_bindings': bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sources}),
+            'source_bindings': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sources},
             'native_action': native_action, 'pointer_selection': pointer_selection,
             'completion': completion, 'observer': observer, 'laboratory': laboratory,
             'checks': checks, 'all_pass': all(checks.values()),

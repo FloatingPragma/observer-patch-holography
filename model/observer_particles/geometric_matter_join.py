@@ -9,12 +9,6 @@ from __future__ import annotations
 from evidence_contract import public_receipt
 import hashlib,importlib.util,json,sys
 from pathlib import Path
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 sys.dont_write_bytecode=True
 import numpy as np
 import sympy as s
@@ -287,7 +281,7 @@ def main():
         'Lean/Screen/SeamCurrentCarrierQuotient.lean','Lean/Screen/SeamCurrentEdge30Moment.lean',
         'Lean/ObserverPatchHolography/CoreAxioms.lean')]
     result={'status':'PASS_COMMON_METRIC_TETRAD_MATTER_SYMBOL_AND_NULL_FRAME_JOIN_WITH_EXPLICIT_GLOBAL_LIMITS',
-        'producer_sha256':sha(__file__),'source_sha256':bound_pins({str(p.relative_to(ROOT)):sha(p) for p in sorted(set(paths))}),
+        'producer_sha256':sha(__file__),'source_sha256':{str(p.relative_to(ROOT)):sha(p) for p in sorted(set(paths))},
         'artifacts':{artifact.name:sha(artifact)},'empirical_inputs':[],
         'same_source_metric_and_clock':metric,'native_Clifford_and_shared_symbols':symbols,
         'same_metric_null_tomography_and_stress':nulls,'same_metric_Whitney_chart':whitney,

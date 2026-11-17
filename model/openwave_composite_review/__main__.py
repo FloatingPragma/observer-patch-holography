@@ -6,12 +6,6 @@ import scipy.sparse as sp
 from model.openwave_native_composites.spectrum import native,one_body,selected,MASS,T,U,J
 from model.openwave_native_composites.__main__ import pins as composite_pins
 from model.openwave_composite_scale.__main__ import pins as scale_pins
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 ROOT=Path(__file__).resolve().parents[2];HERE=Path(__file__).resolve().parent
 
 def fragment(number,conjugate=False):
@@ -45,8 +39,8 @@ def certificate():
  assert baryon_gap>=8*U/3-3*T and meson_gap>=8*U/3+3*J/2-2*T
  source={};receipts={}
  for package,pin_function in(('openwave_native_composites',composite_pins),('openwave_composite_scale',scale_pins)):
-  path=ROOT/'model'/package/'results.json';data=json.loads(path.read_text());assert bound_pins(data['source_sha256'])==scoped(pin_function())
-  receipts[str(path.relative_to(ROOT))]=hashlib.sha256(path.read_bytes()).hexdigest();source.update(bound_pins(data['source_sha256']))
+  path=ROOT/'model'/package/'results.json';data=json.loads(path.read_text());assert data['source_sha256']==pin_function()
+  receipts[str(path.relative_to(ROOT))]=hashlib.sha256(path.read_bytes()).hexdigest();source.update(data['source_sha256'])
   if package=='openwave_native_composites':
    for row in data['states']:
     r=row['complete_unconditional_records'];assert abs(sum(r['preparation_success_and_every_full_sector_occupation'])+r['preparation_failure']-1)<1e-9
@@ -55,8 +49,8 @@ def certificate():
    assert all(float(x['ratio_to_comparison'])<.5 for x in data['physical_assignment_tests'])
  ownhash=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
  return {'verdict':'PASS_INDEPENDENT_NATIVE_COMPOSITE_SECTOR_SCALE_REVIEW',
-  'source_sha256':bound_pins({**source,**receipts,'model/openwave_composite_review/__main__.py':ownhash,
-   'model/openwave_composite_review/__init__.py':hashlib.sha256((HERE/'__init__.py').read_bytes()).hexdigest()}),
+  'source_sha256':{**source,**receipts,'model/openwave_composite_review/__main__.py':ownhash,
+   'model/openwave_composite_review/__init__.py':hashlib.sha256((HERE/'__init__.py').read_bytes()).hexdigest()},
   'reviewed_receipt_sha256':receipts,'reviewed_source_sha256':source,
   'complete_fragment_spectra':[q,a,pair],'two_plus_one_finite_fragment_gap':baryon_gap,'one_plus_one_finite_fragment_gap':meson_gap,
   'fragment_meaning':'noninteracting copies of the same finite source in exact conserved native occupation sectors; no asymptotic scattering claim',

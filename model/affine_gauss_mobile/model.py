@@ -9,12 +9,6 @@ import json
 import math
 import sympy as s
 import mpmath as mp
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 RER=HERE.parents[1]
@@ -56,7 +50,7 @@ def rounded(interval,places=24):
 def source():
     path=RER/PARENT
     receipt=json.loads(path.read_text())
-    validate_pins(bound_pins(receipt['input_sha256']))
+    validate_pins(receipt['input_sha256'])
     if receipt!=parent_certificate():
         raise ValueError('fresh public static parent replay differs')
     return receipt,hashlib.sha256(path.read_bytes()).hexdigest()
@@ -228,5 +222,5 @@ def calculate():
         'uniform_exact_bounds':bounds,
         'complete_neutral_field_records_same_H':parent_receipt['complete_field_records'],
         'finite_Peierls_first_integral_controls':controls,
-        'owned_source_sha256':bound_pins({p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})}
+        'owned_source_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}}
     return parent.serialize(result)

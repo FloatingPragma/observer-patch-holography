@@ -12,12 +12,6 @@ import json
 import math
 from pathlib import Path
 import sys
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 sys.dont_write_bytecode=True
 import numpy as np
 import sympy as s
@@ -217,11 +211,11 @@ def main():
     for module in tuple(sys.modules.values()):
         file=getattr(module,'__file__',None)
         if file and Path(file).is_file() and Path(file).is_relative_to(PUBLIC):paths.append(Path(file))
-    paths += [PUBLIC/p for p in bound_pins(compiler.source_summary()['source_sha256'])]
+    paths += [PUBLIC/p for p in compiler.source_summary()['source_sha256']]
     paths += [PUBLIC/p for p in ['docs/research/COHERENT_SOURCE_CLOCKS.md',
             'docs/research/FERMIONIC_SOURCE_CLOCKS.md','Lean/Screen/FermionSectorAssembly.lean',
             'code/a5_closure/manifests/spin_statistics_semantic_artifact.json']]
-    result['source_sha256']=bound_pins({str(p.relative_to(ROOT)):sha(p) for p in sorted(set(paths))})
+    result['source_sha256']={str(p.relative_to(ROOT)):sha(p) for p in sorted(set(paths))}
     target=HERE/'results/spin_matter_join.json'
     target.write_text(json.dumps(public_receipt(result),indent=2,sort_keys=True)+'\n', encoding='utf-8', newline='\n')
     print(json.dumps({'status':result['status'],'output':str(target),

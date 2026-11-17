@@ -9,12 +9,6 @@ import json
 from pathlib import Path
 
 from model.retarded_matter_response import spectrum
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -65,7 +59,7 @@ def certificate():
                      'common_positive_scale_minimax_relative_error_lower':str(bound),
                      'diagnostic_error_lower':float(bound),
                      'exact_assignment_possible':False,
-                     'sources':bound_pins([e['source'],heavy['source']])})
+                     'sources':[e['source'],heavy['source']]})
     return {'dictionary_tested':'Assign visible positive single-charge ground-probe gaps on the fixed cube to charged-lepton rest energies using one positive multiplicative unit factor and no additive shift.',
             'comparison_status':'retrospective fixed PDG2025 benchmark; central value plus/minus one reported uncertainty is a declared comparison box, not an exact physical confidence guarantee',
             'target_path':TARGET_PATH,

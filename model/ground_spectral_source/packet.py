@@ -15,12 +15,6 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from model.cube_eta_protection import repair
 from . import preparation, circuits, bounds, experiment
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -37,7 +31,7 @@ def source_bindings():
         'independent_checks':[],
     })
     paths.add('paper/tex_fragments/GROUND_SPECTRAL_SOURCE.tex')
-    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
+    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
 
 
 _IMPORTED_BINDINGS=source_bindings()
@@ -141,7 +135,7 @@ def _produce():
            'complete_native_error_certificate':bounds.certificate(),
            'spectral_probability_intervals':bounds.probability_intervals(),
            'executed_native_readout':experiment.report(),
-           'source_bindings':bound_pins(pins),'replay_float_absolute_tolerance':REPLAY_ATOL,
+           'source_bindings':pins,'replay_float_absolute_tolerance':REPLAY_ATOL,
            'source_law_changed':False,'physical_identification':False,
            'integrated_gate_accepted':False}
     arrays=experiment.arrays()
@@ -183,7 +177,7 @@ def report():
                               cwd=ROOT,env=environment,capture_output=True,text=True)
         if result.returncode:raise RuntimeError('cold native ground replay failed: '+result.stderr[-5000:])
         value,arrays=read_pair(target)
-    if source_bindings()!=pins or bound_pins(value['source_bindings'])!=scoped(pins):
+    if source_bindings()!=pins or value['source_bindings']!=pins:
         raise ValueError('source changed across cold native replay')
     return value,arrays
 

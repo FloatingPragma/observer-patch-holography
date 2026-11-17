@@ -4,12 +4,6 @@ import hashlib
 import json
 from pathlib import Path
 import sys
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
-    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[3]
 from . import symmetry
@@ -23,7 +17,7 @@ def raw_certificate():
     for name in PARENTS:
         path=ROOT/'model/coherent_defect_wave/chiral_joint'/name/'results.json'
         value=json.loads(path.read_text())
-        for relative,expected in bound_pins(value['input_sha256']).items():
+        for relative,expected in value['input_sha256'].items():
             if digest(ROOT/relative)!=expected:raise ValueError('changed inherited input: '+relative)
             if relative in pins and pins[relative]!=expected:raise ValueError('inconsistent ancestry')
             pins[relative]=expected
@@ -58,8 +52,8 @@ def raw_certificate():
       'scope':{'finite_group_odd_channel':'G1','continuous_physical_spin_proved':False,
         'full_native_CPT_or_Lorentz_claimed':False,'empirical_particle_identity':False,
         'changed_H_or_transport_added':False},
-      'input_sha256':bound_pins(dict(sorted(pins.items()))),
-      'owned_source_sha256':bound_pins({p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')})}
+      'input_sha256':dict(sorted(pins.items())),
+      'owned_source_sha256':{p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}}
 
 
 REFERENCE_SHA='0bbfd57371b0b00d74caacc6321d54a8ac073fa1296633541b64fa46e9225606'
@@ -73,7 +67,7 @@ def validate_pins(pins):
 def compare_research(value):
     path=HERE/'research_reference.json'
     if digest(path)!=REFERENCE_SHA:raise ValueError('immutable research receipt changed')
-    reference=json.loads(path.read_text());validate_pins(bound_pins(reference['input_sha256']))
+    reference=json.loads(path.read_text());validate_pins(reference['input_sha256'])
     ignored={'schema','input_sha256','owned_source_sha256'}
     fresh={k:v for k,v in value.items() if k not in ignored}
     # The public spelling makes the antiunitary interpretation explicit.
@@ -92,7 +86,7 @@ def certificate():
     seeds={p.relative_to(ROOT).as_posix() for p in HERE.iterdir() if p.suffix in ('.py','.md')}
     seeds.add((HERE/'research_reference.json').relative_to(ROOT).as_posix())
     for relative in import_closure(seeds):value['input_sha256'][relative]=digest(ROOT/relative)
-    value['input_sha256']=bound_pins(dict(sorted(bound_pins(value['input_sha256']).items())))
+    value['input_sha256']=dict(sorted(value['input_sha256'].items()))
     value['independent_research_comparison']=comparison
     value['antiunitary_time_and_interpretation']={
         'source_H_preserved':True,'source_time_evolution':'Theta U(t) Theta^-1=U(-t)',

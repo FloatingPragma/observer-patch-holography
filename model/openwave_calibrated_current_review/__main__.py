@@ -13,12 +13,6 @@ from model.openwave_baryon_weak_formfactors.certificate import exact_local
 from model.openwave_baryon_beta.decay import construction, eigensystem, evolve
 from model.openwave_nuclear_refinement.levels import local_census
 from model.openwave_larmor_dynamics.certificate import equivalent
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -29,16 +23,16 @@ def pins():
     for name in TARGETS:
         path=ROOT/'model'/name/'results.json'
         receipt=json.loads(path.read_text())
-        for p,h in bound_pins(receipt['source_sha256']).items():
+        for p,h in receipt['source_sha256'].items():
             assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h, p
-        paths.update(bound_pins(receipt['source_sha256']));paths.add(str(path.relative_to(ROOT)))
+        paths.update(receipt['source_sha256']);paths.add(str(path.relative_to(ROOT)))
     for name in ('openwave_calibrated_hadrons','openwave_nuclear_refinement'):
         path=ROOT/'model'/name/'results.json';receipt=json.loads(path.read_text())
-        for p,h in bound_pins(receipt['source_sha256']).items():
+        for p,h in receipt['source_sha256'].items():
             assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h,p
-        paths.update(bound_pins(receipt['source_sha256']));paths.add(str(path.relative_to(ROOT)))
+        paths.update(receipt['source_sha256']);paths.add(str(path.relative_to(ROOT)))
     assert not any(p.startswith('docs/') for p in paths)
-    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
+    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
 
 def one_body(A,basis):
     """Direct bit-level CAR construction, independent of target operator helper."""
@@ -164,7 +158,7 @@ def calculate():
     prop_error=float(np.linalg.norm(ref-evolve(beta,16,eigen)));assert prop_error<2e-8
     failure=evolve(beta,16,eigen,beta['failure']);assert abs(np.vdot(failure,failure).real+beta['success']-1)<2e-11
     return {'schema':'oph.calibrated_native_current_independent_review.v1','verdict':'PASS_NATIVE_CURRENTS_COMPLETE_BETA_AND_EXPLICIT_PHYSICAL_FAILURES',
-        'source_sha256':bound_pins(pins()),'direct_bit_CAR_current_and_intertwiner_error':current_error,
+        'source_sha256':pins(),'direct_bit_CAR_current_and_intertwiner_error':current_error,
         'independent_exact_local_projector_gA':'5/3','exact_axial_leakage_squared':'8/9',
         'certified_axial_interval_rational':[str(F(5,3)-axial_error),str(F(5,3)+axial_error)],
         'scalar_local_repair_obstruction':'Multiplicity-one native (S,I)=(1/2,1/2); an invariant scalar cannot change the fixed native current matrix element.',

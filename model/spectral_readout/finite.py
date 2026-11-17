@@ -7,12 +7,6 @@ from pathlib import Path
 from tools import strict_json
 from model.certified_reference import interval as iv
 from . import kernels as k
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -24,7 +18,7 @@ def enclosure(lower,upper):
 
 def load_source():
     result=strict_json.load(ROOT/'model/retarded_matter_response/results.json')
-    for name,digest in bound_pins(result['source_bindings']).items():
+    for name,digest in result['source_bindings'].items():
         if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:
             raise ValueError('frozen spectral source changed: '+name)
     section=result['resolved_local_spectrum'];rows=section['rows']
@@ -136,7 +130,7 @@ def readout(m,tau=F(1),resolution=F(1,2)):
 
 def native_first_harmonic():
     value=strict_json.load(ROOT/'model/ground_spectral_source/results.json')
-    for name,digest in bound_pins(value['source_bindings']).items():
+    for name,digest in value['source_bindings'].items():
         if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:
             raise ValueError('native readout source changed: '+name)
     settings=value['executed_native_readout']['settings']

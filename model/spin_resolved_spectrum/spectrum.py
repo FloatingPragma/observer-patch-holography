@@ -8,12 +8,6 @@ import numpy as np
 from tools import strict_json
 from ..cube_eta_protection import cube
 from ..interacting_vacuum import ground
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -26,7 +20,7 @@ def prior_spectrum():
     for path in (PRIOR,SCALAR):
         value=strict_json.loads((ROOT/path).read_text())
         if value.get('all_pass') is not True:raise ValueError('prior spectrum did not pass')
-        for source,digest in bound_pins(value['source_bindings']).items():
+        for source,digest in value['source_bindings'].items():
             if hashlib.sha256((ROOT/source).read_bytes()).hexdigest()!=digest:
                 raise ValueError('prior spectrum source changed: '+source)
         values.append(value)

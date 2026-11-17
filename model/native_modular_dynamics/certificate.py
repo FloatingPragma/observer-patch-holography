@@ -14,12 +14,6 @@ import numpy as np
 from tools import strict_json
 from ..native_quantum_reconstruction import certificate as source
 from ..native_thermal_return import certificate as observer
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -253,10 +247,10 @@ def inherited_pins():
     checked = {}
     for receipt in ('model/native_quantum_reconstruction/results.json', 'model/native_thermal_return/results.json'):
         stored = strict_json.load(ROOT/receipt)
-        for path, expected in bound_pins(stored['source_sha256']).items():
+        for path, expected in stored['source_sha256'].items():
             require(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == expected,
                     f'inherited source binding changed: {path}')
-        checked[receipt] = len(bound_pins(stored['source_sha256']))
+        checked[receipt] = len(stored['source_sha256'])
     return checked
 
 
@@ -300,7 +294,7 @@ def report(diagnostics=None):
                   'same_state_as_unconditioned_native_working_carrier': False,
                   'coordinate_corner_obstruction_is_all_regional_algebras_no_go': False,
                   'physical_clock_or_energy_units_identified': False},
-        'source_sha256': bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})})
+        'source_sha256': {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}})
 
 
 def main():

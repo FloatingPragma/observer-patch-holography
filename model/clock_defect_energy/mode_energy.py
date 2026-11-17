@@ -25,12 +25,6 @@ from ..observer.source_scalar import compiler
 from ..observer_time_fields import continuum_dynamics as continuum
 from ..observer_time_fields import spatial_dynamics as fields
 from ..common_source import slow_geometry
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE = Path(__file__).resolve().parent
 Q = 630
@@ -317,7 +311,7 @@ def report():
         'model/common_source/slow_geometry.py',
         'Lean/Dynamics/WardLimitManifest.lean', 'tools/strict_json.py'}
     return encoded({'schema': 'oph.clock_defect_energy.mode_energy.v1', 'campaign': binding(),
-                    'source_sha256': bound_pins(source_bindings(paths)), 'native_record_forms': current_forms(),
+                    'source_sha256': source_bindings(paths), 'native_record_forms': current_forms(),
                     'existing_full_source_mode': native_mode(), 'response': symbolic_response(),
                     'theorem_maps': theorem_maps(),
                     'finite_inertia_bounds': [ratio_bounds(n) for n in (1, 2, 4, 8)],

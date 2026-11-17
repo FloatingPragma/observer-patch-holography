@@ -11,12 +11,6 @@ from collections import Counter
 from fractions import Fraction as F
 import hashlib,json,math,sys
 from pathlib import Path
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 sys.dont_write_bytecode=True
 import numpy as np
 import sympy as s
@@ -299,12 +293,12 @@ def main():
     for module in tuple(sys.modules.values()):
         f=getattr(module,'__file__',None)
         if f and Path(f).is_file() and Path(f).is_relative_to(PUBLIC):paths.append(Path(f))
-    paths += [PUBLIC/p for p in bound_pins(compiler.source_summary()['source_sha256'])]
+    paths += [PUBLIC/p for p in compiler.source_summary()['source_sha256']]
     paths += [PUBLIC/p for p in ('model/CONSTRUCTION.md','model/observer_time_fields/REFINEMENT.md',
         'model/relative_observer_geometry/README.md','model/physical_space_time/OCCUPATION_FIELD.md',
         'model/OBSERVER_RELATIVE_RECOVERY.md')]
     result={'status':'PASS_SAME_HISTORY_NATIVE_FIELD_CLOCK_AND_CONDITIONAL_LORENTZIAN_PRODUCT_CORRESPONDENCE',
-        'producer_sha256':sha(__file__),'source_sha256':bound_pins({str(p.relative_to(ROOT)):sha(p) for p in sorted(set(paths))}),
+        'producer_sha256':sha(__file__),'source_sha256':{str(p.relative_to(ROOT)):sha(p) for p in sorted(set(paths))},
         'artifacts':{artifact.name:sha(artifact)},'empirical_inputs':[],
         'finite_product_domain':{'native_angular_eigenvalue':6,'radial_mode':1,'radial_points':3,'radial_length':2,
             'beta':1,'Q':630,'angular_frequency':str(apparatus['a']),'radial_frequency':str(apparatus['c']),

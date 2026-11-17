@@ -13,12 +13,6 @@ from . import clifford, family_attachment, kinetic_response, response
 from ..mass_response import experiment as e, model
 from ..mass_response import run as mass_run
 from tools import strict_json
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[3]))
-    from tools.pin_scope import bound_pins, scoped
 
 
 HERE = Path(__file__).resolve().parent
@@ -44,7 +38,7 @@ def _read_public():
             raise ValueError(f"public producer custody changed: {name}")
         bindings[path.relative_to(ROOT).as_posix()] = _hash(path)
         bindings[producer.relative_to(ROOT).as_posix()] = packet["producer_sha256"]
-        for location, expected in bound_pins(packet["source_sha256"]).items():
+        for location, expected in packet["source_sha256"].items():
             source = (ROOT/location).resolve()
             if not source.is_relative_to(ROOT) or _hash(source) != expected:
                 raise ValueError(f"public input custody changed: {location}")
@@ -89,15 +83,15 @@ def append_transfer(result, *, backend="source", quadrature="X"):
 
 
 def _bindings(mass, family, public):
-    result = dict(bound_pins(mass["source_bindings"]))
-    for additional in (bound_pins(family["source_bindings"]), public):
+    result = dict(mass["source_bindings"])
+    for additional in (family["source_bindings"], public):
         for key, value in additional.items():
             if key in result and result[key] != value:
                 raise ValueError(f"inconsistent source custody for {key}")
             result[key] = value
     paths = [p for p in HERE.glob("*.py") if not p.name.startswith("test_")]
     paths += list(HERE.glob("*.md"))+[MASS_RECEIPT]
-    result.update(bound_pins({path.relative_to(ROOT).as_posix(): _hash(path) for path in paths}))
+    result.update({path.relative_to(ROOT).as_posix(): _hash(path) for path in paths})
     return dict(sorted(result.items()))
 
 
@@ -172,9 +166,9 @@ def run():
             "observed_mass_spectrum_source_derived": False,
             "gap_to_close": "Bind the decoded chiral internal current and a mass-generating action to the same propagating Spin/CAR response; the native nonscalar family feature alone is not that coupling.",
         },
-        "source_bindings": bound_pins(_bindings(mass, family, public_bindings)),
+        "source_bindings": _bindings(mass, family, public_bindings),
     }
-    if bound_pins(result["source_bindings"]) != scoped(initial_bindings):
+    if result["source_bindings"] != initial_bindings:
         raise RuntimeError("source changed during particle audit")
     return result, arrays
 
@@ -187,9 +181,9 @@ def verify(path):
     required = {p.relative_to(ROOT).as_posix() for p in HERE.glob("*.py") if not p.name.startswith("test_")}
     required.update(p.relative_to(ROOT).as_posix() for p in HERE.glob("*.md"))
     required.add(MASS_RECEIPT.relative_to(ROOT).as_posix())
-    if not required <= set(bound_pins(document["source_bindings"])):
+    if not required <= set(document["source_bindings"]):
         raise ValueError("incomplete particle-audit source custody")
-    for key, expected in bound_pins(document["source_bindings"]).items():
+    for key, expected in document["source_bindings"].items():
         current = (ROOT/key).resolve()
         if not current.is_relative_to(ROOT) or _hash(current) != expected:
             raise ValueError(f"particle audit custody changed: {key}")

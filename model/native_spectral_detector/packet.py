@@ -14,12 +14,6 @@ import numpy as np
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import preparation, circuits, bounds, experiment, execution
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -37,7 +31,7 @@ def source_bindings():
         'independent_checks':[]})
     paths.update(['model/native_spectral_detector/contract.cpp',
                   'paper/tex_fragments/NATIVE_SPECTRAL_DETECTOR.tex'])
-    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
+    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
 
 
 _IMPORTED_BINDINGS=source_bindings()
@@ -47,7 +41,7 @@ def authenticate_parents():
     for package in ('spin_resolved_spectrum','spectral_readout','ground_spectral_source'):
         value=strict_json.load(ROOT/f'model/{package}/results.json')
         if value.get('all_pass') is not True:raise ValueError('parent receipt not accepted')
-        for name,digest in bound_pins(value['source_bindings']).items():
+        for name,digest in value['source_bindings'].items():
             if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:
                 raise ValueError('frozen parent source changed: '+name)
 
@@ -133,7 +127,7 @@ def _produce():
            'exact_spectral_probability_intervals':bounds.ideal_probabilities(),
            'finite_shot_bound':bounds.finite_shot_certificate(),
            'executed_native_detector':experiment.report(),
-           'source_bindings':bound_pins(pins),'replay_float_absolute_tolerance':REPLAY_ATOL,
+           'source_bindings':pins,'replay_float_absolute_tolerance':REPLAY_ATOL,
            'source_law_changed':False,'physical_identification':False,'integrated_gate_accepted':False}
     arrays=experiment.arrays()
     if source_bindings()!=pins:raise ValueError('source changed during native detector replay')
@@ -196,7 +190,7 @@ def report():
                               cwd=ROOT,env=environment,capture_output=True,text=True)
         if result.returncode:raise RuntimeError('cold native detector replay failed: '+result.stderr[-5000:])
         value,arrays=read_pair(target)
-    if source_bindings()!=pins or bound_pins(value['source_bindings'])!=scoped(pins):raise ValueError('source changed across cold replay')
+    if source_bindings()!=pins or value['source_bindings']!=pins:raise ValueError('source changed across cold replay')
     return value,arrays
 
 

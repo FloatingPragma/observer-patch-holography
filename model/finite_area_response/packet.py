@@ -11,12 +11,6 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import response
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -30,14 +24,14 @@ def source_bindings():
         'source_receipts': [PRIOR], 'independent_checks': [],
     })
     paths.add('model/native_equilibration/reciprocal_vacuum_results.npz')
-    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
+    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
 
 
 def inherited_custody():
     prior = strict_json.loads((ROOT/PRIOR).read_text())
     if prior.get('schema') != 'oph.reciprocal_vacuum.v1':
         raise ValueError('the specified reciprocal source receipt is required')
-    for path, digest in bound_pins(prior['source_bindings']).items():
+    for path, digest in prior['source_bindings'].items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != digest:
             raise ValueError('reciprocal source custody changed: '+path)
     artifact = ROOT/'model/native_equilibration'/prior['artifact']['filename']
@@ -72,7 +66,7 @@ def _produce():
     value = {'schema': 'oph.finite_area_response.v1', 'all_pass': True,
              'issues': [1145], 'gates': ['CP-09'],
              'response': response.certificate(), 'inherited_custody': inherited_custody(),
-             'source_bindings': bound_pins(pins),
+             'source_bindings': pins,
              'proof_scope': 'Exact finite thermal area response under the unchanged reciprocal law, and a separately specified noncommuting equilibrium susceptibility. No common interacting continuum or Einstein derivation.'}
     validate(value)
     if source_bindings() != pins:
@@ -90,7 +84,7 @@ def report():
                         '-m', 'model.finite_area_response.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.loads(path.read_text())
-    if source_bindings() != pins or bound_pins(value['source_bindings']) != scoped(pins):
+    if source_bindings() != pins or value['source_bindings'] != pins:
         raise ValueError('source changed across the cold finite area replay')
     validate(value)
     return value

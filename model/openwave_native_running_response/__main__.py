@@ -4,26 +4,20 @@ from pathlib import Path
 from .response import certificate
 from model.particle_common_contract.provenance import import_closure
 from model.openwave_larmor_dynamics.certificate import equivalent
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 
 def pins():
     parent='model/openwave_single_valley_leptons/results.json'
-    paths=set(bound_pins(json.loads((ROOT/parent).read_text())['source_sha256']))|{parent}
+    paths=set(json.loads((ROOT/parent).read_text())['source_sha256'])|{parent}
     paths.add('model/openwave_lepton_widths/inputs.json')
     paths|={str(p.relative_to(ROOT))for p in HERE.iterdir()if p.suffix in ('.py','.md','.tex')}
-    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(paths))})
+    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(paths))}
 
 def main():
     p=argparse.ArgumentParser();g=p.add_mutually_exclusive_group(required=True)
     g.add_argument('--write',action='store_true');g.add_argument('--check',action='store_true');args=p.parse_args()
-    before=pins();r=certificate();assert before==pins();r['source_sha256']=bound_pins(before)
+    before=pins();r=certificate();assert before==pins();r['source_sha256']=before
     path=HERE/'results.json'
     if args.write:path.write_text(json.dumps(r,sort_keys=True,indent=2)+'\n')
     else:assert equivalent(json.loads(path.read_text()),r)

@@ -12,12 +12,6 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from ..native_mass_channels import packet as parent_packet
 from . import algebra, bulk, core, lattice, lattice_bounds, sampling
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -34,8 +28,8 @@ def source_bindings():
     })
     paths.update(PACKAGE+'/'+name for name in
                  ('PROOF.md', 'CORE_PROOF.md', 'spectral_witness.json'))
-    return bound_pins({path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-            for path in sorted(paths)})
+    return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+            for path in sorted(paths)}
 
 
 def inherited_custody():
@@ -47,9 +41,9 @@ def inherited_custody():
             or type(prior.get('physical_comparison_count_added')) is not int
             or prior['physical_comparison_count_added'] != 0):
         raise ValueError('the complete native mass source receipt is required')
-    if bound_pins(prior.get('source_bindings')) != scoped(parent_packet.source_bindings()):
+    if prior.get('source_bindings') != parent_packet.source_bindings():
         raise ValueError('native mass source manifest is incomplete or stale')
-    for path, digest in bound_pins(prior['source_bindings']).items():
+    for path, digest in prior['source_bindings'].items():
         if hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != digest:
             raise ValueError('native mass source custody changed: '+path)
     return {'source_receipt': PRIOR,
@@ -116,7 +110,7 @@ def validate(value, replay=None):
         raise ValueError('complete source spectrum or finite interacting core was lost')
     if replay is not None and canonical(value) != canonical(replay):
         raise ValueError('defect spectrum receipt differs from the fresh replay')
-    if bound_pins(value['source_bindings']) != scoped(source_bindings()):
+    if value['source_bindings'] != source_bindings():
         raise ValueError('defect spectrum source manifest is incomplete or stale')
 
 
@@ -129,7 +123,7 @@ def _produce():
              'lattice': lattice.certificate(), 'lattice_bounds': lattice_bounds.certificate(),
              'core': core.certificate(), 'sampling': sampling.certificate(), 'scope': scope(),
              'physical_comparison_count_added': 0,
-             'inherited_custody': custody, 'source_bindings': bound_pins(pins)}
+             'inherited_custody': custody, 'source_bindings': pins}
     validate(value)
     if source_bindings() != pins:
         raise ValueError('source changed during the defect spectrum replay')
@@ -146,7 +140,7 @@ def report():
                         '-m', 'model.topological_defect_spectrum.packet', '--worker', str(path)],
                        cwd=ROOT, env=env, check=True, capture_output=True, text=True)
         value = strict_json.load(path)
-    if source_bindings() != pins or bound_pins(value['source_bindings']) != scoped(pins):
+    if source_bindings() != pins or value['source_bindings'] != pins:
         raise ValueError('source changed across the cold defect spectrum replay')
     validate(value)
     return value
@@ -165,7 +159,7 @@ def main():
     else:
         (args.worker or args.write).write_text(canonical(value), encoding='utf-8', newline='\n')
     if not args.worker:
-        print(json.dumps({'all_pass': True, 'source_bindings': bound_pins(len(bound_pins(value['source_bindings']))),
+        print(json.dumps({'all_pass': True, 'source_bindings': len(value['source_bindings']),
                           'topological_zero_modes': 2, 'finite_interacting_core_gap_positive': True,
                           'physical_species_identified': False, 'completion_gate_accepted': False}))
 

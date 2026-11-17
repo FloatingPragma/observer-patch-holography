@@ -21,12 +21,6 @@ from ..observer import record_recovery as records
 from ..observer.source_discrimination import circuit
 from ..particle_screening import screening
 from ..screened_recovery import protocol
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -80,7 +74,7 @@ def campaign_binding() -> dict:
     if any(type(contract.get(k)) is not type(value) or contract[k] != value
            for k, value in expected.items()):
         raise ValueError("screened transport campaign scope changed")
-    sources = bound_pins(contract.get("source_sha256"))
+    sources = contract.get("source_sha256")
     if (type(sources) is not dict or set(sources) != set(BASE_SOURCES)
             or any(type(sources[name]) is not str or sources[name] != digest(name)
                    for name in BASE_SOURCES)):
@@ -276,7 +270,7 @@ def report() -> dict:
         "physical_comparisons_added": 0,
         "current_response": current_response(),
         "corrected_cycle": corrected_cycle(),
-        "source_sha256": bound_pins({name: digest(name) for name in (*BASE_SOURCES, *PACKET_SOURCES)}),
+        "source_sha256": {name: digest(name) for name in (*BASE_SOURCES, *PACKET_SOURCES)},
     }
 
 

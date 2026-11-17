@@ -4,12 +4,6 @@ import argparse
 import hashlib
 import json
 from . import complete_c3, schur, relational
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).with_name('results.json')
@@ -36,7 +30,7 @@ def report():
                 retained_relational_records=relational.report(),
                 result='Complete source response and canonical effective matrices computed; no three charged-fermion Yukawa spectra follow from these two operators.',
                 domain='Specified finite completion response and native-record C3 routing; no universal exclusion of source dynamics.',
-                source_bindings=bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCES}))
+                source_bindings={name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCES})
 
 
 def main():

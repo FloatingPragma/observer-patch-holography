@@ -14,12 +14,6 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from . import diagnostics, dispersion, source
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -33,7 +27,7 @@ def source_bindings():
         'independent_checks': [],
     })
     paths.add('paper/tex_fragments/HUBBARD_RELATIVISTIC_SECTOR.tex')
-    return bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)})
+    return {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
 
 
 _IMPORTED_BINDINGS = source_bindings()
@@ -79,7 +73,7 @@ def _produce():
                        'native_local_CAR_pole_proved': False,
                        'three_dimensional_massive_species_identified': False,
                        'physical_SI_mass_calculated': False},
-             'source_bindings': bound_pins(pins)}
+             'source_bindings': pins}
     if source_bindings() != pins:
         raise ValueError('source changed during relativistic-sector construction')
     validate(value)
@@ -101,7 +95,7 @@ def report():
         if result.returncode:
             raise RuntimeError('cold relativistic-sector replay failed: '+result.stderr[-4000:])
         value = strict_json.load(path)
-    if source_bindings() != pins or bound_pins(value['source_bindings']) != scoped(pins):
+    if source_bindings() != pins or value['source_bindings'] != pins:
         raise ValueError('source changed across cold relativistic-sector replay')
     validate(value)
     return value

@@ -20,12 +20,6 @@ from tools import strict_json
 from ..exchange_sector import sector
 from ..observer import adaptive_record_recovery as adaptive
 from ..observer import record_recovery as records
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -370,10 +364,8 @@ def campaign_binding(science):
     source = campaign["predecessor_source_sha256"]
     if type(source) is not dict or set(source) != set(PREDECESSOR_FILES):
         raise ValueError("particle-screening campaign predecessor set changed")
-    # The frozen campaign names its predecessor sources; their current bytes
-    # are bound by the receipts that read them.
     for path, digest in source.items():
-        if type(digest) is not str:
+        if type(digest) is not str or _sha(path) != digest:
             raise ValueError("particle-screening campaign predecessor source changed")
     claim_hash = hashlib.sha256(_canonical(science)).hexdigest()
     if campaign["science_result_sha256"] != claim_hash:
@@ -397,7 +389,7 @@ def source_bindings():
 
 def run():
     science = science_result()
-    return {**science, **campaign_binding(science), "source_sha256": bound_pins(source_bindings())}
+    return {**science, **campaign_binding(science), "source_sha256": source_bindings()}
 
 
 def check_receipt(path, expected):

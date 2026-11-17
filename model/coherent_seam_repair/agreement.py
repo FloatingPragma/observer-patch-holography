@@ -16,12 +16,6 @@ from .common import require
 from .gauge_walk import local
 from .holonomy import certificate as holonomy_certificate
 from .program import Observer, State
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -43,8 +37,8 @@ def input_hashes():
     }
     paths = {ROOT/name for name in import_closure(seeds)}
     paths = {path for path in paths if path.name in {p.name for p in path.parent.iterdir()}}
-    return bound_pins({str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
-            for path in sorted(paths)})
+    return {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in sorted(paths)}
 
 
 def _expand(value):
@@ -207,7 +201,7 @@ def certificate():
 
     return {
         'schema':'oph.coherent_seam_agreement.v1',
-        'input_sha256':bound_pins(input_hashes()),
+        'input_sha256':input_hashes(),
         'status':'EXACT finite accepted-chart agreement with executed apparatus frame wrapper',
         'source_program':'coherent-seam-repair-v1',
         'source_dimension':native.dimension,

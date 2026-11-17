@@ -6,12 +6,6 @@ from pathlib import Path
 
 from tools import strict_json
 from . import algebra, entropy, geometry
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
@@ -44,7 +38,7 @@ def source_bindings():
         'Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean',
         'tools/strict_json.py',
     })
-    return bound_pins({p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
+    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
 
 
 def custody_diagnostic():
@@ -59,14 +53,14 @@ def custody_diagnostic():
         if type(prior['theorem'].get(key)) is not type(expected) or prior['theorem'][key] != expected:
             raise ArithmeticError('FA82 input theorem changed: '+key)
     mismatches = []
-    for path, digest in sorted(bound_pins(prior['source_bindings']).items()):
+    for path, digest in sorted(prior['source_bindings'].items()):
         candidate = ROOT/path
         actual = hashlib.sha256(candidate.read_bytes()).hexdigest() if candidate.is_file() else None
         if actual != digest:
             mismatches.append({'path': path, 'recorded_sha256': digest, 'current_sha256': actual})
     return {
         'prior_receipt': PRIOR,
-        'prior_binding_count': len(bound_pins(prior['source_bindings'])),
+        'prior_binding_count': len(prior['source_bindings']),
         'current_prior_source_mismatch_count': len(mismatches),
         'current_prior_source_mismatches': mismatches,
         'prior_full_source_replay': False,
@@ -124,7 +118,7 @@ def validate(result):
     for key, expected_value in flags.items():
         if type(result.get(key)) is not type(expected_value) or result[key] != expected_value:
             raise ArithmeticError('misleading status flag: '+key)
-    if bound_pins(result.get('source_bindings')) != scoped(source_bindings()):
+    if result.get('source_bindings') != source_bindings():
         raise ArithmeticError('current narrow mathematical source bindings changed')
 
 
@@ -143,7 +137,7 @@ def build():
         'certificate': {'algebra': algebra.certificate(), 'geometry': geometry.certificate(),
                         'entropy': entropy.certificate()},
         'imports': strict_json.load(HERE/'imports.json')['imported_theorems'],
-        'custody': custody, 'source_bindings': bound_pins(before),
+        'custody': custody, 'source_bindings': before,
     }
     if source_bindings() != before:
         raise RuntimeError('source changed during Weyl modular replay')

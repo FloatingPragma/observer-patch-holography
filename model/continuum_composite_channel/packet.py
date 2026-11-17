@@ -11,12 +11,6 @@ import tempfile
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import algebra,bounds
-try:
-    from tools.pin_scope import bound_pins, scoped
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins, scoped
 
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -31,14 +25,14 @@ def source_bindings():
         'independent_checks':[],
     })
     paths.add('paper/tex_fragments/CONTINUUM_COMPOSITE_CHANNEL.tex')
-    return bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
+    return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
 
 
 def prior_proof():
     for name in ('continuum_field_net','continuum_ground_constraints'):
         value=strict_json.loads((ROOT/'model'/name/'results.json').read_text())
         if value.get('all_pass') is not True:raise ValueError('prior theorem missing')
-        pins=bound_pins(value.get('source_bindings'))
+        pins=value.get('source_bindings')
         if not pins:raise ValueError('prior source custody missing')
         for path,digest in pins.items():
             if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=digest:
@@ -98,7 +92,7 @@ def _produce():
            'onsite_algebra':algebra.certificate(),
            'full_Fock_covariance':algebra.finite_covariance_control(),'bounds':bounds.certificate(),
            'proof_scope':'Exact local CAR and full-Fock covariance witnesses audit the operator identities. The README and fragment prove averaged same-ground fluctuations, uniform degree-controlled dynamics, all-context vanishing and joint equal-time CAR. Composite time continuity and energy survival are not proved.',
-           'source_bindings':bound_pins(pins)}
+           'source_bindings':pins}
     if source_bindings()!=pins:raise ValueError('sources changed during replay')
     validate(value);return value
 
@@ -114,7 +108,7 @@ def report():
                               cwd=ROOT,env=environment,capture_output=True,text=True)
         if worker.returncode:raise RuntimeError('fresh composite-channel worker failed: '+worker.stderr)
         value=strict_json.loads(path.read_text())
-    if source_bindings()!=pins or bound_pins(value['source_bindings'])!=scoped(pins):
+    if source_bindings()!=pins or value['source_bindings']!=pins:
         raise ValueError('sources changed across cold replay')
     validate(value);return value
 
@@ -133,7 +127,7 @@ def main():
     if not args.worker:
         print(json.dumps({'all_pass':True,'valleys':8,'resolved_equal_time_composite_channel':True,
                           'bounded_frequency_memory_survival':False,'Lorentz_or_Einstein_completion':False,
-                          'source_bindings':bound_pins(len(bound_pins(value['source_bindings'])))}))
+                          'source_bindings':len(value['source_bindings'])}))
 
 
 if __name__=='__main__':main()

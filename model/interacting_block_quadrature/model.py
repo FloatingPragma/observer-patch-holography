@@ -7,12 +7,6 @@ import json
 import math
 from pathlib import Path
 import sys
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 sys.dont_write_bytecode=True
 HERE=Path(__file__).resolve().parent
@@ -31,7 +25,7 @@ PARENT='model/interacting_block_propagation/results.json'
 
 def source():
     value=json.loads((RER/PARENT).read_text())
-    pins=dict(bound_pins(value['input_sha256']))
+    pins=dict(value['input_sha256'])
     pins[PARENT]=hashlib.sha256((RER/PARENT).read_bytes()).hexdigest()
     for path,expected in pins.items():
         assert hashlib.sha256((RER/path).read_bytes()).hexdigest()==expected,path
@@ -322,5 +316,5 @@ def calculate():
                         'nontrivial_interacting_relativistic_limit_proved':False,
                         'Lorentz_vector_or_Proca_identification_proved':False,
                         'full_finite_capacity_unique_ground_or_uniform_gap_proved':False},
-            'input_sha256':bound_pins(pins)}
+            'input_sha256':pins}
     return result
