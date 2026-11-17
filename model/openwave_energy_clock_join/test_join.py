@@ -45,14 +45,26 @@ def test_same_record_with_certified_one_word_difference(certificate):
     assert abs(actual-float((lo+hi)/2)) < 1e-20
 
 
-def test_source_mutation_uses_scientific_equations(tmp_path):
+def test_nonidentical_cell_mutation_fails_structural_admission(tmp_path):
     data = json.loads(j.GRAPH.read_text())
     data['seams'][0] = [0, 4]
     path = tmp_path/'graph.json'
     path.write_text(json.dumps(data))
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match='^identical ordered internal cells required$'):
         j.source(path)
-    # No digest comparison is used to reject this altered scientific source.
+
+
+def test_intercell_mutation_passes_source_admission_and_fails_anchor_equation(tmp_path):
+    data = json.loads(j.GRAPH.read_text())
+    # Keep every internal cell intact; attach this external seam to a nonzero
+    # anchor port instead. The simple graph and maximum degree six survive.
+    index = data['seams'].index([1, 82])
+    data['seams'][index] = [4, 82]
+    path = tmp_path/'graph.json'
+    path.write_text(json.dumps(data))
+    j.source(path)
+    with pytest.raises(ValueError, match='^actual compact anchor eigen-equation$'):
+        j.modes(path)
 
 
 def test_full_law_predicate_keeps_failures_and_coherent_reference(certificate):

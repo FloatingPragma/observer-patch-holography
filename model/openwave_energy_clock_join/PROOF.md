@@ -119,9 +119,12 @@ is used for both modes, without a phase drive between words.
 The supplied initial density is `tau=I_body/302400`, where body means all
 physical position/event arcs, including native holds. For the requested mode
 i, one ideal filter has effects `P_chi_i` and `I-P_chi_i` on that body,
-where `chi_i=(u_i+v)/sqrt(2)`. Its successful poststate is chi_i and its
-probability is `p=1/302400`. Failure is terminal and keeps its poststate
-`(I-P_chi_i)/302400`; it has probability `1-p`. The filter is tried once.
+where `chi_i=(u_i+v)/sqrt(2)`. Its conditional successful density is
+`P_chi_i`, with probability `p=1/302400`. Failure is terminal and retains the
+subnormalized branch density `(I-P_chi_i)/302400`, whose trace is `1-p`.
+Conditioned on failure, the normalized density is `(I-P_chi_i)/302399`.
+The complete instrument retains the subnormalized branch and its original
+weight. The filter is tried once.
 The input, reference, preparation recipe and detector are fixed, with i a
 mode selection. Implementing the second filter is a declared coherent service,
 with no native-pulse compilation or physical fidelity certificate.
@@ -202,8 +205,12 @@ reference phase and removal of the preparation failure. Replacing the second
 scale by its separately fitted value fails the shared-parameter predicate.
 Dropping R from the word changes the same full-law predicate after two words.
 Complex logarithm branches fail the real-energy domain predicate; padding
-inputs fail the preparation-domain predicate. A changed graph seam is tested
-against scientific source equations, without a stored digest rejection.
+inputs fail the preparation-domain predicate. Changing an internal seam in
+one cell is rejected by the structural requirement of identical ordered
+internal cells. Moving an external seam from `(1,82)` to `(4,82)` preserves
+those cells and passes source admission, then fails the actual compact
+anchor eigen-equation. Both tests require their specific rejection message;
+neither uses a stored digest rejection.
 
 Positive controls retain two orthogonal L=6 compact rays under the same
 calibration, the constant zero mode and the exact compressed Chebyshev identity

@@ -95,8 +95,8 @@ def source(path=GRAPH):
 
 
 @lru_cache(maxsize=1)
-def modes():
-    edges, L, _, _ = source()
+def modes(path=GRAPH):
+    edges, L, _, _ = source(path)
     cell_L = laplacian(tuple(e for e in edges if e[1] < 12), 12)
     f = sp.zeros(V, 1)
     for p, value in zip((4, 5, 6, 7), (1, -1, -1, 1)):
