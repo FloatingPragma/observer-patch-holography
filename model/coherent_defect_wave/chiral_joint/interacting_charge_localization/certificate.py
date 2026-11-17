@@ -5,12 +5,6 @@ from model.particle_common_contract.provenance import import_closure
 from .geometry import certificate as geometry_certificate
 from .screening import certificate as screening_certificate
 from .localization import certificate as localization_certificate
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
-    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[4]
 HERE=Path(__file__).parent
@@ -28,7 +22,7 @@ def input_hashes():
     seeds.update(DEPENDENCIES);seeds.add('model/requirements.txt')
     for name in seeds:
         if not (ROOT/name).is_file():raise FileNotFoundError('missing declared charge localization input: '+name)
-    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(seeds))})
+    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(seeds))}
 
 
 def certificate():
@@ -36,4 +30,4 @@ def certificate():
         'actual_graph_and_full_link_charge_control':geometry_certificate(),
         'screened_remote_pair_counterexample':screening_certificate(),
         'full_source_charged_bins':{family:localization_certificate(family) for family in ('ec','L')},
-        'input_sha256':bound_pins(input_hashes())}
+        'input_sha256':input_hashes()}

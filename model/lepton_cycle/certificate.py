@@ -10,12 +10,6 @@ import numpy as np
 import sympy as sp
 
 from . import composition as c, instrument as i, sensitivity
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -81,7 +75,7 @@ def report():
         'model/lepton_register_round/carrier.py','model/coherent_seam_repair/common.py',
         'model/coherent_seam_repair/program.py','Lean/EventAlgebra/SlotLocalitySurface.lean')]
     return {'schema':'oph.complete_lepton_cycle.v1', 'checks':checks,
-            'source_bindings':bound_pins({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files}),
+            'source_bindings':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
             'instrument':{'source_address_dimension':3600,'register_dimension':3,'outcomes':list(i.LABELS),
                           'weak_exclusive_probability':'2/9',
                           'weak_projected_X_norms':{k:str(weights[k]) for k in i.LABELS},

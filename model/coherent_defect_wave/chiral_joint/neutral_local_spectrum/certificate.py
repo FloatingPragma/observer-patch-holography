@@ -6,12 +6,6 @@ from model.common_source.chiral_candidate import action
 from model.particle_common_contract.provenance import import_closure
 from .model import spectrum
 from .symmetries import certificate as symmetry_certificate
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[4]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[4]
 PACKAGE = 'model/coherent_defect_wave/chiral_joint/neutral_local_spectrum/'
@@ -33,7 +27,7 @@ def input_hashes():
     for name in sorted(paths):
         if not (ROOT / name).is_file():
             raise FileNotFoundError('missing neutral local import input: ' + name)
-    return bound_pins({name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sorted(paths)})
+    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sorted(paths)}
 
 
 def certificate():
@@ -46,4 +40,4 @@ def certificate():
                        'spatial_link_or_composite_hopping_added': False},
             'physical_symmetries': symmetry_certificate(),
             'complete_physical_spectrum': spectrum(),
-            'input_sha256': bound_pins(input_hashes())}
+            'input_sha256': input_hashes()}

@@ -15,12 +15,6 @@ import sympy as s
 
 from model.particle_candidate_atlas.interacting_chiral import creator
 from model.particle_field_state_response import state_response as source
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -432,7 +426,7 @@ def certificate(include_control=True, include_diagnostics=False):
     rows = instrument()
     result = {
         'schema': 'oph.native_ground_spectral_records.v1',
-        'source_files': bound_pins({name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_INPUTS}),
+        'source_files': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in SOURCE_INPUTS},
         'source_dimension': 208,
         'all_fock_occupation_states': 16,
         'all_quantum_flux_labels': list(range(-6, 7)),

@@ -13,12 +13,6 @@ from . import provenance
 from model.particle_gauss_ground_state import gauss
 from model.particle_gauge_characteristics import characteristics
 from model.particle_spatial_ground_state import ground
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT=Path(__file__).resolve().parents[2]
 PROGRAM='oph.open_wilson_gauss_observer.v1'
@@ -71,7 +65,7 @@ def member(level=0):
         electric='105',magnetic='1/7',target_excess=target)
     source={
         'program':PROGRAM,'level':level,'side':side,'spacing':spacing,
-        'implementation_sha256':bound_pins(provenance.definition_hashes(SOURCE_INPUTS)),
+        'implementation_sha256':provenance.definition_hashes(SOURCE_INPUTS),
         'per_link_word_degree':degree,'CAR_modes_per_cell':60,
         'gauge_representation':'native M15, four Dirac copies, all occupations',
         'electric_coefficient':F(105),'magnetic_coefficient':F(1,7),
@@ -247,7 +241,7 @@ def certificate():
     }
     for receipt in checks.values():verify_result(selected,receipt)
     return {'schema':'oph.common_source_contract.v1','program':PROGRAM,
-        'source_sha256':bound_pins({p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_INPUTS}),
+        'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_INPUTS},
         'fixed_primary_member':selected,'next_declared_member':next_member,
         'bound_consequences':checks,
         'comparison_certificate_domains':{k:v for k,v in CONTROL_DOMAINS.items() if k not in ('physical_boundary_state','primary_locality')},

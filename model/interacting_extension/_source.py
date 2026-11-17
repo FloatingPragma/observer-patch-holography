@@ -8,12 +8,6 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -35,7 +29,7 @@ def verify_sources(repo: Path, names) -> dict[str, str]:
     paths = set(names)
     if not paths:
         raise ValueError("at least one source input is required")
-    expected = bound_pins(manifest["source_sha256"])
+    expected = manifest["source_sha256"]
     pending = list(paths)
     while pending:
         name = pending.pop()

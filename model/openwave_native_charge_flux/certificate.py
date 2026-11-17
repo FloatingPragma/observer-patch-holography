@@ -5,12 +5,6 @@ from model.particle_common_contract.provenance import import_closure
 from model.common_source.chiral_candidate.action import SOURCE_FILES
 from .algebra import endpoint_certificate,gauss_cut_census,route_certificate
 from .records import certificate as record_certificate
-try:
-    from tools.pin_scope import bound_pins
-except ModuleNotFoundError:  # run as a script: put the repository root on sys.path
-    import sys as _sys
-    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[2]))
-    from tools.pin_scope import bound_pins
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -27,7 +21,7 @@ def input_hashes():
     seeds.update(DEPENDENCIES);seeds.update(SOURCE_FILES);seeds.add('model/requirements.txt')
     for name in seeds:
         if not (ROOT/name).is_file():raise FileNotFoundError('missing native charge/flux input: '+name)
-    return bound_pins({name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(seeds))})
+    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(import_closure(seeds))}
 
 
 def certificate():
@@ -36,12 +30,12 @@ def certificate():
         'actual_Gauss_compiler_census':gauss_cut_census(),
         'actual_route_attachment':route_certificate(),
         'complete_joint_records':record_certificate(),
-        'input_sha256':bound_pins(input_hashes()),
+        'input_sha256':input_hashes(),
         'verdict':'PASS_SAME_SOURCE_UNIT_CHARGE_GAUSS_FLUX_ATTACHMENT'}
 
 
 def validate_pins(value):
-    for name,expected in bound_pins(value['input_sha256']).items():
+    for name,expected in value['input_sha256'].items():
         path=Path(name)
         if path.is_absolute() or '..' in path.parts or hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=expected:
             raise ValueError('native charge/flux input changed: '+name)
