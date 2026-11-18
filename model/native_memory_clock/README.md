@@ -46,10 +46,9 @@ four-event rails. The compressed extended receipt contains every computed
 terminal record law; decompression needs only Python's standard library.
 The full-carrier spectral theorem retains all modes and their exact
 multiplicities. Numerical propagation uses a verified reducing span, with no
-selected low-energy window or empirical mass input.
+selected low-energy window.
 
 Verification is read-only. `--record` creates evidence only when its target
 does not exist and the frozen sources match. Source amendments require a
 separate freeze; failed evidence is preserved. Passing these finite checks
-does not validate any of OpenWave's 31 complete physical rows. Candidate
-registration and platform validation belong in Bernhard's OpenWave fork.
+does not validate any of OpenWave's 31 complete physical rows.

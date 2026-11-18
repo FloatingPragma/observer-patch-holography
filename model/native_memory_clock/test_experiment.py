@@ -40,7 +40,7 @@ class ExperimentTests(unittest.TestCase):
         here = root / "model" / "native_memory_clock"
         here.mkdir(parents=True)
         (root / "model" / "__init__.py").write_text("", encoding="utf8")
-        for name in e.BINDINGS:
+        for name in (*e.BINDINGS, "tools/pin_scope.py", "code/pin_scope.py"):
             target = root / name
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(e.ROOT / name, target)
@@ -109,9 +109,9 @@ class ExperimentTests(unittest.TestCase):
 
     def test_every_required_source_is_bound_and_byte_changes_fail(self):
         root, here, freeze = self._isolated_package()
-        self.assertIn("model/native_memory_clock/PROOF.md", e.BINDINGS)
-        self.assertIn("model/native_memory_clock/protocol.json", e.BINDINGS)
-        self.assertIn("model/native_memory_clock/provenance.json", e.BINDINGS)
+        self.assertEqual(e.BINDINGS, tuple("model/native_memory_clock/" + name for name in (
+            "__init__.py", "native.py", "clock.py", "experiment.py", "protocol.json",
+            "provenance.json")))
         with patch.object(e, "ROOT", root), patch.object(e, "HERE", here):
             self.assertEqual(e.frozen(), hashlib.sha256((here / "freeze.json").read_bytes()).hexdigest())
             for name in e.BINDINGS:
@@ -134,6 +134,26 @@ class ExperimentTests(unittest.TestCase):
                 (here / "freeze.json").write_bytes(_json_bytes(changed))
                 with self.subTest(mutation=mutation), self.assertRaises(ValueError):
                     e.frozen()
+
+    def test_prose_and_tests_are_exempt_in_current_and_retained_pin_maps(self):
+        root, here, freeze = self._isolated_package()
+        exempt = tuple("model/native_memory_clock/" + name for name in (
+            "PROOF.md", "README.md", "test_native.py", "test_clock.py", "test_experiment.py"))
+        for name in exempt:
+            self.assertNotIn(name, e.BINDINGS)
+            shutil.copyfile(e.ROOT / name, root / name)
+        with patch.object(e, "ROOT", root), patch.object(e, "HERE", here):
+            for retained_exempt_pins in (False, True):
+                recorded = deepcopy(freeze)
+                if retained_exempt_pins:
+                    recorded["files"].update({name: e.digest(root / name) for name in exempt})
+                (here / "freeze.json").write_bytes(_json_bytes(recorded))
+                pin = e.frozen()
+                for name in exempt:
+                    path = root / name
+                    path.write_bytes(path.read_bytes() + b"\n# editorial fixture change\n")
+                    with self.subTest(retained=retained_exempt_pins, name=name):
+                        self.assertEqual(e.frozen(), pin)
 
     def test_actual_cli_rejects_overwrite_and_bad_freeze_under_optimization(self):
         root, here, freeze = self._isolated_package()
