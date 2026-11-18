@@ -36,6 +36,8 @@ class ReceiptTests(unittest.TestCase):
             (['cases',0,'prefix_records',1,'counts',0],False),
             (['cases',0,'prefix_records',1,'counts',0],0),
             (['cases',0,'prefix_records',0,'step'],True),
+            (['cases',0,'prefix_records',0,'no_pair'],-1e-12),
+            (['cases',0,'prefix_records',0,'no_pair'],1e-12),
             (['clock_records',0,'position_weights',0],float('nan')),
             (['clock_records',2,'unfinished_weight'],1e-12),
             (['clock_records',0,'public_records',0,'weight'],-1e-14),
@@ -66,6 +68,18 @@ class ReceiptTests(unittest.TestCase):
         bad=deepcopy(self.receipt)
         bad['clock_records'].pop()
         with self.assertRaises(ValueError): e.validate(bad)
+
+    def test_tiny_false_unfinished_or_early_ready_record_is_not_tolerated(self):
+        bad=deepcopy(self.receipt)
+        rows=bad['clock_records'][3]['public_records']
+        blank=next(row for row in rows if row['readings']==[[0,0],[0,0]])
+        largest=max(rows,key=lambda row:row['weight'])
+        blank['weight']+=5e-12
+        largest['weight']-=5e-12
+        with self.assertRaisesRegex(ValueError,'impossible clock public support'): e.validate(bad)
+        bad=deepcopy(self.receipt)
+        bad['cases'][0]['prefix_records'][0]['archive'][0]['words'][0]=64
+        with self.assertRaisesRegex(ValueError,'readiness'): e.validate(bad)
 
     def test_wrong_agreement_is_detectably_wrong_and_reverse_sign_is_retained(self):
         rows=self.receipt['cases']

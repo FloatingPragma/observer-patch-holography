@@ -22,7 +22,13 @@ from model.polynomial_sv.sectors import MultisetSector
 def finite(value, name):
     if isinstance(value, (bool, np.bool_)) or not isinstance(value, (int, float, np.number)):
         raise ValueError(f'{name}: expected real number')
-    if not np.isfinite(value):
+    if np.iscomplexobj(value):
+        raise ValueError(f'{name}: expected real number')
+    try:
+        value=float(value)
+    except (OverflowError,ValueError) as exc:
+        raise ValueError(f'{name}: invalid number') from exc
+    if not math.isfinite(value):
         raise ValueError(f'{name}: nonfinite')
     return float(value)
 
@@ -241,10 +247,12 @@ def controller_matrix(gates, weights=None):
     if not gates:
         raise ValueError('empty gate list')
     d=gates[0].shape[0]
+    if d<1:
+        raise ValueError('empty data space')
     if weights is None:
         weights=couplings(len(gates))
-    weights=np.asarray(weights)
-    if weights.shape!=(len(gates),) or not np.isfinite(weights).all():
+    weights=np.asarray([finite(w,'edge weight') for w in weights])
+    if weights.shape!=(len(gates),) or np.iscomplexobj(weights) or not np.isfinite(weights).all():
         raise ValueError('invalid edge weights')
     blocks=[[None]*(len(gates)+1) for _ in range(len(gates)+1)]
     for k,g in enumerate(gates):

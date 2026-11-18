@@ -17,7 +17,7 @@ TOL=2e-10
 PROB_TOL=2e-11
 SOURCE_PATHS=tuple('model/contrast_clock/'+name for name in
                    ('__init__.py','__main__.py','controller.py','experiment.py','protocol.json'))+tuple(
-    'model/polynomial_sv/'+name for name in ('carrier.py','common.py','law.py','reader.py','sectors.py'))
+    'model/polynomial_sv/'+name for name in ('__init__.py','carrier.py','common.py','law.py','reader.py','sectors.py'))
 
 
 def require(condition,message):
@@ -74,6 +74,12 @@ def protocol():
 
 def public(words):
     return [[(word>>6)&3,(word>>8)&7] for word in words]
+
+
+def readiness_support(words,step):
+    decisions=[(word>>6)&3 for word in words]
+    require((decisions[0]!=0)==(step>=668) and (decisions[1]!=0)==(step>=1336),
+            'archive readiness outside program support')
 
 
 def run_case(tape,kappa,control):
@@ -238,6 +244,7 @@ def validate(result):
             require(branch['public']==public(words),'public decoder mismatch')
             weights=array(branch['all_input_weights'],(78,))
             require(np.all(weights>=0) and np.all(weights<=1+PROB_TOL),'outcome weights')
+            if np.any(weights>0): readiness_support(words,1336)
             v=array(branch['prepared_output_real'],(78,))+1j*array(branch['prepared_output_imag'],(78,))
             require(abs(np.vdot(v,v).real-weights[start])<PROB_TOL,'prepared branch weight mismatch')
             no_pair+=float(np.vdot(v[~mask],v[~mask]).real)
@@ -246,6 +253,9 @@ def validate(result):
         require(abs(no_pair-case['final_no_pair'])<PROB_TOL,'no-pair mismatch')
         for row in case['prefix_records']:
             require(type(row['step']) is int and 0<=row['step']<=1336,'prefix position')
+            require(type(row['no_pair']) is float and 0<=row['no_pair']<=1+PROB_TOL,'prefix no-pair probability')
+            if row['step']==0:
+                require(row['no_pair']==0.,'initial pair preparation')
             require(len(row['counts'])==12 and all(type(x) is int for x in row['counts']) and
                     row['counts']==counter_words[row['step']],'local counter words')
             seen_prefix=set()
@@ -255,6 +265,7 @@ def validate(result):
                 require(len(words)==2 and all(type(w) is int and 0<=w<c.APP for w in words),'prefix archive words')
                 require(tuple(words) not in seen_prefix,'duplicate prefix archive word')
                 seen_prefix.add(tuple(words))
+                if branch['weight']>0: readiness_support(words,row['step'])
             require(abs(sum(b['weight'] for b in row['archive'])-1)<PROB_TOL,'prefix mass')
         if nominal_law is None:
             nominal_law=public_distribution(case)
@@ -282,6 +293,11 @@ def validate(result):
         require(len(retained)==len(row['public_records']),'duplicate clock public record')
         require(retained.keys()==recomputed.keys() and tv(retained,recomputed)<PROB_TOL,
                 'clock public joint-law recomputation')
+        require(all(retained[key]==0. for key,value in recomputed.items() if value==0.),
+                'impossible clock public support')
+        unavailable=sum(value for key,value in retained.items() if key[1][0]==0)
+        require(abs(unavailable-row['unfinished_weight'])<=PROB_TOL*row['unfinished_weight'],
+                'readiness marginal exceeds clock failure')
         if row['kind']=='engineered' and 2/3<=row['transfer_fraction']<=4/3:
             require(row['unfinished_weight']<=math.exp(-2672/8),'completion window gate')
         if row['kind']=='broken':
