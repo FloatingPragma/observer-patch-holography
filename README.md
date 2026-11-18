@@ -71,6 +71,14 @@ Under stated premises, the theorem library and the finite constructions give:
 
 ## How it works
 
+**Observers come first. What OPH compares with nature is what observers read
+from their own records, and what they agree on where their records overlap.
+Measurement, consensus and the synchronizing of clocks come after the records.
+No objective field and no global clock stand behind them: fields, particles,
+spacetime and a common time are effective descriptions that observers agree to
+use. The state of the program and its time parameter calculate those readouts.
+They are no second universe beside them.**
+
 One fixed Hamiltonian evolves matter, fields and response registers. A
 complete detector retains every outcome, and its measurement work is
 separate from energy-conserving free evolution. The creator supplies the
