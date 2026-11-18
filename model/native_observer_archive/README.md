@@ -7,8 +7,8 @@ Uniform local couplings and a supplied compact packet give more than 99.9%
 readiness throughout a finite interval, including every unfinished outcome.
 The [proof](PROOF.md), [experiment](protocol.json) and
 [source mapping](provenance.json) specify this experimental construction.
-Physical particle identification and an indefinitely continuing observer
-require additional source-specific construction.
+An indefinitely continuing observer requires additional source-specific
+construction.
 
 `OPH-NOA-1` uses the exact native event gates of
 [`OPH-NMR-1`](../native_memory_clock/README.md), with a different clock,
@@ -48,9 +48,10 @@ Packet representation has an exact error bound. SciPy propagation residuals
 are implementation checks, with no certified floating-point exponentiation
 claim. Verification is read-only. `--record` refuses to overwrite evidence;
 source amendments require a separate freeze. All 31 complete OpenWave
-physical rows are unvalidated; candidate registration and adversarial row
-validation belong in Bernhard's OpenWave fork.
+physical rows are unvalidated. Candidate registration and adversarial row
+validation are separate from this executable construction.
 
 The verifier checks each saved scientific gate before numerical comparison.
-Versioned producer receipts and their freeze are retained under `receipts/v1`;
-their source revision and hashes are specified in the source mapping.
+The source freeze binds the construction code and its input data through
+the shared pin-scope rule. Prose, tests and repository-wide package setup
+are outside that custody boundary. Each mode has one current receipt.

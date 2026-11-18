@@ -2,19 +2,19 @@
   "schema": "native-observer-archive-provenance.v1",
   "construction": "OPH-NOA-1",
   "revisions": {
-    "FloatingPragma/observer-patch-holography_main": "0a50df45164c7dcddaf9547a4c62936925839986",
-    "OPH-NMR-1_audited_parent": "1202d2dfaf3c0acc6dba25b912f62e59bf14d80d",
-    "muellerberndt/openwave_main": "9258e5e21f068c9bd627b1c948aaece45daace0b",
-    "muellerberndt/openwave_PR48": "d7e7172100524c4842f574eadc02db29ae983ba1",
-    "PR48_native_source_mapping": "0c738545b10b655c72cf2f877ec55b983592f535",
-    "openwave-labs/openwave_main": "e988fc8e3552ce30438ad9a31354607909a5618f"
+    "FloatingPragma/observer-patch-holography_main": "94328fd27c03758f804b9d49f40b84c700f3409b",
+    "OPH-NMR-1_audited_parent": "90d663b57a594a026afc846a947d251bd6cf0e02",
+    "openwave-labs/openwave_main": "e988fc8e3552ce30438ad9a31354607909a5618f",
+    "validation_guidance_revision": "9258e5e21f068c9bd627b1c948aaece45daace0b",
+    "address_bit_study_revision": "d7e7172100524c4842f574eadc02db29ae983ba1",
+    "address_bit_native_source_mapping": "0c738545b10b655c72cf2f877ec55b983592f535"
   },
   "native_source": {
     "implementation": "model/native_memory_clock/native.py",
     "primary_byte_and_AST_bindings": "model/native_memory_clock/provenance.json",
     "proof": "model/native_memory_clock/PROOF.md",
     "map": "Both event gates call the unchanged total forward/inverse permutation. Blank old-bit memory gives the exact native successor, including no-operation. Both old bits remain on the carrier.",
-    "source_update_scope": "PR48 d7e7172 adds spectral corroboration and resource qualification; native rule, source and join bytes match the mapped 0c738545 revision."
+    "source_update_scope": "The address-bit study at d7e7172100524c4842f574eadc02db29ae983ba1 includes spectral corroboration and resource qualification; its native rule, source and join bytes match the mapped 0c738545b10b655c72cf2f877ec55b983592f535 revision."
   },
   "supplied_choices": [
     "five data patches on a 4096-site one-excitation clock rail with uniform coupling 1/2",
@@ -54,15 +54,5 @@
     "original_separated_pair_anomaly": "unresolved in its own construction domain",
     "empirical_calibration_inputs": [],
     "physical_rows_validated": []
-  },
-  "retained_evidence": {
-    "directory": "model/native_observer_archive/receipts/v1",
-    "source_revision": "0f7ba290a83c345061ba263fcb23d5827dee5598",
-    "files": {
-      "freeze.json": "90d1cfe70ba145e50597aeab324fe542ce1ebf338427e4ff6fe05a364c1833bf",
-      "results.json.gz": "bc0dc6b3d4fa1981a62d4feed66c91e5195a04349ecfe96a79e6e89f87122eb7",
-      "extended_results.json.gz": "d7d9ed488cde06373bbef526eae3386e5a7ec2da7f5270c54bc9ba9aa2f2fb39"
-    },
-    "scope": "Unchanged construction and observation domain; producer and verifier version1 receipts. Each retained receipt binds its own source freeze."
   }
 }
