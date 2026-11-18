@@ -142,6 +142,29 @@ class InstrumentTests(unittest.TestCase):
         self.assertGreater(source_on_effect, 1e-5)
         self.assertGreater(free_state_change, .01)
 
+    def test_finite_source_on_pulses_have_detuned_transfer_probabilities(self):
+        graph = c.encode_graph(3, tuple(combinations(range(3), 2)))
+        graph.update(nsource=1, F=[1], R=[2])
+        source = np.diag([1, 0, 0]).astype(complex)
+        strength = 64.0
+        rows, _ = i.native_family(graph, source, np.zeros((1, 1)),
+                                  np.array([1]), queries=(0,), strength=strength)
+        row = next(row for row in rows if row['initial_fuel'] == 1 and row['phase'] == 0)
+        stages = row['source_energy_ledger']['stages']
+        # Independently solve the two-level source/fuel problem. A source
+        # energy of one makes its energy equal its excitation probability.
+        frequency = math.sqrt(strength ** 2 + .25)
+        def transfer(area):
+            return strength ** 2 / frequency ** 2 * math.sin(area / strength * frequency) ** 2
+        half = transfer(math.pi / 4)
+        full = transfer(math.pi / 2)
+        self.assertAlmostEqual(stages[0]['source_energy_after'], half, places=13)
+        self.assertAlmostEqual(stages[3]['source_energy_after'], full, places=13)
+        self.assertGreater(abs(half - .5), 1e-6)
+        self.assertGreater(abs(full - 1), 1e-5)
+        np.testing.assert_allclose(row['pointer_probabilities'],
+                                   [full, 0, 0, 1 - full], atol=3e-14, rtol=0)
+
     def test_source_preparation_rejects_odd_or_fractional_covariances(self):
         graph = c.encode_graph(5, tuple(combinations(range(5), 2)))
         graph.update(nsource=3, F=[3], R=[4])

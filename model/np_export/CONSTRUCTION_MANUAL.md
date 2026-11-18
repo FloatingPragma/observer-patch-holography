@@ -38,7 +38,7 @@ panel by panel).
 
 ![The idea](fig_idea.svg)
 
-### 0.1 A Universe that computes its own history
+### 0.1 The closure target
 
 The theory behind this construction, Observer Patch Holography, starts from one hypothesis. The Universe is a
 timeless, self-referential structure. Its observers recover the specification of their own world from completed
@@ -50,10 +50,10 @@ architecture that records inside it allow, and `R` a realization of that account
 R(D(U)) \cong U
 ```
 
-The sign means agreement in everything that can be observed and intervened on. No host, no outside time and no
-global clock are supplied. A loop has no first step, so the hardware below needs no derivation from something
-earlier: it is what the observers inside reverse-engineer and build, and it is justified when it runs and
-reproduces what they measure.
+The sign means agreement in everything that can be observed and intervened on. This is a construction target.
+The finite implementation supplies initialization, local control and action durations. Establishing
+the stated closure for that implementation requires an internal realization of those services and the same
+observer consequences; the component calculations below do not establish it.
 
 The hardware is a very large network of very simple observers. Each holds a few records and compares them with
 its neighbours. In that sense the Universe is a brain: a network whose activity is the settling of disagreements
@@ -66,7 +66,7 @@ A history is consistent when every record agrees with every record it overlaps. 
 over an enormous number of records. Solved by search, it is hopeless: the number of candidate histories grows
 exponentially with the number of records, and general problems of this kind are among the hardest known.
 
-The construction does not search. It uses three facts about overlapping observers.
+The classical balancing process uses three properties of its specified moves.
 
 1. **Every check is local.** An observer compares records with one neighbour, on the seam they share. No step
    looks at the whole.
@@ -86,13 +86,14 @@ and each such step lowers `V` by `2 (q_i - q_j - 1)`, at least 2. A settling pat
 that, under stated termination and consistency conditions, local repairs reach one shared public result
 whatever their order.
 
-The laws of this manual are coherent versions of such a repair: they also carry phases, and they are run as
-quantum laws. For them a bound on the work to reach the fixed point is the target that gives this folder its
-name. No polynomial bound for a family of constraint problems follows from these calculations.
+These classical moves and the two quantum laws below are distinct processes. Their generators and apparatus
+are declared separately. The descent theorem supplies no convergence or complexity result for either
+unitary law, or a polynomial bound for general constraint problems.
 
 ### 0.3 How large it is
 
-The tests of this folder run on 20, 80 and 320 cells. The theory counts about `8 × 10^122` cells of equal area on
+The imported arrays describe federations of 20, 80 and 320 cells. The scalar replay uses one cell;
+the contrast package declares its own carrier levels and tests. The theory counts about `8 × 10^122` cells of equal area on
 the screen of the Universe we inhabit (carrier paper, paragraph "Screen cells and capacity"; a display on the
 measured side, with the capacity `3.31 × 10^122`). The paper states that a carrier cell is identified with a
 screen cell only through a separate theorem. One kind of cell, one wiring and one law on every seam, repeated
@@ -133,9 +134,13 @@ that many times, is the proposal.
 | wedge mode, law 2 | 120 | 2,700 / 10,800 / 43,200 | one object or none, level `-m` |
 | fuel and parity reference, law 2 | 12 + 12 | | the local source and sink of an observer |
 | two-state registers, law 2 on registers | 432 | | 120 transit bits, 120 code bits, 192 apparatus bits |
+| additional routing scratch bits, scalar replay | 12 | | one neutral scratch bit per center |
+| additional terminal pointer bits, scalar replay | 2 | | both at the active fuel center |
 
-Software parts: the law (section 4 or 5), an emitter or a pulse to write, a reader with two pointers, an
-agreement gate, a record memory, and each observer's own clock (sections 3 and 6).
+The scalar replay allocates 446 coherent logical bits including scratch and pointers. Its owner-code
+registers have the larger raw dimensions specified by the star isometries. Software parts include the law,
+finite preparation and pulse programs, a local two-pointer readout and a retained classical record list.
+The controller and count-to-action conversion are supplied services (sections 3 and 6).
 
 ---
 
@@ -243,9 +248,10 @@ candidate, seam for seam.
 - *The junctions.* The gluing rule is a declared convention, and the theory lists a derived gluing as an open
   item. It gives 216 of 320 cells three external ports that lie pairwise two seams apart, a symmetric junction,
   and 104 cells ports at distances 1, 2 and 3.
-- *The shape at large.* With the same term on every seam, every cell acts as the same flat triangle. The limit of
-  refinement is then the icosahedron with flat faces, with the curvature of the sphere gathered in twelve points.
-  A round sphere needs seam terms that vary across the carrier ([section 5.8](#58-on-the-sphere)).
+- *The source's refinement comparison.* Equal seam terms give the same local combinatorial triangle at each
+  cell. The source reports persistent low-band splitting and compares it with a piecewise flat icosahedron.
+  Its round-sphere sibling changes seam terms ([section 5.8](#58-on-the-sphere)). Neither numerical comparison
+  supplies the scalar replay with a physical continuum limit.
 
 > **In plain words.** Take many of the twelve-cornered balls and tile a big sphere with them, like the patches of
 > a football. Each ball is wired to its three neighbouring balls by a single wire. To make the sphere finer,
@@ -274,7 +280,7 @@ A register is the piece of memory at a place. The two laws use different registe
 | wedge | a mode that holds one object or none | the same object in transit at a port |
 | port | a fuel mode at level 0 | the observer's local source and sink: it writes an object into the cell and takes one out |
 | port | a parity reference | keeps the total number of objects even for both preparations of the fuel, so that one algebra covers both |
-| port | two pointers and a record memory | the copies that two observers compare, and the records they keep |
+| active fuel port | two neutral pointers | local copies of the terminal fuel occupation, with all four outcomes retained |
 
 On one cell, law 2 on ordinary registers uses 432 two-state registers ([section 5.6](#56-on-ordinary-registers)).
 
@@ -282,26 +288,28 @@ On one cell, law 2 on ordinary registers uses 432 two-state registers ([section 
 
 ## 3. Observers, records and clocks
 
-**Who observes.** An observer is a port with its star: its five or six seams, the wedges between them, and its
-local apparatus. It sees its own registers and what arrives over its seams. It never sees the whole graph, the
-state of the program or the parameter that the program evolves with.
+**Who observes.** The declared apparatus belongs to a port and its star: the incident seams, wedges and local
+registers. The scalar preparation routes scratch states between centers and reads them locally.
+Its terminal fuel readout writes two neutral pointer bits at one fuel center. The simulator uses the full
+finite state representation to calculate those local records; the observer output is the record law.
 
-**What a record is.** An outcome that the observer has copied into its record memory. A record is public when two
-observers on an overlap hold identical complete reports of it. Every outcome of an instrument is kept: "no",
-"disagree" and "not available" are outcomes like "yes".
+**What a record is.** A retained outcome of the declared instrument. Routed preparation keeps its syndrome,
+diagnostic and transport-failure records. The terminal readout keeps all four two-bit outcomes, including
+zero-probability disagreements on the blank-pointer preparation. The two terminal copies are local; this
+readout does not transport a report to a second spatially separated observer.
 
-**What a clock is.** The order and the count of the records an observer holds. For frequencies, an observer
-counts completed cycles of a local reference of its own ([section 6.4](#64-the-clock)). Two observers compare
-clocks through the records on their overlap: two shared records fix the relation between two clocks, and a third
-checks it. No global clock exists, and no test takes one as an input.
+**Counts and timing.** The scalar replay supplies free action `q/8` for `q` in `{0,4,8}`, together with pulse
+durations and phase settings. A local circulation is an exact reference eigenmode ([section 6.4](#64-the-clock));
+it is not an executed timer that selects these actions. Autonomous timing and comparison of independently
+running observer clocks remain separate construction obligations.
 
 **Why this way.** A Universe with no outside has nobody who could read its state from outside. Whatever is a
 fact has to be a fact for some observer inside, in that observer's own units. Fields, particles, space and a
 common time are descriptions that observers agree to use.
 
-> **In plain words.** Nobody in this world has a wristwatch synchronised with everybody else's. Each observer
-> counts its own heartbeats and timestamps its own notes with them. When two observers meet, they compare notes
-> and work out how their heartbeats relate. A "fact" is a note that two neighbours hold in the same form.
+> **In plain words.** The finite program reads local apparatus and keeps the outcomes. Its schedule is supplied.
+> Turning a reference oscillation into a clock that controls and timestamps those operations requires another
+> implemented service.
 
 ---
 
@@ -314,8 +322,8 @@ Candidate `A-contrast-memory-spherical-v1`. Specification as delivered:
 
 ### 4.1 State
 
-A load 0, 1 or 2 on every port and a memory of eleven states on every seam. In every test the memories start
-blank, and the law keeps them blank at the end of every event.
+A load 0, 1 or 2 on every port and a memory of eleven states on every seam. Pair preparations use blank
+memories, which the echo preserves. The unrecovered-seam experiment instead starts with a recorded contrast.
 
 ### 4.2 The seam rule that the law is built from
 
@@ -439,15 +447,15 @@ read on other seams. It is one object.
 - The number of loads, and the numbers of ports that hold one load and two loads. The exchange permutes loads
   and creates none.
 - For every seam, whether its memory is blank. This is the identity of section 4.4.
-- For every seam with a record, the size `|x|` of the recorded contrast: `x^2` commutes with the write and with
-  the generator.
+- For every seam with a record, the size `|x|` of the recorded contrast: its record-size projections commute
+  with the complete echo generator `h_e`. The write `U` itself changes the memory's record size and does not
+  commute with the memory operator `x^2`.
 
 So every seam carries a label with four values that never changes: blank, or a record of size 0, 1 or 2. With the
 ports of the seam empty, a record of size 1 lies at the level `κ` or `κ + 1` above a blank seam, a record of size 2
-at `4κ` or `4κ + 1`, and a record of size 0 at 0. A seam that holds a record of size 1 with empty ports is the
-object this folder tests for row 19: it holds no load, it lies `κ` above the blank seam, and no event of the law
-recovers it. This folder reads it as the theory's dark source, a recovery defect on an overlap: a record on the
-seam that the loads of its ports do not determine.
+at `4κ` or `4κ + 1`, and a record of size 0 at 0. The source studies the size-one class as a candidate recovery
+defect on an overlap. It holds a retained seam record that the endpoint loads do not determine. Its two local
+memory levels are model energies; they do not establish gravitational response or identify dark matter.
 
 ### 4.8 As events
 
@@ -457,13 +465,17 @@ The sum over seams with a continuous parameter is the limit. As a program each s
 \text{one event of seam } e: \quad \exp(-i\,\tau\,h_e), \qquad \text{one round: every seam once} .
 ```
 
-Each port observer serves its seams once per round and counts its own rounds. No common clock is used. With
-every seam acting once per round, in any order and with unequal rates of observers, the pair is kept. With seams
-that act independently at random, the pair is lost at the tested event angles. The regular order of a seam's own
-events is what the binding rests on (sibling `A-contrast-memory-rounds-v1`,
-row 4 (source path `../rows/row_04_particle_stability/README.md`)).
+Each port observer's count indexes its incident events. The source's finite event tests compare regular rounds,
+unequal supplied rates and independent random event schedules at specified angles. These are separate
+protocols from continuous evolution. The all-time bound in section 4.6 does not transfer to arbitrary event
+orders or angles without a proof. The primary contrast package retains its declared event tests (source
+sibling `A-contrast-memory-rounds-v1`, source path `../rows/row_04_particle_stability/README.md`).
 
 ### 4.9 Writing and reading
+
+These are the upstream pair-emitter and endpoint-reader procedures. The independent `np_repair` diagnostic
+uses an ideal adjacent pair and a complete load-configuration measurement; the primary contrast package
+declares its own emitter and reader implementations.
 
 - **Emitter.** A fuel with two units at one seam, exchanged with "one load on each end" by a coupling `g` for the
   time `π / (2g)`, with the law running throughout. The fuel sits at `10κ + (d_a + d_b - 2)/2`, the level of the
@@ -477,16 +489,16 @@ row 4 (source path `../rows/row_04_particle_stability/README.md`)).
 
 - Row 4 (source path `../rows/row_04_particle_stability/README.md`): the pair persists in free evolution, with the theorem
   above; the law without the agreement energy loses it. Marked finite pair-persistence result.
-- Row 19 (source path `../rows/row_19_dark_matter_candidate/README.md`): the unrecovered seam; its level and the coupling are
-  read from an observer's own records. Physical identification is unproved.
+- Row 19 (source path `../rows/row_19_dark_matter_candidate/README.md`): the source reports an unrecovered seam
+  whose level and coupling are read from its apparatus records. Physical identification is unproved.
 - Supplied: the coupling `κ` (8 and 128 in the runs), the emitter, the reader, the reference registers.
 
 > **In plain words.** Loads are tokens. Neighbours pass tokens back and forth, and every pair of neighbours pays
 > a fee for holding different numbers of tokens. Two tokens sitting next to each other pay a smaller fee than
-> two tokens far apart, so they travel together like one thing: a particle. Each pair of neighbours also shares
+> two tokens far apart; the theorem bounds the chance that an initially adjacent pair separates. Each pair of neighbours also shares
 > a scratch pad. Before they act, they jot down how much they differ; afterwards they erase the note. If a note
-> is ever left on a pad with no tokens around, nothing in the rules can erase it. It weighs something, it holds
-> no token, and it stays: the candidate for dark matter.
+> is ever left on a pad with no tokens around, the record class is retained. That invariant and its local
+> energy levels alone do not determine how the defect would gravitate.
 
 ---
 
@@ -515,15 +527,15 @@ B_{(a,b),\,(a,b,c)} = +\frac{1}{\sqrt2}, \qquad B_{(b,c),\,(a,b,c)} = -\frac{1}{
 **Why opposite signs.** A wedge is a difference of its two seams. Two things follow.
 
 - An object spread evenly over all seams does not hop at all: `B^T 1 = 0`. Its level is exactly `m`, on every
-  connected carrier. This is the rest level that an observer reads as its reference.
+  connected carrier. This is a reference energy of the declared scalar law.
 - Three transits round a port cancel: for neighbours `a < c < f` of port `b`,
 
   ```math
   \chi_b = \frac{|a,b,c\rangle + |c,b,f\rangle - |a,b,f\rangle}{\sqrt3}, \qquad B\,\chi_b = 0 .
   ```
 
-  This little whirl sits at exactly `-m` and is built from one port's own wedges. It is the observer's clock
-  ([section 6.4](#64-the-clock)).
+  This mode sits at exactly `-m` and is built from one port's own wedges. It supplies a local reference mode;
+  an autonomous clock requires a further instrument and control construction ([section 6.4](#64-the-clock)).
 
 **Why `1/√2`.** With it, the seam operator is half the Laplacian of the graph of seams:
 
@@ -549,9 +561,9 @@ are opposite. What is left is a sum: rest level squared plus spatial level. With
 would be `m ± sqrt(λ)`, a different law.
 
 **Intuition.** Two shelves at `+m` and `-m` and a hop between them. An object that does not hop keeps the
-frequency `m`. Hopping adds to the square of the frequency, never to the frequency itself. This is the form of
-the relation between energy, momentum and rest energy of a relativistic particle, and it comes from a law that
-is local and of first order: each step moves the object by one hop.
+frequency `m`. Hopping adds to the square of the frequency, never to the frequency itself. This finite spectral
+identity has the form of a relativistic dispersion relation. Identifying its spatial levels with measured
+momentum and proving a relativistic field limit require additional results.
 
 ### 5.4 The levels of one cell
 
@@ -580,7 +592,8 @@ Objects exclude each other: a mode holds one at most. For `m = 1`,
 H_0 = \sum_e n_e - \sum_w n_w + \frac{1}{\sqrt2}\sum_{w = (a,b,c)} \Bigl[\bigl(c^\dagger_{ab} - c^\dagger_{bc}\bigr)\,c_w + \text{h.c.}\Bigr] .
 ```
 
-All 120 levels below zero are filled. This state is the reference. Measured from it,
+The ideal reference fills all 120 levels below zero. The finite ramp approximates this state with the audited
+error in section 5.7. Measured from the ideal reference,
 
 ```math
 H_0 - E_0 = \sum_{\epsilon > 0} \epsilon\,n_\epsilon + \sum_{\epsilon < 0} |\epsilon|\,(1 - n_\epsilon) \ \ge 0 .
@@ -613,8 +626,8 @@ fuel and one parity reference per port, on 432 two-state registers.
 
    *What the equations say:* a hop touches only the registers at its two ends. The law stays local.
 3. *Loop constraints.* A trip round a closed loop of links must return the object unchanged. The 240 triangles fuel, seam, wedge and 20 faces give 260 local conditions
-   of rank 259. They select, among all
-   words of 432 bits, the ones that are pictures of objects.
+   of rank 259. They select the encoding of the sector with even total parity among 174 modes. This is one
+   parity block, not the complete Fock space.
 4. *Where the registers live.* 120 are the transit bits of the declared alphabet. 120 are bits in the owner
    registers of the ports: at each port, ten registers of seven states, used in their collective singlet code,
    which every one of the twelve collective owner currents annihilates. This does not establish a faithful twelve-current response on that scalar code. 192 are added apparatus
@@ -641,40 +654,44 @@ construction, and a charge reader distinguishes them from a charged register out
    random; a negative sign is corrected by one `Z` on a link that belongs to that loop alone. Every sign is kept
    as a record, and none is selected away.
 2. *Fill the transits.* 120 pair operations put one object on every wedge.
-3. *Ramp.* One star at a time, switch on the hops of that port in 256 steps with the profile
+3. *Ramp.* One star at a time, switch on the hops of that port in `N` steps with the profile
 
    ```math
-   f(s) = 3s^2 - 2s^3, \qquad s = \frac{j + 1/2}{256},
+   f(s) = 3s^2 - 2s^3, \qquad s = \frac{j + 1/2}{N},
    ```
 
-   each step of duration 1/16. *Why this profile:* it starts and ends flat, so the cell follows the change
-   smoothly. The reproduced distance is below 0.0058 in operator norm, rather than zero.
+   each step of duration `16/N`. The extended replay uses `N = 256` and reproduces a covariance distance
+   below 0.0058 in operator norm from the ideal sea. The default `N = 16` is a distinct finite preparation
+   with its own reported error. The profile starts and ends flat; exact negative-energy eigenvectors are
+   used to evaluate the error, never to initialize either preparation.
 
 ### 5.8 On the sphere
 
 On a federation the one-object law is the same construction on all seams and wedges, with fifteen wedges at a
 port with six seams.
 
-- *The shape.* With equal seam terms, the lowest levels follow those of a sphere on average, and their multiplets
-  split by 13 and 10 percent at every refinement: the limit is the icosahedron with flat faces. The sibling with
-  round seam terms changes the terms and nothing else:
+- *The source comparison.* At the source's inspected refinements, equal seam terms give low multiplets with
+  reported splitting of about 13 and 10 percent. The source compares these with the piecewise flat icosahedron.
+  Its round-seam sibling changes the generator to
 
   ```math
   D = \begin{pmatrix} m & G\,B\,T \\ T\,B^T G & -m \end{pmatrix} .
   ```
 
   `G` gives every seam of a cell the factor `A^{-1/2}`, with `A` the area of the cell's triangle on the unit
-  sphere. `T` gives the wedges of every external seam an amplitude fixed by one condition: the cells, seen as a
-  network, form the Laplacian of the round sphere. *What it does:* cells near the twelve special points count
-  for less area, as they do on a round ball. The terms are supplied from the unit sphere.
-- *The scales.* With `m` at one exchange unit, the range of the reference's correlations is 0.15 cell spacings.
-  Waves over many cells that are not slow need a mass of 0.03 to 0.1 of the exchange unit.
+  sphere. `T` supplies external-wedge weights for the source's chosen discretization of the round-sphere
+  Laplacian. The terms come from the unit-sphere geometry. This is a different supplied generator; no continuum
+  or instrument transfer to it is established by the one-cell replay.
+- *The source's scale comparison.* At `m = 1` the source reports a reference correlation range of 0.15 cell
+  spacings. Its explored mass range 0.03 to 0.1 gives longer-range waves; those parameters are not physical
+  mass measurements or the one-cell instrument preparation.
 
 ### 5.9 What it gives, and what is supplied
 
-- Row 30 (source path `../rows/row_30_klein_gordon/README.md`): on one cell, the lines of an added object are read at 1.0000,
+- Row 30 (source path `../rows/row_30_klein_gordon/README.md`): the source reports one-cell spectroscopy lines at 1.0000,
   1.5435, 2.0000 and 2.1490 of the observer's own reference, predicted from spatial comparisons before the
-  records exist. One-cell scope.
+  records exist. Those source experiments have their own preparation and query domain. The three-query
+  scalar replay computes complete pointer laws, not that spectral extraction or a physical row award.
 - Row 19 (source path `../rows/row_19_dark_matter_candidate/README.md`): a created object costs at least `m`, holds no charge
   of the twelve currents, and its number is kept. Open.
 - Row 3 (source path `../rows/row_03_de_broglie_clock/README.md`): the lowest line is the observer's reference frequency.
@@ -683,9 +700,10 @@ port with six seams.
 
 > **In plain words.** Think of a marble that can rest on a line between two corners, or be "in the corner" on its
 > way from one line to the next. Resting costs a fixed amount, being in a corner returns the same amount.
-> The marble's pitch, how fast it hums, depends on those two shelves and on how unevenly it is spread out, in
-> exactly the way Einstein's relation ties energy to rest energy and momentum. All the low hums are taken:
-> that full, silent state is the vacuum. A particle is one extra marble humming above it.
+> The marble's pitch, how fast it hums, depends on those two shelves and on how unevenly it is spread out.
+> Its finite spectrum has a square-root relation. Filling every negative level defines the ideal reference
+> state, and one extra marble is an excitation above it. A physical particle interpretation needs an observer
+> measurement map and a field limit.
 
 ---
 
@@ -702,9 +720,23 @@ target `s`, a fixed combination of the observer's own seams or wedges, while the
 H_{\text{pulse}} = H + g\,\bigl(f^\dagger c(s) + c(s)^\dagger f\bigr), \qquad \text{duration} = \frac{\text{area}}{g} .
 ```
 
-Area `π/2` moves the content of the fuel into the target (creation, capture). Area `π/4` moves half of it
-(spectroscopy). The strength is 64 in exchange units, finite, and the law is never switched off. The local
-comparisons that calibrate space use a much stronger pulse, `2^28`.
+For an isolated resonant converter, areas `π/2` and `π/4` give full and half transfer. With the source on,
+those transfer probabilities acquire finite-pulse corrections. The replay uses strength `g = 64`
+and duration `π/(4g)` and calculates the complete unitary with the source present. For a single target
+eigenmode of energy `m` coupled to zero-energy fuel, the transfer probability is exactly
+
+```math
+P(t) = \frac{g^2}{g^2+(m/2)^2}\sin^2\!\left(t\sqrt{g^2+(m/2)^2}\right).
+```
+
+At `m = 1`, `g = 64`, the `π/2` and `π/4` areas give about `0.9999389663` and `0.4999934509`, respectively.
+The source's spatial-calibration experiments use a different, much stronger pulse, `2^28`; those experiments
+are not part of the finite instrument replay.
+
+The source-energy ledger retains each stage's energy before and after. Pulse work is the work of externally
+switching the converter on and off and equals the source-energy change. Free evolution conserves source
+energy. Fuel phases and terminal pointers commute with the source and do zero source work. This ledger
+does not model controller energy, preparation-ramp work or autonomous energy conservation.
 
 **Why a fuel at zero.** It is a neutral place to put an object in or take one out. Because it sits between the
 branches, the pulse decides what is written, and the law decides how it evolves.
@@ -718,7 +750,10 @@ non-interacting objects with exclusion,
 p(\text{fuel full at the end} \mid \text{full}) - p(\text{fuel full at the end} \mid \text{empty}) = |U_{ff}|^2 ,
 ```
 
-with `U_ff` the amplitude for one added object to leave the fuel and return to it.
+Here `U` is the complete one-body pulse/free/phase/pulse map, with the same source preparation in both runs.
+Fuel and parity reference are prepared together in `00` or `11`, and the reference is decoupled, so its added
+occupation contributes no fuel amplitude. `U_ff` includes the finite source-on pulses and all return paths;
+it is not the ideal free-source propagation amplitude.
 
 **Why the difference.** Everything the background does is the same in both runs and drops out. What stays is
 the response of one added object, whatever the background is. The observer needs no knowledge of the reference.
@@ -730,8 +765,9 @@ A probability has no phase. The second pulse is therefore applied with four sett
 z(q) = \frac{\Delta p_0 - \Delta p_\pi - i\,(\Delta p_{\pi/2} - \Delta p_{3\pi/2})}{4}
 ```
 
-is one complex number for every count `q` of the observer's cycles. Its spectrum over `q` shows the frequencies
-of the added object, in units of the observer's reference.
+is a phase-combination statistic for each supplied query `q`. Extracting frequencies from a sufficiently
+large query set requires its own sampling and finite-pulse analysis. The queries `{0,4,8}` retain
+the four phase-resolved pointer laws and do not implement that spectral reconstruction.
 
 ### 6.3 Pointers and agreement
 
@@ -741,27 +777,42 @@ After the coupling is off, the occupation of the fuel is copied into two pointer
 H_{\text{copy}} = \frac{\pi}{2\tau}\,n_f \otimes \bigl[(1 - X_A) + (1 - X_B)\bigr] .
 ```
 
-**Commuting source evolution.** With the coupling off, the fuel's occupation commutes with the law. The nonselective instrument can remove fuel coherences and their correlations with the cell. It commutes with free source evolution, which continues during the copy.
+**Commuting source evolution.** With the coupling off, the fuel's occupation commutes with the law. The
+nonselective instrument can remove fuel coherences and their correlations with the cell. Its action commutes
+with free source evolution. The scalar replay applies the controlled writes as a supplied unitary with no
+declared pointer duration; the displayed Hamiltonian is a finite-duration realization for a chosen `τ`.
 
-The two pointers belong to the two observers that meet at the overlap. Each files a report of two bits, valid
-and value. Identical valid reports are admitted as one record, an agreed "no" included. A mismatch or a missing
-report stays a failed attempt. An admitted record is kept in three copies and repaired by majority.
+In the scalar replay both neutral pointer bits are at the active fuel center. They retain the
+complete law `[1-p, 0, 0, p]` in order `00, 10, 01, 11` on the declared blank input. The supplied controlled
+writes copy an orthogonal occupation record, not an arbitrary quantum state. Transport to another observer,
+validity/value reports, triple storage and majority repair belong to the upstream apparatus proposal;
+they are not executed by this terminal two-bit instrument.
 
 ### 6.4 The clock
 
-The observer's reference is the whirl `χ_b` of its own port, at the level `-m` exactly. Its phase advances by `m`
-times the duration of one cycle of the observer's protocol, and the observer reads that advance from its own
-fuel records. Different observers use different cycle lengths: 0.25, 0.375 and 0.125 in the runs on file. An
-observer states every frequency in units of its own reference.
+The local reference mode `χ_b` has eigenvalue `-m`, so it acquires phase `m t` under the declared free law.
+Reading that phase requires comparison with fuel or another reference. The upstream spectroscopy experiments
+use protocol actions 0.25, 0.375 and 0.125. The scalar replay supplies action `q/8` and has no timer
+whose recorded state selects that interval. It does not execute clock synchronization or an autonomous
+count-to-action service.
 
 ### 6.5 Memory
 
-Per observer: 4,096 public records and 8,192 private attempts of 1,024 bytes, public records in three copies. A
-full memory stops new admissions and does not stop the law.
+The scalar preparation retains 259 loop signs, 3,108 scratch-diagnostic signs, and its gate,
+transport and failure records. The instrument replay retains 24 histories for each target/law combination,
+including both fuel inputs, all four phases and all three queries. Its finite archive is neither reset nor
+reused. The upstream proposal's 4,096 public slots, 8,192 private attempt slots and triple-copy repair are
+not implemented allocation or overflow mechanisms in this replay. Continuing operation and bounded archive
+replacement require an explicit common construction and its work accounting.
 
 ---
 
 ## 7. Operating procedures
+
+The procedures below identify upstream experiment domains. The scalar replay executes the finite
+preparation and instrument domain of sections 5.7 and 6; the primary contrast package has its own emitter,
+reader and event procedures. The independent `np_repair` cross-check starts from an ideal adjacent pair and
+does not execute the emitter or the upstream spectroscopy pipeline.
 
 ### 7.1 A pair on a seam (law 1, row 4)
 
@@ -781,25 +832,30 @@ full memory stops new admissions and does not stop the law.
 
 ### 7.3 The lines of an added object (law 2, row 30)
 
-1. Prepare the reference (section 5.7).
+This is the upstream spectroscopy procedure. It has a larger query domain than the scalar instrument replay
+and assumes the calibration services below.
+
+1. Prepare the source experiment's finite reference by its declared ramp.
 2. Calibrate space: local comparisons of neighbouring seams and wedges give the hop matrix, with no frequency
    involved.
-3. Read the clock: the observer's own circulation gives its cycle length.
+3. Compare the local circulation phase with fuel records to express frequencies in reference units. The
+   protocol cycle action is supplied; the circulation alone does not choose or count that action.
 4. Freeze the predicted frequencies `sqrt(m^2 + λ)`.
-5. Write with a pulse of area `π/4` on the observer's local target, let the law run for `q` cycles, read with the
-   four settings, for both preparations of the fuel.
-6. Compare records and predictions; run the controls: no spatial term, another coupling, another observer's
-   clock, one reversed sign in the target.
+5. Write with a pulse of area `π/4` on the observer's local target, evolve for the declared action associated
+   with query `q`, and read with four phase settings and both fuel preparations. Retain finite-pulse corrections.
+6. Compare records and predictions; use the source experiment's controls: no spatial term, another coupling,
+   another supplied cycle action and one reversed sign in the target. The scalar replay has its own declared
+   controls and complete outcome laws; it does not reproduce this spectroscopy procedure.
 
 ---
 
 ## 8. Results, supplied choices and obligations
 
-| Row | Law | On file | State |
+| Row | Law | Reported upstream experiment | State |
 | --- | --- | --- | --- |
-| 4, particle stability (source path `../rows/row_04_particle_stability/README.md`) | 1 | the pair on a seam persists; a theorem for every size and time; the law without agreement energy loses it | finite pair-persistence result |
+| 4, particle stability (source path `../rows/row_04_particle_stability/README.md`) | 1 | total-two-load pair bound for every declared federation and time at `κ > 3`; the `κ = 0` control loses it | finite pair-persistence result |
 | 19, dark matter candidate (source path `../rows/row_19_dark_matter_candidate/README.md`) | 1 and 2 | the unrecovered seam with its level as a reading; an excitation of the scalar channel with complete creation and capture records | open |
-| 30, wave equation (source path `../rows/row_30_klein_gordon/README.md`) | 2 | four lines of an added object under two clocks on one cell, predicted before the records | open |
+| 30, wave equation (source path `../rows/row_30_klein_gordon/README.md`) | 2 | four lines of an added object at two supplied cycle actions on one cell, predicted before the records | open |
 | 3, clock (source path `../rows/row_03_de_broglie_clock/README.md`) | 2 | the lowest line is the observer's reference | open |
 | 21, Lorentz covariance (source path `../rows/row_21_lorentz_covariance/README.md`) | 2 | the support of the screen: levels of a sphere with round terms; a wave crosses at the predicted time | open |
 
@@ -830,9 +886,9 @@ theorem-level premises behind rows 3 and 21. The theorems of the theory that bea
 | `D` | the law of one object, `[[m, B], [B^T, -m]]` |
 | `λ`, `ω` | a level of `K`; a frequency, `ω^2 = m^2 + λ` |
 | `L`, `Q`, `J` | the port Laplacian; the port-by-seam incidence; the map from ports to seams |
-| `χ_b` | the circulation of three transits at port `b`; the observer's clock |
+| `χ_b` | a three-transit local reference eigenmode at port `b` |
 | `f`, `g`, `s` | the fuel mode; the strength of a pulse; the local target |
-| `q`, `θ` | the count of an observer's cycles; a phase setting |
+| `q`, `θ` | supplied protocol count; a fuel phase setting |
 | `P_b`, `C_l` | the check of a port's code; a loop constraint |
 
 ## 10. Sources

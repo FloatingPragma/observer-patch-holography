@@ -1,4 +1,4 @@
-"""Independent finite replay of the contrast-memory alternative in NP-BASE-1.
+"""Independent finite cross-check of the primary polynomial-sv contrast law.
 
 This law is separate from the scalar CAR source. Its complete 99-state seam
 law and reducing blank-memory sector are checked before a two-load cell run.

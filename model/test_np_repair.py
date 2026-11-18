@@ -85,6 +85,30 @@ def test_normalization_rejects_a_nonunitary_evolution(monkeypatch):
         run()
 
 
+def test_record_size_is_conserved_by_echo_but_changed_by_write():
+    h, _, write = seam(8)
+    # Independent memory labels, with each record carrying all nine load pairs.
+    sizes = np.array([0] * 9 + [d * d for _coin in (0, 1)
+                                for d in range(-2, 3) for _load in range(9)])
+    size_operator = np.diag(sizes)
+    np.testing.assert_allclose(size_operator @ h, h @ size_operator,
+                               atol=1e-12, rtol=0)
+    # The blank |2,0> input writes a record of contrast magnitude two.
+    blank = np.eye(99)[:, 6]
+    written = write @ blank
+    np.testing.assert_array_equal(size_operator @ blank, np.zeros(99))
+    np.testing.assert_allclose(size_operator @ written, 4 * written,
+                               atol=1e-15, rtol=0)
+    assert np.linalg.norm(size_operator @ write - write @ size_operator, 2) == pytest.approx(4)
+    # Blank and recorded zero are separate invariant sectors of the echo.
+    labels = np.array([-1] * 9 + [abs(d) for _coin in (0, 1)
+                                  for d in range(-2, 3) for _load in range(9)])
+    for label in (-1, 0, 1, 2):
+        projection = np.diag((labels == label).astype(float))
+        np.testing.assert_allclose(projection @ h, h @ projection,
+                                   atol=1e-12, rtol=0)
+
+
 def test_reversed_seam_chart_transports_every_memory_state_and_reference():
     chart = seam_orientation_chart(True)
     np.testing.assert_array_equal(chart[chart], np.arange(99))

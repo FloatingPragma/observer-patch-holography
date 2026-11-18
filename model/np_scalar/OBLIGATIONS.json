@@ -19,9 +19,10 @@
     {
       "id": "matter_capacity",
       "status": "scalar_sector_only",
-      "supplies": "Explicit scalar architecture has 174 modes in one even-total-parity sector; arbitrary local fuel inputs retain the parity reference.",
+      "supplies": "Explicit scalar architecture has 174 modes in one even-total-parity sector; both binary fuel preparations retain the paired parity reference.",
       "evidence": [
-        "model/np_scalar/gauge_capacity.py"
+        "model/np_scalar/gauge_capacity.py",
+        "model/np_scalar/instruments.py"
       ],
       "boundary": "Seven-state owners do not encode unrestricted seven-species Fock space. No common interacting charged sector is supplied."
     },
@@ -37,9 +38,12 @@
     {
       "id": "effective_spacetime",
       "status": "uninstantiated",
-      "supplies": "Declared cell and federation carriers; finite scalar incidence and local circulation.",
+      "supplies": "One-cell scalar incidence and local circulation; separately imported federation carrier arrays.",
       "evidence": [
-        "model/np_scalar/carrier.py"
+        "model/np_scalar/carrier.py",
+        "model/polynomial_sv/carriers/FEDERATION_LEVEL0.npz",
+        "model/polynomial_sv/carriers/FEDERATION_LEVEL1.npz",
+        "model/polynomial_sv/carriers/FEDERATION_LEVEL2.npz"
       ],
       "boundary": "Joint angular/radial state, clock, and instrument transfer required by the retained spacetime theorem is unproved."
     },

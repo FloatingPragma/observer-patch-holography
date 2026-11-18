@@ -2,7 +2,8 @@
 
 The base consists of twelve-port cells, their registers, a federation rule
 and two alternative local laws. The [construction manual](CONSTRUCTION_MANUAL.md)
-specifies the hardware and each law. The [active model specification](../polynomial_sv/SPEC.md)
+specifies the hardware and each law, distinguishing source spectroscopy and archive proposals from executed
+local services. The [active model specification](../polynomial_sv/SPEC.md)
 states which calculations and instruments the OPH replay implements.
 
 [![Hardware and two candidate laws](executable_spec.svg)](executable_spec.svg)
