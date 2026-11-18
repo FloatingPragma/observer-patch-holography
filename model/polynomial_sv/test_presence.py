@@ -124,9 +124,28 @@ def test_full_dense_nominal_history_and_retained_fuel(campaign):
             np.testing.assert_allclose(law, expected, rtol=1e-9, atol=2e-14)
 
 
+def test_integer_generators_match_the_primary_emitter_and_free_law():
+    free, pulse, seams, emitting = cert.generators()
+    pairs = sectors.PairSector(carrier.cell())
+    h = pairs.hamiltonian(8).toarray()
+    initial = pairs.index(0, 1)
+    assert emitting == initial+1
+    np.testing.assert_array_equal(seams, pairs.seam_states+1)
+    expected = np.zeros((67, 67))
+    expected[1:, 1:] = 2*(h - h[initial, initial]*np.eye(66))
+    for rows in (free, pulse):
+        if rows is pulse:
+            expected[0, emitting] = expected[emitting, 0] = 2*sectors.G_EMIT
+        literal = np.zeros_like(expected)
+        for i, entries in enumerate(rows):
+            for j, value in entries.items():
+                literal[i, j] = value
+        np.testing.assert_array_equal(literal, expected)
+
+
 def test_rational_witness_exceeds_full_finite_duration_error(campaign):
     result = cert.event_certificate()
-    assert result['always_on_tv_lower'] > Fraction(81, 1000)
+    assert result['always_on_tv_lower'] > Fraction(817, 10000)
     assert result['each_probability_error'] < Fraction(3, 10**7)
     # Identify the witness by its copied words, independently of label sorting.
     final = [(code, tuple(address)) for code, address in campaign['final_labels']]

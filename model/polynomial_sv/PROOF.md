@@ -264,6 +264,14 @@ This includes the probability of any physically reachable fault or workspace lea
 the ideal service law, without conditioning on a successful comparison. The executable table gives
 the diagonal-source comparison law. The pulse bound encloses the always-on law.
 
+The first aggregate has the same marginal distribution in both always-on experiments, even if
+exchange leaves the workspace entangled. Up to the copy layer the joint state is identical.
+During that layer the optional seam archive pulse acts only on the seam words and their archive.
+It commutes with the root copy on disjoint registers and with the source Hamiltonian. Its unitary
+therefore cancels under the partial trace that defines the root marginal. Every subsequent gate
+leaves that archived root untouched. The separation of the joint laws thus tests a difference in
+the later reading given the same first record statistics.
+
 **Observer histories.** The [protocol](presence_protocol.json) fixes the primary emitter on seam
 $(0,1)$ at $g=64$, four units of free action before each reading, and a final nominal archive with
 all seam words. These actions are supplied schedule parameters. At the first read the two choices
