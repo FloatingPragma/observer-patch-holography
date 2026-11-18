@@ -7,7 +7,7 @@ import hashlib
 import gzip
 from itertools import product
 import json
-from math import comb, log, pi, sqrt
+from math import comb, log, pi, sqrt, ulp
 from pathlib import Path
 import platform
 import time
@@ -159,11 +159,91 @@ def sampling_budget(table, indices, seed):
     require(not count or error <= bound, "registered simultaneous sampling gate")
     return {"performed": bool(count), "count": count, "seed": seed,
             "hoeffding_radius": radius, "cdf_grid_bias_bound": bias,
-            "cdf_grid_bias_upper_rational": str(exact_bias),
             "cdf_endpoint_defect": defect,
             "missing_probability_upper_bound": float(np.nextafter(float(missing), np.inf)),
             "simultaneous_per_outcome_error_bound": bound,
             "largest_sample_frequency_error": error}
+
+
+def validate_sampling_record(record, path="record"):
+    """Recheck a retained budget against its own table, before replay comparison.
+
+    Tiny conservative bounds do not receive the general absolute replay
+    tolerance. Eight binary64 ULPs permit platform log/sqrt differences in
+    the Hoeffding radius and final addition; this is a comparison allowance,
+    not a certified transcendental-function error estimate.
+    """
+    table = record["outcomes"]
+    indices = record["independent_shot_outcome_indices"]
+    supplied = record["sampling"]
+    require(type(table) is list and len(table) > 0, path + ": empty sampling table")
+    probabilities = [row[-1] for row in table]
+    check_probability_vectors(probabilities, probabilities, path + ".outcomes")
+    require(type(indices) is list and all(type(index) is int and 0 <= index < len(table)
+                                         for index in indices), path + ": invalid shot indices")
+    require(type(supplied) is dict and type(supplied.get("seed")) is int
+            and supplied["seed"] >= 0, path + ": invalid sampling seed")
+    derived = sampling_budget(table, indices, supplied["seed"])
+    require(supplied.keys() == derived.keys(), path + ": sampling fields")
+    require(sampled_indices(table, len(indices), supplied["seed"]) == indices,
+            path + ": recorded shots disagree with seed and table")
+    conservative = {"cdf_grid_bias_bound", "missing_probability_upper_bound"}
+    platform_arithmetic = {"hoeffding_radius", "simultaneous_per_outcome_error_bound"}
+    for field, expected in derived.items():
+        actual = supplied[field]
+        require(type(actual) is type(expected), path + ".sampling." + field + ": type")
+        if type(expected) is float:
+            require(np.isfinite(actual) and actual >= 0,
+                    path + ".sampling." + field + ": negative or nonfinite budget")
+            if field in conservative:
+                require(actual >= expected,
+                        path + ".sampling." + field + ": understated conservative bound")
+            else:
+                allowance = 8 * max(ulp(actual), ulp(expected)) if field in platform_arithmetic else 0.0
+                require(abs(actual - expected) <= allowance,
+                        path + ".sampling." + field + ": inconsistent retained budget")
+        else:
+            require(actual == expected, path + ".sampling." + field + ": value")
+    if indices:
+        total = supplied["hoeffding_radius"] + supplied["cdf_grid_bias_bound"]
+        allowance = 8 * max(ulp(total), ulp(supplied["simultaneous_per_outcome_error_bound"]))
+        require(supplied["simultaneous_per_outcome_error_bound"] + allowance >= total,
+                path + ": total sampling bound omits retained bias")
+        require(supplied["largest_sample_frequency_error"]
+                <= supplied["simultaneous_per_outcome_error_bound"],
+                path + ": retained sampling gate fails")
+
+
+def combined_sampling_failure_bound(records):
+    """Upward binary enclosure of the exact sum of retained upper bounds."""
+    exact = Fraction(1, 100) + sum(
+        row["sampling"]["count"] * Fraction.from_float(row["sampling"]["missing_probability_upper_bound"])
+        for row in records)
+    return float(np.nextafter(float(exact), np.inf))
+
+
+def validate_sampling(science):
+    """Validate complete retained sampling metadata without ignoring fields."""
+    records = []
+    for case_index, case in enumerate(science["cases"]):
+        for record_index, record in enumerate(case["records"]):
+            validate_sampling_record(record, f"cases[{case_index}].records[{record_index}]")
+            records.append(record)
+    summary = science["sampling"]
+    performed = any(row["sampling"]["count"] for row in records)
+    expected = {"performed": performed, "ideal_iid_assumption": True,
+                "fixed_seed_prng_does_not_prove_iid": True,
+                "combined_frequency_and_overflow_failure_bound":
+                combined_sampling_failure_bound(records) if performed else None}
+    require(type(summary) is dict and summary.keys() == expected.keys(), "sampling summary fields")
+    for key, value in expected.items():
+        actual = summary[key]
+        require(type(actual) is type(value), "sampling summary type: " + key)
+        if type(value) is float:
+            require(np.isfinite(actual) and actual >= value,
+                    "sampling summary understates combined failure bound")
+        else:
+            require(actual == value, "sampling summary value: " + key)
 
 
 def finite_run(c, shots):
@@ -289,13 +369,12 @@ def compute(extended=False):
     after = sum(sum(q * q for q in loads(independent_event(1, k, BACKGROUNDS[0], "native")))
                 for k in range(12)) / 12
     require(after < before, "strict marginal recurrence obstruction not witnessed")
-    missing_bound = sum(record["sampling"]["count"] * record["sampling"]["missing_probability_upper_bound"]
-                        for case in cases for record in case["records"])
+    all_records = [record for case in cases for record in case["records"]]
     return {"schema": "native-memory-clock.v1", "extended": extended,
             "sampling": {"performed": not extended, "ideal_iid_assumption": True,
                          "fixed_seed_prng_does_not_prove_iid": True,
                          "combined_frequency_and_overflow_failure_bound":
-                         float(np.nextafter(0.01 + missing_bound, np.inf)) if not extended else None},
+                         combined_sampling_failure_bound(all_records) if not extended else None},
             "cases": cases, "competing_source_total_variation": separations,
             "complete_spectrum": spectra, "coherent_completion_controls": coherent_control(),
             "uniform_clock_same_read_time_law": (abs(uv) ** 2).tolist(),
@@ -325,6 +404,7 @@ def main():
     pin = frozen()
     start = time.perf_counter()
     result = json.loads(json.dumps(compute(args.extended), allow_nan=False))
+    validate_sampling(result)
     if args.record:
         payload = {"freeze_sha256": pin, "science": result,
                    "execution": {"python": platform.python_version(), "numpy": np.__version__,
@@ -336,6 +416,7 @@ def main():
         raw = gzip.decompress(path.read_bytes()) if args.extended else path.read_bytes()
         saved = json.loads(raw)
         require(saved["freeze_sha256"] == pin, "receipt freeze mismatch")
+        validate_sampling(saved["science"])
         compare(saved["science"], result)
     print(json.dumps({"verified": True, "extended": args.extended,
                       "seconds": time.perf_counter() - start, "source_freeze": pin,

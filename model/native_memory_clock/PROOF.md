@@ -415,8 +415,8 @@ conservative per-label discrepancy
 
 The executable converts each stored probability and actual floating
 cumulative sum to its exact `Fraction` value, computes `delta` and `eta`
-with rational arithmetic, and records the exact rational `beta`. Its
-floating bias is rounded upward with `nextafter`. The frequency gate
+with rational arithmetic. The recorded floating upper bound on `beta` is
+rounded upward with `nextafter`. The frequency gate
 uses `r_K+beta` when comparing with the stored table, separately from
 error between that numerical table and the ideal quantum law.
 

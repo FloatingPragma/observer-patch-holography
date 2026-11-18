@@ -233,7 +233,8 @@ class ExperimentTests(unittest.TestCase):
                               [0.1] * 9 + [0.1 - 1e-12]):
             table = [[0, i, [], [], probability] for i, probability in enumerate(probabilities)]
             budget = e.sampling_budget(table, [], 6100)
-            certified = Fraction(budget["cdf_grid_bias_upper_rational"])
+            certified = Fraction.from_float(budget["cdf_grid_bias_bound"])
+            self.assertNotIn("cdf_grid_bias_upper_rational", budget)
             previous = 0
             for probability, cumulative in zip(probabilities, np.cumsum(probabilities)):
                 # Count all k/2^53 < the actual binary CDF boundary, exactly.
@@ -243,7 +244,71 @@ class ExperimentTests(unittest.TestCase):
                 previous = below
             missing = Fraction(grid - previous, grid)
             self.assertLessEqual(missing, Fraction.from_float(budget["missing_probability_upper_bound"]))
-            self.assertGreaterEqual(Fraction.from_float(budget["cdf_grid_bias_bound"]), certified)
+
+    def test_retained_sampling_bounds_are_checked_against_their_own_data(self):
+        record = deepcopy(self.science["cases"][0]["records"][0])
+        e.validate_sampling_record(record)
+        mutations = []
+        for field in ("cdf_grid_bias_bound", "missing_probability_upper_bound"):
+            for value in (0.0, -1e-30):
+                changed = deepcopy(record)
+                changed["sampling"][field] = value
+                mutations.append(changed)
+        for field in ("hoeffding_radius", "simultaneous_per_outcome_error_bound"):
+            changed = deepcopy(record)
+            changed["sampling"][field] -= 1e-12
+            mutations.append(changed)
+        changed = deepcopy(record)
+        changed["sampling"]["largest_sample_frequency_error"] += 1e-12
+        mutations.append(changed)
+        changed = deepcopy(record)
+        changed["sampling"]["cdf_endpoint_defect"] = -1e-30
+        mutations.append(changed)
+        for changed in mutations:
+            # These corruptions fit inside the cross-platform numerical tolerance.
+            e.compare(record, changed)
+            with self.subTest(sampling=changed["sampling"]), self.assertRaises(ValueError):
+                e.validate_sampling_record(changed)
+        for field, value in (("count", True), ("seed", 991), ("performed", False)):
+            changed = deepcopy(record)
+            changed["sampling"][field] = value
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                e.validate_sampling_record(changed)
+        changed = deepcopy(self.science)
+        changed["sampling"]["combined_frequency_and_overflow_failure_bound"] = 0.01
+        e.compare(self.science, changed)
+        with self.assertRaisesRegex(ValueError, "understates combined failure bound"):
+            e.validate_sampling(changed)
+        e.validate_sampling(self.science)
+
+    def test_float_budget_replay_allows_legitimate_table_roundoff(self):
+        table = [[0, index, [], [], value] for index, value in enumerate((0.1, 0.2, 0.7))]
+        indices = e.sampled_indices(table, 256, 6100)
+        record = {"outcomes": table, "independent_shot_outcome_indices": indices,
+                  "sampling": e.sampling_budget(table, indices, 6100)}
+        changed = deepcopy(record)
+        increment = float(np.nextafter(0.1, np.inf)) - 0.1
+        changed["outcomes"][0][-1] += increment
+        changed["outcomes"][2][-1] -= increment
+        changed["sampling"] = e.sampling_budget(changed["outcomes"], indices, 6100)
+        e.validate_sampling_record(record)
+        e.validate_sampling_record(changed)
+        e.compare(record, changed)
+
+    def test_actual_cli_rejects_understated_sampling_bound_under_optimization(self):
+        root, here, _ = self._isolated_package()
+        science = deepcopy(self.science)
+        science["cases"][0]["records"][0]["sampling"]["cdf_grid_bias_bound"] = 0.0
+        payload = {"freeze_sha256": e.digest(here / "freeze.json"), "science": science,
+                   "execution": {"scope": "temporary adversarial fixture"}}
+        target = here / "results.json"
+        raw = _json_bytes(payload)
+        target.write_bytes(raw)
+        result = self._cli(root)
+        self.assertNotEqual(result.returncode, 0, result.stdout)
+        self.assertIn("understated conservative bound", result.stderr)
+        self.assertEqual(target.read_bytes(), raw)
+        self.assertNotIn('"verified": true', result.stdout)
 
     def test_binary_operator_budget_distinguishes_exact_uniform_profile(self):
         uniform = e.binary_coupling_bound(clock.Construction(3, profile="uniform"))
