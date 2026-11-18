@@ -89,37 +89,48 @@ def test_complete_frozen_replay(campaign):
         (8, 'all common flip'), (0, 'nominal'), (-8, 'nominal')]
 
 
-def test_full_dense_nominal_history_and_retained_fuel(campaign):
+@pytest.mark.parametrize('kappa,placement', [
+    (8, 'nominal'), (8, 'first-seam mismatch'), (8, 'first-seam unavailable'),
+    (8, 'all common flip'), (0, 'nominal'), (-8, 'nominal')])
+def test_full_dense_history_and_retained_fuel(campaign, kappa, placement):
     sector = sectors.MultisetSector(carrier.cell(), 2)
     flags = p.flags_with_fuel(sector)
     # A separate dense calculation in the unshifted energy convention. The
     # explicit masks use basis occupations, with fuel first and doubled loads intact.
     source = np.zeros((79, 79))
-    source[1:, 1:] = sector.hamiltonian(8)
+    source[1:, 1:] = sector.hamiltonian(kappa)
     emitting = np.flatnonzero(flags[:, 0]).item()
     source[0, 0] = source[emitting, emitting]
     pulse = source.copy()
     pulse[emitting, 0] = pulse[0, emitting] = 64
     free = expm(-4j*source)
     state = free @ expm(-1j*np.pi*pulse/128)[:, 0]
-    diagonal = np.r_[source[0, 0], 8*sector.C]
+    diagonal = np.r_[source[0, 0], kappa*sector.C]
     state *= np.exp(-1j*diagonal/16384)
     masks = [~flags.any(axis=1), *flags.T]
-    row = campaign['cases'][0]
+    row = next(r for r in campaign['cases'] if (r['kappa'], r['first_reader']) == (kappa, placement))
     assert abs(abs(state[0])**2 - row['residual_fuel']) < 1e-15
 
-    def first_mask(label, detailed):
-        code, address = label
-        if code == 0:
-            return masks[0]
-        return masks[address.index(29)+1] if detailed else ~masks[0]
-
-    last = [first_mask(label, True) for label in campaign['final_labels']]
+    last = [masks[address.index(29)+1] if code else masks[0] for code, address in campaign['final_labels']]
+    # Independently decode both retained alphabets, using the documented bit
+    # operations for all basis inputs, including fuel and the doubled sector.
+    words = np.where(flags, 29, 1)
+    if placement == 'first-seam mismatch':
+        words[:, 0] = 2
+    elif placement == 'first-seam unavailable':
+        words[:, 0] = 3
+    elif placement == 'all common flip':
+        words = np.where(flags, 1, 29)
+    codes = (np.any(words == 29, axis=1).astype(int)
+             + 2*np.any(words == 2, axis=1) + 4*np.any(words == 3, axis=1))
     for detailed, labels, actual in [
             (False, [(code, ()) for code in row['aggregate_codes']], row['aggregate_joint']),
             (True, row['resolved_first_labels'], row['resolved_joint'])]:
-        for label, law in zip(labels, actual):
-            after = free @ (first_mask(label, detailed)*state)
+        for (code, address), law in zip(labels, actual, strict=True):
+            mask = codes == code
+            if detailed:
+                mask &= np.all(words == address, axis=1)
+            after = free @ (mask*state)
             expected = [np.vdot(after[mask], after[mask]).real for mask in last]
             np.testing.assert_allclose(law, expected, rtol=1e-9, atol=2e-14)
 
@@ -178,3 +189,32 @@ def test_gate_rejects_normalized_but_false_joint_laws(campaign):
             row['public_joint_tv'] = 0.
         with pytest.raises((ValueError, IndexError)):
             p.verify(campaign, bad)
+
+
+def test_replay_checks_scientific_gates_on_the_supplied_receipt(campaign):
+    stored = p.load_json(p.HERE/'presence_results.json')
+    bad = deepcopy(stored)
+    row = bad['cases'][0]
+    for key in ('aggregate_joint', 'resolved_joint'):
+        row[key] = (np.array(row[key])*(1+5e-9)).tolist()
+    with pytest.raises(ValueError, match='incomplete joint law'):
+        p.verify(campaign, bad)
+    bad = deepcopy(stored)
+    bad['cases'][0]['public_joint_tv'] *= 1+5e-9
+    with pytest.raises(ValueError, match='inconsistent public_joint_tv'):
+        p.verify(campaign, bad)
+    bad = deepcopy(stored)
+    bad['cases'].pop()
+    with pytest.raises(ValueError, match='incomplete campaign'):
+        p.scientific_gates(bad)
+
+
+def test_dirty_word_must_define_a_hermitian_pulse(monkeypatch):
+    native_stages = reader.stages
+    def corrupt(flag, **kwargs):
+        stages = native_stages(flag, **kwargs)
+        stages[0][-1] = stages[0][-2]
+        return stages
+    monkeypatch.setattr(reader, 'stages', corrupt)
+    with pytest.raises(ValueError, match='involution'):
+        p.compile_records(np.array([[False], [True]]), ['nominal'], False)

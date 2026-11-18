@@ -29,8 +29,10 @@ def load_json(path):
         result = dict(items)
         check(len(result) == len(items), 'duplicate JSON key')
         return result
+    def nonfinite(token):
+        raise ValueError(f'nonfinite JSON constant: {token}')
     return json.loads(path.read_text(encoding='utf8'), object_pairs_hook=unique,
-                      parse_constant=lambda token: float('nan'))
+                      parse_constant=nonfinite)
 
 
 def pins():
@@ -84,6 +86,14 @@ def compile_records(flags, controls, keep_seams):
     layers = tree_layers(leaves)
     tables = {control: [reader.stages(flag, **reader.CONTROLS[control]) for flag in (0, 1)]
               for control in set(controls)}
+    domain = np.arange(reader.APP)
+    for settings in tables.values():
+        for stages in settings:
+            check(len(stages) == 4, 'four native reader stages required')
+            for stage in stages:
+                check(stage.shape == domain.shape and np.issubdtype(stage.dtype, np.integer)
+                      and np.all((stage >= 0) & (stage < reader.APP))
+                      and np.array_equal(stage[stage], domain), 'reader stage fails involution')
     words = np.zeros((size, leaves), dtype=int)
 
     def read_stage(stage):
@@ -149,6 +159,15 @@ def controls_for(name, count):
     return names
 
 
+def joint_statistics(aggregate, resolved, codes, labels):
+    """Hide only the first seam addresses, keeping each final record separate."""
+    hidden = np.zeros_like(aggregate)
+    for probabilities, (code, _) in zip(resolved, labels, strict=True):
+        hidden[codes.index(code)] += probabilities
+    margin_error = float(np.max(abs(aggregate.sum(axis=1) - hidden.sum(axis=1))))
+    return margin_error, float(abs(aggregate - hidden).sum()/2)
+
+
 def case(sector, last, flags, kappa, fault, protocol):
     matrix = sparse.csr_matrix(sector.hamiltonian(kappa))
     seed = [0] * sector.car.n
@@ -167,11 +186,7 @@ def case(sector, last, flags, kappa, fault, protocol):
     joint = [paired_histories(source, prepared, diagonal, groups, last, after, protocol['window'])
              for groups in first]
     aggregate_codes = [code for code, _ in first[0]]
-    hidden = np.zeros_like(joint[0])
-    for row, (code, _) in zip(joint[1], first[1]):
-        hidden[aggregate_codes.index(code)] += row
-    first_error = float(np.max(abs(joint[0].sum(axis=1) - hidden.sum(axis=1))))
-    separation = float(abs(joint[0] - hidden).sum()/2)
+    first_error, separation = joint_statistics(*joint, aggregate_codes, first[1])
     return {'kappa': kappa, 'first_reader': fault, 'residual_fuel': float(abs(pulse[0])**2),
             'aggregate_codes': aggregate_codes,
             'resolved_first_labels': list(first[1]),
@@ -195,14 +210,29 @@ def campaign():
 
 
 def scientific_gates(result):
+    protocol = load_json(HERE/'presence_protocol.json')
+    expected = [(k, f) for k in protocol['laws'] for f in protocol['faults']
+                if k == 8 or f == 'nominal']
+    check([(r['kappa'], r['first_reader']) for r in result['cases']] == expected,
+          'incomplete campaign or reordered cases')
     for row in result['cases']:
-        for kind in ('aggregate_joint', 'resolved_joint'):
-            law = np.asarray(row[kind])
-            check(np.all(np.isfinite(law)) and np.all(law >= 0)
+        aggregate = np.asarray(row['aggregate_joint'])
+        resolved = np.asarray(row['resolved_joint'])
+        codes, labels = row['aggregate_codes'], row['resolved_first_labels']
+        for law, rows in ((aggregate, len(codes)), (resolved, len(labels))):
+            check(law.shape == (rows, len(result['final_labels']))
+                  and np.all(np.isfinite(law)) and np.all(law >= 0)
                   and abs(law.sum() - 1) < 1e-10, 'incomplete joint law')
-        check(row['first_margin_error'] < 1e-10, 'unequal first public margins')
+        margin, separation = joint_statistics(aggregate, resolved, codes, labels)
+        check(margin < 1e-10 and row['first_margin_error'] < 1e-10, 'unequal first public margins')
+        # Recompute derived fields from the very same saved joint probabilities.
+        # The absolute allowance covers the final sums at binary64 precision.
+        for key, value in [('first_margin_error', margin), ('public_joint_tv', separation)]:
+            reported = row[key]
+            check(type(reported) is float and 0 <= reported and abs(reported-value) <= 5e-15,
+                  f'inconsistent {key}')
     main = next(row for row in result['cases'] if row['kappa'] == 8 and row['first_reader'] == 'nominal')
-    check(main['public_joint_tv'] > 48*load_json(HERE/'presence_protocol.json')['window'],
+    check(main['public_joint_tv'] > 48*protocol['window'],
           'public separation does not exceed the two-experiment pulse budget')
 
 
@@ -225,21 +255,12 @@ def compare(fresh, stored):
 
 
 def verify(fresh, stored):
-    # Validate the equality residual as a numerical error, whose exact value is zero.
-    # Keep both reported values for comparison of all remaining scientific outputs.
-    for row in stored['cases']:
-        error = row['first_margin_error']
-        check(type(error) is float and 0 <= error < 1e-10, 'invalid first-margin residual')
-        aggregate = np.asarray(row['aggregate_joint'])
-        resolved = np.asarray(row['resolved_joint'])
-        labels = row['resolved_first_labels']
-        marginal = [resolved[[i for i, lab in enumerate(labels) if lab[0] == code]].sum(axis=0)
-                    for code in row['aggregate_codes']]
-        error_from_law = float(np.max(abs(aggregate.sum(axis=1) - np.asarray(marginal).sum(axis=1))))
-        check(abs(error-error_from_law) <= 5e-15, 'inconsistent first-margin residual')
+    # Compare schema and reconstructed labels before doing arithmetic on input.
+    # The equality residual can differ by machine roundoff across platforms.
     reference = dict(fresh, cases=[dict(row, first_margin_error=0.) for row in fresh['cases']])
     candidate = dict(stored, cases=[dict(row, first_margin_error=0.) for row in stored['cases']])
     compare(reference, candidate)
+    scientific_gates(stored)
 
 
 def main(argv=None):

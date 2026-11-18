@@ -240,8 +240,8 @@ after removing the known phase. The resolved circuit passes all basis return tes
 uniform superposition of the thirty seam states has return probability $1/30$ in its positive branch.
 These are mathematical probe states for the channel identity. The experiment uses the local emitter.
 
-The half-diamond distance between the two instruments with only the first aggregate visible and
-the residual source retained is exactly $29/30$. On the positive block, averaging the thirty
+For the comparison read, the half-diamond distance between the two instruments with only the
+first aggregate visible and the residual source retained is exactly $29/30$. On the positive block, averaging the thirty
 unitaries that multiply seam $j$ by $\exp(2\pi i mj/30)$, $0\le m<30$, deletes exactly the
 off-diagonal seam entries. The identity term has weight $1/30$, so the triangle inequality on the
 remaining channels gives the ceiling $29/30$, also with a reference. The negative block agrees
@@ -276,8 +276,10 @@ the later reading given the same first record statistics.
 $(0,1)$ at $g=64$, four units of free action before each reading, and a final nominal archive with
 all seam words. These actions are supplied schedule parameters. At the first read the two choices
 retain the same public aggregate. For comparison, forget only the first seam address after computing
-the full resolved two-read distribution. At $\kappa=8$ the first nominal presence probability is
-$0.992329$ for either choice. Total variation between the joint public laws is $0.440513$.
+the full resolved two-read distribution. At $\kappa=8$ the comparison calculation gives first
+nominal presence probability $0.992329$ for either choice and total variation $0.440513$ between
+the joint public laws. The common always-on first probability is within $12w$ of the exact
+comparison probability.
 It is $0.196148$ for exchange alone and $0.249676$ for reversed contrast. The first-seam mismatch
 and unavailable controls each give $0.260336$ at $\kappa=8$. A common flipped value on all seams
 gives $0.446650$. The [complete receipt](presence_results.json) contains the archive alphabets,
