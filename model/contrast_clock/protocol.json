@@ -1,8 +1,6 @@
 {
   "construction": "contrast-memory-clock-v1",
   "ancestry": "972d81b9b6068938e52457b59497766499222b5d",
-  "openwave_revision_inspected": "525f56596b140a5ca2664f3c4ea4a6e5fbef47cf",
-  "official_openwave_revision": "e988fc8e3552ce30438ad9a31354607909a5618f",
   "carrier": "polynomial_sv.carrier.CELL_SEAMS",
   "source_sector": "all 78 total-two qutrit states",
   "preparation": "basis loads on seam (0,1), blank memories, zero counters and two fresh reader blocks",
@@ -25,7 +23,6 @@
     "probability_residual": 2e-11,
     "minimum_control_record_difference": 0.001,
     "maximum_source_gate_operator_error": 1e-6,
-    "completion_window_failure_bound": "exp(-L/8)",
-    "no_physical_row_acceptance": true
+    "completion_window_failure_bound": "exp(-L/8)"
   }
 }

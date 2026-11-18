@@ -163,8 +163,7 @@ def run():
             'clock_records':clocks,'literal_clock_check':c.direct_clock_check(),
             'claims':{'finite_autonomous_declared_extension':True,'absorbing_halt':False,
                       'physical_clock_or_particle_identification':False,
-                      'continuous_time_binding_bound_transferred':False,
-                      'openwave_rows_awarded':0}}
+                      'continuous_time_binding_bound_transferred':False}}
     return result
 
 

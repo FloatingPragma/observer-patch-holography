@@ -26,6 +26,13 @@ counter registers and gate-controlled rail interactions are supplied
 architecture. Their derivation from the contrast-memory law, indefinite
 record storage and a physical time normalization are separate problems.
 
+The clock register is a sequencer of the computation. It steps one declared
+program of events through one time-independent law, and it is hardware of
+the calculation. No observer reads it, and it is no clock that the observers
+share. The clock of a port observer is its own counter of the events of its
+seams, as in section 8 of the specification, and the counters of different
+ports hold different values along the program.
+
 ## Replay
 
 From the repository root with `model/requirements.txt` installed:
@@ -45,5 +52,4 @@ local diagonal phase. The symmetric gate program is a declared event
 schedule; continuous-time binding bounds do not transfer to it by name.
 Its two readings occur in the same run and retain measurement backaction.
 The reported clock action is dimensionless and the bounded clock
-Hamiltonian has its own energy convention. No eigenvalue is identified
-with a particle mass, and no OpenWave physical row is awarded.
+Hamiltonian has its own energy convention.
