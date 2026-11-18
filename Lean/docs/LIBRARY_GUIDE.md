@@ -3,31 +3,8 @@
 `Screen/ObserverFieldInterfaces.lean` formalizes the common incidence-Dirac
 square, Hermiticity, null-potential cancellation, the static-product
 positive-stress obstruction, conditional focusing algebra and finite
-entangled-pair normalization controls. The executable
-[matter package](../../model/observer_particles/README.md) checks the larger
-representation matrices and numerical operator instances. The Lean module
-does not formalize those entire producers or identify physical masses.
-
-The [native matter bridge](../../model/common_source/native_matter_theorems.py)
-maps the actual current's complete exterior components to
-`Screen/ExteriorComponentBridge.lean` and `Screen/ExteriorSelection.lean`;
-the two-sector selection assumes the stated chirality/anomaly menu.
-The [family attachment](../../model/common_source/native_repair_mass_attachment.py)
-checks the exact native-to-`Screen/A5FamilyBand.lean` incidence chart,
-rank-three projector and all sixty rotations. The
-[native selector](../../model/common_source/native_family_selection.py)
-computes and source-executes this protected band using a chosen
-incidence-defined cooling rule. The rule and its physical family
-interpretation are explicit; this leaves in place the canonical
-single-band and cost-selection premises of `SMThreeFamilyPremiseData`
-or identify measured masses.
-
-The [repair-clocked current controller](../../model/common_source/native_response_compatibility.py)
-adds a source-executed mechanism approaching twelve observable currents
-under a bounded joint limit. Its finite filters retain eighteen directions;
-it does not discharge the finite gauge theorem's physical completeness
-premise or select Higgs and Yukawa parameters. These executable response
-bounds are separate from the kernel-checked classification theorems.
+entangled-pair normalization controls. The Lean module does not formalize
+larger executable producers.
 
 Lean 4 / Mathlib formalisation of the OPH theorem library. The
 consensus-layer entries of the [proof index](PROOF_INDEX.md) follow
@@ -78,8 +55,8 @@ surface for the OPH consensus layer. Contents:
   two named premises, and the boundary of the calibrated kinetic response),
   RE-11 (the golden refinement family, with a vacuum error uniform in the
   level) and RE-09 (the iterated reference limit of the declared dynamics).
-  The statements, premises and input labels are in
-  `docs/research/SOURCE_LAW_HISTORY_REGISTER.md`. The library does not supply
+  The statements, premises and input labels are in the module docstrings of
+  `SourceLaw/`. The library does not supply
   physical time, a physical vacuum, the two premises or interacting fields.
 - A sorry-free Whitney normal-mode construction and naturality package in
   `Screen/WhitneyNormalModeConstruction.lean` through
@@ -461,20 +438,6 @@ surface for the OPH consensus layer. Contents:
   projective unitary group and response flow, source extraction, the two
   Lie-theory adapters, reductive decomposition, and compact-simple
   classification are explicit inputs.
-  The executable comparisons in `model/common_source/native_persistent_response.py`
-  and `native_sm_current.py` distinguish a seventeen-current exchange law
-  from a specified twelve-current law on the same native geometric object.
-  The latter's completeness applies to its declared control menu; it does
-  not discharge physical completeness for all apparatus interventions.
-  `native_matter_attachment.py` checks the chosen spin/exterior lift and
-  field intertwiner. These are exact executable checks, not additional
-  kernel-checked physical-realization theorems.
-  `native_gauge_matter_transport.py` supplies source-compiled CAR hopping
-  with the same current action and checks finite local gauge covariance;
-  `Screen/LocalGaugeJetAction.lean` supplies the separate infinitesimal jet
-  identities. `native_gauge_continuum.py` checks a conditional background-field
-  refinement with both Dirac tastes retained. This executable compatibility
-  does not constitute a formalized interacting chiral continuum theorem.
 - A sorry-free inverse-continuum boundary in
   `Screen/BipoSHInverseBoundary.lean`. Uniform finite repair obeys the exact
   operational identity $L=2|E|(I-R)$. Explicit two-coordinate and copy-space

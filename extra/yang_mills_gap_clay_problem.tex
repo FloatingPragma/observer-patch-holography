@@ -54,17 +54,15 @@
 \begin{abstract}
 Finite repair generators have positive relaxation gaps under stated rate and
 approximate-tensorization bounds. A common ground-state transform transfers
-such a gap only when its source and continuum premises hold. A distinct
-full-Haar lattice construction supplies an interacting finite-volume
-Yang--Mills vacuum, positive time-reflection transfer and exact
-infinite-representation spectral bounds. Local electric-star decomposition
-admits a uniform-volume gap at sufficiently strong coupling and fixed
-spacing. The same argument extends to compact connected semisimple gauge
+such a gap only when its source and continuum premises hold. On the full
+Haar link space of a pure-gauge lattice Hamiltonian, local electric-star
+decomposition admits a uniform-volume gap at sufficiently strong coupling and
+fixed spacing. The same argument extends to compact connected semisimple gauge
 groups with their positive Casimir gaps; its coupling threshold is
 existential. A representation-independent propagation estimate gives
 explicit finite-box errors for infinite-volume local dynamics. These
 constructions retain nonzero physical Wilson excitations. At fixed coupling,
-the source gaps scale as inverse spacing. A nontrivial four-dimensional
+the lattice gaps scale as inverse spacing. A nontrivial four-dimensional
 continuum additionally requires the stated common-source Schwinger-function
 limit, covariance, locality, noncollapse and uniform physical gap. The
 continuum repair/Hamiltonian identification is conditional on those
@@ -72,15 +70,6 @@ premises. A photon-containing matter theory has a different source and no
 positive global vacuum gap under its massless-photon interpretation.
 \end{abstract}
 
-
-\paragraph{Relation to the common executable source.}
-The common matter, field and response law in \path{model/SPEC.md} and
-\path{model/ccf_lt2/} contains charged and neutral matter and an
- electromagnetic rotor field. It is not the pure Yang--Mills source of
-the mass-gap problem. The pure-gauge finite and limit theorems below
-retain their own action, state and refinement hypotheses. Transferring a
-pure-gauge gap to a different interacting source requires a proved map;
-a physical theory with a massless photon has no positive global vacuum gap.
 
 \section{Claim Boundary}
 
@@ -119,44 +108,18 @@ construction in the microphysics and particle papers has an exact positive
 gap for the sign-twisted graph Laplacian of one observer-visible seam
 complex~\cite{oph5,ophfpe}; it supplies no compact-gauge repair generator
 \(L^{\Rep}_r\), vacuum projector, ground-state transform, gauge-invariant
-excitation algebra or uniform cofinal bound. In the executable observer
-construction~\cite{ophmodel}, the native action
-\(H_{\rm native}=\sum_e(I-\Phi_e)\) is a positive local Liouville operator on
-operator space, not a Hamiltonian on state vectors, and the executed channel
-strictly attenuates coherent modes, which rules out unitary conjugation on
-its carrier. Its unread C and E channels have quantum spectral gap
-\((5-\sqrt5)/60\) per native attempt on the twelve-port
-carrier~\cite{ophnativeaction,ophmixing}, and its canonical scalar regulator
-has a finite-volume gap bound for a supplied positive
-mass~\cite{ophrelscalar}.
-
-The native density laws give a reflection-positive Gaussian reconstruction
-whose one-particle time shift is \(e^{-\tau A}\), where \(\tau\) is rescaled
-native attempt count and \(A\) acts on the two-dimensional screen readout.
-With the constant mode restored, the form of \(A\) is a conservative
-strongly local Dirichlet form with \(n/49920\le\lambda_n(A)\le3n/2\) and
-heat-trace spectral dimension two~\cite{ophcontinuum,ophtimefields}. This
-free two-dimensional spectrum is not a four-dimensional Yang--Mills
-Hamiltonian, and its lowest eigenvalue is not a mass gap. The native gap
-closes under refinement because native repair conserves load. On the
-federated screens of \(240\), \(960\) and \(3{,}840\) ports, the per-attempt
-gap \(\lambda_1(L_l)/(2M_l)\) of the port Laplacian \(L_l\) with \(M_l\)
-seams is \(3.50\times10^{-5}\), \(2.05\times10^{-6}\) and
-\(1.27\times10^{-7}\), a fall by a factor near sixteen per
-level~\cite{ophfedscaling}. The continuum operator \(A\) appears only after
-rescaling by \(1260\cdot16^l\) attempts, a diffusive normalization whose
-semigroup \(e^{-\tau A}\) is second order in space and first order in time; a
-Euclidean-covariant reading would instead require
-\(e^{-|\tau|\sqrt{A+m^2}}\) for a mass \(m\ge0\). Single-site heat-bath
-collars \(P_v\) are the identity under a fixed total load, so the native
-seams lie outside the admissible collar tower of
-Definition~\ref{def:admissible-collar-tower}, and \(\lambda_1(A)\) is the
-finite-size gap of a massless two-dimensional operator.
+excitation algebra or uniform cofinal bound. The executable model of the
+programme, polynomial-sv~\cite{ophmodel}, places loads \(0\), \(1\) or \(2\)
+on the ports of federations of twelve-port icosahedral cells and a private
+memory on every seam; its candidate law
+\(H_\kappa=\tfrac12\sum_e(I-\mathrm{SWAP}_e)+\kappa C\) acts on the loads and
+contains no gauge field. It is no Yang--Mills source, and its levels
+discharge none of these receipts.
 
 The collar construction uses the consensus and compact-gauge interfaces
 \cite{oph4,oph2}; its heat-kernel normalization is stated in
-Section~\ref{sec:twod-bridge}. These are distinct from the executable native
-observer dynamics \cite{ophmodel}.
+Section~\ref{sec:twod-bridge}. These are distinct from the dynamics of the
+executable model.
 
 \section{The Clay Target}
 
@@ -1178,8 +1141,7 @@ Boundedness of this projection extends the conclusion to
 \(\Omega^\perp\); it acts as the identity on \(\Omega\). Increasing \(E\)
 to \(\delta\) proves the form inequality. The regulator limit precedes
 the large-time limit, so no uniform error bound at arbitrarily large time
-is inferred. Exact finite transfer controls and the full criterion are
-given in~\cite{ophgaptransfer}.
+is inferred.
 \end{proof}
 
 \begin{corollary}[A finite threshold from correlation noncollapse]
@@ -1257,10 +1219,8 @@ contains the vacuum scalars and admits a non-vacuum finite-energy local excitati
 \begin{proof}
 The compact-gauge witness theorem of the Standard Model gauge paper supplies finite
 support-visible gauge-invariant local observables on the receipt-conditional compact-gauge
-branch~\cite{oph2}. The executable observer's finite gauge example is a U(1) code, and the separate
-sixty-state native link design has exact local non-Abelian Gauss constraints with raising-operator
-links; neither supplies these Wilson cylinder observables or non-Abelian Yang--Mills
-dynamics~\cite{ophpremises,ophmodel}. At finite cutoff the witness gives a
+branch~\cite{oph2}. The executable model contains no gauge field and supplies neither these Wilson
+cylinder observables nor non-Abelian Yang--Mills dynamics~\cite{ophmodel}. At finite cutoff the witness gives a
 support-visible gauge-invariant local observable, such as a nonconstant Wilson/plaquette cylinder
 observable, whose vacuum variance is positive. Its GNS vector is orthogonal to the vacuum after
 subtracting its expectation value. The finite-range local-Gibbs generator assigns finite energy to
@@ -1373,39 +1333,13 @@ Euclidean transfer with the repair generator.
 \section{Full Haar-link Yang--Mills sources}
 \label{sec:full-haar-finite-source}
 
-On the full gauge-invariant Haar link space of an open three-dimensional
-\(\mathrm{SU}(2)\) cube, the positive Hamiltonian
-\(H=\alpha\sum_l C_l+\beta\sum_p(1-\operatorname{Re}\operatorname{Tr}U_p/2)\)
-has a unique vacuum. The complete electric physical gap is \(3\alpha\).
-At \(g^2=8\), spacing one and eight vertices, min--max and the constant-state
-residual give an interacting vacuum gap between \(21/2\) and \(1024/47\)
-in source units. A local plaquette has vacuum variance at least \(47/256\)
-and unnormalized centered-vector energy form at most \(4\). Every link representation is
-retained. The lower bound deteriorates with volume and both energy bounds
-scale as the inverse spacing; no four-dimensional continuum mass gap follows.
-The source, domains and quantitative certificates are given in \path{model/openwave_pure_su2_source}.
-
-The same pure-gauge source admits
-\(T_h=e^{-hV/2}e^{-hE}e^{-hV/2}\) on the full compact-group link space.
-Every electric character coefficient is positive, and reflected cylinder
-histories are Gram forms of half-history vectors. Gauge projection
-commutes with the transfer. The strong product limit gives
-\((T_{t/n})^n\to e^{-tH}\) in the declared Hamiltonian clock.
-Complete character-space controls verify this construction at three time
-steps. This establishes finite-regulator reflection positivity; it supplies
-no joint spatial continuum limit or restoration of Euclidean covariance.
-The source, domains and quantitative certificates are given in \path{model/openwave_su2_transfer}.
-
-For a pure \(\mathrm{SU}(2)\) plaquette, exact Gauss reduction gives the
-full character basis \(\chi_n\), \(n\geq0\), and Jacobi entries
-\(H_{nn}=\alpha n(n+2)+\beta\),
-\(H_{n,n+1}=-\beta/2\). Rational Schur bounds on the infinite tail and
-Sturm counts enclose four complete-source energy levels to width below
-\(2^{-40}\), at four declared couplings. Local curvature has a certified
-positive variance and finite energy, with controlled Euclidean correlation
-records. The representation cutoff is removed in these bounds; spatial
-volume and lattice-spacing limits are separate requirements.
-The source, domains and quantitative certificates are given in \path{model/openwave_su2_spectral}.
+On the full gauge-invariant Haar link space of a three-dimensional
+\(\mathrm{SU}(2)\) lattice with spacing \(a\), take the positive Hamiltonian
+\(H=\alpha\sum_l C_l+\beta\sum_p(1-\operatorname{Re}\operatorname{Tr}U_p/2)\),
+with link Casimirs \(C_l\), plaquette holonomies \(U_p\),
+\(\alpha=g^2/(2a)\) and \(\beta=2/(g^2a)\). Every link representation is
+retained. At fixed coupling every term scales as the inverse spacing, so a
+positive lattice gap is no four-dimensional continuum mass gap.
 
 \subsection{Uniform volume at fixed spatial spacing}
 
@@ -1417,8 +1351,7 @@ Haar-product vacuum and gap at least one. The exact local perturbation norm is
 $64/(g^2)^2$, independently of volume. These premises admit Yarotsky's
 infinite-local-space stability theorem. Gauge invariance places the unique
 ground in the Gauss sector, where restriction preserves the gap. The argument
-is existential in the theorem's smallness constants and does not certify the
-numerical $g^2=8$ member. No spatial-continuum limit, GeV mass or Clay
+is existential in the theorem's smallness constants. No spatial-continuum limit, GeV mass or Clay
 solution is asserted.
 
 The exact hypothesis map uses Theorem~1 of
@@ -1428,40 +1361,7 @@ Haar mean zero and variance $1/4$. Analyticity of local expectations gives
 variance greater than $1/8$ throughout some sufficiently small nonzero
 perturbation interval. The physical thermodynamic representation therefore
 contains a non-vacuum local excitation. The interval, like the uniform gap,
-is existential here. The complete local decomposition and physical
-restriction are specified in \path{model/openwave_su2_volume_gap}.
-
-\subsection{Local memory under three refinements}
-The full-Haar open cubes $L=1,2,3$ retain all representations and
-intertwiners with declared $\alpha=32/L$, $\beta=L^3/32$ and spacing
-$a=1/L$. A fixed unit-square perimeter has $4L$ links. On the constant
-Haar probe its normalized fundamental and spin-one characters have
-variances $1/4$ and $1/9$ and exact electric frequencies 96 and 256.
-The probe is not the interacting ground state.
-
-On-site electric evolution preserves loop support. Duhamel's identity
-therefore counts only faces touching the loop:
-\[
- \|\tau_H^t(A)-\tau_E^t(A)\|\le\delta_L,
- \quad\delta_L=\min\{2,2\beta N_{\rm inc}|t|\},\quad
- N_{\rm inc}=\begin{cases}5,&L=1,\\8L-4,&L\ge2.\end{cases}
-\]
-The corresponding normalized real correlation errors are bounded by
-$2\delta_L$ and $3\delta_L$. Both normalized real correlations exceed 0.97 at $t=1/4096$ across all
-three refinements. No extensive $E<5$ projector enters this comparison.
-A complete three-outcome instrument has the exact temporal moment
-$\mathbb E[s_0s_t]=\eta^2\operatorname{Re}\langle A(t)A\rangle$,
-including backaction, all nine records and quantum references.
-For $\eta=1/2$, two readouts cost at most $32/3$ or $512/27$ source units.
-
-The local estimate grows as $L^4$ at fixed time. It gives a controlled
-window of order $L^{-4}$, not ultraviolet convergence at a fixed physical
-time. Fixed-spacing volume propagation and a continuum massive theory
-are distinct requirements. An exact scale-invariant conformal theory
-cannot also possess a positive physical mass gap; the Clay target is a
-nontrivial four-dimensional quantum Yang--Mills theory with that gap.
-The complete source certificate is in
-\path{model/openwave_local_gauge_memory}.
+is existential here.
 
 \subsection{Local propagation and compact gauge groups}
 For the full-Haar pure $SU(2)$ Hamiltonian, the electric Casimir is unbounded
@@ -1476,9 +1376,7 @@ unit-norm observables at link-graph distance $d$,
 \]
 A polynomial boundary count and the same factorial tail prove norm
 convergence of local finite-volume dynamics at fixed spacing, with every
-Haar representation retained. At $g^2=32$, $a=t=1$, a four-link observable
-with buffer $32$ has a certified boundary error below $3.14\times10^{-20}$.
-This does not assign a numerical gap at that coupling. At fixed $g$, the
+Haar representation retained. At fixed $g$, the
 Hamiltonian and its nonzero gaps scale as $1/a$; a finite physical mass needs
 a controlled changing-coupling or energy-unit trajectory. Scalar reference
 subtraction cannot change a gap. Infinite volume and continuous Hamiltonian
@@ -1494,246 +1392,6 @@ $c_G=(N^2-1)/(2N)$; nonzero fundamental Wilson variance supplies physical
 excitations in a sufficiently small perturbation interval. This extends the
 fixed-spacing argument across the gauge groups without supplying a
 spatial-continuum construction or a numerical coupling threshold.
-The construction and complete records are specified in \path{model/openwave_su2_propagation}.
-
-\paragraph{Two interacting gauge loops.}
-The full Haar Gauss quotient of two adjacent SU(2) plaquettes has one basis
-vector for each admissible spin triple $(j_1,j_2,J)$. Its electric energy is
-$\alpha[3j_1(j_1+1)+3j_2(j_2+1)+J(J+1)]$; the shared-link spin $J$ couples
-the two loops. Wilson multiplication has exact squared-$6j$ matrix
-coefficients, independently checked by Clebsch--Gordan Haar integrals.
-The source retains every representation. Finite proof coordinates carry
-a positive bound on their entire infinite complement. This construction
-concerns a finite interacting gauge graph and supplies no spatial
-continuum or physical particle identification.
-
-The complete source and records are specified in \path{model/openwave_coupled_haar_source}.
-
-\paragraph{A coupled gauge source with a certified full-Haar spectrum.}
-Two neighboring SU(2) plaquettes share a gauge link.  All spins and every
-admissible intermediate Gauss channel remain in the source Hilbert space.
-For declared squared coupling $g^2=2$ and spacing $a=1$, the positive
-Hamiltonian has the certified dimensionless gap
-\[
-  3.0919590200861 < E_1-E_0 < 3.0919590200916.
-\]
-The ground's connected Wilson covariance satisfies
-\[
-  0.00029712823194 <
-  \langle W_1W_2\rangle-\langle W_1\rangle\langle W_2\rangle
-  <0.00029712823335.
-\]
-Exact recoupling coefficients, complete dyadic spectral witnesses, a
-positive bound for the entire infinite complement, and native trial
-residuals establish these intervals.  Three representation resolutions
-give overlapping enclosures of the same untruncated source.  The separate
-independent-loop electric control has exactly zero connected covariance.
-At declared $g^2=4$ and $8$, the corresponding full-source gaps lie in
-$[6.0116008299245,\allowbreak6.0116008299596]$ and
-$[12.0014508439425,\allowbreak12.0014508439444]$.
-
-The four effects $(I+sW_1/2)(I+tW_2/2)/4$, $s,t=\pm1$, define a complete
-observer instrument on that same physical space.  Every outcome is
-retained with a certified probability interval.  Its nonselective
-ground-state energy cost is bounded by $\alpha/6$, where
-$\alpha=g^2/(2a)$; the readout is not assumed to be energy-free.
-These are finite-graph gauge and record results with full Haar spaces.
-They neither identify physical glueballs or GeV masses nor supply a
-four-dimensional continuum or a uniform-volume mass gap.
-
-The complete source and records are specified in \path{model/openwave_coupled_haar_spectrum}.
-
-\paragraph{A nonzero Euclidean response.}
-For the same full-Haar coupled source, let
-$v=(W_1-\langle W_1\rangle)\Omega$ and
-$C(t)=\langle v,e^{-t(H-E_0)}v\rangle$.
-All finite spectral weights and a rigorous infinite-representation
-remainder give
-\[
-  0.2355121412297 < C(0)<0.2355121412313,
-  \qquad
-  0.1077022623741<C(1/4)<0.1079898705277.
-\]
-The latter interval is a strictly positive full-source response, not a
-correlator of a cutoff-defined model.  Three representation resolutions
-overlap.  Temporal reflection positivity follows from the positive
-source spectral measure, with complete signed reflection forms also
-checked in the finite proof coordinates.
-
-At fixed coupling on this fixed graph, the declared physical clock gives
-$H(a)=H(1)/a$.  A four-dimensional Yang--Mills family requires spatial
-refinement, controlled coupling flow, common noncollapsed local fields and
-the required physical gap scaling, together with its Euclidean and
-short-distance identification.
-The separate Lean energy lemma excludes a positive gap only when the
-same flat-space vacuum and nonzero finite-energy excitation obey
-arbitrary positive dilation covariance; it makes no claim about compact
-spatial cylinders or vacua that break that covariance.
-
-The complete source and records are specified in \path{model/openwave_euclidean_refinement}.
-
-\paragraph{Certified coupling response in a common source clock.}
-The full-Haar shared-link gauge source has certified gaps at seven declared
-squared couplings $x=1,3/2,2,3,4,6,8$.  At $x=1$,
-$\Delta\in[2.1047137308361,2.1047137308942]$ and
-$\Delta'\in[0.1681692139908,0.1681692238994]$; at $x=2$,
-$\Delta'\in[1.3640209354770,1.3640209364640]$.
-All seven derivative lower bounds are positive.  The exact identity
-$H'(x)=H(x)/x-4(2-W_1-W_2)/x^2$ lets the same finite spectral theorem
-control the derivative through bounded Wilson expectations, retaining
-the entire representation complement.  Holding $\Delta(x(a))/a$ fixed
-requires $dx/d\log a=\Delta/\Delta'$, whose certified interval at $x=1$
-is $[12.5154512938,12.5154520317]$.  This is a necessary source-level
-tangent, without an inferred beta function, fitted mass or spatial
-continuum claim.
-
-The exact source and complete records are specified in \path{model/openwave_haar_coupling_flow}.
-
-\paragraph{Full-Haar records on an actual spatial cube.}
-An exact trivalent Gauss census and native Clebsch--Gordan contraction
-execute all six plaquettes of the three-dimensional cube.  The complete
-electric-energy-six sector has 32 states, including every eight-cycle
-and opposite-face pair; the next sector is at energy $13/2$.
-An independently integrated character basis verifies the full low-sector
-Gram and Wilson matrices.  The spectral certificate retains every
-representation outside the complete 86-state proof frame, while a
-785-state trial retains every native output in its residual.
-At declared $g^2=16$, $a=1$, the full source gap is enclosed by
-$[23.9864058073,24.0000418795]$, and every adjacent-face connected
-Wilson covariance lies in
-$[8.6032171751\times10^{-8},8.7909740854\times10^{-8}]$.
-At $g^2=8$, the adjacent covariance is also strictly positive, in
-$[1.1516265918\times10^{-6},1.6440415433\times10^{-6}]$.
-All six means, all fifteen covariance pairs and the complete 64-outcome
-Wilson instrument remain present.  Its nonselective ground-state work
-is bounded by $\alpha/2$.  These are finite-cube gauge records with full
-Haar spaces, without a GeV or four-dimensional continuum identification.
-
-The exact source and complete records are specified in \path{model/openwave_cubic_haar_source}.
-
-\paragraph{A coarse interaction generated by spatial Haar blocking.}
-Subdividing the spatial cube changes twelve links and six faces into
-54 links and 36 faces.  Ordered fine-link products embed the coarse
-Haar/Gauss space isometrically.  Exact conditional integration gives
-\[
- \mathbb E\!\left[e^{\kappa\sum_{36}W_f}\mid U_{\rm coarse}\right]
- =1+\frac92\kappa^2+\frac{321}{32}\kappa^4
-  +\frac{\kappa^4}{64}\sum_6W_c+R_\kappa,
- \qquad
- \|R_\kappa\|_\infty\leq
- e^{36|\kappa|}\frac{(36|\kappa|)^6}{720}.
-\]
-Complete face-parity enumeration and an independent fundamental Haar
-contraction verify the four-face coefficient.  A central fine-link sign
-transformation fixes every coarse product and removes all odd orders.
-The resulting coarse Wilson coefficient is rigorously positive at
-declared $\kappa=10^{-5}$ and $10^{-6}$.
-The electric compression is twice the coarse Casimir sum; retaining the
-source clock at half spacing requires $g_f^2=g_c^2/4$ to match that term
-alone.  This is a constructive spatial blocking result for the positive magnetic
-factor, without a full-Hamiltonian renormalization or continuum claim.
-
-The exact source and complete records are specified in \path{model/openwave_gauge_refinement_clock}.
-
-\paragraph{Interior-resolved full-Haar refinement.}
-The actual refined cube has 27 vertices, 54 links and 36 faces.
-Arbitrary-valence Clebsch--Gordan fusion trees retain every Gauss
-intertwiner, including the two and five singlets of four and six
-fundamental legs. The vacuum, 36 four-cycles and 164 six-cycles give
-the complete 201-mode frame through electric energy $9/2$; every
-omitted state has electric energy at least $5$. All 7,236 face columns
-and their exterior fusion multiplicities enter the certificates.
-The coarse $(a,g^2)=(1,64)$ and fine $(1/2,16)$ sources have the same
-electric clock under edge subdivision. Their full-complement gap and
-Wilson-variance bounds retain interior modes and the eight-link boundary
-field. The exact first spectral moment for a loop of length $L$ is
-\[
- m_1=\frac{\alpha L}{4}(1-\langle W^2\rangle),\qquad
- v e^{-t m_1/v}\le C(t)\le v e^{-t\gamma}.
-\]
-Here $v$ is the connected variance and $\gamma$ a certified full-source
-gap. These are finite spatial-refinement comparisons, without an
-inferred running coupling or a physical continuum identification
-(\path{model/openwave_refined_haar_source},
-\path{model/openwave_refined_haar_spectrum}).
-
-\paragraph{Energy-dependent full-complement spectral certificates.}
-For the actual refined Haar source, let $P$ be the complete 201-mode
-frame, $T=QHP$ and $C=QHQ=D+B$, where $D=16E_Q+9$, $C\ge80Q$
-and $\|B\|\le9$. Every omitted representation and intertwiner remains.
-For real $z<80$, define
-\[
- \Sigma(z)=T^*(C-z)^{-1}T,\quad G(z)=T^*(D-z)^{-1}T,
- \quad J(z)=T^*(D-z)^{-2}T.
-\]
-Factoring the resolvent around $D-z$ gives
-\[
- \|\Sigma(z)-G(z)\|\le\frac{9\|J(z)\|}{1-9/(89-z)}.
-\]
-All 8143 off-block rows evaluate these shifted Gram matrices; exact
-finite-frame inertia transfers to the full source. In the common electric
-clock, the coarse and refined gap intervals are
-\[
- [96.00000060968,96.00000069820],\qquad
- [47.99403921427,48.00529277681],
-\]
-with widths reduced by factors above 361 and 5.36. These are finite-source
-energies, with no GeV or continuum identification. A general finite-word
-Neumann remainder is bounded by
-$b_T^2M^{n+1}/[(d+M-z)^{n+1}(d-z)]$ when $\|T\|^2\le b_T^2$;
-only the zeroth matrix term is executed here
-(\path{model/openwave_energy_schur}).
-
-\paragraph{Literal repair response and Euclidean transfer.}
-The actual fair C/E process supplies a complete finite response on
-$240$, $960$ and $3840$ one-load ports: populations evolve by
-$T=I-L/(2M)$ and every offdiagonal source matrix unit has an explicit
-positive real contraction. The natural cell sum and uniform lift have
-intertwiner residual $11/(12M)$; the exact port complement supplies the
-memory kernel $CTQ(QTQ)^rQTS$. Native two-load repairs also produce an exact connected
-current correlation $1/8$, an exclusion interaction without a QFT
-scattering or Yang--Mills transfer claim.
-
-The same native population kernel supplies an explicit finite Euclidean
-reconstruction. For every complex stationary cylinder, conditioning on
-the reflection boundary gives site form $\|g\|^2/N$ and bond form
-$\langle g,Tg\rangle/N$. Since
-$T\succeq(1-2d_{\max}/(2M))I\succ0$, both are positive. The operator
-$H_\delta=-\log(T)/\delta$ is nonnegative with a unique constant ground
-for every declared $\delta>0$. A breadth-first diameter bound and exact
-Rayleigh quotient enclose its gap; rational logarithm tails include the
-full error. The twelve-port two-load occupation has fourth cumulant
-$5/216$, a finite non-Gaussian statistic
-(\path{model/openwave_native_euclidean_transfer}).
-
-The charged two-load program retains the full source, event and memory
-carrier. Its compression is $T_k=I-L_k/D$ and its coherent continuation
-$W_k=S_k(2AA^*-I)$. The exact parity identity
-$L_3=d\Gamma(L_{\rm site})-2P_{\rm adjacent}$ follows from the native
-collision hold. One additional voltage edge is a rank-two perturbation;
-two integer parents, two minors and sparse adjugate columns determine all
-six characteristic polynomials. The entire fixed $-1$ band has a basis
-supported on at most four event arcs. Its compact persistent modes are
-orthogonal to uniform-event preparation
-(\path{model/native_charged_propagation},
-\path{model/native_transport_spectrum},\path{model/native_electric_gauss}).
-
-A declared cubic routing also has a rigorously controlled scalar branch:
-$\lambda_0(k)=|k|^2/8+O(\|k\|_\infty^4)$, with explicit remainder constant
-$3/8$. Its chosen refinement clock gives $\Omega^2\to|p|^2/4$ for any
-finite fixed set of Fourier modes and retains all optical and event complements. This is a one-load dispersion theorem,
-not the three-dimensional interacting integer-field spectrum. The local
-joint charge/link experiment has an exact nonzero third-step field-phase
-response; transferring that coupled operator to the cubic family and
-constructing its physical continuum vacuum are additional requirements
-(\path{model/native_spatial_refinement},\path{model/native_gauss_walk}).
-
-Finite reflection positivity, finite non-Gaussianity and exact Gauss
-conservation do not construct four-dimensional Schwinger functions or a
-regulator-uniform physical gap. The Clay target is a nontrivial massive
-Yang--Mills quantum field theory, distinct from an exactly scale-invariant
-CFT. Its common interacting continuum reconstruction is a separate
-mathematical requirement.
 
 \section{Physical scope}
 
@@ -1753,36 +1411,7 @@ $G$. The full theory with an unbroken electromagnetic sector and a massless
 photon has no positive global vacuum gap. Its sector gaps must specify
 the state, sector and limiting procedure.
 
-The coordinate-field construction used in the finite observer controls has
-sixty fermionic modes per cell and a fifteen-dimensional product-group
-representation~\cite{ophfixedfield}. Choosing a compact simple factor of
-its Lie algebra does not exhibit a reducing Hilbert sector of its coupled
-Wilson action. Fixing the other quantum link variables to the identity is
-not normalizable in Haar \(L^2\), and projecting them to constant words need
-not preserve plaquette multiplication. A pure Yang--Mills branch therefore
-requires a separately declared source or a proved decoupling map, with its
-own vacuum and clock.
-
-That finite source has spacing \(a_n=2^{-n}\), side \(L_n=2^{2n+1}\),
-per-link word degree \(\ell_n=n+1\), and fixed electric and magnetic
-coefficients \(105\) and \(1/7\). Every Hamiltonian term scales as
-\(a_n^{-1}\), so
-\[
-H_n=a_n^{-1}\widehat H(L_n,\ell_n;105,1/7).
-\]
-Its physical-sector gap in the declared clock is \(\widehat\Delta_n/a_n\).
-If the uniform finite-gap route and a noncollapsing finite-energy local
-witness both apply, they require
-\[
-a_n\delta\le\widehat\Delta_n\le a_n M/v_0.
-\]
-A constant positive dimensionless gap would instead send the physical
-threshold to infinity and contradict that witness. Neither a positive
-finite gap nor a fitted change of clock proves a finite continuum mass.
-The fixed coefficients supply no running-coupling or asymptotically free
-short-distance theorem~\cite{ophgaptransfer}.
-
-Its stationary polynomial preparation is also distinct from the exact
+A stationary prepared state is distinct from the exact
 vacua in Theorem~\ref{thm:local-correlation-gap}. For example,
 \(H=\operatorname{diag}(0,1)\),
 \(\rho=\operatorname{diag}(1-\epsilon,\epsilon)\), and
@@ -1853,57 +1482,11 @@ B.~M\"uller,
 2026.\\
 \url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2068/code/yang_mills}.
 
-\bibitem{ophgaptransfer}
-FloatingPragma,
-\emph{Euclidean decay, the physical clock and a continuum spectral gap}.\\
-Proof: \path{model/particle_yang_mills_gap_contract/PROOF.md}.\\
-Exact finite transfer controls: \path{model/particle_yang_mills_gap_contract/transfer.py}.
-
-\bibitem{ophfixedfield}
-FloatingPragma,
-\emph{One declared source, state, reference and clock}.\\
-\path{model/particle_common_contract/PROOF.md}.
-
 \bibitem{ophmodel}
-FloatingPragma,
-\emph{The runnable OPH model}, 2026.\\
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2068/model}.
-
-\bibitem{ophfedscaling}
-FloatingPragma,
-\emph{What propagates on a federation of identical elementary carriers}, 2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/federated_observer/SCALING.md};
-receipt: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/federated_observer/results.json}
-
-\bibitem{ophnativeaction}
-FloatingPragma,
-\emph{A local action for native quantum observations}, 2026.\\
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/native_action/README.md}.
-
-\bibitem{ophmixing}
-FloatingPragma,
-\emph{Quantum mixing of the native C/E repairs}, 2026.\\
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/observer/QUANTUM_MIXING.md}.
-
-\bibitem{ophrelscalar}
-FloatingPragma,
-\emph{A source-executed canonical scalar field regulator}, 2026.\\
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/relativistic_scalar/README.md}.
-
-\bibitem{ophcontinuum}
-FloatingPragma,
-\emph{A spatial fluctuation field from one native history}, 2026.\\
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/physical_space_time/OCCUPATION_FIELD.md}.
-
-\bibitem{ophtimefields}
-FloatingPragma,
-\emph{Joint time and field laws on matched source screens}, 2026.\\
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/observer_time_fields/REFINEMENT.md}.
-
-\bibitem{ophpremises}
-FloatingPragma,
-\emph{OPH reverse-engineering table: model and theorem premises}, 2026.\\
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/PREMISES.md}.
+B.~M\"uller, M.~Poneder, J.~Kim, and D.~A.~Friedman,
+\emph{An Executable Observer for Observer Patch Holography: Specification,
+Memory and Agreed Records}, 2026.\\
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/paper/executable_observer_construction.pdf}.
 
 \bibitem{clay}
 Clay Mathematics Institute,

@@ -31,18 +31,10 @@ REQUIRED_DATASET_ARTIFACTS = {
         "code/particles/runs/hadron/empirical_ee_hadronic_spectral_measure.json",
     "planck2018-table2-lambda-to-N-gaussian-approximation":
         "code/capacity_readback/planck_posterior/planck_lambda_to_N_propagation.json",
-    "nufit-6.1-profile-source-manifest":
-        "code/particles/neutrino/nufit61_sources.json",
-    "flag-2024-light-quark-ratio-fixture":
-        "code/particles/data/flag_2024_light_quark_ratio_fixture.json",
-    "pdg-2024-vus-kmu2-compare-only-fixture":
-        "code/particles/data/pdg_2024_vus_kmu2_fixture.json",
     "codata-2022-inverse-fine-structure-constant":
         "code/P_derivation/codata_2022_alpha_fixture.json",
     "pdg-2026-wz-running-width-target-fixture":
         "code/particles/calibration/wz_pdg_2026_target_fixture.json",
-    "bouchard-donagi-threshold-spectrum-literature-packet":
-        "code/particles/data/oph_bd_threshold_spectrum_inputs.json",
     "auger-2022-fz12-photon-threshold-diagnostic":
         "code/a5_fingerprint/runtime/fz12_auger_threshold_diagnostic_receipt.json",
 }
@@ -235,56 +227,6 @@ def _validate_upstream_files(raw: Mapping[str, Any], path: str) -> None:
         )
 
 
-def _validate_nufit_manifest(entry: Mapping[str, Any], artifact_path: Path) -> None:
-    if entry["dataset_id"] != "nufit-6.1-profile-source-manifest":
-        return
-    manifest = json.loads(artifact_path.read_text(encoding="utf-8"))
-    _require(manifest.get("license") == "NOASSERTION", "NuFIT manifest license status drifted")
-    expected: dict[str, tuple[str, int, str]] = {}
-    files = manifest.get("files")
-    _require(isinstance(files, Mapping) and bool(files), "NuFIT manifest files are missing")
-    for source_id, record in files.items():
-        _require(isinstance(record, Mapping), f"NuFIT source {source_id} must be an object")
-        expected[str(source_id)] = (
-            str(record.get("sha256")),
-            int(record.get("bytes", -1)),
-            str(record.get("url")),
-        )
-    notes = manifest.get("release_notes")
-    _require(isinstance(notes, Mapping), "NuFIT release-notes pin is missing")
-    expected["release-notes"] = (
-        str(notes.get("sha256")),
-        int(notes.get("bytes", -1)),
-        str(notes.get("url")),
-    )
-    registered = {
-        item["id"]: (item["sha256"], item["bytes"], item["url"])
-        for item in entry["raw_inputs"]["upstream_files"]
-    }
-    _require(
-        registered == expected,
-        "NuFIT upstream file pins differ between the source manifest and provenance registry",
-    )
-
-
-def _validate_bd_manifest(entry: Mapping[str, Any], artifact_path: Path) -> None:
-    if entry["dataset_id"] != "bouchard-donagi-threshold-spectrum-literature-packet":
-        return
-    packet = json.loads(artifact_path.read_text(encoding="utf-8"))
-    expected: dict[str, tuple[str, str]] = {}
-    for source in packet.get("external_sources", []):
-        digest = source.get("sha256_source_archive", source.get("sha256_pdf"))
-        expected[str(source["id"])] = (str(source["url"]), str(digest))
-    registered = {
-        item["id"]: (item["url"], item["sha256"])
-        for item in entry["raw_inputs"]["upstream_files"]
-    }
-    _require(
-        registered == expected,
-        "BD upstream URL/hash pins differ between the source packet and provenance registry",
-    )
-
-
 def _validate_content_boundary(entry: Mapping[str, Any], artifact_path: Path) -> None:
     dataset_id = entry["dataset_id"]
     if dataset_id == "pdg-2026-particle-reference-values":
@@ -324,97 +266,6 @@ def _validate_content_boundary(entry: Mapping[str, Any], artifact_path: Path) ->
             payload.get("source", {}).get("edition") == "CODATA 2022",
             "CODATA alpha fixture edition drifted",
         )
-    elif dataset_id == "flag-2024-light-quark-ratio-fixture":
-        payload = json.loads(artifact_path.read_text(encoding="utf-8"))
-        _require(
-            payload.get("artifact")
-            == "oph_flag_2024_light_quark_ratio_fixture"
-            and payload.get("status")
-            == "COMPARE_ONLY_HAND_TRANSCRIBED_REFERENCE",
-            "FLAG light-quark fixture must remain compare-only",
-        )
-        _require(
-            payload.get("derived_quantity", {}).get(
-                "input_covariance_available"
-            )
-            is False,
-            "FLAG light-quark fixture must not invent a covariance",
-        )
-        _require(
-            payload.get("claim_boundary", {}).get(
-                "oph_theory_uncertainty_supplied"
-            )
-            is False
-            and payload.get("claim_boundary", {}).get(
-                "oph_fit_or_selection_input"
-            )
-            is False
-            and payload.get("claim_boundary", {}).get(
-                "prediction_preexisted_audit"
-            )
-            is True
-            and payload.get("claim_boundary", {}).get(
-                "significance_gate_preregistered"
-            )
-            is False,
-            "FLAG fixture crossed its no-theory-uncertainty/no-fit boundary",
-        )
-        rows = payload.get("averages", [])
-        _require(
-            {
-                (
-                    row.get("nf"),
-                    row.get("ms_over_mud", {}).get("published_notation"),
-                    row.get("mu_over_md", {}).get("published_notation"),
-                )
-                for row in rows
-            }
-            == {
-                ("2+1+1", "27.227(81)", "0.465(24)"),
-                ("2+1", "27.42(12)", "0.485(19)"),
-            },
-            "FLAG light-quark transcriptions drifted",
-        )
-        derived = {
-            row["nf"]: row.get("derived_ms_over_md", {})
-            for row in rows
-        }
-        _require(
-            derived.get("2+1+1", {}).get("value") == "19.9437775"
-            and derived.get("2+1", {}).get("value") == "20.35935",
-            "FLAG derived ms/md central values drifted",
-        )
-    elif dataset_id == "pdg-2024-vus-kmu2-compare-only-fixture":
-        payload = json.loads(artifact_path.read_text(encoding="utf-8"))
-        coordinate = payload.get("coordinate", {})
-        boundary = payload.get("claim_boundary", {})
-        source = payload.get("source", {})
-        _require(
-            payload.get("artifact") == "oph_pdg_2024_vus_kmu2_fixture"
-            and payload.get("status")
-            == "COMPARE_ONLY_HAND_TRANSCRIBED_REFERENCE",
-            "PDG |V_us| fixture must remain a compare-only transcription",
-        )
-        _require(
-            coordinate.get("determination") == "Kmu2_decay_constant_ratio"
-            and coordinate.get("value") == "0.2250"
-            and coordinate.get("standard_uncertainty") == "0.0004"
-            and coordinate.get("published_notation") == "0.2250 +/- 0.0004",
-            "PDG Kmu2 |V_us| coordinate or uncertainty drifted",
-        )
-        _require(
-            "revised April 2024; PDF dated 31 May 2024"
-            in source.get("edition", "")
-            and source.get("publisher") == "Particle Data Group",
-            "PDG Kmu2 |V_us| source edition drifted",
-        )
-        _require(
-            boundary.get("comparison_only") is True
-            and boundary.get("used_to_construct_or_select_axes") is False
-            and boundary.get("global_ckm_fit_value") is False
-            and boundary.get("oph_fit_or_selection_input") is False,
-            "PDG Kmu2 |V_us| fixture crossed its compare-only boundary",
-        )
     elif dataset_id == "pdg-2026-wz-running-width-target-fixture":
         target = json.loads(artifact_path.read_text(encoding="utf-8")).get(
             "experimental_target", {}
@@ -429,18 +280,6 @@ def _validate_content_boundary(entry: Mapping[str, Any], artifact_path: Path) ->
             in target.get("covariance_status", ""),
             "W/Z covariance/license boundary drifted",
         )
-    elif dataset_id == "bouchard-donagi-threshold-spectrum-literature-packet":
-        packet = json.loads(artifact_path.read_text(encoding="utf-8"))
-        _require(
-            packet.get("comparison_registry", {}).get("complete_oph_target") is False,
-            "BD literature packet unexpectedly claims a complete OPH target",
-        )
-        _require(
-            packet.get("bd_branch", {}).get("selected_moduli_point") is None,
-            "BD literature packet unexpectedly claims a selected moduli point",
-        )
-
-
 def validate_registry(payload: Mapping[str, Any], root: Path = ROOT) -> dict[str, Any]:
     """Validate a parsed registry and all repository-local pins."""
 
@@ -603,8 +442,6 @@ def validate_registry(payload: Mapping[str, Any], root: Path = ROOT) -> dict[str
             f"{entry_path}.loader.requirements must be a non-empty string list",
         )
 
-        _validate_nufit_manifest(entry, artifact_path)
-        _validate_bd_manifest(entry, artifact_path)
         _validate_content_boundary(entry, artifact_path)
 
     _require(

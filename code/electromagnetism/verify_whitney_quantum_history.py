@@ -22,9 +22,6 @@ SCOPE = "FULL_56D_NEUTRAL_POTENTIAL_PHASE_TRIAL__GLOBAL_NORM_BOUND__DECLARED_INP
 PINS = {
     "Lean/Screen/SeamCurrentEdge30Moment.lean", "Lean/Screen/SeamCurrentCarrierQuotient.lean",
     "Lean/ObserverPatchHolography/CoreAxioms.lean",
-    "paper/tex_fragments/WHITNEY_CHARGED_MATTER.tex",
-    "paper/tex_fragments/WHITNEY_INTERACTING_QUANTUM.tex",
-    "paper/tex_fragments/WHITNEY_QUANTUM_HISTORY.tex",
     "code/electromagnetism/whitney_interacting_quantum.py",
     "code/electromagnetism/verify_whitney_quantum_state.py",
     "code/electromagnetism/runtime/whitney_quantum_state_receipt.json",
@@ -379,8 +376,6 @@ def verify(packet):
         "proof_source": "paper/tex_fragments/WHITNEY_QUANTUM_HISTORY.tex",
         "proof_label": "thm:whitney-quantum-trial-history"}, "global error certificate and horizon")
     require(error(horizon) <= target < error(2*horizon), "maximal dyadic horizon")
-    proof = (ROOT/"paper/tex_fragments/WHITNEY_QUANTUM_HISTORY.tex").read_text(encoding="utf-8")
-    require("\\label{thm:whitney-quantum-trial-history}" in proof, "analytic history proof reference")
     require(type(packet["phase_configurations"]) is list and len(packet["phase_configurations"]) == 4,
             "phase configuration census")
     potentials = {}

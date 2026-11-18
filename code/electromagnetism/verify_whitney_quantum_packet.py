@@ -34,8 +34,7 @@ PIN_PATHS = {
     'code/electromagnetism/test_whitney_quantum_packet.py',
     'code/electromagnetism/test_neutral_packet_observables.py',
     'code/electromagnetism/test_neutral_packet_projection.py',
-    'paper/tex_fragments/WHITNEY_INTERACTING_QUANTUM.tex',
-    'paper/tex_fragments/WHITNEY_QUANTUM_PACKET.tex', PARENT_PATH,
+    PARENT_PATH,
 }
 
 
@@ -281,9 +280,6 @@ def verify(packet):
     equal(packet['contract'],expected_contract(),'preparation and non-propagation contract')
     volume,xyz,edges,tets=source.exact_geometry()
     equal(packet['initial_exact'],initial_algebra(volume),'exact initial algebra and projection bound')
-    proof=(ROOT/'paper/tex_fragments/WHITNEY_QUANTUM_PACKET.tex').read_text(encoding='utf-8')
-    for label in initial_algebra(volume)['proof_labels']:
-        require('\\label{'+label+'}' in proof,'proof reference')
     frame=numbers(packet['orthonormal_coulomb_frame'],(42,30),'Coulomb frame')
     require(type(packet['samples']) is list and len(packet['samples'])==2,'sample census')
     raw=parent.load(ROOT/PARENT_PATH)

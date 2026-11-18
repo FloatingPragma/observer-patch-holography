@@ -155,11 +155,6 @@ def test_owner_papers_carry_the_results() -> None:
     bh = _collapsed("cosmology/oph_black_hole_information_ledger.tex")
     for token in ("M_{\\rm det}=(1+z)M_{\\rm source}",):
         assert token in bh, token
-    technical = _collapsed("paper/tex_fragments/PAPER.tex")
-    for token in ("signed black-hole entropy change is \\(-\\ln k\\)",
-                  "M_{\\rm det}=(1+z)M_{\\rm source}",
-                  "not a derived hierarchy of transition probabilities"):
-        assert token in technical, token
     observers = _collapsed("paper/observers_are_all_you_need.tex")
     for token in ("cesium hyperfine", "one declared tick duration",
                   "an import and never a derivation"):

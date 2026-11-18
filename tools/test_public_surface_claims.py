@@ -13,7 +13,43 @@ import public_surface_claims as claims
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-PARTICLES_README = "code/particles/README.md"
+TABLE_README = "code/fixture_lane/README.md"
+ALPHA_ROW = "alpha_gauge_width_diagnostic"
+TABLE_HEADING = "## Diagnostic Values"
+TABLE_TEXT = (
+    "# Fixture lane\n\n"
+    f"{TABLE_HEADING}\n\n"
+    "| Observable | Branch value | Comparison coordinate |\n"
+    "| --- | ---: | --- |\n"
+    "| `alpha_inv` | `137.03599` (diagnostic) | `137.035999177` (CODATA 2022) |\n"
+    "| `x_branch` | `1.0` (rejected candidate) | `1.1` (measured) |\n"
+    "| `x_fit` | `2.0` (target-anchored fit; never a prediction) | `2.0` (measured) |\n"
+    "| `y_label` | `n/a` | `n/a` |\n"
+)
+TABLE_DECLARATION = {
+    "path": TABLE_README,
+    "heading": TABLE_HEADING,
+    "label_column": "Observable",
+    "comparison_column": "Comparison coordinate",
+    "rows": [
+        {
+            "label": "`alpha_inv`",
+            "role": "diagnostic",
+            "lane": {"kind": "manifest_row", "row_id": ALPHA_ROW},
+        },
+        {
+            "label": "`x_branch`",
+            "role": "rejected_candidate",
+            "lane": {"kind": "registry_claim", "claim_id": "OPH-ALPHA-PIXEL"},
+        },
+        {
+            "label": "`x_fit`",
+            "role": "target_anchored_backsolve",
+            "lane": {"kind": "registry_claim", "claim_id": "OPH-ALPHA-PIXEL"},
+        },
+        {"label": "`y_label`", "role": "conditional_branch"},
+    ],
+}
 
 
 def _copy(relative: str, target_root: Path) -> None:
@@ -21,36 +57,6 @@ def _copy(relative: str, target_root: Path) -> None:
     target = target_root / relative
     target.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(source, target)
-
-
-def _declared_ledger_lanes(manifest: dict) -> list[str]:
-    return [
-        row["lane"]["row_id"]
-        for surface in manifest.get("comparison_table_surfaces", [])
-        for row in surface["rows"]
-        if row.get("lane", {}).get("kind") == "ledger"
-    ]
-
-
-def _write_fixture_ledger(root: Path, manifest: dict) -> None:
-    """Give the fixture a ledger carrying exactly the declared ledger lanes."""
-    path = root / claims.LEDGER_RELATIVE
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(
-            {
-                "artifact": "oph_postdiction_ledger",
-                "sections": {
-                    "fixture": [
-                        {"id": row_id} for row_id in _declared_ledger_lanes(manifest)
-                    ]
-                },
-            },
-            indent=2,
-        )
-        + "\n",
-        encoding="utf-8",
-    )
 
 
 def _fixture_root(tmp_path: Path) -> Path:
@@ -74,7 +80,6 @@ def _fixture_root(tmp_path: Path) -> Path:
         _copy(relative, root)
     for surface in manifest["comparison_table_surfaces"]:
         _copy(surface["path"], root)
-    _write_fixture_ledger(root, manifest)
 
     for surface in manifest["surfaces"]:
         path = root / surface["path"]
@@ -85,6 +90,22 @@ def _fixture_root(tmp_path: Path) -> Path:
             encoding="utf-8",
         )
     assert builder.build(root, check=False) == []
+    return root
+
+
+def _table_fixture_root(tmp_path: Path) -> Path:
+    """A fixture with one declared governed comparison table."""
+    root = _fixture_root(tmp_path)
+    table = root / TABLE_README
+    table.parent.mkdir(parents=True, exist_ok=True)
+    table.write_text(TABLE_TEXT, encoding="utf-8")
+    _edit_manifest(
+        root,
+        lambda manifest: manifest["comparison_table_surfaces"].append(
+            json.loads(json.dumps(TABLE_DECLARATION))
+        ),
+    )
+    assert claims.check_repository(root) == []
     return root
 
 
@@ -110,7 +131,7 @@ def _surface(manifest: dict, path: str) -> dict:
 def _declared_row(manifest: dict, label: str) -> dict:
     return next(
         row
-        for row in _surface(manifest, PARTICLES_README)["rows"]
+        for row in _surface(manifest, TABLE_README)["rows"]
         if row["label"] == label
     )
 
@@ -137,7 +158,7 @@ def test_unknown_claim_and_class_drift_fail_closed(tmp_path) -> None:
     _edit_manifest(
         root,
         lambda manifest: _row(
-            manifest, "bottom_quark_clebsch"
+            manifest, ALPHA_ROW
         ).update(
             {
                 "claim_id": "OPH-GHOST-CLAIM",
@@ -152,7 +173,7 @@ def test_unknown_claim_and_class_drift_fail_closed(tmp_path) -> None:
     _edit_manifest(
         root,
         lambda manifest: _row(
-            manifest, "bottom_quark_clebsch"
+            manifest, ALPHA_ROW
         ).update({"claim_class": "emitted_artifact"}),
     )
     issues = claims.check_repository(root)
@@ -177,8 +198,8 @@ def test_missing_emitter_and_unresolved_artifact_pointer_fail_closed(
     root = _fixture_root(tmp_path)
     _edit_manifest(
         root,
-        lambda manifest: _row(manifest, "bottom_quark_clebsch")["producer"].update(
-            {"script": "code/particles/flavor/missing_emitter.py"}
+        lambda manifest: _row(manifest, ALPHA_ROW)["producer"].update(
+            {"script": "code/P_derivation/missing_emitter.py"}
         ),
     )
     issues = claims.check_repository(root)
@@ -187,8 +208,8 @@ def test_missing_emitter_and_unresolved_artifact_pointer_fail_closed(
     root = _fixture_root(tmp_path / "second")
     _edit_manifest(
         root,
-        lambda manifest: _row(manifest, "bottom_quark_clebsch")["producer"].update(
-            {"value_pointer": "/predictions/unregistered_number"}
+        lambda manifest: _row(manifest, ALPHA_ROW)["producer"].update(
+            {"value_pointer": "/modes/unregistered_number"}
         ),
     )
     issues = claims.check_repository(root)
@@ -200,7 +221,7 @@ def test_nonpromoted_claim_cannot_be_presented_as_an_oph_result(tmp_path) -> Non
     _edit_manifest(
         root,
         lambda manifest: _row(
-            manifest, "bottom_quark_clebsch"
+            manifest, ALPHA_ROW
         ).update({"role": "oph_result"}),
     )
     issues = claims.check_repository(root)
@@ -214,12 +235,17 @@ def test_nonpromoted_claim_cannot_be_presented_as_an_oph_result(tmp_path) -> Non
 def test_self_comparison_fails_without_target_anchored_role(tmp_path) -> None:
     root = _fixture_root(tmp_path)
     artifact_path = (
-        root / "code/particles/runs/flavor/down_type_register_clebsch_lane.json"
+        root / "code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json"
     )
     artifact = json.loads(artifact_path.read_text(encoding="utf-8"))
-    artifact["predictions"]["mb_mb_gev"] = artifact["compare_only"]["references"][
-        "mb_mb_gev"
-    ]
+    reference = json.loads(
+        (root / "code/P_derivation/codata_2022_alpha_fixture.json").read_text(
+            encoding="utf-8"
+        )
+    )["inverse_fine_structure_constant"]["value"]
+    artifact["modes"]["thomson_structured_running_plus_gauge_width"][
+        "fixed_point_point_estimate_display_only"
+    ]["alpha_inv"] = reference
     artifact_path.write_text(json.dumps(artifact), encoding="utf-8")
 
     issues, *_ = claims.validate_manifest(root)
@@ -232,7 +258,8 @@ def test_target_anchored_near_match_requires_explicit_nonprediction_label(
     root = _fixture_root(tmp_path)
 
     def remove_label(manifest: dict) -> None:
-        row = _row(manifest, "top_target_anchored")
+        row = _row(manifest, ALPHA_ROW)
+        row["role"] = "target_anchored_backsolve"
         row["status"]["en"] = "Back-solved from the measured pair."
 
     _edit_manifest(root, remove_label)
@@ -247,7 +274,8 @@ def test_rejected_candidate_requires_explicit_disposition_label(tmp_path) -> Non
     root = _fixture_root(tmp_path)
 
     def remove_label(manifest: dict) -> None:
-        row = _row(manifest, "bottom_quark_clebsch")
+        row = _row(manifest, ALPHA_ROW)
+        row["role"] = "rejected_candidate"
         row["status"]["en"] = "Conditional comparison output."
 
     _edit_manifest(root, remove_label)
@@ -395,36 +423,35 @@ def test_zero_physical_establishment_suppresses_readme_tables(tmp_path) -> None:
 
 
 def test_governed_readme_table_is_declared_row_for_row(tmp_path) -> None:
-    root = _fixture_root(tmp_path)
-    assert claims.check_repository(root) == []
+    root = _table_fixture_root(tmp_path)
 
     _edit_manifest(
         root,
-        lambda manifest: _surface(manifest, PARTICLES_README)["rows"].pop(0),
+        lambda manifest: _surface(manifest, TABLE_README)["rows"].pop(0),
     )
     issues = claims.check_repository(root)
     assert any("carries no declaration" in issue for issue in issues)
 
-    root = _fixture_root(tmp_path / "second")
+    root = _table_fixture_root(tmp_path / "second")
     _edit_manifest(
         root,
-        lambda manifest: _declared_row(manifest, "`m_N` (nucleon)").update(
-            {"label": "`m_N` (retired label)"}
+        lambda manifest: _declared_row(manifest, "`y_label`").update(
+            {"label": "`y_label` (retired label)"}
         ),
     )
     issues = claims.check_repository(root)
     assert any(
-        "declared row '`m_N` (retired label)' is absent from the rendered table"
+        "declared row '`y_label` (retired label)' is absent from the rendered table"
         in issue
         for issue in issues
     )
 
 
 def test_comparison_row_without_a_lane_must_drop_its_comparison(tmp_path) -> None:
-    root = _fixture_root(tmp_path)
+    root = _table_fixture_root(tmp_path)
 
     def drop_lane(manifest: dict) -> None:
-        _declared_row(manifest, "`M_W`").pop("lane")
+        _declared_row(manifest, "`alpha_inv`").pop("lane")
 
     _edit_manifest(root, drop_lane)
     issues = claims.check_repository(root)
@@ -437,29 +464,24 @@ def test_comparison_row_without_a_lane_must_drop_its_comparison(tmp_path) -> Non
     ("label", "lane", "diagnostic"),
     [
         (
-            "`M_W`",
+            "`x_branch`",
             {"kind": "registry_claim", "claim_id": "OPH-GHOST-CLAIM"},
             "lane names unknown registry claim ID 'OPH-GHOST-CLAIM'",
         ),
         (
-            "`m_t`",
+            "`alpha_inv`",
             {"kind": "manifest_row", "row_id": "ghost_manifest_row"},
             "lane names unknown manifest row ID 'ghost_manifest_row'",
         ),
         (
-            "`m_N` (nucleon)",
-            {"kind": "ledger", "row_id": "ghost_ledger_row"},
-            "ledger lane names no row of",
-        ),
-        (
-            "`M_Z`",
+            "`x_fit`",
             {"kind": "prose_assertion", "row_id": "unsupported"},
             "lane kind must be one of",
         ),
     ],
 )
 def test_comparison_lane_must_resolve(tmp_path, label, lane, diagnostic) -> None:
-    root = _fixture_root(tmp_path)
+    root = _table_fixture_root(tmp_path)
     _edit_manifest(
         root,
         lambda manifest: _declared_row(manifest, label).update({"lane": lane}),
@@ -469,22 +491,22 @@ def test_comparison_lane_must_resolve(tmp_path, label, lane, diagnostic) -> None
 
 
 def test_comparison_role_wording_is_required(tmp_path) -> None:
-    root = _fixture_root(tmp_path)
+    root = _table_fixture_root(tmp_path)
     _edit_surface_text(
         root,
-        PARTICLES_README,
-        "companion coordinate of the same target-anchored fit; never a prediction",
-        "companion coordinate of the same target-anchored fit",
+        TABLE_README,
+        "target-anchored fit; never a prediction",
+        "target-anchored fit",
     )
     issues = claims.check_repository(root)
     assert any(
         "requires the row to state 'never a prediction'" in issue for issue in issues
     )
 
-    root = _fixture_root(tmp_path / "second")
+    root = _table_fixture_root(tmp_path / "second")
     _edit_manifest(
         root,
-        lambda manifest: _declared_row(manifest, "`M_W`").update(
+        lambda manifest: _declared_row(manifest, "`y_label`").update(
             {"role": "rejected_candidate"}
         ),
     )
@@ -511,38 +533,27 @@ def test_undeclared_readme_comparison_table_fails_closed(tmp_path) -> None:
 
 
 def test_declared_comparison_surface_must_exist(tmp_path) -> None:
-    root = _fixture_root(tmp_path)
-    (root / PARTICLES_README).unlink()
+    root = _table_fixture_root(tmp_path)
+    (root / TABLE_README).unlink()
     issues = claims.check_repository(root)
     assert any(
-        f"comparison table surface {PARTICLES_README}: declared surface does not "
+        f"comparison table surface {TABLE_README}: declared surface does not "
         "exist" in issue
         for issue in issues
     )
 
 
 def test_governed_table_heading_must_stay_in_place(tmp_path) -> None:
-    root = _fixture_root(tmp_path)
-    _edit_surface_text(
-        root,
-        PARTICLES_README,
-        "## Conditional Candidate Values",
-        "## Candidate Values",
-    )
+    root = _table_fixture_root(tmp_path)
+    _edit_surface_text(root, TABLE_README, TABLE_HEADING, "## Values")
     issues = claims.check_repository(root)
     assert any(
-        "declared heading '## Conditional Candidate Values' is absent" in issue
-        for issue in issues
+        f"declared heading '{TABLE_HEADING}' is absent" in issue for issue in issues
     )
 
 
 def test_live_governed_rows_name_lanes_or_carry_no_comparison() -> None:
-    """Every declared row resolves through a lane or shows no comparison value.
-
-    Registry and manifest lanes are resolved here. A ledger lane is resolved
-    against `code/particles/runs/status/postdiction_ledger.json` by
-    `check_comparison_table_surfaces`, which the public-surface gate runs.
-    """
+    """Every declared row resolves through a lane or shows no comparison value."""
     manifest = claims.load_json(
         REPO_ROOT / "claims/public_surface_quantitative_claims.json"
     )
@@ -566,24 +577,5 @@ def test_live_governed_rows_name_lanes_or_carry_no_comparison() -> None:
             assert lane["kind"] in claims.LANE_KINDS
             if lane["kind"] == "registry_claim":
                 assert lane["claim_id"] in registry
-            elif lane["kind"] == "manifest_row":
-                assert manifest_rows[lane["row_id"]]["role"] == row["role"]
             else:
-                assert lane["row_id"]
-
-
-def test_rejected_clebsch_rows_carry_rejected_candidate_role() -> None:
-    manifest = claims.load_json(
-        REPO_ROOT / "claims/public_surface_quantitative_claims.json"
-    )
-    clebsch_rows = [
-        row for row in manifest["rows"] if "clebsch" in row["row_id"]
-    ]
-    assert len(clebsch_rows) == 4
-    assert {row["role"] for row in clebsch_rows} == {"rejected_candidate"}
-    assert {row["claim_id"] for row in clebsch_rows} == {
-        "OPH-QUARK-REGISTER-CLEBSCH"
-    }
-    assert {
-        row["producer"]["guards"]["/status"] for row in clebsch_rows
-    } == {"CONDITIONAL_DECLARED_ROUTE_RETROSPECTIVELY_REJECTED"}
+                assert manifest_rows[lane["row_id"]]["role"] == row["role"]

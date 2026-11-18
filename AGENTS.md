@@ -21,13 +21,14 @@ domains and error bounds. Agreement alone neither fixes Born probabilities
 nor proves a relativistic field limit. A record-copying operation copies an
 orthogonal classical record, not an arbitrary quantum state.
 
-The official executable model is [CCF-LT-2](model/SPEC.md), implemented in
-[model/ccf_lt2](model/ccf_lt2/README.md). Its current native repair law is a calibrated intermediate test; the search for the correct native repair law is ongoing.
-Use its complete local-capacity Hamiltonian,
-source data and instruments for model claims. Independent component proofs
-retain their own hypotheses and require an explicit source map.
+The official executable model is [polynomial-sv](model/polynomial_sv/README.md),
+specified in [model/polynomial_sv/SPEC.md](model/polynomial_sv/SPEC.md). Its
+contrast-memory law is the candidate native repair law.
+Use its law, carrier, emitter and reader for model claims. Independent
+component proofs retain their own hypotheses and require an explicit source
+map.
 
-Use the [construction contract](model/CONSTRUCTION.md#what-is-being-built)
+Use the [specification](model/polynomial_sv/SPEC.md)
 and [executable-model hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md).
 The carrier, code, repair law, scheduler, preparation and observer apparatus
 may be declared design choices. Do not make proof that these choices are
@@ -50,23 +51,20 @@ between actual preparations, interventions and shared records. Deriving a
 consequence of a specified construction does not require deriving that
 construction's uniqueness.
 
-Field claims use the [official source contract](model/SOURCE_SELECTION.md)
-and its typed consumers. The [Wilson comparison contract](model/particle_common_contract/PROOF.md)
-retains its separate source domain. Regenerate the actual member and result; matching
+Field claims use the [specification](model/polynomial_sv/SPEC.md)
+and its typed consumers. Regenerate the actual member and result; matching
 labels or hashes alone do not admit a different preparation or clock.
 Comparison programs retain their stated domains until an explicit transfer
 proof connects them. Fixing this construction does not prove its physical
 continuum or observed particle dictionary.
 
-Use the [joint field and particle dependency map](model/particle_joint_reconstruction/DEPENDENCIES.md)
-and its machine register as the common acceptance list. Component controls
-retain their source domains; their separate checklists do not add duplicate
+Component controls retain their source domains; their separate checklists do not add duplicate
 physical requirements. Pure Yang-Mills gap claims require a pure-gauge
 instance or a proved transfer. A photon-containing theory has no positive
 global vacuum gap under its physical massless-photon interpretation.
 
 Keep architecture choices distinct from empirical calibration. Settings
-chosen using target masses or other comparison data are calibration inputs;
+chosen using comparison data are calibration inputs;
 agreement with those inputs is not an independent prediction. Changes to the
 construction or interpretation must preserve that input ancestry.
 
@@ -75,8 +73,8 @@ construction or interpretation must preserve that input ancestry.
 The full rules are in the [docs index](docs/README.md#rules-for-this-directory).
 
 - The `docs/` root holds only the selected high-level programs, references
-  and ledgers, such as `COMPLETION_PROGRAM.md`, `OPH_FALSIFICATION_PROGRAM.md`
-  and `POSTDICTION_LEDGER.md`. Do not add a root document unless it is a new
+  and ledgers, such as `OPH_FALSIFICATION_PROGRAM.md` and
+  `FROZEN_PREDICTION_LADDER.md`. Do not add a root document unless it is a new
   program or ledger of that kind.
 - Never add a daily note, progress report, audit result, integration record,
   PR handoff or status summary anywhere under `docs/`, and never put a date in

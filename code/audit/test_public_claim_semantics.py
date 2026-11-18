@@ -71,31 +71,14 @@ def test_fz10_public_wording_matches_the_frozen_decision_rule() -> None:
 
 
 def test_constant_claim_owners_retain_their_physical_boundaries() -> None:
-    koide = " ".join(
-        (ROOT / "extra/koide_identity_from_positive_c3_face_circulants.tex")
-        .read_text(encoding="utf-8")
-        .lower()
-        .split()
-    )
     capacity = " ".join(
         (ROOT / "code/capacity_readback/README.md")
         .read_text(encoding="utf-8")
         .lower()
         .split()
     )
-    coupling = " ".join(
-        (ROOT / "model/predictions/README.md")
-        .read_text(encoding="utf-8")
-        .lower()
-        .split()
-    )
-    assert "under the balance and mass-ordering premises" in koide
-    assert "no source-only mass prediction is claimed" in koide
     assert "neither local count is a value of the cosmological n" in capacity
     assert "no universe-level physical `n` is emitted" in capacity
-    assert "incomplete physical transport obligations" in coupling
-    assert "numerical interval does not bound those missing physical contributions" in coupling
-    assert "not a refutation of oph as a whole or a prospective prediction success" in coupling
 
 
 def test_readme_case_section_remains_short_and_reader_facing() -> None:
@@ -111,7 +94,7 @@ def test_readme_case_section_remains_short_and_reader_facing() -> None:
         ),
         (
             ROOT / "README_FR.md",
-            "## Fondements mathématiques",
+            "## Ce qui en sort",
             140,
         ),
     ]

@@ -10,13 +10,11 @@
     "allowed_loader_classifications": [
       "deterministic_hand_transcribed_gaussian_approximation",
       "deterministic_transcribed_constants_generator",
-      "hash_verifying_external_table_scorer",
       "legacy_optional_live_api_refresh",
       "live_api_refresh_snapshot"
     ],
     "allowed_raw_input_classifications": [
       "hand_transcribed_published_constants_no_raw_payload",
-      "hash_pinned_external_files_not_vendored",
       "live_api_snapshot_raw_responses_not_archived"
     ]
   },
@@ -61,45 +59,6 @@
         "requirements": [
           "Python standard library",
           "network access to the declared PDG API endpoints"
-        ]
-      }
-    },
-    {
-      "dataset_id": "pdg-2024-vus-kmu2-compare-only-fixture",
-      "artifact_path": "code/particles/data/pdg_2024_vus_kmu2_fixture.json",
-      "artifact_sha256": "2d000ccbad9c0540f9f192e2302d193798820923a973c3ecd5f25f312cf225c4",
-      "artifact_bytes": 1519,
-      "artifact_role": "compare_only_channel_specific_cabibbo_coordinate",
-      "provenance_status": "local_artifact_hash_pinned_transcription_gap_declared",
-      "source": {
-        "publisher": "Particle Data Group",
-        "version": "Review of Particle Physics 2024, CKM Quark-Mixing Matrix, revised April 2024; PDF dated 31 May 2024",
-        "citation": "S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024), Sec. 12.2.2: Kmu2 decay-constant-ratio determination |Vus| = 0.2250 +/- 0.0004",
-        "urls": [
-          "https://pdg.lbl.gov/2024/reviews/rpp2024-rev-ckm-matrix.pdf",
-          "https://pdg.lbl.gov/2024/reviews/contents_sports.html"
-        ]
-      },
-      "license": {
-        "expression": "CC-BY-4.0",
-        "note": "The 2024 Review of Particle Physics contents page states that its content is licensed under Creative Commons Attribution 4.0 except where otherwise noted."
-      },
-      "raw_inputs": {
-        "classification": "hand_transcribed_published_constants_no_raw_payload",
-        "raw_payloads_vendored": false,
-        "upstream_files": [],
-        "provenance_gap": "The channel-specific central value and quoted uncertainty are hand-transcribed into a deterministic compare-only fixture. The source PDF is not vendored or assigned an invented hash."
-      },
-      "loader": {
-        "path": "code/particles/scripts/generate_pdg_2024_vus_kmu2_fixture.py",
-        "sha256": "6163d85f6e0a0b87283ee01f6a7beeaea47b29619ea0964482cfbf9baab57d9f",
-        "bytes": 3059,
-        "classification": "deterministic_transcribed_constants_generator",
-        "network_required": false,
-        "deterministic_from_declared_inputs": true,
-        "declared_variable_metadata_json_pointers": [],
-        "requirements": [
-          "Python standard library"
         ]
       }
     },
@@ -264,119 +223,6 @@
       }
     },
     {
-      "dataset_id": "nufit-6.1-profile-source-manifest",
-      "artifact_path": "code/particles/neutrino/nufit61_sources.json",
-      "artifact_sha256": "8fab3d1228e7d5945cbae9a62c68028f177c9fc3a0b2fc7e3f1c287818ea9b94",
-      "artifact_bytes": 2455,
-      "artifact_role": "hash_pinned_external_source_manifest",
-      "provenance_status": "local_manifest_and_upstream_hashes_pinned",
-      "source": {
-        "publisher": "NuFIT collaboration",
-        "version": "NuFIT 6.1 (2025), data cutoff November 2025",
-        "citation": "I. Esteban et al., NuFit-6.0, JHEP 12 (2024) 216, with the NuFIT 6.1 profile release",
-        "urls": [
-          "https://www.nu-fit.org/?q=node/309",
-          "https://doi.org/10.1007/JHEP12(2024)216"
-        ]
-      },
-      "license": {
-        "expression": "NOASSERTION",
-        "note": "NuFIT publishes the tables and requests citation, but the repository found no explicit redistribution license. The tables are therefore hash-pinned and not vendored."
-      },
-      "raw_inputs": {
-        "classification": "hash_pinned_external_files_not_vendored",
-        "raw_payloads_vendored": false,
-        "upstream_files": [
-          {
-            "id": "TBoff-IO",
-            "url": "https://www.nu-fit.org/sites/default/files/v61.release-TBoff-IO.txt.xz",
-            "sha256": "6e14ce52503d053ce4d8d0171ffecae24c2dd3dc41be99c3c5c952f321331f16",
-            "bytes": 4083980
-          },
-          {
-            "id": "TBoff-NO",
-            "url": "https://www.nu-fit.org/sites/default/files/v61.release-TBoff-NO.txt.xz",
-            "sha256": "58b113927c13f55925558e1ef0a598b357a237cde5c466b9f660cc08569970f6",
-            "bytes": 3996028
-          },
-          {
-            "id": "TByes-IO",
-            "url": "https://www.nu-fit.org/sites/default/files/v61.release-TByes-IO.txt.xz",
-            "sha256": "d92fbd1886a85738080a394a6af513ec1ac49d5e474a6517cada0c2c6f3b96b2",
-            "bytes": 4087336
-          },
-          {
-            "id": "TByes-NO",
-            "url": "https://www.nu-fit.org/sites/default/files/v61.release-TByes-NO.txt.xz",
-            "sha256": "c74bd6df84297a8429cd3b9e1239751cd0762756f1ec0c2a31248d78570b26e4",
-            "bytes": 3996408
-          },
-          {
-            "id": "release-notes",
-            "url": "https://www.nu-fit.org/sites/default/files/v61.release-notes.pdf",
-            "sha256": "b809159c6b03360a2c7d7e06ada3516ebb62356d718682b0c1b901dd67397aa6",
-            "bytes": 400835
-          }
-        ],
-        "provenance_gap": "The raw tables are not vendored because their redistribution license is NOASSERTION. Reproduction must acquire them explicitly and the scorer rejects any byte/hash mismatch."
-      },
-      "loader": {
-        "path": "code/particles/neutrino/score_neutrino_nufit61.py",
-        "sha256": "917eb06900fb8a40ede78edd52d4ca79a95434aa998980ff5a6cc8a03ba2c2a2",
-        "bytes": 31241,
-        "classification": "hash_verifying_external_table_scorer",
-        "network_required": false,
-        "deterministic_from_declared_inputs": true,
-        "declared_variable_metadata_json_pointers": [
-          "/generated_utc"
-        ],
-        "requirements": [
-          "Python standard library",
-          "xz executable for compressed profile tables",
-          "explicitly acquired files matching the registered byte counts and SHA-256 values"
-        ]
-      }
-    },
-    {
-      "dataset_id": "flag-2024-light-quark-ratio-fixture",
-      "artifact_path": "code/particles/data/flag_2024_light_quark_ratio_fixture.json",
-      "artifact_sha256": "82df19655fa2db8973376f0b5627729189c40f40042d38bfdc0f08bd1dce3e78",
-      "artifact_bytes": 2865,
-      "artifact_role": "compare_only_light_quark_ratio_falsification_fixture",
-      "provenance_status": "local_artifact_hash_pinned_transcription_gap_declared",
-      "source": {
-        "publisher": "Flavour Lattice Averaging Group (FLAG)",
-        "version": "FLAG Review 2024, arXiv:2411.04268v3",
-        "citation": "Y. Aoki et al., FLAG Review 2024, arXiv:2411.04268; light-quark averages summarized in Tables 11 and 12, with the higher-precision Nf=2+1+1 ms/mud recommendation in Eq. (37)",
-        "urls": [
-          "https://arxiv.org/abs/2411.04268",
-          "https://doi.org/10.48550/arXiv.2411.04268"
-        ]
-      },
-      "license": {
-        "expression": "NOASSERTION",
-        "note": "The repository records four attributed dimensionless numerical transcriptions, not a redistributed FLAG table, source PDF, or terms snapshot."
-      },
-      "raw_inputs": {
-        "classification": "hand_transcribed_published_constants_no_raw_payload",
-        "raw_payloads_vendored": false,
-        "upstream_files": [],
-        "provenance_gap": "The published marginal ratios and uncertainties are hand-transcribed into a deterministic compare-only fixture. The source PDF is not vendored or assigned an invented hash, and no covariance between the two inputs is available."
-      },
-      "loader": {
-        "path": "code/particles/scripts/generate_flag_2024_light_quark_ratio_fixture.py",
-        "sha256": "d2a90145837b0e02c98bc5b5af4adb37133a8720202b2ee2e9bde607d4322f25",
-        "bytes": 5459,
-        "classification": "deterministic_transcribed_constants_generator",
-        "network_required": false,
-        "deterministic_from_declared_inputs": true,
-        "declared_variable_metadata_json_pointers": [],
-        "requirements": [
-          "Python standard library"
-        ]
-      }
-    },
-    {
       "dataset_id": "codata-2022-inverse-fine-structure-constant",
       "artifact_path": "code/P_derivation/codata_2022_alpha_fixture.json",
       "artifact_sha256": "e5a967c2895c51ce11574da0d5fda9630b05d9162335a1e9e06da12cfecc9930",
@@ -451,80 +297,6 @@
         "declared_variable_metadata_json_pointers": [],
         "requirements": [
           "Python standard library"
-        ]
-      }
-    },
-    {
-      "dataset_id": "bouchard-donagi-threshold-spectrum-literature-packet",
-      "artifact_path": "code/particles/data/oph_bd_threshold_spectrum_inputs.json",
-      "artifact_sha256": "1ef33af8daace68df0a66e636db8fcfd4c7ac0d1c89f8aeeaf20990f661d9806",
-      "artifact_bytes": 9299,
-      "artifact_role": "literature_derived_string_candidate_source_packet",
-      "provenance_status": "local_manifest_and_upstream_hashes_pinned",
-      "source": {
-        "publisher": "arXiv authors and Particle Data Group",
-        "version": "hep-th/0512149v1, hep-th/0602096v2, 0804.2096v1, hep-th/0411156v1, and PDG 2025 QCD review",
-        "citation": "Bouchard-Donagi visible branch and related cohomology/hidden-sector sources, plus the compare-only PDG 2025 alpha_s world average",
-        "urls": [
-          "https://export.arxiv.org/e-print/hep-th/0512149v1",
-          "https://export.arxiv.org/e-print/hep-th/0602096v2",
-          "https://export.arxiv.org/e-print/0804.2096v1",
-          "https://export.arxiv.org/e-print/hep-th/0411156v1",
-          "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-qcd.pdf"
-        ]
-      },
-      "license": {
-        "expression": "NOASSERTION",
-        "note": "The cited source archives are hash-pinned but not vendored, and the repository does not assert redistribution rights for the arXiv source bundles or PDG review."
-      },
-      "raw_inputs": {
-        "classification": "hash_pinned_external_files_not_vendored",
-        "raw_payloads_vendored": false,
-        "upstream_files": [
-          {
-            "id": "bd2005",
-            "url": "https://export.arxiv.org/e-print/hep-th/0512149v1",
-            "sha256": "a617437d667ff3d4ca298c56293ff55b11a5447eb88484edfcb03f077a9e783f",
-            "bytes": 15223
-          },
-          {
-            "id": "bcd2006",
-            "url": "https://export.arxiv.org/e-print/hep-th/0602096v2",
-            "sha256": "9e5ceee9a88a89c7b41f8b02ae740b7400aa1041e32d5323ecfbd6c590542be9",
-            "bytes": 23582
-          },
-          {
-            "id": "bd2008",
-            "url": "https://export.arxiv.org/e-print/0804.2096v1",
-            "sha256": "26c4f8732f2f32163d2a3a7525231920fe84d386a929db802a0a99d8f5d22473",
-            "bytes": 32702
-          },
-          {
-            "id": "dh_or2004",
-            "url": "https://export.arxiv.org/e-print/hep-th/0411156v1",
-            "sha256": "eb8c3fa62e53179bc519f940f075f3afe3bf4e06f96b811dc1cb0e4ef6461817",
-            "bytes": 47795
-          },
-          {
-            "id": "pdg2025_qcd",
-            "url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-qcd.pdf",
-            "sha256": "7cbb5c5ef1d217fd0a13544db36d031e600f4e4df7309af6c859a0b988ed6ada",
-            "bytes": 1071930
-          }
-        ],
-        "provenance_gap": "The upstream source archives are not vendored. Reproduction may acquire the exact public bytes and must verify all registered sizes and SHA-256 values before treating the literature packet as pinned."
-      },
-      "loader": {
-        "path": "code/particles/uv/build_oph_bd_threshold_spectrum_receipts.py",
-        "sha256": "6cc5c4f2453d8dfbd474d31e1add21891d8046b84986ded454b3bc03055aae98",
-        "bytes": 52881,
-        "classification": "deterministic_transcribed_constants_generator",
-        "network_required": false,
-        "deterministic_from_declared_inputs": true,
-        "declared_variable_metadata_json_pointers": [],
-        "requirements": [
-          "Python standard library",
-          "jsonschema from the pinned root requirements"
         ]
       }
     },

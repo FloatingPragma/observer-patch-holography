@@ -72,11 +72,11 @@ transition probability is supplied by the free shells.
 
 The nominal inputs are `P=1.6309682094039593`,
 `l_P=1.616255e-35 m`, `hbar*c=1.973269804e-7 eV m`,
-`m=510998.95069 eV` and the additional scale hypothesis `a=sqrt(P) l_P`.
+the CODATA electron rest energy `m` and the additional scale hypothesis `a=sqrt(P) l_P`.
 They give `a≈1.04603e-28 eV^-1` and `d≈5.47094e-58 eV^-2`.
 P inherits the exposed alpha calibration; the length conversion follows the
 [existing diagnostic](../../code/a5_fingerprint/runtime/fz12_auger_threshold_diagnostic_receipt.json).
-The electron mass is a declared nominal calibration. The error certificate
+The error certificate
 controls the approximation at these inputs, not their measurement uncertainty.
 
 Hard momentum has magnitude `K` in `[1e17,1e20] eV`; a soft photon has momentum

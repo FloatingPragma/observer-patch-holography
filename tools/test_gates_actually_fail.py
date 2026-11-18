@@ -96,7 +96,6 @@ def test_prose_gate_scans_register_docs_and_holds_out_allowlist() -> None:
         "docs/registers/OBSERVATION_LEDGER_V3.md",
         "docs/registers/PREMISE_REGISTER_V3.md",
         "docs/EMPIRICAL_STATUS.md",
-        "code/instrument_specs/OL_A1_FACTORIAL_FOLLOWUP_DESIGN.md",
     ):
         assert (ROOT / required).is_file(), required
         assert required in scanned, required
@@ -152,33 +151,7 @@ def test_main_paper_relevance_diagnostic_preserves_live_rg_routes() -> None:
         assert forbidden not in text, forbidden
 
 
-def test_main_paper_keeps_generalized_entropy_stationarity_as_interface() -> None:
-    text = " ".join(
-        (ROOT / "paper/tex_fragments/PAPER.tex")
-        .read_text(encoding="utf-8")
-        .split()
-    )
-    for required in (
-        "proved finite MaxEnt envelope identities",
-        "declared fixed-cap generalized-entropy stationarity interface",
-        "does not, by itself, identify a variation of the state constraints with a geometric area variation",
-        "declared joint state--geometry balance",
-    ):
-        assert required in text, required
-    for forbidden in (
-        "MaxEnt selection implies that for variations",
-        "derived fixed-cap generalized-entropy stationarity theorem",
-        "MaxEnt-selected fixed-cap generalized-entropy stationarity theorem",
-    ):
-        assert forbidden not in text, forbidden
-
-
 def test_einstein_surfaces_keep_local_stress_and_ward_supplies_conditional() -> None:
-    main_text = " ".join(
-        (ROOT / "paper/tex_fragments/PAPER.tex")
-        .read_text(encoding="utf-8")
-        .split()
-    )
     wrapper_text = " ".join(
         (
             ROOT
@@ -187,20 +160,7 @@ def test_einstein_surfaces_keep_local_stress_and_ward_supplies_conditional() -> 
         .read_text(encoding="utf-8")
         .split()
     )
-    supplement_text = " ".join(
-        (ROOT / "paper/tex_fragments/DERIVATION_TECHNICAL_SUPPLEMENT_PORT.tex")
-        .read_text(encoding="utf-8")
-        .split()
-    )
-    publication_text = f"{main_text} {wrapper_text} {supplement_text}"
-    for required in (
-        "Charge compatibility and tensor tomography alone imply neither the face cancellation nor its continuum limit",
-        "declared fixed-cap generalized-entropy stationarity interface",
-        "conditional same-source local-stress and weak-Ward bridge",
-        "conditional local null-stress reading under effective-locality and same-source matching",
-        "assume the effective-locality and same-source bridge that identifies the proved half-line endpoint derivative",
-    ):
-        assert required in publication_text, required
+    publication_text = wrapper_text
     for forbidden in (
         "Positive null translations and modular charges reconstruct the local conserved stress tensor",
         "Positive null translations and modular charges reconstruct a local conserved stress tensor",
@@ -381,23 +341,6 @@ def _write_public_fixture(root: Path) -> None:
         _copy(relative, root)
     for surface in manifest["comparison_table_surfaces"]:
         _copy(surface["path"], root)
-    ledger = root / "code/particles/runs/status/postdiction_ledger.json"
-    ledger.parent.mkdir(parents=True, exist_ok=True)
-    _write_json(
-        ledger,
-        {
-            "artifact": "oph_postdiction_ledger",
-            "sections": {
-                "fixture": [
-                    {"id": row["lane"]["row_id"]}
-                    for surface in manifest["comparison_table_surfaces"]
-                    for row in surface["rows"]
-                    if row.get("lane", {}).get("kind") == "ledger"
-                ]
-            },
-        },
-    )
-
     for surface in manifest["surfaces"]:
         path = root / surface["path"]
         path.write_text(

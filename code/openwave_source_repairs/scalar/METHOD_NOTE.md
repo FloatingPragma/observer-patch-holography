@@ -1,3 +1,0 @@
-# Method
-
-The74-port construction is tested on every single/pair source coordinate, with invalid identities retained. Literal native calls and factorized column enumeration are separate counts. Exact integer Laplacian and rotation identities prove the scalar orbital statement; the spin factor and ray reader are declared inputs. A second implementation reconstructs graph edges from coordinate inner products and rotations from oriented faces, importing no producer module. The full inputs and26 checks reproduce under60seconds. No physical spin interpretation or source-word apparatus execution is inferred from the representation identity.

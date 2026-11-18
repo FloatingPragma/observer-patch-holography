@@ -1,30 +1,21 @@
 # Scientific registers
 
 This directory contains machine-readable scientific registers and generated
-evidence summaries. The [live model](../model/README.md) owns observer and
-repair-law implementation; these sources record its connections to finite
-and continuum results, declared physical premises and observation targets.
+evidence summaries. The [executable model](../model/README.md) owns the
+observer and repair-law implementation; these sources record the declared
+physical premises and observation targets of the theory.
 Finite construction evidence does not by itself promote a physical claim.
 The [five-ledger map](../claims/README.md#the-five-ledgers) shows which of
 these files are ledger sources and which are rendered views.
 
 - [`premise_register.json`](premise_register.json) is the premises ledger
-  source. Its rows are the canonical premises, each with a discharge record for the
-  current executable implementation; its `model_supply` section connects the
-  common repair candidate to theorem premises and bounded completion
-  conditions, its `sm_coverage` section classifies each Standard Model term by
-  what OPH supplies, and its `gravity_rungs` section types each gravity
-  interface. `python3 tools/build_premise_register.py` renders
+  source. Its rows are the canonical premises; its `sm_coverage` section
+  classifies each Standard Model term by what OPH supplies, and its
+  `gravity_rungs` section types each gravity interface.
+  `python3 tools/build_premise_register.py` renders
   `docs/registers/PREMISE_REGISTER_V3.md` with the coverage and the rungs as
-  closing sections, and `python3 tools/build_model_theorem_map.py` renders the
-  model view `model/PREMISES.md`; both take `--check`. The crosswalk indexes
-  every canonical claim row and tracked Lean source module, with typed
-  model-domain connections and explicit unmapped obligations. Its checks
-  establish coverage and source custody without certifying entailment or
-  premise discharge. GitHub owns
-  tasks and the claim registry owns established claim scope; the model
-  programme is in
-  [Model construction](../model/CONSTRUCTION.md#completion-target-and-acceptance-criteria).
+  closing sections and takes `--check`. GitHub owns tasks and the claim
+  registry owns established claim scope.
 - [`observation_ledger.json`](observation_ledger.json) is the observation
   ledger source of the predictions-and-tests ledger. Its rows are the
   observation targets, grouped by historical V3 lane; its `instruments` section is the emergent-instrument

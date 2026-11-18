@@ -15,9 +15,6 @@ EXPECTED = {
     "OPH-COSMO-FLRW-RECORD-DENSITY": "same_weight_identities_and_profile_boundary",
     "OPH-BH-CROSSING-READ-AREA-LAW": "cut_separation_and_entropy_preserving_replacement",
     "OPH-GOLDEN-SOURCE-QUADRATURE": "analogous_limits_not_golden_arithmetic",
-    "OPH-SOURCE-FULL-FAMILY-READ-ROUTING": "finite_routing_not_transferred",
-    "OPH-SOURCE-ROUTING-STORAGE-AND-RAW-COUNT": "native_resource_counts_not_transferred",
-    "OPH-FEDERATION-LOG-GLUING-NONIDENTIFICATION": "recorded_architecture_not_transferred",
     "OPH-RG-INFORMATION-RESOURCE-BOUND": "general_information_bound_retained_dense_counts_not_transferred"}
 OWN = {"OPH-M1-SPARSE-CAUSAL-COUNT-REPLACEMENT", "OPH-M1-CUT-OBSERVABLE-NONUNIVERSALITY",
        "OPH-M1-SPARSE-ACTION-AND-TICK-OBSTRUCTION", "OPH-M1-ENTROPY-PRESERVING-SPARSIFICATION"}

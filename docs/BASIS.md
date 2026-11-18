@@ -5,9 +5,9 @@ agreement condition and an executable specification. It also adopts
 state-selection and response-endogeneity principles, motivated by the
 requirement of internal realization but not deduced from closure alone.
 The conditional theorems of the [theorem library](../paper/README.md) keep
-their displayed premises; the [premise map](../model/PREMISES.md) records the
-connections between those premises and the executable specification and
-which premises remain declared inputs.
+their displayed premises; the [premise register](registers/PREMISE_REGISTER_V3.md)
+records the connections between those premises and the executable
+specification.
 
 ## The closure hypothesis
 
@@ -74,14 +74,26 @@ states what inter-observer agreement must preserve.
 
 ## The executable specification
 
-The official specification is [CCF-LT-2](../model/SPEC.md). It fixes a finite
-oriented carrier, complete native matter and electromagnetic field operators,
-signed transport and interactions, local response and per-vertex capacity,
-preparations, references, complete instruments and finite resources.
-All terms are installed before free evolution. The creator may supply this
-architecture; observers need not invent its laws. Its physical identification
-is judged by the [acceptance criteria](../model/CONSTRUCTION.md#completion-target-and-acceptance-criteria).
-Other finite constructions retain the hypotheses of their own theorems.
+The official specification is [polynomial-sv](../model/polynomial_sv/SPEC.md).
+Its carrier is a federation of twelve-port icosahedral cells joined by
+external seams. Every port holds a load of 0, 1 or 2, and every seam keeps a
+private memory that its two port observers write, phase and unwrite. On the
+loads this memory acts exactly as an exchange plus an agreement energy with
+one supplied coupling: the contrast-memory law, the candidate native repair
+law of the theory. A local emitter writes objects and a two-observer reader
+admits agreed records. The creator may supply this architecture; observers
+need not invent its laws. The model reproduces particle stability on its
+observers' agreed records ([binding theorem](../model/polynomial_sv/PROOF.md)).
+
+The carrier is hardware of the computation and no physical space. Physical
+space, time, fields and particles are effective descriptions that the
+observers inside the computation use for the records they agree on, and every
+test compares distributions of admissible observer records with what
+observers in our world record. The theory proves that observers who inhabit
+the simulation can describe their experiences as relativistic 3+1D continuum
+spacetimes; supplying the premises of that theorem with the model's own local
+clocks and records is work in progress. Other finite constructions retain the
+hypotheses of their own theorems.
 
 ## Entry point and order
 
@@ -104,13 +116,11 @@ name parts of the basis above.
 | A3 | `conditional_maximum_randomness` | The adopted state-selection principle on its declared reference and constraint space |
 
 The [premise reference](AXIOM_REFERENCE.md) gives the formal statements of
-A1, A2 and A3; it is retained byte-identical for pinned receipts, and its
-"three core axioms" wording is superseded by this basis. The machine-readable
-source is
+A1, A2 and A3, which this basis places among the principles above. The
+machine-readable source is
 [the premise registry](../claims/axiom_registry.yaml). A theorem that uses them
-states an implication; the [premise map](../model/PREMISES.md) records the
-connections to the executable specification and which antecedents remain
-declared inputs.
+states an implication; the [premise register](registers/PREMISE_REGISTER_V3.md)
+records the connections to the executable specification.
 
 ## The paper set
 
@@ -118,6 +128,6 @@ declared inputs.
   gives the account, states the closure and executable-model hypotheses and
   walks through the tower of results layer by layer.
 - The [executable observer paper](../paper/executable_observer_construction.tex)
-  states the specification, the executed components and the ordered joins
-  that remain.
+  specifies polynomial-sv, proves the binding theorem and reports what its
+  observers read.
 - The theorem library holds the long proofs: consensus, observers and records, gauge structure, matter, screen microphysics, and spacetime with Einstein dynamics.

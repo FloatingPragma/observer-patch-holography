@@ -14,25 +14,6 @@ assets/book_pdf_renderings/**/*.pdf -text -eol
 # OpenTimestamps proofs are verified; never normalize them.
 evidence/custody/** -text -eol -diff
 
-# Preserved simulation producers, data and receipts retain their original bytes.
-evidence/observer_dynamics_20260925/sim-analysis/** -text -eol -diff
-evidence/observer_dynamics_20260925/oph-physics-sim/** -text -eol -diff
+# Preserved simulation producers retain their original bytes.
 evidence/source_net_causal_poset/manifold_sampled/oph_exact/*.py -text -eol -diff
 evidence/source_net_causal_poset/manifold_sampled/tests/test_exact_source_net_manifold_sampled.py -text -eol -diff
-
-# Issue 776 exact provenance chunks and geometry are byte-hashed binary inputs.
-code/support_wiring/geometry/*.npz -text -eol -diff
-evidence/support_wiring_776/*.npz -text -eol -diff
-evidence/support_wiring_776/trace/*.npz -text -eol -diff
-# Full routed histories use explicit binary event rows and lossless deltas.
-code/source_read_routing/controls/*.tape -text -eol -diff
-code/source_read_routing/controls/*.input -text -eol -diff
-code/source_routing_refinement/controls/*.tape -text -eol -diff
-
-# Published detector data retain their original bytes, including CRLF and
-# whitespace, so Zenodo's checksums verify on every checkout platform.
-model/anharmonic_observations/data/** -text -eol -diff
-model/anharmonic_transfer/data/** -text -eol -diff
-
-# Native observable CSV receipts are byte-hashed outputs of csv.DictWriter.
-code/openwave_candidate/validation/observables/modular_time/correlations.csv -text -eol

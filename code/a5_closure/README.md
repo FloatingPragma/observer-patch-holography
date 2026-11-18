@@ -351,9 +351,8 @@ and canonically in `manifests/common_ew_order_unit_carrier_reference.json`,
 `manifests/family_band_attachment_reference.json`,
 `manifests/seam_grammar_matter_classification_reference.json` and that same
 source-parent inventory, with path-level references in
-`code/particles/runs/status/postdiction_ledger.json`,
-`claims/selection_ledger.json`, `claims/claim_registry.yaml`,
-`claims/physical_identification_registry.json` and `docs/POSTDICTION_LEDGER.md`.
+`claims/selection_ledger.json`, `claims/claim_registry.yaml` and
+`claims/physical_identification_registry.json`.
 
 ### Reading a pin back
 

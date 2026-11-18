@@ -137,7 +137,7 @@ def test_small_density_corruption_rejected(receipt):
 @pytest.mark.parametrize("mode", ["missing", "wrong_hash", "changed_parent_bytes"])
 def test_pins_replayed_fresh(receipt, monkeypatch, mode):
     packet = deepcopy(receipt)
-    relative = "paper/tex_fragments/WHITNEY_INTERACTING_QUANTUM.tex"
+    relative = "code/electromagnetism/whitney_quantum_state.py"
     if mode == "missing":
         del packet["source_pins"][relative]
     elif mode == "wrong_hash":

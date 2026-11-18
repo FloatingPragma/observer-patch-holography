@@ -3274,17 +3274,11 @@ def render(register: dict, rows: list[dict], bitcoin_upgrades: dict | None = Non
     lines.append("## Executable model and exposed-data correspondence")
     lines.append("")
     lines.append(
-        "The [native model audit](../model/PHYSICAL_AUDIT.md) records exact"
-        " single-carrier signal/clock laws, repair-action decompositions and"
-        " bounded calibration contracts. These are finite mathematical and"
-        " software results under declared laws and preparations. They do not"
-        " identify a physical primordial field, a physical Lorentzian action"
-        " or an observed clock, and require no federation for their local scope."
-        " Their validity is independent of whether an additional physical"
-        " correspondence succeeds. The active modular-clock construction and"
-        " its direct-gap comparison with published optical ratios are conditional"
-        " model evidence and a retrospective attachment audit; neither creates"
-        " a prospective freeze."
+        "The executable model, [polynomial-sv](../model/polynomial_sv/README.md),"
+        " reproduces particle stability as an observable on the observers'"
+        " agreed records. Its results are finite mathematical and software"
+        " results under a declared law and declared preparations, and none of"
+        " them creates a frozen-prediction row."
     )
     lines.append("")
     lines.append(

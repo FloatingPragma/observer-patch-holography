@@ -11,7 +11,6 @@ from tools.closed_lanes import live_owner
 
 ROOT = Path(__file__).resolve().parents[1]
 CLAIM_ID = "OPH-MODAL-MAXWELL-FACTORIZATION-BOUNDARY"
-POSTDICTION_ID = "modal_maxwell_factorization_boundary"
 LEAN_PATH = "Lean/Screen/ModalMaxwellFactorizationBoundary.lean"
 
 CLAIM_EVIDENCE = [
@@ -57,28 +56,21 @@ OBSERVATION_EVIDENCE = [
     "code/electromagnetism/verify_whitney_maxwell_dynamics.py",
     "code/electromagnetism/test_whitney_maxwell_dynamics.py",
     "code/electromagnetism/test_whitney_charged_matter.py",
-    "paper/tex_fragments/WHITNEY_MAXWELL_DYNAMICS.tex",
-    "paper/tex_fragments/WHITNEY_CHARGED_MATTER.tex",
-    "paper/tex_fragments/WHITNEY_CHARGED_EXECUTION.tex",
     "code/electromagnetism/runtime/whitney_charged_dynamics_receipt.json",
     "code/electromagnetism/verify_whitney_charged_dynamics.py",
     "code/electromagnetism/test_whitney_charged_dynamics.py",
-    "paper/tex_fragments/WHITNEY_SPATIAL_CONSISTENCY.tex",
     "Lean/Screen/WhitneySpatialConsistency.lean",
     "code/electromagnetism/runtime/whitney_spatial_consistency_receipt.json",
     "code/electromagnetism/verify_whitney_spatial_consistency.py",
     "code/electromagnetism/test_whitney_spatial_consistency.py",
-    "paper/tex_fragments/WHITNEY_CHARGED_INSTRUMENT.tex",
     "code/electromagnetism/whitney_charged_instrument.py",
     "code/electromagnetism/verify_whitney_charged_instrument.py",
     "code/electromagnetism/test_whitney_charged_instrument.py",
     "code/electromagnetism/runtime/whitney_charged_instrument_receipt.json",
-    "paper/tex_fragments/WHITNEY_CHARGED_ENCLOSURE.tex",
     "code/electromagnetism/whitney_charged_enclosure.py",
     "code/electromagnetism/verify_whitney_charged_enclosure.py",
     "code/electromagnetism/test_whitney_charged_enclosure.py",
     "code/electromagnetism/runtime/whitney_charged_enclosure_receipt.json",
-    "paper/tex_fragments/WHITNEY_CHARGED_CHECKPOINT.tex",
     "code/electromagnetism/whitney_charged_checkpoint.py",
     "code/electromagnetism/verify_whitney_charged_checkpoint.py",
     "code/electromagnetism/test_whitney_charged_checkpoint.py",
@@ -97,25 +89,6 @@ OBSERVATION_EVIDENCE = [
     "model/maxwell_weak_field/PROOF.md",
     "model/maxwell_weak_field/results.json",
     "model/maxwell_weak_field/test_certificate.py",
-]
-
-POSTDICTION_ARTIFACTS = [
-    "code/electromagnetism/modal_maxwell_factorization.py",
-    "code/electromagnetism/test_modal_maxwell_factorization.py",
-    "paper/screen_microphysics_and_observer_synchronization.tex",
-]
-
-LEAN_DECLARATIONS = [
-    "modalCurlScale_sq_mul_dot_self",
-    "dot_modalCurl_zero",
-    "modalCurl_sq_on_transverse",
-    "complexMomentumDot_fourierCurl_zero",
-    "complexPhotonSpatialAction_complexifies",
-    "fourierCurl_sq_on_transverse",
-    "maxwellShapedModalGenerator_sq_wave",
-    "maxwellShapedModalGenerator_transverse",
-    "sameSignCurlMutation_sq_positive",
-    "sameSignCurlMutation_fails_wave",
 ]
 
 EXCLUDED_PHYSICAL_CONTENT = (
@@ -238,28 +211,6 @@ def test_detailed_paper_states_exact_result_and_full_boundary() -> None:
         assert excluded in prose
 
 
-def test_postdiction_row_matches_theorem_and_boundary() -> None:
-    rows = _json("code/particles/runs/status/postdiction_ledger.json")["sections"][
-        "forced_structure"
-    ]
-    row = _row(rows, "id", POSTDICTION_ID)
-    assert row["match"] == (
-        "exact bounded modal factorization; local source-produced "
-        "physical Maxwell theory not constructed"
-    )
-    assert row["lean_declarations"]["ModalMaxwellFactorizationBoundary"] == (
-        LEAN_DECLARATIONS
-    )
-    assert row["artifact_refs"] == POSTDICTION_ARTIFACTS
-    assert set(POSTDICTION_ARTIFACTS).issubset(CLAIM_EVIDENCE)
-    boundary = row["hypothesis_boundary"]
-    assert "PR-20, PR-21, and PR-22 remain declared inputs" in boundary
-    assert "PR-53 and PR-54 name missing attachments" in boundary
-    assert f"Historical lane #733 (closed; live owner #{live_owner(733)}) records" in boundary
-    assert "Scientific owner #733" not in boundary
-    assert "emits no frozen prediction" in boundary
-
-
 def test_claim_matrices_and_dependency_edge_are_exact() -> None:
     assert len([r for r in _csv("claims/novelty_matrix.csv") if r["claim_id"] == CLAIM_ID]) == 1
     falsification_rows = [
@@ -287,7 +238,6 @@ def test_no_frozen_prediction_or_marketing_surface_is_emitted() -> None:
     for row in frozen["rows"]:
         encoded = json.dumps(row, sort_keys=True)
         assert CLAIM_ID not in encoded
-        assert POSTDICTION_ID not in encoded
         assert LEAN_PATH not in encoded
 
     forbidden_marker = "modal-maxwell-factorization-boundary"

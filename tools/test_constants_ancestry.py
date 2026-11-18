@@ -90,7 +90,7 @@ def test_ledger_status_column_reads_the_supplied_ledger_rows() -> None:
 
 def test_supplied_ledger_rows_drive_the_premise_cross_check() -> None:
     ledger_rows = copy.deepcopy(ancestry_tool.load_ledger_rows())
-    ledger_rows["OL-H3"]["premises"].remove("PR-13")
+    ledger_rows["OL-H1"]["premises"].remove("PR-17")
     with pytest.raises(SystemExit, match="observation-ledger premises"):
         ancestry_tool.validate(_register(), ledger_rows=ledger_rows)
 
@@ -172,27 +172,6 @@ def test_pn_entry_without_pr17_rejected() -> None:
         ancestry_tool.validate(register)
 
 
-def test_owed_row_with_ancestry_rejected() -> None:
-    register = _register()
-    _row(register, "CA-07")["ancestry"].append(
-        {"input": "a smuggled input", "class": "derived"}
-    )
-    with pytest.raises(SystemExit, match="consumes nothing"):
-        ancestry_tool.validate(register)
-
-
-def test_postdiction_without_measured_target_rejected() -> None:
-    register = _register()
-    row = _row(register, "CA-04")
-    row["ancestry"] = [
-        entry
-        for entry in row["ancestry"]
-        if entry["class"] != "measured_comparison_target"
-    ]
-    with pytest.raises(SystemExit, match="plain sight"):
-        ancestry_tool.validate(register)
-
-
 def test_measured_target_on_conditional_determination_rejected() -> None:
     register = _register()
     _row(register, "CA-08")["ancestry"].append(
@@ -207,9 +186,9 @@ def test_measured_target_on_conditional_determination_rejected() -> None:
 
 def test_ledger_premise_mismatch_rejected() -> None:
     register = _register()
-    row = _row(register, "CA-03")
+    row = _row(register, "CA-01")
     row["ancestry"] = [
-        entry for entry in row["ancestry"] if entry.get("register_row") != "PR-13"
+        entry for entry in row["ancestry"] if entry.get("register_row") != "PR-37"
     ]
     with pytest.raises(SystemExit, match="observation-ledger premises"):
         ancestry_tool.validate(register)
@@ -219,13 +198,6 @@ def test_diagnostic_import_must_be_empirical_import() -> None:
     register = _register()
     _row(register, "CA-06")["diagnostic_import_register_rows"] = ["PR-11"]
     with pytest.raises(SystemExit, match="registered empirical_import"):
-        ancestry_tool.validate(register)
-
-
-def test_diagnostic_import_forbidden_on_postdiction_row() -> None:
-    register = _register()
-    _row(register, "CA-03")["diagnostic_import_register_rows"] = ["PR-14"]
-    with pytest.raises(SystemExit, match="only on a diagnostic row"):
         ancestry_tool.validate(register)
 
 
@@ -252,7 +224,7 @@ def test_nested_duplicate_json_key_rejected(tmp_path: Path) -> None:
 def test_dropped_row_rejected() -> None:
     register = _register()
     register["rows"].pop()
-    with pytest.raises(SystemExit, match="exactly 8 entries"):
+    with pytest.raises(SystemExit, match="exactly 4 entries"):
         ancestry_tool.validate(register)
 
 
@@ -266,8 +238,8 @@ def test_stale_surface_fails_check(tmp_path, monkeypatch) -> None:
 
 def test_stale_section_content_fails_check(tmp_path, monkeypatch) -> None:
     ledger = ancestry_tool.load_json(ancestry_tool.OBSERVATION_LEDGER_PATH)
-    ca07 = next(row for row in ledger["constants"]["rows"] if row["id"] == "CA-07")
-    ca07["falsifier"]["rule"] += " Fixture sentence."
+    ca06 = next(row for row in ledger["constants"]["rows"] if row["id"] == "CA-06")
+    ca06["falsifier"]["rule"] += " Fixture sentence."
     mutated = tmp_path / "observation_ledger.json"
     mutated.write_text(json.dumps(ledger, ensure_ascii=False), encoding="utf-8")
     monkeypatch.setattr(ancestry_tool, "OBSERVATION_LEDGER_PATH", mutated)

@@ -28,9 +28,6 @@ PINS = {
     'Lean/Screen/SeamCurrentEdge30Moment.lean',
     'Lean/ObserverPatchHolography/CoreAxioms.lean',
     'Lean/Screen/MagneticMatterStability.lean',
-    'paper/tex_fragments/WHITNEY_CHARGED_MATTER.tex',
-    'paper/tex_fragments/WHITNEY_REAL_CONTINUUM.tex',
-    'paper/tex_fragments/WHITNEY_MAGNETIC_CONTINUUM.tex',
     'code/electromagnetism/whitney_real_continuum.py',
     'code/electromagnetism/verify_whitney_real_continuum.py',
     'code/electromagnetism/whitney_magnetic_continuum.py',
@@ -264,9 +261,6 @@ def verify(packet):
     require(type(packet['source_pins']) is dict and set(packet['source_pins']) == PINS, 'source pin census')
     for path in PINS:
         exact(packet['source_pins'][path], hashlib.sha256((ROOT/path).read_bytes()).hexdigest(), 'source pin: '+path)
-    paper = (ROOT/'paper/tex_fragments/WHITNEY_MAGNETIC_CONTINUUM.tex').read_text(encoding='utf-8')
-    for label in LABELS:
-        require('\\label{'+label+'}' in paper, 'analytic proof label missing')
     lean = (ROOT/'Lean/Screen/MagneticMatterStability.lean').read_text(encoding='utf-8')
     for declaration in LEAN_DECLARATIONS:
         require('theorem '+declaration+' ' in lean, 'pointwise Lean declaration missing')

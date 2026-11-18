@@ -1,1 +1,0 @@
-RUN0 completed the finite calculation but JSON export rejected a NumPy boolean. The original source, freeze, empty stdout and full error remain. The successor changes only JSON scalar serialization; every source law, gate, instrument and interpretation remains identical. No scientific output was inspected before this amendment.

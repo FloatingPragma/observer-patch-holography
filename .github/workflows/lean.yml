@@ -10,9 +10,6 @@ on:
     branches: [main]
     paths:
       - "Lean/**"
-      - "model/ccf_lt2/bridges/**/*.lean"
-      - "model/ccf_lt2/bridges/verify_lean.py"
-      - "model/ccf_lt2/bridges/LEAN_RESULTS.json"
       - "claims/frozen_prediction_register.json"
       - "code/a5_fingerprint/spin_six_primitive_port_prediction.py"
       - "code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json"
@@ -27,9 +24,6 @@ on:
   pull_request:
     paths:
       - "Lean/**"
-      - "model/ccf_lt2/bridges/**/*.lean"
-      - "model/ccf_lt2/bridges/verify_lean.py"
-      - "model/ccf_lt2/bridges/LEAN_RESULTS.json"
       - "claims/frozen_prediction_register.json"
       - "code/a5_fingerprint/spin_six_primitive_port_prediction.py"
       - "code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json"
@@ -285,9 +279,6 @@ jobs:
           echo "The ObservableNormalForms build did not complete within its budget." >&2
           echo "Progress was saved; re-run this workflow to resume from the cache." >&2
           exit 1
-
-      - name: Kernel-check finite CCF-LT-2 theorem bridges
-        run: python3 -m model.ccf_lt2.bridges.verify_lean
 
       - name: Run protected-obstruction finite explorer
         run: python3 Lean/ObservableNormalForms/tools/verify_protected_obstruction_models.py

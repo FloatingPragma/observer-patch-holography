@@ -5,11 +5,9 @@ The particle/field interface module
 serves the particle, executable-observer and spacetime papers. It proves the
 incidence block-square and Hermiticity identities, null contraction controls,
 a conditional radial focusing identity and exact candidate-normalization
-arithmetic. The finite matter representation and interaction calculations
-are executable algebra with retained receipts in
-[`model/observer_particles/`](../../model/observer_particles/README.md),
-not a claim that all of those calculations are Lean theorems. Physical
-mass selection and the full Einstein antecedents are separate.
+arithmetic. Finite matter representation and interaction calculations
+outside this module are not Lean theorems, and the full Einstein antecedents
+are separate.
 
 For the typed Einstein composition theorem (GitHub #578), see the
 statement-by-statement and premise audit in
@@ -81,8 +79,8 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   select this grammar, that the refinement semigroup commutes, or that the
   finite generator is a physical repair law.
 - Declared repair law on the Euclidean history register (`SourceLaw/`):
-  sorry-free; `docs/research/SOURCE_LAW_HISTORY_REGISTER.md` names the
-  theorems behind its Lean statements. Entry points:
+  sorry-free; the module docstrings of `SourceLaw/` name the theorems behind
+  its Lean statements. Entry points:
   `eventually_repair_clock_iff`, `counterfamily_dynamical_response_shift`
   and `calibrated_response_iff`
   (RE-06 candidate), `golden_continuum_time_limit`, `equalTimeVar_err_uniform`
@@ -1180,14 +1178,14 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   full-support path law and a finite reachable-state argument.
 - Down-type register-Clebsch ratio boundary
   (`ObserverPatchHolography/ClebschRatio.lean`): 6 / 6 declarations,
-  sorry-free. The module proves the exact boundary identity
-  `y_s/y_d = (y_mu/y_e)/9`, proves invariance under a shared nonzero
+  sorry-free. The module proves the exact boundary identity of the declared
+  register-Clebsch lane, proves invariance under a shared nonzero
   multiplicative transport factor, proves that the declared six-row assignment
   table is duplicate-free and exhausts the permutations of its three distinct
   weights, and evaluates the light-family factor for
-  all six assignments of the conditionally selected, runtime-target-free
-  weight set `{1/3, 1, 3}`. It does not formalize the empirical FLAG
-  comparison or derive the declared weight alphabet and constraints.
+  all six assignments of the conditionally selected weight set `{1/3, 1, 3}`.
+  It formalizes no empirical comparison and does not derive the declared
+  weight alphabet and constraints.
   Flavor-dependent matching would define a modified lane outside the theorem.
 - Positive-chamber C3-circulant Koide identity
   (`ObserverPatchHolography/KoideCirculant.lean`): 8 / 8 public declarations
@@ -1199,8 +1197,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   phase, so the signed quotient is phase-independent with no cosine hypothesis
   assumed. The physical reading also
   requires all three circulant eigenvalues to be nonnegative. The module does
-  not select the phase, derive the physical charged-family attachment, or
-  promote the historically target-informed MCPR coordinate.
+  not select the phase or derive the physical charged-family attachment.
 - Finite de Sitter capacity and smooth shock normalization
   (`ObserverPatchHolography/DeSitterCapacityShock.lean`): 9 / 9 theorem
   declarations, sorry-free. The module proves that dimension-proportional
@@ -2052,7 +2049,7 @@ When adding a Lean statement that targets a paper item:
 - `Geometry/SourceRecordProtection.lean`: a linear record is invariant under every allowed pair-mean repair exactly when its coefficients agree on every allowed seam. Connected support leaves only total-load multiples. The theorem concerns this linear readout and pure pair-mean class; protected memory, driving and other laws are available.
 - `Geometry/SourceNonlinearRecord.lean`: any state-only readout invariant under every allowed pair mean on **all nonnegative states** factors through total load on connected finite support, with no linearity or continuity assumption; total-load readouts supply the converse. The finite equal-image argument is not an executable concentration protocol. Restricted code spaces and observation histories are outside the theorem.
 - `Geometry/SourcePassiveReset.lean`: every positive raw register in a nonnegative state retains at least its initial load divided by two to the number of incident means, even with changing ancillas. Finite exact native-zero reset is impossible; sequential use of fresh zero neighbours attains the bound with explicit finite support and operation count. Fresh-zero preparation, support and schedule are supplied; logical reset under another encoding is not excluded.
-- `Geometry/SourcePassiveMemoryBudget.lean`: the exact sum-of-squares loss ledger for arbitrary finite pair-mean words, its equality/closed-cycle criterion, baseline-shift covariance, and the ancillary cost of balanced copy. A nonzero balanced record cannot be copied while returning every ancilla to its original state, despite preserving total load. No physical energy interpretation or open-system impossibility follows. `SourcePassiveMemoryAxiomAudit.lean` checks all 40 theorems of these three modules transitively against standard axioms. Exact controls and scope are in `code/source_passive_memory/`; these are M1 preparation results, not a derivation of its feedback law.
+- `Geometry/SourcePassiveMemoryBudget.lean`: the exact sum-of-squares loss ledger for arbitrary finite pair-mean words, its equality/closed-cycle criterion, baseline-shift covariance, and the ancillary cost of balanced copy. A nonzero balanced record cannot be copied while returning every ancilla to its original state, despite preserving total load. No physical energy interpretation or open-system impossibility follows. `SourcePassiveMemoryAxiomAudit.lean` checks all 40 theorems of these three modules transitively against standard axioms; these are M1 preparation results, not a derivation of its feedback law.
 - `Geometry/SourcePopulationQuadrature.lean`: actual Bochner-integral finite-cell transport bounds, disjoint measurable partition quadrature, and a varying-population convergence theorem under vanishing assignment error. The actual golden assignment is specialized in `GoldenSourceAssignment.lean`; generated-interval counting is specialized in `GoldenSourceCausalLimit.lean`.
 - `Screen/LocalGaugeJetAction.lean`: first- and second-jet noncommutative covariance, cyclic-trace Ward cancellation, a Grassmann spin-sign identity, and an inhomogeneous-term control. The full local Standard Model action and variational current proof are analytic on declared geometry, Spin, connection, kinetic and matter inputs.
 
@@ -2074,9 +2071,9 @@ When adding a Lean statement that targets a paper item:
 - `Geometry/SourceNetVolumeError.lean`: almost-everywhere assigned cell masses are bounded by balls constructed from actual read paths, including zero-hop endpoints. `weighted_alexandrov_error` proves the complete displayed vertical error bound, with separate covering h and assignment H. `weighted_alexandrov_tendsto` derives general unequal-mass weighted-family convergence from vanishing a,H,h/a, converging durations and an eventual interior buffer. Paper: `SOURCE_NET_CAUSAL_LIMIT.tex`, Proposition `prop:source-net-alexandrov-volume` and equation `eq:source-net-volume-error`.
 - `Geometry/GoldenSourceVolumeLimit.lean`: actual golden specialization of the finite error, exact equal-mass raw-count identity, eventual inner-radius validity and aligned weighted count-volume convergence when K_n Delta_n tends to T and the interior buffer holds eventually. Paper: `SOURCE_NET_CAUSAL_LIMIT.tex`, Propositions `prop:source-net-alexandrov-volume` and `prop:golden-source-count-limit`.
 - `Geometry/SourceCountLimitAxiomAudit.lean`: an enforced transitive axiom allowlist and receipts for the 142 public theorems of the twelve modules above plus the three consumed golden quadrature and injectivity interfaces. Only propext, Classical.choice and Quot.sound are permitted; negative controls check rejection of admissions and compiler-trusted reductions.
-- `Geometry/SourceFeedbackTransport.lean`: 14 public declarations prove exact local feedback hops and paths, sharp additive error bounds and a finite semantic-order projection criterion. Non-interleaved local copy/reset/readback operations, protected versions, support and program are supplied; the complete finite W12 writer obligations are independently replayed in `code/source_feedback_transport/`. Physical causal order, native operation selection and quantum transport are excluded.
+- `Geometry/SourceFeedbackTransport.lean`: 14 public declarations prove exact local feedback hops and paths, sharp additive error bounds and a finite semantic-order projection criterion. Non-interleaved local copy/reset/readback operations, protected versions, support and program are supplied. Physical causal order, native operation selection and quantum transport are excluded.
 
-- `Geometry/SourceRoutingHierarchy.lean`: kernel-checked `base_diameter`, `stencil_refinement`, `tower_diameter` and `envelope_closed` support the analytic composition giving the all-level combinatorial distance bound `4*2^l-1`. Lean has no theorem identifying `baseEdge` with the base `triangleEdge`, or `subdividedEdge` with the next level's `triangleEdge`, and no theorem stating the composed all-level conclusion. Exact integer reconstruction matches captured L3–L5 faces and carrier seams in `code/source_routing_refinement/`. Physical support selection and all-level geometric port assignment are not established.
-- `Geometry/SourceRoutingStorage.lean`: seven theorems prove owner-local live-slot injectivity, write/retirement refinement, and a sufficient 23-scalar-slot-per-carrier layout for preceding-layer payloads and one completed source episode at a time. The sharper `14C+9n` census is enforced by `storage.py` on finite controls; `occupied_slot_bound` proves only its arithmetic comparison with `23C`. Historical reads outside that lifetime interface are excluded. Scalar precision, control and audit-log memory are separate; local feedback primitives are supplied.
+- `Geometry/SourceRoutingHierarchy.lean`: kernel-checked `base_diameter`, `stencil_refinement`, `tower_diameter` and `envelope_closed` support the analytic composition giving the all-level combinatorial distance bound `4*2^l-1`. Lean has no theorem identifying `baseEdge` with the base `triangleEdge`, or `subdividedEdge` with the next level's `triangleEdge`, and no theorem stating the composed all-level conclusion. Physical support selection and all-level geometric port assignment are not established.
+- `Geometry/SourceRoutingStorage.lean`: seven theorems prove owner-local live-slot injectivity, write/retirement refinement, and a sufficient 23-scalar-slot-per-carrier layout for preceding-layer payloads and one completed source episode at a time. `occupied_slot_bound` proves the arithmetic comparison of the sharper `14C+9n` census with `23C`. Reads outside that lifetime interface are excluded. Scalar precision, control and audit-log memory are separate; local feedback primitives are supplied.
 - `Geometry/SourceRoutingBudget.lean`: read/tree-hop envelopes and the unchanged program's event formula imply `E >= 3N + 13C + 5n`, a same-weight raw-mass error lower bound, and a serial-tick constraint. The count comparison is for the whole execution window, not all primitive-order intervals. No physical clock or volume measure is selected.
-- `Geometry/SourceRoutingRefinementAxiomAudit.lean`: enforced transitive standard-axiom allowlist for all 26 routing/storage/budget theorems, with admission and compiler-trust rejection controls. Scope, exact receipts and remaining M1 assumptions: `code/source_routing_refinement/README.md`.
+- `Geometry/SourceRoutingRefinementAxiomAudit.lean`: enforced transitive standard-axiom allowlist for all 26 routing/storage/budget theorems, with admission and compiler-trust rejection controls.

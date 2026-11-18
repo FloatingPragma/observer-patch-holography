@@ -26,9 +26,7 @@ SCOPE = "UNIFORM_CONE_REFINEMENT__CONDITIONAL_REAL_QUARTIC_WAVE_CONTINUUM__FINIT
 PINS = (
     "Lean/Screen/SeamCurrentEdge30Moment.lean",
     "Lean/ObserverPatchHolography/CoreAxioms.lean",
-    "paper/tex_fragments/WHITNEY_CHARGED_MATTER.tex",
     "code/electromagnetism/whitney_interacting_quantum.py",
-    "paper/tex_fragments/WHITNEY_REAL_CONTINUUM.tex",
     "code/electromagnetism/whitney_real_continuum.py",
     "code/electromagnetism/verify_whitney_real_continuum.py",
     "code/electromagnetism/test_whitney_real_continuum.py",

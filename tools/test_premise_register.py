@@ -46,13 +46,13 @@ def test_register_carries_exactly_the_folded_sections() -> None:
     register = _register()
     assert list(register) == list(register_tool.TOP_KEYS)
     assert register_tool.TOP_KEYS == (
-        "schema", "issue", "rows", "model_supply", "sm_coverage", "gravity_rungs"
+        "schema", "issue", "rows", "sm_coverage", "gravity_rungs"
     )
     for section, schema in register_tool.SECTION_SCHEMAS.items():
         assert register[section]["schema"] == schema
 
 
-@pytest.mark.parametrize("section", ["model_supply", "sm_coverage", "gravity_rungs"])
+@pytest.mark.parametrize("section", ["sm_coverage", "gravity_rungs"])
 def test_missing_section_rejected(section: str) -> None:
     register = _register()
     del register[section]
@@ -67,7 +67,7 @@ def test_unknown_top_level_section_rejected() -> None:
         register_tool.validate(register)
 
 
-@pytest.mark.parametrize("section", ["model_supply", "sm_coverage", "gravity_rungs"])
+@pytest.mark.parametrize("section", ["sm_coverage", "gravity_rungs"])
 def test_section_schema_tamper_rejected(section: str) -> None:
     register = _register()
     register[section]["schema"] = "oph.some_other_ledger.v1"
@@ -94,7 +94,6 @@ def test_page_renders_the_folded_sections_with_anchors() -> None:
     introduction = rendered.split("| Row |", 1)[0]
     assert "(#sm-coverage)" in introduction
     assert "(#gravity-rungs)" in introduction
-    assert "(../../model/PREMISES.md)" in introduction
     sm_start = rendered.index('<a id="sm-coverage"></a>')
     gravity_start = rendered.index('<a id="gravity-rungs"></a>')
     assert rendered.index("## What the dispositions mean") < sm_start < gravity_start
@@ -113,7 +112,6 @@ def test_intro_keeps_register_scientific_and_explains_evidence_roles() -> None:
     rendered = register_tool.render(register_tool.validate(register), register)
     assert "Established under the historical issue #727 (closed)" in rendered
     assert "Live owner (historical lanes)" in rendered
-    assert "Current implementation" in rendered
     assert "maintained as a scientific register" in rendered
     assert "implicit reverse-consumer edge" in rendered
     assert "premise-discharge queue" not in rendered
@@ -234,7 +232,7 @@ def test_renamed_row_rejected() -> None:
 def test_dropped_row_rejected() -> None:
     register = _register()
     register["rows"].pop()
-    with pytest.raises(SystemExit, match="exactly 84 entries"):
+    with pytest.raises(SystemExit, match="exactly 83 entries"):
         register_tool.validate(register)
 
 
@@ -253,69 +251,13 @@ def test_duplicate_json_key_rejected(tmp_path: Path) -> None:
         register_tool.load_json(duplicate)
 
 
-def test_every_row_carries_a_valid_discharge_record() -> None:
-    register = _register()
-    rows = register_tool.validate(register)
-    statuses = {row["discharge"]["status"] for row in rows}
-    assert statuses <= set(register_tool.DISCHARGE_STATUSES)
-    by_id = {row["id"]: row["discharge"]["status"] for row in rows}
-    assert by_id["PR-01"] == "obstructed"
-    assert by_id["PR-65"] == "obstructed"
-
-
-def test_unknown_discharge_status_rejected() -> None:
-    register = _register()
-    register["rows"][0]["discharge"]["status"] = "proved_physical"
-    with pytest.raises(SystemExit, match="discharge status must be one of"):
-        register_tool.validate(register)
-
-
-@pytest.mark.parametrize("premise", ["PR-21", "PR-22", "PR-81", "PR-82"])
-def test_execution_asserting_rows_bind_executable_evidence(premise: str) -> None:
-    register = _register()
-    row = next(row for row in register["rows"] if row["id"] == premise)
-    media = [claim_tool.evidence_medium(path) for path in row["discharge"]["evidence"]]
-    assert all(medium is not None for medium in media)
-    assert any(medium not in claim_tool.PROSE_EVIDENCE_MEDIA for medium in media)
-
-
-def test_execution_asserting_discharge_rejects_prose_only_evidence() -> None:
-    register = _register()
-    row = next(row for row in register["rows"] if row["id"] == "PR-81")
-    row["discharge"]["evidence"] = ["model/README.md"]
-    with pytest.raises(SystemExit, match="evidence cannot be prose only"):
-        register_tool.validate(register)
-
-
-def test_declared_discharge_may_rest_on_prose_evidence() -> None:
-    register = _register()
-    row = next(row for row in register["rows"] if row["id"] == "PR-05")
-    assert row["discharge"]["status"] == "declared"
-    assert row["discharge"]["evidence"] == ["model/CANDIDATES.md"]
-    register_tool.validate(register)
-
-
-def test_execution_asserting_discharge_rejects_unclassified_medium(monkeypatch) -> None:
-    register = _register()
-    monkeypatch.setattr(register_tool.claim_tool, "evidence_medium", lambda path: None)
-    with pytest.raises(SystemExit, match="medium is unclassified"):
-        register_tool.validate(register)
-
-
 def test_evidence_directory_is_not_evidence() -> None:
     register = _register()
     row = next(row for row in register["rows"] if row["id"] == "PR-05")
-    row["evidence"] = ["model/observer_time_fields"]
-    row["evidence_roles"] = {"model/observer_time_fields": "statement"}
-    assert (register_tool.ROOT / "model/observer_time_fields").is_dir()
+    row["evidence"] = ["model/polynomial_sv"]
+    row["evidence_roles"] = {"model/polynomial_sv": "statement"}
+    assert (register_tool.ROOT / "model/polynomial_sv").is_dir()
     with pytest.raises(SystemExit, match="evidence path missing or not a file"):
         register_tool.validate(register)
 
 
-def test_discharge_evidence_directory_is_not_evidence() -> None:
-    register = _register()
-    row = next(row for row in register["rows"] if row["id"] == "PR-05")
-    row["discharge"]["evidence"] = ["model/observer_time_fields"]
-    assert (register_tool.ROOT / "model/observer_time_fields").is_dir()
-    with pytest.raises(SystemExit, match="discharge evidence path missing or not a file"):
-        register_tool.validate(register)

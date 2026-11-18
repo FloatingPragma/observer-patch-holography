@@ -38,8 +38,6 @@ PIN_PATHS = (
     'code/electromagnetism/test_whitney_quantum_packet.py',
     'code/electromagnetism/test_neutral_packet_observables.py',
     'code/electromagnetism/test_neutral_packet_projection.py',
-    'paper/tex_fragments/WHITNEY_INTERACTING_QUANTUM.tex',
-    'paper/tex_fragments/WHITNEY_QUANTUM_PACKET.tex',
     PARENT_PATH,
 )
 

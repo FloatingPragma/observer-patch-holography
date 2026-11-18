@@ -259,49 +259,6 @@ def test_exact_courant_boundary_is_field_energy_not_potential_boundedness() -> N
     assert "no gauge-potential bound" in claim
 
 
-def test_d10_germ_cannot_promote_and_exact_slice_stays_diagnostic() -> None:
-    payload = _json(
-        "code/particles/runs/calibration/"
-        "d10_ew_tau2_current_carrier_obstruction.json"
-    )
-    assert payload["diagnostic_only"] is True
-    direction = payload["direction_obstruction"]
-    assert direction["global_no_go_inferred_from_germ"] is False
-    nonlinear = payload["closed_form_nonlinear_point_test"]
-    assert nonlinear["obstruction_established"] is True
-    assert nonlinear["exact_interval_certificate"]["zero_excluded"] is True
-    assert nonlinear["nonlinear_routes_left_open"]
-
-
-def test_w5_classifies_quartic_minima_without_closing_boundary_route() -> None:
-    cubic = _json(
-        "code/particles/runs/leptons/charged_entropic_branch_no_go.json"
-    )
-    assert cubic["promotion_allowed"] is False
-    gates = cubic["epistemic_gates"]
-    assert gates["cubic_global_extremum_proved"] is True
-    assert gates["finite_seed_search_can_close_route"] is False
-    assert gates["quartic_global_optimality_proved"] is True
-    assert gates["strict_full_support_quartic_no_go_conditional"] is True
-    assert gates["quartic_packet_globally_excluded"] is False
-    assert gates["full_entropic_mechanism_no_go_certified"] is False
-
-    quartic = _json(
-        "code/particles/runs/flavor/entropy_w5_shape_certificate.json"
-    )
-    assert quartic["schema"] == "oph.entropy_w5_shape_certificate.v3"
-    boundary = quartic["exhaustiveness_boundary"]
-    assert boundary["global_minimizer_classification_proved"] is True
-    assert boundary["full_critical_orbit_classification_proved"] is False
-    assert boundary["quartic_packet_globally_excluded"] is False
-    assert "zero-weight closed-simplex boundary states" in boundary[
-        "viable_routes_not_excluded"
-    ]
-    assert quartic["comparison"]["boundary_reentry_compare"]["verdict"] == (
-        "BOUNDARY_BRANCH_CAN_MATCH_CENTRAL_SHAPE_COMPARE_ONLY"
-    )
-
-
 def test_flagship_simulation_language_matches_actual_custody() -> None:
     flagship = _text(
         "flagship/from_observer_consensus_to_standard_physics.tex"
@@ -325,9 +282,6 @@ def test_flagship_simulation_language_matches_actual_custody() -> None:
 def test_mandatory_suite_executes_the_affected_receipt_gates() -> None:
     suite = _text("tools/run_mandatory_suite.py")
     for relative_path in (
-        "code/particles/calibration/test_d10_ew_tau2_current_carrier_obstruction.py",
-        "code/particles/leptons/test_charged_entropic_branch_no_go.py",
-        "code/particles/flavor/test_entropy_w5_shape_certificate.py",
         "tools/test_post_r2029_audit_surfaces.py",
     ):
         assert relative_path in suite
@@ -356,25 +310,6 @@ def test_thermodynamic_scope_separates_stationary_kernels_from_normalizers() -> 
     observers = _text("paper/observers_are_all_you_need.tex")
     assert "-\\Delta D" in observers
     assert "data processing gives \\(\\Delta D\\le0\\)" in observers
-
-
-def test_wz_and_quark_surfaces_do_not_promote_declared_maps_or_close_future_routes() -> None:
-    particle = " ".join(_text("paper/deriving_the_particle_zoo_from_observer_consistency.tex").split())
-    assert "architecture has target-informed provenance" in particle
-    assert "conditional postdictions even when its execution reads no measured masses" in particle
-    assert "The quark exponents, scalar quartic, neutrino operator and physical flavor mixing are not determined" in particle
-    assert "Independent validation requires consequences not used to choose it" in particle
-    quark = _claims()["OPH-QUARK-YUKAWA-TWO-MODULUS-NONIDENTIFIABILITY"]
-    assert "current registered A1--A3 source signature" in quark["statement"]
-    assert "not a machine proof of registry completeness" in quark["statement"]
-    assert "generic_six_scalar_selector_open" in quark["status"]
-    artifact = _json(
-        "code/particles/runs/flavor/"
-        "quark_axiom_level_yukawa_moduli_nonidentifiability.json"
-    )
-    assert artifact["machine_proof"] is False
-    assert "current registered source signature" in " ".join(artifact["notes"])
-    assert artifact["registered_signature_completeness_verified_by_emitter"] is False
 
 
 def test_heat_kernel_formula_and_finite_diagnostics_keep_their_conditions() -> None:
@@ -418,13 +353,7 @@ def test_heat_kernel_formula_and_finite_diagnostics_keep_their_conditions() -> N
 
 
 def test_maxent_locality_and_markov_alignment_hypotheses_are_not_inferred() -> None:
-    paper = _text("paper/tex_fragments/PAPER.tex")
     claim = _claims()["OPH-GR-D4-NULLNET-STANDARDNESS"]["statement"]
-    assert "relative interior of the attainable moment set" in paper
-    assert "Boundary optima require restriction to their support" in paper
-    assert "Modular support-envelope inclusion" in paper
-    assert "need not be inner in the algebra itself" in paper
-    assert "permute isomorphic central blocks" in paper
     assert "faithful/interior stagewise MaxEnt states" in claim
     assert "specified endpoint-to-cell map" in claim
     assert "finite-range locality alone is insufficient" in claim
@@ -472,18 +401,6 @@ def test_field_subset_search_records_nonlumpability_and_keeps_other_maps_open() 
         assert "pinned-table" not in text
         assert "numerically resolved" not in text
         assert "at the declared tolerance" not in text
-
-
-def test_particle_exact_formulae_preserve_degeneracy_and_domain_boundaries() -> None:
-    # Guard the actual compact construction, without requiring a survey of
-    # every separate mass prescription to be repeated in its main narrative.
-    particle = " ".join(_text("paper/deriving_the_particle_zoo_from_observer_consistency.tex").split())
-    assert "These assignments do not form a complete catalogue of observed species." in particle
-    assert r"nonzero $A=W^\dagger hW$ that contributes to its energy" in particle
-    assert "Its quartic interaction changes spectral poles" in particle
-    assert "cannot be read from a zero-mode or quadratic mass table" in particle
-    assert "does not count or remove spatial regulator valleys or doublers" in particle
-    assert "no certified running-to-pole, confinement, or laboratory-clock map" in particle
 
 
 def test_yang_mills_legacy_gap_does_not_fake_the_missing_bridge() -> None:
@@ -594,19 +511,6 @@ def test_cosmology_and_source_no_gos_leave_alternative_typed_routes_open() -> No
     radial = _text("paper/tex_fragments/RADIAL_LIFT_THEOREMS_330.tex")
     assert "not asserted to be exhaustive or mutually exclusive" in radial
     assert "another fully typed orbit-separating construction remains admissible" in radial
-
-    scale = _text("paper/tex_fragments/PHYSICAL_SCALE_BRIDGE_THEOREMS.tex")
-    assert "angular label \\(\\ell_{\\rm src}\\) alone does not determine" in scale
-    assert "bounded Lipschitz" in scale
-    assert "uniform tightness" in scale
-
-    supplement = _text("paper/tex_fragments/DERIVATION_TECHNICAL_SUPPLEMENT_PORT.tex")
-    assert "The unnormalized holonomy itself tends to the identity for every finite" in supplement
-    assert "No gauge- or matter-sector result supplied in this packet selects" in supplement
-
-    paper = _text("paper/tex_fragments/PAPER.tex")
-    assert "this null-data route cannot fix" in paper
-    assert "Bound neutral composites, dipole or higher-multipole sources" in paper
 
 
 def test_reproduction_guide_describes_the_closed_form_neutral_projection() -> None:

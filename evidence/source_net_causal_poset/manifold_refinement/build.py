@@ -15,7 +15,7 @@ ROOT = PACKAGE.parents[1]
 INPUTS = (
     "evidence/source_net_causal_poset/source_net_manifold_sampled_q55_q89_2026-09-25.json",
     "evidence/source_net_causal_poset/source_net_manifold_sampled_q144_2026-09-25.json",
-    "evidence/observer_dynamics_20260925/sim-analysis/codex/causal/receipt.json",
+    "evidence/source_net_causal_poset/manifold_refinement/clock_control_receipt.json",
 )
 FIELDS = ["q", "spatial_dimension", "region", "direction", "layers", "event_count", "draws",
           "statistic", "estimate", "reference", "signed_deviation", "relative_deviation",

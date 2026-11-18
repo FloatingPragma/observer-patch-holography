@@ -1,5 +1,0 @@
-{
-  "message": "Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit",
-  "traceback": "Traceback (most recent call last):\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_source_local_count_flow/run.py\", line 206, in <module>\n    try:main()\n        ~~~~^^\n  File \"/Users/muellerberndt/Projects/oph-meta/openwave/row_02_electron_rest_energy/work/2026-11-16_codex_source_local_count_flow/run.py\", line 171, in main\n    'reset_read':str(apparatus),'complete':str(total)}\n                                           ~~~^^^^^^^\n  File \"/Users/muellerberndt/.pyenv/versions/3.13.7/lib/python3.13/fractions.py\", line 432, in __str__\n    return '%s/%s' % (self._numerator, self._denominator)\n                      ^^^^^^^^^^^^^^^\nValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit\n",
-  "type": "ValueError"
-}

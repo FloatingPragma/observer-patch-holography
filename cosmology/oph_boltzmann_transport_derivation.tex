@@ -51,11 +51,11 @@ We give the conditional photon--baryon transfer equations for an
 observer-patch cosmology. A photon record process converges to Liouville
 transport when its generator approaches null-geodesic flow and its scaled
 quadratic variation vanishes. Supplying the electromagnetic vertex,
-polarized Thomson matrix, electron mass, recombination history and
+polarized Thomson matrix and cross-section, recombination history and
 cosmological background then gives the standard linear multipole hierarchy,
 acoustic oscillator, diffusion scale and line-of-sight solution in one
 brightness convention. Repair exchange and collar stress have separate
-insertion points. The passive native density process has decaying
+insertion points. A passive stationary repair process has decaying
 correlations and does not satisfy the photon-flow identification.
 The result specifies how a physical source would enter standard transfer;
 it supplies no primordial amplitude, photon-sector continuum proof or
@@ -63,15 +63,11 @@ observational likelihood.
 
 \end{abstract}
 
-
 \section{Branch inputs}
 We use conformal Newtonian-gauge conventions for the scalar
 perturbations~\cite{mabertschinger,dodelson}.
 
-CCF-LT-2 is the official matter, field and local-capacity law
-(\texttt{model/SPEC.md}). The component comparisons below retain their
-own sources and hypotheses. Their physical attachment requires the common
-Hamiltonian, preparation, reference and complete instrument.
+\input{../paper/tex_fragments/THEORY_PSV_HYPOTHESIS.tex}
 
 \begin{assumption}[Einstein branch]\label{a:geom}
 A common physical clock and Lorentzian metric satisfy
@@ -93,9 +89,8 @@ states, and a positive-residue massless photon pole in the unbroken
 Lorentz-vacuum phase. These pole and state properties do not follow from
 the abstract gauge group. A declared source-map root can be used for
 \(\alpha\) only after its current response and renormalization scheme
-are identified with this vertex. The absolute electron mass \(m_e\)
-is an imported physical scale. Finite mass coefficients or conditional
-charged-lepton ratios alone do not establish it.
+are identified with this vertex. The Thomson cross-section
+\(\sigma_T\) is an imported physical scale.
 \end{assumption}
 
 \begin{assumption}[Cosmological background]\label{a:bg}
@@ -109,9 +104,6 @@ x^i\Dd x^j\right],
 \]
 with conventions of Ma--Bertschinger (1995). Overdots are $\partial_\tau$.
 The background densities $\bar\rho_\gamma$ and $\bar\rho_b$ are supplied.
-Finite native class populations, calibrated Gibbs counts and conditional
-free-gas fractions do not derive these physical cosmological species
-densities~\cite{ophparticles}.
 \end{assumption}
 
 \begin{assumption}[Recombination import]\label{a:rec}
@@ -133,8 +125,8 @@ source-dilation and cross-covariance tomography as conditional uniqueness
 routes. Finite source instantiation is not supplied here. This note consumes
 \(A_s\) and \(n_s\) as gated inputs and derives no initial spectrum. The
 registered branch \(n_s=1-P/48\) fixes \(P\) at its inherited
-\(\alpha\)-calibrated value, and the executable observer construction does
-not derive that branch from its joint records~\cite{ophpublicdata}.
+\(\alpha\)-calibrated value~\cite{ophpublicdata}; it is a declared branch
+of the theory, with no derivation from joint observer records.
 \end{assumption}
 
 \section{Conditional Refinement Liouville Transport}
@@ -321,10 +313,8 @@ spectral uniqueness from angular detailed balance.
 \begin{remark}[Provenance of the normalization]
 $\alpha_{\rm root}$ is an exact declared-map root. Its use as the physical
 vertex strength is conditional on the three bridge premises in
-Assumption~\ref{a:qed}. $m_e$ is an import
-(Assumption~\ref{a:qed}): OPH supplies no source-derived charged-lepton
-absolute mass, so $\sigma_T$'s normalization is
-an explicit import. The recombination history $n_e(\tau)$ is imported under
+Assumption~\ref{a:qed}. The normalization of $\sigma_T$ is an explicit
+import (Assumption~\ref{a:qed}). The recombination history $n_e(\tau)$ is imported under
 Assumption~\ref{a:rec}.
 \end{remark}
 
@@ -488,41 +478,15 @@ and the limiting generator distinguish diffusion from jump transport.
 
 At matched inputs an independent numerical implementation should reproduce
 temperature and polarization transfer to stated tolerances. That test does
-not derive its imported electron mass, recombination history, primordial
+not derive its imported Thomson cross-section, recombination history, primordial
 amplitude, radial lift or geometric background. A physical prediction also
 requires the collision kernel and the same current/clock normalization.
 Neither a source-map root nor the conditional formula \(n_s=1-P/48\)
 establishes those identifications.
 
-\paragraph{Native repair diffusion and the photon interface.}
-For the specified fair conservative port repair, mean load evolves as
-\(e^{-tL/2}\), with \(t\) the native attempt count divided by the seam
-count, and stationary density has covariance
-\(\kappa e^{-|t-s|L/2}\Pi\). Its integrated readback has a
-fixed-graph Gaussian limit with inverse-Laplacian covariance; the literal
-finite-time average has the different normalization
-\(\kappa h(\lambda T/2)\). The exact derivation, local attempted-event
-record correction and finite-state controls are given in the
-screen-microphysics companion~\cite{ophmicro} and preserved in the
-observer-dynamics evidence archive~\cite{ophobsdyn}.
-Along one common subsequence of refining source screens, actual native
-density snapshots have joint Gaussian limits with covariance
-\(\exp(-|\tau-u|A)\), where \(\tau\) is the native attempt count divided
-by \(1260\cdot16^{l}\) and \(A\) is a positive self-adjoint operator of
-heat-trace spectral dimension two on the
-screen~\cite{ophtimefields,ophcontinuum}. Coherent waves
-\(\cos(t\sqrt A)\) require a declared wave processor whose parameter differs
-from passive waiting, and they propagate at most at speed \(1/\sqrt2\) in the
-flat comparison distance per coherent wave parameter~\cite{ophmodel}. This two-dimensional screen
-operator supplies no \(3+1\) null-geodesic flow or photon sector, and its
-density limit is a stationary Gaussian process, not a deterministic
-Liouville flow.
-These statements instantiate a diffusion/record mechanism. They do not
-verify the vanishing conditional second moment required for a deterministic
-photon Liouville limit, nor do they provide polarization, Thomson
-normalization or recombination.
-
-A nondecreasing global change of time keeps every positive mean mode
+\paragraph{Passive repair and the photon interface.}
+For a passive repair whose mean modes decay as \(\exp[-\lambda t/2]\), a
+nondecreasing global change of time keeps every positive mean mode
 \(\exp[-\lambda g(t)/2]\) positive and decreasing. It cannot supply an
 oscillatory wave propagator. For any current-state centered observable of
 a stationary reversible continuous-time repair chain, its autocorrelation
@@ -533,35 +497,6 @@ apply to the stated generator and readout, not to extended dynamics with
 momentum, active forcing, nonstationary preparation or different records.
 The passive source matching and acoustic initial data used by a conditional
 CMB transport calculation are additional physical inputs.
-
-\paragraph{Finite collision and expansion controls.}
-A declared quantum bath acts on the calibrated source with $180$ fermion
-modes and $56$ boson modes at global occupation cap two. Whole-colour
-fermion collisions have the form
-$\Phi_g(X)=X/2+\tau_g\operatorname{Tr}_g(X)/2$; the capped boson instrument
-retains creation, removal, hold and forbidden-zero records. Complete
-Kraus identities give the finite Gibbs fixed point. A two-sweep vacuum
-replacement subchannel and the fermion collision factors give an explicit
-reference-inclusive contraction bound for the terminal source marginal.
-The full bath archive retains its information about the input. This
-constructive finite collision law, including its supplied temperature and
-services, is implemented in \path{model/quantum_thermal_relaxation}; it is
-not a photon Thomson kernel or a derivation of cosmological thermalization.
-
-On the same fermion mass kernel, the prescribed replacement
-$p\mapsto p/a(t)$ gives $90$ disjoint canonical pairs. Their exact signed
-two-mode unitaries lift to the full fermion space, preserving pair coherence,
-all twelve species and complete number records. Outward interval products
-and a midpoint-evolution comparison bound the continuous cubic ramp from
-$a=1$ to $a=4$. On the supplied initial vacuum, the total mean particle
-number lies in $[0,0.2282]$ at duration $8$ and in $[2.6040,2.6109]$ at
-duration $1$, in the declared $\mathrm{GeV}^{-1}$ parameter. The sudden
-quench gives approximately $3.28341935$. The massless mode has exactly
-zero production. These bounds sum local pair errors with their actual
-multiplicities, as reproduced by \path{model/expanding_quadratic_particles}.
-They establish suppressed production for the slower declared ramp.
-The expansion function, calibrated masses and clock are inputs;
-Einstein backreaction and observed cosmic abundances are not inferred.
 
 The hierarchy and its acoustic consequences are standard plasma physics
 under the stated imports. A physical OPH CMB prediction additionally needs
@@ -602,38 +537,23 @@ B.~M\"uller et al., \emph{Recovering Observer Spacetime and Einstein
 Dynamics from Overlap Consistency}.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf}.
 
-\bibitem{ophmicro}
-B.~M\"uller et al., \emph{Twelve-Port Icosahedral Carriers and Native Seam Repair: The Carrier Layer of Observer Patch Holography}.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/paper/screen_microphysics_and_observer_synchronization.pdf}.
-
 \bibitem{ophmodel}
-FloatingPragma (2026). The runnable OPH model: observer implementation,
-tests, receipts and construction guide.
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2068/model}.
-
-\bibitem{ophcontinuum}
-FloatingPragma (2026). A spatial fluctuation field from one native history:
-the common spatial generator, its locality and spectral dimension, and the
-boundary-trace test.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/physical_space_time/OCCUPATION_FIELD.md}.
-
-\bibitem{ophtimefields}
-FloatingPragma (2026). Joint time and field laws on matched source screens.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/observer_time_fields/REFINEMENT.md}.
+B.~M\"uller, M.~Poneder, J.~Kim and D.~A.~Friedman (2026). \emph{An Executable
+Observer for Observer Patch Holography: Specification, Memory and Agreed
+Records}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/paper/executable_observer_construction.pdf}.
 
 \bibitem{ophpublicdata}
 FloatingPragma (2026). OPH predictions and public-data comparisons.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md}.
 
-\bibitem{ophparticles}
-B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, and D.~A.~Friedman,
-\emph{Particles from Native Overlap Transport: Common Currents, Defect Modes and a Pixel-Dependent Mass Operator}.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}.
-
-\bibitem{ophobsdyn}
-FloatingPragma (2026). Observer-dynamics analysis archive: derivation
-receipts and finite-state controls.
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2068/evidence/observer_dynamics_20260925/sim-analysis/codex}.
+\bibitem{ophsynthesis}
+B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, B.~Cassie, P.~Nguyen, J.~Kim,
+D.~Matscheko, D.~A.~Friedman, J.~Hill, W.~T.~Glynn, M.~A.~Visser,
+K.~A.~Anirudha and B.~de La Fourni\`ere (2026). \emph{Observers Who Read Their
+Universe into Existence: Finite Consensus and the Reconstruction of Standard
+Physics}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/flagship/from_observer_consensus_to_standard_physics.pdf}.
 
 \end{thebibliography}
 

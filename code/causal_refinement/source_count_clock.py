@@ -13,7 +13,6 @@ PIN_PATHS = (
     "code/causal_refinement/source_count_clock.py",
     "code/causal_refinement/verify_source_count_clock.py",
     "code/causal_refinement/test_source_count_clock.py",
-    "paper/tex_fragments/SOURCE_COUNT_CLOCK.tex",
     "Lean/Time/SourceCountClock.lean",
 )
 

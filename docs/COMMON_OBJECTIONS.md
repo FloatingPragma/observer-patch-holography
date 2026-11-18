@@ -478,7 +478,7 @@ There are two different questions here:
 
 ### 8.1 Strong UV background independence
 
-One can ask for a fully closed, nonperturbative theory in which no kinematical structure at all is presupposed. OPH does not attempt that maximal version of the program. Its executable specification fixes a screen net on `S^2` with algebraic and information-theoretic premises; under the closure hypothesis, observers recover that specification from their records, and nothing outside the structure supplies it.
+One can ask for a fully closed, nonperturbative theory in which no kinematical structure at all is presupposed. OPH does not attempt that maximal version of the program. Its theory fixes a screen net on `S^2` with algebraic and information-theoretic premises, and its [executable model](../model/polynomial_sv/README.md) fixes a carrier of twelve-port cells; under the closure hypothesis, observers recover that specification from their records, and nothing outside the structure supplies it.
 
 ### 8.2 Absence of a preferred observable inertial frame
 
@@ -492,6 +492,8 @@ This is the issue actually relevant to Lorentz invariance. On that question, OPH
 That is enough to answer the specific "your fixed pixels pick a preferred frame" objection. A preferred frame would have to be detectable in the physical overlap algebra. OPH's claim is that, after refinement and geometric modular action, it is not.
 
 So the criticism asks for too much in the wrong place. A full UV completion would be desirable, but the Lorentz-invariance issue is addressed at the level of the emergent observable net.
+
+The same holds for the executable model. Its ports, seams and cells are hardware of the computation and no physical space, so a pixel or a cell picks no frame that observers could detect. Its tests compare distributions of admissible observer records with what observers in our world record. The flagship's proposition on smooth effective field descriptions proves that for every finite admissible menu of observer readouts a smooth (1+3)-dimensional Lorentzian field theory reproduces their complete predictions: observers who inhabit the simulation can describe their experiences as relativistic 3+1D continuum spacetimes.
 
 ---
 

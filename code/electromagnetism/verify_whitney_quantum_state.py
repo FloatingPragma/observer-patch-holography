@@ -31,7 +31,6 @@ PIN_PATHS = {
     "Lean/Screen/SeamCurrentEdge30Moment.lean", "Lean/Screen/SeamCurrentCarrierQuotient.lean",
     "Lean/ObserverPatchHolography/CoreAxioms.lean", "code/electromagnetism/verify_cone_whitney_bridge.py",
     "code/electromagnetism/whitney_interacting_quantum.py",
-    "paper/tex_fragments/WHITNEY_INTERACTING_QUANTUM.tex",
     "code/electromagnetism/whitney_quantum_state.py",
     "code/electromagnetism/verify_whitney_quantum_state.py",
     "code/electromagnetism/test_whitney_quantum_state.py",
@@ -412,7 +411,6 @@ def verify(packet):
         require(packet["source_pins"][path] == hashlib.sha256((ROOT/path).read_bytes()).hexdigest(), "source pin: "+path)
     exact_equal(packet["state"], expected_state(), "state normalization/density/domain contract")
     state = packet["state"]
-    require("\\label{"+state["proof_label"]+"}" in (ROOT/state["proof_source"]).read_text(encoding="utf-8"), "analytic proof reference")
     dimension = state["real_configuration_dimension"]
     require(dimension == state["radiative_coordinates"]+2*state["complex_matter_coordinates"], "real dimension")
     require(2*rational(state["rho_power"])+1 == 0, "half-density measure cancellation")

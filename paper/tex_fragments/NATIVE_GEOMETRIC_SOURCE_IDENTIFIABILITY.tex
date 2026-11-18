@@ -34,10 +34,7 @@ rule would add the missing metric-volume interface.
 On the native geodesic carrier, a concrete chart diagnostic is the positive
 cone volume \(V_i=|\det(v_{i0},v_{i1},v_{i2})|/6\) of a triangular cell.
 It is an imported Euclidean chart volume, not a measured physical collar
-volume. The finite controls apply the production integer repair to both a
-uniform half-filled preparation and a clustered half-filled preparation at
-\(20\) and \(80\) cells, with \(240\) and \(960\) ports. All \(64\)
-attempts in each control are retained and independently replayed. Rotating
+volume. Load repair leaves it unchanged for every preparation. Rotating
 the chart preserves these volumes; scaling all coordinates by two multiplies
 them by eight. Both operations leave the log contrast with the matched
 reference zero. Comparing absolute cell sizes at different refinements does
@@ -74,12 +71,11 @@ isolated-carrier control; inter-carrier seams are excluded from this
 twelve-port calculation. Its covariance matrices are not asserted to be
 the full coupled federation covariances. The filling, stationary reference
 and gains used to normalize the traces are declared inputs. The normalization
-is a diagnostic comparison, with no observed spectrum used to choose either gain. Exact enumeration retains both the one-raised
-and six-raised stationary preparations, with \(12\) and \(924\)
-configurations and \(\kappa=1/12\) and \(3/11\). It checks all covariance
-entries, including two disjoint antipodal two-port blocks and their
-fine/coarse cross covariance within that carrier. This block comparison
-is not a cosmological separation or a continuum refinement limit. For a
+is a diagnostic comparison, with no observed spectrum used to choose either gain. The one-raised
+and six-raised stationary preparations have \(12\) and \(924\)
+configurations and \(\kappa=1/12\) and \(3/11\). A comparison of two
+disjoint antipodal two-port blocks within that carrier is not a
+cosmological separation or a continuum refinement limit. For a
 centered current-state readout,
 \(q=Bz+g\) with \(B=\kappa^{-1}\mathbb E[qz^{\mathsf T}]\),
 the same calculation retains the absolute density component and residual.
@@ -89,18 +85,18 @@ The local mismatch readout
 leaves this readout invariant while reversing \(z\). Nonlinearity therefore
 supplies an additional load observable, but by itself no geometric meaning.
 
-The exact record controls use \(P=I+G/30\), with the continuous
-generator \(G\) at unit attempt rate per seam: one tick is a uniformly selected
-seam attempt with a fair endpoint coin. For \(m=1,2,4\) retained readings
-and \(c=1,2\) attempts between readings, they check
+For the discrete chain \(P=I+G/30\), with the continuous
+generator \(G\) at unit attempt rate per seam, one tick is a uniformly selected
+seam attempt with a fair endpoint coin. For \(m\) retained readings
+and \(c\) attempts between readings, stationarity gives
 \[
  \operatorname{Cov}\!\left(\frac1m\sum_{a=0}^{m-1}q(X_{ca})\right)
  =\frac{mC_0+\sum_{a=1}^{m-1}(m-a)(C_{ca}+C_{ca}^{\mathsf T})}{m^2},
  \qquad C_t=\mathbb E[q(X_0)q(X_t)^{\mathsf T}].
 \]
-These altered clocks change record covariances and leave the supplied
-geometry invariant. They are finite exact checks, not a physical time
-calibration or an asymptotic refinement experiment.
+Such altered clocks change record covariances and leave the supplied
+geometry invariant. They are no physical time calibration or asymptotic
+refinement experiment.
 
 For any of these load observables \(u_i\), one may attach positive labels
 \(J_i/\bar J_i=\exp(3u_i)\), giving a formal log-volume contrast \(u_i\)
@@ -123,7 +119,5 @@ would require its own observable and constitutive identification.
 The general finite-history and observability statements, together with a
 four-cycle equal-diagonal covariance witness, are kernel-checked in the Lean
 geometry library.\footnote{\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/Lean/Geometry/NativeGeometricSourceIdentification.lean}}
-The twelve-port rational enumeration and native trace checks are reproduced
-by an independent verifier with retained inputs and
-outputs.\footnote{\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2068/code/native_geometric_source}} No primordial amplitude,
+No primordial amplitude,
 tilt, physical expansion or photon transfer is inferred from these controls.

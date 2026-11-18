@@ -184,7 +184,7 @@ def test_scientific_and_schema_mutations_fail(packet,path,value):
 
 def test_source_pins_are_read_fresh(packet,monkeypatch):
     original=Path.read_bytes
-    target=verifier.ROOT/'paper/tex_fragments/WHITNEY_QUANTUM_PACKET.tex'
+    target=verifier.ROOT/'code/electromagnetism/whitney_quantum_packet.py'
     def altered(path):
         data=original(path)
         return data+b'\n' if path==target else data

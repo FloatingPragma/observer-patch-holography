@@ -722,19 +722,16 @@ def test_issue_332_declared_map_identity_is_zero_defect_and_not_promoted() -> No
     assert any("measured Higgs" in item for item in forbidden)
 
 
-def test_naturality_boundary_is_consistent_across_paper_registry_and_status_sources() -> None:
+def test_naturality_boundary_is_consistent_across_paper_and_registry() -> None:
     repo = ROOT.parents[2]
     paper = (repo / "paper" / "deriving_the_particle_zoo_from_observer_consistency.tex").read_text(
         encoding="utf-8"
     )
     registry = (repo / "claims" / "claim_registry.yaml").read_text(encoding="utf-8")
-    ledger = (ROOT.parent / "ledger.yaml").read_text(encoding="utf-8")
 
     assert "zero Higgs naturality defect in its declared chart" not in paper
     assert "naturality bridge is closed on its selected branch" not in paper
     assert "declared_naturality_identity_quarantined" in registry
-    assert "same-source-antecedent" in ledger
-    assert "not a source-derived Higgs-naturalness result" in ledger
 
 
 def test_issue_335_local_global_resonance_is_exact_conditional_statement() -> None:

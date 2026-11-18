@@ -1,64 +1,22 @@
-\subsection{Finite energy and entropy on one interacting action}
+\subsection{Finite regional restrictions of an entropy reference}
 \label{subsec:finite-field-stress-entropy}
 
-This field attachment uses the same supplied Weyl/contact CAR
-Hamiltonian as the bound-pair calculation,
-$H=d\Gamma[-(1/8)\sigma\cdot\sin k]+\sum_x n_{x0}n_{x1}$.
-On the open cube of 27 sites, its complete two-fermion space has dimension
-1,431. Assign half of each Hermitian hopping bond to either endpoint and
-the contact energy to its site. Then
-\[
- h_x=UD_x+\tfrac12\sum_{b\ni x}H_b,\qquad
- \sum_xh_x=H,\qquad J_{x\to y}=i[h_x,h_y],\qquad
- \frac{dh_x}{dt}+\sum_yJ_{x\to y}=0.
-\]
-Here $t$ is Hamiltonian model time with the supplied convention $\hbar=1$.
-Hermiticity and antisymmetry of the currents follow directly. Summing the
-identity over a region cancels all internal currents and gives its complete
-outward flux. Overlapping bond stars produce range-two currents; omitting
-them fails conservation. Exact Gaussian-integer matrices verify all 351
-site pairs and 27 local equations, and deleting $U$ changes 54 currents.
-This is interaction energy accounting, not a number current renamed as
-stress. The bond-energy division is stated explicitly and is not unique.
+A regional entropy attachment needs a specified regional algebra and a
+specified way of restricting a global reference to it. The following exact
+statements fix two such choices and their limits.
 
-On this full finite algebra, choose the faithful density
-$\tau=e^{-\beta H}/Z$ with declared $\beta=\log(25/8)$. For every
-trace-zero Hermitian variation $\delta$,
-\[
- DS_\tau(\delta)=\beta\operatorname{Tr}(\delta H),\qquad
- S(\rho)-S(\tau)=\beta\operatorname{Tr}((\rho-\tau)H)
-                       -D(\rho\Vert\tau).
-\]
-These follow from $-\log\tau=\beta H+\log Z$; no commutation of
-$\delta$ with $\tau$ is needed. The retained test uses a localized
-contact-pair perturbation that does not commute with the reference.
-This is a concrete noncommutative attachment; a finite-simplex entropy
-theorem has an incompatible domain and is not used. The full Gibbs
-reference is supplied, not prepared by native repair.
-
-Signed CAR restriction to two adjacent sites keeps all local sectors
-$N=0,1,2$ and gives an eleven-dimensional positive support. It does not
-make the state faithful on the full sixteen-dimensional local Fock space.
-For the restricted density, $K_A=-\log\tau_A$ has nonzero commutator
-with the bare internal $H_A$ and fails even the best fit by
-$aI+bH_A+\mu N_A+\nu N_A^2$. Thus the global Gibbs identity is not
-silently transferred to a bare regional clock. This is a finite numerical
-countercontrol for the declared region and reference, not a universal
-regional modular obstruction.
-
-An exact test strengthens the boundary for one specified regional algebra.
 On the fixed-$N$ direct sum
 $\bigoplus_n(\mathcal H_A^n\otimes\mathcal H_{A^c}^{N-n})$, a faithful
 density admits a preserving unital completely positive retraction onto
 $\bigoplus_n(\mathcal B(\mathcal H_A^n)\otimes I)$ exactly when it has
 blocks $r_n\otimes\tau_n$, with $\operatorname{Tr}\tau_n=1$.
 Multiplicative-domain identities remove cross-sector blocks and force
-this conditional product form. For a nonzero Gibbs parameter this requires
-block-additive $H$ and hence $[H,N_A]=0$. The actual adjacent-site region
-has 36 ordered crossing one-body entries of modulus $1/16$ in 54 modes,
-so $\|[N_A,H]\|_{\mathrm{HS}}^2=(54-2)36/256=117/16$.
-No dense Gibbs logarithm is needed to exclude that exact retraction or
-its exact generator intertwining. This does not exclude partial traces,
+this conditional product form. For a Gibbs density $e^{-\beta H}/Z$ with
+$\beta\ne0$ this requires block-additive $H$ and hence $[H,N_A]=0$. A
+Hamiltonian with a nonzero one-body hopping entry across the region boundary
+has $[N_A,H]\ne0$, so no dense
+Gibbs logarithm is needed to exclude that exact retraction or its exact
+generator intertwining. This does not exclude partial traces,
 reduced modular clocks, approximate maps or different accessible domains.
 Where nested algebras do admit expectations preserving one faithful
 reference, uniqueness supplies their tower law. Independently selected
@@ -78,16 +36,15 @@ of the intermediate square roots gives $E_{AB}E_{BS}=E_{AS}$.
 This finite Petz-transpose construction preserves complete POVMs and
 arbitrary references. It generally neither fixes the embedded local
 algebra nor intertwines modular flows; its reference-dependent effects
-are not thereby implemented native local detectors. It supplies a
+are not thereby implemented local detectors. It supplies a
 compatible observation tower while leaving those stronger clock and access
 requirements explicit.
 
-These constructions supply exact finite conservation and a quantum entropy
-map. They do not inhabit the Einstein premise bundle. Needed are a common symmetric Lorentz stress tensor, its
+These constructions supply an exact quantum entropy map and its regional
+restrictions. They do not inhabit the Einstein premise bundle. Needed are a common symmetric Lorentz stress tensor, its
 geometric Ward identities and null charges, modular diamonds and their
 edge split, fixed-proper-volume area variation, Bianchi/geometry data and
 a controlled common refinement with physical normalization. In particular,
 finite Gibbs stationarity is not generalized-entropy stationarity at fixed
-proper volume. The complete source records and proof boundaries are in the
-repository~\cite{ophrepo}; these finite attachments close only the
-obligations on those declared algebras.
+proper volume. These finite attachments close only the obligations on
+those declared algebras.

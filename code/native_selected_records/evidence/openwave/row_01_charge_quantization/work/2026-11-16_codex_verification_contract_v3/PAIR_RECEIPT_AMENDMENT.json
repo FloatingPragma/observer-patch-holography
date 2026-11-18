@@ -1,8 +1,0 @@
-{
-  "utc": "2026-11-15T18:57:19.515371+00:00",
-  "reason": "Static review found pair default verification compared complete source but did not compare saved receipt metadata. Add explicit receipt/digest/column comparison and preserve old descendants. No source calculation change.",
-  "files": {
-    "descendants/producers/pair/pair_source.py": "bd17eb88c80d08234dfaf580833c456b205dd76f76af450a842311f9a221ba35",
-    "build_producers.py": "c66dee47aa26292a608affb6c2a05469f78b341a804a55d5fe87750906eb3b1c"
-  }
-}

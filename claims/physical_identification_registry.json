@@ -34,9 +34,7 @@
       "label": "alpha_in / Thomson endpoint",
       "status": "undischarged",
       "claim_ids": [
-        "OPH-ALPHA-PIXEL",
-        "OPH-MODEL-P-RESPONSE-EXECUTION",
-        "OPH-ENTANGLED-PAIR-ALPHA-CANDIDATE"
+        "OPH-ALPHA-PIXEL"
       ],
       "source_anchors": [
         "physical Thomson readback contract"
@@ -60,8 +58,7 @@
       "status": "undischarged",
       "claim_ids": [
         "OPH-ALPHA-PIXEL",
-        "OPH-Q-PN-CLOSURE",
-        "OPH-MODEL-P-RESPONSE-EXECUTION"
+        "OPH-Q-PN-CLOSURE"
       ],
       "source_anchors": [
         "source-selected detuning law",
@@ -152,8 +149,7 @@
         "OPH-SCREEN-PORT-CURRENT-INNER"
       ],
       "source_anchors": [
-        "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
-        "code/a5_closure/manifests/source_current_order_sensitive_inventory.json"
+        "code/a5_closure/receipts/port_current_inner_reference.receipt.json"
       ],
       "blocking_issues": [
         {
@@ -174,8 +170,7 @@
       "status": "undischarged",
       "claim_ids": [
         "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
-        "OPH-FINITE-EXTERIOR-COMPONENT-BRIDGE",
-        "OPH-OBSERVER-MATTER-INTERACTION-WITNESS"
+        "OPH-FINITE-EXTERIOR-COMPONENT-BRIDGE"
       ],
       "source_anchors": [
         "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json"
@@ -422,8 +417,7 @@
         "OPH-EM-POSITION-SPACE-MAXWELL-COULOMB",
         "OPH-EM-LOCAL-FACE-MAXWELL-STATIC-COMPOSITION",
         "OPH-EM-TEMPORAL-MAXWELL-EVOLUTION-CONTINUITY",
-        "OPH-EM-SCALED-MAXWELL-STABILITY-ACTION",
-        "OPH-OBSERVER-COMMON-FIELD-WITNESS"
+        "OPH-EM-SCALED-MAXWELL-STABILITY-ACTION"
       ],
       "source_anchors": [
         "PR-66 declared discrete kinetic term; the step-scaled update and the Gauss constraint are its Euler-Lagrange equations, and a derivation of the term from the axioms or repair dynamics is open",
@@ -453,8 +447,7 @@
         "OPH-GEOMETRY-KINEMATIC-MASS-SHELL",
         "OPH-GEOMETRY-INTERNAL-CLOCK-REST-FREQUENCY",
         "OPH-GEOMETRY-COMMON-WORLD-TWO-ISLAND-WITNESS",
-        "OPH-GEOMETRY-COMMON-WORLD-ISLAND-BRIDGE",
-        "OPH-OBSERVER-COMMON-FIELD-WITNESS"
+        "OPH-GEOMETRY-COMMON-WORLD-ISLAND-BRIDGE"
       ],
       "source_anchors": [
         "source-selected physical event, signal-link, and source-causal continuum attachment",
@@ -493,8 +486,7 @@
         "OPH-SCREEN-ELECTROWEAK-BREAKING-COMPOSITION",
         "OPH-SCREEN-NEUTRAL-CURRENT-DICTIONARY",
         "OPH-SCREEN-CHARGED-CURRENT-DICTIONARY",
-        "OPH-SCREEN-ASSEMBLED-STRUCTURAL-ACTION",
-        "OPH-OBSERVER-MATTER-INTERACTION-WITNESS"
+        "OPH-SCREEN-ASSEMBLED-STRUCTURAL-ACTION"
       ],
       "source_anchors": [
         "PR-67 finite one-doublet grammar",
@@ -516,26 +508,6 @@
           "number": 745,
           "scope": "unresolved_attachment",
           "role": "attach the neutral and charged current dictionaries to physical weak processes and readouts"
-        }
-      ]
-    },
-    {
-      "identification_id": "calibrated_strain_to_physical_pressure",
-      "label": "finite held-state energy intervention and charge-sector force readout / physical pressure",
-      "status": "undischarged",
-      "claim_ids": [
-        "OPH-FINITE-WORK-RESPONSE-NONIDENTIFIABILITY"
-      ],
-      "source_anchors": [
-        "model/operational_strain identifies a pressure derivative from finite energy readings within a supplied power-response or bounded-regularity class.",
-        "Native charge-projector outcomes read a separately calibrated charge-diagonal force; deformation law, held-state protocol, energy/volume metrology and work convention require physical realization.",
-        "PR-15 supplies laboratory energy and clock calibration; physical volume metrology is an additional requirement, and a pressure-density ratio requires the physical reference energy including its offset."
-      ],
-      "blocking_issues": [
-        {
-          "number": 740,
-          "scope": "unresolved_attachment",
-          "role": "realize strain interventions and energy readback on the same held state, with response-class or derivative-bound justification and complete calibration uncertainty"
         }
       ]
     }

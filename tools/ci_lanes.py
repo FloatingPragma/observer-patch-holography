@@ -50,65 +50,22 @@ def pytest_lane(name, minutes, path, *, tier="push", profile="root", env=None, f
     return lane(name, tier, profile, minutes, f"python -m pytest {flags} {path}", env=env)
 
 
-COHERENT_CONSTRAINED = (
-    "two_cell", "periodic_family", "field_limit", "periodic_spectrum", "higgs_composites",
-    "spectral_edges", "oriented_links", "neutral_mobility", "family_cell", "neutral_local_spectrum",
-    "neutral_composite", "periodic_boson_records", "peter_weyl_links", "family_transport",
-    "local_reference", "matter_induced_ring", "matter_induced_plaquette", "finite_clock",
-    "atomic_reference_control", "atomic_even_remainder", "charged_ground_exchange",
-    "atomic_spin_geometry", "atomic_momentum_response", "ground_composite_response",
-    "ground_scalar_response", "collective_spin_response", "interacting_ground_preparation",
-    "interacting_charged_response", "interacting_charged_transport",
-    "interacting_charge_localization", "interacting_charge_conjugation",
-)
-COHERENT_CONSTRAINED_MINUTES = {
-    "periodic_spectrum": 6, "family_transport": 5, "neutral_composite": 4,
-    "periodic_boson_records": 4, "higgs_composites": 3, "peter_weyl_links": 3,
-}
-COHERENT_COLLECTIVE = (
-    "interacting_block_propagation", "interacting_block_quadrature", "interacting_block_scattering",
-    "affine_gauss_source", "affine_gauss_mobile", "affine_gauss_spectrum",
-    "affine_gauss_full_spectrum", "affine_gauss_spectrum_validation", "affine_gauss_charged_clock",
-    "affine_gauss_clock_observables", "native_abelian_field_join", "native_abelian_energy_records",
-    "native_block_dirac", "native_charge_resolution", "native_higgs_spectral_join",
-    "native_charge_centroid", "native_weak_current_interface", "native_higgs_filtered_state",
-    "native_weak_current_response", "native_higgs_current_response", "native_wilson_maxwell",
-    "native_wilson_maxwell_refinement", "native_quark_response", "native_wilson_maxwell_ground",
-    "native_wilson_maxwell_ground_refinement", "native_local_current_readout",
-    "native_quark_higgs_join", "interacting_block_proca",
-)
-COHERENT_COLLECTIVE_MINUTES = {
-    "native_quark_higgs_join": 8, "native_quark_response": 6, "native_local_current_readout": 3,
-    "native_wilson_maxwell": 2,
-}
-COHERENT_DEFECT_WAVE = (
-    "energy", "dispersion", "physical_attachment", "mobile_flux", "native_routing_join",
-    "many_body_route", "mass_instrument", "propagating_native_join", "field_identity_audit",
-    "chiral_source", "chiral_regulator", "chiral_higgs", "chiral_particle_map", "chiral_joint",
-)
-
 LANES: tuple[Lane, ...] = (
     # ------------------------------------------------------------------
     # Push tier, root requirements: code/ replays and their controls.
-    pytest_lane("openwave_energy_clock_join", 0.25, "model/openwave_energy_clock_join",
-                env=BLAS1, flags="-q -W error"),
     pytest_lane("capacity_readback", 1, "code/capacity_readback -W error", env={"OPENBLAS_NUM_THREADS": "1"}),
+    lane("causal_poset_archive", "push", "root", 2,
+         "python evidence/source_net_causal_poset/verify_causal_poset_archive.py", env=BLAS1),
     pytest_lane("collar_gap", 1, "code/yang_mills/test_collar_gap_certificate.py "
                 "code/yang_mills/tests/test_finite_collar_gap_certificate.py "
                 "code/yang_mills/tests/test_collar_certificate_accounting.py tools/test_strict_json.py",
                 flags="-q -W error"),
     lane("consensus", "push", "root", 1.5, "python -W error -m pytest -q code/consensus", env=BLAS1),
-    # Red on main since r2066: the ledger requires anchor text in a cosmology paper.
-    lane("cosmology_accounting", "nightly", "root", 1,
-         "python -m pytest -q code/cosmology/fixed_capacity_wlaw code/cosmology/postdiction_ledger -W error",
-         "python code/cosmology/postdiction_ledger/verify_cosmology_postdiction_ledger_independent.py"),
     lane("dark_source_lensing", "push", "root", 2,
          "python -m dark_source_lensing.verify", "python -m pytest -q code/dark_source_lensing",
          env={**CODE, "OPENBLAS_NUM_THREADS": "1"}),
     lane("dispersion_feasibility", "push", "root", 0.5,
          "python -m dispersion_feasibility.check", "python -m pytest -q code/dispersion_feasibility", env=CODE),
-    lane("federation_recovery", "push", "root", 2,
-         "python -m pytest -q evidence/federation_recovery", "python evidence/federation_recovery/verify.py"),
     lane("finite_gauge_transfer", "push", "root", 2,
          "python -W error -m pytest -q code/yang_mills/tests/test_z2_finite_transfer_receipt.py "
          "code/yang_mills/tests/test_z2_finite_transfer_verifier.py code/yang_mills/tests/test_z2_transfer_spectrum.py "
@@ -116,15 +73,6 @@ LANES: tuple[Lane, ...] = (
          "code/yang_mills/tests/test_kogut_susskind_fiber_rate_instances.py",
          "python -W error -m pytest -q code/edge_sectors tools/test_post_r2029_audit_surfaces.py", env=BLAS1),
     pytest_lane("geometry", 2, "code/geometry", env={"OPENBLAS_NUM_THREADS": "1"}),
-    lane("independent_postdictions", "push", "root", 1.5,
-         "python -m pytest -q code/independent_postdictions",
-         "python -m pytest -q code/particles/calibration/test_d11_criticality_comparison.py "
-         "code/particles/flavor/test_audit_conditional_quark_ratio.py "
-         "code/particles/flavor/test_compare_conditional_quark_masses.py "
-         "code/particles/flavor/test_quark_lane_closure_contract.py "
-         "code/particles/flavor/test_quark_p_driven_shared_evaluator_contract.py "
-         "code/particles/leptons/test_koide_circulant_identity.py",
-         env={**CODE, "OPENBLAS_NUM_THREADS": "1"}),
     lane("k7_gauge_kinetic_cross", "push", "root", 1,
          "python code/angular_sprint/k7_gauge_kinetic_cross_control.py --check",
          "python code/angular_sprint/verify_k7_gauge_kinetic_cross_control_independent.py "
@@ -160,257 +108,54 @@ LANES: tuple[Lane, ...] = (
          "code/electromagnetism/test_whitney_kinetic_replay.py code/electromagnetism/test_whitney_kinetic_scale.py "
          "code/electromagnetism/test_whitney_public_scale.py",
          env={"OPENBLAS_NUM_THREADS": "1"}),
-    pytest_lane("paired_gravity", 2, "code/paired_gravity", env={**CODE, "OPENBLAS_NUM_THREADS": "1"}),
-    lane("particle_mixing", "push", "root", 1,
-         "python -m pytest -q code/particles/test_mixing_readout.py -W error",
-         "python -m pytest -q code/particles/neutrino/test_neutrino_precision_candidate_lock.py "
-         "code/particles/neutrino/test_neutrino_weighted_cycle_repair.py "
-         "code/particles/neutrino/test_neutrino_weighted_cycle_shared_basis_representation.py "
-         "code/particles/neutrino/test_physical_majorana_phase_theorem.py "
-         "code/particles/flavor/test_quark_d12_mass_branch_and_ckm_residual.py "
-         "code/particles/flavor/test_quark_local_basis_orbit_diagnostic.py "
-         "code/particles/flavor/test_quark_transport_frame_diagnostic_orbit.py "
-         "code/particles/flavor/test_quark_sigma_ud_orbit.py"),
     pytest_lane("quantum_information", 2.5,
-                "code/quantum_information code/collar_alignment code/maxent code/native_response",
+                "code/quantum_information code/collar_alignment code/maxent",
                 env={**CODE, "OPENBLAS_NUM_THREADS": "1"}),
     lane("radial_inverse", "push", "root", 1,
          "python -W error -m pytest -q code/cosmology/test_oph_radial_lift_330.py "
          "code/cosmology/test_radial_inverse_regressions.py code/cosmology/test_radial_inverse_controls.py", env=BLAS1),
     pytest_lane("rg_principle", 1, "code/rg_principle"),
     lane("ringdown_arithmetic", "push", "root", 1, "python -W error -m pytest -q code/gravitation/ringdown_comb"),
-    lane("source_checkpoint_selection", "push", "root", 3,
-         "python -m source_checkpoint_selection.verify", "python -m pytest -q code/source_checkpoint_selection", env=CODE),
-    pytest_lane("source_encoded_memory", 1, "code/source_encoded_memory"),
     pytest_lane("source_gravity_admissibility", 1, "code/source_gravity_admissibility",
                 env={**CODE, "OPENBLAS_NUM_THREADS": "1"}),
-    pytest_lane("source_native_accumulator", 1.5, "code/source_native_accumulator"),
-    pytest_lane("source_native_programs", 1, "code/source_native_programs"),
-    lane("source_native_program_families", "push", "root", 7,
-         "python -m source_native_programs.family_build --workdir temp/native-program-witnesses "
-         "--output temp/native-program-families.json",
-         "python -m source_native_programs.family_verify --workdir temp/native-program-witnesses "
-         "--families temp/native-program-families.json", env=CODE),
-    pytest_lane("source_native_updates", 1, "code/source_native_updates"),
-    pytest_lane("source_passive_memory", 1, "code/source_passive_memory"),
-    lane("source_publication_selection", "push", "root", 1.5,
-         "python -m source_publication_selection.verify", "python -m pytest -q code/source_publication_selection", env=CODE),
-    pytest_lane("source_read_acceptance", 3.5, "code/source_read_acceptance"),
-    lane("source_read_routing", "push", "root", 2,
-         "python -m pytest -q code/source_read_routing code/source_feedback_transport/test_transport.py code/source_routing/test_routing.py",
-         "python code/source_read_routing/support_comparison.py",
-         'g++ -std=c++17 -O3 -Wall -Wextra code/source_read_routing/produce.cpp -o "$LANE_TMP/produce-routing"',
-         'g++ -std=c++17 -O3 -Wall -Wextra code/source_read_routing/verify.cpp -o "$LANE_TMP/verify-routing"',
-         'python code/source_read_routing/check_reproduction.py --producer "$LANE_TMP/produce-routing" --verifier "$LANE_TMP/verify-routing"',
-         'ROUTING_VERIFIER="$LANE_TMP/verify-routing" python -m pytest -q code/source_read_routing/test_regeneration.py'),
-    *(
-        lane(f"source_read_routing_replay_q{q}_{variant}", "push", "root", 2,
-             'g++ -std=c++17 -O3 -Wall -Wextra code/source_read_routing/produce.cpp -o "$LANE_TMP/produce-routing"',
-             'g++ -std=c++17 -O3 -Wall -Wextra code/source_read_routing/verify.cpp -o "$LANE_TMP/verify-routing"',
-             *(('python code/source_read_routing/native_negative_controls.py --binary "$LANE_TMP/verify-routing"',)
-               if (q, variant) == (13, "baseline") else ()),
-             f"python code/source_read_routing/regenerate.py evidence/source_net_causal_poset/routed_read_law/q{q}_{variant}.json "
-             '--producer "$LANE_TMP/produce-routing" --verifier "$LANE_TMP/verify-routing"')
-        for q in (13, 21) for variant in ("baseline", "source")
-    ),
-    pytest_lane("source_read_selection", 1, "code/source_read_selection"),
-    pytest_lane("source_reusable_bus", 1, "code/source_reusable_bus"),
-    pytest_lane("source_routing_refinement", 1, "code/source_routing_refinement"),
     lane("source_selection_model", "push", "root", 6.5,
          "python -m source_selection_model.verify", "python -m source_record_gluing.verify",
          "python -m pytest -q code/source_selection_model code/source_record_gluing", env=CODE),
-    lane("source_temporal_acceptance", "push", "root", 1.5,
-         "python -m source_temporal_acceptance.verify", "python -m pytest -q code/source_temporal_acceptance", env=CODE),
-    lane("arithmon_interface_contracts", "push", "root", 5,
-         "python -B code/a5_closure/verify_marked_triplet_attachment_independent.py",
+    lane("arithmon_interface_contracts", "push", "root", 2,
          "python -B code/a5_closure/port_support_source_audit.py --check",
          "python -B code/a5_closure/verify_port_support_source_audit.py",
          "python -B code/a5_closure/equivariant_degree_crosscheck.py --check",
          "python -B code/a5_closure/verify_equivariant_degree_crosscheck.py",
-         "python -B code/a5_closure/proper_code_attachment_probe.py --check",
-         "python -B code/a5_closure/verify_proper_code_attachment_independent.py",
-         "python -B code/a5_closure/c12_current_attachment_probe.py --check",
-         "python -B code/a5_closure/verify_c12_current_attachment_independent.py",
-         "python -B code/a5_closure/coherent_native_access_probe.py --check",
-         "python -B code/a5_closure/verify_coherent_native_access_independent.py",
-         "python -B code/a5_closure/coherent_decoder_probe.py --check",
-         "python -B code/a5_closure/verify_coherent_decoder_independent.py",
-         "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B -m pytest -q -W error model/native_interface/test_tomography.py "
-         "model/native_interface/test_pointer.py model/compiled_native_interface/test_construction.py",
-         "python -B code/a5_closure/source_current_order_sensitive_inventory.py verify",
-         "python -B code/a5_closure/verify_source_current_order_sensitive_inventory.py "
-         "--inventory code/a5_closure/manifests/source_current_order_sensitive_inventory.json",
-         "python -B code/angular_sprint/k7_gauge_scale_contract.py --check",
-         "python -B code/angular_sprint/verify_k7_gauge_scale_contract_independent.py",
-         "python -B -m pytest -q code/a5_closure/tests/test_marked_triplet_attachment_certificate.py "
-         "code/a5_closure/tests/test_port_support_source_audit.py code/a5_closure/tests/test_equivariant_degree_crosscheck.py "
-         "code/a5_closure/tests/test_proper_code_attachment_probe.py code/a5_closure/tests/test_c12_current_attachment_probe.py "
-         "code/a5_closure/tests/test_coherent_native_access_probe.py code/a5_closure/tests/test_coherent_decoder_probe.py "
-         "code/angular_sprint/test_k7_gauge_scale_contract.py"),
+         "python -B -m pytest -q code/a5_closure/tests/test_port_support_source_audit.py "
+         "code/a5_closure/tests/test_equivariant_degree_crosscheck.py"),
     lane("certificate_smoke", "push", "root", 3,
          "python tools/run_mandatory_suite.py --certificate-smoke-only",
-         "python -m pytest -q code/a5_closure/tests/test_source_repair_generator_certificate.py",
-         "python -m pytest -q code/a5_closure/tests/test_native_defect_stability_gate.py"),
+         "python -m pytest -q code/a5_closure/tests/test_source_repair_generator_certificate.py"),
 
     # ------------------------------------------------------------------
-    # Push tier, root requirements: model/ replays from the completion program.
-    lane("model_sectors", "push", "root", 7,
-         "python -m pytest -q --durations=10 -W error model/exchange_sector model/particle_screening", env=BLAS1),
-    lane("model_repair", "push", "root", 5,
-         "python -m pytest -q --durations=10 -W error model/local_repair_family model/active_code_energy "
-         "model/screened_recovery model/conserved_sector_action model/screened_transport",
-         "python tools/renew_diagnostic_parent_custody.py --check", env=BLAS1),
-    lane("model_fields", "push", "root", 5,
-         "python -m pytest -q --durations=10 -W error model/moving_defect model/record_action model/particle_obstruction model/interacting_field",
-         "python -m model.moving_defect.experiment --check",
-         "python -m model.record_action.action --check",
-         "python -m model.particle_obstruction.classification --check",
-         "python -m model.interacting_field --check model/interacting_field/results.json",
-         "python -m pytest -q --durations=10 -W error model/bound_pair model/particle_clock model/field_regions "
-         "model/field_stress model/field_tastes model/biased_reset",
-         *(f"python -m model.{name} --check model/{name}/results.json"
-           for name in ("bound_pair", "particle_clock", "field_regions", "field_stress", "field_tastes", "biased_reset")),
+    # Push tier, model requirements (model/requirements.txt): the theory
+    # packages kept beside the polynomial-sv model.
+    lane("support_refinement", "push", "model", 2,
+         "python -m pytest -q -W error model/support_refinement",
+         "python -m model.support_refinement --check model/support_refinement/results.json", env=BLAS1),
+    lane("matched_einstein_limit", "push", "model", 1,
+         "python -m pytest -q -W error model/matched_einstein_limit", env=BLAS1),
+    lane("defect_particle_classes", "push", "model", 1,
+         "python -m model.defect_particle_classes --check",
+         "python -m pytest -q -W error model/defect_particle_classes", env=BLAS1),
+    lane("maxwell_certificates", "push", "model", 1,
+         "python -m pytest -q -W error model/maxwell_local_selection model/maxwell_weak_field", env=BLAS1),
+    lane("selection_certificates", "push", "model", 1,
+         "python -m pytest -q -W error model/carrier_selection_reduction model/finite_instrument_calibration",
          env=BLAS1),
-    lane("model_native", "nightly", "root", 7,
-         "python -m pytest -q -W error model/band_clock model/native_localization model/native_program",
-         "python -m pytest -q -W error model/pair_cyclic_control model/recovery_elision model/biased_code_universality",
-         "python -m pytest -q -W error model/energy_identifiability model/regional_modular model/band_clock_budget model/compiled_native_history",
-         "python -m pytest -q -W error model/regional_clock",
-         "python -m model.regional_clock.verify --check",
-         "python -m pytest -q -W error model/reference_observation model/native_fixed_algebra model/gauged_field model/full_fock_field",
-         "python -m pytest -q -W error model/field_thermal model/support_refinement",
-         "python -m model.support_refinement --check model/support_refinement/results.json",
-         "python -m model.band_clock_budget --check model/band_clock_budget/results.json",
-         "python -m model.band_clock --check model/band_clock/results.json",
-         "python -m model.native_localization.experiment --check model/native_localization/results.json",
-         env=BLAS1),
-    lane("model_particle_services", "nightly", "root", 4,
-         "python -m pytest -q --durations=10 -W error model/reference_recovery model/particle_response model/contact_scattering "
-         "model/particle_comparison model/charged_dynamics model/particle_transport",
-         "python -m pytest -q --durations=10 -W error model/modular_flow model/full_fock_energy model/flux_response "
-         "model/field_protocols model/dimer_family",
-         "python -m pytest -q --durations=10 -W error model/field_symmetry",
-         "python -m model.field_symmetry --check model/field_symmetry/results.json",
-         "python -m model.flux_response --check model/flux_response/results.json",
-         "python -m model.particle_comparison.compare --check model/particle_comparison/results.json",
-         "python -m model.charged_dynamics.packet --check model/charged_dynamics/results.json",
-         "python -m model.particle_transport.packet --check model/particle_transport/results.json",
-         env=BLAS1),
-    lane("model_protected_defects", "push", "root", 2,
-         "python -m pytest -q --durations=10 -W error model/defect_protection model/defect_identity model/defect_energy",
-         "python -m model.defect_protection --check",
-         "python -m model.defect_identity.identity --check",
-         "python -m model.defect_energy --check", env=BLAS1),
-    lane("model_native_field_readout", "push", "root", 2,
-         "python -m pytest -q --durations=10 -W error model/defect_field_bridge model/defect_field_benchmark",
-         *(f"python -m model.{name} --check" for name in (
-             "defect_field_bridge.bridge", "defect_field_bridge.colored", "defect_field_bridge.dynamics_packet",
-             "defect_field_benchmark", "defect_field_benchmark.readout", "defect_field_bridge.joint",
-             "defect_field_bridge.coherent_extension", "defect_field_bridge.full_domain")),
-         env=BLAS1),
-    lane("model_native_field_dynamics", "push", "root", 1,
-         "python -m model.defect_field_interactions.packet --check",
-         "python -m model.defect_field_clock --check",
-         "python -m model.defect_field_propagation --check",
-         "python -m pytest -q --durations=10 -W error model/defect_field_propagation model/defect_field_clock model/defect_field_interactions",
-         env=BLAS1),
-    lane("model_native_field_thermodynamics", "nightly", "root", 5,
-         "python -m model.defect_field_modular --check",
-         "python -m model.defect_field_energy.packet --check",
-         "python -m pytest -q --durations=10 -W error model/defect_field_energy model/defect_field_modular",
-         "python -m pytest -q --durations=10 -W error model/spin_goldstone_sector model/native_spin_observer "
-         "model/lattice_weyl_response model/cubic_particle_channels model/lattice_modular_limit model/spin_particle_scaling "
-         "model/native_ordered_ground model/spin_shell_diagnostic tools/test_replay_model_receipts.py "
-         "tools/test_read_ordered_spin_energies.py tools/test_particle_mass_table.py",
-         *(f"python -W error -m model.{name} --check" for name in (
-             "spin_goldstone_sector", "native_spin_observer", "lattice_weyl_response", "cubic_particle_channels",
-             "lattice_modular_limit", "spin_particle_scaling", "native_ordered_ground", "spin_shell_diagnostic")),
-         "python -W error tools/read_ordered_spin_energies.py --check model/completion/ordered_spin_energy_readout.json",
-         "python -W error -m model.spin_canonical_energy --check",
-         "python -W error -m model.shell_entropy_response --check",
-         "python -W error tools/build_particle_mass_table.py --check",
-         env=BLAS1),
-    lane("model_finite_observables", "push", "root", 1,
-         "python -m pytest -q -W error model/charged_composite_search model/quadratic_conservation "
-         "model/prepared_regional_entropy",
-         "python -W error -m model.charged_composite_search --check",
-         "python -W error -m model.quadratic_conservation --check",
-         "python -W error -m model.prepared_regional_entropy --check", env=BLAS1),
-    lane("model_native_observations", "push", "root", 7,
-         "python -m pytest -q -W error model/composite_spatial_response model/native_composite_probe "
-         "model/interacting_observation_process model/native_regional_modular",
-         "python -W error -m model.composite_spatial_response --check",
-         "python -W error -m model.native_composite_probe --check",
-         "python -W error -m model.interacting_observation_process --check",
-         "python -W error -m model.native_regional_modular --check", env=BLAS1),
-
-    # ------------------------------------------------------------------
-    # Push tier, model requirements (model/requirements.txt).
-    lane("native_memory_clock", "push", "model", 3,
-         "python -B -O -m model.native_memory_clock.experiment",
-         "python -B -O -m unittest discover -s model/native_memory_clock -t .", env=BLAS1),
-    lane("native_memory_clock_extended", "nightly", "model", 3,
-         "python -B -O -m model.native_memory_clock.experiment --extended", env=BLAS1),
-    lane("native_observer_archive", "push", "model", 1,
-         "python -B -O -m model.native_observer_archive.experiment",
-         "python -B -O -m unittest discover -s model/native_observer_archive -t .",
-         "python -B -O -m model.native_observer_archive.experiment --extended", env=BLAS1),
-    lane("coherent_seam_repair", "push", "model", 8,
-         "python -m model.coherent_seam_repair --check",
-         "python -m model.coherent_seam_repair.agreement --check",
-         "python -m model.coherent_seam_repair.protection --check",
-         "python -m pytest -q -W error model/coherent_seam_repair",
-         *(cmd for pkg in ("particle_catalogue_correspondence", "finite_family_clock", "defect_particle_classes")
-           for cmd in (f"python -m model.{pkg} --check", f"python -m pytest -q -W error model/{pkg}")),
-         "python -m model.lepton_register_round --check",
-         *(f"python -m model.coherent_defect_wave.{name} --check" for name in COHERENT_DEFECT_WAVE),
-         "python -m pytest -q -W error model/coherent_defect_wave "
-         + " ".join(f"--ignore=model/coherent_defect_wave/chiral_joint/{pkg}" for pkg in COHERENT_CONSTRAINED),
-         env={**BLAS1, "PYTHONDONTWRITEBYTECODE": "1"}),
-    lane("field_record_addenda", "nightly", "model", 7.5,
-         "python -B -m model.field_record_addenda --check",
-         "python -B -m pytest -q model/field_record_addenda -W error",
-         "python -B tools/check_field_record_addenda_claims.py",
-         "python -B -m pytest -q tools/test_field_record_addenda_claims.py -W error",
-         "python -B tools/build_finite_field_records_atlas.py --check",
-         env={**BLAS1, "PYTHONDONTWRITEBYTECODE": "1"}),
-    lane("particle_extensions_hashes", "push", "model", 2,
-         "python -m model.verify_particle_extensions --hashes-only",
-         "python -m pytest -q -W error model/test_verify_particle_extensions.py"),
-
-    # ------------------------------------------------------------------
-    # Push tier, model requirements: per-package coherent-seam replays.
-    *(
-        lane(f"chiral_joint_{pkg}", "push", "model", COHERENT_CONSTRAINED_MINUTES.get(pkg, 1),
-             f"python -m model.coherent_defect_wave.chiral_joint.{pkg} --check",
-             f"python -m pytest -q -W error model/coherent_defect_wave/chiral_joint/{pkg}",
-             env={**BLAS1, "PYTHONDONTWRITEBYTECODE": "1"})
-        for pkg in COHERENT_CONSTRAINED
-    ),
-    *(
-        lane(f"collective_{pkg}", "push", "model", COHERENT_COLLECTIVE_MINUTES.get(pkg, 1),
-             f"python -m model.{pkg} --check", f"python -m pytest -q -W error model/{pkg}",
-             env={**BLAS1, "PYTHONDONTWRITEBYTECODE": "1"})
-        for pkg in COHERENT_COLLECTIVE
-    ),
 
     # ------------------------------------------------------------------
     # Nightly tier, root requirements.
-    lane("native_program_receipt", "nightly", "root", 3,
-         "python -m model.native_program.receipt --check model/native_program/results.json", env=BLAS1),
-    lane("support_wiring", "nightly", "root", 45,
-         "python -m pytest -q code/support_wiring/test_support_wiring.py",
-         "python code/support_wiring/verify.py",
-         "python code/support_wiring/experiment.py trace --output temp/support-wiring-fresh",
-         "python code/support_wiring/experiment.py controls --output temp/support-wiring-fresh",
-         "python code/support_wiring/readouts.py provenance --output temp/support-wiring-fresh",
-         "python code/support_wiring/readouts.py q13 --output temp/support-wiring-fresh",
-         "python code/support_wiring/verify.py --part trace --archive temp/support-wiring-fresh",
-         "python code/support_wiring/check_reproduction.py temp/support-wiring-fresh",
-         "python evidence/exact_federation_L6_canonical_20260909/verify_archive.py",
-         "python evidence/source_net_causal_poset/verify_causal_poset_archive.py", env=BLAS1),
+    # Red on main since r2066: the ledger requires anchor text in a cosmology paper.
+    lane("cosmology_accounting", "nightly", "root", 1,
+         "python -m pytest -q code/cosmology/fixed_capacity_wlaw code/cosmology/postdiction_ledger -W error",
+         "python code/cosmology/postdiction_ledger/verify_cosmology_postdiction_ledger_independent.py"),
 )
-
 
 def select(tier: str | None, profile: str | None) -> list[Lane]:
     return [x for x in LANES if (tier is None or x.tier == tier) and (profile is None or x.profile == profile)]

@@ -1,7 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/work/2026-11-16_codex_common_refinement_family/family.py", line 72, in <module>
-    result=execute(k,here/f'k{k}');receipts.append(result)
-  File "/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/work/2026-11-16_codex_common_refinement_family/family.py", line 36, in execute
-    W=np.array(source['W']['real'])+1j*np.array(source['W']['imag'])
-               ~~~~~~~~~~~^^^^^^^^
-TypeError: list indices must be integers or slices, not str

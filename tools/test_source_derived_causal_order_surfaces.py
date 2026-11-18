@@ -310,7 +310,6 @@ def test_scientific_registry_cites_the_causal_poset_package() -> None:
     claims = _claims()
     carrier_evidence = claims[SPACETIME_CLAIM]["evidence"]
     assert f"{POSET_PACKAGE}/verify_causal_poset_archive.py" in carrier_evidence
-    assert "paper/tex_fragments/CAUSAL_MANIFOLD_OBSERVATIONS.tex" in carrier_evidence
     local_domain_evidence = claims["OPH-GR-FINITE-LOCAL-DOMAIN"]["evidence"]
     assert f"{POSET_PACKAGE}/source_net_causal_limit_receipt.json" in local_domain_evidence
     assert not any("causet_likeness" in item for item in local_domain_evidence)
@@ -395,11 +394,10 @@ def test_causal_archive_rejects_duplicate_json_metadata(causal_archive_checker, 
 
 def test_publication_surfaces_reject_the_retired_gluing_story() -> None:
     flagship = _text("flagship/from_observer_consensus_to_standard_physics.tex")
-    shared = _text("paper/tex_fragments/PAPER.tex")
     gravity = _text(
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex"
     )
-    combined = "\n".join((flagship, shared, gravity))
+    combined = "\n".join((flagship, gravity))
     assert "thm:source-causal-precursor" in flagship
     assert "thm:source-causal-continuum" in flagship
     assert "source-derived finite" in combined.lower()
@@ -417,9 +415,6 @@ def test_publication_surfaces_reject_the_retired_gluing_story() -> None:
         ROOT.glob("flagship/*.tex")
     ) + tuple(ROOT.glob("paper/*.tex")) + tuple(ROOT.glob("cosmology/*.tex")) + (
         ROOT / "paper/archive/observer_patch_holography_as_string_vacuum_selector.tex",
-        ROOT / "paper/tex_fragments/PAPER.tex",
-        ROOT / "paper/tex_fragments/EINSTEIN_DERIVATION_SCOPE.tex",
-        ROOT / "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex",
     )
     all_publication_text = "\n".join(
         path.read_text(encoding="utf-8") for path in publication_surfaces

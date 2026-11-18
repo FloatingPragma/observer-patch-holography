@@ -27,12 +27,6 @@ generations is identical; the sampled `q = 55` readings of the first,
 `build_causal_poset_2026-09-24.py` for the current receipts; the verifier
 rebuilds both.
 
-The additional [support-wiring receipt](support_wiring_receipt.json) is the
-byte-exact mirror of the [paired support-wiring diagnostic](../support_wiring_776/README.md).
-It executes canonical seam means on the full L3–L5 W12 architecture and places
-its authenticated provenance order by both local readback and cell centre,
-beside a freshly executed q=13 record-metric trace. Its independent verifier
-and complete artifacts live in that companion package.
 
 The [full routing construction](../../code/source_read_routing/README.md#diagnostic-boundary)
 checks its L3-L5 support captures against that diagnostic and compares every
@@ -68,13 +62,6 @@ ratio `phi`, and `L = 2/sqrt(phi + 2)`.
 The population, the read law, the round duration `Delta_q = a_q/c` and one
 counted event per carrier and round are supplied, as in the source paper.
 
-A separate [routed-read extension](routed_read_law/README.md) executes the
-complete q=13/q=21 logical menus on declared W12 L4/L5 support. It retains all
-decoded event commitments and costs and verifies a semantic refinement under a
-supplied local M1 feedback law. The original receipts below remain the
-declared-family records; routing does not derive M1 or turn its
-auxiliary events into spacetime-volume counts.
-
 ## Properties
 
 | Property | Value | Status |
@@ -101,7 +88,6 @@ auxiliary events into spacetime-volume counts.
 | Continuum reconstruction | On past- and future-distinguishing Lorentzian spacetimes, chronological order determines the conformal geometry; an identified metric volume measure fixes the conformal factor | imported continuum theorem; not a finite-poset existence theorem |
 | Selection of the population and read law by native repairs | | not supplied by these receipts |
 | Physical clock and source-selected continuum | not supplied by these receipts; the declared-family analytic limit is in the source paper | distinct from finite numerical diagnostics |
-| S2 support wiring readout | exact canonical L3–L5 W12 trace, both coordinate placements, W3/isolated controls and paired q=13 counts | computed, [support-wiring receipt](../support_wiring_776/README.md); finite declared inputs, no source selection or continuum claim |
 | Isotropy of link directions, interval abundance profile | odd multipoles vanish, `l = 4` power 0.036, 0.023, 0.0060, 0.0016 at `q = 8, 13, 21, 34`; intervals of 64 to 1024 events match a flat sprinkling within 14 percent, links and small intervals do not (layered order) | computed at `q <= 34`, [extension of 2026-09-25](#extensions-of-2026-09-25) |
 | Chain counts `C_2`, `C_3`, `C_4` and interval spectrum | central dimensions 4.076, 4.016, 3.971 at `q = 144`; central 25-point CDF distances 0.075810, 0.024725, 0.032342 at `q = 55, 89, 144` | sampled point estimates, no uniform monotone improvement or joint statistical decision; complete [refinement interface](manifold_refinement/README.md) retains all regions and controls |
 | Curvature estimators | | not supplied by these receipts |

@@ -142,7 +142,7 @@ def test_false_promotions_and_changed_diagnostics_fail(packet, keys, value):
 
 def test_changed_source_bytes_are_not_cached(packet, monkeypatch):
     original = Path.read_bytes
-    target = verifier.ROOT/"paper/tex_fragments/WHITNEY_REAL_CONTINUUM.tex"
+    target = verifier.ROOT/"code/electromagnetism/whitney_real_continuum.py"
     def changed(path):
         value = original(path)
         return value+b"\n" if path == target else value

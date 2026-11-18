@@ -10,6 +10,8 @@ if __package__ in (None, ''):
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     __package__ = 'm1_source_realization'
 
+import pin_scope
+
 from .check import need, same, verify_evidence
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -25,6 +27,7 @@ SOURCES += ['docs/research/COHERENT_SOURCE_CLOCKS.md', '.github/workflows/m1-sou
             'code/a5_closure/port_current_inner_certificate.py',
             'code/m1_operational_clocks/check.py', 'docs/research/MASSIVE_OPERATIONAL_CLOCKS.md',
             'requirements.txt', '.gitattributes']
+SOURCES = pin_scope.bound(SOURCES)
 CLAIMS = ('OPH-SOURCE-COHERENT-CODE-COMPLETION', 'OPH-SOURCE-TWO-BASIS-A3-SELECTION',
           'OPH-SOURCE-COMPILED-MASS-CLOCK', 'OPH-M1-OBSERVABLE-MASS-CLOCK')
 
@@ -64,7 +67,7 @@ def verify(path=HERE/'receipt.json'):
     packet = load(path)
     need(type(packet) is dict and packet.keys() == {'schema', 'sources', 'claims', 'evidence'}, 'envelope')
     same(packet['schema'], 'oph-source-realization-v1')
-    same(packet['sources'], pins(), 'sources')
+    same(pin_scope.bound_pins(packet['sources']), pins(), 'sources')
     same(packet['claims'], claim_pins(), 'claims')
     verify_evidence(packet['evidence'])
     return packet

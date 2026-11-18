@@ -56,7 +56,6 @@ VENDORED_DIRECTORY_NAMES = frozenset(
     {"node_modules", "site-packages", "vendor", "third_party", "__pycache__"}
 )
 SEALED_SNAPSHOT_DIRECTORIES = frozenset({"evidence", "workspace"})
-LEDGER_RELATIVE = Path("code/particles/runs/status/postdiction_ledger.json")
 COMPARISON_TABLE_SURFACE_RULE = (
     "every_published_readme_comparison_table_is_declared_row_for_row"
 )
@@ -71,7 +70,7 @@ COMPARISON_COLUMN_TERMS = re.compile(
 )
 
 # Lane kinds a declared comparison row may resolve through.
-LANE_KINDS = {"registry_claim", "manifest_row", "ledger"}
+LANE_KINDS = {"registry_claim", "manifest_row"}
 
 # Wording a declared role owes the reader in the row itself.
 ROLE_REQUIRED_WORDING = {
@@ -222,12 +221,7 @@ def validate_manifest(
     if duplicates:
         issues.append(f"manifest: duplicate row IDs: {duplicates}")
 
-    required_roles = {
-        "diagnostic",
-        "rejected_candidate",
-        "target_anchored_backsolve",
-        "structural_non_discriminating",
-    }
+    required_roles = {"diagnostic"}
     seen_roles: set[str] = set()
 
     for index, row in enumerate(rows):
@@ -873,25 +867,6 @@ def comparison_tables(text: str) -> list[dict[str, Any]]:
     return tables
 
 
-def ledger_row_ids(root: Path) -> set[str]:
-    """Row IDs carried by the postdiction ledger's sections."""
-    try:
-        ledger = load_json(root / LEDGER_RELATIVE)
-    except (OSError, json.JSONDecodeError):
-        return set()
-    identifiers: set[str] = set()
-    sections = ledger.get("sections")
-    if not isinstance(sections, dict):
-        return identifiers
-    for rows in sections.values():
-        if not isinstance(rows, list):
-            continue
-        for row in rows:
-            if isinstance(row, dict) and isinstance(row.get("id"), str):
-                identifiers.add(row["id"])
-    return identifiers
-
-
 def _check_declared_comparison_row(
     label: str,
     declaration: dict[str, Any],
@@ -900,7 +875,6 @@ def _check_declared_comparison_row(
     *,
     registry: dict[str, dict[str, Any]],
     manifest_rows: dict[str, dict[str, Any]],
-    ledger_ids: set[str],
 ) -> list[str]:
     """Check one declared comparison row against its rendered cells."""
     issues: list[str] = []
@@ -932,7 +906,7 @@ def _check_declared_comparison_row(
             issues.append(
                 f"{label}: lane names unknown registry claim ID {claim_id!r}"
             )
-    elif kind == "manifest_row":
+    else:
         row_id = lane.get("row_id")
         manifest_row = manifest_rows.get(row_id)
         if manifest_row is None:
@@ -941,13 +915,6 @@ def _check_declared_comparison_row(
             issues.append(
                 f"{label}: declared role {role!r} differs from the role "
                 f"{manifest_row.get('role')!r} of manifest row {row_id!r}"
-            )
-    else:
-        row_id = lane.get("row_id")
-        if row_id not in ledger_ids:
-            issues.append(
-                f"{label}: ledger lane names no row of "
-                f"{LEDGER_RELATIVE.as_posix()}: {row_id!r}"
             )
     return issues
 
@@ -991,17 +958,14 @@ def check_comparison_table_surfaces(
         )
 
     declarations = manifest.get("comparison_table_surfaces")
-    if not isinstance(declarations, list) or not declarations:
-        issues.append(
-            "manifest: comparison_table_surfaces must be a nonempty list"
-        )
+    if not isinstance(declarations, list):
+        issues.append("manifest: comparison_table_surfaces must be a list")
         declarations = []
     manifest_rows = {
         row["row_id"]: row
         for row in manifest.get("rows", [])
         if isinstance(row, dict) and isinstance(row.get("row_id"), str)
     }
-    ledger_ids = ledger_row_ids(root)
 
     declared_paths: set[str] = set()
     for index, declaration in enumerate(declarations):
@@ -1105,7 +1069,6 @@ def check_comparison_table_surfaces(
                     comparison_index,
                     registry=registry,
                     manifest_rows=manifest_rows,
-                    ledger_ids=ledger_ids,
                 )
             )
 

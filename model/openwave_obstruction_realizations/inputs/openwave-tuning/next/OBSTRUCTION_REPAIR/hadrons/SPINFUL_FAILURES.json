@@ -1,9 +1,0 @@
-[
-  {
-    "stage": "JSON export after complete spectral calculation",
-    "exception": "TypeError: np.int64 ground multiplicity not JSON serializable",
-    "repair": "cast multiplicity to Python int; no physical coefficient or source changed",
-    "retained_stdout": "SPINFUL_FIRST_RUN.log",
-    "next_run": "also executes all triquark probe labels and failure outcomes"
-  }
-]

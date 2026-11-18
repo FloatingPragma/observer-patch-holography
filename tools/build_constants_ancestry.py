@@ -84,11 +84,7 @@ FALSIFIER_KEYS = {"artifact", "rule"}
 EXPECTED_ROWS = (
     ("CA-01", "fine-structure constant", "diagnostic", "OL-H1"),
     ("CA-02", "cosmological constant via N", "diagnostic", "OL-H2"),
-    ("CA-03", "charged-lepton masses", "postdiction_comparison", "OL-H3"),
-    ("CA-04", "quark masses and mixings", "postdiction_comparison", "OL-H4"),
-    ("CA-05", "W, Z, and Higgs sector", "postdiction_comparison", "OL-H5"),
     ("CA-06", "hadron spectrum", "diagnostic", "OL-H6"),
-    ("CA-07", "neutrino stance", "owed", "OL-H7"),
     (
         "CA-08",
         "units and calibration: clock and energy anchors",

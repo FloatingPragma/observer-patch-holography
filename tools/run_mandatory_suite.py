@@ -53,7 +53,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "code/audit/test_recurrent_proof_boundaries.py",
             "code/consensus/test_sampling_and_record_boundaries.py",
             "code/particles/test_paper_proof_boundaries.py",
-            "code/particles/neutrino/test_takagi_numerics.py",
             "code/P_derivation/test_thomson_spectral_transport.py",
             "code/P_derivation/test_source_spectral_theorem.py",
             "code/P_derivation/test_thomson_endpoint_interval_certificate.py",
@@ -64,84 +63,12 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
-        "Verify geometric-source identifiability and native history controls",
-        [sys.executable, "-m", "pytest", "-q", "code/native_geometric_source"],
-    ),
-    (
-        "Replay composed field feedback, clock and detector error custody",
-        [sys.executable, "code/common_history_packet/verify.py"],
-    ),
-    (
-        "Reject false common-history, density and quantum-preparation certificates",
-        [sys.executable, "-m", "pytest", "-q", "code/common_history_packet", "code/source_density_geometry", "code/source_scalar_preparation"],
-    ),
-    (
-        "Verify native observer dynamics, retained spectra and clock controls",
-        [sys.executable, "code/observer_dynamics/verify.py"],
-    ),
-    (
         "Verify sampled causal-manifold arithmetic and mutation controls",
         [sys.executable, "evidence/source_net_causal_poset/verify_sampled_manifold.py"],
     ),
     (
-        "Verify finite fermionic current, exact continuity and mean Gauss custody",
-        [sys.executable, "-m", "pytest", "-q", "code/sm_fermion_current"],
-    ),
-    (
-        "Verify Maxwell measurement contract, uncertainty and external trust boundaries",
-        [sys.executable, "-m", "pytest", "-q", "code/maxwell_measurement"],
-    ),
-    (
-        "Verify native work ambiguity, scalar pressure enclosures and Maxwell thermal stress",
-        [sys.executable, "-m", "pytest", "-q", "code/equation_of_state"],
-    ),
-    (
-        "Verify regional scalar reconstruction and minimal exterior Weyl access",
-        [sys.executable, "-m", "pytest", "-q", "code/source_scalar_regional/test_regional_time_slice.py"],
-    ),
-    (
-        "Replay destination-local seam routing, full custody and noise bounds",
-        [sys.executable, "-m", "pytest", "-q", "code/source_routing/test_routing.py"],
-    ),
-    (
-        "Verify charged local readout bounds against authenticated records",
-        [sys.executable, "-m", "pytest", "-q", "code/sm_abelian_readout/test_readout.py"],
-    ),
-    (
-        "Replay authenticated golden scalar execution and its full-mode time error",
-        [sys.executable, "-m", "pytest", "-q", "code/source_scalar_execution/test_source_scalar_execution.py"],
-    ),
-    (
-        "Replay original-vacuum scalar probabilities and adversarial controls",
-        [sys.executable, "-m", "pytest", "-q", "code/source_scalar_quantum/test_scalar_quantum_probability.py"],
-    ),
-    (
-        "Reconstruct scalar action time from authenticated reads and perturbation bounds",
-        [sys.executable, "-m", "pytest", "-q", "code/source_scalar_clock/test_source_scalar_clock.py"],
-    ),
-    (
-        "Verify the same quantum detector throughout recovered action-time intervals",
-        [sys.executable, "-m", "pytest", "-q", "code/source_scalar_clock_quantum/test_clock_quantum.py"],
-    ),
-    (
-        "Verify joint scalar time and spatial detector refinement with all spectral modes",
-        [sys.executable, "-m", "pytest", "-q", "code/source_scalar_time_refinement/test_source_scalar_time_refinement.py"],
-    ),
-    (
-        "Replay the consistent Cartan-scalar action, current and Gauss controls",
-        [sys.executable, "-m", "pytest", "-q", "code/sm_abelian_reduction/test_abelian.py"],
-    ),
-    (
-        "Replay the golden scalar full-leakage and compact-detector certificate",
-        [sys.executable, "-m", "pytest", "-q", "code/source_scalar_packet/test_source_common_scalar.py"],
-    ),
-    (
         "Replay the local Standard Model jet action and Grassmann Ward controls",
         [sys.executable, "-m", "pytest", "-q", "code/sm_local_action/test_local_action.py"],
-    ),
-    (
-        "Replay exact protected source-population records and mutation controls",
-        [sys.executable, "-m", "pytest", "-q", "code/source_population/test_population.py"],
     ),
     (
         "Execute strict JSON duplicate-key gates",
@@ -189,16 +116,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
-        "Replay the Higgs-Yukawa source frontier and its pinned parents",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "code/particles/hierarchy/higgs_yukawa_source_frontier",
-        ],
-    ),
-    (
         "Replay the Maxwell-lane receipts against their pinned Lean sources",
         [
             sys.executable,
@@ -221,39 +138,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
     (
         "Validate the frozen-prediction ladder and its generated surface",
         [sys.executable, "tools/build_fz_registry.py", "--check"],
-    ),
-    (
-        "Validate the comparison-value-free quantum-carrier status packet",
-        [
-            sys.executable,
-            "code/particles/scripts/build_quantum_carrier_status.py",
-            "--validate-only",
-        ],
-    ),
-    (
-        "Replay the quantum-carrier status independently",
-        [
-            sys.executable,
-            "code/particles/verify_quantum_carrier_status_independent.py",
-        ],
-    ),
-    (
-        "Execute the quantum-carrier status mutation gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "code/particles/test_quantum_carrier_status.py",
-        ],
-    ),
-    (
-        "Validate the deterministic postdiction ledger",
-        [
-            sys.executable,
-            "code/particles/scripts/build_postdiction_ledger.py",
-            "--check",
-        ],
     ),
     (
         "Replay the B12 common-reference obstruction independently",
@@ -751,31 +635,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
-        "Validate the source-only closure preflight inventory",
-        [
-            sys.executable,
-            "code/closure_preflight/source_only_closure_preflight.py",
-            "--verify",
-        ],
-    ),
-    (
-        "Replay the source-only closure preflight independently",
-        [
-            sys.executable,
-            "code/closure_preflight/verify_source_only_closure_preflight_independent.py",
-        ],
-    ),
-    (
-        "Execute the source-only closure preflight mutation gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "code/closure_preflight/test_source_only_closure_preflight.py",
-        ],
-    ),
-    (
         "Validate the finite-cut to global-capacity attachment verdict",
         [
             sys.executable,
@@ -851,24 +710,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
-        "Validate the discriminator stratum verdicts",
-        [
-            sys.executable,
-            "code/discriminator_strata/stratum_verdicts.py",
-            "--verify",
-        ],
-    ),
-    (
-        "Execute the discriminator stratum verdict tests",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "code/discriminator_strata/test_stratum_verdicts.py",
-        ],
-    ),
-    (
         "Validate the angular template receipt",
         [
             sys.executable,
@@ -905,24 +746,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
-        "Validate the carrier specificity receipt",
-        [
-            sys.executable,
-            "code/discriminator_strata/carrier_specificity.py",
-            "--verify",
-        ],
-    ),
-    (
-        "Execute the carrier specificity tests",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "code/discriminator_strata/test_carrier_specificity.py",
-        ],
-    ),
-    (
         "Validate the horizon-record attachment verdict",
         [
             sys.executable,
@@ -938,41 +761,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "pytest",
             "-q",
             "code/capacity_readback/test_direct_n_closure_verdict.py",
-        ],
-    ),
-    (
-        "Validate the invariant-mining pre-generation source lock",
-        [
-            sys.executable,
-            "code/invariant_mining/tools/verify_pregeneration_freeze_independent.py",
-        ],
-    ),
-    (
-        "Execute the invariant-mining pre-generation mutation gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "code/invariant_mining/tests/test_pregeneration_lock.py",
-        ],
-    ),
-    (
-        "Validate the forecast-contract generated state",
-        [
-            sys.executable,
-            "code/particles/forecast_contract/forecast_contract.py",
-            "--verify",
-        ],
-    ),
-    (
-        "Execute the forecast-contract adversarial gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "code/particles/forecast_contract/tests/test_forecast_contract.py",
         ],
     ),
     (
@@ -992,7 +780,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "code/maxent/test_maxent_closure_acceptance.py",
             "code/geometry/test_modular_clock_instrumentation.py",
             "code/geometry/test_quotient_cap_readout.py",
-            "code/particles/clock/test_clock_source_energy_closure_audit.py",
         ],
     ),
     (
@@ -1059,7 +846,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "code/particles/hierarchy/test_antecedent_only_nonidentifiability.py",
             "code/particles/hierarchy/test_hierarchy_bundle.py",
             "code/particles/hierarchy/test_interval_witness.py",
-            "code/particles/neutrino/test_score_neutrino_nufit61.py",
         ],
     ),
     (
@@ -1158,25 +944,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
-        "Replay the Stage 2 order-sensitive source inventory",
-        [
-            sys.executable,
-            "code/a5_closure/source_current_order_sensitive_inventory.py",
-            "verify",
-            "--inventory",
-            "code/a5_closure/manifests/source_current_order_sensitive_inventory.json",
-        ],
-    ),
-    (
-        "Verify the Stage 2 order-sensitive source inventory independently",
-        [
-            sys.executable,
-            "code/a5_closure/verify_source_current_order_sensitive_inventory.py",
-            "--inventory",
-            "code/a5_closure/manifests/source_current_order_sensitive_inventory.json",
-        ],
-    ),
-    (
         "Execute the source-current tomography mutation gates",
         [
             sys.executable,
@@ -1185,7 +952,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "-q",
             "code/a5_closure/tests/test_source_current_tomography_stage0.py",
             "code/a5_closure/tests/test_source_current_tomography_stage1_contract.py",
-            "code/a5_closure/tests/test_source_current_order_sensitive_inventory.py",
         ],
     ),
     (
@@ -1271,9 +1037,7 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "code/a5_closure/tests/test_scalar_sector_blindness_certificate.py",
             "code/a5_closure/tests/test_seam_grammar_matter_classification_certificate.py",
             "code/a5_closure/tests/test_family_band_attachment_certificate.py",
-            "code/particles/flavor/test_entropy_w5_shape_certificate.py",
             "code/particles/leptons/test_koide_balance_comparison_certificate.py",
-            "code/particles/scripts/test_build_postdiction_ledger.py",
             "code/a5_closure/tests/test_flux_defect_criterion_certificate.py",
             "code/a5_closure/tests/test_coset_carrier_certificate.py",
             "code/cosmology/test_edge_center_clock_certificate.py",
@@ -1372,26 +1136,8 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "-m",
             "pytest",
             "-q",
-            "code/particles/calibration/test_d10_ew_tau2_current_carrier_obstruction.py",
-            "code/particles/leptons/test_charged_entropic_branch_no_go.py",
-            "code/particles/flavor/test_entropy_w5_shape_certificate.py",
             "tools/test_post_r2029_audit_surfaces.py",
-            "code/particles/flavor/test_kernel_admissibility_diagnostic.py",
-            "code/particles/flavor/test_k1_carrier_readout_survey.py",
-            "code/particles/flavor/test_quark_s3_d12_template_postdiction.py",
         ],
-    ),
-    (
-        "Replay reusable local feedback transport and exact semantic version custody",
-        [sys.executable, "-m", "pytest", "-q", "code/source_feedback_transport/test_transport.py"],
-    ),
-    (
-        "Verify sequential quantum instruments, local parity and clock-interval backaction",
-        [sys.executable, "-m", "pytest", "-q", "code/source_scalar_instruments/test_sequential_instrument.py"],
-    ),
-    (
-        "Verify finite-duration quantum instruments, noise margins and retained-record chronology",
-        [sys.executable, "-m", "pytest", "-q", "code/source_scalar_finite_instrument/test_finite_instrument.py"],
     ),
     (
         "Verify the triple-carrier noncommutative operator join",

@@ -1,9 +1,0 @@
-{
-  "utc": "2026-11-15T18:59:32.859877+00:00",
-  "cause": "Pilot reencoder contraction used output index instead of source input index; shape error before any rotation case.",
-  "repair": "Multiply each33x3 source counter map by3x2 optical basis.",
-  "gate_change": false,
-  "old_failure_exit_code": 1,
-  "new_pilot_sha256": "3a3d53ad5a05607a304cb6bc0cb5059364d308debf73e34171b3d85e4b1d6daa",
-  "new_native_event_or_physical_result_claim": false
-}

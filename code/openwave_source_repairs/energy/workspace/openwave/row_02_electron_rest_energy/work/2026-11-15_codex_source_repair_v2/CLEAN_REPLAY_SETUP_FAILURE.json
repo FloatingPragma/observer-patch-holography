@@ -1,5 +1,0 @@
-{
-  "reason": "Copy helper created empty output directory before skipping retained receipt; producer correctly rejected existing output. No scientific source/gate was changed.",
-  "temporary_root": "/private/tmp/openwave-energy-clean-lvbsatia",
-  "fix": "Removed only empty temporary output directory and reran the identical frozen source."
-}

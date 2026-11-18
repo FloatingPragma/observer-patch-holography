@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import re
 from dataclasses import dataclass
@@ -21,35 +20,6 @@ DEFAULT_RECEIPT_ROOTS = (
 # Display copies use portable metadata. The frozen-registry validator separately
 # checks normalized custody copies against timestamped historical bytes.
 ATTESTED_PATH_ALLOWLIST: frozenset[tuple[str, str]] = frozenset()
-# Original remote-machine provenance is immutable, while the canonical replay
-# uses the vendored relative paths. Permit only these two historical fields,
-# in original files whose bytes and containing manifest match the reviewed
-# archive. A changed file/manifest, new field, or new file still fails closed.
-OBSERVER_ARCHIVE = "evidence/observer_dynamics_20260925/"
-OBSERVER_MANIFEST_SHA256 = "2b4b8090d84e7b4f646e0884c9db10ef9c174393269760c2f7a2552cba17c548"
-
-
-def _original_observer_provenance(rel: str, pointer: str, data: bytes) -> bool:
-    if not rel.startswith(OBSERVER_ARCHIVE):
-        return False
-    local = rel[len(OBSERVER_ARCHIVE):]
-    chain = pointer == "/parent_run" and re.fullmatch(
-        r"sim-analysis/data/refine_ensemble/chain_\d{3}_L[78]_s\d+_f\d+_(?:chain|shuffled)\.json", local
-    )
-    geometry = pointer == "/geometry/cache_dir" and local in {
-        f"sim-analysis/data/codex_audit_20260925/inputs/data/receipts/L{level}/receipt.json"
-        for level in (8, 9, 10)
-    }
-    if not (chain or geometry):
-        return False
-    manifest = ROOT / OBSERVER_ARCHIVE / "manifest.json"
-    if not manifest.is_file():
-        return False
-    original = manifest.read_bytes()
-    if hashlib.sha256(original).hexdigest() != OBSERVER_MANIFEST_SHA256:
-        return False
-    entry = json.loads(original)["files"].get(local, {})
-    return entry.get("bytes") == len(data) and entry.get("sha256") == hashlib.sha256(data).hexdigest()
 DEVELOPER_HOME_PATTERNS = (
     re.compile(r"/Users/[^/]+/"),
     re.compile(r"/home/[^/]+/"),
@@ -109,8 +79,6 @@ def find_violations(paths: Iterable[Path]) -> list[PortabilityViolation]:
             if (rel, pointer) in ATTESTED_PATH_ALLOWLIST:
                 continue
             if _is_developer_home_path(value):
-                if _original_observer_provenance(rel, pointer, data):
-                    continue
                 violations.append(PortabilityViolation(path, pointer, value))
     return violations
 

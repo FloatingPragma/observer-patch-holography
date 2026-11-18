@@ -70,7 +70,6 @@ REQUIRED_SELECTOR_IDS = {
     "physical_port_current_realization",
     "oriented_face_minimum_repair_rule",
     "post_hoc_repair_count_phase_pairing",
-    "finite_observer_apparatus_and_protocol",
     "z6_global_form_descent",
     "physical_matter_spin_lift",
     "screen_to_family_attachment",

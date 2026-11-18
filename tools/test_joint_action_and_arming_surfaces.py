@@ -1,5 +1,5 @@
-"""Cross-surface gates for the joint-action, dispersion-arming,
-source-clock, and export-validator rungs."""
+"""Cross-surface gates for the joint-action, dispersion-arming and
+source-clock rungs."""
 
 from __future__ import annotations
 
@@ -15,12 +15,10 @@ ROOT = Path(__file__).resolve().parents[1]
 ACTION_CLAIM = "OPH-GEOMETRY-COMMON-WORLD-JOINT-ACTION"
 ARM_CLAIM = "OPH-EM-DISPERSION-ARMING-INTERFACE"
 CLK_CLAIM = "OPH-QFT-SOURCE-CLOCK-CANDIDATE"
-VAL_CLAIM = "OPH-QUANTUM-INS03-EXPORT-VALIDATOR"
 
 ACTION_LEAN = "Lean/Geometry/CommonWorldJointAction.lean"
 ARM_LEAN = "Lean/Screen/DispersionArmingInterface.lean"
 CLK_LEAN = "Lean/QFT/SourceClockCandidate.lean"
-VAL_PY = "code/phase_instrument_export/ins03_export_validator.py"
 
 ARMING_ROWS = tuple(f"PR-7{i}" for i in range(7))
 
@@ -42,7 +40,7 @@ def _collapsed(relative_path: str) -> str:
 
 def test_claims_registered_with_gates() -> None:
     gates = {ACTION_CLAIM: [740], ARM_CLAIM: [754, 742],
-             CLK_CLAIM: [736, 730], VAL_CLAIM: [730, 776]}
+             CLK_CLAIM: [736, 730]}
     for claim_id, expected in gates.items():
         assert _claim(claim_id)["gates"] == expected, claim_id
 
@@ -81,20 +79,6 @@ def test_clock_claim_carries_exact_invariants() -> None:
                   "multiplicity", "does not replace or reduce PR-15"):
         assert token in statement, token
     assert _claim(CLK_CLAIM)["premise_dependencies"]["open"] == ["PR-15"]
-
-
-def test_validator_claim_and_package() -> None:
-    statement = _claim(VAL_CLAIM)["statement"]
-    for token in ("0 <= E_i <= I", "renamed-context rejection",
-                  "STATIC_COMMITTED_FIXTURE_CONFORMANT",
-                  "PRODUCER_AUTHENTICATION_UNIMPLEMENTED"):
-        assert token in statement, token
-    base = ROOT / "code/phase_instrument_export"
-    for name in ("ins03_export_validator.py", "test_ins03_export_validator.py",
-                 "sample_conforming_export.json", "VALIDATOR_CONTRACT.md"):
-        assert (base / name).exists(), name
-    text = (base / "ins03_export_validator.py").read_text(encoding="utf-8")
-    assert "PARTIAL_COMMITTED_CONTEXT_SET" in text
 
 
 def test_lean_modules_carry_headline_declarations() -> None:
@@ -140,4 +124,3 @@ def test_ledger_rows_cite_without_promotion() -> None:
     for pid in ARMING_ROWS:
         assert pid in rows["OL-F4"]["open_premises"], pid
     assert CLK_LEAN in rows["OL-H8"]["evidence"]
-    assert VAL_PY in rows["OL-C5"]["evidence"]

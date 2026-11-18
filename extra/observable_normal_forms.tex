@@ -125,11 +125,6 @@ but rather
 \]
 The two statements have different proof obligations.  Confluence is a property of paths.  Observable reconstruction is a property of the consistent set and of the observation map on that set.
 
-CCF-LT-2 is the official matter, field and local-capacity law
-(\texttt{model/SPEC.md}). The component comparisons below retain their
-own sources and hypotheses. Their physical attachment requires the common
-Hamiltonian, preparation, reference and complete instrument.
-
 We use \emph{observation-determined normal form} for a settled state determined
 through an observation map on the consistent set.  This is distinct from the
 control-theory use of \enquote{observable normal form} for a state-space form
@@ -1727,13 +1722,7 @@ for a different repair dynamics; those require additional structure.  A
 noncircular receipt enumerates the states and fibers, derives $K$ independently
 from the declared transition table or transition counts, and then verifies
 (R1)--(R3); constructing $K$ from the target entry formula is not a
-verification. The native seam rule of the independent observer component
-supplies such a receipt on its binary total-two shell under a declared fair
-coin. For one seam, let $B$ read the ten outside occupancies and the seam total,
-and let $\mu$ be uniform on the $66$ configurations. Each of the thirty seams
-has $46$ singleton and ten two-point fibers, and the kernel obtained by executing
-both coin outcomes equals the matrix of $P_B$ on all $66^2$ entries
-\citep{ophmodel}.
+verification.
 \end{remark}
 
 \subsection{Symmetry and hidden tie-breaking}
@@ -2318,13 +2307,9 @@ x_n=\operatorname{adaptiveRun}_C(n,\sigma,x_0),
 An attempt may stutter when the chosen site has no effective repair.  Every
 nonstuttering attempt is an accepted repair step and strictly lowers \(r_n\),
 while every stuttering attempt leaves the record unchanged.
-This canonical repair is distinct from the native seam rule of the independent
-observer component \citep{ophmodel}, which conserves load on the
-twelve-port carrier, sets the two endpoints of a seam to the floor and
-ceiling of their mean and breaks ties with a fair coin. On its invariant
-binary shell the native rule has no quiescent state; its settled public
-object is the load multiset of
-\cref{subsec:settled-public-class}.
+This canonical repair is distinct from the conservative port-repair family of
+\cref{subsec:settled-public-class}, which has no quiescent state on its
+invariant binary sector; its settled public object is the load multiset.
 
 \begin{theorem}[Adaptive repair stratification]
 \label{thm:oph-adaptive-repair-stratification}
@@ -2534,32 +2519,21 @@ For example, in that attempt parameter the long-history fluctuation of
 \(z\) has covariance \(4\kappa L^+\), whereas that of \(Lz\) has
 covariance \(4\kappa L\).
 These are different observations of one chain, not conflicting normal
-forms. The native seam rule of the independent observer component is the
-instance with \(p=12\) ports, the thirty icosahedral seams and \(r=2\): its
-\(66\) binary configurations form the invariant shell of the \(78\) integer
-configurations of total load two, and its fair placement coin realizes the
-exchange probability \(1/2\) \citep{ophmodel}. There \(\kappa=5/33\), and
-under uniform independent seam attempts the long-average covariance in
-native attempt count is \((5/33)(120L^{+}-P_0)\) with
-\(P_0=I-\tfrac1{12}\mathbf1\mathbf1^{\mathsf T}\) \citep{ophcontinuum}.
+forms. On the twelve-port carrier with its thirty icosahedral seams and
+\(r=2\), the \(66\) binary configurations form the invariant shell of the
+\(78\) integer configurations of total load two, and \(\kappa=5/33\).
 The finite rational four-port, six-state instance of the Lean development
 \citep{ophfourcycle} certifies generator,
 stationary, drift, Poisson and covariance identities, including the
 load/drive distinction. Continuum limits of the occupation history are
-theorems of the screen-microphysics library paper \citep{ophMicrophysics}
-and of the executable construction \citep{ophcontinuum}, not consequences of
-a normal-form theorem.
+theorems of the screen-microphysics library paper \citep{ophMicrophysics},
+not consequences of a normal-form theorem.
 
 These examples concern observer-like bounded patches with local state,
 ports, record readback and repair. Their lesson for observation design is
 precise: invariance of one published quotient does not determine the
 covariance, memory, geometry or clock of an additional readout. Each extra
-observable requires its own factorization or dynamical argument. On the
-twelve-port native carrier, the attempt-clock and port-incident-clock
-covariances of one history are not proportional: the mean wait is six
-attempts per incident tick, but the incident-clock covariance differs from
-one sixth of the attempt-clock covariance by an anisotropic matrix that no
-scalar amplitude or clock conversion removes \citep{ophcontinuum}.
+observable requires its own factorization or dynamical argument.
 
 \subsection{Limitations}
 

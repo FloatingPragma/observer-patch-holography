@@ -1,5 +1,5 @@
 """Cross-surface gates for the carrier-map candidate, matched dark-sector
-diagnostic, INS-03 v2 replay gate, and fiber-rate comparison rungs."""
+diagnostic and fiber-rate comparison rungs."""
 
 from __future__ import annotations
 
@@ -14,13 +14,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 MAP_CLAIM = "OPH-GEOMETRY-SCREEN-CARRIER-MAP-CANDIDATE"
 DM_CLAIM = "OPH-DM-MATCHED-OBSERVABLE-DIAGNOSTIC"
-REPLAY_CLAIM = "OPH-QUANTUM-INS03-V2-REPLAY-GATE"
 YM_CLAIM = "OPH-YM-FIBER-RATE-COMPARISON"
 
 MAP_LEAN = "Lean/Geometry/ScreenCarrierMapCandidate.lean"
 DM_PY = "code/cosmology/rar_deep_regime/matched_observable_diagnostic.py"
 DM_RECEIPT = "code/cosmology/rar_deep_regime/runtime/matched_observable_receipt.json"
-REPLAY_PY = "code/phase_instrument_export/v2/transcript_replay_verifier.py"
 YM_LEAN = "Lean/Screen/KogutSusskindFiberRateComparison.lean"
 
 
@@ -40,8 +38,7 @@ def _collapsed(relative_path: str) -> str:
 
 
 def test_claims_registered_with_gates() -> None:
-    gates = {MAP_CLAIM: [740], DM_CLAIM: [742, 751],
-             REPLAY_CLAIM: [730, 776], YM_CLAIM: [743, 744]}
+    gates = {MAP_CLAIM: [740], DM_CLAIM: [742, 751], YM_CLAIM: [743, 744]}
     for claim_id, expected in gates.items():
         assert _claim(claim_id)["gates"] == expected, claim_id
 
@@ -84,23 +81,6 @@ def test_matched_receipt_carries_the_quoted_numbers() -> None:
     for token in ("8.750e-11", "8.533e-11", "7.689e-11",
                   "[-0.1166, +0.0264]", "-0.0453"):
         assert token in statement, token
-
-
-def test_replay_claim_and_package() -> None:
-    statement = _claim(REPLAY_CLAIM)["statement"]
-    for token in ("TRANSCRIPT_REPLAY_VERIFIED_UNAUTHENTICATED",
-                  "PRODUCER_AUTHENTICATION_UNIMPLEMENTED",
-                  "fails closed",
-                  "must be owner-frozen before a producer transcript",
-                  "larger remaining conjunction"):
-        assert token in statement, token
-    base = ROOT / "code/phase_instrument_export/v2"
-    for name in ("PRIMITIVE_GENERATION_SEMANTICS.md",
-                 "transcript_replay_verifier.py",
-                 "test_transcript_replay_verifier.py",
-                 "sample_synthetic_transcript.json",
-                 "AUTHENTICATED_BINDING_SPEC.md"):
-        assert (base / name).exists(), name
 
 
 def test_ym_claim_keeps_finite_scope() -> None:
@@ -157,8 +137,6 @@ def test_ledger_rows_cite_without_promotion() -> None:
     assert "selects no model" in rows["OL-I3"]["notes"]
     assert "does not causally isolate" in rows["OL-I3"]["notes"]
     assert rows["OL-I3"]["status"] == "owed"
-    assert REPLAY_PY in rows["OL-C5"]["evidence"]
-    assert rows["OL-C5"]["status"] == "partial"
 
 
 def test_premise_rows_stay_open() -> None:
@@ -168,5 +146,4 @@ def test_premise_rows_stay_open() -> None:
     assert MAP_LEAN in rows["PR-53"]["evidence"]
     assert "stays open and unconsumed" in rows["PR-53"]["notes"]
     for pid in ("PR-64", "PR-65"):
-        assert REPLAY_PY in rows[pid]["evidence"], pid
         assert "stays open" in rows[pid]["notes"], pid

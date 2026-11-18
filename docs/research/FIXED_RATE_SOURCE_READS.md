@@ -343,7 +343,7 @@ To extend it to the full physical interface space, let P_carrier be the
 tensor product of native qubit-carrier projectors. Apply the complete
 syndrome decoder to `P_carrier rho P_carrier`, and send the complementary
 weight `Tr((I-P_carrier) rho)` to the failure symbol. These two terms sum
-to unit trace on every physical input, including carrier leakage. Crucially,
+to unit trace on every physical input, including carrier leakage.
 P_carrier is not the much smaller error-correcting code projector: all
 correctable syndrome spaces inside the carrier remain decoded normally.
 This supplies an accounting effect on general physical inputs even though

@@ -5,13 +5,11 @@ validates it fail-closed and renders ``docs/registers/PREMISE_REGISTER_V3.md``;
 ``--check`` fails when the committed page differs byte-for-byte from the
 render.
 
-The same file carries three further sections. ``sm_coverage`` (the Standard
+The same file carries two further sections. ``sm_coverage`` (the Standard
 Model term-and-sector correspondence) and ``gravity_rungs`` (the gravity
 premise-elimination ladder) are validated by ``tools/build_sm_correspondence.py``
 and ``tools/build_gravity_ladder.py`` and rendered as sections of the page
-written here. ``model_supply`` (the model and theorem navigation crosswalk) is
-validated and rendered to ``model/PREMISES.md`` by
-``tools/build_model_theorem_map.py``; this tool checks only its shape.
+written here.
 
 Fail-closed rules: the row ids, names, types, and dispositions are fixed
 program-wide and must equal the expected inventory exactly, in order; every
@@ -19,12 +17,8 @@ type comes from the six-value enum and every disposition from the three-value
 enum; every consuming lane is a registered historical lane, duplicate-free and
 ascending, rendered beside its live owner from ``tools/closed_lanes.py``;
 every evidence path is an existing file in the repository and has exactly one
-explicit evidence role; every row carries a discharge record for the current
-executable implementation, with a status from the five-value enum, existing
-evidence files and a note, and a status that asserts an executed artefact must carry at
-least one non-prose evidence artefact; statements and notes are nonempty. The
-rendered page is a
-generated surface; edit the JSON, then regenerate.
+explicit evidence role; statements and notes are nonempty. The rendered page
+is a generated surface; edit the JSON, then regenerate.
 """
 
 from __future__ import annotations
@@ -38,9 +32,7 @@ import strict_json
 from closed_lanes import is_known, owner_text
 
 import build_gravity_ladder as gravity_tool
-import build_model_theorem_map as model_map_tool
 import build_sm_correspondence as sm_tool
-import check_claim_registry as claim_tool
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTER_PATH = ROOT / "tracking" / "premise_register.json"
@@ -52,7 +44,6 @@ ISSUE_URL = "https://github.com/FloatingPragma/observer-patch-holography/issues"
 
 # Sections folded into the register, in file order, with the schema each keeps.
 SECTION_SCHEMAS = {
-    "model_supply": model_map_tool.SCHEMA,
     "sm_coverage": sm_tool.SCHEMA,
     "gravity_rungs": gravity_tool.SCHEMA,
 }
@@ -85,26 +76,7 @@ ROW_KEYS = {
     "evidence",
     "evidence_roles",
     "notes",
-    "discharge",
 }
-
-# What the current executable implementation does with each premise.
-DISCHARGE_STATUSES = (
-    "derived_from_native_records",
-    "constructed_on_declared_inputs",
-    "obstructed",
-    "declared",
-    "not_addressed",
-)
-DISCHARGE_KEYS = {"status", "evidence", "note"}
-
-# Discharge statuses that assert an executed artefact exists, not merely a
-# declaration or a stated obligation. Their evidence therefore cannot be prose
-# only: a note may describe the run, but it cannot substitute for it.
-EXECUTION_ASSERTING_DISCHARGE = (
-    "derived_from_native_records",
-    "constructed_on_declared_inputs",
-)
 
 # Fixed program-wide inventory: (id, name, type, disposition), in order.
 EXPECTED_ROWS = (
@@ -285,12 +257,6 @@ EXPECTED_ROWS = (
         "PR-39",
         "physical Thomson readback contract",
         "structural_rule",
-        "remove",
-    ),
-    (
-        "PR-40",
-        "payload-coherent anchor-gap premise",
-        "selection_rule",
         "remove",
     ),
     (
@@ -561,6 +527,10 @@ EXPECTED_ROWS = (
 
 # Retired ids keep their number: no later row may reuse one.
 RETIRED_ROWS = {
+    "PR-40": (
+        "payload-coherent anchor-gap premise",
+        "retired because no retained result consumes it",
+    ),
     "PR-83": (
         "commit-populated event base",
         "retired when the finite causal carrier was derived from authenticated"
@@ -710,34 +680,6 @@ def validate(register: dict) -> list[dict]:
                     f"{where}: evidence role for {path} must be one of "
                     f"{sorted(EVIDENCE_ROLES)}"
                 )
-        discharge = row["discharge"]
-        if not isinstance(discharge, dict) or set(discharge) != DISCHARGE_KEYS:
-            fail(f"{where}: discharge must have exactly the keys {sorted(DISCHARGE_KEYS)}")
-        if discharge["status"] not in DISCHARGE_STATUSES:
-            fail(f"{where}: discharge status must be one of {DISCHARGE_STATUSES}")
-        if not isinstance(discharge["evidence"], list) or not discharge["evidence"]:
-            fail(f"{where}: discharge evidence must be a nonempty list")
-        for path in discharge["evidence"]:
-            if not isinstance(path, str) or not (ROOT / path).is_file():
-                fail(f"{where}: discharge evidence path missing or not a file: {path}")
-        if discharge["status"] in EXECUTION_ASSERTING_DISCHARGE:
-            media = []
-            for path in discharge["evidence"]:
-                medium = claim_tool.evidence_medium(path)
-                if medium is None:
-                    fail(
-                        f"{where}: discharge evidence medium is unclassified; add "
-                        f"the suffix to EVIDENCE_MEDIA_BY_SUFFIX: {path}"
-                    )
-                media.append(medium)
-            if all(medium in claim_tool.PROSE_EVIDENCE_MEDIA for medium in media):
-                fail(
-                    f"{where}: discharge status {discharge['status']!r} asserts an "
-                    f"executed artefact, so its evidence cannot be prose only: "
-                    f"{discharge['evidence']}"
-                )
-        if not isinstance(discharge["note"], str) or not discharge["note"].strip():
-            fail(f"{where}: discharge note must be a nonempty string")
     validate_sections(register)
     return rows
 
@@ -757,15 +699,6 @@ def validate_sections(register: dict) -> None:
 def lane_links(lanes: list[int]) -> str:
     """Render the live owner beside the historical consuming lanes."""
     return owner_text(lanes)
-
-
-DISCHARGE_LABELS = {
-    "derived_from_native_records": "derived from native records",
-    "constructed_on_declared_inputs": "constructed on declared inputs",
-    "obstructed": "obstructed",
-    "declared": "declared input",
-    "not_addressed": "not addressed",
-}
 
 
 def render(rows: list[dict], register: dict) -> str:
@@ -788,16 +721,13 @@ def render(rows: list[dict], register: dict) -> str:
     )
     lines.append("")
     lines.append(
-        "The same source file carries three further sections. `sm_coverage`"
+        "The same source file carries two further sections. `sm_coverage`"
         " classifies each Standard Model term and sector by what OPH supplies,"
         " and `gravity_rungs` types each gravity interface with a premise"
         " packet, a theorem or countermodel, and a deletion test; both are"
         " rendered at the end of this page as the"
         " [Standard Model correspondence](#sm-coverage) and the"
         " [gravity premise ladder](#gravity-rungs)."
-        " `model_supply` holds the model and theorem navigation crosswalk,"
-        " which `tools/build_model_theorem_map.py` renders to"
-        " [model/PREMISES.md](../../model/PREMISES.md)."
     )
     lines.append("")
     lines.append(
@@ -844,36 +774,19 @@ def render(rows: list[dict], register: dict) -> str:
     )
     lines.append("")
     lines.append(
-        "The current-implementation column says what the executable"
-        " construction in `model/` does with each premise: derives it from"
-        " native records, constructs an instance on declared inputs, proves an"
-        " obstruction, takes it as a declared input, or does not address it."
-        " It certifies no physical premise."
+        "| Row | Premise | Type | Disposition | Live owner (historical lanes) |"
     )
-    lines.append("")
-    lines.append(
-        "| Row | Premise | Type | Disposition | Current implementation |"
-        " Live owner (historical lanes) |"
-    )
-    lines.append("| --- | --- | --- | --- | --- | --- |")
+    lines.append("| --- | --- | --- | --- | --- |")
     for row in rows:
         lines.append(
             f"| {row['id']} | {row['name']} | `{row['type']}` |"
             f" `{row['disposition']}` |"
-            f" {DISCHARGE_LABELS[row['discharge']['status']]} |"
             f" {lane_links(row['consuming_lanes'])} |"
         )
     lines.append("")
     lines.append(
         f"Totals: {len(rows)} premises. {counts['remove']} remove,"
         f" {counts['axiomatize']} axiomatize, {counts['import']} import."
-        " Current implementation: "
-        + ", ".join(
-            f"{sum(1 for row in rows if row['discharge']['status'] == status)}"
-            f" {DISCHARGE_LABELS[status]}"
-            for status in DISCHARGE_STATUSES
-        )
-        + "."
     )
     lines.append("")
 
@@ -894,12 +807,6 @@ def render(rows: list[dict], register: dict) -> str:
         )
         lines.append(f"- Evidence: {evidence}.")
         lines.append(f"- Disposition note: {row['notes']}")
-        discharge = row["discharge"]
-        discharge_evidence = ", ".join(f"`{path}`" for path in discharge["evidence"])
-        lines.append(
-            f"- Current implementation: {DISCHARGE_LABELS[discharge['status']]}."
-            f" {discharge['note']} Evidence: {discharge_evidence}."
-        )
         lines.append("")
 
     lines.append("## What the dispositions mean")

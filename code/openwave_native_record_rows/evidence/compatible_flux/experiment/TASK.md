@@ -1,5 +1,0 @@
-# Frozen native compatibility task
-
-Candidate A-native-compatible-flux-v1, class N+, unpinned. Run run.py once, then the independent verify.py. No randomized seed selection: both initial unit positions and all4096 twelve-bit words, in lexicographic integer order, under source and hold mutation. Native SHA dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d.
-
-Predeclared gates: all three source ternary histograms[512,7168,512]; acceptance707/1024;168 accepted nonzero words; F=sqrt8 X conditional covariance diagonal112/707 and off-diagonal-56/707; hold mutation has8192 accepts and zero nonzero flux; primitive source calls98304 and changed-law calls98304. Independent current reader must match every word/event. Compressed populations at n=1,2,4,8,16,32,64,128 use only the record-derived weights[1,14,1]. At n128 require variance error from2/3<0.02 and fourth-moment error from4/3<0.1. Preserve any failed threshold. No exact Gaussian claim is made at finite n. All source/readout files are frozen before execution.

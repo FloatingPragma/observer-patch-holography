@@ -80,7 +80,7 @@ The carrier's rank-three Gram band, angular isotropy, integer current image,
 Coulomb solution and stable discrete action are distinct results with their
 own hypotheses. A Euclidean continuum domain, a physical clock and a
 current-to-field interpretation enter only where stated. The observer,
-gauge and gravity papers give those interfaces \cite{ophmodel,ophGauge,ophym}.
+gauge and gravity papers give those interfaces \cite{ophobservers,ophGauge,ophEinstein}.
 
 Federated routing must preserve the specified adjacency and refinement
 maps. A local rank-three response is not an extended three-dimensional
@@ -88,6 +88,29 @@ space. Likewise, the seam graph's cycle space does not identify a protected
 particle: its filled face complex has vanishing first cohomology, and load
 contrasts are exact. Particle claims require additional transition data,
 preserved invariants and a common energy and propagation law.
+
+The executable model of the programme, polynomial-sv~\cite{ophmodel}, runs
+on this carrier. Every port of a twelve-port cell holds a load $0$, $1$ or
+$2$, complete cells join into federations of $20$, $80$ and $320$ cells
+through external seams, and every seam carries a private memory in which its
+two port observers write the native seam event of
+Section~\ref{subsec:native-seam-rule}, apply a phase set by the recorded
+contrast of the two loads and reverse the write. On the loads this candidate
+native repair law, the contrast-memory law, is the exchange of loads across
+seams plus an agreement energy that lowers the energy of a seam whose two
+ports both hold a load. Port observers count their own events and admit a
+seam record only when both ends agree. The state of the simulation is no
+spacetime, and its carrier is hardware of the computation. A test of the
+model compares distributions of admissible observer records with what
+observers in our world record. Observers who inhabit the simulation can
+describe their experiences as relativistic $3{+}1$D continuum spacetimes: a
+smooth $(1+3)$-dimensional Lorentzian field description reproduces the
+complete predictions of every finite admissible menu of their
+readouts~\cite{ophsynthesis,ophEinstein}, with the rank-three spatial carrier
+and the causal and count limits of the spacetime paper~\cite{ophEinstein}.
+What polynomial-sv supplies toward those premises with its own clocks and
+records is the open join. The theorems of this paper concern the carrier and
+its seam rules; none of them depends on the model.
 
 
 \tableofcontents
@@ -189,10 +212,10 @@ visible restrictions, record algebras and quotient-local observables; hidden
 coordinates may exist but are not directly physical.
 \end{definition}
 
-The smallest instance is one twelve-port carrier. In the executable observer
-construction a single carrier supports overlapping observer regions, native
-repair and local event clocks, and joined carriers serve larger regions,
-distant interventions and refinement~\cite{ophmodel}. A fixed-cutoff
+The smallest instance is one twelve-port carrier. In polynomial-sv one cell
+carries two port observers on every seam, each counting the events of its own
+seams as its clock, and federations of cells serve larger
+regions~\cite{ophmodel}. A fixed-cutoff
 simulator keeps three operators on the physical quotient \(Q_r\) distinct:
 the strict-descent accepted-repair normalizer \(\operatorname{Rep}_r\), a
 separately declared equilibrium or Euclidean relaxation \(e^{-tL_r^{\rm eq}}\),
@@ -201,17 +224,6 @@ accepted move lowers a well-founded repair measure, its reverse cannot be
 another accepted descending step, so the accepted relation cannot serve as a
 reversible equilibrium law. A common local proposal menu may feed all three
 constructions without identifying them.
-\paragraph{Source domain.}
-The twelve-port repair and sphere/radial theorems below are independent
-finite constructions. The official common matter, field and response law,
-designated CCF-LT-2 (CCF-2 in its source algebra), is specified in
-\path{model/SPEC.md} and \path{model/ccf_lt2/}. Its spatial generator supplies
-chart positions and a tetrahedral sphere with radial layers; it preserves
-an internal native matter block at each vertex. These supplied positions
-are not identified with the observer-reconstructed metric by their labels.
-The common source needs its own observation maps and a joint angular,
-radial, field-cutoff and clock refinement. Its finite shell does not prove
-the hypotheses of the sphere/radial construction below.
 
 \section{The twelve-port carrier and its native repair law}
 \label{sec:twelve-port-carrier}
@@ -348,17 +360,18 @@ three objects.
 \subsection{The native seam rule and its record laws}
 \label{subsec:native-seam-rule}
 
-The finite seam service studied with the executable observer~\cite{ophmodel}
-fixes one repair law on this carrier, one of the test laws on the way to the
-correct native repair law of the executable model, whose search is ongoing. For an oriented seam \(e=(a,b)\) with loads \(x_a,x_b\) and a
+The native seam rule of the carrier acts on one seam at a time. For an
+oriented seam \(e=(a,b)\) with loads \(x_a,x_b\) and a
 fair coin \(c\in\{0,1\}\), set \(d=x_a-x_b\) and
 \[
 j=\tfrac12\bigl[d-(2c-1)(|d|\bmod2)\bigr],\qquad
 x\longmapsto x+j\,(\delta_b-\delta_a).
 \]
 The endpoints become the floor and the ceiling of their mean; when their
-total is odd the coin decides which endpoint receives the extra unit. The
-rule conserves the total and never increases \(\sum_px_p^2\). At difference
+total is odd the coin decides which endpoint receives the extra unit. In
+polynomial-sv this output, written together with the coin and the contrast
+of the inputs into the private seam memory, is the native seam event of the
+contrast-memory law~\cite{ophmodel}. The rule conserves the total and never increases \(\sum_px_p^2\). At difference
 one it waits or swaps, so the balanced binary shell keeps moving instead of
 settling pathwise. Accepted whole-unit repairs at difference at least two
 are the strict-descent moves of
@@ -382,7 +395,7 @@ endpoints maps \(q\) to \(1-q\), so (iv) gives \(q=1/2\).
 Each requirement does work. Without (ii), partial and idle moves are
 admitted. Without (iii), the rule that gives the extra unit to the larger
 endpoint satisfies the others and freezes every binary configuration. On the
-executed total-two sector the seam difference is at most two, so there the
+total-two sector the seam difference is at most two, so there the
 requirements fix only the tie-break coin. On classical diagonal states of
 the binary shell the rule is the lazy symmetric simple exclusion process with
 two particles; the twelve collision states of the \(78\)-configuration
@@ -447,7 +460,7 @@ all \(6{,}084\) matrix units for two pairs~\cite{ophrepo}.
 
 These laws form one convex family, classified exactly by the five coherence
 multipliers. The
-executed law C records coin and current (\(k=1\), \(g=1/2\)); the comparison
+law C records coin and current (\(k=1\), \(g=1/2\)); the comparison
 law E also records the seam parity (\(k=1\), \(g=0\)) and is idempotent.
 Forgetting a label afterwards does not undo its dephasing, so C is not a
 classical coarse-graining of E. Under a common definite-current record
@@ -476,12 +489,12 @@ three, the multiplicity of \(5-\sqrt5\), and \(G^2=4G\) makes \(G/4\) its
 orthogonal projector.
 \end{proof}
 
-The band is a dimensionless response geometry on twelve ports. Native
-records reconstruct it from currents and clock fluctuations, and all thirty
-seams form its shortest shell~\cite{ophmodel}. It is distinct from the
-spectral dimension two of the refining screen generator
-(Section~\ref{subsec:native-transport-evidence}), and its rank three does not
-derive three physical spatial dimensions.
+The band is a dimensionless response geometry on twelve ports. Under the
+contrast-memory law of polynomial-sv a single load moves with \(L/2\), whose
+threefold level \((5-\sqrt5)/2\) is this band~\cite{ophmodel}. It is
+distinct from the screen spectral dimension near two of the federation
+diffusion diagnostic (Section~\ref{subsec:native-transport-evidence}), and
+its rank three does not derive three physical spatial dimensions.
 
 \subsection{An alternative variational selector}
 
@@ -822,7 +835,7 @@ distinct faithful irreducible doublet whose fusion graph also has affine
 \(E_8\) type, so this graph type does not select between \(\varphi\) and
 \(1-\varphi\). Comparison with a separate \(\mathrm{SL}(2,\mathbb F_5)\)
 reconstruction confirms these finite invariants~\cite{ophrepo}. This exact
-executable corroboration supplies no explicit isomorphism between the two
+computational corroboration supplies no explicit isomorphism between the two
 group carriers, no Lean proof of finite character theory, and no physical
 embedding selector.
 
@@ -1758,7 +1771,7 @@ for the gauge constraints on the 90 face-local symmetric coefficients,
 and rank 20 for the face-form embedding. Unequal face weights and
 $(C^{\mathsf T}C)^2$ respectively show that rotation invariance and strict
 face locality matter. This classification does not cover arbitrary
-finite-range locality or nonlinear curvature actions. The executable proof
+finite-range locality or nonlinear curvature actions. The computational proof
 is in the repository~\cite{ophrepo}; the underlying incidence
 identities are formalized in the Lean library.
 
@@ -2062,12 +2075,19 @@ complete C/E instruments satisfy
 \(\sum_hK_h^*P_{\rm coll}K_h=\tfrac56P_{\rm coll}\) on the collision projector,
 with no binary-to-collision feed. Removing the five seams at one port gives
 binary closed classes of sizes \(11\) and \(55\); that changes the law and
-does not exhibit a sector the unchanged law protects~\cite{ophmodel}. A
+does not exhibit a sector the unchanged law protects. A
 protected defect sector therefore uses additional overlap-transport
 data, a state and a preserving update rule. The declared protected
 $\mathbb Z_6$ register supplies such a finite centre-class construction
 in the particle paper; the unchanged total-two load process does not.
 The two source domains cannot be identified by their labels alone.
+Persistence by energy is a different mechanism. Under the contrast-memory
+law of polynomial-sv a pair of loads on one seam is read by the port
+observers as a pair on some seam with probability at least
+\(1-40/(2\kappa-6)^2\) at every reading, for every coupling \(\kappa>3\) and
+on every federation of complete cells, and the same law without the
+agreement energy loses it~\cite{ophmodel}. The centre class of such a bound
+object as a record is no part of that result.
 
 \section{Federations, screens and refinement}
 \label{sec:federations-screens}
@@ -2084,8 +2104,9 @@ physical-causality, manifoldlikeness, dimension and volume certificates of
 the spacetime layer~\cite{ophEinstein}.
 
 \paragraph{Federations and cross-carrier routing.}
-The executable construction joins elementary carriers on the nested screens
-with \(20\), \(80\) and \(320\) carriers~\cite{ophmodel}. Federations join the
+Polynomial-sv joins complete cells through external seams that form a
+matching on ports, three external ports per cell, into federations of
+\(20\), \(80\) and \(320\) cells~\cite{ophmodel}. Federations join the
 same elementary factors and introduce no different kind of elementary
 observer. One carrier suffices for the local observer, clock and finite
 geometry results; joined carriers serve larger regions, distant
@@ -2100,18 +2121,8 @@ refinement-natural routing does not follow from that ancestry map. Exact native-
 roughly quadratic growth over part of the tested range; this establishes no
 three-dimensional physical bulk and no path-independent global frame.
 
-\paragraph{Executed federations.}
-The integer nearest-agreement law has been executed on federations with one
-declared port-to-neighbour gluing~\cite{ophfpe}. On the level-six
-icosahedral cell tower, \(81{,}920\) carriers with \(2{,}580{,}480\) seams
-settle under sixteen shuffled schedules from one seeded load to the balanced
-class, with no accepted move raising \(V=\sum_iN_i^2\), and all sixteen
-return one quotient hash equal to the component multiset fixed by the initial
-totals; a standalone verifier reconstructs the multisets and hashes from the
-primitive arrays. Level-five to level-ten receipts extend the same law to
-\(20{,}971{,}520\) carriers and \(660{,}602{,}880\) seams, settling in \(84\)
-to \(100\) sweeps. The gluing is a declared convention whose selection and
-refinement naturality are underived. A separate closure-loop archive
+\paragraph{Closure-loop recovery.}
+A closure-loop archive~\cite{ophfpe}
 recovers, from event logs alone under the declared probe and operation
 grammar, the twelve ports, thirty seams, inverse pairing, automorphism and
 rotation groups of orders \(120\) and \(60\), mean rule, schedule, rank-three
@@ -2160,7 +2171,7 @@ expectation.
 \begin{figure}[!htb]
 \centering
 \input{tex_fragments/figures/FIG_SCREEN_LEVELS.tex}
-\caption{Nested geodesic icosahedral subdivisions of $S^2$ at depths $m=0,1,2$, with $20\cdot4^m$ triangular cells: the reference multiresolution carrier of Definition~\ref{def:microphysics-multiresolution-carrier}. The executable construction's observer federations use screen levels with $20$, $80$ and $320$ elementary carriers.}
+\caption{Nested geodesic icosahedral subdivisions of $S^2$ at depths $m=0,1,2$, with $20\cdot4^m$ triangular cells: the reference multiresolution carrier of Definition~\ref{def:microphysics-multiresolution-carrier}. The federations of polynomial-sv use the levels with $20$, $80$ and $320$ cells.}
 \label{fig:screen-levels}
 \end{figure}
 
@@ -2369,7 +2380,7 @@ one, zero kernel, and the same exact positive finite-domain gap as the signed
 seam operator, with multiplicity \(45\). The source does not select this matter
 action. The twelve-port Spin packet and the 8,662-node operator domain have no
 certified source, domain, or transport bridge. The receipt contains no Yukawa
-coefficient, particle mass, or pole datum~\cite{ophfpe}.
+coefficient~\cite{ophfpe}.
 \end{corollary}
 
 \section{Repair, equilibrium and modular structure on the carrier}
@@ -3674,20 +3685,9 @@ processes and applications to simple exclusions,''
 
 \bibitem{ophmodel}
 B.~M\"uller, M.~Poneder, J.~Kim, and D.~A.~Friedman,
-\emph{An Executable Observer for Observer Patch Holography: Specification, Memory and Observable Fields}.
+\emph{An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records},
+2026.
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/paper/executable_observer_construction.pdf}.
-
-\bibitem{ophcontinuum}
-FloatingPragma,
-\emph{A spatial fluctuation field from one native history},
-2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/physical_space_time/OCCUPATION_FIELD.md}.
-
-\bibitem{ophtimefields}
-FloatingPragma,
-\emph{Joint time and field laws on matched source screens},
-2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/observer_time_fields/REFINEMENT.md}.
 
 \end{thebibliography}
 

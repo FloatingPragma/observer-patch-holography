@@ -1,11 +1,11 @@
 # Established mathematics for observer agreement
 
 This guide governs theorem reuse in the
-[CCF-LT-2 construction](../model/CONSTRUCTION.md), [model family](../model/CANDIDATES.md), and
-their existing [premise obligations](../model/PREMISES.md). The target remains
-one physical process with compatible carrier, response, record and clock
-readouts. Established results about distributed recovery and sheaf diffusion
-are tools for that construction. They do not select its physical law.
+[executable model](../model/polynomial_sv/README.md) and its
+[specification](../model/polynomial_sv/SPEC.md). The target is one physical
+process with compatible carrier, response, record and clock readouts.
+Established results about distributed recovery and sheaf diffusion are tools
+for that construction. They do not select its physical law.
 
 The [working terms](INTERPRETATION_AND_TERMS.md) fix the distinctions between
 the proposed ontology, a theorem's model, its states and its uses of time.
@@ -15,19 +15,12 @@ and hypotheses to the actual candidate, and isolate the remaining obligation.
 Reuse the conclusion once those hypotheses hold. A renamed consensus result
 or a longer simulation of it is not an independent theoretical contribution.
 
-The [official model](../model/SPEC.md) requires source-specific mappings
-for these theorems. The independent [native observer](../model/observer/DERIVATION.md)
-implements completely positive instruments, retained classical records and
-record-controlled repair on one declared finite source. Its
-[capacity adapter](../model/observer/CAPACITY.md) reuses the existing
-checkpoint confusability theorem; its
-[P-dependent detector](../model/observer/p_response/DERIVATION.md) uses the
-accepted coupling branch in a designed electromagnetic probe. The
-[incident-tick result](../model/local_tick/README.md) transports the existing
-N4 memory bound to an explicitly defined observer-local stopping rule.
-Reuse these completed components under their stated preparation,
-apparatus and clock-calibration boundaries. They do not supply an entire
-cosmological realization.
+The executable model requires source-specific mappings for these theorems.
+Its contrast-memory law is the candidate native repair law; its seam memory is
+private working memory of the two port observers of a seam, and its reader
+admits a record only when both observers' copies agree. A theorem about
+distributed recovery applies to it once its objects and hypotheses are mapped
+to these seams, memories and records.
 
 ## One structure: complete history and internal computation
 
@@ -94,12 +87,10 @@ promise safety throughout the recovery interval or restoration of information
 that the allowed disturbance erased. Fair scheduling alone gives no wall-clock
 bound; a time interpretation needs additional timing premises.
 
-**Immediate use:** apply this contract to the native candidate's invariant
-binary shell, the larger integer-load domain, and protected record registers
-separately. Keep ensemble convergence distinct from convergence of individual
-recorded trajectories. Reuse the existing finite completion proof where its
-domain and scheduler match; do not assert Dijkstra's ring theorem for this
-different transition system.
+**Immediate use:** apply this contract to the executable model's loads, its
+private seam memories and its agreed seam records separately. Keep ensemble
+convergence distinct from convergence of individual recorded trajectories; do
+not assert Dijkstra's ring theorem for this different transition system.
 
 ## 2. Termination, confluence and stabilization answer different questions
 
@@ -288,7 +279,8 @@ contribution must identify the common physical realization or a necessary
 additional result absent from the cited theorem, and ultimately supply a
 discriminating observable relation. Shared equilibria do not choose transition
 rates, instruments, reference states or physical clocks. The existing geometry,
-gauge, continuum and empirical obligations remain in the premise map.
+gauge, continuum and empirical obligations are listed in the
+[premise register](registers/PREMISE_REGISTER_V3.md).
 
 The sources above have different conventions and scopes. In particular, the
 arXiv HTML renderings can renumber theorem counters relative to the PDFs;

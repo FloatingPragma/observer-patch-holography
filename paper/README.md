@@ -18,49 +18,45 @@ their mathematical subject without repeating the full program.
 Begin with the flagship synthesis,
 [*Observers Who Read Their Universe into Existence*](../flagship/from_observer_consensus_to_standard_physics.pdf).
 The construction paper,
-[*An Executable Observer for Observer Patch Holography*](executable_observer_construction.pdf),
-states the official common matter, field and energy-response law, its
-complete finite diagnostics, and the domains of independent observer services. The [basis](../docs/BASIS.md) distinguishes closure,
-operational agreement, and the adopted state and response principles.
+[*An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records*](executable_observer_construction.pdf),
+specifies polynomial-sv, the executable model of OPH. Its contrast-memory law
+is the candidate native repair law: every seam keeps a private memory of the
+contrast between the loads of its two ports, and on the loads the memory acts
+as an exchange plus an agreement energy. The paper proves that a pair of loads
+written on one seam stays together on every federation of complete cells, and
+reports what the port observers read. The [basis](../docs/BASIS.md)
+distinguishes closure, operational agreement, and the adopted state and
+response principles.
+
+The model reproduces particle stability on its observers' agreed records. Its
+carrier is hardware of the computation and no physical space: every test
+compares distributions of admissible observer records with what observers in
+our world record, and the flagship proves that observers who inhabit the
+simulation can describe their experiences as relativistic 3+1D continuum
+spacetimes. The [specification](../model/polynomial_sv/SPEC.md) and the
+[proof of the binding theorem](../model/polynomial_sv/PROOF.md) sit beside the
+code.
 
 The [particle paper](deriving_the_particle_zoo_from_observer_consistency.pdf)
-gives the native transfer and charged spectra, the complete conserved
-quadratics, the pixel-dependent mass law and its memory realization, the common
-localized current/mass operator, the compact finite-energy defect pair and its
-quartic interaction, the twelve mass comparison values and the exact exclusions.
-It takes the gauge type and matter module from the gauge paper.
-The independent Wilson comparison also supplies an isolated finite gauge transition,
-regional charged spin and pair-energy records, a controlled energy-current
-response and a capacity-dependent bound on measured energy moments. The gauge
-line loses original weight under refinement; these results do not identify
-physical particle masses. The [Markdown dependency map](../model/particle_joint_reconstruction/DEPENDENCIES.md)
-and [research account](../docs/research/OPH_NATIVE_PARTICLE_MASS_JOIN.md)
-state their source domains and remaining physical requirements.
-The [geometry paper](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
-states the corresponding conditional stress and generalized-volume entropy
-relation. The [source particle map](../model/completion/SOURCE_PARTICLE_MAP.md)
-connects each calculation to its readable inputs and mathematical domain.
-A common physical defect assignment, interacting continuum and Einstein
-realization require the stated identification and limit theorems.
-
-The flagship summarizes the common executable law alongside independent
-controlled field limits and the conditional Einstein theorem. Each transfer
-requires the same source, state, preparation, clock and observation maps.
-Distinct texture carriers and a supplied response kernel
-do not establish a common physical spectrum or geometric entropy law.
+gives the defect classes and their statistics, and the bound objects of the
+executable model. It takes the gauge type and matter module from the gauge
+paper. The [geometry paper](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
+states the conditional stress and generalized-volume entropy relation. A
+common physical defect assignment, interacting continuum and Einstein
+realization on the executable model are work in progress.
 
 | Paper | Role |
 | --- | --- |
 | [Observers Who Read Their Universe into Existence](../flagship/from_observer_consensus_to_standard_physics.pdf) ([source](../flagship/from_observer_consensus_to_standard_physics.tex)) | Flagship synthesis: the OPH proposal, finite theorem stack, source specification, physical reconstruction and status of each implication; [PhilPapers entry](https://philpapers.org/rec/MUEFOC) |
-| [An Executable Observer for Observer Patch Holography](executable_observer_construction.pdf) ([source](executable_observer_construction.tex)) | Common matter, fields and total-energy response; exact native-source checks, complete diagnostics and conditional observer services |
+| [An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records](executable_observer_construction.pdf) ([source](executable_observer_construction.tex)) | The polynomial-sv specification, the contrast-memory law, the binding theorem, particle stability on agreed records, bound objects, port response and the unrecovered collar |
 | [Reality as a Consensus Protocol](reality_as_consensus_protocol.pdf) ([source](reality_as_consensus_protocol.tex)) | Layer 1: local agreement repair, quotient normal forms, provenance order, and cycle holonomy as the residue repair cannot remove |
 | [Observers Are All You Need](observers_are_all_you_need.pdf) ([source](observers_are_all_you_need.tex)) | Layer 3: observers, records, quantum and thermodynamic identities, and the closure equations |
 | [Recovering Observer Spacetime and Einstein Dynamics](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) ([source](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex)) | Layers 4 and 6: clocks, causal order and geometry from the same process, and the conditional Einstein implication with its realization premises |
 | [Standard Model Gauge Structure under Complete-Response and Observer-Transport Premises](deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) ([source](deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex)) | Layer 5, gauge half: gauge structure as overlap transport and the compact Lie type under complete-response premises |
-| [Particles from Native Overlap Transport: Common Currents, Defect Modes and a Pixel-Dependent Mass Operator](deriving_the_particle_zoo_from_observer_consistency.pdf) ([source](deriving_the_particle_zoo_from_observer_consistency.tex)) | Layer 5, matter half: native charged spectra, common gauge currents, defect modes, the pixel-dependent mass operator, the mass comparison and its exclusions |
+| [Particles from Observer Consistency: Defect Classes, Statistics and the Bound Objects of an Executable Observer](deriving_the_particle_zoo_from_observer_consistency.pdf) ([source](deriving_the_particle_zoo_from_observer_consistency.tex)) | Layer 5, matter half: defect classes and Standard Model centre classes, statistics, and the bound objects of the executable model |
 | [Twelve-Port Icosahedral Carriers and Native Seam Repair](screen_microphysics_and_observer_synchronization.pdf) ([source](screen_microphysics_and_observer_synchronization.tex)) | Layer 2: the twelve-port carrier, seam rule, record laws and federation |
 
-The flavor theorem is developed in [The Positive-Chamber Koide Identity for
+The face-circulant identity is developed in [The Positive-Chamber Koide Identity for
 Icosahedral Face Circulants](../extra/koide_identity_from_positive_c3_face_circulants.pdf),
 and the finite de Sitter theorem in [The de Sitter Time-Advance Sign from a
 Finite Screen with Fixed Capacity](../extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf).

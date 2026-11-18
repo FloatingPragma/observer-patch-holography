@@ -65,10 +65,10 @@ conditional realizations under displayed declarations.
 \emph{Realization domain.} A source realizes the complete response and
 endogenous transport assumptions when its own repair and memory law
 implements the displayed port generators, commutators and rechartings.
-These clauses must be checked for the declared operation menu. The tested native exchange response gives
-seventeen currents and fails A1; a specified coherent control law gives the
-twelve closed currents on a declared control menu
-(Section~\ref{sec:executable-current}). The protected-code phase construction realizes the stated global
+These clauses must be checked for the declared operation menu. Under the
+contrast-memory law of the executable model the plain port services give
+seventeen currents, which A1 excludes, and one declared port service gives
+the twelve closed currents (Section~\ref{sec:executable-current}). The protected-code phase construction realizes the stated global
 quotient on its declared domain. Its identification with a physical
 local gauge field, the spin/statistics interpretation, family attachments
 and renormalized couplings require the corresponding observation maps. The matter hypothesis, that stable massive
@@ -85,16 +85,27 @@ conditions are listed in Section~\ref{sec:gauge-failure-conditions}.
 
 \tableofcontents
 
-\paragraph{Executable source and theorem domain.}
-The common matter, field and response construction is the official
-executable source (\path{model/SPEC.md}, \path{model/ccf_lt2/}). It retains
-the native charge $n=3(T_3+Y)$ and gauges the electromagnetic branch with
-integer rotors. Its full native weak-current terms and charge-preserving
-Dirac transport are specified Hamiltonian choices. The complete-response
-and observer-transport premises of this paper are separate hypotheses;
-their compact-Lie classification is not a proof of a selected electroweak
-vacuum, interacting chiral continuum or common physical coupling for that
-finite source.
+\paragraph{Executable model and theorem domain.}
+The executable model, polynomial-sv~\cite{ophmodel}, places loads $0$, $1$
+or $2$ on the ports of federations of twelve-port icosahedral cells and a
+private memory on every seam. Its candidate native repair law, the
+contrast-memory law, is the exchange of loads across seams plus an
+agreement energy that lowers the energy of a seam whose two ports both hold
+a load; port observers count their own events and admit a seam record only
+when both ends agree. The state of the simulation is no spacetime, and its
+carrier is hardware of the computation. A test of the model compares
+distributions of admissible observer records with what observers in our
+world record. Observers who inhabit the simulation can describe their
+experiences as relativistic $3{+}1$D continuum spacetimes: a smooth
+$(1+3)$-dimensional Lorentzian field description reproduces the complete
+predictions of every finite admissible menu of their
+readouts~\cite{ophsynthesis,ophEinstein}, with the rank-three spatial
+carrier and the causal and count limits of the spacetime
+paper~\cite{ophEinstein}. What polynomial-sv supplies toward those premises
+with its own clocks and records is the open join. The complete-response and
+observer-transport premises of this paper are separate hypotheses; their
+compact-Lie classification selects no electroweak vacuum, interacting
+chiral continuum or common physical coupling.
 
 \section{Two reconstruction routes}
 \label{sec:two-routes}
@@ -264,86 +275,71 @@ orientation alone leaves the twelve-port sphere.
 \label{sec:executable-current}
 
 The Lie-type theorem consumes a complete response; it does not produce one.
-On the executable carrier the twelve-current law is a specification; no
-result derives it from the unchanged native repair. Fixed unrecorded native seam
-channels annihilate nonzero operators and cannot supply invertible currents.
-Active correction has a different domain, examined here on one protected
-native object~\cite{ophmodel,ophrepo}.
+The response space of one cell of polynomial-sv is the sum of the two
+triplets of one load that are odd under the antipodal map, the slow level
+\((5-\sqrt5)/2\) and the fast level \((5+\sqrt5)/2\) of the single-load
+generator \(L/2\), with \(L\) the graph Laplacian. A port service is a weak
+operation of one port observer, long against the inverse level spacings, and
+acts through the part of its generator that is diagonal in the levels. The
+plain services of the contrast-memory law are the load of a port, the
+exchange of a seam and the twist of a port, the circulation round its five
+neighbours~\cite{ophmodel}.
 
-\paragraph{A persistent geometric object.}
-The thirty-six nonedge pairs of the native binary load-two carrier admit two
-source-derived equivariant perfect-matching colourings by the six antipodal
-axes. Each normalized matching code has dimension six, carries the actual
-port-permutation representation \(1\oplus5\), and corrects every complete
-recorded C/E branch on all thirty native seams with the declared coherent
-encoder and record-dependent recovery. Its sum-zero quintet is protected. Two
-such corrected objects contain a unique geometric \(3\oplus3'\) sector under
-simultaneous port rotations, with an exact intertwiner inside the full
-thirty-six-dimensional product code. This is a persistent geometric carrier;
-it supplies no spin-half lift, exterior matter module or autonomous selection
-of that sector.
-
-\paragraph{The native exchange response fails the complete-response clause.}
-On opposite colouring choices, the twelve corresponding-port exchanges on all
-\(10626\) native load-four configurations yield six independent Hermitian
-mixed responses that preserve the geometric sector. They use the declared
-joint-code phase control and are not copied from any target current. Their
-exact real Lie closure is
+\paragraph{The plain services give seventeen.}
+For one load and for the two lowest odd triplets of the bound pair at
+\(\kappa=8\), the real Lie algebra generated by the plain port services is
 \[
- \mathfrak g_{\mathrm{native}}
+ \mathfrak g_{\mathrm{plain}}
  =\mathfrak{su}(3)\oplus\mathfrak{su}(3)\oplus\mathbb R\,iI_6,
- \qquad \dim\mathfrak g_{\mathrm{native}}=17.
+ \qquad \dim\mathfrak g_{\mathrm{plain}}=17,
 \]
-The proper port rotations belong to this connected response group at the
-effective-algebra level, so the response realizes an endogeneity bridge on
-one object. It does not instantiate A1. Conjugation on
-\(\operatorname{End}(\mathbb C^6)\) sees sixteen directions, since the common
-scalar phase is silent there. On the full product code the same preserving
-menu has nine independent Hermitian operators with a three-dimensional
-restriction kernel, so its Lie closure has dimension at least twenty and its
-conjugation-visible response on \(\operatorname{End}(\mathbb C^{36})\) has
-dimension at least nineteen. The response lacks the relative phase between
-\(3\) and \(3'\) and allows five traceless phase directions on each triplet.
-The exchange law and the specified law below intersect in eleven dimensions,
-and exact quotients and rotation-fixing channels cannot delete the unwanted
-quintet while supplying the missing centre. This seventeen-versus-twelve
-mismatch excludes the exchange grammar; it does not exclude other admissible
-current laws.
+one \(\mathfrak{su}(3)\) on each triplet and one common number. Sixteen of the
+seventeen directions change a record probability under the port loads; the
+common phase is silent. The cause is a lock between the two triplets: every
+operator at a port with rational entries acts on the fast triplet as the
+conjugate under \(\sqrt5\mapsto-\sqrt5\) of its action on the slow one, so a
+service whose symmetric part is no number on one triplet is no number on the
+other, and the closure contains \(\mathfrak{su}(3)\) twice. A1 excludes this
+response; other admissible current laws are unaffected by the count.
+
+\paragraph{One declared service gives twelve.}
+The declared service weights the load of a port by the energy below the top
+level of one load and adds the twist,
+\[
+ F_p=\tfrac12\bigl\{n_p,\;E_{\mathrm{top}}-\tfrac12L\bigr\}+J_p,\qquad
+ E_{\mathrm{top}}=\tfrac12(5+\sqrt5).
+\]
+Its twelve generators are independent and close under commutators in
+dimension twelve, with \(\mathfrak u(3)\) on the slow triplet and
+\(\mathfrak{so}(3)\) on the fast one, the Lie type
+\(\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)\). The trace form
+is positive, all sixty-six brackets lie in the span, and the seven hundred
+twenty covariance identities of the sixty proper rotations hold, with the
+generators of the rotations in the span~\cite{ophmodel}. The weighting and
+the twist are supplied; the events of the law provide neither. On the bound
+pair the same count of twelve needs a weight read from the pair's own fast
+level, so a service that gives twelve on the composite without knowledge of
+the target level is the open part of this branch on polynomial-sv.
 
 \paragraph{A specified twelve-current law.}
-A distinct specified coherent law realizes the current interface on the same
-protected object without changing its ports or C/E instruments. For the
-native port vectors \(v_p\), Galois conjugation \(\sigma\) and cross-product
-matrix \(\widehat v\), set
+A specified matrix current realizes the same Lie type and the same
+assignment of factors to the two triplets. For the port vectors \(v_p\),
+Galois conjugation \(\sigma\) and cross-product matrix \(\widehat v\), set
 \[
  D_p=\operatorname{diag}\left(
  \widehat{v_p/2}+iQ_p,\ \widehat{\sigma(v_p)/2}\right),
  \qquad Q_p=\tfrac12v_pv_p^T-\tfrac16\lVert v_p\rVert^2I_3+
  \tfrac1{12}I_3.
 \]
-The native near-fivefold class sum distinguishes the two triplets before the
-complex-versus-real control choice is applied. Exact checks give rank
-twelve, all sixty-six bracket closures and all seven hundred twenty port
-covariance identities. Proper carrier rotations belong to the same connected
-current group. The sum of the currents is \(\operatorname{diag}(iI_3,0)\),
-whose relative phase is observable by cross-triplet readout. The algebra is
+Exact checks give rank twelve, all sixty-six bracket closures and all seven
+hundred twenty port covariance identities. Proper carrier rotations belong
+to the same connected current group. The sum of the currents is
+\(\operatorname{diag}(iI_3,0)\), whose relative phase is observable by
+cross-triplet readout. The algebra is
 \(\mathfrak u(3)\oplus\mathfrak{so}(3)\cong\mathfrak u(1)\oplus
-\mathfrak{su}(2)\oplus\mathfrak{su}(3)\). Source words execute its primitive
-currents, composed with the geometric preparation, native repair,
-record-assisted recovery and pointer outputs. Completeness holds over the
-specified current-control menu. The coherent compiler and detector services
-are declared apparatus, and excluding them from the menu does not establish
-their physical inaccessibility, full physical A1 closure or gauge
-redundancy.
-
-\paragraph{Controlled limits.}
-A positive native class-sum bias, fresh-bath coupling and a complete
-eighteen-coefficient disturbance-gradient controller give a source-executed
-bounded-drive joint limit that approaches twelve observable currents. Every
-finite filter is invertible on all eighteen input currents; fixed-bias long
-feedback instead leaves six observable currents. Reference cooling alone
-leaves every work current available. The bias, baths, actuator and feedback
-rule are architecture choices that unchanged C/E repair does not select.
+\mathfrak{su}(2)\oplus\mathfrak{su}(3)\). Completeness holds over the
+specified current menu; it establishes no physical inaccessibility of other
+services, full physical A1 closure or gauge redundancy.
 
 \subsection{Carrier rechartings, the shared triplet and physical rotations}
 \label{sec:carrier-rotations}
@@ -817,7 +813,7 @@ The statement concerns packet representations, not a quantum field
 realization. It is consistent with the bound \(|q_p+q_e|/e<1\times10^{-21}\)
 on matter neutrality, with bulk fractional-charge abundance limits near
 \(10^{-22}\) per nucleon, and with collider exclusions of stable particles
-with \(q\in[e/3,0.9e]\) up to masses of about \(640\)~GeV at \(95\%\)~CL; these
+with \(q\in[e/3,0.9e]\) at \(95\%\)~CL; these
 searches do not discharge its premises.
 
 \begin{corollary}[No simple-GUT \(X/Y\) gauge channel]
@@ -934,14 +930,14 @@ The declared chain of the fine-structure derivation runs the three couplings fro
 are \((12/5,3,4,3,12/5)\) for the classes one to five, and the \(4\) of the weak-centre class
 three is the \(4\) of the transmutation law.
 
-The matter content decides the slopes. The executable source has \(16+\overline{16}\)
+The matter content decides the slopes. A content of \(16+\overline{16}\)
 patterns per copy in three copies, twelve gauge currents and one complex Higgs doublet, with
 one-loop coefficients \((81/10,5/6,-3)\). The \(\overline{16}\) half is a sum of complete
 multiplets, so the slope differences are those of the Standard Model, and with equal
 couplings at \(M_U\) the ratio \((1/\alpha_2-1/\alpha_3)/(1/\alpha_1-1/\alpha_2)\) at
 \(m_Z\) equals \(115/218\). The declared slopes give \(5/7\) and the measured couplings
-\(0.717\). The source as built therefore gives \(\sin^2\theta_W=0.2056\) on the chain. The
-weak and colour slopes of the declared chain are those of the source's content with a second
+\(0.717\). That content therefore gives \(\sin^2\theta_W=0.2056\) on the chain. The
+weak and colour slopes of the declared chain are those of that content with a second
 doublet; the hypercharge slope, the factor \(P^{2/3}\) in \(M_U\) and the collar law's weights
 are declared, and the chain is not derived \cite{ophalpha,ophparticles}.
 
@@ -1038,9 +1034,9 @@ dimensions \(3,3,5\); removing the window while keeping faithfulness changes no
 admissible candidate, so the window does not itself explain triplication. The
 load-bearing identification is that the family object is a single complete
 faithful band, compared by the declared cost rule and realized in the matter
-response. A specified source-executed cooling law computes this rank-three
-band on the native carrier; selecting that rule and identifying its levels
-with physical families are inputs.
+response. On one cell of polynomial-sv this rank-three band is the slow
+triplet level \((5-\sqrt5)/2\) of a single load~\cite{ophmodel}; selecting the
+cost rule and identifying its levels with physical families are inputs.
 
 Generation names require no universally conserved generation charge. Within
 a sector whose charges and statistics are established, ordering nondegenerate
@@ -1286,8 +1282,6 @@ A declared sector proposal reversible for weights \(m_R\), with acceptance
 \(m_Re^{-t\lambda_R}\). This proves a sampler's invariant law, conditional
 on its proposal measure and supplied penalty; it does not derive (EH-1),
 the physical clock, or \(t\). Unique selection also requires irreducibility.
-Exact finite controls and a full-state pair-distance diagnostic of the native
-source are executable in \texttt{model/repair\_sector\_bridge/}.
 (EH-2) The probability space is the one-sided
 electric-centre edge algebra \(\bigoplus_RB(V_R)\), on which the sector
 projector has rank \(d_R\). On the two-sided space \(L^2(G)\) the projector has
@@ -1451,11 +1445,11 @@ spin-statistics attachment from the gauge algebra alone.
 \subsection{A gauge-covariant band on classical links and the quantum-link boundary}
 \label{sec:gauge-band}
 
-The compact particle source localizes modes at two opposite-degree cores
-\cite{ophparticles}, and this subsection admits local internal frames on it through
-supplied classical links~\cite{ophrepo}. The lattice is the radius-three cube, with
+A declared compact source localizes modes at two opposite-degree cores, and
+this subsection admits local internal frames on it through supplied classical
+links~\cite{ophrepo}. The lattice is the radius-three cube, with
 \(343\) sites, \(882\) undirected edges and two spin coordinates per site, tensored with an
-internal representation of dimension \(d\); the charged source has \(d=45\), from the
+internal representation of dimension \(d\); the declared charged source has \(d=45\), from the
 fifteen-state exterior module and three family coordinates. The onsite term is
 \(64\,n(x)\cdot\sigma\), with \(n\) the normalized direction \((x,y,z^2-1)\) inside its
 prescribed support and constant outside, so its amplitude vanishes only at the cores
@@ -1546,8 +1540,8 @@ so band occupation need not be conserved, and \(\dot V=\lambda\{N-90,\dot N\}\) 
 interaction. With a temporal connection replace \(\dot Q\) by \(\dot Q+i[A_0,Q]\) under
 \(A_0^g=G_NA_0G_N^\dagger+i\dot G_NG_N^\dagger\). This is a static background result with added
 apparatus: links, polar alignment and tracking control are supplied, with no native pulse
-compilation, and the construction selects no link field, gauge state, physical Higgs
-background or particle mass.
+compilation, and the construction selects no link field, gauge state or physical Higgs
+background.
 
 \paragraph{The sixty-state quantum link.}
 The link of Section~\ref{sec:native-quantum-gauss} is nonunitary: its combined operator
@@ -1598,8 +1592,8 @@ canonical integer occupation. A physical realization must additionally identify 
 same local gauge field, constrained state space and renormalized current on
 one interacting continuum limit. The port phases select the global form
 and equal cell couplings, and the protected defect classes are the particle centre
-classes. The scheme matching of the cell coupling, the vacuum, pole masses and
-gravitational response require that common model.
+classes. The scheme matching of the cell coupling, the vacuum and the
+gravitational response require that same realization.
 
 \def\OPHStandardModelDerivationPaper{1}
 
@@ -1631,9 +1625,15 @@ Available at \url{https://github.com/FloatingPragma/observer-patch-holography}.
 
 \bibitem{ophmodel}
 B.~M\"uller, M.~Poneder, J.~Kim, and D.~A.~Friedman,
-\emph{An Executable Observer for Observer Patch Holography: Specification, Memory and Observable Fields},
+\emph{An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records},
 2026.
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/paper/executable_observer_construction.pdf}.
+
+\bibitem{ophsynthesis}
+B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, B.~Cassie, P.~Nguyen, J.~Kim, D.~Matscheko, D.~A.~Friedman, J.~Hill, W.~T.~Glynn, M.~A.~Visser, K.~A.~Anirudha, and B.~de La Fourni\`ere,
+\emph{Observers Who Read Their Universe into Existence: Finite Consensus and the Reconstruction of Standard Physics},
+2026.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/flagship/from_observer_consensus_to_standard_physics.pdf}.
 
 \bibitem{ophmicrophysics}
 B.~M\"uller, A.~Osika, K.~Xue, B.~Cassie, B.~de La Fourni\`ere, and D.~A.~Friedman,

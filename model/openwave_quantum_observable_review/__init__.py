@@ -1,1 +1,0 @@
-"""Independent complete-observable review."""

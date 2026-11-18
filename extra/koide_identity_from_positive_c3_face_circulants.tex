@@ -54,21 +54,20 @@ for Icosahedral Face Circulants}}
 \begin{abstract}
 The stabilizer of an oriented icosahedral face acts regularly on its three
 corners, and every Hermitian response commuting with it is a circulant
-\(C=aI+bR+\overline bR^2\). Where its eigenvalues are nonnegative and read as
-square-root masses, the Koide invariant is
+\(C=aI+bR+\overline bR^2\). Where its eigenvalues \(\lambda_k\) are
+nonnegative, the Koide invariant of the squared spectrum is
 \[
-Q=\frac13+\frac23\left(\frac{|b|}{a}\right)^2,
+Q=\frac{\sum_k\lambda_k^2}{\bigl(\sum_k\lambda_k\bigr)^2}
+ =\frac13+\frac23\left(\frac{|b|}{a}\right)^2,
 \]
 so \(Q=2/3\) is the balance \(|b|/a=1/\sqrt2\), and the phase of \(b\) sets the
-two mass ratios. A generation register in the coherent seam repair law supplies
-both: its branch weights \(1/6:1/12:1/12\) give the balance, and its read count
-\(2/9\) is the phase, kept over two million executed rounds. With no measured
-mass as input this gives \(m_\mu/m_e=206.770316\) and \(m_\tau/m_e=3477.4728\),
-at \(+9.83\) ppm and \(+0.61\) standard uncertainties from measurement. The
-register is a declared construction on the coherent law, so no source-only
-mass prediction is claimed. Under the balance and mass-ordering premises the
-measured electron and muon masses fix the tau mass inside a 72-eV enclosure
-centered at 1776.969027 MeV.
+two scale-free ratios of the spectrum without changing \(Q\). The positive
+chamber is part of the statement: at balance the spectrum is nonnegative
+exactly for \(|\delta|\le\pi/12\) modulo \(2\pi/3\). A finite tracial event
+packet produces the balance exactly, and the balanced modulus is the content
+of an asymmetric block choice. Threefold and fivefold residual symmetry force
+a degenerate spectrum, while twofold symmetry leaves two scale-free
+coordinates. The algebraic core is formalized in Lean~4.
 \end{abstract}
 
 \noindent\textbf{Keywords:} Koide relation, circulant matrices, cyclic
@@ -77,14 +76,10 @@ symmetry, icosahedral symmetry, finite event algebra, GNS representation
 
 \section{The face-corner carrier}
 
-Koide's charged-lepton relation~\cite{koide1983} is usually written in terms
-of the three positive square-root masses. The construction below identifies
-the exact condition it imposes on a cyclic Hermitian response.
-
-CCF-LT-2 is the official matter, field and local-capacity law
-(\texttt{model/SPEC.md}). The component comparisons below retain their
-own sources and hypotheses. Their physical attachment requires the common
-Hamiltonian, preparation, reference and complete instrument.
+Koide's invariant~\cite{koide1983} is the quotient of the sum of three
+positive numbers by the square of the sum of their square roots. The
+construction below identifies the exact condition that the value \(2/3\)
+imposes on a cyclic Hermitian response.
 
 Let \(G=A_5\), the alternating group on five letters, act by proper rotations
 on the icosahedron. The twenty outward
@@ -124,12 +119,12 @@ Let \(C\) be the Hermitian circulant in
 Eq.~\eqref{eq:circulant}, with \(a>0\). Suppose its three eigenvalues in
 Eq.~\eqref{eq:eigenvalues} are nonnegative and, for one \(s>0\),
 \[
-\sqrt{m_k}=\sqrt{s}\lambda_k.
+\sqrt{w_k}=\sqrt{s}\lambda_k.
 \]
 Then
 \begin{equation}
-Q:=\frac{\sum_{k=0}^2m_k}
-{\left(\sum_{k=0}^2\sqrt{m_k}\right)^2}
+Q:=\frac{\sum_{k=0}^2w_k}
+{\left(\sum_{k=0}^2\sqrt{w_k}\right)^2}
 =\frac13+\frac23\left(\frac{\rho}{a}\right)^2.
 \label{eq:koideformula}
 \end{equation}
@@ -170,30 +165,28 @@ Eq.~\eqref{eq:koideformula} equals \(2/3\) exactly at
 \end{figure}
 \begin{remark}[The chamber is part of the theorem]
 The signed trace calculation holds algebraically for every \(\delta\).
-Physical square roots use \(|\lambda_k|\) when an eigenvalue is negative, and
-then the denominator is not the signed trace. At
+Nonnegative square roots of \(s\lambda_k^2\) use \(|\lambda_k|\) when an
+eigenvalue is negative, and then the denominator is not the signed trace. At
 \(\rho/a=1/\sqrt2\), the positive chamber is
 \[
 |\delta|\leq\frac{\pi}{12}\pmod{\frac{2\pi}{3}}.
 \]
-Theorem~\ref{thm:koide} makes no physical Koide statement outside that
-chamber.
+Theorem~\ref{thm:koide} makes no statement outside that chamber.
 \end{remark}
 
 \begin{remark}[What the phase contains]
 Inside the positive chamber, \(Q\) is independent of \(\delta\). The three
-eigenvalues, and hence the two reported mass ratios, vary with \(\delta\).
-The balance condition removes one scale-free degree of freedom from a
-three-mass spectrum. It does not determine the ratios.
+eigenvalues, and hence the two scale-free ratios of the squared spectrum,
+vary with \(\delta\). The balance condition removes one scale-free degree of
+freedom from a three-point spectrum. It does not determine the ratios.
 \end{remark}
 
 \section{Conditional finite tracial balance}
 
 The balance condition in Eq.~\eqref{eq:balance} can arise exactly from a
 finite event packet. This section states the packet as an independent
-conditional theorem. The packet realizes the target-informed balance
-premise through an asymmetric block choice, which is where that premise
-enters.
+conditional theorem. The packet realizes the balance through an asymmetric
+block choice, which is where the balance enters.
 
 Let
 \[
@@ -235,8 +228,7 @@ and therefore
 \qquad
 Q=\frac23
 \]
-whenever the positive square-root-mass reading of
-Theorem~\ref{thm:koide} is supplied.
+on the positive chamber of Theorem~\ref{thm:koide}.
 \end{theorem}
 
 \begin{proof}
@@ -256,258 +248,11 @@ record and the charged plane with one oriented event. Treating the two blocks
 alike, both with \(I_{\mathrm{or}}\) or both with \(q_+\), gives
 \(p_c/p_0=2\), hence \(\rho/a=1\) and \(Q=1\). The normalized trace fixes the
 probabilities only after the asymmetric event has been chosen, so the
-balanced modulus is the content of that choice. A physical
-charged-lepton statement additionally requires a quotient-visible map from
-the local face bundle to one chiral three-family response, preservation of
-the relevant block powers, and a mass readout. Those objects are absent from
-the theorem. The common model has no demonstrated physical attachment of these objects: the
-tau window consumes no native observer run, and its identification of
-balanced square-root masses with charged-lepton pole masses is a
-premise~\cite{ophmodel,ophtaucomparison}.
-
-\begin{remark}[What a physical attachment would add]
-\label{rem:attachment}
-The connected register fixes the normalization left free by a direct-sum
-maximum-entropy model; minimality of this response-local register is a
-declared hypothesis. A physical charged-lepton conclusion requires a chiral
-regular-\(C_3\) carrier and faithful trace-preserving unital completely
-positive maps \(\Phi,\Psi\) between the source and physical response
-algebras, with \(\Psi\Phi=\mathrm{id}\). If they intertwine the block
-records and identify the physical GNS vector with
-\(C=(Y_e^\dagger Y_e)^{1/4}\), Kadison--Schwarz makes \(\Phi\) a
-\(*\)-monomorphism and an exact \(L^2\) isometry, so it carries the equal
-source block powers to the physical response. For an accepted finite chiral
-checkpoint with three left and three right family modes, positive kinetic
-metrics, and a committed neutral Higgs direction of electroweak scale \(v\),
-\(\Phi=\operatorname{Ad}_{J_L\oplus J_E}\). With \(M_F=X_F^2\), this gives
-\[
-\widehat Y_e=\frac{\sqrt2}{v}J_LM_FJ_E^\dagger,
-\qquad
-\mathcal M_L=J_LM_FJ_L^\dagger.
-\]
-An extended branch that adds graded physical completion and quotient
-source-law selection selects one dressed mass readout, given an exhaustive
-declared carrier class with a positive winner gap, a source-closed BV/BRST
-continuum, and an interval or contraction certificate for the charged QFT
-self-map. A balanced \(C_3\) fixed point then gives \(Q=2/3\); a
-\(C_3\)-symmetric fixed point with charged attenuation \(\chi_\star\) gives
-\[
-Q=\frac{1+e^{-2\chi_\star}}{3}.
-\]
-An off-plane response requires the full response operator. None of these
-maps, checkpoints or certificates is constructed.
-\end{remark}
-
-\section{The balance and the phase from a generation register}
-\label{sec:generation-register}
-
-The coherent seam repair event is the swap of the seam's port qubit
-\((p,m)\), \(p,m=(\lvert a\rangle\pm\lvert b\rangle)/\sqrt2\), with its record qubit, so the record
-holds the source endpoint relative to the address in its conjugate basis. The
-oriented record \(V\) changes the sign of record one at the reversed address and keeps
-the repair branch, which the plain record cancels.
-
-Two seam objects share one face \(f\): \(C\), whose orientation is the screen
-orientation, and \(E\), on a second edge of the hexagon around the \(f\) axis. Each has a
-load, a record and an address, and is prepared with activity \(1/3\) and its load at the
-screen tail. A neutral register on the ports of \(f\) carries the face third-turn
-\(R=\rho_f\). One tick is
-\[
- U(\theta)=K_\theta\,T\,V\,(W_C\otimes W_E),\qquad K_\theta=e^{i\theta J},
-\]
-where \(T\) applies \(R^{\pm1}\) when \(C\) repairs in orientation \(\pm\) and \(J\) is the
-oriented current of \(C\). The analyzer \(\Phi\) is the Fourier zero of the three flags
-``\(E\) agrees, \(C\) idle'', ``\(C\) repairs \(+\), \(E\) idle'' and ``\(C\) repairs \(-\),
-\(E\) idle''.
-
-\begin{theorem}[Register compression]
-\label{thm:register-compression}
-The \(432\)-state tick is unitary, and
-\[
- \langle\Phi|U(\theta)|p\rangle=\frac{\sqrt2}{3}\Bigl(\tfrac1{\sqrt6}I
- +\tfrac1{\sqrt{12}}\bigl(e^{i\theta}R+e^{-i\theta}R^{-1}\bigr)\Bigr).
-\]
-Hence \(|b|/a=1/\sqrt2\) and, in the positive chamber, \(Q=2/3\) for every \(\theta\).
-\end{theorem}
-
-The squared coefficients \(a^2:|b|^2:|b|^2=1/6:1/12:1/12\) are the probabilities of the
-agreeing hold of \(E\) and of the two oriented repairs of \(C\). The register's exclusive read
-\([R_+]\oplus[H]\) has probability \(1/12+1/6-2/72=2/9\). On every blank-record input with uniform
-address the seam program satisfies \(\langle I-\operatorname{Re}U\rangle=P(\text{record }1)\), so the
-energy clock reads read probabilities; \(N\) weak rounds within a tick give the zero-return
-operator \(e^{-i\,(2/9)J}\) with error at most \(1/N\), so the oriented current carries the
-phase \(\theta=2/9\) at unit clock time per tick. The declared clock fixes that unit: its edge
-term \((\pi/4)(I-S)\) reproduces the tick's root-swap gate exactly at clock times
-\(1+4\mathbb Z\), with principal value one. A dressing that commutes with \(J\) leaves
-this phase unchanged at every order. The family mode \(k\) then has rate \(\lambda_k^2\), and
-\[
- \frac{m_\mu}{m_e}=206.770316,\qquad \frac{m_\tau}{m_e}=3477.4728 .
-\]
-The muon value lies \(9.83\) ppm above the measured ratio, which corresponds to a phase shift
-of \(-1.75\times10^{-7}\); the tau value lies \(0.61\) standard uncertainties above the
-measured ratio. Two-loop vacuum polarization by the lighter families, with each mass read at
-its own rest frequency, has the order and sign of the muon residual; the closest readings
-leave \(+0.6\) ppm, and the constant of that term is open. 
-
-The count survives many ticks. One weak round is the tick of two cells, the kick on the
-oriented current, the inverse tick, one return test per cell and a reset after a negative
-test. Every round reads the first-tick weights, and \(N\) rounds per unit clock time give the
-phase
-\[
- \theta_N=N\arctan\frac{P\sin(1/N)}{1-P+P\cos(1/N)}=\tfrac29-\tfrac{35}{2187N^2}+O(N^{-4}),
- \qquad P=\tfrac29 .
-\]
-Executed on the sixty-address carrier for \(10^4\) to \(2\times10^6\) rounds, the phase follows
-this form and tends to \(2/9\) within \(10^{-13}\). The four outcomes of the return tests, with
-weights \(4/81\), \(11/324\), \(125/1296\) and \(55/1296\), are all kept: the coherence between
-two values \(j,j'\) of the current is multiplied per round by \(1-P+Pe^{-i(j-j')/N}\), so the
-phase holds on the complete record. The forward tick alone reads \(2/9\), \(0.486\), \(0.536\)
-and \(0.467\) at ticks one to four. The three characters of the face third-turn are the
-eigenvectors of the executed mass round, with rest rates
-\[
- y_k=\tfrac1{27}\bigl(1+\sqrt2\cos(\tfrac29+\tfrac{2\pi k}3)\bigr)^2
- =0.2096935560,\ 0.0124683656,\ 0.0000603006
-\]
-for tau, muon and electron, summing to \(2/9\). With the electron mass as the only measured
-input they give \(m_\mu=105.659414\) MeV and \(m_\tau=1776.985\) MeV, against
-\(105.6583755(23)\) and \(1776.93\pm0.09\) MeV \cite{pdg2026}.
-
-The register and analyzer are a declared construction on the coherent law. Open inside it
-are the operation that brings the pair onto one port, the source event of the kick, the rule
-that one partner is read per unit clock time, and the number \(N_p\) of phase rounds, which
-shifts \(m_\mu/m_e\) by \(-824/N_p\) at leading order \cite{ophparticles,ophmodel}.
-
-\section{The conditional tau-mass window}
-\label{sec:tauwindow}
-
-Fixing \(Q=2/3\) in Eq.~\eqref{eq:koideformula} and inserting the measured
-electron and muon masses turns the Koide coordinate into one quadratic in
-\(\sqrt{m_\tau}\). The mass-ordering premise \(m_\tau>m_\mu\) selects the
-physical root; the excluded second root sits at \(3.317\)~MeV, below the
-muon mass. Propagating the one-sigma corners of the measured
-\((m_e,m_\mu)\) inputs \cite{pdg2026} with outward rounding encloses the
-selected root in
-\begin{equation}
-m_\tau\in[1776.968991,\ 1776.969063]\ \mathrm{MeV},
-\label{eq:tauwindow}
-\end{equation}
-a 72-eV window with center \(1776.969027\)~MeV. The center sits
-\(0.43\) standard uncertainties from the measured
-\(1776.93\pm0.09\)~MeV, and the window is three orders of magnitude
-narrower than that measurement uncertainty. The dedicated Belle II 2023
-measurement, \(1777.09\pm0.08_{\mathrm{stat}}\pm0.11_{\mathrm{syst}}\)~MeV,
-lies \(0.12097\)~MeV above the center, \(0.89\) of its combined
-\(0.136\)~MeV uncertainty~\cite{belle2023tau}. That comparison is
-retrospective, and its systematic uncertainty alone exceeds the
-\(0.045\)~MeV compatibility floor, so it carries no verdict under the
-registered rule~\cite{ophpublicdata}.
-
-The comparison is governed by a registered conditional test whose target
-definition and decision rule were fixed in a frozen prediction record
-\cite{ophregister}: a world-average or dedicated-measurement central value
-more than three standard uncertainties from \(1776.969027\)~MeV refutes
-the balanced-circulant premise; compatibility requires agreement within
-two standard uncertainties at a measurement uncertainty of at most
-\(0.045\)~MeV; every other outcome carries no verdict. The balance
-premise, the equal-weight condition on the two response sectors of one
-icosahedral face circulant, is target-informed, so the window is a
-conditional postdiction whose evidential weight lies in the kill
-direction~\cite{ophregister,ophtaucomparison}. Improving tau-mass
-measurements test the balanced-circulant premise and Koide's relation
-together. Both send every allowed \((m_e,m_\mu)\) to the same \(m_\tau\), so
-under one measurement model their likelihood ratio is one and no precision in
-this observable distinguishes them; the formula contains no screen-grain
-coordinate \(P\) and constrains no other OPH parameter~\cite{ophtaucomparison}.
-
-\section{Numerical diagnostic and provenance}
-
-Using the Particle Data Group 2026 central masses
-\cite{pdg2026},
-\[
-(m_e,m_\mu,m_\tau)
-=(0.51099895069,\ 105.6583755,\ 1776.93)\ {\rm MeV},
-\]
-gives
-\[
-Q_{\mathrm{PDG}}=0.6666644634026367,
-\qquad
-\rho/a=0.7071044442682813,
-\qquad
-\delta=0.2222247618945926.
-\]
-The declared minimal complete public response (MCPR) law attenuates the balance
-and shifts the phase through three coefficients of a declared unified coupling
-\(u\) and pixel coordinate \(P\):
-\[
-\kappa=\frac{u/50}{1+u/31+u^2/310},
-\qquad
-\chi=\frac{u^2/512}{1-u/77},
-\qquad
-\zeta=\frac{(P-\varphi)^2/(21\pi)}{1-u/27-u^2/135},
-\]
-with \(\varphi=(1+\sqrt5)/2\),
-\[
-\frac{\rho}{a}=\frac{e^{-\chi}}{\sqrt2},
-\qquad
-\delta=\frac29+\zeta,
-\]
-and a common multiplier chosen so that the product of the three masses divided
-by the cube of a declared electroweak scale \(v\) equals
-\(e^{3\kappa}/(2\cdot6^{14})\). Inside the positive chamber,
-Eq.~\eqref{eq:koideformula} gives the exact circulant identity
-\begin{equation}
-Q=\frac{1+e^{-2\chi}}{3}
-\label{eq:koideattenuated}
-\end{equation}
-at every phase. The comparison packet of the particle
-construction~\cite{ophparticles} has
-\[
-\begin{aligned}
-\chi&=3.304899678958019\times10^{-6},
-\qquad
-\zeta=2.540957613468169\times10^{-6},\\
-Q_{\mathrm{MCPR}}&=0.6666644634074956,\\
-\rho/a&=0.7071044442734351,\\
-\frac{\rho/a-1/\sqrt2}{1/\sqrt2}
-&=-3.3049\times10^{-6}.
-\end{aligned}
-\]
-Its constants \(50,31,310,512,77,21,27,135\), amplitude, phase and determinant
-exponent are target-informed inputs, so the response is neither blind nor
-source-derived. The proximity of the two displayed \(Q\) values carries no
-significance or predictive weight.
-
-Reading the three outputs, in the external energy unit \(E_*\), as charged-lepton
-pole masses is an adopted physical premise, which similarity of dimensionless circulant coordinates does not
-derive. Under it the discrepancies are about \(-70.5\) parts per million, almost
-entirely a common scale, and the muon/electron ratio differs by \(+0.0725\) parts
-per million. The exact point \(\rho/a=1/\sqrt2\), \(\delta=2/9\) of the same
-circulant gives a muon/electron discrepancy of \(+9.83\) parts per million. The
-particle paper gives the full comparison table, in which all twelve nonzero
-outputs lie outside their printed intervals, and no measured particle mass is
-derived~\cite{ophparticles}.
-
-\begin{center}
-\begin{tabular}{@{}p{0.30\textwidth}p{0.58\textwidth}@{}}
-\toprule
-Statement & Scope \\
-\midrule
-Eq.~\eqref{eq:koideformula} & exact algebra in the nonnegative-eigenvalue chamber \\
-Theorem~\ref{thm:gns} & exact implication conditional on the declared finite event packet \\
-Icosahedral face fiber & exact local \(A_5/C_3\) bundle and unordered spectrum \\
-Tau window, Eq.~\eqref{eq:tauwindow} & exact quadratic consequence of the balance and ordering premises; registered decision rule \\
-Physical family attachment & absent from the theorems; a premise of any physical reading \\
-Phase and numerical ratios & balance leaves one phase controlling both scale-free ratios \\
-Eq.~\eqref{eq:koideattenuated} & exact circulant identity in the chamber \\
-MCPR numerical proximity & target-informed comparison-only diagnostic \\
-Charged pole comparison & adopted premise; outputs outside their printed intervals \\
-\bottomrule
-\end{tabular}
-\end{center}
+balanced modulus is the content of that choice.
 
 \section{Why residual symmetry does not finish the ratios}
 
-The family-shape problem can be stated in the real
+The shape of a three-point spectrum can be stated in the real
 five-dimensional representation
 \[
 W_5\simeq\operatorname{Sym}^2_0(\R^3),
@@ -544,11 +289,10 @@ This space has dimension three and contains matrices with three distinct
 eigenvalues.
 \end{proof}
 
-Threefold and fivefold symmetry cannot produce three distinct masses.
+Threefold and fivefold symmetry cannot produce three distinct eigenvalues.
 Twofold symmetry leaves two scale-free coordinates, exactly enough to carry
-the two mass ratios without selecting them. A numerical spectrum therefore
-requires a specific invariant potential derived from the screen dynamics.
-This proposition locates the missing input; it supplies no replacement fit.
+the two scale-free ratios of a spectrum without selecting them. A numerical
+spectrum therefore requires a specific invariant potential.
 
 \section{Formal proof boundary}
 
@@ -561,10 +305,10 @@ nonnegative-modulus equivalence
 r=\frac1{\sqrt2}.
 \]
 The formal module deliberately does not identify signed eigenvalues with
-physical square roots. Positivity of all three eigenvalues, the phase
-selection, and the source-to-charged-family attachment are outside its
-statement. This division matches Theorem~\ref{thm:koide}: the checked algebra
-is exact, and the physical reading is a separate premise.
+nonnegative square roots. Positivity of all three eigenvalues and the phase
+selection are outside its statement. This division matches
+Theorem~\ref{thm:koide}: the checked algebra is exact, and the positive
+chamber is a separate premise.
 
 \begin{thebibliography}{9}
 
@@ -573,47 +317,6 @@ Y.~Koide,
 \emph{New View of Quark and Lepton Mass Hierarchy},
 Physical Review D \textbf{28}, 252 (1983).
 \url{https://doi.org/10.1103/PhysRevD.28.252}
-
-\bibitem{pdg2026}
-Particle Data Group,
-\emph{Review of Particle Physics: 2026 particle listings},
-2026.
-\url{https://pdg.lbl.gov/2026/listings/particle_properties.html}
-
-\bibitem{ophregister}
-FloatingPragma,
-\emph{Frozen prediction register and precommitted comparison
-certificates},
-2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/claims/frozen_prediction_register.json}.
-FZ-10 custody packet:
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/925b77c83115a9085c1dd020291bbc6c11e3f45d/evidence/custody/falsification/frozen_targets/fz10_2026-07-28}
-
-\bibitem{belle2023tau}
-Belle II Collaboration,
-\emph{Measurement of the \(\tau\)-lepton mass with the Belle II experiment},
-arXiv:2305.19116, 2023.
-\url{https://arxiv.org/abs/2305.19116}
-
-\bibitem{ophpublicdata}
-FloatingPragma,
-\emph{OPH predictions and public-data comparisons}, 2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md}
-
-\bibitem{ophtaucomparison}
-FloatingPragma,
-\emph{Independent alpha/tau reproduction and the first bounded natural comparison}, 2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2068/code/independent_postdictions}
-
-\bibitem{ophparticles}
-B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, and D.~A.~Friedman,
-\emph{Particles from Native Overlap Transport: Common Currents, Defect Modes and a Pixel-Dependent Mass Operator}.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}.
-
-\bibitem{ophmodel}
-FloatingPragma,
-\emph{The runnable OPH model}, 2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2068/model}
 
 \end{thebibliography}
 

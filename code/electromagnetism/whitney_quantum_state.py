@@ -28,7 +28,6 @@ PIN_PATHS = (
     "Lean/ObserverPatchHolography/CoreAxioms.lean",
     "code/electromagnetism/verify_cone_whitney_bridge.py",
     "code/electromagnetism/whitney_interacting_quantum.py",
-    "paper/tex_fragments/WHITNEY_INTERACTING_QUANTUM.tex",
     "code/electromagnetism/whitney_quantum_state.py",
     "code/electromagnetism/verify_whitney_quantum_state.py",
     "code/electromagnetism/test_whitney_quantum_state.py",

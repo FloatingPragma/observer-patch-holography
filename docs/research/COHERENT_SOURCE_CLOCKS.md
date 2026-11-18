@@ -19,7 +19,7 @@ including the clock circuit, with its durations and errors retained.
 The extra physical requirement is stated below as coherent code gluing.
 It strengthens the proposed classical RG law; it is not installed as a
 fourth core axiom. The construction concerns an explicit source family,
-not selection of a unique representation, particle mass or physical energy.
+not selection of a unique representation or physical energy.
 
 ## 1. The response is an active processor
 
@@ -896,8 +896,8 @@ CCG remains an additional proposed information-transport principle. A1--A3
 and classical RG do not force it; both completions above obey the stated
 source grammar. This construction establishes consistency and sufficiency
 in the named source family, not unique microscopic selection by the core
-axioms. Particle masses, empirical energy/time calibration and arbitrary
-many-particle fermion dynamics are not promoted by a one-particle clock.
+axioms. Empirical energy/time calibration and arbitrary many-particle
+fermion dynamics are not promoted by a one-particle clock.
 The finite M1 population and radius remain regulator choices under the
 already established causal/count replacement results.
 

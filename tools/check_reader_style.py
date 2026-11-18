@@ -88,7 +88,6 @@ BOOK_PARAGRAPH_MAX_WORDS = 300
 REGISTER_GLOBS = [
     "docs/**/*.md",
     "model/*.md",
-    "code/instrument_specs/*.md",
 ]
 
 PAPER_GLOBS = [

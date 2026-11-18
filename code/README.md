@@ -7,11 +7,10 @@ claims. These artifacts let a reader recompute the
 finite and numerical parts, inspect their inputs, and see which physical bridge
 each result requires.
 
-The official executable source is [CCF-LT-2](../model/SPEC.md), implemented
-in **[model/ccf_lt2](../model/ccf_lt2/README.md)**. It combines full native
-matter, signed transport, weak interactions, electromagnetic fields and
-local-capacity total-energy response. This directory contains supporting component
-calculations; their source-specific hypotheses are stated individually.
+The executable model is [polynomial-sv](../model/polynomial_sv/README.md),
+whose contrast-memory law is the candidate native repair law. This directory
+contains supporting component calculations; their source-specific hypotheses
+are stated individually.
 
 The strongest artifacts are small and exact: finite repair checks, the
 twelve-port coefficient algebra, exterior Standard Model branching, anomaly
@@ -24,20 +23,14 @@ the theorem or physical carrier named by that branch.
 
 | Surface | What to inspect |
 | --- | --- |
-| [`../model/`](../model/README.md) | Official common matter, field and response construction, complete native operator checks and finite diagnostic records |
+| [`../model/polynomial_sv/`](../model/polynomial_sv/README.md) | The executable model: the contrast-memory law, the binding theorem, particle stability on agreed records, bound objects, port response and the unrecovered collar |
 | [`consensus/`](consensus/) | Finite patch-net repair, schedule independence, and reference-architecture benchmarks |
 | [`geometry/`](geometry/) | Screen incidence, modular clocks, event reconstruction, causal cones, and Einstein-branch receipts |
-| [`observer_dynamics/`](observer_dynamics/) | Native port-repair histories, retained large-run statistics, finite clock controls and conditional observer spectra |
-| [`native_geometric_source/`](native_geometric_source/) | Fixed-chart geometric readout, separated load covariances and source-identification boundaries |
-| [`common_history_packet/`](common_history_packet/) | Same-history local probes, retained records, restoration feedback and useful separated-response error bounds |
-| [`source_scalar_preparation/`](source_scalar_preparation/) | Finite local-force preparation for the supplied scalar quantum instrument |
-| [`source_density_geometry/`](source_density_geometry/) | Relative action measure, local record production and calibrated density/geometry controls |
 | [`m1_operational_clocks/`](m1_operational_clocks/) | Massive charged flights, all-band speed bounds, resolved local reads and an observable moving clock |
 | [`a5_closure/`](a5_closure/) | Exact twelve-port $A_5$ coefficient algebra and gauge-closure checks |
-| [`particles/`](particles/) | Particle carriers, hierarchy, flavor, neutrino, hadron, and current status surfaces |
 | [`P_derivation/`](P_derivation/) | Pixel fixed-point maps, interval contraction, uniqueness, and provenance |
 | [`capacity_readback/`](capacity_readback/) | Finite record-capacity readback and conditional global closure |
-| [`ibm_quantum_cloud/`](ibm_quantum_cloud/) | Redacted hardware runs and reproducible benchmark analysis |
+| [`cosmology/`](cosmology/) | Radial-lift, clock-certificate, posterior-chain and cosmology postdiction calculations |
 
 ## Supporting Modules
 
@@ -46,7 +39,6 @@ the theorem or physical carrier named by that branch.
 | [`collar_alignment/`](collar_alignment/) | Boundary-collar alignment checks |
 | [`maxent/`](maxent/) | Finite maximum-entropy reconstruction |
 | [`edge_sectors/`](edge_sectors/) | Edge-sector and transport calculations |
-| [`instrument_specs/`](instrument_specs/) | Registered simulation-instrument protocols and their evidence limits |
 
 ## Quick Reproduction
 
@@ -61,11 +53,11 @@ python3 code/consensus/reference_architecture_benchmark_suite.py
 python3 -m pytest code/consensus/test_reference_architecture_benchmark_suite.py
 ```
 
-Inspect the current particle output surface:
+Run the executable model and its tests:
 
 ```bash
-cd code/particles
-python3 compute_current_output_table.py --no-print-table --show-paths
+python -m model
+python -m pytest -q -W error model/polynomial_sv
 ```
 
 The geometry suite is available through:

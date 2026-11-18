@@ -1,9 +1,12 @@
 # OPH Claim Registry
 
-The official executable model is [CCF-LT-2](../model/SPEC.md). Its current native repair law is a calibrated intermediate test; the search for the correct native repair law is ongoing. Its
-[finite claim register](ccf_lt2.json) binds the native polynomial and local-capacity
-response checks. Other claims retain their stated source, preparation,
-reference, clock and observation domains; a common name supplies no transfer.
+The official executable model is [polynomial-sv](../model/polynomial_sv/README.md).
+Its contrast-memory law is the candidate native repair law of the theory.
+Claims about the model are owned by the
+[executable-model paper](../paper/executable_observer_construction.tex), and
+`python -m model` recomputes their evidence. Other claims keep their stated
+source, preparation, reference, clock and observation domains; a common name
+supplies no transfer.
 
 The papers are the standalone source for their theorems, assumptions,
 falsifiers and claim boundaries. Executed constructions may instead name a
@@ -31,25 +34,26 @@ its source.
 | Ledger | Machine source | Views and sub-registers |
 | --- | --- | --- |
 | Claims | `claims/claim_registry.yaml`: the claim rows and a `claim_context` section with each claim's prior work and citations, owner section, falsifiers and dependencies; `claims/prior_work.json`, the verified bibliography of that prior work; `claims/assumption_dictionary.md`, the assumption names | `claims/novelty_matrix.csv`, `claims/falsification_matrix.csv` and `claims/dependency_graph.json` (rendered by `tools/build_claim_views.py`); the credited-prior-work section of each paper (`tools/build_prior_work.py`); the selection and physical-identification registers `claims/selection_ledger.json` and `claims/physical_identification_registry.json` (the selection ledger is rendered to `docs/registers/SELECTION_LEDGER.md` by `tools/build_selection_ledger.py`, which validates the physical-identification registry without rendering it); the public quantitative-display policy `claims/public_surface_quantitative_claims.json` |
-| Premises | `tracking/premise_register.json`: the premise rows, with the model-supply crosswalk, the Standard Model coverage and the gravity rungs as its `model_supply`, `sm_coverage` and `gravity_rungs` sections; the theorem-library premises A1-A3 in `claims/axiom_registry.yaml`, stated in `docs/AXIOM_REFERENCE.md` | `docs/registers/PREMISE_REGISTER_V3.md`, whose closing sections show the Standard Model coverage and the gravity rungs; `model/PREMISES.md`, the model view of the crosswalk |
-| Predictions and tests | `claims/frozen_prediction_register.json`, the custody record of frozen predictions, and `tracking/observation_ledger.json`, whose `instruments` and `constants` sections hold the emergent-instrument register and the constants ancestry | `docs/FROZEN_PREDICTION_LADDER.md`, `docs/registers/OBSERVATION_LEDGER_V3.md`, `docs/POSTDICTION_LEDGER.md`, `tracking/null_model_scorecard.md`; `docs/OPH_FALSIFICATION_PROGRAM.md` summarizes the falsification rules for readers |
+| Premises | `tracking/premise_register.json`: the premise rows, with the model-supply crosswalk, the Standard Model coverage and the gravity rungs as its `model_supply`, `sm_coverage` and `gravity_rungs` sections; the theorem-library premises A1-A3 in `claims/axiom_registry.yaml`, stated in `docs/AXIOM_REFERENCE.md` | `docs/registers/PREMISE_REGISTER_V3.md`, whose closing sections show the Standard Model coverage and the gravity rungs |
+| Predictions and tests | `claims/frozen_prediction_register.json`, the custody record of frozen predictions, and `tracking/observation_ledger.json`, whose `instruments` and `constants` sections hold the emergent-instrument register and the constants ancestry | `docs/FROZEN_PREDICTION_LADDER.md`, `docs/registers/OBSERVATION_LEDGER_V3.md`, `tracking/null_model_scorecard.md`; `docs/OPH_FALSIFICATION_PROGRAM.md` summarizes the falsification rules for readers |
 | Evidence | the per-package manifests and verifiers under `evidence/`, `code/` and `model/`, the receipt-promotion and external-data registries under `code/audit/`, and `Lean/docs/PROOF_INDEX.md` | `evidence/README.md` |
 | Papers | `paper/content_inventory.yml` and the paper list in `tools/build_tex_papers.py` | `paper/paper_release_manifest.json`, `docs/PAPER_SET.md` |
 
-Model construction uses the existing claim identities and premises through
-[Model construction](../model/CONSTRUCTION.md) and the generated
-[model–theorem premise map](../model/PREMISES.md). Candidate hypotheses and
-issue completion do not change a registered claim's scientific status. Record
-exact same-model attachments and retained inputs there; change this registry
-when the established claim or its evidence changes.
+The executable model uses the existing claim identities and premises through
+its [specification](../model/polynomial_sv/SPEC.md) and the
+[premise register](../docs/registers/PREMISE_REGISTER_V3.md). Candidate
+hypotheses and issue closure do not change a registered claim's scientific
+status. Change this registry when the established claim or its evidence
+changes.
 
 Finite theorem validity, realization of its hypotheses by an executable
 instance, observational equivalence to an effective field description, and
 agreement with physical data are separate claims. An `emitted_artifact` row
 can establish the second without establishing the last two. Its evidence
 must identify the actual state sector, instruments, scheduler, observer access
-and retained outputs. The [complete-output criterion](../model/CONSTRUCTION.md#completion-target-and-acceptance-criteria)
-states the operational comparison; counts of theorem references do not
+and retained outputs. The [executable-model hypothesis](../docs/OPH_EXECUTABLE_HYPOTHESIS.md#how-the-model-is-tested)
+states the operational comparison: distributions of admissible observer
+records against what observers in our world record; counts of theorem references do not
 discharge its physical hypotheses. Retrospective conditional fits belong in
 the observation/postdiction ledgers and cannot become prospective prediction
 successes through a status or wording change.
@@ -84,7 +88,7 @@ Three row-level contracts carry their own machine-checked declaration:
   work was scoped. The V3 and V4 lanes are closed; every gate is either an open issue or a
   historical lane that `tools/closed_lanes.py` maps to the open issue owning its remaining work,
   and generated pages render each historical number as labelled history beside that live owner.
-  A gate never names a superseded lane. Each row that the historical topical-lane policy in
+  A gate never names a lane without a live owner. Each row that the historical topical-lane policy in
   `tools/check_claim_registry.py` names declares `required_topical_gate_owners`, a sorted subset
   of that row's own `gates`. The validator compares the declaration against the policy in both
   directions and rejects a policy key that names no registered claim, so a one-sided edit to
@@ -99,272 +103,22 @@ The GitHub workflow runs the validator on registry changes and on public claim-s
 When a pull request changes paper TeX or the README claim narrative, it must also touch this
 registry/check surface. That rule keeps the registry from becoming a stale snapshot.
 
-## Finite model constructions
+## Executable model
 
-The `emitted_artifact` rows below register runnable model constructions and their
-retained evidence. Their owners are the self-contained implementation documents under
-`model/`, with `owner_medium: protocol_record`; no paper theorem is promoted
-or changed by these executable records.
+The executable-model paper owns the claims about
+[polynomial-sv](../model/polynomial_sv/README.md): the exact reduction of the
+private seam memory to an exchange plus an agreement energy, on every state
+of the memory; the [binding theorem](../model/polynomial_sv/PROOF.md) on every
+federation of complete cells; particle stability on the observers' agreed
+records, with the controls that lose it; the bound objects of one cell; the
+port response; and the unrecovered collar. Their supplied parts are listed in
+the [specification](../model/polynomial_sv/SPEC.md). The model reproduces
+particle stability; its other observables are work in progress, and no
+registered claim promotes them.
 
-| Claim | Executed scope |
-| --- | --- |
-| `OPH-MODEL-NATIVE-OBSERVER-EXECUTION` | [Native current recorder](../model/observer/README.md), exact classical preservation, supplied forecasts and feedback; the C/E phase test with its locked count protocol and source-compiled channels; the native quantum gap, record recovery and coherent continuation; and the five-multiplier record-law classification |
-| `OPH-MODEL-OBSERVER-RECORD-CAPACITY` | [Finite correctable capacity](../model/observer/CAPACITY.md) and lossless reached-prefix controller encoding |
-| `OPH-MODEL-P-RESPONSE-EXECUTION` | [P-dependent binary detector](../model/observer/p_response/README.md), with accepted closure input and declared running/matching map |
-| `OPH-MODEL-N4-LOCAL-TICK-CERTIFICATE` | [Incident-attempt memory certificate](../model/local_tick/README.md), with supplied occupation preparation and readout |
-| `OPH-MODEL-SCALAR-RESPONSE-EXECUTION` | [Scalar detector and native continuation](../model/observer/scalar_response/README.md), with supplied field action/vacuum and inherited history refinement control, and the two-site source apparatus that emits and executes preparation, evolution and pointer words with complete occupation bounds |
-| `OPH-MODEL-COMMON-SOURCE-EXECUTION` | [Common interacting observer](../model/common_source/README.md), complete scalar/matter/flux records and feedback, observer readouts and conditional error bounds |
-| `OPH-MODEL-SPATIAL-INTERACTION-EXECUTION` | [Spatial interaction](../model/spatial_interaction/README.md), finite Bose-Hubbard source histories and separate interaction-deletion control |
-| `OPH-MODEL-CANONICAL-SCALAR-EXECUTION` | [Canonical scalar execution](../model/relativistic_scalar/README.md), finite number-changing scalar histories and supplied-regulator comparison |
-| `OPH-MODEL-SHARED-SCALAR-OBSERVATIONS` | [Shared scalar observations](../model/scalar_observations/README.md), one detector across spatial grids on the seven-mode band, and one controlled [band extension](../model/interacting_band_extension/README.md) by an added mode pair |
-| `OPH-MODEL-PUBLISHED-OSCILLATOR-READOUT` | [Published oscillator readout](../model/scalar_observations/experimental_readout/EXECUTABLE_READOUT.md), retrospective preparation/readout and driven-dynamics comparisons, readout identities and two-order characteristic constraints |
-| `OPH-MODEL-COUPLED-INTERACTION-RECOVERY` | [Coupled interaction reconstruction](../model/coupled_reconstruction/README.md), finite source identification under the declared action and clock |
-| `OPH-MODEL-ANHARMONIC-TRANSFER-COMPARISON` | [Anharmonic transfer](../model/anharmonic_transfer/README.md), retrospective changed-potential transfer on published records |
-| `OPH-MODEL-NATIVE-PROCESS-RECOVERY` | [Observer-relative recovery](../model/OBSERVER_RELATIVE_RECOVERY.md): overlapping-observer correspondences, local and active event clocks, record-law identification, federations and matched screens, the coherent screen observer, the native continuum operator, the sequential protocol, and the public Bell and optical replays, with their calibration and gluing limits |
-
-The native-observer row also covers the separately declared
-[coherent seam observer](../model/coherent_seam_repair/README.md): reversible
-correction memory, a finite wave, same-walk stationary preparation and a
-static gauge-response coupling. The [joint defect-wave program](../model/coherent_defect_wave/PROOF.md)
-adds reciprocal finite interaction, a preserved interior Gauss constraint and
-a compatible stationary preparation. Its complete records and clock differ
-from the committed C/E source. These finite variants establish no physical
-particle identification or continuum limit.
-
-The detector consumes PR-17 and PR-37. Its separate physical same-quantity
-and Thomson readback attachments are undischarged PR-38 and PR-39. These rows
-retain the declared source, action, preparation, schedule, clock and apparatus
-contracts of their respective constructions. Finite execution and retrospective
-data comparison do not establish a source-selected continuum or physical
-calibration. Local tape capacity is not cosmic N closure;
-the native current recorder does not implement the N4 occupation apparatus.
-Uniqueness of a designed rule is not required for these implementation claims.
-The scalar adapter's conditional detector protocol is independently testable
-in software. Its scalar action, vacuum, apparatus and model clock are
-declared; it establishes no new physical prediction or laboratory verdict.
-
-## Continuing-observer construction
-
-The common-source observer executes its interacting history and continuations
-on one prepared work state:
-
-- [Composition](../model/common_source/COMPOSITION.md) executes four reads,
-  later evolution and a gauge clock probe on one prepared work state; its
-  fixed-program smooth occupation bound controls the complete output.
-- [Quantum-native execution](../model/common_source/QUANTUM_NATIVE.md)
-  compiles the surrounding complete C/E instruments and feedback-selected
-  routing, including all abort and padding outputs. It retains quantum
-  states within record branches, without preserving cross-record coherence.
-- [Active encoded memory](../model/common_source/ENCODED_MEMORY.md) compiles
-  encoding and record-selected recovery and preserves a logical qubit and
-  its reference correlations before the optional destructive read. This is
-  a supplied active protocol, not protection by passive repair dynamics.
-
-The two executed occupation cutoffs have complete-output occupation budgets
-of one. Physical services, observer-clock calibration, interacting spatial
-refinement and independent observations are open. Sharp and smooth
-readouts have different contracts; the smooth bound does not certify the
-sharp-readout clock probes.
-
-## Executable-model premise audit
-
-The compact public README summarizes the registered results for agreement,
-quantum observations, carrier geometry, gauge symmetry, thermodynamics,
-record capacity and fields, alongside the common-source execution. Its
-computational, observation-first interpretation states the programme's
-proposal and motivation. It promotes no claim or physical identification.
-Physical identification here means agreement with observers' measurement
-statistics and interventions. It does not require an independently existing
-classical world or fundamental fields and spacetime.
-A continuum certificate concerns convergence and controlled errors of those
-operational readouts, without asserting a fundamental continuous substrate.
-Inputs for `OPH-MODEL-COMMON-SOURCE-EXECUTION` and its finite continuation,
-coherent native and active encoded-memory variants are stated explicitly.
-The distinction is between consequences proved from a construction and inputs
-selected to define that construction:
-
-| Derived or executed consequence | Inputs that the result retains |
-| --- | --- |
-| Exact continuity and conditional current mean and variance | Integer seam rule and fair placement coin |
-| Full-kernel mean diffusion and rank-three slow response | Fixed twelve-port incidence, uniform seam calibration and geometric readout interpretation |
-| Complete record preservation and certified coupled feedback | Quantum algebra, specified action, instruments and coherent source services |
-| Schedule-independent completed history | Fixed event graph, boundary, source maps and fair constraint-repair schedule |
-| Observer Hilbert representations and modular flow | Specified observer algebra and its state restriction |
-| Alignment of Hamiltonian and modular flow | Chosen full-work Gibbs reference |
-| Twelve closed native currents, proper-rotation covariance and relative-phase readout | Specified complex-triplet/real-triplet coherent law on the protected geometric object; its current menu excludes declared apparatus services and does not establish full physical A1 closure |
-| Repair-clocked feedback approaching twelve observable currents | Native disturbance form with a declared coefficient metric, feedback rule, bias, phase controls, fresh baths and bounded actuation; complete clock/bath/data factors and finite filters retaining eighteen directions. The joint limit does not establish exact finite physical completeness or select mass parameters |
-| Fifteen internal matter weights, three Higgs lines and an exact field intertwiner | Chosen weak spin cover, exterior sector, physical CAR field and three-family register; the remaining 27 complex coupling entries do not follow from the current algebra |
-| Two conjugate fifteen-state selections in the actual exterior action | Same five-mode lift and ten-component menu, with nonempty, chiral, anomaly-free selection conditions; these conditions do not fix the family count |
-| Three persistent levels selected and executed on a native carrier pair | Chosen incidence-defined cooling rule and protected source services; exact finite-theorem band map, with physical family identification separate |
-| Unequal family couplings inferred from complete finite-memory records | Fixed five-state repair-record memory and coherent Higgs feedback; no measured mass inputs, but the whole trigger-frequency family fails the charged-lepton hierarchy |
-| Native execution and fixed-basis coefficient readout of the five-memory feedback | Literal source words, eight record-driven memory updates, complete pointer/syndrome factors and a separate inversion bound; the inferred coefficient retains the failed hierarchy and has no physical mass identification |
-| Noncommuting record and selector-bath responses | Fixed two-rotation feedback fails both lepton ratios; the full coherent bath retains five low charged responses. The coherent bath lift is a chosen service |
-| Exact geometric-phase and auxiliary-response exclusions | Original edge connection with a supplied finite mass relation; separately, a fixed family projector in the current-mediated response. Neither class yields the lepton hierarchy |
-| Joint charge, color-Casimir and running-gap records on one coherent register | Calibrated charged-fermion parameters, fixed probe and pointer, ideal continuous-current service and common clock; no pole-mass prediction or complete matter-register C/E execution |
-| Same-current local matter transport and a background-field continuum comparison | Native current rotations and complete local CAR factors; chosen links and cubic geometry, fixed particle number and compact band in a declared gauge, and improving source accuracy. Both Dirac tastes remain; dynamical chiral gauge theory and the measured spectrum are unestablished |
-| Incident-clock transfer and complete local field words | Fixed graph, uniform all-seam schedule, observer region, stationary fixed-particle preparation, field dictionary and local record access; incident-attempt units are dimensionless and are not modular time |
-| Cross-screen incident-clock agreement | The actual level-3/5 source pair, matched initial local/reference restrictions, source port maps and local event/controller support; this is one finite comparison, not an all-level limit |
-
-The source-discrimination construction compares two complete finite
-measurement channels and implements their difference as a recorded parity
-bit. Its executed trial counts are synthetic, and coherent preparation,
-readout and load-to-code identification are declared inputs. It supplies no
-independent physical data and changes no canonical premise disposition.
-
-The [repair-observability controls](../model/identifiability_checks/README.md#repair-and-consensus-in-an-empirical-comparison)
-extend that boundary to correlated native/work inputs and common-record
-feedback: work-only readouts cannot distinguish C/E under the stated access
-contract. Local completion of the supplied anharmonic history reproduces its
-conditional observation law; it does not select the action or instantiate the
-full consensus tower. The exact number-dephasing obstruction excludes a
-specified binary-recording identification, not a native candidate. These
-controls retain the empirical and physical-identification statuses.
-
-The consequences in this table are registered conclusions, not extra input
-premises to delete. Stationarity of the uniform binary distribution does not
-derive its preparation. Setting the thermal scale parameter to one is a
-unit convention; it does not select the Gibbs reference or derive the
-interacting Hamiltonian. Compiling a chosen apparatus into admitted source
-controls establishes implementation while retaining the chosen action and
-the physical service contract.
-
-The [incident-clock field construction](../model/observer_time_fields/README.md)
-derives a positive effective transfer and a logarithmic generator in the
-declared incident-repair-attempt coordinate, preserving complete local field
-and record laws under its stated interventions. The
-[screen comparison](../model/native_action/INCIDENT_REFINEMENT.md) controls
-complete local outputs across one actual pair of refinement levels. Neither
-result derives the observer region, preparation or scheduler, identifies this
-clock with modular flow or physical duration, or establishes a continuum
-spacetime. Modular flow and the incident-attempt clock are distinct
-constructions with distinct inputs.
-
-The [native field derivation](../model/common_source/NATIVE_FIELDS.md) excludes
-undamped wave modes for the stated uniform mean readout and forgotten-record
-quantum channel. It does not identify repair-attempt count with subjective
-modular time or exclude oscillatory modular correlations on a restricted
-history state. A wave claim requires an actual observable/clock pairing and
-its propagation law. No physical wave, continuum or empirical premise is
-discharged by that restriction.
-
-## Independent source controls
-
-Exact component controls reject
-the whole-simple-algebra central-port identification, the original
-same-marked-action triplet identification, unrestricted extension of the
-single-product feedback exclusion, and selection of inertia from the
-configuration Gibbs marginal alone.
-
-The [addressed native/N4 construction](../code/native_response/README.md)
-supplies a separate twelve-block carrier and a fixed-full-reference abstract
-kinetic counterpair under a restricted collective response grammar. Its
-occupied-port instrument makes the information loss and retained-record
-requirements explicit. These results are linked in the model–theorem map;
-they change no existing claim ID, canonical inertia hypothesis, physical
-premise disposition, observation rung or frozen prediction.
-
-## Numerical audit consolidation, 2026-10-08
-
-The review of [#1052](https://github.com/FloatingPragma/observer-patch-holography/pull/1052),
-[#1057](https://github.com/FloatingPragma/observer-patch-holography/pull/1057),
-[#1058](https://github.com/FloatingPragma/observer-patch-holography/pull/1058),
-[#1059](https://github.com/FloatingPragma/observer-patch-holography/pull/1059) and
-[#1060](https://github.com/FloatingPragma/observer-patch-holography/pull/1060)
-checks their combined effect on the existing claims. All 326 claim payloads of that date, including their assumptions, dependencies, gates, statuses and falsifiers,
-remain unchanged. Frozen prediction targets, decision rules and custody bytes
-are preserved. These repairs add no physical-model prerequisite.
-
-| Evidence family | Sharper supported result | Public-surface disposition |
-| --- | --- | --- |
-| Petz recovery and tomography | Complete counts survive a later analysis failure; valid CMI remains available when recovery support is unresolved. Strict support validation and the squared-fidelity convention remain in force. | The Standard Model paper and IBM overview label old Stage 1 metrics as archived and unrevalidated because complete counts/states are missing. Historical values and the separate issue-509 claim are preserved. |
-| Scalar Bose readout | The equilibrium identity `p V = 2 sum(G) / 3` retains small pressure; nonzero free energies and positive mode occupations cannot disappear behind an absolute verifier tolerance. | Existing equations and supplied-action/ensemble scope remain correct. The live receipt is regenerated and independently checked. |
-| DESI posterior accounting | Exact decimal weights, endpoint tests, centered moments and separately accumulated subset masses preserve narrow spread and positive excluded tails. | The retrospective receipt and its downstream ledger are regenerated. Existing comparison classifications and the prospective FZ-13/FZ-15 commitments remain unchanged. |
-| Neutral quantum packet | Stable scalar invariants preserve norm suppression and normalized radius, including when only the radius is reportable. | Existing packet formulas, supplied preparation and unproved quantum propagation status remain correct. The live preparation receipt is independently replayed. |
-| Finite collar certificates | All declared influences and multiplicities contribute; the existing `1/2` calibration and `3/8` witness floors remain exact. | The Yang--Mills paper states the shared checker boundary: supplied finite arithmetic cannot authenticate physical-source or continuum evidence. |
-
-The paper, flagship and book passages state the applicable thermal,
-packet and cosmology premises. They need no new qualifications from these
-numerical fixes. Local replay of the repaired recovery producer is software
-evidence and supplies no new hardware measurement. The older Stage 1 summaries
-remain archived, without a claim that their measured numbers survived a
-recalculation. Validation and exact reviewed heads are recorded in the
-[standing audit](https://github.com/FloatingPragma/observer-patch-holography/issues/1033).
-
-## Source-record implementation claims
-
-[native_process_bridge.json](native_process_bridge.json) binds ten complete
-source/review records to their exact producer receipts and the canonical
-premise, physical-identification and selection registers. It records no
-physical-premise closure or independent particle mass. The OpenWave M10
-column is admitted with 31 untested rows; its exact arithmetic certification
-awards no criterion cell. `python -m tools.build_native_process_bridge --check`
-verifies this claim surface through each original owner’s source inventory.
-
-## Literal native execution claims
-
-[native_execution.json](native_execution.json) binds the executed C/E process,
-its response, conserved current, clock correlations, packet propagation and
-exclusion interaction. It also binds the rest-energy obstruction, explicit
-coherent readout extension, archive/FIFO capacity identity and author-run
-OpenWave reproduction. The exact minimal repair process and the separately
-declared coherent service have different observation domains. None of these
-finite claims awards a physical criterion or changes a canonical physical
-premise. `python -m tools.build_native_execution_claims --check` authenticates
-all ten owners; the postdiction ledger projects the same source records.
-
-The finite port/transit observer construction is registered in
-[`openwave_joint_model.json`](openwave_joint_model.json). Its source hashes bind
-the portable implementation and the complete 31-row local assessment. Generate
-it with `python -m tools.build_openwave_joint_claims --write`, or verify source
-custody and numerical replay with `--check`. The shared-event-register claims
-in `joint_observer.json` retain their separate finite domains; no additive
-many-load or physical-clock transfer is inferred.
-
-[`openwave_signed_source.json`](openwave_signed_source.json) records finite
-integer-current bookkeeping and a native stopped response, a compact
-transfer-spectrum calculation with a retained separated-pair excess, and a
-current covariance with an executed geometric half-turn. These original
-calculations do not establish charge selection, physical rest energy or a
-dynamical double cover. The archived PR #723 decision confirmed the arithmetic
-without awarding any submitted cell. `python3 tools/build_openwave_signed_source_claim.py --check`
-recomputes the finite quantities and checks the sealed evidence in
-[`code/openwave_signed_source/`](../code/openwave_signed_source/).
-
-[`openwave_source_repairs.json`](openwave_source_repairs.json) binds the
-constructive source results: arbitrary-background unit selection and current
-response, native apolar mixing, actual unit and signed-pair handoffs, the native
-event-count clock, source-selected operational energy with its separated-pair
-test, and the same compact source's selected spatial return. The common
-packet checks the actual handoff, broad loader before assay choice, identical
-preparation histories and complete joint error accounting for these assays.
-Corrected compact contact and the separate symmetric scalar graph retain their
-own domains. Each claim names its falsifier, measured scope and immutable
-packet. The [portable source package](../code/openwave_source_repairs/README.md)
-contains complete outcomes, failed predecessors and separate implementations.
-Unknown-total preparation adds an adaptive shortest-path cleanup theorem
-and actual canonical handoffs without supplied unit totals. The full-pair
-spatial claim checks one global rotation and all joint position outcomes;
-its orthogonal-product bound retains the assumptions that marginal tests
-cannot establish.
-The source-local continuation derives charged edge projections and the
-collision-Dirichlet pair generator, then implements its local words with
-complete native pointer and count-clock records. The common construction
-binds the unknown-total pair, a separately admitted physical single
-calibration and both full-source assays without a compact-sector filter.
-Regenerate with `python3 tools/build_openwave_source_repair_claims.py --write`
-and check with `--check`. Its local finite results confer no other-group G6,
-upstream award or transfer between different physical candidates.
-
-[`openwave_rows_11_20_components.json`](openwave_rows_11_20_components.json)
-binds charged occupation, retained family queries and current-record spectral
-components. It distinguishes original producer pause snapshots from the
-separately sealed same-group review of the complete 32-state relative poles
-and retained count/family instrument. The
-[owning package](../model/observer_lepton_components/README.md) contains the
-proof, portable review closure and replay commands. Its custody check is
-`python3 model/observer_lepton_components/verify.py --check`.
-The [paper fragment](../paper/tex_fragments/RETAINED_CHARGED_OBSERVER_RECORDS.tex)
-states the finite results and their supplied preparation and coherent
-services in both the executable-observer and particle papers. These records
-establish no physical lepton spectrum, empirical mass prediction or
-other-group confirmation.
+Every test of the model compares distributions of admissible observer records
+with what observers in our world record. The state of the simulation is no
+physical space, and the theory proves that observers who inhabit the
+simulation can describe their experiences as relativistic 3+1D continuum
+spacetimes. Finite theorem validity, realization of a theorem's hypotheses by
+the model, and agreement with physical data stay separate claims.

@@ -1,6 +1,6 @@
 # Continuous integration
 
-Three workflows run the repository checks.
+Five workflows run the repository checks.
 
 * `.github/workflows/ci.yml` runs on every push to `main`, every pull request
   and every release tag. It is the one required check (`CI result`). Every job
@@ -8,6 +8,8 @@ Three workflows run the repository checks.
   * `gates`: claim registry, generated registers and ledgers, the QFT/WZ
     theorem oracle, the Lean `native_decide` inventory and the Lean CI budget
     wiring.
+  * `official-model`: the polynomial-sv model (`python -m model` and its
+    tests under `model/polynomial_sv`).
   * `suite`: the standard steps of `tools/run_mandatory_suite.py` in ten
     shards. Shard 0 also runs the additional evidence tests.
   * `lanes`: the replay lanes of `tools/ci_lanes.py` (tier `push`), packed by
@@ -18,10 +20,8 @@ Three workflows run the repository checks.
   or a Lean-facing tool changes. `tools/check_lean_ci_budget.py` keeps every
   job under 30 minutes.
 * `.github/workflows/nightly.yml` runs the heavy replays on a schedule and on
-  dispatch: the full mandatory suite, exhaustive certificates, observer
-  construction and regression, the completion contract shards, OpenWave
-  packages, external-source replays and the full Lean build. It never blocks a
-  push. A failed scheduled run opens or updates one issue labelled
+  dispatch: the full mandatory suite, exhaustive certificates, the nightly
+  replay lanes and the full Lean build. It never blocks a push. A failed scheduled run opens or updates one issue labelled
   `nightly-failure`. Dispatch it on a branch with
   `gh workflow run nightly.yml --ref <branch>`.
 
@@ -43,18 +43,6 @@ are never pinned. Verifiers that use it drop such entries from recorded pin
 maps before comparing, so editing prose does not require renewing their
 receipts.
 
-Four old workflow files stay byte-identical because receipts or pinned tests
-read them, and several hundred downstream receipts would otherwise need
-renewal:
-
-* `m1-source-realization.yml` and `source-gravity-admissibility.yml`: pinned by
-  the receipts of those two lanes, which downstream receipts pin in turn.
-* `observer-model.yml` (disabled in Actions): pinned by
-  `model/completion/component_interfaces.json` and by the completion program's
-  integration contracts.
-* `completion-program.yml`: read by test modules whose bytes the charged
-  dynamics receipt and the completion review records pin.
-
-Their commands also run in ci.yml or nightly.yml. Disable them in Actions
-(`gh workflow disable <name>`); delete them once the receipts that pin them
-are rebuilt under the pin rule above.
+Two workflow files stay byte-identical because the receipts of their lanes
+pin them: `m1-source-realization.yml` and `source-gravity-admissibility.yml`.
+Their commands also run in ci.yml.

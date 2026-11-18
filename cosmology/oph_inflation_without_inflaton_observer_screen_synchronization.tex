@@ -56,9 +56,7 @@ geometric screen covariance and a physical radial lift. We derive the
 Gaussian screen spectrum and its amplitude from specified source data,
 show how an infinitesimal collar density would give
 \(n_s=1-P/48\), and state the conditions for a unique radial power law.
-The survival-cocycle form does not select that density. Native load
-covariance has spectral dimension two and cannot carry the proposed tilt
-under a bounded energy identification. On a supplied spatially flat
+The survival-cocycle form does not select that density. On a supplied spatially flat
 background, expansion is represented by a fourth-power record-density
 weight; the source law does not select its profile. Horizon coherence,
 flat-sector selection, a hot radiation state and a common physical clock
@@ -67,9 +65,6 @@ conditional spectrum without establishing an inflation-replacement
 cosmology.
 
 \end{abstract}
-
-
-
 
 \section{Source ensemble and screen covariance}
 \label{sec:screen-spectrum-theorems}
@@ -81,10 +76,7 @@ normal forms and fixes every law supported there; it does not select
 \(\mu_r\), and a physical vacuum needs reversible transfer data and a
 reconstruction theorem~\cite{ophvacuum}.
 
-CCF-LT-2 is the official matter, field and local-capacity law
-(\texttt{model/SPEC.md}). The component comparisons below retain their
-own sources and hypotheses. Their physical attachment requires the common
-Hamiltonian, preparation, reference and complete instrument.
+\input{../paper/tex_fragments/THEORY_PSV_HYPOTHESIS.tex}
 
 \begin{definition}[Geometric scalar and precision]
 \label{def:oph-screen-scalar}
@@ -211,38 +203,20 @@ This requires a finite right-hand side. A source spectrum must control the
 radial null space, window error, finite refinement and forward residual
 before photon transfer can assign it an observed sky.
 
-\paragraph{Native source and the screen premises.}
-The conformal precision above takes the round
-continuum limit \(-\Delta_{S^2}\) as a premise. The independent repair law
-supplies a continuum generator \(A\) on the screen whose energy lies between
-fixed multiples of the gradient energy of the flat comparison polyhedron;
-its identification with \(-\Delta_{S^2}\) is not
-established~\cite{ophcontinuum}. That component also supplies no
-source-only vacuum law selecting its release amplitude: its full configuration
-reference approaches the normalized trace, and its continuous wave readout
-has the classical displacement covariance \(A^{-1}\), not the vacuum
-covariance \((2\sqrt A)^{-1}\)~\cite{ophtimefields}. Under any bounded
-form-congruent identification of the shell precision \(K_\theta\) with the
-native long-average field, the min-max argument of the boundary-trace
-test~\cite{ophcontinuum} matches the eigenvalue growth \(n^{1+\theta/2}\)
-of \(K_\theta\) against the linear growth of \(\lambda_n(A)\) and forces
-\(\theta=0\), so the native field's spatial covariance cannot carry the
-edge-center tilt, which requires a separate ingredient.
+\paragraph{Screen premises.}
+The conformal precision above takes the round continuum limit
+\(-\Delta_{S^2}\) as a premise, and the edge-center tilt requires a separate
+ingredient.
 
 \section{Physical content of an inflation-free branch}
 A replacement for inflation must explain horizon-scale coherence, flat-sector
 selection, a nearly scale-invariant geometric spectrum, its amplitude and
 phase, and a hot radiation state on one common clock. The covariance
 calculation establishes the spectrum only after its source data are supplied.
-It proves none of the other requirements. In particular, the lowest native
-screen eigenvalue is bounded below only in the rescaled attempt parameter
-\(\tau=\mathrm{attempts}/(1260\cdot16^l)\); this gives no
-refinement-uniform physical low-wavenumber coherence rate.
+It proves none of the other requirements.
 
 A modular flow supplies a dimensionless state-dependent parameter, not an
-absolute cosmological duration. Active coherent services can implement
-modular steps and relative event-clock laws, but do not synchronize an
-entire physical screen by themselves~\cite{ophmodel}. A dark-sector
+absolute cosmological duration. A dark-sector
 continuation must likewise supply its abundance, covariant stress, exchange
 and perturbation dynamics; a static acceleration law supplies none of those
 objects.
@@ -341,12 +315,8 @@ layer~\cite{ophcmb}. The resulting quantities are the inputs to the cosmic
 microwave background transfer and likelihood calculations.
 
 The rank-three source Gram metric is a finite readout of one carrier's slow
-response, not an extended space; on the refining source screens the
-rank-three band leaves bounded-energy port modes at order \(2^{-l}\), and the
-native continuum generator has heat-trace spectral dimension two on the
-two-dimensional source~\cite{ophmodel,ophcontinuum}. Native dependence
-crosses at most one seam per ordered repair event, a bound in graph hops
-with no laboratory speed or continuum light cone~\cite{ophcausality}. The
+response; it is no extended space and fixes no laboratory speed or
+continuum light cone. The
 flat \(1+3\) count clock of the spacetime construction uses a specified
 population and read law~\cite{ophEinstein}. An inflationary realization
 therefore requires the same events and clock to support physical expansion,
@@ -360,7 +330,6 @@ identification.
 B.~M\"uller, \emph{Observer Patch Holography Cosmological Vacuum and Structure Formation}.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/cosmology/oph_cosmological_vacuum_and_structure_formation.pdf}.
 
-
 \bibitem{ophEinstein}
 B.~M\"uller et al.,
 \emph{Recovering Observer Spacetime and Einstein Dynamics from Overlap Consistency}.
@@ -372,23 +341,10 @@ Source, Transfer, and Likelihood Boundaries}.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/cosmology/oph_cosmology_finite_source_cmb_program.pdf}.
 
 \bibitem{ophmodel}
-FloatingPragma (2026). The runnable OPH model: observer implementation,
-tests, receipts and construction guide.
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2068/model}.
-
-\bibitem{ophcontinuum}
-FloatingPragma (2026). A spatial fluctuation field from one native history:
-the common spatial generator, its locality and spectral dimension, and the
-boundary-trace test.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/physical_space_time/OCCUPATION_FIELD.md}.
-
-\bibitem{ophtimefields}
-FloatingPragma (2026). Joint time and field laws on matched source screens.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/observer_time_fields/REFINEMENT.md}.
-
-\bibitem{ophcausality}
-FloatingPragma (2026). Exact native causal cones.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/common_source/CAUSALITY.md}.
+B.~M\"uller, M.~Poneder, J.~Kim and D.~A.~Friedman (2026). \emph{An Executable
+Observer for Observer Patch Holography: Specification, Memory and Agreed
+Records}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/paper/executable_observer_construction.pdf}.
 
 \bibitem{ophpublicdata}
 FloatingPragma (2026). OPH predictions and public-data comparisons.
@@ -398,6 +354,14 @@ FloatingPragma (2026). OPH predictions and public-data comparisons.
 T.~Louis et al. (2025). The Atacama Cosmology Telescope: DR6 power spectra,
 likelihoods and \(\Lambda\)CDM parameters. arXiv:2503.14452.
 \url{https://arxiv.org/abs/2503.14452}.
+
+\bibitem{ophsynthesis}
+B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, B.~Cassie, P.~Nguyen, J.~Kim,
+D.~Matscheko, D.~A.~Friedman, J.~Hill, W.~T.~Glynn, M.~A.~Visser,
+K.~A.~Anirudha and B.~de La Fourni\`ere (2026). \emph{Observers Who Read Their
+Universe into Existence: Finite Consensus and the Reconstruction of Standard
+Physics}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/flagship/from_observer_consensus_to_standard_physics.pdf}.
 
 \end{thebibliography}
 

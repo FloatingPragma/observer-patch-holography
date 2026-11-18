@@ -40,12 +40,12 @@ See the [flagship's closure hypothesis](../flagship/from_observer_consensus_to_s
 
 ## Internal construction and execution
 
-The live [observer implementation](../model/observer/README.md) constructs
-finite read, retained-record and feedback functions. Its
-[binary electromagnetic detector](../model/observer/p_response/README.md)
-uses P as an accepted closure input and makes the detector outcome control
-the next native repair. Apparatus and protocol are legitimate design choices
-in this construction; self-consistency need not select one unique device.
+The [executable model](../model/polynomial_sv/README.md) constructs its
+observers. The two port observers of every seam share a private memory that
+they write, phase and unwrite; to read, each copies a predicate of the loads
+into a private pointer, and a record is admitted only when both copies are
+valid and agree. Apparatus and protocol are legitimate design choices in this
+construction; self-consistency need not select one unique device.
 Executable finite observer functions are therefore an achieved component,
 while a physical realization containing the builders has the broader contract
 below.
@@ -95,12 +95,16 @@ physical interpretation are supplied.
 ## Observer measurements and operational objectivity
 
 The [executable-model hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) tests
-[CCF-LT-2](../model/SPEC.md) within the closure proposal. One specified
-matter, field and response law must supply the observations used to identify
-particles, clocks, geometry and gravity. Its creator supplies the architecture
-before execution. Neither closure nor finite operator checks establish the
-physical comparison; the [dependency map](../model/particle_joint_reconstruction/DEPENDENCIES.md)
-records the theorem interfaces and source-specific attachment obligations.
+[polynomial-sv](../model/polynomial_sv/README.md) within the closure
+proposal. Its contrast-memory law, the candidate native repair law, must
+supply the observations used to identify particles, clocks, geometry and
+gravity. Its creator supplies the architecture before execution. The model
+reproduces particle stability on its observers' agreed records; the other
+observations are work in progress. Every test compares distributions of
+admissible observer records with what observers in our world record: the
+state of the simulation is no physical space, and the theory proves that
+observers who inhabit the simulation can describe their experiences as
+relativistic 3+1D continuum spacetimes.
 
 **The construction target is an executable realization of OPH's observer
 algebra whose shared measurement statistics reproduce the observable
@@ -157,10 +161,8 @@ that event and its conditional predictions. It does not require the entire
 instantaneous source to stop evolving. Particle identification therefore
 uses correlations among accessible detector records at specified observer
 clock readings, together with their charges, statistics and response to
-interventions. Agreement on a detector outcome alone establishes neither
-a particle species nor its mass. Any conversion of a repair contraction
-rate into a physical mass requires the same record law to justify the
-conversion and its clock convention.
+interventions. Agreement on a detector outcome alone does not establish a
+particle species.
 
 “Exactly the measurements of nature” names the ideal limiting target:
 matching the observable probability laws and their conditional responses,
@@ -177,10 +179,10 @@ spacetimes. The required stability, spectrum and spacetime domains must be
 stated in each result. These are properties of the effective description of
 observations, not additional fundamental objects to install in the source.
 A free-field benchmark is a component of the target; the observations
-associated with interactions and dynamical gravity remain obligations.
+associated with interactions and dynamical gravity are work in progress.
 
-The [construction completion criteria](../model/CONSTRUCTION.md#completion-target-and-acceptance-criteria)
-make this target reviewable. Apparatus and protocol design choices are
+The [executable-model hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) makes this
+target reviewable. Apparatus and protocol design choices are
 legitimate; proving unique selection of a design is not required. A chosen
 construction has to satisfy its continuum and empirical contracts.
 

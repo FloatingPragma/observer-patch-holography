@@ -14,7 +14,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
-SOURCE_PINS = {'evidence/source_net_causal_poset/source_net_manifold_sampled_q55_q89_2026-09-25.json': '8dba828403e6d6da9ba16dcec28e53a2271bb26ca68682a70dee17f5d6ae23e0', 'evidence/source_net_causal_poset/source_net_manifold_sampled_q144_2026-09-25.json': 'a3ca8a2b743631a75f9d6433ab4d12f0536763698d56ca3fb8e8ec505ba210b4', 'evidence/observer_dynamics_20260925/sim-analysis/codex/causal/receipt.json': '3c4a57ce11dcdc9b6244c1eede9e903044757c2faa1f55cf91af47c1bb3b6120'}
+SOURCE_PINS = {'evidence/source_net_causal_poset/source_net_manifold_sampled_q55_q89_2026-09-25.json': '8dba828403e6d6da9ba16dcec28e53a2271bb26ca68682a70dee17f5d6ae23e0', 'evidence/source_net_causal_poset/source_net_manifold_sampled_q144_2026-09-25.json': 'a3ca8a2b743631a75f9d6433ab4d12f0536763698d56ca3fb8e8ec505ba210b4', 'evidence/source_net_causal_poset/manifold_refinement/clock_control_receipt.json': '3c4a57ce11dcdc9b6244c1eede9e903044757c2faa1f55cf91af47c1bb3b6120'}
 
 
 def require(value, message):
@@ -172,7 +172,7 @@ def verify(receipt, table_path=None):
         "comparison": "Include sampled-reference uncertainty, cross-level coupling if any and multiplicity for the chosen decision family.",
         "custody": "Pin the actual driver, graph construction, seeds and all outcomes; declare precision and decision thresholds before sampling.",
     }, "future measurement contract")
-    clock_path = next(path for path in sources if "/causal/receipt.json" in path)
+    clock_path = next(path for path in sources if path.endswith("/clock_control_receipt.json"))
     clock_fields = ("q", "law", "beta_target", "direction", "actual_beta", "status", "rank_relative_error", "volume_relative_error", "corrected_volume_relative_error")
     clocks = [{field: r.get(field) for field in clock_fields} for r in sources[clock_path]["rows"]]
     require(receipt["clock_outcomes"] == clocks and len(clocks) == 120, "all 120 clock outcomes and failures")

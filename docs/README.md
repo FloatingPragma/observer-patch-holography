@@ -13,8 +13,7 @@ directory. The [technical paper](https://philpapers.org/rec/MUEFOC)
 states the primary technical account. The [OPH textbooks](https://learn.floatingpragma.ai/) work through
 the basic derivations with the math taught along the way. The
 [interactive simulation](https://simulation.floatingpragma.io/) renders real
-run data from declared candidate models; it does not demonstrate that a
-physical universe has been reconstructed.
+run data from declared candidate models.
 
 ## Layout
 
@@ -24,8 +23,6 @@ physical universe has been reconstructed.
 | [`registers/`](registers/) | Generated V3 registers and ledgers |
 | [`research/`](research/) | Research notes, each verified by a code lane |
 | [`policies/`](policies/) | Data, hardware-evidence and writing policies |
-| [`COMPLETION_PROGRAM.md`](COMPLETION_PROGRAM.md) | Common-source finite checks and physical acceptance conditions |
-| [`EXECUTABLE_PROGRAM_CLASS_V2_PROPOSAL.md`](EXECUTABLE_PROGRAM_CLASS_V2_PROPOSAL.md) | Program-class V2 contract bound to the completion registry |
 
 ## Rules for this directory
 
@@ -62,8 +59,7 @@ physical universe has been reconstructed.
   the [observation ledger](registers/OBSERVATION_LEDGER_V3.md), the [premise register](registers/PREMISE_REGISTER_V3.md),
   the [falsification program](OPH_FALSIFICATION_PROGRAM.md), and the [paper index](../paper/).
 - **Build and test:** begin with the repository [reproduction
-  guide](../REPRODUCE.md), the [runnable observer model](../model/README.md),
-  the [bounded completion campaign](../model/completion/README.md),
+  guide](../REPRODUCE.md), the [executable model](../model/polynomial_sv/README.md),
   [executable evidence](../code/), and [Lean
   formalization](../Lean/). Follow the [numerical audit
   procedure](policies/NUMERICAL_AUDIT.md) when changing finite numerical
@@ -75,16 +71,9 @@ physical universe has been reconstructed.
   internal-realization policy, agreement, adopted state-selection and
   response-endogeneity principles, and executable specification, and explains
   how the theorem-library premises A1, A2 and A3 relate to them.
-- [The Paper Set](PAPER_SET.md) records the model milestone, the role of each
-  paper and the archived papers.
-- [Executable Hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) states the common
-  clock, common-energy, interacting-field and Einstein-premise target.
-  [Completion Program](COMPLETION_PROGRAM.md) assigns its construction gates,
-  retained results, dependencies and next work.
-- [Current field, particle and entropy results](../model/completion/CONTINUUM_FIELD_AND_ENTROPY.md)
-  joins the component proofs and their remaining premises. The
-  [mass and energy table](../model/completion/PARTICLE_MASS_TABLE.md) distinguishes
-  finite source energies, supplied mass coefficients and physical predictions.
+- [The Paper Set](PAPER_SET.md) records the role of each paper.
+- [Executable Hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) states what the
+  executable model has to supply and how it is tested on observer records.
 
 ## Canonical References
 
@@ -92,18 +81,12 @@ physical universe has been reconstructed.
   complete-history closure, intrinsic computation, emergent-physics proposals,
   mathematical fixed points and the different uses of time.
 - [Premise Reference](AXIOM_REFERENCE.md) gives the formal statements of the
-  theorem-library premises A1, A2 and A3. It is retained byte-identical for
-  pinned receipts; its "three core axioms" wording is superseded by the
-  [basis](BASIS.md).
-- [Source and Parameter Contract](../model/SOURCE_SELECTION.md) separates
-  the executable candidate inputs, derived consequences and physical identification.
+  theorem-library premises A1, A2 and A3. The [basis](BASIS.md) places them
+  among the principles of the theory.
 - [Frozen-Prediction Ladder](FROZEN_PREDICTION_LADDER.md) records tests whose
   conditions are fixed before the comparison data are examined.
-- [Postdiction Ledger](POSTDICTION_LEDGER.md) records comparisons with measured
-  values and their input ancestry.
-- [Empirical Status](EMPIRICAL_STATUS.md) inventories laboratory comparisons,
-  reference-value and hardware tests, and what they can decide about the
-  executable repair rules.
+- [Empirical Status](EMPIRICAL_STATUS.md) states the observable the
+  executable model reproduces and the theory's comparisons with public data.
 - [OPH Falsification Program](OPH_FALSIFICATION_PROGRAM.md) lists only mature
   mathematical and realized-branch falsifiers.
 - [Programme-wide obstruction search](https://github.com/FloatingPragma/observer-patch-holography/issues/1078)
@@ -111,33 +94,40 @@ physical universe has been reconstructed.
   unification, with explicit exclusion and stopping criteria.
 
 The [physics issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+is%3Aopen+label%3Aprogram%3Aphysics)
-assign bounded work on the common repair model, its tests and existing-evidence
-audits. Historical closure issues retain their scientific boundaries;
-administrative closure does not discharge a physical premise.
+assign bounded work on the executable model, its tests and existing-evidence
+audits. Administrative closure of an issue does not discharge a physical
+premise.
 
 ## Executable model
 
-[CCF-LT-2](../model/SPEC.md) is the official finite matter, field and response
-construction. Its current native repair law is a calibrated intermediate test; the search for the correct native repair law is ongoing. Its [implementation](../model/ccf_lt2/README.md) regenerates the
-native operator, complete finite diagnostics and local energy response.
-The [construction contract](../model/CONSTRUCTION.md) specifies the joint law,
-preparations and instruments. The [dependency map](../model/particle_joint_reconstruction/DEPENDENCIES.md)
-connects mathematical proofs to the actual source and distinguishes physical
-attachment obligations.
+The executable model of OPH is [polynomial-sv](../model/polynomial_sv/README.md).
+Its law, the contrast-memory law, is the candidate native repair law of the
+theory: every port of a twelve-port cell holds a load, every seam keeps a
+private memory of the contrast between its two loads, and what the memory
+leaves on the loads is an exchange plus an agreement energy with one
+supplied coupling. The [specification](../model/polynomial_sv/SPEC.md) states
+the carrier, the law, the emitter and the reader; the
+[binding theorem](../model/polynomial_sv/PROOF.md) bounds the probability that
+a pair of loads comes apart, on every federation of complete cells. The
+[executable-model paper](../paper/executable_observer_construction.pdf),
+"An Executable Observer for Observer Patch Holography: Specification, Memory
+and Agreed Records", gives the full account. `python -m model` recomputes the
+results.
 
-[Source inputs](../model/SOURCE_SELECTION.md), [family and controls](../model/CANDIDATES.md),
-[observer records](../model/OBSERVER_RELATIVE_RECOVERY.md) and
-[physical scope](../model/PHYSICAL_AUDIT.md) state the model's contracts.
-The complete operator replay is `python -m model`; finite matrix experiments
-have their stated carriers, and full-native column action is not arbitrary
-many-body state evolution.
+The model reproduces particle stability on its observers' agreed records:
+a pair of loads written on one seam is read as a pair at every reading, with
+probability at least one minus a proved bound, on seams other than the first,
+and the law without its agreement energy loses it.
+The state of the simulation is no physical space. Every test compares
+distributions of admissible observer records with what observers in our world
+record, and the theory proves that observers who inhabit the simulation can
+describe their experiences as relativistic 3+1D continuum spacetimes. The
+other observables of the theory on this model are work in progress.
 
-Other model and code packages contain conditional mathematical components.
-Their equations and proof domains remain explicit. Source-dependent spectra,
-geometry, clocks and numerical records are not predictions of the official
-law without a checked connection. [Established Mathematics for Observer
-Agreement](AGREEMENT_RESEARCH_FOUNDATIONS.md) describes the general theorem
-reuse requirements.
+Other model and code packages contain conditional mathematical components
+with explicit equations and proof domains. [Established Mathematics for
+Observer Agreement](AGREEMENT_RESEARCH_FOUNDATIONS.md) describes the general
+theorem reuse requirements.
 
 ## Registers
 
@@ -165,12 +155,11 @@ and papers ledgers.
 
 ## Research Notes
 
-Each note states a maintained construction or theorem tied to its verifying
-code package. The eight clock and source-realization notes are retained
-conditional theorems of the earlier source lane; the live construction is
-[`model/`](../model/README.md), which cites them only where stated. Source-pinned notes require matching receipt updates when their
-content changes. Consolidate overlapping notes and keep implementation
-contracts beside the code; `extra/` holds TeX papers only.
+Each note states a construction or theorem tied to its verifying code
+package. The eight clock and source-realization notes are conditional
+theorems on their own declared sources. Source-pinned notes require matching
+receipt updates when their content changes. Consolidate overlapping notes and
+keep implementation contracts beside the code; `extra/` holds TeX papers only.
 
 **Clocks and source realization.** These notes build on one another in this
 order:
@@ -198,11 +187,9 @@ order:
   audits the geometry readout, preserves higher-dimensional joint support,
   certifies midpoint subdivisions, and reconstructs oriented caps from
   explicit conformal data and a side witness.
-- [What a calibrated source clock does and does not fix about light bending](research/PAIRED_SOURCE_GRAVITY.md)
-  proves that the calibrated clock-field response does not select the
-  light-deflection coefficient, verified by [`code/paired_gravity`](../code/paired_gravity/).
 - [Clock agreement does not select a spatial response in the coherent source](research/SOURCE_GRAVITY_ADMISSIBILITY.md)
-  carries that result to programs of the constructed coherent source, verified by
+  proves that clock agreement does not select the light-deflection response
+  for programs of the constructed coherent source, verified by
   [`code/source_gravity_admissibility`](../code/source_gravity_admissibility/).
 - [What the anomalous density must supply to predict lensing](research/DARK_SOURCE_DYNAMICS_LENSING.md)
   shows that the released density interface does not fix dynamics and lensing
@@ -212,54 +199,17 @@ order:
 
 - [OPH predictions and public-data comparisons](research/PUBLIC_DATA_PREDICTION_AUDIT.md)
   places the fixed predictions against public data: the primordial tilt at
-  the lower 0.612 percent tail of ACT DR6 P-ACT-LB, the coupling, tau mass,
-  dispersion, Bell and optical-clock comparisons.
-- [OPH particle mass response and hierarchy audit](research/OPH_PARTICLE_MASS_RESPONSE.md)
-  records that the tested mass prescriptions fail the charged-lepton
-  hierarchy and bounds the whole affine response class. Its text is pinned
-  by retained receipts. The [finite campaign](../model/completion/README.md)
-  carries the subsequent source-charge and clock-access decisions.
-- [Observer spacetime and predictions without a laboratory](research/NATIVE_CLOCK_EXPERIMENT_PROTOCOL.md)
-  states the internal clock laws and the acceptance contract for a native
-  clock experiment.
+  the lower 0.612 percent tail of ACT DR6 P-ACT-LB, the coupling and the
+  photon dispersion.
 - [Can the fixed edge dispersion support the proposed photon test?](research/DISPERSION_FEASIBILITY.md)
   bounds the exact pair-production thresholds and distinguishes vacuum emission
   in two specified lepton controls, verified by
   [`code/dispersion_feasibility`](../code/dispersion_feasibility/).
-- [Independent alpha/tau reproduction and the first bounded natural comparison](research/INDEPENDENT_POSTDICTION_COMPARISON.md)
-  reproduces both certified alpha roots and the conditional tau window, verified by
-  [`code/independent_postdictions`](../code/independent_postdictions/).
 
-**Defect register and particle classes.** The
+**Defect classes.** The
 [defect-class certificate](../model/defect_particle_classes/README.md)
 identifies each protected defect class with the centre class `6Y mod 6` of a
-Standard Model multiplet, and the [integer lift](../model/defect_integer_lift/README.md)
-checks the register on the stored runs. The [lepton register](../model/lepton_register_round/README.md)
-gives the charged-lepton ratios `206.770316` and `3477.4728` with no measured
-mass as input. On the lattice, the declared coupling chain gives the
-[electroweak crossover](../model/electroweak_crossover/README.md), the colour
-links give [deconfinement](../model/colour_deconfinement/README.md) and
-[hadron binding](../model/quenched_hadron_binding/README.md), and the
-[seam class balance](../model/seam_class_balance/README.md) measures the sector
-law behind the electroweak scale. The pinned notes below state the boundaries
-of their own source constructions.
-
-**Field and particle construction.** The source-pinned
-[field reconstruction guide](research/OPH_FIELD_RECONSTRUCTION.md) records
-the transient-collision test, conditional response constructions and their
-physical identification requirements. Its statement that other quantum or
-history sectors are untested belongs to that receipt's domain. The
-[branch-algebra result](../model/completion/defect_algebra.md) additionally
-excludes commuting bare-source charges in every quantum basis; localized
-history-dependent sectors, controlled lifetimes and refinements require their
-own tests. Both pinned guides retain their original evidence bytes; the
-[completion program](COMPLETION_PROGRAM.md) owns the work ordering.
-
-**Lean companion.**
-
-- [The declared repair law on the Euclidean history register](research/SOURCE_LAW_HISTORY_REGISTER.md)
-  is the companion note of the Lean `SourceLaw` library: inertia, the golden
-  refinement family and the reference state.
+Standard Model multiplet.
 
 **Existing-theory audit and simplification.**
 
@@ -282,22 +232,12 @@ own tests. Both pinned guides retain their original evidence bytes; the
   nine-direction inverse, and connects the dependent-family test to angular
   harmonics, an exact cubic obstruction and sharp noise amplification.
 
-## Instrument Specifications
-
-- [INS-03 source-bound phase-sensitive readout](../code/instrument_specs/INS03_SOURCE_BOUND_PHASE_INSTRUMENT_DESIGN.md)
-- [OL-A1 signature replication](../code/instrument_specs/OL_A1_SIGNATURE_REPLICATION_SPEC.md)
-  (status `FAILED`; see the [physical audit](../model/PHYSICAL_AUDIT.md))
-- [OL-A1 carrier count by absolute support size](../code/instrument_specs/OL_A1_FACTORIAL_FOLLOWUP_DESIGN.md)
-
 ## Evidence, Data And Writing Policies
 
 - [Hadron Data Policy](policies/HADRON.md) defines provenance and promotion rules for the hadronic pipeline.
 - [Hardware Evidence Bundle H](policies/HARDWARE_EVIDENCE_BUNDLE_H.md) defines the
   evidence and attestation contract for physical hardware claims.
 - [Writing Style Guide](policies/STYLE_GUIDE.md) defines the project’s reader-facing prose conventions.
-- The [IBM Quantum Cloud code and data archive](../code/ibm_quantum_cloud/README.md)
-  contains the reproducible engineering benchmark, receipts, and interpretation
-  boundary beside their executable producers.
 - Simulator outputs have no theorem or empirical-promotion authority in the
   paper stack. A simulator count, replay, fit, or diagnostic closes no
   analytic or physical receipt; theorem status needs analytic proof packets,
@@ -308,10 +248,3 @@ own tests. Both pinned guides retain their original evidence bytes; the
 - [Common Objections](COMMON_OBJECTIONS.md) answers recurring technical and conceptual criticisms.
 - [Contributed background notes](../contributions/README.md) record standard mathematics that OPH
   work can reference; they make no OPH claim.
-
-The [screened recovery service](../model/screened_recovery/README.md),
-[same-code transport](../model/screened_transport/README.md),
-[four shared clock events](../model/clock_defect_energy/shared_event_clock/README.md)
-and [conserved-sector action theorem](../model/conserved_sector_action/README.md)
-record the finite frontier results. The [SI dictionary](../model/clock_defect_energy/SI_UNITS.md)
-provides conditional unit conversion without a particle-mass prediction.

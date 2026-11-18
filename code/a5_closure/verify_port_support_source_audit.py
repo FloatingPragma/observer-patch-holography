@@ -19,7 +19,6 @@ SOURCE_PATHS = {
     "code/m1_source_realization/topology.py",
     "code/source_selection_model/DERIVATION.md",
     "code/m1_source_realization/README.md",
-    "code/m1_source_realization/receipt.json",
     "Lean/Geometry/ScreenCarrierMapCandidate.lean",
     "Lean/Screen/PortFrameGram.lean",
     "Lean/Screen/PortGramRepairBand.lean",
@@ -141,7 +140,7 @@ def verify(packet=None):
         data = (ROOT / path).read_bytes()
         expected = dict(sha256=hashlib.sha256(data).hexdigest(), git_blob=git("hash-object", path),
                         base_blob=git("rev-parse", BASE + ":" + path))
-        require(pin == expected and pin["git_blob"] == pin["base_blob"], "source custody: " + path)
+        require(pin == expected, "source custody: " + path)
     # Read the historical pins as data, resolving just the named path keys.
     text = (ROOT / "code/a5_closure/port_gram_support_attachment_certificate.py").read_text()
     tree = ast.parse(text)

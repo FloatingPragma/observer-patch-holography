@@ -88,11 +88,6 @@ resulting out-of-time-ordered correlator conflicts with cyclicity and
 positivity: its leading regularized contribution increases. Geometrically,
 the negative shock advances the signal in the horizon null coordinate.
 
-CCF-LT-2 is the official matter, field and local-capacity law
-(\texttt{model/SPEC.md}). The component comparisons below retain their
-own sources and hypotheses. Their physical attachment requires the common
-Hamiltonian, preparation, reference and complete instrument.
-
 The finite-screen calculation below isolates a capacity mechanism for this
 sign. Three levels are kept separate throughout:
 \begin{enumerate}
@@ -322,11 +317,7 @@ Ref.~\cite{chenStanfordTangYang2026}, the constant term of the shock operator
 carries the sign of \(B'(0)/B(0)=2r'(0)/r_c\). For a cosmological horizon,
 the transverse area decreases from the horizon toward the observer, and the
 shock has the time-advance sign. This radial profile belongs to the
-gravitational dictionary. The native screen energy excludes a boundedly
-invertible \(L^2\) energy congruence with the boundary action of a smooth
-compact three-dimensional Dirichlet bulk, so a bulk reading of the screen
-needs a radial observation algebra that the native energy does not
-supply~\cite{ophcontinuum}. Under the two physical identifications
+gravitational dictionary. Under the two physical identifications
 \[
 \text{closed screen capacity}=\text{fixed horizon--observer budget},
 \qquad
@@ -336,18 +327,7 @@ Theorem~\ref{thm:transfersign} supplies the corresponding conditional sign
 mechanism. Identifying the capacity coordinate \(c_{\mathrm{obs}}\) with the
 observer mass used in the gravitational shock calculation is an additional
 physical dictionary. The finite entropy theorem and transfer law establish
-none of these identifications. On the executable source, fixed total count and
-\(\log d\) have no established physical volume or area map. Its full return
-reference has entropy deficit at most \(2025/(64V)\) for \(V\) ports, and on
-a refining base-face patch its mutual information per crossing seam tends to
-zero, so no nonzero universal coefficient multiplies boundary-seam counts of
-regions on the two-dimensional source~\cite{ophentropy}. The native regional
-algebra of one seam does have the sector form of this section, with exterior
-multiplicities \(45,10,1\) and an exact bulk/edge entropy split, and a
-fixed-occupation filter there has nonzero entropy slope at constant bare cut
-count, so those identities supply neither responsive area nor
-fixed-proper-volume stationarity~\cite{ophEinstein}. The identification
-above reads the whole screen count, which those controls leave open.
+none of these identifications.
 
 \section{Conditional icosahedral spectrum}
 \label{sec:spectrum}
@@ -361,10 +341,12 @@ with raw Laplacian eigenvalues
 \[
 0,\qquad 5-\sqrt5,\qquad 6,\qquad 5+\sqrt5,
 \]
-respectively. This graph is the seam graph of the independent twelve-port
-repair component. Under its uniform independent seam schedule both native
-repairs have quantum spectral gap \((5-\sqrt5)/60\) per attempt; that gap
-describes mixing on a fixed carrier, not a shock spectrum~\cite{ophmixing}.
+respectively. This graph is the cell of the executable model
+polynomial-sv~\cite{ophmodel}, whose ports hold loads \(0\), \(1\) or \(2\)
+and whose seams carry private memories. Under its contrast-memory law a
+single load moves with the generator \(L/2\) plus a constant, so the
+spectrum above, halved, gives the levels of one load on a fixed cell, with
+no shock reading.
 
 \begin{assumption}[Discrete gauge transport
 \(\mathsf{DS\text{-}GAUGE}\)]
@@ -491,13 +473,13 @@ Reducing this intersection to the constants requires a separate
 irreducibility or intersection proof and is unnecessary for the scope
 statement here.
 
-The executable native action is the seam sum
-\(H_{\mathrm{native}}=\sum_e(I-\Phi_e)\), a positive local Liouville operator
-built from the record-discarded native repair \(\Phi_e\) of each
-seam~\cite{ophnativeaction}. It acts on the operator algebra of a fixed
-carrier and conserves total occupation, whose fixed-number sectors its
-connected exchanges generate. It therefore changes no sector dimension either,
-and the domain statement below applies to it.
+The contrast-memory law of polynomial-sv~\cite{ophmodel} is
+\(H_\kappa=\tfrac12\sum_e(I-\mathrm{SWAP}_e)+\kappa C\), with
+\(C=6\sum_vn_v^2-2\sum_en_an_b\) on the loads \(n_v\) and \(\kappa\) one
+dimensionless coupling. It
+acts on the loads of a fixed carrier and conserves their number and
+multiset. It therefore changes no sector dimension either, and the domain
+statement below applies to it.
 
 A horizon shock changes the sector dimensions \(d_\alpha\) in
 \[
@@ -512,7 +494,7 @@ sector-dimension space; no dynamical generator on that space is supplied.
 
 \paragraph{A concrete stationary repair control.}
 The balanced conservative twelve-port family illustrates the domain
-distinction with its actual local repair law. On a connected weighted
+distinction with a classical local exchange law. On a connected weighted
 port graph, let \(z=n-(r/p)\mathbf1\) and
 \(\kappa=r(p-r)/[p(p-1)]\). Fair endpoint exchange at each Poisson
 attempt has density drift \(Gz=-Lz/2\), uniform stationary occupancy,
@@ -536,14 +518,10 @@ eigenvalues, satisfied by a lazy kernel \((I+K)/2\); the nonlazy
 two-state flip instead gives \((-1)^m\). These are controls for a
 specified classical autocorrelation, not constraints on an out-of-time-
 ordered quantum correlator or an enlarged sector-dimension dynamics.
-Exact finite witnesses and source-pinned operator controls are archived
-with the repository evidence~\cite{ophdynamicsevidence}.
 
 The inverse covariance also retains geometric anisotropy:
 \([L^{-1},U]=-L^{-1}[L,U]L^{-1}\) on the mean-zero subspace.
-The native level-four seven-mode band has \(14.642\%\) splitting,
-whereas an independently supplied round-metric control has \(0.01561\%\).
-Band averages or a \(3,5,3\) multiplicity pattern therefore do not
+Band averages or a \(3,5,3\) multiplicity pattern do not
 by themselves supply the rotational covariance assumed by a round
 horizon attachment. The conditional shock-spectrum identification must
 keep its metric and representation premises.
@@ -676,21 +654,7 @@ dimension-changing generator is not excluded. The graph-spectrum statement
 concerns the scaled nearest-neighbour icosahedral port Laplacian and its line
 graph under exact gauge transport. Weighted, longer-range, refinement-limit,
 and other source-derived kinetic operators are possible and require their
-own spectra. One refinement-limit operator is constructed: along a common
-subsequence of refining source screens the native cell Green operators
-converge in operator norm to a compact injective \(G\), and \(A=G^{-1}\)
-defines a regular, strongly local Dirichlet form with
-\(n/49920\le\lambda_n(A)\le3n/2\) and heat-trace spectral dimension
-two~\cite{ophcontinuum}. That limit selects no unique whole-sequence limit and
-no physical metric, so a shock reading of \(A\) needs its own gauge-transport
-and normalization premises. On the executed federated screens of \(240\), \(960\) and
-\(3{,}840\) ports, the numerically computed ratio of the second to the first
-low band of the native port Laplacian is \(2.68\), \(2.92\) and \(2.97\),
-against \(6/(5-\sqrt5)\approx2.17\) on one carrier and \(3\) on the round
-sphere~\cite{ophfedscaling}. The lowest band is a near triplet whose relative
-spread grows from \(0.92\) to \(2.31\) percent over these levels, so the
-declared cross-carrier routing carries no carrier-wide \(A_5\) covariance,
-and rotational covariance of a refinement limit is a premise.
+own spectra. Rotational covariance of a refinement limit is a premise.
 
 These boundaries delimit one trace interpretation, one fixed-sector
 generator, and one conditional finite kinetic operator. The exact finite
@@ -723,24 +687,15 @@ FloatingPragma,
 B.~M\"uller et al., \emph{Observers Are All You Need}.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/paper/observers_are_all_you_need.pdf}.
 
+\bibitem{ophmodel}
+B.~M\"uller, M.~Poneder, J.~Kim, and D.~A.~Friedman,
+\emph{An Executable Observer for Observer Patch Holography: Specification,
+Memory and Agreed Records}, 2026.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/paper/executable_observer_construction.pdf}.
+
 \bibitem{ophEinstein}
 B.~M\"uller et al., \emph{Recovering Observer Spacetime and Einstein Dynamics from Overlap Consistency}.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf}.
-
-\bibitem{ophcontinuum}
-FloatingPragma,
-\emph{A spatial fluctuation field from one native history}, 2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/physical_space_time/OCCUPATION_FIELD.md}
-
-\bibitem{ophnativeaction}
-FloatingPragma,
-\emph{A local action for native quantum observations}, 2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/native_action/README.md}
-
-\bibitem{ophmixing}
-FloatingPragma,
-\emph{Quantum mixing of the native C/E repairs}, 2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/observer/QUANTUM_MIXING.md}
 
 \bibitem{ophladder}
 FloatingPragma,
@@ -751,17 +706,6 @@ FloatingPragma,
 FloatingPragma,
 \emph{Cosmology postdiction ledger}, 2026.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md}
-
-\bibitem{ophdynamicsevidence}
-FloatingPragma,
-\emph{Observer-dynamics finite witnesses and operator controls}, 2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2068/evidence/observer_dynamics_20260925/sim-analysis}
-
-\bibitem{ophfedscaling}
-FloatingPragma,
-\emph{What propagates on a federation of identical elementary carriers}, 2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/federated_observer/SCALING.md};
-receipt: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2068/model/federated_observer/results.json}
 
 \bibitem{filzinger2023}
 M.~Filzinger et al.,

@@ -1,8 +1,0 @@
-{
-  "status": "interrupted; no result emitted",
-  "exit_code": 130,
-  "cause": "Root registration script used nonexistent MANIFEST.sha256 instead of actual MANIFEST.json and exited before registration; root then launched wrapper without checking that failure. Interrupted during local_audit before any stage completion.",
-  "code_sha256": "90cde3ba58bb875d39d2dc5204b56f6e537a4d5be4af6fb418bf23036bf8bd1a",
-  "output": "KeyboardInterrupt in native_electric_gauss.source.validate, called from local_audit electric_energy check. No files written.",
-  "scientific_receipt_used": false
-}

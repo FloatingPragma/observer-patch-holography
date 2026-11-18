@@ -21,8 +21,8 @@ OPH aims to show that the universe it constructs on this basis is precisely
 the one we inhabit.
 
 Small observers keep local records and compare them with their neighbours.
-The executable construction specifies their matter, fields, preparation and
-measurement law before a run. The Universe evolves through
+The executable construction specifies their carrier, law, preparation and
+readers before a run. The Universe evolves through
 local disagreement and repair, and the records that survive every comparison
 are its public facts. OPH asks whether such a process, fully specified
 and executed, produces observers whose shared records look like our world:
@@ -38,18 +38,42 @@ history, and it exists in our subjective future just as our past exists. The
 
 ## Research focus
 
-We have built an [executable model](model/README.md) of OPH. One fixed
-Hamiltonian couples matter, electric and magnetic fields and local response
-registers on a finite carrier, and complete detectors keep every outcome.
-The theory around it is finished: the closure principle, the theorem library
-and the finite constructions below are in place.
+We have built an [executable model](model/README.md) of OPH, called
+polynomial-sv. Small observers sit on the ports of icosahedral cells.
+Neighbours compare what they hold through a private memory on the seam they
+share, and agreement lowers the energy. The theory around the model is
+finished: the closure principle, the theorem library and the finite
+constructions below are in place.
 
-The missing piece is the correct native repair law, the simple law that
-governs the interactions of observers in the early Universe. The law the
-model runs today is a calibrated intermediate test. Identifying the correct
-law is the subject of heavy ongoing research. The physical tests in the
-papers, from the particle spectrum to gravity, are what that law has to pass
-on one process.
+The centre of the research is the native repair law, the simple law that
+governs the interactions of observers in the early Universe. Our candidate is
+the contrast-memory law. No measured number enters it. Under it the repair
+process reproduces real observable values and structures, in the effective
+descriptions of the observers who inhabit the computation:
+
+- **Particles that hold together.** A pair of loads written on one seam is
+  read as a pair at every later reading, on carriers of any size, and it
+  moves from seam to seam. The same law without the agreement energy loses
+  the pair.
+- **Three directions of space.** The slowest response of a cell to a single
+  load has exactly three independent directions. Observers build their
+  three-dimensional description of space on that response.
+- **Twelve force currents.** With one declared port service, the response of
+  a cell's ports has twelve generators with the algebra of the Standard
+  Model's forces.
+
+The state of the simulation does not contain the physical Universe. Its
+ports, seams and cells are the hardware of a computation, and they are no
+space. Space, time, fields and particles are how the observers inside
+describe the records they agree on. We have shown that the observers who
+inhabit the simulation can describe their experiences as a relativistic
+continuum spacetime with three dimensions of space and one of time. Every
+test of the model therefore compares what its observers record with what we
+record. It never compares the state of the simulation with the world.
+
+The law is a candidate. Its coupling is supplied, and the other observables
+in the papers, from charge and the particle spectrum to gravity, are work in
+progress on the same process.
 
 ## What comes out
 
@@ -94,11 +118,11 @@ spacetime and a common time are effective descriptions that observers agree to
 use. The state of the program and its time parameter calculate those readouts.
 They are no second universe beside them.**
 
-One fixed Hamiltonian evolves matter, fields and response registers. A
-complete detector retains every outcome, and its measurement work is
-separate from energy-conserving free evolution. The creator supplies the
-law and initial preparation; simulated observers need not install their
-own interactions. The [executable hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md)
+One fixed law moves loads between neighbouring ports and lowers the energy
+of a seam whose two observers agree. Readers keep every outcome, the outcome
+"no pair" included. Each observer counts its own events, and no common clock
+is used. The creator supplies the law and the preparation; simulated
+observers need not install their own interactions. The [executable hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md)
 states the physical test: a fully specified construction must reproduce
 what observers measure.
 
@@ -114,9 +138,8 @@ ships with a receipt that binds its inputs and replays.
 Predictions and their rejection rules are frozen before the data, with
 OpenTimestamps proofs anchored in Bitcoin, in the
 [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md). The
-[postdiction ledger](docs/POSTDICTION_LEDGER.md) and the
-[falsification programme](docs/OPH_FALSIFICATION_PROGRAM.md) state how the
-construction can fail.
+[falsification programme](docs/OPH_FALSIFICATION_PROGRAM.md) states how
+the construction can fail.
 
 ## Run the observer
 
@@ -126,9 +149,9 @@ From the repository root, with Python 3.11 or newer:
 python3 -m model
 ```
 
-This checks the common source and its complete finite diagnostics. The
-[model guide](model/README.md) explains the full source replay and the
-separate component proofs.
+This recomputes the headline results of polynomial-sv and compares them
+with the stored ones. The [model guide](model/README.md) explains the full
+run.
 
 ## Papers
 
@@ -136,7 +159,8 @@ separate component proofs.
   is the main paper. Cite its released version, the
   [PhilPapers record](https://philpapers.org/rec/MUEFOC).
 - **[An Executable Observer](paper/executable_observer_construction.pdf)**
-  specifies the program and its executed components.
+  specifies polynomial-sv, proves its binding theorem and reports the
+  records its observers agree on.
 - **The theorem library** holds the long proofs:
   [consensus](paper/reality_as_consensus_protocol.pdf),
   [observers and records](paper/observers_are_all_you_need.pdf),
@@ -180,8 +204,7 @@ the gentlest introductions.
 
 Contributions should connect one more piece of observed physics to the
 running observer, or expose a failure in it. The
-[construction guide](model/CONSTRUCTION.md), the
-[model specification](model/SPEC.md) and the
+[polynomial-sv specification](model/polynomial_sv/SPEC.md) and the
 [research issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+is%3Aopen+label%3Aprogram%3Aphysics)
 set out the work. Main-branch PDFs are source previews; deposited releases
 keep their original bytes.

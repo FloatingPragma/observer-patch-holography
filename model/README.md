@@ -1,101 +1,13 @@
 # The executable OPH model
 
-The official model is **CCF-LT-2** (`A-ccf2-local-capacity-v2`), the common finite matter, field and
-response construction. A specified quantum source carries native matter,
-charged and neutral transport, electromagnetic links and faces, weak
-currents, and a response to total energy. Its instruments produce finite
-observer records, with references and all outcomes retained.
+The executable model is **polynomial-sv**. Its law, the contrast-memory law, is a candidate for the native
+repair law: twelve-port cells whose seams keep a small private memory of how much their two ends disagree.
+The [README](polynomial_sv/README.md) walks through it, the [specification](polynomial_sv/SPEC.md) fixes the
+law, the carriers and the records, and the [proof](polynomial_sv/PROOF.md) shows why a bound pair stays a pair.
 
-Its current native repair law is a calibrated intermediate test. The correct native repair law, the
-simple law that governs the interactions of observers in the early Universe, is missing. Identifying it
-is the subject of heavy ongoing research, and every physical test of the model is a test of that law.
+Run it with `pip install -r model/requirements.txt`, then `python -m model` (add `--full` to recompute
+everything) and `python -m pytest -q model/polynomial_sv`.
 
-**Observers come first. What the model predicts, and what is compared with nature, is what its observers
-read from their own records and what they agree on where their records overlap. Measurement, consensus and
-the synchronizing of clocks come after the records. No objective field and no global clock stand behind
-them: fields, particles, spacetime and a common time are effective descriptions that observers agree to
-use. The state vector, the time parameter of the Hamiltonian and the schedule compute those readouts, and
-no observer reads them. They are no second universe beside the records.**
-
-The [specification](SPEC.md) and [design](DESIGN.md) fix the full law, source data, parameters,
-preparations and execution scope. The [executable package](ccf_lt2/README.md)
-contains its generator and calculations. The
-[construction contract](CONSTRUCTION.md) explains what counts as a result
-of the common model.
-
-## Repair law candidates
-
-Several candidate laws are under study. Each one is a test on the way to the
-correct native repair law.
-
-- **CCF-LT-2**, this model: one Hamiltonian for native matter, fields and
-  local energy response. Its coefficients are calibrated.
-- **Native seam repair**: integer loads on the twelve-port carrier; one seam
-  moves load toward the endpoint mean, with a fair coin at odd differences.
-  The finite observer services in the
-  [executable observer paper](../paper/executable_observer_construction.pdf) use it.
-- **Signed source** (`A-static-signed-source-v1`): the seam rule on a sealed
-  240-port graph, with charge, a compact charged state and a frame rotation
-  on [one process](../code/openwave_static_signed_source/README.md).
-- **Address bits** (`A-address-bit-v1`): one bit per directed seam; a bit
-  flips exactly when the flip does not raise the sum of squared loads. The
-  [memory rail](native_memory_clock/README.md) runs it with an explicit
-  archive and clock.
-
-## Run the model
-
-From the repository root:
-
-```sh
-python -m pip install -r model/requirements.txt
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model
-python -m pytest -q model/ccf_lt2
-```
-
-The default command regenerates and verifies the complete operator checks.
-A shorter component replay is available with `python -m model --headline`.
-The complete command checks both the two-vertex and three-vertex native
-sources and their local energy response. It does not allocate the
-exponentially large full native state vector.
-
-## Matter and electromagnetic fields
-
-Every vertex carries all 96 native fermion modes. Signed Dirac transport
-retains particles, antiparticles, neutral modes and pair terms. The actual
-calibrated matter coefficients are preserved. Electric flux, magnetic loops
-and matter charge obey one oriented Gauss constraint; the current comes
-from the same action. Complete finite checks establish these algebraic
-relations and allowed channels. Physical particle spectra and a common
-relativistic limit require their own calculations.
-
-## Response to energy
-
-Every vertex has independent response and capacity/memory registers,
-coupled to its complete energy shard, including interaction and field terms. The full time-independent
-Hamiltonian conserves total energy. Separate finite detector experiments
-show a response to neutral energy; literal native basis-column calculations
-verify that every source term participates in the combined operator.
-An Einstein or Newtonian interpretation requires the source and observation
-maps in the [proof dependency map](particle_joint_reconstruction/DEPENDENCIES.md).
-
-## Proofs and physical comparisons
-
-The [physical scope](PHYSICAL_AUDIT.md) separates complete operator checks,
-finite diagnostic evolution and physical claims. The
-[source contract](SOURCE_SELECTION.md) fixes input ancestry and the
-[observation contract](OBSERVER_RELATIVE_RECOVERY.md) fixes complete records.
-Other packages under `model/` contain mathematical components with their
-own Hamiltonians, states and domains. Their theorems apply to this model
-only through checked hypotheses; their numerical outputs are not silently
-used as its predictions.
-
-The [finite native memory rail](native_memory_clock/README.md) is an
-experimental address-bit construction with a local autonomous event clock.
-It supplies complete finite native histories, explicit memory resources and
-reversible return dynamics. It has no source-equivalence or physical-particle
-transfer to CCF-LT-2.
-
-The [autonomous observer program](native_observer_archive/README.md) embeds
-record copying, communication and native feedback in that event source.
-A uniform clock rail supplies a proved finite readiness interval while
-retaining unfinished outcomes, private quantum references and all memory.
+A few small theory packages sit next to it (`support_refinement`, `matched_einstein_limit`,
+`defect_particle_classes`, `carrier_selection_reduction`, `finite_instrument_calibration`,
+`maxwell_local_selection`, `maxwell_weak_field`); each has its own README and tests.

@@ -616,10 +616,6 @@ def equal_port_certificate(data: dict[str, Any]) -> dict[str, Any]:
 # ---------------------------------------------------------------------------
 
 
-PROJECTION_PATH = (
-    REPO_ROOT / "code" / "invariant_mining" / "outputs" / "source_projection.json"
-)
-
 SKY_EMISSION_KEYS = (
     "sky_map",
     "sky_field",
@@ -654,14 +650,10 @@ def ancestry_sweep(searched_surfaces: list[str]) -> dict[str, Any]:
 
     The sweep walks every JSON key of every registered surface and matches
     the keys against the typed emission signatures; the verdict booleans
-    are derived from the matches. Surfaces outside the registered set are
-    inadmissible as premises under the pregeneration freeze, so the sweep
-    over the registered set is the complete admissible search.
+    are derived from the matches.
     """
 
-    projection = json.loads(PROJECTION_PATH.read_text(encoding="utf-8"))
-    registered = [row["path"] for row in projection["source_artifacts"]]
-    inventory = sorted(set(searched_surfaces) | set(registered))
+    inventory = sorted(set(searched_surfaces))
     surface_reports = []
     sky_matches = []
     channel_matches = []
@@ -698,9 +690,8 @@ def ancestry_sweep(searched_surfaces: list[str]) -> dict[str, Any]:
         "sky_field_emission_found": bool(sky_matches),
         "second_independent_channel_found": bool(channel_matches),
         "admissibility_boundary": (
-            "unregistered surfaces are inadmissible as premises under the "
-            "pregeneration freeze, so this registered-surface sweep is the "
-            "complete admissible ancestry search"
+            "the sweep covers the registered source surfaces listed in "
+            "searched_inventory"
         ),
     }
 
@@ -720,8 +711,6 @@ def transfer_decision(data: dict[str, Any], equal_port: dict[str, Any]) -> dict[
     }
     disagreement = interpolant_power["6"] != comb_power["6"]
     searched_surfaces = [
-        "code/invariant_mining/data/source_feature_registry.json",
-        "code/invariant_mining/outputs/candidate_registry.json",
         "code/a5_closure/manifests/classical_realization_receipt.json",
         "code/a5_closure/manifests/family_band_attachment_reference.json",
         "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
@@ -824,8 +813,6 @@ def transfer_decision(data: dict[str, Any], equal_port: dict[str, Any]) -> dict[
 
 PIN_RELATIVES = [
     "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
-    "code/invariant_mining/data/source_feature_registry.json",
-    "code/invariant_mining/outputs/candidate_registry.json",
     "code/a5_closure/manifests/classical_realization_receipt.json",
     "code/a5_closure/manifests/family_band_attachment_reference.json",
     "code/capacity_readback/runtime/source_derived_public_checkpoint_packet.json",

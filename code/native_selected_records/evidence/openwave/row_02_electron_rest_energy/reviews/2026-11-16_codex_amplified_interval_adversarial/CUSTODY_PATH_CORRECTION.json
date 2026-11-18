@@ -1,7 +1,0 @@
-{
-  "utc": "2026-11-15T20:01:15.489038+00:00",
-  "first_attempt": "Read-only manifest binding shell used ../../../../ for OpenWave root rather than the correct ../../..",
-  "observed_error": "FileNotFoundError before any REVIEW_BINDINGS output; producer manifest and prereg leaf checks had passed",
-  "correction": "Resolve review directory with Path.cwd().parents[2]",
-  "scientific_code_or_evidence_changed": false
-}

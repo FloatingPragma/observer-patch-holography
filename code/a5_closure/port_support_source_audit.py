@@ -28,7 +28,6 @@ SOURCES = (
     "code/source_selection_model/__init__.py",
     "code/source_selection_model/DERIVATION.md",
     "code/m1_source_realization/README.md",
-    "code/m1_source_realization/receipt.json",
     "Lean/Geometry/ScreenCarrierMapCandidate.lean",
     "Lean/Screen/PortFrameGram.lean",
     "Lean/Screen/PortGramRepairBand.lean",

@@ -61,7 +61,6 @@ PIN_PATHS = (
     "code/causal_refinement/verify_crossing_read_area_law.py",
     "code/causal_refinement/test_crossing_read_area_law.py",
     "Lean/Geometry/CrossingReadAreaLaw.lean",
-    "paper/tex_fragments/CROSSING_READ_AREA_LAW.tex",
     "evidence/source_net_causal_poset/build_causal_poset.py",
 )
 LEVELS = (5, 8, 13, 21, 34, 55)

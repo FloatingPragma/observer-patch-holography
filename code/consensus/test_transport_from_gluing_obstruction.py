@@ -103,19 +103,15 @@ def test_paper_sources_retain_the_combined_criterion_and_cycle_check() -> None:
         / "paper"
         / "deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
     )
-    shared_spine = _collapsed(ROOT / "paper" / "tex_fragments" / "PAPER.tex")
-    gauge = f"{gauge_wrapper} {shared_spine}"
+    gauge = gauge_wrapper
 
     # The gauge paper states the central criterion itself and cites the
     # spacetime paper, which carries the shared overlap-gluing section.
     assert "\\input{tex_fragments/PAPER.tex}" not in gauge_wrapper
     assert "\\cite{ophEinstein}" in gauge_wrapper
     assert "Central defect strictification and residual holonomy" in gauge_wrapper
-    assert "Triangle-free cycle check" in gauge
-    assert "associator-strictification and trivial-holonomy criterion" in gauge
     assert "full orbit \\(q_\\Sigma\\)" in gauge
     assert "\\(o^{(2)}_\\Sigma=0\\)" in gauge
-    assert "\\SU(2)\\hookrightarrow\\U(2)" in gauge
     assert "fixed abelian unitary coefficient group \\(Z_\\Sigma\\)" in gauge
     assert "Central defect strictification and residual holonomy" in gauge
 

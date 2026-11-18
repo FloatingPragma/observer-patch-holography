@@ -35,9 +35,6 @@ OPEN_ISSUES: dict[int, str] = {1033: 'Ongoing audit and repair of existing evide
  1148: 'Audit obstructions and apply candidate, class and program stopping rules'}
 
 
-# The document that states the open construction work in prose.
-LIVE_OWNER_DOCUMENT = "docs/COMPLETION_PROGRAM.md#next-work-and-dependencies"
-
 # Lanes replaced by later lanes while the programme ran (historical record).
 SUPERSEDED_LANE_SUCCESSORS: dict[int, tuple[int, ...]] = {
     # Spacetime adequacy, superseded in the 2026-09-10 V4 review.

@@ -1,3 +1,0 @@
-# Standalone readout check
-
-`headline.py` is a standalone standard-library-only excerpt with no file, network, process or package access. It reports intervals for the sixteen filed first-stride binary outcome laws under the explicit external eta=0.01 hypothesis. It verifies the interval theorem on 63 mathematical boundary cases. It does not derive the source certificate or reproduce the rare conditioned source. `check.py` performs the separate full-source/density audit using NumPy and immutable local parent evidence. This later excerpt is verification-only; its values are copied from the retained successful verification output, not a new experiment.

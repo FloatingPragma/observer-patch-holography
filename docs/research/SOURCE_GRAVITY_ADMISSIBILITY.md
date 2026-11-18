@@ -2,9 +2,9 @@
 
 ## Result and its meaning
 
-The two-field calculation in [the preceding study](PAIRED_SOURCE_GRAVITY.md)
-did not establish membership of its constitutive alternatives in an A1--A3
-source. Here the alternatives are **programs of the already constructed
+A two-field calculation of a calibrated clock-field response leaves open
+whether its constitutive alternatives belong to an A1--A3 source. Here the
+alternatives are **programs of the already constructed
 coherent source**, with its existing port response, instruments, reference,
 overlaps and refinement. No new reversible direction or transport primitive
 is added. Their complete stationary-clock channels agree at every source
@@ -242,7 +242,7 @@ either site's total occupation. Thus, exactly,
 
 The receiver reads its own register. Its central click/no-click record is
 then returned by a charged classical flight; the same deadline applies to
-both laws. No pooled simulator log serves as an instantaneous detector.
+both laws. No pooled simulator log is an instantaneous detector.
 The complement failure effect is retained with probability zero for this
 explicit valid preparation; it is not discarded from the channel.
 The five-site receiver is at site 3 and returns its record to site 1,
@@ -414,7 +414,7 @@ fixed algebra. Condition on the same source and probe preparations and
 all the common stationary-clock data. Those clock effects have equal
 expectations on both labels by (4); neither branch is excluded. The
 actual positive effect reading the flat label has value one in a feasible
-state. The inherited [finite A3 support theorem](../../code/source_publication_selection/STATE_SELECTION.md)
+state. The inherited [finite A3 support theorem](../../Lean/Geometry/SourceStateSelection.lean)
 therefore assigns it strictly positive probability at any attained A3
 minimum with faithful references and a scored positive pullback for this
 record. This statement does not require a uniform optimizer. In the

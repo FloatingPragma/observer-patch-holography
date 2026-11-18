@@ -1,3 +1,0 @@
-# Published detector data retain their original bytes, including CRLF and
-# whitespace, so Zenodo's checksums verify on every checkout platform.
-* -text -eol -diff

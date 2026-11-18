@@ -45,8 +45,6 @@ jobs:
       - name: Generated registers and ledgers
         run: |
           python tools/build_premise_register.py --check
-          python tools/build_model_theorem_map.py --check
-          python -m unittest discover -s tools -p test_model_theorem_map.py
           python tools/build_observation_ledger.py --check
           python tools/build_selection_ledger.py --check
           python tools/build_claim_views.py --check
@@ -65,7 +63,7 @@ jobs:
         run: python tools/check_docs_policy.py --changed "${{ github.event.pull_request.base.sha }}"
 
   official-model:
-    name: CCF-LT-2 complete source and response
+    name: polynomial-sv model
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
@@ -80,15 +78,8 @@ jobs:
           cache: pip
           cache-dependency-path: model/requirements.txt
       - run: python -m pip install -r model/requirements.txt
-      - run: python tools/check_ccf_lt2_authority.py
-      - run: python -m pytest -q -W error tools/test_completion_test_scope.py
       - run: python -m model
-      - run: python -m pytest -q -W error model/ccf_lt2
-      - run: python -m model.ccf_lt2.bridges.verify
-      - run: python tools/build_ccf_lt2_claims.py --check
-      - run: python tools/build_native_execution_claims.py --check
-      - run: python tools/build_completion_work_queue.py --check
-      - run: python tools/refresh_native_projection.py --check
+      - run: python -m pytest -q -W error model/polynomial_sv
   suite:
     name: Mandatory suite (shard ${{ matrix.shard }})
     runs-on: ubuntu-latest
@@ -113,19 +104,13 @@ jobs:
       - name: Additional scientific evidence
         if: matrix.shard == 0
         run: |
-          python -m pytest -q code/P_derivation/test_selection_accounting.py code/P_derivation/test_printed_pair_identity.py evidence/source_net_causal_poset/manifold_refinement/test_verify.py code/particles/flavor/test_full_entropy_w5_selector.py code/particles/flavor/test_conditional_quark_mass_replay.py code/particles/flavor/test_verify_conditional_quark_mass_replay.py code/particles/flavor/test_compare_conditional_quark_masses.py code/particles/calibration/test_conditional_top_fixed_p.py code/particles/flavor/test_source_w5_response_constraints.py code/particles/flavor/test_native_repair_flavor_constraints.py code/particles/calibration/test_top_positive_capacity_band.py code/particles/flavor/test_native_record_renewal.py code/particles/flavor/test_exterior_higgs_response.py code/particles/calibration/test_source_ew_vev_matching.py code/particles/calibration/test_verify_source_ew_vev_matching.py code/particles/calibration/test_compare_source_ew_vev_matching.py code/geometry/test_collar_scaling_boundaries.py code/thermodynamics/test_collar_stationary_regressions.py code/thermodynamics/test_exact_count_chain_controls.py evidence/exact_federation_tower_20260924/test_streamed_expectations.py evidence/observer_dynamics_20260925/sim-analysis/codex/boltzmann/test_forward_contract.py evidence/observer_dynamics_20260925/sim-analysis/codex/boltzmann_data/test_audit_inputs.py evidence/observer_dynamics_20260925/sim-analysis/codex/causal/test_experiment.py evidence/observer_dynamics_20260925/sim-analysis/codex/dynamics/test_dynamics.py evidence/observer_dynamics_20260925/sim-analysis/codex/inflation/native_history/test_native_history.py evidence/observer_dynamics_20260925/sim-analysis/codex/necessity/boundary_bulk/test_boundary_bulk.py evidence/observer_dynamics_20260925/sim-analysis/codex/necessity/event_records/test_event_records.py evidence/observer_dynamics_20260925/sim-analysis/codex/necessity/temporal_filters/test_temporal_filters.py evidence/observer_dynamics_20260925/sim-analysis/codex/observation/test_conditional_bridges.py evidence/observer_dynamics_20260925/sim-analysis/codex/observation/test_observations.py evidence/observer_dynamics_20260925/sim-analysis/codex/observer_cmb/test_measured_comparison.py evidence/observer_dynamics_20260925/sim-analysis/codex/observer_cmb/test_observer_spectrum.py evidence/observer_dynamics_20260925/sim-analysis/codex/primordial/test_sources.py evidence/observer_dynamics_20260925/sim-analysis/codex/source_derivation/innovations/test_extract.py evidence/observer_dynamics_20260925/sim-analysis/codex/source_derivation/innovations/test_nested.py evidence/observer_dynamics_20260925/sim-analysis/codex/source_derivation/native/test_native_source.py evidence/observer_dynamics_20260925/sim-analysis/scripts/test_codex_causal_cosmology_audit.py evidence/observer_dynamics_20260925/sim-analysis/tests/test_codex_golden_fourier.py evidence/observer_dynamics_20260925/sim-analysis/tests/test_codex_scale_ensemble.py tools/test_check_docs_policy.py code/a5_closure/tests/test_galois_port_frame_certificate.py code/a5_closure/tests/test_galois_source_response_pins.py code/a5_closure/tests/test_port_support_source_audit.py code/a5_closure/tests/test_port_gram_support_attachment.py
-          # Shares a basename with manifold_refinement/test_verify.py, so it
-          # needs its own pytest process.
-          python -m pytest -q evidence/observer_dynamics_20260925/lean/test_verify.py
+          python -m pytest -q code/P_derivation/test_selection_accounting.py code/P_derivation/test_printed_pair_identity.py evidence/source_net_causal_poset/manifold_refinement/test_verify.py code/geometry/test_collar_scaling_boundaries.py code/thermodynamics/test_collar_stationary_regressions.py code/thermodynamics/test_exact_count_chain_controls.py tools/test_check_docs_policy.py code/a5_closure/tests/test_galois_port_frame_certificate.py code/a5_closure/tests/test_galois_source_response_pins.py code/a5_closure/tests/test_port_support_source_audit.py code/a5_closure/tests/test_port_gram_support_attachment.py
       - name: Sampled-manifold evidence
         if: matrix.shard == 0
         # The package vendors its own oph_exact and needs its root on the path.
         env:
           PYTHONPATH: ${{ github.workspace }}/evidence/source_net_causal_poset/manifold_sampled
         run: python -m pytest -q evidence/source_net_causal_poset/manifold_sampled/tests/test_exact_source_net_manifold_sampled.py evidence/source_net_causal_poset/manifold_sampled/tests/test_retained_receipt_mutations.py
-      - name: Numerical recovery bounds without optional hardware SDKs
-        if: matrix.shard == 0
-        run: python -m pytest -q --confcutdir=code/ibm_quantum_cloud/tests code/ibm_quantum_cloud/tests/test_stage1_markov_fingerprint.py
       - name: Mandatory suite shard
         run: python tools/run_mandatory_suite.py --shard-index ${{ matrix.shard }} --shard-count 10
 

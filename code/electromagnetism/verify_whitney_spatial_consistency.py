@@ -29,7 +29,6 @@ SCOPE = "MANUFACTURED_SMOOTH_ACTION_VARIATION_REFINEMENT__NO_TRAJECTORY_OR_PHYSI
 PIN_PATHS = ["Lean/Screen/SeamCurrentEdge30Moment.lean",
              "Lean/ObserverPatchHolography/CoreAxioms.lean",
              "Lean/Screen/WhitneySpatialConsistency.lean",
-             "paper/tex_fragments/WHITNEY_SPATIAL_CONSISTENCY.tex",
              "code/electromagnetism/whitney_spatial_consistency.py",
              "code/electromagnetism/verify_whitney_spatial_consistency.py",
              "code/electromagnetism/test_whitney_spatial_consistency.py"]

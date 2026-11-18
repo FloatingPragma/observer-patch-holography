@@ -1,2 +1,0 @@
-2026-11-15T16:22:14.014592+00:00 PREREG row 8 b9213f983337340f8b3788d603eaf0a8d1bc3a2b996460fef677ed0aa079f40f openwave/row_08_annihilation/work/2026-11-15_codex_compact_contact_audit/PREREG.json; OLD240 compact-contact audit, prior proposal disclosed; no upstream or award.
-2026-11-15T16:31:09.844317+00:00 FAILURE original full-graph mode/eigenrelation gates rejected; preserved RECEIPT/evidence. Full-graph nullspace correction in ../2026-11-15_codex_compact_contact_repair.

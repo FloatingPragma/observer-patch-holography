@@ -483,7 +483,7 @@ it.
 
 ## Repair laws and conditional selection
 
-The [executable construction](../model/SOURCE_SELECTION.md) specifies a carrier,
+The [executable construction](../model/polynomial_sv/SPEC.md) specifies a carrier,
 observer interface and complete repair instrument. These are legitimate inputs
 to a candidate's conditional predictions. A1--A3 constrain the instance;
 they do not select an unrestricted repair algorithm. The distinction between
@@ -493,12 +493,7 @@ For a specified finite retained algebra and faithful reference, the
 [entropy-completion theorem](../code/quantum_information/ALGEBRAS_AND_REPAIR.md#the-complete-finite-completion-theorem)
 identifies a unique reference-preserving conditional expectation exactly when
 the algebra is modular invariant. It does not select the retained algebra or
-the complete record-writing instrument. On the native binary shell, the
-[fixed-seam construction](../model/primitive_observer/DERIVATION_COMPLETION.md)
-identifies E with that expectation. Repeated forgotten-record C events converge
-to the same endpoint while retaining different finite-event coherences.
-Full-carrier E is nonunital, so the binary identification does not extend to
-all 78 native configurations.
+the complete record-writing instrument.
 
 Scalar pair averaging gives the exact mean repair step `I-L_ico/60` under the
 declared uniform thirty-seam schedule. On odd integer totals the actual update

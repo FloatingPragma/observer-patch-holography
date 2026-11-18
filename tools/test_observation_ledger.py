@@ -89,9 +89,9 @@ def test_instrument_section_tamper_fails_ledger_validation() -> None:
 
 def test_constants_section_is_checked_against_observation_rows() -> None:
     ledger = _ledger()
-    row = next(row for row in ledger["constants"]["rows"] if row["id"] == "CA-03")
+    row = next(row for row in ledger["constants"]["rows"] if row["id"] == "CA-01")
     row["ancestry"] = [
-        entry for entry in row["ancestry"] if entry.get("register_row") != "PR-13"
+        entry for entry in row["ancestry"] if entry.get("register_row") != "PR-37"
     ]
     with pytest.raises(SystemExit, match="observation-ledger premises"):
         tool.validate(ledger)

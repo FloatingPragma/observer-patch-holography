@@ -23,27 +23,16 @@ facts.
 The computation library also contains one fixed generated-node federation
 whose input is carried by preserved initial-state ports. Canonical genuine
 repairs terminate by a dependency-order rank, while pathwise weak fairness
-upgrades stuttering attempt stabilization to consensus. The historical weak
-repair relation is unchanged and has an explicit fair-stuttering no-go.
+upgrades stuttering attempt stabilization to consensus. The weak repair
+relation has an explicit fair-stuttering no-go.
 
 The observer-dynamics modules also provide exact finite witnesses for the
 stationary four-cycle repair generator and its Green–Kubo matrix, arbitrary
 survival-cocycle tilt, and a temporal-filter integrand inequality. The geometry
 library checks finite layer-parity quadrature, uniform-read clock separation,
 the rational finite-window conformal-clock control, and finite Fourier
-factorization for the golden orbit. Their precise scopes and source hashes
-are checked by:
-
-```bash
-python3 ../evidence/observer_dynamics_20260925/lean/verify.py --check
-python3 -m pytest -q ../evidence/observer_dynamics_20260925/lean/test_verify.py
-```
-
-The verifier pins the local dependencies and Lake configuration and compares
-compiler version and source commit across platforms. Check mode preserves the
-saved compiler provenance and axiom log. The six mutation tests reject changed
-compilers and proof pins while accepting the same compiler on another
-architecture.
+factorization for the golden orbit. The Lean build checks them with the
+rest of the library.
 
 The stochastic central limit theorem, the continuum integral behind the
 conformal-clock polynomial, the fixed-mode Fourier asymptotic and physical
@@ -59,11 +48,7 @@ physical interpretation:
 | [`Screen/CommonHistoryFeedback.lean`](Screen/CommonHistoryFeedback.lean) | Exact classical record restoration, its error amplification and finite triangular accumulation |
 | [`Geometry/SourceActionMeasure.lean`](Geometry/SourceActionMeasure.lean) | Normalized action-measure uniqueness, calibration identities, density error bounds and kinetic/metric-volume separation |
 
-The associated observer-like software patches expose local state, ports,
-readback, retained records and supplied control operations. Their executable
-interfaces are indexed in [the reproduction guide](../REPRODUCE.md).
-Finite local-force quantum preparation is an additional analytical certificate
-in [`source_scalar_preparation`](../code/source_scalar_preparation/); it does
+These modules are finite implications on their declared sources; they do
 not supply a native vacuum, Born readout or physical clock.
 
 ## Layout

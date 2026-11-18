@@ -10,7 +10,6 @@ from tools.closed_lanes import live_owner
 
 ROOT = Path(__file__).resolve().parents[1]
 CLAIM_ID = "OPH-FINITE-UNITARY-SCATTERING-LIMIT-NO-GO"
-POSTDICTION_ID = "finite_unitary_scattering_limit_no_go"
 LEAN_PATH = "Lean/QFT/FiniteUnitaryScatteringNoGo.lean"
 
 CLAIM_EVIDENCE = [
@@ -26,28 +25,6 @@ OBSERVATION_EVIDENCE = [
     "code/qft/finite_unitary_scattering_no_go.py",
     "code/qft/test_finite_unitary_scattering_no_go.py",
     "paper/tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex",
-    "model/frequency_yukawa_vertex/PROOF.md",
-    "model/frequency_yukawa_vertex/README.md",
-    "model/frequency_yukawa_vertex/__init__.py",
-    "model/frequency_yukawa_vertex/__main__.py",
-    "model/frequency_yukawa_vertex/results.json",
-    "model/frequency_yukawa_vertex/test_vertex.py",
-    "model/frequency_yukawa_vertex/vertex.py",
-]
-
-POSTDICTION_ARTIFACTS = [
-    "code/qft/finite_unitary_scattering_no_go.py",
-    "code/qft/test_finite_unitary_scattering_no_go.py",
-    "paper/tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex",
-]
-
-LEAN_DECLARATIONS = [
-    "tendsto_powers_forces_identity",
-    "nontrivial_powers_have_no_limit",
-    "finite_unitary_powers_have_no_limit",
-    "finite_unitary_ambient_powers_have_no_limit",
-    "identical_relative_evolution_is_constant",
-    "identical_relative_evolution_tendsto",
 ]
 
 
@@ -116,36 +93,7 @@ def test_no_frozen_prediction_row_is_emitted() -> None:
     for row in frozen["rows"]:
         encoded = json.dumps(row, sort_keys=True)
         assert CLAIM_ID not in encoded
-        assert POSTDICTION_ID not in encoded
         assert LEAN_PATH not in encoded
-
-
-def test_postdiction_row_matches_theorem_and_boundary() -> None:
-    rows = _json("code/particles/runs/status/postdiction_ledger.json")["sections"][
-        "forced_structure"
-    ]
-    row = _row(rows, "id", POSTDICTION_ID)
-    assert row["observed_counterpart"] == (
-        "fixed-cutoff scattering-construction boundary; not a "
-        "physical observation or prediction"
-    )
-    assert row["match"] == (
-        "exact direct-power obstruction; physical scattering and "
-        "asymptotic comparison construction not constructed"
-    )
-    assert row["lean_declarations"]["FiniteUnitaryScatteringNoGo"] == (
-        LEAN_DECLARATIONS
-    )
-    assert row["artifact_refs"] == POSTDICTION_ARTIFACTS
-    assert set(POSTDICTION_ARTIFACTS).issubset(CLAIM_EVIDENCE)
-    boundary = row["hypothesis_boundary"]
-    assert "Full weak-operator convergence" in boundary
-    assert "finite-dimensional operator topologies coincide" in boundary
-    assert "selected projected scalar or observable limits" in boundary
-    assert "infinite-dimensional weak limits" in boundary
-    assert f"Historical lane #743 (closed; live owner #{live_owner(743)}) records" in boundary
-    assert "Scientific owner #743" not in boundary
-    assert "no frozen prediction" in boundary
 
 
 def test_qft_umbrella_imports_the_kernel_checked_module() -> None:

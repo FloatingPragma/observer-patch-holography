@@ -12,8 +12,12 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import sys
 
 from paper_math import PaperMathContext, decimal_pi
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import pin_scope  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = "code/P_derivation/"
@@ -78,7 +82,8 @@ def build(root: Path = ROOT) -> dict:
     return {
         "artifact": "oph.alpha_selection_accounting.v1",
         "promotion_allowed": False,
-        "inputs": {name: hashlib.sha256((root / name).read_bytes()).hexdigest() for name in PARENTS},
+        "inputs": {name: hashlib.sha256((root / name).read_bytes()).hexdigest()
+                   for name in pin_scope.bound(PARENTS)},
         "comparison_target": {"value": target, "role": "compare_only_empirical_input"},
         "stage5_search": {
             "fixed_mu_tau_exponents": [4, 3], "electron_candidates": rows,

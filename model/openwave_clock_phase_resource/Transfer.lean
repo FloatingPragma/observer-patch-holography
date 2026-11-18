@@ -1,4 +1,0 @@
-import ObserverPatchHolography.ClockPhaseCovariance
-
-#print axioms OPH.ClockPhaseCovariance.invariant_branch
-#print axioms OPH.ClockPhaseCovariance.invariant_sum

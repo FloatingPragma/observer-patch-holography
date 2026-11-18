@@ -13,8 +13,12 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import sys
 
 from mpmath.ctx_mp import MPContext
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import pin_scope  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 BASE = "code/P_derivation/"
@@ -32,10 +36,11 @@ def require(condition: bool, message: str) -> None:
 def verify(data: dict, root: Path = ROOT) -> None:
     require(set(data) == {"artifact", "promotion_allowed", "inputs", "comparison_target", "stage5_search", "historical_outputs", "substitution_accounting", "probability_nonidentification", "interpretation"}, "receipt schema changed")
     require(data["artifact"] == "oph.alpha_selection_accounting.v1" and data["promotion_allowed"] is False, "selection evidence promoted")
-    names = {CERT, TRUNK, TARGET, SCORECARD, BASE + "paper_math.py"}
-    require(set(data["inputs"]) == names, "source inventory changed")
+    names = set(pin_scope.bound([CERT, TRUNK, TARGET, SCORECARD, BASE + "paper_math.py"]))
+    pins = pin_scope.bound_pins(data["inputs"])
+    require(isinstance(pins, dict) and set(pins) == names, "source inventory changed")
     for name in names:
-        require(data["inputs"][name] == hashlib.sha256((root / name).read_bytes()).hexdigest(), f"source digest changed: {name}")
+        require(pins[name] == hashlib.sha256((root / name).read_bytes()).hexdigest(), f"source digest changed: {name}")
     cert = json.loads((root / CERT).read_text(encoding="utf-8"))
     trunk = json.loads((root / TRUNK).read_text(encoding="utf-8"))
     target_fixture = json.loads((root / TARGET).read_text(encoding="utf-8"))

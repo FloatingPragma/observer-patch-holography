@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/work/2026-11-16_codex_common_refinement_family/independent.py", line 285, in <module>
-    args=parser.parse_args();print(json.dumps(run(args.folder,args.k),indent=2,sort_keys=True))
-                                              ~~~^^^^^^^^^^^^^^^^^^^^
-  File "/Users/muellerberndt/Projects/oph-meta/openwave/row_01_charge_quantization/work/2026-11-16_codex_common_refinement_family/independent.py", line 163, in run
-    q=[int(x==p) for x in range(3)];aa,bb=pair(q[a],q[b],c,'native');j=q[a]-aa
-                                          ^^^^
-UnboundLocalError: cannot access local variable 'pair' where it is not associated with a value

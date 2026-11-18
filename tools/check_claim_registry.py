@@ -53,7 +53,7 @@ PREMISE_DEPENDENCY_CLASSIFICATIONS = {
 }
 PREMISE_ID = re.compile(r"^PR-[0-9]{2}$")
 PREMISE_DEPENDENCY_PROJECTION_SHA256 = (
-    "fb6f5934d0fb0b7972545f1a56e72abda7d9968f4c17e8892e340bc7e9f96cc9"
+    "53bab787569fab9fdb2cc4e7e210c3226ea7e9f30a6b3f2cfd4954c320b2f3d8"
 )
 
 # Controlled claim classification (issue #512). `status` stays descriptive
@@ -167,9 +167,6 @@ REQUIRED_V3_TOPIC_GATES_BY_CLAIM: dict[str, frozenset[int]] = {
     "OPH-A5-SEAM-CURRENT-EDGE30": frozenset({742}),
     "OPH-MODAL-MAXWELL-FACTORIZATION-BOUNDARY": frozenset({754}),
     "OPH-FINITE-CONSERVATION-WARD-PRECURSOR": frozenset({743}),
-    "OPH-QUARK-REGISTER-CLEBSCH": frozenset({745}),
-    "OPH-KOIDE-CIRCULANT-IDENTITY": frozenset({745}),
-    "OPH-W5-STABILISER-POTENTIAL-BOUNDARY": frozenset({745}),
     "OPH-SM-ROUTE-IDENTIFICATION": frozenset({740}),
     "OPH-Q-N-RESERVE-CANDIDATES": frozenset({742}),
     "OPH-HIER-EW": frozenset({740, 742, 745}),

@@ -1,2 +1,0 @@
-# Clauses
-The literal physical row remains weaker/component. Source counterparts now have two spin-half modes with the same primitive charge, complete local relaxation of the higher branch, and individually neutral outgoing modes. The physical μ/e/ν identities, absolute rest/propagation map, three-family mass operator and full occupation-controlled CAR/Gauss composition remain absent. Finite caps and the ideal controlled limit are distinct. The retained quartet branch has bound survival9/16. No exponential lifetime, SI value or weak chirality follows.

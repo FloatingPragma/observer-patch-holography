@@ -1,1 +1,0 @@
-Independent reviewer initial audit exited1: Applied frame program. Reviewer wrote h*stride==4, but registered programs are (stride,h)=(1,2),(2,4), so h==2*stride. This is a reviewer-only schedule transcription error, not a producer finding. No receipt was created.

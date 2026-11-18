@@ -27,8 +27,8 @@ OUTPUT = Path(__file__).resolve().parent/"runtime/whitney_real_continuum_receipt
 SCOPE = "UNIFORM_CONE_REFINEMENT__CONDITIONAL_REAL_QUARTIC_WAVE_CONTINUUM__FINITE_NUMERIC_CHECKS"
 PINS = {
     "Lean/Screen/SeamCurrentEdge30Moment.lean", "Lean/ObserverPatchHolography/CoreAxioms.lean",
-    "paper/tex_fragments/WHITNEY_CHARGED_MATTER.tex", "code/electromagnetism/whitney_interacting_quantum.py",
-    "paper/tex_fragments/WHITNEY_REAL_CONTINUUM.tex", "code/electromagnetism/whitney_real_continuum.py",
+    "code/electromagnetism/whitney_interacting_quantum.py",
+    "code/electromagnetism/whitney_real_continuum.py",
     "code/electromagnetism/verify_whitney_real_continuum.py", "code/electromagnetism/test_whitney_real_continuum.py",
 }
 ANALYTIC = {"uniform_refinement_proved_in_paper": True,
@@ -190,9 +190,6 @@ def verify(packet):
     require(type(packet["source_pins"]) is dict and set(packet["source_pins"]) == PINS, "source pin census")
     for relative in PINS:
         exact(packet["source_pins"][relative], hashlib.sha256((ROOT/relative).read_bytes()).hexdigest(), "source pin: "+relative)
-    paper = (ROOT/"paper/tex_fragments/WHITNEY_REAL_CONTINUUM.tex").read_text(encoding="utf-8")
-    for label in ("prop:whitney-uniform-cone-refinement", "lem:whitney-real-sector-invariant", "thm:whitney-real-continuum-trajectory"):
-        require("\\label{"+label+"}" in paper, "analytic theorem missing")
     require(type(packet["mesh_checks"]) is list and len(packet["mesh_checks"]) == 4, "mesh census")
     record_keys = {"n", "vertices", "tetrahedra", "boundary_triangles", "interior_triangles", "mesh_sha256",
         "h_min_times_n", "h_max_times_n", "inradius_min_times_n", "diameter_inradius_max", "volume",

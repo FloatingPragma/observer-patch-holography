@@ -1,20 +1,19 @@
 # The OPH paper set
 
-The official executable model is [CCF-LT-2](../model/SPEC.md), the common
-finite matter, field and response construction. Its current native repair law is a calibrated intermediate test; the search for the correct native repair law is ongoing. The papers state its law,
-calculated records, applicable mathematical theorems and physical
-identification conditions. A theorem transfers between constructions only
-through its actual hypotheses. The [dependency map](../model/particle_joint_reconstruction/DEPENDENCIES.md)
-fixes those interfaces, and the [acceptance programme](COMPLETION_PROGRAM.md)
-separates finite checks from physical correspondence.
+The official executable model is [polynomial-sv](../model/polynomial_sv/README.md).
+Its contrast-memory law is the candidate native repair law of the theory, and
+the model reproduces particle stability on its observers' agreed records. The
+papers state the theory around it, the law, what its observers read, the
+applicable mathematical theorems and the physical identification conditions.
+A theorem transfers between constructions only through its actual hypotheses.
 
 ## Main papers
 
 | Paper | Role and scope |
 | --- | --- |
-| [Flagship synthesis](../flagship/from_observer_consensus_to_standard_physics.tex) | Closure, the common executable law, its finite evidence and conditional physical implications. |
-| [Executable observer construction](../paper/executable_observer_construction.tex) | Full native source, signed transport, interactions, electromagnetic field, local-capacity total-energy response, complete instruments and source-specific component proofs. |
-| [Particles and interactions](../paper/deriving_the_particle_zoo_from_observer_consistency.tex) | Native matter representations, common currents, charged/neutral transport and weak channels; calibrated parameters, interacting spectra and physical species attachments are distinguished. |
+| [Flagship synthesis](../flagship/from_observer_consensus_to_standard_physics.tex) | Closure, the executable model, what its observers read, and the effective 3+1D description of their agreed records. |
+| [Executable observer construction](../paper/executable_observer_construction.tex) | "An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records": the polynomial-sv specification, the contrast-memory law, the binding theorem, particle stability on agreed records, bound objects, port response and the unrecovered collar. |
+| [Particles and interactions](../paper/deriving_the_particle_zoo_from_observer_consistency.tex) | Native matter representations, common currents, charged/neutral transport and weak channels, with physical species attachments stated separately. |
 | [Spacetime and Einstein dynamics](../paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex) | Observer geometry and quantitative matched-regional tensor bounds; source, metric, stress, state, clock and refinement hypotheses define their application. |
 | [Observers and records](../paper/observers_are_all_you_need.tex) | Complete instruments, retained references, capacity, entropy and compatible record algebras. |
 | [Consensus protocol](../paper/reality_as_consensus_protocol.tex) | Local agreement, protected observables and conditional normal-form and repair results. |
@@ -27,15 +26,15 @@ The [additional papers](../extra/README.md) contain finite event-algebra,
 normal-form, capacity, coupling, family and pure-gauge results. The
 [cosmology papers](../cosmology/README.md) state their physical source,
 state, scale and comparison assumptions. These results do not establish
-cosmology, a pure Yang–Mills gap, a physical coupling or a measured particle
-spectrum for the common model merely by sharing terminology.
+cosmology, a pure Yang–Mills gap or a physical coupling for the executable
+model merely by sharing terminology.
 
-The common law retains source calibration, complete normal-order constants,
-neutral modes, opposite charges and occupation complements. Its finite
-operator and diagnostic checks are reproduced in [model/ccf_lt2](../model/ccf_lt2/README.md).
-Literal full-native basis columns and complete small-matrix evolution have
-distinct execution scopes. The papers retain that distinction, including
-measurement work and the absence of an arbitrary-state many-body simulation.
+The results of the executable model are reproduced in
+[model/polynomial_sv](../model/polynomial_sv/README.md). Its tests compare
+distributions of admissible observer records; the carrier is hardware of the
+computation and no physical space, and the theory proves that observers who
+inhabit the simulation can describe their experiences as relativistic 3+1D
+continuum spacetimes.
 
 ## Mathematical and physical evidence
 
@@ -47,10 +46,9 @@ calibration do not become independent predictions when quoted in another
 paper.
 
 General quantum, CAR, complete-record and conditional Einstein results are
-reused under their actual hypotheses. Source-dependent vacua, masses,
-propagation, regional stress, geometry and clock comparisons require
-calculations on the common law or an explicit controlled map. The
-[physical scope](../model/PHYSICAL_AUDIT.md) states those boundaries.
+reused under their actual hypotheses. Source-dependent vacua, propagation,
+regional stress, geometry and clock comparisons require calculations on the
+executable model or an explicit controlled map.
 
 ## Reproduction
 
