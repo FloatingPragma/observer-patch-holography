@@ -1,9 +1,10 @@
-"""Adversarial replay checks using isolated files and a synthetic experiment."""
+"""Adversarial replay checks using isolated files and complete saved receipts."""
 from __future__ import annotations
 
 import copy
 import json
 from pathlib import Path
+import re
 import shutil
 import subprocess
 import sys
@@ -236,7 +237,128 @@ def test_allowed_deterministic_pointer_weights_have_numerical_roundoff():
 
 def test_saved_residual_cannot_exceed_its_scientific_gate():
     with pytest.raises(ValueError, match='exceeds its gate'):
-        e.compare({'decode_residual': 2e-12}, {'decode_residual': 1e-15})
+        e.compare({'decode_residual': 2.1e-11}, {'decode_residual': 1.5e-11})
+
+
+@pytest.fixture(scope='module', params=['results.json', 'extended.json'])
+def complete_receipt(request):
+    return e.load_json(Path(__file__).with_name(request.param))
+
+
+def test_complete_saved_receipt_satisfies_its_scientific_domains(complete_receipt):
+    e.compare(complete_receipt, complete_receipt)
+
+
+RECEIPT_MUTATIONS = [
+    ('blank_memory_leakage', 'Scientific field exceeds its gate: .*blank_memory_leakage'),
+    ('complex_hopping', 'Scientific field exceeds its gate: .*complex_hopping_formula_dense_error'),
+    ('stage_balance', 'Source energy/work balance exceeds its gate'),
+    ('stage_continuity', 'Inconsistent saved relation: .*stage_continuity'),
+    ('switch_work', 'Inconsistent saved relation: .*external_driving_work'),
+    ('total_work', 'Inconsistent saved relation: .*total_external_driving_work'),
+    ('maximum_work_residual', 'Inconsistent saved relation: .*largest_source_work_balance_residual'),
+    ('raw_fuel_pointer_link', 'Inconsistent saved relation: .*pointer_probabilities'),
+    ('raw_fuel_domain', 'Raw fuel probability exceeds its gate'),
+    ('clipping_roundoff', 'Inconsistent saved relation: .*largest_probability_roundoff'),
+    ('contrast_weight_norm', 'Contrast normalization exceeds its gate'),
+    ('contrast_normalization', 'Inconsistent saved relation: .*numerical_normalization'),
+    ('contrast_norm_error', 'Inconsistent saved relation: .*state_norm_error'),
+    ('contrast_weight_law', 'Inconsistent saved relation: .*probabilities'),
+    ('contrast_coarse_probability', 'Inconsistent saved relation: .*no_adjacent_pair_probability'),
+]
+
+
+def mutate_scientific_receipt(receipt, mutation):
+    """Break a producer gate or a linked equality within replay tolerances."""
+    changed = copy.deepcopy(receipt)
+    scientific = changed['scientific']
+    cases = scientific['instruments']['cases']
+    ledger = cases[0]['records'][0]['source_energy_ledger']
+    contrast = scientific['contrast_alternative']['cell'][0]['records'][1]
+    if mutation == 'blank_memory_leakage':
+        scientific['contrast_alternative']['seam']['blank_memory_leakage'] = 1e-11
+    elif mutation == 'complex_hopping':
+        scientific['compiler']['compiled_law']['complex_hopping_formula_dense_error'] = 5e-13
+    elif mutation == 'stage_balance':
+        # The unchanged reported residual cannot certify these raw energies.
+        ledger['stages'][0]['source_energy_before'] += 1e-9
+    elif mutation == 'stage_continuity':
+        # Each stage's own energy difference and work remain consistent.
+        ledger['stages'][1]['source_energy_before'] += 1e-9
+        ledger['stages'][1]['source_energy_after'] += 1e-9
+    elif mutation == 'switch_work':
+        ledger['stages'][0]['switch_off_work'] += 5e-12
+    elif mutation == 'total_work':
+        ledger['total_external_driving_work'] += 5e-12
+    elif mutation == 'maximum_work_residual':
+        cases[0]['checks']['largest_source_work_balance_residual'] += 5e-12
+    elif mutation == 'raw_fuel_pointer_link':
+        cases[0]['records'][0]['raw_final_fuel_probability'] += 5e-12
+    elif mutation == 'raw_fuel_domain':
+        circulation = next(case for case in cases if case['target'] == 'circulation')
+        circulation['records'][1]['raw_final_fuel_probability'] = 1 + 3e-11
+    elif mutation == 'clipping_roundoff':
+        circulation = next(case for case in cases if case['target'] == 'circulation')
+        # The clipped pointer law remains valid; its clipping allowance does not.
+        circulation['records'][1]['raw_final_fuel_probability'] = 1 + 1e-11
+    elif mutation == 'contrast_weight_norm':
+        contrast['unnormalized_weights'][1] += 5e-12
+    elif mutation == 'contrast_normalization':
+        contrast['numerical_normalization'] += 5e-13
+    elif mutation == 'contrast_norm_error':
+        contrast['state_norm_error'] += 5e-13
+    elif mutation == 'contrast_weight_law':
+        law = contrast['probabilities']
+        first, second = sorted(range(len(law)), key=law.__getitem__, reverse=True)[:2]
+        law[first] -= 5e-12
+        law[second] += 5e-12
+    elif mutation == 'contrast_coarse_probability':
+        contrast['no_adjacent_pair_probability'] += 5e-12
+    else:
+        raise ValueError('Unknown test mutation: ' + mutation)
+    return changed
+
+
+@pytest.mark.parametrize('mutation,message', RECEIPT_MUTATIONS)
+def test_saved_scientific_relations_cannot_hide_within_replay_tolerance(
+        complete_receipt, mutation, message):
+    changed = mutate_scientific_receipt(complete_receipt, mutation)
+    # A generated invalid result also fails self-comparison before recording.
+    for saved, actual in ((changed, complete_receipt), (complete_receipt, changed),
+                          (changed, changed)):
+        with pytest.raises(ValueError, match=message):
+            e.compare(saved, actual)
+
+
+@pytest.mark.parametrize('mutation,message', [RECEIPT_MUTATIONS[index] for index in (0, 1, 2, 9, 14)])
+def test_optimized_cli_checks_saved_scientific_relations(
+        replay_fixture, complete_receipt, mutation, message):
+    f = replay_fixture
+    actual = copy.deepcopy(complete_receipt)
+    actual['source_sha256'] = e.source_pins()
+    expected_path = f['root'] / 'expected.json'
+    write_json(expected_path, actual)
+    write_json(f['receipt'], mutate_scientific_receipt(actual, mutation))
+    arguments = ['--verify', str(f['receipt'])]
+    if actual['extended']:
+        arguments.append('--extended')
+    script = (
+        'from pathlib import Path\n'
+        'from model.np_scalar import experiment as e\n'
+        f'e.ROOT=Path({str(f["root"])!r})\n'
+        f'e.HERE=Path({str(f["here"])!r})\n'
+        f'e.scientific_result=lambda extended=False: e.load_json({str(expected_path)!r})\n'
+        'try:\n'
+        f'    e.main({arguments!r})\n'
+        'except ValueError as error:\n'
+        '    print(error)\n'
+        '    raise SystemExit(7)\n'
+        'raise SystemExit(0)\n'
+    )
+    process = subprocess.run([sys.executable, '-B', '-O', '-c', script], cwd=f['original_root'],
+                             text=True, capture_output=True, timeout=30)
+    assert process.returncode == 7, process.stdout + process.stderr
+    assert re.search(message, process.stdout), process.stdout + process.stderr
 
 
 def test_optimized_cli_keeps_replay_guards(replay_fixture):

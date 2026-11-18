@@ -20,6 +20,161 @@ from .compiler import require
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 
+# Receipt gates match instruments.TOL and the stricter compiler, fusion and
+# contrast checks. They are independent of the backend replay allowance.
+INSTRUMENT_TOL = 2e-11
+INSTRUMENT_ERRORS = frozenset((
+    'decode_residual', 'decoded_matrix_error', 'pulse_unitarity_error',
+    'parity_reference_error', 'source_projector_error', 'frame_isometry_error',
+    'largest_circulation_occupation_error', 'largest_probability_roundoff',
+    'work_balance_residual', 'largest_source_work_balance_residual'))
+STRICT_ERRORS = frozenset((
+    'write_isometry_error', 'full_involution_error', 'blank_memory_leakage',
+    'full_99_state_seam_error', 'full_99_reversed_seam_error', 'state_norm_error',
+    'selected_code_Gram_error', 'collective_SO3_rotation_error',
+    'logical_Pauli_involution_and_anticommutation_error',
+    'retained_colored_complement_amplitude_error'))
+# Additional fusion diagnostics use the same 1e-12 receipt ceiling.
+FUSION_DIAGNOSTICS = frozenset((
+    'local_Clebsch_transform_full_unitarity_error', 'code_output_vector_error',
+    'passive_transported_chart_amplitude_error', 'physical_pair_transform_row_isometry_error'))
+
+
+def _finite(value):
+    try:
+        return type(value) in (int, float) and math.isfinite(value)
+    except OverflowError:
+        return False
+
+
+def _relation(value, expected, path, *operands):
+    """Check arithmetic within one receipt, allowing only summation roundoff.
+
+    This is not a second backend comparison. The ULP allowance accounts for
+    subtraction of source energies and NumPy versus Python reductions, and is
+    capped below the instrument gate even for large operands.
+    """
+    require(all(_finite(x) for x in (value, expected, *operands)),
+            'Invalid numerical relation: '+path)
+    tolerance = min(INSTRUMENT_TOL / 16,
+                    16 * max(math.ulp(float(x)) for x in (1, value, expected, *operands)))
+    require(abs(value-expected) <= tolerance, 'Inconsistent saved relation: '+path)
+
+
+def _receipt_fields(record, path):
+    """Check producer gates and linked fields of the fixed receipt schema."""
+    for key, value in record.items():
+        field = path+'.'+key
+        if key in ('probability', 'pointer_probability', 'code_probability', 'dirty_probability',
+                   'success_probability_after_feedforward', 'no_adjacent_pair_probability',
+                   'largest_pointer_probability_difference'):
+            require(_finite(value) and 0 <= value <= 1, 'Invalid scalar probability: '+field)
+        if key in INSTRUMENT_ERRORS:
+            require(_finite(value) and 0 <= value <= INSTRUMENT_TOL,
+                    'Scientific field exceeds its gate: '+field)
+        elif key in STRICT_ERRORS | FUSION_DIAGNOSTICS or key == 'complex_hopping_formula_dense_error':
+            bound = 1e-13 if key == 'complex_hopping_formula_dense_error' else 1e-12
+            require(_finite(value) and 0 <= value < bound,
+                    'Scientific field exceeds its gate: '+field)
+        elif key == 'source_particle_number_error':
+            require(_finite(value) and 0 <= value <= 2*math.sqrt(150)*INSTRUMENT_TOL,
+                    'Scientific field exceeds its gate: '+field)
+        elif key == 'source_particle_number_tolerance':
+            require(_finite(value) and value == 2*math.sqrt(150)*INSTRUMENT_TOL,
+                    'Changed particle-number gate: '+field)
+        elif key == 'full_78_state_operator_error':
+            require(_finite(value) and value == 0, 'Scientific field exceeds its gate: '+field)
+        elif key == 'code_errors':
+            require(type(value) is list and len(value) == 3 and
+                    all(_finite(v) and 0 <= v < 1e-12 for v in value),
+                    'Scientific field exceeds its gate: '+field)
+        elif key in ('largest_independent_owner_rotation_change',
+                     'load_only_orientation_control_error', 'largest_pointer_probability_difference'):
+            lower = {'largest_independent_owner_rotation_change': .1,
+                     'load_only_orientation_control_error': .5,
+                     'largest_pointer_probability_difference': .01}[key]
+            require(_finite(value) and value > lower, 'Scientific field exceeds its gate: '+field)
+        elif key == 'all_vacuum_codeword_amplitude_real':
+            require(_finite(value) and abs(value-1) < 1e-12,
+                    'Scientific field exceeds its gate: '+field)
+        elif key == 'raw_single_weak_owner_positive_control':
+            require(_finite(value) and value == 1, 'Scientific field exceeds its gate: '+field)
+    if 'steps_per_star' in record and record['steps_per_star'] == 256:
+        require(_finite(record['distance_from_exact_sea']) and
+                0 <= record['distance_from_exact_sea'] < .0058,
+                'Scientific field exceeds its gate: '+path+'.distance_from_exact_sea')
+    if 'source_energy_before' in record and 'source_energy_after' in record:
+        before, after = record['source_energy_before'], record['source_energy_after']
+        work = record['external_driving_work']
+        require(all(_finite(v) for v in (before, after, work)), 'Invalid source energy ledger: '+path)
+        change = after-before
+        residual = abs(change-work)
+        require(residual <= INSTRUMENT_TOL, 'Source energy/work balance exceeds its gate: '+path)
+        _relation(record['source_energy_change'], change, path+'.source_energy_change', before, after)
+        _relation(record['work_balance_residual'], residual, path+'.work_balance_residual', before, after)
+        if record['stage'] in ('pulse_1', 'pulse_2'):
+            _relation(work, record['switch_on_work']+record['switch_off_work'],
+                      path+'.external_driving_work', record['switch_on_work'], record['switch_off_work'])
+        else:
+            require(work == 0, 'Non-pulse source work must be zero: '+path)
+    if 'net_source_energy_change' in record:
+        stages = record['stages']
+        require([s['stage'] for s in stages] ==
+                ['pulse_1', 'free_interval', 'fuel_phase', 'pulse_2', 'terminal_pointer'],
+                'Incomplete energy ledger: '+path)
+        for previous, following in zip(stages, stages[1:]):
+            _relation(following['source_energy_before'], previous['source_energy_after'],
+                      path+'.stage_continuity')
+        before, after = stages[0]['source_energy_before'], stages[-1]['source_energy_after']
+        change = after-before
+        work = sum(s['external_driving_work'] for s in stages)
+        residual = abs(change-work)
+        require(residual <= INSTRUMENT_TOL, 'Source energy/work balance exceeds its gate: '+path)
+        _relation(record['net_source_energy_change'], change, path+'.net_source_energy_change', before, after)
+        _relation(record['total_external_driving_work'], work, path+'.total_external_driving_work')
+        _relation(record['work_balance_residual'], residual, path+'.work_balance_residual', before, after)
+    if 'raw_final_fuel_probability' in record:
+        raw = record['raw_final_fuel_probability']
+        require(_finite(raw) and -INSTRUMENT_TOL <= raw <= 1+INSTRUMENT_TOL,
+                'Raw fuel probability exceeds its gate: '+path)
+        law = record['pointer_probabilities']
+        p = min(1., max(0., raw))
+        require(len(law) == 4 and law[1] == law[2] == 0, 'Forbidden pointer support: '+path)
+        for value, expected in zip(law, (1-p, 0, 0, p)):
+            _relation(value, expected, path+'.pointer_probabilities')
+    if 'checks' in record and 'records' in record and 'target' in record:
+        records = record['records']
+        roundoff = max(abs(min(1., max(0., r['raw_final_fuel_probability']))-
+                           r['raw_final_fuel_probability']) for r in records)
+        residual = max(v['work_balance_residual'] for r in records
+                       for v in [r['source_energy_ledger'], *r['source_energy_ledger']['stages']])
+        _relation(record['checks']['largest_probability_roundoff'], roundoff, path+'.largest_probability_roundoff')
+        _relation(record['checks']['largest_source_work_balance_residual'], residual,
+                  path+'.largest_source_work_balance_residual')
+    if 'unnormalized_weights' in record:
+        weights = record['unnormalized_weights']
+        law = record['probabilities']
+        require(type(weights) is list and len(weights) == len(law) and
+                all(_finite(v) and v >= 0 for v in weights), 'Invalid contrast weights: '+path)
+        total = sum(weights)
+        require(abs(total-1) < 1e-12 and _finite(record['numerical_normalization']) and
+                abs(record['numerical_normalization']-1) < 1e-12,
+                'Contrast normalization exceeds its gate: '+path)
+        _relation(record['numerical_normalization'], total, path+'.numerical_normalization')
+        _relation(record['state_norm_error'], abs(record['numerical_normalization']-1), path+'.state_norm_error')
+        for weight, probability in zip(weights, law):
+            _relation(probability, weight/record['numerical_normalization'], path+'.probabilities')
+    if 'outcomes' in record and 'kappa' in record and 'records' in record:
+        edges = {tuple(map(int, edge)) for edge in load_source()['edges']}
+        for r in record['records']:
+            require(len(r['probabilities']) == len(record['outcomes']), 'Incomplete contrast law: '+path)
+            p = sum(prob for outcome, prob in zip(record['outcomes'], r['probabilities'])
+                    if tuple(outcome) not in edges)
+            _relation(r['no_adjacent_pair_probability'], p, path+'.no_adjacent_pair_probability')
+        peak = max(r['no_adjacent_pair_probability'] for r in record['records'])
+        require(peak <= .4 if record['kappa'] == 8 else peak > .4,
+                'Contrast control exceeds its gate: '+path)
+
 
 def source_pins():
     paths = [p.relative_to(ROOT).as_posix() for p in HERE.glob('*.py')]
@@ -52,11 +207,13 @@ def compare(saved, actual, path='result', exact_zero=True):
         require(type(saved) is dict and saved.keys() == actual.keys(), 'Different keys: '+path)
         for k in actual:
             compare(saved[k], actual[k], path+'.'+k)
+        _receipt_fields(saved, path)
+        _receipt_fields(actual, path)
     elif type(actual) is list:
         require(type(saved) is list and len(saved) == len(actual), 'Different sequence: '+path)
         if path.endswith(('probabilities', 'complete_basis_law')):
             for law in (saved, actual):
-                require(all(type(p) in (float, int) and math.isfinite(p) and 0 <= p <= 1
+                require(all(_finite(p) and 0 <= p <= 1
                             for p in law) and abs(sum(law)-1) < 1e-12,
                         'Invalid probability law: '+path)
         for i, (a, b) in enumerate(zip(saved, actual)):
@@ -67,7 +224,7 @@ def compare(saved, actual, path='result', exact_zero=True):
                               len(actual) == 4 and i in (0, 3))
             compare(a, b, path+f'[{i}]', exact_zero=structural)
     elif type(actual) is float:
-        require(type(saved) in (float, int) and math.isfinite(saved) and math.isfinite(actual),
+        require(_finite(saved) and _finite(actual),
                 'Invalid numerical value: '+path)
         # Forbidden outcome support is exact. Calculated differences of energies
         # can be zero in one backend and roundoff in another.
@@ -76,8 +233,6 @@ def compare(saved, actual, path='result', exact_zero=True):
         require(saved == 0 if probability and exact_zero and actual == 0 else
                 abs(saved-actual) <= 2e-11*(1+abs(actual)),
                 'Numerical replay differs: '+path)
-        if path.endswith(('error', 'residual')) and actual < 1e-12:
-            require(0 <= saved < 1e-12, 'Saved residual exceeds its gate: '+path)
     else:
         require(type(saved) is type(actual) and saved == actual, 'Changed value: '+path)
 
