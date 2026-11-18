@@ -81,6 +81,16 @@ et la spécification exécutable ; le
 [guide des termes](docs/INTERPRETATION_AND_TERMS.md) explique la vision
 intemporelle et les horloges qu’elle contient.
 
+**Les observateurs viennent en premier. Ce qu’OPH compare à la nature est ce
+que les observateurs lisent dans leurs propres registres, et ce sur quoi ils
+s’accordent là où leurs registres se recouvrent. La mesure, le consensus et la
+synchronisation des horloges viennent après les registres. Aucun champ
+objectif et aucune horloge globale ne se tiennent derrière eux : les champs,
+les particules, l’espace-temps et un temps commun sont des descriptions
+effectives que les observateurs conviennent d’employer. L’état du programme et
+son paramètre de temps calculent ces lectures. Ils ne forment aucun second
+univers à côté d’elles.**
+
 ## L’hypothèse exécutable
 
 Le [modèle exécutable officiel](model/SPEC.md) réunit la matière native

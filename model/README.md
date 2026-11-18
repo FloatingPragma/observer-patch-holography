@@ -10,6 +10,13 @@ Its current native repair law is a calibrated intermediate test. The correct nat
 simple law that governs the interactions of observers in the early Universe, is missing. Identifying it
 is the subject of heavy ongoing research, and every physical test of the model is a test of that law.
 
+**Observers come first. What the model predicts, and what is compared with nature, is what its observers
+read from their own records and what they agree on where their records overlap. Measurement, consensus and
+the synchronizing of clocks come after the records. No objective field and no global clock stand behind
+them: fields, particles, spacetime and a common time are effective descriptions that observers agree to
+use. The state vector, the time parameter of the Hamiltonian and the schedule compute those readouts, and
+no observer reads them. They are no second universe beside the records.**
+
 The [specification](SPEC.md) and [design](DESIGN.md) fix the full law, source data, parameters,
 preparations and execution scope. The [executable package](ccf_lt2/README.md)
 contains its generator and calculations. The
