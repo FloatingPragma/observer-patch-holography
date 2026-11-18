@@ -139,7 +139,8 @@ def describe(mats):
 
 def one_load():
     car, A, bands, perms, proper = cell_setup()
-    assert len(perms) == 120 and len(proper) == 60
+    if len(perms) != 120 or len(proper) != 60:
+        raise ValueError('cell symmetry group has wrong automorphism counts')
     V3, V3p = bands['3'], bands["3'"]
     H1 = (5 * np.eye(12) - A) / 2
     top = (5 + S5) / 2

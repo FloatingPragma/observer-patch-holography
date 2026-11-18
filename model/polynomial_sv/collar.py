@@ -74,7 +74,8 @@ def build(loads, kappa, without_e0=False):
                 s = list(c)
                 s[a0], s[b0] = src2
                 H[idx(tuple(s), m2), idx(c, m)] += H_EXCHANGE[entry, col] + kappa * H_CONTRAST[entry, col]
-    assert np.allclose(H, H.T)
+    if not np.allclose(H, H.T):
+        raise ValueError('collar Hamiltonian is not symmetric')
     return cf, ci, H
 
 

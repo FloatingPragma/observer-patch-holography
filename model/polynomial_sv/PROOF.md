@@ -32,7 +32,7 @@ $$H = \begin{pmatrix} A & B^* \\ B & D \end{pmatrix},\qquad A = PHP,\ B = QHP,\ 
 
 ## 2. The three inequalities
 
-**Theorem 1.** On every federation of complete cells with a matching of external seams, and every real $\kappa$,
+**Theorem 1.** On every federation of complete cells with a matching of external seams, and every $\kappa \ge 0$,
 
 $$PHP \le (10\kappa + 6)\,P,\qquad QHQ \ge 12\kappa\,Q,\qquad \|QHP\| \le \sqrt{10}.$$
 
@@ -48,6 +48,8 @@ matrix, so the off-diagonal part of $PKP$, which is $-\tfrac12$ times that adjac
 $PKP \le 6P$ and $A \le (10\kappa + 6)P$.
 
 *Second inequality.* $QKQ \ge 0$ as a compression of $K \ge 0$, and $QCQ \ge 12\,Q$ by the table. Hence $D \ge 12\kappa Q$.
+The condition $\kappa \ge 0$ is needed here: the uniform doubled-load state lies in $Q$ and has energy
+$24\kappa$, which is below $12\kappa$ for negative $\kappa$.
 
 *Third inequality.* $B$ has entries $-1/2$. Its column at the pair on $(a, b)$ has one entry for every swap that moves
 a load of the seam to a neighbour that leaves the two loads apart: at most $(d_a - 1 - m) + (d_b - 1 - m)$ entries
