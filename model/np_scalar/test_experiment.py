@@ -224,6 +224,16 @@ def test_energy_difference_roundoff_is_not_a_forbidden_outcome():
         e.compare({'source_energy_change': 1e-5}, {'source_energy_change': 0.0})
 
 
+def test_allowed_deterministic_pointer_weights_have_numerical_roundoff():
+    actual = {'pointer_probabilities': [0.0, 0.0, 0.0, 1.0]}
+    e.compare({'pointer_probabilities': [1e-15, 0.0, 0.0, 1.0-1e-15]}, actual)
+    for index in (1, 2):
+        invalid = [0.0, 0.0, 0.0, 1.0-1e-15]
+        invalid[index] = 1e-15
+        with pytest.raises(ValueError):
+            e.compare({'pointer_probabilities': invalid}, actual)
+
+
 def test_saved_residual_cannot_exceed_its_scientific_gate():
     with pytest.raises(ValueError, match='exceeds its gate'):
         e.compare({'decode_residual': 2e-12}, {'decode_residual': 1e-15})

@@ -47,7 +47,7 @@ def load_json(path):
                       parse_constant=lambda x: (_ for _ in ()).throw(ValueError('Nonfinite JSON: '+x)))
 
 
-def compare(saved, actual, path='result'):
+def compare(saved, actual, path='result', exact_zero=True):
     if type(actual) is dict:
         require(type(saved) is dict and saved.keys() == actual.keys(), 'Different keys: '+path)
         for k in actual:
@@ -60,7 +60,12 @@ def compare(saved, actual, path='result'):
                             for p in law) and abs(sum(law)-1) < 1e-12,
                         'Invalid probability law: '+path)
         for i, (a, b) in enumerate(zip(saved, actual)):
-            compare(a, b, path+f'[{i}]')
+            # For the blank two-pointer instrument only 10 and 01 are
+            # forbidden. A valid 00 or 11 weight can round to zero without
+            # changing its membership in the allowed outcome support.
+            structural = not (path.endswith('pointer_probabilities') and
+                              len(actual) == 4 and i in (0, 3))
+            compare(a, b, path+f'[{i}]', exact_zero=structural)
     elif type(actual) is float:
         require(type(saved) in (float, int) and math.isfinite(saved) and math.isfinite(actual),
                 'Invalid numerical value: '+path)
@@ -68,7 +73,7 @@ def compare(saved, actual, path='result'):
         # can be zero in one backend and roundoff in another.
         probability = any(key+'[' in path for key in
                           ('probabilities', 'complete_basis_law'))
-        require(saved == 0 if probability and actual == 0 else
+        require(saved == 0 if probability and exact_zero and actual == 0 else
                 abs(saved-actual) <= 2e-11*(1+abs(actual)),
                 'Numerical replay differs: '+path)
         if path.endswith(('error', 'residual')) and actual < 1e-12:
