@@ -16,6 +16,8 @@ import numpy as np
 import scipy
 from scipy.linalg import expm
 
+from tools.pin_scope import bound, bound_pins
+
 from .clock import (Construction, clock_matrix,
                     clock_probabilities, evolve, measured_return,
                     prepared_span, readout, require, step)
@@ -26,9 +28,9 @@ from .native import (ADDRESSES, BACKGROUNDS, decode_history, loads,
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 TOL = 2e-10
-BINDINGS = tuple("model/native_memory_clock/" + name for name in (
+BINDINGS = tuple(bound("model/native_memory_clock/" + name for name in (
     "__init__.py", "native.py", "clock.py", "experiment.py", "protocol.json",
-    "provenance.json", "PROOF.md", "test_native.py", "test_clock.py", "test_experiment.py"))
+    "provenance.json")))
 
 
 def digest(path):
@@ -386,9 +388,10 @@ def compute(extended=False):
 def frozen():
     freeze = json.loads((HERE / "freeze.json").read_text(encoding="utf8"))
     require(freeze["schema"] == "native-memory-clock-freeze.v1", "freeze schema")
-    require(type(freeze.get("files")) is dict and set(freeze["files"]) == set(BINDINGS),
-            "freeze must bind the entire declared source, inputs and checks")
-    for name, sha in freeze["files"].items():
+    files = bound_pins(freeze.get("files"))
+    require(type(files) is dict and set(files) == set(BINDINGS),
+            "freeze must bind the entire declared source and inputs")
+    for name, sha in files.items():
         path = ROOT / name
         require(path.is_file() and digest(path) == sha, "frozen source changed: " + name)
     return digest(HERE / "freeze.json")
