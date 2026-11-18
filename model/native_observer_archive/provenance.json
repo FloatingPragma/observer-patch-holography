@@ -1,0 +1,58 @@
+{
+  "schema": "native-observer-archive-provenance.v1",
+  "construction": "OPH-NOA-1",
+  "revisions": {
+    "FloatingPragma/observer-patch-holography_main": "0a50df45164c7dcddaf9547a4c62936925839986",
+    "OPH-NMR-1_audited_parent": "1202d2dfaf3c0acc6dba25b912f62e59bf14d80d",
+    "muellerberndt/openwave_main": "9258e5e21f068c9bd627b1c948aaece45daace0b",
+    "muellerberndt/openwave_PR48": "d7e7172100524c4842f574eadc02db29ae983ba1",
+    "PR48_native_source_mapping": "0c738545b10b655c72cf2f877ec55b983592f535",
+    "openwave-labs/openwave_main": "e988fc8e3552ce30438ad9a31354607909a5618f"
+  },
+  "native_source": {
+    "implementation": "model/native_memory_clock/native.py",
+    "primary_byte_and_AST_bindings": "model/native_memory_clock/provenance.json",
+    "proof": "model/native_memory_clock/PROOF.md",
+    "map": "Both event gates call the unchanged total forward/inverse permutation. Blank old-bit memory gives the exact native successor, including no-operation. Both old bits remain on the carrier.",
+    "source_update_scope": "PR48 d7e7172 adds spectral corroboration and resource qualification; native rule, source and join bytes match the mapped 0c738545 revision."
+  },
+  "supplied_choices": [
+    "five data patches on a 4096-site one-excitation clock rail with uniform coupling 1/2",
+    "compact binomial-amplitude packet of order64 and offset2048, positive velocity",
+    "source preparation and fresh blank finite memories",
+    "uniform coherent first address; deterministic second address zero before feedback",
+    "observer A copies the updated first-address bit and publishes a validity flag",
+    "neighboring courier swaps; observer B copies the received two-bit record",
+    "B's valid value bit translates the second address by six before the second native event",
+    "terminal pointer-only instrument or separate complete computational diagnostic"
+  ],
+  "connections": [
+    {
+      "component": "model/native_memory_clock/PROOF.md",
+      "hypotheses_checked": "total dirty-data unitary gates and both adjoints; complete prepared histories and retained address/old-bit records",
+      "conclusion": "exact event-source map and unitary history gauge",
+      "not_transferred": "engineered transfer couplings, binomial clock-position law, exact pi-period return"
+    },
+    {
+      "component": "model/native_observer_archive/PROOF.md",
+      "hypotheses_checked": "uniform adjacent clock edges; compact packet before all program gates; exact moments; finite-boundary tail; actual valid pointers and complete adaptive instrument",
+      "conclusion": "uniform finite readiness and arbitrary-reference completed-channel error bound",
+      "not_transferred": "permanent records, proper time, arbitrary repeated outside measurements, particle masses or a continuum limit"
+    }
+  ],
+  "comparison_domains": {
+    "CCF-LT-2": "preserved calibrated benchmark; no source-equivalence or physical conclusion transferred",
+    "reference_observation": "supplied faithful-reference Petz tower, not this detector implementation",
+    "openwave_repeated_native_clock": "different charged Fock source and calibrated masses, not this address-bit source",
+    "OpenWave": "evidence-only OPH implementation; no candidate pin, physical row award or official submission"
+  },
+  "scope": {
+    "source_energy": "Hamiltonian expectation is the clock/program construction energy; it is not an identified physical mass or the native load cost",
+    "time": "dimensionless Hamiltonian parameter and internal record readiness; no laboratory normalization",
+    "refinement": "one finite construction and analytic finite-resource family; no physical refinement theorem",
+    "preparation_cost": "supplied packet/source/memory service, not inferred free from its zero mean Hamiltonian",
+    "original_separated_pair_anomaly": "unresolved in its own construction domain",
+    "empirical_calibration_inputs": [],
+    "physical_rows_validated": []
+  }
+}

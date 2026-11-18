@@ -1,0 +1,48 @@
+{
+  "schema": "native-observer-archive-protocol.v1",
+  "construction": "OPH-NOA-1",
+  "ancestry": "OPH-NMR-1 exact native event gates; distinct uniform clock, observer apparatus, preparation and adaptive second address",
+  "rail": {"sites": 4096, "offset": 2048, "order": 64},
+  "window": [256, 512],
+  "read_times": [0, 256, 384, 512, 5120],
+  "packet_directions": [1, -1],
+  "sources": [0, 1, 85],
+  "backgrounds": [[0, 0, 0, 0], [1, 0, 0, 0]],
+  "variants": ["native", "uphill", "no_communication", "no_feedback", "no_publish"],
+  "first_address_preparation": "uniform coherent twelve-state address",
+  "second_address_preparation": 0,
+  "source_preparation": "declared basis words; separate complex source/reference composition witness",
+  "record_format": "lossless factorization: every clock probability and all twelve complete register histories at all five program prefixes",
+  "instrument": "complete computational diagnostic; public pointer-only instrument retains private source, archive and quantum reference",
+  "literal_check": {"sites": 48, "offset": 8, "order": 4, "time": 24},
+  "extended_literal_check": {"sites": 4096, "offset": 2048, "order": 64, "time": 384, "source": 85},
+  "gates": {
+    "floating_replay_absolute": 2e-10,
+    "aggregate_probability_l1": 2e-10,
+    "literal_vector_l2": 2e-10,
+    "analytic_interval_failure_maximum": "1/1000",
+    "native_uphill_source_tv_minimum_on_source85_background0": "1/2",
+    "feedback_source_tv_minimum_on_source85_background0": "1/4",
+    "communication_off_ready_probability": 0,
+    "publish_off_ready_probability": 0,
+    "reversed_packet_ready_probability_at_256_maximum": 0.01,
+    "late_ready_probability_at_5120_maximum": 0.5
+  },
+  "prior_exposure": {
+    "empirical_mass_alpha_G_values_known": true,
+    "used_to_select_construction": false,
+    "exploration": "Exact event enumeration identified source85 as a feedback and competing-law witness. Packet and gate tests were exploratory before this freeze. Confirmation is implementation replay and proof verification, not a prospective physical prediction."
+  },
+  "empirical_calibration_inputs": [],
+  "physical_rows_validated": [],
+  "falsifiers": [
+    "a full literal Hamiltonian column leaves the purported reducing span or lacks its adjoint",
+    "a retained actual register differs from the independent native-event oracle",
+    "invalid blank observer pointers count as successful agreement",
+    "feedback changes only a label and not the later source law",
+    "communication-off leaves a valid receiver record",
+    "the exact analytic interval bound exceeds 1/1000",
+    "source/reference coherence is lost inside one public pointer outcome",
+    "a numerical replay or complete probability law exceeds its frozen residual gate"
+  ]
+}

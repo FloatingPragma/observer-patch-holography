@@ -67,3 +67,8 @@ experimental address-bit construction with a local autonomous event clock.
 It supplies complete finite native histories, explicit memory resources and
 reversible return dynamics. It has no source-equivalence or physical-particle
 transfer to CCF-LT-2.
+
+The [autonomous observer program](native_observer_archive/README.md) embeds
+record copying, communication and native feedback in that event source.
+A uniform clock rail supplies a proved finite readiness interval while
+retaining unfinished outcomes, private quantum references and all memory.
