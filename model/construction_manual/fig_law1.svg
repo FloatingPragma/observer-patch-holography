@@ -48,7 +48,7 @@
 <circle cx="1052.0" cy="2568.0" r="16.0" fill="#ffffff" stroke="#0969da" stroke-width="2.00"/>
 <text xml:space="preserve" x="983.0" y="2614.0" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#59636e" text-anchor="middle" font-weight="normal">two loads on one port</text>
 <text xml:space="preserve" x="983.0" y="2638.0" font-family="Menlo, Consolas, DejaVu Sans Mono, monospace" font-size="17" fill="#cf222e" text-anchor="middle" font-weight="bold">24 κ</text>
-<text xml:space="preserve" x="70.0" y="2678.0" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1f2328" text-anchor="start" font-weight="normal">In the total-two-load sector, the lower adjacent-pair energy supports the persistence bound below.</text>
+<text xml:space="preserve" x="70.0" y="2678.0" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1f2328" text-anchor="start" font-weight="normal">Two loads side by side pay less than two loads apart: they stay together and move as one object: a particle.</text>
 <text xml:space="preserve" x="70.0" y="2722.0" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#1f2328" text-anchor="start" font-weight="bold">The same law as a program on one seam: the echo</text>
 <rect x="70.0" y="2740.0" width="322.0" height="132.0" rx="10.0" fill="#ffffff" stroke="#1a7f37" stroke-width="1.80"/>
 <text xml:space="preserve" x="84.0" y="2768.0" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#1a7f37" text-anchor="start" font-weight="bold">1  write</text>
@@ -74,7 +74,7 @@
 <text xml:space="preserve" x="70.0" y="3012.0" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#1f2328" text-anchor="start" font-weight="bold">What the law keeps, exactly</text>
 <text xml:space="preserve" x="70.0" y="3040.0" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1f2328" text-anchor="start" font-weight="normal">the number of loads, and how many ports hold one load and how many hold two</text>
 <text xml:space="preserve" x="70.0" y="3064.0" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1f2328" text-anchor="start" font-weight="normal">for every seam: whether its memory is blank, and the size |x| of a record it holds</text>
-<text xml:space="preserve" x="70.0" y="3102.0" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#1f2328" text-anchor="start" font-weight="bold">Finite statements and their domains</text>
+<text xml:space="preserve" x="70.0" y="3102.0" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#1f2328" text-anchor="start" font-weight="bold">What it gives</text>
 <line x1="117.0" y1="3150.0" x2="133.0" y2="3150.0" stroke="#0969da" stroke-width="5.00" stroke-linecap="round"/>
 <circle cx="100.0" cy="3150.0" r="17.0" fill="#ffffff" stroke="#0969da" stroke-width="2.20"/>
 <circle cx="100.0" cy="3150.0" r="7.5" fill="#1f2328" stroke="#1f2328" stroke-width="1.50"/>
@@ -84,16 +84,15 @@
 <line x1="217.0" y1="3150.0" x2="233.0" y2="3150.0" stroke="#6e7781" stroke-width="2.40" stroke-linecap="round"/>
 <circle cx="200.0" cy="3150.0" r="17.0" fill="#ffffff" stroke="#0969da" stroke-width="2.20"/>
 <circle cx="250.0" cy="3150.0" r="17.0" fill="#ffffff" stroke="#0969da" stroke-width="2.20"/>
-<text xml:space="preserve" x="290.0" y="3136.0" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#1f2328" text-anchor="start" font-weight="normal">κ &gt; 3; blank memories; initially adjacent total-two-load states; d₀ = 6.</text>
-<text xml:space="preserve" x="290.0" y="3157.0" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#1f2328" text-anchor="start" font-weight="normal">Complete cells with external port matching: P(pair; t) ≥ 1 − 40/(2κ − 6)²</text>
-<text xml:space="preserve" x="290.0" y="3178.0" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#1f2328" text-anchor="start" font-weight="normal">for free evolution at every size and time. Finite emitters need their own error.</text>
+<text xml:space="preserve" x="290.0" y="3142.0" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1f2328" text-anchor="start" font-weight="normal">Particle stability: a pair written on a seam is read as a pair with probability</text>
+<text xml:space="preserve" x="290.0" y="3165.0" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1f2328" text-anchor="start" font-weight="normal">at least 1 − 40/(2κ − 6)² for κ &gt; 3, at every size of the carrier and at every time.</text>
 <line x1="117.0" y1="3228.0" x2="183.0" y2="3228.0" stroke="#6e7781" stroke-width="2.40" stroke-linecap="round"/>
 <circle cx="100.0" cy="3228.0" r="17.0" fill="#ffffff" stroke="#0969da" stroke-width="2.20"/>
 <circle cx="200.0" cy="3228.0" r="17.0" fill="#ffffff" stroke="#0969da" stroke-width="2.20"/>
 <rect x="131.0" y="3215.0" width="38.0" height="26.0" rx="5.0" fill="#dafbe1" stroke="#1a7f37" stroke-width="2.00"/>
 <text xml:space="preserve" x="150.0" y="3233.0" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#1f2328" text-anchor="middle" font-weight="bold">±1</text>
-<text xml:space="preserve" x="290.0" y="3220.0" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1f2328" text-anchor="start" font-weight="normal">Empty-load seam, |x| = 1: the memory block has levels κ and κ + 1.</text>
-<text xml:space="preserve" x="290.0" y="3243.0" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1f2328" text-anchor="start" font-weight="normal">The record class is retained under the declared law.</text>
-<text xml:space="preserve" x="70.0" y="3290.0" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1f2328" text-anchor="start" font-weight="normal">Ordered seam events and local round counts form a separate protocol; the continuous-time bound needs a transfer.</text>
-<text xml:space="preserve" x="70.0" y="3408.0" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#59636e" text-anchor="start" font-weight="normal">Supplied: κ, emitter, reader and reference registers. Contrast-law identifier: A-contrast-memory-spherical-v1.</text>
+<text xml:space="preserve" x="290.0" y="3220.0" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1f2328" text-anchor="start" font-weight="normal">An unrecovered seam: a memory that holds a record while its ports are empty</text>
+<text xml:space="preserve" x="290.0" y="3243.0" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1f2328" text-anchor="start" font-weight="normal">stays that way. It holds no load and lies κ above a blank seam.</text>
+<text xml:space="preserve" x="70.0" y="3290.0" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1f2328" text-anchor="start" font-weight="normal">As events: every seam acts once per round by exp(−i τ h_e); each port observer counts its own rounds.</text>
+<text xml:space="preserve" x="70.0" y="3408.0" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#59636e" text-anchor="start" font-weight="normal">Supplied: the coupling κ (8 and 128 in the runs), the emitter that writes a pair, the reader. Candidate: A-contrast-memory-spherical-v1.</text>
 </svg>

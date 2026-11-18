@@ -178,10 +178,10 @@ def _receipt_fields(record, path):
 
 def source_pins():
     paths = [p.relative_to(ROOT).as_posix() for p in HERE.glob('*.py')]
-    paths += ['model/np_repair.py', 'model/np_scalar/protocol.json',
+    paths += ['model/contrast_replay.py', 'model/scalar_channel/protocol.json',
               'model/polynomial_sv/carrier.py', 'model/polynomial_sv/law.py',
               'model/polynomial_sv/sectors.py',
-              'model/np_export/inputs/CELL.npz', 'tools/pin_scope.py', 'code/pin_scope.py']
+              'model/construction_manual/inputs/CELL.npz', 'tools/pin_scope.py', 'code/pin_scope.py']
     return {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest()
             for p in sorted(bound(paths))}
 
@@ -226,11 +226,13 @@ def compare(saved, actual, path='result', exact_zero=True):
     elif type(actual) is float:
         require(_finite(saved) and _finite(actual),
                 'Invalid numerical value: '+path)
-        # Forbidden outcome support is exact. Calculated differences of energies
-        # can be zero in one backend and roundoff in another.
-        probability = any(key+'[' in path for key in
-                          ('probabilities', 'complete_basis_law'))
-        require(saved == 0 if probability and exact_zero and actual == 0 else
+        # Forbidden outcome support is exact where the support is structural:
+        # the blank two-pointer law and the integer phase witness. Calculated
+        # differences of energies, and the contrast law that an eigensolver
+        # produces, can be zero in one backend and roundoff in another.
+        structural_law = any(key+'[' in path for key in
+                             ('pointer_probabilities', 'complete_basis_law'))
+        require(saved == 0 if structural_law and exact_zero and actual == 0 else
                 abs(saved-actual) <= 2e-11*(1+abs(actual)),
                 'Numerical replay differs: '+path)
     else:
@@ -252,7 +254,7 @@ def validate_protocol():
     protocol = load_json(HERE/'protocol.json')
     require(protocol['schema'] == 'oph.native_base_protocol.v1', 'Unknown protocol schema')
     expected = {
-        'scalar': {'mass_coefficient': 1, 'half_link_coefficient': '1/sqrt(2)',
+        'scalar': {'rest_level': 1, 'half_link_coefficient': '1/sqrt(2)',
                    'penalty': 1024, 'loop_sign_seed': 193019,
                    'default_ramp_substeps_per_star': 16,
                    'extended_ramp_substeps_per_star': 256,
@@ -284,9 +286,9 @@ def scientific_result(extended=False):
     from .instruments import run as instruments
     from .gauge_capacity import (compiler_capacity, current_algebra_dimensions,
                                  fock_capacity, phase_response_witness)
-    from model.np_repair import run as contrast, primary_join
+    from model.contrast_replay import run as contrast, primary_join
     d = load_source()
-    with np.load(ROOT/'model/np_export/inputs/CELL.npz', allow_pickle=False) as original:
+    with np.load(ROOT/'model/construction_manual/inputs/CELL.npz', allow_pickle=False) as original:
         require(np.array_equal(d['edges'], original['edges']), 'Imported carrier edges differ')
         require(np.array_equal(d['wedges'], original['wedges']), 'Imported carrier wedges differ')
     result = replay()
@@ -301,7 +303,7 @@ def scientific_result(extended=False):
     result['contrast_alternative'] = contrast()
     result['contrast_primary_join'] = primary_join()
     return _plain(dict(schema='oph.native_base_replay.v1', extended=extended,
-                       protocol=protocol, scientific=result, physical_rows_validated=[]))
+                       protocol=protocol, scientific=result))
 
 
 def main(argv=None):
@@ -335,7 +337,7 @@ def main(argv=None):
         # outcome arrays are all compared; no unknown fields are ignored.
         compare(saved, result)
         print(json.dumps({'verified': True, 'extended': args.extended,
-                          'construction': 'OPH-NSC-1', 'physical_rows_validated': []}))
+                          'construction': 'OPH-NSC-1'}))
     return 0
 
 

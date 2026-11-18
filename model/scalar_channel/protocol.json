@@ -1,12 +1,9 @@
 {
   "schema": "oph.native_base_protocol.v1",
   "scope": "Finite scalar controlled process and independent primary contrast-memory cross-check",
-  "source_revision": "22c17e489bf1d021ad99e45f4ae7ddd84d5e6cd5",
-  "latest_inspected_source_revision": "02acad8d8630c6731cfd669fa3dc61260c0eea89",
   "oph_base_revision": "972d81b9b6068938e52457b59497766499222b5d",
-  "official_criteria_revision": "e988fc8e3552ce30438ad9a31354607909a5618f",
   "scalar": {
-    "mass_coefficient": 1,
+    "rest_level": 1,
     "half_link_coefficient": "1/sqrt(2)",
     "penalty": 1024,
     "loop_sign_seed": 193019,
@@ -47,8 +44,8 @@
     "Finite preparation or instrument numerical gates fail",
     "The same apparatus cannot distinguish the declared competing source laws"
   ],
-  "claim_class": "Constructive finite operator and instrument implementation, not dynamical emergence of physical constants or an OpenWave award",
-  "prior_exposure": "Source receipts and exploratory replay outputs were inspected before this protocol. Confirmation is a frozen-source reproduction, not a prospective physical prediction.",
+  "claim_class": "Constructive finite operator and instrument implementation, not dynamical emergence of physical constants",
+  "prior_exposure": "Exploratory replay outputs were inspected before this protocol. Confirmation is a frozen-source reproduction, not a prospective physical prediction.",
   "empirical_parameter_selection": false,
   "apparatus": {
     "pulse_strength": 64,

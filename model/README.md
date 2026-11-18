@@ -12,7 +12,8 @@ A few small theory packages sit next to it (`support_refinement`, `matched_einst
 `defect_particle_classes`, `carrier_selection_reduction`, `finite_instrument_calibration`,
 `maxwell_local_selection`, `maxwell_weak_field`); each has its own README and tests.
 
-The experimental [scalar construction](np_scalar/README.md) executes local ancilla preparation and
-observer instruments under a separate law. Its [source export](np_export/README.md) supplies the
-construction manual and carrier data. These component results require an explicit implementation
-proof before they can support claims about the contrast-memory model.
+The [construction manual](construction_manual/README.md) shows the hardware and the two laws under test on one
+sheet and describes them part by part, with the reason for each design choice and every equation in plain
+words. The experimental [scalar channel](scalar_channel/README.md) executes the second law of the manual on one
+cell: local preparation and observer instruments. Its results stand apart from the contrast-memory model and
+support no claim about it without an explicit implementation proof.

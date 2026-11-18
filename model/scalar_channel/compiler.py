@@ -6,12 +6,6 @@ measurements, retained signs, feed-forward and occupied product preparation.
 Dense matrices are used only for174 one-body modes, after the algebra bridge.
 No 2**432 state is claimed materialized. Runtime is not an NP solver.
 """
-UPSTREAM_SOURCE = {
-    'commit': '22c17e489bf1d021ad99e45f4ae7ddd84d5e6cd5',
-    'path': 'candidates/np-solver/native_scalar/delivered/native_compiler/full_cell_compiler.py',
-    'sha256': '169fabef35254d91fe138ce0ff61dbdc46e318a6356daed4ca1e327ad6cbe955',
-    'bytes': 22360,
-}
 from itertools import combinations
 from collections import deque, Counter
 import json, math
@@ -163,7 +157,7 @@ def build():
 
 
 def encode_graph(n, links, owners=None):
-    """Upstream integer BKSF formulas on a declared finite connected graph.
+    """Integer BKSF formulas on a declared finite connected graph.
 
     The cycle +1 sector represents the even-parity quotient of the fermion
     even algebra. The other central parity block is not identified with it.
@@ -628,7 +622,6 @@ def run(include_artifacts=False):
         free_diagonal_coefficients=[1] * g['E'] + [-1] * g['W'] + [0] * (2 * g['N']),
         full_domain_rule='Each term is lifted on its own supporting star code projectors, zero outside; add1024 local code/cycle penalties and1024 pernonvacuum unusedseamowner/portregister.',
     )
-    schema['upstream_source'] = UPSTREAM_SOURCE.copy()
     schema['execution_boundary'] = {
         'logical_stabilizer_measurements_executed': True,
         'local_ancilla_and_ack_service_executed': False,

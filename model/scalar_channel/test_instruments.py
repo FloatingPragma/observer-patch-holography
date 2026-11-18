@@ -242,9 +242,9 @@ class InstrumentTests(unittest.TestCase):
     def test_default_replay_keeps_complete_outcomes_and_same_apparatus_controls(self):
         result = i.run()
         self.assertEqual(result['preparation']['steps_per_star'], 16)
-        self.assertFalse(result['preparation']['delivered_preparation_reproduced'])
+        self.assertFalse(result['preparation']['manual_preparation_reproduced'])
         self.assertFalse(result['preparation']['exact_sea_eigenvectors_used_to_initialize'])
-        self.assertEqual(result['schema'], 'oph.np_scalar.finite_instruments.v2')
+        self.assertEqual(result['schema'], 'oph.scalar_channel.finite_instruments.v2')
         accounting = result['source_work_accounting']
         self.assertFalse(accounting['controller_energy_modeled'])
         self.assertFalse(accounting['autonomous_energy_conservation_claimed'])

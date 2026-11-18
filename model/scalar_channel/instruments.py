@@ -16,20 +16,6 @@ from scipy.sparse.linalg import expm_multiply
 from .carrier import load_source, chi, require
 from .compiler import build, hopping_words
 
-UPSTREAM_SOURCES = (
-    {
-        "commit": "22c17e489bf1d021ad99e45f4ae7ddd84d5e6cd5",
-        "path": "candidates/np-solver/native_scalar/delivered/native_compiler/instrument_bridge.py",
-        "sha256": "e4bd04e70afc5775c6dd112f65bcde694a77e23898a695a745b2363c7df8d594",
-        "bytes": 7848,
-    },
-    {
-        "commit": "22c17e489bf1d021ad99e45f4ae7ddd84d5e6cd5",
-        "path": "candidates/np-solver/native_scalar/delivered/preparation/run.py",
-        "sha256": "c4ab1bd4e5a23c1a84a02645aaa2cce6a61f23a4cec3720c30f7efd879ba8942",
-        "bytes": 3813,
-    },
-)
 TOL = 2e-11
 
 
@@ -135,7 +121,7 @@ def source_matrix(graph, variant='native'):
 def prepare_source(steps=16):
     """Execute twelve midpoint star ramps, each of total source action 16.
 
-    256 steps per star reproduce the delivered finite preparation. The
+    256 steps per star are the preparation of the construction manual. The
     shorter default is a different declared preparation with its own audit.
     """
     require(type(steps) is int and 1 <= steps <= 4096, 'steps must be an integer in [1,4096]')
@@ -172,7 +158,7 @@ def prepare_source(steps=16):
     circulation_error = max(float(la.norm(covariance @ chi(data, b) - chi(data, b))) for b in range(12))
     require(circulation_error <= TOL, 'finite preparation lost a local circulation')
     if steps == 256:
-        require(error < .0058, 'delivered 256-step preparation allowance failed')
+        require(error < .0058, 'the 256-step preparation exceeds its allowance')
     return frame, {
         'steps_per_star': steps, 'total_source_action_per_star': 16.0,
         'source_action_per_step': duration, 'midpoint_profile': '3*s**2-2*s**3',
@@ -180,7 +166,7 @@ def prepare_source(steps=16):
         'frame_isometry_error': isometry_error, 'distance_from_exact_sea': error,
         'energy_above_exact_sea': float(np.trace(data['D'] @ (covariance - ground)).real),
         'largest_circulation_occupation_error': circulation_error,
-        'delivered_preparation_reproduced': steps == 256,
+        'manual_preparation_reproduced': steps == 256,
         'exact_sea_eigenvectors_used_to_initialize': False,
         'local_ramp_receipts': receipts,
     }
@@ -382,8 +368,8 @@ def run(extended=False):
         require(difference > .01, 'same-apparatus source control has no resolved effect')
         controls[variant] = {'largest_pointer_probability_difference': difference,
                              'same_preparation_targets_pulses_and_readouts': True}
-    return {'schema': 'oph.np_scalar.finite_instruments.v2', 'extended': extended,
-            'upstream_sources': list(UPSTREAM_SOURCES), 'preparation': preparation,
+    return {'schema': 'oph.scalar_channel.finite_instruments.v2', 'extended': extended,
+            'preparation': preparation,
             'queries': [0, 4, 8], 'source_action_per_local_reference_count': 1 / 8,
             'pulse_strength': 64.0, 'pulse_action': math.pi / 4,
             'pointer_outcome_order': ['00', '10', '01', '11'],
@@ -402,5 +388,4 @@ def run(extended=False):
                 'phase_and_pointer_source_work': 0.0,
                 'controller_energy_modeled': False,
                 'autonomous_energy_conservation_claimed': False,
-                'includes_preparation_ramp_work': False},
-            'physical_rows_validated': []}
+                'includes_preparation_ramp_work': False}}

@@ -26,7 +26,7 @@ def replay_fixture(tmp_path, monkeypatch):
         target = root / name
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(original_root / name, target)
-    here = root / 'model/np_scalar'
+    here = root / 'model/scalar_channel'
     monkeypatch.setattr(e, 'ROOT', root)
     monkeypatch.setattr(e, 'HERE', here)
     freeze = {'schema': 'oph.native_base_freeze.v1', 'source_sha256': e.source_pins()}
@@ -34,8 +34,7 @@ def replay_fixture(tmp_path, monkeypatch):
     write_json(freeze_path, freeze)
     result = {'schema': 'oph.native_base_replay.v1', 'extended': False,
               'scientific': {'pointer_probabilities': [.75, 0.0, 0.0, .25],
-                             'branch_count': 4, 'accepted': True, 'decode_residual': 1e-15},
-              'physical_rows_validated': []}
+                             'branch_count': 4, 'accepted': True, 'decode_residual': 1e-15}}
 
     def compute(extended=False):
         value = copy.deepcopy(result)
@@ -88,9 +87,9 @@ def test_extended_mode_has_a_distinct_complete_receipt(replay_fixture):
 
 
 @pytest.mark.parametrize('name', [
-    'model/np_scalar/carrier.py', 'model/np_scalar/__init__.py',
-    'model/np_scalar/protocol.json', 'model/np_repair.py',
-    'model/np_export/inputs/CELL.npz', 'tools/pin_scope.py', 'code/pin_scope.py',
+    'model/scalar_channel/carrier.py', 'model/scalar_channel/__init__.py',
+    'model/scalar_channel/protocol.json', 'model/contrast_replay.py',
+    'model/construction_manual/inputs/CELL.npz', 'tools/pin_scope.py', 'code/pin_scope.py',
     'model/polynomial_sv/carrier.py', 'model/polynomial_sv/law.py', 'model/polynomial_sv/sectors.py',
 ])
 def test_production_code_and_input_changes_fail_before_compute(replay_fixture, monkeypatch, name):
@@ -119,7 +118,7 @@ def test_scientific_pins_exclude_prose_tests_and_receipts(replay_fixture):
         path.write_text('editorial or replay-only bytes\n')
     (f['root'] / 'model/__init__.py').write_text('# unrelated root initializer\n')
     assert e.source_pins() == pins
-    assert 'model/np_scalar/__init__.py' in pins
+    assert 'model/scalar_channel/__init__.py' in pins
     assert not any('/test_' in name or name.endswith('.md') for name in pins)
 
 
@@ -128,9 +127,9 @@ def test_freeze_integrity_is_required(replay_fixture, mutation):
     f = replay_fixture
     freeze = copy.deepcopy(f['freeze'])
     if mutation == 'missing_source':
-        freeze['source_sha256'].pop('model/np_scalar/carrier.py')
+        freeze['source_sha256'].pop('model/scalar_channel/carrier.py')
     elif mutation == 'extra_source':
-        freeze['source_sha256']['model/np_scalar/foreign.py'] = '0' * 64
+        freeze['source_sha256']['model/scalar_channel/foreign.py'] = '0' * 64
     elif mutation == 'bad_schema':
         freeze['schema'] = True
     else:
@@ -140,8 +139,8 @@ def test_freeze_integrity_is_required(replay_fixture, mutation):
         e.main([])
 
 
-@pytest.mark.parametrize('key,value', [('mass_coefficient', 2), ('mass_coefficient', True),
-                                     ('mass_coefficient', 1.0), ('penalty', 1025),
+@pytest.mark.parametrize('key,value', [('rest_level', 2), ('rest_level', True),
+                                     ('rest_level', 1.0), ('penalty', 1025),
                                      ('loop_sign_seed', 0)])
 def test_refreezing_cannot_relabel_hardcoded_scientific_parameters(replay_fixture, monkeypatch, key, value):
     f = replay_fixture
@@ -158,7 +157,7 @@ def test_refreezing_cannot_relabel_hardcoded_scientific_parameters(replay_fixtur
 
 
 @pytest.mark.parametrize('mutation', ['missing_branch', 'missing_field', 'unknown_field', 'bool_count',
-                                     'int_readiness', 'wrong_mode', 'awarded_row', 'altered_source'])
+                                     'int_readiness', 'wrong_mode', 'added_top_level_field', 'altered_source'])
 def test_receipt_structure_types_and_source_identity_are_exact(replay_fixture, mutation):
     f = replay_fixture
     saved = copy.deepcopy(f['saved'])
@@ -174,10 +173,10 @@ def test_receipt_structure_types_and_source_identity_are_exact(replay_fixture, m
         saved['scientific']['accepted'] = 1
     elif mutation == 'wrong_mode':
         saved['extended'] = True
-    elif mutation == 'awarded_row':
-        saved['physical_rows_validated'] = ['gauge_response']
+    elif mutation == 'added_top_level_field':
+        saved['unreported_claim'] = ['gauge_response']
     else:
-        saved['source_sha256']['model/np_scalar/carrier.py'] = '0' * 64
+        saved['source_sha256']['model/scalar_channel/carrier.py'] = '0' * 64
     write_json(f['receipt'], saved)
     with pytest.raises(ValueError):
         e.main([])
@@ -216,6 +215,18 @@ def test_forbidden_pointer_support_stays_exact():
     saved = {'pointer_probabilities': [1.0 - 1e-16, 1e-16]}
     with pytest.raises(ValueError):
         e.compare(saved, actual)
+
+
+def test_eigensolver_zero_in_the_contrast_law_is_backend_roundoff():
+    # An eigendecomposition gives an exact zero on one LAPACK backend and a
+    # value near 1e-34 on another. Neither is a forbidden outcome.
+    path = 'result.scientific.contrast_alternative.cell[1].records[0]'
+    actual = {'probabilities': [1.0, 0.0]}
+    saved = {'probabilities': [1.0, 1.8e-34]}
+    e.compare(saved, actual, path)
+    e.compare(actual, saved, path)
+    with pytest.raises(ValueError):
+        e.compare({'probabilities': [1.0 - 1e-6, 1e-6]}, actual, path)
 
 
 def test_energy_difference_roundoff_is_not_a_forbidden_outcome():
@@ -344,7 +355,7 @@ def test_optimized_cli_checks_saved_scientific_relations(
         arguments.append('--extended')
     script = (
         'from pathlib import Path\n'
-        'from model.np_scalar import experiment as e\n'
+        'from model.scalar_channel import experiment as e\n'
         f'e.ROOT=Path({str(f["root"])!r})\n'
         f'e.HERE=Path({str(f["here"])!r})\n'
         f'e.scientific_result=lambda extended=False: e.load_json({str(expected_path)!r})\n'
@@ -368,7 +379,7 @@ def test_optimized_cli_keeps_replay_guards(replay_fixture):
     write_json(f['receipt'], saved)
     script = (
         'import json\nfrom pathlib import Path\n'
-        'from model.np_scalar import experiment as e\n'
+        'from model.scalar_channel import experiment as e\n'
         f'e.ROOT=Path({str(f["root"])!r})\n'
         f'e.HERE=Path({str(f["here"])!r})\n'
         f'e.scientific_result=lambda extended=False: json.loads({json.dumps(f["result"])!r})\n'

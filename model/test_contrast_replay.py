@@ -5,9 +5,9 @@ import numpy as np
 import pytest
 from scipy.linalg import expm
 
-from . import np_repair
-from .np_repair import cell, family_pair_bound, primary_join, run, seam, seam_orientation_chart
-from .np_scalar.carrier import load_source
+from . import contrast_replay
+from .contrast_replay import cell, family_pair_bound, primary_join, run, seam, seam_orientation_chart
+from .scalar_channel.carrier import load_source
 
 
 def test_total_two_sector_retains_double_occupancy_complement():
@@ -73,14 +73,14 @@ def test_complete_law_retains_zero_probability_double_outcomes():
 
 
 def test_normalization_rejects_a_nonunitary_evolution(monkeypatch):
-    original = np_repair.eigh
+    original = contrast_replay.eigh
     def scaled_frame(*args, **kwargs):
         result = original(*args, **kwargs)
         if kwargs.get('eigvals_only', False):
             return result
         values, vectors = result
         return values, 1.001 * vectors
-    monkeypatch.setattr(np_repair, 'eigh', scaled_frame)
+    monkeypatch.setattr(contrast_replay, 'eigh', scaled_frame)
     with pytest.raises(ValueError, match='Incomplete two-load instrument'):
         run()
 

@@ -97,9 +97,9 @@ jobs:
           cache: pip
           cache-dependency-path: model/requirements.txt
       - run: python -m pip install -r model/requirements.txt
-      - run: python -B -O -m model.np_scalar.experiment
-      - run: python -B -O -m model.np_scalar.experiment --extended
-      - run: python -B -m pytest -q -W error model/np_scalar model/test_np_repair.py
+      - run: python -B -O -m model.scalar_channel.experiment
+      - run: python -B -O -m model.scalar_channel.experiment --extended
+      - run: python -B -m pytest -q -W error model/scalar_channel model/test_contrast_replay.py
 
   suite:
     name: Mandatory suite (shard ${{ matrix.shard }})

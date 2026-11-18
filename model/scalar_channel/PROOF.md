@@ -2,14 +2,12 @@
 
 ## Source and scope
 
-The ancestor is `A-native-scalar-overlap-v3` in the np-solver export at
-revision `22c17e489bf1d021ad99e45f4ae7ddd84d5e6cd5`. Its source definitions are
-`native_scalar/delivered/native_compiler/full_cell_compiler.py`,
-`singlet_fusion.py`, `instrument_bridge.py` and
-`EXECUTABLE_NATIVE_COMPILER.md`, relative to `candidates/np-solver/`.
-The construction manual distinguishes its scalar law from the separate
-load-and-memory law. No moving charged-owner Hamiltonian or interacting
-seven-species dynamics transfers through this scalar compilation.
+The law is `A-native-scalar-overlap-v3`, law 2 of the
+[construction manual](../construction_manual/CONSTRUCTION_MANUAL.md): the
+scalar channel written on ordinary registers. The manual distinguishes this
+scalar law from the separate load-and-memory law. No moving charged-owner
+Hamiltonian or interacting seven-species dynamics transfers through this
+scalar compilation.
 
 [gauge_capacity.py](gauge_capacity.py) supplies exact finite dimension and
 matrix witnesses. Its 49-state owner frame and eight-state fermion frame
@@ -70,7 +68,7 @@ is the Catalan number
 C_r = binomial(2r,r)/(r+1).
 ```
 
-The export selects the first `2^r` ordered singlet fusion paths. This fits
+The construction selects the first `2^r` ordered singlet fusion paths. This fits
 at the declared degrees: `C_10 = 16796 >= 1024` and
 `C_15 = 9694845 >= 32768`. Distinct fusion paths are orthogonal by the
 Clebsch decomposition. Their explicit coefficient tensors give an isometry
@@ -363,10 +361,10 @@ work are outside this ledger.
 
 ## Independent contrast-memory source map
 
-The export also contains a contrast-memory law, implemented as the primary
+The construction manual also describes a contrast-memory law, implemented as the primary
 model in `model/polynomial_sv`. It acts on qutrit loads and seam memories,
 not on the scalar fixed-parity space. The independent implementation
-`model/np_repair.py` checks a complete 99-state seam, retaining all ten
+`model/contrast_replay.py` checks a complete 99-state seam, retaining all ten
 nonblank memory values and the blank value, each with nine load values.
 
 Its one-cell total-two sector has 78 states: 66 pairs of distinct occupied

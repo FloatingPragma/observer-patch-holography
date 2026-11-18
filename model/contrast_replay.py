@@ -7,7 +7,7 @@ from fractions import Fraction
 from itertools import combinations_with_replacement
 import numpy as np
 from scipy.linalg import eigh, norm
-from .np_scalar.carrier import load_source
+from .scalar_channel.carrier import load_source
 
 
 def require(ok, reason):
@@ -132,7 +132,7 @@ def run():
                                     domain='initially adjacent total-two qutrit states; d0=6; '
                                            'complete icosahedral cells with external port partial matching',
                                     hypothesis='kappa > 3',
-                                    source='sphere/delivered/carrier_math/native_contrast_potential/THEOREM.md',
+                                    source='model/polynomial_sv/PROOF.md',
                                     grid_role='finite numerical screen, not the all-time proof'),
                 source_join='blank-memory reducing operator equality; no scalar-CAR transfer')
 

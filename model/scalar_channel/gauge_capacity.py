@@ -1,4 +1,4 @@
-"""Exact capacity and current-domain checks for the native scalar export.
+"""Exact capacity and current-domain checks for the native scalar construction.
 
 The small matrices are independent witnesses, not a simulation of 432 bits.
 The inherited current basis describes vacuum + color triplet + weak triplet.
@@ -9,8 +9,7 @@ from math import comb
 import sympy as sp
 
 
-ANCESTOR_REVISION = "22c17e489bf1d021ad99e45f4ae7ddd84d5e6cd5"
-ANCESTOR = "A-native-scalar-overlap-v3"
+LAW = "A-native-scalar-overlap-v3"
 
 
 def _positive_integer(value, name):

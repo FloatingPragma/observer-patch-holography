@@ -9,12 +9,6 @@ the Schur/Fourier transform is specified below by every tensor coefficient.
 Unused singlets, nonsinglets and color states are retained as identity
 complement by the lifted-gate definition, never silently discarded.
 """
-UPSTREAM_SOURCE = {
-    'commit': '22c17e489bf1d021ad99e45f4ae7ddd84d5e6cd5',
-    'path': 'candidates/np-solver/native_scalar/delivered/native_compiler/singlet_fusion.py',
-    'sha256': '7e6ec898038614e16b834906c7532c7aef868b8ca88d7295c8f6f5f541c223b1',
-    'bytes': 11869,
-}
 from .carrier import require
 from functools import lru_cache
 from math import sqrt, comb
@@ -357,7 +351,6 @@ def run():
         chart_condition='Fusion ordering is declared; permutation charts require explicit code transport; raw A5 covariance not proved.',
     )
     require(max(q2_errors) < 1e-12 and charge_positive == 1, 'Compiler invariant: max(q2_errors) < 1e-12 and charge_positive == 1')
-    output['upstream_source'] = UPSTREAM_SOURCE.copy()
     return output
 if __name__ == '__main__':
     print(json.dumps(run(), indent=2))

@@ -1,8 +1,9 @@
-"""Exact labelled one-cell scalar carrier from the pinned OpenWave export.
+"""Exact labelled one-cell scalar carrier of the construction manual.
 
-These labels agree with the delivered CELL.npz. Only its scalar incidence
-law is reconstructed here; its separate six-component half-links are not
-identified with this scalar channel. Matrices are external simulator data.
+These labels agree with the cell array in ../construction_manual/inputs/CELL.npz.
+Only its scalar incidence law is reconstructed here; the separate
+six-component half-links of that array are not identified with this scalar
+channel. Matrices are external simulator data.
 """
 
 from itertools import combinations
@@ -10,17 +11,6 @@ import math
 
 import numpy as np
 
-UPSTREAM_SOURCE = {
-    "commit": "22c17e489bf1d021ad99e45f4ae7ddd84d5e6cd5",
-    "path": "candidates/np-solver/export/README.md",
-    "sha256": "33c4413e8e72df5004f779485ceafef28a608e6f586900608db1627986816ed5",
-    "bytes": 11257,
-}
-DELIVERED_CARRIER = {
-    "path": "candidates/np-solver/pair_transit/delivered/source/CELL.npz",
-    "sha256": "9fdc4f4475baa029c1b95f76f1b0a546617ecaef582fbf9f476952c4b258c42f",
-    "bytes": 72883,
-}
 EDGES = (
     (0, 1), (0, 2), (0, 3), (0, 4), (0, 6), (1, 2), (1, 3), (1, 5),
     (1, 7), (2, 4), (2, 5), (2, 8), (3, 6), (3, 7), (3, 9), (4, 6),

@@ -1,9 +1,7 @@
-"""Draws executable_spec.svg: the hardware and the software of the construction of this folder on one sheet.
+"""Draws executable_spec.svg: the hardware and the software of the executable construction on one sheet.
 
-Everything geometric is read from the carrier files of the folder: the wiring of one cell from
-inputs/CELL.npz, the federations from ../polynomial_sv/carriers/FEDERATION_LEVEL{0,1,2}.npz.
-The formulas retain the domains in CONSTRUCTION_MANUAL.md and the active
-polynomial_sv specification. The figures summarize design, not receipts.
+Everything geometric is read from carrier files: the wiring of one cell from inputs/CELL.npz, the federations
+from ../polynomial_sv/carriers/FEDERATION_LEVEL{0,1,2}.npz. The formulas are those of CONSTRUCTION_MANUAL.md.
 
     python make_diagram.py        # writes executable_spec.svg; needs numpy and networkx
 """
@@ -16,7 +14,6 @@ import networkx as nx
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parent
 INK, MUTED, FAINT, PANEL = '#1f2328', '#59636e', '#d0d7de', '#f6f8fa'
 BLUE, ORANGE, PURPLE, GREEN, AMBER, RED = '#0969da', '#bc4c00', '#8250df', '#1a7f37', '#9a6700', '#cf222e'
 SANS = 'Helvetica, Arial, sans-serif'
@@ -228,10 +225,10 @@ def draw_sphere(level, cx, cy, R, M):
 # ---------------------------------------------------------------- the sheet
 
 def idea_strip(x0, y0, w, h):
-    panel(x0, y0, w, h, 'THE IDEA', 'Construction target and finite scope', 'idea')
+    panel(x0, y0, w, h, 'THE IDEA', 'A Universe that computes its own history', 'idea')
     cx, cy, r = x0 + 232, y0 + 200, 78
     out.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="none" stroke="%s" stroke-width="2.4" stroke-dasharray="2 9"/>' % (cx, cy, r, MUTED))
-    nodes = [(-90, ['observers compare records'], BLUE), (0, ['declared', 'rules'], GREEN), (90, ['a finite machine'], AMBER), (180, ['recorded', 'history'], PURPLE)]
+    nodes = [(-90, ['observers hold records'], BLUE), (0, ['they recover', 'the rules'], GREEN), (90, ['they build the machine'], AMBER), (180, ['its run is', 'this history'], PURPLE)]
     for ang, lab, col in nodes:
         a = math.radians(ang)
         px, py = cx + r * math.cos(a), cy + r * math.sin(a)
@@ -246,37 +243,37 @@ def idea_strip(x0, y0, w, h):
         else:
             for k, part in enumerate(lab):
                 text(px + (20 if ang == 0 else -20), py - 4 + 19 * k, part, 15, col, 'start' if ang == 0 else 'end', 'bold')
-    text(cx, cy + 5, 'target loop', 15, MUTED, 'middle')
+    text(cx, cy + 5, 'no outside', 15, MUTED, 'middle')
     c1, c2, c3 = x0 + 500, x0 + 1120, x0 + 1800
-    text(c1, y0 + 92, 'Simulation-generated observer records', 19, INK, weight='bold')
-    lines(c1, y0 + 122, ['Declared preparations, local operations and comparisons produce',
-                         'finite records. Agreement supports a shared interpretation.',
-                         'The construction target includes an internal account of the',
-                         'machine and its builders. The finite checks below establish',
-                         'specified components; physical identification remains separate.'], 16, 24, INK)
-    text(c1, y0 + 262, 'closure target:  R(D(U)) ≅ U', 16, MUTED, family=MONO)
-    text(c2, y0 + 92, 'A separate integer-repair bound', 19, INK, weight='bold')
-    lines(c2, y0 + 122, ['An accepted unit move across a load difference of at least two',
-                         'lowers Q = sum of squared loads by at least two. There are at',
-                         'most Q(initial)/2 accepted moves. This depends on load size:',
-                         'bounded loads give a polynomial bound in the port count;',
-                         'arbitrary binary-encoded loads do not give a polynomial bound',
-                         'in input length by this argument.'], 16, 24, INK)
-    lines(c2, y0 + 276, ['The coherent laws below have their own domains. This descent bound',
-                         'does not supply a solver for general constraint problems.'], 14, 19, MUTED)
-    text(c3, y0 + 92, 'Declared finite carriers', 19, INK, weight='bold')
-    lines(c3, y0 + 122, ['One cell and federations of 20, 80 and 320 cells.',
-                         'The arrays specify ports, seams and gluing.',
-                         'The two laws act on different state spaces.',
-                         'Their records require separate source maps.',
-                         'A physical continuum limit is an additional claim.'], 16, 24, INK)
+    text(c1, y0 + 92, 'A brain that thinks itself into existence', 19, INK, weight='bold')
+    lines(c1, y0 + 122, ['The Universe is a network of very simple observers. Each holds',
+                         'a few records and compares them with its neighbours. What',
+                         'survives every comparison is a public fact. The observers inside',
+                         'work out the rules and build the machine whose run is this same',
+                         'history, its builders included. Nothing stands outside the loop.'], 16, 24, INK)
+    text(c1, y0 + 262, 'closure:  R(D(U)) ≅ U', 16, MUTED, family=MONO)
+    text(c2, y0 + 92, 'Why this problem can be solved', 19, INK, weight='bold')
+    lines(c2, y0 + 122, ['A consistent history is a fixed point: every record agrees with every',
+                         'record it overlaps. A search through all histories grows exponentially.',
+                         'The observers do not search. Each repairs what it shares with one',
+                         'neighbour, and every accepted repair lowers the total disagreement by',
+                         'a fixed step. The work is bounded by the disagreement at the start:',
+                         'polynomial in the number of ports.'], 16, 24, INK)
+    lines(c2, y0 + 276, ['Proved for the native repair of the theory, with loads bounded by the alphabet.',
+                         'For the two laws tested here it is the target, and work in progress.'], 14, 19, MUTED)
+    text(c3, y0 + 92, 'How large it is', 19, INK, weight='bold')
+    lines(c3, y0 + 122, ['The carriers of the tests: 20, 80 and 320 cells.',
+                         'The screen of the Universe we inhabit: about',
+                         '8 × 10¹²² cells in the count of the theory.',
+                         'One kind of cell, one wiring, one law on every seam,',
+                         'repeated that many times.'], 16, 24, INK)
 
 
 def main():
     Wd = 2400
     out.append('<<HEADER>>')
-    text(40, 56, 'Native observer construction: finite hardware and two local laws', 34, INK, weight='bold')
-    text(40, 88, 'Hardware: twelve-port cells, seams, federations and registers.  Software: two separate laws, supplied instruments, local protocol counts and retained records.', 18, MUTED)
+    text(40, 56, 'The executable construction: hardware and software', 34, INK, weight='bold')
+    text(40, 88, 'Hardware: cells of twelve ports, their seams, the sphere of cells and the registers.  Software: two laws under test, the instruments of an observer, its clock and its records.', 18, MUTED)
     idea_strip(40, 112, 2320, 330)
 
     seams, X = cell()
@@ -308,11 +305,11 @@ def main():
     ty = y0 + 100 + 27 * len(rows) + 22
     text(tx, ty, 'Wiring: each port and its five neighbours', 17, INK, weight='bold')
     ty = lines(tx, ty + 30, ['%2d :  %s' % (p, '  '.join('%2d' % q for q in nb[p])) for p in range(12)], 16, 24, INK, MONO)
-    text(tx, ty + 18, 'Declared geometry', 17, INK, weight='bold')
-    lines(tx, ty + 44, ['A regular icosahedral carrier: one orbit of ports',
-                        'and one orbit of seams under its rotations.',
-                        'The first nonzero eigenspace of the port',
-                        'graph Laplacian has dimension three.'], 16, 23, MUTED)
+    text(tx, ty + 18, 'Why this shape', 17, INK, weight='bold')
+    lines(tx, ty + 44, ['Twelve ports on an icosahedron: one kind of port, one',
+                        'kind of seam, the largest symmetry twelve points allow.',
+                        'Its six axes span three directions, and the slowest',
+                        'response of the cell has rank three.'], 16, 23, MUTED)
     lines(x0 + 36, y0 + h - 62, ['Blue lines: the five seams of port 0. Dashed lines lie on the far side.',
                                  'The labels 0 to 11 are those of the carrier files; every table of the manual uses them.'], 16, 23, MUTED)
 
@@ -388,7 +385,7 @@ def main():
     text(x0 + 40, y0 + 742, 'Filled dots: the three external ports of the cell lie symmetrically (pairwise two seams apart). Open dots: the gluing rule chose an unsymmetric triple.', 17, MUTED)
     lines(x0 + 40, y0 + 790, ['Gluing rule of the builder (a declared convention): the external seam towards a neighbour leaves through the port whose direction, in the',
                               'local frame of the cell, points most nearly at that neighbour; two seams never share a port. A port therefore has five or six seams.'], 17, 26, INK)
-    lines(x0 + 40, y0 + 856, ['The spherical gluing is a declared carrier choice. A continuum conclusion requires a limit theorem for the chosen law and instruments.'], 17, 26, MUTED)
+    lines(x0 + 40, y0 + 856, ['Why a sphere: the theory places observers on a closed screen. Why refinement: a result has to hold as the cells get finer.'], 17, 26, MUTED)
     cells, _, _, pairs, cent, sym, att, ext = federation(0)
     a_port, b_port = next((a, b) for a, b in ext if {a // 12, b // 12} == {0, 4})
     ca, cb = (a_port // 12, b_port // 12)
@@ -452,7 +449,7 @@ def main():
                 circle(bx_ + 46 * j + 6, ey, 5.5, INK, INK)
         text(bx_ + 69, ey + 46, lab, 15, MUTED, 'middle')
         mono(bx_ + 69, ey + 70, cost, 17, RED, 'bold', 'middle')
-    text(x0 + 30, ey + 110, 'In the total-two-load sector, the lower adjacent-pair energy supports the persistence bound below.', 16, INK)
+    text(x0 + 30, ey + 110, 'Two loads side by side pay less than two loads apart: they stay together and move as one object: a particle.', 16, INK)
     y = ey + 154
     text(x0 + 30, y, 'The same law as a program on one seam: the echo', 18, INK, weight='bold')
     bw, bh, by_ = 322, 132, y + 18
@@ -474,36 +471,35 @@ def main():
     text(x0 + 30, y, 'What the law keeps, exactly', 18, INK, weight='bold')
     y = lines(x0 + 30, y + 28, ['the number of loads, and how many ports hold one load and how many hold two',
                                 'for every seam: whether its memory is blank, and the size |x| of a record it holds'], 16, 24, INK)
-    text(x0 + 30, y + 14, 'Finite statements and their domains', 18, INK, weight='bold')
+    text(x0 + 30, y + 14, 'What it gives', 18, INK, weight='bold')
     gy2 = y + 62
-    # An initially adjacent pair in the total-two-load sector.
+    # the pair
     for j in range(4):
         if j < 3:
             line(x0 + 60 + 50 * j + 17, gy2, x0 + 60 + 50 * (j + 1) - 17, gy2, BLUE if j == 0 else '#6e7781', 5 if j == 0 else 2.4)
         circle(x0 + 60 + 50 * j, gy2, 17, '#ffffff', BLUE, 2.2)
         if j < 2:
             circle(x0 + 60 + 50 * j, gy2, 7.5, INK, INK)
-    lines(x0 + 250, gy2 - 14, ['κ > 3; blank memories; initially adjacent total-two-load states; d₀ = 6.',
-                               'Complete cells with external port matching: P(pair; t) ≥ 1 − 40/(2κ − 6)²',
-                               'for free evolution at every size and time. Finite emitters need their own error.'], 15, 21, INK)
+    lines(x0 + 250, gy2 - 8, ['Particle stability: a pair written on a seam is read as a pair with probability',
+                              'at least 1 − 40/(2κ − 6)² for κ > 3, at every size of the carrier and at every time.'], 16, 23, INK)
     gy3 = gy2 + 78
     line(x0 + 77, gy3, x0 + 143, gy3, '#6e7781', 2.4)
     for j in range(2):
         circle(x0 + 60 + 100 * j, gy3, 17, '#ffffff', BLUE, 2.2)
     rect(x0 + 91, gy3 - 13, 38, 26, '#dafbe1', GREEN, 2, 5)
     text(x0 + 110, gy3 + 5, '±1', 14, INK, 'middle', 'bold')
-    lines(x0 + 250, gy3 - 8, ['Empty-load seam, |x| = 1: the memory block has levels κ and κ + 1.',
-                              'The record class is retained under the declared law.'], 16, 23, INK)
-    text(x0 + 30, gy3 + 62, 'Ordered seam events and local round counts form a separate protocol; the continuous-time bound needs a transfer.', 16, INK)
-    text(x0 + 30, y0 + h - 24, 'Supplied: κ, emitter, reader and reference registers. Contrast-law identifier: A-contrast-memory-spherical-v1.', 15, MUTED)
+    lines(x0 + 250, gy3 - 8, ['An unrecovered seam: a memory that holds a record while its ports are empty',
+                              'stays that way. It holds no load and lies κ above a blank seam.'], 16, 23, INK)
+    text(x0 + 30, gy3 + 62, 'As events: every seam acts once per round by exp(−i τ h_e); each port observer counts its own rounds.', 16, INK)
+    text(x0 + 30, y0 + h - 24, 'Supplied: the coupling κ (8 and 128 in the runs), the emitter that writes a pair, the reader. Candidate: A-contrast-memory-spherical-v1.', 15, MUTED)
 
     # ---------------- panel 5: law 2
     x0, y0, w, h = 1220, 2352, 1140, 1080
     panel(x0, y0, w, h, 'SOFTWARE 2', 'Law 2: an object hops between a seam and a wedge', 'law2')
     y = y0 + 92
-    mono(x0 + 30, y, 'D = [[mI, B], [Bᵀ, −mI]]     D² = m²I + diag(BBᵀ, BᵀB)', 20, INK, 'bold')
+    mono(x0 + 30, y, 'D = [[ m, B ], [ Bᵀ, −m ]]       D² = m² + K       K = B Bᵀ', 20, INK, 'bold')
     mono(x0 + 30, y + 32, 'B: seam (a,b) to wedge (a,b,c) with +1/√2, seam (b,c) to the same wedge with −1/√2', 16)
-    mono(x0 + 30, y + 58, 'K = BBᵀ = half the seam-graph Laplacian.   Paired frequencies: ω² = m² + λ, λ > 0 in K', 16)
+    mono(x0 + 30, y + 58, 'K = half the Laplacian of the graph of seams.   Frequencies: ω² = m² + λ, λ a level of K', 16)
     lx, ly = x0 + 50, y + 150
     line(lx, ly, lx + 230, ly, INK, 3)
     text(lx + 242, ly + 6, '+m   the object on a seam', 16, INK)
@@ -529,14 +525,14 @@ def main():
             line(sx, ly_, sx + 100, ly_, col, 2.6)
             line(sx + 100, ly_, sx + 124, slot, col, 1.0)
             mono(sx + 130, slot + 5, '%s%.4f  ×%d' % ('+' if sign < 0 else '−', val, mult), 14, col)
-    text(sx + 290, mid + 1.45 * scale, 'ideal sea: 120 filled modes', 15, PURPLE, weight='bold')
-    text(sx + 290, mid + 1.45 * scale + 21, 'finite ramps approximate it', 15, PURPLE)
+    text(sx + 290, mid + 1.45 * scale, 'filled: the reference', 15, PURPLE, weight='bold')
+    text(sx + 290, mid + 1.45 * scale + 21, '120 objects, the calm state', 15, PURPLE)
     text(sx + 290, mid - 1.75 * scale, 'one object more:', 15, INK, weight='bold')
-    text(sx + 290, mid - 1.75 * scale + 21, 'energy ≥ m above the ideal sea', 15, INK)
+    text(sx + 290, mid - 1.75 * scale + 21, 'a particle, at least m above', 15, INK)
     y = mid + 3.0 * scale + 30
     text(x0 + 30, y, 'The 150 modes of one cell', 18, INK, weight='bold')
     bx0, bwid, by2 = x0 + 30, 1080, y + 16
-    parts = [(280, '23  port-band modes', '#ddf4ff', BLUE), (270, '36  seam-detail modes', '#f6f8fa', MUTED), (530, '91  modes at −m, including local references', '#fbefff', PURPLE)]
+    parts = [(280, '23  waves over the twelve ports', '#ddf4ff', BLUE), (270, '36  flat detail of the seams', '#f6f8fa', MUTED), (530, '91  circulations at −m: the local clocks', '#fbefff', PURPLE)]
     xx = bx0
     for wseg, lab, fill, col in parts:
         rect(xx, by2, wseg - 4, 40, fill, col, 1.6, 6)
@@ -548,25 +544,25 @@ def main():
     y += 70
     text(x0 + 30, y, 'On ordinary registers (one cell)', 18, INK, weight='bold')
     mono(x0 + 30, y + 30, 'H = H₀ + 1024 Σ_ports (1 − P_b) + 512 Σ_loops (P_S − C_l) + 1024 Σ_unused (1 − |0⟩⟨0|)', 16)
-    y = lines(x0 + 30, y + 58, ['432 encoded bits; routed loop preparation adds twelve neutral scratch bits.',
-                                '259 independent loop constraints select the sector of even total parity for 174 modes.',
-                                'The displayed penalties are supplied code-protection terms; the accepted code is neutral.'], 16, 24, INK)
-    text(x0 + 30, y + 14, 'One-cell scalar scope', 18, INK, weight='bold')
-    lines(x0 + 30, y + 42, ['The displayed levels are the spectrum of the declared free generator at m = 1.',
-                            'Finite source-on pulses and approximate preparation determine the actual pointer laws.',
-                            'Neutral scalar-code states do not establish a faithful charged response or an observed particle.',
-                            'Round-sphere modifications change B and require their own source and instrument checks.'], 16, 24, INK)
-    text(x0 + 30, y0 + h - 24, 'Supplied: m = 1, pulses, ramps and apparatus. Scalar ancestor: A-native-scalar-overlap-v3; separate from the contrast law.', 15, MUTED)
+    y = lines(x0 + 30, y + 58, ['432 two-state registers: 120 transit bits, 120 bits of the port codes, 192 apparatus bits;',
+                                '259 loop constraints keep the registers a faithful picture of objects that exclude each other;',
+                                'a broken code or loop costs 1024, far above every level of the law.'], 16, 24, INK)
+    text(x0 + 30, y + 14, 'What it gives', 18, INK, weight='bold')
+    lines(x0 + 30, y + 42, ['The lines of an added object are read at 1.0000, 1.5435, 2.0000, 2.1490 of the observer’s own',
+                            'reference, predicted from spatial comparisons before the records exist (one cell).',
+                            'A created object costs at least m, holds no charge of the twelve currents, and its number is kept.',
+                            'On the sphere: round seam terms D = [[m, G B T], [T Bᵀ G, −m]] give the levels of a round sphere.'], 16, 24, INK)
+    text(x0 + 30, y0 + h - 24, 'Supplied: m = 1, pulses, ramps, apparatus bits. Candidates: A-scalar-CAR-pair-transit-v2, A-native-scalar-overlap-v3, the round sibling.', 15, MUTED)
 
     # ---------------- panel 6: observers and a run
     x0, y0, w, h = 40, 3472, 2320, 500
-    panel(x0, y0, w, h, 'SOFTWARE 3', 'Finite scalar services: preparation, pulses and retained pointer records', 'run')
-    steps = [('1  prepare', ['route loop reads; retain signs', 'and apply feedback; fill the', 'transits; finite star ramps', 'approximate the ideal sea'], MUTED),
+    panel(x0, y0, w, h, 'SOFTWARE 3', 'Observers, instruments, clocks: one run from preparation to record', 'run')
+    steps = [('1  prepare', ['measure every loop, keep the', 'sign, correct it; fill the', 'transits; ramp each star to', 'the calm reference'], MUTED),
              ('2  write', ['a fuel at level 0 is coupled', 'to a local target for a short', 'pulse while the law keeps', 'running'], AMBER),
-             ('3  let it run', ['the law acts alone for the', 'declared action q/8; local', 'circulations supply reference', 'modes, not an autonomous timer'], PURPLE),
+             ('3  let it run', ['the law acts alone; the', 'observer counts cycles of its', 'own circulation, three', 'transits round its port'], PURPLE),
              ('4  read', ['a second pulse with one of', 'four phase settings; the fuel', 'is copied into two pointers', 'after the coupling is off'], AMBER),
-             ('5  compare', ['retain the complete two-pointer', 'law: 00, 10, 01 and 11;', 'the copied values agree when', 'both writes act as declared'], GREEN),
-             ('6  record', ['retain both fuel inputs, four', 'phases and every query;', 'record pulse work and the', 'supplied service schedule'], BLUE)]
+             ('5  agree', ['two observers on an overlap', 'compare complete reports;', 'identical reports are admitted,', 'every other outcome is kept'], GREEN),
+             ('6  record', ['three copies of the admitted', 'record; the order and count', 'of its own records are the', 'observer’s clock'], BLUE)]
     bw, bh, by_ = 340, 170, y0 + 76
     for k, (ttl, body, col) in enumerate(steps):
         bx_ = x0 + 28 + (bw + 44.8) * k
@@ -576,13 +572,13 @@ def main():
         if k < 5:
             arrow(bx_ + bw + 6, by_ + bh / 2, bx_ + bw + 39, by_ + bh / 2, INK, 2.2)
     y = by_ + bh + 44
-    mono(x0 + 30, y, 'reference: χ_b = (|a,b,c⟩ + |c,b,f⟩ − |a,b,f⟩)/√3, Dχ_b = −mχ_b.   h = D ⊕ 0_app; finite pulse U_p = exp[−iπ(h + V)/(4g)]', 16)
-    mono(x0 + 30, y + 28, 'p_b = P(fuel out=1 | fuel in=reference in=b), same source. Then p₁ − p₀ = |U_ff|² for the complete finite-pulse map U, with decoupled reference.', 15, MUTED)
+    mono(x0 + 30, y, 'clock:   χ_b = ( |a,b,c⟩ + |c,b,f⟩ − |a,b,f⟩ ) / √3,   D χ_b = −m χ_b          reading:   p(fuel full) − p(fuel empty) = |amplitude of one added object|²', 16)
+    mono(x0 + 30, y + 28, 'four settings θ = 0, π/2, π, 3π/2 turn the differences into one complex number per count q; its spectrum over q shows the frequencies in units of the observer’s reference', 15, MUTED)
     y += 76
-    text(x0 + 30, y, 'Service scope.', 18, INK, weight='bold')
-    lines(x0 + 180, y, ['The diagram describes finite simulation-generated records. Preparation, scheduling, pulse strength and phase are supplied construction choices.',
-                        'The source-energy ledger includes pulse driving work. It supplies neither controller energy accounting nor an autonomous clock or repeated reset budget.'], 17, 26, INK)
-    text(x0 + 30, y0 + h - 22, 'Figures describe declared domains. Active contrast specification: model/polynomial_sv/SPEC.md. Scalar source map: model/np_scalar/PROOF.md.', 15, MUTED)
+    text(x0 + 30, y, 'Observers first.', 18, INK, weight='bold')
+    lines(x0 + 180, y, ['Ports, seams and cells are the hardware of a computation. They are no space. What is compared with nature is what the observers record and agree on.',
+                        'No observer reads the state of the program, its evolution parameter or a common clock; two observers compare clocks through the records on their overlap.'], 17, 26, INK)
+    text(x0 + 30, y0 + h - 22, 'Both laws are candidates under test. Law 1 is specified in model/polynomial_sv/SPEC.md; the package for law 2 is model/scalar_channel.', 15, MUTED)
 
     Ht = 3472 + 500 + 40
     defs = '<defs>' + ''.join(
