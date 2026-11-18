@@ -260,7 +260,9 @@ def controller_matrix(gates, weights=None):
         if g.shape!=(d,d) or not np.isfinite(g.data).all():
             raise ValueError('invalid gate')
         residual=g.conj().T@g-sparse.identity(d,format='csr')
-        if residual.nnz and abs(residual.data).max()>2e-11:
+        # This Hermitian residual has spectral norm bounded by its maximum
+        # absolute row sum. An entrywise test misses coherent rank-one errors.
+        if residual.nnz and np.asarray(abs(residual).sum(axis=1)).max()>2e-11:
             raise ValueError('nonunitary gate')
         blocks[k+1][k]=weights[k]*g
         blocks[k][k+1]=weights[k]*g.conj().T

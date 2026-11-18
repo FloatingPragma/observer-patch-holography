@@ -7,6 +7,7 @@ import sys
 import tempfile
 import unittest
 from unittest.mock import patch
+import numpy as np
 
 from . import experiment as e
 
@@ -18,6 +19,12 @@ class ReceiptTests(unittest.TestCase):
 
     def test_receipt_passes_independent_scientific_relations(self):
         e.validate(self.receipt)
+
+    def test_coherent_nonunitarity_cannot_hide_below_entrywise_tolerance(self):
+        gate=np.eye(32)+5e-12*np.ones((32,32))
+        self.assertGreater(np.linalg.norm(gate.T@gate-np.eye(32),2),3e-10)
+        with self.assertRaisesRegex(ValueError,'nonunitary'):
+            e.c.controller_matrix([gate])
 
     def test_every_mutation_is_rejected_by_science_or_fresh_replay(self):
         def mutate(path,value):
