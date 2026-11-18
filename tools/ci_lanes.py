@@ -90,6 +90,8 @@ COHERENT_DEFECT_WAVE = (
 LANES: tuple[Lane, ...] = (
     # ------------------------------------------------------------------
     # Push tier, root requirements: code/ replays and their controls.
+    pytest_lane("openwave_energy_clock_join", 0.25, "model/openwave_energy_clock_join",
+                env=BLAS1, flags="-q -W error"),
     pytest_lane("capacity_readback", 1, "code/capacity_readback -W error", env={"OPENBLAS_NUM_THREADS": "1"}),
     pytest_lane("collar_gap", 1, "code/yang_mills/test_collar_gap_certificate.py "
                 "code/yang_mills/tests/test_finite_collar_gap_certificate.py "
