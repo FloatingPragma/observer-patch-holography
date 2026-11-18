@@ -11,3 +11,8 @@ everything) and `python -m pytest -q model/polynomial_sv`.
 A few small theory packages sit next to it (`support_refinement`, `matched_einstein_limit`,
 `defect_particle_classes`, `carrier_selection_reduction`, `finite_instrument_calibration`,
 `maxwell_local_selection`, `maxwell_weak_field`); each has its own README and tests.
+
+The experimental [scalar construction](np_scalar/README.md) executes local ancilla preparation and
+observer instruments under a separate law. Its [source export](np_export/README.md) supplies the
+construction manual and carrier data. These component results require an explicit implementation
+proof before they can support claims about the contrast-memory model.

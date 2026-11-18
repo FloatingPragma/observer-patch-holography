@@ -1,0 +1,112 @@
+{
+  "schema": "oph.source_import.v1",
+  "source_revision": "22c17e489bf1d021ad99e45f4ae7ddd84d5e6cd5",
+  "oph_base_revision": "972d81b9b6068938e52457b59497766499222b5d",
+  "files": [
+    {
+      "source_path": "candidates/np-solver/export/CONSTRUCTION_MANUAL.md",
+      "upstream_sha256": "c7d86e335d6e9b67bc728328b4d35f13bcbb48ddb72bc4851cd36bfcaec11bc2",
+      "local_path": "model/np_export/CONSTRUCTION_MANUAL.md",
+      "adapted": true
+    },
+    {
+      "source_path": "candidates/np-solver/export/README.md",
+      "upstream_sha256": "33c4413e8e72df5004f779485ceafef28a608e6f586900608db1627986816ed5",
+      "local_path": "model/np_export/README.md",
+      "adapted": true
+    },
+    {
+      "source_path": "candidates/np-solver/export/executable_spec.svg",
+      "upstream_sha256": "b566f1649ae0534fb30dfefc9f16d01cd374900b83e109e5cd0bbc5ad1acedc7",
+      "local_path": "model/np_export/executable_spec.svg",
+      "adapted": true
+    },
+    {
+      "source_path": "candidates/np-solver/export/fig_cell.svg",
+      "upstream_sha256": "13aae98f837e6014b78e334a77e0c58766aa3a01a0f168362f186c3ebcc3595d",
+      "local_path": "model/np_export/fig_cell.svg",
+      "adapted": true
+    },
+    {
+      "source_path": "candidates/np-solver/export/fig_federation.svg",
+      "upstream_sha256": "20c89d100e40161a62e0dd3d9b12c24e78b9e21a71ef12a0303e544bc214bd05",
+      "local_path": "model/np_export/fig_federation.svg",
+      "adapted": true
+    },
+    {
+      "source_path": "candidates/np-solver/export/fig_idea.svg",
+      "upstream_sha256": "54820407525b91a995687f3b24a3a4e8ba71378c0f5bb9c72eb276ff0a03a3cf",
+      "local_path": "model/np_export/fig_idea.svg",
+      "adapted": true
+    },
+    {
+      "source_path": "candidates/np-solver/export/fig_law1.svg",
+      "upstream_sha256": "5e0c1e98b6901f4c4b8fe5f3f7fb1a3c3743aa1ea7151d8a13865f55923533c7",
+      "local_path": "model/np_export/fig_law1.svg",
+      "adapted": true
+    },
+    {
+      "source_path": "candidates/np-solver/export/fig_law2.svg",
+      "upstream_sha256": "7ae7b8d23f2d56bae636a02a48f1744fb28c0da25f93bbe219cfa666fe198e41",
+      "local_path": "model/np_export/fig_law2.svg",
+      "adapted": true
+    },
+    {
+      "source_path": "candidates/np-solver/export/fig_registers.svg",
+      "upstream_sha256": "6af43958f8e63b86b967a8c75a9504713d95032fc7e5d5b8f1937f6ed7dc468e",
+      "local_path": "model/np_export/fig_registers.svg",
+      "adapted": true
+    },
+    {
+      "source_path": "candidates/np-solver/export/fig_run.svg",
+      "upstream_sha256": "854b38b3a4f4c8f309ed267f972fad348a5c31044cef26df2ef3fe9a9adc07e9",
+      "local_path": "model/np_export/fig_run.svg",
+      "adapted": true
+    },
+    {
+      "source_path": "candidates/np-solver/export/make_diagram.py",
+      "upstream_sha256": "9c0858972f2ed5977da70ead9bbe6779bdeb1a13657f7e30a95e12bf6c41103f",
+      "local_path": "model/np_export/make_diagram.py",
+      "adapted": true
+    },
+    {
+      "source_path": "candidates/np-solver/export/viewer.html",
+      "upstream_sha256": "b11434c518d3dc73daccbfb78407b1f2dfed9770b437875f7a86831cb322cf6b",
+      "local_path": "model/np_export/viewer.html",
+      "adapted": false
+    },
+    {
+      "source_path": "candidates/np-solver/pair_transit/delivered/source/CELL.npz",
+      "upstream_sha256": "9fdc4f4475baa029c1b95f76f1b0a546617ecaef582fbf9f476952c4b258c42f",
+      "local_path": "model/np_export/inputs/CELL.npz",
+      "adapted": false
+    },
+    {
+      "source_path": "candidates/np-solver/sphere/carriers/FEDERATION_LEVEL0.npz",
+      "upstream_sha256": "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b",
+      "local_path": "model/polynomial_sv/carriers/FEDERATION_LEVEL0.npz",
+      "adapted": false
+    },
+    {
+      "source_path": "candidates/np-solver/sphere/carriers/FEDERATION_LEVEL1.npz",
+      "upstream_sha256": "c7d4ad87b09d9158a3d9be60c537d1aaecc69e951e6a9979e505e0162e134d4b",
+      "local_path": "model/polynomial_sv/carriers/FEDERATION_LEVEL1.npz",
+      "adapted": false
+    },
+    {
+      "source_path": "candidates/np-solver/sphere/carriers/FEDERATION_LEVEL2.npz",
+      "upstream_sha256": "e7273bbd0e814abf49f3a333ecfe58a542262aee7d2399db677d15c19fcac673",
+      "local_path": "model/polynomial_sv/carriers/FEDERATION_LEVEL2.npz",
+      "adapted": false
+    }
+  ],
+  "source_revisions_inspected": [
+    "22c17e489bf1d021ad99e45f4ae7ddd84d5e6cd5",
+    "02acad8d8630c6731cfd669fa3dc61260c0eea89"
+  ],
+  "calibrated_benchmark_provenance": {
+    "revision": "374b2390801842d38de9b9c326e79a8ab29a6be5",
+    "path": "model/ccf_lt2",
+    "scientific_transfer_to_import": false
+  }
+}
