@@ -5,8 +5,9 @@ The collar of a seam is its private memory of eleven states; recovery is its ret
 0, 1 and 2 loads. The local law of `e0` on loads x memory is `h_kappa = U G_kappa U` from `law.py`.
 
 Probe (audit on the operators): the law has no element between "memory blank" and "memory not blank"; the levels
-of a collar with no load anywhere; one load moves on the carrier without the seam, a load on a port of `e0` lying
-`kappa` lower.
+of a collar with no load anywhere; one load moves on the carrier without the seam; beside a record of size one a
+load on a port of `e0` lies below a load elsewhere, by about `2 kappa` where the record fits the load and by about
+`kappa` where it does not.
 
 Reading: a local fuel at level 0 is converted into a contrast record of the collar by a pulse of area `pi/4` with
 the law acting; after `q` cycles a second pulse with one of four phase settings reads the fuel. The record is
@@ -79,6 +80,32 @@ def build(loads, kappa, without_e0=False):
     return cf, ci, H
 
 
+def beside_a_record(cf, H, kappa, free):
+    """One load beside a seam that holds a record of size one: the levels below a load elsewhere.
+
+    A load elsewhere starts at `free + kappa`: the lowest level of a free load plus the level of the record with
+    empty ports. The levels below it fall into two groups, split at their largest gap. In the lower group the
+    record fits the load on its port and the seam charges nothing; in the upper group it does not fit. The weight
+    is the mean probability, over the levels of a group, that the load sits on a port of the seam.
+    """
+    one = np.array([m > 0 and abs(lw.LABELS[m - 1][1]) == 1 for _ in cf for m in range(M)])
+    on_port = np.array([float(c[E0[0]] + c[E0[1]]) for c in cf for _ in range(M)])[one]
+    w, v = np.linalg.eigh(H[np.ix_(one, one)])
+    start = free + kappa
+    below = np.flatnonzero(w < start - 1e-9)
+    out = {'a_load_elsewhere_starts_at': float(start), 'levels_below': int(len(below))}
+    if len(below) < 2:
+        return out
+    cut = int(np.argmax(np.diff(w[below]))) + 1
+    weight = lambda group: float(np.mean((v[:, group] ** 2).T @ on_port))
+    out.update({'levels_where_the_record_fits': [float(x) for x in w[below[:cut]]],
+                'levels_where_the_record_does_not_fit': [float(x) for x in w[below[cut:]]],
+                'weight_on_a_port_of_the_seam': [weight(below[:cut]), weight(below[cut:])],
+                'lowest_level_of_a_load_elsewhere': float(w[len(below)]),
+                'weight_on_a_port_of_the_seam_there': weight(np.array([len(below)]))})
+    return out
+
+
 def probe(kappas=(8.0, 0.0)):
     out = {}
     for kappa in kappas:
@@ -99,6 +126,7 @@ def probe(kappas=(8.0, 0.0)):
                 levels = np.linalg.eigvalsh(H)
                 entry['load_moves_on_the_carrier_without_the_seam'] = bool(
                     all(np.abs(levels - (x + kappa)).min() < 1e-9 for x in ref))
+                entry['beside_a_record_of_size_one'] = beside_a_record(cf, H, kappa, entry['lowest_level_blank'])
             lines[str(loads)] = entry
         out[str(kappa)] = lines
     return out

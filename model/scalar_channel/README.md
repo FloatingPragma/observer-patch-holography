@@ -40,3 +40,15 @@ The construction is described in
 [the construction manual](../construction_manual/CONSTRUCTION_MANUAL.md), whose
 section 11 says which of its parts this package executes. No sibling checkout
 or network service is needed for replay.
+
+## The cage
+
+The subpackage [cage](cage/README.md) builds an object that this law holds on
+a ring of four seams, and executes an observer's experiments on it: the swing
+of its seam record at one line, the level difference of its two modes from a
+fuel dial, and a detector that reads its excitation after five waits. It has
+its own receipts and its own replay:
+
+```sh
+python -B -O -m model.scalar_channel.cage
+```

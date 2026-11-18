@@ -142,6 +142,8 @@ EXPECTED_ROW_IDS = (
     "OL-K5",
     "OL-K6",
     "OL-K7",
+    "OL-K8",
+    "OL-K9",
     "OL-L1",
     "OL-L2",
     "OL-L3",
@@ -636,8 +638,8 @@ def render_observations(rows: list[dict]) -> str:
         f" ledger is the maintained surface. Registered PR-* ids name rows of the"
         f" premise register (established under the historical issue #727);"
         f" each row lists the register rows its current status"
-        f" consumes. The row set, rungs, and lane assignments were fixed when"
-        f" the ledger was established. The lane column names the open issue"
+        f" consumes. The builder fixes the row set, its order and the lane of"
+        f" every row. The lane column names the open issue"
         f" that owns a row's remaining work, beside the historical V3 lane the"
         f" row was composed under. The ledger records adequacy status. It is"
         f" not itself evidence: a promotion requires committed receipts."
@@ -680,10 +682,10 @@ def render_observations(rows: list[dict]) -> str:
     lines.append(
         "An attained structural rung certifies the theorem under its registered"
         " hypotheses; it does not assert an empirical identification of every"
-        " object in that theorem. The [native model audit](../../model/PHYSICAL_AUDIT.md)"
-        " distinguishes finite theorem, executed observer process and physical"
-        " correspondence. Local signal, action and clock results need no federation;"
-        " extension to larger domains needs its own compatibility and error control."
+        " object in that theorem. The [executable model](../../model/README.md)"
+        " states for each of its results the theorem, the records its observers"
+        " read and what is supplied. A result on one cell needs no federation;"
+        " an extension to larger carriers needs its own theorem or computation."
         " The [public-data audit](../research/PUBLIC_DATA_PREDICTION_AUDIT.md)"
         " records conditional comparisons with the observed Universe, including"
         " the retrospective ACT scalar-tilt result. It changes no adequacy rung,"

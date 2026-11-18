@@ -1,24 +1,89 @@
-# The executable OPH model
+# polynomial-sv: the executable OPH model
 
-The executable model is **polynomial-sv**. Its law, the contrast-memory law, is a candidate for the native
-repair law: twelve-port cells whose seams keep a small private memory of how much their two ends disagree.
-The [README](polynomial_sv/README.md) walks through it, the [specification](polynomial_sv/SPEC.md) fixes the
-law, the carriers and the records, and the [proof](polynomial_sv/PROOF.md) shows why a bound pair stays a pair.
+[![The executable construction on one sheet: the idea, the cell, the registers, the federation, the two laws, a cage of the second law, one run](construction_manual/executable_spec.svg)](construction_manual/README.md)
 
-Run it with `pip install -r model/requirements.txt`, then `python -m model` (add `--full` to recompute
-everything) and `python -m pytest -q model/polynomial_sv`.
+The theory says the Universe is a very large network of very simple observers. Each one holds a few records and
+compares them with its neighbours, and whenever two neighbours disagree they repair the difference between the
+two of them. No observer sees the whole, and nothing stands outside. What the network settles on is its history,
+and that history contains the observers who work out how the network is built.
 
-The [construction manual](construction_manual/README.md) shows the hardware and the two laws under test on one
-sheet and describes them part by part, with the reason for each design choice and every equation in plain
-words.
+polynomial-sv is that network as a program. Its name states the design goal. A consistent history is a fixed
+point over an enormous number of records, and a search for it would grow exponentially with their number. The
+network does not search. Every check is local, every repair is local, and every accepted repair lowers one global
+measure of disagreement by a fixed step, so the work grows as a polynomial in the number of observers: with this
+design the Universe can think itself into existence in polynomial time. For the repair rule of the theory that
+is a theorem. The laws run here are coherent versions of that rule, and the bound for them is work in progress.
 
-Two experimental packages extend the model, each with its own README, proof and tests. The
-[scalar channel](scalar_channel/README.md) executes the second law of the manual on one cell: local preparation
-and observer instruments. The [finite clock](contrast_clock/README.md) runs a fixed program of contrast-memory
-events and two observer readings under one time-independent law, with a clock register as the sequencer of the
-computation. Their results stand apart from polynomial-sv and support no claim about it without an explicit
-implementation proof.
+## What it is made of
 
-A few small theory packages sit next to it (`support_refinement`, `matched_einstein_limit`,
-`defect_particle_classes`, `carrier_selection_reduction`, `finite_instrument_calibration`,
-`maxwell_local_selection`, `maxwell_weak_field`); each has its own README and tests.
+- **Hardware.** A cell of twelve ports joined by thirty seams, the corners and edges of an icosahedron. Each
+  port is a small observer. Cells tile a sphere, and each is joined to its three neighbours by one seam. The
+  tests use one cell and 20, 80 and 320 cells.
+- **Software.** A law that acts on the registers of ports and seams, and the programs of an observer: write,
+  read, agree, record, and count its own records as its clock.
+- **What is physical.** What the observers record and agree on. Ports, seams and cells are the hardware of a
+  computation and no space. Space, time, fields and particles are how the observers inside describe their agreed
+  records, and a test compares their records with ours.
+
+Two laws are under test on this hardware. Both are candidates, and the search for the correct native repair law
+is work in progress.
+
+| | Law 1: the contrast-memory law | Law 2: the scalar channel |
+| --- | --- | --- |
+| Registers | a load 0, 1 or 2 on every port; a private memory of eleven states on every seam | one object or none on every seam and on every wedge, a wedge being two seams at one port |
+| What it does | neighbours exchange loads and pay for holding different amounts | an object hops between a seam and a wedge, which sit at two opposite levels |
+| Package | [polynomial_sv](polynomial_sv/README.md), with the binding [specification](polynomial_sv/SPEC.md) and the [proof](polynomial_sv/PROOF.md) of its theorem | [scalar_channel](scalar_channel/README.md), with its [cage](scalar_channel/cage/README.md) |
+
+The [construction manual](construction_manual/CONSTRUCTION_MANUAL.md) builds all of it part by part: what each
+part is, why it is designed this way, every equation with what it says, and each section again in plain words.
+The [sheet](construction_manual/README.md) shows it on one page.
+
+## What it shows
+
+| Observable | What the observers read | Law | Ledger row |
+| --- | --- | --- | --- |
+| Particle stability | Two loads written on one seam are read as a pair at every later reading, on every number of cells, by a theorem; the same law without the agreement energy loses them. A second object, the excitation of a cage, is kept for every interval and read by a local detector. | 1 and 2 | OL-K5, attained |
+| A clock inside an object | After a pulse the seam record of a cage swings at one line with no drive. An observer reads the line at 4.8990 of its own reference and reads the level difference of the two modes separately at the same value. | 2 | OL-K4, attained as a prepared clock |
+| A stable neutral object | A seam memory that holds a record while its ports are empty stays that way under every event, holds no load, and its level is read from its observers' own records. | 1 | OL-K9, attained |
+| Waves of an object | Every frequency of law 2 obeys `ω² = m² + λ`, with `λ` a level of the seams. One point of the relation is read from records. | 2 | OL-K8, partial |
+| What a reading leaves | Asking "is a pair there?" and asking "where is it?" give the same first answer and different later records. | 1 | |
+
+The last column names the row of the theory's [observation ledger](../docs/registers/OBSERVATION_LEDGER_V3.md),
+the list of what the model has to reproduce. Each result is a statement about this construction, with everything
+supplied by its makers listed next to it. The two laws act on different state spaces, and their results are not
+added up.
+
+## Run it
+
+```sh
+pip install -r model/requirements.txt
+python -m model                                   # law 1 against its stored results, under a minute; --full recomputes everything
+python -B -O -m model.polynomial_sv.presence      # law 1: the laws of two readings
+python -B -O -m model.scalar_channel              # law 2 on registers: preparation, pulses, pointers
+python -B -O -m model.scalar_channel.cage         # law 2: the cage, every reading from counts
+python -m pytest -q model/polynomial_sv model/scalar_channel
+```
+
+| Package | Content |
+| --- | --- |
+| [polynomial_sv](polynomial_sv/README.md) | law 1: the local law on all 99 states of a seam, the carriers, the binding theorem, emitter and reader, events with no common clock, bound objects, the port response, the unrecovered seam, the presence reading |
+| [scalar_channel](scalar_channel/README.md) | law 2 on one cell, written on 432 two-state registers: loop instruments, the reference by local ramps, pulses with the law running, the complete law of two pointers |
+| [scalar_channel/cage](scalar_channel/cage/README.md) | an object that law 2 holds on a ring of four seams: its theorems, its two operators as words on registers, and three experiments read from counts |
+| [contrast_clock](contrast_clock/README.md) | a fixed program of events of law 1 and two readings under one time-independent law; its clock register is a sequencer of the computation and no clock of an observer |
+| [construction_manual](construction_manual/README.md) | the manual, the sheet, the eight figures and their generator |
+| [contrast_replay.py](contrast_replay.py) | law 1 rebuilt from the manual in the manual's labels and checked against `polynomial_sv` |
+
+A few theory packages sit beside the model, each with its own README and tests: `support_refinement`,
+`matched_einstein_limit`, `defect_particle_classes`, `carrier_selection_reduction`,
+`finite_instrument_calibration`, `maxwell_local_selection`, `maxwell_weak_field`.
+
+## Supplied, and open
+
+Supplied by the makers of the construction, and listed with every result: the carrier and its gluing rule; the
+couplings `κ` of law 1 and `m` of law 2; emitters, pulses and their strengths; the reference registers; the
+readers; the apparatus bits and penalties of the register form; the two operators on a profile and the fuel
+dial.
+
+Open, and work in progress: the bound on the work to reach the fixed point for the coherent laws; one law that
+carries the objects of both laws; a gluing derived from the theory; a selection of `κ` and `m`; a clock that
+starts with no supplied phase; the motion of a caged excitation.

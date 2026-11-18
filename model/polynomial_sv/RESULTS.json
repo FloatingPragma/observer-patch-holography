@@ -1866,7 +1866,29 @@
      "largest_element_between_blank_and_not_blank": 0.0,
      "lowest_level_blank": 48.00000000000002,
      "lowest_level_not_blank": 41.805724025045684,
-     "load_moves_on_the_carrier_without_the_seam": true
+     "load_moves_on_the_carrier_without_the_seam": true,
+     "beside_a_record_of_size_one": {
+      "a_load_elsewhere_starts_at": 56.00000000000002,
+      "levels_below": 8,
+      "levels_where_the_record_fits": [
+       41.9363913607765,
+       41.94020780924693
+      ],
+      "levels_where_the_record_does_not_fit": [
+       49.80572402504567,
+       49.87160651245755,
+       49.93755674914115,
+       50.80572402504566,
+       50.87154515941434,
+       50.93755674914116
+      ],
+      "weight_on_a_port_of_the_seam": [
+       0.9961898231717907,
+       0.9835795175445071
+      ],
+      "lowest_level_of_a_load_elsewhere": 56.38175136863987,
+      "weight_on_a_port_of_the_seam_there": 0.006573848309351189
+     }
     },
     "2": {
      "states": 858,
@@ -1891,7 +1913,11 @@
      "largest_element_between_blank_and_not_blank": 0.0,
      "lowest_level_blank": 5.642892579905167e-16,
      "lowest_level_not_blank": -2.967025165570755e-15,
-     "load_moves_on_the_carrier_without_the_seam": true
+     "load_moves_on_the_carrier_without_the_seam": true,
+     "beside_a_record_of_size_one": {
+      "a_load_elsewhere_starts_at": 5.642892579905167e-16,
+      "levels_below": 0
+     }
     },
     "2": {
      "states": 858,

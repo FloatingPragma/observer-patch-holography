@@ -1,4 +1,4 @@
-"""Draws executable_spec.svg: the hardware and the software of the executable construction on one sheet.
+"""Draws executable_spec.svg: the hardware and the software of polynomial-sv on one sheet.
 
 Everything geometric is read from carrier files: the wiring of one cell from inputs/CELL.npz, the federations
 from ../polynomial_sv/carriers/FEDERATION_LEVEL{0,1,2}.npz. The formulas are those of CONSTRUCTION_MANUAL.md.
@@ -7,6 +7,7 @@ from ../polynomial_sv/carriers/FEDERATION_LEVEL{0,1,2}.npz. The formulas are tho
 """
 import collections
 import itertools
+import json
 import math
 from pathlib import Path
 
@@ -120,22 +121,28 @@ def align(v, target):
     if c > 1 - 1e-12:
         return np.eye(3)
     if c < -1 + 1e-12:
-        return rot('z', 180)
+        a = np.cross(v, [1.0, 0.0, 0.0] if abs(v[0]) < 0.9 else [0.0, 1.0, 0.0])      # a half turn about an axis across v
+        a /= np.linalg.norm(a)
+        return 2 * np.outer(a, a) - np.eye(3)
     k = np.cross(v, t)
     K = np.array([[0, -k[2], k[1]], [k[2], 0, -k[0]], [-k[1], k[0], 0]])
     return np.eye(3) + K + K @ K * (1 / (1 + c))
 
 
-def draw_cell(X, seams, cx, cy, R, M, labels=True, star=None, face=None, wedge=None, ext=(), pr=17, fs=15, tag=None):
+def draw_cell(X, seams, cx, cy, R, M, labels=True, star=None, face=None, wedge=None, ext=(), pr=17, fs=15, tag=None, signed=None):
     P = X @ M.T
     xy = lambda p: (cx + R * P[p, 0], cy - R * P[p, 1])
     order = sorted(range(len(seams)), key=lambda k: P[seams[k][0], 2] + P[seams[k][1], 2])
+    signed = signed or {}
     if face:
         poly([xy(p) for p in face], '#ddf4ff', BLUE, 1.0, 0.85)
     for k in order:
         a, b = seams[k]
         back = (P[a, 2] + P[b, 2]) / 2 < -0.05
         hot = star is not None and star in (a, b)
+        if (a, b) in signed:
+            line(*xy(a), *xy(b), stroke=BLUE if signed[(a, b)] > 0 else RED, w=6.5)
+            continue
         line(*xy(a), *xy(b), stroke=BLUE if hot else '#6e7781', w=3.6 if hot else (1.3 if back else 2.2),
              dash='5 6' if back and not hot else None, opacity=0.55 if back and not hot else 1.0)
     if wedge:
@@ -260,7 +267,7 @@ def idea_strip(x0, y0, w, h):
                          'a fixed step. The work is bounded by the disagreement at the start:',
                          'polynomial in the number of ports.'], 16, 24, INK)
     lines(c2, y0 + 276, ['Proved for the native repair of the theory, with loads bounded by the alphabet.',
-                         'For the two laws tested here it is the target, and work in progress.'], 14, 19, MUTED)
+                         'For the two laws tested here it is the target that names the model, and work in progress.'], 14, 19, MUTED)
     text(c3, y0 + 92, 'How large it is', 19, INK, weight='bold')
     lines(c3, y0 + 122, ['The carriers of the tests: 20, 80 and 320 cells.',
                          'The screen of the Universe we inhabit: about',
@@ -272,8 +279,8 @@ def idea_strip(x0, y0, w, h):
 def main():
     Wd = 2400
     out.append('<<HEADER>>')
-    text(40, 56, 'The executable construction: hardware and software', 34, INK, weight='bold')
-    text(40, 88, 'Hardware: cells of twelve ports, their seams, the sphere of cells and the registers.  Software: two laws under test, the instruments of an observer, its clock and its records.', 18, MUTED)
+    text(40, 56, 'The executable construction of polynomial-sv: hardware and software', 34, INK, weight='bold')
+    text(40, 88, 'Hardware: cells of twelve ports, their seams, the sphere of cells and the registers.  Software: two laws under test, a cage of the second, the instruments of an observer, its clock and its records.', 18, MUTED)
     idea_strip(40, 112, 2320, 330)
 
     seams, X = cell()
@@ -532,7 +539,7 @@ def main():
     y = mid + 3.0 * scale + 30
     text(x0 + 30, y, 'The 150 modes of one cell', 18, INK, weight='bold')
     bx0, bwid, by2 = x0 + 30, 1080, y + 16
-    parts = [(280, '23  waves over the twelve ports', '#ddf4ff', BLUE), (270, '36  flat detail of the seams', '#f6f8fa', MUTED), (530, '91  circulations at −m: the local clocks', '#fbefff', PURPLE)]
+    parts = [(280, '23  waves over the twelve ports', '#ddf4ff', BLUE), (270, '36  flat branch: the cages', '#f6f8fa', MUTED), (530, '91  circulations at −m: the local clocks', '#fbefff', PURPLE)]
     xx = bx0
     for wseg, lab, fill, col in parts:
         rect(xx, by2, wseg - 4, 40, fill, col, 1.6, 6)
@@ -551,12 +558,107 @@ def main():
     lines(x0 + 30, y + 42, ['The lines of an added object are read at 1.0000, 1.5435, 2.0000, 2.1490 of the observer’s own',
                             'reference, predicted from spatial comparisons before the records exist (one cell).',
                             'A created object costs at least m, holds no charge of the twelve currents, and its number is kept.',
-                            'On the sphere: round seam terms D = [[m, G B T], [T Bᵀ G, −m]] give the levels of a round sphere.'], 16, 24, INK)
+                            'On the sphere: round seam terms D = [[m, G B T], [T Bᵀ G, −m]] give the levels of a round sphere.',
+                            'A cage in the flat branch swings after a pulse and is kept; see the next panel.'], 16, 24, INK)
     text(x0 + 30, y0 + h - 24, 'Supplied: m = 1, pulses, ramps, apparatus bits. Candidates: A-scalar-CAR-pair-transit-v2, A-native-scalar-overlap-v3, the round sibling.', 15, MUTED)
 
-    # ---------------- panel 6: observers and a run
-    x0, y0, w, h = 40, 3472, 2320, 500
-    panel(x0, y0, w, h, 'SOFTWARE 3', 'Observers, instruments, clocks: one run from preparation to record', 'run')
+    # ---------------- panel 6: a cage in the flat branch of law 2
+    x0, y0, w, h = 40, 3472, 2320, 620
+    panel(x0, y0, w, h, 'SOFTWARE 3', 'A cage in the flat branch of law 2: a ring of four seams, its swing and its persistence', 'cage')
+    cage = json.loads((HERE.parent / 'scalar_channel' / 'cage' / 'results.json').read_text(encoding='utf-8'))
+    ring = (0, 2, 4, 6)
+    sign = {}
+    for k in range(4):
+        a, b = ring[k], ring[(k + 1) % 4]
+        sign[(min(a, b), max(a, b))] = (-1) ** k
+    Mc = align(X[0] + X[4], (0, 0, 1))
+    d = (X @ Mc.T)[0] - (X @ Mc.T)[4]
+    Mc = rot('z', math.degrees(math.atan2(d[0], d[1]))) @ Mc
+    ccx, ccy, cR = x0 + 300, y0 + 330, 200
+    xyc = draw_cell(X, seams, ccx, ccy, cR, Mc, signed=sign, pr=15, fs=14)
+    for (a, b), sg in sign.items():
+        pa, pb = np.array(xyc(a)), np.array(xyc(b))
+        mid = (pa + pb) / 2
+        out_dir = mid - np.array([ccx, ccy])
+        out_dir = out_dir / (np.linalg.norm(out_dir) or 1)
+        circle(mid[0] + 24 * out_dir[0], mid[1] + 24 * out_dir[1], 13, '#ffffff', BLUE if sg > 0 else RED, 1.6)
+        text(mid[0] + 24 * out_dir[0], mid[1] + 24 * out_dir[1] + 7, '+' if sg > 0 else '−', 20, BLUE if sg > 0 else RED, 'middle', 'bold')
+    text(ccx, y0 + 86, 'the ring 0, 2, 4, 6 with the signs + − + −', 16, INK, 'middle', 'bold')
+    text(ccx, y0 + h - 44, 'At each port of the ring a plus meets a minus:', 15, MUTED, 'middle')
+    text(ccx, y0 + h - 24, 'the port passes nothing on to its other seams.', 15, MUTED, 'middle')
+
+    tx = x0 + 600
+    text(tx, y0 + 92, 'Why the law keeps it', 18, INK, weight='bold')
+    mono(tx, y0 + 124, 'e  = ½ ( |0-2⟩ − |2-4⟩ + |4-6⟩ − |6-0⟩ )', 16)
+    mono(tx, y0 + 150, 'e′ = Bᵀ e / √5     on the 28 wedges at the four ports', 16)
+    mono(tx, y0 + 184, '2K = diag(d_a + d_b) − QᵀQ,    Q e = 0   ⇒   K e = 5 e', 16)
+    mono(tx, y0 + 210, 'D (e, e′) = (e, e′) [[ m, √5 ], [ √5, −m ]]', 16, INK, 'bold')
+    lines(tx, y0 + 244, ['Q adds the seams at a port without signs. The law moves e to e′',
+                         'and back and to no other place: 4 seams and 28 wedges.',
+                         '18 such profiles in a cell; its 30 rings span them.',
+                         'On a federation: rings on ports with five seams.'], 15, 21, MUTED)
+    lx, ly = tx + 20, y0 + 372
+    line(lx, ly, lx + 190, ly, INK, 3)
+    text(lx + 202, ly + 5, '+E = +2.4495   upper mode, empty in the reference', 15, INK)
+    line(lx, ly + 150, lx + 190, ly + 150, PURPLE, 3)
+    circle(lx + 95, ly + 150, 8, PURPLE, PURPLE)
+    text(lx + 202, ly + 155, '−E = −2.4495   lower mode, filled in the reference', 15, PURPLE)
+    arrow(lx + 95, ly + 136, lx + 95, ly + 12, AMBER, 2.4)
+    lines(lx + 112, ly + 66, ['lifting the object: a neutral excitation,', '2E = 4.8990'], 15, 21, AMBER, weight='bold')
+    text(tx, y0 + h - 44, 'Kept exactly: [H, P_X] = 0 for the excitation, at every reading.', 15, INK)
+    text(tx, y0 + h - 24, 'One added object in the upper mode costs E; the swing is at 2E.', 15, MUTED)
+
+    # the swing P_e(t) = 1 - (5/6) sin^2(sqrt6 t)
+    gx, gy, gw, gh = x0 + 1240, y0 + 130, 500, 250
+    text(gx - 40, y0 + 92, 'The swing after a finite pulse', 18, INK, weight='bold')
+    rect(gx, gy, gw, gh, '#fbfcfd', FAINT, 1.2, 4)
+    Eg = math.sqrt(6)
+    tmax = 4.0
+    pts = []
+    for k in range(401):
+        t = tmax * k / 400
+        pv = 1 - (5 / 6) * math.sin(Eg * t) ** 2
+        pts.append('%.1f,%.1f' % (gx + gw * t / tmax, gy + gh * (1 - pv)))
+    out.append('<polyline points="%s" fill="none" stroke="%s" stroke-width="2.6"/>' % (' '.join(pts), BLUE))
+    for val, lab in ((1.0, '1'), (1 / 6, '1/6')):
+        yy = gy + gh * (1 - val)
+        line(gx, yy, gx + gw, yy, FAINT, 1.0, dash='3 5')
+        text(gx - 8, yy + 5, lab, 14, MUTED, 'end')
+    per = math.pi / Eg
+    for k in range(1, 4):
+        xx = gx + gw * k * per / tmax
+        line(xx, gy + gh, xx, gy + gh + 7, MUTED, 1.4)
+    text(gx + gw * per / tmax, gy + gh + 24, 'π/E', 14, MUTED, 'middle')
+    text(gx + gw * 2 * per / tmax, gy + gh + 24, '2π/E', 14, MUTED, 'middle')
+    text(gx + gw * 3 * per / tmax, gy + gh + 24, '3π/E', 14, MUTED, 'middle')
+    text(gx, gy + gh + 24, '0', 14, MUTED, 'middle')
+    text(gx + gw / 2, gy + gh + 46, 'the observer’s own phase', 14, MUTED, 'middle')
+    mono(gx - 40, gy + gh + 80, 'P_e = 1 − (σ²/E²) sin²(E t):  a constant and one line at 2E', 15)
+    lines(gx - 40, gy + gh + 108, ['The pulse H − 2E n(e), for π / (2 √(2E(E − m))), puts the object of the',
+                                  'lower mode on e and does the work 3.456. Then no drive: the record',
+                                  'starts from rest and swings. The reference alone does not swing.'], 15, 21, MUTED)
+
+    rx = x0 + 1810
+    text(rx, y0 + 92, 'What observers read', 18, INK, weight='bold')
+    text(rx, y0 + 124, 'The clock, from counts of one cell', 16, BLUE, weight='bold')
+    lines(rx, y0 + 148, ['the line of the seam record, against the', 'observer’s own reference:'], 15, 20, INK)
+    mono(rx + 16, y0 + 196, '%.6f ± %.6f' % (cage['clock']['steps_of_equal_length']['line']['frequency'], cage['clock']['steps_of_equal_length']['line']['standard_error']), 16, INK, 'bold')
+    lines(rx, y0 + 222, ['the level difference of the pair, read', 'separately with a fuel dial:'], 15, 20, INK)
+    mono(rx + 16, y0 + 270, '%.6f ± %.6f' % (cage['dial']['level_difference'], cage['dial']['level_difference_standard_error']), 16, INK, 'bold')
+    mono(rx + 16, y0 + 294, 'the law: 2√6 = 4.898979', 15, MUTED)
+    text(rx, y0 + 332, 'Persistence: the excitation at five waits', 16, GREEN, weight='bold')
+    mono(rx + 16, y0 + 358, 'sharp pulse      %.5f' % cage['object']['excitation_in_the_state']['sharp'], 15)
+    mono(rx + 16, y0 + 380, 'coherent pulse   %.5f' % cage['object']['excitation_in_the_state']['coherent'], 15)
+    mono(rx + 16, y0 + 402, 'no pulse         %.6f' % cage['object']['excitation_in_the_state']['none'], 15)
+    text(rx, y0 + 440, 'Under a changed law', 16, RED, weight='bold')
+    lines(rx, y0 + 464, ['(seam hopping round every port, same', 'alphabet, routing and symmetry): no single',
+                         'line, and %.2f of the cage left at 64.' % cage['object']['changed_law']['weight_of_the_lower_mode_left_in_the_pair_at_1_4_16_64'][3]], 15, 20, INK)
+    text(rx, y0 + h - 44, 'Supplied: the potential and the converter on e,', 15, MUTED)
+    text(rx, y0 + h - 24, 'one guard over four port codes, the fuel dial.', 15, MUTED)
+
+    # ---------------- panel 7: observers and a run
+    x0, y0, w, h = 40, 3472 + 620 + 40, 2320, 500
+    panel(x0, y0, w, h, 'SOFTWARE 4', 'Observers, instruments, clocks: one run from preparation to record', 'run')
     steps = [('1  prepare', ['measure every loop, keep the', 'sign, correct it; fill the', 'transits; ramp each star to', 'the calm reference'], MUTED),
              ('2  write', ['a fuel at level 0 is coupled', 'to a local target for a short', 'pulse while the law keeps', 'running'], AMBER),
              ('3  let it run', ['the law acts alone; the', 'observer counts cycles of its', 'own circulation, three', 'transits round its port'], PURPLE),
@@ -578,16 +680,16 @@ def main():
     text(x0 + 30, y, 'Observers first.', 18, INK, weight='bold')
     lines(x0 + 180, y, ['Ports, seams and cells are the hardware of a computation. They are no space. What is compared with nature is what the observers record and agree on.',
                         'No observer reads the state of the program, its evolution parameter or a common clock; two observers compare clocks through the records on their overlap.'], 17, 26, INK)
-    text(x0 + 30, y0 + h - 22, 'Both laws are candidates under test. Law 1 is specified in model/polynomial_sv/SPEC.md; the package for law 2 is model/scalar_channel.', 15, MUTED)
+    text(x0 + 30, y0 + h - 22, 'Both laws are candidates under test. Law 1 is specified in model/polynomial_sv/SPEC.md; the package for law 2 is model/scalar_channel, with the cage in model/scalar_channel/cage.', 15, MUTED)
 
-    Ht = 3472 + 500 + 40
+    Ht = 3472 + 620 + 40 + 500 + 40
     defs = '<defs>' + ''.join(
         '<marker id="ah-%s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="%s"/></marker>'
         '<marker id="as-%s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="%s"/></marker>' % (c[1:], c, c[1:], c)
         for c in (INK, BLUE, ORANGE, PURPLE, GREEN, AMBER, MUTED)) + '</defs>'
     body = out[1:]
     head_ = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" height="%d" role="img" aria-label="%s">'
-    sheet = [head_ % (Wd, Ht, Wd, Ht, 'The executable construction: hardware and software'), defs,
+    sheet = [head_ % (Wd, Ht, Wd, Ht, 'The executable construction of polynomial-sv: hardware and software'), defs,
              '<rect x="0" y="0" width="%d" height="%d" fill="#ffffff"/>' % (Wd, Ht)] + body + ['</svg>']
     (HERE / 'executable_spec.svg').write_text('\n'.join(sheet) + '\n', encoding='utf-8')
     print('wrote executable_spec.svg', Wd, Ht)

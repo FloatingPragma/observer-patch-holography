@@ -1,16 +1,17 @@
-# The executable construction: hardware and software
+# The executable construction of polynomial-sv: hardware and software
 
 The construction on one sheet and panel by panel. Hardware is the carrier with its registers. Software is the
 law that acts on it, with the instruments, the clock and the records of an observer.
 
-Two laws are described. Law 1, the contrast-memory law, is the law of the executable model
-[polynomial-sv](../polynomial_sv/README.md), whose [specification](../polynomial_sv/SPEC.md) is the binding text
-for that model. Law 2, the scalar channel, is an experimental construction that the package
-[scalar_channel](../scalar_channel/README.md) executes on one cell. Both laws are candidates under test, and the
-search for the correct native repair law is work in progress. The two laws have different state spaces, and their
-results are not combined into one claim.
+polynomial-sv is the executable model of the theory: one hardware, and the laws under test on it. Law 1, the
+contrast-memory law, is executed by the package [polynomial_sv](../polynomial_sv/README.md), whose
+[specification](../polynomial_sv/SPEC.md) is the binding text for it. Law 2, the scalar channel, is executed by
+the package [scalar_channel](../scalar_channel/README.md) on one cell, and its cage by the subpackage
+[cage](../scalar_channel/cage/README.md). Both laws are candidates under test, and the search for the correct
+native repair law is work in progress. The two laws have different state spaces, and their results are not
+combined into one claim.
 
-[![The executable construction on one sheet: the idea, the cell, the registers, the federation, the two laws, one run](executable_spec.svg)](executable_spec.svg)
+[![The executable construction on one sheet: the idea, the cell, the registers, the federation, the two laws, a cage of the second law, one run](executable_spec.svg)](executable_spec.svg)
 
 **Full size.** Click the sheet, or open [executable_spec.svg](executable_spec.svg) in a browser tab and zoom. From
 a local checkout, [viewer.html](viewer.html) shows the sheet full screen with zoom and pan.
@@ -18,8 +19,8 @@ a local checkout, [viewer.html](viewer.html) shows the sheet full screen with zo
 | File | Contents |
 | --- | --- |
 | [CONSTRUCTION_MANUAL.md](CONSTRUCTION_MANUAL.md) | the construction manual: every part, how to build it, why it is designed this way, every equation with what it says, and each section again in plain words |
-| [executable_spec.svg](executable_spec.svg) | the whole sheet, 2400 by 4012 |
-| [fig_idea.svg](fig_idea.svg), [fig_cell.svg](fig_cell.svg), [fig_registers.svg](fig_registers.svg), [fig_federation.svg](fig_federation.svg), [fig_law1.svg](fig_law1.svg), [fig_law2.svg](fig_law2.svg), [fig_run.svg](fig_run.svg) | the seven panels as separate figures |
+| [executable_spec.svg](executable_spec.svg) | the whole sheet, 2400 by 4672 |
+| [fig_idea.svg](fig_idea.svg), [fig_cell.svg](fig_cell.svg), [fig_registers.svg](fig_registers.svg), [fig_federation.svg](fig_federation.svg), [fig_law1.svg](fig_law1.svg), [fig_law2.svg](fig_law2.svg), [fig_cage.svg](fig_cage.svg), [fig_run.svg](fig_run.svg) | the eight panels as separate figures |
 | [viewer.html](viewer.html) | a full-screen viewer for a local checkout |
 | [make_diagram.py](make_diagram.py) | draws every figure from the carrier files |
 | [inputs/CELL.npz](inputs/CELL.npz) | one cell with its seams and wedges, in the labelling of the manual |
@@ -122,14 +123,21 @@ Candidate `A-contrast-memory-spherical-v1`, the law of [polynomial-sv](../polyno
   whether its memory is blank and the size `|x|` of a record it holds.
 - **As events.** Every seam acts once per round by `exp(-i tau h_e)`, and each port observer counts its own
   rounds.
-- **Supplied.** The coupling `kappa`, the emitter with its fuel, the reader.
+- **Two readings.** The reader keeps one record per seam. The presence reading keeps one answer for the whole
+  cell, "a pair on some seam", through a reversible tree over the thirty readers. Both find a pair with the same
+  probability and leave different states behind, and the records of a later reading tell them apart
+  ([presence.py](../polynomial_sv/presence.py)).
+- **Supplied.** The coupling `kappa`, the emitter with its fuel, the reader, the reference registers, the tree of
+  the presence reading.
 
 ## Software 2: law 2, the scalar channel with a filled reference
 
 ![Law 2](fig_law2.svg)
 
 Candidates `A-scalar-CAR-pair-transit-v2`, its form on ordinary registers `A-native-scalar-overlap-v3`, which
-[scalar_channel](../scalar_channel/README.md) executes on one cell, and the sibling with round seam terms.
+[scalar_channel](../scalar_channel/README.md) executes on one cell, the sibling with round seam terms, and
+`A-native-caged-exciton-v1`, the same free law with two more operators in the observer's menu, which
+[cage](../scalar_channel/cage/README.md) executes.
 
     D = [[m, B], [B^T, -m]]        D^2 = m^2 + diag(B B^T, B^T B)        K = B B^T
     B[(a,b), (a,b,c)] = +1/sqrt2        B[(b,c), (a,b,c)] = -1/sqrt2
@@ -138,8 +146,9 @@ Candidates `A-scalar-CAR-pair-transit-v2`, its form on ordinary registers `A-nat
 - **Levels of one cell.** `K` has the levels 0, 1.382 three times, 3 five times, 3.618 three times and 5 eighteen
   times. The frequencies are 1, 1.5434, 2, 2.1490, 2.4495 and their negatives, with 91 wedge modes at `-1`.
 - **Reference.** All 120 levels below zero are filled. A particle is one object more and lies at least `m` above.
-- **The 150 modes.** 23 carry waves over the twelve ports (`K J = J L / 2` with the port Laplacian `L`), 36 are flat
-  detail of the seams, 91 are circulations at `-m`.
+- **The 150 modes.** 23 carry waves over the twelve ports (`K J = J L / 2` with the port Laplacian `L`), 36 are the
+  flat branch (eighteen seam profiles at the level 5 with their wedge images, the cages of the next panel), 91 are
+  circulations at `-m`.
 - **On registers.** `H = H_0 + 1024 sum_b (1 - P_b) + 512 sum_l (P_S(l) - C_l) + 1024 sum_u (1 - |0><0|)_u`, with 259
   independent loop constraints among the 240 triangles of a star and the 20 faces. They select the objects with
   an even total number.
@@ -147,7 +156,42 @@ Candidates `A-scalar-CAR-pair-transit-v2`, its form on ordinary registers `A-nat
   its cell and an amplitude on the wedges of every external seam.
 - **Supplied.** `m`, the pulses, the ramps, the apparatus bits, the round terms.
 
-## Software 3: observers, instruments, clocks
+## Software 3: a cage in the flat branch of law 2
+
+![A cage](fig_cage.svg)
+
+Candidate `A-native-caged-exciton-v1`, executed by [cage](../scalar_channel/cage/README.md): the free law of law 2,
+an object in its flat branch, and two operators that write and read it.
+
+    e  = (1/2) ( |0-2> - |2-4> + |4-6> - |6-0> )        e' = B^T e / sqrt5
+    2K = diag(d_a + d_b) - Q^T Q        Q e = 0   =>   K e = 5 e
+    D (e, e') = (e, e') [[m, sqrt5], [sqrt5, -m]]        levels +E and -E,  E = sqrt(m^2 + 5) = sqrt6
+
+- **The ring.** Four ports in a ring, here 0, 2, 4, 6, with the signs `+ - + -` on its four seams. `Q` is the
+  port-by-seam incidence without signs and `d_a` the number of seams at port `a`. At every port of the ring a plus
+  meets a minus, and with five seams at each of the four ports the profile has the level 5 of `K`.
+- **What the law keeps.** The pair `(e, e')` on 4 seams and 28 wedges, coupled to nothing else. A cell has 30
+  rings of rank 18, the whole flat branch. No profile on fewer than four seams exists.
+- **The object.** In the reference the lower mode is filled. `X^+ = a_+^+ a_-` lifts its object into the upper mode:
+  `[H_0, X^+] = 2E X^+`, a neutral excitation at `2E = 4.898979`. Its projector `P_X = n_+ (1 - n_-)` commutes with
+  `H_0`.
+- **The swing.** With the object on `e`, `P_e(t) = 1 - (5/6) sin^2(sqrt6 t)`: a constant and one line at `2E`, from
+  rest. The pulse `H - 2E n(e)` for the time `pi / (2 sqrt(2E (E - m)))` writes that state and does the work 3.456.
+  The pulse `H - (2E^2/m) n(e)` for `pi m / (2 sqrt5 E)` writes a sharp excitation, which does not swing.
+- **Read from counts of one cell.** The line of the seam record at 4.898982 (standard error 0.000002) of the
+  observer's own reference; the level difference of the pair, read separately with a fuel dial, at 4.898980
+  (0.000008). The excitation at five waits: in the state 0.99995 after the sharp pulse, 0.70593 after the pulse of
+  the swing and 0.000004 with no pulse, and the detector reads 0.9999 to 1.0002, 0.7059 to 0.7060 and 0.000004.
+- **Under a changed law** with seam hopping round every port (same alphabet, routing and symmetry) the response has
+  no single line, and the cage holds 0.79, 0.29, 0.21 and 0.14 of its weight at 1, 4, 16 and 64.
+- **On a federation.** Rings on ports with five seams are exact: 92, 312 and 1,272 of them on 20, 80 and 320 cells.
+  Of the eighteen profiles of a cell 6 or 7 keep the level.
+- **On registers.** `n(e) = Q_e / 8` with `Q_e^2 = 8 Q_e`: 17 words of weight at most 15. The converter
+  `c(e)^+ f + f^+ c(e)`: 8 words of weight at most 24. Both commute with the 260 loops and touch the registers of
+  the ports 0, 2, 4, 6; one guard over the codes of those four ports stands in front of each.
+- **Supplied.** The two operators with their guard, the fuel dial, the work and the phase of the pulse.
+
+## Software 4: observers, instruments, clocks
 
 ![One run](fig_run.svg)
 
@@ -158,7 +202,8 @@ Candidates `A-scalar-CAR-pair-transit-v2`, its form on ordinary registers `A-nat
 3. **Run.** The law acts alone. The observer counts cycles of its own circulation
    `chi_b = (|a,b,c> + |c,b,f> - |a,b,f>) / sqrt3`, which sits at the level `-m` exactly.
 4. **Read.** A second pulse with one of four phase settings; with the coupling off, the fuel is copied into two
-   pointers.
+   pointers. For a cage the fuel is read twice in one trial: first for the observer's phase, then, used as found,
+   for the capture of the profile.
 5. **Agree.** Identical complete reports of two observers are admitted. Every other outcome is kept as an outcome.
 6. **Record.** Three copies of the admitted record; the order and the count of its own records are the observer's
    clock.
@@ -174,8 +219,9 @@ evolution parameter or a common clock.
 ## Regenerate
 
 ```sh
-python model/construction_manual/make_diagram.py     # writes the sheet and the seven figures
+python model/construction_manual/make_diagram.py     # writes the sheet and the eight figures
 ```
 
-The script needs NumPy and NetworkX from `model/requirements.txt` and reads the cell from `inputs/` and the
-federations from `../polynomial_sv/carriers/`.
+The script needs NumPy and NetworkX from `model/requirements.txt`. It reads the cell from `inputs/`, the
+federations from `../polynomial_sv/carriers/` and the numbers of the cage panel from
+`../scalar_channel/cage/results.json`.
