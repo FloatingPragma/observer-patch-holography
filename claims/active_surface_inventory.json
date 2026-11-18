@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 482,
+  "surface_count": 486,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1007,6 +1007,26 @@
     },
     {
       "path": "model/maxwell_weak_field/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/np_export/CONSTRUCTION_MANUAL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/np_export/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/np_scalar/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/np_scalar/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
