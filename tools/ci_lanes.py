@@ -135,6 +135,9 @@ LANES: tuple[Lane, ...] = (
     # ------------------------------------------------------------------
     # Push tier, model requirements (model/requirements.txt): the theory
     # packages kept beside the polynomial-sv model.
+    lane("contrast_clock", "push", "model", 3,
+         "python -B -O -m model.contrast_clock",
+         "python -B -m pytest -q -W error model/contrast_clock", env=BLAS1),
     lane("support_refinement", "push", "model", 2,
          "python -m pytest -q -W error model/support_refinement",
          "python -m model.support_refinement --check model/support_refinement/results.json", env=BLAS1),
