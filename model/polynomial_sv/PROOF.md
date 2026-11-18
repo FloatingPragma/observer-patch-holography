@@ -192,3 +192,132 @@ The theorem concerns the sum of the seam terms with a continuous evolution param
 binding holds when each port observer serves each of its seams once per round, and it needs small event angles
 when seams act independently at random ([events.py](events.py)). The bound controls which seams the two loads are
 read on; it states no speed of propagation, and no continuum limit.
+
+## 8. Pair presence and the state after a reading
+
+Two observers can ask whether a pair was reported anywhere on the cell. In one instrument they keep
+only the aggregate answer. In the other they also keep the public words from individual seams. Both
+give the same first presence probabilities. Their disturbance of a later reading differs.
+
+The construction uses the cell, native blank-memory reduction, degree references, fuel converter and
+eleven-bit reader of SPEC.md, sections 1 to 7. Its supplied apparatus is a reversible tree connecting
+the thirty reader blocks and a choice of which registers to copy. Port and seam labels address hardware.
+The measured events below are functions solely of copied observer records. The source has 78 total-two
+states and one residual fuel state. No fuel or doubled-load outcome is discarded.
+
+**Archive circuit.** On fresh words apply the four stages of the primary reader to every seam. Encode
+each public word (decision and triplet) into four flags by XOR into a fresh leaf. Agreed true sets the
+first flag, mismatch the second, unavailable the third, and an unread or malformed word the fourth.
+Agreed false sets none. Pair the leaves in the carrier's seam order, promoting an unpaired node
+unchanged. At each parent XOR the bitwise OR of its two children into its target. Copy the root into a
+fresh public register. The address switch also copies each seam's five public bits into its own archive
+register. Run the tree, leaf encoders and all four reader stages backwards. Each operation is an
+involution on its full register domain. On the ideal fresh preparation the scratch registers return to
+zero for every source basis state. Linearity gives the same clean return on entangled inputs. Only
+orthogonal record labels are copied. The local words must remain coherent until the copy and inverse
+operations finish. Releasing a seam address to any additional archive changes the instrument.
+
+One read allocates 330 reader bits, 236 flag bits at 30 leaves and 29 internal nodes, four root archive
+bits and 150 seam archive bits. Both settings allocate all 720 bits. The campaign uses two fresh sets.
+The tree has depth five. Including the reverse gates, the read has 21 layers, with one layer for the
+archive copies. Its tree wiring, reversible control gates, blank workspace and pulse schedule are
+apparatus choices. Actions and interaction strengths are in the construction's exchange units.
+
+**Complete instrument.** For a source basis label $s$ let $f(s)$ be the actual final archive string.
+The circuit acts as $|s,0\rangle\mapsto |s,f(s),0_{\rm scratch}\rangle$, up to the known source phase
+described below. The Kraus projector for record $z$ is $\sum_{s:f(s)=z}|s\rangle\langle s|$.
+This includes the complete fault alphabet. A mismatch on one seam and a positive report elsewhere set
+both flags. Agreement with a common flipped predicate can give a positive aggregate on every input.
+States whose archive strings coincide keep their relative coherence. These identities tensor with
+every untouched reference.
+
+For nominal words write $P_e$ for each of the thirty rank-one seam projectors, $P=\sum_eP_e$ and
+$Q=I-P$ of rank 49, including fuel. Stripping off the common diagonal source phase, the two conditional
+maps for a positive answer are
+$$X\longmapsto PXP,\qquad X\longmapsto\sum_e P_eXP_e.$$
+The second formula traces the retained seam address. The negative map is $X\mapsto QXQ$ for both.
+This realizes the projective instrument characterized by the
+[finite instrument theorem](../finite_instrument_calibration/PROOF.md) for the aggregate circuit. Its projectors sum to the identity, and every state supported on a single answer block is invariant
+after removing the known phase. The resolved circuit passes all basis return tests, while the
+uniform superposition of the thirty seam states has return probability $1/30$ in its positive branch.
+These are mathematical probe states for the channel identity. The experiment uses the local emitter.
+
+For the comparison read, the half-diamond distance between the two instruments with only the
+first aggregate visible and the residual source retained is exactly $29/30$. On the positive block, averaging the thirty
+unitaries that multiply seam $j$ by $\exp(2\pi i mj/30)$, $0\le m<30$, deletes exactly the
+off-diagonal seam entries. The identity term has weight $1/30$, so the triangle inequality on the
+remaining channels gives the ceiling $29/30$, also with a reference. The negative block agrees
+and the positive input projection is trace nonincreasing. The uniform positive superposition
+attains the ceiling: its pure output minus the resolved mixture has eigenvalues $29/30$ once and
+$-1/30$ twenty-nine times. This optimized distance concerns a mathematical input. The emitted
+history below gives a witness on public records alone.
+
+**Finite service time.** Give each read total duration $w=1/16384$. During a layer of duration
+$w/21$, implement each involution $G$ by the pulse $\pi(I-G)/(2w/21)$. Gates in each layer commute,
+including readers that share a port, because their source controls are diagonal and their targets
+are disjoint. The largest norm of a single prescribed pulse is $21\pi/w$.
+Write the source as $V+K$, with $V=\kappa C$ and the uncoupled fuel energy. All apparatus gates
+commute with $V$. The comparison read therefore executes the complete circuit and accumulates
+$\exp(-iwV)$. With exchange also acting, Duhamel's inequality gives an operator error at most
+$w\|K\|\le12w$ per read by section 6. Both unitaries act on the same enlarged workspace.
+Two reads give at most $24w$ in total variation on the complete joint record, for each instrument,
+by telescoping and contraction under measurement. Comparing two experiments costs at most $48w$.
+This includes the probability of any physically reachable fault or workspace leakage absent from
+the ideal service law, without conditioning on a successful comparison. The executable table gives
+the diagonal-source comparison law. The pulse bound encloses the always-on law.
+
+The first aggregate has the same marginal distribution in both always-on experiments, even if
+exchange leaves the workspace entangled. Up to the copy layer the joint state is identical.
+During that layer the optional seam archive pulse acts only on the seam words and their archive.
+It commutes with the root copy on disjoint registers and with the source Hamiltonian. Its unitary
+therefore cancels under the partial trace that defines the root marginal. Every subsequent gate
+leaves that archived root untouched. The separation of the joint laws thus tests a difference in
+the later reading given the same first record statistics.
+
+**Observer histories.** The [protocol](presence_protocol.json) fixes the primary emitter on seam
+$(0,1)$ at $g=64$, four units of free action before each reading, and a final nominal archive with
+all seam words. These actions are supplied schedule parameters. At the first read the two choices
+retain the same public aggregate. For comparison, forget only the first seam address after computing
+the full resolved two-read distribution. At $\kappa=8$ the comparison calculation gives first
+nominal presence probability $0.992329$ for either choice and total variation $0.440513$ between
+the joint public laws. The common always-on first probability is within $12w$ of the exact
+comparison probability.
+It is $0.196148$ for exchange alone and $0.249676$ for reversed contrast. The first-seam mismatch
+and unavailable controls each give $0.260336$ at $\kappa=8$. A common flipped value on all seams
+gives $0.446650$. The [complete receipt](presence_results.json) contains the archive alphabets,
+all joint probabilities on their reachable support and the residual fuel. A raw seam address or
+source coordinate has no independent identification as physical space. A comparison with
+laboratory data requires a matching pair of observation procedures.
+
+**Certified public event.** Ask for presence in the first aggregate and a positive final record on
+the emitting seam. The comparison law gives probabilities $0.0182640$ for the aggregate circuit
+and $0.1029264$ for the resolved circuit with its first address hidden. For a separate error
+certificate let $a$ be the exact emitted state after the first free interval and $b$ the emitting seam
+basis state propagated backwards through the second free interval. For a first positive record
+the intermediate read phase is common to all thirty seam states. The final read phase cancels in
+the record probabilities. Put $z_e=\overline b_e a_e$. The two event probabilities are
+$|\sum_e z_e|^2$ and $\sum_e|z_e|^2$. The twelve doubled states are unreachable from this emitter because
+every native term preserves the multiset after the converter acts, and the converter only joins
+fuel and the binary emitting pair. Fuel is included in both propagations.
+
+The [integer certificate](presence_certificate.py) builds twice the binary-plus-fuel Hamiltonian
+from the allowed swaps. It propagates complex integer pairs in units of $2^{-48}$. Each substep
+has exponential argument of norm at most $1/2$, from the maximum absolute row sum of the symmetric
+matrix. The degree-16 Taylor remainder has operator norm at most
+$2(1/2)^{17}/17!$. In each recurrence step flooring the real and imaginary components costs at most
+$\sqrt{2d}\,2^{-48}$ in vector norm for $d=67$. Since the preceding term error contracts by at least
+a factor of two in the recurrence, summing the 16 term errors costs at most
+$32\sqrt{2d}\,2^{-48}$ per substep. The program rounds this bound upwards. With norm below two for
+every approximate input, twice the Taylor remainder suffices. The accumulated error bound below one
+verifies that norm hypothesis by induction from a normalized exact input. Unitarity carries the
+incoming error unchanged. The emitter uses the rational action $(355/113)/128$ and adds the norm
+bound for its difference from $\pi/128$, enclosing $\pi$ by alternating arctangent series in
+Machin's identity.
+
+For input vector errors $\epsilon_a,\epsilon_b$, the scalar amplitude error and the Euclidean
+error of the vector $(z_e)$ are each at most $\eta=\epsilon_a+\epsilon_b+\epsilon_a\epsilon_b$
+by Cauchy-Schwarz. The probability error is at most $\eta(2+\eta)$ for each circuit.
+The rational bounds put this error below $3\times10^{-7}$. After subtracting both numerical errors
+and $48w$ from the event difference, the total variation between the two **always-on public
+histories exceeds 0.0817**. This lower bound uses the emitted preparation and a single unconditional
+joint record. The full-law floating-point estimate and the certified event have different scopes.

@@ -55,6 +55,7 @@ From the repository root, with NumPy, SciPy and SymPy:
 ```sh
 python -m model.polynomial_sv.verify            # headline subset, about a minute
 python -m model.polynomial_sv.verify --full     # everything, 80 and 320 cells included (an hour or more)
+python -B -O -m model.polynomial_sv.presence     # replay the two-reading public laws
 python -m pytest -q model/polynomial_sv          # tests, about two minutes
 ```
 
@@ -71,6 +72,7 @@ file and `--verify PATH` compares another one. The last line it prints is a JSON
 | [theorem.py](theorem.py) | the constants of the binding theorem, its operator inequalities, the emitter bounds |
 | [stability.py](stability.py) | particle stability: the pair and the face object on records, the controls, single readings, layered pulses |
 | [reader.py](reader.py) | the eleven-bit seam reader and its finite readout with the law acting (161,792 states) |
+| [presence.py](presence.py), [proof](PROOF.md#8-pair-presence-and-the-state-after-a-reading) | Two ways to record that a pair is present give different later observer records. The finite-duration difference exceeds 0.0817 on one public event. |
 | [events.py](events.py) | the law as local events with no common clock, and the member with committed contrast |
 | [catalogue.py](catalogue.py) | the bound objects of one cell, their bindings, the pair on the federation |
 | [port_response.py](port_response.py) | the port response for one load and for the bound pair |
