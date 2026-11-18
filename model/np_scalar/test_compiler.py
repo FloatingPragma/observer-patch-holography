@@ -141,6 +141,129 @@ class CompilerTests(unittest.TestCase):
                     expected = np.vdot(vector, dense_pauli(word, 3) @ vector).real
                     self.assertAlmostEqual(tableau.expectation(word), expected)
 
+    def test_all_routed_branches_compose_with_gaussian_pointer_instrument(self):
+        from . import instruments, routed
+
+        # Three source modes, fuel and parity reference. Seven graph bits
+        # have three independent loops, so all eight sign branches fit a
+        # literal calculation. Both stars participate in the routed reads.
+        links = ((0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3), (3, 4))
+        graph = c.encode_graph(5, links, {edge: sum(edge) % 2 for edge in links})
+        graph.update(N=2, data={'edges': [(0, 1)]})
+        qubits = graph['M']
+        identity = np.eye(1 << qubits)
+        loops, _ = c.fundamental_cycles(graph)
+        vacua, prepared, probabilities = [], [], []
+
+        def returned_data_density(tableau):
+            for star in range(2):
+                self.assertEqual(tableau.expectation((0, 0, 1 << (qubits + star))), 1)
+            density = identity.copy()
+            for phase, x, z in tableau.rows:
+                # Returned scratch is |00>; restricting its Z factors to
+                # +1 gives the complete data projector, without a trace cut.
+                self.assertEqual(x >> qubits, 0)
+                word = (phase, x, z & ((1 << qubits) - 1))
+                density = density @ (identity + dense_pauli(word, qubits)) / 2
+            self.assertAlmostEqual(float(np.trace(density).real), 1)
+            return density
+
+        for signs in product((-1, 1), repeat=len(loops)):
+            tableau = c.Tableau(qubits + 2)
+            probability = 1
+            for (chord, _, cycle), sign in zip(loops, signs):
+                record = routed.measure_loop(tableau, graph, chord, cycle, sign)
+                self.assertEqual(record['route'], [graph['owner'][chord],
+                                                   1-graph['owner'][chord],
+                                                   graph['owner'][chord]])
+                probability *= record['probability']
+            vacua.append(returned_data_density(tableau))
+            probabilities.append(probability)
+            # Fill the two source transit modes through the actual graph A.
+            tableau.pauli(graph['oriented'](1, 2))
+            empty_fuel_rows = list(tableau.rows)
+            for fuel in (0, 1):
+                tableau.rows = list(empty_fuel_rows)
+                if fuel:
+                    tableau.pauli(graph['oriented'](3, 4))
+                prepared.append((fuel, returned_data_density(tableau)))
+        self.assertEqual(probabilities, [.125] * 8)
+        self.assertEqual(sum(probabilities), 1)
+        for density in vacua:
+            np.testing.assert_array_equal(density, vacua[0])
+
+        # Construct the intertwiner independently in graph and literal Fock
+        # coordinates. Its entire even-sector operator equality retains any
+        # untouched reference, including coherence across number sectors.
+        vacuum = vacua[0][:, np.argmax(np.linalg.norm(vacua[0], axis=0))].copy()
+        vacuum /= np.linalg.norm(vacuum)
+        fermions = annihilators(5)
+        gammas = [a + a.conj().T for a in fermions]
+        fock_numbers = [np.eye(32) - 2*a.conj().T @ a for a in fermions]
+        graph_x = [dense_pauli(word, qubits) for word in c.logical_pauli_generators(graph)]
+        fock_x = []
+        for mode in range(4):
+            operator = -1j * gammas[mode] @ gammas[4]
+            for other in range(mode + 1, 4):
+                operator = operator @ fock_numbers[other]
+            fock_x.append(operator)
+        native_columns, fock_columns = [], []
+        for word in range(16):
+            native, literal = vacuum.copy(), np.eye(32, dtype=complex)[:, 0]
+            for mode in range(4):
+                if word & (1 << mode):
+                    native, literal = graph_x[mode] @ native, fock_x[mode] @ literal
+            native_columns.append(native)
+            fock_columns.append(literal)
+        V, W = np.column_stack(native_columns), np.column_stack(fock_columns)
+        transfer = V @ W.conj().T
+
+        source = np.zeros((5, 5), complex)
+        source[:3, :3] = [[1, .4j, .2], [-.4j, -1, .3], [.2, .3, -.7]]
+        ramp = .4 * source + .6 * np.diag(np.diag(source))
+        target = np.array([1, 1j, -.4]); target /= np.linalg.norm(target)
+        pulse = source.copy()
+        pulse[:3, 3], pulse[3, :3] = 4*target, 4*target.conj()
+        phase = np.diag([0, 0, 0, 1, 0])
+
+        def native_generator(matrix):
+            return sum(value * dense_pauli(word, qubits)
+                       for word, value in instruments.compile_matrix(graph, matrix).items())
+
+        def fock_generator(matrix):
+            return sum(matrix[a, b] * fermions[a].conj().T @ fermions[b]
+                       for a in range(5) for b in range(5))
+
+        program = [(ramp, .3), (pulse, math.pi/16), (source, .5),
+                   (phase, math.pi/2), (pulse, math.pi/16)]
+        native_U, literal_U, one_body_U = identity.copy(), np.eye(32), np.eye(5)
+        for matrix, action in program:
+            native_U = expm(-1j*action*native_generator(matrix)) @ native_U
+            literal_U = expm(-1j*action*fock_generator(matrix)) @ literal_U
+            one_body_U = expm(-1j*action*matrix) @ one_body_U
+        np.testing.assert_allclose(native_U @ V,
+                                   V @ (W.conj().T @ literal_U @ W), atol=2e-14, rtol=0)
+        native_number = (identity - dense_pauli(graph['B'][3], qubits)) / 2
+        literal_number = fermions[3].conj().T @ fermions[3]
+        completeness = np.zeros((16, 16), complex)
+        for native_projector, literal_projector in (
+                (identity-native_number, np.eye(32)-literal_number),
+                (native_number, literal_number)):
+            native_K = V.conj().T @ native_projector @ native_U @ V
+            literal_K = W.conj().T @ literal_projector @ literal_U @ W
+            np.testing.assert_allclose(native_K, literal_K, atol=2e-14, rtol=0)
+            completeness += native_K.conj().T @ native_K
+        np.testing.assert_allclose(completeness, np.eye(16), atol=2e-14, rtol=0)
+        for fuel, density in prepared:
+            occupied_word = 6 + (24 if fuel else 0)
+            expected = transfer[:, occupied_word]
+            np.testing.assert_allclose(density, np.outer(expected, expected.conj()),
+                                       atol=2e-14, rtol=0)
+            covariance = np.diag([0, 1, 1, fuel, fuel])
+            gaussian_probability = (one_body_U @ covariance @ one_body_U.conj().T)[3, 3].real
+            native_probability = np.trace(native_number @ native_U @ density @ native_U.conj().T).real
+            self.assertAlmostEqual(float(native_probability), float(gaussian_probability), places=13)
+
     def test_fusion_tensors_have_the_declared_physical_singlets(self):
         vacuum = dense_mps(f.mps_for_rank(2, 0))
         expected = np.zeros(49)
