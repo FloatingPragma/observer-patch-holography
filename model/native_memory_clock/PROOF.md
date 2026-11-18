@@ -5,13 +5,14 @@
 The construction has a finite event horizon `T >= 1`. Its moving source is
 the twelve directed bits on the tetrahedron, with declared background
 `eta=(0,0,0,0)` or `eta=(1,0,0,0)`.
-The directed-bit update and the address/overwritten-bit record are those of
-[`native_join.py`](https://github.com/muellerberndt/openwave/blob/0c738545b10b655c72cf2f877ec55b983592f535/experiments/2026-11-17_mass_free_link_search/native_join.py).
-The tetrahedron and incidence convention are specified in
-[`source.py`](https://github.com/muellerberndt/openwave/blob/0c738545b10b655c72cf2f877ec55b983592f535/experiments/2026-11-17_mass_free_link_search/source.py).
-The native crossing function is
-[`Law.crossing`](https://github.com/muellerberndt/openwave/blob/0c738545b10b655c72cf2f877ec55b983592f535/candidates/A-address-bit-v1/a_address_bit_v1.py).
-These are source mappings for the finite event rule. The rail, reversible
+The ancestor candidate is `A-address-bit-v1`, with its native-event study
+at revision `0c738545b10b655c72cf2f877ec55b983592f535`. Its `native_join.py`
+supplies the directed-bit update and address/overwritten-bit record;
+`source.py` supplies the tetrahedron and incidence convention, and
+`Law.crossing` supplies the native crossing function. The complete event
+rule is stated below. [Provenance](provenance.json) retains the source paths,
+revision and file-byte digests. These are source mappings for the finite
+event rule. The rail, reversible
 extension, finite memory allocation and clock Hamiltonian are supplied
 construction choices.
 

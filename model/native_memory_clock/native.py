@@ -1,7 +1,7 @@
 """Exact tetrahedral address-bit law and its total reversible event extension.
 
-The directed-address rule is sourced from muellerberndt/openwave revision
-0c738545b10b655c72cf2f877ec55b983592f535, candidate A-address-bit-v1.
+The directed-address rule comes from candidate A-address-bit-v1 at revision
+0c738545b10b655c72cf2f877ec55b983592f535.
 The tetrahedron and load orientation follow that revision's mass-free link
 study. This module declares a finite computational construction; the squared
 load functional has no supplied physical energy or particle-mass dictionary.

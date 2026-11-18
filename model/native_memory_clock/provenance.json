@@ -10,16 +10,13 @@
       "role": "fetched default-branch source"
     },
     "research_default": {
-      "repository": "muellerberndt/openwave",
-      "branch": "main",
+      "ancestor_candidate": "A-address-bit-v1",
       "revision": "9258e5e21f068c9bd627b1c948aaece45daace0b",
-      "role": "fetched validation-fork default and submission guidance"
+      "role": "validation and submission guidance"
     },
     "native_event_study": {
-      "repository": "muellerberndt/openwave",
-      "branch": "codex/mass-free-observer-search",
+      "ancestor_candidate": "A-address-bit-v1",
       "revision": "0c738545b10b655c72cf2f877ec55b983592f535",
-      "pull_request": "https://github.com/muellerberndt/openwave/pull/48",
       "role": "source-bound native event rule, one-event completion and retained study evidence"
     },
     "official_default": {
