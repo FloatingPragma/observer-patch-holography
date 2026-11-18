@@ -324,14 +324,16 @@ def layers(car):
                 del colour[cell[k]]
         return False
 
-    assert place(0), 'no five-colouring of the seams of the cell'
+    if not place(0):
+        raise ValueError('no five-colouring of the seams of the cell')
     out = [[] for _ in range(6)]
     for i, (a, b) in enumerate(car.seams):
         out[colour[(a % 12, b % 12)] if a // 12 == b // 12 else 5].append(i)
     out = [layer for layer in out if layer]
     for layer in out:
         ports = [p for i in layer for p in car.seams[i]]
-        assert len(ports) == len(set(ports)), 'a layer is no matching'
+        if len(ports) != len(set(ports)):
+            raise ValueError('a layer is no matching')
     return out
 
 

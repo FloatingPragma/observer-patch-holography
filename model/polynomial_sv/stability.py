@@ -59,7 +59,8 @@ def lowest_level(H, adjacent, dense_limit=5000, tol=1e-8):
     else:
         w, U = eigsh(H, k=1, which='SA', v0=start_vector(H.shape[0]))
         v = U[:, 0] * np.sign(U[:, 0].sum())
-        assert v.min() > -1e-8 * v.max(), 'the lowest Lanczos vector is not one-signed'
+        if not v.min() > -1e-8 * v.max():
+            raise ValueError('the lowest Lanczos vector is not one-signed')
         deg = 1
     weight = float((U[adjacent, :deg] ** 2).sum() / deg)
     return float(w[0]), weight, deg
@@ -167,7 +168,8 @@ def face_object(keys=('cell',), kappa=8.0):
         car = cr.carrier(key)
         ts = TripleSector(car)
         start = int(ts.rank(*FACE))
-        assert ts.faces[start], 'the start is no face'
+        if not ts.faces[start]:
+            raise ValueError('the start is no face')
         res = {'states': ts.dim}
         for kind, k in (('law', kappa), ('exchange alone', 0.0)):
             H = ts.hamiltonian(k)
@@ -191,7 +193,8 @@ def single_readings(kappa=8.0, runs=100000, t=32.0):
     """Sampled single readings on 20 cells at one value of the parameter, each from a fresh run."""
     ps = sector(0)
     seam = cr.EMITTER_SEAM[0]
-    assert t == TIMES[-1]
+    if t != TIMES[-1]:
+        raise ValueError('single-reading time differs from final evolution time')
     lines, _, psi, _ = law_run(0, kappa)
     prob = np.abs(psi) ** 2
     outcomes = np.clip(np.concatenate([[1 - prob[ps.seam_states].sum()], prob[ps.seam_states]]), 0, None)

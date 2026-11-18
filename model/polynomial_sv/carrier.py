@@ -83,7 +83,8 @@ def _federation_arrays(level: int):
 def federation(level: int) -> Carrier:
     n, edges, degree = _federation_arrays(level)
     car = Carrier(NAMES[level], n, edges)
-    assert tuple(car.degree.tolist()) == degree, 'stored degrees disagree with the seams'
+    if tuple(car.degree.tolist()) != degree:
+        raise ValueError('stored degrees disagree with the seams')
     return car
 
 
@@ -235,4 +236,3 @@ def check(result: dict) -> list[str]:
         if entry['most_common_neighbours_of_a_nonadjacent_pair'] > 2 or entry['external_ports_per_cell'] != [3]:
             bad.append(f'{key}.local_hypotheses')
     return bad
-
