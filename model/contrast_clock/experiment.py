@@ -174,7 +174,6 @@ def run():
                       'physical_clock_or_particle_identification':False,
                       'continuous_time_binding_bound_transferred':False,
                       'openwave_rows_awarded':0}}
-    validate(result)
     return result
 
 
@@ -283,6 +282,8 @@ def main():
         expected=read_json(args.verify)
         validate(expected)
         compare(result,expected)
+    # A failed confirmatory gate leaves its complete receipt at --record PATH.
+    validate(result)
     print(json.dumps({'verified':True,'construction':result['construction'],
                       'program_edges':1336,'cases':6}))
 
