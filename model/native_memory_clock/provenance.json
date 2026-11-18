@@ -1,0 +1,178 @@
+{
+  "schema": "oph.native_memory_clock.provenance.v1",
+  "construction": "OPH-NMR-1",
+  "status": "experimental finite construction",
+  "revisions": {
+    "oph_default": {
+      "repository": "FloatingPragma/observer-patch-holography",
+      "branch": "main",
+      "revision": "0a50df45164c7dcddaf9547a4c62936925839986",
+      "role": "fetched default-branch source"
+    },
+    "research_default": {
+      "repository": "muellerberndt/openwave",
+      "branch": "main",
+      "revision": "9258e5e21f068c9bd627b1c948aaece45daace0b",
+      "role": "fetched validation-fork default and submission guidance"
+    },
+    "native_event_study": {
+      "repository": "muellerberndt/openwave",
+      "branch": "codex/mass-free-observer-search",
+      "revision": "0c738545b10b655c72cf2f877ec55b983592f535",
+      "pull_request": "https://github.com/muellerberndt/openwave/pull/48",
+      "role": "source-bound native event rule, one-event completion and retained study evidence"
+    },
+    "official_default": {
+      "repository": "openwave-labs/openwave",
+      "branch": "main",
+      "revision": "e988fc8e3552ce30438ad9a31354607909a5618f",
+      "role": "fetched official criteria and decisions"
+    }
+  },
+  "study_source_files": {
+    "revision": "0c738545b10b655c72cf2f877ec55b983592f535",
+    "hash_domain": "SHA256 of actual bytes in the clean checked-out study tree, without newline normalization",
+    "files": [
+      {
+        "path": "candidates/A-address-bit-v1/a_address_bit_v1.py",
+        "sha256": "e0c5200b7ae840c9a2744891a2b4e1932df4af7755a65645cf01f29cd2a65e1b",
+        "bytes": 7194,
+        "used_part": "Law.crossing, directed-address orientation and recorded-state interpretation"
+      },
+      {
+        "path": "experiments/2026-11-17_mass_free_link_search/source.py",
+        "sha256": "7014047f25a48277c471ef4a6e1c9a1b11d3832c0b7f699740f420a1bd13b94e",
+        "bytes": 5563,
+        "used_part": "tetrahedron edge order and oriented incidence convention"
+      },
+      {
+        "path": "experiments/2026-11-17_mass_free_link_search/native_join.py",
+        "sha256": "dfeb190cb7ec96391bb78c30f28bd03b5efde13a675084a1c6ac020dc16bc3b8",
+        "bytes": 6756,
+        "used_part": "event map, two declared backgrounds, retained address and overwritten-bit one-event isometry"
+      },
+      {
+        "path": "experiments/2026-11-17_mass_free_link_search/run_v3.py",
+        "sha256": "2db8966d0cd20df2fd94c9166a4a66cb7058c77aab3148533b9660b79101e297",
+        "bytes": 4552,
+        "used_part": "source identification of the complete-spectrum study replay; no spectral values imported"
+      },
+      {
+        "path": "experiments/2026-11-17_mass_free_link_search/run_v2.py",
+        "sha256": "a36b0b888ab9758aa642dee7f3cbf10099a94669695f0d8aed1e2329903979c9",
+        "bytes": 4592,
+        "used_part": "source identification of the native-join and higher-cutoff followup replay"
+      },
+      {
+        "path": "experiments/2026-11-17_mass_free_link_search/SECTORS_V3_RECEIPT.json",
+        "sha256": "912896ad3cfc875a437b67bd81c7afd5bba2dc7c6f4d4d26122aa91569dc47cb",
+        "bytes": 221,
+        "used_part": "external evidence pointer, without importing the study archive"
+      },
+      {
+        "path": "experiments/2026-11-17_mass_free_link_search/FOLLOWUP_V2_RECEIPT.json",
+        "sha256": "7fc2a839bd531c036efbf5ac28742c587ce6aeeef2d01e46804a4eb0d0165fda",
+        "bytes": 221,
+        "used_part": "external evidence pointer, without importing the study archive"
+      }
+    ]
+  },
+  "crossing_source_check": {
+    "primary": "candidates/A-address-bit-v1/a_address_bit_v1.py:Law.crossing",
+    "replica": "model/native_memory_clock/test_native.py:_PrimaryCrossing.crossing",
+    "comparison": "exact equality of method-body ASTs, excluding a leading docstring and source-location attributes",
+    "normalization": "ast.dump(ast.Module(body=method_body_without_leading_docstring,type_ignores=[]),include_attributes=False)",
+    "equal": true,
+    "ast_body_sha256": "93de592c5ac8ab7b97eaa7f538ff8df7836e24d30458fdf858e4b2be555e1292",
+    "scope": "The test oracle preserves the primary crossing statements. The production event implementation also requires the declared carrier, load and address mappings."
+  },
+  "ancestry": {
+    "parent": "A-address-bit-v1 and its source-bound one-event address/overwritten-bit completion",
+    "inherited": [
+      "twelve directed source bits on the tetrahedron, retaining both neutral bit-pair states",
+      "uniform twelve-address preparation with no-operation outcomes retained",
+      "load backgrounds (0,0,0,0) and (1,0,0,0)",
+      "strict native crossing inequalities and address/old-bit record labels"
+    ],
+    "supplied_changes": [
+      "total reversible event extension on blank and dirty memory",
+      "finite rail with source buffers, independent address registers and one old-bit memory per event",
+      "single-excitation clock carrier and time-independent nearest-neighbor rail Hamiltonian",
+      "horizon-dependent coupling profile, preparation, terminal clock/history instrument and comparison controls"
+    ],
+    "official_model": {
+      "id": "CCF-LT-2",
+      "specification": "model/SPEC.md",
+      "changed": false,
+      "calibrated_evidence_preserved": true,
+      "source_equivalence_claimed": false
+    }
+  },
+  "internal_source_mappings": [
+    {
+      "path": "model/ccf_lt2/bridges/kinematics/FiniteSource.lean",
+      "result": "CCF2.Kinematics.finite_source_unitary",
+      "hypotheses": "A finite-dimensional complete complex Hilbert space and a self-adjoint Hamiltonian.",
+      "construction_mapping": "The finite rail carrier and paired U_j/U_j-adjoint Hamiltonian satisfy these mathematical hypotheses as proved in PROOF.md.",
+      "boundary": "Only the general unitary-flow implication is used. No Python-to-Lean extraction certificate, CCF-LT-2 source identity, physical clock or continuum transfer is claimed."
+    },
+    {
+      "path": "Lean/EventAlgebra/PublicRecordAlgebra.lean",
+      "result": "ProjectivePartition.publicSubalgebra and publicSubalgebra_mul_comm",
+      "hypotheses": "A complete finite family of mutually orthogonal self-adjoint projectors.",
+      "construction_mapping": "Clock position and orthogonal address/old-bit history labels define a complete terminal projective partition on the declared carrier; unobserved registers retain identity action.",
+      "boundary": "Public records are classical orthogonal labels. This partition does not supply physical event selection or copying of arbitrary quantum states."
+    },
+    {
+      "path": "Lean/EventAlgebra/Lueders.lean",
+      "result": "luedersUpdate_isState and bornWeight_luedersUpdate_self",
+      "hypotheses": "A positive normalized density, a projection event, and nonzero Born weight for normalized conditioning.",
+      "construction_mapping": "The terminal instrument keeps all unnormalized outcomes; conditional interpretation is restricted to outcomes with positive weight. Untouched quantum references are retained.",
+      "boundary": "The Born trace rule is supplied apparatus semantics. Outcome agreement does not derive that rule or establish a physical measurement implementation."
+    },
+    {
+      "path": "Lean/Time/TimeOrderLedger.lean",
+      "result": "separate repair-order, observer-record-order, clock-readout and proper-time interfaces",
+      "hypotheses": "Any identification between the separate types requires an explicit realization map.",
+      "construction_mapping": "Event index, rail position and external propagator parameter have separate roles in PROOF.md.",
+      "boundary": "No proper-time, worldline or relativistic metric realization map is supplied. The ledger is an interface, not an existence theorem."
+    },
+    {
+      "path": "model/particle_joint_reconstruction/dependencies.json",
+      "result": "same-source physical acceptance conditions",
+      "hypotheses": "One actual Hamiltonian, preparation, retained reference, clock and complete instrument, or a proved transfer map.",
+      "construction_mapping": "The experimental rail binds its own source and instruments. It does not discharge the official model's physical attachment nodes.",
+      "boundary": "CCF-LT-2 matter, field, capacity-response, Einstein, particle and continuum conclusions retain their source domains."
+    }
+  ],
+  "empirical_input_policy": {
+    "empirical_input_files": [],
+    "measured_values_select_coefficients": false,
+    "measured_values_select_preparations": false,
+    "measured_values_select_decoders": false,
+    "measured_values_select_stopping_conditions": false,
+    "prior_exposure": "Measured mass ratios, alpha, G and the historical OPH numerical targets were familiar comparison quantities. None is used to select this construction or its confirmation gates.",
+    "independent_comparison_role": "Physical comparison values require a separate operational dictionary and independent validation."
+  },
+  "claim_boundaries": {
+    "openwave_complete_physical_rows": 31,
+    "openwave_complete_physical_rows_validated": 0,
+    "openwave_rows_awarded": [],
+    "separated_pair_energy_anomaly": "Unresolved in its original source domain; the finite rail supplies no repair or transfer proof.",
+    "particle_mass_identification": false,
+    "indefinite_fresh_record_operation": false,
+    "physical_proper_time_identification": false,
+    "numerical_fingerprints_borrowed": [],
+    "fingerprints_without_transfer": [
+      "1/6 : 1/12 : 1/12",
+      "sqrt(2)",
+      "2/9",
+      "Z6 class map",
+      "3/8",
+      "flux gaps",
+      "6",
+      "5 - sqrt(5)"
+    ],
+    "scope": "Finite autonomous dynamics with explicit finite storage and complete declared terminal records; no physical completion follows from removal of empirical inputs."
+  }
+}

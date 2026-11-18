@@ -344,6 +344,11 @@ LANES: tuple[Lane, ...] = (
 
     # ------------------------------------------------------------------
     # Push tier, model requirements (model/requirements.txt).
+    lane("native_memory_clock", "push", "model", 3,
+         "python -B -O -m model.native_memory_clock.experiment",
+         "python -B -O -m unittest discover -s model/native_memory_clock -t .", env=BLAS1),
+    lane("native_memory_clock_extended", "nightly", "model", 3,
+         "python -B -O -m model.native_memory_clock.experiment --extended", env=BLAS1),
     lane("coherent_seam_repair", "push", "model", 8,
          "python -m model.coherent_seam_repair --check",
          "python -m model.coherent_seam_repair.agreement --check",
