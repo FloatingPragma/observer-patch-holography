@@ -46,6 +46,8 @@ def source_sector():
 def native_gate(kappa, angle):
     """All nine input columns of the exact blank-memory reduced event."""
     kappa, angle = finite(kappa, 'kappa'), finite(angle, 'angle')
+    if not math.isfinite(angle * kappa * 4):
+        raise ValueError('native contrast phase is not representable')
     swap = np.zeros((9, 9))
     for i, (a, b) in enumerate(SRC):
         swap[SRC.index((b, a)), i] = 1
@@ -56,14 +58,21 @@ def native_gate(kappa, angle):
 
 
 def embed_local(matrix, seam, states):
-    """Embed a load-conserving two-qutrit operator without dropping a column."""
+    """Embed on the complete 78-state total-two basis of twelve qutrits."""
     matrix = np.asarray(matrix)
     if matrix.shape != (9,9) or not np.isfinite(matrix).all():
         raise ValueError('local operator must be finite 9 by 9')
+    states = np.asarray(states)
+    if states.shape != (78,12) or not np.issubdtype(states.dtype, np.integer):
+        raise ValueError('source basis must contain 78 integer rows of twelve loads')
+    if np.any(states < 0) or np.any(states > 2) or np.any(states.sum(axis=1) != 2):
+        raise ValueError('source basis must have qutrit loads totaling two in every row')
     a,b = seam
     if a == b or not (0 <= a < 12 and 0 <= b < 12):
         raise ValueError('invalid seam')
     lookup = {tuple(row): i for i,row in enumerate(states)}
+    if len(lookup) != len(states):
+        raise ValueError('source basis contains duplicate rows')
     out = np.zeros((len(states),len(states)), complex)
     for j,row in enumerate(states):
         col = SRC.index((row[a],row[b]))

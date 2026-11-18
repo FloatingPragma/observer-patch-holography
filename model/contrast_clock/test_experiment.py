@@ -88,6 +88,109 @@ class ReceiptTests(unittest.TestCase):
         bad['cases'][0]['prefix_records'][0]['archive'][0]['words'][0]=64
         with self.assertRaisesRegex(ValueError,'readiness'): e.validate(bad)
 
+    def test_coordinated_erasure_of_resolved_unfinished_tails_is_rejected(self):
+        bad=deepcopy(self.receipt)
+        for index in (2,4):
+            row=bad['clock_records'][index]
+            self.assertGreater(row['unfinished_weight'],1e-171)
+            self.assertLess(row['unfinished_weight'],1e-169)
+            row['position_weights'][:1336]=[0.]*1336
+            row['unfinished_weight']=0.
+            recomputed={}
+            for k,weight in enumerate(row['position_weights']):
+                for branch in bad['cases'][0]['prefix_records'][min(k,1336)]['archive']:
+                    key=tuple(tuple(p) for p in e.public(branch['words']))
+                    recomputed[key]=recomputed.get(key,0.)+weight*branch['weight']
+            row['public_records']=[{'readings':[list(p) for p in key],'weight':weight}
+                                   for key,weight in sorted(recomputed.items())]
+        # A coordinated mutation satisfies normalization and every saved
+        # marginal identity. Comparison must preserve the analytic clock tail.
+        e.validate(bad)
+        with self.assertRaisesRegex(ValueError,'relative probability replay'):
+            e.compare(self.receipt,bad)
+
+    def test_impossible_nominal_mismatch_and_doubled_load_readings_are_rejected(self):
+        bad=deepcopy(self.receipt)
+        for i in range(78):
+            bad['cases'][0]['branches'][1]['all_input_weights'][i]=1e-11
+            bad['cases'][0]['branches'][0]['all_input_weights'][i]-=1e-11
+        e.validate(bad)
+        with self.assertRaisesRegex(ValueError,'impossible probability support'):
+            e.compare(self.receipt,bad)
+        bad=deepcopy(self.receipt)
+        doubled=next(i for i,row in enumerate(e.c.source_sector()) if 2 in row)
+        bad['cases'][0]['branches'][3]['all_input_weights'][doubled]=1e-11
+        bad['cases'][0]['branches'][0]['all_input_weights'][doubled]-=1e-11
+        e.validate(bad)
+        with self.assertRaisesRegex(ValueError,'impossible probability support'):
+            e.compare(self.receipt,bad)
+
+    def test_zero_prepared_complex_amplitudes_and_prefix_support_are_exact(self):
+        for part in ('prepared_output_real','prepared_output_imag'):
+            bad=deepcopy(self.receipt)
+            bad['cases'][0]['branches'][1][part][0]=1e-12
+            e.validate(bad)
+            with self.assertRaisesRegex(ValueError,'impossible prepared-output support'):
+                e.compare(self.receipt,bad)
+        bad=deepcopy(self.receipt)
+        row=next(row for row in bad['cases'][0]['prefix_records'] if row['step']>=668 and
+                 any(branch['weight']==0. for branch in row['archive']))
+        zero=next(branch for branch in row['archive'] if branch['weight']==0.)
+        largest=max(row['archive'],key=lambda branch:branch['weight'])
+        zero['weight']=1e-12
+        largest['weight']-=1e-12
+        with self.assertRaisesRegex(ValueError,'impossible probability support'):
+            e.compare(self.receipt,bad)
+
+    def test_engineered_probability_tolerance_resolves_tiny_mass_and_subnormal_rounding(self):
+        expected={'kind':'engineered','position_weights':[1e-170,0.]}
+        e.compare(expected,{'kind':'engineered','position_weights':[1e-170*(1+1e-12),0.]})
+        for weights in ([0.,0.],[1e-170,1e-300]):
+            with self.assertRaises(ValueError):
+                e.compare(expected,{'kind':'engineered','position_weights':weights})
+        e.compare({'kind':'engineered','position_weights':[1e-323]},
+                  {'kind':'engineered','position_weights':[5e-324]})
+        for key in ('unfinished_weight','public_records'):
+            expected={'kind':'engineered','position_weights':[1.],key:
+                      1e-170 if key=='unfinished_weight' else [{'weight':1e-170}]}
+            bad=deepcopy(expected)
+            if key=='unfinished_weight': bad[key]=0.
+            else: bad[key][0]['weight']=0.
+            with self.assertRaisesRegex(ValueError,'relative probability replay'):
+                e.compare(expected,bad)
+
+    def test_nonzero_amplitudes_and_numerical_clock_controls_keep_backend_tolerance(self):
+        bad=deepcopy(self.receipt)
+        vector=bad['cases'][0]['branches'][0]['prepared_output_real']
+        index=next(i for i,value in enumerate(vector) if abs(value)>1e-4)
+        vector[index]+=1e-12
+        # A numerical tridiagonal control can have cancellation-scale weights
+        # with large relative variation. It has no analytic tiny-tail claim.
+        bad['clock_records'][7]['position_weights'][1075]=2.4711587660189603e-31
+        e.validate(bad)
+        e.compare(self.receipt,bad)
+
+    def test_optimized_cli_rejects_structural_weight_and_amplitude_mutations(self):
+        for mutation in ('weight','amplitude'):
+            bad=deepcopy(self.receipt)
+            if mutation=='weight':
+                bad['cases'][0]['branches'][1]['all_input_weights'][0]=1e-11
+            else:
+                bad['cases'][0]['branches'][1]['prepared_output_imag'][0]=1e-12
+            with tempfile.TemporaryDirectory() as directory:
+                path=Path(directory)/'mutant.json'
+                path.write_text(json.dumps(bad),encoding='utf8')
+                # Isolate receipt acceptance from source freeze changes while
+                # exercising the production CLI under optimized Python.
+                script=("import sys\nfrom model.contrast_clock import experiment as e\n"
+                        "baseline=e.read_json(e.HERE/'results.json')\n"
+                        "e.run=lambda:baseline\n"
+                        f"sys.argv=['clock','--verify',{str(path)!r}]\ne.main()\n")
+                proc=subprocess.run([sys.executable,'-B','-O','-c',script],cwd=e.ROOT,
+                                    capture_output=True,text=True)
+                self.assertNotEqual(proc.returncode,0,proc.stdout+proc.stderr)
+                self.assertIn('impossible',proc.stderr)
+
     def test_wrong_agreement_is_detectably_wrong_and_reverse_sign_is_retained(self):
         rows=self.receipt['cases']
         self.assertLess(rows[2]['final_no_pair'],rows[0]['final_no_pair'])

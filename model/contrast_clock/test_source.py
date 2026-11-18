@@ -4,6 +4,7 @@ from itertools import combinations_with_replacement, product
 import math
 import unittest
 from unittest.mock import patch
+import warnings
 
 import numpy as np
 from scipy.linalg import expm
@@ -68,6 +69,18 @@ def literal_seam_generator(kappa, shifted=False):
 
 
 class SourceTests(unittest.TestCase):
+    def test_native_gate_rejects_unrepresentable_phases_without_warnings(self):
+        for kappa, angle in ((1e308, 1.), (-1e308, 1.), (1e308, 1e308)):
+            with self.subTest(kappa=kappa, angle=angle), warnings.catch_warnings():
+                warnings.simplefilter('error', RuntimeWarning)
+                with self.assertRaisesRegex(ValueError, 'phase'):
+                    controller.native_gate(kappa, angle)
+        # Large finite parameters remain valid when every required phase fits.
+        for kappa, angle in ((np.finfo(float).max / 8, 1.), (0., 1e308)):
+            gate = controller.native_gate(kappa, angle)
+            self.assertTrue(np.isfinite(gate).all())
+            np.testing.assert_allclose(gate.conj().T @ gate, np.eye(9), atol=5e-16, rtol=0)
+
     def test_raw_99_gate_reduces_on_all_nine_columns_and_is_unitary_when_dirty(self):
         blank = np.eye(99)[:, :9]
         source_parts = law.local_term_parts()
@@ -128,6 +141,32 @@ class SourceTests(unittest.TestCase):
                                            atol=3e-13, rtol=0)
                 np.testing.assert_allclose(literal.conj().T @ literal, np.eye(78),
                                            atol=3e-14, rtol=0)
+
+    def test_embedding_rejects_incomplete_duplicate_and_malformed_source_bases(self):
+        states = controller.source_sector()
+        duplicate = states.copy()
+        duplicate[-1] = duplicate[0]
+        wrong_total = states.copy()
+        wrong_total[0] = 0
+        wrong_load = states.copy()
+        wrong_load[0] = 0
+        wrong_load[0, :2] = (-1, 3)
+        noninteger = states.astype(float)
+        noninteger[0, 0] = .5
+        invalid = (states[:-1], states[:, :-1], np.vstack((states, states[0])),
+                   states[np.all(states <= 1, axis=1)], duplicate, wrong_total,
+                   wrong_load, noninteger, states.astype(bool), states.astype(complex),
+                   np.full((78, 12), np.nan))
+        for basis in invalid:
+            with self.subTest(shape=basis.shape, dtype=str(basis.dtype)):
+                with self.assertRaisesRegex(ValueError, 'source basis'):
+                    controller.embed_local(np.eye(9), (0, 1), basis)
+        # A reordered complete basis is valid and carries the same operator.
+        order = np.random.default_rng(1209).permutation(78)
+        local = expm(-.17j * literal_seam_generator(8.))
+        canonical = literal_embedding(local, (0, 1), states)
+        reordered = controller.embed_local(local, (0, 1), states[order])
+        np.testing.assert_array_equal(reordered, canonical[np.ix_(order, order)])
 
     def test_degree_completion_and_doubled_energy_reference(self):
         states = np.asarray(controller.source_sector())

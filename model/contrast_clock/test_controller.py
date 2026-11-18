@@ -1,4 +1,5 @@
 """Literal clock, counter and reader evolution with retained quantum references."""
+from fractions import Fraction
 from itertools import product
 import math
 import unittest
@@ -74,6 +75,25 @@ class ControllerTests(unittest.TestCase):
                 returned = (eigenvectors * np.exp(-1j*math.pi*length*eigenvalues)) @ eigenvectors.T
                 np.testing.assert_allclose(returned, (-1)**length*np.eye(length+1),
                                            atol=2e-13, rtol=0)
+
+    def test_exact_observation_window_tail_and_full_length_numerical_tail(self):
+        for length in (2, 4, 16, 64, 2672):
+            with self.subTest(length=length):
+                # At either endpoint p=3/4. Integer arithmetic retains every
+                # unfinished position, with the strict completion cutoff L/2.
+                numerator = sum(math.comb(length, k)*3**k for k in range(length//2))
+                tail = Fraction(numerator, 4**length)
+                markov_bound = Fraction(3, 4)**(length//2)
+                self.assertLessEqual(tail, markov_bound)
+                for endpoint in (1, 2):
+                    time = endpoint*math.pi*length/3
+                    numerical = float(c.clock_law(length, time)[:length//2].sum())
+                    self.assertGreater(numerical, 0.)
+                    # This checks the represented tiny probability, allowing
+                    # rounded endpoint time and p. It does not certify the
+                    # implementation to the exact Hamiltonian's error ceiling.
+                    np.testing.assert_allclose(numerical, float(tail),
+                                               rtol=5e-12, atol=0.)
 
     def test_numeric_domains_reject_nonreal_nonfinite_boolean_and_noninteger_inputs(self):
         for bad in (True, np.bool_(False), float('nan'), float('inf'), -float('inf'),

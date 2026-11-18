@@ -10,7 +10,7 @@ contrast-memory gates and retained observer readings with a fixed controller
 Hamiltonian. Its source mapping and finite observation interval are explicit;
 the controller is an additional declared architecture.
 
-Run it with `pip install -r model/requirements.txt`, then `python -m model` (add `--full` to recompute
+Run the primary model with `pip install -r model/requirements.txt`, then `python -m model` (add `--full` to recompute
 everything) and `python -m pytest -q model/polynomial_sv`.
 
 A few small theory packages sit next to it (`support_refinement`, `matched_einstein_limit`,

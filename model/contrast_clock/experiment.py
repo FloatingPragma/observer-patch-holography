@@ -306,16 +306,40 @@ def validate(result):
     require(np.all(errors>=0) and np.max(errors)<TOL,'literal clock operator gate')
 
 
-def compare(expected,actual,path='result'):
+def compare(expected,actual,path='result',clock_kind=None):
     if type(expected) is float:
         require(type(actual) is float and math.isfinite(actual),f'{path}: float required')
-        require(abs(expected-actual)<=PROB_TOL*(1+abs(expected)),f'{path}: replay mismatch')
+        source_weight=('.all_input_weights[' in path or
+                       ('.archive[' in path and path.endswith('.weight')))
+        clock_weight=('.position_weights[' in path or path.endswith('.unfinished_weight') or
+                      ('.public_records[' in path and path.endswith('.weight')))
+        # Source archive zeros come from exact predicate/permutation support.
+        # The engineered binomial law also has no eigensolver cancellation.
+        # Numerical competing clocks retain their ordinary replay allowance.
+        if expected==0. and (source_weight or (clock_weight and clock_kind=='engineered')):
+            require(actual==0.,f'{path}: impossible probability support')
+        elif clock_weight and clock_kind=='engineered':
+            # Preserve resolved tiny tails; only the last eight subnormal ULPs
+            # have an absolute allowance for probability underflow rounding.
+            require(abs(expected-actual)<=PROB_TOL*abs(expected)+8*math.ulp(0.),
+                    f'{path}: relative probability replay mismatch')
+        else:
+            require(abs(expected-actual)<=PROB_TOL*(1+abs(expected)),f'{path}: replay mismatch')
     elif isinstance(expected,dict):
         require(type(actual) is dict and expected.keys()==actual.keys(),f'{path}: keys')
-        for key in expected: compare(expected[key],actual[key],f'{path}.{key}')
+        if 'position_weights' in expected:
+            clock_kind=expected['kind']
+        for key in expected: compare(expected[key],actual[key],f'{path}.{key}',clock_kind)
+        if 'prepared_output_real' in expected and 'prepared_output_imag' in expected:
+            # Test a complex zero jointly. A zero real or imaginary part alone
+            # can acquire ordinary floating-point phase roundoff.
+            for re,im,ar,ai in zip(expected['prepared_output_real'],expected['prepared_output_imag'],
+                                   actual['prepared_output_real'],actual['prepared_output_imag']):
+                if re==im==0.:
+                    require(ar==ai==0.,f'{path}: impossible prepared-output support')
     elif isinstance(expected,list):
         require(type(actual) is list and len(expected)==len(actual),f'{path}: length')
-        for k,(e,a) in enumerate(zip(expected,actual)): compare(e,a,f'{path}[{k}]')
+        for k,(e,a) in enumerate(zip(expected,actual)): compare(e,a,f'{path}[{k}]',clock_kind)
     else:
         require(type(expected) is type(actual) and expected==actual,f'{path}: value')
 
