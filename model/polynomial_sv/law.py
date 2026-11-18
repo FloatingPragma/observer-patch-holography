@@ -161,7 +161,8 @@ def exact_checks() -> dict:
     exchange_on_reference = (I9 - T) / 2
     checks['exchange_on_reference_pair_would_move_load'] = not zero(
         exchange_on_reference.extract([i for i in range(N_SRC) if i not in zero_ref], zero_ref))
-    assert all(checks.values()), {key: v for key, v in checks.items() if not v}
+    if not all(checks.values()):
+        raise ValueError({key: v for key, v in checks.items() if not v})
     return {'local_dimension': DIM, 'load_states': N_SRC, 'memory_states': 1 + N_LAB,
             'checks': checks,
             'element_02_20_of_exchange': str(((I9 - T) / 2)[SRC.index((0, 2)), SRC.index((2, 0))])}

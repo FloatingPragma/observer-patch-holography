@@ -109,7 +109,8 @@ def pair_band(kappas=(2.0, 8.0, 128.0), extra=10):
         order = np.argsort(w)
         w, V = w[order], V[:, order]
         below = int((w < 0).sum())
-        assert below < len(w), 'more levels below two free loads than computed'
+        if not below < len(w):
+            raise ValueError('more levels below two free loads than computed')
         entry = {'levels_below_two_free_loads': below, 'lowest': float(w[0]), 'level_630': float(w[m - 1]),
                'level_631': float(w[m]), 'gap_above_lowest_630': float(w[m] - w[m - 1])}
         isolated = entry['gap_above_lowest_630'] > 0.1

@@ -116,21 +116,24 @@ def compare(expected, actual, path, failures, full):
         for i, (e, a) in enumerate(zip(expected, actual)):
             compare(e, a, f'{path}[{i}]', failures, full)
         return
+    if any(isinstance(value, float) and not math.isfinite(value) for value in (expected, actual)):
+        failures.append(f'{path}: non-finite value')
+        return
     if path in SAMPLED:
-        if not isinstance(expected, int) or abs(expected - actual) > SAMPLED[path]:
+        if type(expected) is not int or type(actual) is not int or abs(expected - actual) > SAMPLED[path]:
             failures.append(f'{path}: stored {expected}, computed {actual}')
         return
     for prefix, tol in SAMPLED_PREFIX.items():
         if path.startswith(prefix) and isinstance(actual, float):
-            if not isinstance(expected, (int, float)) or abs(expected - actual) > tol:
+            if type(expected) not in (int, float) or abs(expected - actual) > tol:
                 failures.append(f'{path}: stored {expected}, computed {actual}')
             return
     if isinstance(actual, bool) or isinstance(expected, bool) or actual is None or isinstance(actual, str):
         if expected != actual or type(expected) is not type(actual):
             failures.append(f'{path}: stored {expected!r}, computed {actual!r}')
         return
-    if isinstance(actual, int) and isinstance(expected, int):
-        if expected != actual:
+    if isinstance(actual, int):
+        if type(expected) is not int or expected != actual:
             failures.append(f'{path}: stored {expected}, computed {actual}')
         return
     if not isinstance(expected, (int, float)) or not math.isfinite(expected):

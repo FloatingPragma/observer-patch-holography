@@ -16,3 +16,9 @@ everything) and `python -m pytest -q model/polynomial_sv`.
 A few small theory packages sit next to it (`support_refinement`, `matched_einstein_limit`,
 `defect_particle_classes`, `carrier_selection_reduction`, `finite_instrument_calibration`,
 `maxwell_local_selection`, `maxwell_weak_field`); each has its own README and tests.
+
+The [construction manual](construction_manual/README.md) shows the hardware and the two laws under test on one
+sheet and describes them part by part, with the reason for each design choice and every equation in plain
+words. The experimental [scalar channel](scalar_channel/README.md) executes the second law of the manual on one
+cell: local preparation and observer instruments. Its results stand apart from the contrast-memory model and
+support no claim about it without an explicit implementation proof.
