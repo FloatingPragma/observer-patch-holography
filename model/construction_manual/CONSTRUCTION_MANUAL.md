@@ -880,7 +880,7 @@ of `κ` and `m`.
 
 ## 11. What this repository executes
 
-The manual describes the construction. Two packages execute parts of it, and each states its own domain.
+The manual describes the construction. Three packages execute parts of it, and each states its own domain.
 
 - [polynomial_sv](../polynomial_sv/README.md) executes law 1: the local law on all 99 states of a seam, the
   carriers, the emitter, the reader, the hypotheses of the theorem, the events and the unrecovered seam.
@@ -892,6 +892,9 @@ The manual describes the construction. Two packages execute parts of it, and eac
   and pulses of area `π/4` with the law running, at the counts 0, 4 and 8 of a supplied cycle of 1/8. It keeps
   the complete law of two pointer bits at the active port for both preparations of the fuel, four phase
   settings, four targets and two changed laws.
+- [contrast_clock](../contrast_clock/README.md) executes a fixed program of the events of law 1 and two
+  readings on one cell under one time-independent law. Its clock register is a sequencer of the computation
+  and no clock of an observer: each port observer counts the events of its own seams, as in section 4.8.
 
 No package of this repository executes these parts of the manual: the reading of frequencies from a long series
 of counts (section 6.2); the clock reading of section 6.4, since the cycle is supplied to the replay; the
