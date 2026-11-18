@@ -1,0 +1,103 @@
+{
+  "schema": "native-memory-clock-protocol.v1",
+  "construction": "OPH-NMR-1",
+  "role": "experimental finite rail, distinct from official calibrated CCF-LT-2",
+  "claim": "A local finite time-independent Hamiltonian realizes the exact native repeated record instrument conditional on its internal clock position, with every finite resource and the reverse motion retained.",
+  "choices": {
+    "patch": "tetrahedron with all twelve directed bits, both neutral bit states retained",
+    "backgrounds": [
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0
+      ]
+    ],
+    "memory": "one uniform pure twelve-state address and one blank overwritten-bit register per event",
+    "buffers": "one twelve-bit buffer per rail cell, all except the initial source blank",
+    "clock": "one particle on T+1 open-rail sites, initially at site zero",
+    "hamiltonian": "adjacent clock hop times reversible native event and adjacent buffer swap, plus adjoint",
+    "couplings": "sqrt((j+1)(T-j))/T; norm one in construction units",
+    "preparation": "source integer 1 for complete records; (|0>+|1>)/sqrt(2) for phase control",
+    "headline_horizons": [
+      2
+    ],
+    "extended_horizons": [
+      3,
+      4
+    ],
+    "source_time_over_pi_T": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "phase_control_horizon": 1,
+    "spectral_horizons": [
+      1,
+      2,
+      3,
+      4,
+      8,
+      16
+    ],
+    "terminal_instrument": "clock position, active source bit word, occurred address and old-bit prefix; future quantum tape retained but unread",
+    "interference_instrument": "Alternative terminal instrument: clock-controlled inverse native history followed by complete X readout on source bit zero, same apparatus for both completions; inverse uncomputes the archive, no joint archive/X measurement is claimed.",
+    "interior_intervention": "nonselective clock PVM at pi*T/4, evolution continued to pi*T",
+    "shots_per_terminal_law": 256,
+    "seeds": [
+      6100,
+      6101,
+      6102
+    ],
+    "sampling": "independent preparations within each table, common random uniforms across law/background controls; every outcome index retained",
+    "empirical_input_files": [],
+    "extended_sampling": "not performed; bounds and sample errors are null"
+  },
+  "controls": [
+    "nonzero reversed load comparison, same carrier, preparation, clock and complete apparatus",
+    "phase (-1)^old_bit per hop, same classical native records and changed coherent interference",
+    "uniform nonzero clock couplings 1/2 at T=3, same read time and source gates",
+    "all-branch interior clock dephasing",
+    "omitted old-bit record and reused dirty memory",
+    "hold event map as a unitary-domain control, not a positive physical discriminator"
+  ],
+  "gates": {
+    "native_cases": "both backgrounds, all 4096 sources and twelve addresses, exact primary rule and independent load oracle",
+    "dirty_native_inverse": "all 4096 sources, twelve addresses and two record values, both backgrounds, every competing law",
+    "joint_probability_l1": 2e-10,
+    "norm_and_free_energy": 2e-10,
+    "complete_clock_spectrum_max_error": 2e-10,
+    "nonzero_uphill_source_total_variation_min": 0.1,
+    "uniform_clock_endpoint_probability_max": 0.99,
+    "interior_measured_return_probability_max": 0.9,
+    "phase_control_minus_probability": "1/12, versus zero on native completion, absolute tolerance 2e-10",
+    "complete_clock_formula": "binomial(T,n) sin(tau/T)^(2n) cos(tau/T)^(2(T-n))",
+    "measured_return_formula": "binomial(2T,T)/4^T",
+    "sampling": "For ideal independent uniform draws, the simultaneous per-outcome Hoeffding radius is sqrt(log(2*K*12/0.01)/(2*256)), plus exact-rational CDF and 53-bit grid bias. Combined frequency and missing-tail rejection probability is bounded by 0.01 + sum(shots*missing_tail_bound). Fixed-seed pseudorandom replay does not prove IID; floating log/sqrt evaluation is numerical.",
+    "replay": "Every scientific key, type, outcome and shot compared; complete normalized probability laws have aggregate L1 tolerance 2e-10, exact discrete fields.",
+    "history_decoder": "Every retained terminal history decodes to its initial word and native seam/coin/current records using only the endpoint and archive; incompatible records are rejected."
+  },
+  "falsifiers": [
+    "a dirty basis state fails the total inverse or an omitted output escapes the proposed reducing span",
+    "native conditional records or source-reference density differ from the independent native product",
+    "a sampled outcome or complete exact probability law fails its registered gate",
+    "the same apparatus cannot distinguish the declared nonzero competing law or coherent completion",
+    "a lower spectral value or multiplicity contradicts the full-carrier gauge theorem",
+    "persistent ticking is claimed despite the actual return and archive uncomputation"
+  ],
+  "exposure": "The formulas are proved design consequences. Exploratory unit calculations and headline/extended performance pilots precede this freeze. Confirmation is an implementation and finite-proof check, not a blind prediction of nature. Familiar measured masses, alpha and G were not used to choose the law, preparation, decoder or stop time.",
+  "boundaries": [
+    "source time is an external simulation parameter; clock position is a finite internal ordinal",
+    "locality is two adjacent bounded-size patches, not the original seam geometry or a physical metric",
+    "terminal instruments are supplied; continuously recording autonomous observers are not constructed",
+    "finite resources, recurrent dynamics and reversible record uncomputation; no indefinite native dissipative law",
+    "no identified particle, physical mass, proper time, physical refinement or OpenWave row validation",
+    "the complete lower modes and original separated-pair anomaly retain their original construction domains"
+  ]
+}

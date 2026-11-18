@@ -61,3 +61,9 @@ Other packages under `model/` contain mathematical components with their
 own Hamiltonians, states and domains. Their theorems apply to this model
 only through checked hypotheses; their numerical outputs are not silently
 used as its predictions.
+
+The [finite native memory rail](native_memory_clock/README.md) is an
+experimental address-bit construction with a local autonomous event clock.
+It supplies complete finite native histories, explicit memory resources and
+reversible return dynamics. It has no source-equivalence or physical-particle
+transfer to CCF-LT-2.
