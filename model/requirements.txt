@@ -1,7 +1,8 @@
-# Reproduction environment for the executable model and the theory packages beside it.
+# Reproduction environment for the finite model and its independent checks.
+# The native observer and P-response runtime use the Python standard library.
 numpy==2.3.5
 scipy==1.18.1
-# The figure generator of the construction manual.
+# Imported by the retained native-geometry source package.
 networkx==3.7
 jsonschema==4.26.0
 PyYAML==6.0.3
