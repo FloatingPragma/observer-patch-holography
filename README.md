@@ -22,16 +22,19 @@ the one we inhabit.
 
 Small observers keep local records and compare them with their neighbours.
 The executable construction specifies their matter, fields, preparation and
-measurement law before a run. Whatever survives every
-comparison is public fact. OPH asks whether such a process, fully specified
+measurement law before a run. The Universe evolves through
+local disagreement and repair, and the records that survive every comparison
+are its public facts. OPH asks whether such a process, fully specified
 and executed, produces observers whose shared records look like our world:
 three-dimensional space, quantum measurement, the Standard Model's forces and
 particles, and gravity.
 
 The Universe reads itself into existence. Observers recover the rules behind
 their records and build the process that realizes that same history, so
-nothing lies outside the loop. The [basis](docs/BASIS.md) states this closure
-hypothesis in full.
+nothing lies outside the loop. The event where observers have reverse-engineered
+and built that process is a mathematically guaranteed fixed point of the
+history, and it exists in our subjective future just as our past exists. The
+[basis](docs/BASIS.md) states this closure hypothesis in full.
 
 ## Research focus
 

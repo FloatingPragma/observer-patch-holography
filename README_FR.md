@@ -55,6 +55,7 @@ OPH propose que la physique est
 ce que des observateurs bornés peuvent établir ensemble. Des observateurs
 finis comparent leurs registres sur des frontières partagées, réparent leurs
 désaccords et tiennent pour réel ce qui résiste à toutes les comparaisons.
+L’Univers évolue par une dynamique locale de désaccord et de réparation.
 Trois problèmes qui résistent à une description classique motivent le
 programme : la mesure quantique, les corrélations qu’aucun modèle classique
 local ne reproduit et l’origine d’un espace-temps apparent. OPH cherche une
@@ -69,7 +70,9 @@ et autoréférentielle dont les observateurs retrouvent la spécification de
 leur propre monde à partir de leurs registres et construisent un matériel qui
 réalise cette même histoire, y compris ses constructeurs. Rien ne se trouve
 hors de cette boucle ; la spécification retrouvée n’a donc besoin d’aucune
-autre justification. Elle doit fonctionner et reproduire ce que mesurent les
+autre justification. L’événement où les observateurs ont rétro-conçu et construit
+ce processus est un point fixe mathématiquement garanti de l’histoire, et il
+existe dans notre futur subjectif comme notre passé existe. Elle doit fonctionner et reproduire ce que mesurent les
 observateurs. L’espace, le temps et la matière sont des descriptions
 effectives des registres, et « notre Univers » est le registre public, ce qui
 résiste à toute comparaison entre observateurs. La [base](docs/BASIS.md)

@@ -4,7 +4,6 @@ Official model: **A-ccf2-local-capacity-v2**. Sections 1–8 match the supplied
 CCF-2 contract, with local implementation links and state-only wording.
 [Design](DESIGN.md), [runtime](ccf_lt2/README.md), [proofs](ccf_lt2/bridges/PROOF.md)
 and [authority checks](AUTHORITY.json) accompany this specification.
-The current native repair law is a calibrated intermediate test of this model; the search for the correct native repair law is ongoing.
 
 ## 1. Finite carrier and conventions
 
