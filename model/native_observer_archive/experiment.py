@@ -13,7 +13,7 @@ import time
 import numpy as np
 import scipy
 
-from tools.pin_scope import bound
+from tools.pin_scope import bound, bound_pins
 
 from .oracle import expected_records
 from .packet import (Rail, evolve_clock, factored_vector, fraction_record,
@@ -28,7 +28,7 @@ BINDINGS = tuple(bound(tuple("model/native_observer_archive/" + name for name in
     "__init__.py", "program.py", "oracle.py", "packet.py", "experiment.py",
     "protocol.json", "provenance.json",
 )) + tuple("model/native_memory_clock/" + name for name in (
-    "__init__.py", "native.py", "provenance.json", "freeze.json"))))
+    "__init__.py", "native.py", "provenance.json"))))
 
 
 def digest(path):
@@ -341,9 +341,10 @@ def validate_science(science):
 def frozen():
     freeze = json.loads((HERE / "freeze.json").read_text(encoding="utf8"))
     require(freeze.keys() == {"schema", "files"}
-            and freeze["schema"] == "native-observer-archive-freeze.v2", "freeze schema")
-    require(type(freeze["files"]) is dict and set(freeze["files"]) == set(BINDINGS), "complete source binding")
-    for name, sha in freeze["files"].items():
+            and freeze["schema"] == "native-observer-archive-freeze.v3", "freeze schema")
+    files = bound_pins(freeze["files"])
+    require(type(files) is dict and set(files) == set(BINDINGS), "complete source binding")
+    for name, sha in files.items():
         require(type(sha) is str and digest(ROOT / name) == sha, "frozen source changed: " + name)
     return digest(HERE / "freeze.json")
 

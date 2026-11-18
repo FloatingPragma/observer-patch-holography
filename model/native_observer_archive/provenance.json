@@ -2,18 +2,19 @@
   "schema": "native-observer-archive-provenance.v1",
   "construction": "OPH-NOA-1",
   "revisions": {
-    "FloatingPragma/observer-patch-holography_main": "0a50df45164c7dcddaf9547a4c62936925839986",
+    "FloatingPragma/observer-patch-holography_main": "94328fd27c03758f804b9d49f40b84c700f3409b",
     "OPH-NMR-1_audited_parent": "90d663b57a594a026afc846a947d251bd6cf0e02",
-    "ancestor_candidate": "A-address-bit-v1",
-    "ancestor_native_source_revision": "0c738545b10b655c72cf2f877ec55b983592f535",
-    "openwave-labs/openwave_main": "e988fc8e3552ce30438ad9a31354607909a5618f"
+    "openwave-labs/openwave_main": "e988fc8e3552ce30438ad9a31354607909a5618f",
+    "validation_guidance_revision": "9258e5e21f068c9bd627b1c948aaece45daace0b",
+    "address_bit_study_revision": "d7e7172100524c4842f574eadc02db29ae983ba1",
+    "address_bit_native_source_mapping": "0c738545b10b655c72cf2f877ec55b983592f535"
   },
   "native_source": {
     "implementation": "model/native_memory_clock/native.py",
     "primary_byte_and_AST_bindings": "model/native_memory_clock/provenance.json",
     "proof": "model/native_memory_clock/PROOF.md",
     "map": "Both event gates call the unchanged total forward/inverse permutation. Blank old-bit memory gives the exact native successor, including no-operation. Both old bits remain on the carrier.",
-    "source_update_scope": "A later revision of the ancestor study adds spectral corroboration and resource qualification; its native rule, source and join bytes match revision 0c738545."
+    "source_update_scope": "The address-bit study at d7e7172100524c4842f574eadc02db29ae983ba1 includes spectral corroboration and resource qualification; its native rule, source and join bytes match the mapped 0c738545b10b655c72cf2f877ec55b983592f535 revision."
   },
   "supplied_choices": [
     "five data patches on a 4096-site one-excitation clock rail with uniform coupling 1/2",

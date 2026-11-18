@@ -61,11 +61,12 @@ class ExperimentTests(unittest.TestCase):
         root = Path(temporary.name)
         here = root / "model" / "native_observer_archive"
         here.mkdir(parents=True)
-        for name in (*e.BINDINGS, "model/__init__.py", "tools/pin_scope.py", "code/pin_scope.py"):
+        support = ("tools/pin_scope.py", "code/pin_scope.py", "model/__init__.py")
+        for name in (*e.BINDINGS, *support):
             destination = root / name
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(e.ROOT / name, destination)
-        freeze = {"schema": "native-observer-archive-freeze.v2",
+        freeze = {"schema": "native-observer-archive-freeze.v3",
                   "files": {name: e.digest(root / name) for name in e.BINDINGS}}
         (here / "freeze.json").write_bytes(_json_bytes(freeze))
         return root, here, freeze
@@ -299,8 +300,17 @@ class ExperimentTests(unittest.TestCase):
 
     def test_freeze_requires_exact_members_and_rejects_each_source_change(self):
         root, here, freeze = self._fixture()
-        for name in ("model/native_memory_clock/__init__.py", "model/native_memory_clock/native.py"):
-            self.assertIn(name, e.BINDINGS)
+        expected = {"model/native_observer_archive/" + name for name in (
+            "__init__.py", "program.py", "oracle.py", "packet.py", "experiment.py",
+            "protocol.json", "provenance.json",
+        )} | {"model/native_memory_clock/" + name for name in (
+            "__init__.py", "native.py", "provenance.json",
+        )}
+        self.assertEqual(set(e.BINDINGS), expected)
+        for name in e.BINDINGS:
+            self.assertEqual((root / name).read_bytes(), (e.ROOT / name).read_bytes())
+        for name in ("tools/pin_scope.py", "code/pin_scope.py", "model/__init__.py"):
+            self.assertNotIn(name, e.BINDINGS)
             self.assertEqual((root / name).read_bytes(), (e.ROOT / name).read_bytes())
         with patch.object(e, "ROOT", root), patch.object(e, "HERE", here):
             self.assertEqual(e.frozen(), e.digest(here / "freeze.json"))
@@ -325,11 +335,43 @@ class ExperimentTests(unittest.TestCase):
             mutations.append(changed)
             mutations.extend(({**freeze, "schema": "unknown"},
                               {**freeze, "schema": "native-observer-archive-freeze.v1"},
+                              {**freeze, "schema": "native-observer-archive-freeze.v2"},
                               {**freeze, "ignored_claim": True}))
             for changed in mutations:
                 (here / "freeze.json").write_bytes(_json_bytes(changed))
                 with self.assertRaises(ValueError):
                     e.frozen()
+
+    def test_prose_tests_and_unscoped_custody_changes_do_not_invalidate_freeze(self):
+        root, here, freeze = self._fixture()
+        exempt = (
+            "model/native_observer_archive/PROOF.md",
+            "model/native_observer_archive/README.md",
+            "model/native_observer_archive/test_program.py",
+            "model/native_observer_archive/test_channel.py",
+            "model/native_observer_archive/test_packet.py",
+            "model/native_observer_archive/test_experiment.py",
+            "model/native_memory_clock/PROOF.md",
+        )
+        unscoped = (
+            "model/__init__.py", "model/native_memory_clock/freeze.json",
+            "model/native_observer_archive/receipts/v1/freeze.json",
+            "model/native_observer_archive/receipts/v1/results.json.gz",
+            "model/native_observer_archive/receipts/v1/extended_results.json.gz",
+        )
+        with patch.object(e, "ROOT", root), patch.object(e, "HERE", here):
+            for name in (*exempt, *unscoped):
+                self.assertNotIn(name, e.BINDINGS)
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(b"temporary out-of-scope contents\n")
+                with self.subTest(name=name):
+                    self.assertEqual(e.frozen(), e.digest(here / "freeze.json"))
+            # Shared pin policy also ignores editorial/test entries included
+            # in a recorded map; it does not evaluate their stale digests.
+            freeze["files"].update({name: "0" * 64 for name in exempt})
+            (here / "freeze.json").write_bytes(_json_bytes(freeze))
+            self.assertEqual(e.frozen(), e.digest(here / "freeze.json"))
 
     def test_optimized_cli_preserves_failed_evidence_and_checks_binding_first(self):
         root, here, freeze = self._fixture()
@@ -355,18 +397,23 @@ class ExperimentTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("frozen source changed", result.stderr)
 
-    def test_optimized_cli_rejects_changed_executable_package_initializers(self):
+    def test_optimized_cli_scopes_package_initializer_changes(self):
         root, here, _ = self._fixture()
         self._receipt(here, self.science)
-        for name in ("model/native_memory_clock/__init__.py",):
+        for name in ("model/__init__.py", "model/native_observer_archive/__init__.py",
+                     "model/native_memory_clock/__init__.py"):
             path = root / name
             original = path.read_bytes()
             path.write_bytes(original + b"\n_import_executed_before_replay = True\n")
             try:
                 result = self._cli(root)
                 with self.subTest(name=name):
-                    self.assertNotEqual(result.returncode, 0)
-                    self.assertIn("frozen source changed: " + name, result.stderr)
+                    if name == "model/__init__.py":
+                        self.assertEqual(result.returncode, 0, result.stderr)
+                        self.assertIn('"verified": true', result.stdout)
+                    else:
+                        self.assertNotEqual(result.returncode, 0)
+                        self.assertIn("frozen source changed: " + name, result.stderr)
             finally:
                 path.write_bytes(original)
 
