@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 2674,
+  "surface_count": 2676,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -5317,6 +5317,16 @@
     },
     {
       "path": "model/native_mass_channels/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_memory_clock/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_memory_clock/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
