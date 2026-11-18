@@ -42,6 +42,9 @@ class ReceiptTests(unittest.TestCase):
             (['clock_records',6,'unfinished_weight'],0.),
             (['resources','clock_operator_norm'],0.),
             (['resources','fresh_reader_bits'],0),
+            (['resources','window_unfinished_bound'],0.),
+            (['resources','window_unfinished_bound'],-1e-12),
+            (['clock_records',2,'unfinished_weight'],0.),
             (['competing_controls',0,'public_total_variation'],0.),
             (['literal_clock_check','operator_errors',0],3e-10),
             (['claims','physical_clock_or_particle_identification'],True),
@@ -113,7 +116,7 @@ e.validate(r)
 '''
         proc=subprocess.run([sys.executable,'-B','-O','-c',script],cwd=e.ROOT,capture_output=True,text=True)
         self.assertNotEqual(proc.returncode,0)
-        self.assertIn('completion window gate',proc.stderr)
+        self.assertIn('unfinished recomputation',proc.stderr)
 
 
 if __name__=='__main__': unittest.main()

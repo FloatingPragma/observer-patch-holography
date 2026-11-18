@@ -151,11 +151,23 @@ def run():
     comparisons=[{'kappa':row['kappa'],'apparatus':row['apparatus'],
                   'public_total_variation':tv(public_distribution(cases[0]),public_distribution(row))}
                  for row in cases[1:]]
-    counters=c.count_table(tape)
-    capacities=(counters[-1]+1).tolist()
-    source_gate_count=sum(step.kind!='reader' for step in tape)
     result={'construction':p['construction'],'source_pins':pins,
-            'resources':{'source_qutrits':12,'private_seam_memories_11_states':30,
+            'resources':resources(tape),
+            'cases':cases,'competing_controls':comparisons,
+            'clock_records':clocks,'literal_clock_check':c.direct_clock_check(),
+            'claims':{'finite_autonomous_declared_extension':True,'absorbing_halt':False,
+                      'physical_clock_or_particle_identification':False,
+                      'continuous_time_binding_bound_transferred':False,
+                      'openwave_rows_awarded':0}}
+    return result
+
+
+def resources(tape):
+    n=len(tape)
+    length=2*n
+    capacities=(c.count_table(tape)[-1]+1).tolist()
+    source_gate_count=sum(step.kind!='reader' for step in tape)
+    return {'source_qutrits':12,'private_seam_memories_11_states':30,
                          'degree_reference_qutrits':12,'reference_memories_11_states':12,
                          'fresh_reader_bits':22,'clock_bits_one_excitation':length+1,
                          'counter_capacities':capacities,
@@ -167,14 +179,22 @@ def run():
                          'transfer_action':np.pi*length/2,
                          'completion_window_action':[np.pi*length/3,2*np.pi*length/3],
                          'window_unfinished_bound':math.exp(-length/8),
-                         'coherent_gate_error_tv_bound':source_gate_count*1e-6},
-            'cases':cases,'competing_controls':comparisons,
-            'clock_records':clocks,'literal_clock_check':c.direct_clock_check(),
-            'claims':{'finite_autonomous_declared_extension':True,'absorbing_halt':False,
-                      'physical_clock_or_particle_identification':False,
-                      'continuous_time_binding_bound_transferred':False,
-                      'openwave_rows_awarded':0}}
-    return result
+                         'coherent_gate_error_tv_bound':source_gate_count*1e-6}
+
+
+def formula_compare(expected,actual):
+    """Analytic resource formulas have no absolute numerical-error floor."""
+    if type(expected) is float:
+        require(type(actual) is float and math.isfinite(actual),'resource numeric type')
+        require(abs(expected-actual)<=4*math.ulp(expected),'resource formula mismatch')
+    elif isinstance(expected,dict):
+        require(type(actual) is dict and expected.keys()==actual.keys(),'resource keys')
+        for key in expected: formula_compare(expected[key],actual[key])
+    elif isinstance(expected,list):
+        require(type(actual) is list and len(expected)==len(actual),'resource list')
+        for a,b in zip(expected,actual): formula_compare(a,b)
+    else:
+        require(type(expected) is type(actual) and expected==actual,'resource value')
 
 
 def array(values,shape):
@@ -194,6 +214,7 @@ def validate(result):
     """Scientific gates recomputed from records, independently of replay tolerance."""
     _finite_tree(result)
     r=result['resources']
+    formula_compare(resources(c.program()),r)
     require(r['program_edges']==1336 and r['idle_edges']==1336 and r['clock_length']==2672,'resource count')
     require(r['counter_capacities']==[193]*11+[177],'counter allocation')
     require(len(result['cases'])==6 and len(result['clock_records'])==8,'complete campaign')
@@ -246,7 +267,8 @@ def validate(result):
     for row in result['clock_records']:
         weights=array(row['position_weights'],(2673,))
         require(np.all(weights>=0) and abs(weights.sum()-1)<PROB_TOL,'clock probability mass')
-        require(abs(weights[:1336].sum()-row['unfinished_weight'])<PROB_TOL,'unfinished recomputation')
+        require(type(row['unfinished_weight']) is float and
+                float(weights[:1336].sum())==row['unfinished_weight'],'unfinished recomputation')
         require(abs(sum(v['weight'] for v in row['public_records'])-1)<PROB_TOL,'clock public mass')
         require(all(type(v['weight']) is float and 0<=v['weight']<=1+PROB_TOL
                     for v in row['public_records']),'clock public weight')
