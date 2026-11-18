@@ -64,8 +64,12 @@ def compare(saved, actual, path='result'):
     elif type(actual) is float:
         require(type(saved) in (float, int) and math.isfinite(saved) and math.isfinite(actual),
                 'Invalid numerical value: '+path)
-        # Structural zeros are exact; nonzero roundoff is compared separately.
-        require(saved == 0 if actual == 0 else abs(saved-actual) <= 2e-11*(1+abs(actual)),
+        # Forbidden outcome support is exact. Calculated differences of energies
+        # can be zero in one backend and roundoff in another.
+        probability = any(key+'[' in path for key in
+                          ('probabilities', 'complete_basis_law'))
+        require(saved == 0 if probability and actual == 0 else
+                abs(saved-actual) <= 2e-11*(1+abs(actual)),
                 'Numerical replay differs: '+path)
         if path.endswith(('error', 'residual')) and actual < 1e-12:
             require(0 <= saved < 1e-12, 'Saved residual exceeds its gate: '+path)

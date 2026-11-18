@@ -217,6 +217,13 @@ def test_forbidden_pointer_support_stays_exact():
         e.compare(saved, actual)
 
 
+def test_energy_difference_roundoff_is_not_a_forbidden_outcome():
+    e.compare({'source_energy_change': 3e-14}, {'source_energy_change': 0.0})
+    e.compare({'source_energy_change': 0.0}, {'source_energy_change': 3e-14})
+    with pytest.raises(ValueError):
+        e.compare({'source_energy_change': 1e-5}, {'source_energy_change': 0.0})
+
+
 def test_saved_residual_cannot_exceed_its_scientific_gate():
     with pytest.raises(ValueError, match='exceeds its gate'):
         e.compare({'decode_residual': 2e-12}, {'decode_residual': 1e-15})
