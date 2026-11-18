@@ -8,6 +8,12 @@ physical acceptance target, not a consequence of declaring a Hamiltonian.
 The [machine-readable obligations](../claims/executable_model_hypothesis.json)
 carry the same distinction into the scientific registers.
 
+The model is built, and the theory around it is complete. Its current native
+repair law is a calibrated intermediate test. The correct native repair law,
+the simple law that governs the interactions of observers in the early
+Universe, is missing, and the search for it is ongoing. The physical
+comparisons below are the tests that law has to pass on the common source.
+
 ## Closure and a specified construction
 
 The overall OPH hypothesis is closure: a complete history is both a timeless

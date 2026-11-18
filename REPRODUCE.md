@@ -8,7 +8,7 @@ then have their own theorem, certificate, or experimental acceptance rule.
 ## Official executable model
 
 [CCF-LT-2](model/SPEC.md) is the official common finite matter, field and
-response construction. Its runtime and scientific inputs are packaged in
+response construction. Its current native repair law is a calibrated intermediate test; the search for the correct native repair law is ongoing. Its runtime and scientific inputs are packaged in
 [model/ccf_lt2](model/ccf_lt2/README.md). From the repository root:
 
 ```sh

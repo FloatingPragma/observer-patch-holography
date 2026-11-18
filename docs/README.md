@@ -118,7 +118,7 @@ administrative closure does not discharge a physical premise.
 ## Executable model
 
 [CCF-LT-2](../model/SPEC.md) is the official finite matter, field and response
-construction. Its [implementation](../model/ccf_lt2/README.md) regenerates the
+construction. Its current native repair law is a calibrated intermediate test; the search for the correct native repair law is ongoing. Its [implementation](../model/ccf_lt2/README.md) regenerates the
 native operator, complete finite diagnostics and local energy response.
 The [construction contract](../model/CONSTRUCTION.md) specifies the joint law,
 preparations and instruments. The [dependency map](../model/particle_joint_reconstruction/DEPENDENCIES.md)

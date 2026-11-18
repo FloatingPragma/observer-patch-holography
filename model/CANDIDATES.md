@@ -3,7 +3,7 @@
 The official model family is [CCF-LT-2](SPEC.md). Its finite oriented graph,
 rotor cap, source parameters, auxiliary configurations, preparation and
 instrument determine a member before evolution. There is one common law
-for matter, field and total-energy response.
+for matter, field and total-energy response. Its current native repair law is a calibrated intermediate test; the search for the correct native repair law is ongoing.
 
 ## Carrier
 

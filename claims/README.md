@@ -1,6 +1,6 @@
 # OPH Claim Registry
 
-The official executable model is [CCF-LT-2](../model/SPEC.md). Its
+The official executable model is [CCF-LT-2](../model/SPEC.md). Its current native repair law is a calibrated intermediate test; the search for the correct native repair law is ongoing. Its
 [finite claim register](ccf_lt2.json) binds the native polynomial and local-capacity
 response checks. Other claims retain their stated source, preparation,
 reference, clock and observation domains; a common name supplies no transfer.

@@ -1,7 +1,7 @@
 # The OPH paper set
 
 The official executable model is [CCF-LT-2](../model/SPEC.md), the common
-finite matter, field and response construction. The papers state its law,
+finite matter, field and response construction. Its current native repair law is a calibrated intermediate test; the search for the correct native repair law is ongoing. The papers state its law,
 calculated records, applicable mathematical theorems and physical
 identification conditions. A theorem transfers between constructions only
 through its actual hypotheses. The [dependency map](../model/particle_joint_reconstruction/DEPENDENCIES.md)

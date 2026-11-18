@@ -99,10 +99,23 @@ découpe le travail en étapes avec des règles d’arrêt : soit les pièces se
 rejoignent sur un même processus, soit une preuve montre que toute la classe
 de lois échoue.
 
-## Points forts
+## Axe de recherche
 
-**Statut actuel.** Le [modèle exécutable](model/SPEC.md) est le principal sujet de la
-recherche actuelle ; il est en plein développement.
+Nous avons construit un [modèle exécutable](model/README.md) d’OPH. Un
+Hamiltonien fixe couple la matière, les champs électriques et magnétiques et
+des registres de réponse locaux sur un support fini, et des détecteurs
+complets conservent chaque résultat. La théorie qui l’entoure est achevée :
+le principe de clôture, la bibliothèque de théorèmes et les constructions
+finies sont en place.
+
+La pièce manquante est la bonne loi de réparation native, la loi simple qui
+gouverne les interactions des observateurs dans l’Univers primitif. La loi
+qu’exécute le modèle aujourd’hui est un test intermédiaire calibré.
+L’identification de la bonne loi fait l’objet d’une recherche intense en
+cours. Les tests physiques des articles, du spectre des particules à la
+gravitation, sont ce que cette loi doit réussir sur un même processus.
+
+## Points forts
 
 Les résultats ci-dessous portent sur les sources et les préparations
 explicitement déclarées dans leurs preuves. Leur transfert au modèle

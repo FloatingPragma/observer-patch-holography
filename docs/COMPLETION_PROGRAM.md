@@ -1,6 +1,6 @@
 # Common-source physical acceptance
 
-The official executable model is [CCF-LT-2](../model/SPEC.md). Its
+The official executable model is [CCF-LT-2](../model/SPEC.md). Its current native repair law is a calibrated intermediate test; the search for the correct native repair law is ongoing. Its
 [finite evidence](../claims/ccf_lt2.json) establishes the complete native
 operator and named diagnostic domains. Physical correspondence uses the
 same Hamiltonian, preparation, retained reference, clock and instrument.

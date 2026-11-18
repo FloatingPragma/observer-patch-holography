@@ -22,7 +22,8 @@ nor proves a relativistic field limit. A record-copying operation copies an
 orthogonal classical record, not an arbitrary quantum state.
 
 The official executable model is [CCF-LT-2](model/SPEC.md), implemented in
-[model/ccf_lt2](model/ccf_lt2/README.md). Use its complete local-capacity Hamiltonian,
+[model/ccf_lt2](model/ccf_lt2/README.md). Its current native repair law is a calibrated intermediate test; the search for the correct native repair law is ongoing.
+Use its complete local-capacity Hamiltonian,
 source data and instruments for model claims. Independent component proofs
 retain their own hypotheses and require an explicit source map.
 

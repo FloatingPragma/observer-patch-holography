@@ -5,6 +5,7 @@ specified by [CCF-2](../SPEC.md). Every graph vertex carries 96 native
 fermionic modes. One Hamiltonian combines signed charged and neutral
 transport, weak contacts, family shifts, electric and magnetic fields,
 and independent local capacity responses to their total energy.
+Its current native repair law is a calibrated intermediate test; the search for the correct native repair law is ongoing.
 
 The [source proof](PROOF.md) explains exact charge conservation and the
 complete tensor action. [RESULTS.json](RESULTS.json) records the executed

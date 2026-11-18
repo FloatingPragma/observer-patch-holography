@@ -33,10 +33,22 @@ their records and build the process that realizes that same history, so
 nothing lies outside the loop. The [basis](docs/BASIS.md) states this closure
 hypothesis in full.
 
-## What comes out
+## Research focus
 
-The [executable model](model/SPEC.md) is the main subject of current
-research and is under heavy development.
+We have built an [executable model](model/README.md) of OPH. One fixed
+Hamiltonian couples matter, electric and magnetic fields and local response
+registers on a finite carrier, and complete detectors keep every outcome.
+The theory around it is finished: the closure principle, the theorem library
+and the finite constructions below are in place.
+
+The missing piece is the correct native repair law, the simple law that
+governs the interactions of observers in the early Universe. The law the
+model runs today is a calibrated intermediate test. Identifying the correct
+law is the subject of heavy ongoing research. The physical tests in the
+papers, from the particle spectrum to gravity, are what that law has to pass
+on one process.
+
+## What comes out
 
 Under stated premises, the theorem library and the finite constructions give:
 
