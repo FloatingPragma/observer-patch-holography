@@ -37,6 +37,27 @@ def _exact_moments(order):
             velocity_second - velocity * velocity, mixed - mean * velocity)
 
 
+def _decimal_packet_error(rail, values):
+    with localcontext() as ctx:
+        ctx.prec = 110
+        root = Decimal(comb(2 * rail.order, rail.order)).sqrt()
+        squared_error = Decimal(0)
+        for position, value in enumerate(values):
+            j = position - rail.offset
+            real, imag = Decimal(0), Decimal(0)
+            if 0 <= j <= rail.order:
+                signed = Decimal(comb(rail.order, j)) / root
+                if (j // 2) % 2:
+                    signed = -signed
+                if j % 2:
+                    imag = -signed
+                else:
+                    real = signed
+            squared_error += (Decimal.from_float(float(value.real)) - real) ** 2
+            squared_error += (Decimal.from_float(float(value.imag)) - imag) ** 2
+        return squared_error.sqrt()
+
+
 def _dirty(rng):
     return Data(tuple(rng.randrange(4096) for _ in range(5)),
                 tuple(rng.randrange(12) for _ in range(4)),
@@ -209,23 +230,46 @@ class PacketTests(unittest.TestCase):
     def test_packet_representation_bound_covers_actual_binary_amplitudes(self):
         for order in (1, 4, 8, 64):
             rail = clock.Rail(256, 32, order)
-            values = clock.packet(rail)[rail.offset:rail.start + 1]
+            values = clock.packet(rail)
             z = comb(2 * order, order)
             represented_root = Fraction.from_float(sqrt(z))
-            actual = [Fraction.from_float(float(abs(value.real or value.imag))) for value in values]
+            actual = [Fraction.from_float(float(abs(value)))
+                      for value in values[rail.offset:rail.start + 1]]
             division = sum((abs(value - Fraction(comb(order, j), 1) / represented_root)
                             for j, value in enumerate(actual)), Fraction())
             expected = abs(represented_root ** 2 - z) / represented_root ** 2 + division
+            # The complete component bound agrees with the scalar allowance
+            # when the phases and zero support have their declared values.
             self.assertEqual(clock.preparation_error_bound(rail), expected)
             with localcontext() as ctx:
                 ctx.prec = 110
-                root = Decimal(z).sqrt()
-                norm_squared = sum((Decimal(value.numerator) / Decimal(value.denominator)
-                                    - Decimal(comb(order, j)) / root) ** 2
-                                   for j, value in enumerate(actual))
                 decimal_bound = Decimal(expected.numerator) / Decimal(expected.denominator)
-                self.assertLessEqual(norm_squared.sqrt(), decimal_bound)
+                self.assertLessEqual(_decimal_packet_error(rail, values), decimal_bound)
             self.assertLess(float(expected), 1e-13)
+
+    def test_packet_bound_covers_phase_error_and_support_leakage(self):
+        rail = clock.Rail()
+        original = clock.packet(rail)
+        baseline = clock.preparation_error_bound(rail)
+        for mutation in ("phase", "component", "support"):
+            values = original.copy()
+            if mutation == "phase":
+                values[rail.offset + 8] *= -1
+            elif mutation == "component":
+                values[rail.offset + 8] += 1j / 2 ** 28
+            else:
+                values[0] = (1 - 1j) / 2 ** 28
+                values[-1] = 1j / 2 ** 29
+            with self.subTest(mutation=mutation), patch.object(clock, "packet", return_value=values):
+                bound = clock.preparation_error_bound(rail)
+                self.assertGreater(bound, Fraction(1, 10 ** 9))
+                self.assertGreater(bound, baseline)
+                with localcontext() as ctx:
+                    ctx.prec = 110
+                    decimal_bound = Decimal(bound.numerator) / Decimal(bound.denominator)
+                    error = _decimal_packet_error(rail, values)
+                    self.assertGreater(error, Decimal("1e-9"))
+                    self.assertLessEqual(error, decimal_bound)
 
     def test_direction_and_late_return_are_separate_exploratory_controls(self):
         rail = clock.Rail()

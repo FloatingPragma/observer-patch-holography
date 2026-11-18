@@ -50,3 +50,7 @@ claim. Verification is read-only. `--record` refuses to overwrite evidence;
 source amendments require a separate freeze. All 31 complete OpenWave
 physical rows are unvalidated; candidate registration and adversarial row
 validation belong in Bernhard's OpenWave fork.
+
+The verifier checks each saved scientific gate before numerical comparison.
+Versioned producer receipts and their freeze are retained under `receipts/v1`;
+their source revision and hashes are specified in the source mapping.

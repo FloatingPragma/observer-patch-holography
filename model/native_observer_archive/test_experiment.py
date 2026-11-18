@@ -53,6 +53,7 @@ class ExperimentTests(unittest.TestCase):
     def setUpClass(cls):
         cls.science = json.loads(json.dumps(e.compute(False), allow_nan=False))
         cls.protocol = json.loads((e.HERE / "protocol.json").read_text(encoding="utf8"))
+        e.validate_science(cls.science)
 
     def _fixture(self):
         temporary = tempfile.TemporaryDirectory(prefix="oph-observer-archive-tests-")
@@ -60,14 +61,11 @@ class ExperimentTests(unittest.TestCase):
         root = Path(temporary.name)
         here = root / "model" / "native_observer_archive"
         here.mkdir(parents=True)
-        (root / "model" / "__init__.py").write_text("", encoding="utf8")
         for name in e.BINDINGS:
             destination = root / name
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(e.ROOT / name, destination)
-        # The inherited namespace contains only the frozen imported component.
-        (root / "model" / "native_memory_clock" / "__init__.py").write_text("", encoding="utf8")
-        freeze = {"schema": "native-observer-archive-freeze.v1",
+        freeze = {"schema": "native-observer-archive-freeze.v2",
                   "files": {name: e.digest(root / name) for name in e.BINDINGS}}
         (here / "freeze.json").write_bytes(_json_bytes(freeze))
         return root, here, freeze
@@ -215,8 +213,98 @@ class ExperimentTests(unittest.TestCase):
             with self.subTest(field=field), self.assertRaises(ValueError):
                 e.compare({field: 1.0}, {field: 1.0 + 1e-12})
 
+    def test_stored_gates_are_independent_of_replay_tolerance(self):
+        residual = self.science["literal_operator_check"]["vector_l2_error"]
+        over_gate = e.TOL + residual / 2
+        changed = deepcopy(self.science)
+        changed["literal_operator_check"]["vector_l2_error"] = over_gate
+        self.assertGreater(over_gate, e.TOL)
+        # This is close enough to replay, but it is not a passing experiment.
+        e.compare(self.science, changed)
+        with self.assertRaisesRegex(ValueError, "stored literal propagation residual gate"):
+            e.validate_science(changed)
+        no_communication = next(i for i, row in enumerate(self.science["cases"])
+                                if row["variant"] == "no_communication")
+        mutations = [
+            (("clock_laws", 0, "raw_norm"), 1.0 + e.TOL, "stored packet norm residual"),
+            (("literal_operator_check", "norm_squared"), 1.0 + e.TOL, "stored literal norm"),
+            (("literal_operator_check", "initial_energy"), 2 * e.TOL, "energy/meter"),
+            (("literal_operator_check", "final_energy"), 2 * e.TOL, "energy/meter"),
+            (("literal_operator_check", "pointer_measurement_energy"), 2 * e.TOL, "energy/meter"),
+            (("clock_laws", 0, "mean_hamiltonian"), 2 * e.TOL, "packet energy"),
+            (("cases", no_communication, "public_laws", 0, "both_valid"), 1e-10, "readiness disagrees"),
+            (("cases", no_communication, "public_laws", 0, "both_valid"), 1e-16, "invalid blank pointers"),
+            (("cases", 0, "public_laws", 0, "valid_disagreement"), 1e-16, "pointer disagreement"),
+            (("interval_certificate", "normalized_binary_packet_failure_upper"),
+             {"numerator": "1", "denominator": "1000"}, "interval budget"),
+            (("controls", "completed_source_tv_native_feedback_off"),
+             {"numerator": "0", "denominator": "1"}, "same-apparatus"),
+        ]
+        for path, replacement, message in mutations:
+            changed = deepcopy(self.science)
+            _replace(changed, path, replacement)
+            with self.subTest(path=path), self.assertRaisesRegex(ValueError, message):
+                e.validate_science(changed)
+        # Consistently falsifying both summary and law cannot weaken an exact
+        # no-communication/no-publication gate through the summation allowance.
+        for variant in ("no_communication", "no_publish"):
+            changed = deepcopy(self.science)
+            case = next(row for row in changed["cases"] if row["variant"] == variant)
+            row = case["public_laws"][0]
+            row["probabilities"][0] -= 1e-16
+            row["probabilities"][10] += 1e-16
+            row["both_valid"] = 1e-16
+            with self.assertRaisesRegex(ValueError, "invalid blank pointers"):
+                e.validate_science(changed)
+
+    def test_public_laws_retain_structural_zeros_and_record_factorization(self):
+        # B.valid with A.invalid does not enter the both-valid summary. It is
+        # nevertheless forbidden, even below the numerical replay allowance.
+        for variant, outcome, message in (
+            ("no_communication", 2, "disabled receiver"),
+            ("no_publish", 2, "disabled receiver"),
+            ("no_publish", 8, "disabled publisher"),
+            ("native", 2, "outside its complete prefix records"),
+        ):
+            for mass in (5e-11, 1e-16):
+                changed = deepcopy(self.science)
+                case = next(row for row in changed["cases"] if row["variant"] == variant)
+                law = case["public_laws"][0]["probabilities"]
+                law[0] -= mass
+                law[outcome] += mass
+                e.compare(self.science, changed)
+                with self.subTest(variant=variant, mass=mass), self.assertRaisesRegex(ValueError, message):
+                    e.validate_science(changed)
+        # An allowed record cannot acquire an independent probability either:
+        # the clock factors and complete prefix records determine its weight.
+        changed = deepcopy(self.science)
+        case = next(row for row in changed["cases"] if row["variant"] == "native")
+        law = case["public_laws"][0]["probabilities"]
+        law[0] -= 5e-11
+        law[8] += 5e-11
+        e.compare(self.science, changed)
+        with self.assertRaisesRegex(ValueError, "clock and record factors"):
+            e.validate_science(changed)
+
+    def test_invalid_regenerated_science_cannot_be_recorded(self):
+        root, here, _ = self._fixture()
+        changed = deepcopy(self.science)
+        changed["literal_operator_check"]["vector_l2_error"] = 2 * e.TOL
+        with patch.object(e, "ROOT", root), patch.object(e, "HERE", here), \
+             patch.object(e, "compute", return_value=changed), \
+             patch.object(sys, "argv", ["experiment", "--record"]):
+            with self.assertRaisesRegex(ValueError, "stored literal propagation residual gate"):
+                e.main()
+        self.assertFalse((here / "results.json.gz").exists())
+
     def test_freeze_requires_exact_members_and_rejects_each_source_change(self):
         root, here, freeze = self._fixture()
+        for name in ("model/__init__.py", "model/native_memory_clock/__init__.py",
+                     "model/native_observer_archive/receipts/v1/freeze.json",
+                     "model/native_observer_archive/receipts/v1/results.json.gz",
+                     "model/native_observer_archive/receipts/v1/extended_results.json.gz"):
+            self.assertIn(name, e.BINDINGS)
+            self.assertEqual((root / name).read_bytes(), (e.ROOT / name).read_bytes())
         with patch.object(e, "ROOT", root), patch.object(e, "HERE", here):
             self.assertEqual(e.frozen(), e.digest(here / "freeze.json"))
             for name in e.BINDINGS:
@@ -238,7 +326,9 @@ class ExperimentTests(unittest.TestCase):
             changed = deepcopy(freeze)
             changed["files"][next(iter(changed["files"]))] = True
             mutations.append(changed)
-            mutations.extend(({**freeze, "schema": "unknown"}, {**freeze, "ignored_claim": True}))
+            mutations.extend(({**freeze, "schema": "unknown"},
+                              {**freeze, "schema": "native-observer-archive-freeze.v1"},
+                              {**freeze, "ignored_claim": True}))
             for changed in mutations:
                 (here / "freeze.json").write_bytes(_json_bytes(changed))
                 with self.assertRaises(ValueError):
@@ -268,6 +358,21 @@ class ExperimentTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("frozen source changed", result.stderr)
 
+    def test_optimized_cli_rejects_changed_executable_package_initializers(self):
+        root, here, _ = self._fixture()
+        self._receipt(here, self.science)
+        for name in ("model/__init__.py", "model/native_memory_clock/__init__.py"):
+            path = root / name
+            original = path.read_bytes()
+            path.write_bytes(original + b"\n_import_executed_before_replay = True\n")
+            try:
+                result = self._cli(root)
+                with self.subTest(name=name):
+                    self.assertNotEqual(result.returncode, 0)
+                    self.assertIn("frozen source changed: " + name, result.stderr)
+            finally:
+                path.write_bytes(original)
+
     def test_optimized_cli_replays_complete_fixture_and_rejects_scientific_corruption(self):
         root, here, _ = self._fixture()
         baseline = self._receipt(here, self.science)
@@ -282,6 +387,11 @@ class ExperimentTests(unittest.TestCase):
             (("cases", 0, "complete_prefix_records", 0, 0, 0), True),
             (("cases", 0, "public_laws", 0, "both_valid"), 1.0),
             (("clock_laws", 0, "probabilities", 0), float("nan")),
+            (("literal_operator_check", "vector_l2_error"),
+             e.TOL + self.science["literal_operator_check"]["vector_l2_error"] / 2),
+            (("clock_laws", 0, "raw_norm"), 1.0 + e.TOL),
+            (("literal_operator_check", "norm_squared"), 1.0 + e.TOL),
+            (("cases", 2, "public_laws", 0, "both_valid"), 1e-10),
         ]
         for path, replacement in mutations:
             changed = deepcopy(self.science)

@@ -27,7 +27,10 @@ BINDINGS = tuple("model/native_observer_archive/" + name for name in (
     "protocol.json", "provenance.json", "PROOF.md", "README.md",
     "test_program.py", "test_channel.py", "test_packet.py", "test_experiment.py",
 )) + tuple("model/native_memory_clock/" + name for name in (
-    "native.py", "PROOF.md", "provenance.json", "freeze.json"))
+    "__init__.py", "native.py", "PROOF.md", "provenance.json", "freeze.json")) + (
+    "model/__init__.py",
+) + tuple("model/native_observer_archive/receipts/v1/" + name for name in (
+    "freeze.json", "results.json.gz", "extended_results.json.gz"))
 
 
 def digest(path):
@@ -206,10 +209,141 @@ def compare(expected, actual, path="science"):
         require(expected == actual, path + ": value")
 
 
+def validate_science(science):
+    """Check each result's frozen gates before numerical replay comparison.
+
+    A tolerance between two executions does not admit a stored result that
+    fails its own gate. Derived pointer summaries also describe the stored
+    probability law itself, with a separate small summation allowance.
+    """
+    protocol = json.loads((HERE / "protocol.json").read_text(encoding="utf8"))
+    rail = Rail(**protocol["rail"])
+    arithmetic = 8 * np.spacing(1.0)
+
+    def number(value, label):
+        require(type(value) is float and np.isfinite(value), label + ": finite float required")
+        return value
+
+    def probabilities(values, size, label):
+        require(type(values) is list and len(values) == size, label + ": complete outcome menu")
+        require(all(number(value, label) >= 0 for value in values), label + ": positivity")
+        require(abs(sum(values) - 1) <= TOL, label + ": normalization")
+
+    def rational(value, label):
+        require(type(value) is dict and value.keys() == {"numerator", "denominator"}
+                and all(type(item) is str for item in value.values()), label + ": rational fields")
+        out = Fraction(int(value["numerator"]), int(value["denominator"]))
+        require(str(out.numerator) == value["numerator"] and str(out.denominator) == value["denominator"],
+                label + ": canonical rational required")
+        return out
+
+    require(type(science) is dict and type(science["extended"]) is bool, "scientific result type")
+    require(science["construction"] == protocol["construction"]
+            and science["protocol_sha256"] == digest(HERE / "protocol.json"), "scientific protocol binding")
+    clocks = {}
+    for row in science["clock_laws"]:
+        require(type(row["direction"]) is int and type(row["time"]) is int, "clock coordinates")
+        key = (row["direction"], row["time"])
+        require(key not in clocks, "duplicate clock law")
+        clocks[key] = row
+        probabilities(row["probabilities"], rail.sites, "clock probabilities")
+        probabilities(row["stage_probabilities"], 5, "clock stage probabilities")
+        require(abs(number(row["raw_norm"], "raw_norm") - 1) <= TOL, "stored packet norm residual")
+        require(abs(number(row["mean_hamiltonian"], "mean_hamiltonian")) <= TOL,
+                "stored packet energy residual")
+        for stage in range(5):
+            derived = float(np.array(row["probabilities"])[[rail.stage(n) == stage for n in range(rail.sites)]].sum())
+            require(abs(derived - row["stage_probabilities"][stage]) <= arithmetic,
+                    "stored clock stages disagree with their probability law")
+    require(set(clocks) == {(direction, tau) for direction in protocol["packet_directions"]
+                           for tau in protocol["read_times"]}, "complete clock settings")
+    require(clocks[-1, 256]["stage_probabilities"][4] <= .01, "stored reversed packet readiness gate")
+    require(clocks[1, 5120]["stage_probabilities"][4] <= .5, "stored finite memory loss gate")
+
+    seen = set()
+    for case in science["cases"]:
+        key = (tuple(case["background"]), case["source"], case["variant"])
+        require(key not in seen, "duplicate source case")
+        seen.add(key)
+        require(len(case["complete_prefix_records"]) == 12
+                and all(len(branch) == 5 for branch in case["complete_prefix_records"]),
+                "complete address and prefix menu")
+        require(rational(case["address_weight"], "address weight") == Fraction(1, 12), "uniform address weight")
+        records = case["complete_prefix_records"]
+        support = set()
+        for branch in records:
+            for record in branch:
+                require(all(type(bit) is int and bit in (0, 1) for bit in record[:4]),
+                        "stored pointer record bit domain")
+                support.add(4 * (2 * record[0] + record[1]) + 2 * record[2] + record[3])
+        settings = set()
+        for row in case["public_laws"]:
+            setting = (row["direction"], row["time"])
+            require(setting in clocks and setting not in settings, "public clock setting")
+            settings.add(setting)
+            law = row["probabilities"]
+            probabilities(law, 16, "public probabilities")
+            ready = sum(law[4 * a + b] for a in (2, 3) for b in (2, 3))
+            disagreement = law[11] + law[14]
+            stored_ready = number(row["both_valid"], "both_valid")
+            stored_disagreement = number(row["valid_disagreement"], "valid_disagreement")
+            require(0 <= stored_ready <= 1 + arithmetic and abs(stored_ready - ready) <= arithmetic,
+                    "stored readiness disagrees with its pointer law")
+            require(disagreement == 0 and stored_disagreement == 0, "stored valid pointer disagreement")
+            if case["variant"] in ("no_communication", "no_publish"):
+                require(ready == 0 and stored_ready == 0, "stored invalid blank pointers counted as agreement")
+                require(sum(law[4 * a + b] for a in range(4) for b in (2, 3)) == 0,
+                        "stored disabled receiver has a valid pointer")
+                if case["variant"] == "no_publish":
+                    require(sum(law[4 * a + b] for a in (2, 3) for b in range(4)) == 0,
+                            "stored disabled publisher has a valid pointer")
+            else:
+                require(abs(ready - clocks[setting]["stage_probabilities"][4]) <= TOL,
+                        "stored readiness differs from actual program completion")
+            require(all(value == 0 for index, value in enumerate(law) if index not in support),
+                    "stored public law has mass outside its complete prefix records")
+            derived_law = public_law(records, clocks[setting]["stage_probabilities"])
+            require(sum(abs(left - right) for left, right in zip(law, derived_law)) <= arithmetic,
+                    "stored public law disagrees with its clock and record factors")
+        require(settings == set(clocks), "complete public clock settings")
+    require(seen == {(tuple(background), source, variant) for background in protocol["backgrounds"]
+                     for source in protocol["sources"] for variant in protocol["variants"]}, "complete source cases")
+
+    literal = science["literal_operator_check"]
+    require(0 <= number(literal["vector_l2_error"], "vector_l2_error") <= TOL,
+            "stored literal propagation residual gate")
+    require(abs(number(literal["norm_squared"], "norm_squared") - 1) <= TOL,
+            "stored literal norm residual gate")
+    initial = number(literal["initial_energy"], "initial_energy")
+    final = number(literal["final_energy"], "final_energy")
+    measured = number(literal["pointer_measurement_energy"], "pointer_measurement_energy")
+    require(abs(initial) <= TOL and abs(final - initial) <= TOL and abs(measured - final) <= TOL,
+            "stored literal energy/meter residual gate")
+
+    certificate = science["interval_certificate"]
+    require(certificate["window"] == protocol["window"], "stored analytic interval")
+    cantelli = rational(certificate["cantelli_failure"], "Cantelli bound")
+    boundary = rational(certificate["boundary_upper"], "boundary bound")
+    ideal = rational(certificate["failure_upper"], "ideal failure bound")
+    preparation_error = rational(science["binary_packet_vector_error_upper"], "preparation error")
+    extra = rational(certificate["normalized_binary_preparation_extra_failure_upper"], "preparation allowance")
+    binary = rational(certificate["normalized_binary_packet_failure_upper"], "binary failure bound")
+    require(0 <= cantelli and 0 < boundary and ideal == cantelli + boundary
+            and 0 <= preparation_error and extra == 2 * preparation_error
+            and binary == ideal + extra and binary < Fraction(1, 1000)
+            and certificate["failure_below_one_in_thousand"] is True, "stored analytic interval budget gate")
+    controls = science["controls"]
+    require(Fraction(1, 2) <= rational(controls["completed_source_tv_native_uphill"], "law control") <= 1
+            and Fraction(1, 4) <= rational(controls["completed_source_tv_native_feedback_off"], "feedback control") <= 1,
+            "stored same-apparatus control gates")
+    require(science["physical_rows_validated"] == [] and science["empirical_calibration_inputs"] == [],
+            "undeclared physical award or calibration input")
+
+
 def frozen():
     freeze = json.loads((HERE / "freeze.json").read_text(encoding="utf8"))
     require(freeze.keys() == {"schema", "files"}
-            and freeze["schema"] == "native-observer-archive-freeze.v1", "freeze schema")
+            and freeze["schema"] == "native-observer-archive-freeze.v2", "freeze schema")
     require(type(freeze["files"]) is dict and set(freeze["files"]) == set(BINDINGS), "complete source binding")
     for name, sha in freeze["files"].items():
         require(type(sha) is str and digest(ROOT / name) == sha, "frozen source changed: " + name)
@@ -226,6 +360,7 @@ def main():
     pin = frozen()
     started = time.perf_counter()
     result = json.loads(json.dumps(compute(args.extended), allow_nan=False))
+    validate_science(result)
     if args.record:
         payload = {"freeze_sha256": pin, "science": result,
                    "execution": {"python": platform.python_version(), "numpy": np.__version__,
@@ -237,6 +372,7 @@ def main():
         saved = json.loads(gzip.decompress(target.read_bytes()))
         require(saved.keys() == {"freeze_sha256", "science", "execution"}
                 and saved["freeze_sha256"] == pin, "receipt schema or source pin")
+        validate_science(saved["science"])
         compare(saved["science"], result)
     print(json.dumps({"verified": True, "extended": args.extended,
                       "seconds": time.perf_counter() - started, "source_freeze": pin,

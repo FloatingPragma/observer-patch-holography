@@ -54,5 +54,15 @@
     "original_separated_pair_anomaly": "unresolved in its own construction domain",
     "empirical_calibration_inputs": [],
     "physical_rows_validated": []
+  },
+  "retained_evidence": {
+    "directory": "model/native_observer_archive/receipts/v1",
+    "source_revision": "0f7ba290a83c345061ba263fcb23d5827dee5598",
+    "files": {
+      "freeze.json": "90d1cfe70ba145e50597aeab324fe542ce1ebf338427e4ff6fe05a364c1833bf",
+      "results.json.gz": "bc0dc6b3d4fa1981a62d4feed66c91e5195a04349ecfe96a79e6e89f87122eb7",
+      "extended_results.json.gz": "d7d9ed488cde06373bbef526eae3386e5a7ec2da7f5270c54bc9ba9aa2f2fb39"
+    },
+    "scope": "Unchanged construction and observation domain; producer and verifier version1 receipts. Each retained receipt binds its own source freeze."
   }
 }

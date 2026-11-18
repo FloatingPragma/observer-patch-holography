@@ -107,10 +107,17 @@ def preparation_error_bound(rail):
     z = comb(2 * rail.order, rail.order)
     s = Fraction.from_float(sqrt(z))
     denominator_error = abs(s * s - z) / (s * s)
-    division_error = sum(abs(Fraction.from_float(float(abs(value)))
-                             - Fraction(comb(rail.order, j), 1) / s)
-                         for j, value in enumerate(packet(rail)[rail.offset:rail.start + 1]))
-    return denominator_error + division_error
+    component_error = Fraction()
+    for position, value in enumerate(packet(rail)):
+        j = position - rail.offset
+        if 0 <= j <= rail.order:
+            coefficient = Fraction(comb(rail.order, j), 1) / s
+            real, imag = ((1, 0), (0, -1), (-1, 0), (0, 1))[j % 4]
+        else:
+            coefficient, real, imag = Fraction(), 0, 0
+        component_error += abs(Fraction.from_float(float(value.real)) - real * coefficient)
+        component_error += abs(Fraction.from_float(float(value.imag)) - imag * coefficient)
+    return denominator_error + component_error
 
 
 def spectrum(rail):
