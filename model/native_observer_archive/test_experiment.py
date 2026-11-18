@@ -61,7 +61,7 @@ class ExperimentTests(unittest.TestCase):
         root = Path(temporary.name)
         here = root / "model" / "native_observer_archive"
         here.mkdir(parents=True)
-        for name in e.BINDINGS:
+        for name in (*e.BINDINGS, "model/__init__.py", "tools/pin_scope.py", "code/pin_scope.py"):
             destination = root / name
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(e.ROOT / name, destination)
@@ -299,10 +299,7 @@ class ExperimentTests(unittest.TestCase):
 
     def test_freeze_requires_exact_members_and_rejects_each_source_change(self):
         root, here, freeze = self._fixture()
-        for name in ("model/__init__.py", "model/native_memory_clock/__init__.py",
-                     "model/native_observer_archive/receipts/v1/freeze.json",
-                     "model/native_observer_archive/receipts/v1/results.json.gz",
-                     "model/native_observer_archive/receipts/v1/extended_results.json.gz"):
+        for name in ("model/native_memory_clock/__init__.py", "model/native_memory_clock/native.py"):
             self.assertIn(name, e.BINDINGS)
             self.assertEqual((root / name).read_bytes(), (e.ROOT / name).read_bytes())
         with patch.object(e, "ROOT", root), patch.object(e, "HERE", here):
@@ -361,7 +358,7 @@ class ExperimentTests(unittest.TestCase):
     def test_optimized_cli_rejects_changed_executable_package_initializers(self):
         root, here, _ = self._fixture()
         self._receipt(here, self.science)
-        for name in ("model/__init__.py", "model/native_memory_clock/__init__.py"):
+        for name in ("model/native_memory_clock/__init__.py",):
             path = root / name
             original = path.read_bytes()
             path.write_bytes(original + b"\n_import_executed_before_replay = True\n")

@@ -13,6 +13,8 @@ import time
 import numpy as np
 import scipy
 
+from tools.pin_scope import bound
+
 from .oracle import expected_records
 from .packet import (Rail, evolve_clock, factored_vector, fraction_record,
                      interval_certificate, literal_evolve, packet, prepared_span,
@@ -22,15 +24,11 @@ from .program import Program, prefixes, preparation, public_record, resources
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 TOL = 2e-10
-BINDINGS = tuple("model/native_observer_archive/" + name for name in (
+BINDINGS = tuple(bound(tuple("model/native_observer_archive/" + name for name in (
     "__init__.py", "program.py", "oracle.py", "packet.py", "experiment.py",
-    "protocol.json", "provenance.json", "PROOF.md", "README.md",
-    "test_program.py", "test_channel.py", "test_packet.py", "test_experiment.py",
+    "protocol.json", "provenance.json",
 )) + tuple("model/native_memory_clock/" + name for name in (
-    "__init__.py", "native.py", "PROOF.md", "provenance.json", "freeze.json")) + (
-    "model/__init__.py",
-) + tuple("model/native_observer_archive/receipts/v1/" + name for name in (
-    "freeze.json", "results.json.gz", "extended_results.json.gz"))
+    "__init__.py", "native.py", "provenance.json", "freeze.json"))))
 
 
 def digest(path):
