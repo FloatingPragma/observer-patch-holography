@@ -82,7 +82,8 @@ def stages(flag, read_a=True, read_b=True, communicate=True, flip_message=False,
     D = words ^ (decision << 6) ^ (public << 8)
     out = [A, B, C, D]
     for p in out:
-        assert np.array_equal(p[p], words)
+        if not np.array_equal(p[p], words):
+            raise ValueError('reader stage is not involutive')
     return out
 
 
@@ -142,7 +143,8 @@ def finite_readout(kappa=128.0, wait=4.0, tau_read=1 / 16384, seam=(0, 1)):
     norms = []
     for j in range(4):
         perm = (np.arange(dim + 1)[:, None] * APP + np.where(flag[:, None], st1[j][None, :], st0[j][None, :])).ravel()
-        assert np.array_equal(perm[perm], columns)
+        if not np.array_equal(perm[perm], columns):
+            raise ValueError('source-controlled reader stage is not involutive')
         Gj = sparse.csr_matrix((np.ones(N), (perm, columns)), shape=(N, N))
         gen = -1j * (stage_time * joint + np.pi / 2 * (ident - Gj))
         actual = expm_multiply(gen, actual, traceA=complex(gen.diagonal().sum()))
