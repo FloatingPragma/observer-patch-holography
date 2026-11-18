@@ -197,7 +197,9 @@ def validate(result):
     require(r['program_edges']==1336 and r['idle_edges']==1336 and r['clock_length']==2672,'resource count')
     require(r['counter_capacities']==[193]*11+[177],'counter allocation')
     require(len(result['cases'])==6 and len(result['clock_records'])==8,'complete campaign')
+    require(len(result['competing_controls'])==5,'complete controls')
     states=c.source_sector()
+    counter_words=c.count_table(c.program()).tolist()
     start=int(np.flatnonzero((states[:,0]==1)&(states[:,1]==1))[0])
     nominal_law=None
     for case in result['cases']:
@@ -222,6 +224,16 @@ def validate(result):
         require(np.max(abs(all_weights-1))<PROB_TOL,'missing input outcome')
         require(abs(no_pair-case['final_no_pair'])<PROB_TOL,'no-pair mismatch')
         for row in case['prefix_records']:
+            require(type(row['step']) is int and 0<=row['step']<=1336,'prefix position')
+            require(len(row['counts'])==12 and all(type(x) is int for x in row['counts']) and
+                    row['counts']==counter_words[row['step']],'local counter words')
+            seen_prefix=set()
+            for branch in row['archive']:
+                require(type(branch['weight']) is float and 0<=branch['weight']<=1+PROB_TOL,'prefix weight')
+                words=branch['words']
+                require(len(words)==2 and all(type(w) is int and 0<=w<c.APP for w in words),'prefix archive words')
+                require(tuple(words) not in seen_prefix,'duplicate prefix archive word')
+                seen_prefix.add(tuple(words))
             require(abs(sum(b['weight'] for b in row['archive'])-1)<PROB_TOL,'prefix mass')
         if nominal_law is None:
             nominal_law=public_distribution(case)
@@ -236,6 +248,8 @@ def validate(result):
         require(np.all(weights>=0) and abs(weights.sum()-1)<PROB_TOL,'clock probability mass')
         require(abs(weights[:1336].sum()-row['unfinished_weight'])<PROB_TOL,'unfinished recomputation')
         require(abs(sum(v['weight'] for v in row['public_records'])-1)<PROB_TOL,'clock public mass')
+        require(all(type(v['weight']) is float and 0<=v['weight']<=1+PROB_TOL
+                    for v in row['public_records']),'clock public weight')
         recomputed={}
         prefixes=result['cases'][0]['prefix_records']
         for k,w in enumerate(weights):

@@ -15,6 +15,11 @@ construction and controls before its confirmatory replay. The
 archive law, and the complete terminal outcomes for every source basis
 input, with competing source and apparatus controls.
 
+The terminal no-pair probability is 0.00319 for the contrast law and 0.42647
+for exchange alone. Reversing the contrast sign also preserves the pair
+in this finite test (0.00279 no-pair probability), while changing the joint
+reader distribution. Persistence alone does not select the sign of the law.
+
 This is an experimental apparatus extension of
 [polynomial-sv](../polynomial_sv/SPEC.md). The clock couplings, initial pair,
 counter registers and gate-controlled rail interactions are supplied
