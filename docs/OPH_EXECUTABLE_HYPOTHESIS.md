@@ -1,9 +1,11 @@
 # OPH and the executable-model hypothesis
 
 The official executable model is
-[polynomial-sv](../model/polynomial_sv/README.md). Its law, the contrast-memory
-law, is the candidate native repair law of the theory: the simple local rule
-by which neighbouring observers settle their disagreements. The hypothesis is
+[polynomial-sv](../model/README.md). Its law, the contrast-memory
+law, is a candidate native repair law of the theory: a simple local rule
+by which neighbouring observers settle their disagreements. A second candidate
+law runs on the same carrier, the [scalar channel](../model/scalar_channel/README.md).
+The hypothesis is
 that the agreed records of its observers reproduce the observable physics of
 our Universe. The [specification](../model/polynomial_sv/SPEC.md), the
 [binding theorem](../model/polynomial_sv/PROOF.md) and the
@@ -12,8 +14,23 @@ state the law and what its observers read.
 
 The theory around the model is finished. The model reproduces particle
 stability: bound objects persist in free evolution, read on the observers'
-agreed records. Its coupling is supplied. The other observables of the
-theory on this model are work in progress.
+agreed records. Under the scalar channel an object on four seams is kept for
+every interval and carries a prepared clock, which an observer reads from
+counts in units of its own reference. The couplings are supplied. The other
+observables of the theory on this model are work in progress.
+
+The outputs of the model meet the premises of finite theorems of the theory
+as they stand. Its cell is the twelve-port carrier whose slow response has
+rank three, and one load of its law moves on that response. Its write is the
+seam rule that four requirements single out. Its readers are complete
+instruments with orthogonal projectors, its reading of the presence of a
+pair is the projective instrument of that event, and its public records are
+never erased. Its observers count their own events and relate their counts
+through shared records. Under one declared port service its response has
+the Lie type of the gauge theorem. The
+[executable-model paper](../paper/executable_observer_construction.pdf) lists
+these joins with what follows for the observers of the model, and names the
+outputs that the other theorems consume.
 
 ## Closure and a specified construction
 
@@ -54,14 +71,25 @@ the law, and the same law without the agreement energy loses it. Run as local
 events with no common clock, the pair holds when every port observer serves
 each of its seams once per round, in any order.
 
+The scalar channel puts one mode that holds one object or none on every seam
+and on every pair of seams at a port, at two opposite levels, so every
+frequency of the law obeys `omega^2 = m^2 + lambda` with `lambda` a level of
+the graph of seams. Its reference state has every negative level filled. On a
+ring of four seams with alternating signs the law holds an object and
+couples it to nothing else: its excitation is kept for every interval, and
+after a pulse its seam record swings at the difference of its two levels
+([cage](../model/scalar_channel/cage/README.md)).
+
 ### Supplied
 
 - the coupling `kappa`;
 - the coherent generator on the private seam memory;
 - the reference registers of the degree term on ports with five seams;
-- the emitter with its fuel, coupling and duration;
+- the emitter with its fuel, coupling and duration, and the reader;
 - the evolution parameter of the runs with a continuous parameter;
-- the routing of the external seams of the federation.
+- the routing of the external seams of the federation;
+- for the scalar channel: its two coefficients, the prepared reference, the
+  operators on a profile with their pulses, and the fuel dial.
 
 ## How the model is tested
 
@@ -81,16 +109,20 @@ observer readouts a smooth (1+3)-dimensional Lorentzian field theory
 reproduces their complete predictions, and the spacetime paper gives the
 rank-three spatial carrier and the causal and count limits. Observers who
 inhabit the simulation can describe their experiences as relativistic 3+1D
-continuum spacetimes. What the executable model supplies are the premises of
-those theorems, with its own local clocks and records.
+continuum spacetimes. The executable model supplies part of the premises of
+those theorems with its own local clocks and records: the carrier with its
+rank-three band, complete instruments and the count clocks of its observers.
+The readouts in field form, the order of events with its placement and the
+refinement family that the theorems consume in addition are work in
+progress.
 
 ## Work in progress
 
 | Observable | What the model has to supply |
 | --- | --- |
-| Clocks and energy | An observer clock normalized to proper time, from each port observer's own count of events. |
+| Clocks and energy | An observer clock normalized to proper time, from each port observer's own count of events, and a clock that starts with no supplied phase. |
 | Interacting fields | A record of currents that later events read, and the twelve port currents from the law's own services on the bound object. |
-| Particles | A selection of `kappa`, a second sign of load, the class of an object as a record, and one limiting speed for all objects. |
+| Particles | A selection of the couplings, the class of an object as a record, one limiting speed for all objects, and one law that carries the objects of both candidate laws, moving and interacting. |
 | Gravity | A refinement map that preserves seams, and the regional response that the Einstein theorem consumes. |
 | Independent comparison | Complete joint observations and interventions, input ancestry, uncertainties and rejection criteria compared with independent measurements. |
 

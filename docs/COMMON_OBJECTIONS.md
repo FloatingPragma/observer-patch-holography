@@ -717,7 +717,7 @@ the modular-algebraic problem it raises; it answers a different question.
 - [Samir Dzolota, "Technical Critique and Resolution of the OPH Framework" (Zenodo)](https://zenodo.org/records/18902120)
 - [Observers Are All You Need PDF](../paper/observers_are_all_you_need.pdf)
   Key sections used above: the controlled Bisognano-Wichmann scaling theorem, the Lorentz branch, and the null modular bridge.
-- [Main manuscript source](../paper/tex_fragments/PAPER.tex)
+- [Main manuscript source](../paper/observers_are_all_you_need.tex)
   Key sections used above: the regulator premises, the controlled Bisognano-Wichmann cap theorem, and the null modular bridge.
 
 ---

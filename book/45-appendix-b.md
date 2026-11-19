@@ -140,7 +140,7 @@ Anode and cathode name a direction and a doorway. They say nothing whatever abou
 
 **Momentum.** What a pattern carries as it drifts across the seam network, conserved because the laws do not care where you are. Newton listed it second among his definitions and called it the quantity of motion.
 
-**Native observer.** The smallest observer the model runs: one twelve-port carrier, the repair, the record each repair writes and the memory law, with a controller that picks the next seam from the records it holds. Wiring that choice to the records moves the average final load at one port from one sixth to 35/264, which is what it means for a reading to make a difference.
+**Native observer.** The smallest observer the model runs: one port of a twelve-port cell, with the seams it shares with its five or six neighbours. It counts the events of its own seams, and that count is its clock. It admits a record on a seam only when the observer at the other end holds the same report.
 
 **Natural selection.** Variation, heredity and differential persistence running together. The list closes at three, and nothing on it decides anything. At the bottom it runs on patterns under one static rule: what persists under repair is physics, from conserved totals to stable defects. Self-repairing patterns built from those persist and copy, and the same arithmetic runs on them.
 

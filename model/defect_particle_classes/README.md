@@ -30,8 +30,8 @@ are bosons), and the plaquette
 cost of one flux quantum of each class. The shortest generators give
 `8 pi^2 / tr_5 H^dag H = 12/5, 3, 4, 3, 12/5` for classes 1 to 5; the
 weak-centre value 4 enters the proposed single-link electroweak exponent.
-Its relation to a stationary lattice law requires the
-[class-balance calculation](../seam_class_balance/README.md).
+Its relation to a stationary lattice law requires a separate class-balance
+calculation.
 
 From the repository root:
 

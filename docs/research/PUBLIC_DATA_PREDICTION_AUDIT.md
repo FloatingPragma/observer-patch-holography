@@ -14,7 +14,7 @@ every physical scale.
 
 The executable model of OPH is
 [polynomial-sv](../../model/polynomial_sv/README.md), whose contrast-memory law
-is the candidate native repair law ([specification](../../model/polynomial_sv/SPEC.md),
+is a candidate native repair law ([specification](../../model/polynomial_sv/SPEC.md),
 [binding theorem](../../model/polynomial_sv/PROOF.md)). Its tests compare
 distributions of admissible observer records with what observers in our world
 record. The state of the simulation is no physical space: the flagship's

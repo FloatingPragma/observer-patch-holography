@@ -16,7 +16,7 @@ Reuse the conclusion once those hypotheses hold. A renamed consensus result
 or a longer simulation of it is not an independent theoretical contribution.
 
 The executable model requires source-specific mappings for these theorems.
-Its contrast-memory law is the candidate native repair law; its seam memory is
+Its contrast-memory law is a candidate native repair law; its seam memory is
 private working memory of the two port observers of a seam, and its reader
 admits a record only when both observers' copies agree. A theorem about
 distributed recovery applies to it once its objects and hypotheses are mapped
@@ -45,7 +45,7 @@ Observer-local time is a further reading within that same structure. On the
 stated geometric modular-flow branch, the observer's algebra-state pair
 supplies dimensionless modular ordering; physical time additionally needs
 a readable transition, event correspondence and calibrated clock instrument.
-See [Definition 4.2a](../paper/tex_fragments/PAPER.tex) and the
+See the [synthesis paper](../paper/observers_are_all_you_need.tex) and the
 [observer-clock certificate](../paper/tex_fragments/OBSERVERS_TECHNICAL_SUPPLEMENT_PORT.tex).
 Identifying this ordering with experienced time is an interpretation.
 Clock compatibility requires local readings tied to the declared observable

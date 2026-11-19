@@ -96,11 +96,12 @@ physical interpretation are supplied.
 
 The [executable-model hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) tests
 [polynomial-sv](../model/polynomial_sv/README.md) within the closure
-proposal. Its contrast-memory law, the candidate native repair law, must
+proposal. Its contrast-memory law, a candidate native repair law, must
 supply the observations used to identify particles, clocks, geometry and
 gravity. Its creator supplies the architecture before execution. The model
-reproduces particle stability on its observers' agreed records; the other
-observations are work in progress. Every test compares distributions of
+reproduces particle stability on its observers' agreed records, and under its
+second candidate law, the scalar channel, an object that carries a prepared
+clock; the other observations are work in progress. Every test compares distributions of
 admissible observer records with what observers in our world record: the
 state of the simulation is no physical space, and the theory proves that
 observers who inhabit the simulation can describe their experiences as
@@ -253,8 +254,6 @@ Conversions between these quantities need explicit maps and error assumptions.
 The target is compatible local clock readings and comparisons, without a
 preferred universal clock, universal simultaneity or identical rates for all
 observers. A common calibration within one experiment is legitimate. The
-[scalar action clock](../paper/tex_fragments/SOURCE_SCALAR_CLOCK.tex) supplies
-whole-layer durations in one benchmark; the
 [count clock](../paper/tex_fragments/SOURCE_COUNT_CLOCK.tex) reconstructs
 proper-time ratios under its order/count-limit and ancestry premises.
 Experienced succession is a further interpretation, not a consequence of a

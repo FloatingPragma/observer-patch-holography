@@ -10,6 +10,9 @@ Five workflows run the repository checks.
     wiring.
   * `official-model`: the polynomial-sv model (`python -m model` and its
     tests under `model/polynomial_sv`).
+  * `experimental-scalar`: the scalar channel of the model, its extended
+    preparation and its cage (`model/scalar_channel`), with the replay of
+    law 1 from the construction manual.
   * `suite`: the standard steps of `tools/run_mandatory_suite.py` in ten
     shards. Shard 0 also runs the additional evidence tests.
   * `lanes`: the replay lanes of `tools/ci_lanes.py` (tier `push`), packed by

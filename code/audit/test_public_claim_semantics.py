@@ -77,7 +77,6 @@ def test_constant_claim_owners_retain_their_physical_boundaries() -> None:
         .lower()
         .split()
     )
-    assert "neither local count is a value of the cosmological n" in capacity
     assert "no universe-level physical `n` is emitted" in capacity
 
 

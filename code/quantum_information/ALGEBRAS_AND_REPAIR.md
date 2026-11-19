@@ -9,8 +9,7 @@ This classifies the whole finite algebraic problem, including boundary states;
 it is not a fit to selected successful inputs.
 
 The result connects the finite A3 objective, the collar alignment criterion
-and the conditional expectations in the
-[current source-selection contract](../../model/SOURCE_SELECTION.md).
+and the conditional expectations of source selection.
 It also identifies which premises are doing work. An observable span need
 not be an algebra, a weighted projection need not be positive, and a selected
 reference need not be compatible with a proposed retained algebra.
@@ -338,12 +337,6 @@ a joint matrix-state realization. This theorem neither removes those
 constraints nor constructs that realization. In particular, the finite
 classification does not derive a complete repair grammar, retained algebra or
 reference state from the [canonical premises](../../docs/AXIOM_REFERENCE.md).
-
-The [native fixed-seam attachment](../../model/primitive_observer/DERIVATION_COMPLETION.md)
-identifies E with this expectation on the declared 66-dimensional binary
-shell and tracial reference. C has the same completion endpoint but different
-finite-event coherence. This does not extend the theorem to all carrier
-sectors or select a complete recorded instrument.
 
 ## Three exact controls that distinguish the premises
 

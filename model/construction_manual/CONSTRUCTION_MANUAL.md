@@ -485,6 +485,13 @@ that act independently at random, the pair is lost at the tested event angles. T
 events is what the binding rests on ([events.py](../polynomial_sv/events.py)). The theorem of section 4.6 is
 proved for the sum with a continuous parameter; the statements on events are finite tests.
 
+The gate has two forms in the packages. Since `(n_a - n_b)^2 = n_a^2 + n_b^2 - 2 n_a n_b`, and the port part
+`n_a^2 + n_b^2` of all seams adds up with the degree term to a constant on loads that the law permutes, the same
+law is the sum of the seam terms `(1 - SWAP_e)/2 - 2κ n_a n_b`. The event programs of
+[events.py](../polynomial_sv/events.py) use the gate of that seam term, which needs no reference registers. The
+fixed program of [contrast_clock](../contrast_clock/README.md) uses `exp(-i τ h_e)` itself, with one gate of the
+reference register for every port. In a finite program the two forms are different programs of one law.
+
 ### 4.9 Writing and reading
 
 - **Emitter.** A fuel with two units at one seam, exchanged with "one load on each end" by a coupling `g` for the

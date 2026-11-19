@@ -21,9 +21,8 @@ Bianchi identity make Lambda constant on each connected component.
 
 This proves the implication without separately assuming null-tensor balance.
 It supplies no executable source satisfying the regional hypotheses. The
-[finite reciprocal process](../reciprocal_area_dynamics/README.md) has a
-derived global thermal area coefficient and responsive geometry; its two
-geometry labels and thermal entropy do not instantiate this regional limit.
+executable model [polynomial-sv](../README.md) has no regional entropy, area
+or stress readouts, so it does not instantiate this regional limit.
 The particle and spin packages likewise supply no missing regional input.
 
 The nonlinear conclusion requires actual finite-ball deficits for the
