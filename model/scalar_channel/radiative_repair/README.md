@@ -43,13 +43,15 @@ Implementing them with the official repair law on ordinary port bits requires a 
 The Fock-space tests reconstruct all local generators with fermion
 signs and truncated oscillator ladder factors. The blocked-conversion control retains both diagonal contact
 costs and removes the cross term. Parking the neutral field retains its onsite costs and removes neutral hopping.
-Both controls use the same apparatus. One-cell records resolve individual ports. Federation records resolve
-each cell, every ordered pair of signed detector regions and every unordered neutral coincidence.
+Both controls use the same position measurement. The energy settings follow each Hamiltonian. The parked
+field uses onsite number detectors and the blocked contact uses a coincidence projector. One-cell records
+resolve individual ports. Federation records resolve each cell, every ordered pair of signed detector
+regions and every unordered neutral coincidence.
 
 ## A rest frequency without an input mass
 
-In either one-charge sector the contact vanishes and the one-body generator is JQ. Its one-cell characteristic
-polynomial in J units is (x−10)(x−4)⁵((x−5)²−5)³. The observer addresses one labeled port and compares a
+With one excitation of either charge sign, the contact vanishes and the one-body generator is JQ. Its
+one-cell characteristic polynomial in J units is (x−10)(x−4)⁵((x−5)²−5)³. The observer addresses one labeled port and compares a
 freely evolving arm with a parked copy. Two analyzer phases read the real and imaginary parts of its
 return amplitude. An isolated neutral seam with the same coefficient J supplies the clock. Its two local
 occupation settings give cos(2Jt) and sin(2Jt). Unwrapping uses a supplied bound on the interval between
@@ -107,9 +109,11 @@ wait. Graph distance labels the preparation and gives no physical length measure
 
 ## A receiver that converts the field back
 
-In the relay experiment the only active converters during emission are in cell 0. The local meter in cell 6
-reads neutral occupation 0, 1 or 2 near clock reading 8.00014. Its three projectors preserve coherence
-within each outcome. The receiver converter is then enabled or kept blocked. For every meter outcome, every
+The relay starts from charges localized at the two ends of the emitter seam. The energy-release experiment
+uses a separate preparation in the lowest band. During relay emission the only active converters are in
+cell 0. The local meter in the neighboring cell 6 reads neutral occupation 0, 1 or 2 near clock reading
+8.00014. Its three projectors preserve coherence within each outcome. The receiver converter is then
+enabled or kept blocked. For every meter outcome, every
 terminal signed and neutral region pair is counted. Observing two arrivals guarantees that emission took place
 at the sender and both neutral excitations reached the receiver before the second intervention.
 
@@ -119,6 +123,14 @@ every meter outcome. A simultaneous one-sided lower bound for the excess across 
 2.59 × 10⁻⁵ at this wait at nominal 99.9% coverage. At the longest delay the blocked arm gives 79 such records.
 Returning neutral quanta can reconvert at the sender and charged excitations can travel back. The complete
 late-time control is part of the result.
+
+Enabling the receiver immediately after the meter supplies exactly zero mean switch work, even conditional
+on any meter outcome of positive probability. The change in the Hamiltonian connects only the local charged
+coincidence (meter value 0) and the local neutral coincidence (meter value 2) at each receiver port. For
+every meter projector Pₕ, the diagonal block Pₕ(H_on − H_off)Pₕ therefore vanishes. The replay checks all
+matrix elements changed by the switch. Before the meter, a coherent superposition of the two coincidences
+can have nonzero switch work. The meter can also exchange energy with the system. The identity concerns
+the instantaneous switch of the modeled Hamiltonian. The cost of operating the external apparatus is outside this model.
 
 ## Where the outgoing energy comes from
 
@@ -134,8 +146,9 @@ Two opposite charges can occupy the same lowest-band orbital v. Their free initi
 2(5−√5)J. Bringing their profiles together contributes J Σ|vᵢ|⁴ in contact energy. Disjoint compact
 lowest-band packets have zero contact and are exact stationary states of the full generator. For the
 overlap preparation, subtracting the entire initial contact from the outgoing neutral energy bounds the
-contribution of the initial charged energy from below, by positivity and conservation. There is no switch
-or intermediate read during this interval.
+drop in charged energy from below. By conservation, that drop equals the final neutral energy plus the
+final contact energy minus the initial contact energy. The final contact energy is nonnegative. There is
+no switch or intermediate read during this interval.
 
 | At clock reading 32 | Initial charged energy | Initial contact | Final neutral energy | Neutral probability | Lower bound from charged energy |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -178,10 +191,14 @@ The relay needs a three-valued local meter record per trial. Port and cell label
 hardware. The pointers supply the observables.
 
 The three experiments store 32, 10 and 11 integer arrays. Respectively they simulate 415,923,961,856,
-254,611,030,016 and 608,308,297,728 trials aggregated by setting. Every setting retains complementary
-outcomes. The counter digitizes cumulative probabilities on a 2⁻³⁰ grid and samples conditional binomials
-with 52-bit uniform midpoints. Energy error bounds use independence of separately prepared ensembles.
-With per-trial read at most b=4 and total expected energy at most 26, the sum of variances of the local
+254,611,030,016 and 894,326,276,096 trials aggregated by setting. The rest-pair experiment uses 514 clock
+settings, 40 position settings and 52,752 energy settings, each with 16,777,216 preparations. Every
+setting retains complementary outcomes. The counter digitizes cumulative probabilities on a 2⁻³⁰ grid and
+samples conditional binomials with 52-bit uniform midpoints. Energy error bounds use independence of
+separately prepared ensembles. In the rest-pair experiment the largest detector reading is b=4 in J
+units. Each one-body operator has norm at most twice the maximum
+degree. Two excitations on degree at most six contribute at most 24 and the contact contributes at most two.
+With total expected energy at most 26, the sum of variances of the local
 mean estimates is bounded by b(26+ε)/N for N shots per setting and total digitization bias ε. The code
 uses Bernstein's inequality, a union bound for at most 256 energy estimates and the worst rounding bias.
 It subtracts two error allowances in the table. For the relay it inverts the exact binomial tails in both

@@ -71,6 +71,7 @@ def acquire(spec):
 def decode(spec, records):
     shots = spec['shots']
     ticks = apparatus.read_clock(records['clock'],shots)
+    require(len(ticks) == spec['samples'], 'wrong spectrum clock menu')
     waits = ticks[np.rint(np.array(spec['waits'])/spec['clock_step']).astype(int)]
     spectra = {name:apparatus.lines(records[name],ticks,spec)
                for name in ['plus','minus','neutral',*[f'band_{k}' for k in spec['gap_carriers']]]}

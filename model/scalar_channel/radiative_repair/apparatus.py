@@ -64,6 +64,10 @@ def energies(car, raw, shots, law, home=(0,), active=None):
     size = car.n if parked else edges
     require(raw.shape[-2:]==(2*edges+size+car.n,3) and raw.dtype.kind in 'iu'
             and np.all(raw>=0) and np.all(raw.sum(axis=-1)==shots),'invalid local energy record')
+    # Only the neutral oscillator can return occupation two. The charged bond modes
+    # are fermionic and the contact setting measures a projector.
+    require(not np.any(raw[..., :2*edges, 2]) and not np.any(raw[..., -car.n:, 2]),
+            'double occupation in a binary energy detector')
     mean = (raw[...,1]+2.*raw[...,2])/shots
     charged = 2*mean[...,:2*edges].sum(axis=-1)
     field = mean[...,2*edges:2*edges+size]*(car.degree if parked else 2)

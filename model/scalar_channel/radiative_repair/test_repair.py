@@ -150,6 +150,74 @@ def test_rest_multiplicity_and_disjoint_packets():
     assert np.linalg.norm(source.generator(car,'exchange')@psi-2*min(values)*psi)<2e-13
 
 
+def test_receiver_meter_erases_switch_work_for_each_outcome():
+    car = carrier.Carrier('three ports', 3, [(0,1),(1,2)])
+    labels = np.array([0,1,1])
+    before = source.generator(car, 'exchange', labels==0)
+    after = source.generator(car, 'exchange')
+    relay.check_switch(before, after, labels, 1)
+    delta = after-before
+    # A coherent charged/neutral coincidence does carry switch work before the meter.
+    wave = np.zeros(2*car.n**2, complex)
+    pair = car.n+1
+    wave[[pair, car.n**2+pair]] = 1/np.sqrt(2)
+    assert np.vdot(wave, delta@wave).real == pytest.approx(-1)
+    for part in relay.sectors(wave, labels, 1):
+        assert np.vdot(part, delta@part) == 0
+    # An additional onsite cost does work even after reading the meter.
+    extra = sp.csr_matrix(([1.], ([pair], [pair])), shape=delta.shape)
+    with pytest.raises(ValueError, match='receiver contact'):
+        relay.check_switch(before, after+extra, labels, 1)
+
+
+def test_detector_support_and_energy_confidence_budget():
+    car = carrier.cell()
+    shots = 10
+    edges = len(car.seams)
+    raw = np.zeros((3*edges+car.n, 3), dtype=np.int32)
+    raw[:,0] = shots
+    for row in (0, edges, 3*edges):
+        corrupt = raw.copy()
+        corrupt[row] = [shots-1, 0, 1]
+        with pytest.raises(ValueError, match='binary energy detector'):
+            apparatus.energies(car, corrupt, shots, 'exchange')
+    raw[2*edges] = [shots-1, 0, 1]
+    assert apparatus.energies(car, raw, shots, 'exchange')['neutral_energy'] == pytest.approx(4/shots)
+    spec = load(HERE/'rest_protocol.json')
+    for key, invalid in [('energy_cap',25), ('max_bin_energy',3)]:
+        with pytest.raises(ValueError, match='understates'):
+            rest.halfwidth(dict(spec, **{key:invalid}), carrier.federation(0))
+
+
+def test_receiver_rejects_inconsistent_meter_and_unresolved_contrast():
+    spec = load(HERE/'relay_protocol.json')
+    with np.load(HERE/'records'/'relay'/'counts.npz', allow_pickle=False) as archive:
+        records = dict(archive)
+    car = carrier.federation(spec['level'])
+    receiver = relay.receiver_cell(car)
+    immediate = records['receiver_on_joint'][0]
+    i = int(np.argmax(immediate[0, :car.cells**2]))
+    immediate[0,i] -= 1
+    immediate[1,i] += 1
+    with pytest.raises(ValueError, match='simultaneous receiver'):
+        relay.analyze(spec, records)
+    immediate[0,i] += 1
+    immediate[1,i] -= 1
+    # Preserve the observed herald totals. A raw gain above sixteen counts can
+    # still be consistent with equal probabilities at the simultaneous precision.
+    local = receiver*(car.cells+1)
+    for arm, target in [('receiver_on',110), ('receiver_off',90)]:
+        for branch in records[arm+'_joint'][1:,2]:
+            donor = car.cells**2 + int(np.argmax(branch[car.cells**2:]))
+            change = target - int(branch[local])
+            assert branch[donor] >= change
+            branch[donor] -= change
+            branch[local] = target
+    checks = relay.analyze(spec, records)['gates']
+    assert checks['receiver_contrast']
+    assert not checks['resolved_receiver_effect']
+
+
 def chebyshev(car, state, t, active):
     """Independent matrix action and Bessel series on the certified energy interval [0,26]."""
     i,j = np.asarray(car.seams).T

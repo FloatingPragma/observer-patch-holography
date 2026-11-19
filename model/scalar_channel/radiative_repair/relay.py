@@ -36,6 +36,22 @@ def sectors(wave, labels, receiver):
     return branches
 
 
+def check_switch(before, after, labels, receiver):
+    """Certify the complete switch operator and its diagonal blocks in the meter basis."""
+    n = len(labels)
+    ports = np.flatnonzero(labels == receiver)
+    pairs = ports*(n+1)
+    # The first block holds signed pairs. The second holds ordered neutral coordinates.
+    rows = np.r_[pairs, n*n+pairs]
+    delta = (after-before).tocoo()
+    order = np.argsort(delta.row)
+    require(len(ports) > 0 and np.array_equal(delta.row[order], rows)
+            and np.array_equal(delta.col[order], np.r_[n*n+pairs, pairs])
+            and np.all(delta.data == -1), 'switch changes more than the receiver contact')
+    # Its only two entries per port connect a charged coincidence (meter 0)
+    # and a neutral coincidence (meter 2). Thus every P_h delta P_h is zero.
+
+
 def work(car, states, mask, rng, shots):
     rows = None
     for v in states:
@@ -71,6 +87,8 @@ def collect(spec):
     for setting in spec['controls']:
         mask = emitting | ((labels==receiver) & (setting=='receiver_on'))
         later = source.generator(car,'exchange',mask)
+        if setting == 'receiver_on':
+            check_switch(H, later, labels, receiver)
         rec[setting+'_switch_work'] = work(car,parts,mask,rng,shots)
         traces = [source.evolve(later,v,spec['delays']) for v in parts]
         histories = []
@@ -101,6 +119,11 @@ def analyze(spec, rec):
     regions = car.cells
     shots = spec['shots']
     ticks = apparatus.read_clock(rec['clock'],shots)
+    require(len(ticks) == 8*(spec['herald_time']+max(spec['delays']))+1, 'wrong relay clock menu')
+    first = spec['delays'].index(0)
+    left, right = np.triu_indices(regions)
+    neutral_number = (left==receiver).astype(int) + (right==receiver)
+    immediate_number = np.r_[np.zeros(regions**2, dtype=int), neutral_number]
     readings = {}
     energy = {}
     for k,data in rec.items():
@@ -114,6 +137,8 @@ def analyze(spec, rec):
         size = regions**2 + regions*(regions+1)//2
         require(a.shape==(len(spec['delays']),3,size) and a.dtype.kind in 'iu' and np.all(a>=0)
                 and np.all(a.sum(axis=(1,2))==shots),'invalid joint receiver history')
+        require(not np.any(a[first][np.arange(3)[:,None] != immediate_number]),
+                'simultaneous receiver records disagree')
         both = a[:,2,:]
         arrivals = both.sum(axis=1)
         local_pair = both[:,receiver*(regions+1)]
@@ -136,10 +161,12 @@ def analyze(spec, rec):
                                       off['later_receiver_pair_counts'])/shots)>spec['min_returned_pairs']/shots
     for k in spec['controls']:
         checks[k+'_energy'] = abs(energy[k+'_final_work']-energy[k+'_switch_work'])<spec['max_energy_error']
+    lower = relay_intervals(on['later_receiver_pair_counts'],off['later_receiver_pair_counts'],shots)
+    checks['resolved_receiver_effect'] = max(lower) > 0
     return dict(receiver_cell=receiver,clock_at_meter=float(ticks[8*spec['herald_time']]),
                 clock_at_read=ticks[8*(spec['herald_time']+np.array(spec['delays']))].tolist(),
                 readings=readings,energy=energy,quantile_total_variation_budget=grid_error,
-                local_effect_lower=relay_intervals(on['later_receiver_pair_counts'],off['later_receiver_pair_counts'],shots),meter_work=energy['measured_work']-energy['incoming_work'],
+                local_effect_lower=lower,meter_work=energy['measured_work']-energy['incoming_work'],
                 switch_work={k:energy[k+'_switch_work']-energy['measured_work'] for k in spec['controls']},
                 gates={k:bool(v) for k,v in checks.items()})
 

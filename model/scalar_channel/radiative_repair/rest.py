@@ -69,6 +69,10 @@ def halfwidth(spec,car):
     # sum of variances <= b E. Include the worst cumulative-edge digitization error.
     x = np.log(4*spec['upper_number_of_energy_estimates']/spec['simultaneous_error'])
     b,N = spec['max_bin_energy'],spec['shots']
+    # Each one-particle bond operator sum has norm at most twice the maximum
+    # degree. In the two-particle sector the contact blocks add at most two.
+    require(spec['energy_cap'] >= 4*int(car.degree.max())+2 and b >= 4,
+            'confidence budget understates the source or detector energy bound')
     num_settings = 3*len(car.seams)+car.n
     bias = 2*b*num_settings/2**30
     return float(np.sqrt(2*b*(spec['energy_cap']+bias)*x/N)+2*b*x/(3*N)+bias)
@@ -77,6 +81,7 @@ def halfwidth(spec,car):
 def analyze(spec,rec):
     shots = spec['shots']
     ticks = apparatus.read_clock(rec['clock'],shots)
+    require(len(ticks) == round(max(spec['waits'])/spec['clock_step'])+1, 'wrong rest-pair clock menu')
     result = dict(clock=ticks[np.rint(np.array(spec['waits'])/spec['clock_step']).astype(int)].tolist(),histories={})
     settings = 0
     for key in spec['carriers']:
@@ -102,6 +107,12 @@ def analyze(spec,rec):
                 energy_halfwidth=bound,field_above_initial_contact=excess.tolist(),
                 simultaneous_lower_bound=(excess-2*bound).tolist())
     h = result['histories']
+    # Clock quadratures, final positions and local energies use separate preparations.
+    settings_total = 2*len(ticks) + len(h)*len(spec['waits']) + settings
+    trials = sum(int(a.sum(dtype=np.int64)) for a in rec.values())
+    require(trials == shots*settings_total, 'trial total differs from the scheduled preparations')
+    result['resources'] = dict(clock_settings=2*len(ticks), position_settings=len(h)*len(spec['waits']),
+                               energy_settings=settings, total_settings=settings_total, total_trials=trials)
     # Two stochastic binomial splits suffice for a three-outcome setting. Rounding
     # its conditional uniform quantile perturbs each integer CDF by <= 2^-53.
     grid_error = 2*settings*(shots+1)/2**53
