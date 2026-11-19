@@ -33,7 +33,7 @@ def mobile(spec, g):
     square = (occupancy[:, a] - occupancy[:, b]) ** 2
     potential = np.zeros((len(H) + 1, len(D)))
     potential[:-1, :len(a)] = square
-    extended = sp.block_diag((H, [[H[pair, pair]]]), format='csr')
+    extended = sp.block_diag((sp.csr_matrix(H), np.array([[H[pair, pair]]])), format='csr')
     free = sp.kronsum(sp.csr_matrix(D), extended, format='csr') + sp.diags(g * potential.ravel())
     drive = sp.lil_matrix(extended.shape)
     drive[pair, -1] = drive[-1, pair] = spec['drive_strength']
