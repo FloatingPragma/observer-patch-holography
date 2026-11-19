@@ -32,6 +32,15 @@
     4.71238898038469
   ],
   "joint_drive_strength": 64,
+  "phase_kick": {
+    "shots": 268435456,
+    "pre_wait": 2,
+    "duration": 0.04908738521234052,
+    "strengths": [0, 64],
+    "post_waits": [2, 6],
+    "alpha": 1e-6,
+    "comparison": "At the same seed and wait, compare a local occupation pulse with an equal-duration sham. Require simultaneous changes to the marked collar quadrature and at least one remote enrolled scalar pointer; also subtract the same two readings with the marked contact suppressed."
+  },
   "couplings": [
     0,
     1,
