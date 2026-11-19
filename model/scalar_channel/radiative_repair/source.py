@@ -8,7 +8,7 @@ from ..carrier import require
 
 def one_body(car):
     adjacency = car.adjacency()
-    degree = sp.diags(car.degree)
+    degree = sp.diags(car.degree,dtype=float)
     return (degree+adjacency).tocsr(), car.laplacian()
 
 
