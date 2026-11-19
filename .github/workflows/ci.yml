@@ -104,6 +104,9 @@ jobs:
       - run: python -B -m pytest -q -W error model/reflected_routing
       - run: python -B -O -W error -m model.reflected_routing
       - run: python -B -O -W error -m model.reflected_routing.local_clock
+      - run: python -B -O -W error -m model.reflected_routing.seam_program
+      - run: python -B -O -W error -m model.reflected_routing.seam_program.preparation
+      - run: python -B -O -W error -m model.reflected_routing.seam_program.receiver
 
   suite:
     name: Mandatory suite (shard ${{ matrix.shard }})

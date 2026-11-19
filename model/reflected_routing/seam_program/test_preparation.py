@@ -5,6 +5,7 @@ from scipy.linalg import expm
 from model.polynomial_sv import carrier, law, sectors
 from .compiler import Compiler
 from .preparation import execute_source, make_source, raw_event
+from .receiver import ideal_vector, receive
 
 
 @pytest.mark.parametrize("kind", ["complex","sparse","basis"])
@@ -53,3 +54,25 @@ def test_arbitrary_duration_from_unshifted_blank_law():
             result = sorted((pair-{0,1})|{j for j,n in enumerate(final) if n})
             expected[sector.index(*result)] += local[law.SRC.index(final),law.SRC.index(source)]*before[i]
     np.testing.assert_allclose(actual,expected,atol=2e-13)
+
+
+@pytest.mark.parametrize("member", ["native","omit_phase"])
+def test_receiver_reads_complex_overlap_on_arbitrary_incident_wave(member):
+    car = carrier.Carrier("test path",19,[(j,j+1) for j in range(18)])
+    comp = Compiler(car,0,[1,1,1,1])
+    neg = list(range(9,17))
+    sector = sectors.PairSector(car)
+    ev = sectors.SeamEvents(sector,8)
+    rng = np.random.default_rng(470)
+    target = rng.normal(size=8)+1j*rng.normal(size=8)
+    incident = rng.normal(size=8)+1j*rng.normal(size=8)
+    target /= np.linalg.norm(target)
+    incident /= np.linalg.norm(incident)
+    start = np.zeros(sector.P,complex)
+    start[[sector.index(0,j) for j in comp.slots]] = incident
+    state,losses,resources = receive(comp,ev,neg,target,member,start)
+    observed = state[sector.index(0,1)]
+    expected = -np.vdot(ideal_vector(target,member),incident)/2
+    np.testing.assert_allclose(observed,expected,atol=2e-13)
+    assert abs(np.vdot(state,state).real+sum(losses)-1)<1e-12
+    assert resources["reader_queries"]==10

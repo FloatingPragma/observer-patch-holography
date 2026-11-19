@@ -1,8 +1,25 @@
-# What a clock and a message measure on reflected routing
+# Preparing, clocking and reading a routed wave on OPH
 
 Bernhard Müller's reflected-routing experiment gives a long-wave scalar signal speed of one half and a moving clock made from a beat between two private modes. Can a different clock read the same slowdown? Can observers use the gate to deliver a message faster than that signal? Here a circulating transverse pulse supplies the second clock. Stations that measure and regenerate a pulse deliver a fresh authenticated message ahead of the scalar prediction on three of four routes. The exact passive propagation rate quantifies the cost of doing so without intermediate stations. [Clock reunion](https://github.com/muellerberndt/openwave/blob/aa71bbcb335503eef35cbe14da5b0ad4b7dd083e/simulation/reports/CLOCK_REUNION.md) · [Reflected-routing clock and field](https://github.com/muellerberndt/openwave/blob/260de06352eac5425d78fbbae636625544d439ab/simulation/reports/relativistic-observer-records/report.md)
 
-This experimental member uses the eight-slot wave gate from the [pinned source](https://github.com/muellerberndt/openwave/blob/260de06352eac5425d78fbbae636625544d439ab/simulation/experiments/observer_geometry/reunion/registered/ingredient_sources/radar_shell/replay.py), with supplied sources, a shared scheduler, calibrated local clocks, readers and relay stations. Three periodic coordinates label the stations' spatial dials and one is private. The spatial comparison uses Euclidean distances reconstructed from reciprocal addressed messages on the three axes. Each clock or communication result below is a readout of this member. A transfer to polynomial-sv's twelve-port carrier and repair law remains open. No measured particle property enters the construction.
+This experimental member uses the eight-slot wave gate from the [pinned source](https://github.com/muellerberndt/openwave/blob/260de06352eac5425d78fbbae636625544d439ab/simulation/experiments/observer_geometry/reunion/registered/ingredient_sources/radar_shell/replay.py), with supplied sources, a shared scheduler, calibrated local clocks, readers and relay stations. Three periodic coordinates label the stations' spatial dials and one is private. The spatial comparison uses Euclidean distances reconstructed from reciprocal addressed messages on the three axes. Each clock or communication result below is a readout of this member. The native experiments below compile the free gate, a finite packet source and a phase-sensitive receiver to polynomial-sv. Pulse durations and station service times have distinct resource budgets. No measured particle property enters the construction.
+
+## From native pair fuel to an observer's phase reading
+
+The eight-slot gate can be built from the recovered contrast-memory law. One of two loads marks a reference port. A seam exchange moves the other load. Seven commuting matchings of partial exchanges produce the equal-slot reflection exactly. Full exchanges route the reflected slots. On a 20-cell federation the compiler checks the whole 192-column operator. One routed tick uses 4,302 physical seam events with dependency depth 2,301. The federation has 240 ports and 630 native seam records plus no pair. With the actual finite fuel pulse the largest total variation from the whole-grid forecast is 0.000547 across five waits and six aperture settings. Dropping a matching raises it to 0.4015. Transport alone gives 0.6832. [Program and controls](seam_program/protocol.json) · [Full-seam results and resources](seam_program/records/result.json)
+
+Exchange alone preserves the uniform amplitude of a sharp source. The clock packets have zero uniform amplitude. The native seam reader resolves that preparation obstruction. Two absence reads herald an antisymmetric pair of rails. Exchanges on those rails set each requested amplitude and phase. Reading the unused rails returns the state to the eight-slot encoding. On a sufficiently large connected component the ideal unconditional probability of producing **any specified finite complex packet** is exactly one quarter. Every rejected rail has a recorded outcome. The 72-slot four-mode execution used the finite emitter, 4,976 seam events and 74 reader queries on its accepted preparation path. Acceptance was 0.250243. The largest discrepancy across the complete preparation and subsequent seam records was 0.002721, within the emitter bound of 0.023438. [Proof and error budget](PROOF.md) · [Preparation records](seam_program/preparation_records/result.json)
+
+The spatial apertures failed their registered phase-control criterion. Omitting the phase pulses changed the joint readings by at most 0.018616 from the ideal target, below the emitter bound, even though the conditional target fidelity dropped from 0.9981 to 0.0201. A matched receiver tests this difference in an agreed record. It reverses the successful preparation, including every absence read, before querying the emitter seam. The ideal absolute return probability is one sixteenth of the squared mode overlap. Both source and receiver use the original blank-memory generator at every pulse angle. The table includes preparation and read failures in its denominator. [Forecasts](seam_program/receiver_records/forecast.json) · [Readings and resource counts](seam_program/receiver_records/result.json)
+
+| Source phases | Receiver phases | Forecast | Observed home-seam probability |
+| --- | --- | ---: | ---: |
+| Programmed | Programmed | 0.062500 | 0.062441 |
+| Omitted | Programmed | 0.001264 | 0.001261 |
+| Programmed | Omitted | 0.001264 | 0.001276 |
+| Omitted | Omitted | 0.062500 | 0.062470 |
+
+The phase read is an absolute frequency available to the two native port observers. The four-mode run is finite. The larger clock grids below execute the wave gate directly. Their calibrated clocks, parallel stations and resource costs have no measured conversion to the individual event counts of the native program.
 
 ## A clock with a readable winding
 
@@ -35,12 +52,15 @@ The addressed courier beats the deadline on every route. The passive, changed-co
 
 ## Offline reproduction
 
-Install the [model requirements](../requirements.txt) and run from the repository root. The fast tests check a whole four-coordinate upstream gate, literal cut crossing, both flat bands, exact finite tails and rejection of corrupt records. The two replays recompute calibration, forecast, controls and acquisition against the stored counts. A single BLAS thread is sufficient.
+Install the [model requirements](../requirements.txt) and run from the repository root. The fast tests check a whole four-coordinate upstream gate, literal cut crossing, both flat bands, exact finite tails and rejection of corrupt records. The replays recompute calibration, forecast, controls and acquisition against the stored counts. A single BLAS thread is sufficient.
 
 ```sh
 python -B -m pytest -q -W error model/reflected_routing
 python -B -O -W error -m model.reflected_routing
 python -B -O -W error -m model.reflected_routing.local_clock
+python -B -O -W error -m model.reflected_routing.seam_program
+python -B -O -W error -m model.reflected_routing.seam_program.preparation
+python -B -O -W error -m model.reflected_routing.seam_program.receiver
 ```
 
-Both programs accept `--stage seal` for the forecast alone. To repeat a prospective run use a fresh path outside the package with `--record PATH --stage seal`, then `--record PATH --stage open`. The communication run draws new sender entropy at opening. The stored replay uses its published entropy. [Source hashes](sources.json) · [Local source hashes](local_clock/sources.json)
+All five programs accept `--stage seal` for the forecast alone. To repeat a prospective run use a fresh path outside the package with `--record PATH --stage seal`, then `--record PATH --stage open`. The communication run draws fresh sender entropy at opening. The stored replay uses its published entropy. [Source hashes](sources.json) · [Local source hashes](local_clock/sources.json)

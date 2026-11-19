@@ -255,3 +255,29 @@ most $12\tau$ per binary read on this sector. Summing these terms budgets the jo
 before conditioning on successful preparation. This budget treats the scheduler, finite fresh pointer
 words and conditional stop/continue service as apparatus. The native clock time of that program and
 a physical identification of the traveling state require separate observations.
+
+## Reading phase agreement at the home seam
+
+Let $K_\psi$ be the ordered product on the accepted branch of the ideal preparation. It contains the
+unitary event words and the no projectors of the binary seam readers. In the marked-pair code,
+$K_\psi|a\rangle=-|\psi\rangle/2$ up to an overall phase, where $|a\rangle$ is the input pair on
+the fuel seam. Execute the instructions in reverse order, conjugating every unitary and repeating
+each no projector with a fresh nominal reader. The surviving branch then applies $K_\psi^\dagger$.
+The binary unshifted generators at $\kappa=8$ have eigenvalues $0,8,9$. Running an angle $-t$ modulo
+$2\pi$ implements the adjoint with positive-duration pulses, including their phases on states outside
+the marked code. Each reversed no projection has the same accepting operator as its forward read.
+A yes stops that trial and writes its own outcome; the read is a fresh measurement.
+
+For an emitted ideal pair with programmed source $\phi$ and receiver $\psi$, the unconditional
+probability of returning to the home seam is consequently
+
+$$
+ |\langle a|K_\psi^\dagger K_\phi|a\rangle|^2=\frac{|\langle\psi|\phi\rangle|^2}{16}.
+$$
+
+All input and analyzer phase choices use the same seam predicate. Identical omitted phases therefore
+restore the large match probability. The finite experiment includes unconverted fuel, disagreements
+between the programs, every early termination at either end and the final complete seam measurement.
+The finite-emitter norm bound applies to this entire instrument, independent of the number of exact
+unitary events. Timing and finite read-window errors accumulate according to the separate budget above.
+[Phase-sensitive receiver](seam_program/receiver.py) · [Complete readout](seam_program/receiver_records/result.json)
