@@ -374,6 +374,11 @@ two-port family. A site energy linear in load cannot reverse the inequalities. T
 \(\Delta=1\) has no normalizable two-load bound state at rest. These statements concern the line and its
 finite-ring tests. They establish no obstruction for all OPH realizations.
 
+The ring instrument compares the nonzero shifts \(E_1(k)-E_1(0)\) and \(E_N(k)-E_N(0)\) at the same
+enrolled translation character. The ratio equals the curvature ratio for the infinite-chain cosine bands
+above. On a finite ring it is a finite difference. In particular the observed ratios for the three-port
+and controlled-memory laws do not give a zero-momentum derivative without a separate limit.
+
 The predicted kinetic ratios satisfy \(R_1=1,\ R_2=2\Delta,\ R_{n+1}=R_2R_n-R_{n-1}\), with no separate
 species coefficients. In particular \(R_3/R_2=R_2-1/R_2\). Reading the first three consecutive droplets as
 the charged leptons fails even for the kinetic ratios alone: a second-to-first ratio above 206 forces a
@@ -449,8 +454,8 @@ scalar acts on the three equal-load states. The same two-by-two block acts on th
 \(01\) and \(12\), and the other block acts on \(02\). The rational calculation verifies this form on
 every basis solution and verifies rank nine, proving both inclusions. The vacuum and doubled-background
 inputs constrain the equal-load label even in a test intended for the two-load sector. Thus this entire
-class preserves the multiset. Its homogeneous reflection-symmetric attractive binary restriction is
-covered by the ring obstruction above. The proof assumes exact preservation on each individual write,
+class preserves the multiset. Its homogeneous reflection-symmetric binary restriction with positive
+hopping and \(U>2t\) is covered by the ring obstruction above. The proof assumes exact preservation on each individual write,
 memory action and unwrite. [Exact algebra](material_inertia/memory_algebra.py)
 
 One output predicate suffices to break multiset conservation. Let \(m_d\) be the normalized sum of the
@@ -466,5 +471,7 @@ On the 20-cell federation the doubled preparation produces up to 797 agreed seam
 1,048,576 simulated preparations. Starting from the emitting seam gives up to 316 doubled-location
 outcomes. Both matched controls give zero throughout. The original public seam predicate is used with
 an ideal switched read. The supplementary doubled-location meter resolves part of its no-pair outcome.
-All 28,920 two-load configurations participate. The controlled memory improves mobility, but the
-16-port ring gives a pair rest ratio of 1.707 and kinetic ratio of 24.94. [Memory and detector results](material_inertia/records/memory/)
+All 28,920 two-load configurations participate. The controlled memory gives a pair rest ratio of
+1.707 and kinetic ratio of 24.94 on the 16-port ring. The same registered comparison as for the
+native law puts both two- and three-load ratios outside tolerance on both the 12- and 16-port rings.
+[Memory and detector results](material_inertia/records/memory/)
