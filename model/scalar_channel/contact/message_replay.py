@@ -32,7 +32,13 @@ def main():
     if args.read_archive:
         with np.load(path, allow_pickle=False) as archive:
             saved = archive["remote_message_time_counts"]
-    report, arrays = remote_message.run(spec, tag["tagged_time_probabilities"], saved_records=saved)
+    weight_path = HERE / "message_weights.npz"
+    require(digest(weight_path) == "568416179b0117fc4c709322cb2d312a20ab9bfad02075a959041a05e42795ee",
+            "message sampling distribution differs from the original acquisition")
+    with np.load(weight_path, allow_pickle=False) as weights:
+        require(weights.files == ["weights"], "invalid message sampling distribution archive")
+        report, arrays = remote_message.run(spec, tag["tagged_time_probabilities"],
+                                            saved_records=saved, frozen_weights=weights["weights"])
     counts = {key: arrays[key] for key in ("remote_message_time_counts", "remote_message_private_bits")}
     if args.record is not None:
         with args.record.open("xb") as f:

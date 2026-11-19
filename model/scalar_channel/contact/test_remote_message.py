@@ -145,3 +145,76 @@ def test_full_synthetic_message_recovers_private_byte_from_A_counts_alone(monkey
     replay, retained = message.run(spec, laws, arrays['remote_message_time_counts'])
     assert replay['all_payload_bits_correct']
     np.testing.assert_array_equal(retained['remote_message_A_click_counts'], arrays['remote_message_A_click_counts'])
+
+
+def _boundary_laws():
+    laws = np.zeros((2, 2, 6, 6, 2, 25, 25))
+    for source in range(6):
+        for receiver in range(6):
+            if source != receiver:
+                laws[:, :, source, receiver, :, 24, 0] = .25 + .49 / radar.LATTICE
+                laws[:, :, source, receiver, :, 24, 1] = .125
+                laws[:, :, source, receiver, :, 24, 24] = .125 - .49 / radar.LATTICE
+    return laws
+
+
+def test_frozen_original_weights_survive_tie_and_half_lattice_boundary(monkeypatch):
+    monkeypatch.setattr(message, 'sign_measurement_certificate', lambda: dict(synthetic=True))
+    original = _boundary_laws()
+    changed = original.copy()
+    for source in range(6):
+        for receiver in range(6):
+            if source != receiver:
+                changed[:, :, source, receiver, 0, 24, 0] -= .02 / radar.LATTICE
+                changed[:, :, source, receiver, 0, 24, 24] += .02 / radar.LATTICE
+                changed[:, :, source, receiver, 1, 24, 0] += .02 / radar.LATTICE
+                changed[:, :, source, receiver, 1, 24, 24] -= .02 / radar.LATTICE
+    assert not np.array_equal(radar.acquisition_weights(original[0, 0, 0, 1]),
+                              radar.acquisition_weights(changed[0, 0, 0, 1]))
+    spec = dict(endpoints=list(radar.ENDPOINTS), mark=2, dt=.5, ticks=12, shots=1048576, seed=73)
+    _, acquired = message.run(spec, original)
+    frozen = acquired['remote_message_acquisition_weights']
+    summary, replayed = message.run(spec, changed, frozen_weights=frozen)
+    np.testing.assert_array_equal(replayed['remote_message_acquisition_weights'], frozen)
+    np.testing.assert_array_equal(replayed['remote_message_time_counts'], acquired['remote_message_time_counts'])
+    assert summary['acquisition_weight_validation']['mode'] == 'verified frozen acquisition masses'
+    _, scored = message.run(spec, changed, acquired['remote_message_time_counts'], frozen_weights=frozen)
+    np.testing.assert_array_equal(scored['remote_message_A_click_counts'], acquired['remote_message_A_click_counts'])
+
+
+def test_frozen_weights_reject_wrong_shape_totals_zeros_and_bin_corruption():
+    laws = _boundary_laws()
+    weights = np.zeros(laws.shape, dtype=np.int64)
+    for mark in (0, 1):
+        for control in (0, 1):
+            for source in range(6):
+                for receiver in range(6):
+                    if source != receiver:
+                        weights[mark, control, source, receiver] = radar.acquisition_weights(
+                            laws[mark, control, source, receiver])
+    message._validate_frozen_weights(laws, weights)
+    with pytest.raises(ValueError, match='complete integer shape'):
+        message._validate_frozen_weights(laws, weights.astype(float))
+    changed = weights.copy()
+    changed[0, 0, 0, 0, 0, 24, 0] = 1
+    with pytest.raises(ValueError, match='self-dyad'):
+        message._validate_frozen_weights(laws, changed)
+    changed = weights.copy()
+    changed[0, 0, 0, 1, 0, 24, 0] += 1
+    with pytest.raises(ValueError, match='wrong menu total'):
+        message._validate_frozen_weights(laws, changed)
+    changed[0, 0, 0, 1, 0, 24, 0] -= 2
+    changed[0, 0, 0, 1, 0, 24, 2] += 1
+    with pytest.raises(ValueError, match='exact physical zero'):
+        message._validate_frozen_weights(laws, changed)
+    for delta, error in ((200, 'bin bound'), (10000, 'total-variation')):
+        changed = weights.copy()
+        changed[0, 0, 0, 1, 0, 24, 1] += delta
+        changed[0, 0, 0, 1, 0, 24, 24] -= delta
+        with pytest.raises(ValueError, match=error):
+            message._validate_frozen_weights(laws, changed)
+    altered_source = laws.copy()
+    altered_source[0, 0, 0, 1, 0, 24, 0] -= .01
+    altered_source[0, 0, 0, 1, 0, 24, 1] += .01
+    with pytest.raises(ValueError, match='total-variation'):
+        message._validate_frozen_weights(altered_source, weights)

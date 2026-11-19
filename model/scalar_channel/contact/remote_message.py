@@ -25,6 +25,7 @@ CALIBRATION_STATEMENTS = 2 * 60
 PAYLOAD_STATEMENTS = PAYLOAD_BITS * 60
 OUTCOMES = 2 * 25 * 25
 LATTICE_TV_BOUND = OUTCOMES / (2 * radar.LATTICE) + 1e-10
+SOURCE_PROBABILITY_ROUNDOFF = 1e-10
 CONTROL_FOR_BIT = (1, 0)  # The frozen tag array orders active before silent.
 ABSTAIN = -1
 
@@ -185,6 +186,50 @@ def _validate_saved_records(records):
     return records
 
 
+def _validate_frozen_weights(laws, frozen_weights):
+    """Verify retained acquisition masses without requantizing a roundoff-shifted law.
+
+    An ordinary bin incurs at most half a lattice unit of rounding. The bin
+    receiving the normalization remainder has the full lattice allowance.
+    A roundoff-level tie can change which maximum receives that remainder.
+    """
+    frozen_weights = np.asarray(frozen_weights)
+    require(frozen_weights.shape == laws.shape and frozen_weights.dtype.kind in 'iu',
+            'frozen message weights require the complete integer shape')
+    require(np.all(frozen_weights >= 0) and np.all(frozen_weights <= radar.LATTICE),
+            'frozen message weight is outside lattice bounds')
+    retained = frozen_weights.astype(np.int64, copy=True)
+    maximum_tv, maximum_bin_error = 0., 0.
+    ordinary_bound = .5 / radar.LATTICE + SOURCE_PROBABILITY_ROUNDOFF
+    residual_bound = OUTCOMES / (2 * radar.LATTICE) + SOURCE_PROBABILITY_ROUNDOFF
+    for source in range(6):
+        require(np.all(retained[:, :, source, source] == 0), 'frozen self-dyad weights must be zero')
+        for receiver in range(6):
+            if source == receiver:
+                continue
+            for mark in (0, 1):
+                for control in (0, 1):
+                    weights = retained[mark, control, source, receiver]
+                    law = laws[mark, control, source, receiver]
+                    require(int(weights.sum()) == radar.LATTICE, 'frozen message weights have the wrong menu total')
+                    require(np.all(weights[law == 0] == 0), 'frozen message weights populate an exact physical zero')
+                    error = abs(weights / radar.LATTICE - law)
+                    tv = float(error.sum() / 2)
+                    require(tv <= LATTICE_TV_BOUND, 'frozen message weights exceed the physical-law total-variation bound')
+                    near_maximum = law >= float(law.max()) - 2 * SOURCE_PROBABILITY_ROUNDOFF
+                    bin_bounds = np.where(near_maximum, residual_bound, ordinary_bound)
+                    require(np.all(error <= bin_bounds), 'frozen message weights exceed a physical-law bin bound')
+                    maximum_tv = max(maximum_tv, tv)
+                    maximum_bin_error = max(maximum_bin_error, float(error.max()))
+    return retained, dict(mode='verified frozen acquisition masses',
+                          maximum_physical_law_total_variation=maximum_tv,
+                          maximum_physical_law_bin_error=maximum_bin_error,
+                          total_variation_bound=LATTICE_TV_BOUND,
+                          ordinary_bin_bound=ordinary_bound, residual_bin_bound=residual_bound,
+                          source_probability_roundoff=SOURCE_PROBABILITY_ROUNDOFF,
+                          exact_physical_zero_bins_preserved=True)
+
+
 def validate_block_record(histogram, weights):
     """Simultaneous Bernstein compatibility with every canonical acquisition category."""
     histogram, weights = np.asarray(histogram), np.asarray(weights)
@@ -204,7 +249,7 @@ def validate_block_record(histogram, weights):
     return float(np.max(discrepancy / allowance))
 
 
-def run(spec, tag_laws, saved_records=None):
+def run(spec, tag_laws, saved_records=None, frozen_weights=None):
     """Acquire fixed calibration/payload blocks; grade only after the restricted readout."""
     radar._settings(spec)
     laws = _validate_laws(tag_laws)
@@ -213,7 +258,11 @@ def run(spec, tag_laws, saved_records=None):
         saved_records = _validate_saved_records(saved_records)
     shape = (2, 6, 6, BLOCKS, 2, 25, 25)
     records = np.zeros(shape, dtype=np.int64)
-    weights = np.zeros(laws.shape, dtype=np.int64)
+    if frozen_weights is None:
+        weights = np.zeros(laws.shape, dtype=np.int64)
+        weight_validation = dict(mode='quantized recomputed physical law')
+    else:
+        weights, weight_validation = _validate_frozen_weights(laws, frozen_weights)
     private_bits = np.full((2, 6, 6, PAYLOAD_BITS), ABSTAIN, dtype=np.int64)
     decoded_bits = np.full_like(private_bits, ABSTAIN)
     reader_counts = np.zeros((2, 6, 6, BLOCKS), dtype=np.int64)
@@ -226,9 +275,10 @@ def run(spec, tag_laws, saved_records=None):
                     continue
                 secret = _private_payload(spec['seed'], mark, source, receiver)
                 private_bits[mark, source, receiver] = secret
-                for control in (0, 1):
-                    weights[mark, control, source, receiver] = radar.acquisition_weights(
-                        laws[mark, control, source, receiver])
+                if frozen_weights is None:
+                    for control in (0, 1):
+                        weights[mark, control, source, receiver] = radar.acquisition_weights(
+                            laws[mark, control, source, receiver])
                 labels = np.r_[np.array([0, 1], dtype=np.int64), secret]
                 for block, label in enumerate(labels):
                     control = CONTROL_FOR_BIT[int(label)]
@@ -289,6 +339,7 @@ def run(spec, tag_laws, saved_records=None):
                                archive_probability_roundoff=SAMPLER_PROBABILITY_ROUNDOFF,
                                largest_bernstein_allowance_fraction=largest_archive_fraction if saved_records is not None else None,
                                scope='category compatibility does not establish the acquisition provenance; decoding uses the retained counts directly'),
+        acquisition_weight_validation=weight_validation,
         rng=dict(bit_generator='PCG64', namespace=NAMESPACE, roles={'calibration': 0, 'payload': 1, 'private_sign': 2},
                  entropy_order=['seed', 'namespace', 'role', 'mark', 'source', 'receiver', 'block'],
                  aggregate_sampler='multinomial on positive integer-lattice bins, with largest bin last',

@@ -379,6 +379,10 @@ verify their checksum, regenerate the source laws and score the original
 records on an alternative sampler. The pinned replay also checks every
 original count against its seed. Use `--details` to print every fold and
 control.
+For the large message blocks the seed replay uses the original
+[integer sampling distribution](message_weights.npz). It verifies the
+distribution against the regenerated tagged source before drawing any
+counts. A change of one grid unit can affect several trials in a block.
 The tests compare the first experiment with full native memory and forward
 scalar evolution, and the second with propagation on both explicit pointer bits.
 The cell calculations have finite register and menu sizes. Neither instrument
