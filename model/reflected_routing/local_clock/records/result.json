@@ -1,0 +1,92 @@
+{
+ "192_angled": {
+  "decision": "within tolerance",
+  "max_tag_write_effect_counts": 2,
+  "maximum_count_difference": 0,
+  "observed": {
+   "counts": 806091,
+   "fraction": 9.05105548e-09,
+   "time": 453.0
+  }
+ },
+ "192_reversed": {
+  "decision": "within tolerance",
+  "max_tag_write_effect_counts": 4,
+  "maximum_count_difference": 0,
+  "observed": {
+   "counts": 810275,
+   "fraction": 9.09803481e-09,
+   "time": 502.0
+  }
+ },
+ "192_short": {
+  "decision": "outside tolerance",
+  "max_tag_write_effect_counts": 4,
+  "maximum_count_difference": 0,
+  "observed": {
+   "counts": 87167,
+   "fraction": 9.78739811e-10,
+   "time": 641.0
+  }
+ },
+ "384_angled": {
+  "decision": "within tolerance",
+  "max_tag_write_effect_counts": 2,
+  "maximum_count_difference": 0,
+  "observed": {
+   "counts": 815120,
+   "fraction": 5.72027254e-10,
+   "time": 872.0
+  }
+ },
+ "384_reversed": {
+  "decision": "within tolerance",
+  "max_tag_write_effect_counts": 4,
+  "maximum_count_difference": 0,
+  "observed": {
+   "counts": 821979,
+   "fraction": 5.76840699e-10,
+   "time": 963.0
+  }
+ },
+ "384_short": {
+  "decision": "outside tolerance",
+  "max_tag_write_effect_counts": 0,
+  "maximum_count_difference": 0,
+  "observed": {
+   "counts": 71144,
+   "fraction": 4.99267678e-11,
+   "time": 1294.0
+  }
+ },
+ "96_angled": {
+  "decision": "within tolerance",
+  "max_tag_write_effect_counts": 3,
+  "maximum_count_difference": 0,
+  "observed": {
+   "counts": 788987,
+   "fraction": 1.41744098e-07,
+   "time": 245.0
+  }
+ },
+ "96_reversed": {
+  "decision": "outside tolerance",
+  "max_tag_write_effect_counts": 2,
+  "maximum_count_difference": 0,
+  "observed": {
+   "counts": 740232,
+   "fraction": 1.32985103e-07,
+   "time": 270.0
+  }
+ },
+ "96_short": {
+  "decision": "outside tolerance",
+  "max_tag_write_effect_counts": 75,
+  "maximum_count_difference": 0,
+  "observed": {
+   "counts": 241971,
+   "fraction": 4.34708825e-08,
+   "time": 343.0
+  }
+ }
+}
