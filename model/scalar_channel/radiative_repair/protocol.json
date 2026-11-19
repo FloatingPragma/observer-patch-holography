@@ -1,8 +1,6 @@
 {
   "member": "signless-charge-laplacian-neutral-pair-v1",
   "oph": "f52fa4dab609845b20a80b43ea6bd9cc11a19f56",
-  "openwave_fork": "de76be71bc24c36b286fbcae5dab608f20f1e86a",
-  "openwave_criteria": "f0e866547175e204eb18307df5ef2c496d9f550b",
   "unit": "one coefficient J for each written square, hbar=1",
   "seed": 853169,
   "shots": 4194304,
@@ -48,5 +46,5 @@
     "min_inverse": 0.001,
     "max_phase_law_error": 0.002
   },
-  "interpretation": "Charge signs, neutral statistics, relative coupling, phase references and switchable readers are declared. No measured mass, speed, charge or conversion fraction is an input. Record all outcomes even if a science gate fails."
+  "interpretation": "Charge signs, neutral statistics, relative coupling, phase references and switchable readers are declared. Record all outcomes even if a science gate fails."
 }

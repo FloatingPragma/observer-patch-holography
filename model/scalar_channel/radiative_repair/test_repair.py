@@ -204,7 +204,7 @@ def test_receiver_rejects_inconsistent_meter_and_unresolved_contrast():
     immediate[0,i] += 1
     immediate[1,i] -= 1
     # Preserve the observed herald totals. A raw gain above sixteen counts can
-    # still be consistent with equal probabilities at the simultaneous precision.
+    # be consistent with equal probabilities at the simultaneous precision.
     local = receiver*(car.cells+1)
     for arm, target in [('receiver_on',110), ('receiver_off',90)]:
         for branch in records[arm+'_joint'][1:,2]:
@@ -273,14 +273,14 @@ def test_independent_federation_relay_and_rest_energy():
 
 
 def test_corrupted_counts_clocks_and_heldout_spectrum(tmp_path):
-    honest = {'reading':np.array([[200,57]],dtype=np.int32)}
-    check_counts(tmp_path/'original',honest,record=True)
+    original = {'reading':np.array([[200,57]],dtype=np.int32)}
+    check_counts(tmp_path/'original',original,record=True)
     with pytest.raises(FileExistsError):
-        check_counts(tmp_path/'original',honest,record=True)
-    for artifacts in ({}, {'reading':np.array([[199,58]],np.int32)}, {'reading':honest['reading'].astype(float)}):
+        check_counts(tmp_path/'original',original,record=True)
+    for artifacts in ({}, {'reading':np.array([[199,58]],np.int32)}, {'reading':original['reading'].astype(float)}):
         np.savez(tmp_path/'counts.npz',**artifacts)
         with pytest.raises(ValueError):
-            check_counts(tmp_path,honest)
+            check_counts(tmp_path,original)
     with np.load(HERE/'records'/'counts.npz',allow_pickle=False) as z:
         clock=z['clock']
         orbital=z['plus']

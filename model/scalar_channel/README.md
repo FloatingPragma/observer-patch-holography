@@ -41,12 +41,6 @@ The construction is described in
 section 11 says which of its parts this package executes. No sibling checkout
 or network service is needed for replay.
 
-## Local conversion of opposite charges
-
-The experimental [pair-conversion law](radiative_repair/README.md) uses the port carrier and one common
-energy scale. Opposite charges prepared in its lowest band release energy into a neutral field. A second
-cell can register two arrivals and convert them back into a charged pair.
-
 ## The cage
 
 The subpackage [cage](cage/README.md) builds an object that this law holds on
@@ -58,3 +52,10 @@ its own receipts and its own replay:
 ```sh
 python -B -O -m model.scalar_channel.cage
 ```
+
+## Local conversion of opposite charges
+
+The experimental [pair-conversion law](radiative_repair/README.md) is a separate generator on the port
+carrier with one common energy scale. Opposite charges prepared in its lowest band release energy into a
+neutral field. In a second experiment, which starts from a pair localized on one seam, a meter in a
+neighbouring cell registers two neutral arrivals and a converter there turns them back into a charged pair.

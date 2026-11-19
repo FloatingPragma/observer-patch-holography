@@ -19,11 +19,12 @@ rest-energy term. With ℏ = 1, its Hamiltonian is the sum of positive local squ
 
 Each edge contributes all three displayed terms. The factor 1/√2 gives the normalized two-boson state unit
 matrix element. Equal strengths, the relative edge signs, the local alphabets and the conversion channel
-are supplied. The half-edge convention of the official repair law and the seam/wedge fermion of the
-[scalar channel](../README.md) have different generators. Only their declared port carrier is used here.
+are supplied. The half-edge convention of the contrast-memory law of polynomial-sv and the seam/wedge
+fermion of the [scalar channel](../README.md) have different generators. Only their declared port carrier
+is used here.
 
 The vacuum has zero energy. The conserved signed charge is Nₐ−Nᵦ and the conserved total occupation is
-K = Nₐ+Nᵦ+N꜀. A local conversion consumes one of each charge and releases two neutral quanta. The number two
+K = Nₐ+Nᵦ+N_c. A local conversion consumes one of each charge and releases two neutral quanta. The number two
 is built into the term. Transfer probabilities, the released energy and the response to a later intervention
 are calculated. At K ≤ 2 the contact is 2J times the projector onto the difference of the local charged pair
 and neutral pair, normalized to one. A local rotation to that basis, a bit write, phase 2JΔt and the inverse
@@ -39,7 +40,7 @@ A and degree matrix D, put Q = D+A and L = D−A. In units of J the generator se
     Y ↦ LY + YL + diag(diag Y − diag X).
 
 This includes every state of the sector. Even fermion operations are primitives on the graded local registers.
-Implementing them with the official repair law on ordinary port bits requires a separate compiler.
+Implementing them with the contrast-memory law on ordinary port bits requires a separate compiler.
 The Fock-space tests reconstruct all local generators with fermion
 signs and truncated oscillator ladder factors. The blocked-conversion control retains both diagonal contact
 costs and removes the cross term. Parking the neutral field retains its onsite costs and removes neutral hopping.
@@ -48,7 +49,7 @@ field uses onsite number detectors and the blocked contact uses a coincidence pr
 resolve individual ports. Federation records resolve each cell, every ordered pair of signed detector
 regions and every unordered neutral coincidence.
 
-## A rest frequency without an input mass
+## A rest frequency from the port adjacency
 
 With one excitation of either charge sign, the contact vanishes and the one-body generator is JQ. Its
 one-cell characteristic polynomial in J units is (x−10)(x−4)⁵((x−5)²−5)³. The observer addresses one labeled port and compares a
@@ -58,11 +59,12 @@ occupation settings give cos(2Jt) and sin(2Jt). Unwrapping uses a supplied bound
 samples. The reader selects its line count from the data, fits the first 384 clock readings and predicts
 the remaining 128.
 
-The positive-charge lowest line is **2.763965** in clock units and the negative-charge line is **2.763970**.
-The derived value is 5−√5. All four charged lines appear, with weights 3/12, 5/12, 3/12 and 1/12 in order
-of frequency. The neutral reference gives lines 0, 5−√5, 6 and 5+√5. The shared number 5−√5 follows here
-from the port adjacency. Identifying this gap with a lepton mass in physical units would require an independent
-energy scale, a particle-specific detector and a dynamical account of inertia.
+The positive-charge lowest line is **2.763965** in clock units and the negative-charge line is **2.763970**,
+against the exact value 5−√5 = 2.763932. Both signs share one one-body generator, so the two readings differ
+by sampling alone; the first clock tick is read 4.07 × 10⁻⁴ high, which the fit carries into the line, and
+with a free phase the readings fall within 10⁻⁵ of the exact value. All four charged lines appear, with
+weights 3/12, 5/12, 3/12 and 1/12 in order of frequency. The neutral reference gives lines 0, 5−√5, 6 and
+5+√5. The shared number 5−√5 follows here from the port adjacency.
 
 On a federation, every external seam adds a positive square to the sum of one-cell charged operators.
 Equality at the one-cell lower bound requires a lowest-band vector in each cell and amplitudes summing to
@@ -118,8 +120,9 @@ terminal signed and neutral region pair is counted. Observing two arrivals guara
 at the sender and both neutral excitations reached the receiver before the second intervention.
 
 One clock unit later, **528 of 16,777,216** trials with the receiver enabled have two neutral arrivals followed
-by both opposite charges at the receiver. The blocked arm gives **0 of 16,777,216**. The denominators include
-every meter outcome. A simultaneous one-sided lower bound for the excess across the four waits is
+by both opposite charges at the receiver; the record law gives 3.02 × 10⁻⁵, an expected 506. The blocked arm
+gives **0 of 16,777,216**, a sampled zero: its record law gives 4.65 × 10⁻⁹, an expected 0.08. The
+denominators include every meter outcome. A simultaneous one-sided lower bound for the excess across the four waits is
 2.59 × 10⁻⁵ at this wait at nominal 99.9% coverage. At the longest delay the blocked arm gives 79 such records.
 Returning neutral quanta can reconvert at the sender and charged excitations can travel back. The complete
 late-time control is part of the result.
@@ -161,7 +164,7 @@ experiment compares eight waits with a simultaneous error allowance. The charged
 this construction. A physical identification of its neutral excitations as light requires transverse
 polarizations, physical propagation and electromagnetic coupling. The fermionic signs, the number of
 neutral daughters and the common coupling are architectural inputs. The construction supplies one charged
-gap. It gives no flavor hierarchy or independent mass in eV.
+gap.
 
 ## Replay, costs and error conventions
 
@@ -209,8 +212,5 @@ A second solver applies the Hamiltonian directly to the two amplitude matrices a
 in Chebyshev polynomials. On the 20-cell carrier it independently checks the receiver intervention and the
 released energy at clock reading 32. Its series truncation bound is below 10⁻¹³ in state norm.
 
-The comparison criteria are [OpenWave T11](https://github.com/openwave-labs/openwave/blob/f0e866547175e204eb18307df5ef2c496d9f550b/MODELS.md).
-The [research fork's row evidence](https://github.com/muellerberndt/openwave/blob/de76be71bc24c36b286fbcae5dab608f20f1e86a/simulation/law_comparison/ROW_COVERAGE.md)
-and its [export](https://github.com/muellerberndt/openwave/tree/de76be71bc24c36b286fbcae5dab608f20f1e86a/candidates/np-solver/export)
-have their own sources. Empirical lepton masses were known before this experiment and enter none of its
-coefficients, preparations, stopping conditions or decoders.
+The test the two experiments address is the annihilation of an opposite-charge pair into a neutral field,
+read on the observers' records, and the reverse conversion of that field into a charged pair at a receiver.
