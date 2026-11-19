@@ -3,6 +3,7 @@
 import numpy as np
 from scipy.optimize import least_squares
 from scipy.signal import find_peaks
+from scipy.stats import binom
 
 from ..carrier import require
 
@@ -25,21 +26,35 @@ def fuel_law(amplitude, quarters):
     return np.stack([.5*(1-transfer), .5*(1+transfer)], axis=-1)
 
 
+def binomial_counts(rng, shots, probability):
+    # One independent open-interval quantile per setting. No parameter-dependent RNG consumption.
+    q = (rng.integers(2**52, size=np.shape(probability))+.5) / 2**52
+    return np.asarray(binom.ppf(q, shots, probability), dtype=np.int32)
+
+
 def acquire(rng, probabilities, shots):
     require(np.isfinite(probabilities).all() and probabilities.min() >= -1e-12 and
             probabilities.max() <= 1+1e-12, 'invalid fuel probability')
     # Exact half and endpoint probabilities must take the same RNG branch across BLAS implementations.
     measured = np.rint(np.clip(probabilities, 0, 1)*2**30) / 2**30
-    return rng.binomial(shots, measured).astype(np.int32)
+    return binomial_counts(rng, shots, measured)
 
 
 def count_partition(rng, law, shots):
     require(np.isfinite(law).all() and law.min() >= -1e-13 and abs(law.sum()-1) < 1e-11,
             'invalid outcome partition')
     # Quantizing cumulative edges keeps every bin nonnegative and preserves total probability exactly.
-    edges = np.rint(np.cumsum(np.maximum(law, 0.)/np.maximum(law, 0.).sum())*2**30)
-    probabilities = np.diff(np.r_[0., edges]) / 2**30
-    return rng.multinomial(shots, probabilities).tolist()
+    law = np.maximum(law, 0.)
+    edges = np.rint(np.cumsum(law/law.sum())*2**30).astype(np.int64)
+    masses = np.diff(np.r_[0, edges])
+    counts = []
+    remaining, total = shots, 2**30
+    for mass in masses[:-1]:
+        count = int(binomial_counts(rng, remaining, mass/total)) if total and remaining else 0
+        counts.append(count)
+        remaining -= count
+        total -= mass
+    return [*counts, remaining]
 
 
 def quadrature(counts, shots):
