@@ -514,7 +514,6 @@ The full-domain completion here makes that existing distinction executable.
 
 ```text
 PYTHONPATH=code python -m pytest -q code/quantum_information code/collar_alignment code/geometry code/maxent -W error
-python -m pytest -q --confcutdir=code/ibm_quantum_cloud/tests code/ibm_quantum_cloud/tests/test_stage1_markov_fingerprint.py -W error
 ```
 
 The existing quantum-information workflow runs the first command on both

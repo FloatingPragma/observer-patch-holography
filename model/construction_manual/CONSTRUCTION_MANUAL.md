@@ -163,10 +163,12 @@ corner-and-edge graph of an icosahedron, called an echosahedron in the theory.
 | 4 | 0 2 6 8 10 | | 10 | 4 6 8 9 11 |
 | 5 | 1 2 7 8 11 | | 11 | 5 7 8 9 10 |
 
-The port opposite to `p` is `11 - p`. Twenty triples of mutually joined ports are the faces. The file
-[inputs/CELL.npz](inputs/CELL.npz) holds the seams and the wedges in this labelling. The model polynomial-sv
-labels the ports of the same cell in another order; the map between the two labellings is in
-[contrast_replay.py](../contrast_replay.py).
+In this standalone cell the port opposite to `p` is `11 - p`. Twenty triples of mutually joined ports are the
+faces. [inputs/CELL.npz](inputs/CELL.npz) holds the seams and the wedges in this numbering. The federation files
+and the package polynomial_sv number the ports of a cell in another order. One map that keeps every seam sends the
+standalone ports 0 to 11 to the local ports `0,1,5,7,11,9,10,8,4,6,2,3` of a federation cell, so the port opposite
+to local port 0 there is local port 3. An observer is addressed through the incidence of the carrier being run.
+The map is checked on all 420 cells of the three federations ([test_contrast_replay.py](../test_contrast_replay.py)).
 
 **Why this shape.** The reasons are those of the theory's carrier paper.
 

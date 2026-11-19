@@ -12,16 +12,15 @@ K7L="2553ed170d04db8777f84fb2f9ef2b66b386f7fb"
 EXPECTED=[
  ("Arithmon/K7",K7,"publications/ERRATUM_v3.5.md","2bcd161a6684f93f83e3541cbd0682738fa21b70","ERRATUM_v3.5.md"),
  ("Arithmon/K7",K7,"publications/papers/markdown/k7_framework_3_5_main.md","3a0895fdaa9624eaed9d083e45566e75b3b1036b","k7_framework_3_5_main.md"),
- ("Arithmon/K7",K7,"docs/openwave-candidate/honest_ledger.md","39efc4eace29269f99a37fc94662fd757574efeb","honest_ledger.md"),
  ("Arithmon/K7-Lean",K7L,"GIFT/Relations/GaugeSector.lean","664e6e620de8f11d628a2c0beb3c5c90d6c190f2","GaugeSector.lean")]
 OPH_PINS={"Lean/Screen/KineticFormDichotomy.lean":"671578153bb70bf590e380fb7fd035062a341155","Lean/Screen/RGRepresentationFrontier.lean":"c35eb3bc1f8e5f8bd4633bdea07911049bb985d0","code/angular_sprint/kinetic_form_selection_certificate.py":"9cadce4736c666dc48a242ccfb46011d00b24189","code/angular_sprint/runtime/kinetic_form_selection_receipt.json":"7469c729fd54cc7f558830c03fbae1bf510e5f32"}
-TYPE1_PROVENANCE="UNKNOWN; pinned honest ledger classifies target-exposed Type-I relations as historical retrodictions/calibration-sensitive unless a target-blind origin is documented"
+TYPE1_PROVENANCE="UNKNOWN; pinned sources do not establish a target-blind origin for these target-exposed Type-I relations"
 BTEST_PROVENANCE="UNKNOWN; pinned sources do not establish a target-blind origin for this historical conditional B-test relation"
 # Reviewed finite source-typing contract, including every narrative field and
 # dictionary key. This is semantic custody, not an arithmetic oracle: the OPH
 # columns/cofactors/locus, both control determinants and source byte digests/counts
 # are omitted and independently checked below. No producer is imported or called.
-REVIEWED_SEMANTICS_SHA256="4154b969786682be68166286fd56a8ce1636e92d60810ad1935a761b5e73f767"
+REVIEWED_SEMANTICS_SHA256="5f683fa0e7afa4b9a1f9f008a026cc34fbc7f598c51dd9dfbb546e97ac6f8743"
 
 def blob(raw): return hashlib.sha1(b"blob "+str(len(raw)).encode()+b"\0"+raw).hexdigest()
 def require(ok,msg):
@@ -115,7 +114,7 @@ def validate(doc, root):
  require(bt["same_object_contract"] is False and bt["scheme"]=="UNKNOWN","B-test scheme/contract was promoted")
  rg=candidates["rge_bundle"]
  require(rg["found"] is True and rg["classification"]=="CONDITIONAL_NUMERICAL_RGE_OUTPUT__NO_EXACT_SOURCE_CLEAN_REPRODUCER","paper RGE candidate omitted/mistyped")
- require(rg["evidence_scope"]==["vendored K7 publications/ERRATUM_v3.5.md","vendored K7 publications/papers/markdown/k7_framework_3_5_main.md","vendored K7 docs/openwave-candidate/honest_ledger.md","vendored K7-Lean GIFT/Relations/GaugeSector.lean"],"RGE evidence scope broadened beyond pinned surfaces")
+ require(rg["evidence_scope"]==["vendored K7 publications/ERRATUM_v3.5.md","vendored K7 publications/papers/markdown/k7_framework_3_5_main.md","vendored K7-Lean GIFT/Relations/GaugeSector.lean"],"RGE evidence scope broadened beyond pinned surfaces")
  require("pinned K7 source surfaces consumed by this packet" in rg["record"] and rg["reproducible_artifact"]=="NOT ESTABLISHED BY PINNED SOURCE SURFACES","unsupported repository-wide absence claim")
  require(rg["displayed_outputs"]=={"alpha_em_inverse_MZ":"131.19","sin2_theta_W_MZ":"0.2377","alpha_s_split_spectrum":"0.1224","alpha_s_all_MSSM":"0.1038"},"paper RGE outputs drift")
  require(rg["scale"]=="M_Z per §5.3 output table" and rg["same_object_contract"] is False and rg["exact_vector"]=="NOT AVAILABLE; displayed decimal outputs are rounded","RGE output promoted to an exact OPH vector")

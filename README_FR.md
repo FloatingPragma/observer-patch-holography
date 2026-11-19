@@ -1,16 +1,16 @@
 # Holographie des parcelles d’observateur
 
-**OPH développe une théorie exécutable d’un univers autoréférentiel d’observateurs, associant des constructions finies démontrées à des tests quantitatifs de leur interprétation physique.**
+**OPH propose que l’Univers soit ce sur quoi ses observateurs s’accordent, et construit cette idée comme un programme que l’on peut exécuter.**
 
 <p align="center">
-  <a href="https://particles.floatingpragma.ai/"><img src="assets/particles-banner.gif" alt="Regardez un univers fabriquer ses propres particules : 81 920 observateurs, une construction de matière, de champs et de registres. Ouvrir la simulation en direct sur particles.floatingpragma.ai." width="100%"></a>
+  <img src="assets/oph-schematic.png" alt="Schéma de la holographie des parcelles d’observateur. Des observateurs primitifs sur un support icosaédrique lisent, enregistrent et agissent. Des parcelles d’observateur qui se recouvrent sur un écran holographique s’accordent sur des registres partagés, qui deviennent des faits partagés. De l’intérieur, une parcelle encode toute une histoire : un espace-temps émergent à trois dimensions d’espace et une de temps, où la gravitation apparaît comme géométrie." width="100%">
 </p>
-<p align="center"><b>▶ <a href="https://particles.floatingpragma.ai/">Ouvrir la simulation en direct</a></b> · <a href="https://particles.floatingpragma.ai/?page=journey">Des observateurs aux particules</a></p>
+<p align="center"><b><a href="https://philpapers.org/rec/MUEFOC">Article de synthèse</a> · <a href="https://oph-book.floatingpragma.ai/">Livre</a> · <a href="https://floatingpragma.ai/faq/">FAQ sur la réalité (en anglais)</a> · <a href="https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a">Carnet</a> · <a href="https://particles.floatingpragma.ai/">Simulation</a> · <a href="Lean/">Bibliothèque Lean</a> · <a href="REPRODUCE.md">Reproduire</a></b></p>
 
-[**Simulation en direct**](https://particles.floatingpragma.ai/) · [Article principal](https://philpapers.org/rec/MUEFOC) · [Livre](https://oph-book.floatingpragma.ai/) · [FAQ sur la réalité (en anglais)](https://floatingpragma.ai/faq/) · [Carnet](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) · [Bibliothèque Lean](Lean/) · [Reproduire](REPRODUCE.md) · [Pragma Research](https://floatingpragma.ai/) · [English](README.md)
-
-[![CI](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/ci.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/ci.yml)
-[![Lean](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean.yml)
+<p align="center">
+<a href="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/ci.yml"><img src="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+<a href="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean.yml"><img src="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean.yml/badge.svg" alt="Lean"></a>
+</p>
 
 ## L’idée
 

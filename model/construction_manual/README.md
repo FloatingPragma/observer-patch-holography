@@ -58,9 +58,12 @@ their receipts.
 
 - An echosahedron: twelve ports at the corners of an icosahedron, thirty seams along its edges, twenty faces.
   Every port has five seams. The port opposite to port `p` is port `11 - p`.
-- The thirty seams, in the labels of the manual: `0-1 0-2 0-3 0-4 0-6 1-2 1-3 1-5 1-7 2-4 2-5 2-8 3-6 3-7
-  3-9 4-6 4-8 4-10 5-7 5-8 5-11 6-9 6-10 7-9 7-11 8-10 8-11 9-10 9-11 10-11`. The model polynomial-sv labels the
-  ports of the same cell in another order; [contrast_replay.py](../contrast_replay.py) holds the map.
+- The thirty seams, in the labels of the standalone cell file: `0-1 0-2 0-3 0-4 0-6 1-2 1-3 1-5 1-7 2-4 2-5 2-8 3-6
+  3-7 3-9 4-6 4-8 4-10 5-7 5-8 5-11 6-9 6-10 7-9 7-11 8-10 8-11 9-10 9-11 10-11`.
+- Federation files use a different port numbering. One map that keeps every seam sends standalone ports 0 through
+  11 to federation local ports `0,1,5,7,11,9,10,8,4,6,2,3`; under it the antipode of federation port 0 is 3. Use
+  the incidence of the carrier being run to address an observer. The map is checked on all 420 cells
+  ([test_contrast_replay.py](../test_contrast_replay.py)).
 - A wedge is a pair of seams at one port, written `(a, b, c)` for the seams `a-b` and `b-c` with `a < c`. A port has
   ten wedges and a cell has 120.
 - The symmetry group has 60 rotations, 120 elements with the inversion.

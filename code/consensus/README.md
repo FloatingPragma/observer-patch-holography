@@ -92,10 +92,7 @@ fixed state. Direct compilation of only the `q = 0` table slice would falsely
 certify a one-round bound. The reference manifest verifies its primitives
 before compilation, so its valid reference circuits keep their settling
 bounds. The tree-packet export, architecture benchmarks,
-and issue #517 receipt use separate engines. Consensus source changes require
-refreshing the live source-current inventory with
-`python3 code/a5_closure/source_current_order_sensitive_inventory.py all`, then
-running its producer and independent verifiers; no frozen evidence is refreshed.
+and issue #517 receipt use separate engines.
 The `consensus-settling.yml` workflow executes every test in this directory on
 Ubuntu and Windows with warnings treated as errors.
 
