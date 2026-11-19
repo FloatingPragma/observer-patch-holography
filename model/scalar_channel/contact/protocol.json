@@ -1,0 +1,21 @@
+{
+  "candidate": "contrast-square-scalar-contact-v1",
+  "oph_base": "f52fa4dab609845b20a80b43ea6bd9cc11a19f56",
+  "term": "sum over seams of g times the echoed contrast square times scalar seam occupation",
+  "couplings_in_exchange_units": [0, 1, -1],
+  "kappa": 8,
+  "ring": [0, 2, 4, 6],
+  "marked_seam": [0, 2],
+  "ramp_midpoints_per_star": 16,
+  "ramsey": "vacant and filled scalar source; symmetric and antisymmetric collar; all four quarters and all 33 queries of the collar reader",
+  "collision": "wedge-filled seed; finite resonant-drive-strength 64 detuned write; read its fuel; 12 star ramps in the resulting sector; all three cage preparations, five waits, four analyzers and two copied terminal pointer bits",
+  "shots_per_setting": 1000000,
+  "seed": 437109,
+  "gates": {
+    "maximum_error_in_ramsey_coupling": 0.03,
+    "minimum_joint_pointer_contrast_against_additive": 0.01,
+    "minimum_sharp_minus_undriven_interaction_contrast": 0.005,
+    "maximum_probability_sampling_error": 0.004,
+    "maximum_absolute_probability_roundoff": 1e-10
+  }
+}
