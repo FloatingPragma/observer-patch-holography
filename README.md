@@ -69,11 +69,10 @@ existence in polynomial time. The
 [construction manual](model/construction_manual/CONSTRUCTION_MANUAL.md)
 builds the model part by part and says which part of this is a theorem.
 
-The centre of the research is the native repair law, the simple law that
-governs the interactions of observers in the early Universe. Two candidate
-laws run on the model, the contrast-memory law and the scalar channel. No
-measured number enters them. Under them the repair process reproduces real
-observable values and structures, in the effective descriptions of the
+Two candidate repair laws run on the model, the contrast-memory law and the
+scalar channel. No measured number enters them. Under them the repair
+process reproduces real observable values and structures, in the effective
+descriptions of the
 observers who inhabit the computation:
 
 - **Particles that hold together.** A pair of loads written on one seam is
@@ -103,10 +102,35 @@ through shared records as the clock theorems require. The
 [observation ledger](docs/registers/OBSERVATION_LEDGER_V3.md) lists what the
 model reproduces and what is open.
 
-The executable observer is a candidate, and it may change as the research
-goes on: its laws are candidates, their couplings are supplied, and the other
-observables in the papers, from charge and the particle spectrum to gravity,
-are work in progress on the same process.
+## Finding the repair and memory law
+
+The main focus of the research is to identify the correct repair and memory
+law. This is the native repair law, the simple law that governs the
+interactions of observers in the early Universe: the one local rule that
+every observer follows when it compares its records with a neighbour, which
+says how a disagreement is repaired and what the repair leaves behind in
+memory. Repair decides what becomes a shared fact. Memory matters just as
+much: in polynomial-sv, the phase that a seam's memory picks up from the
+contrast it wrote is the agreement energy that binds a pair of loads, and the
+same law without it loses the pair.
+
+polynomial-sv is the candidate under test. Its two laws are candidates, their
+couplings are supplied, and the other observables in the papers, from charge
+and the particle spectrum to gravity, are work in progress on the same
+process. Any part of the executable observer may change as the research goes
+on.
+
+**Why it matters.** The theorem library states what follows once a law
+supplies certain outputs: three directions of space, the rules of quantum
+measurement, the forces of the Standard Model, Einstein's gravity. A law has
+to supply all of them at once, on one process, with every check and every
+repair local. With the correct law, the physics we measure becomes something
+you compute: run the law, let its observers keep their records, and read off
+what they find. A wrong law gives itself away the same way, because its
+observers record something we do not. That makes the search for the law the
+sharpest test of the whole idea, and the rest of the project serves it. The
+[model overview](model/README.md) lists what the candidates reproduce and what
+is open.
 
 ## What comes out
 
