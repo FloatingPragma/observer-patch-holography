@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OPH Simulator Replay</title>
+<style>
+:root {
+  --bg: #05080c; --panel: #0c1218; --panel-2: #111a22; --line: #1f2c37; --ink: #dce7ee;
+  --muted: #8397a6; --faint: #4b5d6b; --accent: #4af1f2; --warm: #ffb04a; --cool: #3a9bff;
+  --good: #57d49a; --warn: #f2c14e; --bad: #ff6b6b;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --sans: -apple-system, "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font: 14px/1.45 var(--sans); }
+header { display: flex; align-items: center; gap: 14px; padding: 10px 16px; border-bottom: 1px solid var(--line); background: #070b10; }
+header h1 { font-size: 15px; margin: 0; font-weight: 600; letter-spacing: .2px; }
+header h1 span { color: var(--accent); font-family: var(--mono); font-weight: 500; }
+header .grow { flex: 1; }
+select, button, label.file { background: var(--panel-2); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; font: 13px var(--sans); cursor: pointer; }
+button:hover, label.file:hover, select:hover { border-color: var(--accent); }
+label.file input { display: none; }
+main { display: grid; grid-template-columns: minmax(0, 1fr) 360px; height: calc(100% - 50px - 64px); }
+#stage { position: relative; min-height: 0; }
+#gl { width: 100%; height: 100%; display: block; cursor: grab; }
+#gl:active { cursor: grabbing; }
+.overlay { position: absolute; pointer-events: none; font: 12px var(--mono); color: var(--muted); }
+#hud { left: 16px; top: 14px; }
+#hud b { color: var(--ink); font-weight: 500; }
+#legend { left: 16px; bottom: 14px; display: flex; gap: 14px; align-items: center; }
+#legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: -1px; }
+#drop { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(5,8,12,.85); border: 2px dashed var(--accent); font-size: 18px; z-index: 5; }
+#empty { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--muted); padding: 24px; }
+#empty code { color: var(--accent); }
+aside { border-left: 1px solid var(--line); background: var(--panel); overflow-y: auto; min-height: 0; }
+section { padding: 14px 16px; border-bottom: 1px solid var(--line); }
+section h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); margin: 0 0 10px; font-weight: 600; }
+.law-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+.badge { display: inline-block; font: 11px var(--mono); padding: 2px 8px; border-radius: 10px; border: 1px solid currentColor; margin-right: 6px; }
+.status-candidate { color: var(--good); } .status-undecided { color: var(--warn); }
+.status-excluded, .status-disfavoured, .status-control { color: var(--bad); }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; font: 12px var(--mono); color: var(--muted); margin-top: 8px; }
+.kv b { color: var(--ink); font-weight: 500; }
+.note { color: var(--muted); font-size: 12.5px; margin: 8px 0 0; }
+.seg { display: flex; border: 1px solid var(--line); border-radius: 7px; overflow: hidden; margin-bottom: 8px; }
+.seg button { flex: 1; border: 0; border-radius: 0; padding: 7px 4px; background: transparent; color: var(--muted); font-size: 12px; }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button.on { background: #12303a; color: var(--ink); }
+.row { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--muted); margin-top: 6px; }
+.row input[type=range] { flex: 1; accent-color: var(--accent); }
+canvas.panel { width: 100%; display: block; background: #070b10; border: 1px solid var(--line); border-radius: 6px; }
+table { width: 100%; border-collapse: collapse; font: 12px var(--mono); }
+th, td { text-align: right; padding: 4px 6px; border-bottom: 1px solid var(--line); }
+th:first-child, td:first-child { text-align: left; }
+th { color: var(--muted); font-weight: 500; }
+footer { height: 64px; border-top: 1px solid var(--line); display: flex; align-items: center; gap: 14px; padding: 0 16px; background: #070b10; }
+footer input[type=range] { flex: 1; accent-color: var(--accent); }
+#clock { font: 13px var(--mono); color: var(--ink); min-width: 290px; text-align: right; }
+#clock small { color: var(--muted); }
+#journeys { position: absolute; inset: 0; overflow: auto; padding: 32px; display: none; }
+#journeys h3 { margin: 0 0 6px; font-size: 18px; }
+#journeys p { color: var(--muted); max-width: 760px; }
+.bars { margin-top: 24px; display: grid; gap: 18px; max-width: 760px; }
+.bar { position: relative; height: 26px; background: var(--panel-2); border-radius: 4px; }
+.bar span { position: absolute; top: 0; bottom: 0; border-radius: 4px; }
+.bar em { position: absolute; top: -2px; bottom: -2px; width: 2px; background: var(--ink); }
+@media (max-width: 900px) {
+  main { grid-template-columns: 1fr; grid-template-rows: 55vh auto; height: auto; }
+  aside { border-left: 0; border-top: 1px solid var(--line); }
+  #clock { min-width: 0; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>OPH Simulator <span>replay</span></h1>
+  <select id="runPicker" title="Loaded runs"></select>
+  <div class="grow"></div>
+  <label class="file">Open run file<input id="file" type="file" accept=".gz,.json"></label>
+</header>
+<main>
+  <div id="stage">
+    <canvas id="gl"></canvas>
+    <div id="hud" class="overlay"></div>
+    <div id="legend" class="overlay">
+      <span><i style="background:var(--warm)"></i>phi &gt; 0</span>
+      <span><i style="background:var(--cool)"></i>phi &lt; 0</span>
+      <span><i style="background:#3a4652"></i>no record received</span>
+      <span><i style="background:var(--accent)"></i>observer A and its record horizon</span>
+    </div>
+    <div id="journeys"></div>
+    <div id="empty">Open a run file written by <code>python -m simulator run ...</code>,<br>or drop it here.</div>
+    <div id="drop">Drop a run file</div>
+  </div>
+  <aside>
+    <section id="lawCard"><h2>Law</h2><div id="law"></div></section>
+    <section id="viewCard">
+      <h2>View</h2>
+      <div class="seg" id="frameSeg">
+        <button data-v="observer" class="on" title="Each address as A's records show it: emitted at t - r/c">Observer A's records</button>
+        <button data-v="chart" title="Every address at the same chart time: the description all observers agree on once every record is collected">Chart description</button>
+      </div>
+      <div class="seg" id="sourceSeg">
+        <button data-v="law" class="on">Law</button>
+        <button data-v="continuum">Continuum limit</button>
+        <button data-v="difference">Law − continuum ×20</button>
+      </div>
+      <div class="row">Point size <input id="size" type="range" min="2" max="16" step="0.5" value="8"></div>
+      <div class="row">Glow <input id="gain" type="range" min="0.05" max="1.5" step="0.01" value="0.8"></div>
+      <div class="row"><label><input id="spin" type="checkbox" checked> Rotate</label></div>
+    </section>
+    <section>
+      <h2>Plane through A</h2>
+      <canvas id="slice" class="panel" width="560" height="560"></canvas>
+      <p class="note" id="sliceNote"></p>
+    </section>
+    <section>
+      <h2>Readings in A's records</h2>
+      <canvas id="series" class="panel" width="560" height="300"></canvas>
+      <p class="note">Solid: the law's readings at A and at two corner stations, drawn up to the latest one A has received. Dashed: the continuum forecast.</p>
+    </section>
+    <section>
+      <h2>Law against continuum</h2>
+      <div id="convergence"></div>
+    </section>
+    <section>
+      <h2>What this shows</h2>
+      <p class="note" id="explain"></p>
+      <div class="kv" id="meta"></div>
+    </section>
+  </aside>
+</main>
+<footer>
+  <button id="play">Pause</button>
+  <input id="time" type="range" min="0" max="1000" value="0">
+  <div id="clock"></div>
+</footer>
+<script>
+"use strict";
+const EMBEDDED = /*EMBEDDED_RUNS*/[];
+const $ = id => document.getElementById(id);
+const C_SIGNAL = 0.5;
+const state = { runs: [], run: null, frame: "observer", source: "law", playing: true, t: 0,
+  yaw: 0.7, pitch: 0.42, dist: 2.25, last: performance.now() };
+
+// ---------- decoding ----------
+async function inflate(bytes, format) {
+  const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream(format));
+  return new Uint8Array(await new Response(stream).arrayBuffer());
+}
+const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+async function unpack(block) {
+  const raw = await inflate(b64(block.zlib_base64), "deflate");
+  const Types = { int8: Int8Array, float32: Float32Array, float64: Float64Array };
+  return new Types[block.dtype](raw.buffer, raw.byteOffset, raw.byteLength / Types[block.dtype].BYTES_PER_ELEMENT);
+}
+async function openRun(bytes, label) {
+  let text;
+  try { text = new TextDecoder().decode(await inflate(bytes, "gzip")); }
+  catch (e) { text = new TextDecoder().decode(bytes); }
+  const doc = JSON.parse(text);
+  if (doc.format !== "oph-simulator-run/1") throw new Error("unknown run format " + doc.format);
+  if (doc.kind === "field3d") await prepareField(doc);
+  doc.label = label ? `${doc.title} (${label})` : doc.title;
+  state.runs.push(doc);
+  const option = new Option(doc.label, state.runs.length - 1);
+  $("runPicker").add(option);
+  $("runPicker").value = state.runs.length - 1;
+  select(doc);
+}
+
+// ---------- field runs ----------
+async function prepareField(doc) {
+  const N = doc.carrier.size;
+  doc.N = N; doc.N3 = N * N * N; doc.h = 1 / N;
+  doc.F = doc.frames.shape[0];
+  doc.values = await unpack(doc.frames);
+  doc.pos = new Float32Array(doc.N3 * 3);
+  doc.r = new Float32Array(doc.N3);
+  doc.spatial = doc.preparation.modes.map(() => new Float32Array(doc.N3));
+  doc.omega = doc.preparation.modes.map(([a, k]) => 0.5 * Math.hypot(2 * Math.PI * Math.hypot(...k), doc.continuum.Q));
+  let i = 0, norm = 0;
+  for (let x = 0; x < N; x++) for (let y = 0; y < N; y++) for (let z = 0; z < N; z++, i++) {
+    const cx = x / N, cy = y / N, cz = z / N;
+    doc.pos.set([cx - 0.5, cz - 0.5, cy - 0.5], 3 * i);
+    doc.r[i] = Math.hypot(cx - 0.5, cy - 0.5, cz - 0.5);
+    let v = 0;
+    doc.preparation.modes.forEach(([a, k], j) => {
+      const s = Math.cos(2 * Math.PI * (k[0] * cx + k[1] * cy + k[2] * cz));
+      doc.spatial[j][i] = s; v += a * s;
+    });
+    norm = Math.max(norm, Math.abs(v));
+  }
+  doc.norm = norm;
+  doc.amps = doc.preparation.modes.map(([a]) => a / norm);
+  doc.current = new Float32Array(doc.N3);
+}
+function continuumAt(doc, i, t) {
+  let v = 0;
+  for (let j = 0; j < doc.amps.length; j++) v += doc.amps[j] * Math.cos(doc.omega[j] * t) * doc.spatial[j][i];
+  return v;
+}
+function lawAt(doc, i, t) {
+  const f = Math.min(doc.F - 1, Math.max(0, Math.round(t / doc.h)));
+  return doc.values[f * doc.N3 + i] / 127;
+}
+const UNKNOWN = 9;
+function valueAt(doc, i, t) {
+  const emitted = state.frame === "observer" ? t - doc.r[i] / C_SIGNAL : t;
+  if (emitted < -1e-9) return UNKNOWN;
+  if (state.source === "law") return lawAt(doc, i, emitted);
+  if (state.source === "continuum") return continuumAt(doc, i, emitted);
+  return 20 * (lawAt(doc, i, emitted) - continuumAt(doc, i, emitted));
+}
+
+// ---------- WebGL ----------
+const canvas = $("gl");
+const gl = canvas.getContext("webgl", { antialias: true, premultipliedAlpha: false });
+function shader(type, src) {
+  const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
+  if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+  return s;
+}
+function program(vs, fs) {
+  const p = gl.createProgram();
+  gl.attachShader(p, shader(gl.VERTEX_SHADER, vs)); gl.attachShader(p, shader(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(p);
+  if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
+  return p;
+}
+const pointProg = program(`
+attribute vec3 aPos; attribute float aVal;
+uniform mat4 uMVP; uniform float uSize; uniform float uPixel;
+varying float vVal;
+void main() {
+  vec4 p = uMVP * vec4(aPos, 1.0);
+  gl_Position = p; vVal = aVal;
+  float a = aVal > 5.0 ? 0.0 : min(abs(aVal), 1.0);
+  float s = aVal > 5.0 ? 0.55 * uSize : uSize * (0.3 + 1.5 * a);
+  gl_PointSize = max(1.0, s * uPixel / p.w);
+}`, `
+precision mediump float;
+varying float vVal; uniform float uGain;
+void main() {
+  vec2 d = gl_PointCoord - 0.5; float r = length(d);
+  if (r > 0.5) discard;
+  float fall = smoothstep(0.5, 0.05, r);
+  if (vVal > 5.0) { gl_FragColor = vec4(vec3(0.23, 0.28, 0.33) * 0.16 * fall, 1.0); return; }
+  float a = min(abs(vVal), 1.0);
+  vec3 base = vVal >= 0.0 ? vec3(1.0, 0.62, 0.20) : vec3(0.18, 0.58, 1.0);
+  vec3 col = mix(base, vec3(1.0), 0.45 * a * a);
+  gl_FragColor = vec4(col * pow(a, 1.7) * fall * uGain * 1.5, 1.0);
+}`);
+const lineProg = program(`
+attribute vec3 aPos; uniform mat4 uMVP;
+void main() { gl_Position = uMVP * vec4(aPos, 1.0); }`, `
+precision mediump float; uniform vec4 uColor;
+void main() { gl_FragColor = uColor; }`);
+const posBuf = gl.createBuffer(), valBuf = gl.createBuffer(), lineBuf = gl.createBuffer();
+
+function mat4mul(a, b) {
+  const o = new Float32Array(16);
+  for (let c = 0; c < 4; c++) for (let r = 0; r < 4; r++) {
+    let s = 0; for (let k = 0; k < 4; k++) s += a[k * 4 + r] * b[c * 4 + k]; o[c * 4 + r] = s;
+  }
+  return o;
+}
+function perspective(fov, aspect, near, far) {
+  const f = 1 / Math.tan(fov / 2), nf = 1 / (near - far);
+  return new Float32Array([f / aspect, 0, 0, 0, 0, f, 0, 0, 0, 0, (far + near) * nf, -1, 0, 0, 2 * far * near * nf, 0]);
+}
+function lookAt(eye) {
+  const f = norm3([-eye[0], -eye[1], -eye[2]]), s = norm3(cross(f, [0, 1, 0])), u = cross(s, f);
+  return new Float32Array([s[0], u[0], -f[0], 0, s[1], u[1], -f[1], 0, s[2], u[2], -f[2], 0,
+    -dot(s, eye), -dot(u, eye), dot(f, eye), 1]);
+}
+const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+const norm3 = a => { const l = Math.hypot(...a); return [a[0] / l, a[1] / l, a[2] / l]; };
+
+function lineGeometry(doc, t) {
+  const L = [], e = 0.5;
+  const corners = [[-e,-e,-e],[e,-e,-e],[e,e,-e],[-e,e,-e],[-e,-e,e],[e,-e,e],[e,e,e],[-e,e,e]];
+  [[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]].forEach(([a, b]) => L.push(...corners[a], ...corners[b]));
+  const box = L.length / 3;
+  const R = C_SIGNAL * t, M = 96;
+  if (state.frame === "observer" && R < 0.88) {
+    for (const plane of [[0, 1], [0, 2], [1, 2]]) for (let k = 0; k < M; k++) {
+      for (const kk of [k, k + 1]) {
+        const p = [0, 0, 0], a = 2 * Math.PI * kk / M;
+        p[plane[0]] = R * Math.cos(a); p[plane[1]] = R * Math.sin(a); L.push(...p);
+      }
+    }
+  }
+  const horizon = L.length / 3 - box;
+  for (const s of doc.stations) {
+    const p = [s[0] / doc.N - 0.5, s[2] / doc.N - 0.5, s[1] / doc.N - 0.5], d = 0.018;
+    for (let ax = 0; ax < 3; ax++) { const a = p.slice(), b = p.slice(); a[ax] -= d; b[ax] += d; L.push(...a, ...b); }
+  }
+  const stations = L.length / 3 - box - horizon;
+  return { data: new Float32Array(L), box, horizon, stations };
+}
+
+function resize() {
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
+    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+  }
+}
+
+function drawField(doc) {
+  resize();
+  gl.viewport(0, 0, canvas.width, canvas.height);
+  gl.clearColor(0.02, 0.03, 0.047, 1); gl.clear(gl.COLOR_BUFFER_BIT);
+  const eye = [state.dist * Math.cos(state.pitch) * Math.sin(state.yaw), state.dist * Math.sin(state.pitch),
+    state.dist * Math.cos(state.pitch) * Math.cos(state.yaw)];
+  const mvp = mat4mul(perspective(0.78, canvas.width / canvas.height, 0.05, 20), lookAt(eye));
+  for (let i = 0; i < doc.N3; i++) doc.current[i] = valueAt(doc, i, state.t);
+  gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE); gl.disable(gl.DEPTH_TEST);
+  gl.useProgram(pointProg);
+  gl.bindBuffer(gl.ARRAY_BUFFER, posBuf);
+  if (posBuf.owner !== doc) { gl.bufferData(gl.ARRAY_BUFFER, doc.pos, gl.STATIC_DRAW); posBuf.owner = doc; }
+  let loc = gl.getAttribLocation(pointProg, "aPos"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 3, gl.FLOAT, false, 0, 0);
+  gl.bindBuffer(gl.ARRAY_BUFFER, valBuf); gl.bufferData(gl.ARRAY_BUFFER, doc.current, gl.DYNAMIC_DRAW);
+  loc = gl.getAttribLocation(pointProg, "aVal"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 1, gl.FLOAT, false, 0, 0);
+  gl.uniformMatrix4fv(gl.getUniformLocation(pointProg, "uMVP"), false, mvp);
+  gl.uniform1f(gl.getUniformLocation(pointProg, "uSize"), +$("size").value * 32 / doc.N);
+  gl.uniform1f(gl.getUniformLocation(pointProg, "uPixel"), canvas.height / 520);
+  gl.uniform1f(gl.getUniformLocation(pointProg, "uGain"), +$("gain").value);
+  gl.drawArrays(gl.POINTS, 0, doc.N3);
+  gl.disableVertexAttribArray(gl.getAttribLocation(pointProg, "aVal"));
+  const lines = lineGeometry(doc, state.t);
+  gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+  gl.useProgram(lineProg);
+  gl.bindBuffer(gl.ARRAY_BUFFER, lineBuf); gl.bufferData(gl.ARRAY_BUFFER, lines.data, gl.DYNAMIC_DRAW);
+  loc = gl.getAttribLocation(lineProg, "aPos"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 3, gl.FLOAT, false, 0, 0);
+  gl.uniformMatrix4fv(gl.getUniformLocation(lineProg, "uMVP"), false, mvp);
+  const color = gl.getUniformLocation(lineProg, "uColor");
+  gl.uniform4f(color, 0.45, 0.58, 0.66, 0.35); gl.drawArrays(gl.LINES, 0, lines.box);
+  gl.uniform4f(color, 0.29, 0.95, 0.95, 0.75); gl.drawArrays(gl.LINES, lines.box, lines.horizon);
+  gl.uniform4f(color, 0.29, 0.95, 0.95, 0.95); gl.drawArrays(gl.LINES, lines.box + lines.horizon, lines.stations);
+}
+
+// ---------- 2D panels ----------
+function colour(v) {
+  if (v === UNKNOWN) return [16, 21, 27];
+  const a = Math.min(1, Math.abs(v)), base = v >= 0 ? [255, 158, 52] : [46, 148, 255];
+  const k = Math.pow(a, 0.85), w = 0.45 * a * a;
+  return base.map(c => Math.round((c * (1 - w) + 255 * w) * k + 7 * (1 - k)));
+}
+function drawSlice(doc) {
+  const cv = $("slice"), ctx = cv.getContext("2d");
+  const fine = state.source === "continuum";
+  const M = fine ? 140 : doc.N, img = ctx.createImageData(M, M);
+  const zc = Math.floor(doc.N / 2);
+  for (let a = 0; a < M; a++) for (let b = 0; b < M; b++) {
+    let v;
+    if (fine) {
+      const cx = a / M, cy = b / M, r = Math.hypot(cx - 0.5, cy - 0.5);
+      const emitted = state.frame === "observer" ? state.t - r / C_SIGNAL : state.t;
+      if (emitted < 0) v = UNKNOWN;
+      else {
+        v = 0;
+        doc.preparation.modes.forEach(([amp, k], j) => {
+          v += doc.amps[j] * Math.cos(doc.omega[j] * emitted) * Math.cos(2 * Math.PI * (k[0] * cx + k[1] * cy + k[2] * 0.5));
+        });
+      }
+    } else {
+      v = doc.current[(a * doc.N + b) * doc.N + zc];
+    }
+    const [r, g, bl] = colour(v), o = 4 * ((M - 1 - b) * M + a);
+    img.data[o] = r; img.data[o + 1] = g; img.data[o + 2] = bl; img.data[o + 3] = 255;
+  }
+  const off = document.createElement("canvas"); off.width = M; off.height = M;
+  off.getContext("2d").putImageData(img, 0, 0);
+  ctx.imageSmoothingEnabled = fine;
+  ctx.clearRect(0, 0, cv.width, cv.height);
+  ctx.drawImage(off, 0, 0, cv.width, cv.height);
+  const R = C_SIGNAL * state.t * cv.width;
+  ctx.strokeStyle = "rgba(74,241,242,.9)"; ctx.lineWidth = 2;
+  if (state.frame === "observer" && R < cv.width) { ctx.beginPath(); ctx.arc(cv.width / 2, cv.height / 2, R, 0, 2 * Math.PI); ctx.stroke(); }
+  ctx.fillStyle = "#4af1f2"; ctx.beginPath(); ctx.arc(cv.width / 2, cv.height / 2, 6, 0, 2 * Math.PI); ctx.fill();
+  ctx.font = "22px " + getComputedStyle(document.body).getPropertyValue("--mono"); ctx.fillText("A", cv.width / 2 + 10, cv.height / 2 - 10);
+  $("sliceNote").textContent = fine
+    ? "The continuum limit evaluated on a fine grid: a smooth field." + (state.frame === "observer" ? " Inside the circle A holds records; outside it A holds no record." : "")
+    : `The law's ${doc.N} × ${doc.N} addresses in this plane, one value per address.` + (state.frame === "observer" ? " Inside the circle A holds records." : "");
+}
+function drawSeries(doc) {
+  const cv = $("series"), ctx = cv.getContext("2d"), W = cv.width, H = cv.height, pad = 34;
+  ctx.clearRect(0, 0, W, H);
+  const T = doc.chart_time, X = t => pad + (W - pad - 10) * t / T, Y = v => H / 2 - (H / 2 - 16) * v;
+  ctx.strokeStyle = "#1f2c37"; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(pad, Y(0)); ctx.lineTo(W - 10, Y(0)); ctx.stroke();
+  ctx.fillStyle = "#8397a6"; ctx.font = "18px " + getComputedStyle(document.body).getPropertyValue("--mono");
+  ctx.fillText("+1", 2, Y(1) + 6); ctx.fillText("−1", 2, Y(-1)); ctx.fillText("chart time of emission →", pad, H - 4);
+  const picks = [[0, "#4af1f2"], [1, "#ffb04a"], [8, "#c38bff"]];
+  for (const [j, col] of picks) {
+    const s = doc.stations[j], r = Math.hypot(s[0] / doc.N - 0.5, s[1] / doc.N - 0.5, s[2] / doc.N - 0.5);
+    const limit = state.frame === "observer" ? state.t - r / C_SIGNAL : state.t;
+    ctx.setLineDash([6, 6]); ctx.strokeStyle = col + "66"; ctx.lineWidth = 1.5; ctx.beginPath();
+    doc.station_continuum.forEach((row, n) => { const t = n * doc.h; n ? ctx.lineTo(X(t), Y(row[j])) : ctx.moveTo(X(t), Y(row[j])); });
+    ctx.stroke(); ctx.setLineDash([]);
+    if (limit < 0) continue;
+    ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.beginPath();
+    let started = false;
+    doc.station_law.forEach((row, n) => {
+      const t = n * doc.h; if (t > limit + 1e-9) return;
+      started ? ctx.lineTo(X(t), Y(row[j])) : ctx.moveTo(X(t), Y(row[j])); started = true;
+    });
+    ctx.stroke();
+  }
+  ctx.fillStyle = "#8397a6"; ctx.fillText("A", W - 120, 22); ctx.fillStyle = "#ffb04a"; ctx.fillText("corner 1", W - 96, 22);
+  ctx.fillStyle = "#c38bff"; ctx.fillText("8", W - 20, 22);
+}
+
+// ---------- panels ----------
+function esc(s) { return String(s).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]); }
+function lawPanel(doc) {
+  const l = doc.law, lam = l.equal_phase;
+  $("law").innerHTML = `<div class="law-title">${esc(l.title)}</div>
+    <span class="badge status-${esc(l.status)}">${esc(l.status)}</span><span class="badge" style="color:var(--muted)">${esc(l.access)}</span>
+    <div class="kv"><span>equal-slot phase λ</span><b>${lam[0].toFixed(4)} ${lam[1] >= 0 ? "+" : "−"} ${Math.abs(lam[1]).toFixed(4)}i</b>
+    <span>encounter phase χ</span><b>${l.encounter_phase.toFixed(4)} rad</b></div>
+    <p class="note">${esc(l.note)}</p>`;
+}
+function fieldPanels(doc) {
+  const rows = doc.convergence.map((c, k) => {
+    const prev = doc.convergence[k - 1];
+    const order = prev ? Math.log(prev.max_error / c.max_error) / Math.log(c.size / prev.size) : null;
+    return `<tr><td>N = ${c.size}</td><td>${c.max_error.toFixed(5)}</td><td>${order ? order.toFixed(2) : ""}</td></tr>`;
+  }).join("");
+  $("convergence").innerHTML = `<table><tr><th>Carrier</th><th>largest |law − continuum|</th><th>order</th></tr>${rows}</table>
+    <p class="note">Deviation of the law's field from the Klein–Gordon solution, relative to the largest initial value, over chart times 0 to ${doc.chart_time}. Order 2 means the error falls by four when the resolution doubles.</p>`;
+  const p = doc.provenance;
+  $("explain").innerHTML = `The law runs on a carrier of ${doc.N}<sup>3</sup> addresses with a private register in sector Q = 2π·${doc.carrier.private_order}. A field pattern is released at rest. Each point is the scalar field the observers' interferometers read at one address. Observer A sits at the centre. A signal travels at c = 1/2 chart units per chart time, so the picture A holds at its clock time t shows each address as it was at t − r/c. Points that no record has reached are grey. The chart description shows every address at the same chart time: the effective description all observers agree on once every record is collected.`;
+  $("meta").innerHTML = `<span>equation</span><b>${esc(doc.continuum.equation)}</b>
+    <span>signal speed c</span><b>1/2</b><span>rest frequency</span><b>|Q|/2 = ${doc.continuum.rest_angular_frequency.toFixed(4)}</b>
+    <span>updates</span><b>${doc.updates} (h = 1/${doc.N})</b><span>computed</span><b>${esc(p.created)} · ${p.seconds} s</b>
+    <span>engine</span><b>Python ${esc(p.python)} · NumPy ${esc(p.numpy)} · ${esc(p.machine)}</b>`;
+}
+function journeysView(doc) {
+  const rows = doc.journeys.map(j => `<tr><td>(${j.route.join(", ")})</td><td>${j.reunion}</td><td>${j.speed.toFixed(5)}</td><td>${j.forecast.toFixed(5)}</td><td>${j.beat_ratio.toFixed(5)}</td><td>${j.optical_ratio.toFixed(5)}</td></tr>`).join("");
+  const bars = doc.journeys.map(j => {
+    const X = v => `${(v - 0.5) / 0.3 * 100}%`;
+    return `<div><div class="row" style="margin-bottom:4px">route (${j.route.join(", ")})</div><div class="bar">
+      <span style="left:${X(j.forecast - 0.035)};width:${0.07 / 0.3 * 100}%;background:#12303a"></span>
+      <em style="left:${X(j.forecast)}"></em>
+      <em style="left:${X(j.beat_ratio)};background:var(--warm);width:4px"></em>
+      <em style="left:${X(j.optical_ratio)};background:var(--accent);width:4px"></em></div></div>`;
+  }).join("");
+  $("journeys").innerHTML = `<h3>${esc(doc.title)}</h3>
+    <p>Each clock's advance on the journey divided by its stationary twin's advance over the same home ticks, read at home at reunion. The forecast is the flat metric with the speed from the beat clock's own envelope and the archived reference speed. The shaded band is the registered ±0.035. White: forecast. Amber: beat clock. Cyan: optical clock.</p>
+    <table style="max-width:760px"><tr><th>route</th><th>reunion</th><th>speed</th><th>forecast</th><th>beat</th><th>optical</th></tr>${rows}</table>
+    <div class="bars">${bars}</div>`;
+}
+
+function select(doc) {
+  state.run = doc; state.t = 0;
+  $("runPicker").value = state.runs.indexOf(doc);
+  $("empty").style.display = "none";
+  lawPanel(doc);
+  const field = doc.kind === "field3d";
+  $("journeys").style.display = field ? "none" : "block";
+  $("gl").style.visibility = field ? "visible" : "hidden";
+  for (const id of ["legend", "hud"]) $(id).style.display = field ? "" : "none";
+  for (const id of ["viewCard"]) $(id).style.display = field ? "" : "none";
+  document.querySelectorAll("aside section").forEach((s, k) => { if (k > 1) s.style.display = field ? "" : "none"; });
+  if (field) fieldPanels(doc); else journeysView(doc);
+}
+
+// ---------- loop ----------
+function frame(now) {
+  const doc = state.run, dt = Math.min(0.1, (now - state.last) / 1000);
+  state.last = now;
+  if (doc && doc.kind === "field3d") {
+    if (state.playing) {
+      state.t += dt * 0.32;
+      if (state.t > doc.chart_time) state.t = 0;
+      $("time").value = Math.round(1000 * state.t / doc.chart_time);
+    }
+    if ($("spin").checked) state.yaw += dt * 0.12;
+    drawField(doc); drawSlice(doc); drawSeries(doc);
+    const n = Math.round(state.t / doc.h), R = C_SIGNAL * state.t;
+    $("clock").innerHTML = `A's clock t = <b>${state.t.toFixed(3)}</b> <small>chart units · ${n} of ${doc.updates} updates</small>`;
+    $("hud").innerHTML = `<b>${state.frame === "observer" ? "Observer A's records" : "Chart description (audit)"}</b> · ${({ law: "the law", continuum: "the continuum limit", difference: "law − continuum, ×20" })[state.source]}<br>` +
+      (state.frame === "observer" ? (R < 0.87 ? `record horizon r = c·t = ${R.toFixed(3)}` : "every address has reached A") : "all addresses at one chart time");
+  }
+  requestAnimationFrame(frame);
+}
+
+// ---------- controls ----------
+function segment(id, key) {
+  $(id).addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    state[key] = b.dataset.v;
+    $(id).querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b));
+  });
+}
+segment("frameSeg", "frame"); segment("sourceSeg", "source");
+$("play").onclick = () => { state.playing = !state.playing; $("play").textContent = state.playing ? "Pause" : "Play"; };
+$("time").oninput = e => { if (state.run && state.run.chart_time) { state.t = state.run.chart_time * e.target.value / 1000; } };
+$("runPicker").onchange = e => select(state.runs[+e.target.value]);
+$("file").onchange = async e => { const f = e.target.files[0]; if (f) await openRun(new Uint8Array(await f.arrayBuffer()), f.name); };
+let drag = null;
+canvas.addEventListener("pointerdown", e => { drag = [e.clientX, e.clientY]; canvas.setPointerCapture(e.pointerId); });
+canvas.addEventListener("pointermove", e => {
+  if (!drag) return;
+  state.yaw -= (e.clientX - drag[0]) * 0.006; state.pitch = Math.max(-1.4, Math.min(1.4, state.pitch + (e.clientY - drag[1]) * 0.006));
+  drag = [e.clientX, e.clientY];
+});
+canvas.addEventListener("pointerup", () => { drag = null; });
+canvas.addEventListener("wheel", e => { e.preventDefault(); state.dist = Math.max(0.9, Math.min(5, state.dist * Math.exp(e.deltaY * 0.001))); }, { passive: false });
+const stage = $("stage");
+stage.addEventListener("dragover", e => { e.preventDefault(); $("drop").style.display = "flex"; });
+stage.addEventListener("dragleave", () => { $("drop").style.display = "none"; });
+stage.addEventListener("drop", async e => {
+  e.preventDefault(); $("drop").style.display = "none";
+  for (const f of e.dataTransfer.files) await openRun(new Uint8Array(await f.arrayBuffer()), f.name);
+});
+(async () => {
+  for (const s of EMBEDDED) await openRun(b64(s));
+  // Optional view in the address: #run=0&t=1.2&frame=chart&source=continuum&play=0&spin=0
+  const view = new URLSearchParams(location.hash.slice(1));
+  if (state.runs.length) select(state.runs[Math.min(state.runs.length - 1, +(view.get("run") || 0))]);
+  const press = (seg, v) => { const b = $(seg).querySelector(`button[data-v="${v}"]`); if (b) b.click(); };
+  if (view.get("frame")) press("frameSeg", view.get("frame"));
+  if (view.get("source")) press("sourceSeg", view.get("source"));
+  if (view.get("play") === "0") $("play").click();
+  if (view.get("spin") === "0") $("spin").checked = false;
+  if (view.get("t") && state.run && state.run.chart_time) {
+    state.t = Math.min(+view.get("t"), state.run.chart_time);
+    $("time").value = Math.round(1000 * state.t / state.run.chart_time);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

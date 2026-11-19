@@ -250,3 +250,96 @@ enters the inhabitants' causal geometry.
    variants.
 4. The moving-clock and channel tests on the contrast-memory law and the
    scalar channel of polynomial-sv.
+
+## Step 3. Two clocks on the same journey
+
+Experiments run on 20 November 2026.
+[Report](second-clock/report.md) ·
+[Comparison figure](second-clock/figures/clock-comparison.svg)
+
+**Question.** Step 1 calibrated one smooth scalar metric on the
+reflected-routing law with a single clock. Does that metric predict how much
+two differently built clocks slow down on the same journeys, and when a
+freshly launched signal returns? This is stage 2 of the
+[plan](PLAN.md#experiments-in-dependency-order).
+
+### What was found
+
+**Two clocks, one forecast.** The beat clock is the private-mode doublet of
+step 1. The optical clock tells time by a localized pulse circulating around
+the third spatial direction, read on a ring of detectors; it has no private
+beat and no external phase reference. The same eight-slot update moves both,
+and no update multiplies a clock rate by a relativistic factor. Velocity came
+from independent records of the first clock's envelope, and each clock's rest
+advance came from its own stationary calibration. The forecasts were sealed
+before either moving clock was read.
+[Report section](second-clock/report.md#what-traveled-and-what-was-read)
+
+| Route and preparation | Sealed ratio | Beat clock | Optical clock | Fresh signal, forecast → observed home ticks |
+| --- | ---: | ---: | ---: | ---: |
+| Axial | 0.71128 | 0.71150 | 0.70923 | 1025.33 → 1030.01 |
+| Forward diagonal | 0.58025 | 0.58123 | 0.57961 | 1450.04 → 1453.57 |
+| Reversed diagonal, translated laboratory | 0.58026 | 0.58174 | 0.57959 | 1450.04 → 1453.18 |
+| Mixed-sign diagonal, wider momentum band | 0.58178 | 0.58029 | 0.57967 | 1450.04 → 1454.44 |
+| Same, twice the spatial resolution | 0.58060 | 0.57915 | 0.57848 | 2900.08 → 2903.28 |
+
+All ten clock readings lie inside the registered band of ±0.035 with three
+counting standard errors on either side. The fresh signal arrived within
+0.11–0.46% of its forecast. Both clocks lost their readings in all five
+phase-randomized controls.
+[Report section](second-clock/report.md#forecasts-and-results)
+
+**A small systematic offset.** The optical clock read below the point
+forecast on every route, by 0.00065–0.00212, which exceeds its counting
+uncertainty. A post-hoc check inserted the optical envelope's own measured
+speed into the unchanged metric; the axial residual shrank from −0.002056 to
+−0.000247, and the five residuals fell to magnitudes of 0.00025–0.00087.
+Finite pulse width and slightly different envelope speeds are the candidate
+causes; the experiment did not separate them.
+
+**Two follow-ups.** Local four-aperture readers sampled the beat clock at
+20,738 clock appointments and found zero hidden whole turns, with a largest
+phase difference of 0.00936 radians from the signed-return reading. Two
+stationary laboratories then exchanged roles: A launched and B read, then B
+launched and A read, each receiver returning its stamped result to the
+sender. All four peer readings passed (A to B: 0.58353 beat, 0.58102 optical
+against 0.58025; B to A: 0.58339 and 0.58107 against 0.58026). The records
+and scores reproduced byte for byte.
+[Report section](second-clock/report.md#two-additional-checks)
+
+### Standing of the law classes
+
+| Class | Defining feature | Standing | Deciding records |
+| --- | --- | --- | --- |
+| Reflected routing with field-only messages | As in step 2. | **Survives** stage 2 for free-field clocks | Ten clock readings and five fresh signals within their registered bands on five routes; four peer readings with exchanged roles. |
+| Reflected routing with an inhabitant-accessible relay | As in step 2. | **Excluded** as a law with one universal causal speed | The step-2 race is unaffected by the clock result. |
+| Encounter-phase variants | As in step 1. | **Undecided** | Both clocks and the signal use one excitation each. |
+
+### What the step means for the search
+
+On these prepared journeys the smooth relativistic metric describes two
+different clock readouts and a fresh signal to the tested accuracy. The two
+clocks share one free propagation law. The gate is symmetric under exchange
+of a spatial momentum with the private momentum, and the optical pulse speed
+and the private beat probe the same dispersion from two directions, so their
+agreement tests one dispersion relation through two independent records. It
+does not test whether matter held together by an interaction keeps the same
+time.
+
+That is the next material test: a clock sustained by an interaction, with its
+own rest calibration, read on the same held-out routes. A clock of that kind
+needs two excitations that interact. In the member of the family with zero
+encounter phase two excitations propagate independently and bind nothing, so
+the test runs on the encounter-phase variants and can separate them. It
+joins stage 2 and the two-particle test of stage 3.
+
+### Handed to the following steps
+
+1. A clock sustained by an interaction, its rest line recovered locally, its
+   unopened reading predicted on the five routes of this step.
+2. The two-particle interference experiment for the encounter-phase
+   variants.
+3. A bounded autonomous candidate that assigns an owner to every send,
+   trigger and return operation, with the channel race of step 2 rerun on it.
+4. The moving-clock and channel tests on the contrast-memory law and the
+   scalar channel of polynomial-sv.

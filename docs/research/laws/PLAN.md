@@ -47,6 +47,13 @@ fixed marker carries every bit through its launch time. The scalar cone of
 that apparatus is no universal causal limit for such inhabitants.
 [Journal, step 2](JOURNAL.md#step-2-a-race-between-the-addressed-relay-and-the-free-wave)
 
+**Step 3.** On five journeys of the same law one calibrated metric predicts
+two differently built clocks, a private-mode beat and an optical pulse on a
+transverse ring, and the return of a fresh signal. Both clocks share one free
+propagation law, so the result says nothing about clocks bound by an
+interaction.
+[Journal, step 3](JOURNAL.md#step-3-two-clocks-on-the-same-journey)
+
 ## Communication access
 
 A candidate that claims one causal speed accounts for which inhabitants can
@@ -99,6 +106,12 @@ reconstructed by an analyst is a different result from a matrix delivered to
 a single observer.
 
 ## The next experiment
+
+Two experiments come next. The first is material: a clock sustained by an
+interaction, with its own rest calibration, read on the held-out routes of
+step 3. It needs two interacting excitations, so it runs on the
+encounter-phase variants of the reflected-routing law and joins the
+two-particle test of stage 3. The second concerns access.
 
 Take a bounded autonomous candidate that assigns an owner to every send,
 trigger and return operation after the start. Give a sender a fresh local bit
