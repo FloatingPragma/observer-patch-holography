@@ -152,6 +152,8 @@ def run(spec,base):
                     [reads[n,ell] for n,ell in ((1,0),(1,1),(number,0),(number,1))])
     result['conversion_gates'] = {k:(max(v)>=16 if '_active_' in k else max(v)==0)
                                   for k,v in result['conversion'].items()}
+    result['rest_inertia'] = {key:instrument.rest_inertia_verdict(row,base)
+                              for key,row in result['mass_response'].items()}
     return raw,clean(result)
 
 

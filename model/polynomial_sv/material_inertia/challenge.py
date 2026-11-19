@@ -96,12 +96,16 @@ def prediction_stage(root,spec,base,kappa,offset,record):
 
 
 def score(interval,predicted,precision):
+    plo,phi = predicted
+    instrument.require_positive_order(plo,phi)
+    require(not isinstance(precision,(bool,np.bool_)) and np.isfinite(precision) and precision>=0,
+            'invalid forecast precision')
     if interval is None:
         return 'unresolved'
-    _,low,high = interval
+    low,high = instrument.positive_interval(interval)
     if high/low-1 > 2*precision:
         return 'unresolved'
-    return 'excluded' if high<predicted[0] or low>predicted[1] else 'compatible'
+    return 'excluded' if high<plo or low>phi else 'compatible'
 
 
 def main():

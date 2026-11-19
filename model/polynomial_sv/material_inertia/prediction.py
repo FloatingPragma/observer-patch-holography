@@ -47,10 +47,16 @@ def infer(clock, binding, size, apparatus, numbers):
 
 def native_transport_bound(chemical, size, n, tick, rate, apparatus, shots):
     """Finite-ring TV enclosure from the chemistry inbox alone (see polynomial_sv/PROOF.md)."""
+    if not (2 <= n and 2*n < size and tick >= 0 and shots > 0):
+        raise ValueError('flight outside the finite-ring bound domain')
     low,high = chemical['anisotropy']
+    if not (1 < low <= high and math.isfinite(high)):
+        raise ValueError('invalid attractive branch interval')
+    if low <= 2:
+        return 1.
     rho = 2/(low+math.sqrt(low*low-1))
     tail = rho**(size-n)
-    if low <= 2 or (n-1)*tail >= 1:
+    if (n-1)*tail >= 1:
         return 1.
     residual = math.sqrt(math.comb(size,n)/size)*n*(high+rho)*tail/(1-(n-1)*tail)
     if residual >= low-2:

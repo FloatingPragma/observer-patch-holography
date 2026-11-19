@@ -91,6 +91,60 @@ def test_native_local_memory_and_full_qutrit_embedding():
     np.testing.assert_allclose(bare[np.ix_(order,order)],qutrit.hamiltonian(8))
 
 
+def test_spectral_measure_requires_a_hermitian_generator_and_isometric_frame():
+    from scipy.sparse import eye
+    ring = Ring.build(7,3)
+    frame = ring.frame(1)
+    H = ring.hamiltonian('contrast',8)
+    spectral_measure(H,frame)
+    # An imaginary scalar commutes with every translation and leaks no sector.
+    with pytest.raises(ValueError,match='Hermitian'):
+        spectral_measure(H+1j*eye(len(ring.states)),frame)
+    # Even an invariant zero generator cannot certify a scaled or duplicated frame.
+    with pytest.raises(ValueError,match='isometric'):
+        spectral_measure(0*H,2*frame)
+
+
+def test_registered_position_counts_from_full_coordinate_space():
+    # Reconstruct the two- and three-load flights without the source's orbit
+    # basis, momentum blocks, Fourier readout or phase-interval reader.
+    spec = load(HERE/'flight_protocol.json')
+    base = load(HERE/'protocol.json')
+    results = load(HERE/'records/flight/result.json')
+    size = spec['size']
+    kappa,_ = challenge.challenge_inputs()
+    delta = 1+2*kappa
+    pair_rest = (5+1/delta)/3
+    assisted_hop = (1/pair_rest-1/(2*delta))/(2*(1-1/delta**2))
+    with np.load(HERE/'records/flight/counts.npz',allow_pickle=False) as counts:
+        for n in (2,3):
+            states = [frozenset(s) for s in combinations(range(size),n)]
+            index = {s:i for i,s in enumerate(states)}
+            ports = [index[frozenset((j+d)%size for d in range(n))] for j in range(size)]
+            native = np.zeros((len(states),len(states)))
+            assisted = np.zeros_like(native)
+            for col,s in enumerate(states):
+                native[col,col] = 4*kappa*n
+                for x in s:
+                    for step in (-1,1):
+                        y,z = (x+step)%size,(x+2*step)%size
+                        if y not in s:
+                            native[col,col] += kappa+0.5
+                            native[index[s-{x}|{y}],col] -= 0.5
+                        elif z not in s:
+                            assisted[col,col] += assisted_hop
+                            assisted[index[s-{x}|{z}],col] -= assisted_hop
+            for member,H in [('contrast',native),('assisted',native+assisted)]:
+                key = f'{member}_{n}'
+                energies,vectors = np.linalg.eigh(H)
+                overlaps = vectors[ports]*vectors[ports[spec['starting_port']]]
+                for tick,recorded in zip(results[key]['ticks'],counts[key],strict=True):
+                    phases = np.exp(-1j*(energies-energies[0])*(tick/base['tick_divisor']))
+                    p = abs(overlaps@phases)**2
+                    edges = np.r_[0,np.floor(spec['shots']*np.cumsum(p)+0.5),spec['shots']]
+                    np.testing.assert_array_equal(np.diff(edges),recorded)
+
+
 def test_travelling_predicate_is_reversible_and_retains_breakup():
     for word in range(32):
         for scratch in range(32):
@@ -199,6 +253,18 @@ def test_counter_clock_line_and_receipt_rejections(tmp_path):
     assert instrument.quotient((1.,.1),(.01,.02)) is None
     assert challenge.score(None,[1,2],.08)=='unresolved'
     assert challenge.score([3.,2.9,3.1],[1.,2.],.08)=='excluded'
+    for bad in ([1.,float('nan'),2.],[1.,1.5,1.25],[2.,1.,1.5],[1.,0.,2.],[True,1.,1.]):
+        with pytest.raises(ValueError):
+            challenge.score(bad,[1.,2.],.08)
+    for forecast in ([2.,1.],[0.,1.],[1.,float('inf')],[True,2.]):
+        with pytest.raises(ValueError):
+            challenge.score([1.,1.,1.],forecast,.08)
+    for radii in ((1.,-1.),(float('nan'),0.)):
+        with pytest.raises(ValueError):
+            instrument.quotient(radii,(1.,0.))
+    for size,n,tick in ((19,1,0),(10,5,0),(19,2,-1)):
+        with pytest.raises(ValueError,match='bound domain'):
+            prediction.native_transport_bound({},size,n,tick,1.,spec,1024)
     target = tmp_path/'test.json'
     target.write_text('{"answer":1}',encoding='utf8')
     with pytest.raises(ValueError):
@@ -235,6 +301,8 @@ def test_scientific_verdicts_include_failures():
     assert result['contrast_5_1']['verdict']=='unresolved'
     assert result['contrast_5_9']['verdict']=='compatible'
     assert all(r['verdict']=='excluded' for k,r in result.items() if k.startswith('assisted'))
+    memory_result = load(HERE/'records/memory/result.json')
+    assert memory_result['rest_inertia']=={f'{size}_{n}':'outside tolerance' for size in (12,16) for n in (2,3)}
     measured = load(HERE/'records/flight/result.json')
     for key,row in measured.items():
         assert row['passes']==key.startswith('contrast')

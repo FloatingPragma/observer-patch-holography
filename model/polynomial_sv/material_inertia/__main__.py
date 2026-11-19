@@ -139,21 +139,7 @@ def decisions(spec, data, audit):
             key = name(member,size,number,'ratios')
             row = data['ratios'][key]
             qualified = all(admitted[name(member,size,n,k)] for n,k in ((1,0),(1,1),(number,0),(number,1)))
-            if not qualified or row is None or row['inertia'] is None or row['rest'] is None:
-                verdicts[key] = 'unresolved'
-                continue
-            _,lo,hi = row['inertia']
-            if hi/lo-1 > 2*spec['relative_precision']:
-                verdicts[key] = 'unresolved'
-                continue
-            rlo,rhi = row['rest'][1:]
-            tol = spec['rest_inertia_tolerance']
-            if lo >= (1-tol)*rhi and hi <= (1+tol)*rlo:
-                verdicts[key] = 'within tolerance'
-            elif lo > (1+tol)*rhi or hi < (1-tol)*rlo:
-                verdicts[key] = 'outside tolerance'
-            else:
-                verdicts[key] = 'unresolved'
+            verdicts[key] = instrument.rest_inertia_verdict(row if qualified else None,spec)
     return dict(dominant_ground_lines=admitted,rest_inertia=verdicts)
 
 

@@ -40,7 +40,7 @@ class Ring:
 
     @classmethod
     def build(cls, size, number):
-        require(1 <= number < size//2, 'unsupported ring sector')
+        require(1 <= number and 2*number < size, 'unsupported ring sector')
         states = [sum(1 << j for j in sites) for sites in combinations(range(size), number)]
         return cls.from_states(size,number,states,lambda mask: rotate(mask,size))
 
@@ -101,9 +101,13 @@ class Ring:
 
 
 def spectral_measure(H, frame):
+    gram_defect = frame.conj().T@frame - sparse.eye(frame.shape[1])
+    require(np.max(abs(gram_defect.data), initial=0) < 3e-12, 'sector frame is not isometric')
     image = H@frame
     block = (frame.conj().T@image).toarray()
     defect = image - frame@ sparse.csc_matrix(block)
     require(np.max(abs(defect.data), initial=0) < 3e-12, 'translation reduction leaks')
+    # eigh reads one triangle and discards imaginary diagonal entries.
+    require(np.max(abs(block-block.conj().T)) < 3e-12, 'sector generator is not Hermitian')
     values, vectors = np.linalg.eigh(block)
     return values, abs(vectors[0])**2

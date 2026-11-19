@@ -1,5 +1,6 @@
 """Clock calibration, complete two-port counts and a line reader without Hamiltonian access."""
 import math
+from numbers import Real
 from typing import NamedTuple
 
 import numpy as np
@@ -98,9 +99,38 @@ def quotient(numerator, denominator):
     """Positive observable ratio with worst-case intervals, including an unresolved denominator."""
     a,da = numerator
     b,db = denominator
+    if not all(math.isfinite(x) for x in (a,da,b,db)) or min(da,db)<0:
+        raise ValueError('invalid measurement or uncertainty')
     if b <= db or a <= da:
         return None
     return [a/b, (a-da)/(b+db), (a+da)/(b-db)]
+
+
+def require_positive_order(*values):
+    if (any(isinstance(x,bool) or not isinstance(x,Real) or not math.isfinite(x) or x<=0 for x in values)
+            or any(a>b for a,b in zip(values,values[1:]))):
+        raise ValueError('invalid positive measurement interval')
+
+
+def positive_interval(reading):
+    center,low,high = reading
+    require_positive_order(low,center,high)
+    return low,high
+
+
+def rest_inertia_verdict(row, spec):
+    if row is None or row['inertia'] is None or row['rest'] is None:
+        return 'unresolved'
+    lo,hi = positive_interval(row['inertia'])
+    rlo,rhi = positive_interval(row['rest'])
+    if hi/lo-1 > 2*spec['relative_precision']:
+        return 'unresolved'
+    tol = spec['rest_inertia_tolerance']
+    if lo >= (1-tol)*rhi and hi <= (1+tol)*rlo:
+        return 'within tolerance'
+    if lo > (1+tol)*rhi or hi < (1-tol)*rlo:
+        return 'outside tolerance'
+    return 'unresolved'
 
 
 def band_ratios(lines):
