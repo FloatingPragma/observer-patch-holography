@@ -3,7 +3,7 @@
 The experimental member `four-child-incidence-CAR-v1` gives an observer three distinct light rest frequencies
 at depth two. Their ratios in the observer's dimer clock are **1, 2.13582 and 5.15632**. Applying a single
 energy conversion to these three branches fails the charged-lepton comparison. Increasing the depth produces
-additional light branches. The exclusion also holds with any branching factor and any uniform parent-child
+additional light branches. The exclusion also holds with any integer branching factor of at least two and any uniform parent-child
 hopping strength for the dictionary assigning the three lowest distinct positive rest lines to charged leptons.
 
 ## Source and observation
@@ -34,10 +34,14 @@ source evolution, applies one of four phases, reverses the splitter and reads th
 For return amplitude A = ⟨v|exp(−itH)|v⟩ and phase θ, the fuel-to-fuel probability is
 s = |exp(iθ)+A|²/4. On a half-occupied mixed source, the final full-fuel probability with initial fill z
 is (1−s)/2 + zs. Subtracting the empty-fuel trial from the full-fuel trial gives s. Opposite phases give
-Re A and Im A. All operations preserve number during a trial. The preparation can pair each possible
-initial fill with an opposite spectator fill to keep the total parity fixed across settings.
+Re A and Im A. All operations preserve number during a trial. For a fixed total parity one can prepare an
+equal mixture of even source occupations (at least two modes), with one-body covariance I/2, and pair
+the fuel with an oppositely filled spectator. Quadratic evolution and a single occupation read depend
+only on that covariance.
 
-An independent A–B dimer prepared in its negative eigenmode supplies the clock. Its four phase records give
+An independent half-occupied A–B dimer supplies the clock. Its splitter selects the negative eigenmode
+as the reference orbital. Filling that orbital in every trial would change the raw fuel counts.
+The four phase records give
 an unwrapped angle in units of a. The spectroscopy schedule supplies a positive increment of 0.375 radians
 per sample. The reader checks contrast and accepts increments
 between zero and π/2. A complete turn between samples would alias. The schedule, phase rotations, stopped
@@ -47,8 +51,8 @@ hops during switches and repeated initial preparations are supplied services.
 
 The root and a difference of two siblings at each remaining layer give one preparation for every distinct
 internal chain length. Spectroscopy combines each with a uniform seam profile, a port profile or a four-seam ring.
-Their measured external rates are 0, √6 and √10 within the frequency gate. Only the uniform and ring profiles
-transfer to all three federations. For each transferred profile the code checks the full return of C times
+Their measured external rates are 0, √6 and √10 within the frequency gate. The federation experiment
+tests the uniform and ring profiles on all three carriers. For each transferred profile the code checks the full return of C times
 the partner to the original vector, including its orthogonal complement. A transfer certifies the same
 record law on that preparation. Federation copies provide no additional independent count evidence.
 
@@ -59,11 +63,13 @@ source projection, including the bulk bands. The maximum held-out RMS error is 0
 rest frequency. Giving both sublattices the same external sign produces |μ±p|. The maximum measured
 residual |ω²−p²−μ²| is 0.00011345 for the declared law and 17.13 for the equal-sign control (nearest rest line).
 
-The transfer experiment uses eight rounds of a balanced evolving and parked path at fixed dimer interval 1.
+The transfer experiment prepares one excitation on an otherwise empty source and uses eight rounds of a
+balanced evolving and parked path at fixed dimer interval 1.
 The passing Kraus operator is (I + exp(−ih/a))/2. Each first failure has its own record. After preparation,
 a local seed at the sender evolves on all 3,330 external modes. The receiver groups the final detector
-outcomes into sender, neighbor, intercell seam and elsewhere. Peak receiver counts below are fractions
-of **all** trials, including failed preparations, over five specified waits.
+outcomes into sender, neighbor, intercell seam and elsewhere. The preparation columns give the source
+probability and its projected light weight. The peak neighbor fraction is an observer count divided by
+**all** trials, including failed preparations, over five specified waits.
 
 | Chain length | Lowest frequency in dimer units | Preparation success | Light weight among successes | Peak neighbor fraction |
 | ---: | ---: | ---: | ---: | ---: |
@@ -147,8 +153,9 @@ The fixed detector sees a stationary weight 3/4 and a band from 1 to 3. It has n
 line in this limit. The alternating hopping path first reaches the omitted link and returns in 4n hops.
 The power series for the unitary gives a uniform amplitude error at most
 min(2, 2 Σₖ≥₄ₙ (3|t|)^k/k!). Records at lengths 1, 3, 5, 9, 17 and 33 use the same root detector.
-At length 33 the bound is 3.37 × 10⁻⁴² on [0,8]. The largest recorded difference on that window is
-0.00177, including clock and counting noise. Over [0,64] it reaches 0.04895. The theoretical
+At length 33 the bound is 3.37 × 10⁻⁴² on [0,8]. The largest recorded difference for dimer clock
+readings in that window is 0.00177, including clock and counting noise. Over all 257 queries it reaches
+0.04895. The last query is scheduled at time 64 and the dimer reads 64.0012. The theoretical
 length-33 rate is 1.74623 × 10⁻¹⁰. Those finite clock records do not resolve it.
 
 These statements concern the register coupled to the scalar incidence. The [OpenWave export](https://github.com/muellerberndt/openwave/tree/de76be71bc24c36b286fbcae5dab608f20f1e86a/candidates/np-solver/export)
@@ -194,7 +201,8 @@ python -B -m pytest -q model/scalar_channel/refinement_spectrum
 
 Each replay verifies source hashes and regenerates the complete count receipts. The first also scores
 the held-out spectra, control laws and all transfer outcomes. The second compares fixed-root records to the
-infinite measure. The tests independently propagate the labeled graph, read a three-mode Fock interferometer
-and resolve the smallest chain root with a high-precision characteristic polynomial. The physical comparison
+infinite measure. The tests propagate all 139,860 modes on the labeled federation, compare every preparation
+failure and detector region, read the fuel on Fock space and check the smallest chain root against a
+high-precision characteristic polynomial. The physical comparison
 requires particle-specific, persistent records and a clock-to-energy calibration. The measurements here
 establish finite transport and exclude this proposed lepton assignment.

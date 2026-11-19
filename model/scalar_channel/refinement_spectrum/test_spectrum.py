@@ -11,7 +11,7 @@ from scipy.sparse.linalg import expm_multiply
 
 from ..cage import construction as cell
 from ..cage.instruments import fock_operators, lift
-from . import instruments as ins, limit, source
+from . import flight, instruments as ins, limit, source
 from tools.strict_json import load
 from .__main__ import HERE, ROOT, compare_spectrum, lepton_comparison, score, verify_saved
 
@@ -39,6 +39,8 @@ def test_deep_root_by_high_precision_determinant(length):
             else:
                 high = x
         assert source.light_rate(length) == pytest.approx(float(mp.sqrt((low+high)/2)), rel=5e-14, abs=0.)
+        assert source.inventory(length-1)[-1]['positive'][0] == pytest.approx(
+            float(mp.sqrt((low+high)/2)), rel=5e-14, abs=0.)
     assert source.light_rate(length-1)/source.light_rate(length) < 8/3
 
 
@@ -76,6 +78,20 @@ def test_family_exclusion_uses_comparison_only_and_can_accept_compatible_data():
     compatible = {k:dict(value=x,standard_uncertainty=0.) for k,x in
                   [('muon_over_electron',4.),('tau_over_electron',16.)]}
     assert not lepton_comparison([1,2,5],compatible)['uniform_tree_family_excluded']
+    compatible['muon_over_electron']['standard_uncertainty'] = -1000.
+    with pytest.raises(ValueError,match='standard uncertainty'):
+        lepton_comparison([1,2,5],compatible)
+
+
+def test_shallow_family_including_large_hopping():
+    for g in (0., .125, 2., 250.):
+        # Two children of the root, in the original node basis.
+        rate = -g/np.sqrt(2)
+        T = np.array([[1.,0.,0.],[rate,1.,0.],[rate,0.,1.]])
+        u, middle, heavy = np.sort(np.linalg.svd(T,compute_uv=False))
+        assert middle == pytest.approx(1.)
+        assert heavy*u == pytest.approx(1.)
+        assert middle/u == pytest.approx(heavy/middle)
 
 
 @pytest.mark.parametrize('law', ['graded', 'no_children', 'unsigned'])
@@ -115,6 +131,71 @@ def test_many_body_interferometer_reads_both_fills_and_signed_quadratures():
     assert delta[0]-delta[1]+1j*(delta[2]-delta[3]) == pytest.approx(amp, abs=2e-15)
 
 
+def test_clock_absolute_counts_distinguish_occupied_reference():
+    t = .9
+    clock = ins.fuel_law(ins.clock_amplitude(np.array([t])),(0,2,1,3))[0]
+    # In the dimer eigenbasis the positive orbital is a spectator. Evolve the
+    # negative orbital and the fuel, before averaging the two source occupations.
+    orbital, fuel = fock_operators(2)
+    number = fuel.conj().T @ fuel
+    split = expm(-.25j*np.pi*(orbital.conj().T@fuel + fuel.conj().T@orbital))
+    free = expm(1j*t*orbital.conj().T@orbital)
+    for i,q in enumerate((0,2,1,3)):
+        U = split.conj().T @ expm(.5j*q*np.pi*number) @ free @ split
+        by_fill = np.diag(U.conj().T @ number @ U).real.reshape(2,2)
+        np.testing.assert_allclose(by_fill.mean(axis=1), clock[i], atol=1e-14)
+        assert not np.allclose(by_fill[:,1], clock[i])
+
+
+def test_full_federation_filter_and_receiver_partitions():
+    spec = load(HERE/'protocol.json')
+    menu = spec['flight']
+    saved = load(HERE/'records'/'flight.json')
+    with pytest.raises(ValueError, match='histories'):
+        flight.assess(spec, dict(saved,histories=[]))
+    with pytest.raises(ValueError, match='histories'):
+        flight.assess(spec, dict(saved,histories=[saved['histories'][0]]*3))
+    car = cell.federation(menu['federation'])
+    sender, neighbor = saved['sender_cell'], saved['receiver_cell']
+    assert any({i//12,j//12} == {sender, neighbor} for i,j in car['edges'])
+    seam = tuple(saved['seam_seed'])
+    assert seam[0]//12 == seam[1]//12 == sender
+    mode = car['edges'].index(seam)
+    owners = np.array([i//12 if i//12 == j//12 else -1 for i,j in car['edges']]
+                      + [center//12 for _,center,_ in car['wedges']])
+    masks = [owners == sender, owners == neighbor, owners == -1,
+             ~np.isin(owners,[sender,neighbor,-1])]
+    full = source.microscopic(2,car,'graded') / cell.HOP
+    assert full.shape == (saved['source_modes'],)*2 == (139860,139860)
+    assert full.nnz == 2*363330
+    internal = source.tree(2).toarray() / cell.HOP
+    evolution = expm(-1j*menu['filter_clock_interval']*internal)
+    for n,history in enumerate(saved['histories'],1):
+        # Literal A-mode addresses on the breadth-first tree, before any reduction.
+        v = np.zeros(42,complex)
+        if n == 3:
+            v[0] = 1
+        else:
+            first = 5 if n == 1 else 1
+            v[first:first+2] = [1/np.sqrt(2),-1/np.sqrt(2)]
+        failures = []
+        for _ in range(menu['filter_rounds']):
+            moved = evolution @ v
+            failures.append(np.linalg.norm((v-moved)/2)**2)
+            v = (v+moved)/2
+        state = np.zeros((42,len(owners)),complex)
+        state[:,mode] = v
+        wave = state.ravel()
+        previous = 0
+        for i,t in enumerate(menu['waits']):
+            if t > previous:
+                wave = expm_multiply((-1j*(t-previous))*full,wave,traceA=0.)
+            weights = np.sum(abs(wave.reshape(state.shape))**2,axis=0)
+            law = [*failures, *(weights[mask].sum() for mask in masks)]
+            np.testing.assert_allclose(law, history['laws'][i], atol=2e-12, rtol=0)
+            previous = t
+
+
 def test_limit_short_time_bound_and_failed_controls():
     H = source.chain(4,5)/cell.HOP
     for t in (.1, 1., 2.):
@@ -132,6 +213,31 @@ def test_limit_short_time_bound_and_failed_controls():
                          dict(maximum_frequency_error=.003))
     with pytest.raises(ValueError,match='wrong value'):
         verify_saved(dict(low=0.),dict(low=1.74623e-10))
+    with pytest.raises(ValueError,match='wrong value'):
+        verify_saved(dict(positive=[0.]),dict(positive=[1.74623e-10]))
+
+
+def test_short_window_uses_the_observers_clock():
+    spec = load(HERE/'limit_protocol.json')
+    saved = load(HERE/'records'/'limit'/'result.json')
+    # Choose a boundary just below the first nonzero *recorded* tick. The first
+    # simulator step lies inside it; the observer has only the zero-tick sample.
+    with np.load(HERE/'records'/'limit'/'counts.npz',allow_pickle=False) as z:
+        ticks = ins.clock_read(z['clock'],spec['shots'])
+        assert ticks[1] > spec['clock_step']
+        end = (ticks[1]+spec['clock_step'])/2
+        limiting = np.array([limit.limiting_return(t) for t in ticks])
+        expected = {}
+        for n in spec['chain_lengths']:
+            observed = ins.quadrature(z[str(n)],spec['shots'])
+            err = abs(observed-limiting)
+            expected[n] = max(err[ticks <= end])
+            published = next(r for r in saved if r['length'] == n)
+            assert max(err[ticks <= spec['finite_window_end']]) == pytest.approx(
+                published['atoms_versus_limit_over_window'],abs=2e-12)
+    _, rows = limit.run(dict(spec,finite_window_end=end))
+    for row in rows:
+        assert row['atoms_versus_limit_over_window'] == pytest.approx(expected[row['length']],abs=2e-12)
 
 
 def test_heldout_counts_and_weak_mode_weights_are_checked():

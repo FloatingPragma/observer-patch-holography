@@ -40,6 +40,7 @@ def run(spec):
     times = np.arange(spec['time_samples'])*spec['clock_step']
     clock = ins.acquire(rng, ins.fuel_law(ins.clock_amplitude(times),(0,2,1,3)),spec['shots'])
     ticks = ins.clock_read(clock,spec['shots'])
+    window = ticks <= spec['finite_window_end']
     limit = np.array([limiting_return(t) for t in ticks])
     records = {'clock': clock}
     rows = []
@@ -54,7 +55,7 @@ def run(spec):
         hi = 2.**(1-n)
         require(lo*(1-2e-15) <= low <= hi*(1+2e-15), 'light rate outside inverse-norm bounds')
         rows.append(dict(length=n, low=float(low), lower_bound=lo, upper_bound=hi,
-                         atoms_versus_limit_over_window=float(max(err[times <= spec['finite_window_end']])),
+                         atoms_versus_limit_over_window=float(max(err[window])),
                          atoms_versus_limit_all=float(max(err)),
                          uniform_amplitude_tail=moment_tail(n,spec['finite_window_end'])))
     return records, rows

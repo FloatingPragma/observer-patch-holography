@@ -69,9 +69,17 @@ def run(spec, rng):
 
 def assess(spec, transit):
     menu = spec['flight']
+    require([row['length'] for row in transit['histories']] == list(range(1, spec['depth']+2)),
+            'incomplete or repeated transfer histories')
     for row in transit['histories']:
-        require(row['light_weight_given_pass'] >= menu['minimum_light_weight_given_pass'],
+        require(0 < row['success'] <= 1 and
+                menu['minimum_light_weight_given_pass'] <= row['light_weight_given_pass'] <= 1+1e-12,
                 'filter admits too much bulk weight')
+        laws = np.asarray(row['laws'])
+        require(laws.shape == (len(menu['waits']), menu['filter_rounds']+4)
+                and np.all(laws >= 0.) and np.allclose(laws.sum(axis=1),1.,atol=1e-11,rtol=0)
+                and np.allclose(laws[:,-4:].sum(axis=1),row['success'],atol=1e-11,rtol=0),
+                'invalid transfer probabilities')
         for key in ('counts','stopped_outer_counts'):
             counts = np.asarray(row[key])
             require(counts.shape == (len(menu['waits']), menu['filter_rounds']+4) and counts.dtype.kind in 'iu'

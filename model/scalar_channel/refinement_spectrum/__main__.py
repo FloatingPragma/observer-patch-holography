@@ -48,7 +48,7 @@ def experiment(spec):
     rng = np.random.Generator(np.random.PCG64(spec['seed']))
     t = np.arange(spec['times'])*spec['clock_step']/cell.HOP
     maps = carrier_maps(spec)
-    # A local dimer prepared on its negative eigenmode is the clock.
+    # On the half-occupied dimer the clock splitter addresses its negative orbital.
     clock = ins.acquire(rng, ins.fuel_law(ins.clock_amplitude(cell.HOP*t), (0,2,1,3)), spec['shots'])
     draws = {'clock': clock}
     for name, ratio in maps['cell']['outer_rates'].items():
@@ -76,9 +76,11 @@ def read(spec, draws):
 
 def compare_spectrum(row, expected, spec):
     expected = sorted(expected)
-    require(len(row['lines']) == len(expected) and
+    require(np.shape(row['lines']) == (len(expected),) and
             np.max(abs(np.asarray(row['lines'])-expected), initial=0)<spec['maximum_frequency_error'],
             f"public lines {row['lines']} differ from the complete visible spectrum {expected}")
+    require(np.shape(row['weights']) == (len(expected),) and np.all(np.isfinite(row['weights'])),
+            'each visible line needs its own weight')
     require(abs(row['dc'] - (0 if expected else 1)) < .01, 'wrong stationary record weight')
 
 
@@ -89,6 +91,8 @@ def score(spec, maps, readings):
     for name, p in maps['cell']['outer_rates'].items():
         ref = readings['outer_'+name]
         compare_spectrum(ref, [p] if p else [], spec)
+        if p:
+            require(abs(ref['weights'][0]-1) < .006, 'wrong external reference weight')
         momentum = ref['lines'][0] if ref['lines'] else 0.
         for law in spec['laws']:
             errors = []
@@ -121,6 +125,12 @@ def score(spec, maps, readings):
 def lepton_comparison(ratios, reference):
     """Called after acquisition, decoding and scoring. These values cannot enter the source or reader."""
     mu, tau = (reference[k] for k in ('muon_over_electron','tau_over_electron'))
+    for row in (mu, tau):
+        require(all(type(row[key]) in (int, float) and math.isfinite(row[key])
+                    for key in ('value','standard_uncertainty')) and row['standard_uncertainty'] >= 0,
+                'invalid comparison value or standard uncertainty')
+    require(len(ratios) == 3 and ratios[0] == 1 and all(math.isfinite(x) for x in ratios)
+            and 1 < ratios[1] < ratios[2], 'invalid ordered rest-frequency ratios')
     mu_lo = mu['value'] - mu['standard_uncertainty']
     tau_hi = tau['value'] + tau['standard_uncertainty']
     require(mu_lo > 0 and tau['value'] > mu['value'], 'invalid comparison ordering')
@@ -147,7 +157,8 @@ def verify_saved(saved, current, path='receipt'):
         for i,(a,b) in enumerate(zip(saved,current)):
             verify_saved(a,b,f'{path}[{i}]')
     elif type(current) is float:
-        relative_only = current == 0. or path.endswith(('.low','.upper_bound','.lower_bound','.uniform_amplitude_tail'))
+        relative_only = (current == 0. or '.positive[' in path or
+                         path.endswith(('.low','.upper_bound','.lower_bound','.uniform_amplitude_tail')))
         require(type(saved) is float and math.isclose(saved,current,abs_tol=0 if relative_only else 2e-8,
                                                      rel_tol=1e-8), 'wrong value: '+path)
     else:
@@ -171,8 +182,9 @@ def main():
         require(sorted(z.files)==sorted(generated), 'missing or repeated record family')
         counts = {k:z[k] for k in generated}
         require(all(np.array_equal(v,generated[k]) for k,v in counts.items()), 'seeded acquisition differs')
-    verify_saved(load(where/'flight.json'), transit)
-    flight.assess(spec, transit)
+    saved_flight = load(where/'flight.json')
+    verify_saved(saved_flight, transit)
+    flight.assess(spec, saved_flight)
     readings = read(spec, counts)
     result = dict(carriers=maps, reads=readings, result=score(spec,maps,readings),
                   inventory={str(d):source.inventory(d) for d in spec['depth_control']})

@@ -108,6 +108,8 @@ def inventory(depth):
     for n, copies in counts.items():
         levels = np.linalg.eigvalsh(chain(depth, n))
         positive = levels[n:] / cell.HOP
+        # The light line can be far below the forward eigensolver's absolute precision.
+        positive[0] = light_rate(n)
         require(0 < positive[0] <= 1+1e-13 and np.all(positive[1:] > 1), 'light-band separation failed')
         bands.append(dict(length=n, copies=copies, positive=positive.tolist()))
     nodes = (4**(depth+1)-1)//3
