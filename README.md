@@ -45,6 +45,20 @@ neighbours disagree they repair the difference between the two of them. The
 theory around the model is finished: the closure principle, the theorem
 library and the finite constructions below are in place.
 
+**What the observers inside experience.** The state of the simulation does
+not contain the physical Universe. Its ports, seams and cells are the hardware
+of a computation, and they are no space. Space, time, fields and particles are
+how the observers inside describe the records they agree on. We have shown
+that the observers who inhabit the simulation can describe their experiences
+as a relativistic continuum spacetime with three dimensions of space and one
+of time, built on the slowest response of a cell, which has exactly three
+directions. Their records obey the quantum rules of measurement, and under
+stated premises their forces have the algebra of the Standard Model and their
+gravity obeys Einstein's equation: what they can measure has the structure of
+what we measure. Every test of the model therefore compares what its
+observers record with what we record. It never compares the state of the
+simulation with the world.
+
 The design answers how a Universe can compute its own history at all. A
 consistent history is a fixed point over an enormous number of records, and
 a search for it would take exponentially long. The network does not search.
@@ -76,9 +90,6 @@ observers who inhabit the computation:
   it.
 - **Looking changes what comes later.** Asking "is a pair there?" and asking
   "where is it?" give the same first answer and different later records.
-- **Three directions of space.** The slowest response of a cell to a single
-  load has exactly three independent directions. Observers build their
-  three-dimensional description of space on that response.
 - **Twelve force currents.** With one declared port service, the response of
   a cell's ports has twelve generators with the algebra of the Standard
   Model's forces.
@@ -91,15 +102,6 @@ instruments of the measurement theorems, and its observers compare clocks
 through shared records as the clock theorems require. The
 [observation ledger](docs/registers/OBSERVATION_LEDGER_V3.md) lists what the
 model reproduces and what is open.
-
-The state of the simulation does not contain the physical Universe. Its
-ports, seams and cells are the hardware of a computation, and they are no
-space. Space, time, fields and particles are how the observers inside
-describe the records they agree on. We have shown that the observers who
-inhabit the simulation can describe their experiences as a relativistic
-continuum spacetime with three dimensions of space and one of time. Every
-test of the model therefore compares what its observers record with what we
-record. It never compares the state of the simulation with the world.
 
 The laws are candidates. Their couplings are supplied, and the other
 observables in the papers, from charge and the particle spectrum to gravity,

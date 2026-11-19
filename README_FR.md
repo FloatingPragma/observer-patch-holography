@@ -80,6 +80,21 @@ différence entre eux deux. La théorie qui l’entoure est achevée : le princi
 de clôture, la bibliothèque de théorèmes et les constructions finies sont en
 place.
 
+**Ce que vivent les observateurs intérieurs.** L’état de la simulation ne
+contient pas l’Univers physique. Ses ports, ses coutures et ses cellules sont
+le matériel d’un calcul, et ils ne sont pas un espace. L’espace, le temps, les
+champs et les particules sont la manière dont les observateurs intérieurs
+décrivent les registres dont ils conviennent. Nous avons montré que les
+observateurs qui habitent la simulation peuvent décrire leurs expériences
+comme un espace-temps continu relativiste à trois dimensions d’espace et une
+de temps, bâti sur la réponse la plus lente d’une cellule, qui a exactement
+trois directions. Leurs registres obéissent aux règles quantiques de la
+mesure et, sous des prémisses énoncées, leurs forces ont l’algèbre du Modèle
+standard et leur gravitation obéit à l’équation d’Einstein : ce qu’ils
+peuvent mesurer a la structure de ce que nous mesurons. Chaque test du modèle
+compare donc ce que ses observateurs enregistrent avec ce que nous
+enregistrons. Il ne compare jamais l’état de la simulation avec le monde.
+
 La conception répond à la question de savoir comment un univers peut
 calculer sa propre histoire. Une histoire cohérente est un point fixe sur un
 nombre énorme de registres, et la chercher prendrait un temps exponentiel.
@@ -114,9 +129,6 @@ les descriptions effectives des observateurs qui habitent le calcul :
 - **Regarder change la suite.** Demander « une paire est-elle là ? » et
   demander « où est-elle ? » donnent la même première réponse et des registres
   ultérieurs différents.
-- **Trois directions d’espace.** La réponse la plus lente d’une cellule à une
-  charge seule a exactement trois directions indépendantes. Les observateurs
-  bâtissent sur elle leur description tridimensionnelle de l’espace.
 - **Douze courants de force.** Avec un service de port déclaré, la réponse
   des ports d’une cellule a douze générateurs dotés de l’algèbre des forces
   du Modèle standard.
@@ -130,16 +142,6 @@ de la mesure, et ses observateurs comparent leurs horloges par des registres
 partagés, comme l’exigent les théorèmes d’horloge. Le
 [registre des observations](docs/registers/OBSERVATION_LEDGER_V3.md) (en
 anglais) liste ce que le modèle reproduit et ce qui est ouvert.
-
-L’état de la simulation ne contient pas l’Univers physique. Ses ports, ses
-coutures et ses cellules sont le matériel d’un calcul, et ils ne sont pas un
-espace. L’espace, le temps, les champs et les particules sont la manière dont
-les observateurs intérieurs décrivent les registres dont ils conviennent.
-Nous avons montré que les observateurs qui habitent la simulation peuvent
-décrire leurs expériences comme un espace-temps continu relativiste à trois
-dimensions d’espace et une de temps. Chaque test du modèle compare donc ce
-que ses observateurs enregistrent avec ce que nous enregistrons. Il ne
-compare jamais l’état de la simulation avec le monde.
 
 Les lois sont des candidates. Leurs couplages sont fournis, et les autres
 observables des articles, de la charge et du spectre des particules à la
