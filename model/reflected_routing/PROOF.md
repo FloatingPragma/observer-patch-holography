@@ -196,18 +196,23 @@ $12\tau_{\rm read}$ to this bound. The execution stores ideal instantaneous read
 emitter. Distinct selected-slot settings use fresh preparations.
 [Emitter](../polynomial_sv/sectors.py) · [Reader](../polynomial_sv/reader.py)
 
-**Preparation obstruction.** On a connected control component of $N$ nonmarker ports, every allowed
-partial exchange fixes the uniform vector. Starting with a sharp marked pair, its overlap with that
+**Preparation obstruction for the routing pulses.** On a connected control component of $N$ nonmarker
+ports, each section 8 partial exchange fixes the uniform vector. So does an unshifted pulse with
+$\kappa\tau\in2\pi\mathbb Z$, which includes all routing pulses above. Starting with a sharp marked pair, its overlap with that
 vector is $1/\sqrt N$ under every word of these gates. Any target orthogonal to the uniform vector
 is therefore separated from the reachable pure states by at least $1/\sqrt N$ in trace distance.
 This follows by projecting the reachable state onto the orthogonal complement of the uniform vector
 and bounding its overlap with the target by $\sqrt{1-1/N}$. The untagged, nonzero-momentum packets of
 the clock measurements have zero total amplitude. Embedding them with zero amplitude at unused ports
 preserves that property. Even the finite emitter retains a lower bound of $1/\sqrt N$ minus its
-preparation error, by the triangle inequality. This obstruction concerns deterministic preparation
-from this emitter by the selected seam programs. Conditional measurement, a different source or extra
-phase controls change the preparation problem. The compiled gate alone supplies neither those packets
-nor the equipped relay's service time.
+preparation error, by the triangle inequality.
+
+The unshifted law also admits nonresonant durations. On the single cell, hold the marker at port 0
+and start the mobile load at port 1. A pulse of duration $\pi/2$ on $(1,5)$ gives amplitudes
+$c=(1-i)/2$ and $s=(1+i)/2$. A pulse of duration $3\pi/16$ on $(4,5)$ multiplies the sum on that
+edge by $e^{-8i(3\pi/16)}=i$. The total amplitude is then $c+is=0$, with unit norm and no intervening
+measurement. Thus the uniform-mode bound concerns the specified routing pulses. The two-pulse example
+prepares one zero-sum state. The following protocol prepares a specified arbitrary packet.
 
 ## Preparing the clock's finite wave states from native fuel
 
