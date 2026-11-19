@@ -120,9 +120,21 @@ def score(spec, maps, readings):
 
 def lepton_comparison(ratios, reference):
     """Called after acquisition, decoding and scoring. These values cannot enter the source or reader."""
-    return {key: dict(predicted=ratio, observed=reference[key]['value'],
-                      observed_minus_predicted=reference[key]['value']-ratio)
-            for key,ratio in zip(('muon_over_electron','tau_over_electron'),ratios[1:], strict=True)}
+    mu, tau = (reference[k] for k in ('muon_over_electron','tau_over_electron'))
+    mu_lo = mu['value'] - mu['standard_uncertainty']
+    tau_hi = tau['value'] + tau['standard_uncertainty']
+    require(mu_lo > 0 and tau['value'] > mu['value'], 'invalid comparison ordering')
+    # At every point in the quoted uncertainty rectangle, the first adjacent ratio is at least
+    # mu_lo and the next is at most tau_hi/mu_lo. No independence assumption enters this bound.
+    return dict(
+        ordered_ratios={key: dict(predicted=ratio, observed=reference[key]['value'],
+                                  observed_minus_predicted=reference[key]['value']-ratio)
+                        for key,ratio in zip(('muon_over_electron','tau_over_electron'),ratios[1:],strict=True)},
+        first_adjacent_ratio_lower=mu_lo,
+        second_adjacent_ratio_upper=tau_hi/mu_lo,
+        adjacent_ratio_difference_lower=mu_lo-tau_hi/mu_lo,
+        uniform_tree_family_excluded=bool(mu_lo > 3 and mu_lo-tau_hi/mu_lo > 1),
+    )
 
 
 def verify_saved(saved, current, path='receipt'):

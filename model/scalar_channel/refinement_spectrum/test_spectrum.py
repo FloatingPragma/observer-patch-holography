@@ -13,7 +13,7 @@ from ..cage import construction as cell
 from ..cage.instruments import fock_operators, lift
 from . import instruments as ins, limit, source
 from tools.strict_json import load
-from .__main__ import HERE, ROOT, compare_spectrum, score, verify_saved
+from .__main__ import HERE, ROOT, compare_spectrum, lepton_comparison, score, verify_saved
 
 
 @pytest.mark.parametrize('depth', [0, 1, 2, 3])
@@ -40,6 +40,42 @@ def test_deep_root_by_high_precision_determinant(length):
                 high = x
         assert source.light_rate(length) == pytest.approx(float(mp.sqrt((low+high)/2)), rel=5e-14, abs=0.)
     assert source.light_rate(length-1)/source.light_rate(length) < 8/3
+
+
+@pytest.mark.parametrize('branching', [2, 3, 4])
+@pytest.mark.parametrize('relative_hop', [.08, .5, 1., 3., 12.])
+def test_free_hopping_ratio_bound_against_full_tree(branching, relative_hop):
+    depth = 3
+    nodes = sum(branching**k for k in range(depth+1))
+    T = np.eye(nodes)
+    for child in range(1,nodes):
+        T[child,(child-1)//branching] = -relative_hop
+    all_lines = np.sort(np.linalg.svd(T,compute_uv=False))
+    g = relative_hop*np.sqrt(branching)
+    minima = []
+    complete = []
+    for n in range(1,depth+2):
+        rates = np.linalg.svd(np.eye(n)-g*np.eye(n,k=-1),compute_uv=False)
+        copies = 1 if n == depth+1 else (branching-1)*branching**(depth-n)
+        complete.extend(np.tile(rates,copies))
+        minima.append(rates[-1])
+    np.testing.assert_allclose(all_lines, np.sort(complete), atol=4e-14)
+    ratios = np.array(minima[:-1])/minima[1:]
+    assert np.all((g < ratios) & (ratios <= g+1))
+    distinct = all_lines[np.r_[True,np.diff(all_lines)>1e-9]]
+    if g >= 2:
+        np.testing.assert_allclose(distinct[:3],minima[-3:][::-1],atol=4e-14)
+    else:
+        assert distinct[1]/distinct[0] < 3
+
+
+def test_family_exclusion_uses_comparison_only_and_can_accept_compatible_data():
+    published = load(HERE/'comparison.json')
+    result = lepton_comparison([1,2,5],published)
+    assert result['uniform_tree_family_excluded'] and result['adjacent_ratio_difference_lower'] > 189
+    compatible = {k:dict(value=x,standard_uncertainty=0.) for k,x in
+                  [('muon_over_electron',4.),('tau_over_electron',16.)]}
+    assert not lepton_comparison([1,2,5],compatible)['uniform_tree_family_excluded']
 
 
 @pytest.mark.parametrize('law', ['graded', 'no_children', 'unsigned'])

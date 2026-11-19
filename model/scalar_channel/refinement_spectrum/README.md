@@ -3,7 +3,8 @@
 The experimental member `four-child-incidence-CAR-v1` gives an observer three distinct light rest frequencies
 at depth two. Their ratios in the observer's dimer clock are **1, 2.13582 and 5.15632**. Applying a single
 energy conversion to these three branches fails the charged-lepton comparison. Increasing the depth produces
-additional light branches. For any depth the ratio of successive light frequencies is below 8/3.
+additional light branches. The exclusion also holds with any branching factor and any uniform parent-child
+hopping strength for the dictionary assigning the three lowest distinct positive rest lines to charged leptons.
 
 ## Source and observation
 
@@ -102,6 +103,38 @@ The depth-two ordered dictionary therefore fails OpenWave row 11. The empirical 
 the experiment, enter only the comparison after acquisition and decoding. Neither the retrieval of a line
 nor charge-number conservation identifies a lepton. [OpenWave criterion](https://github.com/openwave-labs/openwave/blob/a548888491af4a1bdeb660ebcf65a6c041174650/MODELS.md),
 [muon/electron](https://physics.nist.gov/cgi-bin/cuu/Value?mmusme), [tau/electron](https://physics.nist.gov/cgi-bin/cuu/Value?mtausme).
+
+### Allowing arbitrary uniform hopping
+
+Take any branching factor b ≥ 2, depth L ≥ 0, nonzero common dimer hop a and uniform parent-child hop c.
+Put g = √b |c/a|. The orthogonal child sums and differences give the same chain matrices I−gJ with
+b−1 sibling differences per parent. Measure rates in units of |a|. If uₙ is the least singular value of
+the length-n matrix, write Kₙ = (I−gJ)⁻¹. For g > 0,
+
+    g < uₙ₋₁/uₙ = ‖Kₙ‖/‖Kₙ₋₁‖ ≤ g + 1       (n ≥ 2).
+
+Indeed Kₙ = I + g J Kₙ and J Kₙ is an isometric embedding of Kₙ₋₁ with one zero column.
+The triangle inequality gives the upper bound since ‖Kₙ₋₁‖ ≥ 1. For the lower bound, delete
+the top row and last column of Kₙ. The remaining entries dominate gKₙ₋₁ entrywise. Apply this
+submatrix to a positive maximizing right singular vector of Kₙ₋₁ (its Gram matrix is strictly positive).
+Restoring the top row adds a strictly positive component. All successive ratios therefore lie in one
+interval of width one. Principal interlacing of the squared tridiagonal gives uₙ < uₙ₋₁.
+
+For L ≥ 2 and 0 < g < 2, the second distinct positive frequency is at most uₗ/uₗ₊₁ times the first,
+hence the first adjacent ratio is below 3. For g ≥ 2, deleting the first row and column of
+(I−gJ)(I−gJ)† leaves a tridiagonal with spectrum strictly above (g−1)² ≥ 1. Interlacing puts
+every nonminimal chain frequency above 1. The three smallest distinct frequencies are therefore
+uₗ₊₁, uₗ and uₗ₋₁. Their two adjacent ratios differ by less than one. At L = 1 the three lines are
+u₂, 1 and 1/u₂ because the length-two matrix has determinant one. At L = 0 or g = 0 there is one rate.
+These cases exhaust the uniform family.
+
+In the rectangle bounded by one reported standard uncertainty in each measured mass ratio, the first
+adjacent ratio mμ/mₑ exceeds 206 and the second mτ/mμ is below 17. This excludes the three-lowest-line
+assignment throughout the family even when the uniform relative hop and branching are free.
+Additional selection rules that hide intervening states, nonuniform couplings and interactions fall outside
+the proof. The comparison uses only dimensionless ratios.
+
+### Fixed root in the infinite tree
 
 At the fixed root of the infinite chain, T†T/a² = 5I−2(J+J†) has the sine-transform spectrum [1,9].
 TT†/a² also has a zero mode with normalized components (√3/2)·2^(−j). Since T†e₀/a = e₀, the positive
