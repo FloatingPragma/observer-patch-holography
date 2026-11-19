@@ -1,7 +1,6 @@
 """Exact sector construction from local seam terms and an optional three-port pair hop."""
 from dataclasses import dataclass
 from itertools import combinations
-from math import comb
 
 import numpy as np
 from scipy import sparse
@@ -43,6 +42,10 @@ class Ring:
     def build(cls, size, number):
         require(1 <= number < size//2, 'unsupported ring sector')
         states = [sum(1 << j for j in sites) for sites in combinations(range(size), number)]
+        return cls.from_states(size,number,states,lambda mask: rotate(mask,size))
+
+    @classmethod
+    def from_states(cls, size, number, states, shift):
         index = {mask:i for i,mask in enumerate(states)}
         seen = set()
         orbits = []
@@ -53,9 +56,9 @@ class Ring:
             while mask not in seen:
                 seen.add(mask)
                 orbit.append(index[mask])
-                mask = rotate(mask, size)
+                mask = shift(mask)
             orbits.append(orbit)
-        require(sum(map(len, orbits)) == comb(size, number), 'lost translation orbit')
+        require(sum(map(len, orbits)) == len(index) == len(states), 'lost translation orbit')
         return cls(size, number, states, index, orbits)
 
     def hamiltonian(self, member, kappa):

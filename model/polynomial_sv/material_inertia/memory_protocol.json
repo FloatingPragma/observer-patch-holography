@@ -1,0 +1,39 @@
+{
+  "member": "balanced-output contrast conversion",
+  "frozen_parent": "fa596b91e",
+  "law": "After the native write, gate a positive memory square with the projector onto balanced output (1,1). The memory contrast vector is m0-(m2+m-2)/sqrt(2); strength one in the native exchange-splitting units. The reference energies are retained.",
+  "control": "Block only the off-diagonal between the |11> and doubled sectors. Keep all diagonal energies and doubled-to-doubled hopping.",
+  "carriers": [
+    "cell",
+    0
+  ],
+  "preparations": [
+    "double",
+    "seam"
+  ],
+  "tick_divisor": 128,
+  "ticks": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128,
+    256
+  ],
+  "shots": 1048576,
+  "rings": [
+    12,
+    16
+  ],
+  "occupations": [
+    1,
+    2,
+    3
+  ],
+  "retain": "For each preparation and wait retain every seam agreement location, no adjacent binary pair, every doubled port. The pointer is an ideal switched read. Use each native public word for its corresponding boolean predicate. No input flavor, mass, quiescent dwell or resonance matching.",
+  "gates": "Test both conversion directions separately against the matched blocked law on each official carrier. Require at least 16 opposite-sector counts in an enrolled setting on the active law and zero in every blocked setting. On rings use the existing blind spectrometer and rest/inertia decision; retain all failures."
+}
