@@ -44,6 +44,7 @@ def rotation(comp,a,b,angle):
 
 def make_source(comp,neg,desired,kappa,member):
     """Yield alternating local control words and one-seam detector queries."""
+    require(kappa==8,"packet source requires the registered contrast coupling")
     slots = comp.slots
     require(desired.shape==(len(slots),) and abs(np.linalg.norm(desired)-1)<1e-12,"invalid launch")
     require(len(neg)==len(slots) and len(set(slots+neg))==2*len(slots)
@@ -143,7 +144,7 @@ def run(stage,root,record):
         grid = real_step(grid)
     if stage=="seal" and record:
         root.mkdir(exist_ok=False,parents=True)
-    archive(root/"ideal.npz",quantized,stage=="seal" and record)
+    quantized = archive(root/"ideal.npz",quantized,stage=="seal" and record)
     if stage=="seal":
         return
     ev = sectors.SeamEvents(sector,8)
@@ -179,7 +180,20 @@ def run(stage,root,record):
         summary[member] = dict(acceptance=accepted,conditional_fidelity=fidelity,
                                max_joint_tv=worst,exceeds_emitter_bound=bool(worst>bound),resources=resources)
         print(member,accepted,fidelity,worst,resources["events"],resources["reader_queries"])
-    archive(root/"opened.npz",counts,record)
+    stored = archive(root/"opened.npz",counts,record)
+    for member,row in summary.items():
+        # The terminal alphabet comprises no pair and every seam. All preceding bins are stops.
+        accepted_counts = set()
+        distances = []
+        for key,forecast in quantized.items():
+            opened = stored[f"{member}_{key}"]
+            accepted_counts.add(int(opened[-(1+len(car.seams)):].sum(dtype=np.int64)))
+            distances.append(abs(opened.astype(np.int64)-forecast).sum()/(2*spec["shots"]))
+        require(len(accepted_counts)==1,"source acceptance changed with the terminal aperture")
+        hits = accepted_counts.pop()
+        measured_tv = float(max(distances))
+        row.update(acceptance_count=hits,exposures=spec["shots"],measured_acceptance=hits/spec["shots"],
+                   max_counter_tv=measured_tv,counter_exceeds_emitter_bound=measured_tv>bound)
     receipt(root/"result.json",summary,record)
 
 

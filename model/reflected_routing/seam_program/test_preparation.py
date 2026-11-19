@@ -5,7 +5,7 @@ from scipy.linalg import expm
 from model.polynomial_sv import carrier, law, sectors
 from .compiler import Compiler
 from .preparation import execute_source, make_source, raw_event
-from .receiver import ideal_vector, receive
+from .receiver import home_read, ideal_vector, receive
 
 
 @pytest.mark.parametrize("kind", ["complex","sparse","basis"])
@@ -29,6 +29,8 @@ def test_arbitrary_phase_and_all_failure_branches(kind):
     np.testing.assert_allclose(losses,np.r_[.25,.25,.25*abs(desired)**2],atol=2e-13)
     with pytest.raises(ValueError):
         list(make_source(comp,comp.slots,desired,8,"native"))
+    with pytest.raises(ValueError,match="contrast coupling"):
+        list(make_source(comp,neg,desired,7,"native"))
 
 
 def test_arbitrary_duration_from_unshifted_blank_law():
@@ -76,3 +78,33 @@ def test_receiver_reads_complex_overlap_on_arbitrary_incident_wave(member):
     np.testing.assert_allclose(observed,expected,atol=2e-13)
     assert abs(np.vdot(state,state).real+sum(losses)-1)<1e-12
     assert resources["reader_queries"]==10
+
+
+def test_uniform_obstruction_depends_on_the_event_law():
+    car = carrier.cell()
+    sector = sectors.PairSector(car)
+    events = sectors.SeamEvents(sector,8)
+    sharp = events.start((0,1))
+    scheduled = sharp.copy()
+    unshifted = sharp.copy()
+    for seam,angle in [((1,5),np.pi/2),((4,5),3*np.pi/16)]:
+        edge = car.seams.index(seam)
+        events.apply(scheduled,edge,angle)
+        raw_event(events,unshifted,edge,angle)
+    marked = [sector.index(0,j) for j in range(1,car.n)]
+    np.testing.assert_allclose(scheduled[marked].sum(),1,atol=2e-14)
+    np.testing.assert_allclose(unshifted[marked].sum(),0,atol=2e-14)
+    np.testing.assert_allclose(np.linalg.norm(unshifted[marked]),1,atol=2e-14)
+
+
+def test_home_frequency_uses_the_whole_record_in_seam_order():
+    seams = [(0,3),(0,5),(1,2)]
+    # Two early stops, then no pair and three distinct seam bins.
+    counts = np.array([2,3,4,1,9,1],dtype=np.int32)
+    assert home_read(counts,2,seams,(0,5),20)==(9,9/20)
+    counts[4] -= 3
+    counts[0] += 3
+    assert home_read(counts,2,seams,(0,5),20)==(6,6/20)
+    for corrupt in (counts[2:],-counts,counts.astype(float),counts+1):
+        with pytest.raises(ValueError):
+            home_read(corrupt,2,seams,(0,5),20)

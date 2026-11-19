@@ -67,6 +67,15 @@ def receive(comp,events,neg,wave,member,initial):
                             port_counts=clock.tolist(),scheduled_depth=int(depth.max()))
 
 
+def home_read(counts, stops, seams, home_seam, shots):
+    """Read the agreed source seam after both sets of stops and the no-pair bin."""
+    require(counts.dtype==np.int32 and counts.shape==(stops+1+len(seams),)
+            and np.all(counts>=0) and shots>0 and counts.sum(dtype=np.int64)==shots,
+            "invalid joint phase-receiver counts")
+    hits = int(counts[stops+1+seams.index(home_seam)])
+    return hits,hits/shots
+
+
 def run(stage,root,record):
     require(pins()==load(HERE/"receiver_sources.json") and
             preparation_pins()==load(HERE/"preparation_sources.json") and
@@ -98,16 +107,23 @@ def run(stage,root,record):
         law = np.r_[before,after,max(0.,none),seams]
         key = a+"_"+b
         raw[key] = counters(law,spec["shots"])
-        yes = float(seams[car.seams.index((0,1))])
-        actual[key] = dict(home= yes,ideal=forecasts[key],within_emitter_bound=abs(yes-forecasts[key])<=bound,
+        actual[key] = dict(home_law=float(seams[car.seams.index((0,1))]),ideal=forecasts[key],
                            sender_events=send_cost["events"],receiver=read_cost)
+    stored = archive(root/"opened.npz",raw,record)
+    for a,b in pairs:
+        key = a+"_"+b
+        # Both registered phase settings perform the full set of exclusions.
+        stops = sender[a][2]["reader_queries"]+actual[key]["receiver"]["reader_queries"]
+        hits,freq = home_read(stored[key],stops,car.seams,(0,1),spec["shots"])
+        require(abs(freq-actual[key]["home_law"])<=1/spec["shots"],"detector midpoint error exceeded")
+        actual[key].update(home=freq,home_count=hits,exposures=spec["shots"],
+                           within_emitter_bound=abs(freq-forecasts[key])<=bound)
     matched = actual["native_native"]["home"]
     for a,b in pairs:
         row = actual[a+"_"+b]
         row["separation_from_native_match"] = abs(row["home"]-matched)
         row["exceeds_emitter_bound"] = row["separation_from_native_match"]>bound
         print(a,b,row["home"],row["ideal"],row["within_emitter_bound"])
-    archive(root/"opened.npz",raw,record)
     receipt(root/"result.json",actual,record)
 
 

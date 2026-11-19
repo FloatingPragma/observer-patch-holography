@@ -77,6 +77,30 @@ def test_integer_basis_launch_keeps_fractional_and_complex_amplitudes(phase):
     assert np.linalg.norm(wave)==pytest.approx(1)
 
 
+def test_invalid_coin_and_detector_inputs_fail_closed():
+    for shape in ((1,1,1,1,9),(1,1,1,8),(1,0,1,1,8)):
+        with pytest.raises(ValueError):
+            kernel.real_step(np.zeros(shape))
+    for exposures in (0,True,1.5,2**31):
+        with pytest.raises(ValueError):
+            kernel.counters([1.],exposures)
+    for probabilities in ([[.5,.5]],[],[complex(1,0)]):
+        with pytest.raises(ValueError):
+            kernel.counters(probabilities,100)
+
+
+def test_repeated_calibration_is_not_a_third_exchange():
+    _, exchanges, stamps, lap = chart.stations(12, 0, [0,4,9])
+    exchanges[2,2] = exchanges[2,1]
+    with pytest.raises(ValueError):
+        chart.reconstruct(exchanges,stamps,lap)
+    with pytest.raises(ValueError):
+        local_times(exchanges[2],stamps[:,2])
+    cal = np.array([[0,1,-2],[11,23,9],[39,79,37]])
+    with pytest.raises(ValueError):
+        local_times(cal,stamps[:,0])
+
+
 def test_local_winding_against_literal_cut_and_receiver():
     size, tags, x = 12, 8, 2
     center = (3, 3)

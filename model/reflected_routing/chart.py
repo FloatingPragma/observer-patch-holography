@@ -47,9 +47,11 @@ def deliver(size,axis,order,local):
 
 
 def reconstruct(exchanges,stamps,lap):
-    require(exchanges.ndim==3 and exchanges.shape[1:]==(3,3) and
-            stamps.ndim==2 and stamps.shape[1]==len(exchanges),'incomplete clock menu')
+    require(exchanges.ndim==3 and exchanges.shape[1:]==(3,3) and len(exchanges)>0 and
+            exchanges.dtype.kind=='i' and stamps.dtype.kind=='i' and stamps.ndim==2 and
+            stamps.shape[1]==len(exchanges) and len(stamps)>=2,'incomplete clock menu')
     sent,remote,returned = exchanges.transpose(2,0,1)
+    require(np.all(sent[:,1:]>sent[:,:-1]) and np.all(returned>=sent),'invalid clock exchange order')
     ranges = (returned-sent)/2
     require(np.all(ranges==ranges[:,:1]) and lap>0,'inconsistent range records')
     coords = ranges[:,0]

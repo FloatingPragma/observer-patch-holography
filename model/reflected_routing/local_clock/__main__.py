@@ -39,7 +39,9 @@ def report(size,x,times,rows):
 
 
 def local_times(cal,stamp):
-    require(cal.shape==(3,3) and np.all(cal[:,2]-cal[:,0]==cal[0,2]-cal[0,0]),
+    require(cal.shape==(3,3) and cal.dtype.kind=='i' and stamp.ndim==1 and stamp.dtype.kind=='i' and
+            np.all(cal[1:,0]>cal[:-1,0]) and np.all(cal[:,2]>=cal[:,0]) and
+            np.all(cal[:,2]-cal[:,0]==cal[0,2]-cal[0,0]),
             'inconsistent local range')
     t = (cal[:,2]+cal[:,0])/2
     slope = (cal[1,1]-cal[0,1])/(t[1]-t[0])
@@ -49,8 +51,10 @@ def local_times(cal,stamp):
 
 
 def peak(rows,times,shots):
-    require(rows.dtype==np.int64 and rows.shape==(len(times),9) and np.all(rows>=0) and
-            np.all(rows.sum(axis=1)==shots) and np.all(np.diff(times)>0),'invalid local aperture record')
+    require(rows.dtype==np.int64 and rows.shape==(len(times),9) and len(times)>=3 and
+            0<shots<=np.iinfo(np.int64).max//9 and np.all((rows>=0)&(rows<=shots)) and
+            np.all(rows.sum(axis=1)==shots) and np.all(np.isfinite(times)) and
+            np.all(np.diff(times)>0),'invalid local aperture record')
     i = int(np.argmax(rows[:,1]))
     if i==0 or i==len(times)-1 or rows[i,1]<1000 or np.count_nonzero(rows[:,1]==rows[i,1])!=1:
         return None

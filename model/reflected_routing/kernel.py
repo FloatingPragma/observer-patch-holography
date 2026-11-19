@@ -14,6 +14,7 @@ def multipliers(angles):
 
 
 def reflect(state, phase=1):
+    require(state.ndim>=1 and state.shape[-1]==8,'the routing coin has eight slots')
     return (1+phase)*state.mean(axis=-1,keepdims=True)-state
 
 
@@ -24,6 +25,7 @@ def step(state, shift, phase=1):
 
 def real_step(state, phase=1):
     """Literal four-index update, including the private direction."""
+    require(state.ndim==5 and all(state.shape[:-1]),'four nonempty address coordinates required')
     coin = reflect(state,phase)
     out = np.empty_like(coin)
     for slot in range(8):
@@ -60,7 +62,10 @@ def marginal(state, modes, size, axis):
 
 def counters(probabilities, shots):
     p = np.asarray(probabilities)
-    require(np.isfinite(p).all() and p.min()>=0 and abs(p.sum()-1)<2e-10,
+    require(isinstance(shots,(int,np.integer)) and not isinstance(shots,(bool,np.bool_))
+            and 0<shots<=np.iinfo(np.int32).max,'exposures must fit a positive detector count')
+    require(p.ndim==1 and p.size>0 and p.dtype.kind in 'fiu' and
+            np.isfinite(p).all() and p.min()>=0 and abs(p.sum()-1)<2e-10,
             'incomplete detector law')
     edges = np.floor(shots*np.cumsum(p)+0.5).astype(np.int64)
     result = np.diff(edges,prepend=0)

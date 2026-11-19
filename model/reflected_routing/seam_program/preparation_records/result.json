@@ -1,9 +1,14 @@
 {
  "native": {
   "acceptance": 0.250242875,
+  "acceptance_count": 262399,
   "conditional_fidelity": 0.998093954,
+  "counter_exceeds_emitter_bound": false,
   "exceeds_emitter_bound": false,
+  "exposures": 1048576,
+  "max_counter_tv": 0.00272083282,
   "max_joint_tv": 0.0027203971,
+  "measured_acceptance": 0.250243187,
   "resources": {
    "angle_sum": 15024.292,
    "events": 4976,
@@ -14,9 +19,14 @@
  },
  "omit_phase": {
   "acceptance": 0.250366515,
+  "acceptance_count": 262528,
   "conditional_fidelity": 0.0201399526,
+  "counter_exceeds_emitter_bound": false,
   "exceeds_emitter_bound": false,
+  "exposures": 1048576,
+  "max_counter_tv": 0.0186166763,
   "max_joint_tv": 0.0186158675,
+  "measured_acceptance": 0.250366211,
   "resources": {
    "angle_sum": 11674.7356,
    "events": 3846,
@@ -27,9 +37,14 @@
  },
  "unread_negative": {
   "acceptance": 0.50027325,
+  "acceptance_count": 524575,
   "conditional_fidelity": 0.499258955,
+  "counter_exceeds_emitter_bound": true,
   "exceeds_emitter_bound": true,
+  "exposures": 1048576,
+  "max_counter_tv": 0.251120567,
   "max_joint_tv": 0.251120401,
+  "measured_acceptance": 0.500273705,
   "resources": {
    "angle_sum": 8477.21292,
    "events": 2892,

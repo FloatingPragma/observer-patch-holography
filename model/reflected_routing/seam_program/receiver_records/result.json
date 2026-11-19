@@ -1,7 +1,10 @@
 {
  "native_native": {
   "exceeds_emitter_bound": false,
-  "home": 0.0624414751,
+  "exposures": 1048576,
+  "home": 0.0624408722,
+  "home_count": 65474,
+  "home_law": 0.0624414751,
   "ideal": 0.0625,
   "receiver": {
    "angle_sum": 16240.8381,
@@ -16,7 +19,10 @@
  },
  "native_omit_phase": {
   "exceeds_emitter_bound": true,
-  "home": 0.00127634018,
+  "exposures": 1048576,
+  "home": 0.00127601624,
+  "home_count": 1338,
+  "home_law": 0.00127634018,
   "ideal": 0.00126375532,
   "receiver": {
    "angle_sum": 12490.3951,
@@ -26,12 +32,15 @@
    "scheduled_depth": 3281
   },
   "sender_events": 4976,
-  "separation_from_native_match": 0.0611651349,
+  "separation_from_native_match": 0.061164856,
   "within_emitter_bound": true
  },
  "omit_phase_native": {
   "exceeds_emitter_bound": true,
-  "home": 0.00126059244,
+  "exposures": 1048576,
+  "home": 0.00126075745,
+  "home_count": 1322,
+  "home_law": 0.00126059244,
   "ideal": 0.00126375532,
   "receiver": {
    "angle_sum": 16240.8381,
@@ -41,12 +50,15 @@
    "scheduled_depth": 3975
   },
   "sender_events": 3846,
-  "separation_from_native_match": 0.0611808826,
+  "separation_from_native_match": 0.0611801147,
   "within_emitter_bound": true
  },
  "omit_phase_omit_phase": {
   "exceeds_emitter_bound": false,
-  "home": 0.0624701287,
+  "exposures": 1048576,
+  "home": 0.0624704361,
+  "home_count": 65505,
+  "home_law": 0.0624701287,
   "ideal": 0.0625,
   "receiver": {
    "angle_sum": 12490.3951,
@@ -56,7 +68,7 @@
    "scheduled_depth": 3281
   },
   "sender_events": 3846,
-  "separation_from_native_match": 2.86536533e-05,
+  "separation_from_native_match": 2.95639038e-05,
   "within_emitter_bound": true
  }
 }
