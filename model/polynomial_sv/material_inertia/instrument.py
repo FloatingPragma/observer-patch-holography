@@ -1,5 +1,6 @@
 """Clock calibration, complete two-port counts and a line reader without Hamiltonian access."""
 import math
+from typing import NamedTuple
 
 import numpy as np
 
@@ -56,7 +57,16 @@ def tick_menu(spec):
     return np.r_[dyadic, 3*dyadic[-1]//4]
 
 
-def read_line(data, rate, spec):
+class PhaseLine(NamedTuple):
+    turns: int
+    angle: float
+    error: float
+
+    def frequency(self, exposure):
+        return (math.tau*self.turns+self.angle)/exposure, self.error/exposure
+
+
+def read_phase(data, spec):
     ticks = tick_menu(spec)
     z = signal(data,len(ticks),spec['shots'])
     floor = spec['dominant_floor']
@@ -65,17 +75,23 @@ def read_line(data, rate, spec):
         return None
     angles = -np.angle(z)
     phase = angles[0]
+    turns = 0
     for wrapped in angles[1:-1]:
         expected = 2*phase
-        phase = wrapped + 2*np.pi*round((expected-wrapped)/(2*np.pi))
+        turns = round((expected-wrapped)/math.tau)
+        phase = wrapped + math.tau*turns
         if abs(phase-expected) > spec['phase_gate']:
             return None
-    frequency = phase/(ticks[-2]*rate)
-    heldout = np.angle(np.exp(1j*(angles[-1]-frequency*ticks[-1]*rate)))
+    heldout = np.angle(np.exp(1j*(angles[-1]-phase*(ticks[-1]/ticks[-2]))))
     if abs(heldout) > spec['phase_gate']:
         return None
     angular_bound = math.asin((1-floor+math.sqrt(2)/spec['shots'])/floor)
-    return float(frequency), float(angular_bound/(ticks[-2]*rate))
+    return PhaseLine(turns, float(angles[-2]), angular_bound)
+
+
+def read_line(data, rate, spec):
+    phase = read_phase(data,spec)
+    return None if phase is None else phase.frequency(tick_menu(spec)[-2]*rate)
 
 
 def quotient(numerator, denominator):
@@ -92,5 +108,8 @@ def band_ratios(lines):
         return None
     one, moving_one, cluster, moving_cluster = lines
     def shift(a,b):
-        return b[0]-a[0], a[1]+b[1]
-    return {'rest':quotient(cluster,one), 'inertia':quotient(shift(one,moving_one),shift(cluster,moving_cluster))}
+        # All four records have the same exposure. Cancel whole turns before
+        # converting to radians so the rest phase cannot erase a small band shift.
+        return math.tau*(b.turns-a.turns)+(b.angle-a.angle), a.error+b.error
+    return {'rest':quotient(cluster.frequency(1),one.frequency(1)),
+            'inertia':quotient(shift(one,moving_one),shift(cluster,moving_cluster))}

@@ -110,7 +110,9 @@ The two outcomes of each interferometer setting use 4,096 evenly spaced counter 
 are deterministic simulated counts with bounded rounding error. The reader unwraps 30 doubling
 intervals and checks a different wait. Its frequency error follows from the quantization bound and a
 dominant spectral weight of at least 0.95, verified separately on the source. Broad or weak lines can
-give an unresolved result. Position exposures use 65,536 thresholds per setting. All translated compact
+give an unresolved result. At a common exposure the reader subtracts whole phase turns exactly before
+subtracting the measured residual angles. This resolves small kinetic shifts on large rest phases.
+Position exposures use 65,536 thresholds per setting. All translated compact
 positions and their complement are read in one ensemble. Neither the binding forecast nor the transport
 law uses a measured lepton mass. The choice of law, coupling, apparatus and ring is supplied.
 For the sharp position read, a reversible query visits the occupied-run window, copies its conjunction

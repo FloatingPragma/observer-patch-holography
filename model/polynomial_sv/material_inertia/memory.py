@@ -139,13 +139,14 @@ def run(spec,base):
                 E,w = spectral_measure(H,ring.frame(ell))
                 key = name('memory',size,number,ell)
                 raw[key] = instrument.quadratures(np.exp(-1j*np.outer(times,E))@w,base['shots'])
-                read = instrument.read_line(raw[key],rate,base)
+                phase = instrument.read_phase(raw[key],base)
                 weight = w[0]
-                admitted = read is not None and weight>=base['dominant_floor']
+                admitted = phase is not None and weight>=base['dominant_floor']
                 if admitted:
+                    read = phase.frequency(instrument.tick_menu(base)[-2]*rate)
                     require(abs(read[0]*rate*base['tick_divisor']-E[0])<=read[1]*rate*base['tick_divisor']+3e-10,
                             'qutrit line differs from source')
-                reads[number,ell] = read if admitted else None
+                reads[number,ell] = phase if admitted else None
             if number>1:
                 result['mass_response'][f'{size}_{number}'] = instrument.band_ratios(
                     [reads[n,ell] for n,ell in ((1,0),(1,1),(number,0),(number,1))])

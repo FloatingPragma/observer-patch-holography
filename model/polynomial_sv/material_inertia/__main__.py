@@ -80,18 +80,20 @@ def acquire(spec, spectra_dir=None):
 
 def analyze(spec, raw):
     rate = instrument.clock_rate(raw['clock'],spec)
-    lines = {}
+    phases = {}
     for size, number in cases(spec):
         for member in spec['laws']:
             for ell in spec['phases']:
                 key = name(member,size,number,ell)
-                lines[key] = instrument.read_line(raw[key],rate,spec)
+                phases[key] = instrument.read_phase(raw[key],spec)
+    exposure = instrument.tick_menu(spec)[-2]*rate
+    lines = {key:None if phase is None else phase.frequency(exposure) for key,phase in phases.items()}
     ratios = {}
     for size, number in cases(spec):
         if number==1:
             continue
         for member in spec['laws']:
-            four = [lines[name(member,size,n,k)] for n,k in ((1,0),(1,1),(number,0),(number,1))]
+            four = [phases[name(member,size,n,k)] for n,k in ((1,0),(1,1),(number,0),(number,1))]
             ratios[name(member,size,number,'ratios')] = instrument.band_ratios(four)
     predictions = {}
     for size in spec['rings']:

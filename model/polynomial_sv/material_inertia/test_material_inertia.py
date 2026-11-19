@@ -167,6 +167,14 @@ def test_analytic_pair_and_wrap_certificate():
 
 
 def test_counter_clock_line_and_receipt_rejections(tmp_path):
+    # Simulate equal exposures carrying large rest phases. The two kinetic
+    # shifts are exactly 1/2 and 1/64 radians in the final phase records.
+    phase = instrument.PhaseLine
+    for common_turns in (0,2**27,2**48):
+        observed = instrument.band_ratios([phase(common_turns,1.,0.),phase(common_turns,1.5,0.),
+                                          phase(2*common_turns,2.,0.),phase(2*common_turns,2+1/64,0.)])
+        assert observed['inertia']==[32.,32.,32.]
+        assert observed['rest']==[2.,2.,2.]
     spec = load(HERE/'protocol.json')
     shots = spec['shots']
     clock = instrument.clock(spec)
