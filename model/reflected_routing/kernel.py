@@ -24,8 +24,8 @@ def step(state, shift, phase=1):
 
 def real_step(state, phase=1):
     """Literal four-index update, including the private direction."""
-    out = np.empty_like(state)
     coin = reflect(state,phase)
+    out = np.empty_like(coin)
     for slot in range(8):
         out[...,slot^1] = np.roll(coin[...,slot], 1 if slot%2==0 else -1, axis=slot//2)
     return out

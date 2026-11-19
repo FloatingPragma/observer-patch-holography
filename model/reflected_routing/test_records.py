@@ -68,6 +68,15 @@ def test_exact_axial_tail_and_rate():
     assert kernel.passive_log_bound(1024, u*1024, [tilt,0,0,0]) < -100
 
 
+@pytest.mark.parametrize("phase", [1,1j])
+def test_integer_basis_launch_keeps_fractional_and_complex_amplitudes(phase):
+    state = np.zeros((3,3,3,3,8),dtype=int)
+    state[0,0,0,0,0] = 1
+    wave = kernel.real_step(state,phase)
+    np.testing.assert_array_equal(wave,kernel.real_step(state.astype(complex),phase))
+    assert np.linalg.norm(wave)==pytest.approx(1)
+
+
 def test_local_winding_against_literal_cut_and_receiver():
     size, tags, x = 12, 8, 2
     center = (3, 3)
