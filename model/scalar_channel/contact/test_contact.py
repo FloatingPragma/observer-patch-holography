@@ -123,7 +123,7 @@ def test_same_local_spill_on_a_degree_five_ring_after_refinement(level):
 
 
 def test_mobile_pointers_by_evolving_the_two_bits_directly():
-    # Independent basis order: scalar mode, load/fuel, then two physical pointer bits.
+    # Independent basis order: scalar mode, load/fuel, then two explicit pointer bits.
     car = cage.cell()
     D = sp.csr_matrix(cage.law(car))
     spec = json.loads((replay.HERE / 'pair_protocol.json').read_text())

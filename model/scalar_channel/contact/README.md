@@ -30,21 +30,17 @@ exchange units, with scalar rest level 1 and hop $1/\sqrt2$. That relative
 normalization, the contact operator, the apparatus and the signs tested
 ($g=0,+1,-1$) are design choices.
 
-On scalar vacuum the full contrast source is exact. On empty loads and
-blank memories every $A_s$ vanishes and the full scalar source is exact.
+On the empty scalar register, with no object on any seam or wedge, the full
+contrast source is exact. On empty loads and blank memories every $A_s$
+vanishes and the full scalar source is exact. The prepared reference of the
+scalar channel is not empty: it holds occupation 0.2635 on every seam, so in
+that reference the contact acts on every load.
 These embeddings also hold with untouched quantum references. In particular
 the one-load cell transport carries the port-Laplacian fingerprints
 $5-\sqrt5$ and 6 after the native factor of one half and the constant
 reference shift. The free scalar cage has line $2\sqrt6$. Every value of
 $g$ has the same restrictions to these two sectors. Even their complete
 record laws, for instruments staying in those sectors, cannot determine $g$.
-The $1/6:1/12:1/12$, $\sqrt2$, $2/9$ and $3/8$ targets have no matched
-preparation and reader in this experiment. The [centre class and plaquette
-flux costs](../../defect_particle_classes/README.md) use a five-level code
-and a protected link flux. Neither is a register in this contact. These
-targets receive no score. The experiments use no measured masses,
-fine-structure or gravitational constant. A physical residual requires
-a unit map and a particle or field interpretation of a public record.
 
 ## Two directions of the interaction
 
