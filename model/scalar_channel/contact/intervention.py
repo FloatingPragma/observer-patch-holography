@@ -75,18 +75,24 @@ def read(spec, counts):
     simultaneous = np.minimum(floor[..., :1], floor[..., 1:])
     for emitter in range(6):
         simultaneous[emitter, ..., emitter] = 0
+    qualified = int(np.count_nonzero(simultaneous))
+    result = {"menus_with_remote_and_material_response": qualified,
+              "strongest_joint_lower_bound": float(simultaneous.max()),
+              "alpha": settings["alpha"], "shots_per_joint_setting": shots,
+              "settings": int(np.prod(counts.shape[:-2]))}
+    if not qualified:
+        # With no certified remote response, even the argmax can be the emitter.
+        return dict(result, seed_seam=None, receiver_seam=None, post_wait=None, analyzer=None,
+                    affirmative_clock_and_station_rate_changes=None, contact_specific_changes=None,
+                    simultaneous_absolute_lower_bounds=None)
     seed, wait, axis, receiver = map(int, np.unravel_index(simultaneous.argmax(), simultaneous.shape))
     pair = [0, receiver+1]
     menu = (seed, wait, axis)
-    return {"menus_with_remote_and_material_response": int(np.count_nonzero(simultaneous)),
-            "strongest_joint_lower_bound": float(simultaneous.max()),
-            "seed_seam": [*spec["endpoints"], spec["mark"]][seed], "receiver_seam": spec["endpoints"][receiver],
-            "post_wait": settings["post_waits"][wait], "analyzer": ["X","Y"][axis],
-            "affirmative_clock_and_station_rate_changes": delta[1][menu][pair].tolist(),
-            "contact_specific_changes": extra[menu][pair].tolist(),
-            "simultaneous_absolute_lower_bounds": floor[menu][pair].tolist(),
-            "alpha": settings["alpha"], "shots_per_joint_setting": shots,
-            "settings": int(np.prod(counts.shape[:-2]))}
+    return dict(result, seed_seam=[*spec["endpoints"], spec["mark"]][seed],
+                receiver_seam=spec["endpoints"][receiver], post_wait=settings["post_waits"][wait],
+                analyzer=["X", "Y"][axis], affirmative_clock_and_station_rate_changes=delta[1][menu][pair].tolist(),
+                contact_specific_changes=extra[menu][pair].tolist(),
+                simultaneous_absolute_lower_bounds=floor[menu][pair].tolist())
 
 
 def run(spec):
