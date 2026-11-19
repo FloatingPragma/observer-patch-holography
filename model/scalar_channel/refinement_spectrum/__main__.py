@@ -18,7 +18,7 @@ ROOT = HERE.parents[2]
 SOURCES = ('model/__init__.py', 'model/requirements.txt', 'model/scalar_channel/__init__.py',
            'model/scalar_channel/cage/__init__.py', 'model/scalar_channel/carrier.py', 'model/scalar_channel/cage/construction.py',
            'tools/strict_json.py', *('model/scalar_channel/refinement_spectrum/'+f for f in
-           ('__init__.py','__main__.py','source.py','instruments.py','flight.py','protocol.json','comparison.json')),
+           ('__init__.py','__main__.py','source.py','instruments.py','flight.py','protocol.json')),
            *(f'model/polynomial_sv/carriers/FEDERATION_LEVEL{i}.npz' for i in range(3)))
 
 
@@ -93,58 +93,33 @@ def score(spec, maps, readings):
         compare_spectrum(ref, [p] if p else [], spec)
         if p:
             require(abs(ref['weights'][0]-1) < .006, 'wrong external reference weight')
-        momentum = ref['lines'][0] if ref['lines'] else 0.
+        outer = ref['lines'][0] if ref['lines'] else 0.
         for law in spec['laws']:
             errors = []
             for band in inv:
                 n = band['length']
-                masses = [1.] if law == 'no_children' else band['positive']
+                rates = [1.] if law == 'no_children' else band['positive']
                 row = readings[f'{law}_{name}_{n}']
                 inner = source.chain(depth,n)[:n,n:]/cell.HOP
                 _, modes = np.linalg.eigh(inner @ inner.T)
                 strengths = [1.] if law == 'no_children' else abs(modes[0])**2
                 if law == 'unsigned' and p:
-                    expected = [abs(m+s*p) for m in masses for s in (-1,1)]
+                    expected = [abs(r+s*p) for r in rates for s in (-1,1)]
                     strengths = np.repeat(strengths,2)/2
                 else:
-                    expected = [math.hypot(m,p) for m in masses]
+                    expected = [math.hypot(r,p) for r in rates]
                 compare_spectrum(row, expected, spec)
                 require(np.allclose(row['weights'],np.asarray(strengths)[np.argsort(expected)],atol=.006,rtol=0),
                         'mode weights disagree with the source projection')
                 rest = np.array(readings[f'{law}_uniform_{n}']['lines'])
-                errors.extend(float(min(abs(w*w-momentum**2-rest**2))) for w in row['lines'])
+                errors.extend(float(min(abs(w*w-outer**2-rest**2))) for w in row['lines'])
             residuals[law+'_'+name] = max(errors)
             if law == 'unsigned' and p:
                 require(max(errors) > spec['minimum_unsigned_residual'], 'unsigned control also passed dispersion')
             else:
-                require(max(errors) < spec['maximum_squared_dispersion_residual'], 'measured mass shells disagree')
+                require(max(errors) < spec['maximum_squared_dispersion_residual'], 'measured squared dispersion disagrees')
     light = sorted(readings[f'graded_uniform_{n}']['lines'][0] for n in range(1,depth+2))
     return dict(light=light, ratios=[x/light[0] for x in light], squared_dispersion_residuals=residuals)
-
-
-def lepton_comparison(ratios, reference):
-    """Called after acquisition, decoding and scoring. These values cannot enter the source or reader."""
-    mu, tau = (reference[k] for k in ('muon_over_electron','tau_over_electron'))
-    for row in (mu, tau):
-        require(all(type(row[key]) in (int, float) and math.isfinite(row[key])
-                    for key in ('value','standard_uncertainty')) and row['standard_uncertainty'] >= 0,
-                'invalid comparison value or standard uncertainty')
-    require(len(ratios) == 3 and ratios[0] == 1 and all(math.isfinite(x) for x in ratios)
-            and 1 < ratios[1] < ratios[2], 'invalid ordered rest-frequency ratios')
-    mu_lo = mu['value'] - mu['standard_uncertainty']
-    tau_hi = tau['value'] + tau['standard_uncertainty']
-    require(mu_lo > 0 and tau['value'] > mu['value'], 'invalid comparison ordering')
-    # At every point in the quoted uncertainty rectangle, the first adjacent ratio is at least
-    # mu_lo and the next is at most tau_hi/mu_lo. No independence assumption enters this bound.
-    return dict(
-        ordered_ratios={key: dict(predicted=ratio, observed=reference[key]['value'],
-                                  observed_minus_predicted=reference[key]['value']-ratio)
-                        for key,ratio in zip(('muon_over_electron','tau_over_electron'),ratios[1:],strict=True)},
-        first_adjacent_ratio_lower=mu_lo,
-        second_adjacent_ratio_upper=tau_hi/mu_lo,
-        adjacent_ratio_difference_lower=mu_lo-tau_hi/mu_lo,
-        uniform_tree_family_excluded=bool(mu_lo > 3 and mu_lo-tau_hi/mu_lo > 1),
-    )
 
 
 def verify_saved(saved, current, path='receipt'):
@@ -192,8 +167,7 @@ def main():
         (where/'result.json').write_text(json.dumps(result,allow_nan=False)+'\n',encoding='utf8')
     else:
         verify_saved(load(where/'result.json'), result)
-    print(json.dumps(dict(result['result'], lepton_comparison=lepton_comparison(
-        result['result']['ratios'],load(HERE/'comparison.json'))),allow_nan=False,indent=2))
+    print(json.dumps(result['result'],allow_nan=False,indent=2))
 
 
 if __name__ == '__main__':

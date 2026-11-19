@@ -1,4 +1,4 @@
-"""Observable limit of a fixed root detector under subdivision, and mass-ratio exclusion."""
+"""Observable limit of a fixed root detector under subdivision."""
 
 import argparse
 import hashlib

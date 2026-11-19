@@ -50,8 +50,8 @@ def run(spec, rng):
         laws, counts, stopped = [], [], []
         for t in waits:
             state = expm_multiply(-1j*t*generator, source.ravel(), traceA=0).reshape(source.shape)
-            spatial = np.bincount(labels, weights=(abs(state)**2).sum(axis=0), minlength=4)
-            law = np.r_[failures, spatial]
+            regions = np.bincount(labels, weights=(abs(state)**2).sum(axis=0), minlength=4)
+            law = np.r_[failures, regions]
             require(law.min() >= -1e-13 and abs(law.sum()-1)<1e-11, 'incomplete flight readout')
             law = np.maximum(law, 0)
             laws.append(law.tolist())

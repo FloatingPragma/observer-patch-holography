@@ -1,4 +1,4 @@
-"""Fuel interferometry, a clock read from its ports, and a reader blind to the masses."""
+"""Fuel interferometry, a clock read from its ports, and a reader that sees counts only."""
 
 import numpy as np
 from scipy.optimize import least_squares
@@ -46,14 +46,14 @@ def count_partition(rng, law, shots):
     # Quantizing cumulative edges keeps every bin nonnegative and preserves total probability exactly.
     law = np.maximum(law, 0.)
     edges = np.rint(np.cumsum(law/law.sum())*2**30).astype(np.int64)
-    masses = np.diff(np.r_[0, edges])
+    parts = np.diff(np.r_[0, edges])
     counts = []
     remaining, total = shots, 2**30
-    for mass in masses[:-1]:
-        count = int(binomial_counts(rng, remaining, mass/total)) if total and remaining else 0
+    for part in parts[:-1]:
+        count = int(binomial_counts(rng, remaining, part/total)) if total and remaining else 0
         counts.append(count)
         remaining -= count
-        total -= mass
+        total -= part
     return [*counts, remaining]
 
 

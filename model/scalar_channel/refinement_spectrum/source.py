@@ -1,4 +1,4 @@
-"""Two sublattices on a subdivision tree with the mass-free OPH seam-wedge hop."""
+"""Two sublattices on a subdivision tree with the seam-wedge hop of the scalar channel, without its level term."""
 
 import math
 

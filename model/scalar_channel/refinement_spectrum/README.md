@@ -1,17 +1,18 @@
 # Rest frequencies on a four-child register
 
 The experimental member `four-child-incidence-CAR-v1` gives an observer three distinct light rest frequencies
-at depth two. Their ratios in the observer's dimer clock are **1, 2.13582 and 5.15632**. Applying a single
-energy conversion to these three branches fails the charged-lepton comparison. Increasing the depth produces
-additional light branches. The exclusion also holds with any integer branching factor of at least two and any uniform parent-child
-hopping strength for the dictionary assigning the three lowest distinct positive rest lines to charged leptons.
+at depth two. Their ratios in the observer's dimer clock are **1, 2.13582 and 5.15632**. Increasing the depth
+produces additional light branches, and the ratio of two successive light frequencies is below 8/3 at every
+depth. With any integer branching factor of at least two and any uniform parent-child hopping strength, the
+ratio of two successive chain minima lies above the effective relative hop g and is at most g+1.
 
 ## Source and observation
 
 The [construction manual, §§2.3 and 5](../../construction_manual/CONSTRUCTION_MANUAL.md) supplies the
 20-, 80- and 320-cell carriers, the oriented seam-to-wedge incidence `C` and the hop magnitude
 `a = 1/√2`. Each wedge joins its two seams with opposite signs. The external one-quantum operator
-`D` has off-diagonal blocks `a C` and its transpose and zero diagonal. The fourfold subdivision of the carrier
+`D` has off-diagonal blocks `a C` and its transpose and zero diagonal. It is the hop of the scalar channel
+without the level term `m` of the manual's section 5.3. The fourfold subdivision of the carrier
 motivates a separate internal register. Its parent-child links, two sublattices, grading, and controlled
 interferometer are design choices. These internal links represent additional coherent hardware.
 The [official executable](../../polynomial_sv/SPEC.md) has its own repair and measurement laws.
@@ -105,10 +106,6 @@ norm between these gives
 
 Even the three lightest branches at arbitrary depth have largest-to-smallest ratio below 64/9.
 Picking widely separated layers would leave intermediate light branches in the same source.
-The depth-two ordered dictionary therefore fails OpenWave row 11. The empirical ratios, known before
-the experiment, enter only the comparison after acquisition and decoding. Neither the retrieval of a line
-nor charge-number conservation identifies a lepton. [OpenWave criterion](https://github.com/openwave-labs/openwave/blob/a548888491af4a1bdeb660ebcf65a6c041174650/MODELS.md),
-[muon/electron](https://physics.nist.gov/cgi-bin/cuu/Value?mmusme), [tau/electron](https://physics.nist.gov/cgi-bin/cuu/Value?mtausme).
 
 ### Allowing arbitrary uniform hopping
 
@@ -134,11 +131,10 @@ uₗ₊₁, uₗ and uₗ₋₁. Their two adjacent ratios differ by less than o
 u₂, 1 and 1/u₂ because the length-two matrix has determinant one. At L = 0 or g = 0 there is one rate.
 These cases exhaust the uniform family.
 
-In the rectangle bounded by one reported standard uncertainty in each measured mass ratio, the first
-adjacent ratio mμ/mₑ exceeds 206 and the second mτ/mμ is below 17. This excludes the three-lowest-line
-assignment throughout the family even when the uniform relative hop and branching are free.
-Additional selection rules that hide intervening states, nonuniform couplings and interactions fall outside
-the proof. The comparison uses only dimensionless ratios.
+With the uniform relative hop and the branching free, the three lowest distinct lines of the family
+therefore have a first adjacent ratio below 3 (0 < g < 2 and L ≥ 2) or two adjacent ratios that differ by
+less than one (g ≥ 2, or L = 1). Selection rules that hide intervening states, nonuniform couplings and
+interactions fall outside the proof.
 
 ### Fixed root in the infinite tree
 
@@ -158,11 +154,8 @@ readings in that window is 0.00177, including clock and counting noise. Over all
 0.04895. The last query is scheduled at time 64 and the dimer reads 64.0012. The theoretical
 length-33 rate is 1.74623 × 10⁻¹⁰. Those finite clock records do not resolve it.
 
-These statements concern the register coupled to the scalar incidence. The [OpenWave export](https://github.com/muellerberndt/openwave/tree/de76be71bc24c36b286fbcae5dab608f20f1e86a/candidates/np-solver/export)
-and its separate [row evidence](https://github.com/muellerberndt/openwave/blob/de76be71bc24c36b286fbcae5dab608f20f1e86a/simulation/law_comparison/ROW_COVERAGE.md)
-retain their own laws, preparations and readouts. Here the squared dispersion identity supplies a finite
-component of the dispersion test. An independently calibrated propagation speed, physical charges, flavor
-tags and a mass in physical units have no measurement in this experiment.
+These statements concern the register coupled to the scalar incidence. The squared dispersion identity is
+read at the three profiles of the menu, and the records carry no calibrated propagation speed.
 
 ## Resources and replay
 
@@ -189,7 +182,7 @@ four sample proportions. For K simultaneous binary proportions with N shots each
 and a union bound give a quadrature error bound 4√(log(2K/δ)/(2N)) at confidence 1−δ, plus 2⁻²⁹
 digitization error. Discretizing the inverse draws adds at most 2K·2⁻⁵³ to the tail probability.
 Frequency and dispersion gates are checks on the retained sample and its reserved tail.
-The spectral and hierarchy bounds follow from the source.
+The spectral bounds and the bounds on successive ratios follow from the source.
 
 From the repository root, with the [model dependencies](../../requirements.txt) and one BLAS thread:
 
@@ -203,6 +196,5 @@ Each replay verifies source hashes and regenerates the complete count receipts. 
 the held-out spectra, control laws and all transfer outcomes. The second compares fixed-root records to the
 infinite measure. The tests propagate all 139,860 modes on the labeled federation, compare every preparation
 failure and detector region, read the fuel on Fock space and check the smallest chain root against a
-high-precision characteristic polynomial. The physical comparison
-requires particle-specific, persistent records and a clock-to-energy calibration. The measurements here
-establish finite transport and exclude this proposed lepton assignment.
+high-precision characteristic polynomial. The measurements establish the three rest-frequency ratios,
+the squared dispersion at the profiles of the menu and finite transfer to a neighboring cell.

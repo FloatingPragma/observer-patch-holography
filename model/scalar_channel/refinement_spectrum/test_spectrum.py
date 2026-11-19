@@ -13,7 +13,7 @@ from ..cage import construction as cell
 from ..cage.instruments import fock_operators, lift
 from . import flight, instruments as ins, limit, source
 from tools.strict_json import load
-from .__main__ import HERE, ROOT, compare_spectrum, lepton_comparison, score, verify_saved
+from .__main__ import HERE, ROOT, compare_spectrum, score, verify_saved
 
 
 @pytest.mark.parametrize('depth', [0, 1, 2, 3])
@@ -71,16 +71,12 @@ def test_free_hopping_ratio_bound_against_full_tree(branching, relative_hop):
         assert distinct[1]/distinct[0] < 3
 
 
-def test_family_exclusion_uses_comparison_only_and_can_accept_compatible_data():
-    published = load(HERE/'comparison.json')
-    result = lepton_comparison([1,2,5],published)
-    assert result['uniform_tree_family_excluded'] and result['adjacent_ratio_difference_lower'] > 189
-    compatible = {k:dict(value=x,standard_uncertainty=0.) for k,x in
-                  [('muon_over_electron',4.),('tau_over_electron',16.)]}
-    assert not lepton_comparison([1,2,5],compatible)['uniform_tree_family_excluded']
-    compatible['muon_over_electron']['standard_uncertainty'] = -1000.
-    with pytest.raises(ValueError,match='standard uncertainty'):
-        lepton_comparison([1,2,5],compatible)
+def test_recorded_ratios_obey_the_bounds_of_the_source():
+    light = load(HERE/'records'/'result.json')['result']['light']
+    first, second = light[1]/light[0], light[2]/light[1]
+    # Successive chain minima at g = 2: above g, at most g + 1, and below 8/3.
+    assert 2 < first < 8/3 and 2 < second < 8/3 and abs(first-second) < 1
+    assert light[2]/light[0] < 64/9
 
 
 def test_shallow_family_including_large_hopping():

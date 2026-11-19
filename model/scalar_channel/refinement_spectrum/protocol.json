@@ -1,7 +1,6 @@
 {
   "member": "four-child-incidence-CAR-v1",
   "oph_base": "f52fa4dab609845b20a80b43ea6bd9cc11a19f56",
-  "openwave_base": "de76be71bc24c36b286fbcae5dab608f20f1e86a",
   "branching": 4,
   "depth": 2,
   "depth_control": [0, 1, 2, 3, 4, 5, 6, 7, 8],
@@ -20,6 +19,5 @@
   "maximum_frequency_error": 0.003,
   "maximum_squared_dispersion_residual": 0.02,
   "minimum_unsigned_residual": 0.25,
-  "flight": {"federation": 0, "filter_rounds": 8, "filter_clock_interval": 1, "waits": [0, 1, 2, 4, 8], "minimum_light_weight_given_pass": 0.99, "minimum_unconditional_neighbor_probability": 0.0001},
-  "physical_comparison": "Compare all distinct light rest branches, in order, with OpenWave row 11 only after extracting records. No observed mass, flavor label, target ratio or energy in eV sets any generator, gate, depth or reader."
+  "flight": {"federation": 0, "filter_rounds": 8, "filter_clock_interval": 1, "waits": [0, 1, 2, 4, 8], "minimum_light_weight_given_pass": 0.99, "minimum_unconditional_neighbor_probability": 0.0001}
 }
