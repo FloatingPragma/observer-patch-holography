@@ -8,7 +8,8 @@ polynomial-sv is the executable model of the theory: one hardware, and the laws 
 contrast-memory law, is executed by the package [polynomial_sv](../polynomial_sv/README.md), whose
 [specification](../polynomial_sv/SPEC.md) is the binding text for it. Law 2, the scalar channel, is executed by
 the package [scalar_channel](../scalar_channel/README.md), and the cage of section 5.9 by its subpackage
-[cage](../scalar_channel/cage/README.md). Both laws are candidates under test. The search for the correct native
+[cage](../scalar_channel/cage/README.md). Both laws are candidates under test, and the executable observer described
+here is a candidate that may change. The search for the correct native
 repair law is work in progress, and no law here is presented as that law. The two laws act on different state
 spaces, and their results are not combined into one claim.
 [Section 8](#8-observables-supplied-parts-and-open-work) lists the observables with their rows in the theory's

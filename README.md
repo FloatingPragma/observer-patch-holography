@@ -103,7 +103,8 @@ through shared records as the clock theorems require. The
 [observation ledger](docs/registers/OBSERVATION_LEDGER_V3.md) lists what the
 model reproduces and what is open.
 
-The laws are candidates. Their couplings are supplied, and the other
+The executable observer is a candidate, and it may change as the research
+goes on: its laws are candidates, their couplings are supplied, and the other
 observables in the papers, from charge and the particle spectrum to gravity,
 are work in progress on the same process.
 
