@@ -1,0 +1,23 @@
+{
+  "member": "four-child-incidence-CAR-v1",
+  "oph_base": "f52fa4dab609845b20a80b43ea6bd9cc11a19f56",
+  "branching": 4,
+  "depth": 2,
+  "depth_control": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+  "carriers": ["cell", 0, 1, 2],
+  "cell_profiles": ["uniform", "port", "ring"],
+  "federation_profiles": ["uniform", "ring"],
+  "laws": ["graded", "no_children", "unsigned"],
+  "times": 1024,
+  "clock_step": 0.375,
+  "shots": 1048576,
+  "seed": 4130721,
+  "fit_samples": 704,
+  "line_floor": 0.003,
+  "maximum_lines": 12,
+  "maximum_test_rms": 0.004,
+  "maximum_frequency_error": 0.003,
+  "maximum_squared_dispersion_residual": 0.02,
+  "minimum_unsigned_residual": 0.25,
+  "flight": {"federation": 0, "filter_rounds": 8, "filter_clock_interval": 1, "waits": [0, 1, 2, 4, 8], "minimum_light_weight_given_pass": 0.99, "minimum_unconditional_neighbor_probability": 0.0001}
+}
