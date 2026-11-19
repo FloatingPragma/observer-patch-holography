@@ -48,6 +48,9 @@
     ]
   },
   "halfwidth": 2,
+  "tail_waits": [32, 64, 128, 256, 512, 1024],
+  "tail_speeds": [[11,20],[3,5],[3,4],[9,10],[1,1]],
+  "tail_read": "Exact integer counts of the equal-slot coefficient squared, summed over the axial half-line, with denominator 4 times 16^t. An initially localized axial packet is uniform in the remaining three coordinates. Compute all terminal positions before summing. Compare with the all-slot passive large-deviation exponent.",
   "times": "j*L/8 for j=0..32, in local home services",
   "shots": 1048576,
   "clock_gate": {
