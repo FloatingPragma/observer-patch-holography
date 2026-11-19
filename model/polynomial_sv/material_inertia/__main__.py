@@ -1,5 +1,6 @@
 """Reproduce the source, receiver records, spectral inventory and withheld composite predictions."""
 import argparse
+import difflib
 import hashlib
 import json
 from pathlib import Path
@@ -166,8 +167,12 @@ def clean(obj):
 
 def check_json(path, expected):
     # Python equality accepts True in place of 1. Compare canonical typed JSON.
-    require(json.dumps(load(path),sort_keys=True,allow_nan=False) ==
-            json.dumps(expected,sort_keys=True,allow_nan=False), 'changed decoded result')
+    stored = json.dumps(load(path), sort_keys=True, allow_nan=False, indent=2)
+    replay = json.dumps(expected, sort_keys=True, allow_nan=False, indent=2)
+    if stored != replay:
+        changes = difflib.unified_diff(stored.splitlines(), replay.splitlines(),
+                                       fromfile=str(path), tofile='replayed', lineterm='')
+        raise ValueError('changed decoded result\n' + '\n'.join(changes))
 
 
 def main():
