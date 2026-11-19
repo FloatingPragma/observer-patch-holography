@@ -101,6 +101,9 @@ jobs:
       - run: python -B -O -m model.scalar_channel.experiment --extended
       - run: python -B -O -W error -m model.scalar_channel.cage
       - run: python -B -m pytest -q -W error model/scalar_channel model/test_contrast_replay.py
+      - run: python -B -m pytest -q -W error model/reflected_routing
+      - run: python -B -O -W error -m model.reflected_routing
+      - run: python -B -O -W error -m model.reflected_routing.local_clock
 
   suite:
     name: Mandatory suite (shard ${{ matrix.shard }})

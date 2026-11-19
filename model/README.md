@@ -72,6 +72,7 @@ python -m pytest -q model/polynomial_sv model/scalar_channel
 | [scalar_channel/cage](scalar_channel/cage/README.md) | an object that law 2 holds on a ring of four seams: its theorems, its two operators as words on registers, and three experiments read from counts |
 | [scalar_channel/contact](scalar_channel/contact/README.md) | an experimental law on one cell that couples the contrast square of law 1 to the scalar occupation of law 2 on each seam, with a supplied coefficient g. Collar and scalar fuel readings measure the contact, and a mobile load pair has an all-time binding bound in the one-quantum sector. A cage on a ring through a written seam is kept only at g = 0. |
 | [contrast_clock](contrast_clock/README.md) | a fixed program of events of law 1 and two readings under one time-independent law; its clock register is a sequencer of the computation and no clock of an observer |
+| [reflected_routing](reflected_routing/README.md) | Separate eight-slot construction from OpenWave. A transverse wave clock has a local winding readout. Free signals decay exponentially ahead of the scalar cone, while observers with local regeneration can send authenticated messages past it. |
 | [construction_manual](construction_manual/README.md) | the manual, the sheet, the eight figures and their generator |
 | [contrast_replay.py](contrast_replay.py) | law 1 rebuilt from the manual in the manual's labels and checked against `polynomial_sv` |
 

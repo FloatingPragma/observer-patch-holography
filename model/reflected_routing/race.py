@@ -87,7 +87,8 @@ def valid(data,key,session,role,spec):
 
 
 def decode(hits):
-    require(hits.ndim==2 and hits.shape[1]==2 and hits.dtype==np.int16 and np.all(hits>=0),
+    require(hits.ndim==2 and hits.shape[1]==2 and hits.shape[0]>0 and hits.shape[0]%8==0 and
+            hits.dtype==np.int16 and np.all(hits>=0),
             'malformed receiver histograms')
     occupied = hits>0
     if not np.all(occupied.sum(axis=1)==1):
@@ -96,6 +97,7 @@ def decode(hits):
 
 
 def forecast(spec,signal):
+    require(math.isfinite(signal) and signal>0,'a positive measured signal speed is required')
     result = {}
     for i,route in enumerate(spec['routes']):
         measured = []
@@ -131,6 +133,7 @@ def acquire(spec,sealed,seed):
         for member in spec['access']:
             label = f'{i}_{member}'
             f = sealed[label]
+            copies = 1 if member=='addressed' else spec['copies']
             segments = itinerary(route,member,spec['segment'])
             all_legs = segments+[tuple(-d for d in s) for s in reversed(segments)]
             gates = {leg:(1. if member=='addressed' else front(leg,1j if member=='phase-i' else 1))
@@ -159,9 +162,9 @@ def acquire(spec,sealed,seed):
                         word = delivered
                     if word is not None:
                         rails = np.unpackbits(np.frombuffer(word,dtype=np.uint8))
-                        launches += bits*f['copies']
+                        launches += bits*copies
                         p = 0 if member=='blocked' and j==middle-1 else gates[leg]
-                        hits = rng.binomial(f['copies'],p,size=bits)
+                        hits = rng.binomial(copies,p,size=bits)
                         tape[trial,j,np.arange(bits),rails] = hits
                     word = decode(tape[trial,j])
                     if member=='tamper' and j==middle-1 and word is not None:

@@ -24,8 +24,14 @@ def pins():
 
 def report(size,x,times,rows):
     home = (0,0,0)
-    at,d,_ = addressed(home,[(0,x)],size,'probe')
-    cal = np.asarray([(s,2*(s+d)+23,s+2*d) for s in (0,11,39)],dtype=np.int64)
+    samples = []
+    for sent in (0,11,39):
+        at,d,request = addressed(home,[(0,x)],size,sent)
+        remote = 2*(sent+d)+23
+        end,back,echo = addressed(at,[(0,-x)],size,(request,remote))
+        require(end==home and echo[0]==sent,'missing clock calibration exchange')
+        samples.append((sent,echo[1],sent+d+back))
+    cal = np.asarray(samples,dtype=np.int64)
     stamp = np.r_[2*np.asarray(times)+23].astype(np.int64)
     end,_,payload = addressed(at,[(0,-x)],size,(cal,stamp,rows.copy()))
     require(end==home,'missing local return')

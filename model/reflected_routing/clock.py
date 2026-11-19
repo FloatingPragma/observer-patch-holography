@@ -49,6 +49,8 @@ def read(rows,chart,shots,gate):
     require(rows.dtype==np.int32 and rows.shape==(len(times),len(coords)) and
             np.all(rows>=0) and np.all(rows.sum(axis=1)==shots),'invalid pulse counts')
     z = rows @ np.exp(2j*np.pi*coords/lap)/shots
+    # The sum of all roots of unity on the checked complete chart vanishes exactly.
+    z[np.ptp(rows,axis=1)==0] = 0
     visibility = min(abs(z))
     result = {'minimum_visibility':float(visibility)}
     if visibility<gate['min_visibility']:

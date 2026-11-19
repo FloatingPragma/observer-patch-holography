@@ -52,6 +52,9 @@ def aperture(state,xmodes,size,x,tags):
 
 def observe(size,center,x,times,spec,analytic=False):
     tags = spec['tag_modulus']
+    require(size>0 and size%2==0 and tags in (1,8) and 0<=x<size and len(times)>0 and
+            all(isinstance(t,(int,np.integer)) and 0<=t<6*size for t in times) and
+            all(b>a for a,b in zip(times,times[1:])),'invalid aperture or observation schedule')
     shots = spec['shots_per_four_volume']*size**4
     modes,angles,initial = launch(size,center,tags)
     shift = multipliers(angles)
