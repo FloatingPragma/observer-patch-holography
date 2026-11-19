@@ -208,3 +208,50 @@ preparation error, by the triangle inequality. This obstruction concerns determi
 from this emitter by the selected seam programs. Conditional measurement, a different source or extra
 phase controls change the preparation problem. The compiled gate alone supplies neither those packets
 nor the equipped relay's service time.
+
+## Preparing the clock's finite wave states from native fuel
+
+For $M\ge2$ slot amplitudes provide $2M$ distinct nonmarker ports in a connected component. Use the
+antisymmetric rail basis $|j_L\rangle=(|j_+\rangle-|j_-\rangle)/\sqrt2$. A four-port equal-slot reflection
+uses three XOR matchings of angle $\pi/2$. On an initially sharp pair it gives amplitudes
+$(-1,1,1,1)/2$. Query the final two ports for the marked pair, separately, bringing each to the native
+seam reader and restoring the queried port. A yes ends the trial. Two agreed no records leave the first
+logical basis vector with probability $1/2$ and a known overall sign. The probabilities of the two
+early exits are $1/4$ each. Each absence measurement preserves coherence between all sites giving no.
+
+For arbitrary angles retain the unshifted blank-memory contrast law, including its commuting endpoint
+occupation phase. Apply one exchange between the positive ports of two rails and the same exchange
+between their negative ports. On this pair of logical amplitudes the resulting matrix has diagonal
+$e^{-i(\kappa+1/2)t}\cos(t/2)$ and off-diagonal $i e^{-i(\kappa+1/2)t}\sin(t/2)$. It acts identically
+on all other logical amplitudes. An exchange within a rail acts on its antisymmetric basis state by
+$e^{-i(\kappa+1)t}$, giving an arbitrary relative phase by a nonnegative duration. Intermediate path swaps
+at angle $\pi$ are exact at $\kappa=8$.
+
+Given a normalized complex target $\psi$, split the initial amplitude successively into labels
+$j=1,\ldots,M-1$. At split $j$ choose $t/2$ as the angle with opposite side $|\psi_j|$ and adjacent side
+$\sqrt{|\psi_0|^2+\sum_{k>j}|\psi_k|^2}$. If both sides vanish the donor is empty and may be left alone.
+This gives the prescribed magnitudes. Track the common phase of each split and the extra factor $i$ on
+the newly occupied rail. A final within-rail phase makes each amplitude equal to $\psi_j$ up to one global
+phase. Pulse angles depend on the declared preparation, including its phases. They use no moving-clock
+record, measured mass or other physical comparison.
+
+Exclude the $M$ negative ports in a fixed order with the same seam reader, restoring the routes. Each
+rejection has unconditional probability $|\psi_j|^2/4$. Following all no records, the **original single-rail
+encoding** holds $\psi$ with unconditional probability $1/4$. Each rejection has its own agreed terminal
+record. This proves that every specified finite packet, including the finite clock preparations, admits a
+heralded implementation on a carrier of sufficient size. The acquisition executes one complex four-mode
+packet on 72 slots. For $M$ outputs the source uses at most $6+2(M-1)+M$ nonlocal exchanges before
+routing, and $M+2$ binary queries on its longest branch. Each exchange on a path of length $\ell$ uses
+$2\ell-1$ seam events. An aperture query swaps its port to the reader and restores the path after the read.
+The [receipt](seam_program/preparation_records/result.json) charges those edges and all four reader stages.
+
+The finite fuel emitter replaces the ideal sharp pair throughout this complete decision tree. Contractivity
+bounds the total variation on all stops and the final seam records by the initial emitter norm error.
+On this binary sector the unshifted single-edge generator has norm at most $\kappa+1=9$. If pulse $j$
+misses its duration by $\delta_j$, its operator error is at most $9|\delta_j|$. Telescoping and retaining
+all classical branches adds at most $9\sum_j|\delta_j|$ on the longest path with these error budgets.
+For a read window of duration $\tau$ the native reader's joint-evolution Duhamel estimate gives at
+most $12\tau$ per binary read on this sector. Summing these terms budgets the joint distribution
+before conditioning on successful preparation. This budget treats the scheduler, finite fresh pointer
+words and conditional stop/continue service as apparatus. The native clock time of that program and
+a physical identification of the traveling state require separate observations.

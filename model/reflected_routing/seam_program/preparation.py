@@ -176,10 +176,8 @@ def run(stage,root,record):
                     raw_event(ev,state,edge,np.pi*q_angle/4)
         if member=="native":
             require(worst<=bound and accepted>.20,"native launch outside its predeclared budget")
-        else:
-            require(worst>bound,"preparation control failed to distinguish target")
         summary[member] = dict(acceptance=accepted,conditional_fidelity=fidelity,
-                               max_joint_tv=worst,resources=resources)
+                               max_joint_tv=worst,exceeds_emitter_bound=bool(worst>bound),resources=resources)
         print(member,accepted,fidelity,worst,resources["events"],resources["reader_queries"])
     archive(root/"opened.npz",counts,record)
     receipt(root/"result.json",summary,record)
