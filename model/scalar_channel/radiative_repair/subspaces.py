@@ -37,6 +37,13 @@ def rest_certificate(Q,level):
     F0,F1 = other@(Q-5*I),-other
     F = (F0+45*F1)%101
     car = carrier.federation(level)
+    inside = [set() for _ in range(car.cells)]
+    for a,b in car.seams:
+        if a//12==b//12:
+            inside[a//12].add((a%12,b%12))
+    require(all(edges==set(carrier.CELL_SEAMS) for edges in inside)
+            and len({i for edge in car.external for i in edge})==2*len(car.external),
+            'carrier lost a complete cell or the external matching')
     incident = [[] for _ in range(car.cells)]
     for e,(i,j) in enumerate(car.external):
         incident[i//12].append((e,i%12))
@@ -106,7 +113,7 @@ def bright_certificate(Q):
         require(len(entries)==1,'distance class not homogeneous')
         bounds[str(d)] = str(Fraction(int(entries.pop()),den))
     return dict(charged_dimension=n*n,converting_span=minor_rank,exact_dark_dimension=n*n-minor_rank,
-                projector_denominator=den,maximum_neutral_probability_by_port_distance=bounds)
+                projector_denominator=den,neutral_probability_upper_bound_by_port_distance=bounds)
 
 
 def certificates():

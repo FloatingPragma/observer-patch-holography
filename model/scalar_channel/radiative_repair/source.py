@@ -111,19 +111,20 @@ def project_cell_band():
     return vectors[:,:3]
 
 
-def rest_witness(car, home=0, excluded=()):
-    """Find a localized exact lowest-band witness near a face of the dual federation.
-
-    A block of k cells has 3k amplitudes. Each incident external seam contributes
-    one homogeneous constraint. Any internal connection saves a constraint.
-    """
-    V = project_cell_band()
+def rest_cells(car, home=0, excluded=()):
     require(0 <= home < car.cells and home not in excluded,'invalid home cell')
     near = [home]
     if car.cells > 1:
         a,b = next((a,b) for a,b in car.external if home in (a//12,b//12)
                    and a//12 not in excluded and b//12 not in excluded)
         near.append(b//12 if a//12 == home else a//12)
+    return near
+
+
+def rest_witness(car, home=0, excluded=()):
+    """Six band amplitudes on adjacent cells satisfy at most five external constraints."""
+    near = rest_cells(car,home,excluded)
+    V = project_cell_band()
     frame = np.zeros((car.n,3*len(near)))
     for k,c in enumerate(near):
         frame[c*12:(c+1)*12,3*k:3*k+3] = V

@@ -11,7 +11,7 @@ from tools.strict_json import load
 from ...polynomial_sv import carrier
 from ..carrier import require
 from . import apparatus, source
-from .__main__ import HERE, compare, pins
+from .__main__ import HERE, check_counts, check_result, pins
 
 
 def extra_pins():
@@ -85,7 +85,7 @@ def collect(spec):
 def relay_intervals(on,off,shots,alpha=.001):
     """One-sided Clopper-Pearson bounds, simultaneous over both arms and all named delays."""
     require(len(on)==len(off)>0,'empty or unequal delay menus')
-    tail = alpha/(2*len(on))
+    tail = alpha/(4*len(on))
     result = []
     for a,b in zip(on,off,strict=True):
         require(0<=a<=shots and 0<=b<=shots,'invalid joint count')
@@ -122,6 +122,9 @@ def analyze(spec, rec):
                            later_receiver_pair_counts=local_pair.tolist(),
                            incoming_fraction=(arrivals/shots).tolist(),unconditional_local_fraction=(local_pair/shots).tolist())
     on,off = (readings[k] for k in spec['controls'])
+    joint_bins = 3*(regions**2+regions*(regions+1)//2)
+    grid_error = 2*len(spec['delays'])*(joint_bins-1)*(shots+1)/2**53
+    require(grid_error < .001/2,'relay quantile budget exhausted')
     checks = dict(arrived=min(on['double_neutral_counts'])>=spec['min_double_arrivals'],
                   reabsorbed=on['later_receiver_pair_counts'][0]==0 and
                   max(on['later_receiver_pair_counts'])>=spec['min_returned_pairs'],
@@ -135,7 +138,7 @@ def analyze(spec, rec):
         checks[k+'_energy'] = abs(energy[k+'_final_work']-energy[k+'_switch_work'])<spec['max_energy_error']
     return dict(receiver_cell=receiver,clock_at_meter=float(ticks[8*spec['herald_time']]),
                 clock_at_read=ticks[8*(spec['herald_time']+np.array(spec['delays']))].tolist(),
-                readings=readings,energy=energy,
+                readings=readings,energy=energy,quantile_total_variation_budget=grid_error,
                 local_effect_lower=relay_intervals(on['later_receiver_pair_counts'],off['later_receiver_pair_counts'],shots),meter_work=energy['measured_work']-energy['incoming_work'],
                 switch_work={k:energy[k+'_switch_work']-energy['measured_work'] for k in spec['controls']},
                 gates={k:bool(v) for k,v in checks.items()})
@@ -150,19 +153,10 @@ def main():
     spec = load(HERE/'relay_protocol.json')
     rec = collect(spec)
     root = args.record or HERE/'records'/'relay'
-    if args.record:
-        root.mkdir(exist_ok=False)
-        with (root/'counts.npz').open('xb') as f:
-            np.savez_compressed(f,**rec)
-    with np.load(root/'counts.npz',allow_pickle=False) as saved:
-        require(sorted(saved.files)==sorted(rec) and all(saved[k].dtype==np.int32 and np.array_equal(saved[k],v)
-                for k,v in rec.items()),'changed relay records')
-        result = analyze(spec,{k:saved[k] for k in saved.files})
+    saved = check_counts(root,rec,record=bool(args.record))
+    result = analyze(spec,saved)
     result['certificates'] = certificates()
-    if args.record:
-        (root/'result.json').write_text(json.dumps(result,indent=1,allow_nan=False)+'\n',encoding='utf8')
-    else:
-        compare(result,load(root/'result.json'))
+    check_result(root,result,bool(args.record))
     print(json.dumps(result,indent=2))
 
 

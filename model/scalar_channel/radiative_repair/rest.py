@@ -10,7 +10,7 @@ from tools.strict_json import load
 from ...polynomial_sv import carrier
 from ..carrier import require
 from . import apparatus, source
-from .__main__ import HERE, compare, pins
+from .__main__ import HERE, check_counts, check_result, pins
 
 
 def freeze():
@@ -18,18 +18,23 @@ def freeze():
             for n in ('sources.json','rest_protocol.json','rest.py')}
 
 
-def packets(car, kind):
-    v,site = source.rest_witness(car)
+def layout(car,kind):
+    site = source.rest_cells(car)
     if kind=='disjoint':
         other = next(c for c in range(car.cells) if c not in site and
                      any(c in (i//12,j//12) and i//12 not in site and j//12 not in site for i,j in car.external))
-        w,far = source.rest_witness(car,home=other,excluded=site)
+        far = source.rest_cells(car,home=other,excluded=site)
         require(set(site).isdisjoint(far),'control packets overlap')
-        site = [*site,*far]
-    else:
-        w = v
+        return site,far
+    return site,site
+
+
+def packets(car, kind):
+    site,far = layout(car,kind)
+    v,_ = source.rest_witness(car)
+    w = source.rest_witness(car,home=far[0],excluded=site)[0] if kind=='disjoint' else v
     x = np.outer(v,w)
-    return np.r_[x.ravel(),np.zeros(car.n**2)],site
+    return np.r_[x.ravel(),np.zeros(car.n**2)],list(dict.fromkeys(site+far))
 
 
 def menu(key):
@@ -62,23 +67,26 @@ def collect(spec):
 def halfwidth(spec,car):
     # Bernstein for independent bounded shots across local settings. Positivity gives
     # sum of variances <= b E. Include the worst cumulative-edge digitization error.
-    x = np.log(2*spec['upper_number_of_energy_estimates']/spec['simultaneous_error'])
+    x = np.log(4*spec['upper_number_of_energy_estimates']/spec['simultaneous_error'])
     b,N = spec['max_bin_energy'],spec['shots']
     num_settings = 3*len(car.seams)+car.n
     bias = 2*b*num_settings/2**30
-    return float(np.sqrt(2*b*spec['energy_cap']*x/N)+2*b*x/(3*N)+bias)
+    return float(np.sqrt(2*b*(spec['energy_cap']+bias)*x/N)+2*b*x/(3*N)+bias)
 
 
 def analyze(spec,rec):
     shots = spec['shots']
     ticks = apparatus.read_clock(rec['clock'],shots)
     result = dict(clock=ticks[np.rint(np.array(spec['waits'])/spec['clock_step']).astype(int)].tolist(),histories={})
+    settings = 0
     for key in spec['carriers']:
         car = carrier.carrier(key)
         regions = len(set(source.ports_to_regions(car)))
         bound = halfwidth(spec,car)
         for kind in menu(key):
-            _,site = packets(car,kind)
+            settings += len(spec['waits'])*(3*len(car.seams)+car.n)
+            home,other = layout(car,kind)
+            site = list(dict.fromkeys(home+other))
             name = f'{key}_{kind}'
             raw = rec[name+'_position']
             require(raw.shape==(len(spec['waits']),regions**2+regions*(regions+1)//2) and raw.dtype.kind in 'iu'
@@ -94,6 +102,13 @@ def analyze(spec,rec):
                 energy_halfwidth=bound,field_above_initial_contact=excess.tolist(),
                 simultaneous_lower_bound=(excess-2*bound).tolist())
     h = result['histories']
+    # Two stochastic binomial splits suffice for a three-outcome setting. Rounding
+    # its conditional uniform quantile perturbs each integer CDF by <= 2^-53.
+    grid_error = 2*settings*(shots+1)/2**53
+    require(grid_error < spec['simultaneous_error']/2 and
+            5*len(h)*len(spec['waits']) <= spec['upper_number_of_energy_estimates'],
+            'energy confidence budget exhausted')
+    result['quantile_total_variation_budget'] = grid_error
     result['gates'] = {str(k)+'_release':max(h[f'{k}_overlap']['simultaneous_lower_bound'])>0
                        for k in spec['carriers']}
     result['gates']['blocked'] = all(not any(h[f'{k}_blocked']['neutral_probability']) for k in spec['carriers'])
@@ -111,18 +126,9 @@ def main():
     spec = load(HERE/'rest_protocol.json')
     rec = collect(spec)
     root = args.record or HERE/'records'/'rest'
-    if args.record:
-        root.mkdir(exist_ok=False)
-        with (root/'counts.npz').open('xb') as f:
-            np.savez_compressed(f,**rec)
-    with np.load(root/'counts.npz',allow_pickle=False) as saved:
-        require(sorted(saved.files)==sorted(rec) and all(saved[k].dtype==np.int32 and np.array_equal(saved[k],v)
-                for k,v in rec.items()),'changed rest experiment counts')
-        result = analyze(spec,{k:saved[k] for k in saved.files})
-    if args.record:
-        (root/'result.json').write_text(json.dumps(result,indent=1,allow_nan=False)+'\n',encoding='utf8')
-    else:
-        compare(result,load(root/'result.json'))
+    saved = check_counts(root,rec,record=bool(args.record))
+    result = analyze(spec,saved)
+    check_result(root,result,bool(args.record))
     print(json.dumps(result['gates'],indent=2))
 
 

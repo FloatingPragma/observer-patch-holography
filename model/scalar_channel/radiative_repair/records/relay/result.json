@@ -82,6 +82,13 @@
   "receiver_off_switch_work": 10.997922897338867,
   "receiver_off_final_work": 10.996585547924042
  },
+ "quantile_total_variation_budget": 2.7254225448025693e-05,
+ "local_effect_lower": [
+  -5.788559441849824e-07,
+  2.5908758376410962e-05,
+  2.3298524276724217e-05,
+  1.7322452366532052e-05
+ ],
  "meter_work": -0.0032562613487243652,
  "switch_work": {
   "receiver_on": 0.0003184676170349121,
@@ -125,7 +132,7 @@
    "converting_span": 47,
    "exact_dark_dimension": 97,
    "projector_denominator": 480,
-   "maximum_neutral_probability_by_port_distance": {
+   "neutral_probability_upper_bound_by_port_distance": {
     "0": "1",
     "1": "29/120",
     "2": "29/120",

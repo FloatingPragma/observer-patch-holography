@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 import numpy as np
+from scipy.sparse.linalg import expm_multiply
 
 from tools.strict_json import load
 from ...polynomial_sv import carrier
@@ -36,8 +37,9 @@ def acquire(spec):
         car = carrier.carrier(level)
         v,_ = source.rest_witness(car)
         Q,L = source.one_body(car)
-        eigenvalue = v @ (Q@v)
-        records[f'band_{level}'] = apparatus.path_counts(rng,np.exp(-1j*eigenvalue*times),shots)
+        trajectory = expm_multiply(-1j*Q,v,start=0,stop=times[-1],num=len(times),
+                                   traceA=-1j*Q.diagonal().sum())
+        records[f'band_{level}'] = apparatus.path_counts(rng,trajectory@v,shots)
         if level == 'cell':
             for sign,h in [('plus',Q),('minus',Q),('neutral',L)]:
                 values,U = np.linalg.eigh(h.toarray())
@@ -119,9 +121,10 @@ def gates(spec, result):
         checks[f'{key}_dark'] = not any(read('exchange','odd','neutral'))
         checks[f'{key}_off'] = not any(read('dephased_contact','ordered','neutral'))
         checks[f'{key}_parked'] = not any(read('parked_neutral','ordered','split'))
-    federation = rows['0_exchange_ordered']
-    checks['separate_receiver_cells'] = max(federation['split'])>g['min_split_cells']
-    checks['remote_field_energy'] = max(federation['remote_neutral_energy'])>g['min_remote_energy']
+    if 0 in spec['carriers']:
+        federation = rows['0_exchange_ordered']
+        checks['separate_receiver_cells'] = max(federation['split'])>g['min_split_cells']
+        checks['remote_field_energy'] = max(federation['remote_neutral_energy'])>g['min_remote_energy']
     checks['energy_balance'] = all(max(abs(np.array(r['total_energy'])-r['total_energy'][0]))<g['energy_error']
                                    for r in rows.values())
     return {k:bool(v) for k,v in checks.items()}
@@ -142,31 +145,61 @@ def compare(actual, stored):
         require(type(stored) is type(actual) and stored==actual,'altered result')
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--record',type=Path)
-    args = parser.parse_args()
-    require(load(HERE/'sources.json')==pins(),'source or protocol differs')
-    spec = load(HERE/'protocol.json')
-    draws = acquire(spec)
-    dest = args.record or HERE/'records'
-    if args.record:
-        dest.mkdir(exist_ok=False)
-        with (dest/'counts.npz').open('xb') as f:
+def check_counts(root, draws, *, record=False, keys=None):
+    if record:
+        root.mkdir(exist_ok=False)
+        with (root/'counts.npz').open('xb') as f:
             np.savez_compressed(f,**draws)
-    with np.load(dest/'counts.npz',allow_pickle=False) as archive:
-        require(sorted(archive.files)==sorted(draws),'incomplete measurements')
+    with np.load(root/'counts.npz',allow_pickle=False) as archive:
+        expected = draws.keys() if keys is None else keys
+        require(sorted(archive.files)==sorted(expected),'incomplete measurements')
         saved = {}
         for k,v in draws.items():
             a = archive[k]
             require(a.dtype==np.int32 and np.array_equal(v,a),'changed counts: '+k)
             saved[k] = a
+    return saved
+
+
+def check_result(root, results, record):
+    if record:
+        with (root/'result.json').open('x',encoding='utf8',newline='\n') as f:
+            json.dump(results,f,indent=1,allow_nan=False)
+            f.write('\n')
+    else:
+        compare(results,load(root/'result.json'))
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('--record',type=Path)
+    group.add_argument('--cell-only',action='store_true',help='replay one-cell histories and resting profiles')
+    args = parser.parse_args()
+    require(load(HERE/'sources.json')==pins(),'source or protocol differs')
+    spec = load(HERE/'protocol.json')
+    if args.cell_only:
+        spec = dict(spec,carriers=['cell'])
+    draws = acquire(spec)
+    dest = args.record or HERE/'records'
+    keys = None
+    if args.cell_only:
+        keys = set(draws) | {'0_'+k[5:] for k in draws if k.startswith('cell_')}
+    saved = check_counts(dest,draws,record=bool(args.record),keys=keys)
     results = decode(spec,saved)
     results['gates'] = gates(spec,results)
-    if args.record:
-        (dest/'result.json').write_text(json.dumps(results,indent=1,allow_nan=False)+'\n',encoding='utf8')
+    if args.cell_only:
+        full = load(dest/'result.json')
+        for section in ('spectra','receiver_waits','histories'):
+            stored = full[section]
+            if section=='histories':
+                stored = {k:v for k,v in stored.items() if k.startswith('cell_')}
+            compare(results[section],stored)
+        for k,v in results['gates'].items():
+            if k!='energy_balance':
+                compare(v,full['gates'][k])
     else:
-        compare(results,load(dest/'result.json'))
+        check_result(dest,results,bool(args.record))
     print(json.dumps(results['gates'],indent=2))
 
 
