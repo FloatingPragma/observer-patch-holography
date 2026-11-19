@@ -133,7 +133,7 @@ def main():
     require(load(HERE/'sources.json') == pins(), 'source freeze differs')
     spec = load(HERE/'protocol.json')
     maps, generated, transit = experiment(spec)
-    where = args.record or HERE
+    where = args.record or HERE/'records'
     if args.record:
         where.mkdir(exist_ok=False)
         with (where/'counts.npz').open('xb') as f:
