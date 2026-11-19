@@ -3,9 +3,8 @@
 **Question.** Can one frozen local specification generate histories whose
 inhabitants measure a three-dimensional space, one causal speed shared by all
 the signals they can use, clocks that keep proper time and a changing cosmic
-scale, while the same specification reproduces at least two further
-observables of the [observation ledger](../../registers/OBSERVATION_LEDGER_V3.md)
-completely? The finite results below give starting points and tests that can
+scale, while the same specification meets the complete criteria of the last
+stage below? The finite results below give starting points and tests that can
 eliminate candidates. The [journal](JOURNAL.md) records what each step found.
 
 ## What carries forward
@@ -86,7 +85,7 @@ change of experiment.
 | 2 | Add an independently constructed moving clock and a second freely propagating signal. Vary directions, packet width, wavelength, observer roles, route, medium, scheduler and carrier size. | One calibrated metric predicts sealed travel times and both reunion readings within registered uncertainties over a declared scale range. |
 | 3 | Test encounter rules and a live medium. Run the two-particle interference test. Begin with a declared ordinary preparation and search for persistent structures, clocks and material references that form, survive and can be detected locally. Test a thermometer against a later independent observable. | Measured interaction and persistence survive changes of preparation, size and lawful schedule. Spontaneous formation is kept apart from deliberate preparation. |
 | 4 | Test an evolving universe. Compare repeated radar ranges with independent emitted and received frequency records. Test static, clock-drift, relative-motion and changing-propagation explanations on unseen epochs. | One inferred scale history predicts both kinds of record. A cosmological theorem applies when the simulated source meets its stated hypotheses. |
-| 5 | Reproduce **at least two further observables of the observation ledger completely on the identical executable**, with the same units and access rules. Run inexpensive regressions of both from the start. Perturb a shared local term and measure the predicted change in propagation and in a clock, binding or other material record. | Each observable survives the geometry and material tests on the same pinned manifest. Supplied inputs, held-out predictions and failures are documented. |
+| 5 | Meet **at least two complete OpenWave criteria on the identical executable**, with the same units and access rules. Run inexpensive regressions of both from the start. Perturb a shared local term and measure the predicted change in propagation and in a clock, binding or other material record. | Each criterion survives the geometry and material tests on the same pinned manifest. Supplied inputs, held-out predictions and failures are documented. |
 
 A geometric reading on a carrier separates three sources of signals and
 clocks: (a) those ordinary repair supplies, (b) finite emitter and reflector
