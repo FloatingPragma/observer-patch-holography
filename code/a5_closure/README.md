@@ -25,12 +25,9 @@ python3 sl2f5_mckay_e8_certificate.py verify         # exact McKay graph of the 
 python3 verify_galois_port_frame_independent.py    # incidence-derived two-frame geometry and exact degrees 1/7
 python3 galois_source_response_control.py          # bounded non-selection under complete source-law conjugation
 python3 source_repair_generator_certificate.py     # exact seam-law classification and source-receipt boundary
-python3 native_defect_stability_gate.py             # native flatness versus declared puncture/flux protection
 python3 verify_source_repair_generator_independent.py  # independent incidence, invariant-weight and receipt checks
 python3 source_current_tomography_stage0.py verify    # source-current tomography Stage 0 baseline pins
 python3 source_current_tomography_stage1_contract.py verify  # Stage 1 admissibility contract
-python3 source_current_order_sensitive_inventory.py all      # Stage 2 bounded inventory and certificate
-python3 verify_source_current_order_sensitive_inventory.py --inventory manifests/source_current_order_sensitive_inventory.json  # independent Stage 2 verifier
 python3 -m unittest discover -s tests -v    # issue #565/#566/#314/#567 regression and adversarial suites
 python3 a5_compact_lie_classifier.py     # compact-Lie enumeration
 python3 a5_harmonic_decomposition.py     # angular multiplet sequence
@@ -76,7 +73,6 @@ cross-checks the exact Lean modules it names (`A5Commutant`, `A5SixAxes`,
 |---|---|
 | **Echosahedral counting and incidence selector (#565, #625, #628)** | On the declared federation-of-twelve-port-echosahedra branch, twelve primitive central atoms of trace `1/12`, an additional integer atom-counting grammar on the total-12 fiber, and the normalized central-readback Hilbert-Schmidt cost give the unique all-one split with exact quadratic gap `2`. The complete #625 diagram classification fixes additive counting up to one positive unit scale, so the half-unit readback is a units rescaling rather than a half-event implementation. The #628 patch machine generates integer event counts, applies register-level conservative repairs, and derives its move-count settling cost from those dynamics. Every move lowers the load-square Lyapunov function by the exact amount `2(d-1)`; the seam quadratic and the A3 Hessian are separate comparison objects. Oriented edge/face incidence and the refinement lineage independently give the unique graph-distance-three antipode, `Aut+ = A5` by a faithful conjugation action on five Klein-four subgroups, six axes, and the exact rank-three Gram frame `G^2=4G`. |
 | **A1/A2 Lie-type theorem and conditional current witness (#566, #599)** | The twelve-port module is `1+3+3'+5`. A faithful compact commutator-closed response tangent with endogenous proper-`A5` holonomy has centre dimension at most one; its one fixed line excludes the centreless `su(2)^4` branch, so compact classification forces `u(1)+su(2)+su(3)`. The source artifact independently derives `R=-J`, its four sector signs, the oriented frame, and carrier persistence. It does not select a matrix current or reconstruct a bracket. The declared charged-double-triplet fixture realizes the forced Lie type exactly as `u(3)+so(3)`. Its physical source gate is false until ordered current tomography and same-current overlap holonomy are produced. Twenty-four negative controls fail closed. Lean bridge: `Lean/Screen/A2HolonomyBridge.lean`; executable theorem and fixture: `port_current_inner_certificate.py`. |
-| **Source-current tomography Stage 2 bounded inventory (#734)** | A pinned audit of 33 source, runtime, algebraic, refinement, formal, and physical-current packets finds zero objects that jointly provide twelve reversible source-native W12 perturbation families, both mixed composition orders as raw histories, target freedom, and refinement provenance. The icosahedral adjacency-response candidate is four-dimensional and commutative; the logged W12/refinement packet is irreversible and order-erasing; the full-family routed read compiler retains regenerated q=13/q=21 histories with refinement provenance but executes resets and destructive means in every hop and proves its readouts schedule-independent. Facts from those distinct packets are not composited. A canonical content snapshot records the path, byte count, and SHA-256 digest of all 851 included files below the 35 audited directories, including the runtime packages, production receipts, and physical-current packages that join the scope at the audited baseline, so path and byte drift fail closed. The verdict `SOURCE_CURRENT_ORDER_SENSITIVE_OBJECT_NOT_PRESENT` applies only to the enumerated reviewed source scope and authorizes no positive tomography stage or physical-current claim. Producer, independent verifier, mutation gates, and detailed boundary: `source_current_order_sensitive_inventory.py`, `verify_source_current_order_sensitive_inventory.py`, and `source_current_tomography_stage2.md`. |
 | **Conditional super-Tannakian matter lift (#314)** | Given the declared charged-double-triplet current fixture, the finite packet checks the non-split binary-icosahedral lift, the faithful action on `V=C (+) W`, the rank-15 exterior projector `Lambda^2 V + Lambda^4 V`, the Standard Model hypercharge multiset, chirality, anomaly traces, Witten parity, three invariant Yukawa lines, and the common central kernel. The exhaustive 1024-subset scan leaves the unordered conjugate rank-15 pair as the unique nonempty chiral anomaly-free selection inside the declared exterior menu. The finite Spin artifact fixes odd-Weyl typing inside this construction. It does not source-select the current representation, the physical matter action, one conjugate representative, a scalar sector, or a continuum Spin attachment. The conditional algebraic gate passes and the physical matter-source gate fails closed. Twenty typed controls pass. |
 | **Conditional axis-centre descent (#567)** | On the declared matter table, exhaustive central enumeration gives the diagonal common kernel generated by `(omega_3 I_3, -I_2, e^{i pi/3})` and the maximal effective image `(SU(3) x SU(2) x U(1))/Z6`. Local tensors also descend through the cover and the `Z2` and `Z3` quotients, so they do not select a global form. The six-axis calculation has Smith residue six only after diagonal and zero-sum coefficient relations are declared. The exact generator intertwiner and line-polarization calculations are conditional on that relation system. A complete source character category, a same-source loop-to-kernel theorem, source-selected matter, and laboratory attachment are open. The physical global-form gate fails closed. Lean: `Z6Descent.lean`, `ExteriorSelection.lean`; executable receipt schema v4. |
 | **Coset carrier from a supplied binary icosahedral source (discussion #769)** | Taking `SL(2, F_5)` as the supplied source, the coset geometry of its central quotient `G` (vertices `G/C5`, faces `G/C3`, edges `G/C2`, incidence by nonempty coset intersection) is classified for all 900 placements of the three cyclic subgroups. All 900 have the same local incidence counts. Exactly 120, the placements admitting generators with `xyz = 1`, close into a coherently oriented triangulated surface and relabel onto the committed `PortFrameGram` adjacency, `CoreAxioms.orientedFaces`, and the sixty `A5PortAction` rows; they form one orbit under the exhaustively enumerated `Aut(G)`. A further 180 share the committed edge graph and face vertex sets and fail the coset edge-face incidence. The result is conditional on the supplied group. Receipt, fifteen typed controls, and tests: `coset_carrier_certificate.py`; theorem note: `coset_carrier_certificate.md`. |
@@ -142,26 +138,6 @@ and zero-sum relation system. The carrier does not select those relations
 or identify its order-six loop class with the complete current and matter
 kernel. The physical global-form gate therefore is false, alongside
 the open four-dimensional and laboratory attachments.
-
-`native_defect_stability_gate.py` checks the executable observer against this
-finite flux construction. The closed twelve-port carrier has Euler
-characteristic two, five-cycle vertex links and trivial first homology over
-both `F2` and `F3`. Deleting one declared face leaves first homology trivial;
-deleting an antipodal pair gives one `Z6`-valued loop generator. All 78 native
-load preparations and 4,680 ideal all-seam coin/current branches give zero
-face flux because the measured contrast is a port-potential gradient. A
-separately declared `Z6` link chain has opposite puncture fluxes and is flat
-on the other faces. The same first-homology dimensions persist through one exact
-edge-midpoint refinement (42 ports, 120 seams, 80 faces); this does not
-transport the coarse link connection or define native repair on child cells.
-In a link model allowing single-seam updates across the puncture-boundary
-seams, the pair can be moved together and annihilated.
-Those link updates are not native repair. Gauge invariance of the conditional
-flux certificate does not by itself supply a core-protection law or select a
-physical defect. The closed carrier retains a second-homology class; trivial
-first homology does not exclude curvature or a nontrivial bundle. A globally
-assigned link chain has zero total oriented sphere flux. Native repair has no
-bundle transition data that would realize a nontrivial second-homology sector.
 
 `claim_boundary_certificates.py` records five exact-small controls at this
 boundary: completion non-identifiability from the current source reduct, the
@@ -345,9 +321,7 @@ copied out of its manifest.
 The label goes in the pin site and never inside an emitted payload. A payload
 field naming its own convention would change the payload bytes and move every
 digest taken over them. The axis-centre descent receipt alone is pinned by raw
-bytes in `receipts/baryon_dimension_six_census.receipt.json` and
-`code/particles/calibration/wz_native_source_packet/outputs/source_parent_inventory.json`,
-and canonically in `manifests/common_ew_order_unit_carrier_reference.json`,
+bytes in `receipts/baryon_dimension_six_census.receipt.json`, and canonically in `manifests/common_ew_order_unit_carrier_reference.json`,
 `manifests/family_band_attachment_reference.json`,
 `manifests/seam_grammar_matter_classification_reference.json` and that same
 source-parent inventory, with path-level references in

@@ -28,13 +28,6 @@ generations is identical; the sampled `q = 55` readings of the first,
 rebuilds both.
 
 
-The [full routing construction](../../code/source_read_routing/README.md#diagnostic-boundary)
-checks its L3-L5 support captures against that diagnostic and compares every
-q13 baseline logical value and read-menu entry after full primitive replay.
-This is an agreement of the projected record-metric order under the supplied
-M1 law. It does not equate the canonical-only W12 trajectory with the routed
-history, derive M1, or remove the q13 lag-four clipping flag.
-
 ## Definition
 
 Fix a Fibonacci number `q = F_n` with successor `p = F_{n+1}`, the golden

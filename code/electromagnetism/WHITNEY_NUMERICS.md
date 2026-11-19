@@ -220,7 +220,7 @@ integral is recorded in [DLMF 10.32](https://dlmf.nist.gov/10.32).
 This derivation does not assume successful quadrature or a restricted
 momentum orientation.
 
-The [existing norm theorem](../../paper/tex_fragments/WHITNEY_QUANTUM_PACKET.tex)
+The norm theorem of the quantum packet
 gives
 
 \[

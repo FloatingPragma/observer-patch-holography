@@ -142,3 +142,21 @@ def test_reversed_seam_chart_transports_every_memory_state_and_reference():
     for check in result['checks']:
         assert check['full_99_reversed_seam_error'] < 1e-12
         assert check['load_only_orientation_control_error'] > .5
+
+
+def test_the_port_map_addresses_every_cell_of_every_federation():
+    """The labels of the construction manual reach the local ports of every cell of the three federations."""
+    from .polynomial_sv import carrier
+    from .scalar_channel.carrier import EDGES
+    port_map = (0, 1, 5, 7, 11, 9, 10, 8, 4, 6, 2, 3)
+    cells = 0
+    for level in (0, 1, 2):
+        fed = carrier.federation(level)
+        seams = {tuple(sorted(map(int, e))) for e in fed.seams}
+        for k in range(fed.n // 12):
+            for a, b in EDGES:
+                assert tuple(sorted((12 * k + port_map[a], 12 * k + port_map[b]))) in seams
+            cells += 1
+    assert cells == 420
+    # the port opposite to manual port p is 11 - p; in a federation cell local port 0 is opposite local port 3
+    assert port_map[11 - 0] == 3
