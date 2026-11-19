@@ -166,6 +166,8 @@ theorems on their own declared sources. Source-pinned notes require matching
 receipt updates when their content changes. Consolidate overlapping notes and
 keep implementation contracts beside the code; `extra/` holds TeX papers only.
 
+**Clocks and spacetime from observer records.** A Pragma Research report on OPH's reflected-routing experiment compares a traveling clock with its rest calibration and derives the long-wavelength 3+1D scalar field measured by equipped observers. [Read the illustrated report](research/relativistic-observer-records/report.md) · [Download the PDF](research/relativistic-observer-records/report.pdf)
+
 **Clocks and source realization.** These notes build on one another in this
 order:
 
