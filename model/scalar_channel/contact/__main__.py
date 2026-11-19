@@ -7,14 +7,23 @@ import math
 from pathlib import Path
 
 import numpy as np
+from tools.strict_json import load as load_json
 
 from ...polynomial_sv import collar
 from ..carrier import require
-from ..cage.instruments import draw
+from ..cage.instruments import PREPARATIONS, draw
 from .law import collision, ramsey
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
+SOURCE_FILES = {
+    'model/__init__.py', 'model/requirements.txt', 'tools/strict_json.py',
+    *('model/polynomial_sv/' + f for f in ('__init__.py', 'carrier.py', 'collar.py', 'common.py', 'law.py')),
+    *('model/scalar_channel/' + f for f in ('__init__.py', 'carrier.py', 'compiler.py', 'instruments.py',
+                                            'cage/__init__.py', 'cage/construction.py', 'cage/instruments.py',
+                                            'contact/__init__.py', 'contact/__main__.py', 'contact/law.py',
+                                            'contact/protocol.json')),
+}
 
 
 def digest(path):
@@ -22,12 +31,13 @@ def digest(path):
 
 
 def protocol():
-    check_sources(HERE / 'sources.json')
-    return json.loads((HERE / 'protocol.json').read_text(encoding='utf-8'))
+    check_sources(HERE / 'sources.json', SOURCE_FILES)
+    return load_json(HERE / 'protocol.json')
 
 
-def check_sources(manifest):
-    hashes = json.loads(manifest.read_text(encoding='utf-8'))
+def check_sources(manifest, expected_files):
+    hashes = load_json(manifest)
+    require(type(hashes) is dict and set(hashes) == expected_files, 'incomplete or unexpected source list')
     for name, expected in hashes.items():
         # Sources are UTF-8 text. Git may check out CRLF on Windows.
         data = (ROOT / name).read_bytes().replace(b'\r\n', b'\n')
@@ -40,6 +50,22 @@ def experiment(spec):
     return {'collision': joint, 'ramsey': np.stack([1 - full, full], axis=-1)}
 
 
+def draw_counts(spec, laws):
+    rng = np.random.Generator(np.random.PCG64(spec['seed']))
+    return {name: draw(rng, law, spec['shots_per_setting']) for name, law in laws.items()}
+
+
+def read_counts(receipt, spec, laws):
+    expected = receipt.with_suffix('.sha256').read_text(encoding='ascii').strip()
+    require(digest(receipt) == expected, 'count receipt differs')
+    with np.load(receipt, allow_pickle=False) as saved:
+        require(sorted(saved.files) == sorted(laws), 'missing, extra or repeated count array')
+        counts = {name: saved[name] for name in saved.files}
+    for name, generated in draw_counts(spec, laws).items():
+        require(np.array_equal(counts[name], generated), f'{name} differs from the seeded acquisition')
+    return counts
+
+
 def observe(counts, shots):
     """Read only setting-indexed integer counts of write, capture and Ramsey pointers."""
     joint = counts['collision'] / shots
@@ -50,9 +76,18 @@ def observe(counts, shots):
     require(np.all(reference > 0), 'collar reference has no positive period')
     read_g = (rates[:, 1, 0] - rates[:, 0, 0]) / reference
     contrast = full - full[0]
+    coherent, sharp, undriven = PREPARATIONS
+    require(coherent[2] == undriven[2] and undriven[1] == 0 and sharp[2] != undriven[2],
+            'preparation timing differs from the declared comparison')
+    matched = np.max(abs(contrast[:, 0] - contrast[:, 2]), axis=(1, 2))
+    # Each difference of differences uses four binary full-fuel frequencies.
+    # Union over every setting before taking a maximum over waits and analyzers.
+    radius = 4 * math.sqrt(math.log(2 * full.size / 1e-8) / (2 * shots))
     return {'coupling_from_collar': read_g.tolist(),
             'largest_scalar_pointer_change': np.max(abs(contrast), axis=(1, 2, 3)).tolist(),
-            'largest_sharp_minus_undriven_change': np.max(abs(contrast[:, 1] - contrast[:, 2]), axis=(1, 2)).tolist()}
+            'largest_sharp_minus_undriven_change': np.max(abs(contrast[:, 1] - contrast[:, 2]), axis=(1, 2)).tolist(),
+            'largest_equal_duration_change': matched.tolist(),
+            'simultaneous_difference_error_at_1e_minus_8': radius}
 
 
 def assess(spec, laws, counts):
@@ -82,6 +117,8 @@ def assess(spec, laws, counts):
     for key, gate in [('largest_scalar_pointer_change', 'minimum_joint_pointer_contrast_against_additive'),
                       ('largest_sharp_minus_undriven_change', 'minimum_sharp_minus_undriven_interaction_contrast')]:
         require(min(readings[key][1:]) > gates[gate], f'collision failed {gate}')
+    require(min(readings['largest_equal_duration_change'][1:]) >
+            readings['simultaneous_difference_error_at_1e_minus_8'], 'equal-duration effect unresolved')
     return readings
 
 
@@ -92,16 +129,11 @@ def main():
     spec = protocol()
     laws = experiment(spec)
     if args.record:
-        rng = np.random.Generator(np.random.PCG64(spec['seed']))
-        counts = {key: draw(rng, law, spec['shots_per_setting']) for key, law in laws.items()}
+        counts = draw_counts(spec, laws)
         with args.record.open('xb') as f:
             np.savez_compressed(f, **counts)
     else:
-        receipt = HERE / 'counts.npz'
-        expected = (HERE / 'counts.sha256').read_text(encoding='ascii').strip()
-        require(digest(receipt) == expected, 'count receipt differs')
-        with np.load(receipt, allow_pickle=False) as saved:
-            counts = {name: saved[name] for name in saved.files}
+        counts = read_counts(HERE / 'counts.npz', spec, laws)
     print(json.dumps(assess(spec, laws, counts), indent=2, allow_nan=False))
 
 

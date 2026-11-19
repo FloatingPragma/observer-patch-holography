@@ -12,7 +12,10 @@ from scipy.sparse.linalg import expm_multiply
 from ...contrast_replay import cell as load_cell
 from ..carrier import require
 from ..cage import construction as cage
-from .__main__ import HERE, check_sources, protocol
+from .__main__ import HERE, check_sources, load_json, protocol
+
+SOURCE_FILES = {'model/contrast_replay.py', 'model/scalar_channel/contact/pair.py',
+                'model/scalar_channel/contact/pair_protocol.json', 'model/scalar_channel/contact/sources.json'}
 
 
 def step(H, state, time):
@@ -62,33 +65,53 @@ def mobile(spec, g):
     weights = abs(states_at_read.reshape(len(H) + 1, len(D), -1)) ** 2
     no_pair = weights[np.r_[~adjacent, True]].sum(axis=(0, 1))
     doubled = weights[np.r_[[a == b for a, b in states], False]].sum(axis=(0, 1))
+    return law, no_pair, doubled
+
+
+def binding_bound(spec, g):
     gap = 2 * spec['kappa'] - 1 - 3 * math.sqrt(6) - abs(g)
     require(gap > 0, 'cell block gap is closed')
-    bound = min(1., (4 / gap + math.hypot(math.sqrt(2), g) / spec['drive_strength']) ** 2)
-    return law, no_pair, doubled, bound
+    return min(1., (4 / gap + math.hypot(math.sqrt(2), g) / spec['drive_strength']) ** 2)
+
+
+def distance_from_product(laws):
+    product = laws.sum(axis=3, keepdims=True) * laws.sum(axis=2, keepdims=True)
+    return .5 * abs(laws - product).sum(axis=(2, 3))
 
 
 def calculate(spec):
     outcomes = [mobile(spec, g) for g in spec['couplings']]
     laws = np.array([row[0] for row in outcomes])
-    product = laws.sum(axis=3, keepdims=True) * laws.sum(axis=2, keepdims=True)
-    dependence = .5 * abs(laws - product).sum(axis=(2, 3))
     return dict(pointer_laws=laws.tolist(), no_pair_or_fuel=[x[1].tolist() for x in outcomes],
-                doubled=[x[2].tolist() for x in outcomes], all_time_bounds=[x[3] for x in outcomes],
-                total_variation_from_product=dependence.tolist())
+                doubled=[x[2].tolist() for x in outcomes],
+                all_time_bounds=[binding_bound(spec, g) for g in spec['couplings']],
+                total_variation_from_product=distance_from_product(laws).tolist())
 
 
 def assess(spec, result):
-    laws = np.asarray(result['pointer_laws'])
-    require(np.isfinite(laws).all() and np.min(laws) >= 0 and np.max(abs(laws.sum(axis=(2, 3)) - 1)) < 1e-10,
-            'the mobile pointer record is incomplete')
-    dependence = np.asarray(result['total_variation_from_product'])
+    menu = (len(spec['couplings']), len(spec['waits']))
+    shapes = dict(pointer_laws=(*menu, 2, 2), no_pair_or_fuel=menu, doubled=menu,
+                  all_time_bounds=menu[:1], total_variation_from_product=menu)
+    require(type(result) is dict and result.keys() == shapes.keys(), 'mobile receipt keys differ')
+    arrays = {}
+    for name, shape in shapes.items():
+        raw = np.asarray(result[name], dtype=object)
+        require(raw.shape == shape and all(type(x) in (int, float) and 0 <= x <= 1 for x in raw.flat),
+                f'invalid probability or shape: {name}')
+        arrays[name] = raw.astype(float)
+    laws = arrays['pointer_laws']
+    require(np.max(abs(laws.sum(axis=(2, 3)) - 1)) < 1e-10, 'the mobile pointer record is incomplete')
+    dependence = distance_from_product(laws)
+    require(np.allclose(dependence, arrays['total_variation_from_product'], rtol=0, atol=2e-12),
+            'dependence differs from the joint pointer probabilities')
     require(np.max(dependence[0]) < 1e-10, 'additive sources gave dependent records')
     require(np.all(np.max(dependence[1:], axis=1) > spec['minimum_joint_record_dependence']),
             'a signed contact lost its joint pointer signal')
-    require(np.max(result['doubled']) < 1e-14 and
-            np.all(np.max(result['no_pair_or_fuel'], axis=1) <= result['all_time_bounds']),
+    bounds = [binding_bound(spec, g) for g in spec['couplings']]
+    require(np.allclose(arrays['all_time_bounds'], bounds, rtol=0, atol=2e-14), 'wrong all-time bounds')
+    require(np.all(arrays['doubled'] == 0) and np.all(np.max(arrays['no_pair_or_fuel'], axis=1) <= bounds),
             'mobile sector bound failed')
+    return arrays
 
 
 def main():
@@ -96,20 +119,17 @@ def main():
     cli.add_argument('--record', type=Path)
     args = cli.parse_args()
     protocol()
-    check_sources(HERE / 'pair_sources.json')
-    spec = json.loads((HERE / 'pair_protocol.json').read_text(encoding='utf-8'))
+    check_sources(HERE / 'pair_sources.json', SOURCE_FILES)
+    spec = load_json(HERE / 'pair_protocol.json')
     result = calculate(spec)
     if args.record:
         with args.record.open('x', encoding='utf-8') as f:
             json.dump(result, f, indent=1, allow_nan=False)
             f.write('\n')
     else:
-        saved = json.loads((HERE / 'pair_records.json').read_text(encoding='utf-8'))
-        require(set(saved) == set(result), 'mobile receipt keys differ')
+        saved = assess(spec, load_json(HERE / 'pair_records.json'))
         for k, v in result.items():
-            actual = np.asarray(saved[k])
-            require(actual.shape == np.shape(v) and actual.dtype.kind == 'f' and
-                    np.allclose(actual, v, atol=2e-11, rtol=0), f'mobile receipt differs: {k}')
+            require(np.allclose(saved[k], v, atol=2e-11, rtol=0), f'mobile receipt differs: {k}')
     assess(spec, result)
     print(json.dumps({'all_time_bounds': result['all_time_bounds'],
                       'max_record_dependence': np.max(result['total_variation_from_product'], axis=1).tolist()}))

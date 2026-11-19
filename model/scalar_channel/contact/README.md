@@ -4,8 +4,8 @@ A collar changes a scalar fuel reading. Filling the scalar source changes the
 phase read from the collar. A mobile load pair and a scalar quantum also give
 correlated readings at two local pointers. All three experiments use the same
 Hamiltonian on one cell. The largest distance between the mobile joint record
-law and the product of its marginals is 0.03634 for positive contact, 0.03127
-for negative contact and below $2\times10^{-14}$ for zero contact.
+law and the product of its marginals is 0.03634 for positive contact and
+0.03127 for negative contact. At zero contact it vanishes exactly.
 
 ## Law and source map
 
@@ -74,10 +74,21 @@ The contact acts throughout all 192 ramp substeps, every ring pulse, wait
 and capture. The occupied frame includes all 150 source modes. Each of the
 60 cage settings retains the write fuel and both copies of the scalar fuel.
 The largest changes in the marginal scalar reading relative to zero contact
-are 0.64345 and 0.64862. Subtracting the undriven reading from the sharp
-preparation at matched waits and analyzers gives changes up to 0.60490 and
-0.48675. Each setting uses one million simulated trials. These are readings
-of fuel pointers. The calculator's eigenvectors and coordinates are private.
+are 0.64345 and 0.64862. The sharp and undriven preparations last 0.28679
+and 0.58947 exchange-time units. Their contrast therefore includes a change
+in preparation time.
+
+The coherent pulse and the undriven control both last 0.58947. Subtract their
+full-fuel frequencies at the same wait and analyzer, then subtract that
+difference for zero contact. The largest absolute differences are 0.621752
+and 0.628802 for positive and negative contact. This secondary reading uses
+the same retained counts. For one million simulated trials per setting,
+Hoeffding's inequality and a union bound cover all $K=180$ full-fuel
+frequencies simultaneously. Each difference uses four frequencies, giving
+an absolute sampling allowance of
+$4\sqrt{\log(2K/10^{-8})/(2\times10^6)}<0.01395$ with coverage at least
+$1-10^{-8}$, including selection of the maximum. The allowance describes
+sampling from the declared law. These are readings of fuel pointers.
 
 ## Exactly which cages survive
 
@@ -128,6 +139,9 @@ being one on $(0,2)$ and by scalar occupation on $(0,1)$ respectively.
 The source runs throughout. These local binary readers are supplied apparatus.
 The record consists of the two terminal bits. Orthogonal pointer-$X$ sectors
 give four source propagators whose signed sums yield the full record law.
+At $g=0$ the initial state is a product. Each pulse, wait and terminal
+projection factors between the load, its apparatus and the scalar with its
+own apparatus. Hence the two terminal bits are independent at every wait.
 
 There is also an all-time bound before the terminal read. In the binary
 two-load sector, on a single scalar quantum, the contact is diagonal with
@@ -164,8 +178,9 @@ python -B -m pytest -q -W error model/scalar_channel/contact
 ```
 
 The [collar protocol](protocol.json) and [mobile protocol](pair_protocol.json)
-specify the acquisition and falsifiers. The first replay checks the complete
-count receipt against regenerated laws and reads the couplings from counts.
+specify the acquisition and falsifiers. The first replay regenerates every
+count with the specified seed, checks the sampling errors and reads the
+couplings from counts.
 The second recomputes each entry of the [joint laws](pair_records.json).
 The tests compare the first experiment with full native memory and forward
 scalar evolution, and the second with propagation on both explicit pointer bits.

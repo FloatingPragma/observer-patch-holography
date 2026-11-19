@@ -156,6 +156,56 @@ def test_mobile_pointers_by_evolving_the_two_bits_directly():
     np.testing.assert_allclose(probabilities, np.ravel(saved['pointer_laws'][1][3]), atol=2e-11)
 
 
+def test_binding_bound_inputs_on_the_complete_cell():
+    H, states, adjacent = contrast_replay.cell(8)
+    binary = np.array([a != b for a, b in states])
+    separate = binary & ~adjacent
+    largest_adjacent = np.linalg.eigvalsh(H[np.ix_(adjacent, adjacent)])[-1]
+    lowest_separate = np.linalg.eigvalsh(H[np.ix_(separate, separate)])[0]
+    np.testing.assert_allclose(lowest_separate - largest_adjacent, 15-math.sqrt(6), atol=2e-13, rtol=0)
+    np.testing.assert_allclose(np.linalg.norm(H[np.ix_(separate, adjacent)], 2), 2, atol=2e-14)
+    assert not np.any(H[np.ix_(~binary, binary)])
+    emitter = states.index((0, 2))
+    assert np.linalg.norm(np.delete(H[:, emitter], emitter))**2 == pytest.approx(2)
+    levels = np.linalg.eigvalsh(cage.law(cage.cell()))
+    np.testing.assert_allclose(levels[-1] - levels[0], 2*math.sqrt(6), atol=1e-13)
+
+
+def test_mobile_receipt_rejects_false_summaries_and_forbidden_weights():
+    spec = replay.load_json(replay.HERE / 'pair_protocol.json')
+    result = replay.load_json(replay.HERE / 'pair_records.json')
+    independent = np.full((3, 6, 2, 2), .25).tolist()
+    with pytest.raises(ValueError, match='differs from the joint'):
+        pair.assess(spec, dict(result, pointer_laws=independent))
+    with pytest.raises(ValueError, match='lost its joint pointer signal'):
+        pair.assess(spec, dict(result, pointer_laws=independent, total_variation_from_product=[[0]*6]*3))
+    with pytest.raises(ValueError, match='wrong all-time bounds'):
+        pair.assess(spec, dict(result, all_time_bounds=[1, 1, 1]))
+    for value in (False, -1e-12, 1e-12, float('nan')):
+        result['doubled'][0][0] = value
+        with pytest.raises(ValueError, match='invalid probability|sector bound'):
+            pair.assess(spec, result)
+
+
+def test_incomplete_freeze_and_redigested_draw_are_rejected(tmp_path):
+    manifest = tmp_path / 'sources.json'
+    manifest.write_text('{}')
+    with pytest.raises(ValueError, match='source list'):
+        replay.check_sources(manifest, replay.SOURCE_FILES)
+    manifest.write_text('{"a": "first", "a": "second"}')
+    with pytest.raises(ValueError, match='duplicate JSON key'):
+        replay.check_sources(manifest, {'a'})
+    spec = replay.protocol()
+    laws = {'ramsey': np.array([[.5, .5]])}
+    altered = replay.draw_counts(spec, laws)
+    altered['ramsey'][0] += [1, -1]
+    receipt = tmp_path / 'counts.npz'
+    np.savez_compressed(receipt, **altered)
+    receipt.with_suffix('.sha256').write_text(replay.digest(receipt))
+    with pytest.raises(ValueError, match='differs from the seeded acquisition'):
+        replay.read_counts(receipt, spec, laws)
+
+
 def test_optimized_replays_and_false_records(monkeypatch):
     monkeypatch.setattr('sys.argv', ['contact'])
     replay.main()
