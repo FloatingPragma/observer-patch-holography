@@ -23,6 +23,7 @@ a local checkout, [viewer.html](viewer.html) shows the sheet full screen with zo
 | [fig_idea.svg](fig_idea.svg), [fig_cell.svg](fig_cell.svg), [fig_registers.svg](fig_registers.svg), [fig_federation.svg](fig_federation.svg), [fig_law1.svg](fig_law1.svg), [fig_law2.svg](fig_law2.svg), [fig_cage.svg](fig_cage.svg), [fig_run.svg](fig_run.svg) | the eight panels as separate figures |
 | [viewer.html](viewer.html) | a full-screen viewer for a local checkout |
 | [make_diagram.py](make_diagram.py) | draws every figure from the carrier files |
+| [make_paper_figures.py](make_paper_figures.py) | draws the four figures of the executable model in the papers, `paper/figures/model_*.pdf` |
 | [inputs/CELL.npz](inputs/CELL.npz) | one cell with its seams and wedges, in the labelling of the manual |
 
 The figures show the design. The packages named in
@@ -222,9 +223,12 @@ evolution parameter or a common clock.
 ## Regenerate
 
 ```sh
-python model/construction_manual/make_diagram.py     # writes the sheet and the eight figures
+python model/construction_manual/make_diagram.py          # writes the sheet and the eight figures
+python model/construction_manual/make_paper_figures.py    # writes the figures of the papers, with rsvg-convert and gs
 ```
 
 The script needs NumPy and NetworkX from `model/requirements.txt`. It reads the cell from `inputs/`, the
 federations from `../polynomial_sv/carriers/` and the numbers of the cage panel from
-`../scalar_channel/cage/results.json`.
+`../scalar_channel/cage/results.json`. The figures of the papers use the same geometry; their stability plot is
+computed from the law on the federation of 20 cells, and their PDFs are rendered by `rsvg-convert` and normalized
+by Ghostscript, as the diagrams of the book are.

@@ -41,21 +41,26 @@ Jinwook Kim, Oraclizer Labs.
 \end{center}
 
 \begin{abstract}
-Observer Patch Holography represents local records by overlapping patches
-and agreement by accepted repair. We prove that a repair law with
-well-founded descent, a transactional local diamond and completeness has
-one schedule-independent quotient normal form. Adaptive fairness and
-capacity bounds distinguish eventual stabilization from termination within
-a fixed number of attempts. Atomic commits and termination alone do not
-suffice. For affine abelian constraints, consistency is equivalent to
-vanishing cycle holonomy; fixed nonzero holonomy forces positive residual
-mismatch.
-Gauge descent, natural refinement maps, central record algebras and
-controlled recovery extend the construction. Authenticated provenance gives
-an informational order; fair-block certificates bound noisy repair; and
-admissible distributed implementations preserve the same public normal
-form. Physical fields, clocks and Einstein dynamics
-require the separate realization premises stated at the interfaces.
+Observer Patch Holography describes a world through records that local
+observers keep and repair where they disagree with a neighbor. If every
+accepted repair lowers a measure of disagreement that cannot fall forever, two
+repairs from one state can always reach a common state, and repair stops
+exactly at the consistent states, then every order of repairs ends at the
+same public result, up to hidden relabelings. Termination or atomic commits
+alone do not suffice. Fair scheduling settles eventually; a bound on wasted
+attempts also bounds the attempts to settle. For constraints that fix the
+difference across each overlap, a solution exists exactly when these
+differences sum to zero around every cycle, and otherwise disagreement
+survives every repair. Agreed records carry Born weights and rereads that
+return the same answer, and an operation on one observer's registers leaves
+every other observer's record statistics unchanged. The result passes to
+finer and coarser descriptions, approximate recovery and distributed
+implementations; noisy repair stays near it under a certificate; records of
+who read whose write order the events. Fields, clocks and gravity need
+further premises. In polynomial-sv, the executable model of the theory,
+agreed records and local events meet the record and local-operation
+premises; its laws are reversible, so the settling theorems apply to the
+classical repair rule behind its first law.
 \end{abstract}
 
 
@@ -65,48 +70,52 @@ A finite graph of observer patches represents local records and overlap
 constraints. Accepted local repairs compute a quotient normal form when
 they decrease a well-founded measure, satisfy a local diamond and are
 complete for the declared consistent states. The result is a rewriting
-theorem, not an identification of its endpoint with a physical universe.
+theorem and identifies its endpoint with no physical universe.
 The closure hypothesis proposes that observers recover and realize the
 specification of their world; selecting a particular source, state and
 physical interpretation requires additional premises \cite{ophsynthesis}.
 
 The executable model of the programme, polynomial-sv~\cite{ophmodel},
 places loads $0$, $1$ or $2$ on the ports of federations of twelve-port
-icosahedral cells and a private memory on every seam. Its candidate native
-repair law, the contrast-memory law, is the exchange of loads across seams
-plus an agreement energy that lowers the energy of a seam whose two ports
-both hold a load; port observers count their own events and admit a seam
-record only when both ends agree. On its agreed records the model reproduces particle stability, by a theorem that holds for every number of cells. Under a second candidate law on the same carrier, the scalar channel, an object on four seams is kept for every interval and carries a prepared clock that an observer reads in units of its own reference. The state of that simulation is no
-spacetime, and its carrier is hardware of the computation. A test of the
-model compares distributions of admissible observer records with what
-observers in our world record. Observers who inhabit the simulation can
-describe their experiences as relativistic $3{+}1$D continuum spacetimes:
-a smooth $(1+3)$-dimensional Lorentzian field description reproduces the
-complete predictions of every finite admissible menu of their
-readouts~\cite{ophsynthesis,ophEinstein}, with the rank-three spatial
-carrier and the causal and count limits of the spacetime
-paper~\cite{ophEinstein}. Three results of this paper apply to the records
-of the model as they stand~\cite{ophmodel}. Its agreed seam records are
-orthogonal projectors with complete outcome sets, so
-Theorem~\ref{thm:crdt} gives them Born weights, L\"uders conditioning and
-certain rereads. A seam event or a seam reading is a complete operation on
-the registers of one seam, so by
+icosahedral cells and a private memory on every seam. Its first candidate
+native repair law, the contrast-memory law, is the exchange of loads across
+seams plus an agreement energy that lowers the energy of a seam whose two
+ports both hold a load; port observers count their own events and admit a
+seam record only when both ends agree. On its agreed records the model
+reproduces particle stability, by a theorem that holds for every number of
+cells. Under a second candidate law on the same carrier, the scalar channel,
+an object on four seams is kept for every interval and carries a prepared
+clock that an observer reads in units of its own reference. Both laws are
+candidates, and their couplings are supplied. The state of that simulation
+is no spacetime, and its carrier is hardware of the computation. A test of
+the model compares distributions of admissible observer records with what
+observers in our world record. Observers who inhabit the computation can
+describe their experience as a relativistic continuum spacetime with three
+dimensions of space and one of time, by the proposition on smooth effective
+field descriptions of the flagship paper and the reconstruction of the
+spacetime paper, under their stated premises~\cite{ophsynthesis,ophEinstein};
+those results consume readouts and limits that the model does not produce in
+the required form. Three results of this paper apply to the model as it
+stands~\cite{ophmodel}. Its agreed seam records are orthogonal projectors
+with complete outcome sets, so Theorem~\ref{thm:crdt} gives them Born
+weights, L\"uders conditioning and certain rereads. A seam event or a seam
+reading is a complete operation on the registers of one seam, so by
 Proposition~\ref{prop:bipartite-marginal-invariance} it leaves the record
-law of every observer on other registers unchanged. Its recorded contrasts
-are port gradients, so by Theorem~\ref{thm:holonomy} they carry no
-holonomy. Applying this paper's quotient theorem requires a specified
-mismatch, protected boundary, strict descent and complete consistent-state
-presentation. The laws of the model are unitary and conserve their loads,
-so the settling theorems apply to the classical seam rule from which the
-model's write is built, and they make no statement about the echo.
+law of every observer on other registers unchanged. Each of the two laws is
+a continuous one-parameter unitary flow on finite registers, so the
+Hamiltonian rigidity of Section~\ref{sec:finite-observable-nets} fixes it by
+its flow up to an energy offset. Applying this paper's quotient theorem
+requires a specified mismatch, protected boundary, strict descent and
+complete consistent-state presentation. Both laws of the model are unitary
+and conserve their loads and objects, so the settling and normal-form
+theorems apply to the classical seam rule, whose write the contrast-memory
+law performs with the coin in superposition, follows with a phase and then
+reverses; they make no statement about the laws themselves.
 
 The construction uses Newman's confluence lemma \cite{newman42}.
 Termination differs from a continuing legitimate regime in
 self-stabilization \cite{dijkstra1974}, and finite linear sheaf diffusion
 has its own state and operator hypotheses \cite{hansenghrist2020}.
-The contrast-memory law is a unitary exchange with an agreement energy and
-has no strict descent; applying the theorem to it requires an admissible
-quotient presentation \cite{ophmodel}.
 
 The main results are the quotient normal-form theorem, adaptive scheduling
 and capacity bounds, the cycle-holonomy obstruction, gauge descent,
@@ -150,7 +159,7 @@ C:=\bigl\{s\in\Sigma:\forall\, e=\{i,j\}\in E,\ \pi_{i,e}(s_i)=\pi_{j,e}(s_j)\bi
 
 For exposition we use a finite pairwise-overlap graph. The hypergraph version is straightforward: replace edges by hyperedges and pairwise equality by a common interface label on each hyperedge. Nothing in the proofs depends on the pairwise restriction.
 
-The picture: each observer holds a local state, and neighboring observers share an interface through which they can compare notes. A universe-state is physically admissible exactly when all neighbors agree on their shared data. This is a constraint satisfaction problem (CSP), and the consistent states are the codewords.
+In words, each observer holds a local state, and neighboring observers share an interface through which they can compare notes. A global state is consistent exactly when all neighbors agree on their shared data. Consistency is therefore a constraint satisfaction problem, and the consistent states are its codewords.
 
 \begin{figure}[!htb]
 \centering
@@ -1367,7 +1376,8 @@ map are additional requirements.
 
 The contrasts of polynomial-sv, the differences of the two loads of a
 seam~\cite{ophmodel}, are exact port gradients and have zero cycle
-holonomy. The seam graph has a cycle space, but the filled icosahedral face
+holonomy, so the obstruction leaves the model no residual mismatch. The seam
+graph has a cycle space, but the filled icosahedral face
 complex has vanishing first homology: face-curl-free offsets have zero
 holonomy on every cycle.
 
@@ -2811,11 +2821,13 @@ the subalgebra is a finite direct sum of full matrix blocks; and a
 pointwise-continuous automorphism group fixes every block and acts by one
 Hamiltonian per block, with block fixing derived and the block swap
 realized on the square two-block algebra. The parameter is a real number,
-and no physical clock or source-selected Hamiltonian is claimed. The
-contrast-memory law of polynomial-sv lies inside the reversibility
-hypothesis: on each seam its local term is a self-adjoint generator
-conjugated by a Hermitian unitary contrast write, acting on the two loads
-and the private seam memory~\cite{ophmodel}.
+and no physical clock or source-selected Hamiltonian is claimed. Both
+candidate laws of polynomial-sv lie inside the reversibility
+hypothesis~\cite{ophmodel}: each is a continuous one-parameter unitary flow
+on finite registers, so each is fixed by its flow up to an energy offset, and
+its parameter is no observer's clock. On each seam the local term of the
+contrast-memory law is a self-adjoint generator conjugated by a Hermitian
+unitary contrast write, acting on the two loads and the private seam memory.
 
 \input{tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex}
 \input{tex_fragments/SOURCE_RESTRICTION_NATURALITY.tex}
@@ -4138,14 +4150,14 @@ B.~M\"uller, J.~Kim, D.~Matscheko, and J.~Hill,
 \emph{Observation-Determined Normal Forms: Stability, Obstructions, and Refinement in Constraint
 and Rewrite Systems},
 2026.\\
-Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/extra/observable_normal_forms.pdf}.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/extra/observable_normal_forms.pdf}.
 
 \bibitem{eventalgebraLean}
 B.~M\"uller,
 \emph{Verified Projection-Event Calculus in Lean~4: Bundled Arbitrary-Partition Pinching,
 L\"uders Retractions, and CHSH Interoperability},
 2026.\\
-Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/extra/machine_checked_finite_event_algebras.pdf}.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/extra/machine_checked_finite_event_algebras.pdf}.
 
 \bibitem{ophrepo}
 Pragma Research,
@@ -4157,26 +4169,26 @@ Available at \url{https://github.com/FloatingPragma/observer-patch-holography}.
 B.~M\"uller, M.~Poneder, J.~Kim, and D.~A.~Friedman,
 \emph{An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records},
 2026.\\
-Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/executable_observer_construction.pdf}.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/executable_observer_construction.pdf}.
 
 \bibitem{ophsynthesis}
 B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, B.~Cassie, P.~Nguyen, J.~Kim, D.~Matscheko, D.~A.~Friedman, J.~Hill, W.~T.~Glynn, M.~A.~Visser, K.~A.~Anirudha, and B.~de La Fourni\`ere,
 \emph{Observers Who Read Their Universe into Existence: Finite Consensus and the Reconstruction of Standard Physics},
 2026.\\
-Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/flagship/from_observer_consensus_to_standard_physics.pdf}.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/flagship/from_observer_consensus_to_standard_physics.pdf}.
 
 \bibitem{ophGauge}
 B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, P.~Nguyen, D.~Matscheko, and D.~A.~Friedman,
 \emph{Standard Model Gauge Structure under Complete-Response and Observer-Transport Premises},
 2026.\\
-Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf}.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf}.
 
 \bibitem{ophObservers}
 B.~M\"uller et al.,
 \emph{Observers Are All You Need},
 2026.\\
 Source and compiled paper:
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/observers_are_all_you_need.pdf}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/observers_are_all_you_need.pdf}.
 
 \bibitem{dijkstra1974}
 E.~W.~Dijkstra,
@@ -4259,7 +4271,7 @@ arXiv:1410.0664.
 \bibitem{ophEinstein}
 B.~M\"uller et al.,
 \emph{Recovering Observer Spacetime and Einstein Dynamics from Overlap Consistency}.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex}.
 
 \end{thebibliography}
 

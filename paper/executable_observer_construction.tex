@@ -7,6 +7,7 @@
 \usepackage{booktabs,array}
 \usepackage{hyperref}
 \usepackage{xurl}
+\usepackage{graphicx}
 \input{release_info.tex}
 
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,
@@ -61,32 +62,27 @@ Daniel Ari Friedman\textsuperscript{4,5}}
 \end{center}
 
 \begin{abstract}
-Observer Patch Holography describes a world through the records that local
-observers hold and agree on. This paper specifies polynomial-sv, an
-executable model of that description, and reports what its observers read.
-Ports of icosahedral cells hold loads $0$, $1$ or $2$, and every seam
-between two ports has a private memory that its two port observers write,
-phase and unwrite. With a phase proportional to the squared contrast of the
-two loads, this echo acts on the loads exactly as an exchange plus an energy
-of agreement, and the law is specified on every state of the memory. On
-every federation of complete
-cells joined by a matching of external seams, a pair of loads on one seam is
-read as a pair on some seam with probability at least
-$1-40/(2\kappa-6)^2$ at every later reading, for every coupling
-$\kappa>3$ and every number of cells. Readings computed on $1$, $20$, $80$
-and $320$ cells lie a factor of fifteen and more below the bound, the pair
-is read on other seams than the first, and the same law without the
-agreement energy loses it. The model has bound objects on seams and faces,
-a port response of seventeen directions under its plain services and of
-twelve under one declared service, and a conserved neutral excitation of
-the seam memory whose level an observer reads from its own records. Reading
-that a pair is present and reading where it is give the same first
-statistics and different later records. A second candidate law on the same
-carrier, the scalar channel, holds an object on a ring of four seams: its
-excitation is kept for every interval, and after a pulse its seam record
-swings at one line, which an observer reads from counts in units of its own
-reference. Both laws are candidate native repair laws, and their couplings
-are supplied.
+In Observer Patch Holography, space, time, fields and particles are how
+observers describe the records they agree on. This paper specifies
+polynomial-sv, an executable model of such observers. Its ports, seams and
+cells are the hardware of a computation and no space. Its first law, an
+exchange of loads plus an energy of agreement, is realized exactly by a
+private seam memory. On every federation of complete cells a pair of loads on
+one seam is read as a pair on some seam with probability at least
+$1-40/(2\kappa-6)^2$ at every later reading, for every coupling $\kappa>3$.
+Readings on up to $320$ cells lie far below this bound, the pair is read on
+other seams, and the law without the agreement energy loses it. Reading
+whether a pair is present and reading where it is give the same first
+statistics and different later records. A seam memory that keeps a record
+beside empty ports is a conserved neutral object whose level its observers
+read. Under a second law, the scalar channel, a cage on four seams keeps its
+excitation for every interval and, after a pulse, carries a clock that an
+observer reads from counts in units of its own reference. These outputs
+supply the premises of finite theorems on the three-direction carrier, the
+native seam rule, projective instruments, record algebras and clock
+comparison, and under one declared service the gauge type of the port
+response. Both laws are candidate native repair laws with supplied
+couplings.
 \end{abstract}
 
 
@@ -1375,7 +1371,8 @@ seam $e$, $P=\sum_eP_e$ the projector on the thirty pairs on seams, and
 $Q=I-P$ the projector on the other $49$ states. The presence reading runs
 the four stages of the reader on every seam, combines the thirty public
 words by a tree of reversible OR gates of depth five, copies the root into
-a fresh public register, and runs the tree and the readers backwards. Every
+a fresh public register, and runs the tree and the readers backwards
+(Figure~\ref{fig:run}). Every
 gate is an involution on its register. The scratch registers return to
 blank for every basis state of the loads, and by linearity for every state.
 Orthogonal record labels are copied and nothing else. One read allocates
@@ -1398,6 +1395,20 @@ state supported on one answer block is left unchanged by the presence
 reading. On the uniform superposition of the thirty pairs the two positive
 outputs differ by $29/30$ in trace distance, the largest value over all
 inputs.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\linewidth]{figures/model_run.pdf}
+\caption{Observers, instruments and records. (a) One run, the same for both
+laws: a preparation, a local write by an emitter, the law acting alone while
+every observer counts its own events, a reading copied into two pointers,
+agreement of the two copies, and the agreed record whose count is the
+observer's clock. (b) The presence reading combines the thirty seam words by
+a reversible tree, copies one answer and unwrites the words; the reader with
+seam records keeps thirty records. Table~\ref{tab:presence} gives the laws
+of the later records.}
+\label{fig:run}
+\end{figure}
 
 \subsection{Two readings in one history}
 
@@ -1847,7 +1858,8 @@ $D\,(0,e')=\sigma\,(e,0)-m\,(0,e')$.
 \end{proof}
 
 On the cell $\sigma=\sqrt5$ and $E=\sqrt6$. The law moves the profile $e$
-to $e'$ and back and to no other place: the signs of the hop make a cage.
+to $e'$ and back and to no other place: the signs of the hop make a cage
+(Figure~\ref{fig:cage}).
 The profiles with $Qe=0$ form a space of dimension $18$, the level $5$ of
 $K$. The cell has $30$ rings, their profiles span that space, and no
 profile with $Qe=0$ lives on fewer than four seams. On the federations of
@@ -1888,6 +1900,19 @@ The excitation leaves the number of objects as it is and lies $2E$ above
 the reference. For the object of the pair placed on $e$ the occupation of
 the profile is $1-(\sigma^2/E^2)\sin^2(Et)$: it starts from rest and swings
 at the one line $2E$, the difference of the two levels.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\linewidth]{figures/model_cage.pdf}
+\caption{The cage of the scalar channel. (a) A ring of four seams on one cell
+with the signs $+,-,+,-$; at every port of the ring a plus meets a minus.
+(b) The two levels $\pm E$ of the pair of the ring and the excitation that
+lifts the object of the lower mode by $2E$. (c) The occupation of the profile
+after the coherent pulse, $1-(\sigma^2/E^2)\sin^2(Et)$, against the
+observer's own phase, with the line and the level difference read from
+counts (Table~\ref{tab:cage}).}
+\label{fig:cage}
+\end{figure}
 
 \subsection{What the observer of a cage reads}
 
@@ -2216,10 +2241,12 @@ Observers who inhabit the computation can describe their experience as a
 relativistic continuum spacetime with one time and three space dimensions,
 by the proposition on smooth effective field descriptions of the flagship
 and the reconstruction of the spacetime paper, under their stated premises
-\cite{flagship,ophspacetime}. This paper does not establish those premises
-for polynomial-sv with its own local clocks and records. The model is not
-required to contain three dimensions in its state, and no item above asks
-for that.
+\cite{flagship,ophspacetime}. Of those premises the model supplies the
+carrier with its rank-three band and count clocks compared through shared
+readings (Section~\ref{sec:joins}); the field readouts, the authenticated
+order of events and the refinement family that the two results also consume
+are outputs it does not produce. The model is not required to contain three
+dimensions in its state, and no item above asks for that.
 
 
 \section{What the model predicts on records}
@@ -2244,7 +2271,7 @@ against each.}
 \toprule
 Experiment & Prediction & Counts against it \\
 \midrule
-A pair written on one seam, read later, $\kappa>3$ & no pair with probability at most $40/(2\kappa-6)^2$ on every federation; at most $0.0096$ at $\kappa=8$ on $1$ to $320$ cells & a larger probability at some reading \\
+A pair written on one seam, read later, $\kappa>3$ & no pair with probability at most $40/(2\kappa-6)^2$ on every federation; at most $0.0097$ at $\kappa=8$ on $1$ to $320$ cells & a larger probability at some reading \\
 The same law without the agreement energy & no pair with probability up to $0.80$ on $20$ cells & a pair that is kept \\
 Rounds of seam events in any order, with unequal rates of the observers & the pair is kept & a loss of the pair under rounds \\
 Two readings of a pair, $\kappa=8$, one cell & equal first answers; later records that differ by more than $0.0817$ in total variation; one event at $0.0183$ against $0.1029$ & equal laws of the later records \\
@@ -2348,45 +2375,45 @@ executable model, receipts and claim registries. Public repository; model
 documents, receipts, papers and the basis document are cited at the release
 tag of this paper, and frozen custody records at their registration
 revisions.
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2069}
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2070}
 
 \bibitem{flagship}
 Mueller, B., Poneder, M., Osika, A., Xue, K., Cassie, B., Nguyen, P., Kim, J.,
 Matscheko, D., Friedman, D.\,A., Hill, J., Glynn, W.\,T., Visser, M.\,A., Anirudha, K.\,A., and de La Fourni\`ere, B. (2026). \emph{Observers Who Read Their Universe into Existence: Finite Consensus and the Reconstruction of Standard Physics}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/flagship/from_observer_consensus_to_standard_physics.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/flagship/from_observer_consensus_to_standard_physics.pdf}
 
 \bibitem{ophobservers}
 Mueller, B., Poneder, M., Osika, A., Xue, K., Cassie, B., Nguyen, P., and Friedman, D.\,A.
 (2026). \emph{Observers Are All You Need}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/observers_are_all_you_need.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/observers_are_all_you_need.pdf}
 
 \bibitem{ophgauge}
 Mueller, B., Poneder, M., Osika, A., Xue, K., Nguyen, P., Matscheko, D., and Friedman, D.\,A.
 (2026). \emph{Standard Model Gauge Structure under Complete-Response and Observer-Transport Premises}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf}
 
 \bibitem{ophspacetime}
 Mueller, B., Poneder, M., Osika, A., Xue, K., Nguyen, P., Visser, M.\,A.,
 Matscheko, D., and de La Fourni\`ere, B. (2026). \emph{Recovering Observer
 Spacetime and Einstein Dynamics from Overlap Consistency}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf}
 
 \bibitem{ophconsensus}
 Mueller, B., Xue, K., Kim, J., Anirudha, K.\,A., Matscheko, D., and Hill, J.
 (2026). \emph{Reality as a Consensus Protocol: The Fixed-Point Computation
 That Implements Physics}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/reality_as_consensus_protocol.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/reality_as_consensus_protocol.pdf}
 
 \bibitem{ophmicro}
 Mueller, B., Osika, A., Xue, K., Cassie, B., de La Fourni\`ere, B., and Friedman, D.\,A. (2026).
 \emph{Twelve-Port Icosahedral Carriers and Native Seam Repair: The Carrier Layer of Observer Patch Holography}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/screen_microphysics_and_observer_synchronization.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/screen_microphysics_and_observer_synchronization.pdf}
 
 \bibitem{ophdarkmatter}
 Mueller, B., and Matscheko, D. (2026). \emph{Observer Patch Holography and the
 Dark Sector: Modular Charge, the Anomalous Collar Source, and the Deep Galaxy
 Law}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/cosmology/oph_dark_matter_paper.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/cosmology/oph_dark_matter_paper.pdf}
 
 \bibitem{nachtergaele2001}
 Nachtergaele, B., and Starr, S. (2001). ``Droplet states in the XXZ

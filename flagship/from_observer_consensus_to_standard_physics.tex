@@ -9,6 +9,7 @@
 \usepackage{microtype}
 \usepackage[hidelinks]{hyperref}
 \usepackage{xurl}
+\usepackage{graphicx}
 \input{../paper/tex_fragments/figures/FIGURE_STYLE.tex}
 \input{../paper/release_info}
 % Section 2 states the basis, so the shared panel omits its basis paragraph.
@@ -70,27 +71,37 @@ Finite Consensus and the Reconstruction of Standard Physics}
 
 \begin{abstract}
 Observer Patch Holography (OPH) proposes that the Universe is what its
-observers agree on. Its target is an observer-based computation whose
-recorded experiences reproduce our Universe in every physical respect.
-Its executable model, polynomial-sv, runs a candidate native repair law,
-the contrast-memory law. Two observers that share a seam write the
-difference of their loads into a private memory, the memory acquires a
-phase, and the write is reversed. On blank memory the law is exactly an
-exchange of loads with an agreement energy on every seam. For two loads
-on one seam a theorem bounds the probability of reading no pair on any
-seam by $40/(2\kappa-6)^2$ for coupling $\kappa>3$, at every reading and
-on every number of cells. In the agreed records of the observers the
-pair persists and is read on other seams, and the same law without the
-agreement energy loses it. Under a second candidate law on the same carrier
-an object on four seams is kept for every interval and carries a clock
-that an observer reads in units of its own reference. Independent
-observer constructions yield complete quantum records, conditional gauge
-structure and controlled field limits on their stated domains. A matched regional
-entropy and area theorem yields Einstein dynamics when the same source
-supplies its geometric, stress and refinement premises. The finite response
-variables alone establish no physical Newton constant, cosmological constant
-or common continuum.
+observers agree on. Small observers keep local records, compare them with
+their neighbors and repair what disagrees, and a record that survives every
+comparison is a public fact. Space, time, fields and particles are the
+descriptions observers give of their agreed records. Observers inside the
+history also recover the rules behind their records and build the process
+that realizes it, so the Universe reads itself into existence.
 
+The executable model, polynomial-sv, runs this process on the ports of
+icosahedral cells, where every check and every repair is local and each
+observer counts its own events as its clock. The cells are the hardware of a
+computation and no space, so a test compares what its observers record with
+what we record. Under a candidate native repair law, a theorem bounds the
+chance of losing a pair of loads written on one seam, at every reading and on
+carriers of any size, and the law without its agreement energy loses the
+pair. Asking whether a pair is present and asking where it is give the same
+first answer and different later records. Under a second candidate law an
+object held on four seams carries a clock that an observer reads from its own
+counts.
+
+These outputs meet premises of the finite theorems. The readers of the model
+are instruments of the measurement theorems, so its completed records obey
+the Born rule and the Tsirelson bound, and its cell is the carrier of the
+three-direction theorem. On stated premises the observers inside can
+describe their experiences as a relativistic continuum spacetime with three
+dimensions of space and one of time, which reproduces every finite set of
+their readouts to any accuracy; their forces have the gauge structure of the
+Standard Model, the defects of repair carry the centre classes of its
+particles, and a realized balance of curvature and stress gives the Einstein
+equation. On these premises the computed universe is indistinguishable from
+ours to the observers who inhabit it. Both laws are candidates with supplied
+couplings, and the paper states which premises the model supplies.
 \end{abstract}
 
 
@@ -98,8 +109,8 @@ or common continuum.
 
 \vspace{0.5em}
 \noindent\textbf{Keywords:} foundations of physics; Observer Patch Holography;
-finite consensus; self-reference; quantum records; gauge structure;
-particle physics; Einstein dynamics.
+finite consensus; self-reference; executable model; quantum records;
+emergent spacetime; gauge structure; particle physics; Einstein dynamics.
 
 %=====================================================================
 \section{Introduction}
@@ -241,11 +252,16 @@ energy, and two loads on the two ends of one seam form a bound pair. A
 theorem bounds the probability of reading no pair at every reading and on
 every number of cells, and the agreed records of the port observers show
 the pair persisting and being read on other seams
-(Sections~\ref{sec:contrast-memory} and~\ref{sec:observer-runs}). A second
+(Sections~\ref{sec:contrast-memory} and~\ref{sec:observer-runs}). An
+instrument that asks whether a pair is present and one that asks where it
+is give the same first answer and different later records, and a seam
+memory that holds a record while its ports are empty holds no load and
+keeps a level that its observers read from their own records
+(Sections~\ref{sec:presence} and~\ref{sec:collar-reading}). A second
 candidate law on the same carrier, the scalar channel, holds an object on a
 ring of four seams: its excitation is kept for every interval, and after a
 pulse its seam record swings at one line that an observer reads from counts
-in units of its own reference \cite{ophmodel}. The
+in units of its own reference (Section~\ref{sec:cage}). The
 state of the computation does not contain the physical Universe or its
 spacetime. Ports, seams and cells are hardware of the computation, and a
 test of the model compares distributions of admissible observer records
@@ -262,9 +278,9 @@ finite space, the setting of the public-record identities of
 Theorem~\ref{thm:born}, and its reading of the presence of a pair executes
 the update of that theorem as a circuit. Under
 one declared port service its response has the Lie type of the gauge
-theorem (Section~\ref{sec:port-response}). The executable-model paper lists
-these joins and names the outputs that the other theorems consume
-\cite{ophmodel}.
+theorem (Section~\ref{sec:port-response}). Table~\ref{tab:joins} lists
+these joins, and Section~\ref{sec:model-joins} names the outputs that the
+other theorems consume \cite{ophspine}.
 
 \subsection{Scope and order of the argument}
 \label{sec:place}
@@ -1239,8 +1255,24 @@ world record.
 
 The federations of the tests are families of complete cells with a
 matching of external seams: $20$ cells with $240$ ports and $630$ seams,
-$80$ cells with $960$ ports and $2520$ seams, and $320$ cells. A pair is two loads on
-the two ends of one seam, and a face object is three loads on a face.
+$80$ cells with $960$ ports and $2520$ seams, and $320$ cells with $3840$
+ports and $10{,}080$ seams (Figure~\ref{fig:model-hardware}). Each cell sits
+on a triangle of the geodesic sphere and meets each of its three neighbors
+through one external seam. A pair is two loads on the two ends of one seam,
+and a face object is three loads on a face.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\linewidth]{../paper/figures/model_hardware.pdf}
+\caption{The hardware of the computation. (a) One cell: twelve ports with
+the incidence of the icosahedron, thirty seams and twenty faces, with one
+face shaded and one wedge, two seams at a port, marked. Every port is an
+observer, and every seam joins two ports and keeps a private memory. (b)
+The federations of $20$, $80$ and $320$ cells; one dot is one cell, and one
+line is the external seam between two neighboring cells. Ports, seams and
+cells are registers of a computation and no space.}
+\label{fig:model-hardware}
+\end{figure}
 
 The emitter is local. One fuel state at a seam $e=(a,b)$ has energy
 $E_f=10\kappa+(d_a+d_b-2)/2$ and couples with strength $g$ to the pair on
@@ -1353,10 +1385,29 @@ $320$ cells & $0.182965$ & $0.00963435$ & $0.977091$ & & & \\
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:particle-stability} gives the readings. The probability of
+Table~\ref{tab:particle-stability} gives the readings, and
+Figure~\ref{fig:model-stability} follows them through the run on $20$
+cells. The probability of
 ``no pair'' lies a factor of ten and more below the bound on every
 carrier, and the largest probability of reading the pair on another seam
-than the emitter's lies between $0.93$ and $0.99$. On $20$ cells at $\kappa=8$ the
+than the emitter's lies between $0.93$ and $0.99$.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\linewidth]{../paper/figures/model_stability.pdf}
+\caption{Particle stability on the federation of $20$ cells, with the pair
+written by the local emitter on one seam at $\kappa=8$ and its two
+changed laws. (a) The probability of the outcome ``no pair'' on a
+logarithmic scale, with the bound of Theorem~\ref{thm:binding} for the
+constants of the carrier. (b) The probability of reading the pair on
+another seam than the emitter's. Each point is the probability of a record
+at one reading; the $161$ values of the evolution parameter are those of
+the calculation. The largest values of ``no pair'' on this grid are
+$0.0160$ under the law, $0.830$ under the exchange alone and $0.0211$ with
+the agreement energy reversed; at the readings $0,4,\dots,32$ used in the
+text they are $0.0096$, $0.7968$ and $0.0124$.}
+\label{fig:model-stability}
+\end{figure} On $20$ cells at $\kappa=8$ the
 probability of ``no pair'' is $0.0089$, $0.0088$ and $0.0084$ at the
 parameter values $64$, $256$ and $1024$. Of $100{,}000$ sampled single
 readings on $20$ cells $786$ return ``no pair'', and the pair is read on
@@ -1435,6 +1486,357 @@ binding rests on the regular phase between successive events of a seam. An
 observer that serves each of its seams once per round supplies that
 regularity with its own count.
 
+\subsection{What a reading leaves}
+\label{sec:presence}
+
+The reader of Section~\ref{sec:measurement-process} keeps one record for
+every seam. A second instrument keeps one answer for the whole cell. On one
+cell with the fuel, let $P_e$ be the projector on the pair on the seam $e$,
+$P=\sum_eP_e$ the projector on the thirty pairs on seams and $Q=I-P$. The
+presence reading runs the reader on every seam, combines the thirty public
+words by a tree of reversible OR gates of depth five, copies the root into
+a fresh public register, and runs the tree and the readers backwards
+(Figure~\ref{fig:model-run}). Every gate is an involution on its register,
+so the scratch registers return to blank for every state of the loads, and
+orthogonal record labels are copied and nothing else. For a state $X$ of
+the loads a positive answer acts as
+\begin{equation}
+X\longmapsto PXP
+\qquad\text{and}\qquad
+X\longmapsto\sum_eP_eXP_e
+\label{eq:presence}
+\end{equation}
+for the presence reading and for the reader with seam records, and a
+negative answer acts as $X\mapsto QXQ$ for both. Both find a pair with the
+same probability. The presence reading leaves the pair spread over the
+seams as it was, and the reader with seam records places it on one seam.
+On the uniform superposition of the thirty pairs the two positive outputs
+differ by $29/30$ in trace distance, the largest value over all inputs.
+A Kraus map with effect $P$ that leaves every state certain for $P$
+unchanged is the map $X\mapsto PXP$, and conversely; the statement is
+machine-checked \cite{ophrepo}. The presence reading meets its condition,
+so it is the projective instrument of the event ``a pair on some seam'' and
+executes the update of Theorem~\ref{thm:born} as a circuit. The reader with
+seam records has the same effect and fails the condition on the uniform
+superposition, so it is another instrument.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\linewidth]{../paper/figures/model_run.pdf}
+\caption{Observers, instruments and records. (a) One run of the model, the
+same for both laws: a preparation, a local write by an emitter, the law
+acting alone while every observer counts its own events, a reading copied
+into two pointers, agreement of the two copies, and the agreed record whose
+count is the observer's clock. (b) Two readings of the same pair on one
+cell. The presence reading combines the thirty seam words by a reversible
+tree, copies one answer and unwrites the words; the reader with seam
+records keeps thirty records. Table~\ref{tab:presence} gives the laws of
+the later records.}
+\label{fig:model-run}
+\end{figure}
+
+The difference shows in later records. The emitter writes the pair on one
+seam of one cell at $\kappa=8$ and $g=64$. After four units of the exchange
+the observers take a first reading with one of the two instruments, and
+after four further units a final reading with seam records. The seam of the
+first reading is hidden before the two histories are compared, so both show
+the same public alphabet. The first answer has the same law under both
+instruments, and the laws of the complete histories differ
+(Table~\ref{tab:presence}). With the exchange acting through read windows
+of length $w=1/16384$, the law of one experiment differs from this
+calculation by at most $24w$ in total variation. One event is certified in
+exact arithmetic with every such error counted: a positive first answer
+followed by a final record on the emitting seam has the probability
+$0.0182640$ under the presence reading and $0.1029264$ under the reader with
+seam records, and the total variation between the two public histories
+exceeds $0.0817$ \cite{ophspine}. The pair is one object spread over seams;
+an instrument that asks where it is places it, and the later records show
+the difference.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Two readings of a pair on one cell: the probability of a positive
+first answer, equal under both instruments, and the total variation between
+the laws of the two public histories.}
+\label{tab:presence}
+\begin{tabular}{@{}L{0.52\linewidth}rr@{}}
+\toprule
+\textbf{Run} & \textbf{First answer positive} & \textbf{Total variation}\\
+\midrule
+Contrast-memory law, $\kappa=8$ & $0.992329$ & $0.440513$\\
+Exchange alone, $\kappa=0$ & $0.647174$ & $0.196148$\\
+Agreement energy reversed, $\kappa=-8$ & $0.987884$ & $0.249676$\\
+$\kappa=8$, first-seam reports mismatch or are unavailable & $0.747346$ & $0.260336$\\
+$\kappa=8$, every predicate flipped in agreement & $1$ & $0.446650$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{A record that holds no load}
+\label{sec:collar-reading}
+
+Every seam carries a label that no event changes: its memory is blank, or it
+holds a record of contrast size $|d|=0$, $1$ or $2$. The local term maps the
+blank code and the sector of records into themselves, and on the records the
+squared contrast commutes with the write and with the generator, so every
+label is conserved. A seam whose memory holds a record of nonzero contrast
+while its ports hold no contrast is an unrecovered seam; in the language of
+Section~\ref{sec:dark-sector} its memory is an unrecovered collar. It holds
+no load. With no load anywhere the local term acts on the ten records of a
+seam with the levels $0$, $\kappa$, $\kappa+1$, $4\kappa$ and $4\kappa+1$,
+each twice, so the record lies at least $\kappa$ above the recovered seam at
+every reading. A load that reaches one of its ports binds to it. At
+$\kappa=8$ a load elsewhere on the cell starts at $56.38$, while two levels
+at $41.94$, on which the record is the one the loads can have written, and
+six levels between $49.81$ and $50.94$ hold the load on a port of the seam
+with probability above $0.97$.
+
+The observers of the seam read its level from their own records. A pulse
+converts a local fuel at level zero into a record of the seam. After $q$
+cycles of a protocol a second pulse with one of four phase settings reads
+whether the fuel is present, and the four probabilities give one complex
+number for each count $q$, whose phase advances at a fixed rate. The rates
+$r_s$ and $r_a$ of the symmetric and the antisymmetric record give the
+length of a cycle as $r_a-r_s$ in units of the exchange and the coupling as
+$r_s/(r_a-r_s)$ (Table~\ref{tab:collar}). The observers are not given the
+length of a cycle: the two records of one unrecovered seam are a clock that
+they read from their own records.
+
+\begin{table}[htbp]
+\centering\small
+\caption{The level of an unrecovered seam as a reading of its observers, on
+one cell with a cycle of $1/16$ exchange units.}
+\label{tab:collar}
+\begin{tabular}{@{}L{0.42\linewidth}rrr@{}}
+\toprule
+\textbf{Run} & \textbf{Rates per cycle} & \textbf{Cycle read} & \textbf{Coupling read}\\
+\midrule
+No load, probability law & $0.500000$, $0.562500$ & $0.062500$ & $8.00000$\\
+No load, $10^{6}$ sampled trials per setting & $0.499998$, $0.562485$ & $0.062486$ & $8.0017$\\
+No load, law without the agreement energy & $0.000000$, $0.062500$ & $0.062500$ & $0.00000$\\
+One load, started off the seam & $0.502209$, $0.564749$ & $0.062540$ & $8.030$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{A second candidate law: an object with a clock}
+\label{sec:cage}
+
+The same carrier holds a second candidate law, the scalar channel, with
+other registers. Its results stand beside those of the contrast-memory law
+and are not added to them. A wedge is a pair of seams at one port; a port
+with five seams has ten wedges and a cell has $120$. Every seam and every
+wedge carries one mode that holds one object or none. With $C$ the signed
+seam-by-wedge incidence, $+1$ on the first and $-1$ on the second seam of a
+wedge, the law of one object and the law of many are
+\begin{equation}
+D=\begin{pmatrix}m&c\,C\\ c\,C^{\top}&-m\end{pmatrix},
+\qquad
+H_0=\sum_{i,j}D_{ij}\,c_i^{\dagger}c_j,
+\qquad m=1,\quad c=\tfrac{1}{\sqrt2}.
+\label{eq:scalar}
+\end{equation}
+An object on a seam and an object in transit at a port sit at opposite
+levels, so the mixed terms of $D^2$ cancel and
+$D^2=m^2+c^2\operatorname{diag}(CC^{\top},C^{\top}C)$. Every frequency
+$\omega$ of the law obeys $\omega^2=m^2+\lambda$, with $\lambda$ a level of
+half the Laplacian of the graph of seams, and on one cell the first four of
+these levels are the levels of $L/2$ of Section~\ref{sec:contrast-memory}.
+The reference state fills every level of $D$ below zero, and one object
+more costs at least $m$. On ordinary registers a cell is written on $432$
+two-state registers with $260$ loop conditions, $259$ of them independent;
+the reference is prepared by local loop measurements whose signs are kept
+and by local ramps.
+
+\begin{proposition}[The pair of a ring]
+\label{prop:cage}
+Let four ports with five seams each form a ring $ab$, $bc$, $cd$, $da$, let
+$u_s$ be the unit vector of the seam $s$, and put
+$e=\tfrac12(u_{ab}-u_{bc}+u_{cd}-u_{da})$ and $e'=C^{\top}e/\sqrt{10}$.
+Then
+\begin{equation}
+D\,(e,\ e')=(e,\ e')
+\begin{pmatrix}m&\sigma\\ \sigma&-m\end{pmatrix},
+\qquad \sigma=\sqrt{10}\,c,\qquad E=\sqrt{m^2+\sigma^2}.
+\label{eq:cage}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+With $Q$ the port-by-seam incidence without signs and $d_a$ the number of
+seams at the port $a$, every graph obeys
+$CC^{\top}=\operatorname{diag}(d_a+d_b)-Q^{\top}Q$, since two seams that
+share a port lie in exactly one wedge, with opposite signs. At every port
+of the ring a seam with $+$ meets a seam with $-$, so $Qe=0$ and
+$CC^{\top}e=10\,e$. Hence $\lVert C^{\top}e\rVert^2=10$,
+$D(e,0)=m(e,0)+\sigma(0,e')$ and $D(0,e')=\sigma(e,0)-m(0,e')$.
+\end{proof}
+
+On one cell $\sigma=\sqrt5$ and $E=\sqrt6$. The law moves the profile $e$
+of the ring to its image $e'$ on the twenty-eight wedges at the four ports
+and back, and to no other place: the signs of the hop make a cage
+(Figure~\ref{fig:model-cage}). On the federations of $20$, $80$ and $320$
+cells $92$, $312$ and $1{,}272$ rings have five seams at each of their
+ports, each checked in integers. Let $a_\pm$ remove an object from the
+modes of the pair at $\pm E$; in the reference the lower mode holds an
+object and the upper mode is empty.
+
+\begin{theorem}[The excitation of a cage]
+\label{thm:cage}
+Let $X^{\dagger}=a_+^{\dagger}a_-$ and $P_X=n_+(1-n_-)$. Then
+$[H_0,X^{\dagger}]=2E\,X^{\dagger}$ and $[H_0,P_X]=0$. For every state the
+probability of the excitation is the same at every reading, and every
+record of the pair that conserves the number of objects is a constant plus
+one line at the frequency $2E$.
+\end{theorem}
+
+\begin{proof}
+For a law of the form \eqref{eq:scalar},
+$[H_0,a^{\dagger}(\phi)]=a^{\dagger}(D\phi)$, so
+$[H_0,a_+^{\dagger}]=E\,a_+^{\dagger}$ and $[H_0,a_-]=E\,a_-$, which gives
+the first identity; $n_+$ and $n_-$ commute with $H_0$. A number-conserving
+operator of the pair is a combination of $1$, $n_\pm$, $n_+n_-$,
+$X^{\dagger}$ and $X$, and only the last two carry a time dependence,
+$e^{\pm2iEt}$.
+\end{proof}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\linewidth]{../paper/figures/model_cage.pdf}
+\caption{The cage of the scalar channel. (a) A ring of four seams on one
+cell with the signs $+,-,+,-$; at every port of the ring a plus meets a
+minus. (b) The two levels $\pm E$ of the pair of the ring and the
+excitation that lifts the object of the lower mode by $2E$. (c) The
+occupation of the profile after the coherent pulse,
+$1-(\sigma^2/E^2)\sin^2(Et)$, against the observer's own phase, with the
+line and the level difference read from counts.}
+\label{fig:model-cage}
+\end{figure}
+
+The observer of a cage holds two operators on the profile: the number
+$n(e)$ as a potential and a converter between $e$ and a local fuel at level
+zero. On the registers they are sums of $17$ and of $8$ Pauli words that
+commute with every loop condition. The observer's clock is the phase of a
+circulation of three wedges at one of its ports, which sits at the level
+$-m$ exactly; the observer reads it through its fuel with four phase
+settings and states every frequency in units of this reference. Three
+experiments run with the law acting throughout and are read from counts
+alone (Table~\ref{tab:cage}). After the coherent pulse the seam record
+swings with no drive at one line, read at $4.898982\pm0.000002$ of the
+observer's reference. A fuel whose level is set by a dial reads the level
+difference of the pair separately, at $4.898980\pm0.000008$; the law gives
+$2\sqrt6=4.898979$. A local detector with four analyzers reads the
+excitation at five waits up to $512$ steps. A changed law that adds seam
+hopping round every port keeps the alphabet, the routing, the number of
+objects and the symmetries of the cell; it has no single line and loses
+the excitation.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Readings on a cage of one cell, from $10^8$ trials per setting of
+the clock and of the detector and $4\times10^6$ per setting of the dial.
+Frequencies are in units of the observer's own reference; the values of
+the law for the excitation are those of the prepared reference.}
+\label{tab:cage}
+\begin{tabular}{@{}L{0.55\linewidth}L{0.2\linewidth}r@{}}
+\toprule
+\textbf{Reading} & \textbf{From counts} & \textbf{The law}\\
+\midrule
+Line of the seam record, steps of equal length & $4.898982\pm0.000002$ & $4.898979$\\
+The same line, steps of unequal length & $4.898976\pm0.000002$ & $4.898979$\\
+Level difference of the pair, from the fuel dial & $4.898980\pm0.000008$ & $4.898979$\\
+Amplitude of the line; with no pulse & $0.4161$; $0.0019$ & \\
+Excitation at five waits after the sharp pulse & $0.9999$ to $1.0002$ & $0.999954$\\
+Excitation at five waits after the coherent pulse & $0.7059$ to $0.7060$ & $0.705932$\\
+Excitation at five waits with no pulse & $0.000004$ & $0.000004$\\
+Changed law: share of the variance in its best single line & $0.507$ & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Particle stability thus holds for a second object, and that object carries a
+clock: the equality of the line and the level difference is the frequency
+condition of two levels, read by an observer from its own counts. The pulse
+supplies the phase and the work of the swing, the reference by itself does
+not swing, the level of a cage is flat and the law has no term between two
+objects \cite{ophspine}.
+
+\subsection{The model and the finite theorems}
+\label{sec:model-joins}
+
+The theory is a library of finite theorems, each proved under stated
+premises. A theorem applies to the model where an output of the model has
+the form of its premise, and its conclusion is then a statement about the
+model's observers (Table~\ref{tab:joins}). Every entry is a statement about
+records; the state of the computation contains no spacetime, and no entry
+compares that state with the world.
+
+{\small
+\begin{longtable}{@{}L{0.25\linewidth}L{0.33\linewidth}L{0.34\linewidth}@{}}
+\caption{Where the outputs of the model meet the finite theorems.}
+\label{tab:joins}\\
+\toprule
+\textbf{Theorem} & \textbf{The model supplies} & \textbf{It follows}\\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\small Table~\thetable\ continued}\\
+\toprule
+\textbf{Theorem} & \textbf{The model supplies} & \textbf{It follows}\\
+\midrule
+\endhead
+Three-dimensional carrier completion (Theorem~\ref{thm:rank-three}) & The
+cell, and a law under which one load moves with $L/2$ & The slowest motion
+of a load has exactly three independent directions; the first four levels
+of the scalar channel are the same levels\\
+The native seam rule (Section~\ref{sec:native-repair}) & The write of the
+contrast-memory law, which is that rule with the coin in superposition &
+The event that every seam writes and unwrites is the one rule that four
+requirements leave\\
+Projective instruments & The presence reading, which leaves every state
+certain for its event unchanged & It is the projective instrument of ``a
+pair on some seam''; the reader with seam records is another instrument\\
+Public-record identities (Theorem~\ref{thm:born}) & Readers with complete
+outcome sets that copy orthogonal labels; records that the law never
+erases & The agreed records form a public algebra with Born weights,
+L\"uders conditioning and certain rereads\\
+Local operations & Events and readings that act on the registers of one
+seam & No event or reading changes the record law of an observer that
+shares no register with it\\
+The generator of a flow & One continuous flow for each law & Each law is
+fixed by its flow up to an energy offset\\
+Comparison of frequencies & The pair of a cage, with the frequencies $0$
+and $\pm2E$ & A record of the pair holds the one line $2E$, read at
+$4.8990$ of the observer's reference\\
+Clock readout & Port observers that count their own events and share the
+records of their seam & Two shared records relate the counts of two
+observers, and a third checks the relation; no common clock enters\\
+Rereads & The presence reading and the law & Frequent readings would hold a
+pair at any coupling, so every reading uses a fresh run and the binding
+theorem needs no reading\\
+Gauge Lie-type forcing (Theorem~\ref{thm:inner-action-closure}) & The
+response of one load on one cell under one declared port service & The
+response has the Standard Model gauge Lie type; the direct computation gives
+$\mathfrak u(3)\oplus\mathfrak{so}(3)$\\
+\bottomrule
+\end{longtable}
+}
+
+Other finite theorems consume outputs that the model does not produce in
+the required form. The settling theorems of Section~\ref{sec:consensus}
+consume accepted repairs that lower a well-founded measure; both laws are
+unitary and conserve their loads and objects, so those theorems apply to
+the classical seam rule. Proposition~\ref{prop:effective-lorentzian}
+consumes readouts that are polynomials in the Weyl operators of a free field
+on a radial cylinder over the screen, while the readouts of the model are
+instruments on finite registers. The causal and count limits consume an
+authenticated order of events with a refinement family, the Einstein
+implication consumes regional entropy, area and stress readouts in a common
+frame, Theorem~\ref{thm:maxwell-selection} consumes a gauge-invariant action
+on seam potentials, and the theorems on defect classes consume a protected
+code with a spin doublet. The unrecovered seam supplies the dark-sector analysis with a
+conserved label and nothing more. Each of these names an output that a
+member of the model has to produce before the theorem applies to it.
+
 \subsection{Supplied parts and resources}
 \label{sec:supplied}
 
@@ -1448,7 +1850,13 @@ the reader;
 \item the evolution parameter of the runs with a continuous parameter (as
 local events the pair needs each seam to act once per round, or the limit
 of small event angle);
-\item the tangent-frame routing of the federation.
+\item the tangent-frame routing of the federation;
+\item the tree of the presence reading with its wiring and pulse schedule,
+and the fuel and converter that read an unrecovered seam;
+\item for the scalar channel, its coefficients $m$ and $c$, the prepared
+reference with its ramps, the apparatus registers and penalties of the
+register form, the two operators on a profile, the pulses, the fuel dial and
+the bounds on a step of the observer's reference.
 \end{itemize}
 On $20$ cells the literal allocation is $240$ load registers of three
 states, $630$ seam memories of eleven states, $180$ reference registers
@@ -1974,6 +2382,20 @@ The class is the centre class. It carries neither the generation nor $T_3$, so u
 electron and neutrino, and colour singlet and octet share a class. The executable certificates check every
 pattern in exact arithmetic \cite{ophparticles,ophrepo}.
 
+The same code fixes the couplings of the links at the cell. The seam cost of
+a code state carried around a plaquette, averaged over the code, is
+$1-\operatorname{Re}\operatorname{tr}_5U_P/5$, and this trace gives equal bare
+couplings $g_3=g_2=g_1$ in the grand-unified normalization at the cell, so
+$\sin^2\theta_W=3/8$ there, and gluons, $W$ and $B$ travel on one cone.
+Restricted to a colour holonomy $W$ the cost is
+$(3/5)(1-\operatorname{Re}\operatorname{tr}W/3)$, the Wilson plaquette action
+with $\beta=6/g^2$, and the colour centre is the pair of flux classes $2$ and
+$4$. A Monte Carlo study of these links at $N_t=4$ finds a first-order
+deconfinement transition at $\beta_c=5.69105(39)$, where the published value
+for this lattice theory is $5.6925(2)$ \cite{ophGauge,boyd1996thermodynamics}.
+The equality holds for the bare couplings of this action, and the study holds
+the links alone at one lattice spacing.
+
 \subsection{Bound objects of the contrast-memory law}
 \label{sec:bound-objects}
 
@@ -2166,7 +2588,8 @@ recovery is the return of that memory to blank. A seam whose memory holds a
 contrast record where its ports hold no such contrast is an unrecovered
 collar: the law conserves the recovery state of every seam, the unrecovered
 collar holds no load, and its lowest contrast record lies one agreement
-energy above the recovered seam. No identification of this collar with the
+energy above the recovered seam, a level that its observers read from their
+own records (Section~\ref{sec:collar-reading}). No identification of this collar with the
 recovery defect of the dark-sector analysis is established here.
 
 \subsection{Expansion, horizons and records}
@@ -2260,7 +2683,8 @@ its state. The outputs that meet premises of finite theorems as they stand
 are the carrier with its rank-three band, the seam rule, complete
 instruments with projective readings, record algebras with certain
 rereads, count clocks compared through shared records, and the
-twelve-dimensional response under one declared service \cite{ophmodel}.
+twelve-dimensional response under one declared service
+(Table~\ref{tab:joins}).
 A difference between microscopic state encodings is no failure
 of the model, and a resemblance between them is no success. Existence and phenomenal
 experience are interpretive questions: an implemented record interface does
@@ -2337,18 +2761,20 @@ of events alone; rounds keep the pair with unequal counts &
 An observer clock normalized to proper time.\\
 The unrecovered collar & The recovery state of every seam is conserved;
 an unrecovered collar holds no load and lies one agreement energy above
-the recovered seam; a load on one of its ports binds to it &
+the recovered seam; a load on one of its ports binds to it; its observers
+read its level and the coupling from their own records
+(Section~\ref{sec:collar-reading}) &
 Its reading as the recovery defect of the dark sector, and the regional
 response that the Einstein theorem consumes.\\
 What a reading leaves & Reading that a pair is present and reading where it
 is have the same first statistics and different later records
-\cite{ophmodel} &
+(Section~\ref{sec:presence}) &
 The tree of the presence reading is supplied apparatus.\\
 A second candidate law & The scalar channel holds an object on four seams.
 Its excitation is kept for every interval, and after a pulse its seam
 record swings at one line, read from counts at $4.8990$ of the observer's
 own reference and equal to the level difference read separately
-\cite{ophmodel} &
+(Section~\ref{sec:cage}) &
 A clock that starts with no supplied phase, and motion of the object: the
 level of a cage is flat.\\*
 \bottomrule
@@ -2631,6 +3057,59 @@ Proposition~\ref{prop:effective-lorentzian} and the physical reading of
 the bound objects, whose requirements are listed in
 Section~\ref{sec:scoreboard}.
 
+\subsection{Predictions of the model on records}
+\label{sec:model-predictions}
+
+Every result of the model is a probability of records under a stated
+preparation. Each is therefore a prediction for any realization of the
+model, on a quantum processor or in an independent simulation: the
+realization prepares, runs and reads as specified and compares its counts
+with Table~\ref{tab:predictions}, which names for each prediction the
+outcome that counts against it. A comparison with a laboratory system
+requires in addition that the same preparation, intervention and readout be
+identified in that system.
+
+{\small
+\begin{longtable}{@{}L{0.28\linewidth}L{0.42\linewidth}L{0.24\linewidth}@{}}
+\caption{Predictions of the model on records, and the outcome that counts
+against each.}
+\label{tab:predictions}\\
+\toprule
+\textbf{Experiment} & \textbf{Prediction} & \textbf{Counts against it}\\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\small Table~\thetable\ continued}\\
+\toprule
+\textbf{Experiment} & \textbf{Prediction} & \textbf{Counts against it}\\
+\midrule
+\endhead
+A pair written on one seam, read later, $\kappa>3$ & ``No pair'' with
+probability at most $40/(2\kappa-6)^2$ on every federation; at most $0.0097$
+at $\kappa=8$ on $1$ to $320$ cells at the readings of
+Table~\ref{tab:particle-stability} & A larger probability at some reading\\
+The same law without the agreement energy & ``No pair'' with probability up
+to $0.80$ on $20$ cells & A pair that is kept\\
+Rounds of seam events in any order, with unequal rates of the observers &
+The pair is kept & A loss of the pair under rounds\\
+Two readings of a pair, $\kappa=8$, one cell & Equal first answers; later
+records that differ by more than $0.0817$ in total variation; one event at
+$0.0183$ against $0.1029$ & Equal laws of the later records\\
+An unrecovered seam with empty ports & Read unrecovered at every reading;
+the rates of its two records return the coupling & A recovery; another
+ratio of the rates\\
+The seam record of a cage after the coherent pulse & One line at
+$2\sqrt6=4.8990$ of the observer's reference, with more than $0.9999$ of
+the variance & A second line, or a line elsewhere\\
+The fuel dial on the same cage & The level difference $4.8990$, equal to the
+line & A value away from the line\\
+The excitation of a cage after the sharp pulse & Read above $0.99$ at waits
+of $0$ to $512$ steps, the same at every wait & A decrease with the wait\\
+The cage under seam hopping round every port & No single line; the
+excitation is lost & A single line, or a kept excitation\\
+\bottomrule
+\end{longtable}
+}
+
 \subsection{Committed records against public data}
 \label{sec:public-records}
 
@@ -2809,7 +3288,13 @@ A pair of loads on one seam is bound at every reading on every federation
 of complete cells. The agreed records of the port observers show the pair
 and the face object persisting and being read on other seams and faces,
 and the exchange law alone loses them. Each observer counts its own
-events, and no common clock enters a record. Observers who inhabit the
+events, and no common clock enters a record. Asking whether a pair is
+present and asking where it is leave different later records, a record on
+a seam with empty ports holds no load and keeps a level that its observers
+read, and under the scalar channel an object held on four seams keeps its
+excitation and carries a clock read from counts at $2\sqrt6$ of the
+observer's own reference. These outputs meet the premises of the finite
+theorems listed in Table~\ref{tab:joins}. Observers who inhabit the
 simulation can describe their experiences as relativistic $3{+}1$D continuum
 spacetimes (Proposition~\ref{prop:effective-lorentzian}); the carrier is
 hardware of the computation, and the model is tested on the distributions
@@ -2968,11 +3453,11 @@ receipts, finite certificates, and scientific claim registries.
 Mueller, B. (2026). OPH physics simulator and reproduction source.
 \url{https://github.com/muellerberndt/oph-physics-sim}.
 Exact-federation archive:
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2069/evidence/exact_federation_L6_canonical_20260909}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2070/evidence/exact_federation_L6_canonical_20260909}.
 Closure-loop archive:
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2069/evidence/closure_loop}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2070/evidence/closure_loop}.
 Causal-poset archive:
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2069/evidence/source_net_causal_poset}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2070/evidence/source_net_causal_poset}.
 Active refinement-readout revision:
 \url{https://github.com/muellerberndt/oph-physics-sim/tree/036b12b608a9ca4c19d69f5e951b3b83a7a51cd8}.
 
@@ -2984,81 +3469,81 @@ Immutable source receipt:
 Append-only custody packet:
 \url{https://github.com/FloatingPragma/observer-patch-holography/tree/bb73f80d459113ccc82d5a5b5219d1dda78e9a79/evidence/custody/falsification/frozen_targets/fz11_2026-07-31}.
 Source-seam edge receipt:
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/code/a5_fingerprint/runtime/seam_current_edge_prediction_receipt.json}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/code/a5_fingerprint/runtime/seam_current_edge_prediction_receipt.json}.
 Source-seam custody and decision-rule clarification:
 \url{https://github.com/FloatingPragma/observer-patch-holography/tree/bb73f80d459113ccc82d5a5b5219d1dda78e9a79/evidence/custody/falsification/frozen_targets/fz12_2026-08-02}.
 Live register:
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/claims/frozen_prediction_register.json}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/claims/frozen_prediction_register.json}.
 
 \bibitem{ophnormalforms}
 Mueller, B., Kim, J., Matscheko, D., and Hill, J. (2026).
 \emph{Observation-Determined Normal Forms: Stability, Obstructions, and
 Refinement in Constraint and Rewrite Systems}. Public manuscript in the same repository revision as this paper.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/extra/observable_normal_forms.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/extra/observable_normal_forms.pdf}
 
 \bibitem{opheventalgebra}
 Mueller, B. (2026). \emph{Verified Projection-Event Calculus in Lean 4:
 Bundled Arbitrary-Partition Pinching, L\"uders Retractions, and CHSH
 Interoperability}. Public manuscript and formal artifact.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/extra/machine_checked_finite_event_algebras.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/extra/machine_checked_finite_event_algebras.pdf}
 
 \bibitem{ophconsensus}
 Mueller, B., Xue, K., Kim, J., Anirudha, K.\,A., Matscheko, D., and Hill, J. (2026).
 \emph{Reality as a Consensus Protocol: The Fixed-Point Computation That
 Implements Physics}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/reality_as_consensus_protocol.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/reality_as_consensus_protocol.pdf}
 
 \bibitem{ophMicrophysics}
 Mueller, B., Osika, A., Xue, K., Cassie, B., de La Fourni\`ere, B., and Friedman, D.\,A.
 (2026).
  \emph{Twelve-Port Icosahedral Carriers and Native Seam Repair: The Carrier Layer of Observer Patch Holography}. Public
 manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/screen_microphysics_and_observer_synchronization.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/screen_microphysics_and_observer_synchronization.pdf}
 
 \bibitem{ophobservers}
 Mueller, B., Poneder, M., Osika, A., Xue, K., Cassie, B., Nguyen, P., and Friedman, D.\,A.
 (2026). \emph{Observers Are All You Need}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/observers_are_all_you_need.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/observers_are_all_you_need.pdf}
 
 \bibitem{ophEinstein}
 Mueller, B., Poneder, M., Osika, A., Xue, K., Nguyen, P., Visser, M.\,A.,
 Matscheko, D., and de La Fourni\`ere, B. (2026). \emph{Recovering Observer
 Spacetime and Einstein
 Dynamics from Overlap Consistency}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf}
 
 \bibitem{ophalpha}
 Mueller, B., Osika, A., and Friedman, D.\,A. (2026). \emph{The Fine-Structure Constant as an OPH
 Pixel Fixed Point}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/extra/fine_structure_constant_derivation.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/extra/fine_structure_constant_derivation.pdf}
 
 \bibitem{ophGauge}
 Mueller, B., Poneder, M., Osika, A., Xue, K., Nguyen, P., Matscheko, D., and Friedman, D.\,A. (2026).
  \emph{Standard Model Gauge Structure under Complete-Response and Observer-Transport Premises}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf}
 
 \bibitem{ophparticles}
 Mueller, B., Poneder, M., Osika, A., Xue, K., and Friedman, D.\,A. (2026).
-\emph{Particles from Native Overlap Transport: Common Currents, Defect Modes and a Pixel-Dependent Mass Operator}.
+\emph{Particles from Observer Consistency: Defect Classes, Statistics and the Bound Objects of an Executable Observer}.
 Public manuscript.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}
 
 \bibitem{ophdesitter}
 Mueller, B. (2026). \emph{The de Sitter Time-Advance Sign from a Finite
 Screen with Fixed Capacity}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf}
 
 \bibitem{ophdarkmatter}
 Mueller, B. and Matscheko, D. (2026). \emph{Observer Patch Holography and the
 Dark Sector: Modular Charge, the Anomalous Collar Source, and the Deep Galaxy
 Law}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/cosmology/oph_dark_matter_paper.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/cosmology/oph_dark_matter_paper.pdf}
 
 \bibitem{ophvacuum}
 Mueller, B. (2026). \emph{Observer Patch Holography Cosmological Vacuum and
 Structure Formation: Finite Transfer Conditions, Fluctuation Ensembles, and
 Proto-Objects}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/cosmology/oph_cosmological_vacuum_and_structure_formation.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/cosmology/oph_cosmological_vacuum_and_structure_formation.pdf}
 
 \bibitem{ophinflation}
 Mueller, B. (2026).
@@ -3085,7 +3570,7 @@ CODATA recommended values of the fundamental physical constants: 2022.
 
 \bibitem{ophyangmills}
 Mueller, B. and Hill, J. (2026). \emph{A Conditional Identification of the Yang--Mills Gap with a Finite Repair Gap: Dobrushin Repair Floors and a \(\mathbb Z_2\) Test of the Transfer Receipt}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/extra/yang_mills_gap_clay_problem.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/extra/yang_mills_gap_clay_problem.pdf}
 
 \bibitem{epr1935}
 Einstein, A., Podolsky, B., and Rosen, N. (1935). ``Can quantum-mechanical
@@ -3113,6 +3598,12 @@ Masanes, L., and M\"uller, M.\,P. (2011).
 \bibitem{gleason1957}
 Gleason, A.\,M. (1957). ``Measures on the closed subspaces of a Hilbert
 space.'' \emph{Journal of Mathematics and Mechanics} \textbf{6}, 885--893.
+
+\bibitem{boyd1996thermodynamics}
+Boyd, G., Engels, J., Karsch, F., Laermann, E., Legeland, C., L\"utgemeier,
+M., and Petersson, B. (1996). ``Thermodynamics of SU(3) lattice gauge
+theory.'' \emph{Nuclear Physics B} \textbf{469}, 419--444.
+\url{https://arxiv.org/abs/hep-lat/9602007}
 
 \bibitem{busch2003}
 Busch, P. (2003). ``Quantum states and generalized observables: A simple
@@ -3332,12 +3823,12 @@ physics.'' \emph{Communications in Mathematical Physics} \textbf{131},
 \bibitem{ophspine}
 Mueller, B., Poneder, M., Kim, J., and Friedman, D.\,A. (2026). \emph{An Executable Observer for Observer
 Patch Holography: Specification, Memory and Agreed Records}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/executable_observer_construction.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/executable_observer_construction.pdf}
 
 \bibitem{ophmodel}
 FloatingPragma (2026). The polynomial-sv model: carriers, the
 contrast-memory law, the binding theorem and the tests on agreed records.
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2069/model/polynomial_sv}
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2070/model/polynomial_sv}
 
 \bibitem{nachtergaelestarr2001}
 Nachtergaele, B., and Starr, S. (2001). ``Droplet states in the XXZ
@@ -3353,40 +3844,40 @@ spin systems on general graphs.'' \emph{Journal of Mathematical Physics}
 
 \bibitem{ophrecordlaws}
 FloatingPragma (2026). Admissible record laws for native repair.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/model/record_laws/README.md}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/model/record_laws/README.md}
 
 \bibitem{ophmixing}
 FloatingPragma (2026). Native quantum mixing and the full-carrier memory
 boundary.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/model/observer/QUANTUM_MIXING.md}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/model/observer/QUANTUM_MIXING.md}
 
 \bibitem{ophcontinuum}
 FloatingPragma (2026). A spatial fluctuation field from one native history:
 the common spatial generator, its locality and spectral dimension, and the
 boundary-trace test.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/model/physical_space_time/OCCUPATION_FIELD.md}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/model/physical_space_time/OCCUPATION_FIELD.md}
 
 \bibitem{ophtimefields}
 FloatingPragma (2026). Joint time and field laws on matched source screens.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/model/observer_time_fields/REFINEMENT.md}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/model/observer_time_fields/REFINEMENT.md}
 
 \bibitem{ophentropy}
 FloatingPragma (2026). Tangent first laws and finite entropy changes:
 native reference entropy and region boundaries.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/code/geometry/ENTROPY_FIRST_LAW_AUDIT.md}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/code/geometry/ENTROPY_FIRST_LAW_AUDIT.md}
 
 \bibitem{ophcausality}
 FloatingPragma (2026). Exact native causal cones.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/model/common_source/CAUSALITY.md}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/model/common_source/CAUSALITY.md}
 
 \bibitem{ophbell}
 FloatingPragma (2026). Classical record responses and published Bell
 measurements.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/model/predictions/BELL_RECORDS.md}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/model/predictions/BELL_RECORDS.md}
 
 \bibitem{ophpublicdata}
 FloatingPragma (2026). OPH predictions and public-data comparisons.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md}
 
 \bibitem{hensen2015}
 Hensen, B. et al. (2015). Loophole-free Bell inequality violation using
@@ -3414,7 +3905,7 @@ Phragm\'en--Lindel\"of theorem. \emph{Proc. London Math. Soc.} 96, 507--544.
 FloatingPragma (2026). \emph{The OPH Basis}: the closure hypothesis, the
 no-outside rule, the agreement condition, the executable specification, and
 the theorem-library premises.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/claims/axiom_registry.yaml}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/claims/axiom_registry.yaml}
 
 \bibitem{wheeler1983}
 Wheeler, J.\,A. (1983). ``Law without law.'' In J.\,A. Wheeler and

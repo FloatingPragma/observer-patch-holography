@@ -73,19 +73,26 @@
 \end{center}
 
 \begin{abstract}
-A pixel fixed point constrains an electromagnetic coupling only when its
-return map is the response of the same physical system. We state this
-conditional identification, its scale and heat equations, and the
-same-scheme spectral transport needed at the Thomson endpoint. Explicit
-phenomenological transport maps give certified inverse couplings $136.994835177413\ldots$
-and $137.035660136947\ldots$; replacing their quark-screening ansatz by
-measured hadronic data gives a value near $136.3827548$, excluding the
-measured endpoint. Exact register counterexamples show why coarse counts
-cannot fix the missing spectral term. An independent entangled-pair
-operator supplies another exact scalar, but no Thomson identification.
-The resulting theorem requires a common current, physical same-cell map,
-consistent matter thresholds and a contraction certificate. Numerical
-agreement alone supplies none of those premises.
+In Observer Patch Holography the outside of a screen cell is read as the
+geometry of its area and the inside as the electromagnetic coupling at zero
+momentum, and overlapping readings must agree. Equating the two gives a
+fixed-point equation for the cell's pixel ratio, which fixes the
+fine-structure constant only if the inside reading is the response of the
+same physical system. This paper states that conditional identification, the
+scale, running and heat-kernel equations that feed it, and the spectral
+transport needed to reach the Thomson limit. Two explicit transport maps,
+built on a supplied charged spectrum and a declared quark-screening ansatz,
+have interval-certified unique fixed points at inverse couplings
+$136.994835177413\ldots$ and $137.035660136947\ldots$. Replacing the
+screening ansatz by measured hadronic data gives $136.3827548$, with an
+interval that excludes the measured $137.035999177(21)$. Exact
+counterexamples show that
+coarse register counts cannot fix the missing hadronic spectral term. An
+independent entangled-pair operator gives another exact scalar and no
+identification with the Thomson coupling. A physical theorem needs a common
+current, a same-cell map, consistent matter thresholds and a contraction
+certificate. Numerical agreement supplies none of these, and neither does the
+executable model of the theory, which carries no electromagnetic current.
 \end{abstract}
 
 \noindent\textbf{Keywords:} fine-structure constant, Observer Patch Holography, pixel fixed
@@ -223,11 +230,12 @@ The outside description is geometric. The inside description is
 electromagnetic. A declared typed bridge identifies both as readings of one
 cell; the fixed-point theorem is conditional on that premise.
 
-The executable model of the programme, polynomial-sv~\cite{ophmodel}, places loads \(0\),
-\(1\) or \(2\) on the ports of federations of twelve-port icosahedral cells and a private
-memory on every seam. Its candidate native repair law, the contrast-memory law, exchanges
-loads across seams and lowers the energy of a seam whose two ports both hold a load, and
-port observers admit a seam record only when both ends agree. Its ports, seams and cells are hardware of a computation and no space, and a test of the model compares what its observers record with what observers in our world record. It carries no
+The executable model of the programme, polynomial-sv~\cite{ophmodel}, runs two candidate
+native repair laws on federations of twelve-port icosahedral cells. The contrast-memory law
+places loads \(0\), \(1\) or \(2\) on the ports and a private memory on every seam, exchanges
+loads across seams and lowers the energy of a seam whose two ports both hold a load, and its
+port observers admit a seam record only when both ends agree. The scalar channel holds
+objects in modes on the seams and on the pairs of seams at a port. The ports, seams and cells of the model are hardware of a computation and no space, and a test of the model compares what its observers record with what observers in our world record. The model carries no
 electromagnetic current, so the fixed-point branch below is a statement about the declared
 cell map.
 
@@ -1067,8 +1075,8 @@ The measured value lies outside this interval. The corresponding same-scheme anc
 \([0.6199,0.6506]\) inverse-alpha units and contains the standard on-shell reference deficit
 \(0.6309\); both numbers measure the same anchor gap, computed once with the OPH lepton transport
 and once with standard running, so their agreement checks the bookkeeping and does not make the
-endpoint compatible with the measured value. This compare-only row does not identify the
-physical source of the gap \cite{ophpostdiction}.
+endpoint compatible with the measured value. This comparison does not identify the
+physical source of the gap.
 
 
 \subsection{The Measured Hadronic Spectral Input}
@@ -1382,21 +1390,21 @@ that source construction.
 B.\ M\"uller, M.\ Poneder, A.\ Osika, K.\ Xue, P.\ Nguyen, D.\ Matscheko, and D.\ A.\ Friedman,
 \emph{Standard Model Gauge Structure under Complete-Response and Observer-Transport Premises}.
 GitHub source:
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex}.
 GitHub PDF:
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf}.
 
 \bibitem{oph-particle}
 B.\ M\"uller, M.\ Poneder, A.\ Osika, K.\ Xue, and D.\ A.\ Friedman,
-\emph{Particles from Native Overlap Transport: Common Currents, Defect Modes and a Pixel-Dependent Mass Operator}.
+\emph{Particles from Observer Consistency: Defect Classes, Statistics and the Bound Objects of an Executable Observer}.
 GitHub source:
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/deriving_the_particle_zoo_from_observer_consistency.tex}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/deriving_the_particle_zoo_from_observer_consistency.tex}.
 GitHub PDF:
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}.
 
 \bibitem{oph-code}
 OPH fixed-point calculation code,
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2069/code/P_derivation}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2070/code/P_derivation}.
 Primary files:
 \path{derive_p.py},
 \path{fine_structure_fixed_point_demo.py}.
@@ -1404,28 +1412,23 @@ Primary files:
 \bibitem{oph-koide}
 B.\ Mueller and B.\ de La Fourni\`ere,
 \emph{The Positive-Chamber Koide Identity for Icosahedral Face Circulants}.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/extra/koide_identity_from_positive_c3_face_circulants.pdf}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/extra/koide_identity_from_positive_c3_face_circulants.pdf}.
 
 \bibitem{ophpublicdata}
 FloatingPragma,
 \emph{OPH predictions and public-data comparisons}, 2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md}.
-
-\bibitem{ophpostdiction}
-FloatingPragma,
-\emph{Postdiction ledger}, 2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/code/particles/runs/status/postdiction_ledger.json}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md}.
 
 \bibitem{ophladder}
 FloatingPragma,
 \emph{The frozen-prediction register}, 2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/claims/frozen_prediction_register.json}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/claims/frozen_prediction_register.json}.
 
 \bibitem{ophmodel}
 B.~M\"uller, M.~Poneder, J.~Kim, and D.~A.~Friedman,
 \emph{An Executable Observer for Observer Patch Holography: Specification,
 Memory and Agreed Records}, 2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2069/paper/executable_observer_construction.pdf}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/executable_observer_construction.pdf}.
 
 \bibitem{dhmz}
 M.\ Davier, A.\ Hoecker, B.\ Malaescu, and Z.\ Zhang,

@@ -54,32 +54,30 @@ and CHSH Interoperability}}
 \end{center}
 
 \begin{abstract}
-This paper presents a Lean~4 library for projection events over finite
-complex matrix algebras, in which every side condition of finite quantum
-measurement is supplied explicitly. A projective partition defines a
-star-subalgebra of matrices that commute with its projectors and a
-complex-linear pinching map onto that subalgebra. The map is unital,
-positive, trace preserving and idempotent; its range and fixed points are
-exactly the partition commutant; it satisfies the bimodule law,
-Hilbert--Schmidt Pythagorean and contraction identities and a trace-duality
-uniqueness theorem; and it is exactly the positive uniform random-unitary
-average over all independently signed block reflections. A second expectation
-averages onto the commutative span of the partition. The two maps satisfy
-tower laws, preserve the partition's Born statistics and commute with
-conditioning on a partition member, and L\"uders conditioning is available
-as a total matrix formula and a typed state update with an exact fixed-state
-characterization.
-
-An operator-norm estimate lifts the Tsirelson theorem to a state-level
-Clauser--Horne--Shimony--Holt bound for projection events. A declared
-maximally entangled witness on a checked slot-locality interface attains the
-bound $2\sqrt2$ exactly, while every fixed record-diagonal state read through
-four observables diagonal in the same basis and valued in $[-1,1]$ obeys the
-classical bound $2$. Companion Kraus proofs establish complete positivity
-and trace preservation through a finite-matrix interface with arbitrary
-ancillas, and a support countermodel proves that totalizing the matrix
-logarithm at zero cannot define support-aware relative entropy: the raw
-trace formula vanishes on an orthogonal pure-state pair.
+This paper presents a Lean~4 library that proves the rules by which
+observers weigh outcomes, update states and reread finite records, for
+projection events on finite complex matrix algebras with every side
+condition stated. For a partition into
+orthogonal projectors, pinching onto their commutant is a unital, positive,
+trace-preserving idempotent with exactly that range, obeys the bimodule,
+Hilbert--Schmidt Pythagorean and trace-duality laws, and is the uniform
+average over independently signed block reflections. Averaging onto their
+commutative span keeps the Born weights, forms a tower with pinching and
+commutes with conditioning on a partition member. L\"uders conditioning is a
+total formula and a typed update whose fixed states are exactly those
+certain of the event, so a reread returns the record with probability one;
+among Kraus instruments with a projective effect, it alone leaves every
+certain state unchanged. A state-level Clauser--Horne--Shimony--Holt bound
+$2\sqrt2$ for projection events is attained exactly by a declared entangled
+witness, while record-diagonal states read in their own basis obey the
+classical bound $2$. Companion proofs give complete positivity and trace
+preservation of Kraus maps with arbitrary ancillas, and a countermodel shows
+that a matrix logarithm set to zero at zero cannot define support-aware
+relative entropy.
+In the executable model of Observer Patch Holography, the reading of whether
+a pair of loads sits on some seam meets the certain-state condition on its
+ideal circuit and so is the projective instrument of that event, and its
+agreed records form such an algebra with certain rereads.
 \end{abstract}
 
 \noindent\textbf{Keywords:} formal verification, Lean~4, projective measurement,
@@ -291,8 +289,8 @@ including a positive complex-linear extension. The linear extension meets the
 effect-valuation hypotheses on this reconstructed algebra. Its entries are
 classical endpoint probabilities divided by the return probability, every
 connected positive-definite symmetric stochastic matrix gives the same result,
-and native evolution converges to the uniform state without preparing this
-functional. Signed combinations of count statistics are not asserted to be
+and the stochastic evolution of this construction converges to the uniform
+state without preparing this functional. Signed combinations of count statistics are not asserted to be
 single native measurement events.
 
 \section{L\"uders update as a partial state interface}
@@ -1046,9 +1044,17 @@ committed effects the L\"uders instrument is exactly the certain-state-invariant
 one; the swap-twisted instrument fails that invariance, and the committed
 repeatability clause (the normalized output is certain of its effect) is
 strictly weaker and does not select
-(\texttt{InstrumentSelectionByCertainStates}). Certain-state invariance is a
-declared operational hypothesis with no source implementation. The module
-supplies a declared instrument representation; a source-implemented
+(\texttt{InstrumentSelectionByCertainStates}). For the phase contexts,
+certain-state invariance is a declared operational hypothesis with no source
+implementation. The executable model of Observer Patch Holography meets it
+for one event. Its reading of whether a pair of loads sits on some seam has
+a projective effect and leaves every state supported on one answer block
+unchanged, on its ideal circuit and up to a known diagonal phase of the read
+window, so by this theorem it is the L\"uders instrument of that event. Its
+readers copy orthogonal record labels, so the agreed records of that model
+form a commutative record algebra with Born weights, L\"uders conditioning
+and certain rereads. The module itself
+supplies a declared instrument representation for the phase contexts; a source-implemented
 instrument, readback bound to a recorded public outcome, a source-produced
 preparation, and cross-context additivity are not supplied. The module is a
 companion in the wider library, outside the fifteen-module count and scale
@@ -1160,7 +1166,7 @@ forms the projector orbit, and enumerates the twelve noncommuting orbit pairs.
 A declared complexification adapter sends each nonzero real skew commutator
 $C$ to $I/2-iC/(2|C_{01}|)$. The generated effect values are exactly the two Pauli-$Y$
 projectors (\texttt{generated\_effect\_values\_exact}); the first pair in
-the current stable label order has the $+Y$ projector, which equals the
+the stable label order has the $+Y$ projector, which equals the
 declared lift and the instrument's phase slot
 (\texttt{current\_first\_labelled\_effect\_eq\_sourcePhaseLift},
 \texttt{current\_first\_labelled\_effect\_eq\_declared\_lueders\_effect}).
@@ -1168,7 +1174,7 @@ Eight pairs give $+Y$ and four give $-Y$, so the theorem is effect-value
 equality rather than witness uniqueness. Reversing the commutator order for a
 fixed pair swaps the transpose effects
 (\texttt{effectMatrix\_negative\_eq\_transpose\_positive}), but reversing the
-event list does not generally flip the conventional first-labelled orientation: the last current
+event list does not generally flip the conventional first-labelled orientation: the last
 pair is also $+Y$. No theorem source-selects the first-label rule. The robust
 result is the unordered pair of $Y$ projectors under the declared adapter. The
 module's enabled-domain relation reproduces the canonical $36/12$ split
@@ -1230,7 +1236,7 @@ single-shot identity
   \operatorname{Tr}(\rho P_{+Y})=\frac12-\operatorname{Im}(\rho_{01})
 \]
 for every normalized two-dimensional state. Thus a non-half weight for the
-current conventional first-labelled $+Y$ effect under the declared adapter/order
+conventional first-labelled $+Y$ effect under the declared adapter/order
 weight requires nonzero imaginary off-diagonal coherence; real off-diagonal
 coherence alone is insufficient
 (\texttt{state\_current\_first\_labelled\_weight\_eq\_half\_sub\_im}). It then places

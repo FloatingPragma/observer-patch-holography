@@ -8,6 +8,8 @@
 # Canonical book diagram renderings are byte-hashed build inputs.
 assets/book_pdf_renderings/*.pdf -text -eol
 assets/book_pdf_renderings/**/*.pdf -text -eol
+# Rendered figures of the papers are build inputs of the paper PDFs.
+paper/figures/*.pdf -text -eol
 
 
 # Frozen-prediction custody artifacts are byte-exact copies whose hashes and

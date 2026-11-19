@@ -76,33 +76,29 @@
 \end{center}
 
 \begin{abstract}
-Confluence asks whether reductions from one source rejoin. Many reconstruction
-problems ask a different question: whether states with the same observable
-boundary settle to the same public output. This paper gives certificates for
-that stronger comparison after silent representation changes are quotiented
-away. With attained consistency-error witnesses, two moduli turn residual
-and observation errors into an endpoint bound that survives arbitrary
-refinement depth, and compatible finite levels
-define a solver-independent projective limit. For a declared finite scheduler, four nested
-protected-behavior tests separate empty fibers, failed positive reach,
-non-almost-sure reach and ambiguous first-hit endpoint classes.
-
-On the canonical adaptive repair branch, every attempt stream is eventually
-constant, pathwise weak fairness makes the stable state normal, work
-conservation bounds the normal horizon by the initial mismatch count, and
-under the separately stated completeness and confluence hypotheses weak-fair
-runs reach one canonical raw and public endpoint. Counting every scheduler
-invocation gives a cumulative capacity with no initial-mismatch-only horizon
-for arbitrary normalizing schedulers, a quantitative horizon under bounded
-waste and an exact sharp threshold in the work-conserving case. On the
-input-independent compiler branch, one emission-order round-robin cycle
-reaches the exact output in \(n\) attempts, every accepted repair path is
-quadratically bounded and a same-metric family makes the worst case
-order-sharp \(\Theta(n^2)\). For succinct Boolean systems the realizability,
-determination and strong-repair problems are NP-, coNP- and
-\(\Pi_2^P\)-complete. The Markov-chain and fair-termination ingredients are
-standard; the contribution is their assembly around protected observations,
-canonical repair and the behavior-cut interface.
+Observers who see only a protected record of a system, such as its
+boundary, ask whether every state with that record settles to the same
+public output, a property stronger than confluence. With silent
+representation changes quotiented away and attained consistency-error
+witnesses, two moduli turn residual and observation errors into an endpoint
+bound valid at any refinement depth, and compatible finite levels define a
+solver-independent projective limit. For a declared finite scheduler, four
+nested tests separate empty fibers, failed positive reach, reach that is not
+almost sure and ambiguous first-hit endpoints. Under canonical adaptive
+repair every attempt stream becomes constant, pathwise weak fairness makes
+the stable state normal, work conservation bounds the time to normality by
+the initial mismatch count, and separate completeness and confluence
+hypotheses give weak-fair runs one canonical endpoint. Counting every
+scheduler call, bounded waste gives a horizon, sharp in the work-conserving
+case, while no bound by the initial mismatch alone covers all normalizing
+schedulers. For federations compiled from Boolean functions, one round-robin
+cycle reaches the exact output in \(n\) attempts, and accepted repair paths
+are order-sharp \(\Theta(n^2)\). For succinct Boolean systems, realizability,
+determination and strong repair are NP-, coNP- and \(\Pi_2^P\)-complete. The
+Markov-chain and fair-termination ingredients are standard. Both candidate
+laws of the executable model of Observer Patch Holography are unitary and
+conserve their loads and objects, so these settling results make no
+statement about them.
 \end{abstract}
 
 \medskip
@@ -164,7 +160,10 @@ consistent state. They state when such a settled state is fixed by protected
 observations, how stably that holds under refinement, which schedulers and
 attempt budgets reach it, and when no local repair can construct it. They
 are mathematics on their stated domains and assume no physical
-interpretation of the quotient, the observation map or the scheduler.
+interpretation of the quotient, the observation map or the scheduler. Both
+candidate laws of the executable model of the theory are unitary and
+conserve their loads and objects, so the settling results apply to classical
+repair rules and make no statement about those laws.
 
 \subsection{The certificate and its scope}
 
@@ -1563,7 +1562,7 @@ and
 \[
  P=\Delta_0\sqcup\Delta_1\sqcup\Delta_2\sqcup\Delta_3\sqcup L_3.
 \]
-Moreover:
+The layers have the following structural characterizations.
 \begin{enumerate}[label=(\roman*)]
 \item $b\in L_1$ exactly when a positive-support finite path from some
       $q\in I_b$ first enters $T_b$ at its endpoint;

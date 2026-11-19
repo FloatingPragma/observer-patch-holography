@@ -52,22 +52,25 @@ for Icosahedral Face Circulants}}
 \end{center}
 
 \begin{abstract}
-The stabilizer of an oriented icosahedral face acts regularly on its three
-corners, and every Hermitian response commuting with it is a circulant
-\(C=aI+bR+\overline bR^2\). Where its eigenvalues \(\lambda_k\) are
-nonnegative, the Koide invariant of the squared spectrum is
+The rotations that fix an oriented face of the icosahedron cycle its three
+corners, so every Hermitian response that commutes with them is a circulant
+\(C=aI+bR+\overline bR^2\). When its eigenvalues \(\lambda_k\) are
+nonnegative, the Koide quotient of the squared spectrum is
 \[
 Q=\frac{\sum_k\lambda_k^2}{\bigl(\sum_k\lambda_k\bigr)^2}
- =\frac13+\frac23\left(\frac{|b|}{a}\right)^2,
+ =\frac13+\frac23\left(\frac{|b|}{a}\right)^2 .
 \]
-so \(Q=2/3\) is the balance \(|b|/a=1/\sqrt2\), and the phase of \(b\) sets the
-two scale-free ratios of the spectrum without changing \(Q\). The positive
-chamber is part of the statement: at balance the spectrum is nonnegative
-exactly for \(|\delta|\le\pi/12\) modulo \(2\pi/3\). A finite tracial event
-packet produces the balance exactly, and the balanced modulus is the content
-of an asymmetric block choice. Threefold and fivefold residual symmetry force
-a degenerate spectrum, while twofold symmetry leaves two scale-free
-coordinates. The algebraic core is formalized in Lean~4.
+The value \(Q=2/3\) therefore holds exactly at the balance
+\(|b|/a=1/\sqrt2\), and the phase \(\delta\) of \(b\) sets the two scale-free
+ratios of the spectrum without changing \(Q\). Nonnegativity is part of the
+statement, and at balance it holds exactly for \(|\delta|\le\pi/12\) modulo
+\(2\pi/3\). Conditioning the normalized trace of a six-dimensional event
+algebra on one declared event, and reading the result through a cyclic
+response map, produces the balance exactly; the event treats its two blocks
+asymmetrically, and that choice carries the balance. A residual threefold or
+fivefold rotation symmetry forces a repeated eigenvalue, while a twofold
+symmetry leaves two scale-free coordinates and selects neither. The
+algebraic core is formalized in Lean~4.
 \end{abstract}
 
 \noindent\textbf{Keywords:} Koide relation, circulant matrices, cyclic
