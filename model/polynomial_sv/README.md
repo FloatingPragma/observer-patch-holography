@@ -118,8 +118,10 @@ to a pointer and retraces the visits to clear its private scratch. The native tw
 the public flag. The [detector](material_inertia/detector.py) checks the complete partition on every
 configuration before the Fourier calculation uses it. Readout assumes a switch that parks the source
 for the queries. Across the five count archives the apparatus retains 191 arrays and 128,581,632
-counter outcomes, including the competing laws. Bernhard's [one-law search](https://github.com/muellerberndt/openwave/blob/1eaa2e2a92ff527ca24185f02c353b144ce23521/simulation/ONE_LAW_PLAN.md)
-uses other clock and endpoint preparations. Its physical range measurements require their own source mapping.
+counter outcomes, including the competing laws. Bernhard's [clock reunion experiments](https://github.com/muellerberndt/openwave/blob/aa71bbcb335503eef35cbe14da5b0ad4b7dd083e/simulation/experiments/observer_geometry/README.md)
+test a different clock question. Two stations recover the traveler's wait-only counter on fifteen equipped
+golden read-net journeys under an exact-tick interpretation. The ring spectroscopy uses a stationary
+dimer and supplies no transfer of that traveling-clock result.
 
 ## The modules
 
