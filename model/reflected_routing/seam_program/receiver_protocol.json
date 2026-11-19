@@ -1,0 +1,23 @@
+{
+  "parent": "preparation_protocol.json",
+  "target": "Same four-mode 72-slot target. Paired phase-sensitive receiver, selected after inspecting the spatial aperture comparison. Execute the adjoint of the entire accepted preparation including all absence projectors in reversed order. Use positive native durations through the 2*pi period of the kappa=8 binary unshifted generator. Emit once per trial. Count every source or receiver refusal separately, followed by all native seam outcomes and no pair.",
+  "members": [
+    [
+      "native",
+      "native"
+    ],
+    [
+      "omit_phase",
+      "native"
+    ],
+    [
+      "native",
+      "omit_phase"
+    ],
+    [
+      "omit_phase",
+      "omit_phase"
+    ]
+  ],
+  "forecast": "In the ideal source, absolute home-seam acceptance is squared overlap of programmed states divided by sixteen. Seal all four absolute forecasts before opening receiver records. Compare each finite-emitter frequency to its ideal value with the existing emitter bound. Distinguish the mismatched programs by more than that bound relative to the matched source; report every comparison regardless. Store raw counters at 2^20 midpoint exposures, no postselection in the quoted probabilities. Charge both source and receiver resources."
+}
