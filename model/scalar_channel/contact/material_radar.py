@@ -1,6 +1,7 @@
 """Replay the coupled pulse, material clock, and six-station experiments offline."""
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 
@@ -21,9 +22,32 @@ def protocol():
     return load_json(HERE / "radar_protocol.json")
 
 
-def experiment(spec):
+def read_clock_acquisition(spec, regenerated, measured):
+    # Bind the validated acquisition to the integer sampling distribution as
+    # well as its observed counts. NumPy versions can use different binomial
+    # samplers even for byte-identical PCG64 state and probability weights.
+    digest_weights = hashlib.sha256()
+    for name in sorted(key for key in regenerated if key.endswith("_sampling_weights")):
+        digest_weights.update(name.encode() + b"\0" + regenerated[name].astype("<i8", copy=False).tobytes())
+    require(digest_weights.hexdigest() == "546d1450118a6d66397e7db5ad25914cf5174da3615252d518ea1557a2a64c8d",
+            "archived acquisition used different integer sampling laws")
+    for name in regenerated:
+        if name.endswith("_counts") and name != "coarse_counts":
+            saved = measured[name]
+            require(saved.dtype == np.int64 and saved.shape == regenerated[name].shape,
+                    f"wrong acquisition shape or type: {name}")
+            regenerated[name] = saved
+    regenerated["coarse_counts"] = joint_clock.coarse_grain(regenerated["joint_counts"])
+    report = joint_clock.analyze(spec, regenerated)
+    require(report["sampling_within_bound"], "archived counts fail the simultaneous source-law test")
+    return report
+
+
+def experiment(spec, measured=None):
     radar_report, radar_data = radar.run(spec)
     clock_report, clock_data = joint_clock.run(spec)
+    if measured is not None:
+        clock_report = read_clock_acquisition(spec, clock_data, measured)
     coherent_report, amplitudes = coherent_radar.run(spec)
     # On tracing the coherent mark, every individual sector must have the same
     # outbound/return law as the separately executed stationary-mark program.
@@ -66,18 +90,27 @@ def verify_counts(path, expected):
 
 def main():
     cli = argparse.ArgumentParser(description=__doc__)
-    cli.add_argument("--record", type=Path, help="acquire all counts at a new path")
+    mode = cli.add_mutually_exclusive_group()
+    mode.add_argument("--record", type=Path, help="acquire all counts at a new path")
+    mode.add_argument("--read-archive", action="store_true",
+                      help="verify the archived multinomial acquisition with its source laws and read it directly")
     cli.add_argument("--details", action="store_true", help="print all fold and control scores")
     args = cli.parse_args()
-    report, counts = experiment(protocol())
+    spec = protocol()
+    path = HERE / "radar_counts.npz"
+    if args.record is None:
+        require(digest(path) == path.with_suffix(".sha256").read_text(encoding="ascii").strip(),
+                "archived count digest differs")
+    if args.read_archive:
+        with np.load(path, allow_pickle=False) as measured:
+            report, counts = experiment(spec, measured)
+    else:
+        report, counts = experiment(spec)
     if args.record is not None:
         with args.record.open("xb") as f:
             np.savez_compressed(f, **counts)
         verify_counts(args.record, counts)
     else:
-        path = HERE / "radar_counts.npz"
-        require(digest(path) == path.with_suffix(".sha256").read_text(encoding="ascii").strip(),
-                "archived count digest differs")
         verify_counts(path, counts)
     if not args.details:
         report = {"local_intervention": report["material_and_propagation"],
