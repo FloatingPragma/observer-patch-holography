@@ -12,7 +12,7 @@ def one_body(car):
     return (degree+adjacency).tocsr(), car.laplacian()
 
 
-def generator(car, law):
+def generator(car, law, conversion_sites=None):
     require(law in ('exchange','dephased_contact','parked_neutral'), 'unknown conversion law')
     charged, neutral = one_body(car)
     if law == 'parked_neutral':
@@ -20,7 +20,15 @@ def generator(car, law):
     n = car.n
     diagonal = np.arange(n)*(n+1)
     contact = sp.csr_matrix((np.ones(n),(diagonal,diagonal)),shape=(n*n,n*n))
-    convert = None if law == 'dephased_contact' else -contact
+    if law == 'dephased_contact':
+        convert = None
+    elif conversion_sites is None:
+        convert = -contact
+    else:
+        sites = np.asarray(conversion_sites)
+        require(sites.shape == (n,) and sites.dtype == bool,'invalid converter mask')
+        active = diagonal[sites]
+        convert = sp.csr_matrix((-np.ones(len(active)),(active,active)),shape=contact.shape)
     return sp.bmat([[sp.kronsum(charged,charged)+contact,convert],
                     [convert,sp.kronsum(neutral,neutral)+contact]],format='csr')
 
@@ -68,7 +76,7 @@ def position(X,Y,labels):
     return np.r_[signed.ravel(),neutral[np.triu_indices(regions)]]
 
 
-def energy_instruments(car, X, Y, law):
+def energy_instruments(car, X, Y, law, conversion_sites=None):
     """Each row gives probabilities of occupations 0, 1, 2 for one local analyzer setting."""
     i,j = np.array(car.seams).T
     plus = .5*np.sum(abs(X[i]+X[j])**2,axis=1)
@@ -82,16 +90,16 @@ def energy_instruments(car, X, Y, law):
         two = abs((Y[i,i]+Y[j,j]-2*Y[i,j])/2)**2
         scale = np.full(len(i),2)
     neutral = np.column_stack([1-mean+two, mean-2*two, two])
-    if law == 'dephased_contact':
-        local = abs(X.diagonal())**2+abs(Y.diagonal())**2
-        local_scale = 1
-    else:
-        local = .5*abs(X.diagonal()-Y.diagonal())**2
-        local_scale = 2
+    active = np.full(car.n,law != 'dephased_contact')
+    if conversion_sites is not None:
+        active &= conversion_sites
+    local = np.where(active,.5*abs(X.diagonal()-Y.diagonal())**2,
+                     abs(X.diagonal())**2+abs(Y.diagonal())**2)
+    local_scale = np.where(active,2,1)
     def binary(p):
         return np.column_stack([1-p,p,np.zeros_like(p)])
     rows = np.vstack([binary(plus),binary(minus),neutral,binary(local)])
-    coefficients = np.r_[np.full(2*len(i),2),scale,np.full(car.n,local_scale)]
+    coefficients = np.r_[np.full(2*len(i),2),scale,local_scale]
     return rows,coefficients
 
 
