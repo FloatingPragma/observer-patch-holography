@@ -102,6 +102,7 @@ jobs:
       - run: python -B -O -W error -m model.scalar_channel.cage
       - run: python -B -O -W error -m model.scalar_channel.contact.material_radar
       - run: python -B -O -W error -m model.scalar_channel.contact.radar_checks
+      - run: python -B -O -W error -m model.scalar_channel.contact.message_replay
       - run: python -B -m pytest -q -W error model/scalar_channel model/test_contrast_replay.py
 
   suite:

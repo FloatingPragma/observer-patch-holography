@@ -44,10 +44,16 @@ def preserved_cages(spec):
     return rows
 
 
-def precision_acquisition(spec, measurements):
+def precision_acquisition(spec, measurements, saved=None):
     """New fixed-budget cohorts. Multinomial batches sample sufficient statistics."""
     weights = measurements["radar_acquisition_weights"]
     counts = np.zeros_like(weights)
+    if saved is not None:
+        require(saved.dtype == np.int64 and saved.shape == weights.shape and
+                np.all((0 <= saved) & (saved <= 2**34)) and
+                np.all(saved[:, np.arange(6), np.arange(6)] == 0),
+                "invalid archived precision counts")
+    log_tail = np.log(2 * 60 * 169 / 1e-6)
     confidence = []
     for mark in (0, 1):
         for a, b in np.ndindex(6, 6):
@@ -55,8 +61,16 @@ def precision_acquisition(spec, measurements):
                 continue
             rng = np.random.Generator(np.random.PCG64([spec["seed"], 8639, mark, a, b]))
             p = weights[mark, a, b].ravel() / radar.LATTICE
-            draws = rng.multinomial(2**28, p, size=64)
-            counts[mark, a, b] = draws.sum(axis=0).reshape(13, 13)
+            if saved is None:
+                draws = rng.multinomial(2**28, p, size=64)
+                counts[mark, a, b] = draws.sum(axis=0).reshape(13, 13)
+            else:
+                counts[mark, a, b] = saved[mark, a, b]
+            row = counts[mark, a, b].ravel()
+            tolerance = np.sqrt(2 * 2**34 * p*(1-p)*log_tail) + 2*log_tail/3
+            require(row.sum() == 2**34 and np.all(row[p == 0] == 0) and
+                    np.all(abs(row - 2**34*p) <= tolerance),
+                    "precision records fail the source-law sampling test")
         mean, hits = radar.distance_statistics(counts[mark], spec["dt"])
         bias = radar._lattice_conditional_bias(weights[mark], counts[mark], spec["dt"], spec["ticks"])
         _, lo, hi = radar.confidence_envelopes(mean, hits, spec["dt"], spec["ticks"], bias)
@@ -64,14 +78,14 @@ def precision_acquisition(spec, measurements):
     return counts, confidence
 
 
-def confirm(spec):
+def confirm(spec, saved=None):
     exact = certified_ranges.run(spec)
     radar_summary, measurements = radar.run(spec)
-    with np.load(HERE / "radar_counts.npz", allow_pickle=False) as saved:
-        require(np.array_equal(saved["radar_joint_counts"], measurements["radar_joint_counts"]),
+    with np.load(HERE / "radar_counts.npz", allow_pickle=False) as original_radar:
+        require(np.array_equal(original_radar["radar_joint_counts"], measurements["radar_joint_counts"]),
                 "geometry confidence intervals do not use the original radar acquisition")
     fits = []
-    precision_counts, precision = precision_acquisition(spec, measurements)
+    precision_counts, precision = precision_acquisition(spec, measurements, saved)
     for index, record in enumerate(exact["settings"]):
         scale = Fraction(1, exact["scale"])
         low = np.array(record["distance_lower"], dtype=object) * scale
@@ -99,19 +113,27 @@ def confirm(spec):
 def main():
     cli = argparse.ArgumentParser(description=__doc__)
     cli.add_argument("--details", action="store_true")
-    cli.add_argument("--record", type=Path, help="acquire tagged records at a new path")
+    mode = cli.add_mutually_exclusive_group()
+    mode.add_argument("--record", type=Path, help="acquire tagged records at a new path")
+    mode.add_argument("--read-archive", action="store_true", help="score original precision counts directly")
     args = cli.parse_args()
     check_sources(HERE / "radar_checks_sources.json", SOURCES)
     require(digest(HERE / "radar_counts.npz") == (HERE / "radar_counts.sha256").read_text().strip(),
             "radar receipt differs")
-    report, counts = confirm(material_radar.protocol())
+    spec = material_radar.protocol()
+    path = HERE / "tagged_counts.npz"
+    if args.record is None:
+        require(digest(path) == path.with_suffix(".sha256").read_text().strip(), "tagged receipt differs")
+    if args.read_archive:
+        with np.load(path, allow_pickle=False) as receipt:
+            report, counts = confirm(spec, receipt["precision_counts"])
+    else:
+        report, counts = confirm(spec)
     if args.record:
         with args.record.open("xb") as f:
             np.savez_compressed(f, **counts)
         material_radar.verify_counts(args.record, counts)
     else:
-        path = HERE / "tagged_counts.npz"
-        require(digest(path) == path.with_suffix(".sha256").read_text().strip(), "tagged receipt differs")
         material_radar.verify_counts(path, counts)
     if not args.details:
         report = {"excluded_relative_errors": [[x["relative_tolerance"] for x in row["source_enclosures"]
