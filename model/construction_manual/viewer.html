@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Executable construction: full sheet</title>
+<title>polynomial-sv: the executable construction, full sheet</title>
 <style>
   html, body { margin: 0; height: 100%; background: #f6f8fa; font: 14px Helvetica, Arial, sans-serif; color: #1f2328; }
   #bar { position: fixed; top: 0; left: 0; right: 0; height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 12px;
@@ -31,7 +31,7 @@
 <div id="stage"><img id="sheet" src="executable_spec.svg" alt="The executable construction: hardware and software" draggable="false"></div>
 <script>
   const stage = document.getElementById('stage'), img = document.getElementById('sheet');
-  let s = 1, x = 0, y = 0, W = 2400, H = 4012;
+  let s = 1, x = 0, y = 0, W = 2400, H = 4672;
   const apply = () => { img.style.transform = 'translate(' + x + 'px,' + y + 'px) scale(' + s + ')'; };
   const fit = (page) => {
     const sw = stage.clientWidth / W, sh = stage.clientHeight / H;

@@ -1,16 +1,19 @@
-# Construction manual: the executable observer
+# Construction manual: the executable observer of polynomial-sv
 
-How the executable construction is built, part by part: what each part is, how to build it, why it is designed
-this way, and what each equation says. Technical statements are exact and name their file. Paragraphs marked
-**In plain words** give the same content with no formula.
+How the construction of [polynomial-sv](../README.md) is built, part by part: what each part is, how to build it,
+why it is designed this way, and what each equation says. Technical statements are exact and name their file.
+Paragraphs marked **In plain words** give the same content with no formula.
 
-The manual covers the hardware and two laws. Law 1, the contrast-memory law, is the law of the executable model
-[polynomial-sv](../polynomial_sv/README.md), and that model's [specification](../polynomial_sv/SPEC.md) is the
-binding text for it. Law 2, the scalar channel, is an experimental construction with its own package,
-[scalar_channel](../scalar_channel/README.md). Both laws are candidates under test. The search for the correct
-native repair law is work in progress, and no law here is presented as that law. The two laws act on different
-state spaces, and their results are not combined into one claim.
-[Section 11](#11-what-this-repository-executes) says which parts of the manual the packages of this repository
+polynomial-sv is the executable model of the theory: one hardware, and the laws under test on it. Law 1, the
+contrast-memory law, is executed by the package [polynomial_sv](../polynomial_sv/README.md), whose
+[specification](../polynomial_sv/SPEC.md) is the binding text for it. Law 2, the scalar channel, is executed by
+the package [scalar_channel](../scalar_channel/README.md), and the cage of section 5.9 by its subpackage
+[cage](../scalar_channel/cage/README.md). Both laws are candidates under test. The search for the correct native
+repair law is work in progress, and no law here is presented as that law. The two laws act on different state
+spaces, and their results are not combined into one claim.
+[Section 8](#8-observables-supplied-parts-and-open-work) lists the observables with their rows in the theory's
+[observation ledger](../../docs/registers/OBSERVATION_LEDGER_V3.md), and
+[section 11](#11-what-this-repository-executes) says which parts of the manual the packages of this repository
 execute.
 
 The whole construction on one sheet: [executable_spec.svg](executable_spec.svg) ([README](README.md) for the sheet
@@ -88,8 +91,8 @@ whatever their order.
 
 The laws of this manual are coherent versions of such a repair: they also carry phases, and they are run as
 quantum laws. The descent theorem is a statement about the classical moves. For the two laws a bound on the work
-to reach the fixed point is the target. It is work in progress, and no polynomial bound for a family of
-constraint problems is among the results here.
+to reach the fixed point is the target that gives the model its name. It is work in progress, and no polynomial
+bound for a family of constraint problems is among the results here.
 
 ### 0.3 How large it is
 
@@ -136,7 +139,9 @@ that many times, is the proposal.
 | two-state registers, law 2 on registers | 432 | | 120 transit bits, 120 code bits, 192 apparatus bits |
 
 Software parts: the law (section 4 or 5), an emitter or a pulse to write, a reader with two pointers, an
-agreement gate, a record memory, and each observer's own clock (sections 3 and 6).
+agreement gate, a record memory, and each observer's own clock (sections 3 and 6). The cage of section 5.9 is
+written and read with a potential and a converter on a profile of four seams (section 6.6); it uses no part
+beyond the 432 registers.
 
 ---
 
@@ -286,11 +291,14 @@ On one cell, law 2 on ordinary registers uses 432 two-state registers ([section 
 
 **Who observes.** An observer is a port with its star: its five or six seams, the wedges between them, and its
 local apparatus. It sees its own registers and what arrives over its seams. It never sees the whole graph, the
-state of the program or the parameter that the program evolves with.
+state of the program or the parameter that the program evolves with. The instruments of
+[section 6.6](#66-instruments-on-a-profile) belong to a patch of four neighbouring ports with their stars.
 
 **What a record is.** An outcome that the observer has copied into its record memory. A record is public when two
 observers on an overlap hold identical complete reports of it. Every outcome of an instrument is kept: "no",
-"disagree" and "not available" are outcomes like "yes".
+"disagree" and "not available" are outcomes like "yes". Which records are kept is part of an instrument: two
+readings that give the same answer and keep different records leave different states behind
+([section 4.9](#49-writing-and-reading)).
 
 **What a clock is.** The order and the count of the records an observer holds. For frequencies, an observer
 counts completed cycles of a local reference of its own ([section 6.4](#64-the-clock)). Two observers compare
@@ -458,7 +466,10 @@ progress.
 On the records the law of a seam is zero on what a write produces and equal to the generator elsewhere. A record
 that the loads of its ports back costs nothing, and a record of contrast `x` that they do not back costs `κ x^2`.
 *Why it matters:* the level `κ` of the unrecovered seam is its level with empty ports. A load on a port of that
-seam lies lower than a load elsewhere.
+seam lies lower than a load elsewhere, by about `κ` where the record does not fit it and by about `2κ` where it
+does, and it binds to the seam. On one cell at `κ = 8` a load elsewhere starts at 56.38; two levels lie at 41.94,
+where the record fits, and six between 49.81 and 50.94, where it does not
+([collar.py](../polynomial_sv/collar.py)).
 
 ### 4.8 As events
 
@@ -483,16 +494,35 @@ proved for the sum with a continuous parameter; the statements on events are fin
 - **Reader.** The two port observers of a seam each copy "my port holds one load, and so does the other end"
   into a pointer and compare. Identical reports are written as one record of three bits. The complete set of
   outcomes is one record per seam and "no pair".
+- **Presence.** A second reading asks one question of the whole cell: did some seam report a pair? A tree of
+  reversible OR gates over the thirty seam readers copies that one answer into a public register and then runs
+  backwards, so that every seam word returns to blank. With `P_e` the projector on the pair on seam `e` and
+  `P = Σ_e P_e`, a positive answer acts on a state `X` of the loads as
+
+  ```math
+  X \to P\,X\,P \quad \text{(presence)}, \qquad X \to \sum_e P_e\,X\,P_e \quad \text{(reader with seam records)} .
+  ```
+
+  *What the equations say:* both readings find a pair with the same probability. The presence reading leaves
+  the pair spread over the seams as it was. The reader with seam records places it on one seam. They are
+  different instruments, and the records of a later reading tell them apart
+  ([section 7.6](#76-two-readings-of-a-pair-law-1)).
 
 ### 4.10 What it gives, and what is supplied
 
-- Particle stability, the observable that polynomial-sv reproduces: a pair written on a seam is read as a pair
-  on some seam with probability at least one minus the bound of the theorem at every reading, and the law
-  without the agreement energy loses it ([stability.py](../polynomial_sv/stability.py)).
-- The unrecovered seam: its label is kept, it holds no load, and its level and the coupling are read from its
-  observers' own records ([collar.py](../polynomial_sv/collar.py)). That it holds no load follows from the
-  alphabet, and its preparation is supplied.
-- Supplied: the coupling `κ` (8 and 128 in the runs), the emitter, the reader, the reference registers.
+- Particle stability: a pair written on a seam is read as a pair on some seam with probability at least one
+  minus the bound of the theorem at every reading, and the law without the agreement energy loses it
+  ([stability.py](../polynomial_sv/stability.py)).
+- The unrecovered seam: its label is kept, it holds no load, its level and the coupling are read from its
+  observers' own records, and a load that reaches one of its ports binds to it
+  ([collar.py](../polynomial_sv/collar.py)). That it holds no load follows from the alphabet, and its
+  preparation is supplied.
+- What a reading leaves: the presence reading and the reader with seam records give the same first statistics
+  and different later records. On one cell at `κ = 8` the two public histories differ by 0.4405 in total
+  variation when the readings are taken as instant, and by more than 0.0817 on one named event with every pulse
+  and numerical error counted ([presence.py](../polynomial_sv/presence.py)).
+- Supplied: the coupling `κ` (8 and 128 in the runs), the emitter, the reader, the reference registers, the
+  tree of the presence reading.
 
 > **In plain words.** Loads are tokens. Neighbours pass tokens back and forth, and every pair of neighbours pays
 > a fee for holding different numbers of tokens. Two tokens sitting next to each other pay a smaller fee than
@@ -509,8 +539,10 @@ proved for the sum with a continuous parameter; the statements on events are fin
 ![Law 2](fig_law2.svg)
 
 Candidates: `A-scalar-CAR-pair-transit-v2`; its form on ordinary registers, `A-native-scalar-overlap-v3`, which
-the package [scalar_channel](../scalar_channel/README.md) executes on one cell; and the sibling with round seam
-terms, `A-scalar-CAR-pair-transit-round-v1` ([section 5.8](#58-on-the-sphere)).
+the package [scalar_channel](../scalar_channel/README.md) executes on one cell; the sibling with round seam
+terms, `A-scalar-CAR-pair-transit-round-v1` ([section 5.8](#58-on-the-sphere)); and `A-native-caged-exciton-v1`,
+the same free law with two more operators in the observer's menu, which the subpackage
+[cage](../scalar_channel/cage/README.md) executes ([section 5.9](#59-the-flat-branch-and-its-cages)).
 
 ### 5.1 State
 
@@ -585,7 +617,8 @@ moves it on the ports. So `λ` is half a level of `L`: the spatial side of the r
 of section 2.1, known before any frequency is read.
 
 The 150 modes of a cell split into 23 that carry waves over the twelve ports, 36 flat modes of seam detail, and
-91 circulations at `-m`.
+91 circulations at `-m`. The 36 are the eighteen seam profiles at the level 5 with their images on the wedges,
+at `+sqrt(6)` and `-sqrt(6)` ([section 5.9](#59-the-flat-branch-and-its-cages)).
 
 ### 5.5 Many objects and the reference
 
@@ -607,7 +640,8 @@ every change costs at least `m`: one object more is a particle, one object fewer
 
 **Intuition.** A calm sea. A particle is one drop above the surface. The surface itself does not tremble, so a
 particle above it has no jitter of its own; a single object written on an empty cell does, and that jitter is an
-artifact of the empty background.
+artifact of the empty background. A pulse that lifts an object of the sea part of the way into an upper mode
+does make a record swing, at the difference of the two levels ([section 5.9](#59-the-flat-branch-and-its-cages)).
 
 ### 5.6 On ordinary registers
 
@@ -688,7 +722,93 @@ port with six seams.
 - *The scales.* With `m` at one exchange unit, the reference is correlated over a fraction of a cell spacing,
   and waves over many cells are slow. Waves over many cells that are not slow need a smaller `m`.
 
-### 5.9 What it gives, and what is supplied
+### 5.9 The flat branch and its cages
+
+![A cage](fig_cage.svg)
+
+Candidate `A-native-caged-exciton-v1`, executed by the subpackage [cage](../scalar_channel/cage/README.md); the
+statements of this section are proved in its [PROOF.md](../scalar_channel/cage/PROOF.md). The free law is
+unchanged. This section describes an object that the law holds in its flat branch, the level of section 5.4
+that occurs eighteen times.
+
+**Build.**
+
+1. Pick four ports `a, b, c, d` of one cell that form a ring: `a-b`, `b-c`, `c-d` and `d-a` are seams. The
+   package uses the ring `0, 2, 4, 6`.
+2. Give the four seams the signs `+ - + -` in the order of the ring and the weight one half. This is the profile
+   `e`:
+
+   ```math
+   e = \tfrac12\,\bigl(\,|ab\rangle - |bc\rangle + |cd\rangle - |da\rangle\,\bigr) .
+   ```
+
+3. Take its image on the wedges, `e' = B^T e / sqrt(5)`. It lives on the 28 wedges at the four ports that contain
+   a seam of the ring.
+
+**Why the law keeps it.** Two facts about incidences, both exact in integers. With `d_a` the number of seams at
+port `a` and `Q` the port-by-seam incidence without signs,
+
+```math
+2\,K = \operatorname{diag}(d_a + d_b) - Q^T Q, \qquad Q\,e = 0 .
+```
+
+*What the equations say.* The first: two seams that share a port are joined by one wedge, with opposite signs,
+and a seam lies in `d_a + d_b - 2` wedges. The second: at every port of the ring a seam with `+` meets a seam
+with `-`, so the sum over the seams of a port is zero. With five seams at each of the four ports this gives
+`K e = 5 e`. The profile is one of the eighteen at the level 5, and the law moves it to `e'` and back and to no
+other place:
+
+```math
+D\,(e,\ e') = (e,\ e')\,h, \qquad h = \begin{pmatrix} m & \sigma \\ \sigma & -m \end{pmatrix}, \qquad \sigma = \sqrt5, \qquad E = \sqrt{m^2 + \sigma^2} = \sqrt6 .
+```
+
+**Why four seams.** A profile with `Q e = 0` needs two seams at every port it touches. Three such seams form a
+face, and round a face the signs cannot alternate. Four seams are the smallest support, the 30 rings of four
+ports are the only profiles on four seams, and their rank is 18: they span the flat branch.
+
+**The species.** Every profile with `Q e = 0` has the same two levels `+E` and `-E`. The rule names the species
+before any frequency is read. `2K` is the Laplacian of the graph of seams (section 5.2), and its flat level `2k`
+exists on every carrier with `k` seams at each port, as many times as there are more seams than ports.
+
+**The object.** In the reference the lower mode of the pair holds an object and the upper mode is empty. Moving
+that object up is a neutral excitation:
+
+```math
+X^\dagger = a_+^\dagger a_-, \qquad [H_0, X^\dagger] = 2E\,X^\dagger, \qquad P_X = n_+\,(1 - n_-), \qquad [H_0, P_X] = 0 .
+```
+
+*What the equations say:* the excitation costs `2E = 4.899` and leaves the number of objects as it is, and the
+probability of finding it is constant under the law for every start. The second statement holds for any two
+modes of a law in which objects only exclude each other. What this law adds is the place: the two modes sit on
+32 modes at four ports and on nothing else.
+
+**The swing.** A state that holds the reference and the excitation with a definite phase between them has a
+seam number that swings. For the object placed on `e`,
+
+```math
+P_e(t) = 1 - \frac{\sigma^2}{E^2}\,\sin^2(E\,t) ,
+```
+
+a constant and one line at `2E`, the difference of the two levels. It starts from rest: at `t = 0` the rate is
+zero and the acceleration is `-2σ^2`. The reference by itself does not swing, and neither does a sharp
+excitation. The phase and the work come from the pulse that writes the state
+([section 6.6](#66-instruments-on-a-profile)).
+
+**On a federation.** A cage needs five seams at each of its four ports. Of the eighteen profiles of a cell 6 or 7
+keep the exact level, those on seams between ports with five seams, and each cell has between three and seven
+of the smallest cages. A ring through a port with an external seam leaks.
+
+**Where it sits among the levels.** In the relation of section 5.3 the cage has the largest spatial level of the
+cell, `λ = 5`. One added object in its upper mode costs `E`, and the line of the swing is at `2E`. The level is
+flat: a cage has no group speed, and what is written on it stays there.
+
+> **In plain words.** Mark four lines that form a ring on the ball with plus, minus, plus, minus. Each corner of
+> the ring sees one plus and one minus and passes nothing on to its other lines. A marble on the ring can slosh
+> between the ring and the four corners and can go nowhere else: the signs make a cage. A push sets it sloshing,
+> and it keeps one fixed pitch for as long as anyone looks. The sloshing is a clock, and the fact that the
+> marble never leaves the ring is its persistence.
+
+### 5.10 What it gives, and what is supplied
 
 - The lines of an added object: on one cell the frequencies of the law are 1.0000, 1.5435, 2.0000 and 2.1490
   times `m` ([section 5.4](#54-the-levels-of-one-cell)), and the instrument of section 6 reads them from an
@@ -696,8 +816,17 @@ port with six seams.
   frequency and a level is the identity `D^2 = m^2 + K` of two opposite levels.
 - A created object costs at least `m` above the reference, every one of the twelve currents acts on it as zero,
   and its number is kept.
-- The lowest line is the observer's reference frequency.
-- Supplied: `m`, the pulses, the ramps, the apparatus bits, programmable local control, the round terms.
+- The clock: the lowest line of an added object is the observer's reference frequency. On a cage, after a
+  finite pulse, the seam record swings with no drive at one line; an observer reads it at 4.8990 of its own
+  reference and reads the level difference of the pair separately at the same value; under a changed law the
+  line is absent. The pulse supplies the phase and the work, and the equality of the two readings is the
+  frequency condition of two levels.
+- Particle stability, on a second object beside the pair of law 1: the excitation of a cage is kept for every
+  interval by the identity above, a local detector with four analyzers reads it above 0.99 at five waits, and a
+  changed law with the same alphabet, routing and symmetry loses it. The object does not move, and the law
+  holds no term between two objects.
+- Supplied: `m`, the pulses, the ramps, the apparatus bits, programmable local control, the round terms, the two
+  operators on a profile with their guard, the fuel dial.
 
 > **In plain words.** Think of a marble that can rest on a line between two corners, or be "in the corner" on its
 > way from one line to the next. Resting costs a fixed amount, being in a corner returns the same amount.
@@ -787,6 +916,42 @@ states every frequency in units of its own reference.
 Per observer: 4,096 public records and 8,192 private attempts of 1,024 bytes, public records in three copies. A
 full memory stops new admissions and does not stop the law.
 
+### 6.6 Instruments on a profile
+
+The cage of [section 5.9](#59-the-flat-branch-and-its-cages) is written and read through its seam profile `e`.
+Two operators join the menu. The law runs during both.
+
+- **A potential on the profile.** The number of the profile, `n(e) = c(e)^† c(e)`, is switched on with a
+  strength `v` for a time `T`:
+
+  ```math
+  H_{\text{prep}} = H + v\,n(e) .
+  ```
+
+  | Purpose | `v` | `T` | Result on the ideal reference |
+  | --- | --- | --- | --- |
+  | a state that swings | `-2E` | `π / (2 sqrt(2E (E - m)))` | the object of the lower mode sits on `e` |
+  | a sharp excitation | `-2E^2 / m` | `π m / (2 σ E)` | the object sits in the upper mode |
+
+  *Why these numbers:* on the two modes of the cage the pulse is a half turn about an axis. The strength puts
+  the axis halfway between the start and the target, and the time makes the turn a half turn. The pulse does
+  work, 3.456 for the first row of the table, and it sets the phase of the swing.
+- **A converter on the profile.** The pulse of section 6.1 with `e` as its target, `c(e)^† f + f^† c(e)`. With
+  the strength 64 and the area `π/2` it moves the content of `e` into the fuel: the capture. With the strength
+  0.1 and a fuel whose level is set by a dial `ε`, the fuel empties when `ε` meets a level of the cage. From the
+  fuel's record over the dial an observer reads the coupling `σ` and with it the two levels `+E` and `-E`.
+- **On registers.** `n(e) = Q_e / 8` is a sum of 17 words on the 432 registers with `Q_e^2 = 8 Q_e`, and the
+  converter is a sum of 8 words. Both commute with all 260 loops. They touch the registers of four ports, and
+  one guard, the product of the code checks of those four ports, stands in front of the whole operator.
+- **The clock in the same trial.** A half pulse between the observer's whirl and its fuel, the wait, a phase
+  setting, a second half pulse and a first reading `c` of the fuel give the observer's phase. The fuel is used as
+  it was found, with no reset, for the capture of `e`, and a second reading `z` gives the seam record. All four
+  pairs `(c, z)` are kept.
+- **What the observer takes as given.** The phase of its reference advances by between 1/16 and 1/4 per
+  completed step, since counts cannot show a missed full turn. Separate calibration trials use the same service
+  as the measurement. The rest level `m` and the strength of the converter are known in units of the reference
+  when the dial is read.
+
 ---
 
 ## 7. Operating procedures
@@ -821,25 +986,70 @@ full memory stops new admissions and does not stop the law.
 6. Compare records and predictions; run the controls: no spatial term, another coupling, another observer's
    clock, one reversed sign in the target.
 
+### 7.4 The swing of a cage (law 2)
+
+1. Prepare the reference (section 5.7).
+2. Pulse of the potential `-2E n(e)` for the time `π / (2 sqrt(2E (E - m)))`, the law running.
+3. Half pulse between the whirl and the fuel; wait `q` steps, of equal or of unequal length; phase setting `θ`;
+   second half pulse; copy and record `c`.
+4. Capture `e` into the fuel as found; copy and record `z`.
+5. For every `q`: the phase of the reference from the four settings of `c`, and the seam record as the mean of
+   `z` over the four settings. Fit one line to the seam record against that phase.
+6. In separate trials: the fuel dial at two waits, with the fuel prepared full and prepared empty. Fit the
+   coupling `σ`. The level difference is `2 sqrt(m^2 + σ^2)`.
+7. Controls: no pulse; the two modes of the cage stopped during the wait while the reference runs; a sharp
+   excitation; the changed law with seam hopping round every port.
+
+### 7.5 A cage kept (law 2)
+
+1. Prepare the reference; one step for the setting.
+2. One of three preparations: the pulse of 7.4, the sharp pulse `-(2E^2/m) n(e)` for `π m / (2 σ E)`, or none.
+3. Wait 0, 8, 32, 128 or 512 steps.
+4. One of four analyzers: nothing; `-2 n(e)` for `π / (2σ)`, which exchanges `e` and `e'`; the same for half the
+   time; a free quarter period `π / (4E)`.
+5. Capture `e` into an empty fuel, copy into two pointers, record.
+6. From the four counts of a preparation and a wait: the occupation matrix of the two modes, and from it the
+   probabilities of the four sectors, empty, reference, excitation and two objects.
+7. Controls: the changed law during preparation, wait, analyzer and capture; the converter switched off.
+
+### 7.6 Two readings of a pair (law 1)
+
+1. Emitter on one seam, as in 7.1.
+2. Free evolution for four units of the exchange.
+3. A first reading, one of two: the presence reading, which keeps the answer "a pair on some seam" and no seam;
+   or the reader with seam records.
+4. Free evolution for four units.
+5. A final reading with seam records.
+6. Compare the laws of the two public histories, with the seam of the first reading hidden in both.
+7. Controls: the law without the agreement energy; the contrast with the reversed sign; a first seam whose
+   reports mismatch or are not available; every predicate flipped in agreement.
+
 ---
 
 ## 8. Observables, supplied parts and open work
 
-| Observable | Law | Statement | Executed in |
-| --- | --- | --- | --- |
-| particle stability | 1 | a pair written on a seam is read as a pair on some seam at every reading, with a theorem for every size and time; the law without the agreement energy loses it | [polynomial_sv](../polynomial_sv/README.md) |
-| the unrecovered seam | 1 | a seam with a record keeps its label; it holds no load; its level and the coupling are read from its observers' own records | [polynomial_sv/collar.py](../polynomial_sv/collar.py) |
-| preparation and readout of an added object | 2 | loop instruments, the reference by local ramps, pulses with the law running, the complete law of two pointers, two changed laws | [scalar_channel](../scalar_channel/README.md) |
-| the lines of an added object | 2 | the frequencies `sqrt(m^2 + λ)`, read from an observer's records in units of its own reference | section 11 |
-| the screen at large | 2 | the support with equal and with round seam terms | section 11 |
+| Observable | Law | Statement | Executed in | Ledger row |
+| --- | --- | --- | --- | --- |
+| particle stability | 1 and 2 | law 1: a pair written on a seam is read as a pair on some seam at every reading, with a theorem for every size and time; the law without the agreement energy loses it; law 2: the excitation of a cage is kept for every interval, a local detector reads it at five waits, and a changed law loses it | [polynomial_sv](../polynomial_sv/README.md), [cage](../scalar_channel/cage/README.md) | OL-K5, attained on both laws, with two different objects |
+| the clock of an object | 2 | the seam record of a cage swings at one line after a finite pulse, read at 4.8990 of the observer's reference, with the level difference of the pair read separately at the same value; a changed law has no such line | [cage](../scalar_channel/cage/README.md) | OL-K4, attained as a prepared clock |
+| the unrecovered seam | 1 | a seam with a record keeps its label under every event; it holds no load; its level and the coupling are read from its observers' own records; a load on one of its ports binds to it | [polynomial_sv/collar.py](../polynomial_sv/collar.py) | OL-K9, attained on law 1 |
+| the lines of an added object | 2 | the frequencies `sqrt(m^2 + λ)`, an identity of the law; one point, the level of a cage, is read from records | [cage](../scalar_channel/cage/README.md) for the cage, section 11 for the other lines | OL-K8, partial |
+| what a reading leaves | 1 | reading that a pair is present and reading where it is give the same first statistics and different later records | [polynomial_sv/presence.py](../polynomial_sv/presence.py) | |
+| preparation and readout of an added object | 2 | loop instruments, the reference by local ramps, pulses with the law running, the complete law of two pointers, two changed laws | [scalar_channel](../scalar_channel/README.md) | |
+| the screen at large | 2 | the support with equal and with round seam terms | section 11 | |
+
+The last column names the row of the theory's [observation ledger](../../docs/registers/OBSERVATION_LEDGER_V3.md)
+and its status there. A status is a statement about this construction with everything supplied listed: the two
+laws are candidates under test.
 
 **Supplied** (put into the construction by its makers, and listed with every claim): the carrier and its gluing
 rule; the couplings `κ` and `m`; emitters, pulses and their strengths; the reference registers; the apparatus
-bits and the penalties; programmable local control; the round seam terms.
+bits and the penalties; programmable local control; the round seam terms; the two operators on a profile with
+their guard, and the fuel dial; the tree of the presence reading.
 
 **Open** (work in progress): the bound on the work to reach the fixed point; one law that carries the objects
 of both laws; a gluing derived from the theory; the shape of the screen from the state of the law; a selection
-of `κ` and `m`.
+of `κ` and `m`; a swing that starts with no supplied phase; the motion of a caged excitation.
 
 ---
 
@@ -863,6 +1073,11 @@ of `κ` and `m`.
 | `f`, `g`, `s` | the fuel mode; the strength of a pulse; the local target |
 | `q`, `θ` | the count of an observer's cycles; a phase setting |
 | `P_b`, `C_l` | the check of a port's code; a loop constraint |
+| `e`, `e'` | the profile with alternating signs on a ring of four seams; its image on the wedges |
+| `σ`, `E` | the coupling of `e` and `e'`, `sqrt(5)` for the hop `1/sqrt(2)`; the level of a cage, `sqrt(m^2 + σ^2)` |
+| `a_+`, `a_-`, `X^†`, `P_X` | the two modes of a cage; its neutral excitation; the projector on that excitation |
+| `v`, `ε` | the strength of a potential on a profile; the level of the fuel under the dial |
+| `c`, `z` (section 6.6) | the first and the second reading of the fuel in one trial |
 
 ## 10. Sources
 
@@ -873,17 +1088,20 @@ of `κ` and `m`.
 | law 1, its emitter, reader and events | [../polynomial_sv/SPEC.md](../polynomial_sv/SPEC.md) |
 | the theorem of law 1 | [../polynomial_sv/PROOF.md](../polynomial_sv/PROOF.md) |
 | the unrecovered seam | [../polynomial_sv/collar.py](../polynomial_sv/collar.py) |
+| the presence reading and the laws of two readings | [../polynomial_sv/presence.py](../polynomial_sv/presence.py), section 8 of [../polynomial_sv/PROOF.md](../polynomial_sv/PROOF.md) |
 | law 2 on registers, its preparation and instruments | [../scalar_channel/PROOF.md](../scalar_channel/PROOF.md) |
+| the cage, the instruments on a profile, their records | [../scalar_channel/cage/PROOF.md](../scalar_channel/cage/PROOF.md), [results.json](../scalar_channel/cage/results.json) |
 | the carrier's design reasons, the repair rule, the screen size | the theory's carrier paper, `paper/screen_microphysics_and_observer_synchronization.tex` |
 | the closure hypothesis | [docs/BASIS.md](../../docs/BASIS.md) |
 | the figures | [make_diagram.py](make_diagram.py) |
 
 ## 11. What this repository executes
 
-The manual describes the construction. Three packages execute parts of it, and each states its own domain.
+The manual describes the construction. Four packages execute parts of it, and each states its own domain.
 
 - [polynomial_sv](../polynomial_sv/README.md) executes law 1: the local law on all 99 states of a seam, the
-  carriers, the emitter, the reader, the hypotheses of the theorem, the events and the unrecovered seam.
+  carriers, the emitter, the reader, the hypotheses of the theorem, the events, the unrecovered seam with the
+  levels of a load beside it, and the presence reading with the laws of two readings.
   [contrast_replay.py](../contrast_replay.py) rebuilds law 1 from this manual in the labelling of section 2.1 and
   checks it against that package through an explicit map of the ports.
 - [scalar_channel](../scalar_channel/README.md) executes law 2 on one cell: the encoding on 432 registers; the
@@ -892,12 +1110,18 @@ The manual describes the construction. Three packages execute parts of it, and e
   and pulses of area `π/4` with the law running, at the counts 0, 4 and 8 of a supplied cycle of 1/8. It keeps
   the complete law of two pointer bits at the active port for both preparations of the fuel, four phase
   settings, four targets and two changed laws.
+- [cage](../scalar_channel/cage/README.md) executes the cage of section 5.9: the incidence identities, the rings
+  and the pair in integers, on one cell and on the federations of 20, 80 and 320 cells; the potential and the
+  converter on a profile as words on the 432 registers; and the experiments of sections 6.6, 7.4 and 7.5 on one
+  cell, with every reading computed from counts: the observer's own reference, the line of the seam record
+  under steps of equal and of unequal length, the fuel dial, and the detector with four analyzers, each with
+  its controls and with the changed law.
 - [contrast_clock](../contrast_clock/README.md) executes a fixed program of the events of law 1 and two
   readings on one cell under one time-independent law. Its clock register is a sequencer of the computation
   and no clock of an observer: each port observer counts the events of its own seams, as in section 4.8.
 
-No package of this repository executes these parts of the manual: the reading of frequencies from a long series
-of counts (section 6.2); the clock reading of section 6.4, since the cycle is supplied to the replay; the
-reports of two separated observers with admission, three copies and repair by majority (section 6.3); the memory
-budget of section 6.5; the calibration of space by local comparisons (section 7.3); and the round seam terms and
-every run of law 2 on a federation (section 5.8).
+No package of this repository executes these parts of the manual: the reading of the lines of an added object
+from its records and the calibration of space by local comparisons (sections 6.2 and 7.3); the reports of two
+separated observers with admission, three copies and repair by majority (section 6.3); the memory budget of
+section 6.5; the guard of section 6.6 as an operator on registers; and the round seam terms and every run of
+law 2 on a federation (section 5.8). On a federation the cage is checked through the law of one object.

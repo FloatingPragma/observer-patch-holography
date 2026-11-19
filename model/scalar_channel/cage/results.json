@@ -1,0 +1,558 @@
+{
+ "schema": "oph.scalar_channel.cage.v1",
+ "candidate": "A-native-caged-exciton-v1",
+ "protocol": {
+  "seed": 20261119,
+  "shots": {
+   "clock": 100000000,
+   "reference": 1000000000,
+   "dial": 4000000,
+   "persistence": 100000000
+  },
+  "step": 0.125,
+  "strength_of_the_converter": 64.0,
+  "strength_of_the_dial_converter": 0.1,
+  "dials": [
+   -3.5,
+   3.5,
+   141
+  ],
+  "waits_of_the_dial": [
+   128,
+   256
+  ],
+  "waits_of_the_clock": 256,
+  "phase_settings": 4,
+  "bounds_on_a_step_of_the_reference": [
+   0.0625,
+   0.25
+  ],
+  "families": [
+   "clock_prepared",
+   "clock_no_preparation",
+   "clock_cage_stopped",
+   "clock_sharp",
+   "clock_changed_law",
+   "reference",
+   "dial",
+   "persistence",
+   "persistence_changed_law",
+   "persistence_no_converter"
+  ]
+ },
+ "construction": {
+  "one_cell": {
+   "largest_difference_in_the_incidence_identity": 0,
+   "rank_of_Q": 12,
+   "profiles": 18,
+   "rings": 30,
+   "rank_of_the_rings": 18,
+   "profiles_on_one_two_three_four_seams": [
+    0,
+    0,
+    0,
+    30
+   ],
+   "every_profile_on_four_seams_is_a_ring": true,
+   "ring": [
+    0,
+    2,
+    4,
+    6
+   ],
+   "seams_of_the_pair": 4,
+   "wedges_of_the_pair": 28,
+   "ports_of_the_pair": [
+    0,
+    2,
+    4,
+    6
+   ],
+   "levels_of_K": [
+    [
+     -0.0,
+     1
+    ],
+    [
+     1.381966011,
+     3
+    ],
+    [
+     3.0,
+     5
+    ],
+    [
+     3.618033989,
+     3
+    ],
+    [
+     5.0,
+     18
+    ]
+   ],
+   "coupling": 2.23606797749979,
+   "level_of_the_cage": 2.4494897427831783
+  },
+  "federations": [
+   {
+    "cells": 20,
+    "ports": 240,
+    "seams": 630,
+    "wedges": 2700,
+    "ports_with_six_seams": 60,
+    "largest_difference_in_the_incidence_identity": 0,
+    "rings_on_ports_with_five_seams": 92,
+    "fewest_and_most_such_rings_in_a_cell": [
+     3,
+     7
+    ],
+    "profiles_that_keep_the_level": 128,
+    "cells_with_six_and_with_seven_such_profiles": [
+     12,
+     8
+    ],
+    "ring_through_a_port_with_six_seams": [
+     0,
+     1,
+     5,
+     11
+    ],
+    "largest_entry_of_its_defect": 1
+   },
+   {
+    "cells": 80,
+    "ports": 960,
+    "seams": 2520,
+    "wedges": 10800,
+    "ports_with_six_seams": 240,
+    "largest_difference_in_the_incidence_identity": 0,
+    "rings_on_ports_with_five_seams": 312,
+    "fewest_and_most_such_rings_in_a_cell": [
+     3,
+     6
+    ],
+    "profiles_that_keep_the_level": 504,
+    "cells_with_six_and_with_seven_such_profiles": [
+     56,
+     24
+    ],
+    "ring_through_a_port_with_six_seams": [
+     0,
+     1,
+     5,
+     11
+    ],
+    "largest_entry_of_its_defect": 1
+   },
+   {
+    "cells": 320,
+    "ports": 3840,
+    "seams": 10080,
+    "wedges": 43200,
+    "ports_with_six_seams": 960,
+    "largest_difference_in_the_incidence_identity": 0,
+    "rings_on_ports_with_five_seams": 1272,
+    "fewest_and_most_such_rings_in_a_cell": [
+     3,
+     6
+    ],
+    "profiles_that_keep_the_level": 2024,
+    "cells_with_six_and_with_seven_such_profiles": [
+     216,
+     104
+    ],
+    "ring_through_a_port_with_six_seams": [
+     0,
+     1,
+     5,
+     11
+    ],
+    "largest_entry_of_its_defect": 1
+   }
+  ],
+  "weight_left_in_the_pair_on_20_cells": {
+   "ring_on_ports_with_five_seams": 0.9999999999999885,
+   "ring_through_a_port_with_six_seams": 0.06922558987453903,
+   "parameter_range": [
+    0.0,
+    102.0
+   ]
+  }
+ },
+ "object": {
+  "level_difference": 4.898979485566357,
+  "coherent_pulse": {
+   "potential": -4.898979485566357,
+   "time": 0.5894669949494352
+  },
+  "sharp_pulse": {
+   "potential": -12.000000000000002,
+   "time": 0.28678686047727375
+  },
+  "work_of_the_coherent_pulse_on_the_ideal_reference": 3.4494897427831783,
+  "weight_of_e_on_the_excitation": 0.7041241452319315,
+  "reference_from_the_filled_lower_branch": 0.005782184949005438,
+  "pair_from_the_ideal_lower_mode": 0.002037339512772582,
+  "sectors_in_the_reference": {
+   "empty": 2.0639779101157595e-05,
+   "reference": 0.9999540917115901,
+   "excitation": 4.149776498988915e-06,
+   "two": 2.1118732809744584e-05
+  },
+  "after_the_coherent_pulse": {
+   "occupation_of_e": 0.9999752104443996,
+   "rate_of_e": 0.0062868472476029095,
+   "excitation": 0.7054386976007844,
+   "work_of_the_pulse": 3.455909378200954
+  },
+  "changed_law": {
+   "norm_of_its_commutator_with_the_pair": 1.4142135623730951,
+   "weight_of_the_lower_mode_left_in_the_pair_at_1_4_16_64": [
+    0.7908708017046087,
+    0.2929600962151407,
+    0.21199184718885583,
+    0.137348787804109
+   ],
+   "reference_keeps_its_level": true
+  },
+  "excitation_in_the_state": {
+   "coherent": 0.7059318277068344,
+   "sharp": 0.9999540917115917,
+   "none": 4.149776498993997e-06
+  },
+  "largest_difference_between_the_record_laws_of_the_two_laws": 0.5552180613799931
+ },
+ "registers": {
+  "registers": 432,
+  "modes": 174,
+  "loops": 260,
+  "profile_number": {
+   "words": 17,
+   "largest_weight": 15,
+   "hermitian": true,
+   "terms_left_in_Q_squared_minus_8_Q": 0,
+   "pairs_with_the_loops": 4420,
+   "pairs_with_the_loops_that_do_not_commute": 0,
+   "words_that_do_not_commute_with_a_fuel_or_reference_number": 0,
+   "terms_left_in_the_commutator_with_the_number_of_objects": 0,
+   "stars_of_all_words": [
+    0,
+    2,
+    4,
+    6
+   ],
+   "most_stars_in_one_word": 4
+  },
+  "converter": {
+   "words": 8,
+   "largest_weight": 24,
+   "hermitian": true,
+   "terms_left_in_K_squared_minus_2Q_minus_8R_plus_2QR": 0,
+   "terms_left_in_the_commutator_with_Q_plus_4R": 0,
+   "pairs_with_the_loops": 2080,
+   "pairs_with_the_loops_that_do_not_commute": 0,
+   "words_that_do_not_commute_with_another_fuel_or_a_reference_number": 0,
+   "stars_of_all_words": [
+    0,
+    2,
+    4,
+    6
+   ],
+   "most_stars_in_one_word": 3
+  },
+  "guard": "one product of the code checks of the ports [0, 2, 4, 6] stands in front of each whole operator"
+ },
+ "counts_against_the_record_laws": {
+  "clock_prepared": {
+   "chi_square": 6006.5675152755575,
+   "degrees_of_freedom": 6132,
+   "upper_tail": 0.8716931905345375,
+   "lower_tail": 0.1283068094654625,
+   "largest_cell_in_standard_errors": 3.9264319952542324,
+   "counts_on_outcomes_of_probability_zero": 0
+  },
+  "clock_no_preparation": {
+   "chi_square": 6059.351692732633,
+   "degrees_of_freedom": 6140,
+   "upper_tail": 0.7657622029163541,
+   "lower_tail": 0.2342377970836459,
+   "largest_cell_in_standard_errors": 3.7864932205753323,
+   "counts_on_outcomes_of_probability_zero": 0
+  },
+  "clock_cage_stopped": {
+   "chi_square": 6223.525972791261,
+   "degrees_of_freedom": 6140,
+   "upper_tail": 0.22471679088597563,
+   "lower_tail": 0.7752832091140244,
+   "largest_cell_in_standard_errors": 4.275192339135652,
+   "counts_on_outcomes_of_probability_zero": 0
+  },
+  "clock_sharp": {
+   "chi_square": 3088.891974735994,
+   "degrees_of_freedom": 3068,
+   "upper_tail": 0.391807364194808,
+   "lower_tail": 0.608192635805192,
+   "largest_cell_in_standard_errors": 3.6933312178940163,
+   "counts_on_outcomes_of_probability_zero": 0
+  },
+  "clock_changed_law": {
+   "chi_square": 3032.8377851316473,
+   "degrees_of_freedom": 3068,
+   "upper_tail": 0.6707882607653576,
+   "lower_tail": 0.3292117392346424,
+   "largest_cell_in_standard_errors": 3.703983267452508,
+   "counts_on_outcomes_of_probability_zero": 0
+  },
+  "reference": {
+   "chi_square": 2028.8147623483192,
+   "degrees_of_freedom": 2050,
+   "upper_tail": 0.6261159331132901,
+   "lower_tail": 0.37388406688670994,
+   "largest_cell_in_standard_errors": 3.4451747747894084,
+   "counts_on_outcomes_of_probability_zero": 0
+  },
+  "dial": {
+   "chi_square": 551.5921308327623,
+   "degrees_of_freedom": 545,
+   "upper_tail": 0.4133076000815668,
+   "lower_tail": 0.5866923999184332,
+   "largest_cell_in_standard_errors": 3.3561649007394685,
+   "counts_on_outcomes_of_probability_zero": 0
+  },
+  "persistence": {
+   "chi_square": 54.06611893829442,
+   "degrees_of_freedom": 60,
+   "upper_tail": 0.6911909650760332,
+   "lower_tail": 0.30880903492396683,
+   "largest_cell_in_standard_errors": 2.1336272016729447,
+   "counts_on_outcomes_of_probability_zero": 0
+  },
+  "persistence_changed_law": {
+   "chi_square": 63.1863663683509,
+   "degrees_of_freedom": 60,
+   "upper_tail": 0.3644755975210315,
+   "lower_tail": 0.6355244024789686,
+   "largest_cell_in_standard_errors": 2.589549691223992,
+   "counts_on_outcomes_of_probability_zero": 0
+  }
+ },
+ "clock": {
+  "steps_of_equal_length": {
+   "line": {
+    "frequency": 4.898982108036927,
+    "standard_error": 2.073765034265464e-06,
+    "amplitude": 0.4161076950973256,
+    "share_of_the_variance": 0.9999999078186581
+   },
+   "smallest_and_largest_step_of_the_phase": [
+    0.12476638329518153,
+    0.12530089551314383
+   ],
+   "amplitude_without_preparation": 0.0018596758515761317,
+   "amplitude_with_the_cage_stopped": 5.987648658140151e-06,
+   "largest_difference_between_the_phase_and_the_parameter": 0.0002416491350203387
+  },
+  "steps_of_unequal_length": {
+   "line": {
+    "frequency": 4.898976458395467,
+    "standard_error": 2.0863088250892383e-06,
+    "amplitude": 0.4161121867221068,
+    "share_of_the_variance": 0.9999999067807587
+   },
+   "smallest_and_largest_step_of_the_phase": [
+    0.09983616889316949,
+    0.1500420283292363
+   ],
+   "amplitude_without_preparation": 0.0018593183233139364,
+   "amplitude_with_the_cage_stopped": 7.0157608585715015e-06,
+   "largest_difference_between_the_phase_and_the_parameter": 0.0002034830202326532
+  },
+  "sharp_excitation": {
+   "range_of_the_seam_record": 0.0037887899999999863,
+   "amplitude_of_the_best_line": 0.001858344954253421
+  },
+  "changed_law": {
+   "best_line": {
+    "frequency": 4.448948025545834,
+    "standard_error": 0.006650000230531584,
+    "amplitude": 0.11963985003362645,
+    "share_of_the_variance": 0.5069503227277723
+   },
+   "smallest_and_largest_step_of_the_phase": [
+    0.1247596676184628,
+    0.12525406958069674
+   ]
+  }
+ },
+ "dial": {
+  "reference_phase_per_step": 0.12500004141602708,
+  "reference_phase_at_the_two_waits": [
+   15.999992974421216,
+   32.000009656888516
+  ],
+  "coupling": 2.236068034169689,
+  "coupling_standard_error": 4.528846121656343e-06,
+  "level_difference": 4.898979589030963,
+  "level_difference_standard_error": 8.268503969262087e-06,
+  "largest_misfit": 0.0005723770617351853,
+  "records_with_disagreeing_pointers": 0
+ },
+ "persistence": {
+  "waits_in_steps": [
+   0,
+   8,
+   32,
+   128,
+   512
+  ],
+  "condition_number_of_the_four_effects": 4.6230865467961255,
+  "excitation_from_counts": {
+   "coherent": [
+    0.7058941133612596,
+    0.7059766803493817,
+    0.7058637748860229,
+    0.7060314651131797,
+    0.7058598673581213
+   ],
+   "sharp": [
+    1.0000246139104618,
+    0.9998960612517227,
+    0.9999892177804413,
+    1.00021600859801,
+    1.0001542113951039
+   ],
+   "none": [
+    4.098417528475587e-06,
+    4.234666497014312e-06,
+    3.740542693417555e-06,
+    4.556125672790603e-06,
+    4.31134566097571e-06
+   ]
+  },
+  "empty_and_doubly_occupied_from_counts": {
+   "coherent": [
+    [
+     5.138098429318309e-05,
+     2.5615119791832708e-05
+    ],
+    [
+     2.2038003962982664e-05,
+     3.199201766780775e-05
+    ],
+    [
+     -4.611375562006937e-05,
+     6.864826054203915e-05
+    ],
+    [
+     -2.3900954205390468e-05,
+     -6.661351996438079e-05
+    ],
+    [
+     1.9090939675059516e-05,
+     1.827463727377487e-05
+    ]
+   ],
+   "sharp": [
+    [
+     1.2206543176301202e-05,
+     -4.1192665123564516e-05
+    ],
+    [
+     5.778917100137494e-05,
+     4.1742057926846657e-05
+    ],
+    [
+     1.3422317317871988e-05,
+     -6.732570643965103e-06
+    ],
+    [
+     -7.339889713660375e-05,
+     -0.00014671058994454987
+    ],
+    [
+     -7.958001788928678e-05,
+     -7.900355490898075e-05
+    ]
+   ],
+   "none": [
+    [
+     2.8985475493669928e-05,
+     8.307519108031588e-06
+    ],
+    [
+     -5.1088849524647944e-05,
+     -6.698045092901138e-07
+    ],
+    [
+     8.206204114686002e-05,
+     -9.115563860990512e-06
+    ],
+    [
+     0.00011657986112629078,
+     0.00012707351421043075
+    ],
+    [
+     -0.00015210629170786202,
+     -2.8267038874977577e-05
+    ]
+   ]
+  },
+  "counts_of_the_law_from_the_law": 9.751183501210958e-05,
+  "counts_of_the_changed_law_from_the_law": 0.5552748540859092,
+  "counts_of_the_changed_law_from_the_changed_law": 0.00012480219474653165,
+  "records_of_a_full_fuel_with_the_converter_off": 0,
+  "records_with_disagreeing_pointers": 0
+ },
+ "residuals": {
+  "pair_on_one_cell": 2.220446049250313e-16,
+  "pair_on_20_cells": 1.1102230246251565e-16,
+  "excitation_raises_by_the_level_difference": 4.440892098500626e-16,
+  "excitation_is_kept": 1.1102230246251565e-16,
+  "coherent_pulse_outside_e": 2.6945789820192466e-16,
+  "sharp_pulse_outside_the_upper_mode": 1.576213700060856e-16,
+  "swing_against_the_closed_form": 2.9976021664879227e-15,
+  "law_keeps_the_pair": 3.5146745068501115e-16,
+  "circulation_level": 0.0,
+  "circulation_and_pair_in_the_reference": 2.819966488788313e-13,
+  "clock_law_on_151_modes_against_four_modes": 1.6431300764452317e-14,
+  "clock_law_on_sixteen_states_against_four_modes": 1.4432899320127035e-15,
+  "reference_law_on_151_modes_against_four_modes": 8.881784197001252e-16,
+  "dial_law_on_151_modes_against_three_modes": 5.295763827461997e-14,
+  "dial_difference_against_the_survival_of_one_object": 5.295763827461997e-14,
+  "persistence_law_on_two_modes_against_150_modes": 2.6728619317850644e-14,
+  "excitation_spread_over_the_waits": 7.771561172376096e-16
+ },
+ "gates": {
+  "the_stored_counts_are_draws_from_the_record_laws": true,
+  "one_line_carries_the_seam_record": true,
+  "the_line_sits_at_the_level_difference_of_the_law": true,
+  "no_line_without_preparation": true,
+  "no_line_with_the_cage_stopped": true,
+  "no_swing_of_a_sharp_excitation": true,
+  "no_single_line_under_the_changed_law": true,
+  "the_line_and_the_dial_agree": true,
+  "the_sharp_excitation_is_read_at_every_wait": true,
+  "the_coherent_state_holds_its_share_at_every_wait": true,
+  "no_excitation_is_read_without_preparation": true,
+  "the_changed_law_is_told_apart_by_its_counts": true,
+  "no_record_with_the_converter_off": true,
+  "residual_pair_on_one_cell": true,
+  "residual_pair_on_20_cells": true,
+  "residual_excitation_raises_by_the_level_difference": true,
+  "residual_excitation_is_kept": true,
+  "residual_coherent_pulse_outside_e": true,
+  "residual_sharp_pulse_outside_the_upper_mode": true,
+  "residual_swing_against_the_closed_form": true,
+  "residual_law_keeps_the_pair": true,
+  "residual_circulation_level": true,
+  "residual_circulation_and_pair_in_the_reference": true,
+  "residual_clock_law_on_151_modes_against_four_modes": true,
+  "residual_clock_law_on_sixteen_states_against_four_modes": true,
+  "residual_reference_law_on_151_modes_against_four_modes": true,
+  "residual_dial_law_on_151_modes_against_three_modes": true,
+  "residual_dial_difference_against_the_survival_of_one_object": true,
+  "residual_persistence_law_on_two_modes_against_150_modes": true,
+  "residual_excitation_spread_over_the_waits": true
+ },
+ "counts_sha256": "6c003ee09d749bad68fd743e5d4122571eedf32211a1d7b7cab18247139217b5"
+}

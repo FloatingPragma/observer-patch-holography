@@ -99,6 +99,7 @@ jobs:
       - run: python -m pip install -r model/requirements.txt
       - run: python -B -O -m model.scalar_channel.experiment
       - run: python -B -O -m model.scalar_channel.experiment --extended
+      - run: python -B -O -W error -m model.scalar_channel.cage
       - run: python -B -m pytest -q -W error model/scalar_channel model/test_contrast_replay.py
 
   suite:
