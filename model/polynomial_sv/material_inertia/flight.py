@@ -11,11 +11,15 @@ from . import instrument
 from .__main__ import HERE,clean,frozen_files
 from .challenge import challenge_inputs,custody,pins as challenge_pins,prediction_stage,write_or_check
 from .source import Ring,require,spectral_measure
+from .prediction import native_transport_bound
+from .detector import position_bins
 
 
 def pins():
-    return {n:hashlib.sha256((HERE/n).read_bytes().replace(b'\r\n',b'\n')).hexdigest()
-            for n in ('challenge_sources.json','flight.py','flight_protocol.json')}
+    files = [HERE/n for n in ('challenge_sources.json','flight.py','flight_protocol.json','detector.py')]
+    files += [HERE.parent/'reader.py',HERE.parent/'sectors.py',HERE.parent/'common.py']
+    return {p.relative_to(HERE.parents[2]).as_posix():
+            hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in files}
 
 
 def probabilities(returns, start):
@@ -46,6 +50,9 @@ def collect(spec,base,programs,kappa):
     for n in spec['orders']:
         size = spec['size']
         ring = Ring.build(size,n)
+        bins = position_bins(ring)
+        require(np.array_equal(bins[ring.orbits[0]],np.arange(size)) and
+                np.count_nonzero(bins!=size)==size, 'Fourier orbit differs from the public detector')
         ticks,_ = programs[str(n)]
         for member in ('contrast','assisted'):
             H = ring.hamiltonian(member,kappa)
@@ -88,8 +95,13 @@ def analyze(spec,base,programs,raw,bank,chemical,rate):
             require(np.all(errors<=np.array(limits)+2e-8),'transport exceeds spectral/digitization bound')
             result[key] = dict(ticks=ticks.tolist(),total_variation=errors.tolist(),
                                compact_away=travel.tolist(),no_compact=observed[:,-1].tolist(),
-                               audited_tv_bound=limits,passes=bool(max(errors)<=spec['max_total_variation']
+                               passes=bool(max(errors)<=spec['max_total_variation']
                                and max(travel)>=spec['nontrivial_travel_gate']))
+            if member == 'contrast':
+                bounds = [native_transport_bound(chemical,spec['size'],n,int(tick),rate,base,spec['shots'])
+                          for tick in ticks]
+                require(np.all(errors <= np.array(bounds)+2e-8), 'flight exceeds binding-only error enclosure')
+                result[key]['binding_only_tv_bound'] = bounds
     return clean(result)
 
 

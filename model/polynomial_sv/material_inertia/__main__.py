@@ -67,9 +67,9 @@ def acquire(spec, spectra_dir=None):
                     # Every mode contributes to both quadratures, including lines away from the cluster.
                     amplitude = np.exp(-1j*np.outer(times,E))@w
                     raw[key] = instrument.quadratures(amplitude,spec['shots'])
-                    # Sum degeneracies at the minimum. Especially relevant at zero interaction.
+                    # A single ground eigenvector suffices. Never qualify a nearby line by tolerance.
                     ground = E[0]
-                    weight = float(w[E-ground<1e-9].sum())
+                    weight = float(w[0])
                     audit[key] = (float(ground),weight)
             require(dimension==len(ring.states),'incomplete momentum decomposition')
             if spectra_dir is not None:
@@ -164,6 +164,12 @@ def clean(obj):
     return obj
 
 
+def check_json(path, expected):
+    # Python equality accepts True in place of 1. Compare canonical typed JSON.
+    require(json.dumps(load(path),sort_keys=True,allow_nan=False) ==
+            json.dumps(expected,sort_keys=True,allow_nan=False), 'changed decoded result')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--record',type=Path)
@@ -186,7 +192,7 @@ def main():
     if args.record:
         (root/'result.json').write_text(json.dumps(saved,indent=1,allow_nan=False)+'\n',encoding='utf8')
     else:
-        require(load(root/'result.json')==saved,'changed decoded result')
+        check_json(root/'result.json',saved)
     print(json.dumps(dict(rest_inertia=saved['audit']['rest_inertia'],federations=saved['federations']),indent=1))
 
 

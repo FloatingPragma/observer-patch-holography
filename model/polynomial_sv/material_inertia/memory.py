@@ -11,7 +11,7 @@ from scipy import sparse
 from tools.strict_json import load
 from .. import carrier, law, reader, sectors
 from . import instrument
-from .__main__ import HERE, clean, frozen_files, name
+from .__main__ import HERE, check_json, clean, frozen_files, name
 from .federation import propagate
 from .memory_algebra import local_conversion, transfer_algebra
 from .source import Ring, require, rotate, spectral_measure
@@ -140,7 +140,7 @@ def run(spec,base):
                 key = name('memory',size,number,ell)
                 raw[key] = instrument.quadratures(np.exp(-1j*np.outer(times,E))@w,base['shots'])
                 read = instrument.read_line(raw[key],rate,base)
-                weight = w[E-E[0]<1e-9].sum()
+                weight = w[0]
                 admitted = read is not None and weight>=base['dominant_floor']
                 if admitted:
                     require(abs(read[0]*rate*base['tick_divisor']-E[0])<=read[1]*rate*base['tick_divisor']+3e-10,
@@ -169,7 +169,7 @@ def main():
     with np.load(root/'counts.npz',allow_pickle=False) as saved:
         require(sorted(saved.files)==sorted(raw) and all(saved[k].dtype==np.int32 and
                 np.array_equal(saved[k],v) for k,v in raw.items()),'changed memory measurements')
-    require(load(root/'result.json')==result,'changed memory verdict')
+    check_json(root/'result.json',result)
     print(json.dumps(result,indent=1))
 
 

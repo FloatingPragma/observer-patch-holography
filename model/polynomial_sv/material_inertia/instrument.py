@@ -22,7 +22,10 @@ def signal(readings, length, shots):
             np.any(readings < 0) or not np.all(readings.sum(axis=-1) == shots)):
         raise ValueError('incomplete interferometer menu')
     q = 2*readings[:,:,1]/shots - 1
-    return q[:,0]+1j*q[:,1]
+    z = q[:,0]+1j*q[:,1]
+    if np.max(abs(z)) > 1+math.sqrt(2)/shots+1e-12:
+        raise ValueError('quadratures exceed unit contrast')
+    return z
 
 
 def clock(spec):

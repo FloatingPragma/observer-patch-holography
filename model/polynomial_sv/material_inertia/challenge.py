@@ -8,7 +8,7 @@ import numpy as np
 
 from tools.strict_json import load
 from . import instrument
-from .__main__ import HERE,clean,frozen_files
+from .__main__ import HERE,check_json,clean,frozen_files
 from .prediction import infer
 from .source import Ring,require,spectral_measure
 
@@ -82,7 +82,7 @@ def write_or_check(path,result,record):
         with path.open('x',encoding='utf8',newline='\n') as out:
             json.dump(result,out,indent=1,allow_nan=False)
             out.write('\n')
-    require(load(path)==result, 'challenge prediction or result differs')
+    check_json(path,result)
 
 
 def prediction_stage(root,spec,base,kappa,offset,record):
