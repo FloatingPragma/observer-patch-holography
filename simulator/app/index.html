@@ -8,35 +8,39 @@
 :root {
   --bg: #05080c; --panel: #0c1218; --panel-2: #111a22; --line: #1f2c37; --ink: #dce7ee;
   --muted: #8397a6; --faint: #4b5d6b; --accent: #4af1f2; --warm: #ffb04a; --cool: #3a9bff;
-  --good: #57d49a; --warn: #f2c14e; --bad: #ff6b6b;
+  --violet: #c38bff; --good: #57d49a; --warn: #f2c14e; --bad: #ff6b6b;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --sans: -apple-system, "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font: 14px/1.45 var(--sans); }
 header { display: flex; align-items: center; gap: 14px; padding: 10px 16px; border-bottom: 1px solid var(--line); background: #070b10; }
-header h1 { font-size: 15px; margin: 0; font-weight: 600; letter-spacing: .2px; }
+header h1 { font-size: 15px; margin: 0; font-weight: 600; letter-spacing: .2px; white-space: nowrap; }
 header h1 span { color: var(--accent); font-family: var(--mono); font-weight: 500; }
 header .grow { flex: 1; }
 select, button, label.file { background: var(--panel-2); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; font: 13px var(--sans); cursor: pointer; }
+select { max-width: 52vw; }
 button:hover, label.file:hover, select:hover { border-color: var(--accent); }
 label.file input { display: none; }
-main { display: grid; grid-template-columns: minmax(0, 1fr) 360px; height: calc(100% - 50px - 64px); }
-#stage { position: relative; min-height: 0; }
-#gl { width: 100%; height: 100%; display: block; cursor: grab; }
-#gl:active { cursor: grabbing; }
+main { display: grid; grid-template-columns: minmax(0, 1fr) 380px; height: calc(100% - 50px - 64px); }
+body.static main { height: calc(100% - 50px); }
+#stage { position: relative; min-height: 0; overflow: hidden; }
+#gl, #c2d { width: 100%; height: 100%; display: block; position: absolute; inset: 0; }
+#gl { cursor: grab; } #gl:active { cursor: grabbing; }
 .overlay { position: absolute; pointer-events: none; font: 12px var(--mono); color: var(--muted); }
 #hud { left: 16px; top: 14px; }
 #hud b { color: var(--ink); font-weight: 500; }
-#legend { left: 16px; bottom: 14px; display: flex; gap: 14px; align-items: center; }
+#legend { left: 16px; bottom: 14px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
 #legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: -1px; }
 #drop { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(5,8,12,.85); border: 2px dashed var(--accent); font-size: 18px; z-index: 5; }
 #empty { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--muted); padding: 24px; }
 #empty code { color: var(--accent); }
+#html { position: absolute; inset: 0; overflow: auto; padding: 28px 32px; display: none; }
 aside { border-left: 1px solid var(--line); background: var(--panel); overflow-y: auto; min-height: 0; }
 section { padding: 14px 16px; border-bottom: 1px solid var(--line); }
 section h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); margin: 0 0 10px; font-weight: 600; }
-.law-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+.step { font: 11px var(--mono); color: var(--accent); letter-spacing: 1px; text-transform: uppercase; }
+.law-title { font-size: 15px; font-weight: 600; margin: 2px 0 6px; }
 .badge { display: inline-block; font: 11px var(--mono); padding: 2px 8px; border-radius: 10px; border: 1px solid currentColor; margin-right: 6px; }
 .status-candidate { color: var(--good); } .status-undecided { color: var(--warn); }
 .status-excluded, .status-disfavoured, .status-control { color: var(--bad); }
@@ -54,19 +58,20 @@ table { width: 100%; border-collapse: collapse; font: 12px var(--mono); }
 th, td { text-align: right; padding: 4px 6px; border-bottom: 1px solid var(--line); }
 th:first-child, td:first-child { text-align: left; }
 th { color: var(--muted); font-weight: 500; }
+td.good { color: var(--good); }
+.dials { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.dials figure { margin: 0; text-align: center; }
+.dials figcaption { font: 11px var(--mono); color: var(--muted); margin-top: 2px; }
+.clockname { font-size: 13px; font-weight: 600; margin: 4px 0 6px; }
 footer { height: 64px; border-top: 1px solid var(--line); display: flex; align-items: center; gap: 14px; padding: 0 16px; background: #070b10; }
+body.static footer { display: none; }
 footer input[type=range] { flex: 1; accent-color: var(--accent); }
-#clock { font: 13px var(--mono); color: var(--ink); min-width: 290px; text-align: right; }
+#clock { font: 13px var(--mono); color: var(--ink); min-width: 300px; text-align: right; }
 #clock small { color: var(--muted); }
-#journeys { position: absolute; inset: 0; overflow: auto; padding: 32px; display: none; }
-#journeys h3 { margin: 0 0 6px; font-size: 18px; }
-#journeys p { color: var(--muted); max-width: 760px; }
-.bars { margin-top: 24px; display: grid; gap: 18px; max-width: 760px; }
-.bar { position: relative; height: 26px; background: var(--panel-2); border-radius: 4px; }
-.bar span { position: absolute; top: 0; bottom: 0; border-radius: 4px; }
-.bar em { position: absolute; top: -2px; bottom: -2px; width: 2px; background: var(--ink); }
+#html h3 { margin: 0 0 6px; font-size: 18px; }
+#html p { color: var(--muted); max-width: 760px; }
 @media (max-width: 900px) {
-  main { grid-template-columns: 1fr; grid-template-rows: 55vh auto; height: auto; }
+  main, body.static main { grid-template-columns: 1fr; grid-template-rows: 60vh auto; height: auto; }
   aside { border-left: 0; border-top: 1px solid var(--line); }
   #clock { min-width: 0; }
 }
@@ -77,25 +82,21 @@ footer input[type=range] { flex: 1; accent-color: var(--accent); }
   <h1>OPH Simulator <span>replay</span></h1>
   <select id="runPicker" title="Loaded runs"></select>
   <div class="grow"></div>
-  <label class="file">Open run file<input id="file" type="file" accept=".gz,.json"></label>
+  <label class="file">Open run file<input id="file" type="file" accept=".gz,.json" multiple></label>
 </header>
 <main>
   <div id="stage">
     <canvas id="gl"></canvas>
+    <canvas id="c2d"></canvas>
+    <div id="html"></div>
     <div id="hud" class="overlay"></div>
-    <div id="legend" class="overlay">
-      <span><i style="background:var(--warm)"></i>phi &gt; 0</span>
-      <span><i style="background:var(--cool)"></i>phi &lt; 0</span>
-      <span><i style="background:#3a4652"></i>no record received</span>
-      <span><i style="background:var(--accent)"></i>observer A and its record horizon</span>
-    </div>
-    <div id="journeys"></div>
+    <div id="legend" class="overlay"></div>
     <div id="empty">Open a run file written by <code>python -m simulator run ...</code>,<br>or drop it here.</div>
     <div id="drop">Drop a run file</div>
   </div>
   <aside>
-    <section id="lawCard"><h2>Law</h2><div id="law"></div></section>
-    <section id="viewCard">
+    <section id="lawCard"><div id="law"></div></section>
+    <section class="only-field" id="viewCard">
       <h2>View</h2>
       <div class="seg" id="frameSeg">
         <button data-v="observer" class="on" title="Each address as A's records show it: emitted at t - r/c">Observer A's records</button>
@@ -110,20 +111,21 @@ footer input[type=range] { flex: 1; accent-color: var(--accent); }
       <div class="row">Glow <input id="gain" type="range" min="0.05" max="1.5" step="0.01" value="0.8"></div>
       <div class="row"><label><input id="spin" type="checkbox" checked> Rotate</label></div>
     </section>
-    <section>
+    <section class="only-field">
       <h2>Plane through A</h2>
       <canvas id="slice" class="panel" width="560" height="560"></canvas>
       <p class="note" id="sliceNote"></p>
     </section>
-    <section>
+    <section class="only-field">
       <h2>Readings in A's records</h2>
       <canvas id="series" class="panel" width="560" height="300"></canvas>
       <p class="note">Solid: the law's readings at A and at two corner stations, drawn up to the latest one A has received. Dashed: the continuum forecast.</p>
     </section>
-    <section>
+    <section class="only-field">
       <h2>Law against continuum</h2>
       <div id="convergence"></div>
     </section>
+    <div id="dyn"></div>
     <section>
       <h2>What this shows</h2>
       <p class="note" id="explain"></p>
@@ -141,6 +143,8 @@ footer input[type=range] { flex: 1; accent-color: var(--accent); }
 const EMBEDDED = /*EMBEDDED_RUNS*/[];
 const $ = id => document.getElementById(id);
 const C_SIGNAL = 0.5;
+const MONO = () => getComputedStyle(document.body).getPropertyValue("--mono");
+const PALETTE = ["#4af1f2", "#ffb04a", "#c38bff", "#57d49a", "#ff6b6b"];
 const state = { runs: [], run: null, frame: "observer", source: "law", playing: true, t: 0,
   yaw: 0.7, pitch: 0.42, dist: 2.25, last: performance.now() };
 
@@ -152,8 +156,9 @@ async function inflate(bytes, format) {
 const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
 async function unpack(block) {
   const raw = await inflate(b64(block.zlib_base64), "deflate");
-  const Types = { int8: Int8Array, float32: Float32Array, float64: Float64Array };
-  return new Types[block.dtype](raw.buffer, raw.byteOffset, raw.byteLength / Types[block.dtype].BYTES_PER_ELEMENT);
+  const Types = { int8: Int8Array, uint8: Uint8Array, float32: Float32Array, float64: Float64Array };
+  const T = Types[block.dtype];
+  return new T(raw.buffer, raw.byteOffset, raw.byteLength / T.BYTES_PER_ELEMENT);
 }
 async function openRun(bytes, label) {
   let text;
@@ -161,60 +166,24 @@ async function openRun(bytes, label) {
   catch (e) { text = new TextDecoder().decode(bytes); }
   const doc = JSON.parse(text);
   if (doc.format !== "oph-simulator-run/1") throw new Error("unknown run format " + doc.format);
-  if (doc.kind === "field3d") await prepareField(doc);
-  doc.label = label ? `${doc.title} (${label})` : doc.title;
+  await VIEWS[doc.kind].prepare(doc);
+  doc.label = (doc.step ? doc.step + " · " : "") + doc.title + (label ? ` (${label})` : "");
   state.runs.push(doc);
-  const option = new Option(doc.label, state.runs.length - 1);
-  $("runPicker").add(option);
-  $("runPicker").value = state.runs.length - 1;
-  select(doc);
+  $("runPicker").add(new Option(doc.label, state.runs.length - 1));
+  return doc;
+}
+function esc(s) { return String(s).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]); }
+function fit(cv) {
+  const dpr = Math.min(2, window.devicePixelRatio || 1), w = cv.clientWidth, h = cv.clientHeight;
+  if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+  return dpr;
+}
+function provenance(doc) {
+  const p = doc.provenance;
+  return `<span>computed</span><b>${esc(p.created)} · ${p.seconds} s</b><span>engine</span><b>Python ${esc(p.python)} · NumPy ${esc(p.numpy)} · ${esc(p.machine)}</b>`;
 }
 
-// ---------- field runs ----------
-async function prepareField(doc) {
-  const N = doc.carrier.size;
-  doc.N = N; doc.N3 = N * N * N; doc.h = 1 / N;
-  doc.F = doc.frames.shape[0];
-  doc.values = await unpack(doc.frames);
-  doc.pos = new Float32Array(doc.N3 * 3);
-  doc.r = new Float32Array(doc.N3);
-  doc.spatial = doc.preparation.modes.map(() => new Float32Array(doc.N3));
-  doc.omega = doc.preparation.modes.map(([a, k]) => 0.5 * Math.hypot(2 * Math.PI * Math.hypot(...k), doc.continuum.Q));
-  let i = 0, norm = 0;
-  for (let x = 0; x < N; x++) for (let y = 0; y < N; y++) for (let z = 0; z < N; z++, i++) {
-    const cx = x / N, cy = y / N, cz = z / N;
-    doc.pos.set([cx - 0.5, cz - 0.5, cy - 0.5], 3 * i);
-    doc.r[i] = Math.hypot(cx - 0.5, cy - 0.5, cz - 0.5);
-    let v = 0;
-    doc.preparation.modes.forEach(([a, k], j) => {
-      const s = Math.cos(2 * Math.PI * (k[0] * cx + k[1] * cy + k[2] * cz));
-      doc.spatial[j][i] = s; v += a * s;
-    });
-    norm = Math.max(norm, Math.abs(v));
-  }
-  doc.norm = norm;
-  doc.amps = doc.preparation.modes.map(([a]) => a / norm);
-  doc.current = new Float32Array(doc.N3);
-}
-function continuumAt(doc, i, t) {
-  let v = 0;
-  for (let j = 0; j < doc.amps.length; j++) v += doc.amps[j] * Math.cos(doc.omega[j] * t) * doc.spatial[j][i];
-  return v;
-}
-function lawAt(doc, i, t) {
-  const f = Math.min(doc.F - 1, Math.max(0, Math.round(t / doc.h)));
-  return doc.values[f * doc.N3 + i] / 127;
-}
-const UNKNOWN = 9;
-function valueAt(doc, i, t) {
-  const emitted = state.frame === "observer" ? t - doc.r[i] / C_SIGNAL : t;
-  if (emitted < -1e-9) return UNKNOWN;
-  if (state.source === "law") return lawAt(doc, i, emitted);
-  if (state.source === "continuum") return continuumAt(doc, i, emitted);
-  return 20 * (lawAt(doc, i, emitted) - continuumAt(doc, i, emitted));
-}
-
-// ---------- WebGL ----------
+// ---------- WebGL for the field ----------
 const canvas = $("gl");
 const gl = canvas.getContext("webgl", { antialias: true, premultipliedAlpha: false });
 function shader(type, src) {
@@ -258,234 +227,496 @@ void main() { gl_Position = uMVP * vec4(aPos, 1.0); }`, `
 precision mediump float; uniform vec4 uColor;
 void main() { gl_FragColor = uColor; }`);
 const posBuf = gl.createBuffer(), valBuf = gl.createBuffer(), lineBuf = gl.createBuffer();
-
 function mat4mul(a, b) {
   const o = new Float32Array(16);
-  for (let c = 0; c < 4; c++) for (let r = 0; r < 4; r++) {
-    let s = 0; for (let k = 0; k < 4; k++) s += a[k * 4 + r] * b[c * 4 + k]; o[c * 4 + r] = s;
-  }
+  for (let c = 0; c < 4; c++) for (let r = 0; r < 4; r++) { let s = 0; for (let k = 0; k < 4; k++) s += a[k * 4 + r] * b[c * 4 + k]; o[c * 4 + r] = s; }
   return o;
 }
 function perspective(fov, aspect, near, far) {
   const f = 1 / Math.tan(fov / 2), nf = 1 / (near - far);
   return new Float32Array([f / aspect, 0, 0, 0, 0, f, 0, 0, 0, 0, (far + near) * nf, -1, 0, 0, 2 * far * near * nf, 0]);
 }
-function lookAt(eye) {
-  const f = norm3([-eye[0], -eye[1], -eye[2]]), s = norm3(cross(f, [0, 1, 0])), u = cross(s, f);
-  return new Float32Array([s[0], u[0], -f[0], 0, s[1], u[1], -f[1], 0, s[2], u[2], -f[2], 0,
-    -dot(s, eye), -dot(u, eye), dot(f, eye), 1]);
-}
 const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
 const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
 const norm3 = a => { const l = Math.hypot(...a); return [a[0] / l, a[1] / l, a[2] / l]; };
+function lookAt(eye) {
+  const f = norm3([-eye[0], -eye[1], -eye[2]]), s = norm3(cross(f, [0, 1, 0])), u = cross(s, f);
+  return new Float32Array([s[0], u[0], -f[0], 0, s[1], u[1], -f[1], 0, s[2], u[2], -f[2], 0, -dot(s, eye), -dot(u, eye), dot(f, eye), 1]);
+}
 
-function lineGeometry(doc, t) {
-  const L = [], e = 0.5;
-  const corners = [[-e,-e,-e],[e,-e,-e],[e,e,-e],[-e,e,-e],[-e,-e,e],[e,-e,e],[e,e,e],[-e,e,e]];
-  [[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]].forEach(([a, b]) => L.push(...corners[a], ...corners[b]));
-  const box = L.length / 3;
-  const R = C_SIGNAL * t, M = 96;
-  if (state.frame === "observer" && R < 0.88) {
-    for (const plane of [[0, 1], [0, 2], [1, 2]]) for (let k = 0; k < M; k++) {
-      for (const kk of [k, k + 1]) {
-        const p = [0, 0, 0], a = 2 * Math.PI * kk / M;
-        p[plane[0]] = R * Math.cos(a); p[plane[1]] = R * Math.sin(a); L.push(...p);
+// ---------- view: the 3D field ----------
+const UNKNOWN = 9;
+const field = {
+  footer: true,
+  async prepare(doc) {
+    const N = doc.carrier.size;
+    doc.N = N; doc.N3 = N * N * N; doc.h = 1 / N; doc.F = doc.frames.shape[0];
+    doc.duration = doc.chart_time; doc.rate = 0.32;
+    doc.values = await unpack(doc.frames);
+    doc.pos = new Float32Array(doc.N3 * 3); doc.r = new Float32Array(doc.N3);
+    doc.spatial = doc.preparation.modes.map(() => new Float32Array(doc.N3));
+    doc.omega = doc.preparation.modes.map(([a, k]) => 0.5 * Math.hypot(2 * Math.PI * Math.hypot(...k), doc.continuum.Q));
+    let i = 0, norm = 0;
+    for (let x = 0; x < N; x++) for (let y = 0; y < N; y++) for (let z = 0; z < N; z++, i++) {
+      const cx = x / N, cy = y / N, cz = z / N;
+      doc.pos.set([cx - 0.5, cz - 0.5, cy - 0.5], 3 * i);
+      doc.r[i] = Math.hypot(cx - 0.5, cy - 0.5, cz - 0.5);
+      let v = 0;
+      doc.preparation.modes.forEach(([a, k], j) => { const s = Math.cos(2 * Math.PI * (k[0] * cx + k[1] * cy + k[2] * cz)); doc.spatial[j][i] = s; v += a * s; });
+      norm = Math.max(norm, Math.abs(v));
+    }
+    doc.amps = doc.preparation.modes.map(([a]) => a / norm);
+    doc.current = new Float32Array(doc.N3);
+  },
+  enter(doc) {
+    $("legend").innerHTML = `<span><i style="background:var(--warm)"></i>phi &gt; 0</span><span><i style="background:var(--cool)"></i>phi &lt; 0</span>
+      <span><i style="background:#3a4652"></i>no record received</span><span><i style="background:var(--accent)"></i>observer A and its record horizon</span>`;
+    const rows = doc.convergence.map((c, k) => {
+      const prev = doc.convergence[k - 1];
+      const order = prev ? Math.log(prev.max_error / c.max_error) / Math.log(c.size / prev.size) : null;
+      return `<tr><td>N = ${c.size}</td><td>${c.max_error.toFixed(5)}</td><td>${order ? order.toFixed(2) : ""}</td></tr>`;
+    }).join("");
+    $("convergence").innerHTML = `<table><tr><th>Carrier</th><th>largest |law − continuum|</th><th>order</th></tr>${rows}</table>
+      <p class="note">Deviation of the law's field from the Klein–Gordon solution, relative to the largest initial value, over chart times 0 to ${doc.chart_time}. Order 2 means the error falls by four when the resolution doubles.</p>`;
+    $("explain").innerHTML = `The law runs on a carrier of ${doc.N}<sup>3</sup> addresses with a private register in sector Q = 2π·${doc.carrier.private_order}. A field pattern is released at rest. Each point is the scalar field the observers' interferometers read at one address. Observer A sits at the centre. A signal travels at c = 1/2 chart units per chart time, so the picture A holds at its clock time t shows each address as it was at t − r/c. Points that no record has reached are grey. The chart description shows every address at the same chart time: the effective description all observers agree on once every record is collected.`;
+    $("meta").innerHTML = `<span>equation</span><b>${esc(doc.continuum.equation)}</b><span>signal speed c</span><b>1/2</b>
+      <span>rest frequency</span><b>|Q|/2 = ${doc.continuum.rest_angular_frequency.toFixed(4)}</b><span>updates</span><b>${doc.updates} (h = 1/${doc.N})</b>` + provenance(doc);
+  },
+  value(doc, i, t) {
+    const emitted = state.frame === "observer" ? t - doc.r[i] / C_SIGNAL : t;
+    if (emitted < -1e-9) return UNKNOWN;
+    const law = () => doc.values[Math.min(doc.F - 1, Math.max(0, Math.round(emitted / doc.h))) * doc.N3 + i] / 127;
+    const cont = () => { let v = 0; for (let j = 0; j < doc.amps.length; j++) v += doc.amps[j] * Math.cos(doc.omega[j] * emitted) * doc.spatial[j][i]; return v; };
+    if (state.source === "law") return law();
+    if (state.source === "continuum") return cont();
+    return 20 * (law() - cont());
+  },
+  lines(doc, t) {
+    const L = [], e = 0.5;
+    const c = [[-e,-e,-e],[e,-e,-e],[e,e,-e],[-e,e,-e],[-e,-e,e],[e,-e,e],[e,e,e],[-e,e,e]];
+    [[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]].forEach(([a, b]) => L.push(...c[a], ...c[b]));
+    const box = L.length / 3, R = C_SIGNAL * t, M = 96;
+    if (state.frame === "observer" && R < 0.88) {
+      for (const plane of [[0, 1], [0, 2], [1, 2]]) for (let k = 0; k < M; k++) for (const kk of [k, k + 1]) {
+        const p = [0, 0, 0], a = 2 * Math.PI * kk / M; p[plane[0]] = R * Math.cos(a); p[plane[1]] = R * Math.sin(a); L.push(...p);
       }
     }
-  }
-  const horizon = L.length / 3 - box;
-  for (const s of doc.stations) {
-    const p = [s[0] / doc.N - 0.5, s[2] / doc.N - 0.5, s[1] / doc.N - 0.5], d = 0.018;
-    for (let ax = 0; ax < 3; ax++) { const a = p.slice(), b = p.slice(); a[ax] -= d; b[ax] += d; L.push(...a, ...b); }
-  }
-  const stations = L.length / 3 - box - horizon;
-  return { data: new Float32Array(L), box, horizon, stations };
-}
-
-function resize() {
-  const dpr = Math.min(2, window.devicePixelRatio || 1);
-  const w = canvas.clientWidth, h = canvas.clientHeight;
-  if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
-    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
-  }
-}
-
-function drawField(doc) {
-  resize();
-  gl.viewport(0, 0, canvas.width, canvas.height);
-  gl.clearColor(0.02, 0.03, 0.047, 1); gl.clear(gl.COLOR_BUFFER_BIT);
-  const eye = [state.dist * Math.cos(state.pitch) * Math.sin(state.yaw), state.dist * Math.sin(state.pitch),
-    state.dist * Math.cos(state.pitch) * Math.cos(state.yaw)];
-  const mvp = mat4mul(perspective(0.78, canvas.width / canvas.height, 0.05, 20), lookAt(eye));
-  for (let i = 0; i < doc.N3; i++) doc.current[i] = valueAt(doc, i, state.t);
-  gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE); gl.disable(gl.DEPTH_TEST);
-  gl.useProgram(pointProg);
-  gl.bindBuffer(gl.ARRAY_BUFFER, posBuf);
-  if (posBuf.owner !== doc) { gl.bufferData(gl.ARRAY_BUFFER, doc.pos, gl.STATIC_DRAW); posBuf.owner = doc; }
-  let loc = gl.getAttribLocation(pointProg, "aPos"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 3, gl.FLOAT, false, 0, 0);
-  gl.bindBuffer(gl.ARRAY_BUFFER, valBuf); gl.bufferData(gl.ARRAY_BUFFER, doc.current, gl.DYNAMIC_DRAW);
-  loc = gl.getAttribLocation(pointProg, "aVal"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 1, gl.FLOAT, false, 0, 0);
-  gl.uniformMatrix4fv(gl.getUniformLocation(pointProg, "uMVP"), false, mvp);
-  gl.uniform1f(gl.getUniformLocation(pointProg, "uSize"), +$("size").value * 32 / doc.N);
-  gl.uniform1f(gl.getUniformLocation(pointProg, "uPixel"), canvas.height / 520);
-  gl.uniform1f(gl.getUniformLocation(pointProg, "uGain"), +$("gain").value);
-  gl.drawArrays(gl.POINTS, 0, doc.N3);
-  gl.disableVertexAttribArray(gl.getAttribLocation(pointProg, "aVal"));
-  const lines = lineGeometry(doc, state.t);
-  gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-  gl.useProgram(lineProg);
-  gl.bindBuffer(gl.ARRAY_BUFFER, lineBuf); gl.bufferData(gl.ARRAY_BUFFER, lines.data, gl.DYNAMIC_DRAW);
-  loc = gl.getAttribLocation(lineProg, "aPos"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 3, gl.FLOAT, false, 0, 0);
-  gl.uniformMatrix4fv(gl.getUniformLocation(lineProg, "uMVP"), false, mvp);
-  const color = gl.getUniformLocation(lineProg, "uColor");
-  gl.uniform4f(color, 0.45, 0.58, 0.66, 0.35); gl.drawArrays(gl.LINES, 0, lines.box);
-  gl.uniform4f(color, 0.29, 0.95, 0.95, 0.75); gl.drawArrays(gl.LINES, lines.box, lines.horizon);
-  gl.uniform4f(color, 0.29, 0.95, 0.95, 0.95); gl.drawArrays(gl.LINES, lines.box + lines.horizon, lines.stations);
-}
-
-// ---------- 2D panels ----------
-function colour(v) {
+    const horizon = L.length / 3 - box;
+    for (const s of doc.stations) {
+      const p = [s[0] / doc.N - 0.5, s[2] / doc.N - 0.5, s[1] / doc.N - 0.5], d = 0.018;
+      for (let ax = 0; ax < 3; ax++) { const a = p.slice(), b = p.slice(); a[ax] -= d; b[ax] += d; L.push(...a, ...b); }
+    }
+    return { data: new Float32Array(L), box, horizon, stations: L.length / 3 - box - horizon };
+  },
+  draw(doc) {
+    fit(canvas);
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.clearColor(0.02, 0.03, 0.047, 1); gl.clear(gl.COLOR_BUFFER_BIT);
+    const eye = [state.dist * Math.cos(state.pitch) * Math.sin(state.yaw), state.dist * Math.sin(state.pitch), state.dist * Math.cos(state.pitch) * Math.cos(state.yaw)];
+    const mvp = mat4mul(perspective(0.78, canvas.width / canvas.height, 0.05, 20), lookAt(eye));
+    for (let i = 0; i < doc.N3; i++) doc.current[i] = this.value(doc, i, state.t);
+    gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE); gl.disable(gl.DEPTH_TEST);
+    gl.useProgram(pointProg);
+    gl.bindBuffer(gl.ARRAY_BUFFER, posBuf);
+    if (posBuf.owner !== doc) { gl.bufferData(gl.ARRAY_BUFFER, doc.pos, gl.STATIC_DRAW); posBuf.owner = doc; }
+    let loc = gl.getAttribLocation(pointProg, "aPos"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 3, gl.FLOAT, false, 0, 0);
+    gl.bindBuffer(gl.ARRAY_BUFFER, valBuf); gl.bufferData(gl.ARRAY_BUFFER, doc.current, gl.DYNAMIC_DRAW);
+    const vloc = gl.getAttribLocation(pointProg, "aVal"); gl.enableVertexAttribArray(vloc); gl.vertexAttribPointer(vloc, 1, gl.FLOAT, false, 0, 0);
+    gl.uniformMatrix4fv(gl.getUniformLocation(pointProg, "uMVP"), false, mvp);
+    gl.uniform1f(gl.getUniformLocation(pointProg, "uSize"), +$("size").value * 32 / doc.N);
+    gl.uniform1f(gl.getUniformLocation(pointProg, "uPixel"), canvas.height / 520);
+    gl.uniform1f(gl.getUniformLocation(pointProg, "uGain"), +$("gain").value);
+    gl.drawArrays(gl.POINTS, 0, doc.N3);
+    gl.disableVertexAttribArray(vloc);
+    const lines = this.lines(doc, state.t);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    gl.useProgram(lineProg);
+    gl.bindBuffer(gl.ARRAY_BUFFER, lineBuf); gl.bufferData(gl.ARRAY_BUFFER, lines.data, gl.DYNAMIC_DRAW);
+    loc = gl.getAttribLocation(lineProg, "aPos"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 3, gl.FLOAT, false, 0, 0);
+    gl.uniformMatrix4fv(gl.getUniformLocation(lineProg, "uMVP"), false, mvp);
+    const color = gl.getUniformLocation(lineProg, "uColor");
+    gl.uniform4f(color, 0.45, 0.58, 0.66, 0.35); gl.drawArrays(gl.LINES, 0, lines.box);
+    gl.uniform4f(color, 0.29, 0.95, 0.95, 0.75); gl.drawArrays(gl.LINES, lines.box, lines.horizon);
+    gl.uniform4f(color, 0.29, 0.95, 0.95, 0.95); gl.drawArrays(gl.LINES, lines.box + lines.horizon, lines.stations);
+    this.slice(doc); this.series(doc);
+    const n = Math.round(state.t / doc.h), R = C_SIGNAL * state.t;
+    $("clock").innerHTML = `A's clock t = <b>${state.t.toFixed(3)}</b> <small>chart units · ${n} of ${doc.updates} updates</small>`;
+    $("hud").innerHTML = `<b>${state.frame === "observer" ? "Observer A's records" : "Chart description (audit)"}</b> · ${({ law: "the law", continuum: "the continuum limit", difference: "law − continuum, ×20" })[state.source]}<br>` +
+      (state.frame === "observer" ? (R < 0.87 ? `record horizon r = c·t = ${R.toFixed(3)}` : "every address has reached A") : "all addresses at one chart time");
+  },
+  slice(doc) {
+    const cv = $("slice"), ctx = cv.getContext("2d"), fine = state.source === "continuum";
+    const M = fine ? 140 : doc.N, img = ctx.createImageData(M, M), zc = Math.floor(doc.N / 2);
+    for (let a = 0; a < M; a++) for (let b = 0; b < M; b++) {
+      let v;
+      if (fine) {
+        const cx = a / M, cy = b / M, r = Math.hypot(cx - 0.5, cy - 0.5);
+        const emitted = state.frame === "observer" ? state.t - r / C_SIGNAL : state.t;
+        if (emitted < 0) v = UNKNOWN;
+        else { v = 0; doc.preparation.modes.forEach(([amp, k], j) => { v += doc.amps[j] * Math.cos(doc.omega[j] * emitted) * Math.cos(2 * Math.PI * (k[0] * cx + k[1] * cy + k[2] * 0.5)); }); }
+      } else v = doc.current[(a * doc.N + b) * doc.N + zc];
+      const [r, g, bl] = diverging(v), o = 4 * ((M - 1 - b) * M + a);
+      img.data[o] = r; img.data[o + 1] = g; img.data[o + 2] = bl; img.data[o + 3] = 255;
+    }
+    const off = document.createElement("canvas"); off.width = M; off.height = M; off.getContext("2d").putImageData(img, 0, 0);
+    ctx.imageSmoothingEnabled = fine; ctx.clearRect(0, 0, cv.width, cv.height); ctx.drawImage(off, 0, 0, cv.width, cv.height);
+    const R = C_SIGNAL * state.t * cv.width;
+    ctx.strokeStyle = "rgba(74,241,242,.9)"; ctx.lineWidth = 2;
+    if (state.frame === "observer" && R < cv.width) { ctx.beginPath(); ctx.arc(cv.width / 2, cv.height / 2, R, 0, 2 * Math.PI); ctx.stroke(); }
+    ctx.fillStyle = "#4af1f2"; ctx.beginPath(); ctx.arc(cv.width / 2, cv.height / 2, 6, 0, 2 * Math.PI); ctx.fill();
+    ctx.font = "22px " + MONO(); ctx.fillText("A", cv.width / 2 + 10, cv.height / 2 - 10);
+    $("sliceNote").textContent = fine
+      ? "The continuum limit evaluated on a fine grid: a smooth field." + (state.frame === "observer" ? " Inside the circle A holds records; outside it A holds no record." : "")
+      : `The law's ${doc.N} × ${doc.N} addresses in this plane, one value per address.` + (state.frame === "observer" ? " Inside the circle A holds records." : "");
+  },
+  series(doc) {
+    const cv = $("series"), ctx = cv.getContext("2d"), W = cv.width, H = cv.height, pad = 34;
+    ctx.clearRect(0, 0, W, H);
+    const T = doc.chart_time, X = t => pad + (W - pad - 10) * t / T, Y = v => H / 2 - (H / 2 - 16) * v;
+    ctx.strokeStyle = "#1f2c37"; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(pad, Y(0)); ctx.lineTo(W - 10, Y(0)); ctx.stroke();
+    ctx.fillStyle = "#8397a6"; ctx.font = "18px " + MONO();
+    ctx.fillText("+1", 2, Y(1) + 6); ctx.fillText("−1", 2, Y(-1)); ctx.fillText("chart time of emission →", pad, H - 4);
+    for (const [j, col] of [[0, "#4af1f2"], [1, "#ffb04a"], [8, "#c38bff"]]) {
+      const s = doc.stations[j], r = Math.hypot(s[0] / doc.N - 0.5, s[1] / doc.N - 0.5, s[2] / doc.N - 0.5);
+      const limit = state.frame === "observer" ? state.t - r / C_SIGNAL : state.t;
+      ctx.setLineDash([6, 6]); ctx.strokeStyle = col + "66"; ctx.lineWidth = 1.5; ctx.beginPath();
+      doc.station_continuum.forEach((row, n) => { const t = n * doc.h; n ? ctx.lineTo(X(t), Y(row[j])) : ctx.moveTo(X(t), Y(row[j])); });
+      ctx.stroke(); ctx.setLineDash([]);
+      if (limit < 0) continue;
+      ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.beginPath(); let started = false;
+      doc.station_law.forEach((row, n) => { const t = n * doc.h; if (t > limit + 1e-9) return; started ? ctx.lineTo(X(t), Y(row[j])) : ctx.moveTo(X(t), Y(row[j])); started = true; });
+      ctx.stroke();
+    }
+    ctx.fillStyle = "#4af1f2"; ctx.fillText("A", W - 140, 22); ctx.fillStyle = "#ffb04a"; ctx.fillText("corner 1", W - 116, 22); ctx.fillStyle = "#c38bff"; ctx.fillText("8", W - 20, 22);
+  },
+};
+function diverging(v) {
   if (v === UNKNOWN) return [16, 21, 27];
   const a = Math.min(1, Math.abs(v)), base = v >= 0 ? [255, 158, 52] : [46, 148, 255];
   const k = Math.pow(a, 0.85), w = 0.45 * a * a;
   return base.map(c => Math.round((c * (1 - w) + 255 * w) * k + 7 * (1 - k)));
 }
-function drawSlice(doc) {
-  const cv = $("slice"), ctx = cv.getContext("2d");
-  const fine = state.source === "continuum";
-  const M = fine ? 140 : doc.N, img = ctx.createImageData(M, M);
-  const zc = Math.floor(doc.N / 2);
-  for (let a = 0; a < M; a++) for (let b = 0; b < M; b++) {
-    let v;
-    if (fine) {
-      const cx = a / M, cy = b / M, r = Math.hypot(cx - 0.5, cy - 0.5);
-      const emitted = state.frame === "observer" ? state.t - r / C_SIGNAL : state.t;
-      if (emitted < 0) v = UNKNOWN;
-      else {
-        v = 0;
-        doc.preparation.modes.forEach(([amp, k], j) => {
-          v += doc.amps[j] * Math.cos(doc.omega[j] * emitted) * Math.cos(2 * Math.PI * (k[0] * cx + k[1] * cy + k[2] * 0.5));
-        });
-      }
-    } else {
-      v = doc.current[(a * doc.N + b) * doc.N + zc];
-    }
-    const [r, g, bl] = colour(v), o = 4 * ((M - 1 - b) * M + a);
-    img.data[o] = r; img.data[o + 1] = g; img.data[o + 2] = bl; img.data[o + 3] = 255;
-  }
-  const off = document.createElement("canvas"); off.width = M; off.height = M;
-  off.getContext("2d").putImageData(img, 0, 0);
-  ctx.imageSmoothingEnabled = fine;
-  ctx.clearRect(0, 0, cv.width, cv.height);
-  ctx.drawImage(off, 0, 0, cv.width, cv.height);
-  const R = C_SIGNAL * state.t * cv.width;
-  ctx.strokeStyle = "rgba(74,241,242,.9)"; ctx.lineWidth = 2;
-  if (state.frame === "observer" && R < cv.width) { ctx.beginPath(); ctx.arc(cv.width / 2, cv.height / 2, R, 0, 2 * Math.PI); ctx.stroke(); }
-  ctx.fillStyle = "#4af1f2"; ctx.beginPath(); ctx.arc(cv.width / 2, cv.height / 2, 6, 0, 2 * Math.PI); ctx.fill();
-  ctx.font = "22px " + getComputedStyle(document.body).getPropertyValue("--mono"); ctx.fillText("A", cv.width / 2 + 10, cv.height / 2 - 10);
-  $("sliceNote").textContent = fine
-    ? "The continuum limit evaluated on a fine grid: a smooth field." + (state.frame === "observer" ? " Inside the circle A holds records; outside it A holds no record." : "")
-    : `The law's ${doc.N} × ${doc.N} addresses in this plane, one value per address.` + (state.frame === "observer" ? " Inside the circle A holds records." : "");
-}
-function drawSeries(doc) {
-  const cv = $("series"), ctx = cv.getContext("2d"), W = cv.width, H = cv.height, pad = 34;
-  ctx.clearRect(0, 0, W, H);
-  const T = doc.chart_time, X = t => pad + (W - pad - 10) * t / T, Y = v => H / 2 - (H / 2 - 16) * v;
-  ctx.strokeStyle = "#1f2c37"; ctx.lineWidth = 1;
-  ctx.beginPath(); ctx.moveTo(pad, Y(0)); ctx.lineTo(W - 10, Y(0)); ctx.stroke();
-  ctx.fillStyle = "#8397a6"; ctx.font = "18px " + getComputedStyle(document.body).getPropertyValue("--mono");
-  ctx.fillText("+1", 2, Y(1) + 6); ctx.fillText("−1", 2, Y(-1)); ctx.fillText("chart time of emission →", pad, H - 4);
-  const picks = [[0, "#4af1f2"], [1, "#ffb04a"], [8, "#c38bff"]];
-  for (const [j, col] of picks) {
-    const s = doc.stations[j], r = Math.hypot(s[0] / doc.N - 0.5, s[1] / doc.N - 0.5, s[2] / doc.N - 0.5);
-    const limit = state.frame === "observer" ? state.t - r / C_SIGNAL : state.t;
-    ctx.setLineDash([6, 6]); ctx.strokeStyle = col + "66"; ctx.lineWidth = 1.5; ctx.beginPath();
-    doc.station_continuum.forEach((row, n) => { const t = n * doc.h; n ? ctx.lineTo(X(t), Y(row[j])) : ctx.moveTo(X(t), Y(row[j])); });
-    ctx.stroke(); ctx.setLineDash([]);
-    if (limit < 0) continue;
-    ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.beginPath();
-    let started = false;
-    doc.station_law.forEach((row, n) => {
-      const t = n * doc.h; if (t > limit + 1e-9) return;
-      started ? ctx.lineTo(X(t), Y(row[j])) : ctx.moveTo(X(t), Y(row[j])); started = true;
-    });
-    ctx.stroke();
-  }
-  ctx.fillStyle = "#8397a6"; ctx.fillText("A", W - 120, 22); ctx.fillStyle = "#ffb04a"; ctx.fillText("corner 1", W - 96, 22);
-  ctx.fillStyle = "#c38bff"; ctx.fillText("8", W - 20, 22);
-}
 
-// ---------- panels ----------
-function esc(s) { return String(s).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]); }
+// ---------- 2D helpers ----------
+const c2d = $("c2d");
+function axes(ctx, box, xr, yr, xl, yl, opts = {}) {
+  const [x0, y0, w, h] = box, X = v => x0 + w * (v - xr[0]) / (xr[1] - xr[0]), Y = v => y0 + h - h * (v - yr[0]) / (yr[1] - yr[0]);
+  ctx.strokeStyle = "#1f2c37"; ctx.lineWidth = 1; ctx.fillStyle = "#8397a6"; ctx.font = `${opts.font || 12}px ${MONO()}`;
+  for (const v of opts.yticks || []) { ctx.beginPath(); ctx.moveTo(x0, Y(v)); ctx.lineTo(x0 + w, Y(v)); ctx.stroke(); ctx.textAlign = "right"; ctx.fillText(opts.yfmt ? opts.yfmt(v) : v, x0 - 6, Y(v) + 4); }
+  for (const v of opts.xticks || []) { ctx.textAlign = "center"; ctx.fillText(opts.xfmt ? opts.xfmt(v) : v, X(v), y0 + h + 16); }
+  ctx.strokeStyle = "#33444f"; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + h); ctx.lineTo(x0 + w, y0 + h); ctx.stroke();
+  ctx.textAlign = "center"; ctx.fillText(xl, x0 + w / 2, y0 + h + 34);
+  ctx.save(); ctx.translate(x0 - 46, y0 + h / 2); ctx.rotate(-Math.PI / 2); ctx.fillText(yl, 0, 0); ctx.restore();
+  ctx.textAlign = "left";
+  return { X, Y };
+}
+function ticks(lo, hi, n) { const step = Math.pow(10, Math.floor(Math.log10((hi - lo) / n))); const s = [1, 2, 5, 10].map(m => m * step).find(m => (hi - lo) / m <= n); const out = []; for (let v = Math.ceil(lo / s) * s; v <= hi + 1e-12; v += s) out.push(+v.toFixed(10)); return out; }
+
+// ---------- view: a journey with clocks ----------
+const NAMES = { beat: "Beat clock (two private modes)", optical: "Optical clock (pulse on a transverse ring)", rails: "Rail clock (two rails of one constituent)" };
+const journey = {
+  footer: true,
+  async prepare(doc) {
+    doc.values = await unpack(doc.frames);
+    [doc.F, , doc.M] = doc.frames.shape;
+    doc.duration = doc.reunion; doc.rate = doc.reunion / 16;
+  },
+  enter(doc) {
+    $("legend").innerHTML = `<span><i style="background:var(--accent)"></i>traveller</span><span><i style="background:var(--warm)"></i>stationary twin</span><span><i style="background:#fff"></i>home laboratory</span>`;
+    $("dyn").innerHTML = doc.clocks.map((c, k) => `<section><h2>${esc(NAMES[c.clock] || c.clock)}</h2>
+      <div class="dials"><figure><canvas id="dialR${k}" width="300" height="300" class="panel"></canvas><figcaption>stationary twin</figcaption></figure>
+      <figure><canvas id="dialM${k}" width="300" height="300" class="panel"></canvas><figcaption>traveller</figcaption></figure></div>
+      <canvas id="adv${k}" width="680" height="300" class="panel" style="margin-top:10px"></canvas>
+      <div class="kv" id="read${k}"></div></section>`).join("") +
+      `<section><h2>At reunion</h2><table><tr><th>clock</th><th>forecast</th><th>reading</th><th>difference</th></tr>${doc.clocks.map(c =>
+        `<tr><td>${esc(c.clock)}</td><td>${doc.forecast.toFixed(5)}</td><td class="good">${c.ratio.toFixed(5)}</td><td>${(c.ratio - doc.forecast >= 0 ? "+" : "") + (c.ratio - doc.forecast).toFixed(5)}</td></tr>`).join("")}</table>
+      <p class="note">The forecast is the flat metric, sqrt(1 − v²/c²), with v from the traveller's own envelope and c the archived free-wave speed ${doc.reference_speed.toFixed(6)}. The reading is the traveller's advance at home at reunion divided by its twin's advance over the same ${doc.reunion} home ticks.</p></section>`;
+    $("explain").innerHTML = esc(doc.summary) + " The picture of the carrier and the traveller's running dial are audit views computed from the law; the reunion readings use only the home laboratory's records.";
+    $("meta").innerHTML = `<span>carrier</span><b>${doc.carrier.size} × ${doc.carrier.size} addresses in x, y</b><span>route</span><b>(${doc.route.join(", ")})</b>
+      <span>speed</span><b>${doc.speed.toFixed(5)} addresses per tick</b><span>reunion</span><b>${doc.reunion} home ticks</b>` + provenance(doc);
+  },
+  frameAt(doc) { const ticks = doc.ticks; let f = 0; while (f < ticks.length - 1 && ticks[f + 1] <= state.t) f++; return f; },
+  draw(doc) {
+    const dpr = fit(c2d), ctx = c2d.getContext("2d"), W = c2d.width, H = c2d.height;
+    ctx.fillStyle = "#05080c"; ctx.fillRect(0, 0, W, H);
+    const f = this.frameAt(doc), M = doc.M, S = Math.min(W - 40 * dpr, H - 70 * dpr), x0 = (W - S) / 2, y0 = (H - S) / 2 + 10 * dpr;
+    const img = ctx.createImageData(M, M), base = f * 2 * M * M;
+    for (let i = 0; i < M; i++) for (let j = 0; j < M; j++) {
+      const a = doc.values[base + i * M + j] / 255, b = doc.values[base + M * M + i * M + j] / 255;
+      const u = (i + M / 2) % M, v = (j + M / 2) % M, o = 4 * ((M - 1 - v) * M + u);
+      const c = 0.62 * b;
+      img.data[o] = Math.min(255, 7 + 74 * a + 255 * c); img.data[o + 1] = Math.min(255, 10 + 241 * a + 176 * c);
+      img.data[o + 2] = Math.min(255, 14 + 242 * a + 74 * c); img.data[o + 3] = 255;
+    }
+    const off = document.createElement("canvas"); off.width = M; off.height = M; off.getContext("2d").putImageData(img, 0, 0);
+    ctx.imageSmoothingEnabled = true; ctx.drawImage(off, x0, y0, S, S);
+    ctx.strokeStyle = "#1f2c37"; ctx.lineWidth = 1 * dpr; ctx.strokeRect(x0, y0, S, S);
+    const N = doc.carrier.size, P = ([x, y]) => [x0 + S * (((x + N / 2) % N) / N), y0 + S - S * (((y + N / 2) % N) / N)];
+    ctx.fillStyle = "rgba(74,241,242,.55)";
+    for (let k = 0; k <= f; k += 2) { const [px, py] = P(doc.centre[k]); ctx.fillRect(px - dpr, py - dpr, 2 * dpr, 2 * dpr); }
+    const [hx, hy] = P([0, 0]);
+    ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 1.5 * dpr; ctx.beginPath(); ctx.arc(hx, hy, 9 * dpr, 0, 2 * Math.PI); ctx.stroke();
+    ctx.fillStyle = "#dce7ee"; ctx.font = `${12 * dpr}px ${MONO()}`; ctx.fillText("home", hx + 12 * dpr, hy - 10 * dpr);
+    const tick = doc.ticks[f];
+    $("hud").innerHTML = `<b>${esc(doc.step)} · ${esc(doc.title)}</b><br>periodic carrier, home at the centre · audit view of the law's probabilities`;
+    $("clock").innerHTML = `home clock <b>${tick}</b> <small>of ${doc.reunion} ticks${tick === doc.reunion ? " · reunion" : ""}</small>`;
+    doc.clocks.forEach((c, k) => this.dials(doc, c, k, f));
+  },
+  dials(doc, c, k, f) {
+    const total = c.rest[c.rest.length - 1], sweep = 2 * Math.PI * 0.9;
+    const dial = (id, value, color, mark) => {
+      const cv = $(id); if (!cv) return; const ctx = cv.getContext("2d"), W = cv.width, R = W * 0.4, cx = W / 2, cy = W / 2;
+      ctx.clearRect(0, 0, W, W);
+      ctx.strokeStyle = "#1f2c37"; ctx.lineWidth = 10; ctx.beginPath(); ctx.arc(cx, cy, R, -Math.PI / 2, -Math.PI / 2 + sweep); ctx.stroke();
+      ctx.strokeStyle = color; ctx.beginPath(); ctx.arc(cx, cy, R, -Math.PI / 2, -Math.PI / 2 + sweep * Math.max(0, value / total)); ctx.stroke();
+      if (mark !== undefined) { const a = -Math.PI / 2 + sweep * mark; ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(cx + (R - 16) * Math.cos(a), cy + (R - 16) * Math.sin(a)); ctx.lineTo(cx + (R + 16) * Math.cos(a), cy + (R + 16) * Math.sin(a)); ctx.stroke(); }
+      const a = -Math.PI / 2 + sweep * Math.max(0, value / total);
+      ctx.fillStyle = "#dce7ee"; ctx.beginPath(); ctx.arc(cx + R * Math.cos(a), cy + R * Math.sin(a), 9, 0, 2 * Math.PI); ctx.fill();
+      ctx.fillStyle = "#dce7ee"; ctx.font = `34px ${MONO()}`; ctx.textAlign = "center"; ctx.fillText((value / total).toFixed(3), cx, cy + 12);
+      ctx.fillStyle = "#8397a6"; ctx.font = `17px ${MONO()}`; ctx.fillText("of the twin's total", cx, cy + 40); ctx.textAlign = "left";
+    };
+    dial(`dialR${k}`, c.rest[f], "#ffb04a");
+    dial(`dialM${k}`, c.moving[f], "#4af1f2", doc.forecast);
+    const cv = $(`adv${k}`), ctx = cv.getContext("2d"), W = cv.width, H = cv.height;
+    ctx.clearRect(0, 0, W, H);
+    const { X, Y } = axes(ctx, [64, 14, W - 84, H - 64], [0, doc.reunion], [0, 1.05], "home ticks", "advance / twin's total",
+      { yticks: [0, 0.5, 1], xticks: ticks(0, doc.reunion, 4), font: 16 });
+    ctx.setLineDash([8, 6]); ctx.strokeStyle = "#ffffff88"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(doc.reunion), Y(doc.forecast)); ctx.stroke(); ctx.setLineDash([]);
+    for (const [arr, col] of [[c.rest, "#ffb04a"], [c.moving, "#4af1f2"]]) {
+      ctx.strokeStyle = col; ctx.lineWidth = 3; ctx.beginPath();
+      for (let i = 0; i <= f; i++) { const x = X(doc.ticks[i]), y = Y(arr[i] / total); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
+      ctx.stroke();
+    }
+    ctx.strokeStyle = "#4b5d6b"; ctx.beginPath(); ctx.moveTo(X(doc.ticks[f]), Y(0)); ctx.lineTo(X(doc.ticks[f]), Y(1.05)); ctx.stroke();
+    const running = c.rest[f] > 0 ? c.moving[f] / c.rest[f] : NaN;
+    $(`read${k}`).innerHTML = `<span>twin</span><b>${c.rest[f].toFixed(4)} ${c.unit}</b><span>traveller</span><b>${c.moving[f].toFixed(4)} ${c.unit}</b>
+      <span>running ratio</span><b>${isFinite(running) ? running.toFixed(4) : "–"}</b><span>white mark</span><b>forecast ${doc.forecast.toFixed(5)}</b>`;
+  },
+};
+
+// ---------- view: the signal race ----------
+const race = {
+  footer: true,
+  async prepare(doc) {
+    doc.values = await unpack(doc.strip);
+    [doc.F, doc.L] = doc.strip.shape;
+    doc.duration = doc.deadlines.late; doc.rate = doc.deadlines.late / 14;
+  },
+  enter(doc) {
+    const d = doc.deadlines;
+    $("legend").innerHTML = `<span><i style="background:#2c6f74"></i>exponentially small precursor</span><span><i style="background:#fff"></i>the wave</span><span><i style="background:var(--warm)"></i>smooth cone, c = 1/2</span><span><i style="background:var(--bad)"></i>relay, excluded access</span>`;
+    $("dyn").innerHTML = `<section><h2>What B's detector records</h2><table>
+      <tr><td>first nonzero probability</td><td>update ${doc.first_nonzero}</td></tr>
+      <tr><td>largest before the early deadline</td><td>${doc.largest_before_early.toExponential(2)}</td></tr>
+      <tr><td>smooth arrival, r / c</td><td>update ${d.smooth}</td></tr>
+      <tr><td>summed detection probability by the late deadline</td><td>${doc.received_by_late.toFixed(3)}</td></tr></table>
+      <p class="note">The law's strict front moves one address per update, so B's probability is exactly zero before update ${d.strict_front}. Between the strict front and the smooth cone each further forward hop costs a factor 1/16, and the probability stays below ${doc.largest_before_early.toExponential(1)} until the early deadline at update ${d.early}. A field-only sender therefore cannot get a fresh bit to B ahead of the smooth cone. A relay that inhabitants could trigger would reach B at update ${d.strict_front} with certainty; that access rule is excluded.</p></section>`;
+    $("explain").innerHTML = esc(doc.summary);
+    $("meta").innerHTML = `<span>carrier</span><b>a strip of ${doc.carrier.size} addresses</b><span>A, B</span><b>${doc.source}, ${doc.receiver} (distance ${doc.distance})</b>` + provenance(doc);
+  },
+  draw(doc) {
+    const dpr = fit(c2d), ctx = c2d.getContext("2d"), W = c2d.width, H = c2d.height, d = doc.deadlines;
+    ctx.fillStyle = "#05080c"; ctx.fillRect(0, 0, W, H);
+    const f = Math.min(doc.F - 1, Math.floor(state.t / doc.stride)), t = f * doc.stride;
+    const lo = doc.source - doc.distance * 1.5, hi = doc.receiver + doc.distance * 0.75;
+    const x0 = 60 * dpr, w = W - 100 * dpr, X = x => x0 + w * (x - lo) / (hi - lo);
+    const top = 70 * dpr, sh = Math.min(120 * dpr, H * 0.22);
+    for (let x = Math.ceil(lo); x < hi; x++) {
+      const code = doc.values[f * doc.L + x], logp = code / 255 * 60 - 60;
+      const faint = code > 0 ? 0.10 + 0.28 * (logp + 60) / 54 : 0, bright = Math.max(0, Math.min(1, (logp + 6) / 4));
+      ctx.fillStyle = `rgb(${Math.round(6 + 40 * faint + 245 * bright)},${Math.round(9 + 190 * faint + 240 * bright)},${Math.round(13 + 200 * faint + 238 * bright)})`;
+      ctx.fillRect(X(x), top, Math.ceil(w / (hi - lo)) + 1, sh);
+    }
+    const mark = (x, color, label, dash) => { ctx.strokeStyle = color; ctx.setLineDash(dash || []); ctx.lineWidth = 2 * dpr; ctx.beginPath(); ctx.moveTo(X(x), top - 8 * dpr); ctx.lineTo(X(x), top + sh + 8 * dpr); ctx.stroke(); ctx.setLineDash([]); if (label) { ctx.fillStyle = color; ctx.font = `${12 * dpr}px ${MONO()}`; ctx.fillText(label, X(x) - 6 * dpr, top - 14 * dpr); } };
+    mark(doc.source, "#ffffff", "A"); mark(doc.receiver, "#ffffff", "B");
+    mark(doc.source + C_SIGNAL * t, "#ffb04a", null, [6, 4]); mark(doc.source - C_SIGNAL * t, "#ffb04a", null, [6, 4]);
+    if (t <= doc.distance) { ctx.strokeStyle = "#ff6b6b"; ctx.lineWidth = 2 * dpr; ctx.beginPath(); ctx.arc(X(doc.source + t), top + sh / 2, 9 * dpr, 0, 2 * Math.PI); ctx.stroke(); }
+    ctx.fillStyle = "#8397a6"; ctx.font = `${12 * dpr}px ${MONO()}`; ctx.fillText("address →", x0, top + sh + 26 * dpr);
+    const cy = top + sh + 60 * dpr, ch = H - cy - 90 * dpr;
+    const { X: TX, Y: TY } = axes(ctx, [x0, cy, w, ch], [0, d.late], [-60, 0], "update at B", "log10 P(detect at B)",
+      { yticks: [-60, -45, -30, -15, 0], xticks: [0, d.strict_front, d.early, d.smooth, d.late], font: 12 * dpr });
+    for (const [x, col, label] of [[d.strict_front, "#ff6b6b", "strict front"], [d.early, "#8397a6", "early deadline"], [d.smooth, "#ffb04a", "smooth arrival"], [d.late, "#8397a6", "late deadline"]]) {
+      ctx.strokeStyle = col; ctx.setLineDash([4, 4]); ctx.lineWidth = 1 * dpr; ctx.beginPath(); ctx.moveTo(TX(x), cy); ctx.lineTo(TX(x), cy + ch); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = col; ctx.fillText(label, TX(x) + 4 * dpr, cy + 14 * dpr);
+    }
+    ctx.strokeStyle = "#4af1f2"; ctx.lineWidth = 2.5 * dpr; ctx.beginPath(); let on = false;
+    for (let n = 0; n <= Math.min(t, d.late); n++) {
+      const p = doc.detector[n]; if (!(p > 0)) { on = false; continue; }
+      const y = TY(Math.max(-60, Math.log10(p))); on ? ctx.lineTo(TX(n), y) : ctx.moveTo(TX(n), y); on = true;
+    }
+    ctx.stroke();
+    $("hud").innerHTML = `<b>${esc(doc.step)} · ${esc(doc.title)}</b><br>field-only access: the free wave is the only messenger`;
+    $("clock").innerHTML = `A's clock <b>${t}</b> <small>updates since the launch</small>`;
+  },
+};
+
+// ---------- view: a scan ----------
+const scan = {
+  footer: false,
+  async prepare(doc) { doc.duration = 0; },
+  enter(doc) {
+    $("legend").innerHTML = "";
+    const [head, ...rows] = doc.table;
+    $("dyn").innerHTML = `<section><h2>Values</h2><table><tr>${head.map(h => `<th>${esc(h)}</th>`).join("")}</tr>${rows.map(r => `<tr>${r.map(v => `<td>${v === null ? "–" : esc(v)}</td>`).join("")}</tr>`).join("")}</table></section>`;
+    $("explain").innerHTML = esc(doc.summary);
+    $("meta").innerHTML = provenance(doc);
+    $("hud").innerHTML = `<b>${esc(doc.step)} · ${esc(doc.title)}</b>`;
+  },
+  draw(doc) {
+    const dpr = fit(c2d), ctx = c2d.getContext("2d"), W = c2d.width, H = c2d.height;
+    ctx.fillStyle = "#05080c"; ctx.fillRect(0, 0, W, H);
+    const all = doc.series.flatMap(s => s.points).concat(doc.curves.flatMap(c => c.points)).filter(p => p[1] !== null);
+    const xs = all.map(p => p[0]), ys = all.map(p => p[1]);
+    const padx = (Math.max(...xs) - Math.min(...xs)) * 0.06 || 1, pady = (Math.max(...ys) - Math.min(...ys)) * 0.08 || 0.1;
+    const xr = [Math.min(...xs) - padx, Math.max(...xs) + padx], yr = [Math.min(...ys) - pady, Math.max(...ys) + pady];
+    const box = [90 * dpr, 70 * dpr, W - 130 * dpr, H - 160 * dpr];
+    const { X, Y } = axes(ctx, box, xr, yr, doc.x_label, doc.y_label, { xticks: ticks(xr[0], xr[1], 6), yticks: ticks(yr[0], yr[1], 6), font: 13 * dpr, yfmt: v => +v.toFixed(4) });
+    if (doc.zero_line) { ctx.strokeStyle = "#dce7ee55"; ctx.lineWidth = 1.5 * dpr; ctx.beginPath(); ctx.moveTo(X(xr[0]), Y(0)); ctx.lineTo(X(xr[1]), Y(0)); ctx.stroke(); }
+    doc.curves.forEach(c => { ctx.strokeStyle = "#dce7eeaa"; ctx.lineWidth = 2 * dpr; ctx.setLineDash([8, 6]); ctx.beginPath(); c.points.forEach((p, i) => i ? ctx.lineTo(X(p[0]), Y(p[1])) : ctx.moveTo(X(p[0]), Y(p[1]))); ctx.stroke(); ctx.setLineDash([]); });
+    doc.series.forEach((s, k) => {
+      const col = PALETTE[k % PALETTE.length];
+      ctx.strokeStyle = col + "88"; ctx.lineWidth = 1.5 * dpr; ctx.beginPath(); let on = false;
+      s.points.forEach(p => { if (p[1] === null) return; on ? ctx.lineTo(X(p[0]), Y(p[1])) : ctx.moveTo(X(p[0]), Y(p[1])); on = true; }); ctx.stroke();
+      s.points.forEach(p => { if (p[1] === null) return; ctx.fillStyle = col; ctx.beginPath(); ctx.arc(X(p[0]), Y(p[1]), (5 - k * 0.6) * dpr, 0, 2 * Math.PI); ctx.fill(); });
+    });
+    ctx.font = `${13 * dpr}px ${MONO()}`;
+    const legend = doc.series.map((s, k) => [s.name, PALETTE[k % PALETTE.length], false]).concat(doc.curves.map(c => [c.name, "#dce7ee", true]));
+    legend.forEach(([name, col, dashed], k) => {
+      const lx = box[0] + 12 * dpr, ly = box[1] + 18 * dpr + k * 20 * dpr;
+      ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 2 * dpr;
+      if (dashed) { ctx.setLineDash([6, 4]); ctx.beginPath(); ctx.moveTo(lx, ly - 4 * dpr); ctx.lineTo(lx + 22 * dpr, ly - 4 * dpr); ctx.stroke(); ctx.setLineDash([]); }
+      else { ctx.beginPath(); ctx.arc(lx + 11 * dpr, ly - 4 * dpr, 5 * dpr, 0, 2 * Math.PI); ctx.fill(); }
+      ctx.fillStyle = "#dce7ee"; ctx.fillText(name, lx + 30 * dpr, ly);
+    });
+  },
+};
+
+// ---------- view: formation through the capture vertex ----------
+const formation = {
+  footer: true,
+  async prepare(doc) {
+    doc.values = await unpack(doc.joint);
+    [doc.F, doc.N] = doc.joint.shape;
+    doc.duration = doc.updates; doc.rate = doc.updates / 12;
+  },
+  enter(doc) {
+    $("legend").innerHTML = `<span><i style="background:var(--accent)"></i>the two separate constituents</span><span><i style="background:var(--warm)"></i>the formed pair</span><span><i style="background:#c38bff"></i>markers on the junction wires</span>`;
+    $("dyn").innerHTML = `<section><h2>Formation</h2><table>
+      <tr><td>probability of a formed pair</td><td>${doc.captured[doc.captured.length - 1].toFixed(4)}</td></tr>
+      <tr><td>with the vertex disabled</td><td>${doc.captured_without_vertex.toFixed(4)}</td></tr>
+      <tr><td>formed pair ahead of its birthplace, markers traced out</td><td>${(100 * doc.forward_fraction).toFixed(1)}%</td></tr>
+      <tr><td>the same, markers read at a coherent collector</td><td>${(100 * doc.forward_fraction_collected).toFixed(1)}%</td></tr></table>
+      <p class="note">Once formed, the pair never separates: the contact law keeps its bound subspace invariant. Each marker records the junction and the update of a birth, so with the markers traced out every birth is a localized pair that spreads both ways. A collector that joins all junction wires coherently leaves the birthplace unresolved at its common port; conditioned on that port the pair keeps the incoming net momentum and leaves in both directions all the same, the split that stopped the clock test of step 5.</p>
+      <canvas id="capCurve" width="680" height="280" class="panel"></canvas></section>`;
+    $("explain").innerHTML = esc(doc.summary) + " The pictures are audit views of the law's probabilities.";
+    $("meta").innerHTML = `<span>carrier</span><b>a strip of ${doc.carrier.size} junctions</b><span>launch orders</span><b>${doc.orders.join(", ")}</b>
+      <span>conversion angle</span><b>${doc.angle.toFixed(4)} rad</b><span>contact phase</span><b>${doc.contact_phase.toFixed(6)}</b>` + provenance(doc);
+  },
+  draw(doc) {
+    const dpr = fit(c2d), ctx = c2d.getContext("2d"), W = c2d.width, H = c2d.height, N = doc.N;
+    ctx.fillStyle = "#05080c"; ctx.fillRect(0, 0, W, H);
+    const f = Math.min(doc.F - 1, Math.round(state.t)), font = `${12 * dpr}px ${MONO()}`;
+    const S = Math.min(W * 0.42, H - 120 * dpr), x0 = 50 * dpr, y0 = 70 * dpr;
+    const img = ctx.createImageData(N, N);
+    for (let a = 0; a < N; a++) for (let b = 0; b < N; b++) {
+      const v = doc.values[f * N * N + a * N + b] / 255, o = 4 * ((N - 1 - b) * N + a);
+      img.data[o] = 7 + 67 * v; img.data[o + 1] = 10 + 231 * v; img.data[o + 2] = 14 + 228 * v; img.data[o + 3] = 255;
+    }
+    const off = document.createElement("canvas"); off.width = N; off.height = N; off.getContext("2d").putImageData(img, 0, 0);
+    ctx.imageSmoothingEnabled = false; ctx.drawImage(off, x0, y0, S, S);
+    ctx.strokeStyle = "#ffb04a88"; ctx.setLineDash([6, 5]); ctx.lineWidth = 1.5 * dpr; ctx.beginPath(); ctx.moveTo(x0, y0 + S); ctx.lineTo(x0 + S, y0); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = "#8397a6"; ctx.font = font;
+    ctx.fillText("position of A →", x0, y0 + S + 18 * dpr);
+    ctx.save(); ctx.translate(x0 - 10 * dpr, y0 + S); ctx.rotate(-Math.PI / 2); ctx.fillText("position of B →", 0, 0); ctx.restore();
+    ctx.fillText("the two constituents while unjoined (dashed: same junction)", x0, y0 - 14 * dpr);
+    const sx = x0 + S + 70 * dpr, sw = W - sx - 30 * dpr, base = y0 + S, Z = z => sx + sw * (z + 0.5) / N;
+    const wireTop = y0 + 20 * dpr, wireH = base - wireTop - 120 * dpr;
+    ctx.strokeStyle = "#1f2c37"; ctx.lineWidth = 1 * dpr;
+    for (let z = 0; z < N; z++) { ctx.beginPath(); ctx.moveTo(Z(z), wireTop); ctx.lineTo(Z(z), wireTop + wireH); ctx.stroke(); }
+    const ages = Math.max(1, doc.updates);
+    for (const [z, n, w] of doc.markers) {
+      if (n >= f) continue;
+      const age = f - n, y = wireTop + wireH - wireH * age / ages, a = Math.min(1, Math.sqrt(w) * 12);
+      ctx.fillStyle = `rgba(195,139,255,${a.toFixed(3)})`; ctx.fillRect(Z(z) - 2 * dpr, y - 1.5 * dpr, 4 * dpr, 3 * dpr);
+    }
+    ctx.fillStyle = "#8397a6"; ctx.fillText("marker wires: a marker climbs one link per update", sx, wireTop - 8 * dpr);
+    const plotTop = wireTop + wireH + 20 * dpr, plotH = base - plotTop;
+    const bound = doc.bound[f], coll = doc.collected[f];
+    const peak = Math.max(1e-12, ...doc.bound[doc.F - 1], ...doc.bound[f]);
+    const cpeak = Math.max(1e-12, ...doc.collected[doc.F - 1]);
+    const area = (arr, top, col, fill) => { ctx.beginPath(); ctx.moveTo(Z(0), plotTop + plotH); arr.forEach((v, z) => ctx.lineTo(Z(z), plotTop + plotH - plotH * v / top)); ctx.lineTo(Z(N - 1), plotTop + plotH); ctx.closePath(); ctx.fillStyle = fill; ctx.fill(); ctx.strokeStyle = col; ctx.lineWidth = 2 * dpr; ctx.stroke(); };
+    area(bound, peak, "#ffb04a", "rgba(255,176,74,.25)");
+    ctx.setLineDash([5, 4]); ctx.strokeStyle = "#4af1f2"; ctx.lineWidth = 2 * dpr; ctx.beginPath();
+    coll.forEach((v, z) => { const y = plotTop + plotH - plotH * v / cpeak; z ? ctx.lineTo(Z(z), y) : ctx.moveTo(Z(z), y); }); ctx.stroke(); ctx.setLineDash([]);
+    ctx.strokeStyle = "#ffffff55"; ctx.beginPath(); ctx.moveTo(Z(doc.birth_centre), plotTop); ctx.lineTo(Z(doc.birth_centre), plotTop + plotH); ctx.stroke();
+    ctx.fillStyle = "#8397a6"; ctx.fillText("formed pair along the strip (dashed: given the collector's common port)", sx, plotTop - 6 * dpr);
+    ctx.fillText("junction →", sx, base + 18 * dpr);
+    const cv = $("capCurve");
+    if (cv) {
+      const c = cv.getContext("2d"); c.clearRect(0, 0, cv.width, cv.height);
+      const top = Math.max(0.05, doc.captured[doc.captured.length - 1] * 1.15);
+      const { X, Y } = axes(c, [70, 14, cv.width - 90, cv.height - 64], [0, doc.updates], [0, top], "update", "P(formed pair)", { yticks: ticks(0, top, 4), xticks: ticks(0, doc.updates, 4), font: 16, yfmt: v => +v.toFixed(3) });
+      c.strokeStyle = "#ff6b6b"; c.setLineDash([6, 5]); c.lineWidth = 2; c.beginPath(); c.moveTo(X(0), Y(doc.captured_without_vertex)); c.lineTo(X(doc.updates), Y(doc.captured_without_vertex)); c.stroke(); c.setLineDash([]);
+      c.strokeStyle = "#ffb04a"; c.lineWidth = 3; c.beginPath(); for (let n = 0; n <= f; n++) n ? c.lineTo(X(n), Y(doc.captured[n])) : c.moveTo(X(n), Y(doc.captured[n])); c.stroke();
+      c.fillStyle = "#ff6b6b"; c.font = `15px ${MONO()}`; c.fillText("vertex disabled", X(doc.updates * 0.55), Y(0) - 8);
+    }
+    $("hud").innerHTML = `<b>${esc(doc.step)} · ${esc(doc.title)}</b><br>capture vertex with an outgoing marker · audit view of the law's probabilities`;
+    $("clock").innerHTML = `update <b>${f}</b> <small>of ${doc.updates}</small>`;
+  },
+};
+
+// ---------- view: a table of clock journeys ----------
+const table = {
+  footer: false,
+  async prepare(doc) { doc.duration = 0; },
+  enter(doc) {
+    $("legend").innerHTML = "";
+    $("html").innerHTML = `<h3>${esc(doc.title)}</h3><p>Each clock's advance on the journey divided by its stationary twin's advance over the same home ticks, read at home at reunion.</p>
+      <table style="max-width:760px"><tr><th>route</th><th>reunion</th><th>speed</th><th>forecast</th><th>beat</th><th>optical</th></tr>${doc.journeys.map(j =>
+        `<tr><td>(${j.route.join(", ")})</td><td>${j.reunion}</td><td>${j.speed.toFixed(5)}</td><td>${j.forecast.toFixed(5)}</td><td>${j.beat_ratio.toFixed(5)}</td><td>${j.optical_ratio.toFixed(5)}</td></tr>`).join("")}</table>`;
+    $("explain").innerHTML = ""; $("meta").innerHTML = provenance(doc);
+  },
+  draw() {},
+};
+
+const VIEWS = { field3d: field, journey, race, scan, formation, "clock-journeys": table };
+
+// ---------- selection and loop ----------
 function lawPanel(doc) {
   const l = doc.law, lam = l.equal_phase;
-  $("law").innerHTML = `<div class="law-title">${esc(l.title)}</div>
+  const rails = l.rail_contact_phases && l.rail_contact_phases.length ? `<span>rail contact phases</span><b>${l.rail_contact_phases.map(v => v.toFixed(6)).join(", ")}</b>` : "";
+  $("law").innerHTML = `${doc.step ? `<div class="step">${esc(doc.step)}</div>` : ""}<div class="law-title">${esc(l.title)}</div>
     <span class="badge status-${esc(l.status)}">${esc(l.status)}</span><span class="badge" style="color:var(--muted)">${esc(l.access)}</span>
     <div class="kv"><span>equal-slot phase λ</span><b>${lam[0].toFixed(4)} ${lam[1] >= 0 ? "+" : "−"} ${Math.abs(lam[1]).toFixed(4)}i</b>
-    <span>encounter phase χ</span><b>${l.encounter_phase.toFixed(4)} rad</b></div>
+    <span>encounter phase χ</span><b>${l.encounter_phase.toFixed(4)} rad</b>${rails}</div>
     <p class="note">${esc(l.note)}</p>`;
 }
-function fieldPanels(doc) {
-  const rows = doc.convergence.map((c, k) => {
-    const prev = doc.convergence[k - 1];
-    const order = prev ? Math.log(prev.max_error / c.max_error) / Math.log(c.size / prev.size) : null;
-    return `<tr><td>N = ${c.size}</td><td>${c.max_error.toFixed(5)}</td><td>${order ? order.toFixed(2) : ""}</td></tr>`;
-  }).join("");
-  $("convergence").innerHTML = `<table><tr><th>Carrier</th><th>largest |law − continuum|</th><th>order</th></tr>${rows}</table>
-    <p class="note">Deviation of the law's field from the Klein–Gordon solution, relative to the largest initial value, over chart times 0 to ${doc.chart_time}. Order 2 means the error falls by four when the resolution doubles.</p>`;
-  const p = doc.provenance;
-  $("explain").innerHTML = `The law runs on a carrier of ${doc.N}<sup>3</sup> addresses with a private register in sector Q = 2π·${doc.carrier.private_order}. A field pattern is released at rest. Each point is the scalar field the observers' interferometers read at one address. Observer A sits at the centre. A signal travels at c = 1/2 chart units per chart time, so the picture A holds at its clock time t shows each address as it was at t − r/c. Points that no record has reached are grey. The chart description shows every address at the same chart time: the effective description all observers agree on once every record is collected.`;
-  $("meta").innerHTML = `<span>equation</span><b>${esc(doc.continuum.equation)}</b>
-    <span>signal speed c</span><b>1/2</b><span>rest frequency</span><b>|Q|/2 = ${doc.continuum.rest_angular_frequency.toFixed(4)}</b>
-    <span>updates</span><b>${doc.updates} (h = 1/${doc.N})</b><span>computed</span><b>${esc(p.created)} · ${p.seconds} s</b>
-    <span>engine</span><b>Python ${esc(p.python)} · NumPy ${esc(p.numpy)} · ${esc(p.machine)}</b>`;
-}
-function journeysView(doc) {
-  const rows = doc.journeys.map(j => `<tr><td>(${j.route.join(", ")})</td><td>${j.reunion}</td><td>${j.speed.toFixed(5)}</td><td>${j.forecast.toFixed(5)}</td><td>${j.beat_ratio.toFixed(5)}</td><td>${j.optical_ratio.toFixed(5)}</td></tr>`).join("");
-  const bars = doc.journeys.map(j => {
-    const X = v => `${(v - 0.5) / 0.3 * 100}%`;
-    return `<div><div class="row" style="margin-bottom:4px">route (${j.route.join(", ")})</div><div class="bar">
-      <span style="left:${X(j.forecast - 0.035)};width:${0.07 / 0.3 * 100}%;background:#12303a"></span>
-      <em style="left:${X(j.forecast)}"></em>
-      <em style="left:${X(j.beat_ratio)};background:var(--warm);width:4px"></em>
-      <em style="left:${X(j.optical_ratio)};background:var(--accent);width:4px"></em></div></div>`;
-  }).join("");
-  $("journeys").innerHTML = `<h3>${esc(doc.title)}</h3>
-    <p>Each clock's advance on the journey divided by its stationary twin's advance over the same home ticks, read at home at reunion. The forecast is the flat metric with the speed from the beat clock's own envelope and the archived reference speed. The shaded band is the registered ±0.035. White: forecast. Amber: beat clock. Cyan: optical clock.</p>
-    <table style="max-width:760px"><tr><th>route</th><th>reunion</th><th>speed</th><th>forecast</th><th>beat</th><th>optical</th></tr>${rows}</table>
-    <div class="bars">${bars}</div>`;
-}
-
 function select(doc) {
-  state.run = doc; state.t = 0;
+  state.run = doc; state.t = 0; state.view = VIEWS[doc.kind];
   $("runPicker").value = state.runs.indexOf(doc);
   $("empty").style.display = "none";
+  const isField = doc.kind === "field3d";
+  $("gl").style.display = isField ? "block" : "none";
+  $("c2d").style.display = !isField && doc.kind !== "clock-journeys" ? "block" : "none";
+  $("html").style.display = doc.kind === "clock-journeys" ? "block" : "none";
+  document.querySelectorAll(".only-field").forEach(s => s.style.display = isField ? "" : "none");
+  $("dyn").innerHTML = "";
+  document.body.classList.toggle("static", !state.view.footer);
   lawPanel(doc);
-  const field = doc.kind === "field3d";
-  $("journeys").style.display = field ? "none" : "block";
-  $("gl").style.visibility = field ? "visible" : "hidden";
-  for (const id of ["legend", "hud"]) $(id).style.display = field ? "" : "none";
-  for (const id of ["viewCard"]) $(id).style.display = field ? "" : "none";
-  document.querySelectorAll("aside section").forEach((s, k) => { if (k > 1) s.style.display = field ? "" : "none"; });
-  if (field) fieldPanels(doc); else journeysView(doc);
+  state.view.enter(doc);
+  $("time").value = 0;
 }
-
-// ---------- loop ----------
 function frame(now) {
   const doc = state.run, dt = Math.min(0.1, (now - state.last) / 1000);
   state.last = now;
-  if (doc && doc.kind === "field3d") {
-    if (state.playing) {
-      state.t += dt * 0.32;
-      if (state.t > doc.chart_time) state.t = 0;
-      $("time").value = Math.round(1000 * state.t / doc.chart_time);
+  if (doc) {
+    if (state.view.footer && state.playing) {
+      state.t += dt * doc.rate;
+      if (state.t > doc.duration) state.t = 0;
+      $("time").value = Math.round(1000 * state.t / doc.duration);
     }
-    if ($("spin").checked) state.yaw += dt * 0.12;
-    drawField(doc); drawSlice(doc); drawSeries(doc);
-    const n = Math.round(state.t / doc.h), R = C_SIGNAL * state.t;
-    $("clock").innerHTML = `A's clock t = <b>${state.t.toFixed(3)}</b> <small>chart units · ${n} of ${doc.updates} updates</small>`;
-    $("hud").innerHTML = `<b>${state.frame === "observer" ? "Observer A's records" : "Chart description (audit)"}</b> · ${({ law: "the law", continuum: "the continuum limit", difference: "law − continuum, ×20" })[state.source]}<br>` +
-      (state.frame === "observer" ? (R < 0.87 ? `record horizon r = c·t = ${R.toFixed(3)}` : "every address has reached A") : "all addresses at one chart time");
+    if (doc.kind === "field3d" && $("spin").checked) state.yaw += dt * 0.12;
+    state.view.draw(doc);
   }
   requestAnimationFrame(frame);
 }
@@ -500,9 +731,9 @@ function segment(id, key) {
 }
 segment("frameSeg", "frame"); segment("sourceSeg", "source");
 $("play").onclick = () => { state.playing = !state.playing; $("play").textContent = state.playing ? "Pause" : "Play"; };
-$("time").oninput = e => { if (state.run && state.run.chart_time) { state.t = state.run.chart_time * e.target.value / 1000; } };
+$("time").oninput = e => { if (state.run && state.run.duration) state.t = state.run.duration * e.target.value / 1000; };
 $("runPicker").onchange = e => select(state.runs[+e.target.value]);
-$("file").onchange = async e => { const f = e.target.files[0]; if (f) await openRun(new Uint8Array(await f.arrayBuffer()), f.name); };
+$("file").onchange = async e => { let last; for (const f of e.target.files) last = await openRun(new Uint8Array(await f.arrayBuffer()), f.name); if (last) select(last); };
 let drag = null;
 canvas.addEventListener("pointerdown", e => { drag = [e.clientX, e.clientY]; canvas.setPointerCapture(e.pointerId); });
 canvas.addEventListener("pointermove", e => {
@@ -516,8 +747,9 @@ const stage = $("stage");
 stage.addEventListener("dragover", e => { e.preventDefault(); $("drop").style.display = "flex"; });
 stage.addEventListener("dragleave", () => { $("drop").style.display = "none"; });
 stage.addEventListener("drop", async e => {
-  e.preventDefault(); $("drop").style.display = "none";
-  for (const f of e.dataTransfer.files) await openRun(new Uint8Array(await f.arrayBuffer()), f.name);
+  e.preventDefault(); $("drop").style.display = "none"; let last;
+  for (const f of e.dataTransfer.files) last = await openRun(new Uint8Array(await f.arrayBuffer()), f.name);
+  if (last) select(last);
 });
 (async () => {
   for (const s of EMBEDDED) await openRun(b64(s));
@@ -529,9 +761,9 @@ stage.addEventListener("drop", async e => {
   if (view.get("source")) press("sourceSeg", view.get("source"));
   if (view.get("play") === "0") $("play").click();
   if (view.get("spin") === "0") $("spin").checked = false;
-  if (view.get("t") && state.run && state.run.chart_time) {
-    state.t = Math.min(+view.get("t"), state.run.chart_time);
-    $("time").value = Math.round(1000 * state.t / state.run.chart_time);
+  if (view.get("t") && state.run && state.run.duration) {
+    state.t = Math.min(+view.get("t"), state.run.duration);
+    $("time").value = Math.round(1000 * state.t / state.run.duration);
   }
   requestAnimationFrame(frame);
 })();

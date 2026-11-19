@@ -476,3 +476,94 @@ happen on the same executable.
    trigger and return operation, with the channel race of step 2 rerun on it.
 3. The moving-clock and channel tests on the contrast-memory law and the
    scalar channel of polynomial-sv.
+
+## Step 5. A pair formed in an encounter
+
+Experiments run on 20 November 2026.
+[Report](formation-clock/report.md)
+
+**Question.** Step 4 found that the compact pair cannot form from separated
+constituents, because its bound subspace is invariant. Does a law that
+exports a separate record at the encounter form the pair, and does the formed
+pair carry a clock along one measurable path?
+
+### What was found
+
+**The successor law.** Every junction gets its own periodic wire of neutral
+modes. When the two constituents meet head-on at a junction, the vertex
+rotates that collision channel, at a conversion angle of π/4, into a matched
+pair in the equal-slot state plus one marker on the junction's wire. The
+marker moves away one link per update, and an incoming marker would reverse
+the transition. Both clock rails see the same vertex. After the marker has
+left, the pair evolves under the contact law of step 4. The marker is an
+information carrier supplied by the law; no energy is assigned to it.
+
+**Formation works.** At one aimed crossing, 8,145 of 16,384 launches gave a
+first-encounter marker, and in every marked trial the two constituents were
+detected together at the assigned time, at four terminal ages from 0 to 8
+updates after the capture. Zero marked trials separated. With the vertex
+disabled, or one beam offset, no first-encounter marker appeared. A receiver
+that deliberately displaced one constituent reported all 8,230 marked pairs
+as separated, so the detector could report either outcome.
+[Report section](formation-clock/report.md#what-the-observers-recorded)
+
+**The formed pair does not travel as one clock.** The pair's internal dial
+gave the forecast local interference signal: all five coherent phase
+readings, the two stationary references included, agreed with their sealed
+forecasts within one counting standard error. The single-traveller test
+required 90% of home arrivals in the intended winding. The records gave
+81.28% on the axial route, 77.18% on the diagonal and 77.16% on the reflected
+diagonal, and the independent position survey found the centre of the cohort
+at 0.034 and 0.035 laps where one lap was enrolled. On the forward diagonal
+the observers counted 496,041 forward, 132,953 reverse and 13,699
+zero-winding arrivals. The stationary dial also advanced at a changing rate:
+0.07440 ± 0.00128 rad at 736 ticks and 0.04692 ± 0.00074 rad at 896 ticks in
+independent trials. No moving/rest ratio is supported by these records.
+
+**Why it fails.** A second receiver combined the four approach layers
+coherently and selected the component with the same phase on every layer. It
+counted 1,977,622 forward and 530,047 backward diagonal arrivals, and
+more than 99.99% of all backward arrivals came through that smooth component.
+Filtering out short longitudinal wavelengths would leave 21.14% travelling
+backwards. The finite gate accounts for it: the vertex emits an equal sum
+over routing slots, whose one-step amplitude $a e^{-i\varphi/2}$ splits into
+the two unit phases $e^{\mp iE}$ with weights
+$(1 \pm a\sin(\varphi/2)/\sin E)/2$, and the two phases travel in opposite
+directions. For the central diagonal mode the forward weights are 78.73% and
+78.88% for the two rails.
+[Report section](formation-clock/report.md#which-components-went-backwards)
+
+### Standing of the law classes
+
+| Class | Defining feature | Standing | Deciding records |
+| --- | --- | --- | --- |
+| Compact pair with a reversible capture vertex | A head-on collision converts into a bound pair plus an outgoing marker on a junction wire. | **Survives** for formation; **fails** the single-traveller clock test as prepared | 8,145 of 16,384 launches formed a pair that stayed together; zero marks with the vertex disabled. 77–81% of arrivals in the intended winding against a registered 90%; no completed lap of the cohort's centre. |
+| Compact pair without an exported record | The contact law of step 4. | **Excluded** for formation | The invariant bound subspace of step 4. |
+| Vertices that emit the pair in the equal-slot state | The output of the capture is a symmetric sum over routing slots. | **Disfavoured** as a source of moving clocks | The equal-slot output splits into two opposite group velocities with weights near 79% and 21%. |
+
+### What the step means for the search
+
+Exporting a distinct record removes the formation obstacle: a law with a
+reversible capture vertex and an outgoing marker forms a persistent pair from
+separately launched constituents. Binding and carrying a clock along one path
+are separate requirements, and this vertex meets the first only. The
+direction a formed pair travels is set by the state the vertex emits, and an
+equal-slot output populates both directions. A law that forms clocks has to
+select one outgoing branch, either through the encounter's own kinematics,
+with the marker carrying the recoil, or through a vertex whose output is a
+single travelling branch. The capture vertex, its π/4 angle and the marker
+wires are supplied; what an unprepared repair history forms is open.
+
+### Handed to the following steps
+
+1. With the law fixed, longer initially separated wave trains that meet over
+   several approach planes and times, with earlier emissions and depletion
+   tracked. The test: does the encounter select one outgoing direction, does
+   the formed clock keep one rest rate across several durations, and does the
+   cohort make its measured reunion?
+2. The recoil frequency of the marker and both outgoing directions, recorded
+   separately.
+3. A bounded autonomous candidate that assigns an owner to every send,
+   trigger and return operation, with the channel race of step 2 rerun on it.
+4. The moving-clock and channel tests on the contrast-memory law and the
+   scalar channel of polynomial-sv.

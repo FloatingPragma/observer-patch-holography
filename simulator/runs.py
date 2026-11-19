@@ -33,7 +33,9 @@ def _law(law) -> dict:
     return {"key": law.key, "title": law.title,
             "equal_phase": [float(np.real(law.equal_phase)), float(np.imag(law.equal_phase))],
             "encounter_phase": float(law.encounter_phase), "access": law.access,
-            "status": law.status, "note": law.note}
+            "status": law.status, "note": law.note,
+            "rail_contact_phases": [float(v) for v in law.rail_contact_phases],
+            "rail_extra_phases": [float(v) for v in law.rail_extra_phases]}
 
 
 def _provenance(seconds: float) -> dict:
@@ -94,3 +96,81 @@ def read(path: Path) -> dict:
     if document.get("format") != FORMAT:
         raise ValueError(f"unknown run format {document.get('format')!r}")
     return document
+
+
+def journey_document(result: dict, title: str, step: str, summary: str) -> dict:
+    """An animated journey: traveller and stationary twin densities, clock advances, forecast."""
+    density = result["density"]  # (F, 2, M, M): traveller, twin
+    scale = density.max(axis=(0, 2, 3), keepdims=True)
+    scaled = np.sqrt(np.clip(density / scale, 0, 1))
+    return {
+        "format": FORMAT, "kind": "journey", "title": title, "step": step, "summary": summary,
+        "law": _law(result["law"]),
+        "carrier": {"size": result["size"], "stride": result["stride"]},
+        "route": result["route"], "ticks": result["ticks"], "centre": np.round(result["centre"], 2).tolist(),
+        "speed": result["speed"], "reunion": result["reunion"], "forecast": result["forecast"],
+        "reference_speed": 1 / 2.002604166666667,
+        "frames": {**_pack(np.round(scaled * 255), "uint8"),
+                   "note": "sqrt of probability over (x, y), sampled every stride addresses; "
+                           "channel 0 traveller, channel 1 stationary twin"},
+        "clocks": [{**c, "rest": np.round(c["rest"], 7).tolist(), "moving": np.round(c["moving"], 7).tolist()}
+                   for c in result["clocks"]],
+        "provenance": _provenance(result["seconds"]),
+    }
+
+
+def race_document(result: dict) -> dict:
+    strip = result["strip"]
+    logp = np.log10(np.maximum(strip, 1e-300))
+    encoded = np.clip(np.round((logp + 60) / 60 * 255), 0, 255)
+    return {
+        "format": FORMAT, "kind": "race", "step": "Step 2",
+        "title": "A fresh message on the free wave",
+        "summary": "Field-only access: a compact launch at A, read by a detector at B. The law's strict "
+                   "front moves one address per update and carries only exponentially small precursors; "
+                   "the message arrives with the smooth cone at c = 1/2.",
+        "law": _law(result["law"]),
+        "carrier": {"size": result["size"]}, "source": result["source"], "receiver": result["receiver"],
+        "distance": result["distance"], "stride": result["stride"], "deadlines": result["deadlines"],
+        "strip": {**_pack(encoded, "uint8"), "note": "log10 probability per address, mapped from [-60, 0] to [0, 255]"},
+        "detector": [float(f"{v:.6e}") for v in result["detector"]],
+        "first_nonzero": result["first_nonzero"], "largest_before_early": result["largest_before_early"],
+        "largest_before_smooth": result["largest_before_smooth"], "received_by_late": result["received_by_late"],
+        "provenance": _provenance(result["seconds"]),
+    }
+
+
+def scan_document(title: str, step: str, summary: str, x_label: str, y_label: str, series: list,
+                  curves: list, law, seconds: float, table: list) -> dict:
+    return {"format": FORMAT, "kind": "scan", "title": title, "step": step, "summary": summary,
+            "law": _law(law), "x_label": x_label, "y_label": y_label, "series": series,
+            "curves": curves, "table": table, "provenance": _provenance(seconds)}
+
+
+def formation_document(result: dict, control: dict) -> dict:
+    joint = result["joint"]
+    scaled = np.sqrt(np.clip(joint / joint.max(), 0, 1))
+    return {
+        "format": FORMAT, "kind": "formation", "step": "Step 5",
+        "title": "A pair formed in an encounter",
+        "summary": "Two constituents launched toward each other on a strip. Where they meet head-on, the "
+                   "capture vertex turns the collision into a bound pair plus a marker that leaves on the "
+                   "junction's own wire. The pair then stays together under the contact law. The marker "
+                   "records where and when the pair was born, and the pair leaves its birthplace in both "
+                   "directions.",
+        "law": _law(result["law"]),
+        "carrier": {"size": result["size"]}, "updates": result["updates"], "orders": result["orders"],
+        "angle": result["angle"], "contact_phase": result["contact_phase"],
+        "joint": {**_pack(np.round(scaled * 255), "uint8"),
+                  "note": "sqrt of the probability of the unmarked pair over (z_A, z_B)"},
+        "bound": np.round(result["bound"], 9).tolist(),
+        "collected": np.round(result["collected"] / max(result["clicks"][-1], 1e-300), 9).tolist(),
+        "captured": [round(v, 9) for v in result["captured"]],
+        "clicks": [float(f"{v:.6e}") for v in result["clicks"]],
+        "captured_without_vertex": control["captured"][-1],
+        "markers": [[z, n, float(f"{w:.4e}")] for z, n, w in result["markers"]],
+        "birth_centre": result["birth_centre"],
+        "forward_fraction": result["forward_fraction"],
+        "forward_fraction_collected": result["forward_fraction_collected"],
+        "provenance": _provenance(result["seconds"]),
+    }

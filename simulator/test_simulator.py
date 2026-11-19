@@ -8,9 +8,9 @@ from __future__ import annotations
 import numpy as np
 
 from .experiments import clock_journey, continuum_run
-from .law import LAWS, dispersion, step, step_pair, walk_matrix
+from .law import LAWS, PHI0, dispersion, step, step_bound, step_contact, step_pair, walk_matrix
 from .sector import sector_step
-from .spectral import Packet
+from .spectral import Packet, PairPacket, rail_phase, track
 
 RNG_SEED = 20261120
 
@@ -124,6 +124,100 @@ def check_axial_journey():
             f"beat {j['beat_ratio']:.5f}, optical {j['optical_ratio']:.5f}")
 
 
+def _embed_bound(chi):
+    carrier = chi.shape[:4]
+    volume = int(np.prod(carrier))
+    psi = np.zeros((volume, 8, volume, 8), complex)
+    flat = chi.reshape(volume, 8)
+    for v in range(volume):
+        psi[v, np.arange(8), v, np.arange(8)] = flat[v]
+    return psi.reshape(carrier + (8,) + carrier + (8,))
+
+
+def check_bound_pair():
+    """The compact-pair law: exact bound-sector reduction and no formation from outside it."""
+    rng = np.random.default_rng(RNG_SEED)
+    carrier = (3, 2, 1, 2)
+    chi = _random_state(carrier + (8,), rng)
+    psi, reduced = _embed_bound(chi), chi.copy()
+    for _ in range(6):
+        psi, reduced = step_contact(psi, PHI0), step_bound(reduced, PHI0)
+    reduction = float(np.max(np.abs(psi - _embed_bound(reduced))))
+    volume = int(np.prod(carrier))
+    outside = _random_state(carrier + (8,) + carrier + (8,), rng).reshape(volume, 8, volume, 8)
+    for v in range(volume):
+        outside[v, np.arange(8), v, np.arange(8)] = 0
+    outside = (outside / np.linalg.norm(outside)).reshape(carrier + (8,) + carrier + (8,))
+    for _ in range(20):
+        outside = step_contact(outside, PHI0)
+    flat = outside.reshape(volume, 8, volume, 8)
+    captured = max(float(np.max(np.abs(flat[v, np.arange(8), v, np.arange(8)]))) for v in range(volume))
+    assert reduction < 1e-12 and captured == 0.0
+    return (f"bound sector equals the literal two-constituent update ({reduction:.1e}); "
+            f"a pair started outside it has bound amplitude {captured} after 20 updates")
+
+
+def check_bound_clock():
+    """Step 4, forward diagonal: reunion 1787 and the local home reading 0.577424."""
+    law = LAWS["compact-pair"]
+    moving, rest = PairPacket(law, (1, 1)), PairPacket(law, (0, 0))
+    survey = np.arange(0, 400, 20)
+    velocity = [np.polyfit(survey, track(moving, a, survey), 1)[0] for a in (0, 1)]
+    reunion = int(round(512 / max(abs(velocity[0]), abs(velocity[1]))))
+    advance = lambda p: np.angle(np.exp(1j * (rail_phase(p.rails(reunion, (0, 0, 0)))
+                                               - rail_phase(p.rails(0, (0, 0, 0))))))
+    ratio = advance(moving) / advance(rest)
+    spectator = LAWS["compact-pair-spectator"]
+    flat = advance(PairPacket(spectator, (1, 1))) / advance(PairPacket(spectator, (0, 0)))
+    assert reunion == 1787 and abs(ratio - 0.577424) < 2e-6 and abs(flat - 1) < 1e-9
+    return f"bound pair on the diagonal: reunion {reunion}, rail clock {ratio:.6f}; spectator rails {flat:.6f}"
+
+
+def check_formation():
+    """Step 5: the branch evolution against a literal update with explicit marker wires."""
+    from .formation import ANGLE, COLLISION, _strip_packet, formation_run
+    from .law import EQUAL
+    size, wire, updates = 8, 16, 10
+    phi = LAWS["compact-pair"].rail_contact_phases[0]
+    a = _strip_packet(size, size // 4, 1, support=2)
+    b = _strip_packet(size, 3 * size // 4, -1, support=2)
+    state = {0: np.einsum("abcde,fghij->abcdefghij", a, b)}
+    c, s = np.cos(ANGLE), np.sin(ANGLE)
+    blank = np.zeros_like(state[0])
+    literal = []
+    for n in range(updates + 1):
+        literal.append(sum(float(np.linalg.norm(v) ** 2) for m, v in state.items() if m))
+        if n == updates:
+            break
+        new = {m: v.copy() for m, v in state.items()}
+        for z in range(size):
+            bit = 1 << (z * wire)
+            for low in {m & ~bit for m in state}:
+                high = low | bit
+                lo, hi = state.get(low, blank), state.get(high, blank)
+                x = lo[0, 0, z, 0, COLLISION[0], 0, 0, z, 0, COLLISION[1]]
+                y = np.sum(hi[0, 0, z, 0, np.arange(8), 0, 0, z, 0, np.arange(8)] * EQUAL.conj())
+                if x == 0 and y == 0:
+                    continue
+                new.setdefault(low, blank.copy())[0, 0, z, 0, COLLISION[0], 0, 0, z, 0, COLLISION[1]] = c * x - s * y
+                target = new.setdefault(high, blank.copy())
+                target[0, 0, z, 0, np.arange(8), 0, 0, z, 0, np.arange(8)] += (s * x + (c - 1) * y) * EQUAL
+        def delay(m):
+            out = 0
+            for z in range(size):
+                bits = (m >> (z * wire)) & ((1 << wire) - 1)
+                out |= (((bits << 1) & ((1 << wire) - 1)) | (bits >> (wire - 1))) << (z * wire)
+            return out
+        state = {delay(m): step_contact(v, phi) for m, v in new.items()}
+    branch = formation_run(size, updates, orders=(1, -1), support=2)
+    error = max(abs(x - y) for x, y in zip(literal, branch["captured"]))
+    norm = sum(float(np.linalg.norm(v) ** 2) for v in state.values())
+    off = formation_run(size, updates, orders=(1, -1), angle=0.0, support=2)["captured"][-1]
+    assert error < 1e-12 and abs(norm - 1) < 1e-12 and literal[-1] > 0.01 and off == 0.0
+    return (f"capture probability {literal[-1]:.4f} equals the literal marker-wire update to {error:.1e}; "
+            f"with the vertex off, capture {off}")
+
+
 CHECKS = [
     ("unitarity", check_unitarity),
     ("sector reduction", check_sector_reduction),
@@ -132,6 +226,9 @@ CHECKS = [
     ("spectral engine", check_spectral_engine),
     ("continuum limit", check_continuum),
     ("two-clock journey", check_axial_journey),
+    ("bound pair", check_bound_pair),
+    ("bound clock", check_bound_clock),
+    ("formation", check_formation),
 ]
 
 
@@ -161,3 +258,15 @@ def test_continuum():
 
 def test_axial_journey():
     check_axial_journey()
+
+
+def test_bound_pair():
+    check_bound_pair()
+
+
+def test_bound_clock():
+    check_bound_clock()
+
+
+def test_formation():
+    check_formation()

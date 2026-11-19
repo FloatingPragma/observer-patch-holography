@@ -109,3 +109,60 @@ def beat_phase(probabilities: np.ndarray) -> float:
     """The four-aperture reading of the clock hand: atan2(p1 - p3, p0 - p2)."""
     p = np.asarray(probabilities)
     return float(np.arctan2(p[1] - p[3], p[0] - p[2]))
+
+
+def pair_band(angles: np.ndarray, contact_phase: float):
+    """Mobile band of the bound pair: cos E = a cos(phi/2), a the mean of the four cosines."""
+    from .law import contact_coin
+    signed = angles[..., SLOT_AXIS] * SLOT_SIGN
+    shift = np.exp(-1j * signed[..., PARTNER])
+    a = np.mean(shift.real, axis=-1)
+    energy = np.arccos(np.clip(a * np.cos(contact_phase / 2), -1.0, 1.0))
+    direct = np.exp(-0.5j * contact_phase) * shift * EQUAL
+    vector = direct - np.exp(1j * energy)[..., None] * EQUAL
+    vector /= np.linalg.norm(vector, axis=-1)[..., None]
+    vector *= np.exp(-1j * np.angle(np.sum(vector * EQUAL.conj(), axis=-1)))[..., None]
+    evolved = shift * contact_coin(vector, contact_phase)[..., PARTNER]
+    if np.max(np.abs(evolved - np.exp(-1j * energy)[..., None] * vector)) > 2e-12:
+        raise ArithmeticError("a prepared pair wave is no eigenvector of the contact update")
+    return energy, vector
+
+
+class PairPacket(Packet):
+    """A bound pair in its two rails, travelling in x and y on the bound sector.
+
+    The rails take the place of the private orders: ``orders[3]`` = (0, 1) labels them,
+    and each rail evolves with its own contact phase and extra phase.
+    """
+
+    def __init__(self, law, route=(0, 0), size=512, carrier_order=16, width=1.5, support=6,
+                 origin=(0, 0, 0)):
+        self.kind, self.size, self.private_size = "pair", size, 8 * size
+        self.origin = np.asarray(origin, int) % size
+        windows = [_window(int(d) * carrier_order, width, support) for d in route]
+        self.orders = [w[0] for w in windows] + [np.array([0]), np.array([0, 1])]
+        nx, ny = np.meshgrid(*self.orders[:2], indexing="ij")
+        angles = np.stack([nx, ny, 0 * nx, 0 * nx], axis=-1) * (TAU / size)
+        profile = np.outer(windows[0][1], windows[1][1])
+        profile /= np.linalg.norm(profile)
+        self.energy = np.zeros(nx.shape + (1, 2))
+        self.spinors = np.zeros(nx.shape + (1, 2, 8), complex)
+        for rail, (phi, extra) in enumerate(zip(law.rail_contact_phases, law.rail_extra_phases)):
+            energy, vector = pair_band(angles, phi)
+            self.energy[:, :, 0, rail] = energy + extra
+            self.spinors[:, :, 0, rail] = vector * profile[..., None] / np.sqrt(2)
+
+    def rails(self, t: float, site) -> np.ndarray:
+        """Amplitudes of the two rails, eight slots each, at one address."""
+        offset = np.asarray(site, int) - self.origin
+        px = np.exp(1j * TAU * offset[0] * self.orders[0] / self.size)
+        py = np.exp(1j * TAU * offset[1] * self.orders[1] / self.size)
+        return np.einsum("i,j,ijrs->rs", px, py, self.state(t)[:, :, 0]) / self.size
+
+
+def rail_phase(rails: np.ndarray) -> float:
+    """The four-outcome rail analyzer: atan2(p_i - p_-i, p_1 - p_-1) with p_a = |r0 + a r1|^2 / 4."""
+    apertures = np.array([1, 1j, -1, -1j])
+    probes = rails[0][None, :] + apertures[:, None] * rails[1][None, :]
+    p = np.sum(np.abs(probes) ** 2, axis=-1) / 4
+    return float(np.arctan2(p[1] - p[3], p[0] - p[2]))

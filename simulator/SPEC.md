@@ -56,6 +56,34 @@ This form of the encounter term is a declared choice of this simulator.
 
 $$U_{\lambda} = R\,C_\lambda, \qquad U^{(2)}_{\lambda,\chi} = (U_\lambda \otimes U_\lambda)\,E_\chi .$$
 
+**Contact.** The pair laws act on two distinguishable constituents, one of
+which carries a conserved rail label. Off contact each constituent applies
+$C_1$. Where both occupy the same address and private position, the eight
+matched slot pairs $(s, s)$ receive the contact coin
+
+$$D_\varphi = e^{i\varphi/2}\big[(1 + e^{-i\varphi})\,|e\rangle\langle e| - I\big]$$
+
+and the phase $e^{-i\epsilon}$, while the 56 unmatched slot pairs there are
+left unchanged. Both constituents then route. Rail $r$ has the contact phase
+$\varphi_r$ and the extra phase $\epsilon_r$. The matched coincident states
+form an invariant subspace, and so does its complement: a pair started
+outside never enters it. On the subspace the pair is one walker with the coin
+$D_\varphi$, whose mobile band obeys $\cos E = a(k)\cos(\varphi/2)$, $a$ the
+mean of the four cosines.
+
+**Capture.** The formation law gives every address a periodic wire of
+neutral modes, longer than the run. Before the contact update, where the two
+constituents meet with constituent A in slot 5 and B in slot 4 (a head-on
+collision along the third axis) and the start of that address's wire is
+empty, the vertex rotates the collision state into the matched equal-slot
+pair plus one marker at the start of the wire:
+
+$$|5, 4; 0\rangle \mapsto \cos\theta\,|5, 4; 0\rangle + \sin\theta\sum_s e_s\,|s, s; 1\rangle,
+\qquad \theta = \pi/4,$$
+
+and acts as the inverse rotation on the orthogonal partner. Every marker
+moves one link along its wire per update. Both rails see the same vertex.
+
 **Access.** A member's access rule says which operations inhabitants can
 trigger after a fresh choice. Field-only access gives them local
 preparations, local detectors and their own clocks; a message between
@@ -71,14 +99,14 @@ that carries a chosen value one address per update.
 | `equipped-relay` | 1 | 0 | equipped | excluded in step 2 as a law with one causal speed |
 | `phase-deformed` | $e^{0.05 i}$ | 0 | field-only | disfavoured in step 1 |
 | `phase-i` | $i$ | 0 | field-only | registered control of step 1 |
+| `compact-pair` | 1 | rails $\varphi = \pi/16$ and $\pi/16 + \pi/2048$ | field-only | candidate as a prepared clock (step 4); never forms from separated constituents |
+| `compact-pair-capture` | 1 | rails as `compact-pair`, capture vertex at angle $\pi/4$ | field-only | undecided: forms a pair (step 5); the pair leaves in both directions and passed no single-traveller clock test |
+| `compact-pair-spectator` | 1 | rails $\pi/16 + \pi/4096$, extra phases $\mp\pi/8192$ | field-only | excluded in step 4: its clock counts services |
 
 The encounter member is stored with $\chi = \pi/2$; every value of $\chi$
-belongs to the family. `python -m simulator laws` lists the members.
-
-The compact-pair contact laws of step 4, in which matched slots mix on
-contact and both constituents step together, are no members of this
-simulator. Their bound subspace is invariant under the update, so
-separated constituents never form the pair.
+belongs to the family. `compact-pair-capture` is the `compact-pair` contact
+law with the capture vertex of step 5 ([formation.py](formation.py)).
+`python -m simulator laws` lists the members.
 
 ## 5. Exact methods
 
@@ -104,6 +132,16 @@ references this way on carriers of 512 positions per spatial axis and 4096
 private positions. Its marginals and four-aperture readings equal those of
 the literal update on a small carrier to rounding.
 
+**Bound sector and capture branches.** [law.py](law.py) executes the pair
+laws literally on two constituents (`step_contact`) and on the bound sector
+as one walker (`step_bound`); the two agree to rounding. A marker never
+returns within a run, so each capture event, labelled by its address and
+update, starts a branch orthogonal to every other, and the branch lives in
+the bound sector. [formation.py](formation.py) evolves the unmarked
+constituents and every branch this way. The test suite compares its capture
+probability with a literal update that carries the marker wires as explicit
+occupation bits.
+
 ## 6. Readings and observers
 
 **Field.** The scalar field at an address is the equal-slot projection
@@ -121,7 +159,11 @@ hand is the four-aperture reading
 $\arg\big[(p_0 - p_2) + i(p_1 - p_3)\big]$ at the private positions
 $0, P/4, P/2, 3P/4$ of one address. The optical clock is a pulse travelling
 around the third spatial axis; its reading is the number of turns of its
-envelope. A laboratory's own clock counts the updates of its address.
+envelope. The rail clock of a bound pair is read by the four-outcome
+analyzer $p_a = \tfrac14\sum_s |r_{0,s} + a\,r_{1,s}|^2$, $a \in \{1, i, -1, -i\}$,
+on the two rail amplitudes at one address, with the hand
+$\arg\big[(p_1 - p_{-1}) + i(p_i - p_{-i})\big]$. A laboratory's own clock
+counts the updates of its address.
 
 **Observer view.** The replay app shows what observer A at the centre of
 the chart can hold: the reading of an address at distance $r$ reaches A at
@@ -145,6 +187,8 @@ any machine replays in the app.
 - the preparations: field patterns released at rest, clock doublets, optical
   pulses and reference waves with their momentum windows;
 - the form of the encounter term and the statistics of two excitations;
+- the contact couplings of the pair laws, the rail label, the capture
+  vertex with its angle $\pi/4$ and the marker wires;
 - the readers, their apertures and the observer positions;
 - the archived free reference speed 0.499350 used in the clock forecasts;
 - in the observer view, delivery of every reading at the signal speed.

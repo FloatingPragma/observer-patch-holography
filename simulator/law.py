@@ -32,6 +32,8 @@ class Law:
     access: str = "field-only"
     status: str = "candidate"
     note: str = ""
+    rail_contact_phases: tuple = ()
+    rail_extra_phases: tuple = ()
 
     def __post_init__(self):
         if abs(abs(self.equal_phase) - 1.0) > 1e-12:
@@ -39,6 +41,11 @@ class Law:
         if self.access not in ("field-only", "equipped"):
             raise ValueError("access is 'field-only' or 'equipped'")
 
+
+# Contact couplings of the step-4 pair laws: the two rails of one constituent
+# meet the other constituent with contact phases PHI0 and PHI0 + DELTA.
+PHI0 = np.pi / 16
+DELTA = np.pi / 2048
 
 LAWS = {
     "reflected-routing": Law(
@@ -65,6 +72,31 @@ LAWS = {
         note="Disfavoured in step 1: a fixed nonzero phase makes the gapless branch "
              "quadratic near zero momentum, and moving clocks read 0.76 where the "
              "candidate reads 0.63 to 0.69 at matched speeds."),
+    "compact-pair": Law(
+        "compact-pair", "Compact pair with motion-coupled rails",
+        status="candidate",
+        rail_contact_phases=(PHI0, PHI0 + DELTA), rail_extra_phases=(0.0, 0.0),
+        note="Reflected routing for each constituent, and a contact coin on the eight matched "
+             "pair states when both share an address, so a matched pair steps together. Its "
+             "moving rail clock keeps proper time (step 4), and the finite law predicts its "
+             "deviation from the smooth metric. The bound subspace is invariant, so separated "
+             "constituents never form the pair."),
+    "compact-pair-capture": Law(
+        "compact-pair-capture", "Compact pair with a capture vertex and outgoing marker",
+        status="undecided",
+        rail_contact_phases=(PHI0, PHI0 + DELTA), rail_extra_phases=(0.0, 0.0),
+        note="The compact-pair contact law plus a reversible vertex at every junction: a head-on "
+             "collision turns into the matched pair and a marker that leaves on the junction's own "
+             "wire. It forms a persistent pair from separately launched constituents (step 5). The "
+             "formed pair leaves its birthplace in both directions, and no single-traveller clock "
+             "passed."),
+    "compact-pair-spectator": Law(
+        "compact-pair-spectator", "Compact pair with spectator rails (control)",
+        status="excluded",
+        rail_contact_phases=(PHI0 + DELTA / 2, PHI0 + DELTA / 2),
+        rail_extra_phases=(-DELTA / 4, DELTA / 4),
+        note="Equal contact coins and an extra relative phase per update: the rail clock "
+             "counts services and reads one on every journey of step 4."),
     "phase-i": Law(
         "phase-i", "Equal-slot phase i (control)",
         equal_phase=1j, status="control",
@@ -150,3 +182,41 @@ def walk_matrix(angles: np.ndarray, equal_phase: complex = 1.0) -> np.ndarray:
     for slot in range(SLOTS):
         routing[PARTNER[slot], slot] = np.exp(-1j * signed[slot])
     return routing @ coin_matrix
+
+
+def contact_coin(states: np.ndarray, contact_phase: float, axis: int = -1) -> np.ndarray:
+    """D = exp(i phi/2) [(1 + exp(-i phi)) |e><e| - I] on the eight matched pair states."""
+    return np.exp(0.5j * contact_phase) * coin(states, np.exp(-1j * contact_phase), axis=axis)
+
+
+def step_contact(psi2: np.ndarray, contact_phase: float, extra_phase: float = 0.0) -> np.ndarray:
+    """One update of two constituents under the compact-pair contact law, for one rail.
+
+    Off contact each constituent applies the parent reflection. Where both occupy the
+    same address and private position, the eight matched slot pairs (s, s) receive the
+    contact coin and the phase exp(-i extra); the 56 unmatched slot pairs there are left
+    unchanged. Both constituents then route.
+    """
+    if psi2.ndim != 10 or psi2.shape[4] != SLOTS or psi2.shape[9] != SLOTS:
+        raise ValueError("two constituents have shape (N1, N2, N3, P, 8) twice")
+    carrier = psi2.shape[:4]
+    volume = int(np.prod(carrier))
+    coined = coin(coin(psi2, 1.0, axis=4), 1.0, axis=9).reshape(volume, SLOTS, volume, SLOTS)
+    flat = psi2.reshape(volume, SLOTS, volume, SLOTS)
+    here = np.arange(volume)
+    contact = flat[here, :, here, :].copy()
+    slots = np.arange(SLOTS)
+    matched = contact[:, slots, slots]
+    contact[:, slots, slots] = contact_coin(matched, contact_phase) * np.exp(-1j * extra_phase)
+    coined[here, :, here, :] = contact
+    coined = coined.reshape(psi2.shape)
+    return route(route(coined, slot_axis=4), slot_axis=9)
+
+
+def step_bound(chi: np.ndarray, contact_phase: float, extra_phase: float = 0.0) -> np.ndarray:
+    """The same update on the bound sector, where both constituents share address and slot.
+
+    The matched coincident states form an invariant subspace; on it the pair is one walker
+    with the contact coin. ``test_simulator.py`` checks this against ``step_contact``.
+    """
+    return route(contact_coin(chi, contact_phase)) * np.exp(-1j * extra_phase)

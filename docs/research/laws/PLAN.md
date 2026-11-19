@@ -61,6 +61,12 @@ flights. A clock that counts contacts reads one. The bound subspace of these
 unitary laws is invariant, so separated constituents never form the pair.
 [Journal, step 4](JOURNAL.md#step-4-a-clock-held-together-by-an-interaction)
 
+**Step 5.** A reversible capture vertex that exports a marker forms a
+persistent pair from two separately launched constituents. The formed pair
+emerges in both travelling directions, so it carries no single-traveller
+clock.
+[Journal, step 5](JOURNAL.md#step-5-a-pair-formed-in-an-encounter)
+
 ## Communication access
 
 A candidate that claims one causal speed accounts for which inhabitants can
@@ -114,11 +120,13 @@ a single observer.
 
 ## The next experiment
 
-Two experiments come next. The first is material: an ordinary encounter of
-two separated excitations that emits a separate, distinguishable record and
-leaves a persistent travelling pair, followed by a sealed clock reading on
-that same formed cohort. Formation, binding and clock operation run on one
-executable. The second concerns access.
+Two experiments come next. The first is material. Keep the capture law of
+step 5 fixed and let longer, initially separated wave trains meet over
+several approach planes and times, tracking earlier emissions and depletion.
+Record the marker's recoil frequency and both outgoing directions
+separately. The encounter has to select one propagating branch, the formed
+clock has to keep one rest rate across several durations, and the cohort has
+to make its measured reunion, all on the same output. The second concerns access.
 
 Take a bounded autonomous candidate that assigns an owner to every send,
 trigger and return operation after the start. Give a sender a fresh local bit

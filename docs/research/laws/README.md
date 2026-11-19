@@ -26,13 +26,15 @@ come from the model's own code and receipts.
 | [A race between the addressed relay and the free wave](signal-race/report.md) | Step 2. Can an inhabitant send a freshly chosen bit ahead of the smooth scalar cone? The addressed relay carries every bit early; the free wave carries them late. |
 | [Two clocks on the same journey](second-clock/report.md) | Step 3. One calibrated metric predicts a private-mode beat clock, an optical clock on a transverse ring and a fresh signal on five routes. |
 | [A clock held together by an interaction](interaction-clock/report.md) | Step 4. A compact bound pair keeps proper time, the finite law predicts its deviation from the smooth metric ([correction](interaction-clock/correction.md)), and separated constituents never form the pair. |
+| [A pair formed in an encounter](formation-clock/report.md) | Step 5. A reversible capture vertex with an outgoing marker forms a persistent pair; the formed pair travels in both directions and carries no single-traveller clock. |
 
 ## The simulator
 
 The [simulator](../../../simulator/README.md) executes the reflected-routing
-family with its members and controls, records what observers read, and
-replays the records in an offline web app, including the scalar continuum as
-an observer at the centre of the chart receives it.
+family, its two-constituent pair laws and the capture vertex, with their
+controls. It records what observers read and replays every successful
+experiment of the journal in an offline web app, including the scalar
+continuum as an observer at the centre of the chart receives it.
 
 ## How a step is added
 
