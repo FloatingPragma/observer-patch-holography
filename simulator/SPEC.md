@@ -67,13 +67,18 @@ that carries a chosen value one address per update.
 | Key | $\lambda$ | $\chi$ | Access | Standing |
 | --- | --- | --- | --- | --- |
 | `reflected-routing` | 1 | 0 | field-only | candidate: passes steps 1 to 3 |
-| `reflected-routing-encounter` | 1 | any nonzero value | field-only | undecided: equal to the candidate on one excitation |
+| `reflected-routing-encounter` | 1 | any nonzero value | field-only | undecided: equal to the candidate on one excitation, distinguishable by a two-excitation interferometer; no bound clock in step 4 |
 | `equipped-relay` | 1 | 0 | equipped | excluded in step 2 as a law with one causal speed |
 | `phase-deformed` | $e^{0.05 i}$ | 0 | field-only | disfavoured in step 1 |
 | `phase-i` | $i$ | 0 | field-only | registered control of step 1 |
 
 The encounter member is stored with $\chi = \pi/2$; every value of $\chi$
 belongs to the family. `python -m simulator laws` lists the members.
+
+The compact-pair contact laws of step 4, in which matched slots mix on
+contact and both constituents step together, are no members of this
+simulator. Their bound subspace is invariant under the update, so
+separated constituents never form the pair.
 
 ## 5. Exact methods
 

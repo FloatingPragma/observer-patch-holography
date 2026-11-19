@@ -343,3 +343,136 @@ joins stage 2 and the two-particle test of stage 3.
    trigger and return operation, with the channel race of step 2 rerun on it.
 4. The moving-clock and channel tests on the contrast-memory law and the
    scalar channel of polynomial-sv.
+
+## Step 4. A clock held together by an interaction
+
+Experiments run on 20 November 2026.
+[Report](interaction-clock/report.md) ·
+[Finite-wavelength correction](interaction-clock/correction.md) ·
+[Comparison figure](interaction-clock/figures/comparison.svg)
+
+**Question.** The clocks of steps 1 to 3 were free excitations of one
+propagation law. Does a clock held together by an interaction keep the same
+time on the same journeys, and can inhabitants form such a clock from
+separated constituents?
+
+### What was found
+
+**The interaction laws.** Two distinguishable excitations make the eight-slot
+moves of the candidate. When two matching routing slots occupy the same
+address, a contact operation mixes them into other matched pairs of slots,
+and both constituents take the same outgoing step. Their separation stays
+zero while the pair travels. One constituent carries two internal
+alternatives, the rails, whose relative phase is the clock hand. In the
+**motion-coupled** law the two rails have slightly different contact
+reflections, π/16 and π/16 + π/2048. In the **spectator** law both rails have
+the same reflection and an extra relative phase advances at every contact.
+The two couplings are design inputs, fixed across all sizes, widths and
+directions.
+
+**The motion-coupled pair keeps proper time.** Its mobile phase obeys
+$\cos E_\phi(k) = a(k)\cos(\phi/2)$, with $a(k)$ the mean of the four
+cosines, so $E_\phi^2 \simeq (|k|^2 + \phi^2)/4$ at small phases and the
+splitting between the rails falls with motion by the relativistic factor.
+The forecasts were sealed from independent speed and rest-clock calibrations.
+
+| Route and preparation | Forecast | Motion-coupled reading | Spectator reading |
+| --- | ---: | ---: | ---: |
+| Axial | 0.71408 | 0.70862 | 1.00002 |
+| Forward diagonal | 0.58463 | 0.57744 | 0.99998 |
+| Reversed diagonal, translated laboratory | 0.58457 | 0.57740 | 0.99991 |
+| Mixed diagonal, wider momentum band | 0.58589 | 0.57659 | 0.99995 |
+| Same, twice the circumference | 0.58352 | 0.57674 | 0.99997 |
+
+All five motion-coupled readings lie inside the registered band of ±0.035.
+The spectator clock reads one on every route: its phase counts contacts.
+[Report section](interaction-clock/report.md#what-the-receiver-measured)
+
+**The residual is finite-wavelength physics.** Every motion-coupled reading
+fell below its smooth forecast, by 0.00546–0.00930, beyond counting
+uncertainty. On the forward diagonal the smooth forecast is 0.584628, the
+finite law at the packet's central wavelength gives 0.576056, and the finite
+law propagated over the full packet and the receiver's actual signed detector
+gives 0.577423. The observer recorded 0.577436 ± 0.000066, 0.19 counting
+standard errors away. That comparison was retrospective. Six further flights
+at other central wavelengths and packet widths had all three predictions
+sealed before their readings were opened. The central-mode correction
+improved all six, and the full packet-and-detector calculation predicted
+every reading within 1.32 counting standard errors. The RMS errors were
+0.01051 for the smooth forecast, 0.001218 for the central mode and 0.0000556
+for the full calculation. The correction changes with the preparation:
+widening the momentum band at order 16 changed the reading by
+−0.001263 ± 0.000099, the full calculation predicted −0.001338 and the
+central mode predicts zero.
+[Correction](interaction-clock/correction.md#six-new-forecasts-before-opening-the-clock)
+
+A finite-mode identity fixes the sign. With $r = 2\partial_\phi E$,
+$v = \nabla_k E$ and $c = 1/2$,
+
+$$1 - |v|^2/c^2 - r^2 = \frac{\operatorname{Var}_i(\cos k_i) + \sin^2(\phi/2)\,\operatorname{mean}_i(\sin^2 k_i)}{\sin^2 E} \ge 0,$$
+
+so at every nonzero finite momentum the law's clock runs slower than the
+smooth formula.
+
+**Binding holds, formation fails.** The sharp matched pair stayed together in
+all 262,144 trials at every measured epoch through 16 services under both
+active laws. With the contact switched off, 89,932 of 262,144 stayed matched
+after one step (34.31%; the exact probability is 11/32). Initially separated
+excitations met in 82,663 first-step coincidences and were captured zero
+times. The reason is exact: the matched coincident subspace and its
+orthogonal complement are each invariant under the update and its inverse,
+so a pair launched with no overlap with the protected subspace never enters
+it.
+[Report section](interaction-clock/report.md#binding-formation-and-collisions)
+
+**A scalar contact phase fails as a clock.** An on-site phase of $i$ whenever
+the two constituents coincide on an axial guide, with no rule that keeps them
+together, gave clock ratios 0.87214, 0.52508 and 0.82583 on three prepared
+pairs against forecasts of 0.97574, 0.96782 and 0.97313. The fourth pair lost
+localization and clock contrast. Initially separated packets passed through
+one another without sustained capture.
+
+**The encounter phase is observable.** In a two-particle interferometer, two
+coherent paths meet a second excitation a different number of times and
+reunite at one detector. A blind reader identified all four scalar contact
+phases, 0, +π/2, π and −π/2, in both repeats. Single-particle records are
+identical for all four.
+
+### Standing of the law classes
+
+| Class | Defining feature | Standing | Deciding records |
+| --- | --- | --- | --- |
+| Compact-pair contact law, motion-coupled rails | Matched slots mix on contact; the two rails differ in their contact reflection. | **Survives** the moving-clock test as a prepared clock; **excluded** as a law whose inhabitants can form the clock | Five readings in band; six sealed finite-law forecasts within 1.32 standard errors. The protected subspace is invariant, so separated constituents never bind. |
+| Compact-pair contact law, spectator rails | Equal contact reflections and an extra relative phase per contact. | **Excluded** as a proper-time clock | Reads 0.99991–1.00002 on all five routes: a clock that counts services, the factorized class of step 1. |
+| Scalar contact phase on a guide | A phase $i$ when the constituents coincide, nothing that keeps them together. | **Excluded on the tested preparations** as an interaction-bound clock | 0.87214, 0.52508, 0.82583 against 0.97574, 0.96782, 0.97313; no capture of separated packets. |
+| Encounter-phase variants | Equal for one excitation, different phases when two meet. | **Undecided**, and distinguishable | A two-particle interferometer identifies the phase blindly. No record selects one for nature. |
+| Reflected routing with field-only messages | As in step 2. | **Survives** | Steps 1 to 3; its one-body sector carries every pair law above. |
+
+### What the step means for the search
+
+Binding and a stable rest line are no selection rule for a clock. A law has
+to tie the internal beat to the measured motion, as the motion-coupled rails
+do and the spectator rails do not, and the step-1 lesson about factorized
+clocks holds for bound matter as well. The smooth metric describes the bound
+clock at its declared accuracy, and the finite law predicts the deviations
+from it to 0.0000556 in RMS. Its sign is fixed: the law's clocks run slower
+than the smooth formula at every finite momentum. Precise clocks of
+inhabitants would read that deviation at short wavelengths.
+
+The decisive obstacle is formation. Under a unitary law whose bound subspace
+is invariant, scattering never produces the bound state, because nothing
+carries away the difference between the separated and the bound
+configuration. A law that lets inhabitants form a clock needs an encounter
+that emits a separate, distinguishable record and leaves a persistent
+travelling pair behind. Formation, binding and clock operation then have to
+happen on the same executable.
+
+### Handed to the following steps
+
+1. An ordinary encounter of two separated excitations that emits a separate
+   record and leaves a persistent travelling pair, with a sealed clock
+   reading on that same formed cohort.
+2. A bounded autonomous candidate that assigns an owner to every send,
+   trigger and return operation, with the channel race of step 2 rerun on it.
+3. The moving-clock and channel tests on the contrast-memory law and the
+   scalar channel of polynomial-sv.

@@ -54,6 +54,13 @@ propagation law, so the result says nothing about clocks bound by an
 interaction.
 [Journal, step 3](JOURNAL.md#step-3-two-clocks-on-the-same-journey)
 
+**Step 4.** A compact pair bound by a contact law whose two rails differ in
+their contact reflection keeps proper time on five journeys, and the finite
+law predicts its small deviation from the smooth metric on six sealed
+flights. A clock that counts contacts reads one. The bound subspace of these
+unitary laws is invariant, so separated constituents never form the pair.
+[Journal, step 4](JOURNAL.md#step-4-a-clock-held-together-by-an-interaction)
+
 ## Communication access
 
 A candidate that claims one causal speed accounts for which inhabitants can
@@ -107,11 +114,11 @@ a single observer.
 
 ## The next experiment
 
-Two experiments come next. The first is material: a clock sustained by an
-interaction, with its own rest calibration, read on the held-out routes of
-step 3. It needs two interacting excitations, so it runs on the
-encounter-phase variants of the reflected-routing law and joins the
-two-particle test of stage 3. The second concerns access.
+Two experiments come next. The first is material: an ordinary encounter of
+two separated excitations that emits a separate, distinguishable record and
+leaves a persistent travelling pair, followed by a sealed clock reading on
+that same formed cohort. Formation, binding and clock operation run on one
+executable. The second concerns access.
 
 Take a bounded autonomous candidate that assigns an owner to every send,
 trigger and return operation after the start. Give a sender a fresh local bit
@@ -120,13 +127,11 @@ available interface, including the timing of an otherwise fixed operation and
 the triggering or delaying of an ordinary calibration message. A distant
 observer identifies the bit and returns an authenticated receipt. Race every
 channel found against an independently timed wave along the same baseline,
-with deadlines and silent controls fixed in advance. Carry a second,
-independently built clock on the same routes and seal the predictions of the
-scalar metric made with the first signal and clock before opening it. Rerun
-the wave and clock benchmarks of step 1 on any revision of the law or its
-access rules. A reproducible faster message or a discrepant independently
-calibrated clock identifies the law or access rule that has to change.
-Agreement on held-out routes gives one spacetime description two independent
+with deadlines and silent controls fixed in advance. Rerun the wave and clock
+benchmarks of steps 1 to 4 on any revision of the law or its access rules. A
+reproducible faster message or a discrepant independently calibrated clock
+identifies the law or access rule that has to change. Agreement on held-out
+routes gives one spacetime description two independent
 kinds of records to predict.
 
 ## How to compute candidates

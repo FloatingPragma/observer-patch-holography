@@ -50,8 +50,9 @@ LAWS = {
         "reflected-routing-encounter", "Reflected routing with an encounter phase",
         encounter_phase=np.pi / 2, status="undecided",
         note="Identical to reflected routing for one excitation. Two excitations at one "
-             "spatial address gain the phase chi per update. Every value of chi passes "
-             "steps 1 to 3; a two-excitation experiment decides between them."),
+             "spatial address gain the phase chi per update. A two-excitation interferometer "
+             "tells the values of chi apart (step 4). As a bound clock, a contact phase i on "
+             "an axial guide missed its forecasts and captured no separated packets."),
     "equipped-relay": Law(
         "equipped-relay", "Reflected routing with an inhabitant-accessible relay",
         access="equipped", status="excluded",

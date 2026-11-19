@@ -25,6 +25,7 @@ come from the model's own code and receipts.
 | [Clocks and spacetime from observer records](relativistic-observer-records/report.md) | Step 1. A moving clock carried by a freely propagating wave, compared with its rest calibration, and a three-dimensional scalar field measured by equipped observers, with its continuum limit. [PDF](relativistic-observer-records/report.pdf) |
 | [A race between the addressed relay and the free wave](signal-race/report.md) | Step 2. Can an inhabitant send a freshly chosen bit ahead of the smooth scalar cone? The addressed relay carries every bit early; the free wave carries them late. |
 | [Two clocks on the same journey](second-clock/report.md) | Step 3. One calibrated metric predicts a private-mode beat clock, an optical clock on a transverse ring and a fresh signal on five routes. |
+| [A clock held together by an interaction](interaction-clock/report.md) | Step 4. A compact bound pair keeps proper time, the finite law predicts its deviation from the smooth metric ([correction](interaction-clock/correction.md)), and separated constituents never form the pair. |
 
 ## The simulator
 
