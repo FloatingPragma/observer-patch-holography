@@ -101,7 +101,7 @@ premise.
 ## Executable model
 
 The executable model of OPH is [polynomial-sv](../model/polynomial_sv/README.md).
-Its law, the contrast-memory law, is the candidate native repair law of the
+Its law, the contrast-memory law, is a candidate native repair law of the
 theory: every port of a twelve-port cell holds a load, every seam keeps a
 private memory of the contrast between its two loads, and what the memory
 leaves on the loads is an exchange plus an agreement energy with one
@@ -117,7 +117,12 @@ results.
 The model reproduces particle stability on its observers' agreed records:
 a pair of loads written on one seam is read as a pair at every reading, with
 probability at least one minus a proved bound, on seams other than the first,
-and the law without its agreement energy loses it.
+and the law without its agreement energy loses it. A second candidate law on the same carrier, the [scalar channel](../model/scalar_channel/README.md), holds an object on four seams: its excitation is kept for every interval, and after a pulse its seam record swings at one line that an observer reads from counts in units of its own reference ([cage](../model/scalar_channel/cage/README.md)).
+The [construction manual](../model/construction_manual/CONSTRUCTION_MANUAL.md)
+builds both laws part by part, the executable-model paper lists the finite
+theorems whose premises the outputs of the model supply, and the
+[observation ledger](registers/OBSERVATION_LEDGER_V3.md) records what the model
+reproduces.
 The state of the simulation is no physical space. Every test compares
 distributions of admissible observer records with what observers in our world
 record, and the theory proves that observers who inhabit the simulation can

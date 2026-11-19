@@ -8,7 +8,7 @@ then have their own theorem, certificate, or experimental acceptance rule.
 ## Executable model
 
 [polynomial-sv](model/polynomial_sv/README.md) is the executable model of
-OPH. Its contrast-memory law is the candidate native repair law of the theory
+OPH. Its contrast-memory law is a candidate native repair law of the theory
 ([specification](model/polynomial_sv/SPEC.md),
 [binding theorem and proof](model/polynomial_sv/PROOF.md)); the
 [executable-model paper](paper/executable_observer_construction.pdf) gives the
@@ -87,8 +87,8 @@ The pointwise projection evaluates the closed form of the circle integral,
 and the legacy `nodes` argument is validated and has no effect. The
 [Whitney numerical methods](code/electromagnetism/WHITNEY_NUMERICS.md)
 gives the evaluator, its numerical contract, the independent replay and the
-receipt regeneration commands. The dedicated neutral-packet workflow
-executes these controls on Linux.
+receipt regeneration commands. The `neutral_packet` lane of the
+[CI workflow](tools/CI.md) executes these controls on Linux.
 
 ## Environment
 

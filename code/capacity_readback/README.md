@@ -12,15 +12,6 @@ M_0(q) = alpha(G_q).
 The first line is the direct global proposal; the next two lines are its typed
 finite implementation.
 
-The live [native observer capacity adapter](../../model/observer/CAPACITY.md)
-uses this evaluator on actual retained histories of the runnable two-event
-protocol. It finds `M0=11` on the binary preparation and `M0=17` on the full
-78-state family, with exact reread and halt continuations and the declared
-3354-dimensional carrier. This is an executable, unsaturated local record
-capacity calculation. The [P-dependent detector's access contract](../../model/observer/p_response/ACCESS_CAPACITY.md)
-separately distinguishes its one-bit actuator from the full audit record.
-Neither local count is a value of the cosmological N.
-
 The operational resolution, electroweak/Higgs bridge, and measured
 cosmological constant are independent downstream comparisons. They never
 define the direct map. The bounded counterfamily has verdict

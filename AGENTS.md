@@ -23,7 +23,8 @@ orthogonal classical record, not an arbitrary quantum state.
 
 The official executable model is [polynomial-sv](model/polynomial_sv/README.md),
 specified in [model/polynomial_sv/SPEC.md](model/polynomial_sv/SPEC.md). Its
-contrast-memory law is the candidate native repair law.
+contrast-memory law is a candidate native repair law; the scalar channel of
+[model/scalar_channel](model/scalar_channel/README.md) is a second.
 Use its law, carrier, emitter and reader for model claims. Independent
 component proofs retain their own hypotheses and require an explicit source
 map.

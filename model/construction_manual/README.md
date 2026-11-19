@@ -127,8 +127,8 @@ Candidate `A-contrast-memory-spherical-v1`, the law of [polynomial-sv](../polyno
   cell, "a pair on some seam", through a reversible tree over the thirty readers. Both find a pair with the same
   probability and leave different states behind, and the records of a later reading tell them apart
   ([presence.py](../polynomial_sv/presence.py)).
-- **Supplied.** The coupling `kappa`, the emitter with its fuel, the reader, the reference registers, the tree of
-  the presence reading.
+- **Supplied.** The coupling `kappa`, the emitter with its fuel, the reader, the reference registers, the routing
+  of the federation, the tree of the presence reading.
 
 ## Software 2: law 2, the scalar channel with a filled reference
 

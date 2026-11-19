@@ -38,29 +38,59 @@ history, and it exists in our subjective future just as our past exists. The
 
 ## Research focus
 
-We have built an [executable model](model/README.md) of OPH, called
-polynomial-sv. Small observers sit on the ports of icosahedral cells.
-Neighbours compare what they hold through a private memory on the seam they
-share, and agreement lowers the energy. The theory around the model is
-finished: the closure principle, the theorem library and the finite
-constructions below are in place.
+We have a working [executable model](model/README.md) of OPH, called
+polynomial-sv. Small observers sit on the ports of icosahedral cells. Each
+holds a few records and compares them with its neighbours, and where two
+neighbours disagree they repair the difference between the two of them. The
+theory around the model is finished: the closure principle, the theorem
+library and the finite constructions below are in place.
+
+The design answers how a Universe can compute its own history at all. A
+consistent history is a fixed point over an enormous number of records, and
+a search for it would take exponentially long. The network does not search.
+Every check is local, every repair is local, and every accepted repair
+removes a fixed amount of disagreement, so the work grows as a polynomial in
+the number of observers: with this design the Universe thinks itself into
+existence in polynomial time. The
+[construction manual](model/construction_manual/CONSTRUCTION_MANUAL.md)
+builds the model part by part and says which part of this is a theorem.
 
 The centre of the research is the native repair law, the simple law that
-governs the interactions of observers in the early Universe. Our candidate is
-the contrast-memory law. No measured number enters it. Under it the repair
-process reproduces real observable values and structures, in the effective
-descriptions of the observers who inhabit the computation:
+governs the interactions of observers in the early Universe. Two candidate
+laws run on the model, the contrast-memory law and the scalar channel. No
+measured number enters them. Under them the repair process reproduces real
+observable values and structures, in the effective descriptions of the
+observers who inhabit the computation:
 
 - **Particles that hold together.** A pair of loads written on one seam is
-  read as a pair at every later reading, on carriers of any size, and it
-  moves from seam to seam. The same law without the agreement energy loses
-  the pair.
+  read as a pair at every later reading, with a probability that a theorem
+  bounds on carriers of any size, and it moves from seam to seam. The same
+  law without the agreement energy loses the pair.
+- **A clock inside an object.** An object held on four seams swings at one
+  fixed pitch after a pulse. An observer reads that pitch from its own
+  counts, in units of its own reference, and reads the same number a second
+  way from the two levels of the object.
+- **Something that stays and holds no charge.** A note left in the memory of
+  a seam with nothing around it is never erased by the law. It holds no
+  load, its observers read its level, and matter that reaches it sticks to
+  it.
+- **Looking changes what comes later.** Asking "is a pair there?" and asking
+  "where is it?" give the same first answer and different later records.
 - **Three directions of space.** The slowest response of a cell to a single
   load has exactly three independent directions. Observers build their
   three-dimensional description of space on that response.
 - **Twelve force currents.** With one declared port service, the response of
   a cell's ports has twelve generators with the algebra of the Standard
   Model's forces.
+
+These outputs plug into the theorem library. A theorem applies to the model
+wherever an output of the model has the form of its premise: the cell is the
+carrier of the three-direction theorem, the model's write is the repair rule
+that four requirements single out, its readings are the projective
+instruments of the measurement theorems, and its observers compare clocks
+through shared records as the clock theorems require. The
+[observation ledger](docs/registers/OBSERVATION_LEDGER_V3.md) lists what the
+model reproduces and what is open.
 
 The state of the simulation does not contain the physical Universe. Its
 ports, seams and cells are the hardware of a computation, and they are no
@@ -71,9 +101,9 @@ continuum spacetime with three dimensions of space and one of time. Every
 test of the model therefore compares what its observers record with what we
 record. It never compares the state of the simulation with the world.
 
-The law is a candidate. Its coupling is supplied, and the other observables
-in the papers, from charge and the particle spectrum to gravity, are work in
-progress on the same process.
+The laws are candidates. Their couplings are supplied, and the other
+observables in the papers, from charge and the particle spectrum to gravity,
+are work in progress on the same process.
 
 ## What comes out
 
@@ -118,8 +148,9 @@ spacetime and a common time are effective descriptions that observers agree to
 use. The state of the program and its time parameter calculate those readouts.
 They are no second universe beside them.**
 
-One fixed law moves loads between neighbouring ports and lowers the energy
-of a seam whose two observers agree. Readers keep every outcome, the outcome
+A fixed law acts on the registers of neighbouring ports. Under the
+contrast-memory law it moves loads between them and lowers the energy of a
+seam whose two observers agree. Readers keep every outcome, the outcome
 "no pair" included. Each observer counts its own events, and no common clock
 is used. The creator supplies the law and the preparation; simulated
 observers need not install their own interactions. The [executable hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md)

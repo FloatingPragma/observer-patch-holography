@@ -3,14 +3,6 @@
 This directory is a clean paper-math implementation of the OPH `P <-> alpha`
 closure experiment.
 
-The live [binary observer response](../../model/observer/p_response/README.md)
-executes this forward map under the accepted closure-input premise. It uses
-the `thomson_structured_running` branch to set `g(P)=sqrt(4*pi*alpha(P))`,
-then couples a designed detector's probabilities and subsequent native repair
-to that value. Its receipt retains the source-only branch's existing physical
-endpoint status. This is a concrete use of P in an observation protocol, not
-a new closure certificate or a substitution of a measured alpha.
-
 The goal is to avoid public-facing ambiguity between the paper
 equations and the larger `code/particles` calibration stack. The code here is
 therefore built directly from the equations stated in:

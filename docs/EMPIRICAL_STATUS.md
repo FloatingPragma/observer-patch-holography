@@ -1,6 +1,6 @@
 # Empirical status
 
-The [executable model](../model/polynomial_sv/README.md) reproduces particle
+The [executable model](../model/README.md) reproduces particle
 stability, an observable of nature. Bound objects persist in free
 evolution, read on the observers' agreed records. A pair of loads written on
 one seam by a local emitter is read as a pair on some seam at every reading,
@@ -12,6 +12,17 @@ largest probability of reading no pair is `0.0096` on one cell and on
 federations of 20, 80 and 320 cells, against `0.80` for the exchange law
 alone on 20 cells. Three loads on a face are read as an agreed face object in
 the same way. The coupling is supplied.
+
+Under a second candidate law on the same carrier, the
+[scalar channel](../model/scalar_channel/README.md), an object on a ring of
+four seams is kept for every interval, and a local detector reads its
+excitation from counts at five waits. After a pulse its seam record swings
+with no drive at one line, which an observer reads at `4.8990` of its own
+reference and finds equal to the level difference of the object read
+separately. A changed law with the same alphabet, routing and symmetry loses
+both ([cage](../model/scalar_channel/cage/README.md)). The
+[observation ledger](registers/OBSERVATION_LEDGER_V3.md) records these as
+particle persistence and an internal clock attained on this construction.
 
 The target is agreement between observers' measurement statistics and their
 effective interpretations. Every test of the model compares distributions of
@@ -27,11 +38,13 @@ the experiment before comparing their probabilities.
 ## What the model has to supply next
 
 The other observables of the theory on this model are work in progress: a
-selection of `kappa`, a second sign of load, a record of currents that later
-events read, the class of an object as a record, the twelve port currents
-from the law's own services on the bound object, one limiting speed for all
-objects, a refinement map that preserves seams, an observer clock normalized
-to proper time, and the regional response that the Einstein theorem consumes.
+selection of the couplings, a record of currents that later events read, the
+class of an object as a record, the twelve port currents from the law's own
+services on the bound object, one limiting speed for all objects, one law
+that carries the objects of both candidate laws, a clock that starts with no
+supplied phase, a refinement map that preserves seams, an observer clock
+normalized to proper time, and the regional response that the Einstein
+theorem consumes.
 No laboratory dataset is compared with the model's records.
 
 ## Comparisons of the theory with public data
@@ -66,7 +79,8 @@ From the repository root:
 
 ```sh
 python -m model
-python -m pytest -q -W error model/polynomial_sv
+python -B -O -m model.scalar_channel.cage
+python -m pytest -q -W error model/polynomial_sv model/scalar_channel
 python -m pytest -q code/cosmology/tilt_posterior
 ```
 

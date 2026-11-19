@@ -1,7 +1,8 @@
 # OPH Claim Registry
 
 The official executable model is [polynomial-sv](../model/polynomial_sv/README.md).
-Its contrast-memory law is the candidate native repair law of the theory.
+Its contrast-memory law is a candidate native repair law of the theory, and
+the [scalar channel](../model/scalar_channel/README.md) on the same carrier is a second.
 Claims about the model are owned by the
 [executable-model paper](../paper/executable_observer_construction.tex), and
 `python -m model` recomputes their evidence. Other claims keep their stated

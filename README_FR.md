@@ -72,28 +72,64 @@ reproduire ce que mesurent les observateurs de notre monde.
 
 ## Axe de recherche
 
-Nous avons construit un [modèle exécutable](model/README.md) d’OPH, appelé
-polynomial-sv. La théorie qui l’entoure est achevée : le principe de
-clôture, la bibliothèque de théorèmes et les constructions finies sont en
+Nous avons un [modèle exécutable](model/README.md) d’OPH qui fonctionne,
+appelé polynomial-sv. De petits observateurs sont placés sur les ports de
+cellules icosaédriques. Chacun détient quelques registres et les compare
+avec ses voisins ; là où deux voisins sont en désaccord, ils réparent la
+différence entre eux deux. La théorie qui l’entoure est achevée : le principe
+de clôture, la bibliothèque de théorèmes et les constructions finies sont en
 place.
 
+La conception répond à la question de savoir comment un univers peut
+calculer sa propre histoire. Une histoire cohérente est un point fixe sur un
+nombre énorme de registres, et la chercher prendrait un temps exponentiel.
+Le réseau ne cherche pas. Chaque vérification est locale, chaque réparation
+est locale, et chaque réparation acceptée retire une quantité fixe de
+désaccord : le travail croît comme un polynôme du nombre d’observateurs.
+Avec cette conception, l’Univers se pense lui-même jusqu’à l’existence en
+temps polynomial. Le [manuel de construction](model/construction_manual/CONSTRUCTION_MANUAL.md)
+(en anglais) construit le modèle pièce par pièce et dit quelle part de cela
+est un théorème.
+
 Le centre de la recherche est la loi de réparation native, la loi simple qui
-gouverne les interactions des observateurs dans l’Univers primitif. Notre
-candidate est la loi de mémoire de contraste. Aucun nombre mesuré n’y entre.
-Sous cette loi, le processus de réparation reproduit des valeurs et des
-structures observables réelles, dans les descriptions effectives des
-observateurs qui habitent le calcul :
+gouverne les interactions des observateurs dans l’Univers primitif. Deux
+lois candidates tournent sur le modèle : la loi de mémoire de contraste et le
+canal scalaire. Aucun nombre mesuré n’y entre. Sous ces lois, le processus de
+réparation reproduit des valeurs et des structures observables réelles, dans
+les descriptions effectives des observateurs qui habitent le calcul :
 
 - **Des particules qui tiennent ensemble.** Une paire de charges écrite sur
-  une couture est lue comme une paire à chaque lecture ultérieure, sur des
-  supports de toute taille, et elle se déplace de couture en couture. La même
-  loi sans l’énergie d’accord perd la paire.
+  une couture est lue comme une paire à chaque lecture ultérieure, avec une
+  probabilité qu’un théorème borne sur des supports de toute taille, et elle
+  se déplace de couture en couture. La même loi sans l’énergie d’accord perd
+  la paire.
+- **Une horloge dans un objet.** Un objet tenu sur quatre coutures oscille à
+  une hauteur fixe après une impulsion. Un observateur lit cette hauteur dans
+  ses propres comptages, en unités de sa propre référence, et retrouve le même
+  nombre par une seconde voie, à partir des deux niveaux de l’objet.
+- **Quelque chose qui reste et ne porte aucune charge.** Une note laissée
+  dans la mémoire d’une couture, sans rien autour, n’est jamais effacée par
+  la loi. Elle ne porte aucune charge, ses observateurs lisent son niveau, et
+  la matière qui l’atteint s’y attache.
+- **Regarder change la suite.** Demander « une paire est-elle là ? » et
+  demander « où est-elle ? » donnent la même première réponse et des registres
+  ultérieurs différents.
 - **Trois directions d’espace.** La réponse la plus lente d’une cellule à une
   charge seule a exactement trois directions indépendantes. Les observateurs
   bâtissent sur elle leur description tridimensionnelle de l’espace.
 - **Douze courants de force.** Avec un service de port déclaré, la réponse
   des ports d’une cellule a douze générateurs dotés de l’algèbre des forces
   du Modèle standard.
+
+Ces sorties se branchent sur la bibliothèque de théorèmes. Un théorème
+s’applique au modèle partout où une sortie du modèle a la forme de sa
+prémisse : la cellule est le support du théorème des trois directions,
+l’écriture du modèle est la règle de réparation que quatre exigences
+désignent seule, ses lectures sont les instruments projectifs des théorèmes
+de la mesure, et ses observateurs comparent leurs horloges par des registres
+partagés, comme l’exigent les théorèmes d’horloge. Le
+[registre des observations](docs/registers/OBSERVATION_LEDGER_V3.md) (en
+anglais) liste ce que le modèle reproduit et ce qui est ouvert.
 
 L’état de la simulation ne contient pas l’Univers physique. Ses ports, ses
 coutures et ses cellules sont le matériel d’un calcul, et ils ne sont pas un
@@ -105,9 +141,9 @@ dimensions d’espace et une de temps. Chaque test du modèle compare donc ce
 que ses observateurs enregistrent avec ce que nous enregistrons. Il ne
 compare jamais l’état de la simulation avec le monde.
 
-La loi est une candidate. Son couplage est fourni, et les autres observables
-des articles, de la charge et du spectre des particules à la gravitation,
-sont en cours sur le même processus.
+Les lois sont des candidates. Leurs couplages sont fournis, et les autres
+observables des articles, de la charge et du spectre des particules à la
+gravitation, sont en cours sur le même processus.
 
 ## Ce qui en sort
 
@@ -224,7 +260,7 @@ python -m pytest -q -W error model
 ```
 
 Le guide donne aussi les contrôles autonomes des particules et des champs
-sources utilisés par le [workflow de l’observateur](.github/workflows/observer-model.yml).
+sources utilisés par le [workflow d’intégration continue](.github/workflows/ci.yml).
 
 La [bibliothèque Lean](Lean/) se compile avec Lake, l’[index de la documentation](docs/README.md)
 donne les registres et les politiques, et le [livre](book/) offre un chemin

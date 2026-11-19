@@ -79,11 +79,12 @@ Its carrier is a federation of twelve-port icosahedral cells joined by
 external seams. Every port holds a load of 0, 1 or 2, and every seam keeps a
 private memory that its two port observers write, phase and unwrite. On the
 loads this memory acts exactly as an exchange plus an agreement energy with
-one supplied coupling: the contrast-memory law, the candidate native repair
+one supplied coupling: the contrast-memory law, a candidate native repair
 law of the theory. A local emitter writes objects and a two-observer reader
 admits agreed records. The creator may supply this architecture; observers
 need not invent its laws. The model reproduces particle stability on its
 observers' agreed records ([binding theorem](../model/polynomial_sv/PROOF.md)).
+A second candidate law on the same carrier, the [scalar channel](../model/scalar_channel/README.md), holds an object on four seams: its excitation is kept for every interval, and after a pulse its seam record swings at one line that an observer reads from counts in units of its own reference ([cage](../model/scalar_channel/cage/README.md)).
 
 The carrier is hardware of the computation and no physical space. Physical
 space, time, fields and particles are effective descriptions that the
@@ -91,9 +92,10 @@ observers inside the computation use for the records they agree on, and every
 test compares distributions of admissible observer records with what
 observers in our world record. The theory proves that observers who inhabit
 the simulation can describe their experiences as relativistic 3+1D continuum
-spacetimes; supplying the premises of that theorem with the model's own local
-clocks and records is work in progress. Other finite constructions retain the
-hypotheses of their own theorems.
+spacetimes. The model supplies the carrier with its rank-three band, complete
+instruments and the count clocks of its observers; the readouts and the
+refinement family that the theorem consumes in addition are work in progress.
+Other finite constructions retain the hypotheses of their own theorems.
 
 ## Entry point and order
 

@@ -8,7 +8,7 @@ finite and numerical parts, inspect their inputs, and see which physical bridge
 each result requires.
 
 The executable model is [polynomial-sv](../model/polynomial_sv/README.md),
-whose contrast-memory law is the candidate native repair law. This directory
+whose contrast-memory law is a candidate native repair law. This directory
 contains supporting component calculations; their source-specific hypotheses
 are stated individually.
 

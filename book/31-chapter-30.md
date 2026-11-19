@@ -18,7 +18,7 @@ In the spring of 1992 a group running the Beijing Spectrometer, a detector on Ch
 
 Koide's 1776.97 had not moved. The world average had walked 7.2 million electron-volts and arrived on it.
 
-A triangular response gives an exact version of that relation. Applying it to charged leptons requires an additional identification, and that is where the executable construction is still being tested.
+A triangular response gives an exact version of that relation. Applying it to charged leptons requires an additional identification, which is a separate step.
 
 ## What a mass is
 

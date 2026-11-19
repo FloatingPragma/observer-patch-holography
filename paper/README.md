@@ -20,7 +20,7 @@ Begin with the flagship synthesis,
 The construction paper,
 [*An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records*](executable_observer_construction.pdf),
 specifies polynomial-sv, the executable model of OPH. Its contrast-memory law
-is the candidate native repair law: every seam keeps a private memory of the
+is a candidate native repair law: every seam keeps a private memory of the
 contrast between the loads of its two ports, and on the loads the memory acts
 as an exchange plus an agreement energy. The paper proves that a pair of loads
 written on one seam stays together on every federation of complete cells, and

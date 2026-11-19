@@ -36,27 +36,35 @@ proven bound, at every reading, on one cell and on federations of 20, 80 and 320
 than the first, and nothing holds it but the law. Remove the agreement energy
 and the pair falls apart (the largest "no pair" probability goes from 0.0096 to 0.80 on 20 cells). At `kappa = 8`:
 
-| Carrier | Bound | Largest P(no pair) | Largest P(pair on another seam) |
+| Carrier | Bound with the constants of the carrier | Largest P(no pair) | Largest P(pair on another seam) |
 | --- | ---: | ---: | ---: |
 | one cell | 0.1488 | 0.00957 | 0.986 |
 | 20 cells | 0.1830 | 0.00962 | 0.977 |
 | 80 cells | 0.1828 | 0.00964 | 0.977 |
 | 320 cells | 0.1830 | 0.00963 | 0.977 |
 
-The bound comes from a theorem that holds on every federation of complete cells: for `kappa > 3` the probability
-of "no pair" stays below `40 / (2 kappa - 6)^2`, whatever the number of cells ([PROOF.md](PROOF.md)). Three loads
-on a face, and bigger clusters, bind as well. Run as local events with no common clock, the pair holds when every
-observer serves each of its seams once per round, in any order. All numbers are in [RESULTS.json](RESULTS.json).
+The bounds of the table use the measured constants of each carrier and include the emitter. Behind them stands a
+theorem that needs no constant of the carrier: on every federation of complete cells and for `kappa > 3` the
+probability of "no pair" stays below `40 / (2 kappa - 6)^2`, whatever the number of cells ([PROOF.md](PROOF.md)).
+Three loads on a face, and bigger clusters, bind as well. Run as local events with no common clock, the pair holds
+when every observer serves each of its seams once per round, in any order.
+
+Two more results concern what observers do with the pair and with the memory of a seam. Asking "is a pair
+there?" and asking "where is it?" give the same first answer and different later records: the pair is one object
+spread over seams, and a reading that keeps its seam places it ([presence.py](presence.py)). And a seam memory
+that holds a record while its ports are empty stays that way under every event: it holds no load, its observers
+read its level from their own records, and a load that reaches it binds to it ([collar.py](collar.py)). All
+numbers are in [RESULTS.json](RESULTS.json) and [presence_results.json](presence_results.json).
 
 ## Run it
 
 From the repository root, with NumPy, SciPy and SymPy:
 
 ```sh
-python -m model.polynomial_sv.verify            # headline subset, about a minute
+python -m model.polynomial_sv.verify            # headline subset, under a minute
 python -m model.polynomial_sv.verify --full     # everything, 80 and 320 cells included (an hour or more)
 python -B -O -m model.polynomial_sv.presence     # replay the two-reading public laws
-python -m pytest -q model/polynomial_sv          # tests, about two minutes
+python -m pytest -q model/polynomial_sv          # tests, under a minute
 ```
 
 `verify` recomputes and compares with `RESULTS.json` within tolerances; `--output PATH` writes a fresh result
@@ -76,7 +84,7 @@ file and `--verify PATH` compares another one. The last line it prints is a JSON
 | [events.py](events.py) | the law as local events with no common clock, and the member with committed contrast |
 | [catalogue.py](catalogue.py) | the bound objects of one cell, their bindings, the pair on the federation |
 | [port_response.py](port_response.py) | the port response for one load and for the bound pair |
-| [collar.py](collar.py) | the unrecovered collar and its reading with four phase settings |
+| [collar.py](collar.py) | the unrecovered seam (the papers say collar): its kept label, its levels, a load beside it, its reading with four phase settings |
 | [extras.py](extras.py) | one-load spectra, three and four loads, the pair band, average adjacency, the branch on a ring |
 | [verify.py](verify.py), [test_model.py](test_model.py) | recomputation, comparison and tests |
 
@@ -90,7 +98,9 @@ The full specification is [SPEC.md](SPEC.md); the binding theorem with its proof
 - the emitter with its fuel, coupling and duration;
 - the evolution parameter of the runs with a continuous parameter (as local events the pair needs each seam to
   act once per round, or small event angles);
-- the routing of the external seams of the federation.
+- the routing of the external seams of the federation;
+- the reader with its stage durations, and the tree of the presence reading;
+- the unrecovered seam as a preparation, with its fuel and converter.
 
 ## Work in progress
 

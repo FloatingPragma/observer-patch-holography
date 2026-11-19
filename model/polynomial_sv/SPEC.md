@@ -76,6 +76,13 @@ them with exact SymPy arithmetic on all 99 states. Every local term preserves th
 local terms over overlapping seams preserves the product of blank memories, and on that code the law acts on the
 loads alone.
 
+**What the local term keeps.** The local space of a seam splits into three parts that the local term maps into
+themselves: the blank code, on which it is the seam term; the written code $\operatorname{ran} W$, on which it
+vanishes; and the other records, on which it is the generator. On the records the squared contrast $d^2$ commutes
+with the projector on the written code and with the generator, and so with the local term. Every seam therefore
+carries a label that no event changes: its memory is blank, or it holds a record of size $|d| = 0$, $1$ or $2$.
+The write itself changes the memory and does not commute with $d^2$.
+
 **Degree term.** On the pair formed by a port with five seams and its reference register the generator is the
 $D^2$ part alone. Its reduction is $(n_v - n_{\rm ref})^2$, which keeps $n_{\rm ref} = 0$ and equals $n_v^2$ there. With it
 every port counts six seams. The exchange part on this pair would move load into the reference and is no part of
@@ -191,7 +198,45 @@ back down for $\tau/2$.
 **Committed contrast.** A further member of the memory family commits the contrast of the acting seam (which end
 holds a load) to a public record after every event.
 
-## 9. Resources
+## 9. The unrecovered seam
+
+A seam whose memory is not blank is unrecovered. By section 3 the label of a seam is conserved: a recovered start
+stays recovered, and an unrecovered seam is a supplied preparation. With no load anywhere the ten records of a
+seam have the levels $0$, $\kappa$, $\kappa + 1$, $4\kappa$ and $4\kappa + 1$, each twice: $0$ for the records of
+zero contrast, $\kappa$ and $\kappa + 1$ for the symmetric and the antisymmetric record of contrast $\pm 1$, and
+$4\kappa$ and $4\kappa + 1$ for contrast $\pm 2$. A seam that holds a record of size one with empty ports holds no
+load and lies $\kappa$ above the blank seam.
+
+**A load beside it.** On a record that the loads of the seam can have written the local term vanishes, and on
+every other record it is the generator alone and exchanges nothing. Beside a record of size one a load on a port
+of the seam lies below a load elsewhere, by about $2\kappa$ where the record fits the load and by about $\kappa$
+where it does not, and it sits on a port of the seam. On one cell at $\kappa = 8$ a load elsewhere starts at
+56.38, two levels lie at 41.94 and six between 49.81 and 50.94 ([collar.py](collar.py)).
+
+**Reading.** A local fuel at level 0 is converted into a contrast record by a pulse of area $\pi/4$ with coupling
+64 and the law acting; after $q$ cycles a second pulse with one of four phase settings reads "fuel present". From
+$Z(q) = [p_0 - p_\pi - i\,(p_{\pi/2} - p_{3\pi/2})]/4$ the observer reads the phase rate per cycle of the symmetric
+and of the antisymmetric record, $r_s$ and $r_a$. Their difference is the cycle in exchange units, and
+$r_s/(r_a - r_s)$ is the coupling. The length of a cycle is not given to the observer.
+
+The papers of the theory call the private memory of a seam its collar, and this state an unrecovered collar.
+
+## 10. The presence reading
+
+The reader of section 7 keeps one record per seam. The presence reading keeps one answer for the whole cell. A
+tree of reversible OR gates over the thirty reader blocks copies the answer "some seam reports a pair" into a
+public register, and the tree and the readers run backwards, so that every seam word returns to blank. With $P_e$
+the projector on the pair on seam $e$, $P = \sum_e P_e$ and $Q = I - P$, a positive answer acts on a state $X$ of
+the loads as
+
+$$X \mapsto P X P \quad \text{(presence)},\qquad X \mapsto \sum_e P_e X P_e \quad \text{(reader with seam records)},$$
+
+and a negative answer acts as $X \mapsto Q X Q$ for both. The first answer has the same law under both readings,
+and the laws of later records differ. One read allocates 720 bits. [presence.py](presence.py) executes both
+readings and the laws of two readings in one history, section 8 of [PROOF.md](PROOF.md) gives the instrument with
+its error bounds, and [presence_protocol.json](presence_protocol.json) fixes the campaign.
+
+## 11. Resources
 
 Level 0, literal allocation: 240 load qutrits, 630 seam memories of eleven states, 180 reference qutrits with 180
 further eleven-state memories, one two-state fuel and 630 reader blocks of eleven bits. Without controller and
@@ -203,7 +248,7 @@ The sector of two loads has $V(V+1)/2$ states (78 on a cell, 28,920 on 240 ports
 without), so the tests are polynomial in the number of ports. The construction is no solver for general
 constraint problems and claims no polynomial bound for one.
 
-## 10. Supplied
+## 12. Supplied
 
 - the coupling $\kappa$;
 - the coherent generator $G_\kappa$ on the private seam memory;
@@ -212,4 +257,6 @@ constraint problems and claims no polynomial bound for one.
 - the evolution parameter of the runs with a continuous parameter; as local events the pair needs each seam to act
   once per round, or the limit of small event angle;
 - the routing of the external seams of the federation;
-- the reader's stage durations.
+- the reader's stage durations;
+- the unrecovered seam as a preparation, with its fuel and converter;
+- the tree of the presence reading, its wiring and its pulse schedule.
