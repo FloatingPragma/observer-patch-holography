@@ -1,0 +1,50 @@
+{
+  "member": "signless-charge-laplacian-neutral-pair-v1",
+  "oph": "f52fa4dab609845b20a80b43ea6bd9cc11a19f56",
+  "unit": "one coefficient J for each written square, hbar=1",
+  "seed": 853169,
+  "shots": 4194304,
+  "clock_step": 0.125,
+  "samples": 512,
+  "fit_samples": 384,
+  "states": [
+    "ordered",
+    "even",
+    "odd",
+    "neutral"
+  ],
+  "controls": [
+    "dephased_contact",
+    "parked_neutral"
+  ],
+  "waits": [
+    0,
+    0.5,
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "carriers": [
+    "cell",
+    0
+  ],
+  "gap_carriers": [
+    "cell",
+    0,
+    1,
+    2
+  ],
+  "gates": {
+    "line_error": 0.004,
+    "heldout_rms": 0.02,
+    "energy_error": 0.05,
+    "min_conversion": 0.001,
+    "min_split_cells": 0.00003,
+    "min_remote_energy": 0.0001,
+    "min_inverse": 0.001,
+    "max_phase_law_error": 0.002
+  },
+  "interpretation": "Charge signs, neutral statistics, relative coupling, phase references and switchable readers are declared. Record all outcomes even if a science gate fails."
+}
