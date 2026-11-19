@@ -7,12 +7,13 @@ import numpy as np
 
 from ...polynomial_sv import carrier
 from ..radiative_repair.source import evolve
-from . import mobility
+from . import coactive, mobility, refinement
 from .cage_transfer import transfer
 from .contrast_binding import run as contrast_cage
 from .current import current_experiment, one_charge_read
 from .law import charged_operator
 from .memory import coherent_check
+from .register_link import compile_link
 
 
 CHARGE_WAIT = 24
@@ -77,6 +78,9 @@ def run():
         "pair_current": pair,
         "current_controlled_cage": current_controlled_cage(car, seam),
         "contrast_cage": contrast_cage(seam=seam),
+        "coactive": coactive.run(),
+        "refinement": refinement.run(),
+        "register_link": compile_link(seam=seam),
         "coherent_memory_errors": coherent_check(),
     }
 

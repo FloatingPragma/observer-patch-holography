@@ -107,17 +107,40 @@ def _external_laplacian(configurations, cells, activations):
     return contact
 
 
-def _all_links_record(sector, source, contact, start, sender, coupling, wait):
+def _all_links_probabilities(sector, source, contact, start, sender, coupling, wait):
     cells = sector.car.cells
     ket = np.zeros((sector.P, cells))
     ket[:, sender] = start
     hamiltonian = sparse.kron(source, sparse.eye(cells), format="csr") + coupling * contact
     amplitude = _evolve(hamiltonian, ket.ravel(), wait)
     probability = abs(amplitude.reshape(ket.shape)) ** 2
+    require(abs(probability.sum() - 1.0) < 1e-9, "the all-cell projective records lost outcomes")
+    return probability
+
+
+def _all_links_record(sector, source, contact, start, sender, coupling, wait):
+    probability = _all_links_probabilities(sector, source, contact, start, sender, coupling, wait)
     near = sector.adjacent
-    record = np.stack([probability[~near].sum(axis=0), probability[near].sum(axis=0)])
-    require(abs(record.sum() - 1.0) < 1e-9, "the all-cell projective records lost outcomes")
-    return record
+    return np.stack([probability[~near].sum(axis=0), probability[near].sum(axis=0)])
+
+
+def _addressed_pair(sector, seam, blank_weights):
+    """Prepare one adjacent load pair that opens the addressed external term."""
+    carrier = sector.car
+    a = seam[0]
+    sender = a // PORTS_PER_CELL
+    neighbor = next(
+        port for port in carrier.neighbours[a] if port // PORTS_PER_CELL == sender
+    )
+    pair_state = sector.index(a, neighbor)
+    activation = _activation(sector, seam, blank_weights)
+    require(
+        sector.adjacent[pair_state] and activation[pair_state] == 1,
+        "the supplied adjacent preparation does not activate the selected link",
+    )
+    start = np.zeros(sector.P)
+    start[pair_state] = 1.0
+    return sorted((a, neighbor)), start, activation
 
 
 def run(kappa=128.0, coupling=1.0, wait=0.5, *, seam=None):
@@ -168,19 +191,8 @@ def run(kappa=128.0, coupling=1.0, wait=0.5, *, seam=None):
         and tuple(sorted(seam)) in carrier.external,
         "the selected seam must be an oriented external seam on the 20-cell carrier",
     )
-    a, b = seam
-    sender = a // PORTS_PER_CELL
-    neighbor = next(
-        port for port in carrier.neighbours[a] if port // PORTS_PER_CELL == sender
-    )
-    pair_state = sector.index(a, neighbor)
-    activation = _activation(sector, seam, blank_weights)
-    require(
-        sector.adjacent[pair_state] and activation[pair_state] == 1,
-        "the supplied adjacent preparation does not activate the selected link",
-    )
-    start = np.zeros(sector.P)
-    start[pair_state] = 1.0
+    sender = seam[0] // PORTS_PER_CELL
+    initial_pair, start, activation = _addressed_pair(sector, seam, blank_weights)
     source = sector.hamiltonian(kappa)
     symmetric = _evolve(source, start, wait)
     drive = source + sparse.diags(2 * coupling * activation, format="csr")
@@ -225,7 +237,7 @@ def run(kappa=128.0, coupling=1.0, wait=0.5, *, seam=None):
         "ordered_block_gap_lower_bound": float(gap),
         "all_time_no_pair_bound": float(bound),
         "seam": list(seam),
-        "initial_load_pair": sorted((a, neighbor)),
+        "initial_load_pair": initial_pair,
         "wait": float(wait),
         "rows": ["no_adjacent_pair", "adjacent_pair"],
         "columns": ["sender_cage", "receiver_cage"],

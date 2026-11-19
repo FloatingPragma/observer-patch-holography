@@ -112,6 +112,100 @@ controlled action. The same writer can then run backwards and return its private
 An optional orthogonal copy retains a public record. A finite operator check compares every input
 column with both write–control–unwrite maps. [Record retention check](memory.py)
 
+## Co-active charges, loads, and a cage
+
+Read the signed current of a filtered charge on the addressed seam. In the same trial, prepare
+adjacent native loads and a cage on the sender, then let all external links act during the common
+free interval. A positive current record adds one copy of the addressed link, with the native
+contrast weights acting throughout. For a fixed record the charge and the load–cage state evolve
+in disjoint factors, while the charge-current pointer controls the load–cage generator. The
+terminal read retains the actual current, the final charge cell, load-pair presence, and the cage
+cell. A shuffled control draws the enabled-link bit independently with the same frequency within
+each charge sign. The read keeps the rejected filter trials in the denominator. The lowest-band
+preparation applies before the current read, which can populate other charged bands.
+
+For each configuration the native links have norm at most $4g$, and the extra addressed link
+has norm at most $2g$. The interaction stays diagonal in the load addresses during the free
+interval, so the same ordered-block argument bounds the probability of separated loads by
+$40/(2\kappa-6-6g)^2$ when the gap is positive. At wait 0.5 the full records distinguish the
+actual and shuffled writes by total variation 0.017444 and 0.047289 for the two charge signs.
+The separated-load probability in the positive-pointer arm is $5.51874\times10^{-5}$, within
+the all-time bound $6.71863\times10^{-4}$. A direct 48-state dense check compares the
+charge–load–cage operator and all joint read bins. [Co-active replay](coactive.py)
+
+An independent short-wait certificate uses the joint read of the *original* adjacent pair and
+the addressed receiving cell. For this one load configuration, at most ten native swaps have
+absolute matrix element $1/2$. The squared coupling out of the configuration is at most $5/2$,
+so two applications of Duhamel's formula bound the return-block error by $5t^2/4$.
+The cage generator compressed to that configuration has norm at most $6g$. Its receiver
+amplitude starts at $igt$ for the blank pointer and $2igt$ with the positive pointer, with
+remainder bounded in both arms by $\epsilon=(18g^2+5/4)t^2$. At $g=1,t=1/128$,
+$(2t-\epsilon)^2-(t+\epsilon)^2$ is strictly positive. The nine allowed swaps for the
+addressed pair sharpen the probability increase bound to $1077/8388608$. The replay checks
+the slope in the assembled generator and reads probabilities $6.10278\times10^{-5}$ and
+$2.44095\times10^{-4}$ with all links enabled.
+
+## The addressed link on port registers
+
+For the addressed external seam, embed the two selected cage pairs in a two-cell register
+chart. Local mode rotations along chart links send the two cage modes of each cell to its
+incident port's fuel and reference modes. The chart checks those profiles against the
+full federation and checks the rotation and central words against its cycle constraints.
+Conjugating the central link pulse by the routing rotations implements the same quartic on
+the original modes.
+
+The central generator expands into two Pauli batches on the two endpoint observers'
+registers. One contains the two local occupation costs. The other exchanges the cage
+excitation. The words in each batch commute pairwise, and the two batch sums commute
+by an integer Pauli-polynomial check. The rotations therefore implement the central
+pulse exactly, including the identity term's phase when the pulse is controlled.
+A separate check compares the generator, occupation operators and pulse against the
+literal even fermion sector of the bridge and its parity anchor. The chart and the
+routing sequence are supplied for an isolated addressed pulse. For seam $(10,20)$ the
+two batches have seven and eight words, and the full pulse agrees on all 32 literal
+even-sector columns to within $10^{-14}$.
+[Register compilation](register_link.py)
+
+## Refinement of the cage links
+
+In the stored 20-to-80 and 80-to-320 carriers, the parent of fine cell $j$ is $\lfloor j/4\rfloor$.
+Each parent contains a central child joined to three corners. Each coarse seam has two fine
+crossings, and the three sets of corners incident to the three neighboring parents omit different
+corners. With all links written in the one-cage sector, remove the common free cage energy and
+write $L_c,L_f$ for the coarse and fine cell Laplacians in link units.
+
+For the isometry $P$ sending a coarse cell to the uniform superposition of its four children,
+each fine crossing contributes one quarter of its corresponding coarse difference square.
+It follows that $P^*L_fP=L_c/2$. The leakage $E=(I-PP^*)L_fP$ satisfies $E^*E=L_c/2$ as well.
+To see the latter, let $d_1,d_2,d_3$ be the coarse amplitude differences from a parent to its
+neighbors and $s=d_1+d_2+d_3$. The leakage on the center is $-s/4$ and on the corner missing
+neighbor $k$ it is $(s-2d_k)/4$. Their squared moduli sum to $\sum_k|d_k|^2/4$ in that parent.
+Each coarse seam is counted twice over all parents.
+
+Composing the two checked isometries gives $P_{02}^*L_{320}P_{02}=L_{20}/4$.
+For the composed leakage, the term orthogonal to the 80-cell lift and the lifted first-step
+leakage are orthogonal. Their Gram matrices contribute $L_{20}/4$ and $L_{20}/8$, respectively.
+The total unscaled leakage Gram matrix is $3L_{20}/8$.
+
+There is a stronger local obstruction. Suppose a subspace is a direct sum of subspaces inside
+individual parents and is invariant under $L_f$. Each off-diagonal block between neighboring
+parents and its adjoint preserve the respective subspaces. Their product projects onto the
+two crossing corners. Two such corner projections within a parent isolate one corner.
+The internal star then takes any such corner into the span of the center and takes the center
+into the span of all three corners. Invariance therefore forces a nonzero parent subspace to
+contain all four child coordinates. A crossing propagates this condition to the adjacent parent.
+Connectivity leaves only the zero and full subspaces. The same argument uses support projections
+of the block products for nonzero positive seam weights. A proper exact parent-local
+intertwiner for this one-cage generator is therefore excluded.
+
+The finite detector prepares a cage uniformly within one parent and reads the receiving parent
+across a specified seam. The fine detector has a short-time leading probability $t^2/2$ from two
+distinct receiving children. The energy-matched coarse walk generated by $L_c/2$ gives
+$t^2/4$. The replay checks the full distributions and the zero-link control on the actual
+carriers. At $t=1/32$ the matched receiver-probability difference is about $2.43327\times10^{-4}$
+on both steps, with the rational lower bound $17598039/107374182400$ from the sine and cosine
+remainders. [Refinement certificate](refinement.py)
+
 ## Records on 20 cells
 
 The charged, conversion and cage runs share the addressed external seam $(10,20)$. The probabilities
@@ -150,6 +244,7 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B -m pytest -q model/scalar_cha
 ```
 
 The quantities here are finite detector records under supplied preparations and controls.
-An autonomous two-port compiler would have to realize the addressed controls across each
-two-cell patch. Relativistic dispersion, proper-time normalization, coupling selection and a
-seam-preserving physical refinement require additional attachments to the carrier and observer instruments.
+Autonomous scheduling of the current reads, the link controls and the concurrent source terms
+requires a schedule on the native registers. Relativistic dispersion, proper-time normalization,
+coupling selection and a dynamical physical refinement require additional attachments to the
+carrier and observer instruments.
