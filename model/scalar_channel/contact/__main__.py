@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import math
 from pathlib import Path
 
 import numpy as np
@@ -21,12 +22,16 @@ def digest(path):
 
 
 def protocol():
-    hashes = json.loads((HERE / 'sources.json').read_text(encoding='utf-8'))
+    check_sources(HERE / 'sources.json')
+    return json.loads((HERE / 'protocol.json').read_text(encoding='utf-8'))
+
+
+def check_sources(manifest):
+    hashes = json.loads(manifest.read_text(encoding='utf-8'))
     for name, expected in hashes.items():
         # Sources are UTF-8 text. Git may check out CRLF on Windows.
         data = (ROOT / name).read_bytes().replace(b'\r\n', b'\n')
         require(hashlib.sha256(data).hexdigest() == expected, f'source differs: {name}')
-    return json.loads((HERE / 'protocol.json').read_text(encoding='utf-8'))
 
 
 def experiment(spec):
@@ -54,6 +59,8 @@ def assess(spec, laws, counts):
     gates = spec['gates']
     shots = spec['shots_per_setting']
     require(set(counts) == set(laws), 'wrong instrument names')
+    # Simultaneous Bernstein bounds also resolve the rare missed writes.
+    log_tail = math.log(2 * sum(law.size for law in laws.values()) / 1e-8)
     for key, law in laws.items():
         recorded = counts[key]
         tol = gates['maximum_absolute_probability_roundoff']
@@ -65,6 +72,9 @@ def assess(spec, laws, counts):
         require(np.all(recorded[law == 0] == 0), f'forbidden {key} outcome')
         require(np.max(abs(recorded / shots - law)) < gates['maximum_probability_sampling_error'],
                 f'{key} counts lie outside the frozen sampling band')
+        variance = shots * np.maximum(0, law * (1-law))
+        limit = np.sqrt(2 * variance * log_tail) + 2 * log_tail / 3
+        require(np.all(abs(recorded - shots * law) <= limit), f'{key} counts fail the variance bound')
     readings = observe(counts, shots)
     couplings = spec['couplings_in_exchange_units']
     require(np.max(abs(np.array(readings['coupling_from_collar']) - couplings)) <

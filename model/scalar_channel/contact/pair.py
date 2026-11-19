@@ -1,7 +1,6 @@
 """A source-on emitter and two source-on local pointers in the mobile two-load sector."""
 
 import argparse
-import hashlib
 import json
 import math
 from pathlib import Path
@@ -13,7 +12,7 @@ from scipy.sparse.linalg import expm_multiply
 from ...contrast_replay import cell as load_cell
 from ..carrier import require
 from ..cage import construction as cage
-from .__main__ import HERE, ROOT, protocol
+from .__main__ import HERE, check_sources, protocol
 
 
 def step(H, state, time):
@@ -97,10 +96,7 @@ def main():
     cli.add_argument('--record', type=Path)
     args = cli.parse_args()
     protocol()
-    frozen = json.loads((HERE / 'pair_sources.json').read_text(encoding='utf-8'))
-    for name, value in frozen.items():
-        data = (ROOT / name).read_bytes().replace(b'\r\n', b'\n')
-        require(hashlib.sha256(data).hexdigest() == value, f'mobile source differs: {name}')
+    check_sources(HERE / 'pair_sources.json')
     spec = json.loads((HERE / 'pair_protocol.json').read_text(encoding='utf-8'))
     result = calculate(spec)
     if args.record:
