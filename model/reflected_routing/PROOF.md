@@ -250,8 +250,13 @@ bounds the total variation on all stops and the final seam records by the initia
 On this binary sector the unshifted single-edge generator has norm at most $\kappa+1=9$. If pulse $j$
 misses its duration by $\delta_j$, its operator error is at most $9|\delta_j|$. Telescoping and retaining
 all classical branches adds at most $9\sum_j|\delta_j|$ on the longest path with these error budgets.
-For a read window of duration $\tau$ the native reader's joint-evolution Duhamel estimate gives at
-most $12\tau$ per binary read on this sector. Summing these terms budgets the joint distribution
+For a binary read followed by further coherent operations, include the diagonal phase acquired during
+the read. In the fixed-number energy convention the free law is $H=K-2\kappa B$, where
+$0\le B\le I$ is the adjacent-pair projector and $0\le K\le12 I$ by the maximal pair-graph degree.
+At $\kappa=8$ the spectrum lies in $[-16,12]$. The decoupled fuel's energy is a diagonal entry in
+this interval. Comparing the entire driven reader with the instantaneous reader by Duhamel therefore
+costs at most $16\tau$ in joint state error for a read lasting $\tau$. The sharper $12\tau$ terminal
+record bound can discard diagonal phases at the final measurement. Summing the joint bounds budgets the distribution
 before conditioning on successful preparation. This budget treats the scheduler, finite fresh pointer
 words and conditional stop/continue service as apparatus. The native clock time of that program and
 a physical identification of the traveling state require separate observations.
