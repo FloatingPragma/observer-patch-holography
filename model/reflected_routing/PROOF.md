@@ -151,3 +151,60 @@ The sealed local forecast propagates the two dispersive components by a rotation
 complement by $(-S)^t$, including both flat bands excited by writing the tag. Acquisition independently
 iterates the full eight-slot gate. Suppressing the write leaves the different windings coherent in
 the original torus. Summing measured tags after the write instead sums their probabilities.
+
+## Realization by polynomial-sv seam events
+
+Mark port $m$ of a connected carrier and restrict the controls to seams avoiding $m$. Encode the moving slot
+at port $j$ as the two-load state $|\{m,j\}\rangle$. On this subspace a seam has at most one of the two loads.
+Its event acts by $\exp[-i\tau(I-T_{ab})/2]$, where $T_{ab}$ interchanges the endpoint basis states. All
+other ports are spectators. The subspace is reducing. For $\tau=\pi$ this event exchanges two basis states
+exactly. Conjugating the final edge of a path of length $\ell$ by the first $\ell-1$ swaps implements the
+desired exchange between its endpoints in $2\ell-1$ events. Every intermediate port is restored, even if
+it carried an unknown coherent amplitude. This construction needs paths avoiding the marker.
+[Seam event](../polynomial_sv/SPEC.md#8-events-and-schedules) · [Compiler](seam_program/compiler.py)
+
+On one eight-port block label the slot basis by the three-bit words. For each nonzero mask $a$, the four
+disjoint pairs $i,i\mathbin{\mathrm{xor}}a$ generate $(I-X_a)/2$, where $X_a$ translates by that mask.
+All seven translations commute, and $\sum_{a\ne0}X_a=8P-I$ with $P$ the equal-slot projector. Acting
+on each pair once with angle $\pi/4$ gives
+
+$$
+ \prod_{a\ne0}\exp[-i(\pi/8)(I-X_a)] = \exp[-i\pi(I-P)] = 2P-I.
+$$
+
+Applying this program on each block and then exchanging each positive outgoing slot with the negative
+slot at its adjacent logical address implements $SC$ exactly. Arbitrary slot states and an untouched
+quantum reference are covered. This is an identity at completed program boundaries. The paths, clock
+counts and incidence of the physical seams between those boundaries belong to the chosen embedding.
+
+There are two native expressions to check. On blank memory the original 99-state law reduces to
+$(I-T_{ab})/2+\kappa(n_a-n_b)^2$. On binary loads the difference from the scheduled generator of
+section 8 of the specification is $\kappa(n_a+n_b)$, which commutes with both generators. At the
+declared $\kappa=8$, both $\kappa\pi/4$ and $\kappa\pi$ are multiples of $2\pi$. The two event unitaries
+therefore agree, including relative phases between occupied and empty seams. This argument holds on
+the entire binary pair sector, including preparation error. Blank seam memories return to blank.
+Other couplings and pulse lengths require their own phase check. [Blank-memory identity](../polynomial_sv/law.py)
+
+The finite emitter starts with fuel on the marker and source seam. Its error relative to the ideal
+pair is bounded in norm by $\sqrt{d_m+d_j-2}/(2g)$. Both ideal and actual states then undergo the
+same seam events. The error bound carries to the total variation of any terminal observer distribution
+by unitary invariance and contraction of trace distance under measurement. For a selected slot, swap
+its port onto the emitter seam, run the two endpoint observers and read their public decision. The
+complete seam measurement also reports every other seam and the no-pair outcome. Residual fuel
+contributes to no pair. A finite-duration read under the hypotheses of the native reader adds at most
+$12\tau_{\rm read}$ to this bound. The execution stores ideal instantaneous readouts after the finite
+emitter. Distinct selected-slot settings use fresh preparations.
+[Emitter](../polynomial_sv/sectors.py) · [Reader](../polynomial_sv/reader.py)
+
+**Preparation obstruction.** On a connected control component of $N$ nonmarker ports, every allowed
+partial exchange fixes the uniform vector. Starting with a sharp marked pair, its overlap with that
+vector is $1/\sqrt N$ under every word of these gates. Any target orthogonal to the uniform vector
+is therefore separated from the reachable pure states by at least $1/\sqrt N$ in trace distance.
+This follows by projecting the reachable state onto the orthogonal complement of the uniform vector
+and bounding its overlap with the target by $\sqrt{1-1/N}$. The untagged, nonzero-momentum packets of
+the clock measurements have zero total amplitude. Embedding them with zero amplitude at unused ports
+preserves that property. Even the finite emitter retains a lower bound of $1/\sqrt N$ minus its
+preparation error, by the triangle inequality. This obstruction concerns deterministic preparation
+from this emitter by the selected seam programs. Conditional measurement, a different source or extra
+phase controls change the preparation problem. The compiled gate alone supplies neither those packets
+nor the equipped relay's service time.
