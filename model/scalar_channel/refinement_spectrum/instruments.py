@@ -28,7 +28,18 @@ def fuel_law(amplitude, quarters):
 def acquire(rng, probabilities, shots):
     require(np.isfinite(probabilities).all() and probabilities.min() >= -1e-12 and
             probabilities.max() <= 1+1e-12, 'invalid fuel probability')
-    return rng.binomial(shots, np.clip(probabilities, 0, 1)).astype(np.int32)
+    # Exact half and endpoint probabilities must take the same RNG branch across BLAS implementations.
+    measured = np.rint(np.clip(probabilities, 0, 1)*2**30) / 2**30
+    return rng.binomial(shots, measured).astype(np.int32)
+
+
+def count_partition(rng, law, shots):
+    require(np.isfinite(law).all() and law.min() >= -1e-13 and abs(law.sum()-1) < 1e-11,
+            'invalid outcome partition')
+    # Quantizing cumulative edges keeps every bin nonnegative and preserves total probability exactly.
+    edges = np.rint(np.cumsum(np.maximum(law, 0.)/np.maximum(law, 0.).sum())*2**30)
+    probabilities = np.diff(np.r_[0., edges]) / 2**30
+    return rng.multinomial(shots, probabilities).tolist()
 
 
 def quadrature(counts, shots):
@@ -37,8 +48,12 @@ def quadrature(counts, shots):
 
 
 def clock_read(counts, shots):
+    require(counts.ndim == 3 and counts.shape[1:] == (4, 2) and len(counts) >= 2
+            and counts.dtype.kind in 'iu' and np.all((0 <= counts) & (counts <= shots)),
+            'invalid clock counts')
     real = quadrature(counts[:, :2], shots)
     imag = quadrature(counts[:, 2:], shots)
+    require(np.max(abs(np.hypot(real, imag)-1)) < .05, 'clock lost its reference contrast')
     phase = np.unwrap(np.angle(real + 1j*imag))
     ticks = phase - phase[0]
     require(np.min(np.diff(ticks)) > 0 and np.max(np.diff(ticks)) < np.pi/2,

@@ -113,3 +113,11 @@ def inventory(depth):
     nodes = (4**(depth+1)-1)//3
     require(sum(b['copies']*len(b['positive']) for b in bands) == nodes, 'incomplete signed spectrum')
     return bands
+
+
+def light_rate(n):
+    """Smallest singular value from the largest one of an exactly scaled inverse."""
+    require(type(n) is int and n >= 1, 'a chain must be nonempty')
+    i, j = np.indices((n,n))
+    scaled = np.tril(np.exp2((i-j)-(n-1)))
+    return 2.**(1-n)/np.linalg.norm(scaled, 2)

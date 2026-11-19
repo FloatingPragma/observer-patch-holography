@@ -13,7 +13,7 @@ from tools.strict_json import load
 from ..carrier import require
 from ..cage.construction import HOP
 from . import instruments as ins, source
-from .__main__ import HERE, ROOT, pins, verify_saved
+from .__main__ import HERE, pins, verify_saved
 
 
 def limiting_return(t):
@@ -49,10 +49,10 @@ def run(spec):
         counts = ins.acquire(rng,ins.fuel_law(generated,(0,2)),spec['shots'])
         records[str(n)] = counts
         err = abs(ins.quadrature(counts,spec['shots'])-limit)
-        low = np.linalg.eigvalsh(H)[n]
+        low = float(source.light_rate(n))
         lo = 3/math.sqrt(4**(n+1)-3*n-4)
         hi = 2.**(1-n)
-        require(lo-2e-15 <= low <= hi+2e-15, 'light rate outside inverse-norm bounds')
+        require(lo*(1-2e-15) <= low <= hi*(1+2e-15), 'light rate outside inverse-norm bounds')
         rows.append(dict(length=n, low=float(low), lower_bound=lo, upper_bound=hi,
                          atoms_versus_limit_over_window=float(max(err[times <= spec['finite_window_end']])),
                          atoms_versus_limit_all=float(max(err)),
@@ -78,7 +78,8 @@ def main():
             np.savez_compressed(f,**records)
         (where/'result.json').write_text(json.dumps(rows,indent=1,allow_nan=False)+'\n',encoding='utf8')
     with np.load(where/'counts.npz',allow_pickle=False) as z:
-        require(sorted(z.files)==sorted(records) and all(np.array_equal(z[k],v) for k,v in records.items()),
+        require(sorted(z.files)==sorted(records) and all(z[k].dtype.kind in 'iu' and np.array_equal(z[k],v)
+                                                       for k,v in records.items()),
                 'refinement records differ')
     verify_saved(load(where/'result.json'),rows)
     require(rows[-1]['atoms_versus_limit_over_window'] < spec['maximum_deep_record_difference']

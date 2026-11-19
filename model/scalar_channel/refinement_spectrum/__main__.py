@@ -15,9 +15,10 @@ from . import flight, instruments as ins, source
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
-SOURCES = ('model/requirements.txt', 'model/scalar_channel/carrier.py', 'model/scalar_channel/cage/construction.py',
+SOURCES = ('model/__init__.py', 'model/requirements.txt', 'model/scalar_channel/__init__.py',
+           'model/scalar_channel/cage/__init__.py', 'model/scalar_channel/carrier.py', 'model/scalar_channel/cage/construction.py',
            'tools/strict_json.py', *('model/scalar_channel/refinement_spectrum/'+f for f in
-           ('__main__.py','source.py','instruments.py','flight.py','protocol.json')),
+           ('__init__.py','__main__.py','source.py','instruments.py','flight.py','protocol.json','comparison.json')),
            *(f'model/polynomial_sv/carriers/FEDERATION_LEVEL{i}.npz' for i in range(3)))
 
 
@@ -95,11 +96,17 @@ def score(spec, maps, readings):
                 n = band['length']
                 masses = [1.] if law == 'no_children' else band['positive']
                 row = readings[f'{law}_{name}_{n}']
+                inner = source.chain(depth,n)[:n,n:]/cell.HOP
+                _, modes = np.linalg.eigh(inner @ inner.T)
+                strengths = [1.] if law == 'no_children' else abs(modes[0])**2
                 if law == 'unsigned' and p:
                     expected = [abs(m+s*p) for m in masses for s in (-1,1)]
+                    strengths = np.repeat(strengths,2)/2
                 else:
                     expected = [math.hypot(m,p) for m in masses]
                 compare_spectrum(row, expected, spec)
+                require(np.allclose(row['weights'],np.asarray(strengths)[np.argsort(expected)],atol=.006,rtol=0),
+                        'mode weights disagree with the source projection')
                 rest = np.array(readings[f'{law}_uniform_{n}']['lines'])
                 errors.extend(float(min(abs(w*w-momentum**2-rest**2))) for w in row['lines'])
             residuals[law+'_'+name] = max(errors)
@@ -109,6 +116,13 @@ def score(spec, maps, readings):
                 require(max(errors) < spec['maximum_squared_dispersion_residual'], 'measured mass shells disagree')
     light = sorted(readings[f'graded_uniform_{n}']['lines'][0] for n in range(1,depth+2))
     return dict(light=light, ratios=[x/light[0] for x in light], squared_dispersion_residuals=residuals)
+
+
+def lepton_comparison(ratios, reference):
+    """Called after acquisition, decoding and scoring. These values cannot enter the source or reader."""
+    return {key: dict(predicted=ratio, observed=reference[key]['value'],
+                      observed_minus_predicted=reference[key]['value']-ratio)
+            for key,ratio in zip(('muon_over_electron','tau_over_electron'),ratios[1:], strict=True)}
 
 
 def verify_saved(saved, current, path='receipt'):
@@ -121,7 +135,9 @@ def verify_saved(saved, current, path='receipt'):
         for i,(a,b) in enumerate(zip(saved,current)):
             verify_saved(a,b,f'{path}[{i}]')
     elif type(current) is float:
-        require(type(saved) is float and math.isclose(saved,current,abs_tol=2e-8,rel_tol=1e-8), 'wrong value: '+path)
+        relative_only = current == 0. or path.endswith(('.low','.upper_bound','.lower_bound','.uniform_amplitude_tail'))
+        require(type(saved) is float and math.isclose(saved,current,abs_tol=0 if relative_only else 2e-8,
+                                                     rel_tol=1e-8), 'wrong value: '+path)
     else:
         require(type(saved) is type(current) and saved==current, 'wrong value: '+path)
 
@@ -152,7 +168,8 @@ def main():
         (where/'result.json').write_text(json.dumps(result,allow_nan=False)+'\n',encoding='utf8')
     else:
         verify_saved(load(where/'result.json'), result)
-    print(json.dumps(result['result'],allow_nan=False,indent=2))
+    print(json.dumps(dict(result['result'], lepton_comparison=lepton_comparison(
+        result['result']['ratios'],load(HERE/'comparison.json'))),allow_nan=False,indent=2))
 
 
 if __name__ == '__main__':

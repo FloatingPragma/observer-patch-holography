@@ -8,7 +8,7 @@ from scipy.sparse.linalg import expm_multiply
 from ..carrier import require
 from ..cage import construction as cell
 from .source import chain
-from .instruments import acquire, clock_amplitude, clock_read, fuel_law
+from .instruments import acquire, clock_amplitude, clock_read, count_partition, fuel_law
 
 
 def run(spec, rng):
@@ -55,11 +55,11 @@ def run(spec, rng):
             require(law.min() >= -1e-13 and abs(law.sum()-1)<1e-11, 'incomplete flight readout')
             law = np.maximum(law, 0)
             laws.append(law.tolist())
-            counts.append(rng.multinomial(spec['shots'], law/law.sum()).tolist())
+            counts.append(count_partition(rng, law, spec['shots']))
             # Remove just the exterior hopping. The complete internal evolution remains.
             rest = expm(-1j*t*H) @ psi
             off = np.r_[failures, np.vdot(rest,rest).real, 0., 0., 0.]
-            stopped.append(rng.multinomial(spec['shots'], off/off.sum()).tolist())
+            stopped.append(count_partition(rng, off, spec['shots']))
         rows.append(dict(length=length, success=success, light_weight_given_pass=purity,
                          laws=laws, counts=counts, stopped_outer_counts=stopped))
     return dict(sender_cell=int(sender), receiver_cell=int(receiver), seam_seed=list(map(int,edge[site])),
