@@ -56,6 +56,30 @@ def path_counts(rng, amplitude, shots):
     return counts(rng,np.stack([1-p,p],axis=-1),shots)
 
 
+def energies(car, raw, shots, law, home=(0,), active=None):
+    """Decode bond occupations and contact readings into energies in dimer units."""
+    i,j = np.array(car.seams).T
+    edges = len(i)
+    parked = law == 'parked_neutral'
+    size = car.n if parked else edges
+    require(raw.shape[-2:]==(2*edges+size+car.n,3) and raw.dtype.kind in 'iu'
+            and np.all(raw>=0) and np.all(raw.sum(axis=-1)==shots),'invalid local energy record')
+    mean = (raw[...,1]+2.*raw[...,2])/shots
+    charged = 2*mean[...,:2*edges].sum(axis=-1)
+    field = mean[...,2*edges:2*edges+size]*(car.degree if parked else 2)
+    if parked:
+        remote = ~np.isin(np.arange(car.n)//12,home)
+    else:
+        remote = (i//12==j//12) & ~np.isin(i//12,home)
+    if active is None:
+        active = np.full(car.n,law!='dephased_contact')
+    contact = mean[...,-car.n:] @ np.where(active,2,1)
+    neutral = field.sum(axis=-1)
+    return dict(charged_energy=charged.tolist(),neutral_energy=neutral.tolist(),
+                remote_neutral_energy=field[...,remote].sum(axis=-1).tolist(),
+                contact_energy=contact.tolist(),total_energy=(charged+neutral+contact).tolist())
+
+
 def lines(data, ticks, spec):
     shots = spec['shots']
     require(data.shape==(len(ticks),2,2) and data.dtype.kind in 'iu' and np.all(data>=0)

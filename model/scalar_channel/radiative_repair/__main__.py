@@ -77,7 +77,6 @@ def decode(spec, records):
         car = carrier.carrier(key)
         regions = int(source.ports_to_regions(car).max())+1
         i,j = np.triu_indices(regions)
-        e,f = np.array(car.seams).T
         for law in ['exchange',*spec['controls']]:
             for mode in spec['states'] if law=='exchange' else ['ordered']:
                 name = f'{key}_{law}_{mode}'
@@ -89,25 +88,9 @@ def decode(spec, records):
                     require(data.dtype.kind in 'iu' and np.all(data>=0) and np.all(data.sum(axis=-1)==shots),
                             'incomplete outcome counts')
                 radiation = raw[:,regions**2:]/shots
-                nseams = len(e)
-                length = car.n if law=='parked_neutral' else nseams
-                require(energy.shape[1]==2*nseams+length+car.n,'missing energy analyzer')
-                mean = (energy[:,:,1]+2.*energy[:,:,2])/shots
-                charged = 2*mean[:,:2*nseams].sum(axis=1)
-                field = mean[:,2*nseams:2*nseams+length]
-                if law=='parked_neutral':
-                    field = field*car.degree
-                    remote = np.arange(car.n)//12 != 0
-                else:
-                    field = field*2
-                    remote = (e//12==f//12)&(e//12!=0)
-                contact = mean[:,-car.n:].sum(axis=1)*(1 if law=='dephased_contact' else 2)
-                total = charged+field.sum(axis=1)+contact
                 rows[name] = dict(neutral=radiation.sum(axis=1).tolist(),split=radiation[:,i!=j].sum(axis=1).tolist(),
                                   signed=(raw[:,:regions**2].sum(axis=1)/shots).tolist(),
-                                  charged_work=charged.tolist(),neutral_work=field.sum(axis=1).tolist(),
-                                  remote_neutral_work=field[:,remote].sum(axis=1).tolist(),contact_work=contact.tolist(),
-                                  total_work=total.tolist())
+                                  **apparatus.energies(car,energy,shots,law))
     return dict(receiver_waits=waits.tolist(),spectra=spectra,histories=rows)
 
 
@@ -138,8 +121,8 @@ def gates(spec, result):
         checks[f'{key}_parked'] = not any(read('parked_neutral','ordered','split'))
     federation = rows['0_exchange_ordered']
     checks['separate_receiver_cells'] = max(federation['split'])>g['min_split_cells']
-    checks['remote_field_energy'] = max(federation['remote_neutral_work'])>g['min_remote_energy']
-    checks['energy_balance'] = all(max(abs(np.array(r['total_work'])-r['total_work'][0]))<g['energy_error']
+    checks['remote_field_energy'] = max(federation['remote_neutral_energy'])>g['min_remote_energy']
+    checks['energy_balance'] = all(max(abs(np.array(r['total_energy'])-r['total_energy'][0]))<g['energy_error']
                                    for r in rows.values())
     return {k:bool(v) for k,v in checks.items()}
 

@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 import numpy as np
+from scipy.stats import beta
 
 from tools.strict_json import load
 from ...polynomial_sv import carrier
@@ -81,11 +82,23 @@ def collect(spec):
     return rec
 
 
+def relay_intervals(on,off,shots,alpha=.001):
+    """One-sided Clopper-Pearson bounds, simultaneous over both arms and all named delays."""
+    require(len(on)==len(off)>0,'empty or unequal delay menus')
+    tail = alpha/(2*len(on))
+    result = []
+    for a,b in zip(on,off,strict=True):
+        require(0<=a<=shots and 0<=b<=shots,'invalid joint count')
+        lo = beta.ppf(tail,a,shots-a+1) if a else 0.
+        hi = beta.ppf(1-tail,b+1,shots-b) if b<shots else 1.
+        result.append(float(lo-hi-2/2**30))
+    return result
+
+
 def analyze(spec, rec):
     car = carrier.federation(spec['level'])
     receiver = receiver_cell(car)
     regions = car.cells
-    e = len(car.seams)
     shots = spec['shots']
     ticks = apparatus.read_clock(rec['clock'],shots)
     readings = {}
@@ -95,10 +108,7 @@ def analyze(spec, rec):
             active = np.arange(car.n)//12==0
             if k.startswith('receiver_on'):
                 active |= np.arange(car.n)//12==receiver
-            scale = np.r_[np.full(3*e,2),np.where(active,2,1)]
-            require(data.shape==(len(scale),3) and data.dtype.kind in 'iu' and np.all(data>=0)
-                    and np.all(data.sum(axis=1)==shots),'invalid local energy record')
-            energy[k] = float(scale @ ((data[:,1]+2.*data[:,2])/shots))
+            energy[k] = apparatus.energies(car,data,shots,'exchange',active=active)['total_energy']
     for k in spec['controls']:
         a = rec[k+'_joint']
         size = regions**2 + regions*(regions+1)//2
@@ -125,7 +135,8 @@ def analyze(spec, rec):
         checks[k+'_energy'] = abs(energy[k+'_final_work']-energy[k+'_switch_work'])<spec['max_energy_error']
     return dict(receiver_cell=receiver,clock_at_meter=float(ticks[8*spec['herald_time']]),
                 clock_at_read=ticks[8*(spec['herald_time']+np.array(spec['delays']))].tolist(),
-                readings=readings,energy=energy,meter_work=energy['measured_work']-energy['incoming_work'],
+                readings=readings,energy=energy,
+                local_effect_lower=relay_intervals(on['later_receiver_pair_counts'],off['later_receiver_pair_counts'],shots),meter_work=energy['measured_work']-energy['incoming_work'],
                 switch_work={k:energy[k+'_switch_work']-energy['measured_work'] for k in spec['controls']},
                 gates={k:bool(v) for k,v in checks.items()})
 
