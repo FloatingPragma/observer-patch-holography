@@ -1,0 +1,27 @@
+{
+  "sizes": [
+    96,
+    192,
+    384
+  ],
+  "center": {
+    "angled": [
+      8,
+      15
+    ],
+    "reversed": [
+      -12,
+      16
+    ],
+    "short": [
+      "L/4",
+      "L/8"
+    ]
+  },
+  "tag_modulus": 8,
+  "shots_per_four_volume": 65536,
+  "waits": "Calibration scan at j L/32 for j=40..96. Moving scan at j Tpred/32 rounded to nearest tick for j=20..52. Every enrolled wait must be below 6 L. Also acquire t=0.",
+  "preparation": "On fresh grids prepare the five-by-five Fourier packet on the positive branch as in the parent registration. Initialize a zero-winding tag on every initial amplitude. Signed transverse seam crossings change that tag modulo eight. One station receives all slots at a single x,y,z,private address. No sum over distant detectors. Full four-index preparation is uniform in the last two coordinates.",
+  "calibration": "Acquire the x-speed and reference-wave records by the parent station experiment. Acquire the tagged transverse rest pulse at one home aperture. Choose the highest tag-one return in the registered rest scan, including an interior and nonzero check. Predict Tpred=Trest/sqrt(1-(vx/c)^2) and a station x=round(vx*Tpred) modulo L from those records alone. Freeze that station and the complete finite-gate forecast from independently diagonalizing the gate before moving data.",
+  "decision": "Compare the time of maximum tag-one return at the predicted station with Tpred, on the fixed sampling grid. Require an interior peak, at least 1000 tagged detections and relative disagreement <= 0.05. A grid peak is a finite observable. Record all four-coordinate misses, other tags, boundary peaks and refusals. Run an unwritten-tag control on the original torus. It permits interference between windings, so compare its local arrival with the sum over written tags. Reading the written tag and suppressing its write are distinct operations. No fit to an observed particle, scale or moving-clock record."
+}
