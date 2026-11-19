@@ -143,9 +143,10 @@ partagés, comme l’exigent les théorèmes d’horloge. Le
 [registre des observations](docs/registers/OBSERVATION_LEDGER_V3.md) (en
 anglais) liste ce que le modèle reproduit et ce qui est ouvert.
 
-Les lois sont des candidates. Leurs couplages sont fournis, et les autres
-observables des articles, de la charge et du spectre des particules à la
-gravitation, sont en cours sur le même processus.
+L’observateur exécutable est un candidat, et il pourra changer au fil de la
+recherche : ses lois sont des candidates, leurs couplages sont fournis, et les
+autres observables des articles, de la charge et du spectre des particules à
+la gravitation, sont en cours sur le même processus.
 
 ## Ce qui en sort
 

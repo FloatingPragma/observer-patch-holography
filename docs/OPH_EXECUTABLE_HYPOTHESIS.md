@@ -5,6 +5,7 @@ The official executable model is
 law, is a candidate native repair law of the theory: a simple local rule
 by which neighbouring observers settle their disagreements. A second candidate
 law runs on the same carrier, the [scalar channel](../model/scalar_channel/README.md).
+The executable observer is a candidate and may change as the research goes on.
 The hypothesis is
 that the agreed records of its observers reproduce the observable physics of
 our Universe. The [specification](../model/polynomial_sv/SPEC.md), the

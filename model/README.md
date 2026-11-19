@@ -26,7 +26,8 @@ is a theorem. The laws run here are coherent versions of that rule, and the boun
   records, and a test compares their records with ours.
 
 Two laws are under test on this hardware. Both are candidates, and the search for the correct native repair law
-is work in progress.
+is work in progress. The executable observer as a whole, its laws, its instruments and its observers, is a
+candidate and may change as the research goes on.
 
 | | Law 1: the contrast-memory law | Law 2: the scalar channel |
 | --- | --- | --- |
