@@ -1,0 +1,167 @@
+# Rest frequencies on a four-child register
+
+The experimental member `four-child-incidence-CAR-v1` gives an observer three distinct light rest frequencies
+at depth two. Their ratios in the observer's dimer clock are **1, 2.13582 and 5.15632**. Applying a single
+energy conversion to these three branches fails the charged-lepton comparison. Increasing the depth produces
+additional light branches. For any depth the ratio of successive light frequencies is below 8/3.
+
+## Source and observation
+
+The [construction manual, §§2.3 and 5](../../construction_manual/CONSTRUCTION_MANUAL.md) supplies the
+20-, 80- and 320-cell carriers, the oriented seam-to-wedge incidence `C` and the hop magnitude
+`a = 1/√2`. Each wedge joins its two seams with opposite signs. The external one-quantum operator
+`D` has off-diagonal blocks `a C` and its transpose and zero diagonal. The fourfold subdivision of the carrier
+motivates a separate internal register. Its parent-child links, two sublattices, grading, and controlled
+interferometer are design choices. These internal links represent additional coherent hardware.
+The [official executable](../../polynomial_sv/SPEC.md) has its own repair and measurement laws.
+
+Attach two fermionic modes A and B per node of a rooted four-child tree of depth L to every external mode.
+Write S for the map sending a parent to the sum of its children and let T = a(I − S).
+The internal Hamiltonian h has off-diagonal blocks T and its transpose. The external hops on sublattice B
+have the opposite sign to those on A. With Γ = diag(I, −I), the one-quantum generator is
+
+    H = h ⊗ I + Γ ⊗ D,        H² = h² ⊗ I + I ⊗ D².
+
+The number-conserving CAR Hamiltonian is the second quantization of H. All nonzero microscopic hops have
+magnitude a. The same-node A–B hop supplies a common rest scale even with the children disconnected.
+The anticommutation of h and Γ proves the squared identity on every state in the one-quantum sector.
+Thus a pair of internal and external rates μ and p has squared frequency μ²+p². Here p is an external
+oscillation rate measured by a reference experiment. Assigning a physical wavelength requires a further observable.
+
+A detector couples its fuel to a declared profile v by a balanced splitter. It parks the fuel for the
+source evolution, applies one of four phases, reverses the splitter and reads the fuel occupation.
+For return amplitude A = ⟨v|exp(−itH)|v⟩ and phase θ, the fuel-to-fuel probability is
+s = |exp(iθ)+A|²/4. On a half-occupied mixed source, the final full-fuel probability with initial fill z
+is (1−s)/2 + zs. Subtracting the empty-fuel trial from the full-fuel trial gives s. Opposite phases give
+Re A and Im A. All operations preserve number during a trial. The preparation can pair each possible
+initial fill with an opposite spectator fill to keep the total parity fixed across settings.
+
+An independent A–B dimer prepared in its negative eigenmode supplies the clock. Its four phase records give
+an unwrapped angle in units of a. The spectroscopy schedule supplies a positive increment of 0.375 radians
+per sample. The reader checks contrast and accepts increments
+between zero and π/2. A complete turn between samples would alias. The schedule, phase rotations, stopped
+hops during switches and repeated initial preparations are supplied services.
+
+## Records and controls
+
+The root and a difference of two siblings at each remaining layer give one preparation for every distinct
+internal chain length. Spectroscopy combines each with a uniform seam profile, a port profile or a four-seam ring.
+Their measured external rates are 0, √6 and √10 within the frequency gate. Only the uniform and ring profiles
+transfer to all three federations. For each transferred profile the code checks the full return of C times
+the partner to the original vector, including its orthogonal complement. A transfer certifies the same
+record law on that preparation. Federation copies provide no additional independent count evidence.
+
+The reader estimates lines and weights from the first 704 clock readings and predicts the remaining 320.
+It sees fuel counts and clock counts. A separate check compares every visible line and its weight with the
+source projection, including the bulk bands. The maximum held-out RMS error is 0.002161 across all
+30 spectra and references. Control runs use the same apparatus. Disconnecting all children gives one
+rest frequency. Giving both sublattices the same external sign produces |μ±p|. The maximum measured
+residual |ω²−p²−μ²| is 0.00011345 for the declared law and 17.13 for the equal-sign control (nearest rest line).
+
+The transfer experiment uses eight rounds of a balanced evolving and parked path at fixed dimer interval 1.
+The passing Kraus operator is (I + exp(−ih/a))/2. Each first failure has its own record. After preparation,
+a local seed at the sender evolves on all 3,330 external modes. The receiver groups the final detector
+outcomes into sender, neighbor, intercell seam and elsewhere. Peak receiver counts below are fractions
+of **all** trials, including failed preparations, over five specified waits.
+
+| Chain length | Lowest frequency in dimer units | Preparation success | Light weight among successes | Peak neighbor fraction |
+| ---: | ---: | ---: | ---: | ---: |
+| 1 | 0.999999 | 0.12377 | 1.000000 | 0.006026 |
+| 2 | 0.414213 | 0.60412 | 0.99999998 | 0.025970 |
+| 3 | 0.193937 | 0.73077 | 0.99996424 | 0.031340 |
+
+The stopped-exterior control has zero receiver probability. The receiver's dimer reads 0, 1.00008,
+2.00048, 4.00009 and 7.99999. Transport concerns the simulated detector records. Cell labels identify
+the readout groups and supply no physical distance or speed calibration.
+
+## Complete spectrum and the depth limit
+
+The normalized child-sum S/2 propagates a radial unit vector one level. At every parent, the three
+orthogonal child differences seed independent copies of the same shift. This decomposes the whole tree
+into one radial chain of length L+1 and 3·4^(L−n) chains of each length n = 1,…,L. In each chain
+T/a = I−2J, where J is the truncated forward shift. The positive frequencies are the singular values
+of T, paired with their negatives in h. At depth two, lengths 1, 2, 3 have multiplicities 12, 3, 1.
+The six distinct positive frequencies include the three light lines and the bulk lines 1.90321, 2.41421
+and 2.70928 in dimer units. Multiplicity-weighted counts give all 42 internal states.
+
+The squared singular values are the eigenvalues of the tridiagonal matrix with diagonal (1,5,…,5)
+and off-diagonal −2. Deleting the first row and column leaves the constant tridiagonal matrix, with
+eigenvalues strictly between 1 and 9. Strict interlacing (all off-diagonals are nonzero) puts every
+line except the lowest above 1. The norm of I−2J is below 3 at finite length. Leading principal interlacing
+strictly decreases the lowest rate with each added layer, starting at 1 for length one.
+
+Let uₙ be the lowest rate in dimer units. The inverse of I−2J has entries 2^(i−j) below and on its diagonal.
+Its largest entry is 2^(n−1) and its squared Frobenius norm is (4^(n+1)−3n−4)/9. Bounding its spectral
+norm between these gives
+
+    3 / √(4^(n+1)−3n−4) ≤ uₙ ≤ 2^(1−n),        uₙ₋₁/uₙ < 8/3   (n ≥ 2).
+
+Even the three lightest branches at arbitrary depth have largest-to-smallest ratio below 64/9.
+Picking widely separated layers would leave intermediate light branches in the same source.
+The depth-two ordered dictionary therefore fails OpenWave row 11. The empirical ratios, known before
+the experiment, enter only the comparison after acquisition and decoding. Neither the retrieval of a line
+nor charge-number conservation identifies a lepton. [OpenWave criterion](https://github.com/openwave-labs/openwave/blob/a548888491af4a1bdeb660ebcf65a6c041174650/MODELS.md),
+[muon/electron](https://physics.nist.gov/cgi-bin/cuu/Value?mmusme), [tau/electron](https://physics.nist.gov/cgi-bin/cuu/Value?mtausme).
+
+At the fixed root of the infinite chain, T†T/a² = 5I−2(J+J†) has the sine-transform spectrum [1,9].
+TT†/a² also has a zero mode with normalized components (√3/2)·2^(−j). Since T†e₀/a = e₀, the positive
+squared-rate spectral measure at the root equals the sine-transform measure divided by its spectral variable.
+The normalized root return in dimer time t is
+
+    A(t) = 3/4 + (2/π) ∫₀^π sin²θ cos(t √(5−4cosθ)) / (5−4cosθ) dθ.
+
+The fixed detector sees a stationary weight 3/4 and a band from 1 to 3. It has no isolated positive subgap
+line in this limit. The alternating hopping path first reaches the omitted link and returns in 4n hops.
+The power series for the unitary gives a uniform amplitude error at most
+min(2, 2 Σₖ≥₄ₙ (3|t|)^k/k!). Records at lengths 1, 3, 5, 9, 17 and 33 use the same root detector.
+At length 33 the bound is 3.37 × 10⁻⁴² on [0,8]. The largest recorded difference on that window is
+0.00177, including clock and counting noise. Over [0,64] it reaches 0.04895. The theoretical
+length-33 rate is 1.74623 × 10⁻¹⁰. Those finite clock records do not resolve it.
+
+These statements concern the register coupled to the scalar incidence. The [OpenWave export](https://github.com/muellerberndt/openwave/tree/de76be71bc24c36b286fbcae5dab608f20f1e86a/candidates/np-solver/export)
+and its separate [row evidence](https://github.com/muellerberndt/openwave/blob/de76be71bc24c36b286fbcae5dab608f20f1e86a/simulation/law_comparison/ROW_COVERAGE.md)
+retain their own laws, preparations and readouts. Here the squared dispersion identity supplies a finite
+component of the dispersion test. An independently calibrated propagation speed, physical charges, flavor
+tags and a mass in physical units have no measurement in this experiment.
+
+## Resources and replay
+
+For N tree nodes, E seams and W wedges the source has 2N(E+W) logical modes and
+(2N−1)(E+W)+4NW undirected hops. The depth-two cell uses 6,300 modes and 16,230 hops. The 20-cell
+flight uses 139,860 modes and 363,330 hops. The largest profile transfer checks 2,237,760 logical modes
+by invariant-subspace reduction. The length-33 root calculation propagates 66 radial modes. Preparing the
+literal depth-32 full register would require (4³³−1)/3 nodes per external mode.
+
+The spectroscopy budget is 2³⁷ simulated binary trials aggregated by setting (2²⁰ shots per setting).
+Flight uses 30 multinomial settings, 33 four-phase reference queries and eight possible first-failure
+records per flight. A balanced parked path needs a companion for each active mode it carries. An arbitrary
+profile on M connected orbitals can be brought to the root by at most M−1 adjacent two-mode rotations
+with controlled phases on a spanning tree. Conjugating a root-fuel splitter and reversing the sequence
+costs at most 4(M−1)+2 such gates for the two splitters. The calculation assumes these ideal controls.
+It supplies neither their native pulse errors nor thermodynamic work and archival costs.
+
+Binary acquisition digitizes each probability to the nearest multiple of 2⁻³⁰. For a multinomial partition
+the cumulative edges use the same grid, giving per-bin error at most 2⁻³⁰. Each binomial draw uses an
+independent 52-bit uniform midpoint and the inverse binomial distribution. At each integer threshold the
+resulting CDF differs from the exact digitized binomial CDF by at most 2⁻⁵³ in exact arithmetic.
+A fuel quadrature combines
+four sample proportions. For K simultaneous binary proportions with N shots each, Hoeffding's inequality
+and a union bound give a quadrature error bound 4√(log(2K/δ)/(2N)) at confidence 1−δ, plus 2⁻²⁹
+digitization error. Discretizing the inverse draws adds at most 2K·2⁻⁵³ to the tail probability.
+Frequency and dispersion gates are checks on the retained sample and its reserved tail.
+The spectral and hierarchy bounds follow from the source.
+
+From the repository root, with the [model dependencies](../../requirements.txt) and one BLAS thread:
+
+```sh
+python -B -O -m model.scalar_channel.refinement_spectrum
+python -B -O -m model.scalar_channel.refinement_spectrum.limit
+python -B -m pytest -q model/scalar_channel/refinement_spectrum
+```
+
+Each replay verifies source hashes and regenerates the complete count receipts. The first also scores
+the held-out spectra, control laws and all transfer outcomes. The second compares fixed-root records to the
+infinite measure. The tests independently propagate the labeled graph, read a three-mode Fock interferometer
+and resolve the smallest chain root with a high-precision characteristic polynomial. The physical comparison
+requires particle-specific, persistent records and a clock-to-energy calibration. The measurements here
+establish finite transport and exclude this proposed lepton assignment.

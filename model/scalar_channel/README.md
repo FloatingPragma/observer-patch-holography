@@ -52,3 +52,7 @@ its own receipts and its own replay:
 ```sh
 python -B -O -m model.scalar_channel.cage
 ```
+
+The [four-child register](refinement_spectrum/README.md) couples the scalar incidence to a
+uniform-hopping internal spectrum. Its clock and fuel records measure rest frequencies and
+transfer between cells. The complete spectrum bounds the mass hierarchy at every tree depth.
