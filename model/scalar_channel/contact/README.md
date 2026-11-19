@@ -316,7 +316,32 @@ unconditional false-echo probabilities range from 0.3691 to 0.7426.
 Correct delivery through a receiver capture ranges from 0.0000155 to
 0.000697. The million-trial menus resolve no positive lower bound for
 receiver-tag information after conditioning on the source bit and capture.
-An individual sender click supplies weak evidence of a reply. [Time-bin law and silent control](tagged_radar.py)
+Even on the best tested path, fewer than 0.224% of sender clicks followed
+a receiver capture. [Time-bin law and silent control](tagged_radar.py)
+
+**A receiver can still transmit a private bit.** The written memory
+$|0,+1\rangle$ has equal overlap with the two exchange signs. A local sign
+read selects whether the receiver keeps or releases a captured scalar for a
+whole block. Both signs leave the endpoint contrast square at one. At the
+sender, two labelled calibration blocks give the silent and active click
+frequencies. Eight further blocks carry fresh receiver signs. The sender
+gets only its ten click totals and the common block length. A midpoint
+decoder abstains if the calibration intervals, enlarged for future sampling
+error, overlap. False echoes and all timeouts contribute to these totals.
+
+The sender recovered all 480 held-out bits over the 30 ordered paths and two
+mark preparations, with zero abstentions. At the weakest pair, activity
+changes the sender click probability by only 0.00003196. Each calibration
+or bit uses $2^{42}$ independent trials. The archive samples their full
+multinomial counts. Across all 600 blocks this represents about
+$2.64\times10^{15}$ trials. A simultaneous Hoeffding bound including
+acquisition bias limits the probability of any erroneous, non-abstaining
+bit to $10^{-6}$ under the fixed independent-trial law. A 43-bit local
+counter suffices for a block. Synchronized slots, fresh preparations, a
+receiver-controlled latch, a deadline reset and storage for the secret
+sign during the block are supplied. The block communicates a receiver
+decision. It cannot identify which single click came from a reflection.
+[Reader, hidden signs and resource bounds](remote_message.py)
 
 The 31 physical criteria require transfers to their actual preparations,
 apparatus and observer records. The scalar parity code, an externally
@@ -337,6 +362,7 @@ python -B -O -W error -m model.scalar_channel.contact
 python -B -O -W error -m model.scalar_channel.contact.pair
 python -B -O -W error -m model.scalar_channel.contact.material_radar
 python -B -O -W error -m model.scalar_channel.contact.radar_checks
+python -B -O -W error -m model.scalar_channel.contact.message_replay
 python -B -m pytest -q -W error model/scalar_channel/contact
 ```
 
@@ -347,12 +373,12 @@ couplings from counts.
 The second recomputes each entry of the [joint laws](pair_records.json).
 The material radar replay compares seeded counts with the original
 [acquisition](radar_counts.npz). NumPy 2.5.1 and the pinned Linux NumPy
-2.3.5 produced identical integer sampling distributions and different
-multinomial draws. Use `--read-archive` on the material radar module to
-verify the checksum, regenerate the integer laws and score the original
-records on that alternative sampler. The pinned replay also checks every
-original count against its seed. Both radar programs accept `--details`
-to print every fold and control.
+2.3.5 produced identical integer clock sampling distributions and different
+multinomial draws. All three radar programs accept `--read-archive` to
+verify their checksum, regenerate the source laws and score the original
+records on an alternative sampler. The pinned replay also checks every
+original count against its seed. Use `--details` to print every fold and
+control.
 The tests compare the first experiment with full native memory and forward
 scalar evolution, and the second with propagation on both explicit pointer bits.
 The cell calculations have finite register and menu sizes. Neither instrument
