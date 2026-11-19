@@ -85,6 +85,9 @@ The full rules are in the [docs index](docs/README.md#rules-for-this-directory).
   that its code package verifies, without history, dated findings or progress
   narrative. Prefer extending the owning paper or package README, because
   separate notes go stale.
+- The exception is `docs/research/laws/`: the plan of the search for the
+  repair law, its journal with one entry per step, and one report per
+  step. Headings and folder names there carry no dates.
 - Release papers do not cite files in `docs/`. Cite papers, Lean modules, code
   packages, machine registers and public preprints. The one exception is
   `docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md`.
