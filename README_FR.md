@@ -106,10 +106,9 @@ temps polynomial. Le [manuel de construction](model/construction_manual/CONSTRUC
 (en anglais) construit le modèle pièce par pièce et dit quelle part de cela
 est un théorème.
 
-Le centre de la recherche est la loi de réparation native, la loi simple qui
-gouverne les interactions des observateurs dans l’Univers primitif. Deux
-lois candidates tournent sur le modèle : la loi de mémoire de contraste et le
-canal scalaire. Aucun nombre mesuré n’y entre. Sous ces lois, le processus de
+Deux lois de réparation candidates tournent sur le modèle : la loi de mémoire
+de contraste et le canal scalaire. Aucun nombre mesuré n’y entre. Sous ces
+lois, le processus de
 réparation reproduit des valeurs et des structures observables réelles, dans
 les descriptions effectives des observateurs qui habitent le calcul :
 
@@ -143,10 +142,37 @@ partagés, comme l’exigent les théorèmes d’horloge. Le
 [registre des observations](docs/registers/OBSERVATION_LEDGER_V3.md) (en
 anglais) liste ce que le modèle reproduit et ce qui est ouvert.
 
-L’observateur exécutable est un candidat, et il pourra changer au fil de la
-recherche : ses lois sont des candidates, leurs couplages sont fournis, et les
-autres observables des articles, de la charge et du spectre des particules à
-la gravitation, sont en cours sur le même processus.
+## Trouver la loi de réparation et de mémoire
+
+L’objectif principal de la recherche est d’identifier la bonne loi de
+réparation et de mémoire. C’est la loi de réparation native, la loi simple
+qui gouverne les interactions des observateurs dans l’Univers primitif : la
+règle locale que chaque observateur suit lorsqu’il compare ses registres avec
+un voisin, et qui dit comment un désaccord est réparé et ce que la réparation
+laisse en mémoire. La réparation décide de ce qui devient un fait partagé. La
+mémoire compte tout autant : dans polynomial-sv, la phase que la mémoire
+d’une couture acquiert à partir du contraste qu’elle a écrit est l’énergie
+d’accord qui lie une paire de charges, et la même loi sans elle perd la paire.
+
+polynomial-sv est le candidat à l’essai. Ses deux lois sont des candidates,
+leurs couplages sont fournis, et les autres observables des articles, de la
+charge et du spectre des particules à la gravitation, sont en cours sur le
+même processus. Toute partie de l’observateur exécutable pourra changer au
+fil de la recherche.
+
+**Pourquoi c’est important.** La bibliothèque de théorèmes énonce ce qui
+découle d’une loi dès qu’elle fournit certaines sorties : trois directions
+d’espace, les règles quantiques de la mesure, les forces du Modèle standard,
+la gravitation d’Einstein. Une loi doit les fournir toutes à la fois, sur un
+seul processus, avec des vérifications et des réparations toutes locales.
+Avec la bonne loi, la physique que nous mesurons devient quelque chose que
+l’on calcule : on fait tourner la loi, ses observateurs tiennent leurs
+registres, et on lit ce qu’ils trouvent. Une mauvaise loi se trahit de la
+même manière, car ses observateurs enregistrent autre chose que nous. La
+recherche de la loi est ainsi le test le plus net de toute l’idée, et le
+reste du projet est à son service. La
+[vue d’ensemble du modèle](model/README.md) (en anglais) liste ce que les
+candidats reproduisent et ce qui est ouvert.
 
 ## Ce qui en sort
 
