@@ -59,10 +59,10 @@ numbers are in [RESULTS.json](RESULTS.json) and [presence_results.json](presence
 ## What binding predicts about motion
 
 On a 19-port ring an observer measures the energy released by binding two loads. From that one reading
-it predicts where clusters of two through five loads will be detected, including every failure to find
-an intact cluster. Every complete position distribution is within 0.00214 of its forecast in total
-variation. A competing law gives exactly the same binding record. Its largest error across waits for
-each cluster size ranges from 0.82 to 0.94. [Derivation](PROOF.md#9-binding-energy-and-the-motion-of-a-cluster) ·
+and the droplet dispersion of the native law it predicts where clusters of two through five loads will
+be detected, including every failure to find an intact cluster. Every complete position distribution
+is within 0.00214 of its forecast in total variation. A competing law gives exactly the same binding
+record. Its largest error across waits for each cluster size ranges from 0.82 to 0.94. [Derivation](PROOF.md#9-binding-energy-and-the-motion-of-a-cluster) ·
 [Detector records](material_inertia/records/flight/)
 
 The same tests distinguish motion from rest energy. With the benchmark coupling of eight, clusters
