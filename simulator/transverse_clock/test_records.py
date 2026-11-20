@@ -102,6 +102,31 @@ def test_repeated_calibration_is_not_a_third_exchange():
         local_times(cal,stamps[:,0])
 
 
+def test_ring_length_and_large_local_clock_offsets():
+    _, exchanges, stamps, lap = chart.stations(4, 0, [0, 4, 9])
+    for wrong in (lap-1, np.array([lap]), float(lap)):
+        with pytest.raises(ValueError, match="lap"):
+            chart.reconstruct(exchanges, stamps, wrong)
+    # Changing a clock's origin cannot change any physical interval. At this
+    # origin binary64 cannot distinguish successive integer receipt ticks.
+    offset = 2**58
+    exchanges[:, :, 1] += offset
+    stamps += offset
+    coords, times, period = chart.reconstruct(exchanges, stamps, lap)
+    assert period == 4 and sorted(coords) == [0, 1, 2, 3]
+    np.testing.assert_array_equal(times, [0, 4, 9])
+    np.testing.assert_array_equal(local_times(exchanges[0], stamps[:,0]), times)
+    stamps[1,0] += 1
+    with pytest.raises(ValueError, match="asynchronous"):
+        chart.reconstruct(exchanges, stamps, lap)
+    stamps[1,0] -= 1
+    exchanges[0,2,1] += 1
+    with pytest.raises(ValueError, match="third clock"):
+        chart.reconstruct(exchanges, stamps, lap)
+    with pytest.raises(ValueError, match="third clock"):
+        local_times(exchanges[0], stamps[:,0])
+
+
 def test_local_winding_against_literal_cut_and_receiver():
     size, tags, x = 12, 8, 2
     center = (3, 3)

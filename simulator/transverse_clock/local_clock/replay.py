@@ -6,7 +6,7 @@ import numpy as np
 from tools.strict_json import load
 from .. import clock
 from ..receipts import HERE as PARENT, archive, receipt
-from ..equipped.chart import addressed
+from ..equipped.chart import addressed, station_times
 from ..kernel import require
 from .source import observe
 
@@ -30,15 +30,8 @@ def report(size,x,times,rows):
 
 
 def local_times(cal,stamp):
-    require(cal.shape==(3,3) and cal.dtype.kind=='i' and stamp.ndim==1 and stamp.dtype.kind=='i' and
-            np.all(cal[1:,0]>cal[:-1,0]) and np.all(cal[:,2]>=cal[:,0]) and
-            np.all(cal[:,2]-cal[:,0]==cal[0,2]-cal[0,0]),
-            'inconsistent local range')
-    t = (cal[:,2]+cal[:,0])/2
-    slope = (cal[1,1]-cal[0,1])/(t[1]-t[0])
-    offset = cal[0,1]-slope*t[0]
-    require(slope>0 and cal[2,1]==slope*t[2]+offset,'local clock exchange failed')
-    return (stamp-offset)/slope
+    _, times = station_times(cal, stamp)
+    return np.asarray(times, dtype=float)
 
 
 def peak(rows,times,shots):
