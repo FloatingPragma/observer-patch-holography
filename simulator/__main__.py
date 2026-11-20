@@ -169,6 +169,10 @@ def _run(args) -> int:
 
 
 def _app(args) -> int:
+    from . import openwave_sync
+    if openwave_sync.DEFAULT_REPORTS.is_dir():
+        reported = openwave_sync.sync()
+        print(f"OpenWave rows refreshed from the current reports: rows {sorted(reported)}")
     template = (HERE / "app" / "index.html").read_text(encoding="utf-8")
     embedded = [base64.b64encode(Path(p).read_bytes()).decode() for p in args.runs]
     payload = json.dumps(embedded)
