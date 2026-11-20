@@ -64,3 +64,7 @@ The experimental [pair-conversion law](radiative_repair/README.md) is a separate
 carrier with one common energy scale. Opposite charges prepared in its lowest band release energy into a
 neutral field. In a second experiment, which starts from a pair localized on one seam, a meter in a
 neighbouring cell registers two neutral arrivals and a converter there turns them back into a charged pair.
+
+The [mobile-memory candidate](mobile_memory/README.md) has a mobile lowest charged band and a cage
+link weighted by the native contrast square or a retained signed-current record. Its joint records
+compare bound-pair presence, cage arrival, and the effect of reading the stored sign at a later event.
