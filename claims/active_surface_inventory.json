@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 493,
+  "surface_count": 478,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -72,11 +72,6 @@
     },
     {
       "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
-      "glob": "paper/*.tex",
-      "allowlisted": false
-    },
-    {
-      "path": "paper/executable_observer_construction.tex",
       "glob": "paper/*.tex",
       "allowlisted": false
     },
@@ -236,7 +231,7 @@
       "allowlisted": false
     },
     {
-      "path": "paper/tex_fragments/PARTICLES_PSV_BOUND_OBJECTS.tex",
+      "path": "paper/tex_fragments/PARTICLES_BOUND_PAIRS.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -471,7 +466,7 @@
       "allowlisted": false
     },
     {
-      "path": "paper/tex_fragments/THEORY_PSV_HYPOTHESIS.tex",
+      "path": "paper/tex_fragments/THEORY_MODEL_HYPOTHESIS.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -961,26 +956,6 @@
       "allowlisted": false
     },
     {
-      "path": "model/construction_manual/CONSTRUCTION_MANUAL.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/construction_manual/README.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/contrast_clock/PROOF.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/contrast_clock/README.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
       "path": "model/defect_particle_classes/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1027,56 +1002,6 @@
     },
     {
       "path": "model/maxwell_weak_field/README.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/polynomial_sv/PROOF.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/polynomial_sv/README.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/polynomial_sv/SPEC.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/scalar_channel/PROOF.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/scalar_channel/README.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/scalar_channel/cage/PROOF.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/scalar_channel/cage/README.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/scalar_channel/contact/README.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/scalar_channel/radiative_repair/README.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/scalar_channel/refinement_spectrum/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

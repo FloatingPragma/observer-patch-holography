@@ -21,8 +21,8 @@ Bianchi identity make Lambda constant on each connected component.
 
 This proves the implication without separately assuming null-tensor balance.
 It supplies no executable source satisfying the regional hypotheses. The
-executable model [polynomial-sv](../README.md) has no regional entropy, area
-or stress readouts, so it does not instantiate this regional limit.
+[OPH law](../README.md) of the executable model has no regional entropy, area
+or stress readouts here, so this package does not instantiate the regional limit on it.
 The particle and spin packages likewise supply no missing regional input.
 
 The nonlinear conclusion requires actual finite-ball deficits for the
