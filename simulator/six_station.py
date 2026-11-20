@@ -38,6 +38,7 @@ import argparse
 import hashlib
 from fractions import Fraction
 from functools import lru_cache
+from io import BytesIO
 from itertools import permutations
 from pathlib import Path
 
@@ -66,6 +67,9 @@ RANGE_SHOTS = 2**34
 TAG_SHOTS = 2**20
 SEED = 122303
 SOURCE_TOLERANCE = 2e-13
+# Two-sided Bernstein bound over 420 menus with 169 cells each:
+# 2 * 420 * 169 * exp(-27) < 2.67e-7 under the independent-trial model.
+COUNT_LOG_TAIL = 27
 
 
 def check(condition, message):
@@ -277,16 +281,29 @@ def sample(weights):
 
 
 def validate_counts(weights, counts):
+    """Check conservation, support, and simultaneous binomial deviations.
+
+    After acquisition, this diagnostic tests the archived counts against the
+    reconstructed sampling law. Each multinomial cell has marginal variance
+    N*p*(1-p). Bernstein's two-sided tail at deviation d is bounded by
+    2 exp[-d²/(2 N*p*(1-p)+2d/3)]. The integer inequality below compares
+    this exponent to 27 without rounding a rare probability or a residual.
+    """
     for key, shots in (("range_time_weights", RANGE_SHOTS), ("tag_time_weights", TAG_SHOTS)):
         laws = weights[key]
         values = counts[key.replace("weights", "counts")]
         check(values.shape == laws.shape and values.dtype == np.dtype("int64"),
               "invalid count histogram")
-        check(np.all(values >= 0) and not np.any((laws == 0) & (values != 0)),
+        check(np.all((values >= 0) & (values <= shots)) and not np.any((laws == 0) & (values != 0)),
               "count outside source support")
         check(np.array_equal(values.sum(axis=(-2, -1)),
                              (laws.sum(axis=(-2, -1)) != 0).astype(np.int64)*shots),
               "selection or loss of launches")
+        w = laws.astype(object)
+        error = abs(values.astype(object)*GRID - shots*w)
+        variance = shots*w*(GRID-w)
+        check(np.all(3*error**2 <= 2*COUNT_LOG_TAIL*(3*variance + GRID*error)),
+              "histogram cell outside the simultaneous source-count bound")
 
 
 def acquire(path):
@@ -302,12 +319,14 @@ def verify_archive(path=ARCHIVE, seed_replay=False):
     """Regenerate both source distributions and score the archived counts."""
     path = Path(path)
     expected_digest = DIGEST.read_text(encoding="ascii").split()[0]
-    check(hashlib.sha256(path.read_bytes()).hexdigest() == expected_digest,
+    payload = path.read_bytes()
+    check(hashlib.sha256(payload).hexdigest() == expected_digest,
           "acquisition checksum mismatch")
-    weights, _ = source_weights()
-    with np.load(path, allow_pickle=False) as archive:
-        expected = set(weights) | {key.replace("weights", "counts") for key in weights}
-        check(set(archive.files) == expected, "unexpected record menu")
+    with np.load(BytesIO(payload), allow_pickle=False) as archive:
+        expected = {f"{kind}_time_{stat}" for kind in ("range", "tag") for stat in ("weights", "counts")}
+        check(len(archive.files) == len(expected) and set(archive.files) == expected,
+              "unexpected or duplicate record menu")
+        weights, _ = source_weights()
         for key, value in weights.items():
             check(archive[key].dtype == value.dtype and np.array_equal(archive[key], value),
                   f"archived integer inputs differ from source: {key}")
