@@ -29,7 +29,6 @@ PAPERS = {
         PAPER_DIR / "deriving_the_particle_zoo_from_observer_consistency.tex"
     ),
     "observers_are_all_you_need": PAPER_DIR / "observers_are_all_you_need.tex",
-    "executable_observer_construction": PAPER_DIR / "executable_observer_construction.tex",
     "reality_as_consensus_protocol": PAPER_DIR / "reality_as_consensus_protocol.tex",
     "recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency": (
         PAPER_DIR / "recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex"
@@ -65,8 +64,6 @@ RELEASE_TRACKED = (
     "deriving_standard_model_gauge_structure_from_observer_overlap_consistency",
     "observers_are_all_you_need",
     "reality_as_consensus_protocol",
-        "executable_observer_construction",
-
     "screen_microphysics_and_observer_synchronization",
     "deriving_the_particle_zoo_from_observer_consistency",
 )

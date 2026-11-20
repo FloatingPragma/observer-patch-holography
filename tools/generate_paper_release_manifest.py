@@ -26,7 +26,6 @@ RELEASE_TRACKED_PDFS = {
         "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
     ),
     "observers_are_all_you_need": Path("paper/observers_are_all_you_need.pdf"),
-    "executable_observer_construction": Path("paper/executable_observer_construction.pdf"),
     "reality_as_consensus_protocol": Path("paper/reality_as_consensus_protocol.pdf"),
     "recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency": Path(
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf"

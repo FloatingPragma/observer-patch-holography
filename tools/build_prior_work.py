@@ -58,9 +58,6 @@ SHARED_REFERENCES = "paper/tex_fragments/OBSERVERS_REFERENCES.tex"
 TARGETS = (
     _target("flagship/from_observer_consensus_to_standard_physics.tex", "bibitems",
             ("flagship/from_observer_consensus_to_standard_physics.tex",)),
-    _target("paper/executable_observer_construction.tex", "bibitems",
-            ("paper/executable_observer_construction.tex",),
-            extra_owners=("model/",)),
     _target("paper/observers_are_all_you_need.tex", "bibitems",
             ("paper/observers_are_all_you_need.tex", SHARED_REFERENCES)),
     _target("paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex", "bibitems",
