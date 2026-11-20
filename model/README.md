@@ -62,6 +62,7 @@ forecast sealed before the records were read.
 | Three space dimensions | Nine stations predict 120 held-out field values with RMS error 0.0011; dropping any one spatial derivative raises it to 0.31–0.32. |
 | A message on the free wave | A compact free-wave launch carries no fresh bit ahead of the smooth cone; the detector probability before the early deadline stays below $10^{-34}$. |
 | Formation | Two separately launched constituents form a persistent pair through the capture vertex; with the vertex disabled none forms. |
+| Persistence | A bound pair's circulation is unchanged by every update at every age, and a returning marker cannot release it: zero separations in five cohorts of 4,194,304 trials, where independent transport of the two constituents separates 75%. |
 | Direction | Ordinary incoming trains send 96.56% of the crossing pairs the right way, and 0.53% of the pairs separate after the marker's second return on a closed wire. |
 | A steady clock | The whole receiving array reads the formed pair's clock at 4.395–4.400 × 10⁻⁴ radians per home tick, steady to 0.21% over six durations. |
 | The matter-wave relation | All 14 held-out directions at periods 64, 128 and 256 obey $\omega^2 = m^2 + c^2\vert k\vert^2$ within 3.5% of the kinetic part; a law with half the spatial weight fails every one. |
