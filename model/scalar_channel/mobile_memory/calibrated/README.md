@@ -44,10 +44,11 @@ $$
 
 The cage cell mode denotes its intact selected ring excitation. The seam mode is an
 auxiliary label for that excitation. There are two adjacent binary load configurations
-on one actual complete-cell face. They differ by one native swap. Their contrast energies
-agree and their addressed contrast-square values are one and zero. The supplied pulse
-keeps that swap and parks the other native swaps. In this two-dimensional sector the
-common contrast energy is removed, leaving the usual half-swap generator $H_L$.
+on one actual complete-cell face. They differ by one native swap. Their internal-cell
+contrast costs agree and their addressed external contrast-square values are one and zero.
+The supplied pulse keeps that swap and parks the other native swaps. It removes the common
+internal contrast energy and omits the external blank-energy bias, leaving the half-swap
+generator $H_L$. The addressed external square enters through the contact below.
 
 The full source is
 

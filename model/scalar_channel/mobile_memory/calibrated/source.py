@@ -63,7 +63,8 @@ def _native_pair_chart(car, addressed, parked_swap):
     weights = np.array([blank_weights[native_law.SRC.index(tuple(int(port in pair) for port in addressed))]
                         for pair in pairs])
     np.testing.assert_array_equal(weights, [1, 0])
-    # Both two-load preparations are adjacent, so their native contrast cost is shared.
+    # The common internal-cell contrast cost is removed. The external square
+    # appears as the contact activation, with no external blank-energy bias.
     if parked_swap:
         load = np.diag(np.diag(load))
     return load, weights, pairs, swap
