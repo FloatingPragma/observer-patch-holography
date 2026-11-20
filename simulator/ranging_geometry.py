@@ -65,7 +65,7 @@ def distance_bands(records, *, trials=RANGE_SHOTS, tv=RANGE_TV):
                                     product(range(1, HORIZON+1), repeat=2))
                     mean = Fraction(numerator, 2*k)
                     radius = (HORIZON-1) * (_sampling_radius(k) + bias)
-                    band = (max(1, mean-radius), min(HORIZON, mean+radius))
+                    band = (max(Fraction(1), mean-radius), min(Fraction(HORIZON), mean+radius))
             directed[i,j] = band
         symmetric = {}
         for i,j in PAIRS:

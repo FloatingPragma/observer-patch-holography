@@ -45,7 +45,22 @@ def test_rare_arrivals_cannot_beat_the_declared_source_bias():
         for a,b in ((i,j),(j,i)):
             h[:,a,b,0,0], h[:,a,b,1,1] = n-1, 1
     assert all(b is None for b in distance_bands(h, trials=n)[0].values())
-    assert distance_bands(h, trials=n, tv=Fraction(0))[1][1,4] == (1,12)
+    bands = distance_bands(h, trials=n, tv=Fraction(0))[1]
+    assert bands[1,4] == (1,12)
+    verdict = classify(bands, ((0,1), (2,3), (4,5)))
+    assert all(row["six_station_verdict"] == "unresolved" for row in verdict["thresholds"])
+
+
+@pytest.mark.parametrize("tick", [1, 12])
+def test_observations_at_either_deadline_feed_the_exact_certificate(tick):
+    n = 2**34
+    h = np.zeros((2,6,6,13,13), dtype=np.int64)
+    for i,j in PAIRS:
+        h[:,i,j,tick,tick] = h[:,j,i,tick,tick] = n
+    bands = distance_bands(h)[0]
+    assert all(isinstance(x, Fraction) for band in bands.values() for x in band)
+    assert all(lo <= tick <= hi for lo,hi in bands.values())
+    assert classify(bands, ((0,1), (2,3), (4,5)))["thresholds"][0]["global_3d_fit_excluded"]
 
 
 def test_negative_type_witness_and_single_global_fit_are_distinct():
