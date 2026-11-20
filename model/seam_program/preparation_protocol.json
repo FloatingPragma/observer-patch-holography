@@ -1,0 +1,66 @@
+{
+  "shape": [
+    3,
+    3,
+    1,
+    1
+  ],
+  "modes": [
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      -1,
+      1
+    ]
+  ],
+  "weights": [
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      -2,
+      0
+    ],
+    [
+      0,
+      -1
+    ]
+  ],
+  "waits": [
+    0,
+    1,
+    3,
+    5
+  ],
+  "apertures": [
+    0,
+    1,
+    10,
+    26,
+    57,
+    71
+  ],
+  "shots": 1048576,
+  "members": [
+    "native",
+    "omit_phase",
+    "unread_negative"
+  ],
+  "constructor": "Use the original unshifted blank-memory contrast law at kappa=8, finite fuel g=64 on federation 0, marker 0. Encode 72 slots in ports 1..72 and use the next 72 as the complementary rails. Prepare a four-slot reflection followed by two nominal binary seam exclusions to launch one antisymmetric rail pair. Program an arbitrary finite complex vector by parallel-rail partial exchanges and pair phases. Measure and exclude every negative rail, retaining every early halt. No source outside the fuel, recovered seam event and nominal seam reader. Supply word scheduler, phase durations, and conditional stopping.",
+  "target": "Independent inverse spatial Fourier sum of four positive-energy eigenmodes of the original eight-slot gate. Each of its plane waves has nonzero momentum and the target has zero sum. Predict success 1/4 on the exact fuel-converted pair. Forecast the two seeding stops then every negative-rail stop and the unconditioned complete seam read after the surviving branch at every wait and aperture. Finite emitter must stay within its source norm bound on the full joint alphabet at each setting, with total success above 0.20; both omitted-phase and unread-negative controls must differ by more than that bound somewhere. Compare an operator-level arbitrary complex state preparation test and charge every seam instruction and fresh read on the accepted path. Finite read-window errors and pulse-angle precision separate. No clock universality or physical mass inference."
+}

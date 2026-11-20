@@ -9,7 +9,7 @@ from pathlib import Path
 import numpy as np
 from tools.strict_json import load as load_json
 
-from ...polynomial_sv import collar
+from ...contrast_memory_spherical_v1 import collar
 from ..carrier import require
 from ..cage.instruments import PREPARATIONS, draw
 from .law import collision, ramsey
@@ -18,7 +18,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 SOURCE_FILES = {
     'model/__init__.py', 'model/requirements.txt', 'tools/strict_json.py',
-    *('model/polynomial_sv/' + f for f in ('__init__.py', 'carrier.py', 'collar.py', 'common.py', 'law.py')),
+    *('model/contrast_memory_spherical_v1/' + f for f in ('__init__.py', 'carrier.py', 'collar.py', 'common.py', 'law.py')),
     *('model/scalar_channel/' + f for f in ('__init__.py', 'carrier.py', 'compiler.py', 'instruments.py',
                                             'cage/__init__.py', 'cage/construction.py', 'cage/instruments.py',
                                             'contact/__init__.py', 'contact/__main__.py', 'contact/law.py',

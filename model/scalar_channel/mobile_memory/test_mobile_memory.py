@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.sparse.csgraph import connected_components
 
-from ...polynomial_sv import carrier
+from ...contrast_memory_spherical_v1 import carrier
 from ..radiative_repair import source
 from .__main__ import run
 from .cage_transfer import transfer

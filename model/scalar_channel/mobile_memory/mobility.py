@@ -2,7 +2,7 @@
 
 import numpy as np
 
-from ...polynomial_sv import carrier
+from ...contrast_memory_spherical_v1 import carrier
 from ..carrier import require
 from .law import EXTERNAL_WEIGHT, MASS, charged_operator
 

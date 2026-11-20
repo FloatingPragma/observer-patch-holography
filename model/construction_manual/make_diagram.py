@@ -1,7 +1,7 @@
-"""Draws executable_spec.svg: the hardware and the software of polynomial-sv on one sheet.
+"""Draws executable_spec.svg: the hardware and the software of A-contrast-memory-spherical-v1 on one sheet.
 
 Everything geometric is read from carrier files: the wiring of one cell from inputs/CELL.npz, the federations
-from ../polynomial_sv/carriers/FEDERATION_LEVEL{0,1,2}.npz. The formulas are those of CONSTRUCTION_MANUAL.md.
+from ../contrast_memory_spherical_v1/carriers/FEDERATION_LEVEL{0,1,2}.npz. The formulas are those of CONSTRUCTION_MANUAL.md.
 
     python make_diagram.py        # writes executable_spec.svg; needs numpy and networkx
 """
@@ -165,7 +165,7 @@ def draw_cell(X, seams, cx, cy, R, M, labels=True, star=None, face=None, wedge=N
 
 
 def federation(level):
-    z = np.load(HERE.parent / 'polynomial_sv' / 'carriers' / f'FEDERATION_LEVEL{level}.npz', allow_pickle=False)
+    z = np.load(HERE.parent / 'contrast_memory_spherical_v1' / 'carriers' / f'FEDERATION_LEVEL{level}.npz', allow_pickle=False)
     edges = sorted({tuple(sorted(map(int, e))) for e in z['edges']})
     cells = len(z['degree']) // 12
     ext = [(a, b) for a, b in edges if a // 12 != b // 12]
@@ -267,7 +267,7 @@ def idea_strip(x0, y0, w, h):
                          'a fixed step. The work is bounded by the disagreement at the start:',
                          'polynomial in the number of ports.'], 16, 24, INK)
     lines(c2, y0 + 276, ['Proved for the native repair of the theory, with loads bounded by the alphabet.',
-                         'For the two laws tested here it is the target that names the model, and work in progress.'], 14, 19, MUTED)
+                         'For the two candidate laws tested here it is the target, and work in progress.'], 14, 19, MUTED)
     text(c3, y0 + 92, 'How large it is', 19, INK, weight='bold')
     lines(c3, y0 + 122, ['The carriers of the tests: 20, 80 and 320 cells.',
                          'The screen of the Universe we inhabit: about',
@@ -279,7 +279,7 @@ def idea_strip(x0, y0, w, h):
 def main():
     Wd = 2400
     out.append('<<HEADER>>')
-    text(40, 56, 'The executable construction of polynomial-sv: hardware and software', 34, INK, weight='bold')
+    text(40, 56, 'The executable construction of A-contrast-memory-spherical-v1: hardware and software', 34, INK, weight='bold')
     text(40, 88, 'Hardware: cells of twelve ports, their seams, the sphere of cells and the registers.  Software: two laws under test, a cage of the second, the instruments of an observer, its clock and its records.', 18, MUTED)
     idea_strip(40, 112, 2320, 330)
 
@@ -420,7 +420,7 @@ def main():
     text(zx + 215, zy + zr + 104, 'yellow ports carry the external seams of each cell; dotted stubs lead to the other neighbours', 15, MUTED, 'middle')
     mono(x0 + 1470, y0 + 620, 'cells   ports    seams = inside + between    wedges', 16, INK, 'bold')
     for k, level in enumerate((0, 1, 2)):
-        z = np.load(HERE.parent / 'polynomial_sv' / 'carriers' / f'FEDERATION_LEVEL{level}.npz', allow_pickle=False)
+        z = np.load(HERE.parent / 'contrast_memory_spherical_v1' / 'carriers' / f'FEDERATION_LEVEL{level}.npz', allow_pickle=False)
         deg = z['degree']
         n = len(deg) // 12
         ns = len({tuple(sorted(map(int, e))) for e in z['edges']})
@@ -680,7 +680,7 @@ def main():
     text(x0 + 30, y, 'Observers first.', 18, INK, weight='bold')
     lines(x0 + 180, y, ['Ports, seams and cells are the hardware of a computation. They are no space. What is compared with nature is what the observers record and agree on.',
                         'No observer reads the state of the program, its evolution parameter or a common clock; two observers compare clocks through the records on their overlap.'], 17, 26, INK)
-    text(x0 + 30, y0 + h - 22, 'Both laws are candidates under test. Law 1 is specified in model/polynomial_sv/SPEC.md; the package for law 2 is model/scalar_channel, with the cage in model/scalar_channel/cage.', 15, MUTED)
+    text(x0 + 30, y0 + h - 22, 'Both laws are candidates under test. Law 1 is specified in model/contrast_memory_spherical_v1/SPEC.md; the package for law 2 is model/scalar_channel, with the cage in model/scalar_channel/cage.', 15, MUTED)
 
     Ht = 3472 + 620 + 40 + 500 + 40
     defs = '<defs>' + ''.join(
@@ -689,7 +689,7 @@ def main():
         for c in (INK, BLUE, ORANGE, PURPLE, GREEN, AMBER, MUTED)) + '</defs>'
     body = out[1:]
     head_ = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" height="%d" role="img" aria-label="%s">'
-    sheet = [head_ % (Wd, Ht, Wd, Ht, 'The executable construction of polynomial-sv: hardware and software'), defs,
+    sheet = [head_ % (Wd, Ht, Wd, Ht, 'The executable construction of A-contrast-memory-spherical-v1: hardware and software'), defs,
              '<rect x="0" y="0" width="%d" height="%d" fill="#ffffff"/>' % (Wd, Ht)] + body + ['</svg>']
     (HERE / 'executable_spec.svg').write_text('\n'.join(sheet) + '\n', encoding='utf-8')
     print('wrote executable_spec.svg', Wd, Ht)

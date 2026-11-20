@@ -297,7 +297,7 @@ The local face-curvature action and separate scalar Coulomb minimum strengthen t
 
 ## Executable model and exposed-data correspondence
 
-The executable model, [polynomial-sv](../model/polynomial_sv/README.md), reproduces particle stability as an observable on the observers' agreed records. Its results are finite mathematical and software results under a declared law and declared preparations, and none of them creates a frozen-prediction row.
+The candidate executable model, [A-contrast-memory-spherical-v1](../model/contrast_memory_spherical_v1/README.md), reproduces particle stability as an observable on the observers' agreed records. Its results are finite mathematical and software results under a declared law and declared preparations, and none of them creates a frozen-prediction row.
 
 The [ACT DR6 ordered-chain reanalysis](../code/cosmology/tilt_posterior/README.md) evaluates the fixed edge-center tilt and preserves the historical clock alternative as a separate diagnostic. The P-ACT-LB data were released in 2025, before the FZ-01 and FZ-15 freezes. The result is retrospective tension under baseline Lambda-CDM; its posterior tail positions are neither p-values nor frozen verdicts. The ordinary convergence checkpoint and per-chain sensitivity do not certify the FZ-15 tail-ESS requirement. This reanalysis neither substitutes an eligible dataset nor changes any registered content, decision rule, custody record or status. The [public-data audit](research/PUBLIC_DATA_PREDICTION_AUDIT.md) states the additional physical hypotheses and comparison eligibility.
 

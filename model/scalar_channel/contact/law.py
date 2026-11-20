@@ -5,7 +5,7 @@ import math
 import numpy as np
 from scipy.linalg import eigh, expm
 
-from ...polynomial_sv import collar, law as contrast
+from ...contrast_memory_spherical_v1 import collar, law as contrast
 from ..carrier import require
 from ..compiler import build, local_cycles, anti
 from ..instruments import compile_matrix, decode_paulis

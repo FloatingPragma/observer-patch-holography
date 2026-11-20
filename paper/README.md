@@ -19,7 +19,7 @@ Begin with the flagship synthesis,
 [*Observers Who Read Their Universe into Existence*](../flagship/from_observer_consensus_to_standard_physics.pdf).
 The construction paper,
 [*An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records*](executable_observer_construction.pdf),
-specifies polynomial-sv, the executable model of OPH. Its contrast-memory law
+specifies A-contrast-memory-spherical-v1, the candidate executable model of OPH. Its contrast-memory law
 is a candidate native repair law: every seam keeps a private memory of the
 contrast between the loads of its two ports, and on the loads the memory acts
 as an exchange plus an agreement energy. The paper proves that a pair of loads
@@ -33,8 +33,8 @@ carrier is hardware of the computation and no physical space: every test
 compares distributions of admissible observer records with what observers in
 our world record, and the flagship proves that observers who inhabit the
 simulation can describe their experiences as relativistic 3+1D continuum
-spacetimes. The [specification](../model/polynomial_sv/SPEC.md) and the
-[proof of the binding theorem](../model/polynomial_sv/PROOF.md) sit beside the
+spacetimes. The [specification](../model/contrast_memory_spherical_v1/SPEC.md) and the
+[proof of the binding theorem](../model/contrast_memory_spherical_v1/PROOF.md) sit beside the
 code.
 
 The [particle paper](deriving_the_particle_zoo_from_observer_consistency.pdf)
@@ -48,7 +48,7 @@ realization on the executable model are work in progress.
 | Paper | Role |
 | --- | --- |
 | [Observers Who Read Their Universe into Existence](../flagship/from_observer_consensus_to_standard_physics.pdf) ([source](../flagship/from_observer_consensus_to_standard_physics.tex)) | Flagship synthesis: the OPH proposal, finite theorem stack, source specification, physical reconstruction and status of each implication; [PhilPapers entry](https://philpapers.org/rec/MUEFOC) |
-| [An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records](executable_observer_construction.pdf) ([source](executable_observer_construction.tex)) | The polynomial-sv specification, the contrast-memory law, the binding theorem, particle stability on agreed records, bound objects, port response and the unrecovered collar |
+| [An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records](executable_observer_construction.pdf) ([source](executable_observer_construction.tex)) | The A-contrast-memory-spherical-v1 specification, the contrast-memory law, the binding theorem, particle stability on agreed records, bound objects, port response and the unrecovered collar |
 | [Reality as a Consensus Protocol](reality_as_consensus_protocol.pdf) ([source](reality_as_consensus_protocol.tex)) | Layer 1: local agreement repair, quotient normal forms, provenance order, and cycle holonomy as the residue repair cannot remove |
 | [Observers Are All You Need](observers_are_all_you_need.pdf) ([source](observers_are_all_you_need.tex)) | Layer 3: observers, records, quantum and thermodynamic identities, and the closure equations |
 | [Recovering Observer Spacetime and Einstein Dynamics](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) ([source](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex)) | Layers 4 and 6: clocks, causal order and geometry from the same process, and the conditional Einstein implication with its realization premises |

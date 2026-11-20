@@ -9,7 +9,7 @@ from scipy.linalg import expm
 from scipy.sparse.linalg import expm_multiply
 
 from ... import contrast_replay
-from ...polynomial_sv import collar, law
+from ...contrast_memory_spherical_v1 import collar, law
 from .. import compiler
 from ..cage import construction as cage, instruments
 from ..instruments import prepare_source

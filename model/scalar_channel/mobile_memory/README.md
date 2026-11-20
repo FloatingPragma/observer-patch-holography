@@ -14,7 +14,7 @@ neutral oscillator of the radiative pair converter. The scalar cage excitation i
 in the seam and wedge modes. The neutral oscillator quanta belong to the pair converter. At each
 external seam there is an auxiliary orthogonal current record with values $-2,-1,0,+1,+2$, with
 zero as the blank value.
-[Port carrier](../../polynomial_sv/carrier.py) · [Native contrast source](../../polynomial_sv/law.py)
+[Port carrier](../../contrast_memory_spherical_v1/carrier.py) · [Native contrast source](../../contrast_memory_spherical_v1/law.py)
 · [Scalar cages](../cage/construction.py) · [Pair converter](../radiative_repair/source.py)
 
 Use exchange units with $J=1$. Each charge sign has
@@ -62,7 +62,7 @@ including separated pairs. It uses one enabled link and the full external intera
 same preparation. With empty loads, the stationary blank and written native collar arms
 give exact link weights zero and one. A sharp cage sent across one enabled link arrives intact with
 probability $\sin^2(gt)$. The finite fuel read includes the no-sender background under its source-on
-capture pulse. [Binding theorem](../../polynomial_sv/PROOF.md#3-persistence-at-every-value-of-the-evolution-parameter)
+capture pulse. [Binding theorem](../../contrast_memory_spherical_v1/PROOF.md#3-persistence-at-every-value-of-the-evolution-parameter)
 · [Joint record replay](contrast_binding.py)
 
 ## Motion in the lowest charged band
