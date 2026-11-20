@@ -1,5 +1,8 @@
 # Mobile charges, bound loads, and a written cage link
 
+The [speed and clock tests](relativity/README.md) check this generator and a separately labeled
+incidence transport variant on the same carrier.
+
 An external seam can carry a record that later changes which scalar detector fires. The
 mobile-memory candidate keeps the contrast-bound pair and the scalar cage on the same carrier and
 couples them through the native contrast square. It also carries two signs of charge in a mobile
