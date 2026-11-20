@@ -1,0 +1,105 @@
+{
+  "member": "equipped-reflected-routing-cone-v1",
+  "oph": "08b53f0a85bcd0981346f147b9fb374a217e98f1",
+  "openwave": "260de06352eac5425d78fbbae636625544d439ab",
+  "kernel_blob": "a2ae5ac02c42405b594e60d9e8d2ff19e9bd9efc",
+  "kernel_path": "simulation/experiments/observer_geometry/reunion/registered/ingredient_sources/radar_shell/replay.py",
+  "field_driver_blob": "71a1da2bf6f6949ace64a9913036ce9fcb766de4",
+  "clock_report": "aa71bbcb335503eef35cbe14da5b0ad4b7dd083e",
+  "source": "Four periodic coordinates, directions (+,-) on each, eight coherent slots. One update reflects in the equal-slot ray then shifts one address and reverses the slot. The first three dials are spatial, the fourth is private. No coupling fitted to a physical measurement.",
+  "sizes": [
+    128,
+    256,
+    512,
+    1024
+  ],
+  "panels": {
+    "reference": [
+      16,
+      0
+    ],
+    "rest": [
+      0,
+      12
+    ],
+    "out": [
+      9,
+      12
+    ],
+    "reverse": [
+      -9,
+      12
+    ],
+    "fast": [
+      16,
+      12
+    ],
+    "short_rest": [
+      "0",
+      "L/8"
+    ],
+    "short": [
+      "L/4",
+      "L/8"
+    ],
+    "erased": [
+      9,
+      12
+    ]
+  },
+  "halfwidth": 2,
+  "tail_waits": [32, 64, 128, 256, 512, 1024],
+  "tail_speeds": [[11,20],[3,5],[3,4],[9,10],[1,1]],
+  "tail_read": "Exact integer counts of the equal-slot coefficient squared, summed over the axial half-line, with denominator 4 times 16^t. An initially localized axial packet is uniform in the remaining three coordinates. Compute all terminal positions before summing. Compare with the all-slot passive large-deviation exponent.",
+  "times": "j*L/8 for j=0..32, in local home services",
+  "shots": 1048576,
+  "clock_gate": {
+    "min_visibility": 0.45,
+    "max_increment": 1,
+    "longwave_tolerance": 0.035,
+    "comparison": "Use signed longitudinal speed from x records, rest transverse lap rate and field reference speed. Compare the independently opened transverse rate and full y distributions. Report every scale, unresolved records and short-wave discrepancies. The exact packet forecast uses the registered prepared band on the finite gate. No temporal fits to moving y data."
+  },
+  "packet": "Normalized product of binomial(4,r) coefficients in each of the two public Fourier dials around the specified center, uniform in other addresses. Use eigenbranch exp(-iE) of the original coin. Width and a common oriented periodic chart are supplied. Erase the relative phase across y orders by uniformly translating in y. Terminal position counts at every station of each axis on separate preparations. Midpoint stratified counters; no stochastic confidence interpretation.",
+  "race": {
+    "routes": [
+      [
+        24,
+        0,
+        0
+      ],
+      [
+        18,
+        12,
+        0
+      ],
+      [
+        -12,
+        0,
+        15
+      ],
+      [
+        6,
+        6,
+        6
+      ]
+    ],
+    "segment": 3,
+    "copies": 4096,
+    "processing": 1,
+    "nonce_bytes": 8,
+    "tag_bytes": 8,
+    "trials": 12,
+    "access": [
+      "addressed",
+      "passive",
+      "relay",
+      "phase-i",
+      "blocked",
+      "silent",
+      "tamper",
+      "stale"
+    ],
+    "rule": "Enroll every message and erasure. The sender generates its nonce after the forecast is sealed. Sender and receiver share an authentication key and trial identifier in advance. Parallel dual rails per bit. Active stations regenerate only a complete local frame after one service tick. Receiver returns a distinct authenticated frame. Reserve separate initially empty lanes for each segment, direction and trial. Global simulator and receiver do not share application state. Passive controls use the same parallel budget and no intermediate intervention. Passive axial first-front derivation only. Deadline from chart ranges and reference-wave timing. Compare every authenticated return and its time to twice the measured Euclidean range divided by c. Record routes where communication succeeds and misses the deadline.",
+    "gate": "For every completed route report counts, bit erasures, elapsed time, resource budgets, whether it beats the forecast. Require native axial success on at least 10/12 trials, zero acceptance for blocked/silent/tampered/stale controls; report other outcomes even on failure."
+  }
+}
