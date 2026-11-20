@@ -166,7 +166,7 @@ That observer is finished after two events. A continuing one carries on, and the
 
 Ask what the world settles into with this observer living in it. A uniform start does not stay uniform. Two attempts in, thirty of the arrangements have shifted odds, by at most one part in 960. Solve for the state the world and the observer's latest letter reach together and there is exactly one, spread over 129 of their 132 joint states. Attach the observer's full record to it, take one more step of the whole observer, and every entry comes back exactly. The settled world includes what the observer remembers about it.
 
-That is the **primitive observer**: a rule for moving units, a rule for what each move writes, and a rule for what is kept and what is filed. None of them changes, ever. Everything else in this book, space, clocks, fields, particles and the observers who read about them, is a pattern this one static rule keeps alive. Appendix D gives the command that replays all 264 histories.
+That is the **primitive observer**: a rule for moving units, a rule for what each move writes, and a rule for what is kept and what is filed. None of them changes, ever. The rule at the bottom of the world is of this kind. It is the OPH law, which appendix D states and runs: every constituent is routed by reflection, two constituents that meet bind into a pair whose rails keep its time, and each binding sends away a marker that records where and when it happened. Everything else in this book, space, clocks, fields, particles and the observers who read about them, is a pattern that one static law keeps alive.
 
 ## One generator
 

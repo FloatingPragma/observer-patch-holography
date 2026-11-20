@@ -132,7 +132,7 @@ Put the question to the inventory and look for the second end. Name the entry th
 
 The word computed arrives with fake attached to it. Watch one repair: a disagreement that was there is gone, the total sits where it started, and which of seven arrangements the seam held is gone from the readings. That is a change in the world, carried out by arithmetic. Coffee tastes the way it does by the same route, and so does a magnetic field. And nothing is stepping any of it: eighty-one thousand nine hundred and twenty patches reached agreement on every seam between them without a tick from anywhere. The cycles in that run's trace belong to the computer that kept it.
 
-Appendix D explains how to replay the common matter and field construction and the separate finite observer examples on a laptop. The laptop is inside the world that rule describes. Running the program makes a model of the rule, the way a weather program makes a model of rain, and nothing outside the world is running the world.
+Appendix D explains how to run the OPH law and replay its experiments on a laptop, and where the separate finite observer examples are replayed. The laptop is inside the world that rule describes. Running the program makes a model of the rule, the way a weather program makes a model of rain, and nothing outside the world is running the world.
 
 ## Does an observer have to be conscious?
 

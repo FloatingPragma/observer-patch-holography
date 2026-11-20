@@ -96,7 +96,7 @@ What survives that is a rule whose answers do not depend on the order anybody wo
 
 ## The rule that stays put
 
-The competition ends with one rule holding the whole share, and inside the history that rule does not change. Chapter nineteen ran it on a laptop: a rule for moving units, a rule for what each move writes, and a rule for what is kept and what is filed. It is static. Nothing in the world revises it, because everything in the world is something it is doing.
+The competition ends with one rule holding the whole share, and inside the history that rule does not change. Chapter nineteen built a small version of it, a rule for moving units, a rule for what each move writes and a rule for what is kept and what is filed, and appendix D runs the full one, the OPH law, on a laptop. It is static. Nothing in the world revises it, because everything in the world is something it is doing.
 
 What changes is everything the rule acts on, and the arithmetic of the last section runs again one level down, with patterns in the place of rules. A pattern's share is the fraction of the history it occupies. Whatever the rule erases loses its share, and whatever survives every repair keeps it. At the lowest layer there is no reproduction and no offspring. Selection there is persistence under a rule that never changes, and the survivors are what physics calls its laws.
 

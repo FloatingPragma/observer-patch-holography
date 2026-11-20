@@ -44,135 +44,35 @@ et la spécification exécutable ; le
 [guide des termes](docs/INTERPRETATION_AND_TERMS.md) explique la vision
 intemporelle et les horloges qu’elle contient.
 
-**Les observateurs viennent en premier. Ce qu’OPH compare à la nature est ce
-que les observateurs lisent dans leurs propres registres, et ce sur quoi ils
-s’accordent là où leurs registres se recouvrent. La mesure, le consensus et la
-synchronisation des horloges viennent après les registres. Aucun champ
-objectif et aucune horloge globale ne se tiennent derrière eux : les champs,
-les particules, l’espace-temps et un temps commun sont des descriptions
-effectives que les observateurs conviennent d’employer. L’état du programme et
-son paramètre de temps calculent ces lectures. Ils ne forment aucun second
-univers à côté d’elles.**
+## La loi
 
-## L’hypothèse exécutable
+Chaque observateur suit une seule règle locale lorsqu’il compare ses registres
+avec un voisin : la loi OPH. Sous les prémisses de la bibliothèque de
+théorèmes, les observateurs qui la suivent décrivent leurs registres convenus
+comme un espace-temps relativiste à trois dimensions d’espace et une de temps,
+avec la mesure quantique, les forces du Modèle standard et la gravitation.
 
-Le [modèle exécutable](model/polynomial_sv/README.md), polynomial-sv, place de petits
-observateurs sur les ports de cellules icosaédriques. Deux voisins comparent
-leurs charges par une mémoire privée sur la couture qu’ils partagent ; un
-échange cohérent les fait circuler, et l’accord abaisse l’énergie. La loi,
-son couplage et la préparation sont fixés avant l’exécution. Les lecteurs
-conservent chaque résultat, y compris le résultat « aucune paire », et chaque
-observateur compte ses propres événements : aucune horloge commune n’est
-utilisée. Les théorèmes démontrés sur d’autres constructions gardent leurs
-hypothèses, et leur transfert au modèle exige une identification démontrée.
+La loi déplace chaque constituant par routage réfléchi : à chaque adresse,
+elle réfléchit la part commune de huit amplitudes et envoie chaque créneau
+d’un pas le long de son axe. Deux constituants qui se rencontrent dans des
+créneaux appariés avancent ensemble comme une paire, et la phase relative des
+deux rails d’un constituant est l’horloge de la paire. Une rencontre frontale
+forme une telle paire par une capture réversible qui envoie un marqueur sur le
+fil propre de la jonction, et la paire nouvelle ouvre son mouvement sur 128
+mises à jour. La réparation décide de ce qui devient un fait partagé, et la
+mémoire décide de ce qu’une réparation laisse derrière elle : le marqueur
+enregistre où et quand une paire est née, et l’âge que porte la paire fixe sa
+manière de voyager.
 
-L’[hypothèse](docs/OPH_EXECUTABLE_HYPOTHESIS.md) dit ce qui
-compterait comme un succès : les registres des observateurs du modèle doivent
-reproduire ce que mesurent les observateurs de notre monde.
-
-## Axe de recherche
-
-Nous avons un [modèle exécutable](model/README.md) d’OPH qui fonctionne,
-appelé polynomial-sv. De petits observateurs sont placés sur les ports de
-cellules icosaédriques. Chacun détient quelques registres et les compare
-avec ses voisins ; là où deux voisins sont en désaccord, ils réparent la
-différence entre eux deux. La théorie qui l’entoure est achevée : le principe
-de clôture, la bibliothèque de théorèmes et les constructions finies sont en
-place.
-
-**Ce que vivent les observateurs intérieurs.** L’état de la simulation ne
-contient pas l’Univers physique. Ses ports, ses coutures et ses cellules sont
-le matériel d’un calcul, et ils ne sont pas un espace. L’espace, le temps, les
-champs et les particules sont la manière dont les observateurs intérieurs
-décrivent les registres dont ils conviennent. Nous avons montré que les
-observateurs qui habitent la simulation peuvent décrire leurs expériences
-comme un espace-temps continu relativiste à trois dimensions d’espace et une
-de temps, bâti sur la réponse la plus lente d’une cellule, qui a exactement
-trois directions. Leurs registres obéissent aux règles quantiques de la
-mesure et, sous des prémisses énoncées, leurs forces ont l’algèbre du Modèle
-standard et leur gravitation obéit à l’équation d’Einstein : ce qu’ils
-peuvent mesurer a la structure de ce que nous mesurons. Chaque test du modèle
-compare donc ce que ses observateurs enregistrent avec ce que nous
-enregistrons. Il ne compare jamais l’état de la simulation avec le monde.
-
-La conception répond à la question de savoir comment un univers peut
-calculer sa propre histoire. Une histoire cohérente est un point fixe sur un
-nombre énorme de registres, et la chercher prendrait un temps exponentiel.
-Le réseau ne cherche pas. Chaque vérification est locale, chaque réparation
-est locale, et chaque réparation acceptée retire une quantité fixe de
-désaccord : le travail croît comme un polynôme du nombre d’observateurs.
-Avec cette conception, l’Univers se pense lui-même jusqu’à l’existence en
-temps polynomial. Le [manuel de construction](model/construction_manual/CONSTRUCTION_MANUAL.md)
-(en anglais) construit le modèle pièce par pièce et dit quelle part de cela
-est un théorème.
-
-Deux lois de réparation candidates tournent sur le modèle : la loi de mémoire
-de contraste et le canal scalaire. Aucun nombre mesuré n’y entre. Sous ces
-lois, le processus de
-réparation reproduit des valeurs et des structures observables réelles, dans
-les descriptions effectives des observateurs qui habitent le calcul :
-
-- **Des particules qui tiennent ensemble.** Une paire de charges écrite sur
-  une couture est lue comme une paire à chaque lecture ultérieure, avec une
-  probabilité qu’un théorème borne sur des supports de toute taille, et elle
-  se déplace de couture en couture. La même loi sans l’énergie d’accord perd
-  la paire.
-- **Une horloge dans un objet.** Un objet tenu sur quatre coutures oscille à
-  une hauteur fixe après une impulsion. Un observateur lit cette hauteur dans
-  ses propres comptages, en unités de sa propre référence, et retrouve le même
-  nombre par une seconde voie, à partir des deux niveaux de l’objet.
-- **Quelque chose qui reste et ne porte aucune charge.** Une note laissée
-  dans la mémoire d’une couture, sans rien autour, n’est jamais effacée par
-  la loi. Elle ne porte aucune charge, ses observateurs lisent son niveau, et
-  la matière qui l’atteint s’y attache.
-- **Regarder change la suite.** Demander « une paire est-elle là ? » et
-  demander « où est-elle ? » donnent la même première réponse et des registres
-  ultérieurs différents.
-- **Douze courants de force.** Avec un service de port déclaré, la réponse
-  des ports d’une cellule a douze générateurs dotés de l’algèbre des forces
-  du Modèle standard.
-
-Ces sorties se branchent sur la bibliothèque de théorèmes. Un théorème
-s’applique au modèle partout où une sortie du modèle a la forme de sa
-prémisse : la cellule est le support du théorème des trois directions,
-l’écriture du modèle est la règle de réparation que quatre exigences
-désignent seule, ses lectures sont les instruments projectifs des théorèmes
-de la mesure, et ses observateurs comparent leurs horloges par des registres
-partagés, comme l’exigent les théorèmes d’horloge. Le
-[registre des observations](docs/registers/OBSERVATION_LEDGER_V3.md) (en
-anglais) liste ce que le modèle reproduit et ce qui est ouvert.
-
-## Trouver la loi de réparation et de mémoire
-
-L’objectif principal de la recherche est d’identifier la bonne loi de
-réparation et de mémoire. C’est la loi de réparation native, la loi simple
-qui gouverne les interactions des observateurs dans l’Univers primitif : la
-règle locale que chaque observateur suit lorsqu’il compare ses registres avec
-un voisin, et qui dit comment un désaccord est réparé et ce que la réparation
-laisse en mémoire. La réparation décide de ce qui devient un fait partagé. La
-mémoire compte tout autant : dans polynomial-sv, la phase que la mémoire
-d’une couture acquiert à partir du contraste qu’elle a écrit est l’énergie
-d’accord qui lie une paire de charges, et la même loi sans elle perd la paire.
-
-polynomial-sv est le candidat à l’essai. Ses deux lois sont des candidates,
-leurs couplages sont fournis, et les autres observables des articles, de la
-charge et du spectre des particules à la gravitation, sont en cours sur le
-même processus. Toute partie de l’observateur exécutable pourra changer au
-fil de la recherche.
-
-**Pourquoi c’est important.** La bibliothèque de théorèmes énonce ce qui
-découle d’une loi dès qu’elle fournit certaines sorties : trois directions
-d’espace, les règles quantiques de la mesure, les forces du Modèle standard,
-la gravitation d’Einstein. Une loi doit les fournir toutes à la fois, sur un
-seul processus, avec des vérifications et des réparations toutes locales.
-Avec la bonne loi, la physique que nous mesurons devient quelque chose que
-l’on calcule : on fait tourner la loi, ses observateurs tiennent leurs
-registres, et on lit ce qu’ils trouvent. Une mauvaise loi se trahit de la
-même manière, car ses observateurs enregistrent autre chose que nous. La
-recherche de la loi est ainsi le test le plus net de toute l’idée, et le
-reste du projet est à son service. La
-[vue d’ensemble du modèle](model/README.md) (en anglais) liste ce que les
-candidats reproduisent et ce qui est ouvert.
+Sous cette loi, le champ d’un seul constituant obéit à l’équation de
+Klein–Gordon à trois dimensions d’espace avec une seule vitesse de signal, les
+horloges en mouvement gardent le temps propre, deux constituants forment une
+paire qui tient ensemble, et cette matière obéit à la relation d’onde
+relativiste ω² = m² + c²k². La page de la [loi](model/README.md) (en
+anglais) l’énonce avec ce qui est démontré, et le
+[simulateur](simulator/README.md) l’exécute et rejoue chaque expérience. La
+charge, le spectre des particules et la gravitation sur le même processus
+sont en cours.
 
 ## Ce qui en sort
 
@@ -212,17 +112,28 @@ finies donnent :
 - **Gravitation.** Un bilan réalisé des registres donne l’équation d’Einstein.
   [Espace-temps et dynamique d’Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf).
 
-## Lancer l’observateur
+## Comment cela fonctionne
 
-Depuis la racine du dépôt, avec Python 3.11 ou plus récent :
+**Les observateurs viennent en premier. Ce qu’OPH compare à la nature est ce
+que les observateurs lisent dans leurs propres registres, et ce sur quoi ils
+s’accordent là où leurs registres se recouvrent. La mesure, le consensus et la
+synchronisation des horloges viennent après les registres. Aucun champ
+objectif et aucune horloge globale ne se tiennent derrière eux : les champs,
+les particules, l’espace-temps et un temps commun sont des descriptions
+effectives que les observateurs conviennent d’employer. L’état du programme et
+son paramètre de temps calculent ces lectures. Ils ne forment aucun second
+univers à côté d’elles.**
 
-```sh
-python3 -m model
-```
-
-Cette commande recalcule les résultats principaux de polynomial-sv et les
-compare aux résultats conservés. Le [guide du modèle](model/README.md)
-indique l’exécution complète.
+Une loi fixe agit sur les registres d’adresses voisines. La loi OPH réfléchit
+et achemine l’amplitude entre elles, lie en une paire deux constituants qui se
+rencontrent et enregistre chaque liaison dans un marqueur qui part sur son
+propre fil. Les lecteurs conservent chaque résultat, absences comprises.
+Chaque observateur compte ses propres événements, et aucune horloge commune
+n’est utilisée. Le créateur fournit la loi et la préparation ; les
+observateurs simulés n’ont pas à installer leurs propres interactions.
+L’[hypothèse exécutable](docs/OPH_EXECUTABLE_HYPOTHESIS.md) énonce le test
+physique : une construction entièrement spécifiée doit reproduire ce que
+mesurent les observateurs.
 
 ## Des mathématiques vérifiables
 
@@ -239,15 +150,26 @@ l’[échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md). Le
 [programme de falsification](docs/OPH_FALSIFICATION_PROGRAM.md) dit comment
 la construction peut échouer.
 
+## Lancer l’observateur
+
+Depuis la racine du dépôt, avec Python 3.11 ou plus récent :
+
+```sh
+python3 -m model                  # contrôles d’exactitude de la loi OPH
+python3 -m simulator run all      # chaque expérience, et l’application de relecture hors ligne
+```
+
+La première commande vérifie chaque méthode exacte du simulateur contre la
+mise à jour littérale. La seconde recalcule chaque expérience sur la loi et
+écrit `simulator/runs/replay.html`, qui les rejoue. La page de la
+[loi](model/README.md) explique les deux.
+
 ## Articles
 
 - **[Observers Who Read Their Universe into Existence](flagship/from_observer_consensus_to_standard_physics.pdf)**
   est la synthèse principale : l’hypothèse de clôture, l’hypothèse du modèle
   exécutable et la tour des résultats. Citez sa version publiée, la
   [fiche PhilPapers](https://philpapers.org/rec/MUEFOC).
-- **[An Executable Observer for Observer Patch Holography](paper/executable_observer_construction.pdf)**
-  énonce polynomial-sv, démontre son théorème de liaison et rapporte les
-  registres dont ses observateurs conviennent.
 - **La bibliothèque de théorèmes** contient les preuves longues, du
   [consensus](paper/reality_as_consensus_protocol.pdf) et des
   [observateurs et registres](paper/observers_are_all_you_need.pdf) jusqu’à
@@ -264,9 +186,10 @@ la construction peut échouer.
 
 | Chemin | Contenu |
 | --- | --- |
-| [model/](model/README.md) | L’observateur exécutable : implémentation, tests, reçus conservés et enregistrements de protocole |
+| [model/](model/README.md) | La loi OPH et ce qui est démontré à son sujet |
+| [simulator/](simulator/README.md) | Le simulateur de la loi OPH et son application de relecture |
 | [flagship/](flagship/) | L’article de synthèse |
-| [paper/](paper/README.md) | L’article de construction et la bibliothèque de théorèmes, avec les articles archivés sous [paper/archive/](paper/archive/README.md) |
+| [paper/](paper/README.md) | La bibliothèque de théorèmes, avec les articles archivés sous [paper/archive/](paper/archive/README.md) |
 | [extra/](extra/README.md), [cosmology/](cosmology/) | Les articles compagnons |
 | [Lean/](Lean/) | La bibliothèque vérifiée par machine |
 | [code/](code/README.md) | Les calculs exacts, les vérificateurs et les reçus derrière les articles |
@@ -279,13 +202,13 @@ la construction peut échouer.
 ## Reproduire et vérifier
 
 Le [guide de reproduction](REPRODUCE.md) lance la suite de vérification depuis
-un clone propre. Le vérificateur du modèle recalcule polynomial-sv et ses résultats ;
-la suite de régression vérifie aussi des cas adverses :
+un clone propre. Le vérificateur du modèle contrôle les méthodes exactes de la
+loi OPH ; la suite de régression vérifie aussi des cas adverses :
 
 ```sh
 python -m pip install -r model/requirements.txt
 python -m model
-python -m pytest -q -W error model
+python -m pytest -q -W error simulator model
 ```
 
 Le guide donne aussi les contrôles autonomes des particules et des champs
@@ -305,7 +228,8 @@ fournissent la physique effective : l’horloge de l’observateur, son interpr�
 spatiale et ses mesures de champ sur les mêmes histoires, comparées à des
 observations indépendantes. Les
 contributions doivent résoudre une connexion nommée ou révéler un défaut du
-modèle ; la [spécification de polynomial-sv](model/polynomial_sv/SPEC.md) et les
+modèle ; la [loi OPH](model/README.md), la
+[spécification du simulateur](simulator/SPEC.md) et les
 [tâches de recherche](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+is%3Aopen+label%3Aprogram%3Aphysics)
 décrivent ce travail. Les publications d’articles suivent le
 [guide des articles](paper/README.md#reproducibility) ;

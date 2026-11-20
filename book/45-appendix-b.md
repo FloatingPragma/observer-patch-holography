@@ -20,7 +20,7 @@ Anode and cathode name a direction and a doorway. They say nothing whatever abou
 
 **Bit.** The answer to one well-chosen yes-or-no question, and the unit anything measured in questions is counted in. Erasing one releases heat, and how much depends on nothing about the device, only on the temperature around it.
 
-**Carrier.** The finite wiring of the model: twelve ports at the corners of a twenty-sided solid, thirty seams joining them, twenty triangular faces. The structural numbers of the physics are read off that arrangement.
+**Carrier.** The finite wiring of the screen: twelve ports at the corners of a twenty-sided solid, thirty seams joining them, twenty triangular faces. The structural numbers of the physics are read off that arrangement.
 
 **Causal diamond.** Everything after one event and before another: two cones joined at the rim. Count the completed records inside one and the count approaches its volume, and the fourth root of a ratio of two such counts is a ratio of durations.
 
@@ -140,7 +140,7 @@ Anode and cathode name a direction and a doorway. They say nothing whatever abou
 
 **Momentum.** What a pattern carries as it drifts across the seam network, conserved because the laws do not care where you are. Newton listed it second among his definitions and called it the quantity of motion.
 
-**Native observer.** The smallest observer the model runs: one port of a twelve-port cell, with the seams it shares with its five or six neighbours. It counts the events of its own seams, and that count is its clock. It admits a record on a seam only when the observer at the other end holds the same report.
+**Native observer.** The smallest observer the executable model runs: a laboratory at one address of the OPH law. It counts the updates of its own address, and that count is its clock. It relates its count to another observer's through records the two of them share.
 
 **Natural selection.** Variation, heredity and differential persistence running together. The list closes at three, and nothing on it decides anything. At the bottom it runs on patterns under one static rule: what persists under repair is physics, from conserved totals to stable defects. Self-repairing patterns built from those persist and copy, and the same arithmetic runs on them.
 
