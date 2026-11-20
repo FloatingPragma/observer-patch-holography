@@ -120,6 +120,10 @@ def _run_all(args) -> int:
     formed = formation_run()
     save(runs.formation_document(formed, formation_run(angle=0.0)), "07-formation.run.json.gz")
 
+    from .row30 import matter_frames, row30_run
+    frames, stride = matter_frames()
+    save(runs.row30_document(row30_run(), frames, stride), "08-openwave-row-30.run.json.gz")
+
     args.runs = [str(p) for p in paths]
     args.out = None
     _app(args)
@@ -130,6 +134,13 @@ def _run_all(args) -> int:
 def _run(args) -> int:
     if args.experiment == "all":
         return _run_all(args)
+    if args.experiment == "row30":
+        from .row30 import matter_frames, row30_run
+        frames, stride = matter_frames()
+        path = runs.write(runs.row30_document(row30_run(), frames, stride),
+                          Path(args.out) if args.out else OUT / "08-openwave-row-30.run.json.gz")
+        print(f"wrote {path}")
+        return 0
     started = time.time()
     if args.experiment == "continuum":
         convergence = []
@@ -162,8 +173,11 @@ def _app(args) -> int:
     embedded = [base64.b64encode(Path(p).read_bytes()).decode() for p in args.runs]
     payload = json.dumps(embedded)
     marker = "/*EMBEDDED_RUNS*/[]"
-    if marker not in template:
-        raise SystemExit("the app template lacks its embedding marker")
+    rows_marker = "/*OPENWAVE_ROWS*/{}"
+    if marker not in template or rows_marker not in template:
+        raise SystemExit("the app template lacks its embedding markers")
+    rows = (HERE / "openwave_rows.json").read_text(encoding="utf-8")
+    template = template.replace(rows_marker, rows)
     out = Path(args.out) if args.out else OUT / "replay.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(template.replace(marker, payload), encoding="utf-8")
@@ -178,7 +192,7 @@ def main(argv=None) -> int:
     sub.add_parser("laws", help="list the laws of the family and their standing").set_defaults(func=_laws)
     sub.add_parser("check", help="exactness and regression checks (under a minute)").set_defaults(func=_check)
     run = sub.add_parser("run", help="run an experiment and write a run file")
-    run.add_argument("experiment", choices=("continuum", "journeys", "all"))
+    run.add_argument("experiment", choices=("continuum", "journeys", "row30", "all"))
     run.add_argument("--size", type=int, default=32)
     run.add_argument("--chart-time", type=float, default=3.0)
     run.add_argument("--law", choices=sorted(LAWS), default="reflected-routing")

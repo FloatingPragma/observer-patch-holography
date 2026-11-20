@@ -174,3 +174,31 @@ def formation_document(result: dict, control: dict) -> dict:
         "forward_fraction_collected": result["forward_fraction_collected"],
         "provenance": _provenance(result["seconds"]),
     }
+
+
+def row30_document(result: dict, frames: np.ndarray, stride: int) -> dict:
+    """OpenWave Row 30: the formed pair's matter-wave relation, with a resting and a moving packet."""
+    amplitude = np.abs(frames)
+    scale = amplitude.max()
+    encoded = np.stack([np.round(np.sqrt(amplitude / scale) * 255),
+                        np.round((np.angle(frames) + np.pi) / (2 * np.pi) * 255) % 256], axis=2)
+    return {
+        "format": FORMAT, "kind": "dispersion", "step": "OpenWave Row 30", "openwave_row": 30,
+        "title": "The matter-wave relation of a collision-formed pair",
+        "summary": "The three candidate laws share the mature step of a formed pair, so they share its "
+                   "frequency relation. For each of the fourteen registered order-three directions at "
+                   "chart periods 64, 128 and 256 the frequency comes from the native step, and the "
+                   "observer's test asks whether the kinetic increment (omega^2 - m^2) / (c^2 |k|^2) "
+                   "lies within 3.5% of one, with m the rest frequency and c^2 the scalar standard of "
+                   "the unbound walk. The changed law moves half the spatial weight of the formed "
+                   "vector into the private slots.",
+        "law": _law(result["law"]),
+        "phi": result["phi"], "rest": result["rest"], "coefficient": result["coefficient"],
+        "c2": result["c2"], "tolerance": 0.035, "identity_error": result["identity_error"],
+        "rows": [{**r, "omega": round(r["omega"], 9), "kinetic": round(r["kinetic"], 7)} for r in result["rows"]],
+        "recorded": result["recorded"],
+        "stride": stride, "updates": (frames.shape[0] - 1) * stride,
+        "frames": {**_pack(encoded, "uint8"),
+                   "note": "axis 1: resting, moving packet; axis 2: sqrt amplitude, phase of the S-reading"},
+        "provenance": _provenance(result["seconds"]),
+    }

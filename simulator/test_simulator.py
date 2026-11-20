@@ -218,6 +218,21 @@ def check_formation():
             f"with the vertex off, capture {off}")
 
 
+def check_row30():
+    """OpenWave Row 30: native frequencies, the closed form, and the observer's kinetic test."""
+    from .row30 import row30_run
+    r = row30_run()
+    candidates = [x for x in r["rows"] if x["law"] == "candidates"]
+    changed = [x for x in r["rows"] if x["law"] == "changed"]
+    assert r["identity_error"] < 1e-12 and abs(r["coefficient"] - 0.24919629) < 1e-8
+    assert abs(r["rest"] - np.pi / 32) < 1e-12
+    assert all(x["passes"] for x in candidates) and not any(x["passes"] for x in changed)
+    worst = max(abs(x["kinetic"] - 1) for x in candidates)
+    deficit = [1 - x["kinetic"] for x in changed]
+    return (f"42 of 42 candidate probes within {worst:.4f} of the smooth relation; changed law "
+            f"deficit {min(deficit):.4f}-{max(deficit):.4f}; curvature {r['coefficient']:.8f}")
+
+
 CHECKS = [
     ("unitarity", check_unitarity),
     ("sector reduction", check_sector_reduction),
@@ -229,6 +244,7 @@ CHECKS = [
     ("bound pair", check_bound_pair),
     ("bound clock", check_bound_clock),
     ("formation", check_formation),
+    ("OpenWave row 30", check_row30),
 ]
 
 
@@ -270,3 +286,7 @@ def test_bound_clock():
 
 def test_formation():
     check_formation()
+
+
+def test_row30():
+    check_row30()

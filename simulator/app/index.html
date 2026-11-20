@@ -70,6 +70,22 @@ footer input[type=range] { flex: 1; accent-color: var(--accent); }
 #clock small { color: var(--muted); }
 #html h3 { margin: 0 0 6px; font-size: 18px; }
 #html p { color: var(--muted); max-width: 760px; }
+.ow { position: relative; }
+.ow-panel { position: absolute; top: 38px; left: 0; width: min(560px, 92vw); max-height: 72vh; overflow: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; display: none; z-index: 30; box-shadow: 0 12px 40px rgba(0,0,0,.55); padding: 6px 0; }
+.ow-panel.on { display: block; }
+.ow-group { font: 11px var(--mono); color: var(--muted); letter-spacing: 1px; text-transform: uppercase; padding: 10px 14px 4px; }
+.ow-row { display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; align-items: baseline; padding: 6px 14px; cursor: pointer; }
+.ow-row:hover { background: #12303a; }
+.ow-row.open { opacity: .42; }
+.ow-row .num { font: 12px var(--mono); color: var(--muted); }
+.ow-row .nm { font-size: 13px; }
+.ow-row .nm small { display: block; color: var(--muted); font-size: 11.5px; }
+.ow-row .st { font: 11px var(--mono); }
+.st-solved { color: var(--good); } .st-partial { color: var(--warn); } .st-open { color: var(--faint); }
+.rowpage { max-width: 820px; }
+.rowpage .links a, .rowpage button.go { display: inline-block; margin: 6px 10px 0 0; color: var(--accent); }
+.rowpage button.go { background: #12303a; border-color: var(--accent); }
+a { color: var(--accent); }
 @media (max-width: 900px) {
   main, body.static main { grid-template-columns: 1fr; grid-template-rows: 60vh auto; height: auto; }
   aside { border-left: 0; border-top: 1px solid var(--line); }
@@ -81,6 +97,7 @@ footer input[type=range] { flex: 1; accent-color: var(--accent); }
 <header>
   <h1>OPH Simulator <span>replay</span></h1>
   <select id="runPicker" title="Loaded runs"></select>
+  <div class="ow"><button id="owButton" title="The 31 rows of the OpenWave evaluation framework">OpenWave ▾</button><div id="owPanel" class="ow-panel"></div></div>
   <div class="grow"></div>
   <label class="file">Open run file<input id="file" type="file" accept=".gz,.json" multiple></label>
 </header>
@@ -141,6 +158,7 @@ footer input[type=range] { flex: 1; accent-color: var(--accent); }
 <script>
 "use strict";
 const EMBEDDED = /*EMBEDDED_RUNS*/[];
+const OPENWAVE = /*OPENWAVE_ROWS*/{};
 const $ = id => document.getElementById(id);
 const C_SIGNAL = 0.5;
 const MONO = () => getComputedStyle(document.body).getPropertyValue("--mono");
@@ -665,6 +683,124 @@ const formation = {
   },
 };
 
+// ---------- view: a matter-wave relation (OpenWave Row 30) ----------
+function hsv(h, s, v) {
+  const i = Math.floor(h * 6), f = h * 6 - i, p = v * (1 - s), q = v * (1 - f * s), u = v * (1 - (1 - f) * s);
+  return [[v, u, p], [q, v, p], [p, v, u], [p, q, v], [u, p, v], [v, p, q]][((i % 6) + 6) % 6];
+}
+const dispersion = {
+  footer: true,
+  async prepare(doc) {
+    doc.values = await unpack(doc.frames);
+    [doc.F, , , doc.M] = doc.frames.shape;
+    doc.duration = doc.updates; doc.rate = doc.updates / 10;
+  },
+  enter(doc) {
+    $("legend").innerHTML = `<span><i style="background:conic-gradient(red,yellow,lime,cyan,blue,magenta,red)"></i>phase of the matter wave</span><span><i style="background:var(--accent)"></i>candidate laws</span><span><i style="background:var(--bad)"></i>changed law</span>`;
+    const row = (OPENWAVE.rows || []).find(r => r.number === doc.openwave_row);
+    const per = [64, 128, 256].map(P => {
+      const c = doc.rows.filter(r => r.law === "candidates" && r.period === P), x = doc.rows.filter(r => r.law === "changed" && r.period === P);
+      const rng = (a, k, d) => `${Math.min(...a.map(r => r[k])).toFixed(d)}–${Math.max(...a.map(r => r[k])).toFixed(d)}`;
+      return `<tr><td>${P}</td><td>${c[0].k.toFixed(4)}</td><td>${rng(c, "kinetic", 4)}</td><td class="good">${c.filter(r => r.passes).length}/14</td><td>${x.filter(r => r.passes).length}/14</td></tr>`;
+    }).join("");
+    const rec = doc.recorded;
+    $("dyn").innerHTML = `<section><h2>OpenWave Row 30</h2>
+      <p class="note" style="margin-top:0">OpenWave's test: <b style="color:var(--ink)">${esc(row ? row.test : "emergent ω² = k² + m² for matter waves")}</b>.</p>
+      ${row ? `<p class="note"><a href="${row.spec_url}" target="_blank" rel="noopener">Problem statement on GitHub</a> · <a href="${row.oph_url}" target="_blank" rel="noopener">OPH column</a></p>` : ""}
+      <table><tr><th>period</th><th>|k|</th><th>kinetic ratio</th><th>candidates</th><th>changed law</th></tr>${per}</table>
+      <p class="note">ω from the native step of the formed pair, fourteen directions per period. Kinetic ratio (ω² − m²)/(c²|k|²) with m = ${doc.rest.toFixed(6)} and c² = ${doc.c2}; the test requires it within ±${(100 * doc.tolerance).toFixed(1)}% of one. The long-wave expansion gives ω² = m² + 2w m cot(m) |k|², coefficient ${doc.coefficient.toFixed(8)}; the closed form agrees with the native step to ${doc.identity_error.toExponential(1)}.</p></section>
+      <section><h2>Recorded in the Row 30 experiment</h2><table>
+      <tr><td>rest frequency</td><td>${rec.rest_frequency_range.join("–")}</td></tr>
+      <tr><td>gates at period 64</td><td>${rec.gates["64"]}</td></tr><tr><td>gates at period 128</td><td>${rec.gates["128"]}</td></tr><tr><td>gates at period 256</td><td>${rec.gates["256"]}</td></tr>
+      <tr><td>changed law</td><td>${rec.changed_law_gates}</td></tr>
+      <tr><td>changed-law kinetic deficit</td><td>${(100 * rec.changed_law_kinetic_deficit[0]).toFixed(2)}–${(100 * rec.changed_law_kinetic_deficit[1]).toFixed(2)}%</td></tr>
+      <tr><td>precision repeat envelope</td><td>${(100 * rec.precision_repeat_envelope[0]).toFixed(2)}% to +${(100 * rec.precision_repeat_envelope[1]).toFixed(2)}%</td></tr>
+      <tr><td>incident preparations</td><td>${rec.incident_preparations.map(v => v.toExponential(3)).join(" + ")}</td></tr></table>
+      <p class="note">The observers measured rest lines, wave vectors and frequencies from their own records; the counts are sampled from the law. The frequency relation is common to the three candidates, so it gives no preference among them.</p></section>`;
+    $("explain").innerHTML = esc(doc.summary);
+    $("meta").innerHTML = `<span>contact phase</span><b>${doc.phi.toFixed(6)} (m = φ/2)</b>` + provenance(doc);
+  },
+  draw(doc) {
+    const dpr = fit(c2d), ctx = c2d.getContext("2d"), W = c2d.width, H = c2d.height, M = doc.M;
+    ctx.fillStyle = "#05080c"; ctx.fillRect(0, 0, W, H);
+    const f = Math.min(doc.F - 1, Math.round(state.t / doc.stride)), font = `${12 * dpr}px ${MONO()}`;
+    const gap = 30 * dpr, P = Math.min((W - 3 * gap) / 2, H * 0.42), y0 = 64 * dpr;
+    const labels = ["at rest: the phase turns at the rest frequency m", "moving along x: phase fronts travel, the envelope follows"];
+    for (let k = 0; k < 2; k++) {
+      const img = ctx.createImageData(M, M), base = (f * 2 + k) * 2 * M * M;
+      for (let x = 0; x < M; x++) for (let y = 0; y < M; y++) {
+        const a = doc.values[base + x * M + y] / 255, ph = doc.values[base + M * M + x * M + y] / 255;
+        const [r, g, b] = hsv(ph, 0.85, Math.min(1, a * 1.15)), o = 4 * ((M - 1 - y) * M + x);
+        img.data[o] = 255 * r; img.data[o + 1] = 255 * g; img.data[o + 2] = 255 * b; img.data[o + 3] = 255;
+      }
+      const off = document.createElement("canvas"); off.width = M; off.height = M; off.getContext("2d").putImageData(img, 0, 0);
+      const x0 = gap + k * (P + gap);
+      ctx.imageSmoothingEnabled = true; ctx.drawImage(off, x0, y0, P, P);
+      ctx.strokeStyle = "#1f2c37"; ctx.strokeRect(x0, y0, P, P);
+      ctx.fillStyle = "#8397a6"; ctx.font = font; ctx.fillText(labels[k], x0, y0 - 10 * dpr);
+    }
+    const cy = y0 + P + 50 * dpr, ch = H - cy - 50 * dpr, cw = W - 2 * gap - 60 * dpr;
+    const k2max = Math.max(...doc.rows.map(r => r.k * r.k)) * 1.08, m2 = doc.rest * doc.rest;
+    const om2max = Math.max(...doc.rows.map(r => r.omega * r.omega)) * 1.06;
+    const { X, Y } = axes(ctx, [gap + 60 * dpr, cy, cw, ch], [0, k2max], [m2 * 0.9, om2max], "|k|² (radar units)", "ω²", { xticks: ticks(0, k2max, 5), yticks: ticks(m2 * 0.9, om2max, 4), font: 12 * dpr, yfmt: v => +v.toFixed(4), xfmt: v => +v.toFixed(3) });
+    ctx.fillStyle = "rgba(74,241,242,.10)"; ctx.beginPath();
+    ctx.moveTo(X(0), Y(m2)); ctx.lineTo(X(k2max), Y(m2 + doc.c2 * k2max * (1 + doc.tolerance))); ctx.lineTo(X(k2max), Y(m2 + doc.c2 * k2max * (1 - doc.tolerance))); ctx.closePath(); ctx.fill();
+    ctx.setLineDash([7, 5]); ctx.strokeStyle = "#dce7eecc"; ctx.lineWidth = 1.5 * dpr; ctx.beginPath(); ctx.moveTo(X(0), Y(m2)); ctx.lineTo(X(k2max), Y(m2 + doc.c2 * k2max)); ctx.stroke(); ctx.setLineDash([]);
+    for (const r of doc.rows) { ctx.fillStyle = r.law === "candidates" ? "#4af1f2" : "#ff6b6b"; ctx.beginPath(); ctx.arc(X(r.k * r.k), Y(r.omega * r.omega), 4 * dpr, 0, 2 * Math.PI); ctx.fill(); }
+    ctx.fillStyle = "#dce7ee"; ctx.font = font;
+    ctx.fillText("dashed: ω² = m² + c²|k|², band ±3.5% on the kinetic part", X(k2max * 0.02), Y(om2max) + 16 * dpr);
+    $("hud").innerHTML = `<b>${esc(doc.step)} · ${esc(doc.title)}</b><br>formed matter of the three candidate laws · audit view of the law's amplitudes`;
+    $("clock").innerHTML = `update <b>${f * doc.stride}</b> <small>of ${doc.updates}</small>`;
+  },
+};
+
+// ---------- OpenWave rows ----------
+const rowView = {
+  footer: false,
+  enter(row) {
+    $("legend").innerHTML = "";
+    const run = state.runs.find(r => r.openwave_row === row.number);
+    const label = { solved: "solved on the candidate laws", partial: "partly tested on the candidate laws", open: "not yet tested on the candidate laws" }[row.status];
+    $("html").innerHTML = `<div class="rowpage"><div class="step">OpenWave · Row ${row.number} · ${esc(row.group)} · ${esc(row.regime)}</div>
+      <h3>${esc(row.name)}</h3>
+      <p><b style="color:var(--ink)">OpenWave's test:</b> ${esc(row.test)}</p>
+      <p><span class="badge st-${row.status}">${label}</span></p>
+      ${row.result ? `<p>${esc(row.result)}</p>` : ""}
+      <p class="links"><a href="${row.spec_url}" target="_blank" rel="noopener">Problem statement on GitHub</a><a href="${row.oph_url}" target="_blank" rel="noopener">OPH column on GitHub</a></p>
+      ${run ? `<button class="go" id="goRun">Open the replay</button>` : ""}</div>`;
+    if (run) $("goRun").onclick = () => select(run);
+    const counts = ["solved", "partial", "open"].map(s => `<span>${s}</span><b>${OPENWAVE.rows.filter(r => r.status === s).length} rows</b>`).join("");
+    $("law").innerHTML = `<div class="step">OpenWave</div><div class="law-title">31 rows of the evaluation framework</div>
+      <div class="kv">${counts}</div>
+      <p class="note">${Object.entries(OPENWAVE.status_meaning).map(([k, v]) => `<b style="color:var(--ink)">${k}</b>: ${esc(v)}`).join(". ")}. The criteria and links point to <code>MODELS.md</code> at commit ${OPENWAVE.source.commit.slice(0, 8)} of ${esc(OPENWAVE.source.repository)}.</p>`;
+    $("explain").innerHTML = "The three candidate laws share reflected routing for each constituent, the motion-coupled contact law of the bound pair and a capture vertex with an outgoing marker; they differ in how a newborn pair opens its hop.";
+    $("meta").innerHTML = "";
+  },
+};
+function showRow(n) {
+  const row = OPENWAVE.rows.find(r => r.number === n); if (!row) return;
+  $("owPanel").classList.remove("on");
+  state.run = null; state.view = rowView;
+  $("empty").style.display = "none"; $("gl").style.display = "none"; $("c2d").style.display = "none"; $("html").style.display = "block";
+  document.querySelectorAll(".only-field").forEach(s => s.style.display = "none");
+  $("dyn").innerHTML = ""; $("hud").innerHTML = "";
+  document.body.classList.add("static");
+  rowView.enter(row);
+}
+function renderOpenWave() {
+  if (!OPENWAVE.rows) { $("owButton").style.display = "none"; return; }
+  let group = "", html = "";
+  for (const r of OPENWAVE.rows) {
+    if (r.group !== group) { group = r.group; html += `<div class="ow-group">${esc(group)}</div>`; }
+    const mark = { solved: "solved", partial: "partial", open: "open" }[r.status];
+    html += `<div class="ow-row ${r.status}" data-n="${r.number}"><span class="num">${r.number}</span><span class="nm">${esc(r.name)}<small>${esc(r.test)}</small></span><span class="st st-${r.status}">${mark}</span></div>`;
+  }
+  $("owPanel").innerHTML = html;
+  $("owPanel").addEventListener("click", e => { const d = e.target.closest(".ow-row"); if (d) showRow(+d.dataset.n); });
+  $("owButton").onclick = e => { e.stopPropagation(); $("owPanel").classList.toggle("on"); };
+  document.addEventListener("click", e => { if (!e.target.closest(".ow")) $("owPanel").classList.remove("on"); });
+}
+
 // ---------- view: a table of clock journeys ----------
 const table = {
   footer: false,
@@ -679,7 +815,7 @@ const table = {
   draw() {},
 };
 
-const VIEWS = { field3d: field, journey, race, scan, formation, "clock-journeys": table };
+const VIEWS = { field3d: field, journey, race, scan, formation, dispersion, "clock-journeys": table };
 
 // ---------- selection and loop ----------
 function lawPanel(doc) {
@@ -752,6 +888,7 @@ stage.addEventListener("drop", async e => {
   if (last) select(last);
 });
 (async () => {
+  renderOpenWave();
   for (const s of EMBEDDED) await openRun(b64(s));
   // Optional view in the address: #run=0&t=1.2&frame=chart&source=continuum&play=0&spin=0
   const view = new URLSearchParams(location.hash.slice(1));
@@ -761,6 +898,8 @@ stage.addEventListener("drop", async e => {
   if (view.get("source")) press("sourceSeg", view.get("source"));
   if (view.get("play") === "0") $("play").click();
   if (view.get("spin") === "0") $("spin").checked = false;
+  if (view.get("row")) showRow(+view.get("row"));
+  if (view.get("menu")) $("owPanel").classList.add("on");
   if (view.get("t") && state.run && state.run.duration) {
     state.t = Math.min(+view.get("t"), state.run.duration);
     $("time").value = Math.round(1000 * state.t / state.run.duration);

@@ -34,6 +34,8 @@ class Law:
     note: str = ""
     rail_contact_phases: tuple = ()
     rail_extra_phases: tuple = ()
+    capture: bool = False
+    maturation: tuple = ()
 
     def __post_init__(self):
         if abs(abs(self.equal_phase) - 1.0) > 1e-12:
@@ -50,9 +52,10 @@ DELTA = np.pi / 2048
 LAWS = {
     "reflected-routing": Law(
         "reflected-routing", "Reflected routing, field-only access",
-        status="candidate",
-        note="Survives steps 1 to 3: long-wave clocks keep proper time, the field has a "
-             "3+1D Klein-Gordon limit with c = 1/2, and no inhabitant channel outruns it."),
+        status="component",
+        note="The one-constituent law of all three candidates. Long-wave clocks keep proper time, "
+             "the field has a 3+1D Klein-Gordon limit with c = 1/2 (steps 1 to 3), and a compact "
+             "free-wave launch carries no message ahead of the smooth cone at the tested budgets."),
     "reflected-routing-encounter": Law(
         "reflected-routing-encounter", "Reflected routing with an encounter phase",
         encounter_phase=np.pi / 2, status="undecided",
@@ -74,7 +77,7 @@ LAWS = {
              "candidate reads 0.63 to 0.69 at matched speeds."),
     "compact-pair": Law(
         "compact-pair", "Compact pair with motion-coupled rails",
-        status="candidate",
+        status="component",
         rail_contact_phases=(PHI0, PHI0 + DELTA), rail_extra_phases=(0.0, 0.0),
         note="Reflected routing for each constituent, and a contact coin on the eight matched "
              "pair states when both share an address, so a matched pair steps together. Its "
@@ -82,14 +85,42 @@ LAWS = {
              "deviation from the smooth metric. The bound subspace is invariant, so separated "
              "constituents never form the pair."),
     "compact-pair-capture": Law(
-        "compact-pair-capture", "Compact pair with a capture vertex and outgoing marker",
-        status="undecided",
-        rail_contact_phases=(PHI0, PHI0 + DELTA), rail_extra_phases=(0.0, 0.0),
+        "compact-pair-capture", "Capture vertex, pair mobile at once (comparator)",
+        status="excluded",
+        rail_contact_phases=(PHI0, PHI0 + DELTA), rail_extra_phases=(0.0, 0.0), capture=True,
         note="The compact-pair contact law plus a reversible vertex at every junction: a head-on "
              "collision turns into the matched pair and a marker that leaves on the junction's own "
-             "wire. It forms a persistent pair from separately launched constituents (step 5). The "
-             "formed pair leaves its birthplace in both directions, and no single-traveller clock "
-             "passed."),
+             "wire. It forms persistent pairs (step 5), but the newborn pair, mobile at once, leaves "
+             "in both directions, and it failed the direction test of step 6."),
+    "maturing-cosine-32": Law(
+        "maturing-cosine-32", "Maturing pair, minus cosine over 32 updates",
+        status="candidate",
+        rail_contact_phases=(PHI0, PHI0 + DELTA), rail_extra_phases=(0.0, 0.0), capture=True,
+        maturation=(-1, "cosine", 32),
+        note="Capture vertex and contact law; the newborn pair carries an age counter and opens its "
+             "hop with a reversible partial swap over 32 updates on a smooth cosine profile. Passed "
+             "the directional and clock tests of step 6."),
+    "maturing-cosine-128": Law(
+        "maturing-cosine-128", "Maturing pair, minus cosine over 128 updates",
+        status="candidate",
+        rail_contact_phases=(PHI0, PHI0 + DELTA), rail_extra_phases=(0.0, 0.0), capture=True,
+        maturation=(-1, "cosine", 128),
+        note="The same smooth opening spread over 128 updates. Highest directional fraction and "
+             "smallest breakup on the step-6 fixtures."),
+    "maturing-linear-128": Law(
+        "maturing-linear-128", "Maturing pair, minus linear over 128 updates",
+        status="candidate",
+        rail_contact_phases=(PHI0, PHI0 + DELTA), rail_extra_phases=(0.0, 0.0), capture=True,
+        maturation=(-1, "linear", 128),
+        note="The hop angle grows by a constant increment over 128 updates. Passed the directional "
+             "and clock tests of step 6, with more breakup when the marker returns."),
+    "maturing-plus-cosine-32": Law(
+        "maturing-plus-cosine-32", "Maturing pair, plus orientation (comparator)",
+        status="excluded",
+        rail_contact_phases=(PHI0, PHI0 + DELTA), rail_extra_phases=(0.0, 0.0), capture=True,
+        maturation=(+1, "cosine", 32),
+        note="The opposite orientation of the partial swap. Among the step-6 comparators that "
+             "failed the directional test."),
     "compact-pair-spectator": Law(
         "compact-pair-spectator", "Compact pair with spectator rails (control)",
         status="excluded",
@@ -220,3 +251,28 @@ def step_bound(chi: np.ndarray, contact_phase: float, extra_phase: float = 0.0) 
     with the contact coin. ``test_simulator.py`` checks this against ``step_contact``.
     """
     return route(contact_coin(chi, contact_phase)) * np.exp(-1j * extra_phase)
+
+
+def hop_angle(age: int, maturation: tuple) -> float:
+    """Hop angle of a pair of the given age: (pi/2) f((age + 1) / M) while immature, pi/2 after."""
+    if not maturation:
+        return np.pi / 2
+    _, profile, duration = maturation
+    if age >= duration:
+        return np.pi / 2
+    u = (age + 1) / duration
+    f = u if profile == "linear" else (1 - np.cos(np.pi * u)) / 2
+    return np.pi / 2 * f
+
+
+def partial_hop(chi: np.ndarray, theta: float, sign: int) -> np.ndarray:
+    """exp(i s theta) [cos(theta) I - i s sin(theta) R]; at theta = pi/2 this is the routing R."""
+    return np.exp(1j * sign * theta) * (np.cos(theta) * chi - 1j * sign * np.sin(theta) * route(chi))
+
+
+def step_maturing(chi: np.ndarray, law: "Law", age: int, rail: int = 0) -> np.ndarray:
+    """One update of a bound pair of the given age: contact coin, then the age's partial hop."""
+    phi = law.rail_contact_phases[rail]
+    coined = contact_coin(chi, phi) * np.exp(-1j * law.rail_extra_phases[rail])
+    sign = law.maturation[0] if law.maturation else -1
+    return partial_hop(coined, hop_angle(age, law.maturation), sign)

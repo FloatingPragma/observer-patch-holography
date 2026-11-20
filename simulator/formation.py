@@ -9,9 +9,10 @@ vertex, both constituents take the step-4 contact update.
 
 A marker that has left its junction never returns within the run (the wire is longer
 than the run), so every capture event starts its own branch, orthogonal to all
-others. A branch lives in the invariant bound sector, where the pair is one walker
-(``step_bound``). This makes the evolution exact at the cost of one small array per
-capture event. ``test_simulator.py`` compares it with the literal update that carries
+others. A branch lives in the invariant bound sector, where the pair is one walker.
+In the maturing laws a branch also carries the pair's age, born at zero, and its hop
+opens with the age (``law.step_maturing``). Branches whose birth weight is below
+1e-14 are dropped and their total is reported. ``test_simulator.py`` compares it with the literal update that carries
 the marker wires explicitly.
 """
 from __future__ import annotations
@@ -20,7 +21,7 @@ import time
 
 import numpy as np
 
-from .law import EQUAL, LAWS, step_bound, step_contact
+from .law import EQUAL, LAWS, contact_coin, hop_angle, route, step_contact
 from .spectral import mobile_band
 
 ANGLE = np.pi / 4
@@ -62,48 +63,65 @@ def capture(free: np.ndarray, angle: float = ANGLE):
 
 
 def formation_run(size: int = 48, updates: int = 72, orders=(7, -5), contact_phase=None,
-                  angle: float = ANGLE, support: int = 4):
+                  angle: float = ANGLE, support: int = 4, law_key: str = "compact-pair-capture",
+                  separation: int | None = None):
     """Two constituents launched toward each other; capture events, the formed pair, its markers."""
     started = time.time()
-    law = LAWS["compact-pair-capture"]
+    law = LAWS[law_key]
     phi = law.rail_contact_phases[0] if contact_phase is None else contact_phase
-    a = _strip_packet(size, size // 4, orders[0], support=support)
-    b = _strip_packet(size, 3 * size // 4, orders[1], support=support)
+    gap = size // 4 if separation is None else separation
+    a = _strip_packet(size, size // 2 - gap, orders[0], support=support)
+    b = _strip_packet(size, size // 2 + gap, orders[1], support=support)
     free = np.einsum("abcde,fghij->abcdefghij", a, b)
-    branches = []          # [site, emission update, state]
+    # Every capture event is one branch: its junction, its birth update and its bound-sector
+    # state. Branches are stacked on a leading axis and stepped together; each has its own age.
+    sites, births = np.zeros(0, int), np.zeros(0, int)
+    states = np.zeros((0, 1, 1, size, 1, 8), complex)
+    dropped = 0.0
     joint, bound, collected, captured, clicks = [], [], [], [], []
     for n in range(updates + 1):
-        density = np.sum(np.abs(free[0, 0, :, 0, :, 0, 0, :, 0, :]) ** 2, axis=(1, 3))
-        joint.append(density)
-        pair = np.zeros(size)
-        by_time = {}
-        for z, born_at, chi in branches:
-            pair += np.sum(np.abs(chi[0, 0, :, 0, :]) ** 2, axis=-1)
-            by_time[born_at] = by_time.get(born_at, 0) + chi[0, 0, :, 0, :]
+        joint.append(np.sum(np.abs(free[0, 0, :, 0, :, 0, 0, :, 0, :]) ** 2, axis=(1, 3)))
+        density = np.sum(np.abs(states[:, 0, 0, :, 0, :]) ** 2, axis=-1)
+        pair = density.sum(axis=0) if len(states) else np.zeros(size)
         # A coherent collector joins the marker wires of all junctions; its common port
         # leaves the birthplace unresolved. Conditioned on that port, markers emitted at
         # the same update add coherently with amplitude 1 / sqrt(number of junctions).
-        common = sum(np.sum(np.abs(v) ** 2, axis=-1) for v in by_time.values()) / size if by_time else np.zeros(size)
+        if len(states):
+            keys, index = np.unique(births, return_inverse=True)
+            summed = np.zeros((len(keys), size, 8), complex)
+            np.add.at(summed, index, states[:, 0, 0, :, 0, :])
+            common = np.sum(np.abs(summed) ** 2, axis=(0, 2)) / size
+        else:
+            common = np.zeros(size)
         bound.append(pair)
         collected.append(common)
         captured.append(float(pair.sum()))
-        clicks.append(float(np.sum(common)))
+        clicks.append(float(common.sum()))
         if n == updates:
             break
         free, born = capture(free, angle)
-        branches.extend([z, n, chi] for z, chi in born)
+        kept = [(z, chi) for z, chi in born if np.sum(np.abs(chi) ** 2) > 1e-14]
+        dropped += sum(float(np.sum(np.abs(chi) ** 2)) for z, chi in born if np.sum(np.abs(chi) ** 2) <= 1e-14)
+        if kept:
+            sites = np.concatenate([sites, [z for z, _ in kept]])
+            births = np.concatenate([births, [n] * len(kept)])
+            states = np.concatenate([states, np.stack([chi for _, chi in kept])])
         free = step_contact(free, phi)
-        for branch in branches:
-            branch[2] = step_bound(branch[2], phi)
-    weight = max(captured[-1], 1e-300)
-    birth = sum(z * float(np.sum(np.abs(chi) ** 2)) for z, _, chi in branches) / weight if branches else size / 2
-    zs = np.arange(size)
-    ahead = lambda d: float(d[zs > birth].sum() / max(d.sum(), 1e-300))
-    markers = [[int(z), int(n), float(np.sum(np.abs(chi) ** 2))] for z, n, chi in branches
-               if np.sum(np.abs(chi) ** 2) > 1e-16]
+        if len(states):
+            ages = n - births
+            theta = np.array([hop_angle(int(age), law.maturation) for age in ages])[:, None, None, None, None, None]
+            sign = law.maturation[0] if law.maturation else -1
+            coined = contact_coin(states, law.rail_contact_phases[0]) * np.exp(-1j * law.rail_extra_phases[0])
+            states = np.exp(1j * sign * theta) * (np.cos(theta) * coined - 1j * sign * np.sin(theta) * route(coined))
+    weights = np.sum(np.abs(states) ** 2, axis=(1, 2, 3, 4, 5)) if len(states) else np.zeros(0)
+    weight = max(float(weights.sum()), 1e-300)
+    birth = float(np.sum(sites * weights) / weight) if len(states) else size / 2
+    offset = ((np.arange(size) - birth + size / 2) % size) - size / 2
+    ahead = lambda d: float(d[offset > 0].sum() / max(d.sum(), 1e-300))
+    markers = [[int(z), int(m), float(w)] for z, m, w in zip(sites, births, weights) if w > 1e-10]
     return {"law": law, "size": size, "updates": updates, "orders": list(orders), "angle": angle,
             "contact_phase": phi, "joint": np.array(joint), "bound": np.array(bound),
             "collected": np.array(collected), "captured": captured, "clicks": clicks,
             "markers": markers, "birth_centre": float(birth),
             "forward_fraction": ahead(bound[-1]), "forward_fraction_collected": ahead(collected[-1]),
-            "seconds": time.time() - started}
+            "dropped_weight": dropped, "seconds": time.time() - started}
