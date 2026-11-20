@@ -12,10 +12,10 @@ across experiments, without a separate fitted law for each case. No
 comparison here establishes agreement with all public observations or at
 every physical scale.
 
-The executable model of OPH is
-[polynomial-sv](../../model/polynomial_sv/README.md), whose contrast-memory law
-is a candidate native repair law ([specification](../../model/polynomial_sv/SPEC.md),
-[binding theorem](../../model/polynomial_sv/PROOF.md)). Its tests compare
+The candidate executable model of OPH is
+[A-contrast-memory-spherical-v1](../../model/contrast_memory_spherical_v1/README.md), whose contrast-memory law
+is a candidate native repair law ([specification](../../model/contrast_memory_spherical_v1/SPEC.md),
+[binding theorem](../../model/contrast_memory_spherical_v1/PROOF.md)). Its tests compare
 distributions of admissible observer records with what observers in our world
 record. The state of the simulation is no physical space: the flagship's
 proposition on smooth effective field descriptions proves that observers who

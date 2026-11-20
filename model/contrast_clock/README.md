@@ -21,7 +21,7 @@ in this finite test (0.00279 no-pair probability), while changing the joint
 reader distribution. Persistence alone does not select the sign of the law.
 
 This is an experimental apparatus extension of
-[polynomial-sv](../polynomial_sv/SPEC.md). The clock couplings, initial pair,
+[A-contrast-memory-spherical-v1](../contrast_memory_spherical_v1/SPEC.md). The clock couplings, initial pair,
 counter registers and gate-controlled rail interactions are supplied
 architecture. Their derivation from the contrast-memory law, indefinite
 record storage and a physical time normalization are separate problems.

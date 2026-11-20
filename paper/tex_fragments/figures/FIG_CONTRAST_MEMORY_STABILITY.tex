@@ -1,0 +1,43 @@
+% Figure: particle stability of A-contrast-memory-spherical-v1. Largest probability of the outcome "no pair" over the
+% readings of each run, against the bounds, on a logarithmic axis.
+% Horizontal position of a probability p: 2 (log10 p + 5) cm, that is 2 cm per decade from p = 10^-5.
+% The positions below are computed from the probabilities given in the trailing comments.
+\begin{tikzpicture}[x=1cm,y=0.88cm,
+  cms read/.style={circle, fill=black, draw=black, inner sep=0pt, minimum size=2.1mm},
+  cms bound/.style={rectangle, fill=white, draw=black, line width=0.6pt, inner sep=0pt, minimum size=2.1mm},
+  cms control/.style={diamond, fill=black!45, draw=black, line width=0.5pt, inner sep=0pt, minimum size=2.7mm}]
+% grid and axis
+\foreach \k/\lab in {0/10^{-5},1/10^{-4},2/10^{-3},3/10^{-2},4/10^{-1},5/1}
+  {\draw[black!18, line width=0.4pt] (2*\k,0.15)--(2*\k,-5.05);
+   \node[font=\scriptsize, anchor=north] at (2*\k,-5.1) {$\lab$};}
+\draw[black!70, line width=0.5pt] (0,-5.05)--(10,-5.05);
+\node[font=\footnotesize, anchor=north] at (5,-5.55) {probability of the outcome ``no pair''};
+% one run: label, height, position of the computed value, of the bound with carrier constants, of the uniform bound
+\def\CMSrun#1#2#3#4#5{%
+  \node[font=\footnotesize, anchor=east] at (-0.25,#2) {#1};
+  \draw[black!45, line width=0.5pt] (#3,#2)--(#4,#2);
+  \draw[black, line width=0.9pt] (#5,#2-0.14)--(#5,#2+0.14);
+  \node[cms bound] at (#4,#2) {};
+  \node[cms read] at (#3,#2) {};}
+\CMSrun{one cell, $\kappa=8$}{-0.15}{5.9617}{8.3451}{9.2707}% 0.00956834, 0.14879, 0.431861
+\CMSrun{$20$ cells, $\kappa=8$}{-0.65}{5.9665}{8.5248}{9.2707}% 0.00962164, 0.182975, 0.431861
+\CMSrun{$80$ cells, $\kappa=8$}{-1.15}{5.9685}{8.5239}{9.2707}% 0.00964389, 0.182787, 0.431861
+\CMSrun{$320$ cells, $\kappa=8$}{-1.65}{5.9676}{8.5247}{9.2707}% 0.00963435, 0.182965, 0.431861
+\CMSrun{one cell, $\kappa=128$}{-2.3}{0.5488}{4.3209}{4.7960}% 1.881e-05, 0.001447, 0.00250035
+\CMSrun{$20$ cells, $\kappa=128$}{-2.8}{0.7121}{4.4115}{4.7960}% 2.27e-05, 0.001606, 0.00250035
+\CMSrun{$80$ cells, $\kappa=128$}{-3.3}{0.7121}{4.4110}{4.7960}% 2.27e-05, 0.001605, 0.00250035
+% changed laws on 20 cells
+\node[font=\footnotesize, anchor=east] at (-0.25,-3.95) {$20$ cells, exchange alone};
+\node[cms control] at (9.8027,-3.95) {};% 0.796828
+\node[font=\footnotesize, anchor=east] at (-0.25,-4.45) {$20$ cells, energy reversed};
+\node[cms control] at (6.1840,-4.45) {};% 0.012359
+% legend, in the empty upper left part of the plot
+\node[draw=black!40, fill=white, line width=0.4pt, inner sep=3pt, anchor=north west] at (0.2,0.05) {%
+\scriptsize
+\begin{tabular}{@{}c@{\hspace{5pt}}l@{}}
+\tikz[baseline=-0.6ex]{\node[cms read] {};} & largest value read\\
+\tikz[baseline=-0.6ex]{\node[cms bound] {};} & bound, constants of the carrier\\
+\tikz[baseline=-0.6ex]{\draw[black, line width=0.9pt] (0,-0.12)--(0,0.12);} & bound, every federation\\
+\tikz[baseline=-0.6ex]{\node[cms control] {};} & changed law, largest value read
+\end{tabular}};
+\end{tikzpicture}

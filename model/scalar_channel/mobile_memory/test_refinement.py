@@ -5,7 +5,7 @@ import numpy as np
 import pytest
 from scipy.linalg import expm
 
-from ...polynomial_sv import carrier
+from ...contrast_memory_spherical_v1 import carrier
 from . import refinement
 
 

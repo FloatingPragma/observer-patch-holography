@@ -17,7 +17,7 @@ TOL=2e-10
 PROB_TOL=2e-11
 SOURCE_PATHS=tuple('model/contrast_clock/'+name for name in
                    ('__init__.py','__main__.py','controller.py','experiment.py','protocol.json'))+tuple(
-    'model/polynomial_sv/'+name for name in ('__init__.py','carrier.py','common.py','law.py','reader.py','sectors.py'))
+    'model/contrast_memory_spherical_v1/'+name for name in ('__init__.py','carrier.py','common.py','law.py','reader.py','sectors.py'))
 
 
 def require(condition,message):

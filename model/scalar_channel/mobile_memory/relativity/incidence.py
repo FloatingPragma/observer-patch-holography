@@ -8,7 +8,7 @@ from scipy import sparse
 from scipy.sparse.csgraph import connected_components
 from scipy.sparse.linalg import expm_multiply
 
-from ....polynomial_sv import carrier
+from ....contrast_memory_spherical_v1 import carrier
 from ..mobility import PORTS_PER_CELL, home_seam
 
 

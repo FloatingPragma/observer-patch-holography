@@ -7,8 +7,8 @@ import numpy as np
 from scipy import sparse
 from scipy.sparse.linalg import expm_multiply
 
-from ...polynomial_sv import carrier as load_carrier, law as contrast
-from ...polynomial_sv.sectors import PairSector
+from ...contrast_memory_spherical_v1 import carrier as load_carrier, law as contrast
+from ...contrast_memory_spherical_v1.sectors import PairSector
 from ..cage import construction as cage
 from ..carrier import require
 from ..contact.law import collar_states

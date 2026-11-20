@@ -2,7 +2,7 @@
 
 import numpy as np
 
-from ...polynomial_sv import carrier
+from ...contrast_memory_spherical_v1 import carrier
 from ..carrier import require
 from .law import EXTERNAL_WEIGHT, MASS, charged_operator
 
@@ -66,7 +66,7 @@ def run():
     within_cells = cells[:, None] == cells
     require(np.array_equal(active[within_cells], parked[within_cells]),
             "parked law changed the within-cell blocks")
-    require(not np.any(parked[~within_cells]), "parked law still transfers between cells")
+    require(not np.any(parked[~within_cells]), "parked law transfers between cells")
 
     energies, vectors = np.linalg.eigh(active)
     band = energies[:car.cells]

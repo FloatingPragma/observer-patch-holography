@@ -2,7 +2,7 @@
 
 import numpy as np
 
-from ....polynomial_sv import carrier
+from ....contrast_memory_spherical_v1 import carrier
 from ...radiative_repair.source import evolve
 from ..current import one_charge_read
 from ..mobility import PORTS_PER_CELL, home_seam

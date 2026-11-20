@@ -11,7 +11,7 @@ conversion sectors in which the charged occupation changes.
 import numpy as np
 from scipy import sparse
 
-from ....polynomial_sv import carrier
+from ....contrast_memory_spherical_v1 import carrier
 from ...cage.construction import ENERGY
 from ...radiative_repair.source import evolve
 from ..cage_transfer import PORTS_PER_CELL, transfer

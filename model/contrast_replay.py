@@ -1,4 +1,4 @@
-"""Independent finite cross-check of the primary polynomial-sv contrast law.
+"""Independent finite cross-check of the primary A-contrast-memory-spherical-v1 contrast law.
 
 This law is separate from the scalar CAR source. Its complete 99-state seam
 law and reducing blank-memory sector are checked before a two-load cell run.
@@ -132,7 +132,7 @@ def run():
                                     domain='initially adjacent total-two qutrit states; d0=6; '
                                            'complete icosahedral cells with external port partial matching',
                                     hypothesis='kappa > 3',
-                                    source='model/polynomial_sv/PROOF.md',
+                                    source='model/contrast_memory_spherical_v1/PROOF.md',
                                     grid_role='finite numerical screen, not the all-time proof'),
                 source_join='blank-memory reducing operator equality; no scalar-CAR transfer')
 
@@ -164,7 +164,7 @@ def primary_join():
     This is a relabelling and reference shift within the contrast law only.
     It neither identifies the scalar CAR dynamics nor transfers its clocks.
     """
-    from .polynomial_sv import carrier, law, sectors
+    from .contrast_memory_spherical_v1 import carrier, law, sectors
     port_map = (0, 1, 5, 7, 11, 9, 10, 8, 4, 6, 2, 3)
     original = load_source('cell')
     mapped = {tuple(sorted((port_map[a], port_map[b]))) for a,b in original['edges']}

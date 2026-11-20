@@ -6,7 +6,7 @@ import numpy as np
 from scipy import sparse
 from scipy.sparse.csgraph import connected_components
 
-from ....polynomial_sv import carrier
+from ....contrast_memory_spherical_v1 import carrier
 from ...cage import construction as cage
 from ...carrier import require
 from ..cage_transfer import PORTS_PER_CELL
