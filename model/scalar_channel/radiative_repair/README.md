@@ -84,9 +84,9 @@ gives zero free dependencies. Subtracting the number of external seams from thre
 gives the stated multiplicities. The extensive flat band permits stationary packets.
 
 With the one-cell operator fixed, any static positive rank-one term per external seam leaves an extensive
-lowest charged band. Changing the strengths or phases of these terms keeps the lowest-band detector
-probabilities constant during free evolution. The exact multiplicities persist when both endpoint factors
-of every seam are nonzero. [Proof and integer verifier](FLAT_BAND.md)
+lowest charged band at the same energy. For every choice of strengths and phases, a preparation in that
+band keeps constant detector probabilities during free evolution. The exact multiplicities persist when
+both endpoint factors of every seam are nonzero. [Proof and integer verifier](FLAT_BAND.md)
 
 ## Conversion, transport and the part that cannot radiate
 

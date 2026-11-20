@@ -7,10 +7,10 @@ on every seam, the exact multiplicities are 30, 120, and 480 on the 20-, 80-, an
 
 ## Lowest-band dimension
 
-Use units of the candidate's common positive strength $J$. Write $Q_0=D+A$ for the unchanged charged
+Work in units of the source coefficient $J$. Write $Q_0=D+A$ for the unchanged charged
 operator on the 12 ports of one complete cell. Its lowest eigenvalue is $\lambda_0=5-\sqrt{5}$ with
 a three-dimensional eigenspace $E_0$. Total occupation is conserved. In the one-charge sector every
-on-port pair conversion annihilator vanishes, regardless of its strength. The admissible modified
+on-port conversion term vanishes, whatever its strength. The admissible modified
 one-body quadratic form is
 
 $$
@@ -19,24 +19,24 @@ $$
 \qquad \alpha_e,\beta_e\in\mathbb C.
 $$
 
-Positive strengths can be absorbed into the two coefficients. The uniform law uses $\alpha_e=\beta_e=1$.
+Positive strengths can be absorbed into the two coefficients. The uniform source uses $\alpha_e=\beta_e=1$.
 The difference from $\lambda_0 I$ is a sum of positive semidefinite forms. Its kernel consists of the
 vectors in $E_0^{\oplus C}$ obeying the external seam equations $\alpha_e z_i+\beta_e z_j=0$. There
 are $3C/2$ external seams, so at least $3C/2$ independent lowest-band directions survive even if some
 coefficients vanish. Two adjacent cells provide six amplitudes and meet at most five external seams.
 A nonzero lowest-band vector supported on their union therefore exists for every member of this family.
-[One-body source](source.py) · [Uniform-law certificate](subspaces.py)
+[One-body source](source.py) · [Uniform-source certificate](subspaces.py)
 
 The actual carriers make the count exact when both coefficients on each seam are nonzero. Consider a
 linear dependence among the seam equations on $E_0^{\oplus C}$. On a cell with three independent
-port evaluation rows, the three incident dependence coefficients vanish. At each other cell the
-unique opposite-row pair forces its two incident dependence coefficients to be proportional by a
+port evaluation rows, the three incident dependence coefficients vanish. At every other cell the
+unique pair of opposite rows forces its two incident dependence coefficients to be proportional by a
 nonzero factor, and the third vanishes. Make a graph with the seam equations as vertices and these
 proportionalities as edges. The carrier check confirms that each component contains a coefficient
 forced to zero. Zero then propagates through the entire component for any choice of the nonzero
 endpoint factors, including complex phases. The seam equations are independent and the dimension is
-exactly $3C-3C/2$. For strength changes with the endpoint ratio on each seam held fixed, even the
-subspace is unchanged.
+exactly $3C-3C/2$. When strengths change with the endpoint ratio on each seam held fixed, the
+subspace itself is unchanged.
 
 ## Observer consequence and controls
 
@@ -45,8 +45,8 @@ $e^{-iJ\lambda_0t}$. A fixed port or cell detector has the same outcome probabil
 The result concerns this band of the static one-charge generator. Excited bands and interactions
 that act during the wait are separate dynamical questions.
 
-One boundary control on the same carrier replaces each external square by the two independent
-endpoint costs $|z_i|^2+|z_j|^2$. At the original energy $J\lambda_0$, every cell's three external
+A first control on the same carrier replaces each external square by the rank-two endpoint cost
+$|z_i|^2+|z_j|^2$. At the original energy $J\lambda_0$, every cell's three external
 amplitudes must vanish. That leaves zero directions at an independent tripod and one at a dependent
 tripod. The exact dimensions at that energy are 0, 24, and 104. A second control turns off one
 external square entirely. By independence of the remaining seam equations, the original lowest band
@@ -55,10 +55,10 @@ gains exactly one direction, giving 31, 121, and 481.
 ## Consequence for opposite-charge conversion
 
 There is also a large family of stationary nonconverting pairs. Take both charge signs to have the
-same modified one-body operator, as in the original law, and let $E$ be its lowest band of dimension
+same modified one-body operator, as in the original source, and let $E$ be its lowest band of dimension
 $m$. The charges are distinguishable. Within their amplitude space, use the subspace
 $\operatorname{Sym}^2 E$ of tensors invariant under interchange of their two addresses. Only
-coincident amplitudes activate the established on-port contact. Their values on any one cell factor
+coincident amplitudes activate the on-port contact. Their values on any one cell factor
 through $\operatorname{Sym}^2 E_0$, of dimension six. Thus the coincidence readout has rank at most
 $6C$.
 
@@ -80,8 +80,8 @@ Every vector in this kernel has charged energy $2J\lambda_0$. Its coincident amp
 detector probabilities stay zero at all free waits. As a preparation control with the converter
 enabled, choose a normalized $u\in E$ and prepare $u\otimes u$. Its coincident profile $u_i^2$ is
 nonzero. The coefficient of $t^2$ in the probability of a neutral pair is $J^2\sum_i|u_i|^4>0$ at
-the original uniform conversion strength. This separates preparations under the same law and
-neutral-occupation readout. The dimensions above are lower bounds on an identified subspace of the
+the original uniform conversion strength. The same source and neutral-pair readout therefore
+separate the two kinds of preparation. The dimensions above are lower bounds on an identified subspace of the
 finite two-charge model. [Contact and detector definitions](README.md#local-law-and-source-map)
 
 ## Reproduction

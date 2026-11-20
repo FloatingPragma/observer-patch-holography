@@ -174,7 +174,7 @@ def certify_federation(tripods, external, band_rows):
 
 def certificates():
     require(pow(SQRT5_MOD_PRIME, 2, PRIME) == 5, "Invalid modular square root of 5")
-    package = Path(__file__).resolve().parents[2] / "polynomial_sv"
+    package = Path(__file__).resolve().parents[2] / "contrast_memory_spherical_v1"
     seams = read_cell_seams(package / "carrier.py")
     band_rows = cell_band_rows(seams)
     results = []
