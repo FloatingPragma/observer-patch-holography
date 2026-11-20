@@ -1,0 +1,42 @@
+{
+  "carrier": "polynomial-sv federation level 0; fixed marker port 0; omit its incident seams; the first 192 nonmarker ports in numerical order encode the C-order slots on shape (3,2,2,2,8).",
+  "shape": [
+    3,
+    2,
+    2,
+    2
+  ],
+  "marker": 0,
+  "kappa": 8,
+  "fuel": 64,
+  "waits": [
+    0,
+    1,
+    2,
+    3,
+    5
+  ],
+  "query_slots": [
+    0,
+    65,
+    35,
+    21,
+    15,
+    191
+  ],
+  "members": [
+    "nominal",
+    "omit_mask_seven",
+    "shift_only"
+  ],
+  "reader_controls": [
+    "nominal",
+    "mismatch",
+    "unavailable",
+    "wrong_agreement"
+  ],
+  "shots": 1048576,
+  "program": "Compile all seven XOR perfect matchings on eight logical slots using pi/4 local exchange times. Conjugate every off-seam exchange by swaps along a deterministic shortest physical path avoiding the marker. Next flip-flop route all slots by swaps at pi. Unused ports must return at every completed step. Count every pulse, angle, local service and serial dependency depth. No unit cost transfer to a native clock.",
+  "preparation": "Use the actual emitter on (0,1), kappa=8 and g=64 in the full binary two-load sector including residual fuel and all pairs. Compare against ideal preparation at this seam. On a fresh run for each aperture move its slot to port 1 by the same path compiler. Record all 630 seam outcomes and the no-pair outcome, and the 11-bit reader decisions at the marker seam for all reader controls.",
+  "forecast": "Use the independently iterated whole-grid gate for the ideal nominal prediction. Test every column of the compiled one-tick operator including unused-port leakage to 1e-10. Each finite-emitter aperture distribution must differ from the ideal one by at most the source emitter norm bound, plus quantization if digitized. At nonzero time each changed program must disagree with the nominal source on at least one ideal or finite-aperture result. Report all waits and outcomes, full-sector norm and resources. Prove exactly when this selected schedule also uses the unshifted blank-memory law. No claim on other programs, clock cost, high-resolution packet preparation or autonomous scheduling."
+}

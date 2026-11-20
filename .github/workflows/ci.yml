@@ -103,7 +103,10 @@ jobs:
       - run: python -B -O -W error -m model.scalar_channel.contact.material_radar
       - run: python -B -O -W error -m model.scalar_channel.contact.radar_checks
       - run: python -B -O -W error -m model.scalar_channel.contact.message_replay
-      - run: python -B -m pytest -q -W error model/scalar_channel model/test_contrast_replay.py
+      - run: python -B -O -W error -m model.seam_program
+      - run: python -B -O -W error -m model.seam_program.preparation
+      - run: python -B -O -W error -m model.seam_program.receiver
+      - run: python -B -m pytest -q -W error model/scalar_channel model/seam_program model/test_contrast_replay.py
 
   suite:
     name: Mandatory suite (shard ${{ matrix.shard }})

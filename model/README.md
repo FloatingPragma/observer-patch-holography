@@ -62,7 +62,7 @@ python -m model                                   # law 1 against its stored res
 python -B -O -m model.polynomial_sv.presence      # law 1: the laws of two readings
 python -B -O -m model.scalar_channel              # law 2 on registers: preparation, pulses, pointers
 python -B -O -m model.scalar_channel.cage         # law 2: the cage, every reading from counts
-python -m pytest -q model/polynomial_sv model/scalar_channel
+python -m pytest -q model/polynomial_sv model/scalar_channel model/seam_program
 ```
 
 | Package | Content |
@@ -72,6 +72,7 @@ python -m pytest -q model/polynomial_sv model/scalar_channel
 | [scalar_channel/cage](scalar_channel/cage/README.md) | an object that law 2 holds on a ring of four seams: its theorems, its two operators as words on registers, and three experiments read from counts |
 | [scalar_channel/contact](scalar_channel/contact/README.md) | an experimental law on one cell that couples the contrast square of law 1 to the scalar occupation of law 2 on each seam, with a supplied coefficient g. Collar and scalar fuel readings measure the contact, and a mobile load pair has an all-time binding bound in the one-quantum sector. A cage on a ring through a written seam is kept only at g = 0. |
 | [Six-station material radar](scalar_channel/contact/README.md#six-station-radar-and-receiving-clocks) | The positive-contact member carries a pulse between written material clocks. One local intervention changes the collar and a remote station pointer. Tagged echoes and held-out ranges test what geometry these records support. |
+| [seam_program](seam_program/README.md) | a supplied eight-slot gate on a 3 × 2 × 2 × 2 index grid, compiled into seam events of law 1 on the 20-cell federation, with a native fuel source and a phase-sensitive receiver read at the home seam |
 | [contrast_clock](contrast_clock/README.md) | a fixed program of events of law 1 and two readings under one time-independent law; its clock register is a sequencer of the computation and no clock of an observer |
 | [construction_manual](construction_manual/README.md) | the manual, the sheet, the eight figures and their generator |
 | [contrast_replay.py](contrast_replay.py) | law 1 rebuilt from the manual in the manual's labels and checked against `polynomial_sv` |
