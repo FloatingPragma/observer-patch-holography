@@ -244,6 +244,37 @@ def check_row04():
             f"independent transport keeps {r['control_matched'][1]:.6f} after one update")
 
 
+def check_app_pages():
+    """The replay app gives every experiment and every OpenWave row its own page."""
+    import gzip
+    import json
+    import tempfile
+    from pathlib import Path
+
+    from . import runs, webapp
+    with tempfile.TemporaryDirectory() as tmp:
+        run = Path(tmp) / "03-example.run.json.gz"
+        doc = {"format": runs.FORMAT, "kind": "scan", "step": "Clocks", "title": "Example", "summary": "One run. More."}
+        run.write_bytes(gzip.compress(json.dumps(doc).encode()))
+        row = dict(doc, openwave_row=30, title="Row example")
+        run30 = Path(tmp) / "08-openwave-row-30.run.json.gz"
+        run30.write_bytes(gzip.compress(json.dumps(row).encode()))
+        out = Path(tmp) / "site"
+        pages = webapp.build([run, run30], out)
+        rows = json.loads(webapp.ROWS.read_text())["rows"]
+        expected = {"", "experiments/", "experiments/example/", "openwave/", "openwave/row-30/replay/"}
+        expected |= {f"openwave/row-{r['number']}/" for r in rows}
+        assert set(pages) == expected, sorted(set(pages) ^ expected)
+        for page in pages:
+            text = (out / page / "index.html").read_text()
+            assert "{{" not in text, page
+        deep = (out / "openwave/row-30/replay/index.html").read_text()
+        assert 'src="../../../data/openwave-row-30.js"' in deep and '"root":"../../../"' in deep
+        assert (out / "data/example.js").read_text().startswith("window.OPH_RUNS.push(")
+        assert '"run":"example"' in (out / "index.html").read_text() and (out / "favicon.svg").is_file()
+    return f"{len(pages)} pages"
+
+
 CHECKS = [
     ("unitarity", check_unitarity),
     ("sector reduction", check_sector_reduction),
@@ -257,6 +288,7 @@ CHECKS = [
     ("formation", check_formation),
     ("OpenWave row 30", check_row30),
     ("OpenWave row 4", check_row04),
+    ("app pages", check_app_pages),
 ]
 
 
@@ -306,3 +338,7 @@ def test_row30():
 
 def test_row04():
     check_row04()
+
+
+def test_app_pages():
+    check_app_pages()

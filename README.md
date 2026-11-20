@@ -141,8 +141,8 @@ python3 -m simulator run all      # every experiment, and the offline replay app
 
 The first command checks each of the simulator's exact methods against the
 literal update. The second recomputes every experiment on the law and
-writes `simulator/runs/replay.html`, which replays them. The
-[law](model/README.md) page explains both.
+writes the replay app to `simulator/runs/site/`, with one page per
+experiment. The [law](model/README.md) page explains both.
 
 ## Papers
 

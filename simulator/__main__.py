@@ -4,13 +4,11 @@
     python -m simulator check
     python -m simulator run continuum [--size 32] [--chart-time 3] [--law oph] [--out FILE]
     python -m simulator run journeys [--out FILE]
-    python -m simulator app [RUN ...] [--out FILE]
+    python -m simulator app [RUN ...] [--out DIR]
 """
 from __future__ import annotations
 
 import argparse
-import base64
-import json
 import sys
 import time
 from pathlib import Path
@@ -179,24 +177,14 @@ def _run(args) -> int:
 
 
 def _app(args) -> int:
-    from . import openwave_sync
+    from . import openwave_sync, webapp
     if openwave_sync.DEFAULT_REPORTS.is_dir():
         reported = openwave_sync.sync()
         waiting = [n for n, s in reported.items() if s != "ported"]
         print(f"OpenWave rows: ported {sorted(openwave_sync.PORTED)}; reported, not ported {waiting}")
-    template = (HERE / "app" / "index.html").read_text(encoding="utf-8")
-    embedded = [base64.b64encode(Path(p).read_bytes()).decode() for p in args.runs]
-    payload = json.dumps(embedded)
-    marker = "/*EMBEDDED_RUNS*/[]"
-    rows_marker = "/*OPENWAVE_ROWS*/{}"
-    if marker not in template or rows_marker not in template:
-        raise SystemExit("the app template lacks its embedding markers")
-    rows = (HERE / "openwave_rows.json").read_text(encoding="utf-8")
-    template = template.replace(rows_marker, rows)
-    out = Path(args.out) if args.out else OUT / "replay.html"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(template.replace(marker, payload), encoding="utf-8")
-    print(f"wrote {out} with {len(embedded)} embedded run(s)")
+    out = Path(args.out) if args.out else webapp.DEFAULT_OUT
+    pages = webapp.build([Path(p) for p in args.runs], out)
+    print(f"wrote the app to {out}: {len(pages)} pages, {len(args.runs)} embedded run(s); open {out / 'index.html'}")
     return 0
 
 
@@ -213,9 +201,9 @@ def main(argv=None) -> int:
     run.add_argument("--law", choices=sorted(LAWS), default="oph")
     run.add_argument("--out")
     run.set_defaults(func=_run)
-    app = sub.add_parser("app", help="write the replay app, optionally with embedded runs")
+    app = sub.add_parser("app", help="write the replay app, one page per run and per OpenWave row")
     app.add_argument("runs", nargs="*")
-    app.add_argument("--out")
+    app.add_argument("--out", help="folder of the site (default simulator/runs/site)")
     app.set_defaults(func=_app)
     args = parser.parse_args(argv)
     np.seterr(over="raise", invalid="raise", divide="raise")

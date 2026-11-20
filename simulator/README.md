@@ -18,9 +18,25 @@ python -m simulator run all       # every experiment, and the app
 ```
 
 `run all` writes one run file per experiment to `simulator/runs/` and the app
-`simulator/runs/replay.html`, one offline file with the runs embedded. Open it
-in a browser. The app also opens any run file through its file button or by
-drag and drop, so a run computed on a larger machine replays the same way.
+to `simulator/runs/site/`. Open `simulator/runs/site/index.html` in a browser;
+the pages open from disk and request nothing outside the folder. Every
+experiment and every OpenWave row has its own page, so each has its own
+address once the folder is served:
+
+| Address | Page |
+| --- | --- |
+| `index.html` | The first experiment |
+| `experiments/` | Every experiment |
+| `experiments/NAME/` | One experiment; `NAME` is its run file's name without the number, as in `experiments/continuum/` |
+| `openwave/` | The 31 OpenWave rows |
+| `openwave/row-N/` | One row: the problem, an animated diagram and OPH's result |
+| `openwave/row-N/replay/` | The replay of a row's run |
+
+The app holds its code once (`app.js`, `app.css`), the list of pages with the
+OpenWave rows (`site.js`) and each run once (`data/NAME.js`). It also opens
+any run file through its file button or by drag and drop, so a run computed
+on a larger machine replays the same way. A page address also takes the view
+after `#`, for example `experiments/continuum/#frame=chart&t=1.5&play=0`.
 `python -m simulator run continuum --size 48` and
 `python -m simulator app RUN ...` run and package single experiments. Run
 files and the built app stay out of the repository.
@@ -67,5 +83,6 @@ resolution. The formed matter's frequencies match the recorded rest line
 | [formation.py](formation.py) | The capture vertex with marker wires, evolved branch by branch |
 | [row30.py](row30.py) | The matter-wave relation of a formed pair |
 | [runs.py](runs.py) | The run-file format |
-| [app/index.html](app/index.html) | The replay app |
+| [webapp.py](webapp.py) | Writes the replay app, one page per experiment and OpenWave row |
+| [app/index.html](app/index.html), [app/app.js](app/app.js), [app/app.css](app/app.css) | The replay app: the page template, its code and its style |
 | [test_simulator.py](test_simulator.py) | Checks of every method against the literal update |

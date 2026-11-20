@@ -161,8 +161,8 @@ python3 -m simulator run all      # chaque expérience, et l’application de re
 
 La première commande vérifie chaque méthode exacte du simulateur contre la
 mise à jour littérale. La seconde recalcule chaque expérience sur la loi et
-écrit `simulator/runs/replay.html`, qui les rejoue. La page de la
-[loi](model/README.md) explique les deux.
+écrit l’application de relecture dans `simulator/runs/site/`, avec une page
+par expérience. La page de la [loi](model/README.md) explique les deux.
 
 ## Articles
 
