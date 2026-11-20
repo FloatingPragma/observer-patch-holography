@@ -3274,11 +3274,10 @@ def render(register: dict, rows: list[dict], bitcoin_upgrades: dict | None = Non
     lines.append("## Executable model and exposed-data correspondence")
     lines.append("")
     lines.append(
-        "The executable model, [polynomial-sv](../model/polynomial_sv/README.md),"
-        " reproduces particle stability as an observable on the observers'"
-        " agreed records. Its results are finite mathematical and software"
-        " results under a declared law and declared preparations, and none of"
-        " them creates a frozen-prediction row."
+        "The executable model runs [the OPH law](../model/README.md). Its"
+        " results are finite mathematical and software results under the law"
+        " and declared preparations, and none of them creates a"
+        " frozen-prediction row."
     )
     lines.append("")
     lines.append(

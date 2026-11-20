@@ -297,7 +297,7 @@ The local face-curvature action and separate scalar Coulomb minimum strengthen t
 
 ## Executable model and exposed-data correspondence
 
-The executable model, the three [candidate laws](../model/README.md) for the native repair law, reproduces observables on its simulated observers' records. Its results are finite mathematical and software results under declared laws and declared preparations, and none of them creates a frozen-prediction row.
+The executable model runs [the OPH law](../model/README.md). Its results are finite mathematical and software results under the law and declared preparations, and none of them creates a frozen-prediction row.
 
 The [ACT DR6 ordered-chain reanalysis](../code/cosmology/tilt_posterior/README.md) evaluates the fixed edge-center tilt and preserves the historical clock alternative as a separate diagnostic. The P-ACT-LB data were released in 2025, before the FZ-01 and FZ-15 freezes. The result is retrospective tension under baseline Lambda-CDM; its posterior tail positions are neither p-values nor frozen verdicts. The ordinary convergence checkpoint and per-chain sensitivity do not certify the FZ-15 tail-ESS requirement. This reanalysis neither substitutes an eligible dataset nor changes any registered content, decision rule, custody record or status. The [public-data audit](research/PUBLIC_DATA_PREDICTION_AUDIT.md) states the additional physical hypotheses and comparison eligibility.
 

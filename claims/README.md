@@ -1,7 +1,6 @@
 # OPH Claim Registry
 
-The executable model is the set of three [candidate laws](../model/README.md)
-for the native repair law, specified in the
+The executable model runs [the OPH law](../model/README.md), specified in the
 [simulator specification](../simulator/SPEC.md). Claims about the model rest on
 the simulator's checks, and `python -m model` recomputes their evidence. Other claims keep their stated
 source, preparation, reference, clock and observation domains; a common name
@@ -40,8 +39,8 @@ its source.
 
 The executable model uses the existing claim identities and premises through
 its [specification](../simulator/SPEC.md) and the
-[premise register](../docs/registers/PREMISE_REGISTER_V3.md). Candidate
-hypotheses and issue closure do not change a registered claim's scientific
+[premise register](../docs/registers/PREMISE_REGISTER_V3.md). Hypotheses
+under study and issue closure do not change a registered claim's scientific
 status. Change this registry when the established claim or its evidence
 changes.
 
@@ -104,13 +103,13 @@ registry/check surface. That rule keeps the registry from becoming a stale snaps
 
 ## Executable model
 
-The simulator owns the claims about the candidate laws: the exact identities
+The simulator owns the claims about the OPH law: the exact identities
 its methods are checked against (the field identity behind the continuum
 limit, the invariant bound sector of the contact law, the band of the bound
 pair, the matter-wave relation of the mature pair, the strict front) and the
 recorded values it reproduces. Their supplied parts are listed in the
 [specification](../simulator/SPEC.md#8-supplied). The measured observables of
-the search are recorded in the observation ledger, and no registered claim
+the law are recorded in the observation ledger, and no registered claim
 promotes them.
 
 Every test of the model compares distributions of admissible observer records
