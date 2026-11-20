@@ -1,8 +1,9 @@
 # Scientific registers
 
 This directory contains machine-readable scientific registers and generated
-evidence summaries. The [executable model](../model/README.md) owns the
-observer and repair-law implementation; these sources record the declared
+evidence summaries. The [OPH law](../model/README.md) and its
+[simulator](../simulator/README.md) own the observer and repair-law
+implementation; these sources record the declared
 physical premises and observation targets of the theory.
 Finite construction evidence does not by itself promote a physical claim.
 The [five-ledger map](../claims/README.md#the-five-ledgers) shows which of

@@ -682,10 +682,9 @@ def render_observations(rows: list[dict]) -> str:
     lines.append(
         "An attained structural rung certifies the theorem under its registered"
         " hypotheses; it does not assert an empirical identification of every"
-        " object in that theorem. The [executable model](../../model/README.md)"
+        " object in that theorem. The [OPH law](../../model/README.md) page"
         " states for each of its results the theorem, the records its observers"
-        " read and what is supplied. A result on one cell needs no federation;"
-        " an extension to larger carriers needs its own theorem or computation."
+        " read and what is supplied."
         " The [public-data audit](../research/PUBLIC_DATA_PREDICTION_AUDIT.md)"
         " records conditional comparisons with the observed Universe, including"
         " the retrospective ACT scalar-tilt result. It changes no adequacy rung,"
