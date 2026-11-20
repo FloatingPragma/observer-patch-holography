@@ -12,14 +12,11 @@ from math import isqrt
 import numpy as np
 
 from .metric_certificate import THRESHOLDS, certify
+from .six_station import HORIZON, GRID, RANGE_SHOTS, STATIONS
 
 
-N_STATIONS = 6
-HORIZON = 12
-RANGE_TRIALS = 2**34
-LATTICE = 2**48
-RANGE_TV = Fraction((HORIZON + 1)**2, LATTICE)
-PAIRS = tuple(combinations(range(N_STATIONS), 2))
+RANGE_TV = Fraction((HORIZON + 1)**2, GRID)
+PAIRS = tuple(combinations(range(len(STATIONS)), 2))
 
 
 def _sampling_radius(n):
@@ -28,7 +25,7 @@ def _sampling_radius(n):
     return Fraction(isqrt(12 * grid**2 // n) + 1, grid)
 
 
-def distance_bands(records, *, trials=RANGE_TRIALS, tv=RANGE_TV):
+def distance_bands(records, *, trials=RANGE_SHOTS, tv=RANGE_TV):
     """Simultaneous bands for the symmetrized conditional mean half-return.
 
     Given k completions, their durations are iid from the conditional
@@ -120,6 +117,31 @@ def _octahedron(bands, tolerance, opposite_pairs):
     return None
 
 
+def distortion_bracket(bands, opposite_pairs):
+    """Bound the best worst-pair relative error for one 3D placement.
+
+    The two monotone tests consume the same simultaneous record bands.
+    Certificate selection over tolerances costs no further sampling error.
+    """
+    grid = 2**16
+
+    def boundary(test):
+        low, high = 0, grid
+        while high-low > 1:
+            mid = (low+high)//2
+            if test(Fraction(mid,grid)):
+                high = mid
+            else:
+                low = mid
+        return Fraction(low, grid), Fraction(high, grid)
+
+    lower, _ = boundary(lambda e: _euclidean_obstruction(bands,e) is None)
+    _, upper = boundary(lambda e: _octahedron(bands,e,opposite_pairs) is not None)
+    witness = _octahedron(bands,upper,opposite_pairs)
+    return {"lower": str(lower), "upper": str(upper) if witness else None,
+            "upper_witness": witness, "tolerance_grid": grid}
+
+
 def classify(bands, opposite_pairs):
     """All three tests consume the same simultaneous distance bounds."""
     if set(bands) != set(PAIRS):
@@ -148,4 +170,5 @@ def classify(bands, opposite_pairs):
             raise ArithmeticError("contradictory Euclidean certificates")
         row.update(any_dimension_obstruction=any_dim, octahedron=fit,
                    six_station_verdict="excluded" if excluded else "fit" if fit else "unresolved")
+    result["distortion_bracket"] = distortion_bracket(bands, opposite_pairs)
     return result

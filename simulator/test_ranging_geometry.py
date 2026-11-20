@@ -4,6 +4,19 @@ import numpy as np
 import pytest
 
 from .ranging_geometry import PAIRS, _euclidean_obstruction, _octahedron, classify, distance_bands
+from .station_ranging import tag_outcomes
+
+
+def test_tag_timeouts_and_false_echoes_are_never_graded_as_round_trips():
+    data = np.zeros((13,13), dtype=np.int64)
+    data[0,0], data[0,6], data[7,0], data[7,1], data[1,6], data[6,7] = (3,5,7,11,13,17)
+    result = tag_outcomes(data, 0)
+    assert result == {"both_missed": 3, "receiver_missed_sender_clicked": 5,
+                      "receiver_clicked_sender_missed": 7, "both_clicked": 41,
+                      "wrong_receiver_letter": 18, "wrong_sender_letter": 17,
+                      "correct_both_letters": 13, "returned_receiver_letter": 13,
+                      "changed_receiver_letter": 28, "sender_correct_without_receiver": 5}
+    assert tag_outcomes(data, 1)["correct_both_letters"] == 0
 
 
 def test_orientation_is_conditioned_before_averaging_and_misses_are_retained():

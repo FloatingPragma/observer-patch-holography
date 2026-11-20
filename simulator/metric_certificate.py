@@ -243,4 +243,3 @@ def certify(distances, lower=None, upper=None, *, numerical_guard=NUMERICAL_GUAR
                 confidence_statement="exclusions hold whenever all supplied distance intervals cover" if has_intervals else None,
                 no_global_positive_claim="compatible five-point subsets need not share a six-point realization",
                 thresholds=reports)
-

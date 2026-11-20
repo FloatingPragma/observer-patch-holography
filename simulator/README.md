@@ -58,6 +58,74 @@ The OpenWave menu lists the 31 rows of the OpenWave comparison with an
 animated diagram of each problem; a row with a passing result on the OPH law
 links to its replay.
 
+## Ranging with six local ports
+
+A station launches one constituent in its local equal-slot state. Five
+addresses along each spatial axis form a periodic carrier with one private
+position. Six stations surround a seventh address that applies a phase of
+π to its eight slots at ticks 3 and 15. A sham uses the same schedule.
+Each local query swaps the equal-slot mode into an empty latch and records
+its occupation. A miss leaves the orthogonal wave on the carrier. These
+launches, latches, phase drives, synchronized counters and the classical
+collection of the two stations' records are supplied services.
+[Source, controls and acquisition](six_station.py)
+
+The receiving station can hold a capture until tick 12 and release it.
+Both stations record the first click in a twelve-update window. Given a
+receiver click at tick $j$ and a sender click at tick $12+k$, subtracting
+the recorded dwell $12-j$ from the elapsed time gives the range $(j+k)/2$
+in ticks. A pair's range is the equal-weight mean of the two directed
+conditional means. The archive retains all 169 joint outcomes in each
+directed menu. Out of $30\cdot2^{34}$ launches per pulse setting,
+171,311,326 trips completed with the sham and 109,477,123 with the phase
+pulse. A separate two-slot challenge keeps both local letters, either
+timeout and every wrong reply. A parked receiver yields zero confirmed
+returns and sender clicks after a receiver miss. Disabling its detector
+allows the unmeasured wave to propagate through the receiver.
+[Complete counts and sampling weights](six_station_records.npz)
+
+| Quantity | Sham | Phase pulse |
+| --- | ---: | ---: |
+| Mean opposite range in ticks, exact source rounded | 8.86958 | 8.22838 |
+| Mean adjacent range in ticks, exact source rounded | 4.80869 | 4.96324 |
+| Least worst-pair relative error of one 3D placement | 13.2039% | 7.9312% |
+| Simultaneous record bounds on that error, rounded outwards | 12.910% to 13.547% | 7.612% to 8.291% |
+
+The count calculation uses only the recorded times. Conditional on the
+number of completions, a confirmed half-return lies in $[1,12]$. The reader
+applies Hoeffding bounds to the directed success frequencies and the
+conditional means, accounts for rounding the acquisition probabilities,
+then averages directions. The joint failure probability is below
+$10^{-8}$ under the independent-trial sampling law. The five-point Gram
+test alone excludes zero subsets at 5%. A different Euclidean identity
+excludes a placement even in higher dimension. For any six points with
+squared distance matrix $D^2$ and any coefficients with zero sum,
+$x^T D^2 x=-2\Vert\sum_i x_i p_i\Vert^2\le0$. The reader checks this
+inequality on the simultaneous distance intervals. One octahedron gives
+a common upper bound on distortion for all fifteen pairs.
+[Geometry certificate](ranging_geometry.py)
+
+The exact law also gives the optimum. Signed spatial axis permutations
+preserve the launch, phase pulse and detectors. Write $a$ for the adjacent
+range and $b$ for the opposite range. Two opposite pairs with coefficients
+$(1,1,-1,-1)$ require $(1-t)b\le\sqrt2(1+t)a$ for any Euclidean fit of
+relative error $t$. Both preparations have $b>\sqrt2 a$. A regular
+octahedron with diameter $(1-t)b$ and edge $(1+t)a$ attains equality on
+all fifteen pairs, so $t=(b-\sqrt2 a)/(b+\sqrt2 a)$. This tests the
+conditional half-return ruler and its finite observation schedule. The
+free field's long-wavelength continuum uses a different observable.
+[Exact source comparison and record reader](station_ranging.py)
+
+```sh
+python -B -O -W error -m simulator.station_ranging
+python -B -O -W error -m simulator.station_ranging --details
+```
+
+The default replay authenticates the retained counts and recomputes each
+sampling distribution from the literal OPH update and independent integer
+evolution. The optional `--seed-replay` also repeats the original NumPy
+multinomial draws.
+
 ## Checks against the recorded values
 
 The simulator reproduces the recorded values where it computes the same
