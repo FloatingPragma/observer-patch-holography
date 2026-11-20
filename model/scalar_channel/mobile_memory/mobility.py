@@ -66,7 +66,7 @@ def run():
     within_cells = cells[:, None] == cells
     require(np.array_equal(active[within_cells], parked[within_cells]),
             "parked law changed the within-cell blocks")
-    require(not np.any(parked[~within_cells]), "parked law still transfers between cells")
+    require(not np.any(parked[~within_cells]), "parked law transfers between cells")
 
     energies, vectors = np.linalg.eigh(active)
     band = energies[:car.cells]
