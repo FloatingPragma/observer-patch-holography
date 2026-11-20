@@ -83,6 +83,11 @@ tripod equates two weights and forces the third to zero. Propagating these equal
 gives zero free dependencies. Subtracting the number of external seams from three times the number of cells
 gives the stated multiplicities. The extensive flat band permits stationary packets.
 
+With the one-cell operator fixed, any static positive rank-one term per external seam leaves an extensive
+lowest charged band at the same energy. For every choice of strengths and phases, a preparation in that
+band keeps constant detector probabilities during free evolution. The exact multiplicities persist when
+both endpoint factors of every seam are nonzero. [Proof and integer verifier](FLAT_BAND.md)
+
 ## Conversion, transport and the part that cannot radiate
 
 A localized positive and negative charge begin on different ends of an internal seam. On 20 cells, up to
