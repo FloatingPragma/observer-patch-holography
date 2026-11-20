@@ -321,3 +321,153 @@ The rational bounds put this error below $3\times10^{-7}$. After subtracting bot
 and $48w$ from the event difference, the total variation between the two **always-on public
 histories exceeds 0.0817**. This lower bound uses the emitted preparation and a single unconditional
 joint record. The full-law floating-point estimate and the certified event have different scopes.
+
+## 9. Binding energy and the motion of a cluster
+
+A common relativistic dispersion would give \(E(p)=M c^2+p^2/(2M)+O(p^4)\) near rest.
+The ratios of rest energies and inverse curvatures would agree. A common rescaling of clock or momentum
+cannot alter this test. On the ring, \(k\) labels the phase of a prepared translation character. Identifying
+it with a physical momentum requires an independent length and propagation measurement. The ring uses the
+local law of section 1 with four fixed contrast references per port. The ring calculation in
+[extras.py](extras.py) omits those references. They add \(4\kappa N\) on binary configurations of \(N\) loads.
+The ring is a separate carrier choice. The following single-load identity also holds on the official federations.
+
+A single nonzero load of value \(q=1,2\) evolves by \(L/2+6\kappa q^2 I\), as follows directly by moving
+the load through one native swap. Under the identification of the two position bases, every free interval
+differs by a scalar phase. Projecting the same position sets, coupling the same position-controlled meters
+or adapting the next such service to a recorded outcome gives identical joint record laws by induction.
+This includes the two successive cell readings on 20, 80 and 320 cells in the [counts](material_inertia/records/).
+The two rest offsets have ratio four and the transport is identical. Adding a common chemical potential
+\(\mu N\) leaves \(E_2=2E_1+12\kappa\) for the doubled load. This particular stable load therefore also fails
+the common-mass interpretation whenever \(\kappa>0\) and \(E_1>0\).
+
+### All cluster sizes on the ring
+
+On binary configurations a homogeneous, reflection-symmetric, load-conserving Hermitian two-port term has
+one real hopping matrix element and diagonal entries at \(00,01=10,11\). On the chain the sum, relative to
+vacuum, has diagonal \(cN-U b\) and off-diagonal \(-t\) for one legal hop, where \(b\) counts adjacent occupied
+bonds. Here \(t>0\), up to the usual staggered phase convention on a line. The native law gives
+\(2t=1,\ c=6\kappa+1,\ U=1+2\kappa\). A common per-load shift changes only \(c\). A bound cluster at rest
+in the attractive easy-axis family has \(\Delta=U/(2t)=\cosh\eta>1\).
+Its infinite-chain energy is
+
+\[
+ E_N(k)=(c-U)N+
+ 2t\,\frac{\sinh\eta}{\sinh(N\eta)}\bigl(\cosh(N\eta)-\cos k\bigr).
+\]
+
+This is the ferromagnetic XXZ droplet formula in the source normalization. For an explicit substitution,
+order the occupied ports \(x_1<\cdots<x_N\), write \(g_j=x_{j+1}-x_j-1\), and use the amplitude
+\(e^{ikx_1}\prod_{j=1}^{N-1}a_j^{g_j}\). Put \(a_0=e^{ik}, a_N=1\) and
+\(a_j=[e^{ik}\sinh((N-j)\eta)+\sinh(j\eta)]/\sinh(N\eta)\). At a touching pair the two forbidden hops
+and the contact energy cancel by \(a_{j-1}+a_{j+1}=2\Delta a_j\). Evaluating at consecutive occupied
+ports gives the displayed energy. The internal coefficients have modulus below one. At zero momentum the
+relative-coordinate wavefunction is strictly positive and is the ground droplet. The thermodynamic
+ground-energy result and Bethe construction are given by
+[Nachtergaele, Spitzer and Starr](https://doi.org/10.1007/s00023-006-0304-6).
+
+Thus the kinetic mass ratio \(R_N=E_1''(0)/E_N''(0)=\sinh(N\eta)/\sinh\eta\) is greater than \(N\) for
+every \(N>1\). The binding energy \(N E_1(0)-E_N(0)\) is positive because
+\(\tanh(N\eta/2)<N\tanh(\eta/2)\). For any positive constituent rest energy the rest ratio is therefore
+**below** \(N\). This rules out a common relativistic mass for these bound clusters for the entire stated
+two-port family. A site energy linear in load cannot reverse the inequalities. The gapless threshold at
+\(\Delta=1\) has no normalizable two-load bound state at rest. These statements concern the line and its
+finite-ring tests. They establish no obstruction for all OPH realizations.
+
+The ring instrument compares the nonzero shifts \(E_1(k)-E_1(0)\) and \(E_N(k)-E_N(0)\) at the same
+enrolled translation character. The ratio equals the curvature ratio for the infinite-chain cosine bands
+above. On a finite ring it is a finite difference. In particular the observed ratios for the three-port
+and controlled-memory laws do not give a zero-momentum derivative without a separate limit.
+
+The predicted kinetic ratios satisfy \(R_1=1,\ R_2=2\Delta,\ R_{n+1}=R_2R_n-R_{n-1}\), with no separate
+species coefficients. In particular \(R_3/R_2=R_2-1/R_2\).
+
+### Predicting a position distribution from a binding measurement
+
+The binding reader compares a compact pair at \(k=0\) with two independently evolving uniform singles.
+The interferometer switches which registers evolve, then recombines the paths. Both active arms carry the
+same total load, so every common per-load energy shift cancels. The isolated one-load dimer has level
+splitting \(2t=1\), which sets the energy unit. In that unit \(B_2=(\Delta-1)^2/\Delta\).
+The positive attractive root determines \(\Delta\) from \(B_2\). For the finite ring, take the positive
+relative amplitude \(z^{r-1}+z^{L-r-1}\), where \(z=1/\Delta\). Its only residual is at contact. The
+componentwise ratios of the finite Hamiltonian applied to the trial vector bound its lowest energy,
+giving \(0\le B_{2,L}-B_2\le(1-z^2)z^{L-3}/(1+z^{L-2})\). The [reader](material_inertia/prediction.py)
+first uses the upper bound one, then tightens it using only the inferred lower bound on \(\Delta\).
+
+For a translated compact cluster, the cosine band predicts the Fourier inverse of
+\(\exp[-i(1-\cos k)t/R_N]\) for its translated return amplitudes, up to a common phase. The terminal
+position instrument has \(L\) occupied-run outcomes and a complementary outcome for every configuration
+which is not one run. The source replay propagates every eigenmode in every translation sector. A second
+law adds a positive three-port term \(s(|110\rangle-|011\rangle)(\langle110|-\langle011|)\).
+For a pair at \(k=0\) its action vanishes on the entire sector, so the two laws have identical binding
+inboxes at every wait and on every ring in the experiment. In the two-body recurrence it replaces \(U\)
+by \(U-2s(1-\cos k)\) in the binding boundary condition. In native units the pair curvature becomes
+\(1/(2\Delta)+2s(1-\Delta^{-2})\). Setting this equal to \(1/[E_2(0)/E_1(0)]\) determines \(s\) from the
+source. Agreement at pair curvature is a design choice. Three- and four-load motion independently tests it.
+
+A finite-volume error bound uses only the binding inbox and the native family. Periodize the ordered
+droplet amplitude by summing over the \(N\) cyclic choices of its first occupied port, with \(e^{ikL}=1\).
+For one cut the infinite-chain recurrence fails only when the two ends touch across that cut. All \(L-N\)
+holes then lie in interior gaps. Write \(\rho=2e^{-\eta}\), bounding every \(|a_j|\).
+At such a configuration the residual of that term is at most \((\Delta+\rho)\rho^{L-N}\) in dimer units.
+At each of the \(L\) compact configurations one term has unit modulus; all other terms together have
+modulus at most \((N-1)\rho^{L-N}\). Dividing the residual norm by the resulting lower bound on the
+state norm gives
+
+\[
+ \epsilon_N\le\sqrt{\binom{L}{N}/L}\,
+ \frac{N(\Delta+\rho)\rho^{L-N}}{1-(N-1)\rho^{L-N}} .
+\]
+
+The bound applies with positive denominator and \(\rho<1\). In each character the compact orbit has
+dimension one. In its complement there are at least two occupied runs, so the native contrast costs at
+least \(4\kappa N+4\kappa\), and the exchange is positive. Interlacing places the second eigenvalue above
+this threshold. The infinite band lies at most at the compact diagonal \(4\kappa N+\Delta\) for \(N\ge2\).
+When \(\epsilon_N<\Delta-2\) the certified eigenvalue is the finite ground line. The compact-to-complement
+coupling has norm at most one by the two end hops of magnitude \(1/2\). The ground-state block equation
+therefore bounds the non-ground spectral weight of the compact input by \(1/[1+(\Delta-2)^2]\).
+These estimates use \(N<L/2\).
+
+Let \(\delta\phi\) bound the error in relative band phase across the characters, including two wrap
+errors, the clock calibration and the inferred \(R_N\) interval. The normalized state differs from the
+ideal compact Fourier flight in norm by at most
+\(\sqrt{\delta\phi^2+4/[1+(\Delta-2)^2]}\): decompose the input into its ground component and its
+orthogonal complement separately in each character. Total variation for the complete position read is
+bounded by this norm plus the finite-counter rounding error. For the enrolled 19-port flights this
+binding-only bound is below 0.096 for every size and wait. The observed discrepancy is at most 0.00214.
+The five-load low-momentum frequency is unresolved at the enrolled precision, although the separate
+large-momentum and direct position instruments resolve its motion. [Sealed forecast and held-out
+kinematics](material_inertia/records/challenge/) and [position measurements](material_inertia/records/flight/)
+
+### What the written memory can change
+
+Let \(W\) be the official nine-to-ninety contrast write. A Hermitian operation confined to the ten
+memory labels preserves the written code exactly when its tensor product with the identity on repaired
+loads commutes with \(WW^\dagger\). The induced load action is the compression by \(W\). Solving the
+commutator equations over the rationals using \(\sqrt2 W\) gives complex dimension 18 for the label
+commutant and dimension 9 for its image. The latter is \(\mathbb C\oplus M_2\oplus M_2\). The common
+scalar acts on the three equal-load states. The same two-by-two block acts on the orientations of
+\(01\) and \(12\), and the other block acts on \(02\). The rational calculation verifies this form on
+every basis solution and verifies rank nine, proving both inclusions. The vacuum and doubled-background
+inputs constrain the equal-load label even in a test intended for the two-load sector. Thus this entire
+class preserves the multiset. Its homogeneous reflection-symmetric binary restriction with positive
+hopping and \(U>2t\) is covered by the ring obstruction above. The proof assumes exact preservation on each individual write,
+memory action and unwrite. [Exact algebra](material_inertia/memory_algebra.py)
+
+One output predicate suffices to break multiset conservation. Let \(m_d\) be the normalized sum of the
+two coin labels at contrast \(d\). Apply the positive square of \(m_0-(m_2+m_{-2})/\sqrt2\) conditioned
+on repaired output \(11\), then unwrite. On the nine blank inputs the logical term is the square of
+\(|11\rangle-(|20\rangle+|02\rangle)/\sqrt2\). The identity \(GW=WV\) is checked exactly on all
+columns, so the induced unitary returns the private memory to blank at every duration. Removing the
+output predicate gives squared generator leakage one on the vacuum. This construction uses the native
+registers with a changed memory generator. Its control blocks only the conversion between distinct and
+doubled loads and retains the diagonal costs and hopping between doubled endpoints.
+
+On the 20-cell federation the doubled preparation produces up to 797 agreed seam-pair outcomes per
+1,048,576 simulated preparations. Starting from the emitting seam gives up to 316 doubled-location
+outcomes. Both matched controls give zero throughout. The original public seam predicate is used with
+an ideal switched read. The supplementary doubled-location meter resolves part of its no-pair outcome.
+All 28,920 two-load configurations participate. The controlled memory gives a pair rest ratio of
+1.707 and kinetic ratio of 24.94 on the 16-port ring. The same registered comparison as for the
+native law puts both two- and three-load ratios outside tolerance on both the 12- and 16-port rings.
+[Memory and detector results](material_inertia/records/memory/)

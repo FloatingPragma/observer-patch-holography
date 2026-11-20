@@ -1,0 +1,65 @@
+{
+  "oph": "f52fa4dab609845b20a80b43ea6bd9cc11a19f56",
+  "official": "f0e866547175e204eb18307df5ef2c496d9f550b",
+  "rings": [
+    12,
+    16,
+    24
+  ],
+  "occupations": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "largest_ring_four": false,
+  "laws": [
+    "contrast",
+    "assisted",
+    "exchange"
+  ],
+  "kappa": 8,
+  "shots": 4096,
+  "tick_divisor": 128,
+  "dyadic_orders": 30,
+  "clock_ticks": [
+    0,
+    32,
+    64,
+    96,
+    128,
+    160,
+    192,
+    224,
+    256,
+    288,
+    320,
+    352,
+    384
+  ],
+  "phases": [
+    0,
+    1,
+    -1,
+    2
+  ],
+  "dominant_floor": 0.95,
+  "phase_gate": 0.14,
+  "relative_precision": 0.08,
+  "rest_inertia_tolerance": 0.04,
+  "flight_ports": [
+    0,
+    6,
+    17
+  ],
+  "flight_ticks": [
+    0,
+    32,
+    128,
+    256,
+    512
+  ],
+  "detector": "Two quadratures of a parked-path interferometer. Consecutive binary loads in a prepared translation character. A finite uniform midpoint ensemble digitizes each ideal marginal. All outcomes and complementary spectral weight retained. Each clock register counts service ticks and is calibrated with an isolated native dimer.",
+  "prediction": "Infer the pair kinetic ratio on ring 16 from detector records. Predict the trimer and tetramer ratios using that single reading before consulting either higher-body record. Compare rest ratios with inverse curvature on each law. A three-site positive hop fixes only the pair curvature from its own rest energy. Trimer and tetramer are holdouts. Preserve unresolved and failed outcomes.",
+  "inputs": "Internal kappa=8 from the official binding benchmark, exchange=1/2, four additional blank references on the ring, routing, preparation, phase basis, parked bypass and counter are supplied. No measured particle data or empirical stopping rule."
+}

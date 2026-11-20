@@ -1,0 +1,175 @@
+{
+ "memory_algebra": {
+  "label_commutant_dimension": 18,
+  "logical_dimension": 9,
+  "blocks": [
+   "equal loads: common scalar",
+   "unit contrast: repeated 2x2",
+   "double contrast: 2x2"
+  ]
+ },
+ "conversion": {
+  "cell_active_double": [
+   0,
+   150,
+   490,
+   789,
+   119,
+   405,
+   796,
+   57,
+   196,
+   421
+  ],
+  "cell_blocked_double": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "cell_active_seam": [
+   0,
+   60,
+   196,
+   316,
+   48,
+   162,
+   318,
+   23,
+   78,
+   169
+  ],
+  "cell_blocked_seam": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "0_active_double": [
+   0,
+   150,
+   490,
+   792,
+   116,
+   396,
+   797,
+   59,
+   185,
+   295
+  ],
+  "0_blocked_double": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "0_active_seam": [
+   0,
+   60,
+   196,
+   316,
+   48,
+   162,
+   314,
+   27,
+   88,
+   154
+  ],
+  "0_blocked_seam": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "mass_response": {
+  "12_2": {
+   "rest": [
+    1.706660943,
+    1.706660942,
+    1.706660944
+   ],
+   "inertia": [
+    24.93828831,
+    24.93816624,
+    24.93841038
+   ]
+  },
+  "12_3": {
+   "rest": [
+    2.394766367,
+    2.394766366,
+    2.394766368
+   ],
+   "inertia": [
+    624.5114662,
+    624.4377589,
+    624.5851909
+   ]
+  },
+  "16_2": {
+   "rest": [
+    1.706660943,
+    1.706660942,
+    1.706660944
+   ],
+   "inertia": [
+    24.93903092,
+    24.93881606,
+    24.93924577
+   ]
+  },
+  "16_3": {
+   "rest": [
+    2.394766367,
+    2.394766366,
+    2.394766368
+   ],
+   "inertia": [
+    624.5136008,
+    624.3838842,
+    624.6433713
+   ]
+  }
+ },
+ "conversion_gates": {
+  "cell_active_double": true,
+  "cell_blocked_double": true,
+  "cell_active_seam": true,
+  "cell_blocked_seam": true,
+  "0_active_double": true,
+  "0_blocked_double": true,
+  "0_active_seam": true,
+  "0_blocked_seam": true
+ },
+ "rest_inertia": {
+  "12_2": "outside tolerance",
+  "12_3": "outside tolerance",
+  "16_2": "outside tolerance",
+  "16_3": "outside tolerance"
+ }
+}
