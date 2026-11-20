@@ -1,0 +1,24 @@
+{
+  "level": 0,
+  "emitter": "ordered",
+  "receiver": "other endpoint cell of first external seam touching the emitter seam",
+  "herald_time": 8,
+  "delays": [
+    0,
+    1,
+    4,
+    8
+  ],
+  "seed": 9495321,
+  "shots": 16777216,
+  "min_double_arrivals": 16,
+  "min_returned_pairs": 16,
+  "max_energy_error": 0.05,
+  "controls": [
+    "receiver_on",
+    "receiver_off"
+  ],
+  "initial_law": "offsite conversions blocked except in cell zero; both transport laws on",
+  "terminal_law": "keep sender on; enable only the selected receiver converter in receiver_on",
+  "meter": "local neutral occupation in receiver cell: 0,1,2; keep every branch"
+}

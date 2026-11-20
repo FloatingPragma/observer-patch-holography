@@ -5,7 +5,7 @@ bit between neighboring centers, reading it locally, and retaining the
 outcome. This experimental scalar construction executes that protocol and
 connects its prepared state to finite source-on pulses and complete pointer
 readouts. It is an alternative to the primary
-[contrast-memory model](../polynomial_sv/README.md), with different dynamics.
+[contrast-memory model](../contrast_memory_spherical_v1/README.md), with different dynamics.
 
 The [proof](PROOF.md) gives the source map and the complete instrument,
 including interrupted routes and quantum references. The
@@ -57,3 +57,10 @@ The experimental member [four-child register](refinement_spectrum/README.md) cou
 scalar incidence, without the level term, to an internal register with uniform hopping. Its clock and fuel
 records measure rest frequencies and transfer between cells. The complete spectrum bounds the ratio of
 successive rest frequencies at every tree depth.
+
+## Local conversion of opposite charges
+
+The experimental [pair-conversion law](radiative_repair/README.md) is a separate generator on the port
+carrier with one common energy scale. Opposite charges prepared in its lowest band release energy into a
+neutral field. In a second experiment, which starts from a pair localized on one seam, a meter in a
+neighbouring cell registers two neutral arrivals and a converter there turns them back into a charged pair.

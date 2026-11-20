@@ -63,7 +63,7 @@ jobs:
         run: python tools/check_docs_policy.py --changed "${{ github.event.pull_request.base.sha }}"
 
   official-model:
-    name: polynomial-sv model
+    name: A-contrast-memory-spherical-v1 model
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
@@ -79,7 +79,7 @@ jobs:
           cache-dependency-path: model/requirements.txt
       - run: python -m pip install -r model/requirements.txt
       - run: python -B -O -m model
-      - run: python -m pytest -q -W error model/polynomial_sv
+      - run: python -m pytest -q -W error model/contrast_memory_spherical_v1
 
   experimental-scalar:
     name: Experimental scalar construction
@@ -100,7 +100,13 @@ jobs:
       - run: python -B -O -m model.scalar_channel.experiment
       - run: python -B -O -m model.scalar_channel.experiment --extended
       - run: python -B -O -W error -m model.scalar_channel.cage
-      - run: python -B -m pytest -q -W error model/scalar_channel model/test_contrast_replay.py
+      - run: python -B -O -W error -m model.scalar_channel.contact.material_radar
+      - run: python -B -O -W error -m model.scalar_channel.contact.radar_checks
+      - run: python -B -O -W error -m model.scalar_channel.contact.message_replay
+      - run: python -B -O -W error -m model.seam_program
+      - run: python -B -O -W error -m model.seam_program.preparation
+      - run: python -B -O -W error -m model.seam_program.receiver
+      - run: python -B -m pytest -q -W error model/scalar_channel model/seam_program model/test_contrast_replay.py
 
   suite:
     name: Mandatory suite (shard ${{ matrix.shard }})

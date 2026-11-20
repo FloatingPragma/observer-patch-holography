@@ -13,10 +13,10 @@ from scipy import sparse
 from scipy.linalg import eigh_tridiagonal
 from scipy.sparse.linalg import expm_multiply
 
-from model.polynomial_sv.carrier import cell
-from model.polynomial_sv.law import SRC, seam_term
-from model.polynomial_sv.reader import APP, CONTROLS, stages
-from model.polynomial_sv.sectors import MultisetSector
+from model.contrast_memory_spherical_v1.carrier import cell
+from model.contrast_memory_spherical_v1.law import SRC, seam_term
+from model.contrast_memory_spherical_v1.reader import APP, CONTROLS, stages
+from model.contrast_memory_spherical_v1.sectors import MultisetSector
 
 
 def finite(value, name):

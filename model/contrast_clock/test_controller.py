@@ -9,7 +9,7 @@ from scipy import sparse
 from scipy.linalg import expm
 from scipy.sparse.linalg import expm_multiply
 
-from model.polynomial_sv import reader
+from model.contrast_memory_spherical_v1 import reader
 
 from . import controller as c
 

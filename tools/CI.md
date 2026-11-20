@@ -8,8 +8,8 @@ Five workflows run the repository checks.
   * `gates`: claim registry, generated registers and ledgers, the QFT/WZ
     theorem oracle, the Lean `native_decide` inventory and the Lean CI budget
     wiring.
-  * `official-model`: the polynomial-sv model (`python -m model` and its
-    tests under `model/polynomial_sv`).
+  * `official-model`: the A-contrast-memory-spherical-v1 model (`python -m model` and its
+    tests under `model/contrast_memory_spherical_v1`).
   * `experimental-scalar`: the scalar channel of the model, its extended
     preparation and its cage (`model/scalar_channel`), with the replay of
     law 1 from the construction manual.

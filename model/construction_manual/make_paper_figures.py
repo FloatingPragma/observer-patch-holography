@@ -2,7 +2,7 @@
 
 The geometry and the drawing primitives are those of make_diagram.py, so the figures show the same cells and
 federations as the sheet of the construction manual. The probabilities of the stability figure are computed from
-the law of ../polynomial_sv on the federation of 20 cells; the numbers of the cage figure are read from
+the law of ../contrast_memory_spherical_v1 on the federation of 20 cells; the numbers of the cage figure are read from
 ../scalar_channel/cage/results.json.
 
     python model/construction_manual/make_paper_figures.py      # writes paper/figures/model_*.svg and .pdf
@@ -107,8 +107,8 @@ def hardware():
 # ---------------------------------------------------------------- particle stability
 
 def stability_series():
-    from model.polynomial_sv import carrier as cr
-    from model.polynomial_sv import stability as st
+    from model.contrast_memory_spherical_v1 import carrier as cr
+    from model.contrast_memory_spherical_v1 import stability as st
     times = np.linspace(0.0, 32.0, 161)
     ps = st.sector(0)
     series = {}
@@ -146,7 +146,7 @@ def curve(x0, y0, w, h, ymax, times, values, colour, width=3.2, dash=None, log=F
 
 def stability():
     times, series = stability_series()
-    results = json.loads((ROOT / 'model' / 'polynomial_sv' / 'RESULTS.json').read_text(encoding='utf-8'))
+    results = json.loads((ROOT / 'model' / 'contrast_memory_spherical_v1' / 'RESULTS.json').read_text(encoding='utf-8'))
     bound = results['particle_stability']['law']['20 cells']['by_kappa']['8.0']['bound_with_carrier_constants']
     W, H = 1400, 560
     x0, y0, w, h = 110, 70, 520, 380

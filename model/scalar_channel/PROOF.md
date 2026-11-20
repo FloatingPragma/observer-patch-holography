@@ -362,7 +362,7 @@ work are outside this ledger.
 ## Independent contrast-memory source map
 
 The construction manual also describes a contrast-memory law, implemented as the primary
-model in `model/polynomial_sv`. It acts on qutrit loads and seam memories,
+model in `model/contrast_memory_spherical_v1`. It acts on qutrit loads and seam memories,
 not on the scalar fixed-parity space. The independent implementation
 `model/contrast_replay.py` checks a complete 99-state seam, retaining all ten
 nonblank memory values and the blank value, each with nine load values.

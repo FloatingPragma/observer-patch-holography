@@ -1,0 +1,144 @@
+{
+ "receiver_cell": 6,
+ "clock_at_meter": 8.000142077004323,
+ "clock_at_read": [
+  8.000142077004323,
+  9.00013657802064,
+  12.000122825803164,
+  16.00002101963638
+ ],
+ "readings": {
+  "receiver_on": {
+   "double_neutral_counts": [
+    19459,
+    19338,
+    19410,
+    19425
+   ],
+   "later_signed_pair_counts": [
+    0,
+    649,
+    2037,
+    2501
+   ],
+   "later_receiver_pair_counts": [
+    0,
+    528,
+    509,
+    490
+   ],
+   "incoming_fraction": [
+    0.0011598467826843262,
+    0.001152634620666504,
+    0.001156926155090332,
+    0.0011578202247619629
+   ],
+   "unconditional_local_fraction": [
+    0.0,
+    3.147125244140625e-05,
+    3.0338764190673828e-05,
+    2.9206275939941406e-05
+   ]
+  },
+  "receiver_off": {
+   "double_neutral_counts": [
+    19295,
+    19333,
+    19413,
+    19388
+   ],
+   "later_signed_pair_counts": [
+    0,
+    5,
+    609,
+    875
+   ],
+   "later_receiver_pair_counts": [
+    0,
+    0,
+    15,
+    79
+   ],
+   "incoming_fraction": [
+    0.0011500716209411621,
+    0.001152336597442627,
+    0.0011571049690246582,
+    0.0011556148529052734
+   ],
+   "unconditional_local_fraction": [
+    0.0,
+    0.0,
+    8.940696716308594e-07,
+    4.708766937255859e-06
+   ]
+  }
+ },
+ "energy": {
+  "initial_work": 11.00114130973816,
+  "incoming_work": 11.000901758670807,
+  "measured_work": 10.997645497322083,
+  "receiver_on_switch_work": 10.997963964939117,
+  "receiver_on_final_work": 10.999280214309692,
+  "receiver_off_switch_work": 10.997922897338867,
+  "receiver_off_final_work": 10.996585547924042
+ },
+ "quantile_total_variation_budget": 2.7254225448025693e-05,
+ "local_effect_lower": [
+  -5.788559441849824e-07,
+  2.5908758376410962e-05,
+  2.3298524276724217e-05,
+  1.7322452366532045e-05
+ ],
+ "meter_work": -0.0032562613487243652,
+ "switch_work": {
+  "receiver_on": 0.0003184676170349121,
+  "receiver_off": 0.00027740001678466797
+ },
+ "gates": {
+  "arrived": true,
+  "reabsorbed": true,
+  "initially_neutral": true,
+  "propagation_budget": true,
+  "receiver_contrast": true,
+  "receiver_on_energy": true,
+  "receiver_off_energy": true,
+  "resolved_receiver_effect": true
+ },
+ "certificates": {
+  "rest": [
+   {
+    "cells": 20,
+    "external_seams": 30,
+    "dependent_tripods": 0,
+    "independent_row_relations": 0,
+    "rest_multiplicity": 30
+   },
+   {
+    "cells": 80,
+    "external_seams": 120,
+    "dependent_tripods": 24,
+    "independent_row_relations": 0,
+    "rest_multiplicity": 120
+   },
+   {
+    "cells": 320,
+    "external_seams": 480,
+    "dependent_tripods": 104,
+    "independent_row_relations": 0,
+    "rest_multiplicity": 480
+   }
+  ],
+  "one_cell": {
+   "charged_dimension": 144,
+   "converting_span": 47,
+   "exact_dark_dimension": 97,
+   "projector_denominator": 480,
+   "neutral_probability_upper_bound_by_port_distance": {
+    "0": "1",
+    "1": "29/120",
+    "2": "29/120",
+    "3": "1/2"
+   }
+  }
+ }
+}

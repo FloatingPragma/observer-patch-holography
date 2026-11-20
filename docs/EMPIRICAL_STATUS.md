@@ -5,7 +5,7 @@ stability, an observable of nature. Bound objects persist in free
 evolution, read on the observers' agreed records. A pair of loads written on
 one seam by a local emitter is read as a pair on some seam at every reading,
 with probability at least one minus a proved bound
-([binding theorem](../model/polynomial_sv/PROOF.md)); it is read on seams
+([binding theorem](../model/contrast_memory_spherical_v1/PROOF.md)); it is read on seams
 other than the first; nothing holds it but the contrast-memory law; and the
 same law without its agreement energy loses it. At coupling `kappa = 8` the
 largest probability of reading no pair is `0.0096` on one cell and on
@@ -80,7 +80,7 @@ From the repository root:
 ```sh
 python -m model
 python -B -O -m model.scalar_channel.cage
-python -m pytest -q -W error model/polynomial_sv model/scalar_channel
+python -m pytest -q -W error model/contrast_memory_spherical_v1 model/scalar_channel
 python -m pytest -q code/cosmology/tilt_posterior
 ```
 

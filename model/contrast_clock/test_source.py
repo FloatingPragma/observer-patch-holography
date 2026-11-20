@@ -9,8 +9,8 @@ import warnings
 import numpy as np
 from scipy.linalg import expm
 
-from model.polynomial_sv import carrier, law, reader
-from model.polynomial_sv.sectors import MultisetSector, PairSector, SeamEvents
+from model.contrast_memory_spherical_v1 import carrier, law, reader
+from model.contrast_memory_spherical_v1.sectors import MultisetSector, PairSector, SeamEvents
 
 from . import controller
 

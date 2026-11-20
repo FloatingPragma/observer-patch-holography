@@ -1,0 +1,26 @@
+{
+  "seed": 128078,
+  "shots": 16777216,
+  "carriers": [
+    "cell",
+    0
+  ],
+  "waits": [
+    0,
+    0.5,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "clock_step": 0.125,
+  "simultaneous_error": 0.001,
+  "upper_number_of_energy_estimates": 256,
+  "energy_cap": 26,
+  "max_bin_energy": 4,
+  "source": "Both signs in the same normalized compact lowest-band port profile. On 20 cells also prepare two disjoint exact lowest-band profiles. Compare blocked conversion with the overlap preparation.",
+  "hypothesis": "After charging the exact initial contact energy against the neutral output, a strictly positive contribution from the initial charged energy is resolved at at least one scheduled wait; retain either outcome.",
+  "absolute_balance_gate": 0.04
+}

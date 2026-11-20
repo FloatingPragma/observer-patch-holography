@@ -28,6 +28,15 @@ def test_committed_surface_matches_rebuild() -> None:
     assert tool.main(["--check"]) == 0
 
 
+def test_observation_notes_stay_in_one_table_cell() -> None:
+    ledger = _ledger()
+    row = ledger["rows"][0]
+    row["notes"] = "First | result.\n\nSecond result."
+    rendered = tool.render_observations(ledger["rows"])
+    line = next(line for line in rendered.splitlines() if line.startswith(f"| {row['id']} |"))
+    assert line.endswith(r"First \| result.<br><br>Second result. |")
+
+
 def test_top_level_sections_are_exact() -> None:
     assert tool.TOP_LEVEL_KEYS == (
         "schema",
