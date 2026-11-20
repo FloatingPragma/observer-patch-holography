@@ -7,8 +7,8 @@ claims. These artifacts let a reader recompute the
 finite and numerical parts, inspect their inputs, and see which physical bridge
 each result requires.
 
-The executable model is the set of three [candidate laws](../model/README.md)
-for the native repair law, executed by the [simulator](../simulator/README.md). This directory
+The executable model runs [the OPH law](../model/README.md), executed by the
+[simulator](../simulator/README.md). This directory
 contains supporting component calculations; their source-specific hypotheses
 are stated individually.
 
@@ -23,7 +23,7 @@ the theorem or physical carrier named by that branch.
 
 | Surface | What to inspect |
 | --- | --- |
-| [`../simulator/`](../simulator/README.md) | The executable model: the three candidate laws, their exact methods and checks, every experiment of the search and the replay app |
+| [`../simulator/`](../simulator/README.md) | The executable model: the OPH law, its exact methods and checks, its experiments and the replay app |
 | [`consensus/`](consensus/) | Finite patch-net repair, schedule independence, and reference-architecture benchmarks |
 | [`geometry/`](geometry/) | Screen incidence, modular clocks, event reconstruction, causal cones, and Einstein-branch receipts |
 | [`m1_operational_clocks/`](m1_operational_clocks/) | Massive charged flights, all-band speed bounds, resolved local reads and an observable moving clock |

@@ -63,7 +63,7 @@ jobs:
         run: python tools/check_docs_policy.py --changed "${{ github.event.pull_request.base.sha }}"
 
   official-model:
-    name: Candidate laws
+    name: OPH law
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:

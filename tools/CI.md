@@ -8,7 +8,7 @@ Five workflows run the repository checks.
   * `gates`: claim registry, generated registers and ledgers, the QFT/WZ
     theorem oracle, the Lean `native_decide` inventory and the Lean CI budget
     wiring.
-  * `official-model`: the candidate laws (`python -m model`, which runs the
+  * `official-model`: the OPH law (`python -m model`, which runs the
     simulator's checks, and the tests under `simulator/`).
   * `suite`: the standard steps of `tools/run_mandatory_suite.py` in ten
     shards. Shard 0 also runs the additional evidence tests.
