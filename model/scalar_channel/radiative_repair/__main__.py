@@ -8,17 +8,17 @@ import numpy as np
 from scipy.sparse.linalg import expm_multiply
 
 from tools.strict_json import load
-from ...polynomial_sv import carrier
+from ...contrast_memory_spherical_v1 import carrier
 from ..carrier import require
 from . import apparatus, source
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 PREFIX = HERE.relative_to(ROOT).as_posix()
-FILES = ['model/__init__.py','model/requirements.txt','model/polynomial_sv/__init__.py',
-         'model/polynomial_sv/carrier.py','model/scalar_channel/__init__.py','model/scalar_channel/carrier.py',
+FILES = ['model/__init__.py','model/requirements.txt','model/contrast_memory_spherical_v1/__init__.py',
+         'model/contrast_memory_spherical_v1/carrier.py','model/scalar_channel/__init__.py','model/scalar_channel/carrier.py',
          'tools/strict_json.py',*[PREFIX+'/'+f for f in ('__init__.py','__main__.py','source.py','apparatus.py','protocol.json')],
-         *[f'model/polynomial_sv/carriers/FEDERATION_LEVEL{i}.npz' for i in range(3)]]
+         *[f'model/contrast_memory_spherical_v1/carriers/FEDERATION_LEVEL{i}.npz' for i in range(3)]]
 
 
 def pins():

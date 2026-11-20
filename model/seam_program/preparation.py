@@ -5,7 +5,7 @@ import hashlib
 import numpy as np
 
 from tools.strict_json import load
-from ..polynomial_sv import carrier, reader, sectors
+from ..contrast_memory_spherical_v1 import carrier, reader, sectors
 from .gate import archive, counters, multipliers, real_step, receipt, require
 from .__main__ import HERE, ideal_law, pins
 from .compiler import Compiler

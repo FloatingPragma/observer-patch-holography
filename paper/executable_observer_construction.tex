@@ -64,7 +64,7 @@ Daniel Ari Friedman\textsuperscript{4,5}}
 \begin{abstract}
 In Observer Patch Holography, space, time, fields and particles are how
 observers describe the records they agree on. This paper specifies
-polynomial-sv, an executable model of such observers. Its ports, seams and
+A-contrast-memory-spherical-v1, a candidate executable model of such observers. Its ports, seams and
 cells are the hardware of a computation and no space. Its first law, an
 exchange of loads plus an energy of agreement, is realized exactly by a
 private seam memory. On every federation of complete cells a pair of loads on
@@ -96,16 +96,15 @@ proposal concrete. It names a carrier, the local observers on it and the
 records they hold, a law that is specified before any run, the preparations,
 and complete instruments: every outcome of a reading belongs to the model,
 including the outcomes that count against a claim. This paper specifies one
-such model, called polynomial-sv, proves its central properties and reports
+such candidate model, called A-contrast-memory-spherical-v1, proves its central properties and reports
 the record probabilities computed from it.
 
 \paragraph{The model.}
-The carrier of polynomial-sv is the twelve-port icosahedral cell of the
+The carrier of A-contrast-memory-spherical-v1 is the twelve-port icosahedral cell of the
 carrier paper and the spherical federations of such cells \cite{ophmicro}.
 Every port holds a load $0$, $1$ or $2$, and every seam, the link between
 two neighbouring ports, has a private memory of eleven states shared by its
-two port observers. The law is the contrast-memory law, with identifier
-\texttt{A-contrast-memory-spherical-v1}: on every seam the observers write
+two port observers. The law is the contrast-memory law: on every seam the observers write
 the native seam event of the carrier into the memory, apply a phase that
 depends on the recorded contrast of the two loads, and reverse the write.
 On the loads this is
@@ -141,7 +140,7 @@ clock errors \cite{flagship}, and the
 spacetime paper gives the rank-three spatial response, its $1+3$ Lorentz
 carrier and the limits of the causal orders and normalized counts of record
 populations \cite{ophspacetime}. Both results hold under their stated
-premises. What polynomial-sv has to supply is those premises, with its own
+premises. What A-contrast-memory-spherical-v1 has to supply is those premises, with its own
 local clocks and records. It does not have to rebuild three dimensions
 inside its state. Section~\ref{sec:joins} lists the finite theorems of the
 theory whose premises the outputs of the model supply, with what follows
@@ -224,7 +223,7 @@ outputs of the model to the finite theorems of the theory.
 
 \begin{figure}[!htb]
 \centering
-\input{tex_fragments/figures/FIG_POLYNOMIAL_SV_CELL.tex}
+\input{tex_fragments/figures/FIG_CONTRAST_MEMORY_CELL.tex}
 \caption{One cell: twelve ports, thirty seams and twenty faces with the
 incidence of the icosahedron, in an orthographic view with the far seams
 dashed. Filled ports hold one load. (a) A pair. The dashed heavy seams are
@@ -408,7 +407,7 @@ memory alone. No admitted public record is unwritten by it.
 
 \begin{figure}[!htb]
 \centering
-\input{tex_fragments/figures/FIG_POLYNOMIAL_SV_ECHO.tex}
+\input{tex_fragments/figures/FIG_CONTRAST_MEMORY_ECHO.tex}
 \caption{The echo on one seam. The write records the coin $c$ and the
 contrast $d=n_a-n_b$ in the private memory and leaves the output of the
 native seam event on the two ports. The phase acts on the memory alone.
@@ -1253,7 +1252,7 @@ $320$ cells & $8$ & $0.182965$ & $0.00963435$ & $0.977091$ \\
 
 \begin{figure}[!htb]
 \centering
-\input{tex_fragments/figures/FIG_POLYNOMIAL_SV_STABILITY.tex}
+\input{tex_fragments/figures/FIG_CONTRAST_MEMORY_STABILITY.tex}
 \caption{The largest probability of ``no pair'' over the readings of each
 run of Table~\ref{tab:stability}, on a logarithmic axis, with the bound for
 the constants of the carrier and the bound of Corollary~\ref{cor:emitted}
@@ -1766,7 +1765,7 @@ The dark-sector paper of the theory takes a recovery defect on an overlap
 collar as the carrier of its non-luminous source: the defect carries the
 charge of the collar's generator, has no electromagnetic readout, and its
 stress vanishes at full recovery \cite{ophdarkmatter}. The unrecovered
-collar of polynomial-sv has the corresponding properties inside the model.
+collar of A-contrast-memory-spherical-v1 has the corresponding properties inside the model.
 It is conserved, it holds no load, its generator vanishes on the recovered
 seam, and its level above the recovered seam is set by $\kappa$. This paper
 establishes no physical reading of the collar as that carrier.
@@ -2159,7 +2158,7 @@ Corollary~\ref{cor:emitted} and Proposition~\ref{prop:reader}, are operator
 estimates and no claim that the allocation of a whole federation with its
 readers was propagated.
 
-The name polynomial-sv is a name. The construction encodes no constraint
+The construction encodes no constraint
 instance, decodes no witness from its records and reaches no fixed point,
 since the law conserves the multiset of loads. It is no solver for general
 constraint problems and claims no polynomial bound for one.
@@ -2288,7 +2287,7 @@ The cage under seam hopping round every port & no single line; the excitation is
 \section{Conclusion}
 \label{sec:conclusion}
 
-The model polynomial-sv is a finite specification with every part
+The model A-contrast-memory-spherical-v1 is a finite specification with every part
 stated: a carrier of icosahedral cells, loads on ports, a private memory
 on every seam, one local term for each seam, an emitter, a reader with a
 complete outcome set, and the schedules under which the law is run. The
@@ -2311,10 +2310,10 @@ laws are candidate native repair laws, and their couplings are supplied.
 \section{Reproducibility}
 \label{sec:repro}
 
-The model is the package \path{model/polynomial_sv} of the public
+The model is the package \path{model/contrast_memory_spherical_v1} of the public
 repository \cite{ophrepo}. The command
 \begin{center}
-\texttt{python -m model.polynomial\_sv.verify}
+\texttt{python -m model.contrast\_memory\_spherical\_v1.verify}
 \end{center}
 recomputes the model from the carrier arrays of the package and compares
 the outcome with the stored results; with the option \texttt{-{}-full} it
@@ -2333,8 +2332,8 @@ given in full in the text and do not depend on the computations.
 
 The commands
 \begin{center}
-\texttt{python -m model.polynomial\_sv.presence}\\
-\texttt{python -m model.polynomial\_sv.presence\_certificate}\\
+\texttt{python -m model.contrast\_memory\_spherical\_v1.presence}\\
+\texttt{python -m model.contrast\_memory\_spherical\_v1.presence\_certificate}\\
 \texttt{python -m model.scalar\_channel}\\
 \texttt{python -m model.scalar\_channel.cage}
 \end{center}

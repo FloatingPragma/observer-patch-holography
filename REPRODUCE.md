@@ -7,25 +7,25 @@ then have their own theorem, certificate, or experimental acceptance rule.
 
 ## Executable model
 
-[polynomial-sv](model/polynomial_sv/README.md) is the executable model of
+[A-contrast-memory-spherical-v1](model/contrast_memory_spherical_v1/README.md) is the executable model of
 OPH. Its contrast-memory law is a candidate native repair law of the theory
-([specification](model/polynomial_sv/SPEC.md),
-[binding theorem and proof](model/polynomial_sv/PROOF.md)); the
+([specification](model/contrast_memory_spherical_v1/SPEC.md),
+[binding theorem and proof](model/contrast_memory_spherical_v1/PROOF.md)); the
 [executable-model paper](paper/executable_observer_construction.pdf) gives the
 full account. From the repository root:
 
 ```sh
 python -m pip install -r model/requirements.txt
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model
-python -m pytest -q -W error model/polynomial_sv
+python -m pytest -q -W error model/contrast_memory_spherical_v1
 ```
 
-`python -m model` runs `model.polynomial_sv.verify`. It recomputes the
+`python -m model` runs `model.contrast_memory_spherical_v1.verify`. It recomputes the
 headline results (the exact identities of the local law for symbolic
 coupling, the constants of the binding theorem, particle stability on the
 observers' agreed records with its controls, the bound objects, the port
 response and the unrecovered collar) and compares them with
-`model/polynomial_sv/RESULTS.json` within stated tolerances. A disagreement
+`model/contrast_memory_spherical_v1/RESULTS.json` within stated tolerances. A disagreement
 fails verification; the last line printed is a JSON line with
 `"verified": true`. `python -m model --full` adds the federations of 80 and
 320 cells and every long run (an hour or more). `--output PATH` writes a fresh
@@ -42,7 +42,7 @@ three-dimensional lattice.
 ## Theory packages under `model/`
 
 The other packages under `model/` check conditional theorems on their own
-declared carriers. Their replay establishes no transfer to polynomial-sv
+declared carriers. Their replay establishes no transfer to A-contrast-memory-spherical-v1
 without an explicit source map:
 
 ```sh
@@ -180,7 +180,7 @@ from a clean clone, so it is not the documented gate here. A bare
 `python -m pytest` collects `code/` only (`testpaths` in `pytest.ini`); the
 regression tests under `tools/` run through the mandatory suite. The
 executable model has its own gate above (`python -m model` and
-`python -m pytest -q -W error model/polynomial_sv`). Individual scientific
+`python -m pytest -q -W error model/contrast_memory_spherical_v1`). Individual scientific
 test outcomes are tracked as their own issues, and some are not reproducible
 from the public checkout alone. In particular:
 
@@ -229,7 +229,7 @@ Einstein-branch axiom check. `Lean/README.md` documents the layout;
 ## Paper review and publication builds
 
 A new paper release follows the owner's approval of a recorded model
-milestone of the [executable model](model/polynomial_sv/README.md); the
+milestone of the [executable model](model/contrast_memory_spherical_v1/README.md); the
 [paper set](docs/PAPER_SET.md) records the role of each paper. Correctness fixes, errata, review builds and their validation continue
 between releases. The publication commands below require that maintainer
 decision or an authorized scoped corrective release.

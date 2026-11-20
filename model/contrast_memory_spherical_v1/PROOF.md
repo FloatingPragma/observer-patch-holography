@@ -1,4 +1,4 @@
-# The binding theorem of the polynomial-sv model
+# The binding theorem of the A-contrast-memory-spherical-v1 model
 
 This document proves that a pair of loads on a seam stays a pair under the contrast-memory law
 (`A-contrast-memory-spherical-v1`, a candidate native repair law) on every federation of complete cells, with a

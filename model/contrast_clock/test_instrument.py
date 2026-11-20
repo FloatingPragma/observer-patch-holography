@@ -7,7 +7,7 @@ import unittest
 import numpy as np
 from scipy.linalg import expm
 
-from model.polynomial_sv.carrier import CELL_SEAMS
+from model.contrast_memory_spherical_v1.carrier import CELL_SEAMS
 
 from . import controller
 

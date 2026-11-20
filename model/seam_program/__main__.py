@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 
 from tools.strict_json import load
-from ..polynomial_sv import carrier, reader, sectors
+from ..contrast_memory_spherical_v1 import carrier, reader, sectors
 from .gate import ROOT, archive, counters, real_step, receipt, require
 from .compiler import Compiler
 
@@ -14,7 +14,7 @@ HERE = Path(__file__).resolve().parent
 
 
 def pins():
-    native = ROOT/"model/polynomial_sv"
+    native = ROOT/"model/contrast_memory_spherical_v1"
     files = [HERE/n for n in ("__init__.py","__main__.py","compiler.py","gate.py","protocol.json")]
     files += [native/n for n in ("carrier.py","sectors.py","reader.py","law.py","carriers/FEDERATION_LEVEL0.npz")]
     def digest(p):

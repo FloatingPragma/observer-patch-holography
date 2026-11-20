@@ -9,8 +9,8 @@ seams than the first, nothing holds it but the law, and the law with the agreeme
 The bound holds at every value of the evolution parameter, so it holds whenever an observer reads. The sampled
 parameter values, the levels and the state vectors below are audit.
 
-    python -m model.polynomial_sv.stability          # one cell and 20 cells
-    python -m model.polynomial_sv.stability --full   # also 80 and 320 cells, the face object on 20 cells
+    python -m model.contrast_memory_spherical_v1.stability          # one cell and 20 cells
+    python -m model.contrast_memory_spherical_v1.stability --full   # also 80 and 320 cells, the face object on 20 cells
 """
 from __future__ import annotations
 

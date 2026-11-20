@@ -74,7 +74,7 @@ states what inter-observer agreement must preserve.
 
 ## The executable specification
 
-The official specification is [polynomial-sv](../model/polynomial_sv/SPEC.md).
+The official specification is [A-contrast-memory-spherical-v1](../model/contrast_memory_spherical_v1/SPEC.md).
 Its carrier is a federation of twelve-port icosahedral cells joined by
 external seams. Every port holds a load of 0, 1 or 2, and every seam keeps a
 private memory that its two port observers write, phase and unwrite. On the
@@ -83,7 +83,7 @@ one supplied coupling: the contrast-memory law, a candidate native repair
 law of the theory. A local emitter writes objects and a two-observer reader
 admits agreed records. The creator may supply this architecture; observers
 need not invent its laws. The model reproduces particle stability on its
-observers' agreed records ([binding theorem](../model/polynomial_sv/PROOF.md)).
+observers' agreed records ([binding theorem](../model/contrast_memory_spherical_v1/PROOF.md)).
 A second candidate law on the same carrier, the [scalar channel](../model/scalar_channel/README.md), holds an object on four seams: its excitation is kept for every interval, and after a pulse its seam record swings at one line that an observer reads from counts in units of its own reference ([cage](../model/scalar_channel/cage/README.md)).
 
 The carrier is hardware of the computation and no physical space. Physical
@@ -130,6 +130,6 @@ records the connections to the executable specification.
   gives the account, states the closure and executable-model hypotheses and
   walks through the tower of results layer by layer.
 - The [executable observer paper](../paper/executable_observer_construction.tex)
-  specifies polynomial-sv, proves the binding theorem and reports what its
+  specifies A-contrast-memory-spherical-v1, proves the binding theorem and reports what its
   observers read.
 - The theorem library holds the long proofs: consensus, observers and records, gauge structure, matter, screen microphysics, and spacetime with Einstein dynamics.

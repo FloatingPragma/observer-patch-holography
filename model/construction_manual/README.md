@@ -1,11 +1,11 @@
-# The executable construction of polynomial-sv: hardware and software
+# The executable construction of A-contrast-memory-spherical-v1: hardware and software
 
 The construction on one sheet and panel by panel. Hardware is the carrier with its registers. Software is the
 law that acts on it, with the instruments, the clock and the records of an observer.
 
-polynomial-sv is the executable model of the theory: one hardware, and the laws under test on it. Law 1, the
-contrast-memory law, is executed by the package [polynomial_sv](../polynomial_sv/README.md), whose
-[specification](../polynomial_sv/SPEC.md) is the binding text for it. Law 2, the scalar channel, is executed by
+A-contrast-memory-spherical-v1 is the executable model of the theory: one hardware, and the laws under test on it. Law 1, the
+contrast-memory law, is executed by the package [contrast_memory_spherical_v1](../contrast_memory_spherical_v1/README.md), whose
+[specification](../contrast_memory_spherical_v1/SPEC.md) is the binding text for it. Law 2, the scalar channel, is executed by
 the package [scalar_channel](../scalar_channel/README.md) on one cell, and its cage by the subpackage
 [cage](../scalar_channel/cage/README.md). Both laws are candidates under test, and the search for the correct
 native repair law is work in progress. The two laws have different state spaces, and their results are not
@@ -103,14 +103,14 @@ on 432 two-state registers (120 transit bits, 120 bits in the codes of the ports
   whose direction, in the local frame of the cell, has the largest inner product with the direction of that
   neighbour; collisions are repaired by an exact assignment. At 320 cells it gives 216 cells whose three external
   ports lie pairwise two seams apart, and 104 with ports at distances 1, 2 and 3.
-- Files: [../polynomial_sv/carriers/](../polynomial_sv/carriers/) `FEDERATION_LEVEL0.npz`, `LEVEL1.npz`,
+- Files: [../contrast_memory_spherical_v1/carriers/](../contrast_memory_spherical_v1/carriers/) `FEDERATION_LEVEL0.npz`, `LEVEL1.npz`,
   `LEVEL2.npz`.
 
 ## Software 1: law 1, loads with a seam memory
 
 ![Law 1](fig_law1.svg)
 
-Candidate `A-contrast-memory-spherical-v1`, the law of [polynomial-sv](../polynomial_sv/README.md).
+Candidate `A-contrast-memory-spherical-v1`, the law of the [executable model](../contrast_memory_spherical_v1/README.md).
 
     H = (1/2) sum_e (1 - SWAP_e) + kappa C
     C = sum_e (n_a - n_b)^2 + sum_v (6 - d_v) n_v^2 = 6 sum_v n_v^2 - 2 sum_e n_a n_b
@@ -122,7 +122,7 @@ Candidate `A-contrast-memory-spherical-v1`, the law of [polynomial-sv](../polyno
 - **Costs.** Two loads on one seam 10 `kappa`, two loads apart 12 `kappa`, two loads on one port 24 `kappa`.
 - **Theorem.** For `kappa > 3`, from every start on a seam and at every time, the probability of "no pair on a
   seam" is at most `40 / (2 kappa - 6)^2`, on every federation of complete cells
-  ([proof](../polynomial_sv/PROOF.md)).
+  ([proof](../contrast_memory_spherical_v1/PROOF.md)).
 - **Kept exactly.** The number of loads and the numbers of ports with one and with two loads; for every seam,
   whether its memory is blank and the size `|x|` of a record it holds.
 - **As events.** Every seam acts once per round by `exp(-i tau h_e)`, and each port observer counts its own
@@ -130,7 +130,7 @@ Candidate `A-contrast-memory-spherical-v1`, the law of [polynomial-sv](../polyno
 - **Two readings.** The reader keeps one record per seam. The presence reading keeps one answer for the whole
   cell, "a pair on some seam", through a reversible tree over the thirty readers. Both find a pair with the same
   probability and leave different states behind, and the records of a later reading tell them apart
-  ([presence.py](../polynomial_sv/presence.py)).
+  ([presence.py](../contrast_memory_spherical_v1/presence.py)).
 - **Supplied.** The coupling `kappa`, the emitter with its fuel, the reader, the reference registers, the routing
   of the federation, the tree of the presence reading.
 
@@ -228,7 +228,7 @@ python model/construction_manual/make_paper_figures.py    # writes the figures o
 ```
 
 The script needs NumPy and NetworkX from `model/requirements.txt`. It reads the cell from `inputs/`, the
-federations from `../polynomial_sv/carriers/` and the numbers of the cage panel from
+federations from `../contrast_memory_spherical_v1/carriers/` and the numbers of the cage panel from
 `../scalar_channel/cage/results.json`. The figures of the papers use the same geometry; their stability plot is
 computed from the law on the federation of 20 cells, and their PDFs are rendered by `rsvg-convert` and normalized
 by Ghostscript, as the diagrams of the book are.

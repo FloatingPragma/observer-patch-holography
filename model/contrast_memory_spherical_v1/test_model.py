@@ -1,4 +1,4 @@
-"""Tests of the polynomial-sv model: local identities, carriers, the theorem's inequalities, the headline checks,
+"""Tests of the A-contrast-memory-spherical-v1 model: local identities, carriers, the theorem's inequalities, the headline checks,
 the controls, mutations that each headline check must notice, and the default verification."""
 from __future__ import annotations
 

@@ -8,7 +8,7 @@ import pytest
 from scipy import sparse as sp
 from scipy.linalg import expm
 
-from ...polynomial_sv import law as native
+from ...contrast_memory_spherical_v1 import law as native
 from ..cage import construction as cage
 from . import joint_clock as clock
 from .__main__ import HERE

@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 
 from tools.strict_json import load
-from ..polynomial_sv import carrier, reader, sectors
+from ..contrast_memory_spherical_v1 import carrier, reader, sectors
 from .gate import archive, counters, receipt, require
 from .compiler import Compiler
 from .preparation import HERE, execute_source, make_source, preparation_pins, raw_event, rotation, target

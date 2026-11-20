@@ -19,7 +19,7 @@ def optimized(script):
 
 def test_optimized_layers_cover_cell_and_federation_with_matchings():
     optimized('''
-from model.polynomial_sv import carrier, sectors
+from model.contrast_memory_spherical_v1 import carrier, sectors
 for car, count in ((carrier.cell(), 5), (carrier.federation(0), 6)):
     layers = sectors.layers(car)
     if len(layers) != count:
@@ -35,7 +35,7 @@ for car, count in ((carrier.cell(), 5), (carrier.federation(0), 6)):
 
 def test_optimized_carrier_rejects_tampered_degree_table():
     optimized('''
-from model.polynomial_sv import carrier
+from model.contrast_memory_spherical_v1 import carrier
 carrier._federation_arrays = lambda level: (12, carrier.CELL_SEAMS, (6,) * 12)
 try:
     carrier.federation(0)
@@ -49,7 +49,7 @@ else:
 
 def test_optimized_exact_law_rejects_changed_write():
     optimized('''
-from model.polynomial_sv import law
+from model.contrast_memory_spherical_v1 import law
 law.native_event = lambda a, b, c: (a, b)
 try:
     law.exact_checks()

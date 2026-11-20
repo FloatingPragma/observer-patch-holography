@@ -5,7 +5,7 @@ bit between neighboring centers, reading it locally, and retaining the
 outcome. This experimental scalar construction executes that protocol and
 connects its prepared state to finite source-on pulses and complete pointer
 readouts. It is an alternative to the primary
-[contrast-memory model](../polynomial_sv/README.md), with different dynamics.
+[contrast-memory model](../contrast_memory_spherical_v1/README.md), with different dynamics.
 
 The [proof](PROOF.md) gives the source map and the complete instrument,
 including interrupted routes and quantum references. The

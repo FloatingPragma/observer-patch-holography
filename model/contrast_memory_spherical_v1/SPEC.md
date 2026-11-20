@@ -1,7 +1,7 @@
-# polynomial-sv executable specification
+# A-contrast-memory-spherical-v1 executable specification
 
-The polynomial-sv model is the executable construction of the contrast-memory law, identifier
-`A-contrast-memory-spherical-v1`. The law is a candidate native repair law. This document fixes the carrier, the
+The A-contrast-memory-spherical-v1 model is the executable construction of the contrast-memory law.
+The law is a candidate native repair law. This document fixes the carrier, the
 state, the local law with its memory, the law on loads, the sectors, the emitter, the reader and its records, the
 events and schedules, the resources and the supplied parts. The code in this folder implements every clause;
 [PROOF.md](PROOF.md) holds the binding theorem and its proof, and [RESULTS.json](RESULTS.json) the computed values.

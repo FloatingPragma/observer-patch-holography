@@ -1,9 +1,9 @@
-% The bound objects of the polynomial-sv model as its particle candidates.
+% The bound objects of the A-contrast-memory-spherical-v1 model as its particle candidates.
 % Input by deriving_the_particle_zoo_from_observer_consistency.tex as its own section.
-\section{The bound objects of the polynomial-sv model}
-\label{sec:psv-objects}
+\section{The bound objects of the A-contrast-memory-spherical-v1 model}
+\label{sec:cms-objects}
 
-The executable model of the theory is polynomial-sv, specified with its proofs in the
+The candidate executable model of the theory is A-contrast-memory-spherical-v1, specified with its proofs in the
 executable-model paper \cite{ophmodel}. Its first law is the contrast-memory law, a
 candidate native repair law, and the scalar channel is a second. This section reads the
 bound objects of the first law as particle
@@ -15,7 +15,7 @@ binding theorem, the emitter and the reader are proved in \cite{ophmodel} and ar
 here.
 
 \subsection{What a test of the model is}
-\label{sec:psv-test}
+\label{sec:cms-test}
 
 A test of the model compares distributions of admissible observer records with what
 observers in our world record. The state of the simulation does not contain the physical
@@ -60,7 +60,7 @@ exactly as
 \begin{equation}
  H_\kappa=\frac12\sum_e\bigl(I-\mathrm{SWAP}_e\bigr)+\kappa C,\qquad
  C=6\sum_v n_v^2-2\sum_{e=\{a,b\}}n_an_b,
- \label{eq:psv-law}
+ \label{eq:cms-law}
 \end{equation}
 for every real $\kappa$, and it keeps a blank memory blank \cite{ophmodel}. The coupling
 $\kappa$ is one dimensionless number, the agreement energy in units of the exchange. A
@@ -74,17 +74,17 @@ carrier with loads up to two, and the tests on agreed records.
 
 \begin{figure}[!htb]
 \centering
-\input{tex_fragments/figures/FIG_POLYNOMIAL_SV_CELL.tex}
-\caption{One cell of the polynomial-sv model in an orthographic view, far seams dashed.
+\input{tex_fragments/figures/FIG_CONTRAST_MEMORY_CELL.tex}
+\caption{One cell of the A-contrast-memory-spherical-v1 model in an orthographic view, far seams dashed.
 Filled ports hold one load. (a) A pair on a seam; the dashed heavy seams are the four
 seams on which it is read after one exchange. (b) A face object. The drawing shows
 hardware of the computation, and no position in physical space.}
-\label{fig:psv-cell}
+\label{fig:cms-cell}
 \end{figure}
 
 \subsection{The pair on a seam}
 
-A pair is two loads on the two ends of one seam (Figure~\ref{fig:psv-cell}a). A single
+A pair is two loads on the two ends of one seam (Figure~\ref{fig:cms-cell}a). A single
 load persists by conservation of the number of loads, so the pair is the smallest object
 whose persistence is an outcome of the law. Let $P$ project on the span of the pairs on a
 seam in the sector of two loads and $Q=I-P$, which contains every separated pair and
@@ -98,7 +98,7 @@ and for $\kappa>3$, for every state that starts in $P$ and every value of the ev
 parameter,
 \begin{equation}
  \Pr(\text{no pair on a seam})\le\frac{40}{(2\kappa-6)^2}.
- \label{eq:psv-binding}
+ \label{eq:cms-binding}
 \end{equation}
 The bound does not depend on the number of cells. The proof combines ordered-block
 min-max with the Sylvester equation for ordered spectra. With the constants measured on
@@ -117,7 +117,7 @@ private and unread, the seam records are committed at the reading, and each read
 a fresh run, so reading never holds the object in place \cite{ophmodel}.
 
 \subsection{Particle stability, an observable the model reproduces}
-\label{sec:psv-stability}
+\label{sec:cms-stability}
 
 Particle stability is stated on the agreed records of port observers. A pair written on
 one seam by the local emitter is read as a pair on some seam with probability at least one
@@ -126,7 +126,7 @@ it except the law, and the same law without the agreement energy loses it. In th
 statement ``the pair moves'' means ``the pair is read on other seams''; a seam is a place
 in the hardware of the computation. The claim uses no clock, because the bound holds at
 every value of the evolution parameter and hence at every reading in any observer's own
-history. Table~\ref{tab:psv-stability} gives the largest probabilities over the readings
+history. Table~\ref{tab:cms-stability} gives the largest probabilities over the readings
 of each run.
 
 \begin{table}[htbp]
@@ -134,7 +134,7 @@ of each run.
 \caption{Particle stability on agreed seam records. Largest probabilities over the
 readings of each run; the bound is that of the binding theorem with the constants of
 the carrier and the emitter's error.}
-\label{tab:psv-stability}
+\label{tab:cms-stability}
 \begin{tabular}{@{}lrrrr@{}}
 \toprule
 Carrier & $\kappa$ & Bound & Largest $P$(no pair) & Largest $P$(pair on another seam)\\
@@ -158,7 +158,7 @@ cells and at $-14.24$ on one cell, counted from two free loads at $0$, and it is
 seam with probability $0.987$: the pair is bound by the law and by no trap.
 
 \paragraph{Controls.}
-Table~\ref{tab:psv-controls} repeats the run on $20$ cells at $\kappa=8$ for two laws with
+Table~\ref{tab:cms-controls} repeats the run on $20$ cells at $\kappa=8$ for two laws with
 the same alphabet, routing and symmetry. The exchange law alone loses the pair; its lowest
 level of two unit loads is the uniform state at exactly $0$, in which a pair on a seam has
 the weight $630/28680=0.022$ of a uniformly random pair. With the agreement energy reversed
@@ -173,7 +173,7 @@ property is a result of the same computation.
 \centering\small
 \caption{Changed laws on $20$ cells with $\kappa=8$. The lowest level is that of two unit
 loads, counted from the energy of two free loads (audit on the spectrum).}
-\label{tab:psv-controls}
+\label{tab:cms-controls}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 Law & Largest $P$(no pair) & Lowest level & Pair on a seam in it\\
@@ -187,7 +187,7 @@ agreement energy reversed & $0.0124$ & $+0.0066$ & $0.00002$\\
 
 \paragraph{The face object.}
 Three loads on the three ports of one face form the face object
-(Figure~\ref{fig:psv-cell}b); its record is the conjunction of the agreed records of the
+(Figure~\ref{fig:cms-cell}b); its record is the conjunction of the agreed records of the
 three seams of the face. Started on one face at $\kappa=8$, the outcome ``no agreed face''
 has probability at most $0.0178$ on one cell and $0.0174$ on $20$ cells, and the object is
 read on another face with probability up to $0.98$ and $0.94$. Under the exchange law alone
@@ -212,13 +212,13 @@ seam, and an observer that serves each of its seams once per round supplies that
 regularity with its own count.
 
 \subsection{The catalogue of objects}
-\label{sec:psv-catalogue}
+\label{sec:cms-catalogue}
 
 An object is a set of $N$ unit loads. Its cost in $C$ is
 \[
  C=6N-2\,(\text{number of agreed seams}).
 \]
-Table~\ref{tab:psv-objects} lists the cheapest objects of $N$ loads on one cell. The first
+Table~\ref{tab:cms-objects} lists the cheapest objects of $N$ loads on one cell. The first
 three sit on the three kinds of centre of the cell, its $12$ ports, $30$ seams and $20$
 faces, the $62$ axis points of the carrier. The face is the place where the class theory of
 Section~\ref{sec:defect-particle-classes} puts a protected defect. Every object gains at
@@ -229,9 +229,9 @@ conserved number of loads and the gap of the law. The law holds no winding and n
 
 \begin{table}[htbp]
 \centering\small
-\caption{The cheapest objects of $N$ unit loads on one cell of the polynomial-sv model.
+\caption{The cheapest objects of $N$ unit loads on one cell of the A-contrast-memory-spherical-v1 model.
 The last column is the least gain against a split into two parts.}
-\label{tab:psv-objects}
+\label{tab:cms-objects}
 \begin{tabular}{@{}rlrrrr@{}}
 \toprule
 $N$ & Shape & How many & Agreed seams & Cost & Gain against a split\\
@@ -253,7 +253,7 @@ $12$ & the whole cell & $1$ & $30$ & $12$ & $10$\\
 \end{table}
 
 At finite $\kappa$ the lowest level $E_N$ of $N$ unit loads on one cell is a single state,
-invariant under the rotations of the cell. Table~\ref{tab:psv-bindings} gives its binding
+invariant under the rotations of the cell. Table~\ref{tab:cms-bindings} gives its binding
 $B_N=6\kappa N-E_N$ against $N$ free loads, in units of the exchange; these are levels of
 the law and audit on the spectrum. The bindings follow the numbers of agreed seams $1$,
 $3$, $5$, $7$, $10$, and their ratios are nearly independent of $\kappa$. In the lowest
@@ -264,7 +264,7 @@ $1.00$ at $\kappa=0.5$, $2$, $8$ and $128$.
 \centering\small
 \caption{Binding $B_N$ of the lowest level of $N$ unit loads on one cell against $N$ free
 loads, in units of the exchange.}
-\label{tab:psv-bindings}
+\label{tab:cms-bindings}
 \begin{tabular}{@{}rrrrrr@{}}
 \toprule
 $\kappa$ & $B_2$ & $B_3$ & $B_4$ & $B_5$ & $B_6$\\
@@ -291,7 +291,7 @@ Proposition~\ref{prop:defect-statistics} concerns the declared code of
 Section~\ref{sec:defect-particle-classes} and makes no statement about these objects.
 
 \subsection{The port response and the complete-response premise}
-\label{sec:psv-response}
+\label{sec:cms-response}
 
 The gauge theorem of Section~\ref{sec:finite-supply} consumes twelve port generators that
 are independent, closed under commutators, with a positive trace form, and with the
@@ -335,7 +335,7 @@ on a seam costs exactly what two free loads in the slow level cost, $5-\sqrt5$ a
 $12\kappa$.
 
 \subsection{A proposed reading of classes}
-\label{sec:psv-class-reading}
+\label{sec:cms-class-reading}
 
 The law has one conserved number, the number of loads, and loads add when objects merge.
 If one load is given class $1$, an object of $N$ loads has class
@@ -348,10 +348,10 @@ records; the reaction table of the register of
 Table~\ref{tab:defect-reactions} against the merging of objects; and the count of states
 per class against the multiplicities $(4,6,6,4,6,6)$ of
 Theorem~\ref{thm:defect-particle-classes}. Each is a comparison of record distributions in
-the sense of Section~\ref{sec:psv-test}.
+the sense of Section~\ref{sec:cms-test}.
 
 \subsection{A second object on a second candidate law}
-\label{sec:psv-cage}
+\label{sec:cms-cage}
 
 The same carrier holds a second candidate law, the scalar channel, with one mode on every
 seam and on every pair of seams at a port \cite{ophmodel}. Its frequencies obey
@@ -368,7 +368,7 @@ the phase and the work, the level of a cage is flat, and the law holds no term b
 objects. The two laws act on different state spaces, and their results are not added up.
 
 \subsection{Supplied parts and limits}
-\label{sec:psv-scope}
+\label{sec:cms-scope}
 
 \paragraph{Supplied.}
 The following parts are design choices of the construction: the coupling $\kappa$, with
@@ -377,7 +377,7 @@ on the private seam memory; the reference registers of the degree term on ports 
 seams; the emitter with its fuel, coupling and duration; the evolution parameter of the
 runs with a continuous parameter, while as local events the pair needs each seam to act
 once per round or the limit of small event angle; the tangent-frame routing of the
-federation; and the weighted port service of Section~\ref{sec:psv-response}.
+federation; and the weighted port service of Section~\ref{sec:cms-response}.
 
 \paragraph{Limits.}
 The construction does not supply a selection of $\kappa$; a second sign of load in the
@@ -389,5 +389,5 @@ objects, since the bound pair is a Galilean composite whose branch on a chain is
 $E(K)=\Delta-\cos^2(K/2)/\Delta$ with $\Delta=1+2\kappa$; a refinement map that preserves
 seams; an observer clock normalized to proper time; and the regional response that the
 Einstein theorem consumes \cite{ophEinstein}. These limits are measured against the test of
-Section~\ref{sec:psv-test}. None of them asks the model to contain three dimensions in its
+Section~\ref{sec:cms-test}. None of them asks the model to contain three dimensions in its
 state.

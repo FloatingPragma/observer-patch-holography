@@ -1,6 +1,6 @@
 # Proofs for the seam program
 
-## Realization by polynomial-sv seam events
+## Realization by A-contrast-memory-spherical-v1 seam events
 
 Mark port $m$ of a connected carrier and restrict the controls to seams avoiding $m$. Encode the moving slot
 at port $j$ as the two-load state $|\{m,j\}\rangle$. On this subspace a seam has at most one of the two loads.
@@ -9,7 +9,7 @@ other ports are spectators. The subspace is reducing. For $\tau=\pi$ this event 
 exactly. Conjugating the final edge of a path of length $\ell$ by the first $\ell-1$ swaps implements the
 desired exchange between its endpoints in $2\ell-1$ events. Every intermediate port is restored, even if
 it carried an unknown coherent amplitude. This construction needs paths avoiding the marker.
-[Seam event](../polynomial_sv/SPEC.md#8-events-and-schedules) · [Compiler](compiler.py)
+[Seam event](../contrast_memory_spherical_v1/SPEC.md#8-events-and-schedules) · [Compiler](compiler.py)
 
 On one eight-port block label the slot basis by the three-bit words. For each nonzero mask $a$, the four
 disjoint pairs $i,i\mathbin{\mathrm{xor}}a$ generate $(I-X_a)/2$, where $X_a$ translates by that mask.
@@ -31,7 +31,7 @@ section 8 of the specification is $\kappa(n_a+n_b)$, which commutes with both ge
 declared $\kappa=8$, both $\kappa\pi/4$ and $\kappa\pi$ are multiples of $2\pi$. The two event unitaries
 therefore agree, including relative phases between occupied and empty seams. This argument holds on
 the entire binary pair sector, including preparation error. Blank seam memories return to blank.
-Other couplings and pulse lengths require their own phase check. [Blank-memory identity](../polynomial_sv/law.py)
+Other couplings and pulse lengths require their own phase check. [Blank-memory identity](../contrast_memory_spherical_v1/law.py)
 
 The finite emitter starts with fuel on the marker and source seam. Its error relative to the ideal
 pair is bounded in norm by $\sqrt{d_m+d_j-2}/(2g)$. Both ideal and actual states then undergo the
@@ -42,7 +42,7 @@ complete seam measurement also reports every other seam and the no-pair outcome.
 contributes to no pair. A finite-duration read under the hypotheses of the native reader adds at most
 $12\tau_{\rm read}$ to this bound. The execution stores ideal instantaneous readouts after the finite
 emitter. Distinct selected-slot settings use fresh preparations.
-[Emitter](../polynomial_sv/sectors.py) · [Reader](../polynomial_sv/reader.py)
+[Emitter](../contrast_memory_spherical_v1/sectors.py) · [Reader](../contrast_memory_spherical_v1/reader.py)
 
 **Preparation obstruction for the routing pulses.** On a connected control component of $N$ nonmarker
 ports, each section 8 partial exchange fixes the uniform vector. So does an unshifted pulse with

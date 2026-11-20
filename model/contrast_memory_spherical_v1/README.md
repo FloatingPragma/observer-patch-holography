@@ -1,7 +1,7 @@
-# polynomial-sv
+# A-contrast-memory-spherical-v1
 
-polynomial-sv is the executable model of OPH. Its law is the contrast-memory law
-(`A-contrast-memory-spherical-v1`), a candidate for the native repair law of the theory: the simple local rule
+A-contrast-memory-spherical-v1 is the candidate executable model of OPH. Its law is the contrast-memory law,
+a candidate for the native repair law of the theory: the simple local rule
 by which neighbouring observers settle their disagreements. Each port of a twelve-port cell (the echosahedron)
 holds a load of 0, 1 or 2. Each seam between two ports keeps a small private memory of how much its two ends
 disagree. The memory writes the disagreement, gives it a phase, and erases it again, and what is left on the
@@ -61,10 +61,10 @@ numbers are in [RESULTS.json](RESULTS.json) and [presence_results.json](presence
 From the repository root, with NumPy, SciPy and SymPy:
 
 ```sh
-python -m model.polynomial_sv.verify            # headline subset, under a minute
-python -m model.polynomial_sv.verify --full     # everything, 80 and 320 cells included (an hour or more)
-python -B -O -m model.polynomial_sv.presence     # replay the two-reading public laws
-python -m pytest -q model/polynomial_sv          # tests, under a minute
+python -m model.contrast_memory_spherical_v1.verify            # headline subset, under a minute
+python -m model.contrast_memory_spherical_v1.verify --full     # everything, 80 and 320 cells included (an hour or more)
+python -B -O -m model.contrast_memory_spherical_v1.presence     # replay the two-reading public laws
+python -m pytest -q model/contrast_memory_spherical_v1          # tests, under a minute
 ```
 
 `verify` recomputes and compares with `RESULTS.json` within tolerances; `--output PATH` writes a fresh result
@@ -109,4 +109,4 @@ a record of currents that later events read, the class of an object as a record,
 the law's own services on the bound pair, one limiting speed for all objects (on a chain the pair's branch is
 `E(K) = Delta - cos^2(K/2)/Delta` with `Delta = 1 + 2 kappa`), a refinement map that preserves seams, an observer
 clock normalized to proper time, and the regional response that the Einstein theorem of the theory consumes.
-The model is no solver for general constraint problems, and its name claims no polynomial bound for one.
+The model is no solver for general constraint problems and claims no polynomial bound for one.

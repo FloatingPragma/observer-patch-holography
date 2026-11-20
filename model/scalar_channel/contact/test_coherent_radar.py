@@ -4,7 +4,7 @@ import numpy as np
 import pytest
 from scipy.linalg import expm
 
-from ...polynomial_sv import law as native
+from ...contrast_memory_spherical_v1 import law as native
 from .coherent_radar import first_hit, labels, pair_records
 from .law import collar_states
 

@@ -146,7 +146,7 @@ def test_reversed_seam_chart_transports_every_memory_state_and_reference():
 
 def test_the_port_map_addresses_every_cell_of_every_federation():
     """The labels of the construction manual reach the local ports of every cell of the three federations."""
-    from .polynomial_sv import carrier
+    from .contrast_memory_spherical_v1 import carrier
     from .scalar_channel.carrier import EDGES
     port_map = (0, 1, 5, 7, 11, 9, 10, 8, 4, 6, 2, 3)
     cells = 0

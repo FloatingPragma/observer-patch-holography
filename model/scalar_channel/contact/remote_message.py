@@ -32,7 +32,7 @@ ABSTAIN = -1
 
 def sign_measurement_certificate():
     """The supplied written d=+1 state gives a fair native sign readout at A_s=1."""
-    from ...polynomial_sv import law as contrast
+    from ...contrast_memory_spherical_v1 import law as contrast
     from .law import collar_states
 
     exchange, square = contrast.local_term_parts()

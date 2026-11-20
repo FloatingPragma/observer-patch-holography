@@ -14,7 +14,7 @@ from functools import lru_cache
 
 import numpy as np
 
-from ...polynomial_sv import law as contrast
+from ...contrast_memory_spherical_v1 import law as contrast
 from ..carrier import load_source, require
 from ..compiler import build
 from ..cage import construction as cage

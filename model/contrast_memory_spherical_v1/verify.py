@@ -1,9 +1,9 @@
-"""Recompute the polynomial-sv model and compare it with the stored results.
+"""Recompute the A-contrast-memory-spherical-v1 model and compare it with the stored results.
 
-    python -m model.polynomial_sv.verify                  # headline subset, a few minutes at most
-    python -m model.polynomial_sv.verify --full           # everything, including 80 and 320 cells and the events
-    python -m model.polynomial_sv.verify --output PATH    # write a fresh result file (no comparison)
-    python -m model.polynomial_sv.verify --verify PATH    # compare with an explicit result file
+    python -m model.contrast_memory_spherical_v1.verify                  # headline subset, a few minutes at most
+    python -m model.contrast_memory_spherical_v1.verify --full           # everything, including 80 and 320 cells and the events
+    python -m model.contrast_memory_spherical_v1.verify --output PATH    # write a fresh result file (no comparison)
+    python -m model.contrast_memory_spherical_v1.verify --verify PATH    # compare with an explicit result file
 
 The comparison uses tolerances: `|a - b| <= 1e-8 max(1, |a|)` for floating-point values, exact equality for
 integers, strings and booleans, and wider bands for the few values sampled from floating-point probabilities.
@@ -27,7 +27,7 @@ os.environ.setdefault('OMP_NUM_THREADS', '1')
 
 HERE = Path(__file__).resolve().parent
 RESULTS = HERE / 'RESULTS.json'
-SCHEMA = 'polynomial-sv results 1'
+SCHEMA = 'A-contrast-memory-spherical-v1 results 1'
 SKIP = {'environment', 'seconds', 'mode'}
 # keys whose values come from samples drawn with floating-point probabilities: absolute tolerances
 SAMPLED = {
@@ -43,7 +43,7 @@ def compute(full=False):
     from .common import Clock, clean
     import numpy, scipy, sympy
     clock = Clock()
-    out = {'schema': SCHEMA, 'model': 'polynomial-sv', 'law': 'A-contrast-memory-spherical-v1'}
+    out = {'schema': SCHEMA, 'model': 'A-contrast-memory-spherical-v1', 'law': 'A-contrast-memory-spherical-v1'}
     out['local_law'] = law.exact_checks()
     clock.mark('local_law')
     out['carrier'] = carrier.run(levels=(0, 1, 2) if full else (0,))
@@ -144,7 +144,7 @@ def compare(expected, actual, path, failures, full):
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(description='Recompute the polynomial-sv model and compare with stored results.')
+    ap = argparse.ArgumentParser(description='Recompute the A-contrast-memory-spherical-v1 model and compare with stored results.')
     ap.add_argument('--full', action='store_true', help='recompute everything (long)')
     group = ap.add_mutually_exclusive_group()
     group.add_argument('--output', type=Path, help='write a fresh result file')

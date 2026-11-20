@@ -7,7 +7,7 @@ import numpy as np
 from scipy.sparse.csgraph import shortest_path
 import sympy as sy
 
-from ...polynomial_sv import carrier
+from ...contrast_memory_spherical_v1 import carrier
 from ..carrier import require
 from .source import one_body
 

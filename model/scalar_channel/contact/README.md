@@ -19,7 +19,7 @@ $$H(g)=H_{\rm contrast}(8)\otimes I+I\otimes d\Gamma(D)
 
 Here $A_s=U_s(0\oplus D_{\rm memory}^2)U_s^*$
 is the coefficient of $\kappa$ in the complete
-[99-state seam term](../../polynomial_sv/law.py), with identities on loads in
+[99-state seam term](../../contrast_memory_spherical_v1/law.py), with identities on loads in
 the memory generator. $n_s=(I-B_s)/2$ is the [encoded seam occupation](../compiler.py).
 Its parity word commutes with the scalar loops. Each product uses the same
 seam on both sides. Reversing the seam exchanges its ports and sends
@@ -123,7 +123,7 @@ remaining space is the kernel of one nonzero functional on the old space.
 
 ## A mobile pair under the same law
 
-On blank memory the [contrast identity](../../polynomial_sv/PROOF.md)
+On blank memory the [contrast identity](../../contrast_memory_spherical_v1/PROOF.md)
 gives $A_{ab}=(n_a-n_b)^2$. Use the 78 load configurations, one residual
 emitter fuel state and all 150 one-quantum scalar modes (11,850 amplitudes).
 An isolated occupied apparatus mode supplies the even-parity companion.
@@ -146,7 +146,7 @@ and the emitter cannot reach them. The scalar width is $2\sqrt6$ by the
 incidence identity. Thus the native cell's adjacent and separated diagonal
 blocks retain ordered gap at least
 $\gamma=2\kappa-1-3\sqrt6-|g|$, and their off-diagonal norm is 2.
-[The block separation theorem](../../polynomial_sv/PROOF.md) bounds
+[The block separation theorem](../../contrast_memory_spherical_v1/PROOF.md) bounds
 the separated amplitude after an ideal adjacent start by $4/\gamma$.
 During emission compare to a perfect two-level rotation tensored with the
 free scalar propagator. In the emitted arm the contact residual has norm at

@@ -134,7 +134,7 @@ LANES: tuple[Lane, ...] = (
 
     # ------------------------------------------------------------------
     # Push tier, model requirements (model/requirements.txt): the theory
-    # packages kept beside the polynomial-sv model.
+    # packages kept beside the A-contrast-memory-spherical-v1 model.
     lane("contrast_clock", "push", "model", 3,
          "python -B -O -m model.contrast_clock",
          "python -B -m pytest -q -W error model/contrast_clock", env=BLAS1),

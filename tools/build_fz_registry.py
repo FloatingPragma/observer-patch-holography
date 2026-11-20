@@ -3274,7 +3274,7 @@ def render(register: dict, rows: list[dict], bitcoin_upgrades: dict | None = Non
     lines.append("## Executable model and exposed-data correspondence")
     lines.append("")
     lines.append(
-        "The executable model, [polynomial-sv](../model/polynomial_sv/README.md),"
+        "The executable model, [A-contrast-memory-spherical-v1](../model/contrast_memory_spherical_v1/README.md),"
         " reproduces particle stability as an observable on the observers'"
         " agreed records. Its results are finite mathematical and software"
         " results under a declared law and declared preparations, and none of"

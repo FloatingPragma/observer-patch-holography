@@ -1,12 +1,12 @@
-# Construction manual: the executable observer of polynomial-sv
+# Construction manual: the executable observer of A-contrast-memory-spherical-v1
 
-How the construction of [polynomial-sv](../README.md) is built, part by part: what each part is, how to build it,
+How the construction of [A-contrast-memory-spherical-v1](../README.md) is built, part by part: what each part is, how to build it,
 why it is designed this way, and what each equation says. Technical statements are exact and name their file.
 Paragraphs marked **In plain words** give the same content with no formula.
 
-polynomial-sv is the executable model of the theory: one hardware, and the laws under test on it. Law 1, the
-contrast-memory law, is executed by the package [polynomial_sv](../polynomial_sv/README.md), whose
-[specification](../polynomial_sv/SPEC.md) is the binding text for it. Law 2, the scalar channel, is executed by
+A-contrast-memory-spherical-v1 is the executable model of the theory: one hardware, and the laws under test on it. Law 1, the
+contrast-memory law, is executed by the package [contrast_memory_spherical_v1](../contrast_memory_spherical_v1/README.md), whose
+[specification](../contrast_memory_spherical_v1/SPEC.md) is the binding text for it. Law 2, the scalar channel, is executed by
 the package [scalar_channel](../scalar_channel/README.md), and the cage of section 5.9 by its subpackage
 [cage](../scalar_channel/cage/README.md). Both laws are candidates under test, and the executable observer described
 here is a candidate that may change. The search for the correct native
@@ -166,7 +166,7 @@ corner-and-edge graph of an icosahedron, called an echosahedron in the theory.
 
 In this standalone cell the port opposite to `p` is `11 - p`. Twenty triples of mutually joined ports are the
 faces. [inputs/CELL.npz](inputs/CELL.npz) holds the seams and the wedges in this numbering. The federation files
-and the package polynomial_sv number the ports of a cell in another order. One map that keeps every seam sends the
+and the package contrast_memory_spherical_v1 number the ports of a cell in another order. One map that keeps every seam sends the
 standalone ports 0 to 11 to the local ports `0,1,5,7,11,9,10,8,4,6,2,3` of a federation cell, so the port opposite
 to local port 0 there is local port 3. An observer is addressed through the incidence of the carrier being run.
 The map is checked on all 420 cells of the three federations ([test_contrast_replay.py](../test_contrast_replay.py)).
@@ -237,7 +237,7 @@ span no face alike, because no pair of seams at a port is special.
 | 1 | 80 | 960 | 2,520 | 2,400 | 120 | 10,800 | 240 |
 | 2 | 320 | 3,840 | 10,080 | 9,600 | 480 | 43,200 | 960 |
 
-Files: `../polynomial_sv/carriers/FEDERATION_LEVEL{0,1,2}.npz`.
+Files: `../contrast_memory_spherical_v1/carriers/FEDERATION_LEVEL{0,1,2}.npz`.
 
 **Why.**
 
@@ -322,9 +322,9 @@ common time are descriptions that observers agree to use.
 
 ![Law 1](fig_law1.svg)
 
-Candidate `A-contrast-memory-spherical-v1`, the law of [polynomial-sv](../polynomial_sv/README.md). The binding
-specification is [../polynomial_sv/SPEC.md](../polynomial_sv/SPEC.md), and the theorem with its proof is in
-[../polynomial_sv/PROOF.md](../polynomial_sv/PROOF.md).
+Candidate `A-contrast-memory-spherical-v1`, the law of the [executable model](../contrast_memory_spherical_v1/README.md). The binding
+specification is [../contrast_memory_spherical_v1/SPEC.md](../contrast_memory_spherical_v1/SPEC.md), and the theorem with its proof is in
+[../contrast_memory_spherical_v1/PROOF.md](../contrast_memory_spherical_v1/PROOF.md).
 
 ### 4.1 State
 
@@ -472,7 +472,7 @@ that the loads of its ports back costs nothing, and a record of contrast `x` tha
 seam lies lower than a load elsewhere, by about `κ` where the record does not fit it and by about `2κ` where it
 does, and it binds to the seam. On one cell at `κ = 8` a load elsewhere starts at 56.38; two levels lie at 41.94,
 where the record fits, and six between 49.81 and 50.94, where it does not
-([collar.py](../polynomial_sv/collar.py)).
+([collar.py](../contrast_memory_spherical_v1/collar.py)).
 
 ### 4.8 As events
 
@@ -485,13 +485,13 @@ The sum over seams with a continuous parameter is the limit. As a program each s
 Each port observer serves its seams once per round and counts its own rounds. No common clock is used. With
 every seam acting once per round, in any order and with unequal rates of observers, the pair is kept. With seams
 that act independently at random, the pair is lost at the tested event angles. The regular order of a seam's own
-events is what the binding rests on ([events.py](../polynomial_sv/events.py)). The theorem of section 4.6 is
+events is what the binding rests on ([events.py](../contrast_memory_spherical_v1/events.py)). The theorem of section 4.6 is
 proved for the sum with a continuous parameter; the statements on events are finite tests.
 
 The gate has two forms in the packages. Since `(n_a - n_b)^2 = n_a^2 + n_b^2 - 2 n_a n_b`, and the port part
 `n_a^2 + n_b^2` of all seams adds up with the degree term to a constant on loads that the law permutes, the same
 law is the sum of the seam terms `(1 - SWAP_e)/2 - 2κ n_a n_b`. The event programs of
-[events.py](../polynomial_sv/events.py) use the gate of that seam term, which needs no reference registers. The
+[events.py](../contrast_memory_spherical_v1/events.py) use the gate of that seam term, which needs no reference registers. The
 fixed program of [contrast_clock](../contrast_clock/README.md) uses `exp(-i τ h_e)` itself, with one gate of the
 reference register for every port. In a finite program the two forms are different programs of one law.
 
@@ -522,15 +522,15 @@ reference register for every port. In a finite program the two forms are differe
 
 - Particle stability: a pair written on a seam is read as a pair on some seam with probability at least one
   minus the bound of the theorem at every reading, and the law without the agreement energy loses it
-  ([stability.py](../polynomial_sv/stability.py)).
+  ([stability.py](../contrast_memory_spherical_v1/stability.py)).
 - The unrecovered seam: its label is kept, it holds no load, its level and the coupling are read from its
   observers' own records, and a load that reaches one of its ports binds to it
-  ([collar.py](../polynomial_sv/collar.py)). That it holds no load follows from the alphabet, and its
+  ([collar.py](../contrast_memory_spherical_v1/collar.py)). That it holds no load follows from the alphabet, and its
   preparation is supplied.
 - What a reading leaves: the presence reading and the reader with seam records give the same first statistics
   and different later records. On one cell at `κ = 8` the two public histories differ by 0.4405 in total
   variation when the readings are taken as instant, and by more than 0.0817 on one named event with every pulse
-  and numerical error counted ([presence.py](../polynomial_sv/presence.py)).
+  and numerical error counted ([presence.py](../contrast_memory_spherical_v1/presence.py)).
 - Supplied: the coupling `κ` (8 and 128 in the runs), the emitter, the reader, the reference registers, the
   tree of the presence reading.
 
@@ -1040,11 +1040,11 @@ Two operators join the menu. The law runs during both.
 
 | Observable | Law | Statement | Executed in | Ledger row |
 | --- | --- | --- | --- | --- |
-| particle stability | 1 and 2 | law 1: a pair written on a seam is read as a pair on some seam at every reading, with a theorem for every size and time; the law without the agreement energy loses it; law 2: the excitation of a cage is kept for every interval, a local detector reads it at five waits, and a changed law loses it | [polynomial_sv](../polynomial_sv/README.md), [cage](../scalar_channel/cage/README.md) | OL-K5, attained on both laws, with two different objects |
+| particle stability | 1 and 2 | law 1: a pair written on a seam is read as a pair on some seam at every reading, with a theorem for every size and time; the law without the agreement energy loses it; law 2: the excitation of a cage is kept for every interval, a local detector reads it at five waits, and a changed law loses it | [contrast_memory_spherical_v1](../contrast_memory_spherical_v1/README.md), [cage](../scalar_channel/cage/README.md) | OL-K5, attained on both laws, with two different objects |
 | the clock of an object | 2 | the seam record of a cage swings at one line after a finite pulse, read at 4.8990 of the observer's reference, with the level difference of the pair read separately at the same value; a changed law has no such line | [cage](../scalar_channel/cage/README.md) | OL-K4, attained as a prepared clock |
-| the unrecovered seam | 1 | a seam with a record keeps its label under every event; it holds no load; its level and the coupling are read from its observers' own records; a load on one of its ports binds to it | [polynomial_sv/collar.py](../polynomial_sv/collar.py) | OL-K9, attained on law 1 |
+| the unrecovered seam | 1 | a seam with a record keeps its label under every event; it holds no load; its level and the coupling are read from its observers' own records; a load on one of its ports binds to it | [contrast_memory_spherical_v1/collar.py](../contrast_memory_spherical_v1/collar.py) | OL-K9, attained on law 1 |
 | the lines of an added object | 2 | the frequencies `sqrt(m^2 + λ)`, an identity of the law; one point, the level of a cage, is read from records | [cage](../scalar_channel/cage/README.md) for the cage, section 11 for the other lines | OL-K8, partial |
-| what a reading leaves | 1 | reading that a pair is present and reading where it is give the same first statistics and different later records | [polynomial_sv/presence.py](../polynomial_sv/presence.py) | |
+| what a reading leaves | 1 | reading that a pair is present and reading where it is give the same first statistics and different later records | [contrast_memory_spherical_v1/presence.py](../contrast_memory_spherical_v1/presence.py) | |
 | preparation and readout of an added object | 2 | loop instruments, the reference by local ramps, pulses with the law running, the complete law of two pointers, two changed laws | [scalar_channel](../scalar_channel/README.md) | |
 | the screen at large | 2 | the support with equal and with round seam terms | section 11 | |
 
@@ -1094,11 +1094,11 @@ of `κ` and `m`; a swing that starts with no supplied phase; the motion of a cag
 | Statement | File |
 | --- | --- |
 | the cell, its seams and wedges | [inputs/CELL.npz](inputs/CELL.npz) |
-| the federations | `../polynomial_sv/carriers/FEDERATION_LEVEL{0,1,2}.npz` |
-| law 1, its emitter, reader and events | [../polynomial_sv/SPEC.md](../polynomial_sv/SPEC.md) |
-| the theorem of law 1 | [../polynomial_sv/PROOF.md](../polynomial_sv/PROOF.md) |
-| the unrecovered seam | [../polynomial_sv/collar.py](../polynomial_sv/collar.py) |
-| the presence reading and the laws of two readings | [../polynomial_sv/presence.py](../polynomial_sv/presence.py), section 8 of [../polynomial_sv/PROOF.md](../polynomial_sv/PROOF.md) |
+| the federations | `../contrast_memory_spherical_v1/carriers/FEDERATION_LEVEL{0,1,2}.npz` |
+| law 1, its emitter, reader and events | [../contrast_memory_spherical_v1/SPEC.md](../contrast_memory_spherical_v1/SPEC.md) |
+| the theorem of law 1 | [../contrast_memory_spherical_v1/PROOF.md](../contrast_memory_spherical_v1/PROOF.md) |
+| the unrecovered seam | [../contrast_memory_spherical_v1/collar.py](../contrast_memory_spherical_v1/collar.py) |
+| the presence reading and the laws of two readings | [../contrast_memory_spherical_v1/presence.py](../contrast_memory_spherical_v1/presence.py), section 8 of [../contrast_memory_spherical_v1/PROOF.md](../contrast_memory_spherical_v1/PROOF.md) |
 | law 2 on registers, its preparation and instruments | [../scalar_channel/PROOF.md](../scalar_channel/PROOF.md) |
 | the cage, the instruments on a profile, their records | [../scalar_channel/cage/PROOF.md](../scalar_channel/cage/PROOF.md), [results.json](../scalar_channel/cage/results.json) |
 | the carrier's design reasons, the repair rule, the screen size | the theory's carrier paper, `paper/screen_microphysics_and_observer_synchronization.tex` |
@@ -1109,7 +1109,7 @@ of `κ` and `m`; a swing that starts with no supplied phase; the motion of a cag
 
 The manual describes the construction. Four packages execute parts of it, and each states its own domain.
 
-- [polynomial_sv](../polynomial_sv/README.md) executes law 1: the local law on all 99 states of a seam, the
+- [contrast_memory_spherical_v1](../contrast_memory_spherical_v1/README.md) executes law 1: the local law on all 99 states of a seam, the
   carriers, the emitter, the reader, the hypotheses of the theorem, the events, the unrecovered seam with the
   levels of a load beside it, and the presence reading with the laws of two readings.
   [contrast_replay.py](../contrast_replay.py) rebuilds law 1 from this manual in the labelling of section 2.1 and

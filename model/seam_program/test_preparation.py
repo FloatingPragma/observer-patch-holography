@@ -2,7 +2,7 @@ import numpy as np
 import pytest
 from scipy.linalg import expm
 
-from model.polynomial_sv import carrier, law, sectors
+from model.contrast_memory_spherical_v1 import carrier, law, sectors
 from .compiler import Compiler
 from .preparation import execute_source, make_source, raw_event
 from .receiver import home_read, ideal_vector, receive
