@@ -120,7 +120,7 @@ def run():
     # by min-max on the uniform-cell subspace. The cubic Laplacian norm is six.
     charged_upper = 2 * Fraction(MASS) * charged_slope + 6 * charged_slope ** 2
     require(0 <= charged_upper and charged_upper ** 2 < 4 * CAGE_REST_SQUARED,
-            "the certified squared-speed intervals are no longer disjoint")
+            "the certified squared-speed intervals are not disjoint")
     return {
         "momentum_dictionary": "ordered eigenvalues of the common cell dual Laplacian",
         "source_preparation": "a localized cage with all scalar links written",

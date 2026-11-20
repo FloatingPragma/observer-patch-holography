@@ -7,7 +7,7 @@ single spectral speed for charge and cage and admits a two-read clock with the c
 mass-derivative rate. Both calculations use the stored carrier. The reference dynamics and their
 record labels are preserved. [Mobile-memory source](../README.md)
 
-## Dispersion test of the current source
+## Dispersion test of the mobile-memory source
 
 Let $L$ be the Laplacian of the cubic cell dual with unit link weights. Use its eigenvalues
 $\lambda$ as the squared graph momentum for both objects, in a common energy unit. When all
@@ -34,7 +34,7 @@ of time or graph momentum preserves their separation.
 The receiver test compares the native cage motion with the spectral benchmark
 $\sqrt{M^2+2ML}$, matched at the rest energy and its first slope in $\lambda$. On the native
 graph a distance-two arrival starts at order $t^4$ in probability. The benchmark has a
-distance-two matrix element of magnitude greater than $a/36$. Indeed the square-root
+distance-two matrix element of magnitude greater than $a/36$. The square-root
 subordination formula weights the off-diagonal heat kernel by
 $e^{-M^2 s}s^{-3/2}/(2\sqrt\pi)$. Cubicity and the adjacency series give a kernel lower
 bound $e^{-6Ms}(2Ms)^2 a/2$. Integrating gives
@@ -44,7 +44,7 @@ is at least $(at/36-36t^3)^2$. Their difference is positive for every integer $a
 The replay keeps every cell outcome and a parked control. The benchmark is a nonlocal spectral
 comparison for this diagnostic. [Dispersion replay](unchanged_dispersion.py)
 
-## Clock test of the current source
+## Clock test of the mobile-memory source
 
 The addressed cage clock starts from a sharp localized cage with a written link. Its ideal
 arrival is $\sin^2(gt)$. The finite source-on fuel read has the same frequency $2g$ with an
@@ -63,8 +63,8 @@ receiver probability by 0.157928 and the two clock readings are both one radian 
 An internal tag with a same-kinetic mass split $\delta$ gives the same exact obstruction for
 a carried probe. The two single-charge arms differ by $\delta I$, so their relative phase is
 $\delta t$ for every spatial preparation, including a received packet. The rest-normalized
-rate is one. A positive square-root shell at fixed nonzero momentum instead requires the
-rate $(2\mu+\delta)/(E_{\mu+\delta}+E_\mu)$, strictly below one. The tag is a diagnostic of
+rate is one. A positive square-root shell at fixed nonzero momentum requires the
+rate $(2\mu+\delta)/(E_{\mu+\delta}+E_\mu)$, which is strictly below one. The tag is a diagnostic of
 the additive mass architecture in the one-charge sector. The native converter changes charged
 occupation in its two-excitation sector. [Clock audit](unchanged_clock.py)
 
@@ -83,7 +83,7 @@ $$
 The supplied coefficient is $c=1$ in the common graph units. The mass settings are those
 of the two rest energies above. The exact square has blocks $m^2I+c^2BB^*$ and
 $m^2I+c^2B^*B$. Thus both positive branches obey $E_m^2=m^2+c^2\lambda$ for the same
-incidence and momentum convention. The positive-band preparation dresses cell modes into
+incidence and momentum convention. This shell is a property of the supplied operator $D_m$. The positive-band preparation dresses cell modes into
 cell and seam amplitudes. The raw operator also has negative energies, including $-m$ on
 $\ker B$. The declared single-object preparation and filter admit the positive branch.
 An interacting vacuum model and the opposite-charge converter across the added seam modes
@@ -140,7 +140,7 @@ $$
 $$
 
 For an equally spaced ring family with fixed $p$ and $a\to0$ this gives the relativistic
-clock-rate identity. The energy and group rate have limits
+clock-rate identity of the supplied shell. The energy and group rate have limits
 $\sqrt{m^2+c^2p^2}$ and $c^2p/\sqrt{m^2+c^2p^2}$ by the sine limits.
 The stored sphere refinements and a physical distance calibration
 require their own observer attachment. The bounded replays concern the declared graph or
