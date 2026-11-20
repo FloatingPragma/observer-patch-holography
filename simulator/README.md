@@ -72,6 +72,15 @@ over three chart time units, and the deviation falls with the square of the
 resolution. The formed matter's frequencies match the recorded rest line
 0.098175 and the long-wave coefficient 0.24919629.
 
+## Transverse pulse clocks
+
+A circulating free wave supplies a clock that can be read by one station. Five
+of six long-wave winding peaks meet the five-percent timing tolerance. The
+coarsest reversed wave misses it, and at size 384 the angled receiver accepts
+about one tagged click per 1.75 billion preparations at its peak. The frozen
+replay checks every enrolled count, the exact free-wave tails and the costs
+of an equipped relay. [Apparatus and results](transverse_clock/README.md)
+
 ## Files
 
 | File | Content |
