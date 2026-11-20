@@ -1,16 +1,18 @@
 # Empirical status
 
-The [executable model](../model/README.md) is the set of three candidate laws
-for the native repair law. On their simulated observers' records, with every
-forecast sealed before the records were read, moving clocks matched the
-flat-metric forecast within 0.035 on every long-wave route, and a clock held
-together by the contact law kept proper time on five journeys. Two separately
-launched constituents formed a persistent pair in 8,145 of 16,384 aimed
-launches, and none with the capture vertex disabled. Formed matter obeyed
-`omega^2 = m^2 + c^2 |k|^2` on all fourteen held-out directions at chart periods
-64, 128 and 256, while a law with half the spatial weight of the formed vector
-failed every probe. The couplings, the capture vertex and the preparations are
-supplied. The [observation ledger](registers/OBSERVATION_LEDGER_V3.md) records
+The [executable model](../model/README.md) runs the OPH law. On its simulated
+observers' records, with every forecast sealed before the records were read,
+moving clocks matched the flat-metric forecast within 0.035 on every
+long-wave route, and a clock held together by the contact law kept proper
+time on five journeys. Two separately launched constituents formed a
+persistent pair through the capture vertex, and none with the vertex
+disabled. Ordinary incoming wave trains sent 96.56% of the late crossing
+pairs the intended way, and the whole receiving array read the clock of a
+formed pair at one rate to 0.21% over six durations. Formed matter obeyed
+`omega^2 = m^2 + c^2 |k|^2` on all fourteen held-out directions at chart
+periods 64, 128 and 256, while the same probes with half the spatial weight
+of the formed vector failed. The carrier, the preparations and the detectors
+are supplied. The [observation ledger](registers/OBSERVATION_LEDGER_V3.md) records
 the internal clock as attained for a prepared clock, and particle persistence
 and matter waves as partial.
 
@@ -32,7 +34,7 @@ portable clock of formed matter whose rate one stationary component keeps at
 every incoming width, one causal speed for every operation inhabitants can
 trigger, a travelling laboratory that ranges by echoes and measures a rod in
 its own frame, formation in an ordinary history, charge and the gauge forces,
-a selection of the couplings, the identification of formed matter with
+the identification of formed matter with
 particles, a refinement of the carrier, and the regional response that the
 Einstein theorem consumes.
 No laboratory dataset is compared with the model's records.

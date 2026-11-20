@@ -28,8 +28,7 @@ states of the research.
   file, progress report, audit result, integration record or PR handoff is
   added anywhere under `docs/`; that history belongs in the GitHub pull
   request or issue. A `docs/research/` note states a current result its code
-  verifies, without history. The repair-law search in `docs/research/laws/`
-  keeps a journal of its steps and one report per step. Release papers do not cite `docs/` files
+  verifies, without history. Release papers do not cite `docs/` files
   (the one exception is `docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md`), and
   code, receipts and registers do not bind them as evidence. The
   [docs index](../README.md#rules-for-this-directory) states the full rules.

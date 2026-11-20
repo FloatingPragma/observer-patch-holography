@@ -74,17 +74,18 @@ states what inter-observer agreement must preserve.
 
 ## The executable specification
 
-The executable specification is that of the three
-[candidate laws](../model/README.md) for the native repair law, stated in the
-[simulator specification](../simulator/SPEC.md). Its carrier is a torus with
+The executable specification is the OPH law, stated in the
+[simulator specification](../simulator/SPEC.md); the
+[model page](../model/README.md) lists what is proven and measured on it. Its carrier is a torus with
 three spatial axes and a private cyclic register at every address. Each
 constituent moves by reflected routing; two constituents that share an
 address in matched slots receive a contact coin and step together as a bound
 pair whose two rails form a clock; a reversible capture vertex turns a
 head-on collision into such a pair plus a marker that leaves on its own wire;
-and a newborn pair opens its hop gradually, on one of three schedules, which
-are the three candidate laws. The creator may supply this architecture;
-observers need not invent its laws. On the candidate laws the field of one
+and a newborn pair carries an age counter of 8192 states and opens its hop
+by a reversible partial swap on the profile `(1 - cos(pi u))/2` over 128
+updates, then hops fully. The creator may supply this architecture;
+observers need not invent its law. On the OPH law the field of one
 constituent has a proved 3+1D Klein–Gordon limit, moving clocks keep proper
 time at long wavelengths, and formed matter obeys the long-wave relation
 `omega^2 = m^2 + c^2 |k|^2`.

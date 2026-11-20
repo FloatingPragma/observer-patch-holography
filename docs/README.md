@@ -38,10 +38,6 @@ run data from declared candidate models.
   package verifies, without history, dated findings or progress narrative.
   Prefer extending the paper or the package README, because separate notes
   go stale.
-- `research/laws/` is the one place that records the order of research
-  steps. It holds the plan of the search for the repair law, its journal
-  with one entry per step, and one report per step. Headings and folder
-  names there carry no dates either.
 - Release papers do not cite files in `docs/`. They cite papers, Lean
   modules, code packages, machine registers and public preprints. The one
   exception is `research/PUBLIC_DATA_PREDICTION_AUDIT.md`, which collects
@@ -104,16 +100,17 @@ premise.
 
 ## Executable model
 
-The executable model of OPH is the set of three
-[candidate laws](../model/README.md) for the native repair law. All three
-move each constituent by reflected routing, bind two constituents that meet
-into a pair through a motion-coupled contact law, and form that pair through
-a capture vertex that sends away a marker; they differ in how a newborn pair
-opens its hop. The [specification](../simulator/SPEC.md) states the laws, the
-[simulator](../simulator/README.md) executes them and replays every
+The executable model of OPH runs the OPH law. Each constituent moves by
+reflected routing; two constituents that share an address in matched slots
+step together under a contact coin, and the relative phase of the pair's two
+rails is its clock; a head-on encounter forms a pair through a reversible
+capture vertex that sends a marker away; and a newborn pair opens its hop
+over 128 updates and then hops fully. The
+[specification](../simulator/SPEC.md) states the law, the
+[simulator](../simulator/README.md) executes it and replays every
 experiment, and `python -m model` checks its exact methods. The
-[candidate-law page](../model/README.md) lists what is proven about the laws
-and what is measured on their simulated observers, and the
+[model page](../model/README.md) lists what is proven about the law and
+what is measured on its simulated observers, and the
 [observation ledger](registers/OBSERVATION_LEDGER_V3.md) records what the
 model reproduces.
 The state of the simulation is no physical space. Every test compares
@@ -158,16 +155,6 @@ package. The eight clock and source-realization notes are conditional
 theorems on their own declared sources. Source-pinned notes require matching
 receipt updates when their content changes. Consolidate overlapping notes and
 keep implementation contracts beside the code; `extra/` holds TeX papers only.
-
-**The search for the repair and memory law.** [research/laws](research/laws/README.md) holds the
-search program for the native repair law: its [plan](research/laws/PLAN.md), a
-[journal](research/laws/JOURNAL.md) that records how each step changes the standing of classes of
-repair laws, and one report per step. Step 1, [Clocks and spacetime from observer
-records](research/laws/relativistic-observer-records/report.md), compares a traveling clock with its
-rest calibration on the reflected-routing law and derives the long-wavelength 3+1D scalar field
-measured by equipped observers. Step 2, [a race between the addressed relay and the free
-wave](research/laws/signal-race/report.md), shows that an inhabitant who can invoke the relay sends
-fresh messages ahead of that scalar cone.
 
 **Clocks and source realization.** These notes build on one another in this
 order:

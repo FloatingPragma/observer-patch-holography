@@ -95,10 +95,10 @@ physical interpretation are supplied.
 ## Observer measurements and operational objectivity
 
 The [executable-model hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) tests the
-three [candidate laws](../model/README.md) within the closure proposal. They
-must supply the observations used to identify particles, clocks, geometry and
-gravity. Their creator supplies the architecture before execution. On their
-observers' records moving clocks keep proper time at long wavelengths, a
+[OPH law](../model/README.md) within the closure proposal. It must supply the
+observations used to identify particles, clocks, geometry and gravity. Its
+creator supplies the architecture before execution. On its observers'
+records moving clocks keep proper time at long wavelengths, a
 bound pair forms in an encounter, and formed matter obeys the long-wave
 matter-wave relation; the other observations are work in progress. Every test compares distributions of
 admissible observer records with what observers in our world record: the

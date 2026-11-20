@@ -12,8 +12,7 @@ across experiments, without a separate fitted law for each case. No
 comparison here establishes agreement with all public observations or at
 every physical scale.
 
-The executable model of OPH is the set of three
-[candidate laws](../../model/README.md) for the native repair law
+The executable model of OPH runs the [OPH law](../../model/README.md)
 ([specification](../../simulator/SPEC.md)). Its tests compare
 distributions of admissible observer records with what observers in our world
 record. The state of the simulation is no physical space: the flagship's

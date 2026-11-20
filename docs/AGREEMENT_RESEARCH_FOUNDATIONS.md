@@ -16,9 +16,10 @@ Reuse the conclusion once those hypotheses hold. A renamed consensus result
 or a longer simulation of it is not an independent theoretical contribution.
 
 The executable model requires source-specific mappings for these theorems.
-Its three candidate laws share reflected routing, a contact law of bound
-pairs and a capture vertex whose marker records each binding on its own
-wire. A theorem about distributed recovery applies to them once its objects
+It runs the OPH law: reflected routing, a contact law of bound pairs, a
+capture vertex whose marker records each binding on its own wire, and a
+gradual opening of a newborn pair. A theorem about distributed recovery
+applies to it once its objects
 and hypotheses are mapped to these addresses, slots, markers and records.
 
 ## One structure: complete history and internal computation

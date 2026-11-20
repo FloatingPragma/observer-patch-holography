@@ -1,8 +1,7 @@
 # The OPH paper set
 
-The executable model of OPH is the set of three
-[candidate laws](../model/README.md) for the native repair law, specified in
-the [simulator specification](../simulator/SPEC.md). The
+The executable model of OPH runs the [OPH law](../model/README.md),
+specified in the [simulator specification](../simulator/SPEC.md). The
 papers state the theory around it, the law, what its observers read, the
 applicable mathematical theorems and the physical identification conditions.
 A theorem transfers between constructions only through its actual hypotheses.

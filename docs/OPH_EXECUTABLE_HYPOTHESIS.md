@@ -1,23 +1,21 @@
 # OPH and the executable-model hypothesis
 
-The executable model of OPH is the set of three
-[candidate laws](../model/README.md) for the native repair law, the simple
-local rule by which neighbouring observers settle their disagreements. All
-three move each constituent by reflected routing, bind two constituents that
-meet into a pair through a motion-coupled contact law, and form that pair
-through a capture vertex that sends away a marker. They differ in how a
-newborn pair opens its hop. The [specification](../simulator/SPEC.md) states
-the laws, the [simulator](../simulator/README.md) executes them, and the
-[candidate-law page](../model/README.md) lists what is proven about them. The
-executable observer is a candidate and may change as the research goes on.
+The executable model of OPH runs the OPH law, the simple local rule by which
+neighbouring observers settle their disagreements. It moves each constituent
+by reflected routing, binds two constituents that meet into a pair through a
+motion-coupled contact law, forms that pair through a capture vertex that
+sends away a marker, and opens the hop of a newborn pair over 128 updates.
+The [specification](../simulator/SPEC.md) states the law, the
+[simulator](../simulator/README.md) executes it, and the
+[model page](../model/README.md) lists what is proven and measured on it.
 The hypothesis is that the agreed records of its observers reproduce the
 observable physics of our Universe.
 
-The theory around the model is finished. On the candidate laws the field of
+The theory around the model is finished. On the OPH law the field of
 one constituent has a proved 3+1D Klein–Gordon limit, moving clocks keep
 proper time at long wavelengths, a bound pair forms in an encounter, and
 formed matter obeys the long-wave relation omega^2 = m^2 + c^2 |k|^2. The
-couplings are supplied. The other observables of the theory on this model are
+other observables of the theory on this model are
 work in progress.
 
 The outputs of the model meet some premises of finite theorems of the theory
@@ -25,8 +23,8 @@ as they stand. Its field responds in three independent spatial directions.
 A presence detector at one address is the projective instrument of that
 event. A laboratory's clock counts the updates of its own address, and
 observers relate their counts through shared records. The gauge, gravity and
-particle premises that other theorems consume are work in progress on these
-laws.
+particle premises that other theorems consume are work in progress on this
+law.
 
 ## Closure and a specified construction
 
@@ -39,7 +37,7 @@ state the proposal and its adopted mathematical premises.
 
 The creator may specify the carrier, the law, preparations, references,
 instruments and finite resources. Simulated observers need not invent or
-install the laws. Neither uniqueness nor derivation of architectural choices
+install the law. Neither uniqueness nor derivation of architectural choices
 is a prerequisite for execution. The resulting records must satisfy their
 physical comparisons with all calibration inputs visible.
 
@@ -54,9 +52,9 @@ and step together as a bound pair; one constituent carries two rails whose
 contact phases differ, and their relative phase is the pair's clock hand.
 Where the two constituents meet head-on, a reversible vertex turns the
 collision into a matched pair plus a marker that leaves on the address's own
-wire. A newborn pair carries an age counter and opens its hop gradually, on a
-cosine profile over 32 or 128 updates or on a linear profile over 128
-updates; these schedules are the three candidate laws.
+wire. A newborn pair carries an age counter of 8192 states and opens its hop
+by a reversible partial swap on the profile (1 - cos(pi u))/2 over 128
+updates, then hops fully.
 
 Exact statements about this construction, each checked by the simulator
 against the literal update: the field of one constituent released in the
@@ -70,10 +68,8 @@ omega^2 = m^2 + 0.24919629 |k|^2 + O(|k|^4).
 ### Supplied
 
 - the carrier and its sizes, and the private sector;
-- the contact phases of the two rails;
-- the capture vertex with its angle and the marker wires;
-- the opening schedule of a newborn pair and its age register;
-- the preparations, the detectors and the scalar standard of the unbound walk.
+- the preparations and the detectors;
+- the scalar reference standard of the unbound walk.
 
 ## How the model is tested
 
