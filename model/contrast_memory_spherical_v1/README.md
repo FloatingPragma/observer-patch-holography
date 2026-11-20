@@ -67,9 +67,10 @@ each cluster size ranges from 0.82 to 0.94. [Derivation](PROOF.md#9-binding-ener
 
 The same tests distinguish motion from rest energy. With the benchmark coupling of eight, clusters
 of two, three and four loads have kinetic ratios of about 34, 1,155 and 39,236. Their rest-energy
-ratios are about 1.686, 2.354 and 3.020. No common energy or length scale makes these the masses of
-relativistic particles. A separate change to the native memory converts a doubled load into two
-single loads on the official federation and permits the reverse reaction. [Memory experiment](material_inertia/records/memory/)
+ratios are about 1.686, 2.354 and 3.020. A common relativistic mass would make the two sets of ratios
+equal. A common rescaling of energy or length leaves both sets unchanged. A separate change to the
+native memory converts a doubled load into two single loads on the official federation and permits the
+reverse reaction. [Memory experiment](material_inertia/records/memory/)
 
 ## Run it
 
@@ -112,18 +113,14 @@ intervals and checks a different wait. Its frequency error follows from the quan
 dominant spectral weight of at least 0.95, verified separately on the source. Broad or weak lines can
 give an unresolved result. At a common exposure the reader subtracts whole phase turns exactly before
 subtracting the measured residual angles. This resolves small kinetic shifts on large rest phases.
-Position exposures use 65,536 thresholds per setting. All translated compact
-positions and their complement are read in one ensemble. Neither the binding forecast nor the transport
-law uses a measured lepton mass. The choice of law, coupling, apparatus and ring is supplied.
+Position exposures use 65,536 thresholds per setting. All translated compact positions and their
+complement are read in one ensemble. The choice of law, coupling, apparatus and ring is supplied.
 For the sharp position read, a reversible query visits the occupied-run window, copies its conjunction
 to a pointer and retraces the visits to clear its private scratch. The native two-owner comparison writes
 the public flag. The [detector](material_inertia/detector.py) checks the complete partition on every
 configuration before the Fourier calculation uses it. Readout assumes a switch that parks the source
 for the queries. Across the five count archives the apparatus retains 191 arrays and 128,581,632
-counter outcomes, including the competing laws. Bernhard's [clock reunion experiments](https://github.com/muellerberndt/openwave/blob/aa71bbcb335503eef35cbe14da5b0ad4b7dd083e/simulation/experiments/observer_geometry/README.md)
-test a different clock question. Two stations recover the traveler's wait-only counter on fifteen equipped
-golden read-net journeys under an exact-tick interpretation. The ring spectroscopy uses a stationary
-dimer and supplies no transfer of that traveling-clock result.
+counter outcomes, including the competing laws.
 
 ## The modules
 

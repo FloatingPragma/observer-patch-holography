@@ -328,7 +328,7 @@ A common relativistic dispersion would give \(E(p)=M c^2+p^2/(2M)+O(p^4)\) near 
 The ratios of rest energies and inverse curvatures would agree. A common rescaling of clock or momentum
 cannot alter this test. On the ring, \(k\) labels the phase of a prepared translation character. Identifying
 it with a physical momentum requires an independent length and propagation measurement. The ring uses the
-local law of section 1 with four fixed contrast references per port. The existing ring calculation in
+local law of section 1 with four fixed contrast references per port. The ring calculation in
 [extras.py](extras.py) omits those references. They add \(4\kappa N\) on binary configurations of \(N\) loads.
 The ring is a separate carrier choice. The following single-load identity also holds on the official federations.
 
@@ -380,11 +380,7 @@ above. On a finite ring it is a finite difference. In particular the observed ra
 and controlled-memory laws do not give a zero-momentum derivative without a separate limit.
 
 The predicted kinetic ratios satisfy \(R_1=1,\ R_2=2\Delta,\ R_{n+1}=R_2R_n-R_{n-1}\), with no separate
-species coefficients. In particular \(R_3/R_2=R_2-1/R_2\). Reading the first three consecutive droplets as
-the charged leptons fails even for the kinetic ratios alone: a second-to-first ratio above 206 forces a
-third-to-second ratio above 205, whereas the measured ratio is below 17. The physical values were known
-before this experiment. They enter neither the generator nor any measurement program.
-[Particle Data Group lepton tables](https://pdg.lbl.gov/2025/tables/rpp2025-sum-leptons.pdf)
+species coefficients. In particular \(R_3/R_2=R_2-1/R_2\).
 
 ### Predicting a position distribution from a binding measurement
 
