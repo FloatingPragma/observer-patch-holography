@@ -19,8 +19,10 @@ At an isolated massless link use the same incidence generator below. The three s
 the sending cell, the seam and the receiving cell. For coefficient $c$ the receiver has
 $P(t)=(1-\cos(\omega t))^2/4$, where $\omega=\sqrt2 c/\ell_s$.
 A separate rest oscillator reads the time from two quadratures. The link probability
-and the measured time on the reference seam give $c$. With that value fixed, relay
-pulses timed from the atlas reproduce full transfers on 629 held-out seams. Round trips
+and the measured time on the reference seam give $c$. With that value fixed, the relay
+pulse of duration $\pi\ell_s/(\sqrt2 c)$ gives a full transfer on each of the other 629 seams.
+Each hop rate is $c/\ell_s$, so this transfer holds by construction for any assignment of
+positive lengths, and the replay checks it seam by seam. Round trips
 read the elapsed rest-clock times between the declared beacons. The relay advances
 at $\sqrt2 c/\pi$ during the supplied pulse sequence. A detuned read is a control.
 [Atlas and calibration replay](geometry.py)
@@ -29,7 +31,8 @@ Uniform hop lengths at each level fail to preserve distances on the native refin
 Under the central-child map, coarse hop distances one and two become three and
 four. The required scale ratios differ. The replay tests both bounds on both stored
 refinements. Weighted routes are compared with the independent great-circle beacon
-distance as an atlas audit. The chart, its ruler and its reference oscillator are supplied
+distance as an atlas audit. The relay distance equals the summed atlas lengths by the
+same construction. The chart, its ruler and its reference oscillator are supplied
 standards. The clock and relay measurements calibrate lengths and times within this model.
 
 ## The interacting generator

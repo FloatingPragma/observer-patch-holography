@@ -131,7 +131,7 @@ def _hop_obstruction(coarse, fine):
             if source < target:
                 # First and last central seams plus one or two parent crossings.
                 if fine_distances.get(4 * target + 3) != distance + 2:
-                    raise ValueError("a stored central-child hop distance changed")
+                    raise ValueError("a central-child hop distance differs from the coarse distance plus two")
                 checked[distance] += 1
     if not all(checked.values()):
         raise ValueError("both distinct hop refinements require a native witness")
