@@ -371,14 +371,33 @@ specify the acquisition and falsifiers. The first replay regenerates every
 count with the specified seed, checks the sampling errors and reads the
 couplings from counts.
 The second recomputes each entry of the [joint laws](pair_records.json).
-The material radar replay compares seeded counts with the original
-[acquisition](radar_counts.npz). NumPy 2.5.1 and the pinned Linux NumPy
-2.3.5 produced identical integer clock sampling distributions and different
-multinomial draws. All three radar programs accept `--read-archive` to
-verify their checksum, regenerate the source laws and score the original
-records on an alternative sampler. The pinned replay also checks every
-original count against its seed. Use `--details` to print every fold and
-control.
+The seed replay compares the material radar counts with the original
+[acquisition](radar_counts.npz). The clock archive reader authenticates the
+[530,208 integer sampling weights](clock_weights.npz) against the digest in the
+[reviewed acquisition reader](https://github.com/FloatingPragma/observer-patch-holography/blob/44e45533078dfc592451f33507cbf3fca1ef2d11/model/scalar_channel/contact/material_radar.py#L25-L33).
+It compares all six families with the normalized regenerated source and
+scores the saved counts against both distributions. A row has $K$ bins on
+a lattice of $L=10^{12}$ units. Rounding gives each ordinary bin an allowance
+of $1/(2L)$. One largest rounded bin absorbs the remainder with allowance
+$K/(2L)$, which also bounds the row total variation. The separate
+floating-point allowances are $1/(2L)$ per bin and $1/L$ in total
+variation. The digest commits to the integer weights exactly.
+
+Run the archive reader from the repository root with the two thread settings
+above. Add `--details` for the per-family discrepancies and held-out folds.
+
+```sh
+python -B -O -W error -m model.scalar_channel.contact.material_radar --read-archive
+```
+
+This command reproduces the archive on x86-64 Ubuntu 24.04.4 with CPython
+3.12.3 and the dependencies in `model/requirements.txt`. On Windows 11
+x86-64 with CPython 3.13.2, NumPy 2.5.1 and SciPy 1.18.0, the default
+NumPy dispatch reproduces every integer weight. With
+`NPY_DISABLE_CPU_FEATURES=X86_V3`, 141 re-rounded entries differ by one
+or two lattice units. Both runs pass the archive checks. The other two
+radar programs also accept `--read-archive`.
+
 For the large message blocks the seed replay uses the original
 [integer sampling distribution](message_weights.npz). It verifies the
 distribution against the regenerated tagged source before drawing any

@@ -11,6 +11,7 @@ from scipy.linalg import expm
 from ...polynomial_sv import law as native
 from ..cage import construction as cage
 from . import joint_clock as clock
+from .__main__ import HERE
 from .joint_source import ENDPOINTS, MARK, MODES, arm_sources, radar_source, source_certificate
 from .law import collar_states
 
@@ -179,3 +180,50 @@ def test_sampling_lattice_retains_all_probability_mass():
     three = np.full((1, 3), 1 / 3)
     np.testing.assert_array_equal(clock.canonical_sampling_weights(three, 1),
                                   [[333333333334, 333333333333, 333333333333]])
+
+
+def test_archived_clock_authenticates_all_six_families_and_scores_original_counts(protocol):
+    with np.load(HERE / 'clock_weights.npz', allow_pickle=False) as weights, \
+         np.load(HERE / 'radar_counts.npz', allow_pickle=False) as counts:
+        report, arrays = clock.run(protocol, acquisition=(counts, weights))
+        validation = report['original_acquisition']
+        assert report['sampling_within_bound']
+        assert validation['weight_digest'] == '546d1450118a6d66397e7db5ad25914cf5174da3615252d518ea1557a2a64c8d'
+        assert set(validation['families']) == {name for name, _ in clock.FAMILIES}
+        assert sum(v['rows'] * v['bins_per_row'] for v in validation['families'].values()) == 530208
+        for name, _ in clock.FAMILIES:
+            np.testing.assert_array_equal(arrays[name + '_counts'], counts[name + '_counts'])
+        accepted = clock.authenticated_weights(weights)
+    for name in accepted:
+        changed = accepted[name].copy()
+        changed.flat[0] += 1
+        changed.flat[1] -= 1
+        with pytest.raises(ValueError, match='original integer clock weights differ'):
+            clock.authenticated_weights(dict(accepted, **{name: changed}))
+    name = 'joint_sampling_weights'
+    with pytest.raises(ValueError, match='family'):
+        clock.authenticated_weights({k: v for k, v in accepted.items() if k != name})
+    with pytest.raises(ValueError, match='signed int64'):
+        clock.authenticated_weights(dict(accepted, **{name: accepted[name].astype(float)}))
+    # Shape is checked separately because the original digest commits only to names and bytes.
+    with pytest.raises(ValueError, match='shape'):
+        clock.analyze(protocol, arrays, acquisition_weights=dict(accepted, **{name: accepted[name].ravel()}))
+    bad_counts = arrays['independent_clock_counts'].copy()
+    row = bad_counts.reshape(-1, 2)[0]
+    rare = row.argmin()
+    row[:] = 0
+    row[rare] = protocol['shots']
+    with pytest.raises(ValueError, match='archived counts fail'):
+        clock.analyze(protocol, dict(arrays, independent_clock_counts=bad_counts), acquisition_weights=accepted)
+
+
+def test_frozen_clock_weights_tolerate_rounding_boundary_crossings_and_reject_changed_source():
+    p = np.array([[.40, .35, .25]])
+    delta = np.array([[1, -1, 0]]) / clock.SAMPLING_LATTICE
+    weights = clock.canonical_sampling_weights(p + .49 * delta, 1)
+    check = clock.check_acquisition_law(p + .51 * delta, weights, 1)
+    assert check['locally_requantized_bins_different'] == 2
+    with pytest.raises(ValueError, match='tolerance'):
+        clock.check_acquisition_law(p + 5 * delta, weights, 1)
+    with pytest.raises(ValueError, match='total'):
+        clock.check_acquisition_law(p, weights + 1, 1)

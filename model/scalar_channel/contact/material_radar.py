@@ -1,7 +1,6 @@
 """Replay the coupled pulse, material clock, and six-station experiments offline."""
 
 import argparse
-import hashlib
 import json
 from pathlib import Path
 
@@ -22,32 +21,14 @@ def protocol():
     return load_json(HERE / "radar_protocol.json")
 
 
-def read_clock_acquisition(spec, regenerated, measured):
-    # Bind the validated acquisition to the integer sampling distribution as
-    # well as its observed counts. NumPy versions can use different binomial
-    # samplers even for byte-identical PCG64 state and probability weights.
-    digest_weights = hashlib.sha256()
-    for name in sorted(key for key in regenerated if key.endswith("_sampling_weights")):
-        digest_weights.update(name.encode() + b"\0" + regenerated[name].astype("<i8", copy=False).tobytes())
-    require(digest_weights.hexdigest() == "546d1450118a6d66397e7db5ad25914cf5174da3615252d518ea1557a2a64c8d",
-            "archived acquisition used different integer sampling laws")
-    for name in regenerated:
-        if name.endswith("_counts") and name != "coarse_counts":
-            saved = measured[name]
-            require(saved.dtype == np.int64 and saved.shape == regenerated[name].shape,
-                    f"wrong acquisition shape or type: {name}")
-            regenerated[name] = saved
-    regenerated["coarse_counts"] = joint_clock.coarse_grain(regenerated["joint_counts"])
-    report = joint_clock.analyze(spec, regenerated)
-    require(report["sampling_within_bound"], "archived counts fail the simultaneous source-law test")
-    return report
-
-
 def experiment(spec, measured=None):
     radar_report, radar_data = radar.run(spec)
-    clock_report, clock_data = joint_clock.run(spec)
-    if measured is not None:
-        clock_report = read_clock_acquisition(spec, clock_data, measured)
+    if measured is None:
+        clock_report, clock_data = joint_clock.run(spec)
+    else:
+        with np.load(HERE / "clock_weights.npz", allow_pickle=False) as weights:
+            clock_report, clock_data = joint_clock.run(spec, acquisition=(measured, weights))
+        require(clock_report["sampling_within_bound"], "archived counts fail the simultaneous source-law test")
     coherent_report, amplitudes = coherent_radar.run(spec)
     # On tracing the coherent mark, every individual sector must have the same
     # outbound/return law as the separately executed stationary-mark program.
@@ -113,13 +94,21 @@ def main():
     else:
         verify_counts(path, counts)
     if not args.details:
+        clock = report["joint_clock"]
         report = {"local_intervention": report["material_and_propagation"],
                   "mark_visible_dimensions": report["exact_response"]["mark_cyclic_dimension"],
-                  "selected_on_five_stations": report["joint_clock"]["held_out_model_selection"]["selected_models"],
+                  "selected_on_five_stations": clock["held_out_model_selection"]["selected_models"],
                   "coherent_return_vs_reset_history_TV":
                       report["coherent_roundtrip"]["maximum_history_TV_from_independent_repreparation"],
                   "successful_3d_folds": [s["geometry_from_born_laws"]["accepted_pairs"]
                                           for s in report["radar"]["settings"]]}
+        if args.read_archive:
+            acquisition = clock["original_acquisition"]
+            families = acquisition["families"].values()
+            report["archived_clock_laws"] = {
+                "weight_digest": acquisition["weight_digest"],
+                "locally_requantized_bins_different": sum(f["locally_requantized_bins_different"] for f in families),
+                "maximum_source_total_variation": max(f["maximum_total_variation"] for f in families)}
     print(json.dumps(report, allow_nan=False, indent=2))
 
 

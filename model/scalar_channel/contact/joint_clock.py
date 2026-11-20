@@ -13,6 +13,7 @@ fitting probabilities or clock rates. No continuum, laboratory-time or
 particle-mass identification is supplied by this finite experiment.
 """
 
+import hashlib
 import math
 
 import numpy as np
@@ -28,6 +29,12 @@ COUPLINGS = (0, 1, -1)
 SIGNS = (1, -1)
 SEEDS = ENDPOINTS + (MARK,)
 SAMPLING_LATTICE = 10 ** 12
+FAMILIES = (('joint', 2), ('arm_path', 3), ('pure_arm', 2), ('dephased', 2),
+            ('independent_clock', 1), ('independent_scalar', 1))
+# Digest of the original six integer arrays at 44e455330.
+ACQUISITION_DIGEST = '546d1450118a6d66397e7db5ad25914cf5174da3615252d518ea1557a2a64c8d'
+SOURCE_BIN_TOLERANCE = .5 / SAMPLING_LATTICE
+SOURCE_TV_TOLERANCE = 1 / SAMPLING_LATTICE
 MODELS = ('native_positive_mark', 'marked_contact_suppressed',
           'marked_contact_reversed', 'independent_records_product', 'dephased_before_read')
 
@@ -163,6 +170,48 @@ def _sample(probabilities, shots, rng, outcome_axes=2):
     return result.reshape(weights.shape)
 
 
+def authenticated_weights(archive):
+    names = sorted(name + '_sampling_weights' for name, _ in FAMILIES)
+    require(sorted(archive) == names, 'missing, duplicate or extra clock weight family')
+    digest = hashlib.sha256()
+    weights = {}
+    for name in names:
+        value = archive[name]
+        require(value.dtype.kind == 'i' and value.dtype.itemsize == 8, 'clock weights require signed int64')
+        digest.update(name.encode() + b'\0' + value.astype('<i8', copy=False).tobytes())
+        weights[name] = value
+    require(digest.hexdigest() == ACQUISITION_DIGEST, 'original integer clock weights differ')
+    return weights
+
+
+def check_acquisition_law(probability, weights, axes):
+    """Compare each original lattice row with its separately propagated probability law."""
+    require(weights.shape == probability.shape and np.all((weights >= 0) & (weights <= SAMPLING_LATTICE)),
+            'clock weight shape or range differs')
+    bins = math.prod(weights.shape[-axes:])
+    rows = weights.reshape(-1, bins)
+    require(np.all(rows.sum(axis=1) == SAMPLING_LATTICE), 'clock weight row has the wrong total')
+    p = probability.reshape(-1, bins)
+    p = p / p.sum(axis=1, keepdims=True)
+    error = abs(rows / SAMPLING_LATTICE - p)
+    ordinary = .5 / SAMPLING_LATTICE + SOURCE_BIN_TOLERANCE
+    # The first largest rounded bin receives the remainder. Two bins can tie
+    # after rounding when their source probabilities differ by one grid unit.
+    near_maximum = p >= p.max(axis=1, keepdims=True) - (1 / SAMPLING_LATTICE + 2 * SOURCE_BIN_TOLERANCE)
+    exceptional = error > ordinary
+    require(np.all(exceptional.sum(axis=1) <= 1) and not np.any(exceptional & ~near_maximum),
+            'ordinary clock weights exceed the source bin tolerance')
+    require(error.max() <= bins / (2 * SAMPLING_LATTICE) + SOURCE_BIN_TOLERANCE,
+            'clock remainder exceeds the source bin tolerance')
+    tv = .5 * error.sum(axis=1)
+    require(tv.max() <= bins / (2 * SAMPLING_LATTICE) + SOURCE_TV_TOLERANCE,
+            'clock weights exceed the source total-variation tolerance')
+    return dict(rows=len(rows), bins_per_row=bins, maximum_bin_error=float(error.max()),
+                maximum_total_variation=float(tv.max()),
+                locally_requantized_bins_different=int(np.count_nonzero(
+                    weights != canonical_sampling_weights(probability, axes))))
+
+
 def coarse_grain(values):
     """Seven named seam outcomes and the sum of every other scalar mode."""
     array = np.asarray(values)
@@ -222,9 +271,11 @@ def _scores(protocol, archive, tv_bound):
                 folds=scores)
 
 
-def analyze(protocol, archive):
+def analyze(protocol, archive, *, acquisition_weights=None):
     """Validate complete saved records and score the frozen comparisons."""
     validate_protocol(protocol)
+    archived = acquisition_weights is not None
+    weight_source = authenticated_weights(acquisition_weights) if archived else archive
     shape = (3, 2, 7, 3, 4, 2, MODES)
     p = np.asarray(archive['joint_probabilities'])
     f = np.asarray(archive['forecast_probabilities'])
@@ -236,15 +287,14 @@ def analyze(protocol, archive):
             and np.all(n.sum(axis=(-2, -1)) == protocol['shots']), 'joint counts are incomplete')
     discrepancy = float(np.max(abs(p - f)))
     require(discrepancy <= protocol['exact_forecast_tolerance'], 'independent forecast disagrees')
-    families = [('joint', 2), ('arm_path', 3), ('pure_arm', 2), ('dephased', 2),
-                ('independent_clock', 1), ('independent_scalar', 1)]
     settings = sum(int(np.prod(np.asarray(archive[name + '_counts']).shape[:-axes]))
-                   for name, axes in families)
+                   for name, axes in FAMILIES)
     # The largest family has 2 intermediate arms x 2 terminal arms x 150 modes.
     bound = _family_bound(protocol['shots'], 4 * MODES, settings,
                           protocol['joint_familywise_alpha']) + 4 * MODES / (2 * SAMPLING_LATTICE)
     sampling = {}
-    for name, axes in families:
+    acquisition_checks = {}
+    for name, axes in FAMILIES:
         probability = np.asarray(archive[name + '_probabilities'])
         count = np.asarray(archive[name + '_counts'])
         summed = tuple(range(-axes, 0))
@@ -255,9 +305,18 @@ def analyze(protocol, archive):
         require(np.issubdtype(count.dtype, np.integer) and np.min(count) >= 0
                 and np.all(count.sum(axis=summed) == protocol['shots']),
                 f'{name} record counts are incomplete')
-        weights = np.asarray(archive[name + '_sampling_weights'])
-        require(np.array_equal(weights, canonical_sampling_weights(probability, axes)),
-                f'{name} canonical sampling law differs')
+        weights = np.asarray(weight_source[name + '_sampling_weights'])
+        if archived:
+            check = check_acquisition_law(probability, weights, axes)
+            check['maximum_count_total_variation_from_weights'] = float(np.max(
+                _tv(count / protocol['shots'], weights / SAMPLING_LATTICE, summed)))
+            require(check['maximum_count_total_variation_from_weights'] <= _family_bound(
+                protocol['shots'], 4 * MODES, settings, protocol['joint_familywise_alpha']),
+                f'{name} archived counts fail the simultaneous acquisition-law test')
+            acquisition_checks[name] = check
+        else:
+            require(np.array_equal(weights, canonical_sampling_weights(probability, axes)),
+                    f'{name} canonical sampling law differs')
         sampling[name] = float(np.max(_tv(count / protocol['shots'], probability, summed)))
     require(np.array_equal(coarse_grain(n), archive['coarse_counts']), 'coarse counts dropped outcomes')
     require(np.max(abs(coarse_grain(p) - archive['coarse_probabilities'])) < 1e-13,
@@ -298,7 +357,7 @@ def analyze(protocol, archive):
     controls_separated = scores['selection_accepted_models'] == ['native_positive_mark']
     held_pass = all(scores['folds'][group]['models']['native_positive_mark']['passes_simultaneous_probability_test']
                     for group in ('sixth_station', 'late_first_five', 'marked_reference'))
-    return dict(
+    result = dict(
         source=source_certificate(protocol), joint_record_shape=list(shape),
         axis_order=['coupling', 'collar_sign', 'scalar_seed', 'wait', 'phase', 'terminal_arm', 'scalar_mode'],
         couplings=list(COUPLINGS), collar_signs=list(SIGNS), scalar_seeds=list(SEEDS),
@@ -322,9 +381,15 @@ def analyze(protocol, archive):
                            'phase settings and wait durations', 'complete orthogonal scalar-mode and collar pointer service'],
         empirical_calibration_inputs=[],
     )
+    if archived:
+        result['original_acquisition'] = dict(weight_digest=ACQUISITION_DIGEST,
+                                              source_bin_tolerance=SOURCE_BIN_TOLERANCE,
+                                              source_total_variation_tolerance=SOURCE_TV_TOLERANCE,
+                                              families=acquisition_checks)
+    return result
 
 
-def run(protocol):
+def run(protocol, *, acquisition=None):
     """Return (summary, arrays); callers archive arrays without JSON expansion."""
     validate_protocol(protocol)
     rows = [[execute(protocol, coupling, sign) for sign in SIGNS] for coupling in COUPLINGS]
@@ -339,13 +404,22 @@ def run(protocol):
     dephased = arrays['arm_path_probabilities'].sum(axis=-3)
     arrays['dephased_probabilities'] = np.repeat(dephased[..., None, :, :], 4, axis=-3)
     # Independent deterministic streams isolate each measurement family.
-    names = (('joint', 2), ('arm_path', 3), ('pure_arm', 2), ('dephased', 2),
-             ('independent_clock', 1), ('independent_scalar', 1))
-    streams = np.random.SeedSequence([protocol['seed'], 150, 64]).spawn(len(names))
-    for (name, axes), stream in zip(names, streams):
-        arrays[name + '_sampling_weights'] = canonical_sampling_weights(arrays[name + '_probabilities'], axes)
-        arrays[name + '_counts'] = _sample(arrays[name + '_probabilities'], protocol['shots'],
-                                          np.random.default_rng(stream), axes)
+    weights = None
+    if acquisition is None:
+        streams = np.random.SeedSequence([protocol['seed'], 150, 64]).spawn(len(FAMILIES))
+        for (name, axes), stream in zip(FAMILIES, streams):
+            arrays[name + '_sampling_weights'] = canonical_sampling_weights(arrays[name + '_probabilities'], axes)
+            arrays[name + '_counts'] = _sample(arrays[name + '_probabilities'], protocol['shots'],
+                                              np.random.default_rng(stream), axes)
+    else:
+        measured, weights = acquisition
+        for name, _ in FAMILIES:
+            count = measured[name + '_counts']
+            require(count.dtype == np.int64, f'{name} acquired counts require int64')
+            arrays[name + '_counts'] = count
     arrays['coarse_probabilities'] = coarse_grain(arrays['joint_probabilities'])
     arrays['coarse_counts'] = coarse_grain(arrays['joint_counts'])
-    return analyze(protocol, arrays), arrays
+    report = analyze(protocol, arrays, acquisition_weights=weights)
+    if weights is not None:
+        arrays.update(weights)
+    return report, arrays
