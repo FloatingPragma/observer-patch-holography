@@ -1,28 +1,18 @@
 # Empirical status
 
-The [executable model](../model/README.md) reproduces particle
-stability, an observable of nature. Bound objects persist in free
-evolution, read on the observers' agreed records. A pair of loads written on
-one seam by a local emitter is read as a pair on some seam at every reading,
-with probability at least one minus a proved bound
-([binding theorem](../model/polynomial_sv/PROOF.md)); it is read on seams
-other than the first; nothing holds it but the contrast-memory law; and the
-same law without its agreement energy loses it. At coupling `kappa = 8` the
-largest probability of reading no pair is `0.0096` on one cell and on
-federations of 20, 80 and 320 cells, against `0.80` for the exchange law
-alone on 20 cells. Three loads on a face are read as an agreed face object in
-the same way. The coupling is supplied.
-
-Under a second candidate law on the same carrier, the
-[scalar channel](../model/scalar_channel/README.md), an object on a ring of
-four seams is kept for every interval, and a local detector reads its
-excitation from counts at five waits. After a pulse its seam record swings
-with no drive at one line, which an observer reads at `4.8990` of its own
-reference and finds equal to the level difference of the object read
-separately. A changed law with the same alphabet, routing and symmetry loses
-both ([cage](../model/scalar_channel/cage/README.md)). The
-[observation ledger](registers/OBSERVATION_LEDGER_V3.md) records these as
-particle persistence and an internal clock attained on this construction.
+The [executable model](../model/README.md) is the set of three candidate laws
+for the native repair law. On their simulated observers' records, with every
+forecast sealed before the records were read, moving clocks matched the
+flat-metric forecast within 0.035 on every long-wave route, and a clock held
+together by the contact law kept proper time on five journeys. Two separately
+launched constituents formed a persistent pair in 8,145 of 16,384 aimed
+launches, and none with the capture vertex disabled. Formed matter obeyed
+`omega^2 = m^2 + c^2 |k|^2` on all fourteen held-out directions at chart periods
+64, 128 and 256, while a law with half the spatial weight of the formed vector
+failed every probe. The couplings, the capture vertex and the preparations are
+supplied. The [observation ledger](registers/OBSERVATION_LEDGER_V3.md) records
+the internal clock as attained for a prepared clock, and particle persistence
+and matter waves as partial.
 
 The target is agreement between observers' measurement statistics and their
 effective interpretations. Every test of the model compares distributions of
@@ -38,13 +28,13 @@ the experiment before comparing their probabilities.
 ## What the model has to supply next
 
 The other observables of the theory on this model are work in progress: a
-selection of the couplings, a record of currents that later events read, the
-class of an object as a record, the twelve port currents from the law's own
-services on the bound object, one limiting speed for all objects, one law
-that carries the objects of both candidate laws, a clock that starts with no
-supplied phase, a refinement map that preserves seams, an observer clock
-normalized to proper time, and the regional response that the Einstein
-theorem consumes.
+portable clock of formed matter whose rate one stationary component keeps at
+every incoming width, one causal speed for every operation inhabitants can
+trigger, a travelling laboratory that ranges by echoes and measures a rod in
+its own frame, formation in an ordinary history, charge and the gauge forces,
+a selection of the couplings, the identification of formed matter with
+particles, a refinement of the carrier, and the regional response that the
+Einstein theorem consumes.
 No laboratory dataset is compared with the model's records.
 
 ## Comparisons of the theory with public data
@@ -79,8 +69,8 @@ From the repository root:
 
 ```sh
 python -m model
-python -B -O -m model.scalar_channel.cage
-python -m pytest -q -W error model/polynomial_sv model/scalar_channel
+python -m simulator run all
+python -m pytest -q -W error simulator
 python -m pytest -q code/cosmology/tilt_posterior
 ```
 

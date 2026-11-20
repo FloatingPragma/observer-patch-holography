@@ -74,17 +74,20 @@ states what inter-observer agreement must preserve.
 
 ## The executable specification
 
-The official specification is [polynomial-sv](../model/polynomial_sv/SPEC.md).
-Its carrier is a federation of twelve-port icosahedral cells joined by
-external seams. Every port holds a load of 0, 1 or 2, and every seam keeps a
-private memory that its two port observers write, phase and unwrite. On the
-loads this memory acts exactly as an exchange plus an agreement energy with
-one supplied coupling: the contrast-memory law, a candidate native repair
-law of the theory. A local emitter writes objects and a two-observer reader
-admits agreed records. The creator may supply this architecture; observers
-need not invent its laws. The model reproduces particle stability on its
-observers' agreed records ([binding theorem](../model/polynomial_sv/PROOF.md)).
-A second candidate law on the same carrier, the [scalar channel](../model/scalar_channel/README.md), holds an object on four seams: its excitation is kept for every interval, and after a pulse its seam record swings at one line that an observer reads from counts in units of its own reference ([cage](../model/scalar_channel/cage/README.md)).
+The executable specification is that of the three
+[candidate laws](../model/README.md) for the native repair law, stated in the
+[simulator specification](../simulator/SPEC.md). Its carrier is a torus with
+three spatial axes and a private cyclic register at every address. Each
+constituent moves by reflected routing; two constituents that share an
+address in matched slots receive a contact coin and step together as a bound
+pair whose two rails form a clock; a reversible capture vertex turns a
+head-on collision into such a pair plus a marker that leaves on its own wire;
+and a newborn pair opens its hop gradually, on one of three schedules, which
+are the three candidate laws. The creator may supply this architecture;
+observers need not invent its laws. On the candidate laws the field of one
+constituent has a proved 3+1D Klein–Gordon limit, moving clocks keep proper
+time at long wavelengths, and formed matter obeys the long-wave relation
+`omega^2 = m^2 + c^2 |k|^2`.
 
 The carrier is hardware of the computation and no physical space. Physical
 space, time, fields and particles are effective descriptions that the
@@ -92,9 +95,10 @@ observers inside the computation use for the records they agree on, and every
 test compares distributions of admissible observer records with what
 observers in our world record. The theory proves that observers who inhabit
 the simulation can describe their experiences as relativistic 3+1D continuum
-spacetimes. The model supplies the carrier with its rank-three band, complete
-instruments and the count clocks of its observers; the readouts and the
-refinement family that the theorem consumes in addition are work in progress.
+spacetimes. The model supplies a field with a proved 3+1D continuum limit,
+complete instruments and the count clocks of its observers; the readouts and
+the refinement family that the theorem consumes in addition are work in
+progress.
 Other finite constructions retain the hypotheses of their own theorems.
 
 ## Entry point and order
@@ -129,7 +133,4 @@ records the connections to the executable specification.
 - The [flagship synthesis](../flagship/from_observer_consensus_to_standard_physics.tex)
   gives the account, states the closure and executable-model hypotheses and
   walks through the tower of results layer by layer.
-- The [executable observer paper](../paper/executable_observer_construction.tex)
-  specifies polynomial-sv, proves the binding theorem and reports what its
-  observers read.
 - The theorem library holds the long proofs: consensus, observers and records, gauge structure, matter, screen microphysics, and spacetime with Einstein dynamics.

@@ -137,7 +137,7 @@ rank-three slow band of the twelve-port carrier would need its own
 measurement.
 
 Step 1 did not run on the two laws of
-[polynomial-sv](../../../model/polynomial_sv/README.md). Its results give
+polynomial-sv, the executable model at the time of this step. Its results give
 them concrete tests. An object of polynomial-sv whose internal swing advances
 by the same amount per service whether it moves from seam to seam or rests is
 a factorized clock, and the exclusion above applies to it as a proper-time

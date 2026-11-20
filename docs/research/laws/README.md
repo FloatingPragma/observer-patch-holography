@@ -7,11 +7,9 @@ states what follows once a law supplies certain outputs, from three
 directions of space to quantum measurement and gravity. This folder documents
 the search for a law that supplies them on one executable process.
 
-The [executable model](../../../model/polynomial_sv/README.md) runs two
-candidate laws, the contrast-memory law and the
-[scalar channel](../../../model/scalar_channel/README.md). The search also
-tests laws outside the model, such as the reflected-routing law of the first
-step. A result in this folder concerns the law and the preparation it names.
+The search has narrowed the native repair law to three
+[candidate laws](../../../model/README.md), which make up the executable model.
+A result in this folder concerns the law and the preparation it names.
 It changes no mark in the
 [observation ledger](../../registers/OBSERVATION_LEDGER_V3.md), whose marks
 come from the model's own code and receipts.

@@ -1,8 +1,8 @@
 # Established mathematics for observer agreement
 
 This guide governs theorem reuse in the
-[executable model](../model/polynomial_sv/README.md) and its
-[specification](../model/polynomial_sv/SPEC.md). The target is one physical
+[executable model](../model/README.md) and its
+[specification](../simulator/SPEC.md). The target is one physical
 process with compatible carrier, response, record and clock readouts.
 Established results about distributed recovery and sheaf diffusion are tools
 for that construction. They do not select its physical law.
@@ -16,11 +16,10 @@ Reuse the conclusion once those hypotheses hold. A renamed consensus result
 or a longer simulation of it is not an independent theoretical contribution.
 
 The executable model requires source-specific mappings for these theorems.
-Its contrast-memory law is a candidate native repair law; its seam memory is
-private working memory of the two port observers of a seam, and its reader
-admits a record only when both observers' copies agree. A theorem about
-distributed recovery applies to it once its objects and hypotheses are mapped
-to these seams, memories and records.
+Its three candidate laws share reflected routing, a contact law of bound
+pairs and a capture vertex whose marker records each binding on its own
+wire. A theorem about distributed recovery applies to them once its objects
+and hypotheses are mapped to these addresses, slots, markers and records.
 
 ## One structure: complete history and internal computation
 

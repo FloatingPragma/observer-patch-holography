@@ -40,11 +40,11 @@ See the [flagship's closure hypothesis](../flagship/from_observer_consensus_to_s
 
 ## Internal construction and execution
 
-The [executable model](../model/polynomial_sv/README.md) constructs its
-observers. The two port observers of every seam share a private memory that
-they write, phase and unwrite; to read, each copies a predicate of the loads
-into a private pointer, and a record is admitted only when both copies are
-valid and agree. Apparatus and protocol are legitimate design choices in this
+The [executable model](../model/README.md) constructs its observers. A
+laboratory counts the updates of its own address, prepares constituents and
+reads them with local detectors and analyzers, and observers compare their
+records through calibration exchanges; every miss is kept as an outcome.
+Apparatus and protocol are legitimate design choices in this
 construction; self-consistency need not select one unique device.
 Executable finite observer functions are therefore an achieved component,
 while a physical realization containing the builders has the broader contract
@@ -94,14 +94,13 @@ physical interpretation are supplied.
 
 ## Observer measurements and operational objectivity
 
-The [executable-model hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) tests
-[polynomial-sv](../model/polynomial_sv/README.md) within the closure
-proposal. Its contrast-memory law, a candidate native repair law, must
-supply the observations used to identify particles, clocks, geometry and
-gravity. Its creator supplies the architecture before execution. The model
-reproduces particle stability on its observers' agreed records, and under its
-second candidate law, the scalar channel, an object that carries a prepared
-clock; the other observations are work in progress. Every test compares distributions of
+The [executable-model hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) tests the
+three [candidate laws](../model/README.md) within the closure proposal. They
+must supply the observations used to identify particles, clocks, geometry and
+gravity. Their creator supplies the architecture before execution. On their
+observers' records moving clocks keep proper time at long wavelengths, a
+bound pair forms in an encounter, and formed matter obeys the long-wave
+matter-wave relation; the other observations are work in progress. Every test compares distributions of
 admissible observer records with what observers in our world record: the
 state of the simulation is no physical space, and the theory proves that
 observers who inhabit the simulation can describe their experiences as

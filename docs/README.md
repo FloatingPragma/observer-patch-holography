@@ -63,7 +63,7 @@ run data from declared candidate models.
   the [observation ledger](registers/OBSERVATION_LEDGER_V3.md), the [premise register](registers/PREMISE_REGISTER_V3.md),
   the [falsification program](OPH_FALSIFICATION_PROGRAM.md), and the [paper index](../paper/).
 - **Build and test:** begin with the repository [reproduction
-  guide](../REPRODUCE.md), the [executable model](../model/polynomial_sv/README.md),
+  guide](../REPRODUCE.md), the [executable model](../model/README.md),
   [executable evidence](../code/), and [Lean
   formalization](../Lean/). Follow the [numerical audit
   procedure](policies/NUMERICAL_AUDIT.md) when changing finite numerical
@@ -104,29 +104,18 @@ premise.
 
 ## Executable model
 
-The executable model of OPH is [polynomial-sv](../model/polynomial_sv/README.md).
-Its law, the contrast-memory law, is a candidate native repair law of the
-theory: every port of a twelve-port cell holds a load, every seam keeps a
-private memory of the contrast between its two loads, and what the memory
-leaves on the loads is an exchange plus an agreement energy with one
-supplied coupling. The [specification](../model/polynomial_sv/SPEC.md) states
-the carrier, the law, the emitter and the reader; the
-[binding theorem](../model/polynomial_sv/PROOF.md) bounds the probability that
-a pair of loads comes apart, on every federation of complete cells. The
-[executable-model paper](../paper/executable_observer_construction.pdf),
-"An Executable Observer for Observer Patch Holography: Specification, Memory
-and Agreed Records", gives the full account. `python -m model` recomputes the
-results.
-
-The model reproduces particle stability on its observers' agreed records:
-a pair of loads written on one seam is read as a pair at every reading, with
-probability at least one minus a proved bound, on seams other than the first,
-and the law without its agreement energy loses it. A second candidate law on the same carrier, the [scalar channel](../model/scalar_channel/README.md), holds an object on four seams: its excitation is kept for every interval, and after a pulse its seam record swings at one line that an observer reads from counts in units of its own reference ([cage](../model/scalar_channel/cage/README.md)).
-The [construction manual](../model/construction_manual/CONSTRUCTION_MANUAL.md)
-builds both laws part by part, the executable-model paper lists the finite
-theorems whose premises the outputs of the model supply, and the
-[observation ledger](registers/OBSERVATION_LEDGER_V3.md) records what the model
-reproduces.
+The executable model of OPH is the set of three
+[candidate laws](../model/README.md) for the native repair law. All three
+move each constituent by reflected routing, bind two constituents that meet
+into a pair through a motion-coupled contact law, and form that pair through
+a capture vertex that sends away a marker; they differ in how a newborn pair
+opens its hop. The [specification](../simulator/SPEC.md) states the laws, the
+[simulator](../simulator/README.md) executes them and replays every
+experiment, and `python -m model` checks its exact methods. The
+[candidate-law page](../model/README.md) lists what is proven about the laws
+and what is measured on their simulated observers, and the
+[observation ledger](registers/OBSERVATION_LEDGER_V3.md) records what the
+model reproduces.
 The state of the simulation is no physical space. Every test compares
 distributions of admissible observer records with what observers in our world
 record, and the theory proves that observers who inhabit the simulation can

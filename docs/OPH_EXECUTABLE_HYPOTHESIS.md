@@ -1,37 +1,32 @@
 # OPH and the executable-model hypothesis
 
-The official executable model is
-[polynomial-sv](../model/README.md). Its law, the contrast-memory
-law, is a candidate native repair law of the theory: a simple local rule
-by which neighbouring observers settle their disagreements. A second candidate
-law runs on the same carrier, the [scalar channel](../model/scalar_channel/README.md).
-The executable observer is a candidate and may change as the research goes on.
-The hypothesis is
-that the agreed records of its observers reproduce the observable physics of
-our Universe. The [specification](../model/polynomial_sv/SPEC.md), the
-[binding theorem](../model/polynomial_sv/PROOF.md) and the
-[executable-model paper](../paper/executable_observer_construction.pdf)
-state the law and what its observers read.
+The executable model of OPH is the set of three
+[candidate laws](../model/README.md) for the native repair law, the simple
+local rule by which neighbouring observers settle their disagreements. All
+three move each constituent by reflected routing, bind two constituents that
+meet into a pair through a motion-coupled contact law, and form that pair
+through a capture vertex that sends away a marker. They differ in how a
+newborn pair opens its hop. The [specification](../simulator/SPEC.md) states
+the laws, the [simulator](../simulator/README.md) executes them, and the
+[candidate-law page](../model/README.md) lists what is proven about them. The
+executable observer is a candidate and may change as the research goes on.
+The hypothesis is that the agreed records of its observers reproduce the
+observable physics of our Universe.
 
-The theory around the model is finished. The model reproduces particle
-stability: bound objects persist in free evolution, read on the observers'
-agreed records. Under the scalar channel an object on four seams is kept for
-every interval and carries a prepared clock, which an observer reads from
-counts in units of its own reference. The couplings are supplied. The other
-observables of the theory on this model are work in progress.
+The theory around the model is finished. On the candidate laws the field of
+one constituent has a proved 3+1D Klein–Gordon limit, moving clocks keep
+proper time at long wavelengths, a bound pair forms in an encounter, and
+formed matter obeys the long-wave relation omega^2 = m^2 + c^2 |k|^2. The
+couplings are supplied. The other observables of the theory on this model are
+work in progress.
 
-The outputs of the model meet the premises of finite theorems of the theory
-as they stand. Its cell is the twelve-port carrier whose slow response has
-rank three, and one load of its law moves on that response. Its write is the
-seam rule that four requirements single out. Its readers are complete
-instruments with orthogonal projectors, its reading of the presence of a
-pair is the projective instrument of that event, and its public records are
-never erased. Its observers count their own events and relate their counts
-through shared records. Under one declared port service its response has
-the Lie type of the gauge theorem. The
-[executable-model paper](../paper/executable_observer_construction.pdf) lists
-these joins with what follows for the observers of the model, and names the
-outputs that the other theorems consume.
+The outputs of the model meet some premises of finite theorems of the theory
+as they stand. Its field responds in three independent spatial directions.
+A presence detector at one address is the projective instrument of that
+event. A laboratory's clock counts the updates of its own address, and
+observers relate their counts through shared records. The gauge, gravity and
+particle premises that other theorems consume are work in progress on these
+laws.
 
 ## Closure and a specified construction
 
@@ -50,54 +45,41 @@ physical comparisons with all calibration inputs visible.
 
 ## The model
 
-The carrier is a federation of complete twelve-port icosahedral cells (the
-theory's Lean library calls the cell the echosahedron) joined by external
-seams that form a matching on ports. Every port holds a load of 0, 1 or 2.
-Every seam keeps a private memory of eleven states, coherent working memory
-of its two port observers and no public record. The memory writes the
-contrast of the two loads, gives it a phase and unwrites it; on the loads this
-echo acts exactly as
+A carrier is a torus with three spatial axes and a private cyclic register at
+every address. One constituent lives on eight slots per address and private
+position. Each update reflects the equal-slot part of the eight amplitudes
+and sends every slot one address along its axis into the partner slot. Two
+constituents that share an address in matched slots receive a contact coin
+and step together as a bound pair; one constituent carries two rails whose
+contact phases differ, and their relative phase is the pair's clock hand.
+Where the two constituents meet head-on, a reversible vertex turns the
+collision into a matched pair plus a marker that leaves on the address's own
+wire. A newborn pair carries an age counter and opens its hop gradually, on a
+cosine profile over 32 or 128 updates or on a linear profile over 128
+updates; these schedules are the three candidate laws.
 
-    H_kappa = (1/2) sum_e (I - SWAP_e) + kappa (6 sum_v n_v^2 - 2 sum_e n_a n_b),
-
-an exchange of loads plus an agreement energy with coupling `kappa`. A local
-emitter writes a pair of loads on one seam. A reader on every seam admits a
-record only when the copies of its two port observers are valid and agree.
-
-On every federation of complete cells, for `kappa > 3`, a pair of loads
-written on one seam is read as a pair on some seam with probability at least
-`1 - 40/(2 kappa - 6)^2` at every reading, independent of the number of
-cells. The pair is read on seams other than the first, nothing holds it but
-the law, and the same law without the agreement energy loses it. Run as local
-events with no common clock, the pair holds when every port observer serves
-each of its seams once per round, in any order.
-
-The scalar channel puts one mode that holds one object or none on every seam
-and on every pair of seams at a port, at two opposite levels, so every
-frequency of the law obeys `omega^2 = m^2 + lambda` with `lambda` a level of
-the graph of seams. Its reference state has every negative level filled. On a
-ring of four seams with alternating signs the law holds an object and
-couples it to nothing else: its excitation is kept for every interval, and
-after a pulse its seam record swings at the difference of its two levels
-([cage](../model/scalar_channel/cage/README.md)).
+Exact statements about this construction, each checked by the simulator
+against the literal update: the field of one constituent released in the
+equal-slot state obeys the free Klein–Gordon equation with signal speed 1/2
+under refinement, with error of order h^2 at fixed chart time; the matched
+coincident states of the contact law form an invariant subspace, so a bound
+pair never separates under the contact law; the mature pair's frequency obeys
+cos(omega) = cos(m) (2 w_private + 2 w_spatial sum_i cos k_i), so
+omega^2 = m^2 + 0.24919629 |k|^2 + O(|k|^4).
 
 ### Supplied
 
-- the coupling `kappa`;
-- the coherent generator on the private seam memory;
-- the reference registers of the degree term on ports with five seams;
-- the emitter with its fuel, coupling and duration, and the reader;
-- the evolution parameter of the runs with a continuous parameter;
-- the routing of the external seams of the federation;
-- for the scalar channel: its two coefficients, the prepared reference, the
-  operators on a profile with their pulses, and the fuel dial.
+- the carrier and its sizes, and the private sector;
+- the contact phases of the two rails;
+- the capture vertex with its angle and the marker wires;
+- the opening schedule of a newborn pair and its age register;
+- the preparations, the detectors and the scalar standard of the unbound walk.
 
 ## How the model is tested
 
 The state of the simulation does not contain the physical Universe or its
-spacetime. Ports, seams, cells and federations are hardware of the
-computation and no physical space; no test asks the carrier to be a
-three-dimensional lattice. Physical space, time, fields and particles are
+spacetime. Addresses, slots and wires are hardware of the computation and no
+physical space; no test asks the carrier to be a three-dimensional lattice. Physical space, time, fields and particles are
 effective descriptions that the observers inside the computation use for the
 records they agree on. Every test is therefore a comparison between
 distributions of admissible observer records and what observers in our world
@@ -111,8 +93,9 @@ reproduces their complete predictions, and the spacetime paper gives the
 rank-three spatial carrier and the causal and count limits. Observers who
 inhabit the simulation can describe their experiences as relativistic 3+1D
 continuum spacetimes. The executable model supplies part of the premises of
-those theorems with its own local clocks and records: the carrier with its
-rank-three band, complete instruments and the count clocks of its observers.
+those theorems with its own local clocks and records: a field with a proved
+3+1D continuum limit, complete instruments and the count clocks of its
+observers.
 The readouts in field form, the order of events with its placement and the
 refinement family that the theorems consume in addition are work in
 progress.
@@ -121,10 +104,11 @@ progress.
 
 | Observable | What the model has to supply |
 | --- | --- |
-| Clocks and energy | An observer clock normalized to proper time, from each port observer's own count of events, and a clock that starts with no supplied phase. |
-| Interacting fields | A record of currents that later events read, and the twelve port currents from the law's own services on the bound object. |
-| Particles | A selection of the couplings, the class of an object as a record, one limiting speed for all objects, and one law that carries the objects of both candidate laws, moving and interacting. |
-| Gravity | A refinement map that preserves seams, and the regional response that the Einstein theorem consumes. |
+| Clocks and energy | A portable clock of formed matter, whose rate one stationary component keeps at every incoming width, and a clock that starts with no supplied phase. |
+| Signals and frames | One causal speed for every operation inhabitants can trigger, and a travelling laboratory that ranges by echoes and measures a persistent rod in its own frame. |
+| Particles | Formation in an ordinary history, the class of an object as a record, charge, and the identification of formed matter with particles. |
+| Interacting fields | A record of currents that later events read, and the gauge forces. |
+| Gravity | A refinement of the carrier, and the regional response that the Einstein theorem consumes. |
 | Independent comparison | Complete joint observations and interventions, input ancestry, uncertainties and rejection criteria compared with independent measurements. |
 
 These requirements are conjunctive. An exact identity, a finite transition,
@@ -150,8 +134,8 @@ Construction units, laboratory seconds and measured couplings are distinct
 attachments. An input value named speed, field coefficient, reference energy
 or vacuum strength does not derive physical `c`, the fine-structure constant,
 Newton's constant or the cosmological constant. A finite matrix element is not
-an on-shell decay rate. Energies of the model's own bound objects are stated
-in units of the exchange.
+an on-shell decay rate. Frequencies of the model's own formed matter are
+stated in radians per home tick of an observer's clock.
 
 The intended photon-containing physical theory has no strictly positive
 global vacuum gap. Sector gaps and pure Yang-Mills statements keep their

@@ -12,16 +12,14 @@ across experiments, without a separate fitted law for each case. No
 comparison here establishes agreement with all public observations or at
 every physical scale.
 
-The executable model of OPH is
-[polynomial-sv](../../model/polynomial_sv/README.md), whose contrast-memory law
-is a candidate native repair law ([specification](../../model/polynomial_sv/SPEC.md),
-[binding theorem](../../model/polynomial_sv/PROOF.md)). Its tests compare
+The executable model of OPH is the set of three
+[candidate laws](../../model/README.md) for the native repair law
+([specification](../../simulator/SPEC.md)). Its tests compare
 distributions of admissible observer records with what observers in our world
 record. The state of the simulation is no physical space: the flagship's
 proposition on smooth effective field descriptions proves that observers who
 inhabit the simulation can describe their experiences as relativistic 3+1D
-continuum spacetimes. The model reproduces particle stability on its
-observers' agreed records. The observables compared below come from the
+continuum spacetimes. The observables compared below come from the
 theory's conditional maps; deriving them from the model's own records is work
 in progress.
 

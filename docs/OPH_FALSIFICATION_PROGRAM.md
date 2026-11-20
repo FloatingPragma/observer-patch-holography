@@ -1,10 +1,9 @@
 # OPH Falsification Program
 
 The [executable-model hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) states the
-target: the agreed records of the observers of
-[polynomial-sv](../model/polynomial_sv/README.md), whose contrast-memory law
-is a candidate native repair law, reproduce the observable physics of our
-Universe. Its tests compare distributions of admissible observer records with
+target: the agreed records of the observers of the three
+[candidate laws](../model/README.md) for the native repair law reproduce the
+observable physics of our Universe. Its tests compare distributions of admissible observer records with
 what observers in our world record; a difference between microscopic state
 encodings is no failure of the model. The broad obstruction search #1078 is
 open. A whole-program exclusion requires a fixed quantified class and coverage
@@ -38,9 +37,9 @@ The eligible sources are:
   [*Particles from Observer Consistency: Defect Classes, Statistics and the Bound Objects of an Executable Observer*](../paper/deriving_the_particle_zoo_from_observer_consistency.pdf);
 - the finite carrier and screen-sieve theorems in
   [*Twelve-Port Icosahedral Carriers and Native Seam Repair*](../paper/screen_microphysics_and_observer_synchronization.pdf);
-- the binding theorem of the executable model in
-  [*An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records*](../paper/executable_observer_construction.pdf),
-  with its proof in [model/polynomial_sv/PROOF.md](../model/polynomial_sv/PROOF.md);
+- the exact identities of the candidate laws in the
+  [simulator specification](../simulator/SPEC.md), which `python -m model`
+  checks against the literal update;
 - the substrate-neutral
   [normal-form](../extra/observable_normal_forms.pdf) and
   [finite-event-algebra](../extra/machine_checked_finite_event_algebras.pdf)
@@ -64,8 +63,8 @@ measurement convention can absorb the result.
 | Twelve-port Standard Model Lie type | A faithful compact commutator-closed twelve-dimensional response tangent with the stated endogenous inner \(A_5\) action and one fixed line has a Lie type other than \(\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)\). | The A1/A2 compact classification theorem falls. Constructing that tangent from released source histories is a separate open gate. |
 | Conditional Standard Model matter image | The displayed maximal faithful matter image, hypercharge assignments, anomaly cancellations, shared center, or color count is mathematically inconsistent inside the declared matrix-current and exterior-response fixture. | The conditional matter theorem falls in the affected part. Source selection of the matter action and physical global form has separate gates. |
 | Classical carrier modes | The declared Maxwell, perturbative pure Yang--Mills, or pure Einstein--Hilbert quadratic action satisfies its stated vacuum and gauge hypotheses but lacks the published classical transverse mode count. | The corresponding classical carrier theorem falls. No quantum-particle claim follows from this row. |
-| Binding theorem of the executable model | A federation of complete twelve-port cells joined by a matching of external seams, with `kappa > 3`, on which a state that starts in the span of pairs on seams is read with no pair on a seam with probability above `40/(2 kappa - 6)^2` at some value of the evolution parameter. | The binding theorem falls. The observable claim that the model reproduces particle stability falls with it at that coupling. |
-| A cage of the scalar channel | Four ports with five seams each that form a ring, on a carrier where the law of one object restricted to the profile of the ring and its wedge image is not `[[m, sqrt(10) c], [sqrt(10) c, -m]]`; or counts of the clock experiment on a cage whose seam record holds a line other than the level difference `2 sqrt(m^2 + 10 c^2)` of the pair. | The theorem on cages falls, and with it the prepared clock and the second object of particle stability. |
+| Field identity of the candidate laws | A wave vector on which one update of reflected routing gives `<e\|W^n e> != cos(nE)`, with `cos E` the mean of the four cosines of the wave vector; or a fixed chart time at which the released field of one constituent deviates from the Klein–Gordon solution by more than order `h^2` under refinement. | The 3+1D continuum limit of the candidate laws falls. |
+| Matter relation of the candidate laws | A plane wave on which the mature step of the formed pair has a frequency other than `cos(omega) = cos(m) (2 w_private + 2 w_spatial sum_i cos k_i)`; or a matched coincident state that the contact update moves out of the bound sector. | The matter-wave relation, or the persistence of the bound pair, of the candidate laws falls. |
 | Finite screen and $A_5$ coefficient sieve | A finite carrier satisfying the screen-sieve premises violates the stated port, reserve, phase, or quotient conclusion; or the declared twelve-port \(A_5\) module, conditional matrix-current fixture, or six-axis lattice calculation is algebraically inconsistent under its stated premises. | The affected finite screen or coefficient theorem falls. Source-current and physical global-form selection remain separate receipt questions. |
 
 ## Mature Physical Branch Falsifiers
