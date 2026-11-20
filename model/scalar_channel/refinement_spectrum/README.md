@@ -15,7 +15,7 @@ The [construction manual, §§2.3 and 5](../../construction_manual/CONSTRUCTION_
 without the level term `m` of the manual's section 5.3. The fourfold subdivision of the carrier
 motivates a separate internal register. Its parent-child links, two sublattices, grading, and controlled
 interferometer are design choices. These internal links represent additional coherent hardware.
-The [official executable](../../polynomial_sv/SPEC.md) has its own repair and measurement laws.
+The [official executable](../../contrast_memory_spherical_v1/SPEC.md) has its own repair and measurement laws.
 
 Attach two fermionic modes A and B per node of a rooted four-child tree of depth L to every external mode.
 Write S for the map sending a parent to the sum of its children and let T = a(I − S).

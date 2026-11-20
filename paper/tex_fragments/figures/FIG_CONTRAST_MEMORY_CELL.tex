@@ -1,0 +1,66 @@
+% Figure: one cell of A-contrast-memory-spherical-v1 with a pair on a seam and with a face object.
+% Geometry: icosahedron vertices (0,+-1,+-phi) and cyclic permutations, orthographic view.
+\begin{tikzpicture}[x=0.92cm,y=0.92cm,
+  cms back/.style={black!32, line width=0.4pt, dash pattern=on 1.4pt off 1.4pt},
+  cms front/.style={black!62, line width=0.55pt, line join=round},
+  cms agreed/.style={black, line width=2.2pt, line cap=round},
+  cms reach/.style={black!55, line width=1.5pt, line cap=round, dash pattern=on 3pt off 2pt},
+  cms empty/.style={circle, draw=black!60, fill=white, line width=0.5pt, inner sep=0pt,
+    minimum size=3.9mm, font=\scriptsize},
+  cms load/.style={circle, draw=black, fill=black, text=white, inner sep=0pt,
+    minimum size=3.9mm, font=\scriptsize\bfseries},
+  cms far/.style={circle, draw=black!35, fill=white, line width=0.35pt, inner sep=0pt,
+    minimum size=2.0mm}]
+\def\CMScellframe{%
+\coordinate (p0) at (-0.549,0.479);
+\coordinate (p1) at (1.173,1.483);
+\coordinate (p2) at (1.308,-0.683);
+\coordinate (p3) at (0.704,1.609);
+\coordinate (p4) at (0.923,-1.895);
+\coordinate (p5) at (-2.083,-0.016);
+\coordinate (p6) at (-0.704,-1.609);
+\coordinate (p7) at (-0.923,1.895);
+\coordinate (p8) at (2.083,0.016);
+\coordinate (p9) at (0.549,-0.479);
+\coordinate (p10) at (-1.173,-1.483);
+\coordinate (p11) at (-1.308,0.683);
+\foreach \u/\v in {3/8,3/9,3/11,4/9,4/10,5/11,7/11,8/9,9/10,9/11,10/11}
+  {\draw[cms back] (p\u)--(p\v);}
+}
+\def\CMScellfront{%
+\foreach \u/\v in {0/1,0/2,0/5,0/6,0/7,1/2,1/3,1/7,1/8,2/4,2/6,2/8,3/7,4/6,4/8,5/6,5/7,5/10,6/10}
+  {\draw[cms front] (p\u)--(p\v);}
+}
+\def\CMScellports{%
+\foreach \u in {3,4,8,9,10,11} {\node[cms far] at (p\u) {};}
+}
+% (a) a pair on a seam
+\begin{scope}
+\CMScellframe
+\fill[black!9] (p0)--(p1)--(p2)--cycle;
+\fill[black!9] (p0)--(p2)--(p6)--cycle;
+\CMScellfront
+\foreach \u/\v in {0/1,1/2,0/6,2/6} {\draw[cms reach] (p\u)--(p\v);}
+\draw[cms agreed] (p0)--(p2);
+\CMScellports
+\foreach \u in {1,5,6,7} {\node[cms empty] at (p\u) {0};}
+\node[cms load] at (p0) {1};
+\node[cms load] at (p2) {1};
+\node[oph label, text=black!75, anchor=north] at (0,-2.25)
+  {(a) pair: two loads on the two ends of one seam;\\one agreed seam, cost $10$};
+\end{scope}
+% (b) a face object
+\begin{scope}[xshift=6.9cm]
+\CMScellframe
+\fill[black!22] (p0)--(p1)--(p2)--cycle;
+\CMScellfront
+\foreach \u/\v in {0/1,1/2,0/2} {\draw[cms agreed] (p\u)--(p\v);}
+\CMScellports
+\foreach \u in {5,6,7} {\node[cms empty] at (p\u) {0};}
+\node[cms load] at (p0) {1};
+\node[cms load] at (p1) {1};
+\node[cms load] at (p2) {1};
+\node[oph label, text=black!75, anchor=north] at (0,-2.25)
+  {(b) face object: three loads on one face;\\three agreed seams, cost $12$};
+\end{scope}
+\end{tikzpicture}

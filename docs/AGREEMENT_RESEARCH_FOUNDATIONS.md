@@ -1,8 +1,8 @@
 # Established mathematics for observer agreement
 
 This guide governs theorem reuse in the
-[executable model](../model/polynomial_sv/README.md) and its
-[specification](../model/polynomial_sv/SPEC.md). The target is one physical
+[executable model](../model/contrast_memory_spherical_v1/README.md) and its
+[specification](../model/contrast_memory_spherical_v1/SPEC.md). The target is one physical
 process with compatible carrier, response, record and clock readouts.
 Established results about distributed recovery and sheaf diffusion are tools
 for that construction. They do not select its physical law.

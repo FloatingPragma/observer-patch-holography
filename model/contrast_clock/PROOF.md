@@ -1,8 +1,8 @@
 # A finite autonomous controller for native contrast events
 
 The construction is a time-independent Hamiltonian that executes a specified
-finite program of the [native contrast law](../polynomial_sv/law.py), local
-event counters and the [eleven-bit seam reader](../polynomial_sv/reader.py).
+finite program of the [native contrast law](../contrast_memory_spherical_v1/law.py), local
+event counters and the [eleven-bit seam reader](../contrast_memory_spherical_v1/reader.py).
 It produces simulation-generated observer records. The clock, its couplings,
 the program, blank apparatus and the initial adjacent pair are supplied
 architecture and preparation. The result concerns this finite controlled
@@ -23,7 +23,7 @@ or an adiabatic construction do not apply to this engineered path.
 
 For one seam, let \(J\) embed the nine load states into the blank sector of
 the complete 99-state load and memory space. The exact identities in
-`polynomial_sv/law.py` give
+`contrast_memory_spherical_v1/law.py` give
 
 \[
  h_\kappa=U G_\kappa U^*,\qquad
@@ -52,10 +52,10 @@ the contrast-only term. Its full generator is \(\kappa U G_1U^*\), with
 \(G_1=0\oplus D^2\otimes I\). On blank memory and reference load zero its
 exponential reduces to \(e^{-i\theta\kappa n_v^2}\), and keeps that reference
 load zero. Including all twelve such terms gives the degree-six convention
-of the [primary specification](../polynomial_sv/SPEC.md).
+of the [primary specification](../contrast_memory_spherical_v1/SPEC.md).
 
 In particular, this program does not identify a native event with the
-shifted gate in `polynomial_sv/sectors.py:SeamEvents`. The latter has
+shifted gate in `contrast_memory_spherical_v1/sectors.py:SeamEvents`. The latter has
 generator \(\tfrac12(I-T)-2\kappa n_an_b\); the difference is the local
 operator \(\kappa(n_a^2+n_b^2)\). The reference phases and native seam
 phases are retained explicitly.

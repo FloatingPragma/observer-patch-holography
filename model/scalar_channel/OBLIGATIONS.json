@@ -40,9 +40,9 @@
       "supplies": "One-cell scalar incidence and local circulation; separately imported federation carrier arrays.",
       "evidence": [
         "model/scalar_channel/carrier.py",
-        "model/polynomial_sv/carriers/FEDERATION_LEVEL0.npz",
-        "model/polynomial_sv/carriers/FEDERATION_LEVEL1.npz",
-        "model/polynomial_sv/carriers/FEDERATION_LEVEL2.npz"
+        "model/contrast_memory_spherical_v1/carriers/FEDERATION_LEVEL0.npz",
+        "model/contrast_memory_spherical_v1/carriers/FEDERATION_LEVEL1.npz",
+        "model/contrast_memory_spherical_v1/carriers/FEDERATION_LEVEL2.npz"
       ],
       "boundary": "Joint angular/radial state, clock, and instrument transfer required by the retained spacetime theorem is unproved."
     },
@@ -67,5 +67,5 @@
       "boundary": "No combined law for Coulomb dynamics, binding spectra, universal gravitational response or observed species is established."
     }
   ],
-  "scope": "Scalar experimental construction; no transfer to polynomial-sv from labels or shared carrier alone"
+  "scope": "Scalar experimental construction; no transfer to A-contrast-memory-spherical-v1 from labels or shared carrier alone"
 }

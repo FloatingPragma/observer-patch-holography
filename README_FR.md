@@ -56,7 +56,7 @@ univers à côté d’elles.**
 
 ## L’hypothèse exécutable
 
-Le [modèle exécutable](model/polynomial_sv/README.md), polynomial-sv, place de petits
+Le [modèle exécutable](model/contrast_memory_spherical_v1/README.md), A-contrast-memory-spherical-v1, place de petits
 observateurs sur les ports de cellules icosaédriques. Deux voisins comparent
 leurs charges par une mémoire privée sur la couture qu’ils partagent ; un
 échange cohérent les fait circuler, et l’accord abaisse l’énergie. La loi,
@@ -73,7 +73,7 @@ reproduire ce que mesurent les observateurs de notre monde.
 ## Axe de recherche
 
 Nous avons un [modèle exécutable](model/README.md) d’OPH qui fonctionne,
-appelé polynomial-sv. De petits observateurs sont placés sur les ports de
+appelé A-contrast-memory-spherical-v1. De petits observateurs sont placés sur les ports de
 cellules icosaédriques. Chacun détient quelques registres et les compare
 avec ses voisins ; là où deux voisins sont en désaccord, ils réparent la
 différence entre eux deux. La théorie qui l’entoure est achevée : le principe
@@ -150,11 +150,11 @@ qui gouverne les interactions des observateurs dans l’Univers primitif : la
 règle locale que chaque observateur suit lorsqu’il compare ses registres avec
 un voisin, et qui dit comment un désaccord est réparé et ce que la réparation
 laisse en mémoire. La réparation décide de ce qui devient un fait partagé. La
-mémoire compte tout autant : dans polynomial-sv, la phase que la mémoire
+mémoire compte tout autant : dans A-contrast-memory-spherical-v1, la phase que la mémoire
 d’une couture acquiert à partir du contraste qu’elle a écrit est l’énergie
 d’accord qui lie une paire de charges, et la même loi sans elle perd la paire.
 
-polynomial-sv est le candidat à l’essai. Ses deux lois sont des candidates,
+A-contrast-memory-spherical-v1 est le candidat à l’essai. Ses deux lois sont des candidates,
 leurs couplages sont fournis, et les autres observables des articles, de la
 charge et du spectre des particules à la gravitation, sont en cours sur le
 même processus. Toute partie de l’observateur exécutable pourra changer au
@@ -220,7 +220,7 @@ Depuis la racine du dépôt, avec Python 3.11 ou plus récent :
 python3 -m model
 ```
 
-Cette commande recalcule les résultats principaux de polynomial-sv et les
+Cette commande recalcule les résultats principaux d’A-contrast-memory-spherical-v1 et les
 compare aux résultats conservés. Le [guide du modèle](model/README.md)
 indique l’exécution complète.
 
@@ -246,7 +246,7 @@ la construction peut échouer.
   exécutable et la tour des résultats. Citez sa version publiée, la
   [fiche PhilPapers](https://philpapers.org/rec/MUEFOC).
 - **[An Executable Observer for Observer Patch Holography](paper/executable_observer_construction.pdf)**
-  énonce polynomial-sv, démontre son théorème de liaison et rapporte les
+  énonce A-contrast-memory-spherical-v1, démontre son théorème de liaison et rapporte les
   registres dont ses observateurs conviennent.
 - **La bibliothèque de théorèmes** contient les preuves longues, du
   [consensus](paper/reality_as_consensus_protocol.pdf) et des
@@ -279,7 +279,7 @@ la construction peut échouer.
 ## Reproduire et vérifier
 
 Le [guide de reproduction](REPRODUCE.md) lance la suite de vérification depuis
-un clone propre. Le vérificateur du modèle recalcule polynomial-sv et ses résultats ;
+un clone propre. Le vérificateur du modèle recalcule A-contrast-memory-spherical-v1 et ses résultats ;
 la suite de régression vérifie aussi des cas adverses :
 
 ```sh
@@ -305,7 +305,7 @@ fournissent la physique effective : l’horloge de l’observateur, son interpr�
 spatiale et ses mesures de champ sur les mêmes histoires, comparées à des
 observations indépendantes. Les
 contributions doivent résoudre une connexion nommée ou révéler un défaut du
-modèle ; la [spécification de polynomial-sv](model/polynomial_sv/SPEC.md) et les
+modèle ; la [spécification d’A-contrast-memory-spherical-v1](model/contrast_memory_spherical_v1/SPEC.md) et les
 [tâches de recherche](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+is%3Aopen+label%3Aprogram%3Aphysics)
 décrivent ce travail. Les publications d’articles suivent le
 [guide des articles](paper/README.md#reproducibility) ;

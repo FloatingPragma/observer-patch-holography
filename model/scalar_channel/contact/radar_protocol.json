@@ -1,0 +1,63 @@
+{
+  "construction": "contrast-square-scalar-contact: six written stations and one coherent collar",
+  "oph_base": "08b53f0a85bcd0981346f147b9fb374a217e98f1",
+  "endpoints": [
+    0,
+    5,
+    11,
+    16,
+    22,
+    29
+  ],
+  "mark": 2,
+  "kappa": 8,
+  "dt": 0.5,
+  "ticks": 12,
+  "shots": 1048576,
+  "seed": 91731,
+  "joint_times": [
+    0.5,
+    2,
+    6
+  ],
+  "joint_signs": [
+    1,
+    -1
+  ],
+  "joint_phases": [
+    0,
+    1.5707963267948966,
+    3.141592653589793,
+    4.71238898038469
+  ],
+  "joint_drive_strength": 64,
+  "phase_kick": {
+    "shots": 268435456,
+    "pre_wait": 2,
+    "duration": 0.04908738521234052,
+    "strengths": [0, 64],
+    "post_waits": [2, 6],
+    "alpha": 1e-6,
+    "comparison": "At the same seed and wait, compare a local occupation pulse with an equal-duration sham. Require simultaneous changes to the marked collar quadrature and at least one remote enrolled scalar pointer; also subtract the same two readings with the marked contact suppressed."
+  },
+  "couplings": [
+    0,
+    1,
+    -1
+  ],
+  "clock_slots": [
+    0,
+    16,
+    17
+  ],
+  "clock_rates": [
+    1,
+    1.25
+  ],
+  "clock_alpha": 0.000001,
+  "exact_forecast_tolerance": 5e-11,
+  "joint_familywise_alpha": 1e-6,
+  "geometry_relative_tolerance": 0.05,
+  "selection": "One fixed +1 homogeneous contact Hamiltonian. The sixth endpoint is a held-out transmitter for Ramsey model discrimination. Compare local alternatives on the fixed six-collar background. A geometric claim requires successful forecasts on unseen pairs. Report every fold, control and timeout.",
+  "clock_gate": "Forecast each late slot from the first slot's unnormalized complex receiving fringe and the unmodified written-clock gap. Use a simultaneous 1-alpha allowance on all hit-port signed pointer means, including a detuned receiving-clock control. Report uninformative settings. The adjacent late slots resolve a local half-tick increment modulo a full turn."
+}

@@ -1,4 +1,4 @@
-# polynomial-sv: the executable OPH model
+# A-contrast-memory-spherical-v1: the executable OPH model
 
 [![The executable construction on one sheet: the idea, the cell, the registers, the federation, the two laws, a cage of the second law, one run](construction_manual/executable_spec.svg)](construction_manual/README.md)
 
@@ -7,7 +7,7 @@ compares them with its neighbours, and whenever two neighbours disagree they rep
 two of them. No observer sees the whole, and nothing stands outside. What the network settles on is its history,
 and that history contains the observers who work out how the network is built.
 
-polynomial-sv is that network as a program. Its name states the design goal. A consistent history is a fixed
+A-contrast-memory-spherical-v1 is that network as a program. Its name states the design goal. A consistent history is a fixed
 point over an enormous number of records, and a search for it would grow exponentially with their number. The
 network does not search. Every check is local, every repair is local, and every accepted repair lowers one global
 measure of disagreement by a fixed step, so the work grows as a polynomial in the number of observers: with this
@@ -33,7 +33,7 @@ candidate and may change as the research goes on.
 | --- | --- | --- |
 | Registers | a load 0, 1 or 2 on every port; a private memory of eleven states on every seam | one object or none on every seam and on every wedge, a wedge being two seams at one port |
 | What it does | neighbours exchange loads and pay for holding different amounts | an object hops between a seam and a wedge, which sit at two opposite levels |
-| Package | [polynomial_sv](polynomial_sv/README.md), with the binding [specification](polynomial_sv/SPEC.md) and the [proof](polynomial_sv/PROOF.md) of its theorem | [scalar_channel](scalar_channel/README.md), with its [cage](scalar_channel/cage/README.md) |
+| Package | [contrast_memory_spherical_v1](contrast_memory_spherical_v1/README.md), with the binding [specification](contrast_memory_spherical_v1/SPEC.md) and the [proof](contrast_memory_spherical_v1/PROOF.md) of its theorem | [scalar_channel](scalar_channel/README.md), with its [cage](scalar_channel/cage/README.md) |
 
 The [construction manual](construction_manual/CONSTRUCTION_MANUAL.md) builds all of it part by part: what each
 part is, why it is designed this way, every equation with what it says, and each section again in plain words.
@@ -59,21 +59,23 @@ added up.
 ```sh
 pip install -r model/requirements.txt
 python -m model                                   # law 1 against its stored results, under a minute; --full recomputes everything
-python -B -O -m model.polynomial_sv.presence      # law 1: the laws of two readings
+python -B -O -m model.contrast_memory_spherical_v1.presence      # law 1: the laws of two readings
 python -B -O -m model.scalar_channel              # law 2 on registers: preparation, pulses, pointers
 python -B -O -m model.scalar_channel.cage         # law 2: the cage, every reading from counts
-python -m pytest -q model/polynomial_sv model/scalar_channel
+python -m pytest -q model/contrast_memory_spherical_v1 model/scalar_channel model/seam_program
 ```
 
 | Package | Content |
 | --- | --- |
-| [polynomial_sv](polynomial_sv/README.md) | law 1: the local law on all 99 states of a seam, the carriers, the binding theorem, emitter and reader, events with no common clock, bound objects, the port response, the unrecovered seam, the presence reading |
+| [contrast_memory_spherical_v1](contrast_memory_spherical_v1/README.md) | law 1: the local law on all 99 states of a seam, the carriers, the binding theorem, emitter and reader, events with no common clock, bound objects, the port response, the unrecovered seam, the presence reading |
 | [scalar_channel](scalar_channel/README.md) | law 2 on one cell, written on 432 two-state registers: loop instruments, the reference by local ramps, pulses with the law running, the complete law of two pointers |
 | [scalar_channel/cage](scalar_channel/cage/README.md) | an object that law 2 holds on a ring of four seams: its theorems, its two operators as words on registers, and three experiments read from counts |
 | [scalar_channel/contact](scalar_channel/contact/README.md) | an experimental law on one cell that couples the contrast square of law 1 to the scalar occupation of law 2 on each seam, with a supplied coefficient g. Collar and scalar fuel readings measure the contact, and a mobile load pair has an all-time binding bound in the one-quantum sector. A cage on a ring through a written seam is kept only at g = 0. |
+| [Six-station material radar](scalar_channel/contact/README.md#six-station-radar-and-receiving-clocks) | The positive-contact member carries a pulse between written material clocks. One local intervention changes the collar and a remote station pointer. Tagged echoes and held-out ranges test what geometry these records support. |
+| [seam_program](seam_program/README.md) | a supplied eight-slot gate on a 3 × 2 × 2 × 2 index grid, compiled into seam events of law 1 on the 20-cell federation, with a native fuel source and a phase-sensitive receiver read at the home seam |
 | [contrast_clock](contrast_clock/README.md) | a fixed program of events of law 1 and two readings under one time-independent law; its clock register is a sequencer of the computation and no clock of an observer |
 | [construction_manual](construction_manual/README.md) | the manual, the sheet, the eight figures and their generator |
-| [contrast_replay.py](contrast_replay.py) | law 1 rebuilt from the manual in the manual's labels and checked against `polynomial_sv` |
+| [contrast_replay.py](contrast_replay.py) | law 1 rebuilt from the manual in the manual's labels and checked against `contrast_memory_spherical_v1` |
 
 A few theory packages sit beside the model, each with its own README and tests: `support_refinement`,
 `matched_einstein_limit`, `defect_particle_classes`, `carrier_selection_reduction`,

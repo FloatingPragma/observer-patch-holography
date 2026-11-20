@@ -9,7 +9,7 @@ one cell their space has dimension 97 out of 144 charged-pair states.
 ## Local law and source map
 
 This experimental construction takes the labeled ports, internal seams, external matching and emitter
-addresses from the [polynomial-sv carrier](../../polynomial_sv/carrier.py). It places two fermion modes
+addresses from the [A-contrast-memory-spherical-v1 carrier](../../contrast_memory_spherical_v1/carrier.py). It places two fermion modes
 a and b and one neutral oscillator c at each port. The oscillator retains occupations 0, 1 and 2. The
 charges of a and b are opposite by design. The source has one coefficient J > 0 and no species-specific
 rest-energy term. With ℏ = 1, its Hamiltonian is the sum of positive local squares
@@ -19,7 +19,7 @@ rest-energy term. With ℏ = 1, its Hamiltonian is the sum of positive local squ
 
 Each edge contributes all three displayed terms. The factor 1/√2 gives the normalized two-boson state unit
 matrix element. Equal strengths, the relative edge signs, the local alphabets and the conversion channel
-are supplied. The half-edge convention of the contrast-memory law of polynomial-sv and the seam/wedge
+are supplied. The half-edge convention of the contrast-memory law of A-contrast-memory-spherical-v1 and the seam/wedge
 fermion of the [scalar channel](../README.md) have different generators. Only their declared port carrier
 is used here.
 

@@ -1,0 +1,393 @@
+% The bound objects of the A-contrast-memory-spherical-v1 model as its particle candidates.
+% Input by deriving_the_particle_zoo_from_observer_consistency.tex as its own section.
+\section{The bound objects of the candidate executable model}
+\label{sec:cms-objects}
+
+The candidate executable model of the theory is A-contrast-memory-spherical-v1, specified with its proofs in the
+executable-model paper \cite{ophmodel}. Its first law is the contrast-memory law, a
+candidate native repair law, and the scalar channel is a second. This section reads the
+bound objects of the first law as particle
+candidates: it states what they are, which observable about them the model reproduces,
+how their response compares with the complete-response premise of
+Section~\ref{sec:finite-supply}, and how they could meet the class map of
+Section~\ref{sec:defect-particle-classes}. Statements about the specification, the
+binding theorem, the emitter and the reader are proved in \cite{ophmodel} and are quoted
+here.
+
+\subsection{What a test of the model is}
+\label{sec:cms-test}
+
+A test of the model compares distributions of admissible observer records with what
+observers in our world record. The state of the simulation does not contain the physical
+Universe or its spacetime. Ports, seams, cells and federations are hardware of the
+computation; they form no physical space, and no test asks that the carrier be a
+three-dimensional lattice. Physical space, time, fields and particles are effective
+descriptions that the observers inside the computation use for the records they agree
+on. A difference between microscopic state encodings is therefore no failure of the
+model, and a resemblance between them is no success.
+
+The bridge is proved in the theory. Observers who inhabit the simulation can describe
+their experiences as relativistic $3+1$-dimensional continuum spacetimes: for every
+finite admissible menu of observer readouts, a smooth $(1+3)$-dimensional Lorentzian
+field theory reproduces their complete predictions within any tolerance, on the premises
+of the proposition on smooth
+effective field descriptions of the flagship \cite{flagship}, and the spacetime paper
+gives the rank-three spatial carrier and the causal and count limits \cite{ophEinstein}.
+What the executable model has to supply is the premises of those theorems, with its own
+local clocks and records. It does not have to rebuild three dimensions inside its state.
+The executable-model paper lists the finite theorems whose premises its outputs supply as
+they stand \cite{ophmodel}.
+Every object below is read on seams and faces by port observers; none of them sits or
+moves in space.
+
+State vectors, levels of the law, the evolution parameter and positions in a sequence of
+events are tools of the calculation. Statements that use them are marked as audit. No
+common clock is assumed: each port observer counts the events of its own seams, and that
+count is its clock.
+
+\subsection{Carrier, loads and the law}
+
+A cell is one twelve-port icosahedral carrier, the echosahedron, with $12$ ports, $30$
+seams and $20$ faces \cite{ophmicro}. A federation joins complete cells by external
+seams that form a partial matching on the ports; in the spherical federations every
+cell has three external ports, so a port has five or six seams. The federations used
+below have $20$, $80$ and $320$ cells. Every port holds a load $n_v\in\{0,1,2\}$, and
+every seam has a private memory of eleven states, the coherent working memory of its two
+port observers, which is no public record. On every seam the two observers write the
+native seam event into the memory, apply a phase that depends on the recorded contrast
+of the two loads and reverse the write. On blank memory this echo acts on the loads
+exactly as
+\begin{equation}
+ H_\kappa=\frac12\sum_e\bigl(I-\mathrm{SWAP}_e\bigr)+\kappa C,\qquad
+ C=6\sum_v n_v^2-2\sum_{e=\{a,b\}}n_an_b,
+ \label{eq:cms-law}
+\end{equation}
+for every real $\kappa$, and it keeps a blank memory blank \cite{ophmodel}. The coupling
+$\kappa$ is one dimensionless number, the agreement energy in units of the exchange. A
+seam whose two ports both hold a load is an agreed seam and lowers $C$ by $2$. The law
+conserves the number of loads and their multiset. On loads $0$ and $1$ the seam term is
+the ferromagnetic XXZ interaction with anisotropy $1+2\kappa$, and the binding below is
+of the droplet kind known for that interaction
+\cite{nachtergaele2001,fischbacher2018}. The model claims no interaction of its own;
+its content is the realization of the law by a private memory, the constants on this
+carrier with loads up to two, and the tests on agreed records.
+
+\begin{figure}[!htb]
+\centering
+\input{tex_fragments/figures/FIG_CONTRAST_MEMORY_CELL.tex}
+\caption{One cell of the A-contrast-memory-spherical-v1 model in an orthographic view, far seams dashed.
+Filled ports hold one load. (a) A pair on a seam; the dashed heavy seams are the four
+seams on which it is read after one exchange. (b) A face object. The drawing shows
+hardware of the computation, and no position in physical space.}
+\label{fig:cms-cell}
+\end{figure}
+
+\subsection{The pair on a seam}
+
+A pair is two loads on the two ends of one seam (Figure~\ref{fig:cms-cell}a). A single
+load persists by conservation of the number of loads, so the pair is the smallest object
+whose persistence is an outcome of the law. Let $P$ project on the span of the pairs on a
+seam in the sector of two loads and $Q=I-P$, which contains every separated pair and
+every doubled load. On every federation of complete cells with a matching of external
+seams, the binding theorem of \cite{ophmodel} gives
+\[
+ PH_\kappa P\le(10\kappa+6)P,\qquad QH_\kappa Q\ge12\kappa\,Q,\qquad
+ \|QH_\kappa P\|\le\sqrt{10},
+\]
+and for $\kappa>3$, for every state that starts in $P$ and every value of the evolution
+parameter,
+\begin{equation}
+ \Pr(\text{no pair on a seam})\le\frac{40}{(2\kappa-6)^2}.
+ \label{eq:cms-binding}
+\end{equation}
+The bound does not depend on the number of cells. The proof combines ordered-block
+min-max with the Sylvester equation for ordered spectra. With the constants measured on
+$20$, $80$ and $320$ cells, the largest level of the adjacent block of the exchange
+$5.70$ and the coupling $2.08$, the bound becomes $17.3/(2\kappa-5.70)^2$.
+
+\paragraph{Emitter and reader.}
+A local emitter with one fuel state at a seam writes the pair with a stated error in
+norm; at $\kappa=128$ and emitter coupling $64$ the probability of no pair, a doubled load
+or fuel is at most $64009/25600000\approx0.0025004$ at every reading on every seam of the spherical family. Every
+seam has two port observers. Each copies the predicate ``both ends hold one load'' into a
+private pointer, a courier carries one copy, and a record is admitted only when both
+copies are valid and agree. The complete outcome set is one record per seam and one
+outcome ``no pair''; fuel left in the emitter counts as ``no pair''. The seam memory stays
+private and unread, the seam records are committed at the reading, and each reading uses
+a fresh run, so reading never holds the object in place \cite{ophmodel}.
+
+\subsection{Particle stability, an observable the model reproduces}
+\label{sec:cms-stability}
+
+Particle stability is stated on the agreed records of port observers. A pair written on
+one seam by the local emitter is read as a pair on some seam with probability at least one
+minus the bound, at every reading. It is read on other seams than the first. Nothing holds
+it except the law, and the same law without the agreement energy loses it. In this
+statement ``the pair moves'' means ``the pair is read on other seams''; a seam is a place
+in the hardware of the computation. The claim uses no clock, because the bound holds at
+every value of the evolution parameter and hence at every reading in any observer's own
+history. Table~\ref{tab:cms-stability} gives the largest probabilities over the readings
+of each run.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Particle stability on agreed seam records. Largest probabilities over the
+readings of each run; the bound is that of the binding theorem with the constants of
+the carrier and the emitter's error.}
+\label{tab:cms-stability}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Carrier & $\kappa$ & Bound & Largest $P$(no pair) & Largest $P$(pair on another seam)\\
+\midrule
+one cell & $8$ & $0.148790$ & $0.00956834$ & $0.985996$\\
+one cell & $128$ & $0.001447$ & $0.00001881$ & $0.991270$\\
+$20$ cells & $8$ & $0.182975$ & $0.00962164$ & $0.977029$\\
+$20$ cells & $128$ & $0.001606$ & $0.00002270$ & $0.933194$\\
+$80$ cells & $8$ & $0.182787$ & $0.00964389$ & $0.977130$\\
+$80$ cells & $128$ & $0.001605$ & $0.00002270$ & $0.933194$\\
+$320$ cells & $8$ & $0.182965$ & $0.00963435$ & $0.977091$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At long parameter values on $20$ cells and $\kappa=8$ the probability of ``no pair'' is
+$0.0089$, $0.0088$ and $0.0084$ at $64$, $256$ and $1024$. Of $100{,}000$ sampled single
+readings on $20$ cells, $786$ return ``no pair'', and the pair is read on $59$ different
+seams. As an audit on the spectrum, the lowest level of two loads lies at $-14.07$ on $20$
+cells and at $-14.24$ on one cell, counted from two free loads at $0$, and it is a pair on a
+seam with probability $0.987$: the pair is bound by the law and by no trap.
+
+\paragraph{Controls.}
+Table~\ref{tab:cms-controls} repeats the run on $20$ cells at $\kappa=8$ for two laws with
+the same alphabet, routing and symmetry. The exchange law alone loses the pair; its lowest
+level of two unit loads is the uniform state at exactly $0$, in which a pair on a seam has
+the weight $630/28680=0.022$ of a uniformly random pair. With the agreement energy reversed
+the pair is kept in free evolution, because free persistence comes from the isolation of
+the band of pairs, and with the reversed sign the pairs form the highest band. What the
+attractive sign adds is the level below two free loads. Neither changed law has a level
+below two free loads. A state without the property, two loads on ports of different cells,
+is read as an agreed pair with probability at most $0.00004$. The control that loses the
+property is a result of the same computation.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Changed laws on $20$ cells with $\kappa=8$. The lowest level is that of two unit
+loads, counted from the energy of two free loads (audit on the spectrum).}
+\label{tab:cms-controls}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Law & Largest $P$(no pair) & Lowest level & Pair on a seam in it\\
+\midrule
+the law & $0.0096$ & $-14.07$ & $0.987$\\
+exchange alone, $\kappa=0$ & $0.7968$ & $0$ & $0.022$\\
+agreement energy reversed & $0.0124$ & $+0.0066$ & $0.00002$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{The face object.}
+Three loads on the three ports of one face form the face object
+(Figure~\ref{fig:cms-cell}b); its record is the conjunction of the agreed records of the
+three seams of the face. Started on one face at $\kappa=8$, the outcome ``no agreed face''
+has probability at most $0.0178$ on one cell and $0.0174$ on $20$ cells, and the object is
+read on another face with probability up to $0.98$ and $0.94$. Under the exchange law alone
+``no agreed face'' reaches $0.80$ on one cell and $0.97$ on $20$ cells.
+
+\paragraph{Local events without a common clock.}
+One event is one seam acting once,
+$\exp\bigl(-i\tau\bigl[\tfrac12(I-\mathrm{SWAP}_e)-2\kappa n_an_b\bigr]\bigr)$. A port
+observer counts the events of its own seams, and that count is its clock. Two programs in
+which every port observer sees its events in the same order give the same seam records
+exactly, so no order between events of observers that share no port enters a record. At
+$\kappa=8$ and event angle $1/64$, rounds in which every seam acts once in a fresh random
+order keep the pair, with largest probability of ``no pair'' $0.0217$ on one cell and
+$0.0188$ on $20$ cells; rounds in which half of the carrier acts twice give $0.0470$ and
+$0.0268$, while the observers' own counts differ by a factor of up to $2.6$. Seams that
+act independently at random lose the pair at these angles, and on one cell the
+loss falls with the angle: $0.505$, $0.184$ and $0.085$ at $1/64$, $1/256$ and $1/1024$.
+With the contrast of the acting seam committed to a public record at every event the pair
+is not held ($0.015$, $0.11$ and $0.32$ after $64$, $512$ and $2048$ rounds, against $0.010$
+to $0.018$ unread). The binding rests on the regular phase between successive events of a
+seam, and an observer that serves each of its seams once per round supplies that
+regularity with its own count.
+
+\subsection{The catalogue of objects}
+\label{sec:cms-catalogue}
+
+An object is a set of $N$ unit loads. Its cost in $C$ is
+\[
+ C=6N-2\,(\text{number of agreed seams}).
+\]
+Table~\ref{tab:cms-objects} lists the cheapest objects of $N$ loads on one cell. The first
+three sit on the three kinds of centre of the cell, its $12$ ports, $30$ seams and $20$
+faces, the $62$ axis points of the carrier. The face is the place where the class theory of
+Section~\ref{sec:defect-particle-classes} puts a protected defect. Every object gains at
+least $2$ against every split into two parts, so no object gains by falling apart. No
+object is protected against merging: the cost per load falls from $6$ to $1$, and the whole
+cell costs $12$, the same as one face. What protects an object in this law is the
+conserved number of loads and the gap of the law. The law holds no winding and no flux.
+
+\begin{table}[htbp]
+\centering\small
+\caption{The cheapest objects of $N$ unit loads on one cell of the A-contrast-memory-spherical-v1 model.
+The last column is the least gain against a split into two parts.}
+\label{tab:cms-objects}
+\begin{tabular}{@{}rlrrrr@{}}
+\toprule
+$N$ & Shape & How many & Agreed seams & Cost & Gain against a split\\
+\midrule
+$1$ & one port & $12$ & $0$ & $6$ & \\
+$2$ & one seam & $30$ & $1$ & $10$ & $2$\\
+$3$ & one face & $20$ & $3$ & $12$ & $4$\\
+$4$ & two faces on a seam & $30$ & $5$ & $14$ & $4$\\
+$5$ & three faces round a port & $60$ & $7$ & $16$ & $4$\\
+$6$ & a port and its five neighbours & $12$ & $10$ & $16$ & $6$\\
+$7$ & that cap and one more port & $60$ & $12$ & $18$ & $4$\\
+$8$ & the cell less a face and a port & $30$ & $15$ & $18$ & $6$\\
+$9$ & the cell less a face & $20$ & $18$ & $18$ & $6$\\
+$10$ & the cell less a seam & $30$ & $21$ & $18$ & $6$\\
+$11$ & the cell less a port & $12$ & $25$ & $16$ & $8$\\
+$12$ & the whole cell & $1$ & $30$ & $12$ & $10$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At finite $\kappa$ the lowest level $E_N$ of $N$ unit loads on one cell is a single state,
+invariant under the rotations of the cell. Table~\ref{tab:cms-bindings} gives its binding
+$B_N=6\kappa N-E_N$ against $N$ free loads, in units of the exchange; these are levels of
+the law and audit on the spectrum. The bindings follow the numbers of agreed seams $1$,
+$3$, $5$, $7$, $10$, and their ratios are nearly independent of $\kappa$. In the lowest
+level of the pair on one cell a pair on a seam has probability $0.60$, $0.86$, $0.99$ and
+$1.00$ at $\kappa=0.5$, $2$, $8$ and $128$.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Binding $B_N$ of the lowest level of $N$ unit loads on one cell against $N$ free
+loads, in units of the exchange.}
+\label{tab:cms-bindings}
+\begin{tabular}{@{}rrrrrr@{}}
+\toprule
+$\kappa$ & $B_2$ & $B_3$ & $B_4$ & $B_5$ & $B_6$\\
+\midrule
+$0.5$ & $0.526$ & $1.556$ & $3.049$ & $4.965$ & $7.277$\\
+$1$ & $1.185$ & $3.546$ & $6.864$ & $10.905$ & $15.816$\\
+$2$ & $2.779$ & $8.554$ & $15.927$ & $24.206$ & $35.305$\\
+$8$ & $14.236$ & $43.728$ & $75.212$ & $107.678$ & $155.076$\\
+$128$ & $254.016$ & $763.513$ & $1275.013$ & $1787.511$ & $2555.005$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Inside a cell a pair passes from its seam to a linked seam by one exchange, at first order,
+through the faces on its seam. External seams are linked to no seam, and a pair passes
+from an internal seam to the external seam beside it through one separated configuration,
+with amplitude $1/(8\kappa)$. From $\kappa$ of about $4$ upward the difference of the pair
+levels between the two kinds of cell of the federation exceeds this amplitude, and over
+long parameter values the pair is read on the seams of one cell \cite{ophmodel}.
+
+The sector of two loads holds $V(V+1)/2$ states on $V$ ports, the symmetric pairs with
+doubled loads included. The loads carry no spin doublet and no antisymmetric grading, so
+Proposition~\ref{prop:defect-statistics} concerns the declared code of
+Section~\ref{sec:defect-particle-classes} and makes no statement about these objects.
+
+\subsection{The port response and the complete-response premise}
+\label{sec:cms-response}
+
+The gauge theorem of Section~\ref{sec:finite-supply} consumes twelve port generators that
+are independent, closed under commutators, with a positive trace form, and with the
+rotations of the cell acting through them \cite{ophGauge}. On one cell of the
+contrast-memory law the response is computed on the two triplets that are odd under the
+antipodal map: for one load the slow level $\mathbf3$ and the fast level $\mathbf3'$ of
+the graph Laplacian, for the bound pair its two lowest odd triplets. A port service is a
+weak operation by the observer of one port that lasts long against the inverse level
+spacings of the law. Directions are counted modulo the common phase, which changes no
+record probability. These statements are derivation and audit on the operators of the
+law; no observer reads the matrices.
+
+The plain services of the law, the load of each port, the exchange of each seam and the
+twist of each port, give seventeen generators for one load and for the bound pair at
+$\kappa=8$: two copies of $\mathfrak{su}(3)$, one on each triplet, and one common number.
+The two triplets are locked. Every port operator with rational entries acts on the fast
+triplet as the conjugate under $\sqrt5\mapsto-\sqrt5$ of its action on the slow triplet,
+so a symmetric part that is no number on one triplet is no number on the other. One
+declared service, the load weighted by the energy below the top one-load level together
+with the twist,
+\[
+ F_p=\tfrac12\bigl\{n_p,\,E_{\rm top}-\tfrac12L\bigr\}+J_p,\qquad
+ E_{\rm top}=\tfrac12\bigl(5+\sqrt5\bigr),
+\]
+with $L$ the graph Laplacian of the cell and $J_p$ the circulation round the five
+neighbours of $p$, gives twelve with every
+check of the premise: $\mathfrak u(3)$ on the slow triplet and $\mathfrak{so}(3)$ on the
+fast one, the Lie type \eqref{eq:finite-gauge-type}; a positive trace form with
+eigenvalues between $0.5$ and $7.24$; all $66$ brackets inside the span with residual
+$9\times10^{-15}$; and the $720$ covariance identities for the $60$ rotations with
+residual $2\times10^{-15}$. The weighting and the twist are supplied, and the law's own
+events provide neither. On the bound pair, twelve needs the weighting from the pair's own
+$\mathbf3'$ level, that is knowledge of the target level; the construction exhibits no
+service that gives twelve on the composite without it.
+
+Two couplings have exact features, and no selection of the coupling is claimed from
+them. At $\kappa=1$ the triplet levels of the pair are $2-\sqrt5$, $(7-\sqrt5)/2$,
+$2+\sqrt5$ and $(7+\sqrt5)/2$, counted from $12\kappa$; on the second and the fourth the
+load of every port is exactly $1/6$ and the twist vanishes. At $\kappa=(\sqrt5-1)/2$ a pair
+on a seam costs exactly what two free loads in the slow level cost, $5-\sqrt5$ above
+$12\kappa$.
+
+\subsection{A proposed reading of classes}
+\label{sec:cms-class-reading}
+
+The law has one conserved number, the number of loads, and loads add when objects merge.
+If one load is given class $1$, an object of $N$ loads has class
+$N\bmod 6$: the pair class $2$, the face object class $3$, two faces class $4$, and the cap
+of six loads class $0$. This is a proposed reading. It was formed with the table of
+objects in view, no run of the model tests it, and the law holds no record of a class.
+Three computations would test it: the link register of the class theory with $q=6$ joined
+to the contrast-memory law, so that six loads and none carry the same class in the
+records; the reaction table of the register of
+Table~\ref{tab:defect-reactions} against the merging of objects; and the count of states
+per class against the multiplicities $(4,6,6,4,6,6)$ of
+Theorem~\ref{thm:defect-particle-classes}. Each is a comparison of record distributions in
+the sense of Section~\ref{sec:cms-test}.
+
+\subsection{A second object on a second candidate law}
+\label{sec:cms-cage}
+
+The same carrier holds a second candidate law, the scalar channel, with one mode on every
+seam and on every pair of seams at a port \cite{ophmodel}. Its frequencies obey
+$\omega^2=m^2+\lambda$ with $\lambda$ a level of the graph of seams, and its reference state
+has every negative level filled, so that one object more and one object fewer are its two
+signs. On a ring of four seams with alternating signs the law holds an object and couples
+it to nothing else. The excitation of this cage is kept for every interval and every
+start, a local detector with four analyzers reads it from counts at five waits, and a
+changed law with the same alphabet, routing and symmetry loses it: particle stability for
+a second object. After a finite pulse the seam record of the cage swings with no drive at
+one line, which an observer reads at $4.8990$ of its own reference and finds equal to the
+level difference of the two modes read separately: a prepared clock. The pulse supplies
+the phase and the work, the level of a cage is flat, and the law holds no term between two
+objects. The two laws act on different state spaces, and their results are not added up.
+
+\subsection{Supplied parts and limits}
+\label{sec:cms-scope}
+
+\paragraph{Supplied.}
+The following parts are design choices of the construction: the coupling $\kappa$, with
+computed values $0$, $0.5$, $1$, $2$, $4$, $8$, $16$, $64$ and $128$; the coherent generator
+on the private seam memory; the reference registers of the degree term on ports with five
+seams; the emitter with its fuel, coupling and duration; the evolution parameter of the
+runs with a continuous parameter, while as local events the pair needs each seam to act
+once per round or the limit of small event angle; the tangent-frame routing of the
+federation; and the weighted port service of Section~\ref{sec:cms-response}.
+
+\paragraph{Limits.}
+The construction does not supply a selection of $\kappa$; a second sign of load in the
+contrast-memory law, which has no antiparticle and no annihilation; a record of currents
+that later events read, that is a
+seam connection with its own energy; the class of an object as a record; the twelve port
+currents on the bound object from the law's own services; one limiting speed for all
+objects, since the bound pair is a Galilean composite whose branch on a chain is
+$E(K)=\Delta-\cos^2(K/2)/\Delta$ with $\Delta=1+2\kappa$; a refinement map that preserves
+seams; an observer clock normalized to proper time; and the regional response that the
+Einstein theorem consumes \cite{ophEinstein}. These limits are measured against the test of
+Section~\ref{sec:cms-test}. None of them asks the model to contain three dimensions in its
+state.

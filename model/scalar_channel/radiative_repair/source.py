@@ -34,7 +34,7 @@ def generator(car, law, conversion_sites=None):
 
 
 def initial(car, key, mode):
-    from ...polynomial_sv.carrier import EMITTER_SEAM
+    from ...contrast_memory_spherical_v1.carrier import EMITTER_SEAM
     a,b = EMITTER_SEAM[key]
     state = np.zeros((2,car.n,car.n),complex)
     if mode == 'ordered':
@@ -104,7 +104,7 @@ def energy_instruments(car, X, Y, law, conversion_sites=None):
 
 
 def project_cell_band():
-    from ...polynomial_sv.carrier import cell
+    from ...contrast_memory_spherical_v1.carrier import cell
     Q,_ = one_body(cell())
     values,vectors = np.linalg.eigh(Q.toarray())
     require(sum(abs(values-(5-np.sqrt(5))) < 1e-10) == 3, 'wrong lowest port band')

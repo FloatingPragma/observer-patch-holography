@@ -1,6 +1,6 @@
 # The OPH paper set
 
-The official executable model is [polynomial-sv](../model/polynomial_sv/README.md).
+The candidate executable model is [A-contrast-memory-spherical-v1](../model/contrast_memory_spherical_v1/README.md).
 Its contrast-memory law is a candidate native repair law of the theory, and
 the model reproduces particle stability on its observers' agreed records. A
 second candidate law on the same carrier, the scalar channel, holds an object
@@ -15,7 +15,7 @@ A theorem transfers between constructions only through its actual hypotheses.
 | Paper | Role and scope |
 | --- | --- |
 | [Flagship synthesis](../flagship/from_observer_consensus_to_standard_physics.tex) | Closure, the executable model, what its observers read, and the effective 3+1D description of their agreed records. |
-| [Executable observer construction](../paper/executable_observer_construction.tex) | "An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records": the polynomial-sv specification, the contrast-memory law, the binding theorem, particle stability on agreed records, bound objects, port response, the unrecovered collar, what a reading leaves, the scalar channel with its cage, the finite theorems that the outputs of the model meet, and its predictions on records. |
+| [Executable observer construction](../paper/executable_observer_construction.tex) | "An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records": the A-contrast-memory-spherical-v1 specification, the contrast-memory law, the binding theorem, particle stability on agreed records, bound objects, port response, the unrecovered collar, what a reading leaves, the scalar channel with its cage, the finite theorems that the outputs of the model meet, and its predictions on records. |
 | [Particles and interactions](../paper/deriving_the_particle_zoo_from_observer_consistency.tex) | Native matter representations, common currents, charged/neutral transport and weak channels, with physical species attachments stated separately. |
 | [Spacetime and Einstein dynamics](../paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex) | Observer geometry and quantitative matched-regional tensor bounds; source, metric, stress, state, clock and refinement hypotheses define their application. |
 | [Observers and records](../paper/observers_are_all_you_need.tex) | Complete instruments, retained references, capacity, entropy and compatible record algebras. |
@@ -33,7 +33,7 @@ cosmology, a pure Yang–Mills gap or a physical coupling for the executable
 model merely by sharing terminology.
 
 The results of the executable model are reproduced in
-[model/polynomial_sv](../model/polynomial_sv/README.md). Its tests compare
+[model/contrast_memory_spherical_v1](../model/contrast_memory_spherical_v1/README.md). Its tests compare
 distributions of admissible observer records; the carrier is hardware of the
 computation and no physical space, and the theory proves that observers who
 inhabit the simulation can describe their experiences as relativistic 3+1D

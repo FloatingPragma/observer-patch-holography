@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 494,
+  "surface_count": 495,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -236,7 +236,7 @@
       "allowlisted": false
     },
     {
-      "path": "paper/tex_fragments/PARTICLES_PSV_BOUND_OBJECTS.tex",
+      "path": "paper/tex_fragments/PARTICLES_CONTRAST_MEMORY_BOUND_OBJECTS.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -471,7 +471,7 @@
       "allowlisted": false
     },
     {
-      "path": "paper/tex_fragments/THEORY_PSV_HYPOTHESIS.tex",
+      "path": "paper/tex_fragments/THEORY_CONTRAST_MEMORY_HYPOTHESIS.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -981,6 +981,21 @@
       "allowlisted": false
     },
     {
+      "path": "model/contrast_memory_spherical_v1/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/contrast_memory_spherical_v1/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/contrast_memory_spherical_v1/SPEC.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/defect_particle_classes/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1031,21 +1046,6 @@
       "allowlisted": false
     },
     {
-      "path": "model/polynomial_sv/PROOF.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/polynomial_sv/README.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/polynomial_sv/SPEC.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
       "path": "model/scalar_channel/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1071,17 +1071,22 @@
       "allowlisted": false
     },
     {
-      "path": "model/scalar_channel/radiative_repair/FLAT_BAND.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
       "path": "model/scalar_channel/radiative_repair/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/scalar_channel/refinement_spectrum/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/seam_program/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/seam_program/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

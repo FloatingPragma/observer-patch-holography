@@ -9,7 +9,7 @@ executes three experiments of an observer on it.
 
 The candidate is `A-native-caged-exciton-v1`: the free law of the scalar channel is unchanged, and the
 observer's menu gains a potential and a converter on the profile of the ring. The scalar channel is a candidate
-under test, like the [contrast-memory law](../../polynomial_sv/README.md), and the two laws act on different
+under test, like the [contrast-memory law](../../contrast_memory_spherical_v1/README.md), and the two laws act on different
 state spaces.
 
 ## What is shown
