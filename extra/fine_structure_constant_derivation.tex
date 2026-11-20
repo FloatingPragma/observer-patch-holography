@@ -230,12 +230,11 @@ The outside description is geometric. The inside description is
 electromagnetic. A declared typed bridge identifies both as readings of one
 cell; the fixed-point theorem is conditional on that premise.
 
-The executable model of the programme, polynomial-sv~\cite{ophmodel}, runs two candidate
-native repair laws on federations of twelve-port icosahedral cells. The contrast-memory law
-places loads \(0\), \(1\) or \(2\) on the ports and a private memory on every seam, exchanges
-loads across seams and lowers the energy of a seam whose two ports both hold a load, and its
-port observers admit a seam record only when both ends agree. The scalar channel holds
-objects in modes on the seams and on the pairs of seams at a port. The ports, seams and cells of the model are hardware of a computation and no space, and a test of the model compares what its observers record with what observers in our world record. The model carries no
+The executable model of the programme runs the OPH law~\cite{ophmodel}: each constituent moves
+by reflected routing, two constituents that meet bind into a pair through a contact law, a capture
+vertex forms that pair and sends away a marker, and a newborn pair opens its hop over $128$ updates. Its carrier is hardware of
+a computation and no space, and a test of the model compares what its observers record with what
+observers in our world record. The model carries no
 electromagnetic current, so the fixed-point branch below is a statement about the declared
 cell map.
 
@@ -1425,10 +1424,9 @@ FloatingPragma,
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/claims/frozen_prediction_register.json}.
 
 \bibitem{ophmodel}
-B.~M\"uller, M.~Poneder, J.~Kim, and D.~A.~Friedman,
-\emph{An Executable Observer for Observer Patch Holography: Specification,
-Memory and Agreed Records}, 2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/executable_observer_construction.pdf}.
+FloatingPragma (2026). \emph{The OPH law: specification, exact simulator and
+tests}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model}.
 
 \bibitem{dhmz}
 M.\ Davier, A.\ Hoecker, B.\ Malaescu, and Z.\ Zhang,
