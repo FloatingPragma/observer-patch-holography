@@ -42,7 +42,7 @@ section h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; 
 .step { font: 11px var(--mono); color: var(--accent); letter-spacing: 1px; text-transform: uppercase; }
 .law-title { font-size: 15px; font-weight: 600; margin: 2px 0 6px; }
 .badge { display: inline-block; font: 11px var(--mono); padding: 2px 8px; border-radius: 10px; border: 1px solid currentColor; margin-right: 6px; }
-.status-candidate { color: var(--good); } .status-undecided { color: var(--warn); }
+.status-law { color: var(--good); } .status-undecided { color: var(--warn); }
 .status-excluded, .status-disfavoured, .status-control { color: var(--bad); }
 .kv { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; font: 12px var(--mono); color: var(--muted); margin-top: 8px; }
 .kv b { color: var(--ink); font-weight: 500; }
@@ -625,7 +625,7 @@ const formation = {
       <tr><td>with the vertex disabled</td><td>${doc.captured_without_vertex.toFixed(4)}</td></tr>
       <tr><td>formed pair ahead of its birthplace, markers traced out</td><td>${(100 * doc.forward_fraction).toFixed(1)}%</td></tr>
       <tr><td>the same, markers read at a coherent collector</td><td>${(100 * doc.forward_fraction_collected).toFixed(1)}%</td></tr></table>
-      <p class="note">Once formed, the pair never separates: the contact law keeps its bound subspace invariant. Each marker records the junction and the update of a birth, so with the markers traced out every birth is a localized pair that spreads both ways. A collector that joins all junction wires coherently leaves the birthplace unresolved at its common port; conditioned on that port the pair keeps the incoming net momentum and leaves in both directions all the same, the split that stopped the clock test of step 5.</p>
+      <p class="note">Once formed, the pair never separates: the contact law keeps its bound subspace invariant. Each marker records the junction and the update of a birth, so with the markers traced out every birth is a localized pair that spreads both ways. A collector that joins all junction wires coherently leaves the birthplace unresolved at its common port; conditioned on that port the pair keeps the incoming net momentum, and the opening of its hop sends it on in that direction.</p>
       <canvas id="capCurve" width="680" height="280" class="panel"></canvas></section>`;
     $("explain").innerHTML = esc(doc.summary) + " The pictures are audit views of the law's probabilities.";
     $("meta").innerHTML = `<span>carrier</span><b>a strip of ${doc.carrier.size} junctions</b><span>launch orders</span><b>${doc.orders.join(", ")}</b>
@@ -697,10 +697,10 @@ const dispersion = {
     doc.duration = doc.updates; doc.rate = doc.updates / 10;
   },
   enter(doc) {
-    $("legend").innerHTML = `<span><i style="background:conic-gradient(red,yellow,lime,cyan,blue,magenta,red)"></i>phase of the matter wave</span><span><i style="background:var(--accent)"></i>candidate laws</span><span><i style="background:var(--bad)"></i>changed law</span>`;
+    $("legend").innerHTML = `<span><i style="background:conic-gradient(red,yellow,lime,cyan,blue,magenta,red)"></i>phase of the matter wave</span><span><i style="background:var(--accent)"></i>OPH law</span><span><i style="background:var(--bad)"></i>changed law</span>`;
     const row = (OPENWAVE.rows || []).find(r => r.number === doc.openwave_row);
     const per = [64, 128, 256].map(P => {
-      const c = doc.rows.filter(r => r.law === "candidates" && r.period === P), x = doc.rows.filter(r => r.law === "changed" && r.period === P);
+      const c = doc.rows.filter(r => r.law === "oph" && r.period === P), x = doc.rows.filter(r => r.law === "changed" && r.period === P);
       const rng = (a, k, d) => `${Math.min(...a.map(r => r[k])).toFixed(d)}–${Math.max(...a.map(r => r[k])).toFixed(d)}`;
       return `<tr><td>${P}</td><td>${c[0].k.toFixed(4)}</td><td>${rng(c, "kinetic", 4)}</td><td class="good">${c.filter(r => r.passes).length}/14</td><td>${x.filter(r => r.passes).length}/14</td></tr>`;
     }).join("");
@@ -708,7 +708,7 @@ const dispersion = {
     $("dyn").innerHTML = `<section><h2>OpenWave Row 30</h2>
       <p class="note" style="margin-top:0">OpenWave's test: <b style="color:var(--ink)">${esc(row ? row.test : "emergent ω² = k² + m² for matter waves")}</b>.</p>
       ${row ? `<p class="note"><a href="${row.spec_url}" target="_blank" rel="noopener">Problem statement on GitHub</a> · <a href="${row.oph_url}" target="_blank" rel="noopener">OPH column</a></p>` : ""}
-      <table><tr><th>period</th><th>|k|</th><th>kinetic ratio</th><th>candidates</th><th>changed law</th></tr>${per}</table>
+      <table><tr><th>period</th><th>|k|</th><th>kinetic ratio</th><th>OPH law</th><th>changed law</th></tr>${per}</table>
       <p class="note">ω from the native step of the formed pair, fourteen directions per period. Kinetic ratio (ω² − m²)/(c²|k|²) with m = ${doc.rest.toFixed(6)} and c² = ${doc.c2}; the test requires it within ±${(100 * doc.tolerance).toFixed(1)}% of one. The long-wave expansion gives ω² = m² + 2w m cot(m) |k|², coefficient ${doc.coefficient.toFixed(8)}; the closed form agrees with the native step to ${doc.identity_error.toExponential(1)}.</p></section>
       <section><h2>Recorded in the Row 30 experiment</h2><table>
       <tr><td>rest frequency</td><td>${rec.rest_frequency_range.join("–")}</td></tr>
@@ -717,7 +717,7 @@ const dispersion = {
       <tr><td>changed-law kinetic deficit</td><td>${(100 * rec.changed_law_kinetic_deficit[0]).toFixed(2)}–${(100 * rec.changed_law_kinetic_deficit[1]).toFixed(2)}%</td></tr>
       <tr><td>precision repeat envelope</td><td>${(100 * rec.precision_repeat_envelope[0]).toFixed(2)}% to +${(100 * rec.precision_repeat_envelope[1]).toFixed(2)}%</td></tr>
       <tr><td>incident preparations</td><td>${rec.incident_preparations.map(v => v.toExponential(3)).join(" + ")}</td></tr></table>
-      <p class="note">The observers measured rest lines, wave vectors and frequencies from their own records; the counts are sampled from the law. The frequency relation is common to the three candidates, so it gives no preference among them.</p></section>`;
+      <p class="note">The observers measured rest lines, wave vectors and frequencies from their own records; the counts are sampled from the law. </p></section>`;
     $("explain").innerHTML = esc(doc.summary);
     $("meta").innerHTML = `<span>contact phase</span><b>${doc.phi.toFixed(6)} (m = φ/2)</b>` + provenance(doc);
   },
@@ -747,11 +747,72 @@ const dispersion = {
     ctx.fillStyle = "rgba(74,241,242,.10)"; ctx.beginPath();
     ctx.moveTo(X(0), Y(m2)); ctx.lineTo(X(k2max), Y(m2 + doc.c2 * k2max * (1 + doc.tolerance))); ctx.lineTo(X(k2max), Y(m2 + doc.c2 * k2max * (1 - doc.tolerance))); ctx.closePath(); ctx.fill();
     ctx.setLineDash([7, 5]); ctx.strokeStyle = "#dce7eecc"; ctx.lineWidth = 1.5 * dpr; ctx.beginPath(); ctx.moveTo(X(0), Y(m2)); ctx.lineTo(X(k2max), Y(m2 + doc.c2 * k2max)); ctx.stroke(); ctx.setLineDash([]);
-    for (const r of doc.rows) { ctx.fillStyle = r.law === "candidates" ? "#4af1f2" : "#ff6b6b"; ctx.beginPath(); ctx.arc(X(r.k * r.k), Y(r.omega * r.omega), 4 * dpr, 0, 2 * Math.PI); ctx.fill(); }
+    for (const r of doc.rows) { ctx.fillStyle = r.law === "oph" ? "#4af1f2" : "#ff6b6b"; ctx.beginPath(); ctx.arc(X(r.k * r.k), Y(r.omega * r.omega), 4 * dpr, 0, 2 * Math.PI); ctx.fill(); }
     ctx.fillStyle = "#dce7ee"; ctx.font = font;
     ctx.fillText("dashed: ω² = m² + c²|k|², band ±3.5% on the kinetic part", X(k2max * 0.02), Y(om2max) + 16 * dpr);
-    $("hud").innerHTML = `<b>${esc(doc.step)} · ${esc(doc.title)}</b><br>formed matter of the three candidate laws · audit view of the law's amplitudes`;
+    $("hud").innerHTML = `<b>${esc(doc.step)} · ${esc(doc.title)}</b><br>formed matter of the OPH law · audit view of the law's amplitudes`;
     $("clock").innerHTML = `update <b>${f * doc.stride}</b> <small>of ${doc.updates}</small>`;
+  },
+};
+
+// ---------- view: persistence of a bound pair (OpenWave Row 4) ----------
+const persistence = {
+  footer: true,
+  async prepare(doc) {
+    doc.values = await unpack(doc.frames);
+    [doc.F, , doc.N] = doc.frames.shape;
+    doc.duration = doc.updates; doc.rate = doc.updates / 12;
+  },
+  enter(doc) {
+    $("legend").innerHTML = `<span><i style="background:var(--good)"></i>the OPH law</span><span><i style="background:var(--bad)"></i>independent transport (control)</span>`;
+    const rec = doc.recorded, row = (OPENWAVE.rows || []).find(r => r.number === 4);
+    $("dyn").innerHTML = `<section><h2>OpenWave Row 4</h2>
+      <p class="note" style="margin-top:0">OpenWave's test: <b style="color:var(--ink)">${esc(row ? row.test : "the particle state persists in free evolution")}</b>.</p>
+      ${row ? `<p class="note"><a href="${row.spec_url}" target="_blank" rel="noopener">Problem statement on GitHub</a> · <a href="${row.oph_url}" target="_blank" rel="noopener">OPH column</a></p>` : ""}
+      <table><tr><td>eigenvalue of every update, all ages</td><td>−exp(iφ/2)</td></tr>
+      <tr><td>largest change of the profile</td><td>${doc.profile_change.toExponential(1)}</td></tr>
+      <tr><td>capture projection at every address</td><td>${doc.capture_projection.toExponential(1)}</td></tr>
+      <tr><td>matched weight under the law</td><td>${Math.min(...doc.contact_matched).toFixed(6)}</td></tr>
+      <tr><td>matched weight, control, after one update</td><td>${doc.control_matched[1].toFixed(6)}</td></tr></table>
+      <p class="note">On the complement of the equal-slot vector the contact coin is the number −exp(iφ/2), and the routing swaps the two ends of every edge. The signed circulation lives entirely there, so each update multiplies it by that number, at every age of the pair. A returning marker releases a pair only through its overlap with the equal-slot pair, which is zero at every address.</p></section>
+      <section><h2>Recorded in the Row 4 experiment</h2><table>
+      <tr><td>cohorts of 4,194,304 trials</td><td>${rec.cohorts}</td></tr><tr><td>separations</td><td>${rec.separations}</td></tr>
+      <tr><td>independent transport, separated</td><td>${rec.control_separated[0].toLocaleString("en")} of ${rec.control_separated[1].toLocaleString("en")}</td></tr>
+      <tr><td>ordinary pair, first closed return</td><td>${(100 * rec.ordinary_return_separation).toFixed(5)}% separated</td></tr>
+      <tr><td>the same with the route cut</td><td>${(100 * rec.route_cut_return_separation).toFixed(5)}% separated</td></tr></table>
+      <p class="note">An ordinary collision does not populate the protected circulation; its marked pairs can separate when their marker returns.</p></section>`;
+    $("explain").innerHTML = esc(doc.summary) + " The pictures show the probability of constituent A over the plane.";
+    $("meta").innerHTML = `<span>carrier</span><b>${doc.size} × ${doc.size} addresses</b><span>ages checked</span><b>${doc.ages.join(", ")}</b><span>contact phase</span><b>${doc.phi.toFixed(6)}</b>` + provenance(doc);
+  },
+  draw(doc) {
+    const dpr = fit(c2d), ctx = c2d.getContext("2d"), W = c2d.width / dpr, H = c2d.height / dpr, N = doc.N;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.fillStyle = "#05080c"; ctx.fillRect(0, 0, W, H);
+    const f = Math.min(doc.F - 1, Math.floor(state.t)), P = Math.min((W - 90) / 2, H * 0.48), y0 = 56;
+    const panel = (ch, x0, color, label) => {
+      const cell = P / N;
+      for (let x = 0; x < N; x++) for (let y = 0; y < N; y++) {
+        const v = doc.values[((f * 2 + ch) * N + x) * N + y] / 255;
+        ctx.fillStyle = `rgba(${color},${(0.06 + 0.94 * v).toFixed(3)})`; ctx.fillRect(x0 + x * cell + 1, y0 + (N - 1 - y) * cell + 1, cell - 2, cell - 2);
+      }
+      ctx.strokeStyle = "#1f2c37"; ctx.strokeRect(x0, y0, P, P);
+      text(ctx, label, x0, y0 - 10, COL.muted, 12);
+      return cell;
+    };
+    const cell = panel(0, 30, "87,212,154", "the OPH law: the circulation stays whole");
+    panel(1, 60 + P, "255,107,107", "independent transport: the pair comes apart");
+    const cx = 30 + 4 * cell, cy = y0 + (N - 4) * cell, sgn = f % 2 ? -1 : 1;
+    const pts = [[cx, cy], [cx + cell, cy], [cx + cell, cy - cell], [cx, cy - cell]];
+    pts.forEach((p, k) => { const q = pts[(k + 1) % 4]; arrow(ctx, p[0] + (q[0] - p[0]) * 0.2, p[1] + (q[1] - p[1]) * 0.2, p[0] + (q[0] - p[0]) * 0.8, p[1] + (q[1] - p[1]) * 0.8, k % 2 ? "#ffb04a" : "#4af1f2", 2.5); });
+    dial(ctx, 30 + P - 40, y0 + 40, 22, f * (Math.PI + doc.phi / 2), COL.green, "phase per update π + φ/2");
+    const box = [70, y0 + P + 50, W - 110, H - (y0 + P + 50) - 50];
+    const { X, Y } = axes(ctx, box, [0, doc.updates], [0, 1.05], "update", "matched weight", { yticks: [0, 0.25, 0.5, 0.75, 1], xticks: ticks(0, doc.updates, 6), font: 12 });
+    for (const [arr, col] of [[doc.contact_matched, "#57d49a"], [doc.control_matched, "#ff6b6b"]]) {
+      ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.beginPath();
+      arr.forEach((v, n) => { if (n > f) return; n ? ctx.lineTo(X(n), Y(v)) : ctx.moveTo(X(n), Y(v)); }); ctx.stroke();
+    }
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    $("hud").innerHTML = `<b>${esc(doc.step)} · ${esc(doc.title)}</b>`;
+    $("clock").innerHTML = `update <b>${f}</b> <small>of ${doc.updates}</small>`;
   },
 };
 
@@ -1031,14 +1092,14 @@ const rowView = {
       <p class="note"><b style="color:var(--ink)">OpenWave's test:</b> ${esc(row.test)}</p>
       <p class="note"><a href="${row.spec_url}" target="_blank" rel="noopener">Problem statement on GitHub</a> · <a href="${row.oph_url}" target="_blank" rel="noopener">OPH column on GitHub</a></p></section>
       <section><h2>OPH's result</h2><p><span class="badge st-${row.status}">${esc(row.status_label)}</span></p>
-      <p class="note" style="color:var(--ink)">${row.result ? esc(row.result) : "The current research reports hold no result for this row on the three candidate laws."}</p>
+      <p class="note" style="color:var(--ink)">${row.result ? esc(row.result) : "No passing result for this row is on file."}</p>
       ${runs.map((r, k) => `<button class="go" data-run="${state.runs.indexOf(r)}">Open the replay: ${esc(r.title)}</button>`).join(" ")}</section>${report}`;
     $("dyn").querySelectorAll("button.go").forEach(b => b.onclick = () => select(state.runs[+b.dataset.run]));
     const counts = [["passed", r => r.status === "pass"], ["open, tested", r => r.status === "open" && r.result], ["no result", r => !r.result]].map(([s, f]) => `<span>${s}</span><b>${OPENWAVE.rows.filter(f).length} rows</b>`).join("");
     $("law").innerHTML = `<div class="step">OpenWave · Row ${row.number} · ${esc(row.group)} · ${esc(row.regime)}</div><div class="law-title">${esc(row.name)}</div>
       <div class="kv">${counts}</div>
-      <p class="note">Only results on the three frozen candidate laws are documented. A row passes when a registered finite test of it passed on those laws. Results come from the ${esc(OPENWAVE.source.research_status)}.</p>`;
-    $("explain").innerHTML = "The animation illustrates the physics the row asks for. Where the current reports hold numbers, the chart below it compares them.";
+      <p class="note">A row passes when a registered finite test of it passed on the OPH law.</p>`;
+    $("explain").innerHTML = "The animation illustrates the physics the row asks for. Where results are on file, the chart below it compares them.";
     $("meta").innerHTML = `<span>criteria</span><b>${esc(OPENWAVE.source.repository)} ${esc(OPENWAVE.source.file)} at ${OPENWAVE.source.commit.slice(0, 8)}</b>`;
   },
   draw(row) {
@@ -1065,7 +1126,7 @@ function showRow(n) {
 }
 function renderOpenWave() {
   if (!OPENWAVE.rows) { $("owButton").style.display = "none"; return; }
-  let group = "", html = `<div class="ow-group" style="text-transform:none;letter-spacing:0">Only the three frozen candidate laws are documented. Greyed rows have no result on them.</div>`;
+  let group = "", html = `<div class="ow-group" style="text-transform:none;letter-spacing:0">Greyed rows have no passing result on the OPH law on file.</div>`;
   for (const r of OPENWAVE.rows) {
     if (r.group !== group) { group = r.group; html += `<div class="ow-group">${esc(group)}</div>`; }
     const grey = !r.result ? "open" : "";
@@ -1091,7 +1152,7 @@ const table = {
   draw() {},
 };
 
-const VIEWS = { field3d: field, journey, race, scan, formation, dispersion, "clock-journeys": table };
+const VIEWS = { field3d: field, journey, race, scan, formation, dispersion, persistence, "clock-journeys": table };
 
 // ---------- selection and loop ----------
 function lawPanel(doc) {

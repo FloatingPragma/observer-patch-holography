@@ -78,8 +78,8 @@ def continuum_document(result: dict, convergence: list[dict] | None = None) -> d
 def journeys_document(journeys: list[dict], seconds: float) -> dict:
     from .law import LAWS
     return {"format": FORMAT, "kind": "clock-journeys",
-            "title": "Two clocks on the step-3 routes, exact expectations",
-            "law": _law(LAWS["reflected-routing"]), "journeys": journeys,
+            "title": "Two clocks on the diagonal and axial routes, exact expectations",
+            "law": _law(LAWS["oph"]), "journeys": journeys,
             "provenance": _provenance(seconds)}
 
 
@@ -124,7 +124,7 @@ def race_document(result: dict) -> dict:
     logp = np.log10(np.maximum(strip, 1e-300))
     encoded = np.clip(np.round((logp + 60) / 60 * 255), 0, 255)
     return {
-        "format": FORMAT, "kind": "race", "step": "Step 2",
+        "format": FORMAT, "kind": "race", "step": "Signals",
         "title": "A fresh message on the free wave",
         "summary": "Field-only access: a compact launch at A, read by a detector at B. The law's strict "
                    "front moves one address per update and carries only exponentially small precursors; "
@@ -151,13 +151,12 @@ def formation_document(result: dict, control: dict) -> dict:
     joint = result["joint"]
     scaled = np.sqrt(np.clip(joint / joint.max(), 0, 1))
     return {
-        "format": FORMAT, "kind": "formation", "step": "Step 5",
+        "format": FORMAT, "kind": "formation", "step": "Matter",
         "title": "A pair formed in an encounter",
         "summary": "Two constituents launched toward each other on a strip. Where they meet head-on, the "
                    "capture vertex turns the collision into a bound pair plus a marker that leaves on the "
-                   "junction's own wire. The pair then stays together under the contact law. The marker "
-                   "records where and when the pair was born, and the pair leaves its birthplace in both "
-                   "directions.",
+                   "junction's own wire. The pair stays together under the contact law, and as it matures "
+                   "it opens its hop and travels on.",
         "law": _law(result["law"]),
         "carrier": {"size": result["size"]}, "updates": result["updates"], "orders": result["orders"],
         "angle": result["angle"], "contact_phase": result["contact_phase"],
@@ -185,8 +184,7 @@ def row30_document(result: dict, frames: np.ndarray, stride: int) -> dict:
     return {
         "format": FORMAT, "kind": "dispersion", "step": "OpenWave Row 30", "openwave_row": 30,
         "title": "The matter-wave relation of a collision-formed pair",
-        "summary": "The three candidate laws share the mature step of a formed pair, so they share its "
-                   "frequency relation. For each of the fourteen registered order-three directions at "
+        "summary": "The frequency relation of a formed pair follows from the mature step of the law. For each of the fourteen registered order-three directions at "
                    "chart periods 64, 128 and 256 the frequency comes from the native step, and the "
                    "observer's test asks whether the kinetic increment (omega^2 - m^2) / (c^2 |k|^2) "
                    "lies within 3.5% of one, with m the rest frequency and c^2 the scalar standard of "
@@ -200,5 +198,28 @@ def row30_document(result: dict, frames: np.ndarray, stride: int) -> dict:
         "stride": stride, "updates": (frames.shape[0] - 1) * stride,
         "frames": {**_pack(encoded, "uint8"),
                    "note": "axis 1: resting, moving packet; axis 2: sqrt amplitude, phase of the S-reading"},
+        "provenance": _provenance(result["seconds"]),
+    }
+
+
+def row04_document(result: dict) -> dict:
+    """OpenWave Row 4: the protected circulation of a bound pair and the independent-transport control."""
+    scale = max(result["pair_density"].max(), result["control_density"].max())
+    encode = lambda a: np.round(np.sqrt(np.clip(a / scale, 0, 1)) * 255)
+    return {
+        "format": FORMAT, "kind": "persistence", "step": "OpenWave Row 4", "openwave_row": 4,
+        "title": "A bound pair that persists in free evolution",
+        "summary": "A signed circulation of a bound pair around one plaquette, read by observers at every "
+                   "update. The law keeps it whole, and a returning marker cannot release it. The control "
+                   "gives the two constituents independent transport.",
+        "law": _law(result["law"]),
+        "phi": result["phi"], "size": result["size"], "updates": result["updates"], "ages": result["ages"],
+        "eigenvalue": result["eigenvalue"], "eigen_error": result["eigen_error"],
+        "profile_change": result["profile_change"], "capture_projection": result["capture_projection"],
+        "contact_matched": [round(v, 12) for v in result["contact_matched"]],
+        "control_matched": [round(v, 9) for v in result["control_matched"]],
+        "frames": {**_pack(np.stack([encode(result["pair_density"]), encode(result["control_density"])], axis=1), "uint8"),
+                   "note": "sqrt of the probability of constituent A over (x, y); channel 0 the law, channel 1 the control"},
+        "recorded": result["recorded"],
         "provenance": _provenance(result["seconds"]),
     }

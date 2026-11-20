@@ -6,8 +6,8 @@
   "research_status": "current reports of the research team"
  },
  "status_meaning": {
-  "pass": "a registered finite test of the row passed on the three candidate laws",
-  "open": "the candidate laws have been tested on the row and it is open"
+  "pass": "a registered finite test of the row passed on the OPH law",
+  "open": "no passing result on file"
  },
  "rows": [
   {
@@ -17,7 +17,7 @@
    "regime": "static",
    "test": "integer topological charge; a split e → e/2 + e/2 impossible",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "Electric charge comes in whole units. OpenWave asks for a charge that is an integer topological number, a winding that cannot be split, so that e → e/2 + e/2 is impossible.",
    "result": "",
    "diagram": "charge",
@@ -34,51 +34,15 @@
    "regime": "static",
    "test": "a localized state the dynamics selects, set to 511 keV by one anchor; validated when a second quantity fixed by that anchor agrees with measurement",
    "status": "open",
-   "status_label": "open on the candidate laws",
+   "status_label": "no result",
    "explain": "A particle at rest carries energy E = mc². OpenWave asks for a localized state that the dynamics itself selects, set to 511 keV by one anchor, and a second quantity fixed by that anchor that agrees with measurement.",
-   "result": "The three age-8192 laws can form a compact pair at an encounter from two independently launched ordinary constituents.",
+   "result": "",
    "diagram": "rest",
    "comparison": null,
    "runs": [],
    "spec_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L102",
    "oph_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L436",
-   "report": {
-    "title": "Row 2 · A localized rest component and a test of what its energy anchor fixes",
-    "findings": [
-     "The three age-8192 laws can form a compact pair at an encounter from two independently launched ordinary constituents."
-    ],
-    "tables": [
-     {
-      "heading": "A local collision and a spatially coherent rest preparation on the three maturation laws",
-      "header": [
-       "Public array on each formation law",
-       "Observed rest-output probability, single-emitter births",
-       "Conditional rest angular frequency, rad/home tick",
-       "Whole-pair return probability at the emitter, eight ticks after maturation"
-      ],
-      "rows": [
-       [
-        "8³",
-        ".001951–.001953",
-        ".09789–.09843",
-        ".01378–.02330"
-       ],
-       [
-        "16³",
-        ".0002440–.0002444",
-        ".09794–.09983",
-        ".000323–.010664"
-       ],
-       [
-        "32³",
-        ".00003033–.00003089",
-        ".09489–.09860",
-        ".00000152–.000323"
-       ]
-      ]
-     }
-    ]
-   }
+   "report": null
   },
   {
    "number": 3,
@@ -87,7 +51,7 @@
    "regime": "dynamic",
    "test": "self-starting frequency-rigid internal oscillation at ω = mc²/ℏ",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "Quantum theory gives every massive particle an internal oscillation at ω = mc²/ℏ, a clock it carries along. OpenWave asks for a self-starting internal oscillation whose frequency is rigid.",
    "result": "",
    "diagram": "clock",
@@ -103,12 +67,53 @@
    "group": "Particle · Electron",
    "regime": "dynamic",
    "test": "the particle state persists in free evolution",
-   "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status": "pass",
+   "status_label": "passed on the OPH law",
    "explain": "A particle has to hold together on its own. OpenWave asks for a localized state that persists in free evolution, with no trap, against the Derrick-type escape by which classical field lumps spread or collapse.",
-   "result": "",
+   "result": "A signed circulation of a bound pair around one plaquette is an eigenvector of every update of the OPH law, at every age of the pair, with eigenvalue −exp(iφ/2): its profile never changes, and its overlap with the state a capture writes is zero at every address, so a returning marker cannot release it. The observers recorded zero separations in five cohorts of 4,194,304 trials. Giving the two constituents independent transport separated 3,144,922 of 4,194,304 pairs, where the law gives exactly three quarters. An ordinary collision does not populate this mode: its first closed return separates 0.47253% of the marked pairs.",
    "diagram": "persist",
-   "comparison": null,
+   "comparison": {
+    "kind": "bars",
+    "title": "Fraction of pairs separated",
+    "unit": "",
+    "groups": [
+     [
+      "OPH law, circulation",
+      [
+       [
+        "computed",
+        0.0
+       ],
+       [
+        "recorded",
+        0.0
+       ]
+      ]
+     ],
+     [
+      "independent transport (control)",
+      [
+       [
+        "computed",
+        0.75
+       ],
+       [
+        "recorded",
+        0.749808
+       ]
+      ]
+     ],
+     [
+      "ordinary pair, first closed return",
+      [
+       [
+        "recorded",
+        0.0047253
+       ]
+      ]
+     ]
+    ]
+   },
    "runs": [],
    "spec_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L104",
    "oph_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L438",
@@ -121,7 +126,7 @@
    "regime": "dynamic",
    "test": "intrinsic magnetostatics: a stationary state sources a static dipole B from internal circulation, g ≈ 2; dipole Larmor response",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "A spinning charge acts as a small magnet. OpenWave asks for intrinsic magnetostatics: a stationary state whose internal circulation sources a static dipole field B, with g ≈ 2 and the Larmor response to an applied field.",
    "result": "",
    "diagram": "dipole",
@@ -138,7 +143,7 @@
    "regime": "dynamic",
    "test": "field-carried J = ℏ/2 on the electron state",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "The electron carries angular momentum ℏ/2. OpenWave asks for that angular momentum carried by the field of the electron state itself.",
    "result": "",
    "diagram": "spin",
@@ -155,80 +160,15 @@
    "regime": "static",
    "test": "a measured sign of −1 under a 2π rotation or under the exchange of two cores; a half turn that the dynamics selects against a polar control earns partial",
    "status": "open",
-   "status_label": "open on the candidate laws",
+   "status_label": "no result",
    "explain": "A spin-½ object returns to itself only after two full turns: one turn of 360° multiplies its state by −1. OpenWave asks for a measured sign of −1 under a 2π rotation or the exchange of two cores.",
-   "result": "All three laws gave a positive full-turn fringe.",
+   "result": "",
    "diagram": "spin",
-   "comparison": {
-    "kind": "bars",
-    "title": "Real fringe contrast after a turn (the criterion asks for −1 at a full turn)",
-    "unit": "",
-    "signed": true,
-    "groups": [
-     [
-      "half turn",
-      [
-       [
-        "ordinary pair",
-        0.0
-       ],
-       [
-        "prepared polar mode",
-        0.892
-       ],
-       [
-        "odd orbital (control)",
-        -1.0
-       ]
-      ]
-     ],
-     [
-      "full turn",
-      [
-       [
-        "ordinary pair",
-        1.0
-       ],
-       [
-        "prepared polar mode",
-        1.0
-       ],
-       [
-        "odd orbital (control)",
-        1.0
-       ]
-      ]
-     ],
-     [
-      "two full turns",
-      [
-       [
-        "ordinary pair",
-        1.0
-       ],
-       [
-        "prepared polar mode",
-        1.0
-       ],
-       [
-        "odd orbital (control)",
-        1.0
-       ]
-      ]
-     ]
-    ]
-   },
+   "comparison": null,
    "runs": [],
    "spec_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L107",
    "oph_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L441",
-   "report": {
-    "title": "Row 7 · What sign follows a measured turn of the paired excitation?",
-    "findings": [
-     "The tested full turn returned +1 on all three maturation laws.",
-     "These three finalist implementations lack that state domain."
-    ],
-    "tables": []
-   }
+   "report": null
   },
   {
    "number": 8,
@@ -237,64 +177,15 @@
    "regime": "both",
    "test": "pair annihilation to radiation; follow-on: positronium 2γ/3γ",
    "status": "open",
-   "status_label": "open on the candidate laws",
+   "status_label": "no result",
    "explain": "Every particle has an antiparticle, and a pair can annihilate into radiation. OpenWave asks for pair annihilation into radiation, with positronium decaying into two or three photons as a follow-on.",
-   "result": "The maturation laws conserve both material constituents.",
+   "result": "",
    "diagram": "annihilation",
    "comparison": null,
    "runs": [],
    "spec_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L110",
    "oph_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L443",
-   "report": {
-    "title": "Row 8 · What remains after an encounter?",
-    "findings": [
-     "The three age-8192 finalists cannot perform constituent annihilation in their present two-body sector.",
-     "It selects none of the three finalists as a common annihilation law."
-    ],
-    "tables": [
-     {
-      "heading": "The three finalists preserve both material tags",
-      "header": [
-       "Rule",
-       "Starts",
-       "First marks",
-       "Both at natal detector",
-       "Both at radius ≥3",
-       "Fraction at radius ≥3 among marked",
-       "Natal-wire reads"
-      ],
-      "rows": [
-       [
-        "Minus cosine, 32",
-        "524,288",
-        "262,389",
-        "2,740",
-        "251,546",
-        "95.87%",
-        "262,389"
-       ],
-       [
-        "Minus cosine, 128",
-        "524,288",
-        "263,075",
-        "3,013",
-        "239,320",
-        "90.97%",
-        "263,075"
-       ],
-       [
-        "Minus linear, 128",
-        "524,288",
-        "261,910",
-        "996",
-        "238,525",
-        "91.07%",
-        "261,910"
-       ]
-      ]
-     }
-    ]
-   }
+   "report": null
   },
   {
    "number": 9,
@@ -303,24 +194,15 @@
    "regime": "both",
    "test": "light charge-0 states released in decays",
    "status": "open",
-   "status_label": "open on the candidate laws",
+   "status_label": "no result",
    "explain": "Some particles carry no charge and barely interact. OpenWave asks for light, charge-zero states released in decays.",
-   "result": "They supply neither measured neutrino masses nor an effective-spacetime particle assignment on the three maturation laws. The age-8192 formation rules have a measurable first neutral bit and a moving bound A/B pair.",
+   "result": "",
    "diagram": "neutral",
    "comparison": null,
    "runs": [],
    "spec_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L111",
    "oph_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L444",
-   "report": {
-    "title": "Row 9 · Following a neutral daughter from its donor to a later receiver",
-    "findings": [
-     "They supply neither measured neutrino masses nor an effective-spacetime particle assignment on the three maturation laws.",
-     "The age-8192 formation rules have a measurable first neutral bit and a moving bound A/B pair.",
-     "On the unchanged 65-station apparatus at the late appointment, Row 8 counted 262,389, 263,075 and 261,910 first marks for the three laws; every one still registered at its natal detector while most material pairs had reached distant detectors.",
-     "Those tests and the finite three-bank experiment advance different declared matter sources; they cannot transfer a neutrino identification to the three maturation laws."
-    ],
-    "tables": []
-   }
+   "report": null
   },
   {
    "number": 10,
@@ -329,21 +211,15 @@
    "regime": "both",
    "test": "3 flavors + oscillation; the PMNS angles",
    "status": "open",
-   "status_label": "open on the candidate laws",
+   "status_label": "no result",
    "explain": "Neutrinos change flavour as they travel. OpenWave asks for three flavours that oscillate, with the angles of the PMNS matrix.",
-   "result": "The three split-age finalists still have no three-way charged-current production and detection map attached to a propagating neutral preparation.",
+   "result": "",
    "diagram": "oscillation",
    "comparison": null,
    "runs": [],
    "spec_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L112",
    "oph_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L445",
-   "report": {
-    "title": "Row 10 · The weak-current records do oscillate on one historical OPH law",
-    "findings": [
-     "The three split-age finalists still have no three-way charged-current production and detection map attached to a propagating neutral preparation."
-    ],
-    "tables": []
-   }
+   "report": null
   },
   {
    "number": 11,
@@ -352,7 +228,7 @@
    "regime": "static",
    "test": "exactly 3 charged-lepton minima; ratios 1 : 207 : 3477",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "The electron has two heavier copies, the muon and the tau. OpenWave asks for exactly three charged-lepton minima with mass ratios 1 : 207 : 3477.",
    "result": "",
    "diagram": "spectrum",
@@ -369,56 +245,15 @@
    "regime": "static",
    "test": "fractional charge as partial winding on a quark string",
    "status": "open",
-   "status_label": "open on the candidate laws",
+   "status_label": "no result",
    "explain": "Quarks carry a third or two thirds of the electron's charge and come in three colours. OpenWave asks for fractional charge as a partial winding on a quark string.",
-   "result": "The finalists’ routing-slot test resolved integer mixtures.",
+   "result": "",
    "diagram": "quark",
    "comparison": null,
    "runs": [],
    "spec_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L114",
    "oph_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L447",
-   "report": {
-    "title": "Row 12 · Which three-component records carry fractional electric winding?",
-    "findings": [
-     "The three age-8192 repair laws gave a coherent, direction-dependent polarization.",
-     "All three formation laws remain open for Row 12."
-    ],
-    "tables": [
-     {
-      "heading": "What emerged on the three formation laws?",
-      "header": [
-       "Formation law",
-       "Resolved moving panels",
-       "Odd-component population range",
-       "Lowest measured overlap with the ranged direction",
-       "One-turn survival after a local triplet hit"
-      ],
-      "rows": [
-       [
-        "Coupled minus cosine 32",
-        "14/14",
-        ".1870–.3894",
-        ".999950",
-        ".499893–.500095"
-       ],
-       [
-        "Coupled minus cosine 128",
-        "14/14",
-        ".2656–.3638",
-        ".999945",
-        ".499943–.500095"
-       ],
-       [
-        "Coupled minus linear 128",
-        "14/14",
-        ".2523–.3700",
-        ".999942",
-        ".499923–.500154"
-       ]
-      ]
-     }
-    ]
-   }
+   "report": null
   },
   {
    "number": 13,
@@ -427,22 +262,15 @@
    "regime": "static",
    "test": "a stable three-quark composite",
    "status": "open",
-   "status_label": "open on the candidate laws",
+   "status_label": "no result",
    "explain": "Three quarks bind into a proton or neutron. OpenWave asks for a stable three-quark composite.",
-   "result": "An ordinary input to each finalist gives the locations and routing labels of material constituents A and B. None of these algebraic facts derives the three material memories from the maturation laws.",
+   "result": "",
    "diagram": "baryon",
    "comparison": null,
    "runs": [],
    "spec_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L115",
    "oph_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L448",
-   "report": {
-    "title": "Does a colour-singlet trimer form from separated, independently coloured constituents?",
-    "findings": [
-     "An ordinary input to each finalist gives the locations and routing labels of material constituents A and B.",
-     "None of these algebraic facts derives the three material memories from the maturation laws."
-    ],
-    "tables": []
-   }
+   "report": null
   },
   {
    "number": 14,
@@ -451,7 +279,7 @@
    "regime": "static",
    "test": "m_n > m_p; positive core, negative shell",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "The neutron is slightly heavier than the proton, and the proton has a positive core and a negative shell. OpenWave asks for that mass ordering and charge profile.",
    "result": "",
    "diagram": "baryon",
@@ -468,7 +296,7 @@
    "regime": "static",
    "test": "938.3 / 939.6 MeV from the field",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "The proton and neutron weigh 938.3 and 939.6 MeV. OpenWave asks for those masses from the field.",
    "result": "",
    "diagram": "spectrum",
@@ -485,7 +313,7 @@
    "regime": "static",
    "test": "m_d < m_p + m_n; the electric quadrupole moment",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "A proton and a neutron bind into the deuteron, lighter than its parts and slightly elongated. OpenWave asks for m_d < m_p + m_n and the electric quadrupole.",
    "result": "",
    "diagram": "deuteron",
@@ -502,7 +330,7 @@
    "regime": "both",
    "test": "binding curve, levels, halo-nuclei lifetimes",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "Nuclei show a binding-energy curve, discrete levels and loosely bound halo nuclei. OpenWave asks for the binding curve, levels and halo lifetimes.",
    "result": "",
    "diagram": "nuclear",
@@ -519,7 +347,7 @@
    "regime": "static",
    "test": "π/K states; strange decays (Λ⁰ → p + π⁻)",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "Mesons are quark-antiquark pairs such as the pion and the kaon. OpenWave asks for π and K states and strange decays such as Λ⁰ → p + π⁻.",
    "result": "",
    "diagram": "meson",
@@ -536,23 +364,15 @@
    "regime": "static",
    "test": "a stable neutral massive state",
    "status": "open",
-   "status_label": "open on the candidate laws",
+   "status_label": "no result",
    "explain": "Most matter in the Universe is dark: neutral, massive and stable. OpenWave asks for a stable neutral massive state.",
-   "result": "Row 19 remains open on the three 8,192-age maturation laws. All three laws remain tied on the Row 19 measurements.",
+   "result": "",
    "diagram": "dark",
    "comparison": null,
    "runs": [],
    "spec_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L121",
    "oph_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L454",
-   "report": {
-    "title": "Row 19 · Does one excitation have stability, mass and electrical neutrality?",
-    "findings": [
-     "Row 19 remains open on the three 8,192-age maturation laws.",
-     "All three laws remain tied on the Row 19 measurements.",
-     "The missing experiment on a finalist is a single preparation with a measured excess over an independent vacuum energy standard and a calibrated responding electric probe that distinguishes the two charge assignments."
-    ],
-    "tables": []
-   }
+   "report": null
   },
   {
    "number": 20,
@@ -561,7 +381,7 @@
    "regime": "static",
    "test": "far-field 1/r potential at charge e; the strength (α) credited only when it follows from the model's own mechanism, never fitted",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "Two charges feel a force whose potential falls off as 1/r. OpenWave asks for that far-field potential at charge e, with the strength α credited only when the model's own mechanism produces it.",
    "result": "",
    "diagram": "coulomb",
@@ -578,7 +398,7 @@
    "regime": "dynamic",
    "test": "Lorentz-invariant action, no preferred frame; boosted states contract, c-limited",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "The laws of physics look the same to every observer moving at constant speed: moving clocks slow, moving rods shorten, and nothing outruns light. OpenWave asks for a Lorentz-invariant action with no preferred frame, contracted boosted states and a limiting speed c.",
    "result": "",
    "diagram": "lorentz",
@@ -595,7 +415,7 @@
    "regime": "static",
    "test": "linear inter-charge potential, ~1 GeV/fm (Cornell)",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "Quarks never appear alone: the energy between them grows linearly with distance, about 1 GeV per femtometre. OpenWave asks for that linear inter-charge potential.",
    "result": "",
    "diagram": "confinement",
@@ -612,7 +432,7 @@
    "regime": "static",
    "test": "coupling varies with scale (onset at the core radius)",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "The strength of a force changes with the scale at which it is probed. OpenWave asks for a coupling that varies with scale, with its onset at the core radius.",
    "result": "",
    "diagram": "running",
@@ -629,21 +449,15 @@
    "regime": "dynamic",
    "test": "μ relaxes to e + neutral ejecta",
    "status": "open",
-   "status_label": "open on the candidate laws",
+   "status_label": "no result",
    "explain": "The muon decays into an electron and two neutrinos. OpenWave asks for a muon that relaxes into an electron plus neutral ejecta.",
-   "result": "No physical muon identification or common-law transfer to the three maturation finalists follows.",
+   "result": "",
    "diagram": "decay",
    "comparison": null,
    "runs": [],
    "spec_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L128",
    "oph_url": "https://github.com/openwave-labs/openwave/blob/9714ca76486c17fa18f23223e43cb5a2dd44a9dd/MODELS.md#L460",
-   "report": {
-    "title": "Row 24 · A clocked charge and its decay products",
-    "findings": [
-     "No physical muon identification or common-law transfer to the three maturation finalists follows."
-    ],
-    "tables": []
-   }
+   "report": null
   },
   {
    "number": 25,
@@ -652,7 +466,7 @@
    "regime": "dynamic",
    "test": "n → p + e + ν̄, parity-violating (needs a neutron)",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "A neutron decays into a proton, an electron and an antineutrino, and the weak force prefers one handedness. OpenWave asks for n → p + e + ν̄ with parity violation.",
    "result": "",
    "diagram": "beta",
@@ -669,7 +483,7 @@
    "regime": "both",
    "test": "attractive 1/r² between masses, via the GEM route; the strength (G) credited only when it follows from the model's own mechanism, never fitted",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "Masses attract with a force that falls off as 1/r². OpenWave asks for that attraction through the gravito-electromagnetic route, with G credited only when the model's own mechanism produces it.",
    "result": "",
    "diagram": "newton",
@@ -686,7 +500,7 @@
    "regime": "both",
    "test": "light bending, gravitational time dilation / Shapiro delay",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "Mass bends light and slows clocks. OpenWave asks for light bending, gravitational time dilation and the Shapiro delay.",
    "result": "",
    "diagram": "metric",
@@ -703,7 +517,7 @@
    "regime": "static",
    "test": "Λ from the model's own mechanism, never fitted; every remaining gap and a falsification named",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "The expansion of the Universe accelerates, driven by a cosmological constant Λ. OpenWave asks for Λ from the model's own mechanism, with every gap and a falsification named.",
    "result": "",
    "diagram": "cosmo",
@@ -720,7 +534,7 @@
    "regime": "dynamic",
    "test": "Maxwell recovered; transverse waves at c",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "Light is a transverse electromagnetic wave travelling at c. OpenWave asks for Maxwell's equations recovered, with transverse waves at c.",
    "result": "",
    "diagram": "maxwell",
@@ -737,21 +551,21 @@
    "regime": "dynamic",
    "test": "emergent ω² = k² + m² for matter waves",
    "status": "pass",
-   "status_label": "finite pass on the three candidate laws",
+   "status_label": "passed on the OPH law",
    "explain": "Matter is a wave: a free particle with mass m and wave number k oscillates at ω with ω² = k² + m². OpenWave asks for that relation to emerge for matter waves.",
-   "result": "Finite pass on all three candidate laws. Matter formed in an encounter followed ω² = m² + c²|k|² on all fourteen held-out directions at periods 64, 128 and 256, with the rest line and the speed fixed by independent records; a law with half the spatial weight failed every probe. The gap is supplied by the contact phase, and the matter speed differs from the scalar standard by 0.06%; the exact common-speed limit is open.",
+   "result": "Matter formed in an encounter follows ω² = m² + c²|k|² on all fourteen held-out directions at periods 64, 128 and 256, with the rest line and the speed fixed by independent records; a law with half the spatial weight of the formed vector fails every probe. The gap is set by the contact phase, and the matter speed differs from the scalar standard by 0.06%.",
    "diagram": "kg",
    "comparison": {
     "kind": "bars",
     "title": "Held-out directions inside the tolerance",
-    "unit": "/42",
+    "unit": "/14",
     "groups": [
      [
       "period 64",
       [
        [
-        "candidate laws",
-        42
+        "OPH law",
+        14
        ],
        [
         "changed law",
@@ -763,8 +577,8 @@
       "period 128",
       [
        [
-        "candidate laws",
-        42
+        "OPH law",
+        14
        ],
        [
         "changed law",
@@ -776,8 +590,8 @@
       "period 256",
       [
        [
-        "candidate laws",
-        42
+        "OPH law",
+        14
        ],
        [
         "changed law",
@@ -800,7 +614,7 @@
    "regime": "static",
    "test": "hydrogen-like discrete levels from standing waves",
    "status": "open",
-   "status_label": "no result on the candidate laws",
+   "status_label": "no result",
    "explain": "Atoms have discrete energy levels because bound electron waves must fit as standing waves. OpenWave asks for hydrogen-like discrete levels from standing waves.",
    "result": "",
    "diagram": "orbital",

@@ -34,7 +34,7 @@ def check_unitarity():
 
 def check_sector_reduction():
     rng = np.random.default_rng(RNG_SEED)
-    law = LAWS["reflected-routing"]
+    law = LAWS["oph"]
     size, private, order = 6, 8, 3
     chi = _random_state((size, size, size, 8), rng)
     phase = np.exp(2j * np.pi * order * np.arange(private) / private)[None, None, None, :, None]
@@ -67,8 +67,8 @@ def check_encounter():
     a = _random_state(carrier + (8,), rng)
     b = _random_state(carrier + (8,), rng)
     pair = np.einsum("ijklm,nopqr->ijklmnopqr", a, b)
-    free = LAWS["reflected-routing"]
-    met = LAWS["reflected-routing-encounter"]
+    free = LAWS["oph"]
+    met = LAWS["control-encounter"]
     product, interacting = pair.copy(), pair.copy()
     for _ in range(5):
         a, b = step(a, free), step(b, free)
@@ -83,8 +83,8 @@ def check_encounter():
 
 
 def check_spectral_engine():
-    """Port of the step-3 gate audit: spectral readings against the literal update."""
-    law = LAWS["reflected-routing"]
+    """Spectral readings against the literal update on a small carrier."""
+    law = LAWS["oph"]
     size, origin, sites = 8, (2, 4, 3), [(2, 4, 3), (5, 6, 7)]
     worst = 0.0
     for kind in ("optical", "clock", "reference"):
@@ -120,7 +120,7 @@ def check_axial_journey():
     j = clock_journey((1, 0))
     assert j["reunion"] == 1459 and abs(j["forecast"] - 0.71128) < 2e-4
     assert abs(j["beat_ratio"] - j["forecast"]) < 0.035 and abs(j["optical_ratio"] - j["forecast"]) < 0.035
-    return (f"axial step-3 journey: reunion {j['reunion']}, forecast {j['forecast']:.5f}, "
+    return (f"axial two-clock journey: reunion {j['reunion']}, forecast {j['forecast']:.5f}, "
             f"beat {j['beat_ratio']:.5f}, optical {j['optical_ratio']:.5f}")
 
 
@@ -135,7 +135,7 @@ def _embed_bound(chi):
 
 
 def check_bound_pair():
-    """The compact-pair law: exact bound-sector reduction and no formation from outside it."""
+    """The contact law: exact bound-sector reduction and no formation from outside it."""
     rng = np.random.default_rng(RNG_SEED)
     carrier = (3, 2, 1, 2)
     chi = _random_state(carrier + (8,), rng)
@@ -158,8 +158,8 @@ def check_bound_pair():
 
 
 def check_bound_clock():
-    """Step 4, forward diagonal: reunion 1787 and the local home reading 0.577424."""
-    law = LAWS["compact-pair"]
+    """The bound pair on the forward diagonal: reunion 1787 and the local home reading 0.577424."""
+    law = LAWS["oph"]
     moving, rest = PairPacket(law, (1, 1)), PairPacket(law, (0, 0))
     survey = np.arange(0, 400, 20)
     velocity = [np.polyfit(survey, track(moving, a, survey), 1)[0] for a in (0, 1)]
@@ -167,18 +167,18 @@ def check_bound_clock():
     advance = lambda p: np.angle(np.exp(1j * (rail_phase(p.rails(reunion, (0, 0, 0)))
                                                - rail_phase(p.rails(0, (0, 0, 0))))))
     ratio = advance(moving) / advance(rest)
-    spectator = LAWS["compact-pair-spectator"]
+    spectator = LAWS["control-spectator"]
     flat = advance(PairPacket(spectator, (1, 1))) / advance(PairPacket(spectator, (0, 0)))
     assert reunion == 1787 and abs(ratio - 0.577424) < 2e-6 and abs(flat - 1) < 1e-9
     return f"bound pair on the diagonal: reunion {reunion}, rail clock {ratio:.6f}; spectator rails {flat:.6f}"
 
 
 def check_formation():
-    """Step 5: the branch evolution against a literal update with explicit marker wires."""
+    """Formation: the branch evolution against a literal update with explicit marker wires."""
     from .formation import ANGLE, COLLISION, _strip_packet, formation_run
     from .law import EQUAL
     size, wire, updates = 8, 16, 10
-    phi = LAWS["compact-pair"].rail_contact_phases[0]
+    phi = LAWS["oph"].rail_contact_phases[0]
     a = _strip_packet(size, size // 4, 1, support=2)
     b = _strip_packet(size, 3 * size // 4, -1, support=2)
     state = {0: np.einsum("abcde,fghij->abcdefghij", a, b)}
@@ -222,15 +222,26 @@ def check_row30():
     """OpenWave Row 30: native frequencies, the closed form, and the observer's kinetic test."""
     from .row30 import row30_run
     r = row30_run()
-    candidates = [x for x in r["rows"] if x["law"] == "candidates"]
+    law_rows = [x for x in r["rows"] if x["law"] == "oph"]
     changed = [x for x in r["rows"] if x["law"] == "changed"]
     assert r["identity_error"] < 1e-12 and abs(r["coefficient"] - 0.24919629) < 1e-8
     assert abs(r["rest"] - np.pi / 32) < 1e-12
-    assert all(x["passes"] for x in candidates) and not any(x["passes"] for x in changed)
-    worst = max(abs(x["kinetic"] - 1) for x in candidates)
+    assert all(x["passes"] for x in law_rows) and not any(x["passes"] for x in changed)
+    worst = max(abs(x["kinetic"] - 1) for x in law_rows)
     deficit = [1 - x["kinetic"] for x in changed]
-    return (f"42 of 42 candidate probes within {worst:.4f} of the smooth relation; changed law "
+    return (f"42 of 42 probes of the law within {worst:.4f} of the smooth relation; changed law "
             f"deficit {min(deficit):.4f}-{max(deficit):.4f}; curvature {r['coefficient']:.8f}")
+
+
+def check_row04():
+    """OpenWave Row 4: the circulation persists at every age; independent transport loses 3/4."""
+    from .row04 import row04_run
+    r = row04_run(size=6, updates=6, ages=(0, 127, 128))
+    assert r["profile_change"] < 1e-12 and r["capture_projection"] < 1e-12 and r["eigen_error"] < 1e-12
+    assert min(r["contact_matched"]) > 1 - 1e-12
+    assert abs(r["control_matched"][1] - 0.25) < 1e-12
+    return ("circulation: eigenvalue -exp(i phi/2) at every age, capture projection 0, matched weight 1; "
+            f"independent transport keeps {r['control_matched'][1]:.6f} after one update")
 
 
 CHECKS = [
@@ -245,6 +256,7 @@ CHECKS = [
     ("bound clock", check_bound_clock),
     ("formation", check_formation),
     ("OpenWave row 30", check_row30),
+    ("OpenWave row 4", check_row04),
 ]
 
 
@@ -290,3 +302,7 @@ def test_formation():
 
 def test_row30():
     check_row30()
+
+
+def test_row04():
+    check_row04()
