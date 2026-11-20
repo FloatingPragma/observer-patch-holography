@@ -21,12 +21,12 @@ domains and error bounds. Agreement alone neither fixes Born probabilities
 nor proves a relativistic field limit. A record-copying operation copies an
 orthogonal classical record, not an arbitrary quantum state.
 
-The executable model is the set of three [candidate laws](model/README.md),
-specified in [simulator/SPEC.md](simulator/SPEC.md) and executed by the
-[simulator](simulator/README.md). They share reflected routing, the contact
-law of a bound pair and a capture vertex, and differ in how a newborn pair
-opens its hop. Use their law, carrier, preparations and readers for model
-claims. Independent component proofs retain their own hypotheses and require
+The executable model runs [the OPH law](model/README.md), specified in
+[simulator/SPEC.md](simulator/SPEC.md) and executed by the
+[simulator](simulator/README.md): reflected routing for each constituent, the
+contact law of a bound pair, a capture vertex with an outgoing marker, and the
+opening of a newborn pair's hop over 128 updates. Use its law, carrier,
+preparations and readers for model claims. Independent component proofs retain their own hypotheses and require
 an explicit source map.
 
 Use the [specification](simulator/SPEC.md)
@@ -85,9 +85,6 @@ The full rules are in the [docs index](docs/README.md#rules-for-this-directory).
   that its code package verifies, without history, dated findings or progress
   narrative. Prefer extending the owning paper or package README, because
   separate notes go stale.
-- The exception is `docs/research/laws/`: the plan of the search for the
-  repair law, its journal with one entry per step, and one report per
-  step. Headings and folder names there carry no dates.
 - Release papers do not cite files in `docs/`. Cite papers, Lean modules, code
   packages, machine registers and public preprints. The one exception is
   `docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md`.

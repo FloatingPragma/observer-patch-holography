@@ -1,4 +1,4 @@
-"""The reflected-routing law family: carrier, local update and its members.
+"""The OPH law: carrier, local update, and the controls used in its experiments.
 
 A carrier is a four-axis torus. Axes 0, 1 and 2 are spatial addresses; axis 3
 is the private cyclic register of each address. Every position holds eight
@@ -23,14 +23,14 @@ EQUAL = np.ones(SLOTS, complex) / np.sqrt(SLOTS)
 
 @dataclass(frozen=True)
 class Law:
-    """One member of the family. ``status`` repeats the journal's standing."""
+    """The OPH law, or a control that changes one of its parts."""
 
     key: str
     title: str
     equal_phase: complex = 1.0
     encounter_phase: float = 0.0
     access: str = "field-only"
-    status: str = "candidate"
+    status: str = "law"
     note: str = ""
     rail_contact_phases: tuple = ()
     rail_extra_phases: tuple = ()
@@ -44,95 +44,52 @@ class Law:
             raise ValueError("access is 'field-only' or 'equipped'")
 
 
-# Contact couplings of the step-4 pair laws: the two rails of one constituent
+# Contact couplings of the OPH law: the two rails of one constituent
 # meet the other constituent with contact phases PHI0 and PHI0 + DELTA.
 PHI0 = np.pi / 16
 DELTA = np.pi / 2048
 
 LAWS = {
-    "reflected-routing": Law(
-        "reflected-routing", "Reflected routing, field-only access",
-        status="component",
-        note="The one-constituent law of all three candidates. Long-wave clocks keep proper time, "
-             "the field has a 3+1D Klein-Gordon limit with c = 1/2 (steps 1 to 3), and a compact "
-             "free-wave launch carries no message ahead of the smooth cone at the tested budgets."),
-    "reflected-routing-encounter": Law(
-        "reflected-routing-encounter", "Reflected routing with an encounter phase",
-        encounter_phase=np.pi / 2, status="undecided",
-        note="Identical to reflected routing for one excitation. Two excitations at one "
-             "spatial address gain the phase chi per update. A two-excitation interferometer "
-             "tells the values of chi apart (step 4). As a bound clock, a contact phase i on "
-             "an axial guide missed its forecasts and captured no separated packets."),
-    "equipped-relay": Law(
-        "equipped-relay", "Reflected routing with an inhabitant-accessible relay",
-        access="equipped", status="excluded",
-        note="Excluded in step 2 as a law with one causal speed: the addressed relay "
-             "carries a freshly chosen bit at one address per update, twice the speed "
-             "of the smooth scalar cone."),
-    "phase-deformed": Law(
-        "phase-deformed", "Equal-slot phase changed by 0.05 rad (control)",
-        equal_phase=np.exp(0.05j), status="disfavoured",
-        note="Disfavoured in step 1: a fixed nonzero phase makes the gapless branch "
-             "quadratic near zero momentum, and moving clocks read 0.76 where the "
-             "candidate reads 0.63 to 0.69 at matched speeds."),
-    "compact-pair": Law(
-        "compact-pair", "Compact pair with motion-coupled rails",
-        status="component",
-        rail_contact_phases=(PHI0, PHI0 + DELTA), rail_extra_phases=(0.0, 0.0),
-        note="Reflected routing for each constituent, and a contact coin on the eight matched "
-             "pair states when both share an address, so a matched pair steps together. Its "
-             "moving rail clock keeps proper time (step 4), and the finite law predicts its "
-             "deviation from the smooth metric. The bound subspace is invariant, so separated "
-             "constituents never form the pair."),
-    "compact-pair-capture": Law(
-        "compact-pair-capture", "Capture vertex, pair mobile at once (comparator)",
-        status="excluded",
-        rail_contact_phases=(PHI0, PHI0 + DELTA), rail_extra_phases=(0.0, 0.0), capture=True,
-        note="The compact-pair contact law plus a reversible vertex at every junction: a head-on "
-             "collision turns into the matched pair and a marker that leaves on the junction's own "
-             "wire. It forms persistent pairs (step 5), but the newborn pair, mobile at once, leaves "
-             "in both directions, and it failed the direction test of step 6."),
-    "maturing-cosine-32": Law(
-        "maturing-cosine-32", "Maturing pair, minus cosine over 32 updates",
-        status="candidate",
-        rail_contact_phases=(PHI0, PHI0 + DELTA), rail_extra_phases=(0.0, 0.0), capture=True,
-        maturation=(-1, "cosine", 32),
-        note="Capture vertex and contact law; the newborn pair carries an age counter and opens its "
-             "hop with a reversible partial swap over 32 updates on a smooth cosine profile. Passed "
-             "the directional and clock tests of step 6."),
-    "maturing-cosine-128": Law(
-        "maturing-cosine-128", "Maturing pair, minus cosine over 128 updates",
-        status="candidate",
+    "oph": Law(
+        "oph", "The OPH law",
+        status="law",
         rail_contact_phases=(PHI0, PHI0 + DELTA), rail_extra_phases=(0.0, 0.0), capture=True,
         maturation=(-1, "cosine", 128),
-        note="The same smooth opening spread over 128 updates. Highest directional fraction and "
-             "smallest breakup on the step-6 fixtures."),
-    "maturing-linear-128": Law(
-        "maturing-linear-128", "Maturing pair, minus linear over 128 updates",
-        status="candidate",
-        rail_contact_phases=(PHI0, PHI0 + DELTA), rail_extra_phases=(0.0, 0.0), capture=True,
-        maturation=(-1, "linear", 128),
-        note="The hop angle grows by a constant increment over 128 updates. Passed the directional "
-             "and clock tests of step 6, with more breakup when the marker returns."),
-    "maturing-plus-cosine-32": Law(
-        "maturing-plus-cosine-32", "Maturing pair, plus orientation (comparator)",
-        status="excluded",
-        rail_contact_phases=(PHI0, PHI0 + DELTA), rail_extra_phases=(0.0, 0.0), capture=True,
-        maturation=(+1, "cosine", 32),
-        note="The opposite orientation of the partial swap. Among the step-6 comparators that "
-             "failed the directional test."),
-    "compact-pair-spectator": Law(
-        "compact-pair-spectator", "Compact pair with spectator rails (control)",
-        status="excluded",
+        note="Each constituent moves by reflected routing. Two constituents that share an address in "
+             "matched slots step together under the contact coin, and the relative phase of the two "
+             "rails is the pair's clock. A head-on encounter forms a pair through a reversible capture "
+             "that sends a marker away on the junction's wire, and the newborn pair opens its hop on a "
+             "cosine profile over 128 updates."),
+    # Changed laws used as controls in the experiments. Each changes one part of the OPH law.
+    "control-encounter": Law(
+        "control-encounter", "Control: a scalar phase when two constituents meet",
+        encounter_phase=np.pi / 2, status="control", rail_contact_phases=(PHI0, PHI0 + DELTA),
+        rail_extra_phases=(0.0, 0.0),
+        note="Two constituents at one address gain the phase chi per update in place of the contact coin."),
+    "control-relay": Law(
+        "control-relay", "Control: an addressed relay available to inhabitants",
+        access="equipped", status="control", rail_contact_phases=(PHI0, PHI0 + DELTA),
+        rail_extra_phases=(0.0, 0.0),
+        note="An addressed relay carries a chosen value one address per update, ahead of the smooth cone."),
+    "control-phase": Law(
+        "control-phase", "Control: equal-slot phase changed by 0.05 rad",
+        equal_phase=np.exp(0.05j), status="control",
+        note="A fixed nonzero equal-slot phase makes the gapless branch quadratic near zero momentum."),
+    "control-phase-i": Law(
+        "control-phase-i", "Control: equal-slot phase i",
+        equal_phase=1j, status="control",
+        note="The equal-slot reflection replaced by the phase i."),
+    "control-spectator": Law(
+        "control-spectator", "Control: spectator rails",
+        status="control",
         rail_contact_phases=(PHI0 + DELTA / 2, PHI0 + DELTA / 2),
         rail_extra_phases=(-DELTA / 4, DELTA / 4),
-        note="Equal contact coins and an extra relative phase per update: the rail clock "
-             "counts services and reads one on every journey of step 4."),
-    "phase-i": Law(
-        "phase-i", "Equal-slot phase i (control)",
-        equal_phase=1j, status="control",
-        note="The registered phase control of step 1. Its field records miss the "
-             "candidate's forecast by an RMS error of 1.25."),
+        note="Equal contact coins and an extra relative phase per update: a clock that counts services."),
+    "control-abrupt": Law(
+        "control-abrupt", "Control: a newborn pair mobile at once",
+        status="control",
+        rail_contact_phases=(PHI0, PHI0 + DELTA), rail_extra_phases=(0.0, 0.0), capture=True,
+        note="The capture of the OPH law without the opening: the newborn pair takes the full hop at once."),
 }
 
 
@@ -199,7 +156,7 @@ def step_pair(psi2: np.ndarray, law: Law, mask: np.ndarray | None = None) -> np.
 
 
 def dispersion(angles: np.ndarray) -> np.ndarray:
-    """Mobile-band phase per update of the candidate: cos E = (sum of the four cosines) / 4."""
+    """Mobile-band phase per update of one constituent: cos E = (sum of the four cosines) / 4."""
     angles = np.asarray(angles, float)
     return np.arccos(np.clip(np.cos(angles).sum(axis=-1) / 4.0, -1.0, 1.0))
 
@@ -221,7 +178,7 @@ def contact_coin(states: np.ndarray, contact_phase: float, axis: int = -1) -> np
 
 
 def step_contact(psi2: np.ndarray, contact_phase: float, extra_phase: float = 0.0) -> np.ndarray:
-    """One update of two constituents under the compact-pair contact law, for one rail.
+    """One update of two constituents under the contact law, for one rail.
 
     Off contact each constituent applies the parent reflection. Where both occupy the
     same address and private position, the eight matched slot pairs (s, s) receive the

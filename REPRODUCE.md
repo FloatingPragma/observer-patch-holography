@@ -7,8 +7,7 @@ then have their own theorem, certificate, or experimental acceptance rule.
 
 ## Executable model
 
-The executable model of OPH is the set of three [candidate laws](model/README.md)
-for the native repair law, specified in the
+The executable model runs the [OPH law](model/README.md), specified in the
 [simulator specification](simulator/SPEC.md). From the repository root:
 
 ```sh
@@ -24,7 +23,7 @@ contact law, the capture branches against explicit marker wires, the field
 identity behind the continuum limit, and the recorded clock and frequency
 values. It finishes in about ten seconds and needs no sibling checkout and no
 Git history. `python -m simulator run all` recomputes every experiment of the
-search and writes the offline replay app.
+experiment and writes the offline replay app.
 
 Every test of the model compares distributions of admissible observer
 records with what observers in our world record. The state of the simulation
@@ -35,8 +34,8 @@ spacetimes, so no test asks the carrier to be a three-dimensional lattice.
 ## Theory packages under `model/`
 
 The other packages under `model/` check conditional theorems on their own
-declared carriers. Their replay establishes no transfer to the candidate
-laws without an explicit source map:
+declared carriers. Their replay establishes no transfer to the OPH law
+without an explicit source map:
 
 ```sh
 python -m pytest -q -W error \

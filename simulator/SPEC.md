@@ -1,12 +1,11 @@
-# Executable specification of the reflected-routing family
+# Executable specification of the OPH law
 
-This document fixes the carrier, the state, the update with its parameters,
-the members of the family and their standing, the exact methods of
-evolution, the observers' readings and the supplied parts. The code in this
-folder implements every clause, and [test_simulator.py](test_simulator.py)
-checks each method against the literal update. The
-[journal](../docs/research/laws/JOURNAL.md) records the experiments that set
-the standing of each member.
+This document fixes the carrier, the state, the OPH law with its parameters,
+the controls used in its experiments, the exact methods of evolution, the
+observers' readings and the supplied parts. The code in this folder
+implements every clause, and [test_simulator.py](test_simulator.py) checks
+each method against the literal update. The [law](../model/README.md) page
+states what is proven and measured.
 
 ## 1. Carrier
 
@@ -34,7 +33,7 @@ symmetry.
 ## 3. Update
 
 One update applies the coin at every position and then routes every slot.
-For two excitations the encounter term acts first.
+For two constituents the capture vertex acts first, then the contact update.
 
 **Coin.** With $|e\rangle = 8^{-1/2}(1, \dots, 1)$ and the equal-slot phase
 $\lambda$, $|\lambda| = 1$,
@@ -49,14 +48,11 @@ in direction $\sigma_s$ and arrives in the partner slot $s \oplus 1$:
 
 $$(R\psi)_{s \oplus 1}(r, p) = \psi_s\big((r, p) - \sigma_s\,\hat e_{a(s)}\big).$$
 
-**Encounter.** For two excitations,
-$E_\chi$ multiplies the amplitude by $e^{i\chi}$ on every configuration in
-which the two spatial addresses coincide, whatever their private positions.
-This form of the encounter term is a declared choice of this simulator.
+$$U_{\lambda} = R\,C_\lambda .$$
 
-$$U_{\lambda} = R\,C_\lambda, \qquad U^{(2)}_{\lambda,\chi} = (U_\lambda \otimes U_\lambda)\,E_\chi .$$
+The OPH law has $\lambda = 1$ for every constituent.
 
-**Contact.** The pair laws act on two distinguishable constituents, one of
+**Contact.** The law acts on two distinguishable constituents, one of
 which carries a conserved rail label. Off contact each constituent applies
 $C_1$. Where both occupy the same address and private position, the eight
 matched slot pairs $(s, s)$ receive the contact coin
@@ -71,7 +67,7 @@ outside never enters it. On the subspace the pair is one walker with the coin
 $D_\varphi$, whose mobile band obeys $\cos E = a(k)\cos(\varphi/2)$, $a$ the
 mean of the four cosines.
 
-**Capture.** The formation law gives every address a periodic wire of
+**Capture.** The law gives every address a periodic wire of
 neutral modes, longer than the run. Before the contact update, where the two
 constituents meet with constituent A in slot 5 and B in slot 4 (a head-on
 collision along the third axis) and the start of that address's wire is
@@ -84,29 +80,34 @@ $$|5, 4; 0\rangle \mapsto \cos\theta\,|5, 4; 0\rangle + \sin\theta\sum_s e_s\,|s
 and acts as the inverse rotation on the orthogonal partner. Every marker
 moves one link along its wire per update. Both rails see the same vertex.
 
-**Access.** A member's access rule says which operations inhabitants can
-trigger after a fresh choice. Field-only access gives them local
-preparations, local detectors and their own clocks; a message between
-laboratories is a free-wave launch. Equipped access adds an addressed relay
-that carries a chosen value one address per update.
+**Opening.** A newborn pair carries an age $j$, born at zero with its marker
+and advanced by one at every update; the age register has 8192 states. On
+the bound sector the update is the contact coin followed by the partial hop
 
-## 4. Members
+$$H_\theta = e^{-i\theta}\big[\cos\theta\,I + i\sin\theta\,F\big],
+\qquad \theta = \tfrac{\pi}{2}\,\frac{1 - \cos\big(\pi (j+1)/128\big)}{2}\ \text{for}\ j < 128,$$
 
-| Key | $\lambda$ | $\chi$ | Access | Standing |
-| --- | --- | --- | --- | --- |
-| `reflected-routing` | 1 | 0 | field-only | candidate: passes steps 1 to 3 |
-| `reflected-routing-encounter` | 1 | any nonzero value | field-only | undecided: equal to the candidate on one excitation, distinguishable by a two-excitation interferometer; no bound clock in step 4 |
-| `equipped-relay` | 1 | 0 | equipped | excluded in step 2 as a law with one causal speed |
-| `phase-deformed` | $e^{0.05 i}$ | 0 | field-only | disfavoured in step 1 |
-| `phase-i` | $i$ | 0 | field-only | registered control of step 1 |
-| `compact-pair` | 1 | rails $\varphi = \pi/16$ and $\pi/16 + \pi/2048$ | field-only | candidate as a prepared clock (step 4); never forms from separated constituents |
-| `compact-pair-capture` | 1 | rails as `compact-pair`, capture vertex at angle $\pi/4$ | field-only | undecided: forms a pair (step 5); the pair leaves in both directions and passed no single-traveller clock test |
-| `compact-pair-spectator` | 1 | rails $\pi/16 + \pi/4096$, extra phases $\mp\pi/8192$ | field-only | excluded in step 4: its clock counts services |
+between the two ends of every routed edge, $F$ the exchange of those ends
+with the flip of the routing label. From age 128 on, $\theta = \pi/2$ and
+$H_\theta = F$, the full hop. The opening has an exact inverse.
 
-The encounter member is stored with $\chi = \pi/2$; every value of $\chi$
-belongs to the family. `compact-pair-capture` is the `compact-pair` contact
-law with the capture vertex of step 5 ([formation.py](formation.py)).
-`python -m simulator laws` lists the members.
+**Access.** Inhabitants have local preparations, local detectors and their
+own clocks; a message between laboratories is a free-wave launch.
+
+## 4. The law and the controls
+
+`python -m simulator laws` lists them. The OPH law is stored as `oph`.
+Every other entry is a control used in the experiments, and changes one part
+of the law:
+
+| Key | What it changes |
+| --- | --- |
+| `control-encounter` | a scalar phase $\chi = \pi/2$ when two constituents share an address, in place of the contact coin |
+| `control-relay` | an addressed relay available to inhabitants, one address per update |
+| `control-phase` | equal-slot phase $e^{0.05 i}$ |
+| `control-phase-i` | equal-slot phase $i$ |
+| `control-spectator` | equal contact phases $\pi/16 + \pi/4096$ with extra phases $\mp\pi/8192$: a clock that counts services |
+| `control-abrupt` | the full hop from age zero, with no opening |
 
 ## 5. Exact methods
 
@@ -120,7 +121,7 @@ private order $m$, and routing along the private axis multiplies $\chi$ by
 $e^{-i\sigma_s\theta}$ with $\theta = 2\pi m/P$. [sector.py](sector.py)
 executes this reduction; it equals the literal update to rounding.
 
-**Plane waves.** On $e^{ik\cdot x}$ the update of the candidate is an
+**Plane waves.** On $e^{ik\cdot x}$ the update of one constituent is an
 $8 \times 8$ unitary whose mobile band has the eigenvalue $e^{-iE}$ with
 
 $$\cos E = \tfrac14\big(\cos k_1 + \cos k_2 + \cos k_3 + \cos k_4\big).$$
@@ -186,9 +187,7 @@ any machine replays in the app.
 - the carrier sizes and the private sector;
 - the preparations: field patterns released at rest, clock doublets, optical
   pulses and reference waves with their momentum windows;
-- the form of the encounter term and the statistics of two excitations;
-- the contact couplings of the pair laws, the rail label, the capture
-  vertex with its angle $\pi/4$ and the marker wires;
+- the statistics of two constituents and the rail preparation;
 - the readers, their apertures and the observer positions;
 - the archived free reference speed 0.499350 used in the clock forecasts;
 - in the observer view, delivery of every reading at the signal speed.

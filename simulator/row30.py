@@ -1,6 +1,6 @@
-"""OpenWave Row 30: the matter-wave relation of a collision-formed pair.
+"""OpenWave Row 30: the matter-wave relation of a pair formed in an encounter.
 
-The three candidate laws share the mature step of a formed pair: the contact coin
+The mature step of a formed pair of the OPH law is the contact coin
 D = exp(i phi/2) [(1 + exp(-i phi)) |S><S| - I] on the formed slot vector S, then the
 full hop. On a plane wave exp(i k.x) the step keeps the span of S and its routed image,
 and on that span its two eigenphases differ by 2 omega with
@@ -12,8 +12,7 @@ registered probes and applies the observer's test: the kinetic increment
 (omega^2 - m^2) / (c^2 |k|^2) has to lie within 3.5% of one, with c^2 the scalar
 propagation standard calibrated on the unbound walk. The changed law moves half of the
 spatial weight of S into the private slots; it keeps the rest gap and halves the
-curvature. The maturation schedules differ only before maturity, so the frequency
-relation is common to all three candidates.
+curvature.
 """
 from __future__ import annotations
 
@@ -28,7 +27,7 @@ C2_SCALAR = 0.24935023          # scalar propagation standard, radar units^2 per
 TOLERANCE = 0.035
 PERIODS = (64, 128, 256)
 
-# Recorded by the observers in the Row 30 experiment on the three candidate laws.
+# Recorded by the observers in the Row 30 experiment.
 RECORDED = {
     "rest_frequency_range": [0.098146, 0.098234],
     "gates": {"64": "42/42", "128": "42/42", "256": "33/42 (precision repeat: 42/42)"},
@@ -95,9 +94,9 @@ def closed_form(angles, phi, vector) -> float:
 
 
 def row30_run():
-    """Every probe at every period, for the candidates' formed vector and the changed law."""
+    """Every probe at every period, for the formed vector of the law and for the changed law."""
     started = time.time()
-    law = LAWS["maturing-cosine-128"]
+    law = LAWS["oph"]
     phi = law.rail_contact_phases[0]
     rows, worst_identity = [], 0.0
     for changed in (False, True):
@@ -110,7 +109,7 @@ def row30_run():
                 worst_identity = max(worst_identity, abs(omega - closed_form(angles, phi, vector)))
                 k2 = float(np.sum(angles[:3] ** 2))
                 kinetic = (omega ** 2 - rest ** 2) / (C2_SCALAR * k2)
-                rows.append({"law": "changed" if changed else "candidates", "period": period,
+                rows.append({"law": "changed" if changed else "oph", "period": period,
                              "probe": list(probe), "k": float(np.sqrt(k2)), "omega": omega,
                              "rest": rest, "kinetic": kinetic,
                              "passes": bool(abs(kinetic - 1) <= TOLERANCE)})
@@ -124,7 +123,7 @@ def row30_run():
 def matter_frames(size: int = 64, updates: int = 128, stride: int = 2, order: int = 3):
     """A resting and a moving formed-matter packet: amplitude and phase of the S-reading over (x, y)."""
     from .spectral import PairPacket
-    law = LAWS["compact-pair"]
+    law = LAWS["oph"]
     packets = [PairPacket(law, (0, 0), size=size, carrier_order=order, width=1.2, support=4,
                           origin=(size // 4, size // 2, 0)),
                PairPacket(law, (1, 0), size=size, carrier_order=order, width=1.2, support=4,

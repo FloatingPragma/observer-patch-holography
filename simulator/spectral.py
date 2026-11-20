@@ -1,6 +1,6 @@
-"""Exact plane-wave evolution of prepared packets of the candidate law.
+"""Exact plane-wave evolution of prepared packets of the OPH law.
 
-The candidate's update acts on a plane wave exp(i k.x) as an 8 x 8 unitary.
+The law's update acts on a plane wave exp(i k.x) as an 8 x 8 unitary.
 Its mobile band has the eigenvalue exp(-iE) with cos E = (sum of the four
 cosines) / 4. A packet is a finite sum of mobile-band waves, so its exact
 state at update n is the same sum with every wave multiplied by exp(-inE).

@@ -9,8 +9,8 @@ from .law import LAWS, Law
 from .sector import continuum_field, field, plane_modes, prepare_field, sector_step
 from .spectral import Packet, beat_phase, track
 
-# The free reference speed measured on the zero-private-momentum wave in step 1,
-# in radar units per home tick. The step-3 forecasts use it.
+# The free reference speed measured on the zero-private-momentum wave of one constituent,
+# in radar units per home tick. The two-clock forecasts use it.
 REFERENCE_SPEED = 1 / 2.002604166666667
 
 # The registered field menu of the continuum run: amplitude and chart wave vector K
@@ -38,7 +38,7 @@ def observer_stations(size: int):
     return np.array(stations, int)
 
 
-def continuum_run(size: int = 32, chart_time: float = 2.0, law_key: str = "reflected-routing",
+def continuum_run(size: int = 32, chart_time: float = 2.0, law_key: str = "oph",
                   modes=CONTINUUM_MODES, private_order: int = CONTINUUM_PRIVATE_ORDER,
                   keep_frames: bool = True):
     """Evolve the released field under the law and compare it with the Klein-Gordon limit.
@@ -86,7 +86,7 @@ def continuum_run(size: int = 32, chart_time: float = 2.0, law_key: str = "refle
 
 def clock_journey(route=(1, 0), size: int = 512, private_size: int = 4096,
                   reference_speed: float = REFERENCE_SPEED, origin=(0, 0, 0)):
-    """The step-3 journey: beat and optical clocks on one route, read at home at reunion.
+    """The two-clock journey: beat and optical clocks on one route, read at home at reunion.
 
     Speed comes from the beat clock's own envelope track, the reunion time from that speed,
     and the forecast from the flat metric with the archived reference speed. Each clock's
@@ -161,7 +161,7 @@ def _reading(clock, packet, t, site):
     raise ValueError(clock)
 
 
-def journey_run(clocks=("beat",), law_key="reflected-routing", route=(1, 1), size=512,
+def journey_run(clocks=("beat",), law_key="oph", route=(1, 1), size=512,
                 frames=180, stride=4):
     """A traveller and its stationary twin, every clock's advance, and the forecast.
 
@@ -216,7 +216,7 @@ def race_run(size: int = 1024, source: int = 256, distance: int = 128, stride: i
     """
     from .law import step
     started = time.time()
-    law = LAWS["reflected-routing"]
+    law = LAWS["oph"]
     psi = np.zeros((size, 1, 1, 1, 8), complex)
     psi[source, 0, 0, 0] = 1 / np.sqrt(8)
     late = 4 * distance
@@ -242,10 +242,10 @@ def race_run(size: int = 1024, source: int = 256, distance: int = 128, stride: i
 
 
 def dispersion_scan(orders=(4, 8, 12, 16, 20, 24, 32, 40, 48), size=512):
-    """Step 1: the moving/rest beat ratio against v/c, from long to short wavelengths.
+    """The moving/rest beat ratio against v/c, from long to short wavelengths.
 
     The private register has 16 positions per spatial address and the doublet sits at
-    orders P/32 and P/32 + 1, the private wave number of the step-3 clock with half its
+    orders P/32 and P/32 + 1, the private wave number of the two-clock clock with half its
     beat frequency, so the rest clock turns less than pi before the slowest reunion.
     """
     started = time.time()
@@ -265,16 +265,16 @@ def dispersion_scan(orders=(4, 8, 12, 16, 20, 24, 32, 40, 48), size=512):
     return {"points": points, "seconds": time.time() - started}
 
 
-# Moving/rest rates the observer recorded on the narrow-band diagonal flights of step 4,
-# with the central orders of their packets (from the step-4 correction report).
+# Moving/rest rates the observers recorded on narrow-band diagonal flights of the bound pair,
+# with the central orders of their packets.
 STEP4_RECORDED = {12: 0.686818, 16: 0.577615, 22: 0.455911}
 
 
 def pair_correction_scan(orders=(12, 16, 22), size=512):
-    """Step 4: smooth forecast, finite law at the central wavelength, and the full packet."""
+    """Smooth forecast, finite law at the central wavelength, and the full packet."""
     from .spectral import PairPacket, pair_band
     started = time.time()
-    law = LAWS["compact-pair"]
+    law = LAWS["oph"]
     phi0, phi1 = law.rail_contact_phases
     points = []
     for order in orders:

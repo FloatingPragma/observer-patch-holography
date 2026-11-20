@@ -1,19 +1,19 @@
-"""Step 5: forming a pair through a capture vertex that exports a marker.
+"""Forming a pair through the capture vertex of the OPH law, which exports a marker.
 
-The successor law gives every junction a periodic wire of neutral modes. When the
+The OPH law gives every junction a periodic wire of neutral modes. When the
 two constituents meet head-on at a junction, with constituent A in slot 5 (arrived
 moving +z) and B in slot 4 (arrived moving -z), the vertex rotates that channel by
 the angle pi/4 into the matched equal-slot pair sum_s e_s |s, s> plus one marker at
 the start of the junction's wire. The marker moves one link per update. After the
-vertex, both constituents take the step-4 contact update.
+vertex, both constituents take the contact update.
 
 A marker that has left its junction never returns within the run (the wire is longer
 than the run), so every capture event starts its own branch, orthogonal to all
 others. A branch lives in the invariant bound sector, where the pair is one walker.
-In the maturing laws a branch also carries the pair's age, born at zero, and its hop
+A branch also carries the pair's age, born at zero, and its hop
 opens with the age (``law.step_maturing``). Branches whose birth weight is below
-1e-14 are dropped and their total is reported. ``test_simulator.py`` compares it with the literal update that carries
-the marker wires explicitly.
+1e-14 are dropped and their total is reported. ``test_simulator.py`` compares the
+branch evolution with the literal update that carries the marker wires explicitly.
 """
 from __future__ import annotations
 
@@ -63,7 +63,7 @@ def capture(free: np.ndarray, angle: float = ANGLE):
 
 
 def formation_run(size: int = 48, updates: int = 72, orders=(7, -5), contact_phase=None,
-                  angle: float = ANGLE, support: int = 4, law_key: str = "compact-pair-capture",
+                  angle: float = ANGLE, support: int = 4, law_key: str = "control-abrupt",
                   separation: int | None = None):
     """Two constituents launched toward each other; capture events, the formed pair, its markers."""
     started = time.time()

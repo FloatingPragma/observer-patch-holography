@@ -1,7 +1,7 @@
-"""Check the candidate laws.
+"""Check the OPH law.
 
-Runs the exactness and regression checks of the simulator that executes the three
-candidate laws and their components (``python -m simulator check``).
+Runs the exactness and regression checks of the simulator that executes the OPH law
+and the controls of its experiments (``python -m simulator check``).
 """
 from __future__ import annotations
 

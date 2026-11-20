@@ -36,52 +36,32 @@ and built that process is a mathematically guaranteed fixed point of the
 history, and it exists in our subjective future just as our past exists. The
 [basis](docs/BASIS.md) states this closure hypothesis in full.
 
-## Research focus
+## The law
 
-The theory around the executable model is finished: the closure principle,
-the theorem library and the finite constructions below are in place. Under
-their premises, observers inside such a computation describe their agreed
-records as a relativistic spacetime with three dimensions of space and one of
-time, with quantum measurement, the Standard Model's forces and gravity.
+Every observer follows one local rule when it compares its records with a
+neighbour: the OPH law. Under the premises of the theorem library, observers
+who follow it describe their agreed records as a relativistic spacetime with
+three dimensions of space and one of time, with quantum measurement, the
+Standard Model's forces and gravity.
 
-What is missing is the native repair law, and the search has narrowed it to
-three candidate laws, which are being tested. All three move each constituent
-by reflected routing, bind two constituents that meet into a pair whose two
-rails form a clock, and form that pair through a capture that sends away a
-marker. They differ only in how a newborn pair opens its motion: on a cosine
-profile over 32 updates, on the same profile over 128 updates, or linearly
-over 128 updates. The [candidate laws](model/README.md) page states what has
-been proven about them, and the [simulator](simulator/README.md) runs them
-and replays every experiment.
+The law moves each constituent by reflected routing: at every address it
+reflects the equal-slot part of eight amplitudes and sends each slot one step
+along its axis. Two constituents that meet in matched slots step together as
+a pair, and the relative phase of one constituent's two rails is the pair's
+clock. A head-on encounter forms such a pair through a reversible capture
+that sends a marker away on the junction's own wire, and the newborn pair
+opens its motion over 128 updates. Repair decides what becomes a shared
+fact, and memory decides what a repair leaves behind: the marker records
+where and when a pair was born, and the age the pair carries sets the way it
+travels.
 
-## Finding the repair and memory law
-
-The main focus of the research is to identify the correct repair and memory
-law. This is the native repair law, the simple law that governs the
-interactions of observers in the early Universe: the one local rule that
-every observer follows when it compares its records with a neighbour, which
-says how a disagreement is repaired and what the repair leaves behind in
-memory. Repair decides what becomes a shared fact. Memory matters just as
-much: in the candidate laws a capture leaves a marker that records where and
-when a pair was born, and the age a newborn pair carries decides which way
-it travels.
-
-The couplings of the candidate laws are supplied, and the other observables
-in the papers, from charge and the particle spectrum to gravity, are work in
-progress on the same process. Any part of the executable observer may change
-as the research goes on.
-
-**Why it matters.** The theorem library states what follows once a law
-supplies certain outputs: three directions of space, the rules of quantum
-measurement, the forces of the Standard Model, Einstein's gravity. A law has
-to supply all of them at once, on one process, with every check and every
-repair local. With the correct law, the physics we measure becomes something
-you compute: run the law, let its observers keep their records, and read off
-what they find. A wrong law gives itself away the same way, because its
-observers record something we do not. That makes the search for the law the
-sharpest test of the whole idea, and the rest of the project serves it. The
-[model overview](model/README.md) lists what the candidates reproduce and what
-is open.
+Under this law a single constituent's field obeys the Klein–Gordon equation
+in three space dimensions with one signal speed, moving clocks keep proper
+time, two constituents form a pair that holds together, and that matter obeys
+the relativistic wave relation ω² = m² + c²k². The [law](model/README.md)
+page states it with what is proven, and the [simulator](simulator/README.md)
+runs it and replays every experiment. Charge, the particle spectrum and
+gravity on the same process are work in progress.
 
 ## What comes out
 
@@ -126,10 +106,10 @@ spacetime and a common time are effective descriptions that observers agree to
 use. The state of the program and its time parameter calculate those readouts.
 They are no second universe beside them.**
 
-A fixed law acts on the registers of neighbouring addresses. Under the
-candidate laws it reflects and routes amplitude between them, binds two
-constituents that meet into a pair, and records each binding in a marker
-that leaves on its own wire. Readers keep every outcome, misses included.
+A fixed law acts on the registers of neighbouring addresses. The OPH law
+reflects and routes amplitude between them, binds two constituents that
+meet into a pair, and records each binding in a marker that leaves on its
+own wire. Readers keep every outcome, misses included.
 Each observer counts its own events, and no common clock is used. The creator supplies the law and the preparation; simulated
 observers need not install their own interactions. The [executable hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md)
 states the physical test: a fully specified construction must reproduce
@@ -155,14 +135,14 @@ the construction can fail.
 From the repository root, with Python 3.11 or newer:
 
 ```sh
-python3 -m model                  # exactness checks of the candidate laws
+python3 -m model                  # exactness checks of the OPH law
 python3 -m simulator run all      # every experiment, and the offline replay app
 ```
 
 The first command checks each of the simulator's exact methods against the
-literal update. The second recomputes every experiment of the search and
+literal update. The second recomputes every experiment on the law and
 writes `simulator/runs/replay.html`, which replays them. The
-[candidate laws](model/README.md) page explains both.
+[law](model/README.md) page explains both.
 
 ## Papers
 
@@ -181,8 +161,8 @@ writes `simulator/runs/replay.html`, which replays them. The
 
 | Path | What it holds |
 | --- | --- |
-| [model/](model/README.md) | The candidate laws and what is proven about them |
-| [simulator/](simulator/README.md) | The simulator of the candidate laws and its replay app |
+| [model/](model/README.md) | The OPH law and what is proven about it |
+| [simulator/](simulator/README.md) | The simulator of the OPH law and its replay app |
 | [flagship/](flagship/) | The main paper |
 | [paper/](paper/README.md) | The construction paper and the theorem library |
 | [extra/](extra/README.md), [cosmology/](cosmology/) | Companion papers |
@@ -213,7 +193,7 @@ the gentlest introductions.
 
 Contributions should connect one more piece of observed physics to the
 running observer, or expose a failure in it. The
-[candidate laws](model/README.md), the
+[OPH law](model/README.md), the
 [simulator specification](simulator/SPEC.md) and the
 [research issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+is%3Aopen+label%3Aprogram%3Aphysics)
 set out the work. Main-branch PDFs are source previews; deposited releases
