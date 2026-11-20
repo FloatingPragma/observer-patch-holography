@@ -28,15 +28,14 @@ TOLERANCE = 0.035
 PERIODS = (64, 128, 256)
 
 # Recorded by the observers in the Row 30 experiment.
-RECORDED = {
-    "rest_frequency_range": [0.098146, 0.098234],
-    "gates": {"64": "42/42", "128": "42/42", "256": "33/42 (precision repeat: 42/42)"},
-    "changed_law_gates": "0/14 at every period",
-    "changed_law_kinetic_deficit": [0.4943, 0.5067],
-    "precision_repeat_envelope": [-0.0268, 0.0167],
-    "native_crosscheck": 7.89e-15,
-    "incident_preparations": [4.421e26, 1.741e27],
-}
+RECORDED = {"items": [
+    ["ordinary branch, prepared waves", "72 of 72 held comparisons passed"],
+    ["ordinary branch, separate point launch", "40 of 40 nonzero forecasts passed, with no material mass fitted"],
+    ["compact collision branch", "14 of 14 signed axial and oblique directions passed both bounds at each of periods 64, 128 and 256"],
+    ["agreement with the parent calibration", "terminal probabilities within 6e-15"],
+    ["limiting squared kinetic coefficient, rail zero", "0.3215% offset at the fixed gap"],
+    ["private circumference halved", "each of the first three rest gaps nearly doubles"],
+]}
 
 
 def probes():

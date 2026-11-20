@@ -710,13 +710,7 @@ const dispersion = {
       ${row ? `<p class="note"><a href="${row.spec_url}" target="_blank" rel="noopener">Problem statement on GitHub</a> · <a href="${row.oph_url}" target="_blank" rel="noopener">OPH column</a></p>` : ""}
       <table><tr><th>period</th><th>|k|</th><th>kinetic ratio</th><th>OPH law</th><th>changed law</th></tr>${per}</table>
       <p class="note">ω from the native step of the formed pair, fourteen directions per period. Kinetic ratio (ω² − m²)/(c²|k|²) with m = ${doc.rest.toFixed(6)} and c² = ${doc.c2}; the test requires it within ±${(100 * doc.tolerance).toFixed(1)}% of one. The long-wave expansion gives ω² = m² + 2w m cot(m) |k|², coefficient ${doc.coefficient.toFixed(8)}; the closed form agrees with the native step to ${doc.identity_error.toExponential(1)}.</p></section>
-      <section><h2>Recorded in the Row 30 experiment</h2><table>
-      <tr><td>rest frequency</td><td>${rec.rest_frequency_range.join("–")}</td></tr>
-      <tr><td>gates at period 64</td><td>${rec.gates["64"]}</td></tr><tr><td>gates at period 128</td><td>${rec.gates["128"]}</td></tr><tr><td>gates at period 256</td><td>${rec.gates["256"]}</td></tr>
-      <tr><td>changed law</td><td>${rec.changed_law_gates}</td></tr>
-      <tr><td>changed-law kinetic deficit</td><td>${(100 * rec.changed_law_kinetic_deficit[0]).toFixed(2)}–${(100 * rec.changed_law_kinetic_deficit[1]).toFixed(2)}%</td></tr>
-      <tr><td>precision repeat envelope</td><td>${(100 * rec.precision_repeat_envelope[0]).toFixed(2)}% to +${(100 * rec.precision_repeat_envelope[1]).toFixed(2)}%</td></tr>
-      <tr><td>incident preparations</td><td>${rec.incident_preparations.map(v => v.toExponential(3)).join(" + ")}</td></tr></table>
+      <section><h2>Recorded in the Row 30 experiment</h2><table>${(rec.items || []).map(([k, v]) => `<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join("")}</table>
       <p class="note">The observers measured rest lines, wave vectors and frequencies from their own records; the counts are sampled from the law. </p></section>`;
     $("explain").innerHTML = esc(doc.summary);
     $("meta").innerHTML = `<span>contact phase</span><b>${doc.phi.toFixed(6)} (m = φ/2)</b>` + provenance(doc);
