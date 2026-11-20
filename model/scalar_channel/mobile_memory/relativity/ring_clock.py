@@ -4,7 +4,7 @@ import math
 
 import numpy as np
 
-from ....polynomial_sv import carrier
+from ....contrast_memory_spherical_v1 import carrier
 from ..current import one_charge_read
 from ..mobility import PORTS_PER_CELL
 from .clock_read import GAP, mass_clock

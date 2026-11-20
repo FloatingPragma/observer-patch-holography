@@ -59,7 +59,7 @@ run data from declared candidate models.
   the [observation ledger](registers/OBSERVATION_LEDGER_V3.md), the [premise register](registers/PREMISE_REGISTER_V3.md),
   the [falsification program](OPH_FALSIFICATION_PROGRAM.md), and the [paper index](../paper/).
 - **Build and test:** begin with the repository [reproduction
-  guide](../REPRODUCE.md), the [executable model](../model/polynomial_sv/README.md),
+  guide](../REPRODUCE.md), the [executable model](../model/contrast_memory_spherical_v1/README.md),
   [executable evidence](../code/), and [Lean
   formalization](../Lean/). Follow the [numerical audit
   procedure](policies/NUMERICAL_AUDIT.md) when changing finite numerical
@@ -100,14 +100,14 @@ premise.
 
 ## Executable model
 
-The executable model of OPH is [polynomial-sv](../model/polynomial_sv/README.md).
+The candidate executable model of OPH is [A-contrast-memory-spherical-v1](../model/contrast_memory_spherical_v1/README.md).
 Its law, the contrast-memory law, is a candidate native repair law of the
 theory: every port of a twelve-port cell holds a load, every seam keeps a
 private memory of the contrast between its two loads, and what the memory
 leaves on the loads is an exchange plus an agreement energy with one
-supplied coupling. The [specification](../model/polynomial_sv/SPEC.md) states
+supplied coupling. The [specification](../model/contrast_memory_spherical_v1/SPEC.md) states
 the carrier, the law, the emitter and the reader; the
-[binding theorem](../model/polynomial_sv/PROOF.md) bounds the probability that
+[binding theorem](../model/contrast_memory_spherical_v1/PROOF.md) bounds the probability that
 a pair of loads comes apart, on every federation of complete cells. The
 [executable-model paper](../paper/executable_observer_construction.pdf),
 "An Executable Observer for Observer Patch Holography: Specification, Memory

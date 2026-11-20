@@ -38,8 +38,8 @@ history, and it exists in our subjective future just as our past exists. The
 
 ## Research focus
 
-We have a working [executable model](model/README.md) of OPH, called
-polynomial-sv. Small observers sit on the ports of icosahedral cells. Each
+We have a working candidate [executable model](model/README.md) of OPH, called
+A-contrast-memory-spherical-v1. Small observers sit on the ports of icosahedral cells. Each
 holds a few records and compares them with its neighbours, and where two
 neighbours disagree they repair the difference between the two of them. The
 theory around the model is finished: the closure principle, the theorem
@@ -110,11 +110,11 @@ interactions of observers in the early Universe: the one local rule that
 every observer follows when it compares its records with a neighbour, which
 says how a disagreement is repaired and what the repair leaves behind in
 memory. Repair decides what becomes a shared fact. Memory matters just as
-much: in polynomial-sv, the phase that a seam's memory picks up from the
+much: in A-contrast-memory-spherical-v1, the phase that a seam's memory picks up from the
 contrast it wrote is the agreement energy that binds a pair of loads, and the
 same law without it loses the pair.
 
-polynomial-sv is the candidate under test. Its two laws are candidates, their
+A-contrast-memory-spherical-v1 is the candidate under test. Its two laws are candidates, their
 couplings are supplied, and the other observables in the papers, from charge
 and the particle spectrum to gravity, are work in progress on the same
 process. Any part of the executable observer may change as the research goes
@@ -207,7 +207,7 @@ From the repository root, with Python 3.11 or newer:
 python3 -m model
 ```
 
-This recomputes the headline results of polynomial-sv and compares them
+This recomputes the headline results of A-contrast-memory-spherical-v1 and compares them
 with the stored ones. The [model guide](model/README.md) explains the full
 run.
 
@@ -217,7 +217,7 @@ run.
   is the main paper. Cite its released version, the
   [PhilPapers record](https://philpapers.org/rec/MUEFOC).
 - **[An Executable Observer](paper/executable_observer_construction.pdf)**
-  specifies polynomial-sv, proves its binding theorem and reports the
+  specifies A-contrast-memory-spherical-v1, proves its binding theorem and reports the
   records its observers agree on.
 - **The theorem library** holds the long proofs:
   [consensus](paper/reality_as_consensus_protocol.pdf),
@@ -262,7 +262,7 @@ the gentlest introductions.
 
 Contributions should connect one more piece of observed physics to the
 running observer, or expose a failure in it. The
-[polynomial-sv specification](model/polynomial_sv/SPEC.md) and the
+[A-contrast-memory-spherical-v1 specification](model/contrast_memory_spherical_v1/SPEC.md) and the
 [research issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+is%3Aopen+label%3Aprogram%3Aphysics)
 set out the work. Main-branch PDFs are source previews; deposited releases
 keep their original bytes.

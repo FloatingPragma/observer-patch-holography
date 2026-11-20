@@ -5,7 +5,7 @@ import math
 import numpy as np
 from scipy import sparse
 
-from ....polynomial_sv import carrier
+from ....contrast_memory_spherical_v1 import carrier
 from ...radiative_repair.source import evolve
 from ..mobility import PORTS_PER_CELL
 from . import clock, geometry, source

@@ -28,7 +28,7 @@ import scipy.sparse as sp
 from ..carrier import EDGES, require
 
 HERE = Path(__file__).resolve().parent
-CARRIERS = HERE.parents[1] / 'polynomial_sv' / 'carriers'
+CARRIERS = HERE.parents[1] / 'contrast_memory_spherical_v1' / 'carriers'
 RING = (0, 2, 4, 6)                          # the ring of the manual, in the labels of the manual's cell
 REST = 1.0                                   # m
 HOP = 1 / math.sqrt(2)                       # c

@@ -5,7 +5,7 @@ import json
 
 import numpy as np
 
-from ...polynomial_sv import carrier
+from ...contrast_memory_spherical_v1 import carrier
 from ..radiative_repair.source import evolve
 from . import coactive, mobility, refinement
 from .cage_transfer import transfer

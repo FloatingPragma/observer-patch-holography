@@ -4,7 +4,7 @@ import math
 
 import numpy as np
 
-from ....polynomial_sv import carrier
+from ....contrast_memory_spherical_v1 import carrier
 from ...radiative_repair.source import evolve
 from .incidence import (
     CAGE_MASS, CHARGE_MASS, SPEED, cell_incidence, dirac_operator,

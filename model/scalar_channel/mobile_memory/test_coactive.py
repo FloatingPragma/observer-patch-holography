@@ -5,8 +5,8 @@ from types import SimpleNamespace
 
 import numpy as np
 
-from ...polynomial_sv.carrier import Carrier
-from ...polynomial_sv.sectors import PairSector
+from ...contrast_memory_spherical_v1.carrier import Carrier
+from ...contrast_memory_spherical_v1.sectors import PairSector
 from .coactive import CURRENT_OUTCOMES, _joint_arms
 from .contrast_binding import _all_links_record, _external_laplacian
 from .current import one_charge_read

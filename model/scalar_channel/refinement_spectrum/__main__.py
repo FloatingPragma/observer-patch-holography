@@ -19,7 +19,7 @@ SOURCES = ('model/__init__.py', 'model/requirements.txt', 'model/scalar_channel/
            'model/scalar_channel/cage/__init__.py', 'model/scalar_channel/carrier.py', 'model/scalar_channel/cage/construction.py',
            'tools/strict_json.py', *('model/scalar_channel/refinement_spectrum/'+f for f in
            ('__init__.py','__main__.py','source.py','instruments.py','flight.py','protocol.json')),
-           *(f'model/polynomial_sv/carriers/FEDERATION_LEVEL{i}.npz' for i in range(3)))
+           *(f'model/contrast_memory_spherical_v1/carriers/FEDERATION_LEVEL{i}.npz' for i in range(3)))
 
 
 def pins():

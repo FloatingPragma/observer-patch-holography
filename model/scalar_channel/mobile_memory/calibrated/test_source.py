@@ -4,7 +4,7 @@ import numpy as np
 from scipy import sparse
 from scipy.linalg import expm
 
-from ....polynomial_sv import carrier
+from ....contrast_memory_spherical_v1 import carrier
 from ..mobility import home_seam
 from .source import build, leakage_witness
 

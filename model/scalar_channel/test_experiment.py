@@ -90,7 +90,7 @@ def test_extended_mode_has_a_distinct_complete_receipt(replay_fixture):
     'model/scalar_channel/carrier.py', 'model/scalar_channel/__init__.py',
     'model/scalar_channel/protocol.json', 'model/contrast_replay.py',
     'model/construction_manual/inputs/CELL.npz', 'tools/pin_scope.py', 'code/pin_scope.py',
-    'model/polynomial_sv/carrier.py', 'model/polynomial_sv/law.py', 'model/polynomial_sv/sectors.py',
+    'model/contrast_memory_spherical_v1/carrier.py', 'model/contrast_memory_spherical_v1/law.py', 'model/contrast_memory_spherical_v1/sectors.py',
 ])
 def test_production_code_and_input_changes_fail_before_compute(replay_fixture, monkeypatch, name):
     f = replay_fixture

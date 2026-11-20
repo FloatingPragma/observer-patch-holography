@@ -4,29 +4,30 @@ The [speed and clock tests](relativity/README.md) check this generator and a sep
 incidence transport variant on the same carrier. The [calibrated incidence experiment](calibrated/README.md)
 combines charge and cage transport, mass tags, a native swap, and an onsite contact.
 
-An external seam can carry a record that later changes which scalar detector fires. The candidate
-keeps the contrast-bound pair and the scalar cage on the same carrier and couples them through the
-native contrast square. It also carries two signs of charge in a mobile lowest band. A signed
-charge-current read on the seam can control the same cage link or steer a later conversion of
-opposite charges into a neutral pair.
+An external seam can carry a record that later changes which scalar detector fires. The
+mobile-memory candidate keeps the contrast-bound pair and the scalar cage on the same carrier and
+couples them through the native contrast square. It also carries two signs of charge in a mobile
+lowest band. A signed charge-current read on the seam can control the same cage link or steer a
+later conversion of opposite charges into a neutral pair.
 
 ## Declared source
 
-The carrier, native load alphabet, contrast memory and scalar seam and wedge modes come from the
-two finite models. At each port the candidate also carries the two charged fermion modes and the
-neutral oscillator of the radiative pair converter. The scalar cage excitation is a particle and hole
+The carrier, native load alphabet and contrast memory come from the A-contrast-memory-spherical-v1
+candidate, and the scalar seam and wedge modes come from the scalar-channel construction. At each
+port the mobile-memory candidate also carries the two charged fermion modes and the neutral
+oscillator of the radiative pair converter. The scalar cage excitation is a particle and hole
 in the seam and wedge modes. The neutral oscillator quanta belong to the pair converter. At each
 external seam there is an auxiliary orthogonal current record with values $-2,-1,0,+1,+2$, with
 zero as the blank value.
-[Port carrier](../../polynomial_sv/carrier.py) · [Native contrast source](../../polynomial_sv/law.py)
+[Port carrier](../../contrast_memory_spherical_v1/carrier.py) · [Native contrast source](../../contrast_memory_spherical_v1/law.py)
 · [Scalar cages](../cage/construction.py) · [Pair converter](../radiative_repair/source.py)
 
 Use exchange units with $J=1$. Each charge sign has
 
 $$ Q = \mu I + L_{\mathrm{within}} + \eta L_{\mathrm{between}},\qquad \mu=1,\quad\eta=1/8. $$
 
-The two Laplacians are sums of positive two-port difference squares. The mass term is an onsite
-occupation cost. The neutral oscillator and on-port converter retain the radiative generator.
+The two Laplacians are sums of positive two-port difference squares. The term $\mu I$ is an
+onsite occupation cost. The neutral oscillator and on-port converter retain the radiative generator.
 The native contrast Hamiltonian uses $\kappa=128$. On each cell choose the first labeled degree-five
 ring from the carrier enumeration. Write $X_c=f_{c,-}^{\dagger}f_{c,+}$ for its particle–hole lowering
 operator in the two exact cage modes. Each external seam $s$ between cells $c,d$ contributes
@@ -39,10 +40,9 @@ where $A_s$ is the native echoed contrast square and $R_s^+$ is the projector on
 auxiliary current record. The term is indexed by the seam and supported in its two incident cells,
 on the selected rings and their attached wedges. The controls, carrier labels, selected rings,
 orthogonal pointer alphabet, local pulse schedule and all coefficients are supplied. The charge,
-binding and readout experiments
-use the reducing preparations of this generator with the indicated inactive registers in their
-references. The filled scalar reference is annihilated by each $X_c$. With one particle–hole
-excitation, each scalar link is precisely the graph Laplacian of that link. The generator therefore
+binding and readout experiments use the reducing preparations of this generator with the indicated
+inactive registers in their references. The filled scalar reference is annihilated by each $X_c$.
+With one particle–hole excitation, each scalar link is precisely the graph Laplacian of that link. The generator therefore
 preserves the whole cage during transfer. [Charge generator](law.py) · [Full Fock check](cage_transfer.py)
 
 ## Binding with the cage link enabled
@@ -66,7 +66,7 @@ including separated pairs. It uses one enabled link and the full external intera
 same preparation. With empty loads, the stationary blank and written native collar arms
 give exact link weights zero and one. A sharp cage sent across one enabled link arrives intact with
 probability $\sin^2(gt)$. The finite fuel read includes the no-sender background under its source-on
-capture pulse. [Binding theorem](../../polynomial_sv/PROOF.md#3-persistence-at-every-value-of-the-evolution-parameter)
+capture pulse. [Binding theorem](../../contrast_memory_spherical_v1/PROOF.md#3-persistence-at-every-value-of-the-evolution-parameter)
 · [Joint record replay](contrast_binding.py)
 
 ## Motion in the lowest charged band
@@ -103,9 +103,8 @@ For the two-charge test, balanced preparations have opposite imaginary seam phas
 position probabilities. After the current write an addressed seam pulse reads the stored sign to
 route both charges to the target port. For seam weight $w$ the two pulse arms use the difference
 square for times $\pi/(4w)$ and $3\pi/(4w)$, with other terms parked during the pulse. Release under
-the same charge and conversion generator for
-$t=1/128$ in inverse exchange units, then read all charged and neutral outcomes. Keeping the pulse
-arm fixed or shuffling its control gives the matched comparison. If $\lVert H\rVert\le M$ and
+the same charge and conversion generator for $t=1/128$ in inverse exchange units, then read all
+charged and neutral outcomes. Keeping the pulse arm fixed or shuffling its control gives the matched comparison. If $\lVert H\rVert\le M$ and
 $\rho=(Mt)^3/6$, the target conversion amplitude has imaginary part $t+O(t^3)$ with remainder at
 most $\rho$. Conversion from the other endpoint into the target read has zero coefficients through
 order two and modulus at most $\rho$. The balanced feedback advantage is at least

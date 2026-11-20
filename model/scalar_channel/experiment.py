@@ -179,8 +179,8 @@ def _receipt_fields(record, path):
 def source_pins():
     paths = [p.relative_to(ROOT).as_posix() for p in HERE.glob('*.py')]
     paths += ['model/contrast_replay.py', 'model/scalar_channel/protocol.json',
-              'model/polynomial_sv/carrier.py', 'model/polynomial_sv/law.py',
-              'model/polynomial_sv/sectors.py',
+              'model/contrast_memory_spherical_v1/carrier.py', 'model/contrast_memory_spherical_v1/law.py',
+              'model/contrast_memory_spherical_v1/sectors.py',
               'model/construction_manual/inputs/CELL.npz', 'tools/pin_scope.py', 'code/pin_scope.py']
     return {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest()
             for p in sorted(bound(paths))}

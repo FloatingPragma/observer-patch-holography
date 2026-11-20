@@ -3,7 +3,7 @@ from fractions import Fraction
 import numpy as np
 from scipy.linalg import expm, sqrtm
 
-from ....polynomial_sv import carrier
+from ....contrast_memory_spherical_v1 import carrier
 from .unchanged_dispersion import WAIT, _federation_record, run
 
 

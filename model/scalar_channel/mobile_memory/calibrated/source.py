@@ -7,7 +7,7 @@ import numpy as np
 from scipy import sparse
 from scipy.sparse.linalg import expm_multiply
 
-from ....polynomial_sv import law as native_law
+from ....contrast_memory_spherical_v1 import law as native_law
 from ..contrast_binding import _native_controls
 from ..mobility import PORTS_PER_CELL, home_seam
 from ..relativity.incidence import (

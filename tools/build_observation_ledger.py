@@ -285,8 +285,8 @@ GROUPS = (
 
 
 def _cell(text: object) -> str:
-    """Escape pipes so free text cannot break a Markdown table row."""
-    return str(text).replace("|", "\\|")
+    """Keep pipes and paragraph breaks inside the Markdown table cell."""
+    return "<br>".join(str(text).replace("|", "\\|").splitlines())
 
 def fail(message: str) -> None:
     raise SystemExit(f"observation ledger: {message}")

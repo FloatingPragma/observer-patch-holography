@@ -3,7 +3,7 @@
 import numpy as np
 from scipy import sparse
 
-from ....polynomial_sv import carrier
+from ....contrast_memory_spherical_v1 import carrier
 from .incidence import (
     CAGE_MASS,
     CHARGE_MASS,

@@ -7,7 +7,7 @@ import networkx as nx
 import numpy as np
 from scipy.linalg import expm
 
-from ....polynomial_sv import carrier
+from ....contrast_memory_spherical_v1 import carrier
 from ..cage_transfer import PORTS_PER_CELL
 from ..relativity.clock_read import two_read_records
 

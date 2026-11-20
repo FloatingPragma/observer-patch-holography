@@ -5,8 +5,8 @@ import json
 
 import numpy as np
 
-from ...polynomial_sv import carrier
-from ...polynomial_sv.sectors import PairSector
+from ...contrast_memory_spherical_v1 import carrier
+from ...contrast_memory_spherical_v1.sectors import PairSector
 from ..radiative_repair.source import evolve
 from .cage_transfer import PORTS_PER_CELL
 from .contrast_binding import (

@@ -7,7 +7,7 @@ from pathlib import Path
 import numpy as np
 
 from tools.strict_json import load
-from ...polynomial_sv import carrier
+from ...contrast_memory_spherical_v1 import carrier
 from ..carrier import require
 from . import apparatus, source
 from .__main__ import HERE, check_counts, check_result, pins
