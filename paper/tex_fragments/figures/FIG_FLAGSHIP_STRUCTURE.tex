@@ -1,4 +1,4 @@
-% Figure: how the basis, the polynomial-sv model and the finite theorem library fit together.
+% Figure: how the basis, the OPH law of the executable model and the finite theorem library fit together.
 \begin{tikzpicture}[
   col/.style={oph box=#1, text width=5.55cm, align=flush left, inner sep=5pt, minimum height=31mm, anchor=center}]
 \node[oph box=ophgrey, text width=14.3cm, inner sep=5pt] (basis) at (0,4.9) {%
@@ -6,14 +6,14 @@
   operational agreement; adopted state selection and response endogeneity;
   one executable specification.};
 \node[col=ophnative] (spec) at (-4.45,2.35) {%
-  {\footnotesize\bfseries\color{ophnative} Executable model: polynomial-sv}\\[3pt]
+  {\footnotesize\bfseries\color{ophnative} Executable model: the OPH law}\\[3pt]
   {\scriptsize
-  twelve-port cells joined by external seams\\
-  loads on ports, a private memory on seams\\
-  the contrast-memory law, one coupling\\
-  a local emitter with its fuel\\
-  port observers and agreed seam records\\
-  events counted by each observer}};
+  a torus of addresses with a private register\\
+  reflected routing of each constituent\\
+  a contact law that binds a matched pair\\
+  a capture vertex that sends away a marker\\
+  a newborn pair that opens its hop gradually\\
+  updates counted by each laboratory}};
 \node[col=ophchecked] (lib) at (4.45,2.35) {%
   {\footnotesize\bfseries\color{ophchecked} Finite theorem library}\\[3pt]
   {\scriptsize
@@ -21,7 +21,7 @@
   entropy laws of committed repair\\
   rank-three response; gauge Lie type\\
   anomaly-free matter; centre classes\\
-  binding of a pair on every federation\\
+  invariance of the bound sector\\
   Einstein tensor step from null balance}};
 \draw[oph arrow=ophnative] ($(spec.east)+(0,0.45)$)--($(lib.west)+(0,0.45)$)
   node[midway, above, font=\scriptsize, text=ophnative, align=center] {finite instances\\of the premises};
@@ -34,8 +34,8 @@
   {\scriptsize effective descriptions that observers inside the construction must admit}\\[3pt]
   {\scriptsize
   \begin{tabular}{@{}l@{\ \ }l@{\hspace{3em}}l@{\ \ }l@{}}
-  agreed records of port observers & constructed & effective quantum fields in $3+1$ & required\\
-  bound objects that persist & constructed & classical and gravitational regimes & required\\
+  records of laboratory observers & constructed & effective quantum fields in $3+1$ & required\\
+  bound pairs that form and persist & constructed & classical and gravitational regimes & required\\
   events with no common clock & constructed & physical particle identification & required\\
   physical predictions & rules frozen in advance & &
   \end{tabular}}};

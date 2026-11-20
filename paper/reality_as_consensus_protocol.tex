@@ -57,10 +57,10 @@ every other observer's record statistics unchanged. The result passes to
 finer and coarser descriptions, approximate recovery and distributed
 implementations; noisy repair stays near it under a certificate; records of
 who read whose write order the events. Fields, clocks and gravity need
-further premises. In polynomial-sv, the executable model of the theory,
-agreed records and local events meet the record and local-operation
-premises; its laws are reversible, so the settling theorems apply to the
-classical repair rule behind its first law.
+further premises. On the OPH law of the executable model of the theory,
+detector records and local updates meet the record and local-operation
+premises; the law is reversible, so the settling theorems make no statement
+about it.
 \end{abstract}
 
 
@@ -75,42 +75,27 @@ The closure hypothesis proposes that observers recover and realize the
 specification of their world; selecting a particular source, state and
 physical interpretation requires additional premises \cite{ophsynthesis}.
 
-The executable model of the programme, polynomial-sv~\cite{ophmodel},
-places loads $0$, $1$ or $2$ on the ports of federations of twelve-port
-icosahedral cells and a private memory on every seam. Its first candidate
-native repair law, the contrast-memory law, is the exchange of loads across
-seams plus an agreement energy that lowers the energy of a seam whose two
-ports both hold a load; port observers count their own events and admit a
-seam record only when both ends agree. On its agreed records the model
-reproduces particle stability, by a theorem that holds for every number of
-cells. Under a second candidate law on the same carrier, the scalar channel,
-an object on four seams is kept for every interval and carries a prepared
-clock that an observer reads in units of its own reference. Both laws are
-candidates, and their couplings are supplied. The state of that simulation
-is no spacetime, and its carrier is hardware of the computation. A test of
-the model compares distributions of admissible observer records with what
-observers in our world record. Observers who inhabit the computation can
+The executable model of the programme runs the OPH law~\cite{ophmodel}.
+Each constituent moves by reflected routing on a torus with three spatial
+axes and a private register, two constituents that meet bind into a pair
+through a contact law, a capture vertex forms that pair and sends away a
+marker, and a newborn pair opens its hop over $128$ updates. The state of that
+simulation is no spacetime, and its carrier is hardware of the computation. A
+test of the model compares distributions of admissible observer records with
+what observers in our world record. Observers who inhabit the computation can
 describe their experience as a relativistic continuum spacetime with three
 dimensions of space and one of time, by the proposition on smooth effective
 field descriptions of the flagship paper and the reconstruction of the
-spacetime paper, under their stated premises~\cite{ophsynthesis,ophEinstein};
-those results consume readouts and limits that the model does not produce in
-the required form. Three results of this paper apply to the model as it
-stands~\cite{ophmodel}. Its agreed seam records are orthogonal projectors
-with complete outcome sets, so Theorem~\ref{thm:crdt} gives them Born
-weights, L\"uders conditioning and certain rereads. A seam event or a seam
-reading is a complete operation on the registers of one seam, so by
-Proposition~\ref{prop:bipartite-marginal-invariance} it leaves the record
-law of every observer on other registers unchanged. Each of the two laws is
-a continuous one-parameter unitary flow on finite registers, so the
-Hamiltonian rigidity of Section~\ref{sec:finite-observable-nets} fixes it by
-its flow up to an energy offset. Applying this paper's quotient theorem
-requires a specified mismatch, protected boundary, strict descent and
-complete consistent-state presentation. Both laws of the model are unitary
-and conserve their loads and objects, so the settling and normal-form
-theorems apply to the classical seam rule, whose write the contrast-memory
-law performs with the coin in superposition, follows with a phase and then
-reverses; they make no statement about the laws themselves.
+spacetime paper, under their stated premises~\cite{ophsynthesis,ophEinstein}.
+Two results of this paper apply to the model as it stands. A presence
+detector at one address is an orthogonal projector with a complete outcome
+set, so Theorem~\ref{thm:crdt} gives its records Born weights, L\"uders
+conditioning and certain rereads. A local update is a complete operation on
+the registers it acts on, so by
+Proposition~\ref{prop:bipartite-marginal-invariance} it leaves the record law
+of every observer on other registers unchanged. The law is unitary and
+conserves its constituents, so the settling and normal-form theorems make
+no statement about it.
 
 The construction uses Newman's confluence lemma \cite{newman42}.
 Termination differs from a continuing legitimate regime in
@@ -1374,10 +1359,7 @@ not an excitation energy above its own ground state. Localization,
 reference subtraction, transport and a common physical energy and clock
 map are additional requirements.
 
-The contrasts of polynomial-sv, the differences of the two loads of a
-seam~\cite{ophmodel}, are exact port gradients and have zero cycle
-holonomy, so the obstruction leaves the model no residual mismatch. The seam
-graph has a cycle space, but the filled icosahedral face
+The seam graph has a cycle space, but the filled icosahedral face
 complex has vanishing first homology: face-curl-free offsets have zero
 holonomy on every cycle.
 
@@ -2821,13 +2803,11 @@ the subalgebra is a finite direct sum of full matrix blocks; and a
 pointwise-continuous automorphism group fixes every block and acts by one
 Hamiltonian per block, with block fixing derived and the block swap
 realized on the square two-block algebra. The parameter is a real number,
-and no physical clock or source-selected Hamiltonian is claimed. Both
-candidate laws of polynomial-sv lie inside the reversibility
-hypothesis~\cite{ophmodel}: each is a continuous one-parameter unitary flow
-on finite registers, so each is fixed by its flow up to an energy offset, and
-its parameter is no observer's clock. On each seam the local term of the
-contrast-memory law is a self-adjoint generator conjugated by a Hermitian
-unitary contrast write, acting on the two loads and the private seam memory.
+and no physical clock or source-selected Hamiltonian is claimed. The
+OPH law of the executable model~\cite{ophmodel} is a discrete unitary
+update on finite registers; a Hermitian generator of each update exists and
+is fixed up to the choice of its eigenphase branch, and the update count is no
+observer's clock.
 
 \input{tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex}
 \input{tex_fragments/SOURCE_RESTRICTION_NATURALITY.tex}
@@ -4166,10 +4146,9 @@ Pragma Research,
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography}.
 
 \bibitem{ophmodel}
-B.~M\"uller, M.~Poneder, J.~Kim, and D.~A.~Friedman,
-\emph{An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records},
-2026.\\
-Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2070/paper/executable_observer_construction.pdf}.
+FloatingPragma (2026). \emph{The OPH law: specification, exact simulator and
+tests}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model}.
 
 \bibitem{ophsynthesis}
 B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, B.~Cassie, P.~Nguyen, J.~Kim, D.~Matscheko, D.~A.~Friedman, J.~Hill, W.~T.~Glynn, M.~A.~Visser, K.~A.~Anirudha, and B.~de La Fourni\`ere,
