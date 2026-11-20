@@ -38,69 +38,21 @@ history, and it exists in our subjective future just as our past exists. The
 
 ## Research focus
 
-We have a working [executable model](model/README.md) of OPH, called
-polynomial-sv. Small observers sit on the ports of icosahedral cells. Each
-holds a few records and compares them with its neighbours, and where two
-neighbours disagree they repair the difference between the two of them. The
-theory around the model is finished: the closure principle, the theorem
-library and the finite constructions below are in place.
+The theory around the executable model is finished: the closure principle,
+the theorem library and the finite constructions below are in place. Under
+their premises, observers inside such a computation describe their agreed
+records as a relativistic spacetime with three dimensions of space and one of
+time, with quantum measurement, the Standard Model's forces and gravity.
 
-**What the observers inside experience.** The state of the simulation does
-not contain the physical Universe. Its ports, seams and cells are the hardware
-of a computation, and they are no space. Space, time, fields and particles are
-how the observers inside describe the records they agree on. We have shown
-that the observers who inhabit the simulation can describe their experiences
-as a relativistic continuum spacetime with three dimensions of space and one
-of time, built on the slowest response of a cell, which has exactly three
-directions. Their records obey the quantum rules of measurement, and under
-stated premises their forces have the algebra of the Standard Model and their
-gravity obeys Einstein's equation: what they can measure has the structure of
-what we measure. Every test of the model therefore compares what its
-observers record with what we record. It never compares the state of the
-simulation with the world.
-
-The design answers how a Universe can compute its own history at all. A
-consistent history is a fixed point over an enormous number of records, and
-a search for it would take exponentially long. The network does not search.
-Every check is local, every repair is local, and every accepted repair
-removes a fixed amount of disagreement, so the work grows as a polynomial in
-the number of observers: with this design the Universe thinks itself into
-existence in polynomial time. The
-[construction manual](model/construction_manual/CONSTRUCTION_MANUAL.md)
-builds the model part by part and says which part of this is a theorem.
-
-Two candidate repair laws run on the model, the contrast-memory law and the
-scalar channel. No measured number enters them. Under them the repair
-process reproduces real observable values and structures, in the effective
-descriptions of the
-observers who inhabit the computation:
-
-- **Particles that hold together.** A pair of loads written on one seam is
-  read as a pair at every later reading, with a probability that a theorem
-  bounds on carriers of any size, and it moves from seam to seam. The same
-  law without the agreement energy loses the pair.
-- **A clock inside an object.** An object held on four seams swings at one
-  fixed pitch after a pulse. An observer reads that pitch from its own
-  counts, in units of its own reference, and reads the same number a second
-  way from the two levels of the object.
-- **Something that stays and holds no charge.** A note left in the memory of
-  a seam with nothing around it is never erased by the law. It holds no
-  load, its observers read its level, and matter that reaches it sticks to
-  it.
-- **Looking changes what comes later.** Asking "is a pair there?" and asking
-  "where is it?" give the same first answer and different later records.
-- **Twelve force currents.** With one declared port service, the response of
-  a cell's ports has twelve generators with the algebra of the Standard
-  Model's forces.
-
-These outputs plug into the theorem library. A theorem applies to the model
-wherever an output of the model has the form of its premise: the cell is the
-carrier of the three-direction theorem, the model's write is the repair rule
-that four requirements single out, its readings are the projective
-instruments of the measurement theorems, and its observers compare clocks
-through shared records as the clock theorems require. The
-[observation ledger](docs/registers/OBSERVATION_LEDGER_V3.md) lists what the
-model reproduces and what is open.
+What is missing is the native repair law, and the search has narrowed it to
+three candidate laws, which are being tested. All three move each constituent
+by reflected routing, bind two constituents that meet into a pair whose two
+rails form a clock, and form that pair through a capture that sends away a
+marker. They differ only in how a newborn pair opens its motion: on a cosine
+profile over 32 updates, on the same profile over 128 updates, or linearly
+over 128 updates. The [candidate laws](model/README.md) page states what has
+been proven about them, and the [simulator](simulator/README.md) runs them
+and replays every experiment.
 
 ## Finding the repair and memory law
 
@@ -110,15 +62,14 @@ interactions of observers in the early Universe: the one local rule that
 every observer follows when it compares its records with a neighbour, which
 says how a disagreement is repaired and what the repair leaves behind in
 memory. Repair decides what becomes a shared fact. Memory matters just as
-much: in polynomial-sv, the phase that a seam's memory picks up from the
-contrast it wrote is the agreement energy that binds a pair of loads, and the
-same law without it loses the pair.
+much: in the candidate laws a capture leaves a marker that records where and
+when a pair was born, and the age a newborn pair carries decides which way
+it travels.
 
-polynomial-sv is the candidate under test. Its two laws are candidates, their
-couplings are supplied, and the other observables in the papers, from charge
-and the particle spectrum to gravity, are work in progress on the same
-process. Any part of the executable observer may change as the research goes
-on.
+The couplings of the candidate laws are supplied, and the other observables
+in the papers, from charge and the particle spectrum to gravity, are work in
+progress on the same process. Any part of the executable observer may change
+as the research goes on.
 
 **Why it matters.** The theorem library states what follows once a law
 supplies certain outputs: three directions of space, the rules of quantum
@@ -175,11 +126,11 @@ spacetime and a common time are effective descriptions that observers agree to
 use. The state of the program and its time parameter calculate those readouts.
 They are no second universe beside them.**
 
-A fixed law acts on the registers of neighbouring ports. Under the
-contrast-memory law it moves loads between them and lowers the energy of a
-seam whose two observers agree. Readers keep every outcome, the outcome
-"no pair" included. Each observer counts its own events, and no common clock
-is used. The creator supplies the law and the preparation; simulated
+A fixed law acts on the registers of neighbouring addresses. Under the
+candidate laws it reflects and routes amplitude between them, binds two
+constituents that meet into a pair, and records each binding in a marker
+that leaves on its own wire. Readers keep every outcome, misses included.
+Each observer counts its own events, and no common clock is used. The creator supplies the law and the preparation; simulated
 observers need not install their own interactions. The [executable hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md)
 states the physical test: a fully specified construction must reproduce
 what observers measure.
@@ -204,21 +155,20 @@ the construction can fail.
 From the repository root, with Python 3.11 or newer:
 
 ```sh
-python3 -m model
+python3 -m model                  # exactness checks of the candidate laws
+python3 -m simulator run all      # every experiment, and the offline replay app
 ```
 
-This recomputes the headline results of polynomial-sv and compares them
-with the stored ones. The [model guide](model/README.md) explains the full
-run.
+The first command checks each of the simulator's exact methods against the
+literal update. The second recomputes every experiment of the search and
+writes `simulator/runs/replay.html`, which replays them. The
+[candidate laws](model/README.md) page explains both.
 
 ## Papers
 
 - **[Observers Who Read Their Universe into Existence](flagship/from_observer_consensus_to_standard_physics.pdf)**
   is the main paper. Cite its released version, the
   [PhilPapers record](https://philpapers.org/rec/MUEFOC).
-- **[An Executable Observer](paper/executable_observer_construction.pdf)**
-  specifies polynomial-sv, proves its binding theorem and reports the
-  records its observers agree on.
 - **The theorem library** holds the long proofs:
   [consensus](paper/reality_as_consensus_protocol.pdf),
   [observers and records](paper/observers_are_all_you_need.pdf),
@@ -231,7 +181,8 @@ run.
 
 | Path | What it holds |
 | --- | --- |
-| [model/](model/README.md) | The executable observer: implementation, tests and receipts |
+| [model/](model/README.md) | The candidate laws and what is proven about them |
+| [simulator/](simulator/README.md) | The simulator of the candidate laws and its replay app |
 | [flagship/](flagship/) | The main paper |
 | [paper/](paper/README.md) | The construction paper and the theorem library |
 | [extra/](extra/README.md), [cosmology/](cosmology/) | Companion papers |
@@ -251,7 +202,7 @@ a clean clone:
 ```sh
 python -m pip install -r model/requirements.txt
 python -m model
-python -m pytest -q -W error model
+python -m pytest -q -W error simulator model
 ```
 
 The [book](book/), the textbooks at [learn.floatingpragma.ai](https://learn.floatingpragma.ai/)
@@ -262,7 +213,8 @@ the gentlest introductions.
 
 Contributions should connect one more piece of observed physics to the
 running observer, or expose a failure in it. The
-[polynomial-sv specification](model/polynomial_sv/SPEC.md) and the
+[candidate laws](model/README.md), the
+[simulator specification](simulator/SPEC.md) and the
 [research issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+is%3Aopen+label%3Aprogram%3Aphysics)
 set out the work. Main-branch PDFs are source previews; deposited releases
 keep their original bytes.

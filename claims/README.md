@@ -1,11 +1,9 @@
 # OPH Claim Registry
 
-The official executable model is [polynomial-sv](../model/polynomial_sv/README.md).
-Its contrast-memory law is a candidate native repair law of the theory, and
-the [scalar channel](../model/scalar_channel/README.md) on the same carrier is a second.
-Claims about the model are owned by the
-[executable-model paper](../paper/executable_observer_construction.tex), and
-`python -m model` recomputes their evidence. Other claims keep their stated
+The executable model is the set of three [candidate laws](../model/README.md)
+for the native repair law, specified in the
+[simulator specification](../simulator/SPEC.md). Claims about the model rest on
+the simulator's checks, and `python -m model` recomputes their evidence. Other claims keep their stated
 source, preparation, reference, clock and observation domains; a common name
 supplies no transfer.
 
@@ -41,7 +39,7 @@ its source.
 | Papers | `paper/content_inventory.yml` and the paper list in `tools/build_tex_papers.py` | `paper/paper_release_manifest.json`, `docs/PAPER_SET.md` |
 
 The executable model uses the existing claim identities and premises through
-its [specification](../model/polynomial_sv/SPEC.md) and the
+its [specification](../simulator/SPEC.md) and the
 [premise register](../docs/registers/PREMISE_REGISTER_V3.md). Candidate
 hypotheses and issue closure do not change a registered claim's scientific
 status. Change this registry when the established claim or its evidence
@@ -106,16 +104,14 @@ registry/check surface. That rule keeps the registry from becoming a stale snaps
 
 ## Executable model
 
-The executable-model paper owns the claims about
-[polynomial-sv](../model/polynomial_sv/README.md): the exact reduction of the
-private seam memory to an exchange plus an agreement energy, on every state
-of the memory; the [binding theorem](../model/polynomial_sv/PROOF.md) on every
-federation of complete cells; particle stability on the observers' agreed
-records, with the controls that lose it; the bound objects of one cell; the
-port response; and the unrecovered collar. Their supplied parts are listed in
-the [specification](../model/polynomial_sv/SPEC.md). The model reproduces
-particle stability; its other observables are work in progress, and no
-registered claim promotes them.
+The simulator owns the claims about the candidate laws: the exact identities
+its methods are checked against (the field identity behind the continuum
+limit, the invariant bound sector of the contact law, the band of the bound
+pair, the matter-wave relation of the mature pair, the strict front) and the
+recorded values it reproduces. Their supplied parts are listed in the
+[specification](../simulator/SPEC.md#8-supplied). The measured observables of
+the search are recorded in the observation ledger, and no registered claim
+promotes them.
 
 Every test of the model compares distributions of admissible observer records
 with what observers in our world record. The state of the simulation is no

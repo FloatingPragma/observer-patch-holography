@@ -21,15 +21,15 @@ domains and error bounds. Agreement alone neither fixes Born probabilities
 nor proves a relativistic field limit. A record-copying operation copies an
 orthogonal classical record, not an arbitrary quantum state.
 
-The official executable model is [polynomial-sv](model/polynomial_sv/README.md),
-specified in [model/polynomial_sv/SPEC.md](model/polynomial_sv/SPEC.md). Its
-contrast-memory law is a candidate native repair law; the scalar channel of
-[model/scalar_channel](model/scalar_channel/README.md) is a second.
-Use its law, carrier, emitter and reader for model claims. Independent
-component proofs retain their own hypotheses and require an explicit source
-map.
+The executable model is the set of three [candidate laws](model/README.md),
+specified in [simulator/SPEC.md](simulator/SPEC.md) and executed by the
+[simulator](simulator/README.md). They share reflected routing, the contact
+law of a bound pair and a capture vertex, and differ in how a newborn pair
+opens its hop. Use their law, carrier, preparations and readers for model
+claims. Independent component proofs retain their own hypotheses and require
+an explicit source map.
 
-Use the [specification](model/polynomial_sv/SPEC.md)
+Use the [specification](simulator/SPEC.md)
 and [executable-model hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md).
 The carrier, code, repair law, scheduler, preparation and observer apparatus
 may be declared design choices. Do not make proof that these choices are
@@ -52,7 +52,7 @@ between actual preparations, interventions and shared records. Deriving a
 consequence of a specified construction does not require deriving that
 construction's uniqueness.
 
-Field claims use the [specification](model/polynomial_sv/SPEC.md)
+Field claims use the [specification](simulator/SPEC.md)
 and its typed consumers. Regenerate the actual member and result; matching
 labels or hashes alone do not admit a different preparation or clock.
 Comparison programs retain their stated domains until an explicit transfer

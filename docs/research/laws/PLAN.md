@@ -67,6 +67,13 @@ emerges in both travelling directions, so it carries no single-traveller
 clock.
 [Journal, step 5](JOURNAL.md#step-5-a-pair-formed-in-an-encounter)
 
+**Steps 6 and 7.** A newborn pair that opens its hop gradually, on one of
+three schedules, travels one way, carries a clock whose whole-array rate is
+steady, and obeys the long-wave relation $\omega^2 = m^2 + c^2|k|^2$ on every
+measured direction. These three laws are the candidates.
+[Journal, step 6](JOURNAL.md#step-6-three-laws-that-form-steer-and-keep-a-clock) ·
+[Journal, step 7](JOURNAL.md#step-7-the-matter-wave-relation-of-formed-matter)
+
 ## Communication access
 
 A candidate that claims one causal speed accounts for which inhabitants can
@@ -120,13 +127,11 @@ a single observer.
 
 ## The next experiment
 
-Two experiments come next. The first is material. Keep the capture law of
-step 5 fixed and let longer, initially separated wave trains meet over
-several approach planes and times, tracking earlier emissions and depletion.
-Record the marker's recoil frequency and both outgoing directions
-separately. The encounter has to select one propagating branch, the formed
-clock has to keep one rest rate across several durations, and the cohort has
-to make its measured reunion, all on the same output. The second concerns access.
+Two experiments come next. The first is material: resolve the
+counter-propagating components of the formed pair's whole-array clock, test
+whether one stationary component keeps one rate at three incoming widths,
+and carry that clock with a travelling laboratory that ranges by echoes and
+measures a persistent rod in its own frame. The second concerns access.
 
 Take a bounded autonomous candidate that assigns an owner to every send,
 trigger and return operation after the start. Give a sender a fresh local bit

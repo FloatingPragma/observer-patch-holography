@@ -7,43 +7,36 @@ then have their own theorem, certificate, or experimental acceptance rule.
 
 ## Executable model
 
-[polynomial-sv](model/polynomial_sv/README.md) is the executable model of
-OPH. Its contrast-memory law is a candidate native repair law of the theory
-([specification](model/polynomial_sv/SPEC.md),
-[binding theorem and proof](model/polynomial_sv/PROOF.md)); the
-[executable-model paper](paper/executable_observer_construction.pdf) gives the
-full account. From the repository root:
+The executable model of OPH is the set of three [candidate laws](model/README.md)
+for the native repair law, specified in the
+[simulator specification](simulator/SPEC.md). From the repository root:
 
 ```sh
 python -m pip install -r model/requirements.txt
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model
-python -m pytest -q -W error model/polynomial_sv
+python -m pytest -q -W error simulator
 ```
 
-`python -m model` runs `model.polynomial_sv.verify`. It recomputes the
-headline results (the exact identities of the local law for symbolic
-coupling, the constants of the binding theorem, particle stability on the
-observers' agreed records with its controls, the bound objects, the port
-response and the unrecovered collar) and compares them with
-`model/polynomial_sv/RESULTS.json` within stated tolerances. A disagreement
-fails verification; the last line printed is a JSON line with
-`"verified": true`. `python -m model --full` adds the federations of 80 and
-320 cells and every long run (an hour or more). `--output PATH` writes a fresh
-result file and `--verify PATH` compares another one. The model needs no
-sibling checkout and no Git history.
+`python -m model` runs the simulator's checks. Each compares an exact method
+of the simulator with the literal update of the law it executes: the
+private-sector reduction, the plane-wave engine, the bound sector of the
+contact law, the capture branches against explicit marker wires, the field
+identity behind the continuum limit, and the recorded clock and frequency
+values. It finishes in about ten seconds and needs no sibling checkout and no
+Git history. `python -m simulator run all` recomputes every experiment of the
+search and writes the offline replay app.
 
-Every test of the model compares distributions of admissible observer records,
-read by the port observers of the seams, with what observers in our world
-record. The state of the simulation is no physical space; the theory proves
-that observers who inhabit the simulation can describe their experiences as
-relativistic 3+1D continuum spacetimes, so no test asks the carrier to be a
-three-dimensional lattice.
+Every test of the model compares distributions of admissible observer
+records with what observers in our world record. The state of the simulation
+is no physical space; the theory proves that observers who inhabit the
+simulation can describe their experiences as relativistic 3+1D continuum
+spacetimes, so no test asks the carrier to be a three-dimensional lattice.
 
 ## Theory packages under `model/`
 
 The other packages under `model/` check conditional theorems on their own
-declared carriers. Their replay establishes no transfer to polynomial-sv
-without an explicit source map:
+declared carriers. Their replay establishes no transfer to the candidate
+laws without an explicit source map:
 
 ```sh
 python -m pytest -q -W error \
@@ -180,7 +173,7 @@ from a clean clone, so it is not the documented gate here. A bare
 `python -m pytest` collects `code/` only (`testpaths` in `pytest.ini`); the
 regression tests under `tools/` run through the mandatory suite. The
 executable model has its own gate above (`python -m model` and
-`python -m pytest -q -W error model/polynomial_sv`). Individual scientific
+`python -m pytest -q -W error simulator`). Individual scientific
 test outcomes are tracked as their own issues, and some are not reproducible
 from the public checkout alone. In particular:
 
@@ -229,7 +222,7 @@ Einstein-branch axiom check. `Lean/README.md` documents the layout;
 ## Paper review and publication builds
 
 A new paper release follows the owner's approval of a recorded model
-milestone of the [executable model](model/polynomial_sv/README.md); the
+milestone of the [executable model](model/README.md); the
 [paper set](docs/PAPER_SET.md) records the role of each paper. Correctness fixes, errata, review builds and their validation continue
 between releases. The publication commands below require that maintainer
 decision or an authorized scoped corrective release.

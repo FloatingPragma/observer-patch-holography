@@ -567,3 +567,130 @@ wires are supplied; what an unprepared repair history forms is open.
    trigger and return operation, with the channel race of step 2 rerun on it.
 4. The moving-clock and channel tests on the contrast-memory law and the
    scalar channel of polynomial-sv.
+
+## Step 6. Three laws that form, steer and keep a clock
+
+Experiments run on 20 November 2026.
+
+**Question.** The pair formed in step 5 left its birthplace in both
+directions. Can a reversible local change during the pair's first updates
+make it travel one way, while the clock it carries keeps one rate?
+
+### What was found
+
+**The family.** A newborn pair carries an age counter, born at zero with
+the marker. On each update the pair takes the contact coin and then a
+partial hop $e^{is\theta}[\cos\theta\,I - is\sin\theta\,F]$ between the two
+ends of every routed edge, with $\theta = \tfrac{\pi}{2} f\big((j+1)/M\big)$
+at age $j < M$ and the full hop $F$ once mature. The search registered 26
+rules: the two clock couplings of step 4, both orientations $s = \pm 1$,
+linear and cosine profiles $f$, opening durations $M$ of 8, 32 and 128
+updates, and an abrupt start. The age counter cycles after 8192 updates.
+
+**Three rules survive.** Three schedules passed the directional and clock
+tests on an extended feeder preparation, and their 8192-state versions
+passed the doubled-size journey. All three use the motion-coupled clock and
+the minus orientation.
+
+| Law | Opening | Doubled journey, moving/rest (smooth forecast) | Correct direction among late crossings | Separated after the marker's second return |
+| --- | --- | ---: | ---: | ---: |
+| Cosine 32 | smooth, over 32 updates | 0.57631 (0.58280) | 95.24% | 1.06% |
+| Cosine 128 | smooth, over 128 updates | 0.57861 (0.58367) | 96.56% | 0.53% |
+| Linear 128 | constant increment, over 128 updates | 0.57874 (0.58323) | 95.97% | 6.67% |
+
+The direction column comes from ordinary incoming wave trains of width five
+that meet through the constituent law, with depletion at every earlier
+encounter, counting only trials with a registered crossing; at the late
+appointment about one third of the marked cohort crossed. Absorbing the
+marker at its first transit preserved every tested pair.
+
+**The whole array reads a steady clock.** Twelve layers sent their four
+phase counts to the laboratory, which summed them before reading the angle.
+At beam width five the whole-array rates of the cosine-128 rule lay between
+4.395 and 4.400 × 10⁻⁴ radians per home tick, where the single birth-layer
+detector read 2.99 to 5.24 × 10⁻⁴. All three laws passed the duration check
+at both beam widths, with at most 0.21% variation over six durations, and so
+did the abrupt comparator. Widening the incoming train from three layers to
+five changed the collective rate by about 31%.
+
+**Signals and frames.** A receiver decoded 254 of 256 fresh choices carried
+by an ordinary constituent at radar range five ahead of the smooth scalar
+deadline, with 262,144 parallel copies per bit. The scalar speed is therefore
+no exact bound on every equipped finite experiment; the open question
+concerns a restricted low-energy observer with finite resources under
+refinement.
+
+### Standing of the law classes
+
+| Class | Standing | Deciding records |
+| --- | --- | --- |
+| Cosine 32, cosine 128, linear 128 | **Survive** | Directional and clock tests on the feeder preparation; 95–97% correct direction on ordinary trains; whole-array clock stable to 0.21%. |
+| Abrupt start (the law of step 5), plus orientation, other durations, spectator clock | **Excluded** | Failed the registered directional or clock tests. |
+
+The three survivors share the mass-shell curve of the mature pair and pass
+the same whole-array clock test, so these records give no preference among
+them. They differ in the populations of newborn modes, the directional
+fraction and the breakup when the marker returns.
+
+### Handed to the following steps
+
+1. Resolve the counter-propagating components of the whole-array clock and
+   test whether one stationary component keeps the same rate at three
+   incoming widths, so that the collective phase becomes an individual,
+   portable clock.
+2. A travelling laboratory that stamps a pulse, receives its echo and
+   measures both ends of a persistent rod in its own frame.
+3. The access question of step 2 for the constituent signals of these laws.
+
+## Step 7. The matter-wave relation of formed matter
+
+Experiments run on 20 November 2026.
+[Replay in the simulator](../../../simulator/README.md)
+
+**Question.** Does matter formed in an encounter obey the relativistic wave
+relation $\omega^2 = m^2 + c^2|k|^2$, with the rest line and the speed fixed by
+independent records?
+
+### What was found
+
+On cubes of period 64, 128 and 256, independent stationary ensembles set the
+rest frequency, echoes and translation interferometers measured each wave
+vector, and the scalar standard of the unbound walk set $c$. Fourteen signed
+order-three directions per period, six axial and the eight sign reflections
+of (1, 2, 2), were enrolled before calibration, and the frequency
+predictions were sealed before the moving frequencies were read.
+
+| Period | Measured momentum | Measured frequency | Inside the tolerance, three laws | Changed law |
+| ---: | ---: | ---: | ---: | ---: |
+| 64 | 0.29401–0.29480 | 0.176420–0.176763 | 42/42 | 0/14 |
+| 128 | 0.14697–0.14764 | 0.122577–0.122687 | 42/42 | 0/14 |
+| 256 | 0.07316–0.07413 | 0.104780–0.104858 | 33/42; 42/42 in the precision repeat | 0/14 |
+
+The stationary calibrations read 0.098146–0.098234 radians per home tick.
+The changed law, which moves half the spatial weight of the formed vector
+into the private slots, keeps the rest gap and the scalar standard and shows
+a kinetic deficit of 49.43–50.67%.
+
+The finite law explains the result. On a plane wave the mature step keeps
+the span of the formed vector $S$ and its routed image, and there
+$\cos\omega = \cos m\,(2w_{\rm private} + 2w_{\rm spatial}\sum_i \cos k_i)$
+with $m = \varphi_0/2$, so
+$\omega^2 = m^2 + 2w_{\rm spatial}\,m\cot(m)\,|k|^2 + O(|k|^4)$. For equal
+weights the coefficient is 0.24919629, against the scalar standard
+$c^2 = 0.24935023$: the two speeds differ by 0.06%, and a larger box at fixed
+gap does not remove that offset. The simulator reproduces every frequency
+from the native step and the closed form to $3\times10^{-15}$.
+
+### Standing of the law classes
+
+| Class | Standing | Deciding records |
+| --- | --- | --- |
+| Cosine 32, cosine 128, linear 128 | **Survive** | All held-out directions inside the tolerance at every period; the relation is common to the three and selects none. |
+| Formed vector with half its spatial weight moved to the private slots | **Excluded** | Kinetic deficit near 50% at every period. |
+
+### What the step means for the search
+
+The long-wave relativistic relation of formed matter follows from the
+transport of the candidate laws; the gap is supplied by the contact phase.
+A physical continuum limit needs a common scaling of the observers' clocks,
+distances and the gap, and the higher spatial gradients depend on direction.
