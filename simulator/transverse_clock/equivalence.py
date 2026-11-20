@@ -7,7 +7,7 @@ from .local_clock import source
 
 
 def verify_fourier(protocol, local):
-    """Act on every slot basis vector at each distinct enrolled wave number."""
+    """Check every slot basis vector at each enrolled floating-point wave vector."""
     wave_numbers = set()
 
     def enroll(angles):
