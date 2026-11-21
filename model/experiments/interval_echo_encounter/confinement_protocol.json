@@ -1,0 +1,53 @@
+{
+  "source": "6462c2494a6c4f328f730004362af4962cb89954",
+  "comparison": "openwave-labs/openwave#745@18eb40899cb7ebe681f66860fad88cc8b4ad5eaa",
+  "carrier_levels": [
+    0,
+    1,
+    2
+  ],
+  "sectors": [
+    "single",
+    "binary pair",
+    "doubled load (same one-position exchange up to scalar)"
+  ],
+  "windows": [
+    "all positions in one cell",
+    "two distinct loads on one of its thirty seams"
+  ],
+  "strengths": [
+    8,
+    0,
+    -8
+  ],
+  "release": {
+    "level": 0,
+    "cell": 13,
+    "source": "lexicographically first home seam touching a gateway",
+    "exposures": [
+      1,
+      7,
+      37,
+      74,
+      148
+    ],
+    "strengths": [
+      8,
+      0,
+      -8
+    ]
+  },
+  "outputs": [
+    "maximal invariant subspace dimension for each window, strength and gateway orbit across every cell",
+    "exact projection weight of the sharp release, including zero",
+    "first nonzero escape coefficient at short exposure",
+    "complete home-seam probabilities and quiet resolved into home nonadjacent, external seam, other internal seam and other nonadjacent"
+  ],
+  "checks": [
+    "exact invariant-space and maximality certificates, independent full-sector block comparison",
+    "resolve all five exposures under every law with complementary outcomes and total probability error below 1e-9",
+    "compare native and exchange probabilities at 1,7,37 with the published release to 2e-8",
+    "report every dimension and outcome regardless of sign or agreement; test whether any compact state can account for the release and whether contrast improves local retention at both extended exposures"
+  ],
+  "scope": "Free evolution and fresh terminal reads. Remote categories require a federation-wide terminal census. No intervening read, mass scale, or external measurement used for selection. Published 1,7,37 outcomes known before this comparison."
+}
