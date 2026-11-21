@@ -1,0 +1,14 @@
+# Interval Echo · Author scorecard for the M10.3 request
+
+As of 21 November 2026 the authors judge the finite free-persistence test demonstrated on the proposed Interval Echo source. OpenWave maintainers decide the official M10 mark. The table records what the candidate has shown and the scope of each result.
+
+| Test | Author finding |
+| --- | --- |
+| Row 4 · Persistence of a prepared pair | Demonstrated. A one-cell receiver detects an adjacent pair with probability at least 94% throughout native exposures 0–37. At exposure 37 it records 4,028 of 4,096 pairs, compared with 824 when the contrast interaction is removed. Its species is unassigned. |
+| Seven shared executable checks | All pass. The candidate uses the native cell, a Hermitian generator, local couplings, the cell’s 60 rotation symmetries and a rank-three response. The sphere builds at the tested refinements, and the declared parameter provenance passes the common check. |
+| Native three-direction response | Demonstrated in the one-load sector. With equal seam rates the generator, up to a common offset, is one-half the cell graph Laplacian. Its lowest nonconstant three-dimensional band carries the measured response. |
+| Physical patch clock | Demonstrated for the tested schedules. The receiver retains a repair outcome and a material hand. Home and traveller read their hands on reunion. Two hands agreed on the same accepted repairs across 396 tested service opportunities. Movement and readout windows were supplied. |
+| Smooth 3+1-dimensional observer description | Partial on this candidate. The local band, patch clocks and overlap records are present. Joint radial and angular responses with the same clock across refinements remain open. |
+| Particle identification | All 17 Standard Model species identifications remain open on this candidate. |
+
+Across the full author evaluation the seven shared checks pass and the 31 OpenWave criteria have one demonstrated, six partial and 24 open. Eight of twelve finite-theorem witness rows and eight of nine patch-measurement rows are demonstrated within their stated finite scope. The three foundational axioms remain partial as complete requirements. The Einstein group contains five partial and two open rows. The earlier published cross-candidate scorecard provides the criteria and historical comparison. This summary includes the subsequent row 4 reproduction. [Paired source and detector outcomes](../row-04/README.md) · [Candidate specification](https://github.com/FloatingPragma/observer-patch-holography/blob/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/model/candidate_laws/interval_echo/SPEC.md) · [Earlier published comparison](https://github.com/FloatingPragma/observer-patch-holography/blob/962ca3d087afa63a7eb8d5c1814e74ffe41f285a/model/evaluation/SCORECARD.md)
