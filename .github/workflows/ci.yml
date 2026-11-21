@@ -89,6 +89,9 @@ jobs:
           python -B -O -W error -m model.experiments.contact.material_radar
           python -B -O -W error -m model.experiments.contact.radar_checks
           python -B -O -W error -m model.experiments.contact.message_replay
+          python -B -O -W error -m model.experiments.interval_echo_encounter.dwell
+          python -B -O -W error -m model.experiments.interval_echo_encounter.dwell_scaling
+          python -B -O -W error -m model.experiments.interval_echo_encounter.dwell_checks
           python -B -O -W error -m model.experiments.seam_program
           python -B -O -W error -m model.experiments.seam_program.preparation
           python -B -O -W error -m model.experiments.seam_program.receiver

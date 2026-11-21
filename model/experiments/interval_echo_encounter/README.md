@@ -13,6 +13,8 @@ The first three rows use the same denominator of all enrolled starts. The fourth
 
 A separate experiment retains the native coherent repair on the same seam and tests the terminal yield away from its endpoints. [Retained-write experiment](MEMORY.md)
 
+A sharp double has a different native preparation. One echo produces both an adjacent pair and a sign hand on its birth seam. Against a remote dimer hand, the measured rate is 0.002214–0.002981 at the registered contrast. Returning the unit tick while retaining the binding surface gives 0.999742–1.000308. [Write-formed pair, frequency law and transport obstruction](MEMORY.md#a-clock-formed-in-the-same-write-as-the-pair)
+
 ## What the patch can read
 
 A patch of one echosahedron occupies cell 0. The 36 preparations put one load on each of two distinct, nonadjacent ports in that cell with equal weight. All 28,680 basis states of the 20-cell two-load sector enter the free propagation. The first binary reading tests seam (0, 1). The final local read resolves the 30 internal seams and a complementary quiet outcome. Quiet includes two separated loads and a pair beyond this observer’s aperture. Preparations, measurement windows, service decisions and waiting durations are supplied. The clock is idle. Each quoted probability is calculated from the complete finite record distribution. [Native sector](../../candidate_laws/contrast_memory_spherical_v1/sectors.py) · [Local records and compiler](../../candidate_laws/contrast_memory_spherical_v1/presence.py)
