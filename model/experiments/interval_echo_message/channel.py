@@ -15,6 +15,13 @@ ROOT = HERE.parents[2]
 SPEC = json.loads((HERE / "protocol.json").read_text())
 TOL = SPEC["numeric_tolerance"]
 
+# Whole-file changes reviewed at OPH 0ebb9ba9d6280fec258a7d65e2966c13352dfa8d.
+REPLAY_UPDATES = {
+    "model/candidate_laws/interval_echo/SPEC.md": "46781970157edaec4b30e55bb673c90102ffcf937aeb6974927e58b08e74dff4",
+    "model/candidate_laws/interval_echo/candidate.py": "a318f231c29753da6d0bfaf54ceb83f4410ede7b054b1edc1360620692876944",
+    "model/candidate_laws/interval_echo/EVALUATION.json": "4a31cbd583995fa9af119b4e4a4f5545c3656f5f26dfd25de49d6a9440509331",
+}
+
 
 def require(ok, message):
     if not ok:
@@ -22,8 +29,12 @@ def require(ok, message):
 
 
 def sources():
-    for name, expected in SPEC["sources"].items():
-        require(hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == expected, name)
+    frozen = SPEC["sources"]
+    actual = {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in frozen}
+    if actual == frozen:
+        return
+    for name, expected in (frozen | REPLAY_UPDATES).items():
+        require(actual.get(name) == expected, f"unverified replay source: {name}")
 
 
 def encode(board, station):

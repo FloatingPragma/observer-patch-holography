@@ -1,4 +1,5 @@
 import ast
+import hashlib
 import inspect
 import json
 from copy import deepcopy
@@ -9,7 +10,7 @@ import pytest
 from model.candidate_laws.interval_echo import candidate as echo
 from model.executable_model import federation
 
-from . import decoder, experiment, headline
+from . import channel, decoder, experiment, headline
 from .acquisition import counts
 from .channel import HERE, SPEC, encode, readout, validate_law
 from .clock_join import banks, hardware, probe
@@ -26,6 +27,25 @@ def test_replay_and_independent_calculation():
     experiment.compare(saved, actual)
     worst, rows = headline.check(SPEC, saved)
     assert worst < 1e-12 and len(rows) == 10
+
+
+def test_replay_accepts_only_complete_source_versions(tmp_path, monkeypatch):
+    old = hashlib.sha256(b"old").hexdigest()
+    new = hashlib.sha256(b"new").hexdigest()
+    monkeypatch.setattr(channel, "ROOT", tmp_path)
+    monkeypatch.setattr(channel, "SPEC", {"sources": {"a": old, "b": old, "reader": old}})
+    monkeypatch.setattr(channel, "REPLAY_UPDATES", {"a": new, "b": new})
+    for name in ("a", "b", "reader"):
+        (tmp_path / name).write_bytes(b"old")
+    channel.sources()
+    (tmp_path / "a").write_bytes(b"new")
+    with pytest.raises(ValueError, match="source: b"):
+        channel.sources()
+    (tmp_path / "b").write_bytes(b"new")
+    channel.sources()
+    (tmp_path / "reader").write_bytes(b"changed")
+    with pytest.raises(ValueError, match="source: reader"):
+        channel.sources()
 
 
 def test_receiver_inputs_and_isolation():
