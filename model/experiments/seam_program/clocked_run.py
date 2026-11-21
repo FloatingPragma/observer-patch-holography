@@ -19,7 +19,7 @@ def finite_source(data, host, ports, fuel):
     sector = sectors.PairSector(data)
     lost = host.degree[ports]-data.degree
     # The open contacts use their original missing-seam reference terms.
-    h = sector.hamiltonian(8)-sparse.diags(8*(lost[sector.aa]+lost[sector.bb]))
+    h = sector.hamiltonian(8)-sparse.diags(8*(lost[sector.aa]+lost[sector.bb]), dtype=float)
     pair = sector.index(0,1)
     emitted, resonance = sectors.emit(h,pair,fuel)
     ideal = np.zeros_like(emitted)
