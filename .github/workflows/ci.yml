@@ -93,6 +93,9 @@ jobs:
           python -B -O -W error -m model.experiments.seam_program.preparation
           python -B -O -W error -m model.experiments.seam_program.receiver
           python -B -O -m model.experiments.contrast_clock
+          python -B -O -W error -m model.experiments.interval_echo_space.shells
+          python -B -O -W error -m model.experiments.interval_echo_space.shell_spectroscopy
+          python -B -O -W error -m model.experiments.interval_echo_space.shell_beats
       - name: Tests of the model
         run: python -B -m pytest -q -W error model
       - name: Theory certificates on the model pins

@@ -1630,9 +1630,12 @@
       "model/benchmarks/eight_slot_torus/matter_wave.py"
      ],
      "status": "partial",
-     "note": "The shared free-sector binding predicts cluster motion on rings. Its rest and kinetic mass ratios disagree across species. A clocked, independently ranged, three-direction shell for one collision-born object remains open.",
+     "note": "Free-sector binding predicts cluster motion on rings, with unequal rest and kinetic mass ratios across species. On the 20-cell federation, a stationary patch hand measures the same kinetic increment for isolated loads one and two. Independent beat counts exclude equal squared-frequency shifts for these assignments with either fuel reference. A held three-direction dispersion of a collision-born object requires independent momentum and signal-speed readouts.",
      "evidence": [
       "model/candidate_laws/interval_echo/candidate.py",
+      "model/experiments/interval_echo_space/shell_spectroscopy_result.json",
+      "model/experiments/interval_echo_space/shell_beat_result.json",
+      "model/experiments/interval_echo_space/shell_spectroscopy.py",
       "model/experiments/material_inertia/README.md",
       "model/experiments/material_inertia/records/flight/result.json"
      ]
@@ -1739,10 +1742,12 @@
       "tracking/observation_ledger.json"
      ],
      "status": "partial",
-     "note": "The local slow band, patch clock and overlap records are implemented. The free product-wave/refinement construction and a jointly measured radial and two angular responses have not been attached to the same clocked candidate.",
+     "note": "In free flight, stationary patch hands and one mobile load give joint angular-region and depth records on three nested federations. A uniform internal spectral gap forces every balanced within-cell depth contrast to vanish at low kinetic energy. The polarized control resolves depth and disabled exchange changes the angular counts. An independently refinable radial field with shared clock and physical regional transfer is unproved.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/interval_echo/observations.json",
+      "model/experiments/interval_echo_space/shell_result.json",
+      "model/experiments/interval_echo_space/shell_source.py",
       "model/candidate_laws/interval_echo/CURRENTS.md",
       "model/evaluation/patch_spatial_readout.json"
      ]
