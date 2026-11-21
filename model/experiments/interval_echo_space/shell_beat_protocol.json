@@ -1,0 +1,8 @@
+{
+  "source": "shell_spectroscopy_protocol.json",
+  "seed": 7143902,
+  "window": 128,
+  "alpha": 0.01,
+  "controls": "Repeat both amounts, both references, both laws, both analyzers and all 513 times. Retain common-clock and all missed returns. No additional counts at any setting. Repeat the original endpoint gate.",
+  "analysis": "Use independent line and rest quadratures at each time to form their complex beat. Compare the mean of the first and last equal windows, measured on the patch hands. Choose its winding using the unwrapped point measurements. Simultaneously bound both window means by bounded differences over four independent analyzer cohorts; retain unresolved visibility or dispersion. Use the measured signed rest and measured beat intervals for the two squared shifts. No physical target values."
+}

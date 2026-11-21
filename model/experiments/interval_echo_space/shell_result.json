@@ -1,0 +1,308 @@
+{
+ "angular_pair_99pct_budget": 0.00984710705,
+ "boards": {
+  "0": {
+   "active_contacts": 510,
+   "cells": 20,
+   "internal_gap": 1.0,
+   "launches": {
+    "polarized_0": {
+     "ballistic_region_tv": [
+      0.0315834825,
+      0.0376549695,
+      0.0788177788
+     ],
+     "control_separated": {
+      "external_exchange_off": true,
+      "half_rate_contrast_reversed": false,
+      "parked_signal": true
+     },
+     "kinetic_energy": 1.10714286,
+     "max_hand_error": 0.0030550047,
+     "peak_control_angular_tv": {
+      "external_exchange_off": 0.0801296234,
+      "half_rate_contrast_reversed": 0.0030040741,
+      "parked_signal": 0.079044342
+     },
+     "peak_depth_tv": 0.5,
+     "slow_time_region_tv": [
+      0.0315834825,
+      0.0376549695,
+      0.0788177788
+     ],
+     "source": {
+      "degree_pulses": 24,
+      "root": 0,
+      "routing_swaps": 20,
+      "splitters": 33
+     }
+    },
+    "smooth_0": {
+     "ballistic_region_tv": [
+      0.0112498583,
+      0.0110388789,
+      0.0187505714
+     ],
+     "control_separated": {
+      "external_exchange_off": true,
+      "half_rate_contrast_reversed": false,
+      "parked_signal": true
+     },
+     "kinetic_energy": 0.0535714286,
+     "max_hand_error": 0.00225824715,
+     "peak_control_angular_tv": {
+      "external_exchange_off": 0.017332077,
+      "half_rate_contrast_reversed": 0.00295448303,
+      "parked_signal": 0.0186347961
+     },
+     "peak_depth_tv": 0.0255349412,
+     "slow_time_region_tv": [
+      0.0112498583,
+      0.0110388789,
+      0.0187505714
+     ],
+     "source": {
+      "degree_pulses": 48,
+      "root": 0,
+      "routing_swaps": 24,
+      "splitters": 47
+     }
+    },
+    "smooth_1": {
+     "ballistic_region_tv": [
+      0.0122124673,
+      0.0146114099,
+      0.0173299464
+     ],
+     "control_separated": {
+      "external_exchange_off": true,
+      "half_rate_contrast_reversed": false,
+      "parked_signal": true
+     },
+     "kinetic_energy": 0.0535714286,
+     "max_hand_error": 0.00355146822,
+     "peak_control_angular_tv": {
+      "external_exchange_off": 0.0192832947,
+      "half_rate_contrast_reversed": 0.00197410583,
+      "parked_signal": 0.0194835663
+     },
+     "peak_depth_tv": 0.0536994711,
+     "slow_time_region_tv": [
+      0.0122124673,
+      0.0146114099,
+      0.0173299464
+     ],
+     "source": {
+      "degree_pulses": 48,
+      "root": 12,
+      "routing_swaps": 24,
+      "splitters": 47
+     }
+    }
+   },
+   "signed_seams": 120
+  },
+  "1": {
+   "active_contacts": 2040,
+   "cells": 80,
+   "internal_gap": 1.0,
+   "launches": {
+    "polarized_0": {
+     "ballistic_region_tv": [
+      0.0171849622,
+      0.0192925025,
+      0.0356163162
+     ],
+     "control_separated": {
+      "external_exchange_off": true,
+      "half_rate_contrast_reversed": false,
+      "parked_signal": true
+     },
+     "kinetic_energy": 1.08333333,
+     "max_hand_error": 0.00275329087,
+     "peak_control_angular_tv": {
+      "external_exchange_off": 0.0524101257,
+      "half_rate_contrast_reversed": 0.00330352783,
+      "parked_signal": 0.0535736084
+     },
+     "peak_depth_tv": 0.5,
+     "slow_time_region_tv": [
+      0.0192925025,
+      0.0356163162,
+      0.0488717436
+     ],
+     "source": {
+      "degree_pulses": 168,
+      "root": 0,
+      "routing_swaps": 118,
+      "splitters": 233
+     }
+    },
+    "smooth_0": {
+     "ballistic_region_tv": [
+      0.00233649346,
+      0.00365790222,
+      0.00924803356
+     ],
+     "control_separated": {
+      "external_exchange_off": true,
+      "half_rate_contrast_reversed": false,
+      "parked_signal": true
+     },
+     "kinetic_energy": 0.0115030675,
+     "max_hand_error": 0.00236746237,
+     "peak_control_angular_tv": {
+      "external_exchange_off": 0.0192737579,
+      "half_rate_contrast_reversed": 0.00305175781,
+      "parked_signal": 0.018951416
+     },
+     "peak_depth_tv": 0.0145518581,
+     "slow_time_region_tv": [
+      0.00365790222,
+      0.00924803356,
+      0.0193054323
+     ],
+     "source": {
+      "degree_pulses": 336,
+      "root": 0,
+      "routing_swaps": 168,
+      "splitters": 341
+     }
+    },
+    "smooth_1": {
+     "ballistic_region_tv": [
+      0.00275936152,
+      0.0035030461,
+      0.00934578436
+     ],
+     "control_separated": {
+      "external_exchange_off": true,
+      "half_rate_contrast_reversed": false,
+      "parked_signal": true
+     },
+     "kinetic_energy": 0.0115030675,
+     "max_hand_error": 0.00397721676,
+     "peak_control_angular_tv": {
+      "external_exchange_off": 0.0181179047,
+      "half_rate_contrast_reversed": 0.00366401672,
+      "parked_signal": 0.0185623169
+     },
+     "peak_depth_tv": 0.0168820917,
+     "slow_time_region_tv": [
+      0.0035030461,
+      0.00934578436,
+      0.0186355101
+     ],
+     "source": {
+      "degree_pulses": 336,
+      "root": 48,
+      "routing_swaps": 168,
+      "splitters": 338
+     }
+    }
+   },
+   "signed_seams": 480
+  },
+  "2": {
+   "active_contacts": 8160,
+   "cells": 320,
+   "internal_gap": 1.0,
+   "launches": {
+    "polarized_0": {
+     "ballistic_region_tv": [
+      0.00986522005,
+      0.00993418986,
+      0.0110420295
+     ],
+     "control_separated": {
+      "external_exchange_off": true,
+      "half_rate_contrast_reversed": false,
+      "parked_signal": true
+     },
+     "kinetic_energy": 1.08757841,
+     "max_hand_error": 0.00414192067,
+     "peak_control_angular_tv": {
+      "external_exchange_off": 0.0536460876,
+      "half_rate_contrast_reversed": 0.00388145447,
+      "parked_signal": 0.0538272858
+     },
+     "peak_depth_tv": 0.5,
+     "slow_time_region_tv": [
+      0.0110420295,
+      0.0175341602,
+      0.0510985884
+     ],
+     "source": {
+      "degree_pulses": 816,
+      "root": 0,
+      "routing_swaps": 528,
+      "splitters": 1130
+     }
+    },
+    "smooth_0": {
+     "ballistic_region_tv": [
+      0.0010000894,
+      0.00264062173,
+      0.00552344073
+     ],
+     "control_separated": {
+      "external_exchange_off": true,
+      "half_rate_contrast_reversed": false,
+      "parked_signal": true
+     },
+     "kinetic_energy": 0.00267683323,
+     "max_hand_error": 0.00300429615,
+     "peak_control_angular_tv": {
+      "external_exchange_off": 0.0226478577,
+      "half_rate_contrast_reversed": 0.00317573547,
+      "parked_signal": 0.0223617554
+     },
+     "peak_depth_tv": 0.00615589975,
+     "slow_time_region_tv": [
+      0.00552344073,
+      0.00933983713,
+      0.0220539281
+     ],
+     "source": {
+      "degree_pulses": 1632,
+      "root": 0,
+      "routing_swaps": 816,
+      "splitters": 1649
+     }
+    },
+    "smooth_1": {
+     "ballistic_region_tv": [
+      0.00096803831,
+      0.00264734299,
+      0.00543134819
+     ],
+     "control_separated": {
+      "external_exchange_off": true,
+      "half_rate_contrast_reversed": false,
+      "parked_signal": true
+     },
+     "kinetic_energy": 0.00267683323,
+     "max_hand_error": 0.00374276011,
+     "peak_control_angular_tv": {
+      "external_exchange_off": 0.0222473145,
+      "half_rate_contrast_reversed": 0.00358390808,
+      "parked_signal": 0.0222625732
+     },
+     "peak_depth_tv": 0.00743165377,
+     "slow_time_region_tv": [
+      0.00543134819,
+      0.00928371734,
+      0.0220560309
+     ],
+     "source": {
+      "degree_pulses": 1632,
+      "root": 192,
+      "routing_swaps": 816,
+      "splitters": 1649
+     }
+    }
+   },
+   "signed_seams": 1920
+  }
+ }
+}
