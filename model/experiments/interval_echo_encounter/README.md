@@ -179,7 +179,7 @@ controls park the post-read state or leave only seam $(1,5)$ active. The
 exchange-only arm uses $\kappa=0$ at both exposures.
 [Protocol](return_protocol.json) · [Public counts](return_counts.npz)
 
-| Law or switched control | Minimum measured moment rank | Required positive gap frequencies, lower bound | Lower bound on weight outside any two levels |
+| Simulated seam service | Moment rank from public counts, lower bound | Required positive gap frequencies, lower bound | Lower bound on weight outside any two levels |
 | --- | ---: | ---: | ---: |
 | Native $\kappa=8$ | 17 | 8 | 0.3672 |
 | Exchange only | 17 | 8 | 0.5483 |
