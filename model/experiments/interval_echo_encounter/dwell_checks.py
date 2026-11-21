@@ -100,6 +100,7 @@ def extended(base):
     start=np.zeros(direct.sector.P,complex)
     start[direct.p]=1
     worst=0.
+    worst_signal=worst_clock=worst_bin=0.
     # Identical parity-0 surfaces and exact scalar shifts are checked only once.
     cache={}
     with np.load(dwell.HERE/"dwell_counts.npz") as original, np.load(dwell.HERE/"dwell_controls_counts.npz") as extra:
@@ -135,14 +136,28 @@ def extended(base):
                 same=(abs(waves[0])**2+abs(waves[1])**2)/2
                 z=waves[0]*waves[1].conj()
                 hand=np.column_stack([(1+c*np.cos(times))*(1+s*np.sin(times))/4 for c in (1,-1) for s in (1,-1)])
+                clock_counts=records.sum(axis=(0,2),dtype=np.int64)/(2*base["shots"])
+                signs=np.array([[1,1],[1,-1],[-1,1],[-1,-1]])
+                clock_residual=np.max(abs((clock_counts-hand)@signs))
+                panels=len(times)*(len(base["arms"])*len(base["strengths"]) if member in base["arms"] else 2)
+                component_budget=np.sqrt(2*np.log(8*panels/base["alpha"])/base["shots"])+1e-8
+                require(clock_residual<component_budget,"reference clock exceeds its registered error budget")
+                worst_clock=max(worst_clock,clock_residual)
                 for i,signal in enumerate((z.real,z.imag)):
+                    observed=records[i].sum(axis=-1,dtype=np.int64)/base["shots"]
+                    signal_residual=np.max(abs(observed[:,0]-observed[:,1]-signal))
+                    require(signal_residual<component_budget,"signal exceeds its registered error budget")
+                    worst_signal=max(worst_signal,signal_residual)
                     chance=np.column_stack(((same+signal)/2,(same-signal)/2,1-same))
                     error=np.max(abs(records[i]/base["shots"]-chance[:,:,None]*hand[:,None,:]))
+                    worst_bin=max(worst_bin,error)
                     bins=8*2*len(times)*12
                     require(error<np.sqrt(np.log(2*bins/.01)/(2*base["shots"]))+1e-8,
                             "joint counts outside the independent simultaneous bin check")
     require(worst<1e-8,"full-domain numerical enclosure exceeds the acquisition budget")
     print(f"All return amplitudes agree within {worst:.3g}, including polynomial and rounding budgets.")
+    print(f"Maximum absolute frequency-record residuals: signal {worst_signal:.8g}, "
+          f"clock {worst_clock:.8g}, joint bin {worst_bin:.8g}.")
 
 
 def main():
