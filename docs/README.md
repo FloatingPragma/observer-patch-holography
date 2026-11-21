@@ -18,7 +18,7 @@ run data from declared candidate models.
 
 | Path | Contents |
 | --- | --- |
-| This folder | The basis, the paper set, canonical references and the common-objections guide |
+| This folder | The basis, the paper set, canonical references, the common-objections guide and the OpenWave submission guidelines |
 | [`registers/`](registers/) | Generated V3 registers and ledgers |
 | [`research/`](research/) | The public-data comparison that the papers cite |
 | [`policies/`](policies/) | Data and writing policies |
@@ -187,6 +187,10 @@ Standard Model multiplet.
 
 - [Hadron Data Policy](policies/HADRON.md) defines provenance and promotion rules for the hadronic pipeline.
 - [Writing Style Guide](policies/STYLE_GUIDE.md) defines the project’s reader-facing prose conventions.
+- [OpenWave Submission Guidelines](OPENWAVE_SUBMISSION_GUIDELINES.md) bind research,
+  audits and filings for the OpenWave comparison table: the platform's bar, the
+  form of every test, the research cautions, the filing gates and the mandatory
+  submission checklist.
 - Simulator outputs have no theorem or empirical-promotion authority in the
   paper stack. A simulator count, replay, fit, or diagnostic closes no
   analytic or physical receipt; theorem status needs analytic proof packets,

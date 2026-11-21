@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 528,
+  "surface_count": 529,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -827,6 +827,11 @@
     },
     {
       "path": "docs/INTERPRETATION_AND_TERMS.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/OPENWAVE_SUBMISSION_GUIDELINES.md",
       "glob": "docs/**/*.md",
       "allowlisted": false
     },

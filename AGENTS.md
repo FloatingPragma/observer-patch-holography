@@ -68,6 +68,32 @@ chosen using comparison data are calibration inputs;
 agreement with those inputs is not an independent prediction. Changes to the
 construction or interpretation must preserve that input ancestry.
 
+## OpenWave rows and submissions
+
+Any work aimed at a row of the OpenWave comparison table follows the
+[OpenWave submission guidelines](docs/OPENWAVE_SUBMISSION_GUIDELINES.md):
+research toward a row, a row packet, an audit, and every pull request to
+openwave-labs/openwave. Read them in full before such work.
+
+- Codex audits every outgoing version against the mandatory checklist of the
+  guidelines. A row is filed only when Codex expects full credit (✅) on the
+  complete official criterion and the owner has authorized that exact version.
+  A scoped or partial result stays on HOLD in the research record.
+- A scorecard grade is a local assessment of a local candidate law. It is no
+  OpenWave mark and does not make a row submittable. The OpenWave maintainers
+  decide the pin and every cell, and a row computed on a law other than the
+  pinned candidate needs a pin move.
+- Do not claim that a law produces a property when the evidence only shows a
+  consequence of something supplied by construction. Every claimed test answers
+  what possible run outcome would falsify it, and runs a changed law that keeps
+  the alphabet, routing and symmetry of the candidate.
+- State claims on observers' records. Simulator state, its evolution parameter
+  and its schedule serve derivation and audit, never a reader.
+- Nothing in this repository authorizes posting upstream, opening an upstream
+  pull request, moving the pin or recording a cell award. Never link the private
+  OpenWave research repository; `python tools/check_private_links.py` fails on
+  such a link.
+
 ## The `docs/` directory
 
 The full rules are in the [docs index](docs/README.md#rules-for-this-directory).

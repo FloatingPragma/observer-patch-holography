@@ -20,6 +20,9 @@ official [scorecard](evaluation/SCORECARD.md) covers the axioms and finite theor
 | [experiments/](experiments/README.md) | programs that observers run with a candidate law: preparations, instruments and extended constructions |
 | [benchmarks/](benchmarks/README.md) | phenomenological benchmarks on supplied architectures; they are no candidates |
 
+Evidence prepared for an OpenWave row, and every filing to OpenWave, follows the
+[OpenWave submission guidelines](../docs/OPENWAVE_SUBMISSION_GUIDELINES.md).
+
 ## Run it
 
 ```sh
