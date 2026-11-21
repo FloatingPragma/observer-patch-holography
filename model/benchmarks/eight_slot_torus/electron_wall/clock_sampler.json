@@ -1,0 +1,8 @@
+{
+  "acquisition": "2571583df",
+  "sources": {
+    "clock_counts.json": "28f7bb10ed79985a75522611d85c4ae6e0ac82bd5d02458897828bc72c9755d5",
+    "clock_linux_counts.json": "28a6d89e3d30a80b1717d09f7c9022b8c4003f7b4f11e517b2e38166271c422c"
+  },
+  "sampling": "Draw one spectral quantile and one Fourier quantile per original preparation, in fixed order, independent of how the eigensolver distributes weights among spectral lines. Keep phase_clock.json law, seed, clock, trials, median decision and uncertainty bounds. Require identical full histograms on Windows and Linux. For all three acquisitions compare every occupied bin and every nearest-line bin against its exact spectral-mixture probability, using two binomial tails Bonferroni corrected over every possible folded bin and all 24 cohorts, with family threshold 1e-6."
+}

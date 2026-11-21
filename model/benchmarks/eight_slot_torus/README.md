@@ -136,6 +136,11 @@ source, phase-reference and transport controls. `python -m model.benchmarks.eigh
 loaded-clock` and `python -m model.benchmarks.eight_slot_torus run driven-clock` regenerate the run files of the
 stationary receiver and the driven reunion.
 
+The [electron tests](electron_wall/README.md) probe spatial rotations of
+the eight-slot torus on both mature rails. A separate fifteen-port walk
+supplies the private wall. Its charged excitation has a calculable rest line and
+spin and orbital frequencies measured with the same clock.
+
 | File | Content |
 | --- | --- |
 | [law.py](law.py) | Carrier, coin, routing, contact, capture and opening; the law and its controls |

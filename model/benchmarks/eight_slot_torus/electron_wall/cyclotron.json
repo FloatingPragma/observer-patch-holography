@@ -1,0 +1,22 @@
+{
+  "experiment": "Resolve spin and orbital transitions on the same wall in a uniform flux. Diagnostic follow-up after grating acquisition. The sign of the laboratory electron anomaly was known. No measured magnitude or energy scale enters selection.",
+  "private_length": 3,
+  "periods": [
+    128,
+    512,
+    2048
+  ],
+  "charges": [
+    1,
+    -1
+  ],
+  "momenta_yz": [
+    0,
+    0
+  ],
+  "flux_quanta": 1,
+  "levels_per_grade": 6,
+  "spin_readout": "Mirror the private dimer and exchange its orbitals, times sigma_z. Gamma equals rest spin on the lowest positive wall branch.",
+  "level_readout": "In each grade retain all six returned roots around the positive rest line. Use the rest-spin n=0 Gaussian and n=1 odd Hermite preparation weights to assign the two transitions; require distinct winners and record all weights. Compare 2 times the spin gap divided by the same-spin orbital gap for each charge. Averaging the two orbital gaps estimates the common kinetic spacing.",
+  "gate": "Charge reversal exchanges grades. The ratio moves toward the independently predicted grating g as flux decreases and agrees within 0.05 at the finest carrier. Record any gate failure. Roots are diagnostic around the wall pole, not a survey of the high magnetic spectrum."
+}

@@ -1,0 +1,10 @@
+{
+  "parent": "cyclotron.json",
+  "periods": [
+    4096,
+    8192,
+    16384
+  ],
+  "reference": "No changes to update, flux quantum, private length, probes, eigensolver or finite-field estimator. The initial carrier-2048 gate failed. Double public extent at each step to halve magnetic flux. Use all three results.",
+  "gate": "At both charges absolute errors in g_each and their harmonic mean decrease at every step relative to their own 2048 value. Both first-order extrapolations 2*g(2N)-g(N) lie below 2 and within 0.01 of the analytic g. This diagnostic does not revise the initial gate."
+}

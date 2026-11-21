@@ -1,0 +1,43 @@
+{
+  "construction": "spinor-private-wall-v1",
+  "parent": "a80bad188ae9c072700629b43662b37fbabac99b",
+  "comparison_source": "b189afa2420912c02e2ab5cee9808490ee6dd4d9",
+  "private_lengths": [
+    2,
+    3,
+    4,
+    6,
+    8
+  ],
+  "native_period": 3,
+  "grating_periods": [
+    17,
+    63,
+    251
+  ],
+  "grating_private_length": 3,
+  "grating_amplitudes": [
+    0.125,
+    0.25
+  ],
+  "charges": [
+    -1,
+    1
+  ],
+  "spins": [
+    "up",
+    "down"
+  ],
+  "trial_count": 68719476736,
+  "seed": 96037,
+  "comparison": "Five exhaustive interference outcomes per signed grating, charge, input spin and matching output spin. Retain the orthogonal output. Predict the flux-odd complex amplitude from the Bloch discriminant. Reverse spin or charge to reverse it. The spin-independent kinetic control gives zero flux-odd amplitude. The same wall pole disperses and its squared magnetic and kinetic units use the same carrier phase and service. No empirical mass, moment, charge strength or scale inputs.",
+  "controls": [
+    "periodic private chain removes the light rest pole",
+    "omitting the spatial Wilson hop restores eight equal corner minima",
+    "rank-one native address transfers forbid a spinor lift on a single rail",
+    "gauge changes transform both probes",
+    "spectator kinetic hop has vanishing spin splitting"
+  ],
+  "tolerance": 1e-10,
+  "count_gate": "Every pointer count within 8 marginal binomial standard deviations plus one count of the independently predicted mean; all count totals exact."
+}
