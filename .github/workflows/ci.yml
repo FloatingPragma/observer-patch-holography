@@ -92,6 +92,8 @@ jobs:
           python -B -O -W error -m model.experiments.seam_program
           python -B -O -W error -m model.experiments.seam_program.preparation
           python -B -O -W error -m model.experiments.seam_program.receiver
+          python -B -O -W error -m model.experiments.seam_program.clocked_run
+          python -B -O -W error -m model.experiments.seam_program.free_marker
           python -B -O -m model.experiments.contrast_clock
       - name: Tests of the model
         run: python -B -m pytest -q -W error model
