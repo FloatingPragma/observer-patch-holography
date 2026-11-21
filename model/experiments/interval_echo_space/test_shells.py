@@ -96,3 +96,30 @@ def test_projector_and_beat_controls():
         assert band[0]<=(rest+inc)**2-rest**2<=band[1]
     with pytest.raises(ValueError,match="unresolved"):
         window_read(np.zeros_like(t),np.ones_like(t),t,128,.015,.0015)
+
+
+def test_all_low_modes_and_optimal_coherent_depth_reader():
+    board = Board(0,protocol("shell_protocol.json")["matching"])
+    kinetic = (board.inside+board.outside).toarray()
+    coarse = np.repeat(np.eye(board.car.cells),12,axis=0)/np.sqrt(12)
+    np.testing.assert_allclose(coarse.T@kinetic@coarse,board.dual.toarray()/24,atol=1e-14)
+    angular = np.linalg.eigvalsh(board.dual.toarray()/24)
+    full = np.linalg.eigvalsh(kinetic)
+    gap = (3-np.sqrt(5))/2
+    # At each discontinuity of either counting function, use interior thresholds.
+    edges = np.unique(np.round(np.r_[0,angular,full,angular/(1+1/gap+angular/gap),gap],12))
+    for energy in (edges[:-1]+edges[1:])/2:
+        if 0 < energy < gap:
+            count = sum(full<energy)
+            assert sum(angular<energy) <= count <= sum(angular<(1+1/gap)*energy/(1-energy/gap))
+    average = coarse@np.full(board.car.cells,1/np.sqrt(board.car.cells))
+    opposite = np.tile(np.r_[np.ones(6),-np.ones(6)],board.car.cells)/np.sqrt(len(average))
+    # Opposite imaginary depth phases have identical port probabilities. A coherent
+    # instrument can distinguish them. Test its *optimal* separation as the energy falls.
+    for eta in (1e-2,1e-4,1e-6):
+        incident = np.sqrt(1-eta)*average+1j*np.sqrt(eta)*opposite
+        first = np.outer(incident,incident.conj())
+        second = first.conj()
+        optimum = np.linalg.eigvalsh(first-second).clip(min=0).sum()
+        np.testing.assert_allclose(optimum,2*np.sqrt(eta*(1-eta)),atol=1e-13)
+        assert optimum <= 2*np.sqrt(np.vdot(incident,kinetic@incident).real/gap)
