@@ -73,6 +73,57 @@ clock standards set the controls. Multi-particle interactions, freely moving
 proper time and comparison with physical particle data have separate source
 requirements. OpenWave's physical row decisions belong to its validators.
 
+## Fringes after a marked birth
+
+A single detector compares four grating phases at a booked optical return.
+The torus law gives different local records for a pair formed at the native
+vertex and a matched pair coherently supplied by the apparatus. The first
+pair leaves an orthogonal marker on the wire of its launch site. The second
+preserves phase between launch sites. Both arms have enrollment probability
+one half. The reader uses local hits and original starts. Enrollment tags
+can be collected after the run to distinguish misses from refusals.
+[Preparation and detector](fringe_protocol.json) · [Proof and bounds](../SPEC.md#what-a-pair-detector-retains-after-a-capture)
+
+| Observation | What the finite detector records resolve |
+| --- | --- |
+| Change of incident phase gradient | The marked contrast is exactly invariant. At width 4096 and the first diffusive booking, the coherent preparations differ by at least 1.996 in imaginary contrast. |
+| Repeat the exposure twice as long | Both successive doublings on each of three strip sizes reject a unit-visibility single frequency for the ordinary birth. At width 131,072 the 99% lower excesses are 0.06556 and 0.59893. |
+| Change of contact phase on the coherent input | At the finest ballistic booking $t=1$ the original rail gives real contrast between 0.99968 and 1. The resonant control gives −0.94438 to −0.93627. |
+| Compare the resonant wave and a free scalar | At the same aperture and clock the first-half-turn phase ratios are 0.88396–0.89706 and 0.88601–0.89314. The period calculation predicts 0.88978. |
+
+The marked ballistic forecast averages the velocities of the occupied
+modes. At scaled times 0.5, 1 and 2 the limiting contrasts are 0.80509,
+0.36492 and −0.12183. The first lies 0.00080 above the finest finite
+sampling interval. All three meet the registered finite-size tolerance of
+0.04. Doubling the quadrature resolution changes the numerical integral by
+about $10^{-8}$, an empirical convergence check. The coherent resonance
+comparison has maximum finite contrast error 1.721 at the coarsest size
+and 0.00351 at the finest size. Every source and control size is retained.
+[Marked counts](fringe_flight_counts.npz) · [Finite limits](fringe_resonance_result.json)
+
+The stationary reference uses a separate equipped channel with a two-service
+optical return. A local counter needs $\lceil\log_2(B+1)\rceil$ bits for
+booking $B$, up to 25 bits here. A wire longer than the exposure keeps a
+birth label distinguishable throughout. Coherent grating preparation,
+phase settings, enrollment, counters and classical comparison are supplied.
+Large strips use the exact Fourier restriction and sampled aggregate
+binomials. The count totals describe simulated preparations. They give
+neither a laboratory acquisition nor a literal allocation of an apparatus
+per simulated draw. No physical standard sets the preparations, contact
+phases or acquisition gates.
+
+Four independent acquisitions retain local, away and refused counts.
+Each family has its own simultaneous 99% interval budget. With
+[the pinned environment](../../../requirements.txt), replay them from the repository root.
+
+~~~sh
+python -B -O -W error -m model.benchmarks.eight_slot_torus.formed_clocks.fringe
+python -B -O -W error -m model.benchmarks.eight_slot_torus.formed_clocks.fringe_resonance
+python -B -O -W error -m model.benchmarks.eight_slot_torus.formed_clocks.fringe_flight
+python -B -O -W error -m model.benchmarks.eight_slot_torus.formed_clocks.fringe_reference
+python -B -m pytest -q -W error model/benchmarks/eight_slot_torus/formed_clocks/test_fringe.py
+~~~
+
 ### Replay
 
 The first command runs short literal checks of both the lower bound and the
