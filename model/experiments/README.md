@@ -11,7 +11,7 @@ evaluation of a candidate only through the evidence the candidate cites.
 | [interval_echo_clock](interval_echo_clock/README.md) | Interval Echo | two material hands at a local reunion, with raw and accepted repair-event controls |
 | [interval_echo_optics](interval_echo_optics/README.md) | Interval Echo | held journeys along three physical home links per board and the paired interval-capacity control |
 | [interval_echo_space](interval_echo_space/README.md) | Interval Echo and its shared contrast sector | three spatial response components transmitted to neighbouring patches and a forecast at untrained stations |
-| [interval_echo_encounter](interval_echo_encounter/README.md) | Interval Echo and its shared contrast sector | pair formation and confinement, a local read of the interaction sign, and excess and vacancy records on a common background |
+| [interval_echo_encounter](interval_echo_encounter/README.md) | Interval Echo and its shared contrast sector | pair formation and confinement, phase-sensitive bound-pair transfer between patches, a local read of the interaction sign, and excess and vacancy records on a common background |
 | [interval_echo_consensus](interval_echo_consensus/README.md) | Interval Echo | strict intercell arbitration, a local phase read and asynchronous convergence of sharp repairs across a complete screen |
 | [interval_echo_gauge](interval_echo_gauge/README.md) | Interval Echo | which covering-group elements the guarded bound-pair currents distinguish |
 | [interval_echo_null_balance](interval_echo_null_balance/README.md) | Interval Echo | how much of a patch's measured energy change comes through each physical gateway |
