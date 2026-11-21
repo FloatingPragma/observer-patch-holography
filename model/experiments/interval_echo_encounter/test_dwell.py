@@ -40,6 +40,14 @@ def test_native_source_and_inverse_echo_receiver(kappa):
             np.testing.assert_allclose(effect,wanted,atol=1e-14)
     # The public agreement reader can commit either of these sharp flags.
     assert reader.gate(1,0)>>6==29 and reader.gate(0,0)>>6==1
+    # After the first hit, the two exterior units are on the tag. Echoing
+    # (port 0, empty port 5) and recording (1,1) distinguishes their old sign.
+    basis=U[:,[law.SRC.index((n,0)) for n in (2,0)]]
+    pair_effect=np.arange(law.DIM)%9==law.SRC.index((1,1))
+    for pointer,mask in ((1,pair_effect),(0,~pair_effect)):
+        public=(reader.gate(pointer,0)>>8)&7
+        expected=np.diag([1,0] if public==7 else [0,1])
+        np.testing.assert_allclose(basis[mask].T@basis[mask],expected,atol=1e-14)
 
 
 def test_local_reference_and_stationary_memory_charge():

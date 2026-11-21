@@ -32,6 +32,15 @@ def local_blocks(kappa):
     repaired = np.column_stack([np.kron(memory(s), loads[:,law.SRC.index((1,1))]) for s in (2,-2)])
     doubles = blank[:,[law.SRC.index((2,0)),law.SRC.index((0,2))]]
     require(np.linalg.norm(echo@doubles-repaired)<1e-13,"native write does not join the two loads")
+    # The native pair reader first resolves (1,1). On a hit the two exterior
+    # units are on the tag, so the neighbouring readout port is certainly empty.
+    # Unwrite the tag, then echo (port 0, vacancy) and read the same pair
+    # predicate there. It distinguishes the two old doubles with no sign probe.
+    both = np.arange(law.DIM)%9==law.SRC.index((1,1))
+    require(np.linalg.norm(echo@repaired-doubles)<1e-13,"tag unwrite loses the sign")
+    rail = echo@blank[:,[law.SRC.index((n,0)) for n in range(3)]]
+    require(np.linalg.norm(rail[both].T@rail[both]-np.diag([0,0,1]))<1e-13,
+            "vacancy reader does not resolve a double")
     quiet = np.kron(memory(0)[:,None], loads)
     require(np.linalg.norm(native@quiet)<1e-12 and np.linalg.norm(echo@blank[:,0]-quiet[:,0])<1e-13,
             "vacuum-written boundary leaks")
@@ -72,6 +81,8 @@ class Station:
         hands = set(self.dimers[0]+self.dimers[1])
         cuts = [e for e in host.seams if (len(set(e)&room)==1 or set(e)&hands) and e not in self.dimers]
         self.cuts = sorted(cuts)
+        require(self.tag==(0,1) and (0,5) in host.seams and (0,5) not in self.cuts
+                and host.degree[0]==host.degree[5]==5,"missing local vacancy readout contact")
         require(all(sum(i in e and e not in cuts for e in host.seams)==1 for i in hands),
                 "dimer clock has unisolated contacts")
         outside = sorted(set(range(host.n))-room)
