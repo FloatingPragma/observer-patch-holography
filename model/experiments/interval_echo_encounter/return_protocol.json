@@ -1,0 +1,28 @@
+{
+  "base": "0ebb9ba9d6280fec258a7d65e2966c13352dfa8d",
+  "carrier_levels": [
+    0,
+    1,
+    2
+  ],
+  "source_seam": [
+    0,
+    1
+  ],
+  "patch": 0,
+  "acquisition_level": 0,
+  "source": "Uniform over the 36 nonadjacent binary pairs inside cell zero. One stationary full-swap reference interval before a sharp binary reading of (0,1). Both outcomes continue. Use fresh independent cohorts at each final appointment.",
+  "menus": [
+    "native",
+    "exchange",
+    "park",
+    "isolated_swap"
+  ],
+  "clock": "One agreed gate exposure pi on the auxiliary native seam per reading, sensed by the alternating occupied endpoint. The reference has its own registers. Supply the common gate durations, blank word, conditional count, and stopped exchanges during reads. Gates after the first reading are free, exchange-only, stopped, or confined to the single physical seam (1,5), respectively. Use native before the first read for the two switched controls. No additional preparation or erasure.",
+  "intervals": 16,
+  "shots_per_appointment": 549755813888,
+  "seed": 732051,
+  "alpha": 0.01,
+  "verification": "Retain all four joint outcomes, including quiet first reads. Compare every bin to the full native binary sector. From the surviving herald and public repeat/no-repeat records certify the rank of the return-probability Toeplitz matrix with a simultaneous error budget. Test the unknown-frequency and unknown-amplitude one-cosine constraint from the first three returns. Count all eigenvalues above the error bound even if fewer than three. Report unresolved controls. Check the port-distance lower bound on visible energies on all three boards. Frequencies, carrier labels, Hamiltonian entries and the elapsed exposure are never supplied to the statistical reader.",
+  "prior": "Local adjacency, sharp read disturbance, tradeoff between local retention and emission, and a slow formed-pair clock were known. No measured particle masses or external constants enter this study."
+}
