@@ -18,7 +18,7 @@ The eight cells with adjacent gateway ports have more than 99.9998% overlap with
 
 Both geometries were tested using their direct intercell seams and a second spatial metric that includes *all* routes through the complementary cells. The latter is the Schur complement of the original cell Laplacian, obtained by minimizing the graph energy over the complementary amplitudes. The free-flight generator is identical in all four comparisons. [Class-specific protocol](CLASS_PROTOCOL.md) · [Four comparisons and finite patch records](classes.json)
 
-| Selected cells | Spatial measurement | Spectral result |
+| Selected cells | Spatial metric | Spectral result |
 | --- | --- | --- |
 | 8 with adjacent gateways | Direct seams | Four separate dimers. Both frequency classes have RMS width below 0.12% of their separation. There is one nonzero squared wave number, enough to calibrate one shift and none to test it. |
 | 8 with adjacent gateways | All routes | The shift is 0.000003844 at λ = 1.1315 and falls to 0.0000000616 at λ = 1.2. Any positive-mass Klein–Gordon curve anchored to the first shift predicts at least 64 times the second measured centroid shift. |

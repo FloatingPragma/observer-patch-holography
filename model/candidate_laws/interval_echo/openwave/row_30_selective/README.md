@@ -8,7 +8,7 @@ The 20-cell sphere carries 630 written collars with sharp ordered arrows in even
 
 The six selected energies had the largest launch overlap in the pilot. With all phases disabled the largest energy weight is 33.56%. With the compiled controls the six single-mode states and their five coherent pairs each have preparation infidelity below 1.7 × 10⁻¹¹ by numerical replay. No trials are discarded. The isolated states' root-occupation probabilities change by less than 7.4 × 10⁻⁷ over 16 native exposure units. The oscillations below occur when a second prepared level provides a phase reference.
 
-| Level paired with reference 1 | Frequency from first 257 exposures | Held R² on next 256 | Observed range of occupation outside the home cell |
+| Level paired with level 1 | Frequency from first 257 exposures | Held R² on next 256 | Observed range of occupation outside the home cell |
 | ---: | ---: | ---: | ---: |
 | 4 | 5.69179 | 0.999979 | 27.31 percentage points |
 | 12 | 14.30217 | 0.999976 | 4.29 percentage points |

@@ -2,7 +2,7 @@
 
 On the registered 320-cell spherical federation, an ordinary unit of load propagates through 194 cells by flipping native repair records. No gates are switched between release and readout. A stationary three-port matter standard in the first cell and two material clock collars in that cell resolve the signed frequency of an individual moving band. A separately calibrated long-wave Klein–Gordon prediction misses four held frequencies by **0.10% to 1.61%**. At the microscopic challenge wave number the error grows to **18.79%**. The moving object in these experiments is the one load together with its trail of changed coins. [Main protocol](PROTOCOL.md) · [Direct reference protocol](MIDPOINT_PROTOCOL.md) · [Material and local operators](channel.py)
 
-| Angular wave number per channel cell | Measured magnitude against local trimer | From local couplings | Relative error | Error with speed from packet flight |
+| Angular wave number per channel cell | Magnitude read against the local trimer | From local couplings | Relative error | Error with speed from packet flight |
 |---:|---:|---:|---:|---:|
 | 0.453426 | 1.82258 | 1.82439 | 0.099% | 0.022% |
 | 0.647751 | 1.97583 | 1.98339 | 0.383% | 0.172% |
