@@ -193,6 +193,9 @@ probability on each matching diagonal. Conditional binomial Hoeffding
 bounds give radii $r_j$ simultaneous with the four unconditional bin
 checks under a 1% family budget. $P(0)=1$ by repeatability.
 The matrix error is at most $2\sum_{j=1}^{16} r_j$ by row sums.
+If a negative eigenvalue exceeds that error in magnitude, the reader rejects
+the free-return interpretation. A positive spectral measure requires a
+positive semidefinite moment matrix.
 In the native experiment this is 0.013095, versus the smallest measured
 eigenvalue 0.157956. Thus at least 17 distinct sampled phases contribute.
 A set of $s$ energy levels gives at most $1+s(s-1)$ phases, so **at

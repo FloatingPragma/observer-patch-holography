@@ -79,6 +79,37 @@ def counter(last):
     return words
 
 
+def check_pair_generator(sector, h, kappa):
+    """Check the graph and diagonal used in the cyclic-span and read-error proofs."""
+    check(h.shape == (sector.P, sector.P) and np.isrealobj(h.data)
+          and h.has_canonical_format and (h-h.T).nnz == 0, "expected a real symmetric pair generator")
+    car = sector.car
+    seams = np.asarray(car.seams)
+    keys = seams[:, 0]*car.n + seams[:, 1]
+    degree = np.bincount(seams.ravel(), minlength=car.n)
+    a, b = sector.aa, sector.bb
+    adjacent = np.isin(a*car.n+b, keys)
+    diagonal = (degree[a]+degree[b])/2 - (1+2*kappa)*adjacent
+    check(np.array_equal(h.diagonal(), diagonal), "incorrect binary exchange or contrast diagonal")
+
+    entries = h.tocoo()
+    off = entries.row != entries.col
+    # Each physical seam exchanges its two endpoints for each of n-2
+    # possible spectator ports, in both directions. Canonical sparse entries
+    # are unique, so the count and allowed-move test give exact coverage.
+    check(np.count_nonzero(off) == 2*len(seams)*(car.n-2) and np.all(entries.data[off] == -.5),
+          "missing exchange or incorrect off-diagonal weight")
+    row, col = entries.row[off], entries.col[off]
+    x, y, u, v = a[row], b[row], a[col], b[col]
+    keep_x = (x == u) | (x == v)
+    keep_y = (y == u) | (y == v)
+    check(np.all(keep_x ^ keep_y), "pair transition must keep exactly one spectator")
+    before = np.where(keep_x, y, x)
+    after = np.where((u == x) | (u == y), v, u)
+    moved_seam = np.minimum(before,after)*car.n + np.maximum(before,after)
+    check(np.all(np.isin(moved_seam, keys)), "pair exchange crosses a non-seam")
+
+
 def acquire_laws(cfg):
     car = federation(cfg["acquisition_level"])
     sector = PairSector(car)
@@ -94,14 +125,11 @@ def acquire_laws(cfg):
     # Two public port readers and their courier implement the local predicate.
     labels = presence.compile_records(np.array([[False],[True]]), ["nominal"], True)
     check(labels==[(0,(1,)),(1,(29,))], "first/last vote does not implement the sharp predicate")
-    check(np.array_equal(sector.exchange().data[sector.exchange().data<0],
-                         np.full(np.count_nonzero(sector.exchange().data<0),-.5)),
-          "pair transitions changed sign or magnitude")
     e = np.zeros(sector.P)
     e[home] = 1
     for menu,kappa in (("native",candidate.KAPPA),("exchange",0)):
         h = sector.hamiltonian(kappa)
-        check((h-h.T).nnz == 0, "backward columns require a real symmetric free law")
+        check_pair_generator(sector, h, kappa)
         # Transposition, without conjugation, supplies every launch column at the local seam.
         evolved = expm_multiply(-1j*np.pi*h,e,start=0,stop=n+1,num=n+2)
         check(np.max(abs(np.sum(abs(evolved)**2,axis=1)-1))<3e-10,"lost sector probability")
@@ -164,6 +192,7 @@ def read(data, shots, logtails):
     rank_error = 2*sum(radius[1:])
     eigen = np.linalg.eigvalsh(toeplitz(measured))
     numerical = 1e-11
+    check(eigen[0] >= -rank_error-numerical, "return records exclude a positive spectral measure")
     rank = max(1,int(np.count_nonzero(eigen > rank_error + numerical)))
     gaps = rank//2
     energies = math.ceil((1+math.sqrt(4*rank-3))/2)

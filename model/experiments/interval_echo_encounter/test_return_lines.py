@@ -37,6 +37,27 @@ def test_finite_reference_capacity():
         lines.counter(32)
 
 
+@pytest.mark.parametrize("fault", ["positive hop", "missing hop", "non-seam", "two movers", "diagonal"])
+def test_generator_matches_every_allowed_exchange(fault):
+    sector = PairSector(cell())
+    matrix = sector.hamiltonian(8)
+    lines.check_pair_generator(sector,matrix,8)
+    bad = matrix.tolil()
+    start = sector.index(0,1)
+    neighbour = sector.index(0,5)
+    if fault == "diagonal":
+        bad[start,start] += 1
+    elif fault == "positive hop":
+        bad[start,neighbour] = bad[neighbour,start] = .5
+    else:
+        bad[start,neighbour] = bad[neighbour,start] = 0
+        if fault != "missing hop":
+            destination = sector.index(0,2) if fault == "non-seam" else sector.index(2,3)
+            bad[start,destination] = bad[destination,start] = -.5
+    with pytest.raises(ValueError):
+        lines.check_pair_generator(sector,bad.tocsr(),8)
+
+
 def test_finite_read_error_budget():
     cfg = lines.json.loads((lines.HERE/"return_protocol.json").read_text())
     name, joint = next(lines.acquire_laws(cfg))
@@ -84,6 +105,18 @@ def test_frequency_count_and_mass_outside_levels():
         if n==5:
             assert measured["positive_gaps_at_least"]>1
             assert measured["outside_weight_lower"]["2"]>0
+
+
+def test_impossible_return_sequence_cannot_certify_energy_levels():
+    # Normalized counts and exact repeatability at zero are insufficient.
+    # A certain return after one interval entails a return after two.
+    counts = 10**8*np.array([[1,0,0,1],[1,0,0,1],[0,1,0,1],[0,1,0,1]],dtype=np.int64)
+    with pytest.raises(ValueError,match="positive spectral measure"):
+        lines.read(counts,2*10**8,12)
+    # A small downward fluctuation of a zero eigenvalue is within the interval.
+    counts[2] = [10**8-1,1,0,10**8]
+    counts[3] = [10**8,0,0,10**8]
+    assert lines.read(counts,2*10**8,12)["rank_at_least"] == 1
 
 
 @pytest.mark.parametrize("mutation",["missing","unsigned","oversized","nonrepeat","noherald","negative"])
