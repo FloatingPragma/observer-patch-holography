@@ -129,6 +129,39 @@ def test_complete_private_tower_spacing_and_sign():
         assert phase[0]==0
 
 
+def test_static_channel_rest_and_refinement_curvature():
+    from model.candidate_laws.interval_echo.openwave.row_30_autonomous.channel import K, bloch
+    a = v = K/2
+    root = np.hypot(a,v)
+    rest = root-a
+    speed_sq = a**3/(4*root)
+    slopes = []
+    for q in (0,.01,.02,.2,1.,np.pi):
+        values,_ = bloch(q)
+        middle = (values[2]-values[1])/2
+        expected_sq = v*v+2*a*a-2*a*np.hypot(v,a*np.cos(q/2))
+        assert abs(middle**2-expected_sq)<1e-13
+        if q==0:
+            assert abs(middle-rest)<1e-14
+        if 0<q<=.02:
+            slopes.append((middle-rest)/q**2)
+    # Cancel the first finite-spacing correction before testing the Taylor coefficient.
+    assert abs((4*slopes[0]-slopes[1])/3-speed_sq/(2*rest))<1e-8
+
+
+def test_partner_independent_exchange_kernel_threshold():
+    for d in range(5):
+        hops = np.zeros(6,complex)
+        hops[:d] = np.arange(1,d+1)*np.exp(1j*np.arange(d))
+        terms = []
+        for b in range(6):
+            for c in range(b):
+                row = np.zeros(6,complex)
+                row[b],row[c] = hops[c],hops[b]
+                terms.append(row)
+        assert 6-np.linalg.matrix_rank(terms)==(6 if d==0 else int(d<3))
+
+
 def test_free_leakage_against_full_native_generator():
     car = carrier.cell()
     sec = sectors.PairSector(car)
