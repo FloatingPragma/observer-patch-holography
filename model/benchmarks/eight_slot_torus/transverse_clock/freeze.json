@@ -1,0 +1,32 @@
+{
+  "simulator_commit": "3db6e6d74416c26ca0f2e1be4bb3da2f6ad9d5fa",
+  "simulator_files": {
+    "model/benchmarks/eight_slot_torus/SPEC.md": "466b1dc20f278d83ec79796cacf75e2e3441c21e0680bcbc1a15b455745519e6",
+    "model/benchmarks/eight_slot_torus/law.py": "d0f1b4221671a4867cdcde097f484f6085bf334221b2a068be53f9cb5fd0dbd9"
+  },
+  "reviewed_commit": "591f8fdbd71fd50d549ff72dfa1fdf38c665c5b2",
+  "reviewed_directory": "model/reflected_routing",
+  "reviewed_fixtures_sha256": {
+    "local_clock/protocol.json": "f6cffd58615543b22468269217241b98fe3f695707d89c38a12a0e90b87c75ec",
+    "local_clock/records/finite_forecast.npz": "cb8a61e34bc4878d82cea4990be498154b7bbd480d923a9779e6266943e46be9",
+    "local_clock/records/forecast.json": "af9397043e99a96dd5799e342fe45932c5a43519b785a0578c8e159959ae2b78",
+    "local_clock/records/opened.npz": "07314aeca352c651ea4beade6a8805cb74694b76a716bc12e36f5c6a27e2e139",
+    "local_clock/records/rest.npz": "83e2e7817b7b5e90d7fea0bcb5d9bbc7afc64e9d85770c7b6198b1cf1e5542fc",
+    "local_clock/records/result.json": "bbec77b31ec0a6521a02f9a74914dfb37a5b916863f7697f21173802d7e35027",
+    "local_clock/records/timing.npz": "13fa53c1a7ddd7fa7f9fe92446654a6a1d4dc59c7acd8086a937f7ee33b88777",
+    "protocol.json": "896c052ecb2f24b4e1db51ed9c71b5df210530ba9885170505c1f84fc95b414d",
+    "records/channel.npz": "f67b466d664fb43df42d2270dc76427b077ed26f69aa8b6474c71ecd3a94b821",
+    "records/finite_forecast.npz": "4eb292699c6bcfc4b7bb6670926b81a3427060bc12ea7ee55946016102afe259",
+    "records/forecast.json": "cdbfd7272955f380e54cdd8ea599c8e088cb98c706a73da3eab191525ded7b39",
+    "records/moving.npz": "831dac2814b66c512edda1d53673d55c70186f2efbcf2a65b23020693b0bb152",
+    "records/release.json": "08d00664df2ed0470886e52104137c0b8027d4a66bb2894b0a1a03df50245fe7",
+    "records/rest.npz": "f7df16919633f06be3568365d350ff1c6150ff9439d6aec55b0b3ec62f2eeb16",
+    "records/result.json": "48f4fdd3a44082d3ef323d75b2601a7b5a359ba35ceec160c1810428734b69ae",
+    "records/timing.npz": "24ed950dd9bbe0896014d8517dc4bea628fb4cacc68adb49f1ad4fd4a3b4b409"
+  },
+  "family": "One free torus constituent on the frozen carrier. Supplied packet preparations, terminal detectors, winding bit coupling and equipped chart/relay services.",
+  "clock_equivalence": "Across every occupied Fourier wave number in both protocols, including the eightfold lift and unwritten control, compare all eight columns with simulator.law.walk_matrix under oph to absolute error at most 2e-14. All retained detector counts and outcomes must reproduce exactly with the original readouts and gates.",
+  "tail_equivalence": "At each frozen wait and rational speed compare the published exact numerator with an independent integer implementation of four times the pinned real-space coin followed by its route. Keep the complementary outcome for each threshold.",
+  "controls": "Resolve the erased hand and unwritten tag, every reversal and short-wave miss, all relay histograms and failures. Allow no change of detector, gate, schedule, seed, packet, source or reference speed to improve agreement.",
+  "scope": "Seam compiler, fuel preparation and phase analyzer belong to the reviewed commit. The active evidence covers only the free constituent and identified supplied instruments."
+}

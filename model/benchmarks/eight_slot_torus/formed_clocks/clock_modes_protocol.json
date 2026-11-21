@@ -1,0 +1,16 @@
+{
+  "schema": "oph.formed-pair.stationary-port.v1",
+  "simulator_commit": "3db6e6d74416c26ca0f2e1be4bb3da2f6ad9d5fa",
+  "sources": ["model/benchmarks/eight_slot_torus/law.py", "model/benchmarks/eight_slot_torus/formation.py", "model/benchmarks/eight_slot_torus/pair_persistence.py", "model/benchmarks/eight_slot_torus/spectral.py", "model/benchmarks/eight_slot_torus/SPEC.md"],
+  "comparison_commit": "e615a5e5",
+  "input": "One sharp (5,4) head-on input at z=0, balanced and coherent across the two conserved rails. The vertex creates an equal-slot pair with probability one half. A natal marker read admits only this birth. Keep the other half as birth refusal. There is no kick, post-birth rail control, or returning marker.",
+  "carrier": "Axial strip (1,1,L,1), L = 2 * (128+n) + 3 at each mature wait n, so finite support excludes every periodic image. Marker wire length 8193, total observation age strictly below 8192.",
+  "terminal": "Project onto the supplied coherent normalized mode (|0,S>+|1,S>)/sqrt(2). Use the specified four-outcome rail analyzer on this mode. Keep birth refusal, born port miss, and all four rail outcomes per original preparation.",
+  "mature_waits": [2049, 4099, 7431],
+  "offset": 257,
+  "complex_relative_error_gates": [0.18, 0.12, 0.08],
+  "forecast": "For each rail conditional on birth and rail, h(n) = sqrt(2) exp(-i[(128+n)mu + pi/4]) / sqrt(2*pi*n*D), mu=phi/2, D=cot(mu)/4. At every n and n+257 retain the complex amplitude and discrepancy from h, including missed gates. This leading term is derived for powers of the autonomous mature operator. The operational tests use only pre-wrap ages.",
+  "phase_gate": "For the two largest appointments 7431,7688 the measured wrapped increment must be positive and differ from 257*DELTA/2 by at most 0.03 radians.",
+  "fibre_checks": "On L=17 and 32 compare the literal newborn update and exact axial fibre at total updates 0,1,63,127,128,193 with absolute amplitude error <= 2e-12. Generic four-angle fibres have an invariant plane, both routed parities in the complement, and endpoints have only one accessible line. Verify signed compact control beats on pair_persistence and the zero overlap of all capture-generated states with its dark family.",
+  "interpretation": "A homogeneous mature-operator point-spectrum and local-decay theorem concerns an unwrapped spatial coordinate. It does not extend the finite age counter or exclude returns on finite tori, marker-conditioned interventions on matter, or clocks carried by ordinary pairs."
+}

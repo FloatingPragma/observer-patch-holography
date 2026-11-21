@@ -1,0 +1,21 @@
+{
+  "source": "FloatingPragma/observer-patch-holography@3db6e6d74416c26ca0f2e1be4bb3da2f6ad9d5fa",
+  "comparison": "e615a5e55d16919a96cd4a4523a5743015ed1756",
+  "fixtures": [
+    {"carrier": [5, 5, 3, 3], "root": [2, 2, 1, 1]},
+    {"carrier": [6, 7, 4, 5], "root": [5, 6, 3, 4]}
+  ],
+  "focus_fractions": [[1, 1], [0.75, 0.5], [0.25, 0.75]],
+  "wire_period": 8193,
+  "terminal_ages": [28, 29, 127, 128, 257, 513, 1049, 2077, 3101, 4093, 8191],
+  "trials_per_setting": 16777216,
+  "count_seed": 481729,
+  "family_error": 0.001,
+  "pulse_groups": [[0, 3, 5, 6], [6, 17, 22], [22, 25, 28]],
+  "input": "Ordinary separated launch at tick 0. The two sources focus independently on the natal or adjacent mouth. Read the first wires after capture. Preprogram the local controllers at their own station counts. First-bound age a corresponds to station count a+1. Other first writes and unmarked launches are separate recorded outcomes. Each terminal appointment uses fresh launches.",
+  "source_gates": "The two registered charts have noncollapsed periods and include a seam-crossing plaquette. Changes of scalar phase are evaluated per returned state. On both charts the exact loader must transmit the conditional rail qubit including an untouched quantum reference with worst-input squared overlap >=1-2e-11. The single common inverse coin must meet the analytical norm bound 27*2*sin(DELTA/8). A native birth with no plates must have squared target overlap <=2e-22. Omitting the age-17 phase must leave at least 0.001 conditional probability outside the target on both rails. Zero capture must give zero natal and other writes.",
+  "readers": "On each corner collect the four labelled rail ports and all complementary outcomes. Use separate trials at each corner. For the reference reader start in rail zero with an excited local two-state memory. Locally exchange the excitation at the refocused root at age 6; store the memory there and read only at that same root, using the four charge-one exchange ports. Discarding the reference makes the quadrature vanish. This apparatus uses a coherent storage convention and a repeatable orientation for the two exchange operations.",
+  "read_gates": "For the exact balanced input, per natal birth the single-corner power must equal 1/4 within 2e-11 at every appointment. Four-port probabilities must give hand DELTA/2*(1-age+28) modulo 2pi, and the local reference reader must give -DELTA/2*(age-28) modulo 2pi, within 2e-10 radians. Every stored original-start distribution sums to one within 2e-11. Test native, phase-cut, common and passive with identical hardware locations and waits. For the dephased control all four port probabilities must coincide. Native and common tests use the stated law without external mass inputs.",
+  "count_gates": "For each measured word, test all seven original-start outcome counts against their computed probabilities with a simultaneous two-sided Hoeffding envelope. From the four local counts alone return a simultaneous conditional angular interval from the two quadratures; report whether it includes the signed clock prediction for all exact and reference appointments (including low-incidence launches). Return a full circle if the data do not resolve the direction. The common and phase-cut counts are recorded without a gate on their measured phase. Keep all gate failures.",
+  "domain": "One finite bound pair. Address-local rail-preserving controls and synchronized appointments are supplied. Local post-birth transfer efficiency, a stationary observer hand and its reference cost are tested. Transported proper time, a particle identity, masses and official comparison rows have separate requirements."
+}

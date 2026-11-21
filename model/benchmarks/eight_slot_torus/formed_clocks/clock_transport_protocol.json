@@ -1,0 +1,23 @@
+{
+  "schema": "oph.protected-clock.driven-route.v1",
+  "source": "3db6e6d74416c26ca0f2e1be4bb3da2f6ad9d5fa",
+  "comparison_commit": "e615a5e55d16919a96cd4a4523a5743015ed1756",
+  "carrier": [5,5,3,3],
+  "root": [4,2,1,1],
+  "focus": [0.75,0.5],
+  "wire_period": 8193,
+  "launch_age": 128,
+  "routes": {"forward": [0,0,2,1,1,3], "reverse": [2,0,0,3,1,1]},
+  "service_spacings": [1,4,8],
+  "appointments": [0,3,6],
+  "trials": 17592186044416,
+  "seed": 763912,
+  "simultaneous_error": 0.001,
+  "preparation": "Use the exact age-28 ordinary-birth loop loader and keep other first marks and unmarked trials. Park under the native age update to 128. Each route, spacing, appointment, control and receiver uses a fresh balanced coherent rail ensemble.",
+  "controller": "For each hop map each corner ray with a common on-site unitary to the equal-weight largest-eigenvalue ray of the sum of the two inverse-contact routed-slot projectors, using a common optical phase. Apply one native mature service, flag all modes except the single partner slot at each of the four translated corners, and rotate each surviving local slot to its signed target loop ray with a common on-site unitary. Hold at rest for spacing minus one services after each completed hop. No operation on a link or conditioned on a rail during travel. The earlier loader has rail-dependent gates.",
+  "flags": "A failed mode is absorbed and logged with first failed hop, address and slot. A null register is identical on all successful corners and both rails. The prebooked schedule is unconditional. Compare the locally stored flags after the experiment. For an unsieved control suppress every write and absorber, propagate the complete coherent remainder through the same plates. The parked control has no transport plates.",
+  "readers": "At launch, midpoint and reunion read the four rail quadratures independently at the occupied corresponding root and at the home root. At parked midpoint read home and the booked displaced root. At each read keep all four ports, missed corner, every first failure, other birth and no birth. Also read the summed on-site probability outside the four translated local loop rays on a separate likelihood census. Every terminal word is per original start.",
+  "analytic_gates": "Across both signed route orderings, all spacings and appointments: max error in complete total normalization 2e-11; each active hop first-failure total natal*p^(j-1)*(1-p) within 3e-12; sieved read probabilities at both stations within 3e-12 of translated Row04 hand alpha per hop and -delta per held service; consensus reunion difference from parked J*(alpha+delta) within 2e-10 radians; zero displaced-control incidence where the supports are disjoint within 2e-12. At age 129 unsieved and sieved first-hop accepted ports in the selected slot agree and the unsieved complement has the original first-hop rejection weight within 3e-12. Other unsieved interferences are reported without a gate.",
+  "count_gates": "On each terminal word make the declared multinomial draw once with all flags and refusals. A simultaneous two-sided Hoeffding envelope over all reported bins must contain every count. The four reunions comparing six-hop signed phase to parked at spacing 4 or 8 (both orderings) must resolve a positive wrapped difference with intervals from the four local counts using that same familywise envelope. Keep all misses, low power, unresolved intervals and failed gates.",
+  "scope": "Finite externally steered and screened clock, native material routing, equipped coherent local controls and absorber flags with a common phase convention. Rate is per stationary address service. No material boost, passive proper-time assignment, universal speed, or free transport after loading."
+}
