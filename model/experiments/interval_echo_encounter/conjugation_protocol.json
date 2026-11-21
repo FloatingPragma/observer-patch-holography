@@ -1,6 +1,13 @@
 {
   "source": "6462c2494a6c4f328f730004362af4962cb89954",
   "background": 1,
+  "pair_regression": {
+    "source": "Use the M10.3 sharp release, complete carrier and terminal census in confinement_protocol.json.",
+    "exposures": [1, 7, 37, 74, 148],
+    "reference": 1,
+    "kappa": 8,
+    "gate": "Report whether the local home-seam probability exceeds 0.8 at each exposure, and report its difference from the unchanged native law. These are fixed exposures, without a between-exposure criterion or hosted row claim."
+  },
   "defects": [
     1,
     -1
