@@ -37,6 +37,8 @@ The archived eight-slot routing experiments supply the historical comparison. On
 
 ## What is scored
 
+Where a measurement demonstrates one part of a criterion, its scorecard cell names that measurement and links to its experiment. The separate full-criterion grade determines the category totals.
+
 | Source | Coverage |
 | --- | --- |
 | [Theorem criteria](theorem_criteria.json) | A1–A3, finite repair, consensus, quantum probabilities, current and matter premises, G1–G6 and their joint null balance |

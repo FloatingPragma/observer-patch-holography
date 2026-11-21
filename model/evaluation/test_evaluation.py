@@ -181,3 +181,24 @@ def test_every_scorecard_requirement_links_to_its_own_evidence_heading():
     targets = re.findall(r'\]\(EVIDENCE\.md#([^)]*)\)', scorecard)
     assert 'ow-31' in targets and 'sm-h' in targets and 'joint-one-law' in targets
     assert set(targets) - {'full-premise-register'} <= headings
+
+
+def test_openwave_rows_distinguish_free_stability_from_electron_identity_and_driven_waves_from_free_waves():
+    result = ev.evaluate('interval_echo')
+    scorecard = ev.report.scorecard([result])
+    ledger = ev.report.evidence_ledger([result])
+    for key in ('OW-04', 'OW-30'):
+        row = ev.criterion(result, key)
+        measurement = row['demonstrated_measurement']
+        assert measurement['source'] in row['evidence']
+        link = f"[{measurement['label']}]({ev.report.local_link(measurement['source'])})"
+        grade = f"**Demonstrated** · {link}"
+        if key == 'OW-30':
+            assert row['status'] == 'partial'
+            grade += ". Full criterion · Partial"
+        else:
+            assert row['status'] == 'demonstrated'
+            assert ev.criterion(result, 'SM-e')['status'] == 'open'
+        scorecard_row = next(line for line in scorecard.splitlines() if line.startswith(f'| [{key}]'))
+        assert grade in scorecard_row
+        assert grade in ledger.split(f'### {key}\n', 1)[1].split('\n### ', 1)[0]

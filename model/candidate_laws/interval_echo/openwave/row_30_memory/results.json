@@ -1,0 +1,1797 @@
+{
+  "operator": {
+    "native_states": 99,
+    "marked_double_or_vacuum_columns": 30,
+    "double_integer_residual": 0,
+    "marked_single_columns": 20,
+    "single_max_entry_difference": 4.25,
+    "fixed_absolute_contrast": true,
+    "fixed_blank_status": true
+  },
+  "exposure_coordinate": "native service exposure",
+  "joint_order": [
+    "coin held, quiet",
+    "coin held, receiver",
+    "coin changed, quiet",
+    "coin changed, receiver"
+  ],
+  "trials_per_setting": 16384,
+  "boards": [
+    {
+      "cells": 20,
+      "ports": 240,
+      "seams": 630,
+      "carrier_sha256": "4dadf98983c609e5d305099dc18c19c4f668f9425f12ba75511dbd148c2d60b8",
+      "marked_seam": [
+        1,
+        82
+      ],
+      "receiver_seam": [
+        82,
+        72
+      ],
+      "double_source_port": 0,
+      "far_single_port": 159,
+      "far_distances": [
+        14,
+        13
+      ],
+      "single": {
+        "maximum_coin_flip": {
+          "near": 0.744948259,
+          "far": 2e-10,
+          "decoupled": 0.0
+        },
+        "settings": {
+          "near": [
+            {
+              "exposure": 0,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8318,
+                  "joint_counts": [
+                    0,
+                    8318,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8066,
+                  "joint_counts": [
+                    8066,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 0.25,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0216910159,
+                    0.233360725,
+                    0.744948259,
+                    0.0
+                  ],
+                  "preparation_count": 8214,
+                  "joint_counts": [
+                    193,
+                    1908,
+                    6113,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    0.2551463919,
+                    0.0,
+                    0.0089778217,
+                    0.7358757864
+                  ],
+                  "preparation_count": 8170,
+                  "joint_counts": [
+                    2102,
+                    0,
+                    67,
+                    6001
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 0.5,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0264723906,
+                    0.2497114656,
+                    0.7238161438,
+                    0.0
+                  ],
+                  "preparation_count": 8171,
+                  "joint_counts": [
+                    236,
+                    2082,
+                    5853,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    0.276839902,
+                    0.0,
+                    0.0141946603,
+                    0.7089654376
+                  ],
+                  "preparation_count": 8213,
+                  "joint_counts": [
+                    2316,
+                    0,
+                    115,
+                    5782
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 1,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0137634378,
+                    0.2620165614,
+                    0.7242200009,
+                    0.0
+                  ],
+                  "preparation_count": 8146,
+                  "joint_counts": [
+                    129,
+                    2170,
+                    5847,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    0.2754935589,
+                    0.0,
+                    0.0061856109,
+                    0.7183208302
+                  ],
+                  "preparation_count": 8238,
+                  "joint_counts": [
+                    2222,
+                    0,
+                    41,
+                    5975
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 2,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.019319248,
+                    0.364934639,
+                    0.615746113,
+                    0.0
+                  ],
+                  "preparation_count": 8201,
+                  "joint_counts": [
+                    170,
+                    2986,
+                    5045,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    0.3842008937,
+                    0.0,
+                    0.0094978884,
+                    0.6063012178
+                  ],
+                  "preparation_count": 8183,
+                  "joint_counts": [
+                    3140,
+                    0,
+                    87,
+                    4956
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 4,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.010911797,
+                    0.6098548519,
+                    0.3792333511,
+                    0.0
+                  ],
+                  "preparation_count": 8161,
+                  "joint_counts": [
+                    89,
+                    4886,
+                    3186,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    0.6207242125,
+                    1e-10,
+                    0.0026898141,
+                    0.3765859734
+                  ],
+                  "preparation_count": 8223,
+                  "joint_counts": [
+                    5119,
+                    0,
+                    17,
+                    3087
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 8,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.016944845,
+                    0.5933535742,
+                    0.3897015801,
+                    8e-10
+                  ],
+                  "preparation_count": 8208,
+                  "joint_counts": [
+                    114,
+                    4903,
+                    3191,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    0.61125355,
+                    6.9e-09,
+                    0.0070525898,
+                    0.3816938533
+                  ],
+                  "preparation_count": 8176,
+                  "joint_counts": [
+                    4980,
+                    0,
+                    62,
+                    3134
+                  ]
+                }
+              ]
+            }
+          ],
+          "far": [
+            {
+              "exposure": 0,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8146,
+                  "joint_counts": [
+                    8146,
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8238,
+                  "joint_counts": [
+                    8238,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 0.25,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8276,
+                  "joint_counts": [
+                    8276,
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8108,
+                  "joint_counts": [
+                    8108,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 0.5,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8219,
+                  "joint_counts": [
+                    8219,
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8165,
+                  "joint_counts": [
+                    8165,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 1,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8291,
+                  "joint_counts": [
+                    8291,
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8093,
+                  "joint_counts": [
+                    8093,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 2,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8117,
+                  "joint_counts": [
+                    8117,
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8267,
+                  "joint_counts": [
+                    8267,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 4,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.9999999997,
+                    3e-10,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8158,
+                  "joint_counts": [
+                    8158,
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    0.9999999997,
+                    3e-10,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8226,
+                  "joint_counts": [
+                    8226,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 8,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.9999998958,
+                    1.04e-07,
+                    2e-10,
+                    0.0
+                  ],
+                  "preparation_count": 8126,
+                  "joint_counts": [
+                    8126,
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    0.9999998944,
+                    1.055e-07,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8258,
+                  "joint_counts": [
+                    8258,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ],
+          "decoupled": [
+            {
+              "exposure": 0,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8181,
+                  "joint_counts": [
+                    0,
+                    8181,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8203,
+                  "joint_counts": [
+                    8203,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 0.25,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0469985061,
+                    0.9530014939,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8198,
+                  "joint_counts": [
+                    364,
+                    7834,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8186,
+                  "joint_counts": [
+                    8186,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 0.5,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0735038344,
+                    0.9264961656,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8159,
+                  "joint_counts": [
+                    618,
+                    7541,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8225,
+                  "joint_counts": [
+                    8225,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 1,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0263015751,
+                    0.9736984249,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8210,
+                  "joint_counts": [
+                    220,
+                    7990,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8174,
+                  "joint_counts": [
+                    8174,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 2,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0484192589,
+                    0.9515807411,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8123,
+                  "joint_counts": [
+                    389,
+                    7734,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8261,
+                  "joint_counts": [
+                    8261,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 4,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0180430824,
+                    0.9819569176,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8230,
+                  "joint_counts": [
+                    149,
+                    8081,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    0.9999999999,
+                    1e-10,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8154,
+                  "joint_counts": [
+                    8154,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 8,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0426414362,
+                    0.9573585638,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8296,
+                  "joint_counts": [
+                    352,
+                    7944,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    0.9999999877,
+                    1.23e-08,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8088,
+                  "joint_counts": [
+                    8088,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "double": {
+        "blank": [
+          {
+            "exposure": 0,
+            "receiver_probability": 0.0,
+            "receiver_clicks": 0
+          },
+          {
+            "exposure": 0.25,
+            "receiver_probability": 5.83373e-05,
+            "receiver_clicks": 0
+          },
+          {
+            "exposure": 0.5,
+            "receiver_probability": 0.0008143535,
+            "receiver_clicks": 13
+          },
+          {
+            "exposure": 1,
+            "receiver_probability": 0.0074659005,
+            "receiver_clicks": 122
+          },
+          {
+            "exposure": 2,
+            "receiver_probability": 0.0137204569,
+            "receiver_clicks": 243
+          },
+          {
+            "exposure": 4,
+            "receiver_probability": 0.013909113,
+            "receiver_clicks": 223
+          },
+          {
+            "exposure": 8,
+            "receiver_probability": 0.0114783731,
+            "receiver_clicks": 184
+          }
+        ],
+        "vacuum_write": [
+          {
+            "exposure": 0,
+            "receiver_probability": 0.0,
+            "receiver_clicks": 0
+          },
+          {
+            "exposure": 0.25,
+            "receiver_probability": 0.0,
+            "receiver_clicks": 0
+          },
+          {
+            "exposure": 0.5,
+            "receiver_probability": 0.0,
+            "receiver_clicks": 0
+          },
+          {
+            "exposure": 1,
+            "receiver_probability": 0.0,
+            "receiver_clicks": 0
+          },
+          {
+            "exposure": 2,
+            "receiver_probability": 0.0,
+            "receiver_clicks": 0
+          },
+          {
+            "exposure": 4,
+            "receiver_probability": 1.33e-08,
+            "receiver_clicks": 0
+          },
+          {
+            "exposure": 8,
+            "receiver_probability": 2.7125e-06,
+            "receiver_clicks": 0
+          }
+        ]
+      }
+    },
+    {
+      "cells": 80,
+      "ports": 960,
+      "seams": 2520,
+      "carrier_sha256": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "marked_seam": [
+        1,
+        38
+      ],
+      "receiver_seam": [
+        38,
+        39
+      ],
+      "double_source_port": 0,
+      "far_single_port": 627,
+      "far_distances": [
+        31,
+        30
+      ],
+      "single": {
+        "maximum_coin_flip": {
+          "near": 0.7448416809,
+          "far": 0.0,
+          "decoupled": 0.0
+        },
+        "settings": {
+          "near": [
+            {
+              "exposure": 0,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8208,
+                  "joint_counts": [
+                    0,
+                    8208,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8176,
+                  "joint_counts": [
+                    8176,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 0.25,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0216056727,
+                    0.2335526464,
+                    0.7448416809,
+                    0.0
+                  ],
+                  "preparation_count": 8281,
+                  "joint_counts": [
+                    172,
+                    2019,
+                    6090,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    0.2551583191,
+                    0.0,
+                    0.0089654141,
+                    0.7358762668
+                  ],
+                  "preparation_count": 8103,
+                  "joint_counts": [
+                    2029,
+                    0,
+                    77,
+                    5997
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 0.5,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.026096437,
+                    0.2505102453,
+                    0.7233933177,
+                    0.0
+                  ],
+                  "preparation_count": 8157,
+                  "joint_counts": [
+                    211,
+                    2035,
+                    5911,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    0.2766066823,
+                    0.0,
+                    0.014197378,
+                    0.7091959397
+                  ],
+                  "preparation_count": 8227,
+                  "joint_counts": [
+                    2266,
+                    0,
+                    103,
+                    5858
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 1,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0130545082,
+                    0.2627731753,
+                    0.7241723164,
+                    0.0
+                  ],
+                  "preparation_count": 8262,
+                  "joint_counts": [
+                    97,
+                    2150,
+                    6015,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    0.2758276836,
+                    0.0,
+                    0.0060974227,
+                    0.7180748937
+                  ],
+                  "preparation_count": 8122,
+                  "joint_counts": [
+                    2245,
+                    0,
+                    54,
+                    5823
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 2,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0183227711,
+                    0.3655380094,
+                    0.6161392195,
+                    0.0
+                  ],
+                  "preparation_count": 8114,
+                  "joint_counts": [
+                    150,
+                    3035,
+                    4929,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    0.3838607805,
+                    0.0,
+                    0.0091280466,
+                    0.6070111729
+                  ],
+                  "preparation_count": 8270,
+                  "joint_counts": [
+                    3186,
+                    0,
+                    82,
+                    5002
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 4,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.010333648,
+                    0.6097948479,
+                    0.3798715041,
+                    0.0
+                  ],
+                  "preparation_count": 8228,
+                  "joint_counts": [
+                    90,
+                    5011,
+                    3127,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    0.6201284911,
+                    0.0,
+                    0.0024495156,
+                    0.3774219933
+                  ],
+                  "preparation_count": 8156,
+                  "joint_counts": [
+                    5081,
+                    0,
+                    26,
+                    3049
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 8,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.017952981,
+                    0.5954565991,
+                    0.3865904199,
+                    0.0
+                  ],
+                  "preparation_count": 8361,
+                  "joint_counts": [
+                    154,
+                    4929,
+                    3278,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    0.6134096281,
+                    0.0,
+                    0.0076653707,
+                    0.3789250012
+                  ],
+                  "preparation_count": 8023,
+                  "joint_counts": [
+                    4941,
+                    0,
+                    46,
+                    3036
+                  ]
+                }
+              ]
+            }
+          ],
+          "far": [
+            {
+              "exposure": 0,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8138,
+                  "joint_counts": [
+                    8138,
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8246,
+                  "joint_counts": [
+                    8246,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 0.25,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8205,
+                  "joint_counts": [
+                    8205,
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8179,
+                  "joint_counts": [
+                    8179,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 0.5,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8147,
+                  "joint_counts": [
+                    8147,
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8237,
+                  "joint_counts": [
+                    8237,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 1,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8193,
+                  "joint_counts": [
+                    8193,
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8191,
+                  "joint_counts": [
+                    8191,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 2,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8167,
+                  "joint_counts": [
+                    8167,
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8217,
+                  "joint_counts": [
+                    8217,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 4,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8189,
+                  "joint_counts": [
+                    8189,
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8195,
+                  "joint_counts": [
+                    8195,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 8,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8207,
+                  "joint_counts": [
+                    8207,
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8177,
+                  "joint_counts": [
+                    8177,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ],
+          "decoupled": [
+            {
+              "exposure": 0,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8216,
+                  "joint_counts": [
+                    0,
+                    8216,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8168,
+                  "joint_counts": [
+                    8168,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 0.25,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0468448015,
+                    0.9531551985,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8092,
+                  "joint_counts": [
+                    362,
+                    7730,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8292,
+                  "joint_counts": [
+                    8292,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 0.5,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0728827034,
+                    0.9271172966,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8186,
+                  "joint_counts": [
+                    612,
+                    7574,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8198,
+                  "joint_counts": [
+                    8198,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 1,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0251698388,
+                    0.9748301612,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8117,
+                  "joint_counts": [
+                    226,
+                    7891,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8267,
+                  "joint_counts": [
+                    8267,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 2,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0457167706,
+                    0.9542832294,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8208,
+                  "joint_counts": [
+                    380,
+                    7828,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8176,
+                  "joint_counts": [
+                    8176,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 4,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0162156337,
+                    0.9837843663,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8264,
+                  "joint_counts": [
+                    120,
+                    8144,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8120,
+                  "joint_counts": [
+                    8120,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "exposure": 8,
+              "arms": [
+                {
+                  "initial_coin": 0,
+                  "joint_probabilities": [
+                    0.0459595475,
+                    0.9540404525,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8170,
+                  "joint_counts": [
+                    399,
+                    7771,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "initial_coin": 1,
+                  "joint_probabilities": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "preparation_count": 8214,
+                  "joint_counts": [
+                    8214,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "double": {
+        "blank": [
+          {
+            "exposure": 0,
+            "receiver_probability": 0.0,
+            "receiver_clicks": 0
+          },
+          {
+            "exposure": 0.25,
+            "receiver_probability": 5.83377e-05,
+            "receiver_clicks": 2
+          },
+          {
+            "exposure": 0.5,
+            "receiver_probability": 0.0008144433,
+            "receiver_clicks": 7
+          },
+          {
+            "exposure": 1,
+            "receiver_probability": 0.0074821516,
+            "receiver_clicks": 122
+          },
+          {
+            "exposure": 2,
+            "receiver_probability": 0.0146993095,
+            "receiver_clicks": 258
+          },
+          {
+            "exposure": 4,
+            "receiver_probability": 0.0148339393,
+            "receiver_clicks": 232
+          },
+          {
+            "exposure": 8,
+            "receiver_probability": 0.0088090508,
+            "receiver_clicks": 110
+          }
+        ],
+        "vacuum_write": [
+          {
+            "exposure": 0,
+            "receiver_probability": 0.0,
+            "receiver_clicks": 0
+          },
+          {
+            "exposure": 0.25,
+            "receiver_probability": 0.0,
+            "receiver_clicks": 0
+          },
+          {
+            "exposure": 0.5,
+            "receiver_probability": 0.0,
+            "receiver_clicks": 0
+          },
+          {
+            "exposure": 1,
+            "receiver_probability": 0.0,
+            "receiver_clicks": 0
+          },
+          {
+            "exposure": 2,
+            "receiver_probability": 0.0,
+            "receiver_clicks": 0
+          },
+          {
+            "exposure": 4,
+            "receiver_probability": 0.0,
+            "receiver_clicks": 0
+          },
+          {
+            "exposure": 8,
+            "receiver_probability": 5.2e-09,
+            "receiver_clicks": 0
+          }
+        ]
+      }
+    }
+  ]
+}

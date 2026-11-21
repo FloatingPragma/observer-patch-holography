@@ -50,3 +50,86 @@ python -m pytest -q model/experiments/interval_echo_encounter
 ```
 
 The replay reconstructs the state amplitudes and compares all final seam probabilities, quiet outcomes and band diagnostics with the archived values. The protocol digest is checked before the run. [Implementation](__main__.py) · [Receipt](result.json)
+
+## What a persistent pair identifies
+
+The M10.3 release prepares two unit loads on seam (156, 157) of cell 13 on the 20-cell sphere. At a supplied exposure the observer reads one of its 30 internal seams or quiet. Keeping the launch and detector fixed gives the following probabilities of a home-seam reading. The κ = −8 arm reverses the sign of the contrast. The last column changes the missing-seam reference at κ = 8. [M10.3 source and trial records](https://github.com/FloatingPragma/observer-patch-holography/tree/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/openwave/interval_echo/row_04) · [Frozen release comparison](confinement_protocol.json)
+
+| Exposure | Native κ = 8, r = 0 | Exchange alone | Reversed κ = −8, r = 0 | Centered κ = 8, r = 1 |
+| ---: | ---: | ---: | ---: | ---: |
+| 1 | 0.990983 | 0.450002 | 0.988165 | 0.660699 |
+| 7 | 0.989653 | 0.275769 | 0.989071 | 0.657885 |
+| 37 | 0.980272 | 0.202906 | 0.983888 | 0.569245 |
+| 74 | 0.983949 | 0.190458 | 0.975541 | 0.566346 |
+| 148 | 0.982976 | 0.169847 | 0.979925 | 0.578064 |
+
+Each exposure uses a fresh preparation. The local reader returns quiet for separated loads and for adjacent loads beyond its aperture. A complete terminal position census resolves those alternatives. For example, at 148 the native probability on an internal seam of another cell is 0.005346. Only the 30 home addresses and quiet belong to the original observer. The extended exposures are terminal distributions on the finite carrier. [Complete censuses](transport.json) · [Changed-reference censuses](centered_pair.json)
+
+### Exact confinement and separated excitations
+
+In the binary two-load sector the free Hamiltonian after its uniform shift is the exchange generator minus 2κ times the projector onto adjacent loads. Let P select either all 66 two-load positions in a given cell or only its 30 seams. Set A = 2PHP and B = 2(I−P)HP. A state initially in P stays there throughout an interval precisely when BAᵏ annihilates it for k from zero to dim(P)−1. This follows by differentiating the finite matrix exponential, then applying Cayley–Hamilton to A. Conversely, the common kernel is invariant under A and has zero outward amplitude. The calculation builds B from every allowed exit. Exact integer row reduction and an independent rank bound modulo 1009 give the following dimensions. [Exact calculation](confinement.py) · [Independent checks](test_confinement.py)
+
+| Cell gateways up to icosahedral symmetry | Cells on the 20 / 80 / 320 boards | Confined single-load modes | Confined binary pairs in one cell |
+| --- | --- | ---: | ---: |
+| 0, 1, 2 | 0 / 24 / 104 | 5 | 0 |
+| 0, 1, 4 | 8 / 0 / 0 | 2 | 0 |
+| 0, 2, 8 | 12 / 56 / 216 | 2 | 0 |
+
+The pair result holds in both apertures at κ = 8, 0 and −8. For the narrower aperture the contrast is scalar on P and diagonal across its boundary, so its common kernel is the same for every real κ. For the published sharp release the leading quiet probability is 5t²/4 for the seam read and t²/4 for leaving the cell. These coefficients follow from the squared norm of the outward column of H. A strictly positive escape probability is consistent with high retention. The result gives neither a disappearance time nor a decay width.
+
+For the one-position compact modes, twice the kinetic generator has eigenvalue 6 with multiplicity two on each two-mode cell. A five-mode cell also has 5 ± √5, and the multiplicity of 6 is three. A doubled load has the same position generator up to a scalar. Each compact mode vanishes at the gateways, because the external connections form a matching. Two such modes supported in distinct cells therefore have zero contact and evolve as a tensor product, even in neighboring cells. Their products span 760, 26,500 and 451,420 independent states on the three boards. These are lower bounds on the federation's confined two-load spaces with the loads in distinct cells. They require coherent modes; the sharp one-seam release has zero weight in the same-cell compact space. The energies use the model's exchange unit. [Spectra and multiplicities](confinement.json)
+
+### Measuring the interaction sign
+
+Sharp local persistence alone accepts both signs at the 80% population screen. The observer can distinguish them by splitting a pair coherently. Take x, y, z, w = 156, 157, 164, 159. Starting on xy, apply isolated π/2 contacts on yz and zw. On the three occupied paths xy, xz, xw the amplitudes become (1−i)/2, 1/2 and i/2. After the free exposure apply one more π/2 contact on yz and read the home seams. The binary columns of the native blank-collar operator give the same preparation and analyzer for the three registered strengths. [Sign protocol](sign_protocol.json) · [Native pulse and read](sign_read.py)
+
+In those three input coordinates the exchange block has diagonal (4.5, 5, 5.5) and nearest off-diagonals −1/2. Only xy receives the contrast shift −2κ. The analyzer mixes the first two coordinates, so this block suffices for the initial slope even though the evolution uses all 28,680 positions. If F denotes the final xy effect, its slope is i⟨[H,F]⟩ = κ/2. The same incoherent mixture of the three starts has slope −1/8 at all three strengths. Thus the signed adjacent-pair energy contribution in exchange units can be read as minus four times the coherent slope for these settings.
+
+| Probability of xy at exposure 1/16 | Native | Exchange alone | Reversed |
+| --- | ---: | ---: | ---: |
+| Coherent | 0.440067 | 0.123661 | 0.024072 |
+| Dephased | 0.365418 | 0.364333 | 0.365925 |
+
+The local phase control and terminal address distinguish the signs in a single specified ensemble comparison. Dephasing reduces the difference from 0.415995 to 0.000507 in magnitude. The full distributions include every other seam and quiet. [Terminal records](sign_read.json)
+
+### A particle and a vacancy on the same background
+
+Prepare one load at every port. Adding one load at a port gives an excess; removing one gives a vacancy. The free law conserves each one-defect subspace. The missing-seam term at port v of degree dᵥ is κ(6−dᵥ)(nᵥ−r)², with native reference r = 0. Relative to the uniform background, a defect of sign s = ±1 costs κdᵥ on the incident seams and κ(6−dᵥ)[1 + 2s(1−r)] on the references. Its position Hamiltonian is therefore
+
+$$H_s = L/2 + 6κ I + 2sκ(1-r)\,\mathrm{diag}(6-d_v).$$
+
+Both signs share the exchange operator. The three gateways of a cell have degree six and the other nine ports have degree five. This gives opposite detunings across a mixed-degree seam. A local observer prepares the defect on a gateway, splits it across two successive seams, and reads its address after a final half contact. The native excess and vacancy probabilities at the nominated gateway at 1/16 are 0.407586 and 0.029887 on each board. Their initial slopes differ by exactly 8. The calculation supplies an ideal terminal measurement of the defect position. Its outcomes are the twelve home ports and quiet. The runs compile the preparation and analyzer pulses on the native seam. Implementing the terminal position measurement as a patch service on the filled background is a separate instrument requirement. This refutes the simple identification of these two defects as conjugates with identical free position records under occupation reflection. Other encodings, including collective excitations, require their own records. [Common-background protocol](conjugation_protocol.json) · [All three boards](conjugation.json)
+
+Under the sitewise reflection n ↦ 2−n, exchange and every seam contrast square are invariant. The change of the full reference energy is 4κ(1−r)Σᵥ(6−dᵥ)(1−nᵥ). Within this uniform-reference family, r = 1 is the unique value restoring this symmetry of the free law at nonzero κ on the federations. It gives identical excess and vacancy records and a probability of 0.101933 for the same gateway read. It also gives less than 80% home-pair retention at every tested sharp-release exposure in the table. The unit-reference control changes the law. A symmetry of its free generator establishes neither an electromagnetic charge nor conjugation of the complete clock and service program. Particle masses, spin, statistics and an identification with electrons or positrons require independent operational measurements.
+
+### A symmetric reference that preserves the binary sector
+
+There is a second way to realize occupation reflection. Keep the physical seam law, κ and the blank reference load. Write the missing-seam energy as κf(n). Preserving the native binary energies with the vacuum as zero fixes f(0) = 0 and f(1) = 1. Reflection fixes f(2) = f(0). Thus f(n) = n(2−n) is the unique normalized diagonal profile in this class. This is an experimental variant of the free reference service.
+
+The native echo writes the signed difference d into its collar. On each missing seam, assign unit energy to the written labels with |d| = 1, leave every other label at zero energy, and undo the echo. Both coin branches of every blank input carry the same absolute contrast. The label projector therefore intertwines the native write with the diagonal test for |a−b| = 1 on all nine load inputs. During the middle phase operation the collar holds the written label. Applying the inverse echo returns it to blank for every exposure duration, including on coherent superpositions. A reference rail at b = 0 then implements the required f. The replay checks all 99 components of every blank input column. [Native collar construction](conjugation.py) · [Frozen tests](conjugation_protocol.json)
+
+This gives occupation-reflection symmetry on the entire blank-collar free load space. Every binary configuration has exactly its native diagonal and exchange action, on any of the federations. Free propagation and the registered physical half contacts preserve the binary sector. Consequently **every probability in the original pair release** agrees at every exposure. A separate assembly sums the physical qutrit seam columns and missing-seam terms on all 28,680 binary basis states of the release board. It agrees entry by entry with the native pair generator and reproduces all 34 bins at the five registered exposures. On the common one-load background the excess and vacancy both have generator L/2 + κ diag(2dᵥ−6). Their terminal distributions equal the native vacancy distributions on all three boards, including the 0.029887 gateway reading. [Defect records](conjugation.json) · [Shared binary records](transport.json)
+
+The doubled load above the empty background exposes the cost. Its free generator changes from L/2 + 24κI to L/2 + 4κ diag(dᵥ). The shifts relative to the native law are 0 at gateways and −32 on the other ports at κ = 8. Thus a single diagonal reference of this kind cannot preserve all three properties: the binary free energy, occupation reflection and native doubled-load propagation. The construction supplies the first two and gives a distinct prediction for the third. Equivalence of protocols using occupied collars, doubled clock fuel or interventions that split a double requires a separate calculation.
+
+### Replay and numerical accuracy
+
+From the repository root, set the BLAS thread count to one. The short checks are
+
+```sh
+python -B -O -m model.experiments.interval_echo_encounter.confinement
+python -B -O -m model.experiments.interval_echo_encounter.sign_read
+python -B -O -m model.experiments.interval_echo_encounter.conjugation
+python -m pytest -q model/experiments/interval_echo_encounter
+```
+
+The extended checks replay the published release, the changed reference and the independent error enclosure.
+
+```sh
+python -B -O -m model.experiments.interval_echo_encounter.transport
+python -B -O -m model.experiments.interval_echo_encounter.conjugation --pair-regression
+python -B -O -m model.experiments.interval_echo_encounter.conjugation --singleton-pair
+python -B -O -m model.experiments.interval_echo_encounter.check_transport
+```
+
+For the native, exchange-only and reversed releases, a degree-24 Taylor polynomial advances the centered generator by 1/8. The absolute row-sum bound controls the truncation and each sparse matrix multiplication. The polynomial replay assigns each distinct port pair to its terminal address independently of the sparse-exponential replay's detector masks. Accumulating the one-step error through the longest exposure and summing over disjoint terminal bins gives an L1 error below 1.2 × 10⁻¹⁰ for every archived distribution in those three arms. The centered-reference column uses a separate sparse exponential. All runs use prepared backgrounds, supplied isolation and exposure, and a terminal read. The simulation compares observer record probabilities; the exposure variable has no laboratory time calibration. [Numerical enclosure](check_transport.py)

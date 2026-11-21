@@ -1,0 +1,428 @@
+{
+  "spatial_fits": [
+    {
+      "target": 0.0,
+      "band": 1,
+      "best": 0,
+      "runner_up": 1,
+      "best_residual": 0.000703702,
+      "rival_residual": 0.022056863,
+      "q_grid": 0.0,
+      "q_continuous": 0.000813692
+    },
+    {
+      "target": 0.3,
+      "band": 1,
+      "best": 19,
+      "runner_up": 20,
+      "best_residual": 0.000672604,
+      "rival_residual": 0.039718829,
+      "q_grid": 0.307681755,
+      "q_continuous": 0.307677557
+    },
+    {
+      "target": 0.3,
+      "band": 2,
+      "best": 19,
+      "runner_up": 18,
+      "best_residual": 0.000659814,
+      "rival_residual": 0.065856116,
+      "q_grid": 0.307681755,
+      "q_continuous": 0.307677733
+    },
+    {
+      "target": 0.45,
+      "band": 1,
+      "best": 28,
+      "runner_up": 29,
+      "best_residual": 0.000695505,
+      "rival_residual": 0.041101102,
+      "q_grid": 0.453425744,
+      "q_continuous": 0.453416824
+    },
+    {
+      "target": 0.45,
+      "band": 2,
+      "best": 28,
+      "runner_up": 27,
+      "best_residual": 0.000682252,
+      "rival_residual": 0.065610278,
+      "q_grid": 0.453425744,
+      "q_continuous": 0.453424748
+    },
+    {
+      "target": 0.65,
+      "band": 1,
+      "best": 40,
+      "runner_up": 41,
+      "best_residual": 0.000657692,
+      "rival_residual": 0.043005168,
+      "q_grid": 0.647751063,
+      "q_continuous": 0.647754276
+    },
+    {
+      "target": 0.65,
+      "band": 2,
+      "best": 40,
+      "runner_up": 39,
+      "best_residual": 0.000705855,
+      "rival_residual": 0.064735912,
+      "q_grid": 0.647751063,
+      "q_continuous": 0.647740274
+    },
+    {
+      "target": 0.85,
+      "band": 1,
+      "best": 52,
+      "runner_up": 53,
+      "best_residual": 0.000684621,
+      "rival_residual": 0.044893933,
+      "q_grid": 0.842076381,
+      "q_continuous": 0.84207069
+    },
+    {
+      "target": 0.85,
+      "band": 2,
+      "best": 52,
+      "runner_up": 51,
+      "best_residual": 0.000694158,
+      "rival_residual": 0.063679415,
+      "q_grid": 0.842076381,
+      "q_continuous": 0.842074735
+    },
+    {
+      "target": 1.05,
+      "band": 1,
+      "best": 65,
+      "runner_up": 64,
+      "best_residual": 0.000694934,
+      "rival_residual": 0.046674444,
+      "q_grid": 1.052595477,
+      "q_continuous": 1.052588732
+    },
+    {
+      "target": 1.05,
+      "band": 2,
+      "best": 65,
+      "runner_up": 64,
+      "best_residual": 0.000697587,
+      "rival_residual": 0.062490943,
+      "q_grid": 1.052595477,
+      "q_continuous": 1.052591098
+    },
+    {
+      "target": 2.5,
+      "band": 1,
+      "best": 154,
+      "runner_up": 153,
+      "best_residual": 0.000699471,
+      "rival_residual": 0.053966868,
+      "q_grid": 2.493841591,
+      "q_continuous": 2.493836203
+    },
+    {
+      "target": 2.5,
+      "band": 2,
+      "best": 154,
+      "runner_up": 153,
+      "best_residual": 0.000679975,
+      "rival_residual": 0.055866377,
+      "q_grid": 2.493841591,
+      "q_continuous": 2.493844401
+    }
+  ],
+  "c_from_calibration_line": 1.689090366,
+  "c_from_calibration_line_95": [
+    1.664925807,
+    1.71153026
+  ],
+  "c_from_packet_95": [
+    1.668605434,
+    1.672082431
+  ],
+  "count_only_mass_95": [
+    1.654465388,
+    1.658797409
+  ],
+  "packet_speed_95": [
+    0.493468744,
+    0.495415259
+  ],
+  "rows": [
+    {
+      "q": 0.453425744,
+      "frequency": 1.822691384,
+      "models": {
+        "kg_velocity": {
+          "percent_error": -0.062706996,
+          "count_only_95_percent_error": [
+            -0.174236086,
+            0.057578354
+          ]
+        },
+        "kg_frequency": {
+          "percent_error": 0.132210742,
+          "count_only_95_percent_error": [
+            -0.066192047,
+            0.322325132
+          ]
+        },
+        "parabola_velocity": {
+          "percent_error": -0.0478377,
+          "count_only_95_percent_error": [
+            -0.163028352,
+            0.080013908
+          ]
+        },
+        "parabola_frequency": {
+          "percent_error": 0.374298017,
+          "count_only_95_percent_error": [
+            0.16394181,
+            0.57327554
+          ]
+        },
+        "cosine_velocity": {
+          "percent_error": -0.059921854,
+          "count_only_95_percent_error": [
+            -0.175108345,
+            0.067929812
+          ]
+        },
+        "lattice_kg_velocity": {
+          "percent_error": -0.074225854,
+          "count_only_95_percent_error": [
+            -0.185753549,
+            0.0460616
+          ]
+        },
+        "native_band": {
+          "percent_error": -0.026585693,
+          "count_only_95_percent_error": [
+            -0.126532981,
+            0.075602317
+          ]
+        }
+      }
+    },
+    {
+      "q": 0.647751063,
+      "frequency": 1.976851206,
+      "models": {
+        "kg_velocity": {
+          "percent_error": 0.091090364,
+          "count_only_95_percent_error": [
+            -0.012303432,
+            0.199789615
+          ]
+        },
+        "kg_frequency": {
+          "percent_error": 0.428500159,
+          "count_only_95_percent_error": [
+            0.043202148,
+            0.787385893
+          ]
+        },
+        "parabola_velocity": {
+          "percent_error": 0.854842403,
+          "count_only_95_percent_error": [
+            0.740591165,
+            0.978322468
+          ]
+        },
+        "parabola_frequency": {
+          "percent_error": 1.649161819,
+          "count_only_95_percent_error": [
+            1.202465082,
+            2.068122185
+          ]
+        },
+        "cosine_velocity": {
+          "percent_error": 0.529536312,
+          "count_only_95_percent_error": [
+            0.415662869,
+            0.652435465
+          ]
+        },
+        "lattice_kg_velocity": {
+          "percent_error": -0.194768909,
+          "count_only_95_percent_error": [
+            -0.298424932,
+            -0.086288865
+          ]
+        },
+        "native_band": {
+          "percent_error": -0.0262674,
+          "count_only_95_percent_error": [
+            -0.118709485,
+            0.06718983
+          ]
+        }
+      }
+    },
+    {
+      "q": 0.842076381,
+      "frequency": 2.162899148,
+      "models": {
+        "kg_velocity": {
+          "percent_error": 0.476301057,
+          "count_only_95_percent_error": [
+            0.383385894,
+            0.574803583
+          ]
+        },
+        "kg_frequency": {
+          "percent_error": 0.950498679,
+          "count_only_95_percent_error": [
+            0.374025537,
+            1.481188597
+          ]
+        },
+        "parabola_velocity": {
+          "percent_error": 2.934171446,
+          "count_only_95_percent_error": [
+            2.823952928,
+            3.054874634
+          ]
+        },
+        "parabola_frequency": {
+          "percent_error": 4.161100908,
+          "count_only_95_percent_error": [
+            3.409355701,
+            4.84688632
+          ]
+        },
+        "cosine_velocity": {
+          "percent_error": 1.809970429,
+          "count_only_95_percent_error": [
+            1.700908987,
+            1.929028373
+          ]
+        },
+        "lattice_kg_velocity": {
+          "percent_error": -0.425907969,
+          "count_only_95_percent_error": [
+            -0.517781443,
+            -0.327597577
+          ]
+        },
+        "native_band": {
+          "percent_error": -0.020282687,
+          "count_only_95_percent_error": [
+            -0.101698444,
+            0.060724082
+          ]
+        }
+      }
+    },
+    {
+      "q": 1.052595477,
+      "frequency": 2.387456249,
+      "models": {
+        "kg_velocity": {
+          "percent_error": 1.183291821,
+          "count_only_95_percent_error": [
+            1.096579531,
+            1.27535139
+          ]
+        },
+        "kg_frequency": {
+          "percent_error": 1.786776638,
+          "count_only_95_percent_error": [
+            1.029126591,
+            2.471602985
+          ]
+        },
+        "parabola_velocity": {
+          "percent_error": 6.675719,
+          "count_only_95_percent_error": [
+            6.563784981,
+            6.797075245
+          ]
+        },
+        "parabola_frequency": {
+          "percent_error": 8.412481643,
+          "count_only_95_percent_error": [
+            7.32667861,
+            9.402509135
+          ]
+        },
+        "cosine_velocity": {
+          "percent_error": 3.899639378,
+          "count_only_95_percent_error": [
+            3.790462253,
+            4.016159795
+          ]
+        },
+        "lattice_kg_velocity": {
+          "percent_error": -0.832024748,
+          "count_only_95_percent_error": [
+            -0.916616678,
+            -0.741138707
+          ]
+        },
+        "native_band": {
+          "percent_error": -0.031976931,
+          "count_only_95_percent_error": [
+            -0.104137227,
+            0.042763612
+          ]
+        }
+      }
+    },
+    {
+      "q": 2.493841591,
+      "frequency": 3.797989732,
+      "models": {
+        "kg_velocity": {
+          "percent_error": 18.032902062,
+          "count_only_95_percent_error": [
+            17.923901739,
+            18.147784363
+          ]
+        },
+        "kg_frequency": {
+          "percent_error": 19.178259984,
+          "count_only_95_percent_error": [
+            17.697404689,
+            20.532748089
+          ]
+        },
+        "parabola_velocity": {
+          "percent_error": 75.186843192,
+          "count_only_95_percent_error": [
+            74.922631361,
+            75.462524253
+          ]
+        },
+        "parabola_frequency": {
+          "percent_error": 81.315098259,
+          "count_only_95_percent_error": [
+            77.375063429,
+            84.99344713
+          ]
+        },
+        "cosine_velocity": {
+          "percent_error": 20.881775465,
+          "count_only_95_percent_error": [
+            20.728893808,
+            21.049314343
+          ]
+        },
+        "lattice_kg_velocity": {
+          "percent_error": -5.307364766,
+          "count_only_95_percent_error": [
+            -5.388401154,
+            -5.219823046
+          ]
+        },
+        "native_band": {
+          "percent_error": -0.021177527,
+          "count_only_95_percent_error": [
+            -0.064213189,
+            0.025531266
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1961 @@
+{
+  "candidate": "interval_echo",
+  "scope": "one load, 630 sharp even-sign retained collars",
+  "shots_per_setting": 1048576,
+  "comparisons": 72,
+  "family_type_i_bound": 1e-06,
+  "margin": 0.00423262104,
+  "receiver_cell": 6,
+  "receiving_ports": [
+    74,
+    78,
+    79,
+    83
+  ],
+  "trials": [
+    {
+      "orientation": "ascending",
+      "t": 0.25,
+      "receiver": 74,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "ascending",
+      "t": 0.25,
+      "receiver": 78,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "ascending",
+      "t": 0.25,
+      "receiver": 79,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "ascending",
+      "t": 0.25,
+      "receiver": 83,
+      "gateway": 82,
+      "compatible_coin_links": 1,
+      "joint_overlap_imaginary": -7.562446e-05,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.00201995667,
+              "clicks": 2000,
+              "quiet": 1046576
+            },
+            "plus": {
+              "probability": 0.01216359676,
+              "clicks": 12730,
+              "quiet": 1035846
+            },
+            "minus": {
+              "probability": 0.01201234785,
+              "clicks": 12671,
+              "quiet": 1035905
+            }
+          },
+          "contrast": 0.00015124891,
+          "observed_contrast": 5.626678e-05,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.00201995667,
+              "clicks": 2116,
+              "quiet": 1046460
+            },
+            "plus": {
+              "probability": 0.0120879723,
+              "clicks": 12684,
+              "quiet": 1035892
+            },
+            "minus": {
+              "probability": 0.0120879723,
+              "clicks": 12670,
+              "quiet": 1035906
+            }
+          },
+          "contrast": -0.0,
+          "observed_contrast": 1.335144e-05,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "ascending",
+      "t": 0.5,
+      "receiver": 74,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "ascending",
+      "t": 0.5,
+      "receiver": 78,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "ascending",
+      "t": 0.5,
+      "receiver": 79,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "ascending",
+      "t": 0.5,
+      "receiver": 83,
+      "gateway": 82,
+      "compatible_coin_links": 1,
+      "joint_overlap_imaginary": -6.692253e-05,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 2.3113e-06,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.00116351066,
+              "clicks": 1278,
+              "quiet": 1047298
+            },
+            "minus": {
+              "probability": 0.0010296656,
+              "clicks": 1072,
+              "quiet": 1047504
+            }
+          },
+          "contrast": 0.00013384506,
+          "observed_contrast": 0.00019645691,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 2.3113e-06,
+              "clicks": 1,
+              "quiet": 1048575
+            },
+            "plus": {
+              "probability": 0.00109658813,
+              "clicks": 1163,
+              "quiet": 1047413
+            },
+            "minus": {
+              "probability": 0.00109658813,
+              "clicks": 1129,
+              "quiet": 1047447
+            }
+          },
+          "contrast": -0.0,
+          "observed_contrast": 3.242493e-05,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "ascending",
+      "t": 1.0,
+      "receiver": 74,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "ascending",
+      "t": 1.0,
+      "receiver": 78,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "ascending",
+      "t": 1.0,
+      "receiver": 79,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "ascending",
+      "t": 1.0,
+      "receiver": 83,
+      "gateway": 82,
+      "compatible_coin_links": 1,
+      "joint_overlap_imaginary": 0.00131710474,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.00234598292,
+              "clicks": 2489,
+              "quiet": 1046087
+            },
+            "plus": {
+              "probability": 0.01272615147,
+              "clicks": 13148,
+              "quiet": 1035428
+            },
+            "minus": {
+              "probability": 0.01536036095,
+              "clicks": 15927,
+              "quiet": 1032649
+            }
+          },
+          "contrast": -0.00263420948,
+          "observed_contrast": -0.00265026093,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.00234598292,
+              "clicks": 2511,
+              "quiet": 1046065
+            },
+            "plus": {
+              "probability": 0.01404325621,
+              "clicks": 14896,
+              "quiet": 1033680
+            },
+            "minus": {
+              "probability": 0.01404325621,
+              "clicks": 14617,
+              "quiet": 1033959
+            }
+          },
+          "contrast": -0.0,
+          "observed_contrast": 0.00026607513,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "reversed_cell_labels",
+      "t": 0.25,
+      "receiver": 74,
+      "gateway": 82,
+      "compatible_coin_links": 6,
+      "joint_overlap_imaginary": -0.00831760969,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.00656755774,
+              "clicks": 6926,
+              "quiet": 1041650
+            },
+            "plus": {
+              "probability": 0.04257413407,
+              "clicks": 44550,
+              "quiet": 1004026
+            },
+            "minus": {
+              "probability": 0.0259389147,
+              "clicks": 27244,
+              "quiet": 1021332
+            }
+          },
+          "contrast": 0.01663521937,
+          "observed_contrast": 0.01650428772,
+          "resolved_nonzero": true
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.00656755774,
+              "clicks": 6856,
+              "quiet": 1041720
+            },
+            "plus": {
+              "probability": 0.03425652438,
+              "clicks": 36028,
+              "quiet": 1012548
+            },
+            "minus": {
+              "probability": 0.03425652438,
+              "clicks": 35629,
+              "quiet": 1012947
+            }
+          },
+          "contrast": -0.0,
+          "observed_contrast": 0.00038051605,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "reversed_cell_labels",
+      "t": 0.25,
+      "receiver": 78,
+      "gateway": 82,
+      "compatible_coin_links": 6,
+      "joint_overlap_imaginary": -0.01941877255,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.00916818053,
+              "clicks": 9703,
+              "quiet": 1038873
+            },
+            "plus": {
+              "probability": 0.0549985901,
+              "clicks": 57693,
+              "quiet": 990883
+            },
+            "minus": {
+              "probability": 0.01616104501,
+              "clicks": 16972,
+              "quiet": 1031604
+            }
+          },
+          "contrast": 0.03883754509,
+          "observed_contrast": 0.03883457184,
+          "resolved_nonzero": true
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.00916818053,
+              "clicks": 9602,
+              "quiet": 1038974
+            },
+            "plus": {
+              "probability": 0.03557981756,
+              "clicks": 37159,
+              "quiet": 1011417
+            },
+            "minus": {
+              "probability": 0.03557981756,
+              "clicks": 37412,
+              "quiet": 1011164
+            }
+          },
+          "contrast": -0.0,
+          "observed_contrast": -0.0002412796,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "reversed_cell_labels",
+      "t": 0.25,
+      "receiver": 79,
+      "gateway": 82,
+      "compatible_coin_links": 6,
+      "joint_overlap_imaginary": -0.01919601687,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.00840531143,
+              "clicks": 8770,
+              "quiet": 1039806
+            },
+            "plus": {
+              "probability": 0.05407069093,
+              "clicks": 56601,
+              "quiet": 991975
+            },
+            "minus": {
+              "probability": 0.01567865719,
+              "clicks": 16665,
+              "quiet": 1031911
+            }
+          },
+          "contrast": 0.03839203374,
+          "observed_contrast": 0.0380859375,
+          "resolved_nonzero": true
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.00840531143,
+              "clicks": 8708,
+              "quiet": 1039868
+            },
+            "plus": {
+              "probability": 0.03487467406,
+              "clicks": 36456,
+              "quiet": 1012120
+            },
+            "minus": {
+              "probability": 0.03487467406,
+              "clicks": 36458,
+              "quiet": 1012118
+            }
+          },
+          "contrast": -0.0,
+          "observed_contrast": -1.90735e-06,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "reversed_cell_labels",
+      "t": 0.25,
+      "receiver": 83,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "reversed_cell_labels",
+      "t": 0.5,
+      "receiver": 74,
+      "gateway": 82,
+      "compatible_coin_links": 6,
+      "joint_overlap_imaginary": 0.00063319225,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.01228076563,
+              "clicks": 13027,
+              "quiet": 1035549
+            },
+            "plus": {
+              "probability": 0.02053040916,
+              "clicks": 21471,
+              "quiet": 1027105
+            },
+            "minus": {
+              "probability": 0.02179679365,
+              "clicks": 22917,
+              "quiet": 1025659
+            }
+          },
+          "contrast": -0.00126638449,
+          "observed_contrast": -0.00137901306,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.01228076563,
+              "clicks": 12990,
+              "quiet": 1035586
+            },
+            "plus": {
+              "probability": 0.0211636014,
+              "clicks": 22089,
+              "quiet": 1026487
+            },
+            "minus": {
+              "probability": 0.0211636014,
+              "clicks": 22261,
+              "quiet": 1026315
+            }
+          },
+          "contrast": -0.0,
+          "observed_contrast": -0.00016403198,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "reversed_cell_labels",
+      "t": 0.5,
+      "receiver": 78,
+      "gateway": 82,
+      "compatible_coin_links": 6,
+      "joint_overlap_imaginary": 0.00454482813,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.04038291357,
+              "clicks": 42002,
+              "quiet": 1006574
+            },
+            "plus": {
+              "probability": 0.03318570565,
+              "clicks": 34723,
+              "quiet": 1013853
+            },
+            "minus": {
+              "probability": 0.04227536191,
+              "clicks": 44396,
+              "quiet": 1004180
+            }
+          },
+          "contrast": -0.00908965627,
+          "observed_contrast": -0.00922489166,
+          "resolved_nonzero": true
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.04038291357,
+              "clicks": 42392,
+              "quiet": 1006184
+            },
+            "plus": {
+              "probability": 0.03773053378,
+              "clicks": 39086,
+              "quiet": 1009490
+            },
+            "minus": {
+              "probability": 0.03773053378,
+              "clicks": 39492,
+              "quiet": 1009084
+            }
+          },
+          "contrast": -0.0,
+          "observed_contrast": -0.00038719177,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "reversed_cell_labels",
+      "t": 0.5,
+      "receiver": 79,
+      "gateway": 82,
+      "compatible_coin_links": 6,
+      "joint_overlap_imaginary": 0.0031296194,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.01953644825,
+              "clicks": 20483,
+              "quiet": 1028093
+            },
+            "plus": {
+              "probability": 0.01743867091,
+              "clicks": 18305,
+              "quiet": 1030271
+            },
+            "minus": {
+              "probability": 0.02369790971,
+              "clicks": 24852,
+              "quiet": 1023724
+            }
+          },
+          "contrast": -0.0062592388,
+          "observed_contrast": -0.00624370575,
+          "resolved_nonzero": true
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.01953644825,
+              "clicks": 20567,
+              "quiet": 1028009
+            },
+            "plus": {
+              "probability": 0.02056829031,
+              "clicks": 21590,
+              "quiet": 1026986
+            },
+            "minus": {
+              "probability": 0.02056829031,
+              "clicks": 21641,
+              "quiet": 1026935
+            }
+          },
+          "contrast": -0.0,
+          "observed_contrast": -4.863739e-05,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "reversed_cell_labels",
+      "t": 0.5,
+      "receiver": 83,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "reversed_cell_labels",
+      "t": 1.0,
+      "receiver": 74,
+      "gateway": 82,
+      "compatible_coin_links": 6,
+      "joint_overlap_imaginary": -0.00453295207,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.02403981543,
+              "clicks": 25144,
+              "quiet": 1023432
+            },
+            "plus": {
+              "probability": 0.04079360245,
+              "clicks": 42774,
+              "quiet": 1005802
+            },
+            "minus": {
+              "probability": 0.03172769832,
+              "clicks": 33192,
+              "quiet": 1015384
+            }
+          },
+          "contrast": 0.00906590414,
+          "observed_contrast": 0.0091381073,
+          "resolved_nonzero": true
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.02403981543,
+              "clicks": 24914,
+              "quiet": 1023662
+            },
+            "plus": {
+              "probability": 0.03626065038,
+              "clicks": 37983,
+              "quiet": 1010593
+            },
+            "minus": {
+              "probability": 0.03626065038,
+              "clicks": 38082,
+              "quiet": 1010494
+            }
+          },
+          "contrast": -0.0,
+          "observed_contrast": -9.441376e-05,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "reversed_cell_labels",
+      "t": 1.0,
+      "receiver": 78,
+      "gateway": 82,
+      "compatible_coin_links": 6,
+      "joint_overlap_imaginary": 0.01397456166,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.05489313925,
+              "clicks": 57261,
+              "quiet": 991315
+            },
+            "plus": {
+              "probability": 0.0381996976,
+              "clicks": 39962,
+              "quiet": 1008614
+            },
+            "minus": {
+              "probability": 0.06614882092,
+              "clicks": 69503,
+              "quiet": 979073
+            }
+          },
+          "contrast": -0.02794912332,
+          "observed_contrast": -0.02817249298,
+          "resolved_nonzero": true
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.05489313925,
+              "clicks": 57619,
+              "quiet": 990957
+            },
+            "plus": {
+              "probability": 0.05217425926,
+              "clicks": 54646,
+              "quiet": 993930
+            },
+            "minus": {
+              "probability": 0.05217425926,
+              "clicks": 54908,
+              "quiet": 993668
+            }
+          },
+          "contrast": -0.0,
+          "observed_contrast": -0.00024986267,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "reversed_cell_labels",
+      "t": 1.0,
+      "receiver": 79,
+      "gateway": 82,
+      "compatible_coin_links": 6,
+      "joint_overlap_imaginary": -0.00987392086,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.00614714102,
+              "clicks": 6421,
+              "quiet": 1042155
+            },
+            "plus": {
+              "probability": 0.02878201343,
+              "clicks": 30061,
+              "quiet": 1018515
+            },
+            "minus": {
+              "probability": 0.0090341717,
+              "clicks": 9479,
+              "quiet": 1039097
+            }
+          },
+          "contrast": 0.01974784173,
+          "observed_contrast": 0.01962852478,
+          "resolved_nonzero": true
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.00614714102,
+              "clicks": 6543,
+              "quiet": 1042033
+            },
+            "plus": {
+              "probability": 0.01890809256,
+              "clicks": 19673,
+              "quiet": 1028903
+            },
+            "minus": {
+              "probability": 0.01890809256,
+              "clicks": 19942,
+              "quiet": 1028634
+            }
+          },
+          "contrast": -0.0,
+          "observed_contrast": -0.00025653839,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "reversed_cell_labels",
+      "t": 1.0,
+      "receiver": 83,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "descending",
+      "t": 0.25,
+      "receiver": 74,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "descending",
+      "t": 0.25,
+      "receiver": 78,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "descending",
+      "t": 0.25,
+      "receiver": 79,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "descending",
+      "t": 0.25,
+      "receiver": 83,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "descending",
+      "t": 0.5,
+      "receiver": 74,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "descending",
+      "t": 0.5,
+      "receiver": 78,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "descending",
+      "t": 0.5,
+      "receiver": 79,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "descending",
+      "t": 0.5,
+      "receiver": 83,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "descending",
+      "t": 1.0,
+      "receiver": 74,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "descending",
+      "t": 1.0,
+      "receiver": 78,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "descending",
+      "t": 1.0,
+      "receiver": 79,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    },
+    {
+      "orientation": "descending",
+      "t": 1.0,
+      "receiver": 83,
+      "gateway": 82,
+      "compatible_coin_links": 0,
+      "joint_overlap_imaginary": 0.0,
+      "arms": {
+        "coherent": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        },
+        "dephased": {
+          "settings": {
+            "sham": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "plus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            },
+            "minus": {
+              "probability": 0.0,
+              "clicks": 0,
+              "quiet": 1048576
+            }
+          },
+          "contrast": 0.0,
+          "observed_contrast": 0.0,
+          "resolved_nonzero": false
+        }
+      }
+    }
+  ]
+}

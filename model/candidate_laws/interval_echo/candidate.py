@@ -7,6 +7,19 @@ ROLE = "main"
 SUMMARY = ("A finite patch carries the signed contrast repair, its hand and its interval memory. "
            "A completed handoff filters the fresh closing mark through a bounded first-return walk.")
 DOCUMENTS = {"readme": "README.md", "specification": "SPEC.md"}
+PARTICLE_IDENTIFICATIONS = {
+    "e": {
+        "status": "open",
+        "note": "The freely released bare pair responds to the centre of the tested local SU(3) current. "
+                "Its terminal records also distinguish all five alternative port-label permutations. "
+                "A physical colour-singlet assignment, signed electromagnetic response, spatial spin half "
+                "and an electron–positron identification require further evidence on the same excitation.",
+        "evidence": [
+            "model/candidate_laws/interval_echo/openwave/row_04_identity/README.md",
+            "model/candidate_laws/interval_echo/openwave/row_04_conjugates/README.md",
+        ],
+    },
+}
 LABELLING = contrast.LABELLING
 FEDERATION_LEVELS = contrast.FEDERATION_LEVELS
 KAPPA = contrast.KAPPA

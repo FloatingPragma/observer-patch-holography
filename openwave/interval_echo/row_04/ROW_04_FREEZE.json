@@ -1,0 +1,12 @@
+{
+  "record": "Local preregistration for the additional freely released cell-13 pair",
+  "freeze_reported_utc": "2026-11-21T07:18:34Z",
+  "law_revision": "7a11a741dcc8de00a2ca826b3800909566467d62",
+  "board_in_law_revision": "model/executable_model/carriers/FEDERATION_LEVEL0.npz",
+  "board_sha256": "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b",
+  "design": {"file": "ROW_04_DESIGN.md", "sha256": "5967ad1851d60c0cc17089c5663fdd9b002e7073825b98812296133af4510630"},
+  "acquisition_code": {"file": "row_04_check.py", "sha256": "a988635d9e3ab70f2dfcc5ec637ca20c9075430405d2a64ecf28414421a49177"},
+  "witness": "The coordinating Codex worker independently hashed both files before acquisition, found only the design and runner in the directory, and confirmed both digests before the release was executed.",
+  "history": "The discovery and cell-0 result were known. The cell-13 release, seeds, times, arms and four numerical gates were prospectively fixed in this investigation.",
+  "upstream_task_registration": null
+}

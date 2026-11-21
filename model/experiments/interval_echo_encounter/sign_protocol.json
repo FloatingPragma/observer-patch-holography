@@ -1,0 +1,25 @@
+{
+  "source": "6462c2494a6c4f328f730004362af4962cb89954",
+  "trigger": "The sharp-release comparison including negative contrast was inspected before this protocol.",
+  "carrier_level": 0,
+  "cell": 13,
+  "strengths": [
+    8,
+    0,
+    -8
+  ],
+  "ports": "x,y are the ordered M10.3 launch. Choose least local z adjacent to y and nonadjacent to x, excluding x,y. Choose least local w adjacent to z, excluding x,y,z.",
+  "preparation": "Start at {x,y}. Apply isolated native contacts on yz then zw, each for pi/2. Also retain the dephased mixture of the resulting sharp preparations as a diagnostic control.",
+  "analyzer": "After free exposure apply one isolated pi/2 contact on yz. Resolve the thirty home seams and quiet on fresh preparations.",
+  "exposures": [
+    0,
+    0.0625,
+    0.125
+  ],
+  "hypotheses": [
+    "All three strengths have identical preparation and analyzer on the occupied branches up to phase, verified against the native seam generator.",
+    "The derivative at zero of the nominated xy reading has a nonzero component odd under reversal of contrast. Compute the exact coefficient and check against full-sector free dynamics.",
+    "A single terminal xy probability separates the two signs by at least 0.10 at exposure 1/16 on coherent starts. Compare the same separation after dephasing. Retain all outcomes even if this gate fails."
+  ],
+  "limits": "Controller provides isolation, pulse durations, launch and fresh trials. Exposure is a service setting. No empirical mass, physical age or species label."
+}

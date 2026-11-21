@@ -1,0 +1,28 @@
+{
+  "criterion": 4,
+  "candidate": "Interval Echo",
+  "official_status": "not tested",
+  "requested_credit": "full",
+  "scientific_verdict": "pass",
+  "filing_verdict": "HOLD",
+  "owner_release": "PENDING",
+  "public_platform_base": "26fbb5fdd07049625d6bb7930af2f6bf545fb6fc",
+  "rehearsal_plan": "52a7cfe62adbb9009737b502c65d3c12508aa1c3",
+  "rehearsal_result": "22458e7f91b394628cd92a5db4eb677e8719d7bc",
+  "proposed_source": "4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c",
+  "release_conditions": [
+    "Owner nominates the exact source and authorizes publication",
+    "Contributor signs and pushes the planning commit before repeating the release replay",
+    "Final signed version and public RER source verified before filing"
+  ],
+  "sha256": {
+    "CHECKLIST.md": "e2964a846fa8aee42957e289c7e0de57a43734b97767fe771a5e9284b8cfe3e1",
+    "ROW_04_REVIEW.md": "8c1cf24c2f88dadb618f817b10e9f2df2997e5acdf482d8e9dbee83a56a7e34d",
+    "ROW_04_PLATFORM_AUDIT.md": "719116e3de76f37e6e82e213a38dfdf2a9c45177d2ccfdce6c076c1c26d87259",
+    "ROW_04_PLATFORM.patch": "b6241bf4b1b8b942528869aa24371aee4529966b5eab95e131915e94cbd10e96",
+    "ROW_04_PLATFORM.bundle": "14895bf76b83fa81f79226a78084641c57546dd7b606512d8d9e549bdf81d5b0",
+    "ROW_04_SOURCE.bundle": "1d3ba519dc7e0e2156ec42784dc98f2d8bcdeba211cb76c970e4d9ec4e6cd4ba",
+    "M10_3_PR.md": "be766eeb7897584116cb30561c211e7238f09f2391c11bfdd69f023d21b056f5",
+    "SOURCE_SHA256SUMS": "787f6da6ff90e554826f42391801a7309557f033524531e395b61d94c99e9e0d"
+  }
+}

@@ -1,5 +1,7 @@
 # Interval Echo
 
+The OpenWave evidence archive includes free particle persistence, a test of the same pair's colour response, and matter-wave experiments with blank and written seam memories. The research note gives the simulated patch records, controls and headless replay. [Rows 4 and 30](openwave/README.md) · [Evidence bundle](openwave/interval_echo_evidence.zip)
+
 Interval Echo is the main candidate under test. Its elementary interaction is the κ = 8 contrast-memory seam. Its distinguishing rule is carried by an observer. The patch remembers how many of its own repair opportunities elapsed since the last verified handoff, then uses fresh local repairs to decide whether the closing mark advances its hand. Both patch owners read the two elapsed words on one signed seam at reunion. [Executable specification](SPEC.md) · [Reference interaction](../contrast_memory_spherical_v1/SPEC.md)
 
 ## What changes when the clock carries more memory
