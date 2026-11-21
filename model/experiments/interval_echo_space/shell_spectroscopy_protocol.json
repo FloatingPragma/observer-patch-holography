@@ -1,0 +1,28 @@
+{
+  "source": "0ebb9ba9d6280fec258a7d65e2966c13352dfa8d",
+  "base_protocol": "shell_protocol.json",
+  "loads": [
+    1,
+    2
+  ],
+  "law_members": [
+    "native",
+    "half_rate_contrast_reversed"
+  ],
+  "reference_terms": [
+    0,
+    1
+  ],
+  "level": 0,
+  "modes": [
+    "uniform",
+    "first_positive_cluster"
+  ],
+  "selection": "Keep the entire positive cluster within 1e-9 of the first nonzero kinetic eigenvalue. Project the first port with nonzero projection onto this cluster. Retain full sorted one-position spectrum including multiplicity. Use the same real normalized wave for both load amounts.",
+  "clock_steps": 512,
+  "step_in_hand_angle": "1/128",
+  "shots": 262144,
+  "seed": 126043,
+  "observable": "Mix one sharp fuel port of load q with a vacant home port by a native half swap, prepare the enrolled wave with local pulses, let matter, fuel and patch clocks evolve freely, undo the preparation, mix with relative analyzer phase 0 or pi/2 and read fuel, home and all other ports grouped as missed. In a second reference the parked fuel is exposed to one native degree-reference term. Measure both signed collar hands with each analyzer and retain every joint count. The initial separation, source controls, reversible phase gate and parked fuel are apparatus.",
+  "gates": "Compare rest and kinetic increments separately on the same hand, using measured quadrature differences and bounded phase unwrap. Compare the two squared-frequency shifts at the common nonzero spatial mode with a simultaneous 99% count error band; report disagreement, overlap or unresolved without choosing another mode or reference. Raw absolute rest frequencies are relative to the parked fuel. Audit the two legal source sectors on the 99-state contacts including the ±2 hand, and the charge-resolved terminal effect."
+}
