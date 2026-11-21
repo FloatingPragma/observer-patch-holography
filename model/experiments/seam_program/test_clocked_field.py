@@ -163,6 +163,7 @@ def test_partner_independent_exchange_kernel_threshold():
 
 
 def test_free_leakage_against_full_native_generator():
+    from model.experiments.interval_echo_encounter.conjugation import binary_generator
     car = carrier.cell()
     sec = sectors.PairSector(car)
     for marker in (0,3,11):
@@ -173,6 +174,10 @@ def test_free_leakage_against_full_native_generator():
             expect = np.repeat([x[0] for x in info["squared_singular_values"]],
                                [x[1] for x in info["squared_singular_values"]])
             np.testing.assert_allclose(np.linalg.eigvalsh(block.T@block),np.sort(expect),atol=2e-14)
+        reference = sec.hamiltonian(8)[~on][:,on].toarray()
+        for profile in (0,1,"singleton"):
+            other = binary_generator(sec,8,profile)[~on][:,on].toarray()
+            np.testing.assert_allclose(other,reference,atol=2e-14)
 
 
 def test_native_marker_reader_on_complete_active_carrier():
