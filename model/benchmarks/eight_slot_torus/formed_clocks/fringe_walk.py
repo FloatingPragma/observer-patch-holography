@@ -1,6 +1,8 @@
 """Marked and coherently supplied pairs under the periodic native opening."""
 from __future__ import annotations
 
+from functools import lru_cache
+
 import numpy as np
 
 from .. import formation, law
@@ -27,14 +29,35 @@ def appointment(size, window):
         raise ValueError("unknown appointment")
     returns = (target + denominator) // (2 * denominator)
     # Small cubes include a birth reading before the first return.
-    return 2 * returns
+    return triggered_service(returns)
 
 
+@lru_cache(maxsize=1)
 def optical_reference():
     """Check the native two-cycle once. Larger counts use a wider classical register."""
     returns, powers = optical_counter((2,1,1,2), (0,0,0,0), (1,2))
     require(returns == {1:2, 2:4} and np.allclose(powers, (0,1), atol=2e-13, rtol=0),
             "reference does not trigger on even returns")
+    dark,_ = optical_counter((2,1,1,2), (0,0,0,0), (1,2), tag="displaced")
+    require(not dark,"displaced pulse triggered the station")
+    return tuple(round(x) for x in powers)
+
+
+def triggered_service(booked):
+    """Lift the proved two-cycle with a finite reversible local counter."""
+    require(type(booked) is int and booked>=0,"invalid optical booking")
+    if booked==0:
+        return 0
+    pointer=optical_reference()
+    bits=booked.bit_length()
+    cycles=(booked-1)//sum(pointer)
+    # An addition per pointer hit, modulo 2**bits. Stop at the first booking.
+    hits=cycles*sum(pointer)
+    for offset,hit in enumerate(pointer,1):
+        hits+=hit
+        if hit and hits%(1<<bits)==booked:
+            return cycles*len(pointer)+offset
+    raise ValueError(f"unreachable counter reading {booked}")
 
 
 def angles(shape):

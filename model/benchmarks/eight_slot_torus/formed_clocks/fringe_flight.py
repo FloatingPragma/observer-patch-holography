@@ -68,7 +68,7 @@ def predictions(config):
         walk=w.BrightWalk(k)
         analyzer=np.exp(-2j*np.pi*np.arange(n)/n)
         for t in config["time_ratios"]:
-            ticks=int(n*t)
+            ticks=w.triggered_service(int(n*t/2))
             w.require(ticks==n*t and ticks%2==0,"not a local optical return")
             amplitudes=np.fft.ifft(walk.wave(ticks)[0,0],axis=0)
             mass=(abs(amplitudes)**2).sum(axis=-1)
@@ -103,9 +103,7 @@ def run(record=False):
         for key,n,p in cases:
             shots=n*cfg["shots_per_site"]
             data=archive[key]
-            interval=fringe.read(data,shots,L)
-            lo,hi=fringe.count_box(data/shots,shots,L)
-            w.require(np.all((lo<=p)&(p<=hi)),"finite marked flight disagrees with counts")
+            interval=fringe.check_panel(data,shots,L,p,key)
             rows[key]=None if interval is None else interval[0]
     tests={}
     for n in cfg["sizes"]:

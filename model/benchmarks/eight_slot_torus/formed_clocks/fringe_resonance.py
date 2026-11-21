@@ -57,7 +57,7 @@ def generate(cfg,v):
         for menu in cfg["laws"]:
             walk=w.BrightWalk(directions,mu=family(menu,n))
             for t in cfg["proper_clock_fractions"]:
-                ticks=int(t*n)
+                ticks=w.triggered_service(int(t*n/2))
                 w.require(ticks==t*n and ticks%SPEC==0,"not an optical cycle appointment")
                 wave=walk.wave(ticks)
                 for b in cfg["boosts"]:
@@ -83,9 +83,7 @@ def run(record=False):
         for k,n,p,_,_ in cases:
             shots=n*cfg["shots_per_site"]
             # One fair enrollment and one conditional position read per original start.
-            enrolled=rng.binomial(shots,.5,size=4)
-            hits=rng.binomial(enrolled,np.clip(2*p[:,0],0,1))
-            raw[k]=np.column_stack((hits,enrolled-hits,shots-enrolled)).astype(np.int64)
+            raw[k]=fringe.fair_enrollment(shots,2*p[:,0],rng)
         with ARCHIVE.open("xb") as stream:
             np.savez_compressed(stream,**raw)
     L=np.log(2*12*len(cases)/cfg["alpha"])
@@ -96,10 +94,7 @@ def run(record=False):
         for key,n,p,limit,cross in cases:
             shots=n*cfg["shots_per_site"]
             counts=raw[key]
-            bounds=fringe.read(counts,shots,L)
-            lo,hi=fringe.count_box(counts/shots,shots,L)
-            w.require(np.all((lo<=p)&(p<=hi)) and np.all(counts[p==0]==0),
-                      f"finite prediction outside simultaneous intervals: {key}")
+            bounds=fringe.check_panel(counts,shots,L,p,key)
             prefix=str(n//SPEC)
             peak[prefix]=max(peak.get(prefix,0.),float(abs(cross-limit)))
             if n==max(cfg["periods_per_side"])*SPEC:

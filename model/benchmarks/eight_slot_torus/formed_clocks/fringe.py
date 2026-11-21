@@ -18,7 +18,7 @@ SETTINGS = HERE/"fringe_protocol.json"
 COUNTS = HERE/"fringe_counts.npz"
 SUMMARY = HERE/"fringe_result.json"
 SOURCES = ("fringe_protocol.json","fringe_resonance_protocol.json","fringe_resonance.py",
-           "fringe_walk.py","fringe.py","../law.py","../formation.py",
+           "fringe_walk.py","fringe.py","fringe_reference.py","../law.py","../formation.py",
            "formed_clock_readout.py","clock_comparison.py")
 PHASES = np.array([1,1j,-1,-1j])
 
@@ -79,6 +79,15 @@ def registered_counts(data,shots):
             and np.all(data.sum(axis=1)==shots),"invalid or missing fringe outcomes")
 
 
+def fair_enrollment(shots, conditional_click, rng):
+    p=np.asarray(conditional_click)
+    require(p.shape==(4,) and np.all(np.isfinite(p)) and np.all((0<=p)&(p<=1)),
+            "invalid conditional click probability")
+    enrolled=rng.binomial(shots,.5,size=4)
+    hits=rng.binomial(enrolled,p)
+    return np.column_stack((hits,enrolled-hits,shots-enrolled)).astype(np.int64)
+
+
 def count_box(f,shots,logtails):
     # Invert the two-sided Bernstein bound |f-p| <= sqrt(2pL/S) + 2L/(3S).
     c=2*logtails/shots
@@ -90,6 +99,7 @@ def count_box(f,shots,logtails):
 
 def read(data,shots,logtails):
     registered_counts(data,shots)
+    require(np.isfinite(logtails) and logtails>0,"invalid confidence budget")
     f=data[:,0]/shots
     lo,hi=count_box(f,shots,logtails)
     parts=[]
@@ -98,6 +108,16 @@ def read(data,shots,logtails):
             return None
         parts.append(((lo[i]-hi[j])/(lo[i]+hi[j]),(hi[i]-lo[j])/(hi[i]+lo[j])))
     return np.array(parts)
+
+
+def check_panel(data,shots,logtails,p,key):
+    bounds=read(data,shots,logtails)
+    require(p.shape==(4,3) and np.all(np.isfinite(p)) and np.all((0<=p)&(p<=1))
+            and np.all(abs(p.sum(axis=1)-1)<2e-12),"invalid finite detector forecast")
+    lo,hi=count_box(data/shots,shots,logtails)
+    require(np.all((lo<=p)&(p<=hi)) and np.all(data[p==0]==0),
+            f"failed simultaneous finite-record forecast: {key}")
+    return bounds
 
 
 def run(record=False):
@@ -116,10 +136,7 @@ def run(record=False):
         for k,v,p in cases:
             shots=v*cfg["shots_per_volume"]
             data=raw[k]
-            out=read(data,shots,logtails)
-            lo,hi=count_box(data/shots,shots,logtails)
-            require(np.all((lo<=p)&(p<=hi)) and np.all(data[p==0]==0),
-                    f"failed simultaneous finite-record forecast: {k}")
+            out=check_panel(data,shots,logtails,p,k)
             if k.endswith("vertex_off"):
                 require(out is None,"resolved absent source")
             else:

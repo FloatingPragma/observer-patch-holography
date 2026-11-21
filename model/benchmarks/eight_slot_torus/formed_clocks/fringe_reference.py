@@ -29,7 +29,7 @@ def panels():
     k=2*np.pi/N
     bound=w.BrightWalk(np.array([[0,0,0],[0,0,k]]),mu=resonance.RES)
     for t in TIMES:
-        ticks=int(t*N)
+        ticks=w.triggered_service(int(t*N/2))
         states=[np.linalg.matrix_power(w.law.walk_matrix([0,0,z,0]),ticks)@w.law.EQUAL for z in (0,k)]
         for menu in MENUS:
             pair=states if menu=="free" else bound.wave(ticks)
@@ -46,9 +46,7 @@ def run(record=False):
         rng=np.random.default_rng(SEED)
         raw={}
         for key,p in forecasts:
-            enrolled=rng.binomial(SHOTS,.5,size=4)
-            hits=rng.binomial(enrolled,p)
-            raw[key]=np.column_stack((hits,enrolled-hits,SHOTS-enrolled)).astype(np.int64)
+            raw[key]=fringe.fair_enrollment(SHOTS,p,rng)
         with ARCHIVE.open("xb") as stream:
             np.savez_compressed(stream,**raw)
     L=np.log(2*12*len(forecasts)/ALPHA)
@@ -57,11 +55,9 @@ def run(record=False):
         w.require(sorted(raw.files)==sorted(k for k,_ in forecasts),"incomplete scalar comparison")
         for key,p in forecasts:
             counts=raw[key]
-            interval=fringe.read(counts,SHOTS,L)
-            lo,hi=fringe.count_box(counts/SHOTS,SHOTS,L)
             expected=np.column_stack((p/2,(1-p)/2,np.full(4,.5)))
-            w.require(np.all((lo<=expected)&(expected<=hi)) and interval is not None,
-                      "unresolved or inconsistent scalar comparison")
+            interval=fringe.check_panel(counts,SHOTS,L,expected,key)
+            w.require(interval is not None,"unresolved scalar comparison")
             phase[key]=np.arccos(interval[0,::-1])
     ratios={}
     for t in TIMES:
