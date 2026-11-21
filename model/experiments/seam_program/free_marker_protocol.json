@@ -1,0 +1,20 @@
+{
+  "source": "802dc5934ae1f098066d5590599009506c6ef6ef",
+  "apparatus": "clocked_protocol.json",
+  "prior": "Registered after opening the clocked scalar record. The protected source, clock and all three native phase preparations are reused. No free-marker outcomes were used to choose the gates.",
+  "exposure_per_clock_opportunity": "1/8 in native Hamiltonian units",
+  "members": [
+    "all_data_contacts",
+    "marker_contacts_closed",
+    "hold"
+  ],
+  "thresholds": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "prediction": "For degree d>=3 every unit vector in the one-marker binary pair space has nonzero initial leakage amplitude under free exchange. The squared perpendicular generator has eigenvalues (d-2)/4, d/4 and (d-1)/2, with multiplicities d-1, n-1-d and 1 for these carriers. The prediction concerns the initial generator. A finite reading must include returns. Closing all marker contacts preserves marker occupation exactly; its finite-fuel distribution can retain initial preparation leakage.",
+  "reader": "At each terminal threshold query every partner of the home marker in ascending port order. Route the partner to home on active data seams avoiding the marker, project the home pair, undo the route on continuation. Store each first yes, every source stop, the timeout and all-no including fuel. For each signed preparation and clock reading compare all-no to the held control on the original denominator. Report both signs and whether the free-minus-held excess exceeds twice the finite emitter error plus two count quanta. No difference is required by the finite-time gate.",
+  "independent_checks": "Test the exact leakage block including phases against the native two-load generator on the cell and all three released input graphs without assembling its many-million-dimensional complement, and cross-check a complete routed terminal instrument on a generic active pair state. Affinity to a physical particle requires a separate observation."
+}
