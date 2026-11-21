@@ -55,7 +55,7 @@ The replay reconstructs the state amplitudes and compares all final seam probabi
 
 The M10.3 release prepares two unit loads on seam (156, 157) of cell 13 on the 20-cell sphere. At a supplied exposure the observer reads one of its 30 internal seams or quiet. Keeping the launch and detector fixed gives the following probabilities of a home-seam reading. The κ = −8 arm reverses the sign of the contrast. The last column changes the missing-seam reference at κ = 8. [M10.3 source and trial records](https://github.com/FloatingPragma/observer-patch-holography/tree/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/openwave/interval_echo/row_04) · [Frozen release comparison](confinement_protocol.json)
 
-| Exposure | Native κ = 8 | Exchange alone | Reversed κ = −8 | Unit reference |
+| Exposure | Native κ = 8, r = 0 | Exchange alone | Reversed κ = −8, r = 0 | Centered κ = 8, r = 1 |
 | ---: | ---: | ---: | ---: | ---: |
 | 1 | 0.990983 | 0.450002 | 0.988165 | 0.660699 |
 | 7 | 0.989653 | 0.275769 | 0.989071 | 0.657885 |
