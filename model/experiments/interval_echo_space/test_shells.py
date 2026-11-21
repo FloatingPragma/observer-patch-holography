@@ -5,9 +5,9 @@ from scipy.linalg import expm
 
 from model.candidate_laws.contrast_memory_spherical_v1 import law
 from .shell_source import Board, local_source, prepare
-from .shells import hands, protocol, read_hand
-from .shell_spectroscopy import analyzer, first_line
-from .shell_beats import response, window_read
+from .shells import HERE, draws, hands, protocol, read_hand
+from .shell_spectroscopy import analyzer, extract, first_line, response
+from .shell_beats import window_read
 
 
 @pytest.mark.parametrize("amount",[1,2])
@@ -94,8 +94,73 @@ def test_projector_and_beat_controls():
         reading,band=window_read(np.exp(1j*t*rest),np.exp(1j*t*(rest+inc)),t,128,.015,.0015)
         assert reading["status"]=="resolved"
         assert band[0]<=(rest+inc)**2-rest**2<=band[1]
-    with pytest.raises(ValueError,match="unresolved"):
-        window_read(np.zeros_like(t),np.ones_like(t),t,128,.015,.0015)
+    assert window_read(np.zeros_like(t),np.ones_like(t),t,128,.015,.0015)[1] is None
+
+
+def test_return_counts_before_marginalizing():
+    counts = np.zeros((2,5,3,4),dtype=np.int32)
+    counts[:,:,2,0] = 32  # All misses are a valid, uninformative cohort.
+    hand = np.arange(5,dtype=float)
+    np.testing.assert_array_equal(response(counts,32,5),np.zeros(5))
+    assert extract([counts,counts],hand,.02,32,5)[1] is None
+    damaged = counts.copy()
+    damaged[0,0,1,:2] = [-1,1]  # Identical marginals conceal impossible raw bins.
+    for wrong in (damaged,counts.astype(float),counts[:,:,:,:1],counts[:,:4],counts*0):
+        with pytest.raises(ValueError,match="incomplete"):
+            extract([counts,wrong],hand,.02,32,5)
+    for shots in (True,0,3.5,2**31):
+        with pytest.raises(ValueError,match="shot count"):
+            draws(np.random.default_rng(1),np.ones(1),shots)
+
+
+def test_common_relativistic_shift_and_blind_clock():
+    t = np.arange(513)/128
+    for rest in (40.,160.):
+        arms = np.exp(1j*np.outer([rest,np.hypot(rest,2.)],t))
+        _,band = window_read(*arms,t,128,.01582,.001502)
+        assert band[0]<4.<band[1]
+        assert window_read(*arms,np.zeros_like(t),128,.01582,.001502)[1] is None
+        assert window_read(*arms,None,128,.01582,.001502)[1] is None
+
+
+def test_joint_return_histograms_against_native_contact_spectrum():
+    # Assemble a separate position generator from native matrix elements, with the
+    # energy of the identical vacuum hand subtracted on each individual seam.
+    from model.executable_model import federation
+    plan = protocol("shell_spectroscopy_protocol.json")
+    matching = {tuple(e) for e in protocol("shell_protocol.json")["matching"]}
+    car = federation(plan["level"])
+    h0,h1 = law.local_term_parts()
+    shots = plan["shots"]
+    times = np.arange(plan["clock_steps"]+1)/128
+    cos,sin = np.cos(times),np.sin(times)
+    clock = np.stack([(1+x*cos)*(1+y*sin)/4 for x in (1,-1) for y in (1,-1)],axis=-1)
+    # A joint 99% Hoeffding budget for every individual bin of both acquisitions.
+    bins = 2*len(plan["law_members"])*2*2*2*2*len(times)*3*4
+    tolerance = np.sqrt(np.log(2*bins/.01)/(2*shots))+1e-8
+    with np.load(HERE/"shell_spectroscopy_counts.npz") as endpoint, np.load(HERE/"shell_beat_counts.npz") as beats:
+        for member in plan["law_members"]:
+            b,k = (1.,8.) if member=="native" else (.5,-8.)
+            h = b*h0+k*h1
+            for q in plan["loads"]:
+                matrix = np.diag(k*q*q*(6-car.degree))
+                for i,j in car.seams:
+                    signed = i//12==j//12 and (i%12,j%12) in matching
+                    memory = (1+law.LABELS.index((0,2))) if signed else 0
+                    zero,left,right = [9*memory+law.SRC.index(s) for s in [(0,0),(q,0),(0,q)]]
+                    matrix[np.ix_([i,j],[i,j])] += h[np.ix_([left,right],[left,right])]-h[zero,zero]*np.eye(2)
+                spectrum = np.linalg.eigvalsh(matrix)
+                for reference in plan["reference_terms"]:
+                    for mode,energy in zip(plan["modes"],spectrum[:2],strict=True):
+                        angle = (energy-k*q*q*reference)*times/b
+                        for a,quadrature in enumerate((np.cos(angle),np.sin(angle))):
+                            ports = np.stack([(1+quadrature)/2,(1-quadrature)/2,np.zeros_like(angle)],axis=-1)
+                            predicted = ports[:,:,None]*clock[:,None,:]
+                            for stored in (endpoint,beats):
+                                counts = stored[f"{member}_{reference}_{q}_{mode}"][a]
+                                assert counts.dtype==np.int32 and counts.min()>=0
+                                np.testing.assert_array_equal(counts.sum(axis=(1,2)),shots)
+                                assert np.max(abs(counts/shots-predicted))<tolerance
 
 
 def test_all_low_modes_and_optimal_coherent_depth_reader():

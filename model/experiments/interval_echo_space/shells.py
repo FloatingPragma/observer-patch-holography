@@ -42,17 +42,26 @@ def hands(sign_term, times):
     return (p[:,:,0,None]*p[:,None,:,1]).reshape(-1,4)
 
 
-def read_hand(counts):
+def read_hand(counts, *, allow_unresolved=False):
     check(counts.shape[-1]==4 and np.isfinite(counts).all() and counts.min()>=0
           and np.all(counts.sum(axis=-1)>0),"missing clock outcomes")
     p = counts/counts.sum(axis=-1,keepdims=True)
     x = p[...,0]+p[...,1]-p[...,2]-p[...,3]
     y = p[...,0]-p[...,1]+p[...,2]-p[...,3]
-    check(np.min(np.hypot(x,y))>.5,"unresolved phase hand")
+    if np.min(np.hypot(x,y))<=.5:
+        if allow_unresolved:
+            return None
+        raise ValueError("unresolved phase hand")
     return np.unwrap(np.arctan2(y,x),axis=-1)
 
 
+def check_shots(shots):
+    check(isinstance(shots,(int,np.integer)) and not isinstance(shots,(bool,np.bool_))
+          and 0<shots<=np.iinfo(np.int32).max,"invalid detector shot count")
+
+
 def draws(rng, joint, shots):
+    check_shots(shots)
     check(np.isfinite(joint).all() and joint.min()>=0 and
           abs(joint.sum()-1)<1e-10,"incomplete receiver distribution")
     # Quantize the cumulative probabilities before sampling for reproducibility across BLAS builds.

@@ -6,20 +6,12 @@ import numpy as np
 
 from .shell_source import check
 from .shells import protocol, read_hand, save
-from .shell_spectroscopy import run as acquire, times_interval
-
-
-def response(counts, shots):
-    totals = counts.sum(axis=-1,dtype=np.int64)
-    check(totals.shape[0]==2 and totals.shape[2]==3 and np.all(totals.sum(axis=2)==shots),
-          "incomplete return measurement")
-    quadratures = (totals[:,:,0]-totals[:,:,1])/shots
-    return quadratures[0]+1j*quadratures[1]
+from .shell_spectroscopy import response, run as acquire, times_interval
 
 
 def advance(z, error):
-    check(np.min(abs(z))>.5 and np.max(abs(np.angle(z[1:]*z[:-1].conj())))<np.pi-2*error,
-          "unresolved or aliased single-frequency return")
+    if np.min(abs(z))<=.5 or np.max(abs(np.angle(z[1:]*z[:-1].conj())))>=np.pi-2*error:
+        return None
     return np.unwrap(np.angle(z))
 
 
@@ -30,8 +22,18 @@ def over_duration(interval, duration, eta):
 
 def window_read(rest, line, hand, width, eta, component_error):
     """Return a bounded squared-frequency shift, or an unresolved beat."""
+    check(rest.ndim==1 and line.shape==rest.shape and np.isfinite(rest).all() and np.isfinite(line).all()
+          and (hand is None or (hand.shape==rest.shape and np.isfinite(hand).all()))
+          and isinstance(width,(int,np.integer)) and 0<2*width<=len(rest)
+          and 0<eta<np.pi/2 and np.isfinite(component_error) and component_error>0,
+          "invalid beat measurement")
+    lag = len(rest)-width
+    if hand is None or min(hand[lag]-hand[0],hand[-1]-hand[0])<=2*eta:
+        return {"status":"unresolved hand duration"},None
     r = advance(rest,eta)
     ell = advance(line,eta)
+    if r is None or ell is None:
+        return {"status":"unresolved single-frequency return"},None
     beat = line*rest.conj()
     means = np.array([beat[:width].mean(),beat[-width:].mean()])
     radius = np.sqrt(2)*component_error
@@ -39,7 +41,6 @@ def window_read(rest, line, hand, width, eta, component_error):
         return {"status":"unresolved visibility"},None
     phase_budget = sum(np.arcsin(radius/abs(means)))
     raw = np.angle(means[1]*means[0].conj())
-    lag = len(beat)-width
     coarse = (ell[lag]-ell[0])-(r[lag]-r[0])
     beat_advance = raw+2*np.pi*np.rint((coarse-raw)/(2*np.pi))
     if abs(beat_advance-coarse)+4*eta+phase_budget>=np.pi:
@@ -72,10 +73,10 @@ def run(base, spec, repeat):
             tag = f"{member}_{reference}"
             clocks = sum(data[f"{tag}_{q}_{mode}"].sum(axis=(0,2),dtype=np.int64)
                          for q in spec["loads"] for mode in spec["modes"])
-            hand = read_hand(clocks)
+            hand = read_hand(clocks,allow_unresolved=True)
             readings, bounds = [], []
             for q in spec["loads"]:
-                rest,line = (response(data[f"{tag}_{q}_{mode}"],shots) for mode in spec["modes"])
+                rest,line = (response(data[f"{tag}_{q}_{mode}"],shots,spec["clock_steps"]+1) for mode in spec["modes"])
                 reading, bound = window_read(rest,line,hand,width,eta,eps)
                 readings.append(reading)
                 bounds.append(bound)

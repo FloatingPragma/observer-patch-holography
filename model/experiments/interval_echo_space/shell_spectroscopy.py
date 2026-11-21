@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 
 from .shell_source import Board, check, local_source, prepare
-from .shells import draws, hands, protocol, read_hand, save
+from .shells import check_shots, draws, hands, protocol, read_hand, save
 
 
 def first_line(values, vectors):
@@ -30,17 +30,33 @@ def times_interval(a,b):
     return min(ends),max(ends)
 
 
-def extract(data, hand, eta):
+def response(counts, shots, time_count=None):
+    """Read the two quadratures only after validating every joint detector bin."""
+    check_shots(shots)
+    counts = np.asarray(counts)
+    check(counts.ndim==4 and counts.shape[0]==2 and counts.shape[2:]==(3,4)
+          and counts.shape[1]>=2 and (time_count is None or counts.shape[1]==time_count)
+          and counts.dtype.kind in "iu" and np.all(counts>=0) and np.all(counts<=shots),
+          "incomplete or invalid joint return counts")
+    totals = counts.sum(axis=-1,dtype=np.int64)
+    check(np.all(totals.sum(axis=2)==shots),"incomplete return measurement")
+    quadratures = (totals[:,:,0]-totals[:,:,1])/shots
+    return quadratures[0]+1j*quadratures[1]
+
+
+def extract(data, hand, eta, shots, time_count):
     responses = []
-    for counts in data:
-        total = counts.sum(axis=-1)
-        diff = (total[:,:,0]-total[:,:,1])/total.sum(axis=2)
-        z = diff[0]+1j*diff[1]
-        check(min(abs(z))>1-np.sin(eta)-1e-9,"unresolved quadrature")
+    arms = [response(counts,shots,time_count) for counts in data]
+    check(len(arms)==2,"missing rest or moving mode")
+    for z in arms:
+        if min(abs(z)) <= 1-np.sin(eta)-1e-9:
+            return {"status":"unresolved quadrature"},None
         continuous = np.unwrap(np.angle(z))
         responses.append(continuous[-1]-continuous[0])
     rest, line = responses
     delta = line-rest
+    if hand is None or hand[-1]-hand[0]<=2*eta:
+        return {"status":"unresolved hand duration"},None
     duration = hand[-1]-hand[0]
     # Work in phase advances until the final common positive time conversion.
     first = (delta-4*eta,delta+4*eta)
@@ -63,7 +79,7 @@ def run(spec,base):
     eta = float(np.arcsin(np.sqrt(2)*(delta+1e-8)))
     rng = np.random.default_rng(spec["seed"])
     results = dict(multiplicity=rank,projector_port=selected,phase_error_99=eta,
-        kinetic_spectrum=np.round(abs(values),10).tolist(),members={})
+        kinetic_spectrum=(np.round(values,10)+0.).tolist(),members={})
     records = {}
     for member in spec["law_members"]:
         contrast = -8 if member=="half_rate_contrast_reversed" else 8
@@ -98,16 +114,18 @@ def run(spec,base):
                     records[f"{member}_{reference}_{amount}_{name}"] = rows
                     modes.append(rows)
                 arm_data.append(modes)
-            hand = read_hand(sum(c.sum(axis=(0,2)) for modes in arm_data for c in modes))
-            duration = hand[-1]-hand[0]
-            check(duration>2*eta,"unresolved hand duration")
-            observed, bounds = zip(*(extract(modes,hand,eta) for modes in arm_data))
-            low, high = bounds[1][0]-bounds[0][1],bounds[1][1]-bounds[0][0]
-            interval = times_interval((low,high),((duration+2*eta)**-2,(duration-2*eta)**-2))
+            hand = read_hand(sum(c.sum(axis=(0,2),dtype=np.int64) for modes in arm_data for c in modes),
+                             allow_unresolved=True)
+            duration = None if hand is None else hand[-1]-hand[0]
+            observed, bounds = zip(*(extract(modes,hand,eta,shots,len(theta)) for modes in arm_data))
+            interval = None
+            if all(bound is not None for bound in bounds):
+                low, high = bounds[1][0]-bounds[0][1],bounds[1][1]-bounds[0][0]
+                interval = list(times_interval((low,high),((duration+2*eta)**-2,(duration-2*eta)**-2)))
             truth = np.array([w[1]**2-w[0]**2 for w in exact])
             results["members"][f"{member}_{reference}"] = dict(loads=list(observed),
-                difference=float(truth[1]-truth[0]),measured_difference_interval=list(interval),
-                common_squared_shift="excluded" if interval[0]>0 or interval[1]<0 else "unresolved",
+                difference=float(truth[1]-truth[0]),measured_difference_interval=interval,
+                common_squared_shift="excluded" if interval and (interval[0]>0 or interval[1]<0) else "unresolved",
                 hand_duration=duration)
     return records,results
 
