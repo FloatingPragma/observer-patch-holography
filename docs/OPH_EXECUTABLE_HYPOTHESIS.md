@@ -1,17 +1,19 @@
 # OPH and the executable-model hypothesis
 
-The candidate executable model is
-[A-contrast-memory-spherical-v1](../model/README.md). Its law, the contrast-memory
-law, is a candidate native repair law of the theory: a simple local rule
-by which neighbouring observers settle their disagreements. A second candidate
-law runs on the same carrier, the [scalar channel](../model/candidate_laws/scalar_channel/README.md).
+The main candidate law of the [executable model](../model/README.md) is
+[Interval Echo](../model/candidate_laws/interval_echo/README.md). It runs the contrast-memory law, a simple
+local rule by which neighbouring observers settle their disagreements, and gives each observer patch a clock
+that travels with it: at a reunion the traveller's clock lags the resting one by the factor of special
+relativity. The contrast-memory law alone is the reference candidate, A-contrast-memory-spherical-v1, and the
+[scalar channel](../model/candidate_laws/scalar_channel/README.md) is a further candidate on the same carrier.
 The executable observer is a candidate and may change as the research goes on.
 The hypothesis is
 that the agreed records of its observers reproduce the observable physics of
-our Universe. The [specification](../model/candidate_laws/contrast_memory_spherical_v1/SPEC.md), the
-[binding theorem](../model/candidate_laws/contrast_memory_spherical_v1/PROOF.md) and the
+our Universe. The [specification](../model/candidate_laws/interval_echo/SPEC.md) of Interval Echo, the
+[specification](../model/candidate_laws/contrast_memory_spherical_v1/SPEC.md) and
+[binding theorem](../model/candidate_laws/contrast_memory_spherical_v1/PROOF.md) of its seam interaction and the
 [executable-model paper](../paper/executable_observer_construction.pdf)
-state the law and what its observers read.
+state the laws and what their observers read.
 
 The theory around the model is finished. The model reproduces particle
 stability: bound objects persist in free evolution, read on the observers'

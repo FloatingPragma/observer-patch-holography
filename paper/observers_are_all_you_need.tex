@@ -183,11 +183,14 @@ refinement, the four laws of thermodynamics, the fluctuation relations and
 the Landauer bound form one theorem, and the mean entropy produced by one
 repair step is the relative entropy from its input to its output. The last
 section states the closure equations that the same observers read. The
-candidate executable model A-contrast-memory-spherical-v1 supplies several of these premises: readers
-with complete outcome sets that copy orthogonal labels, so rereads of agreed
-records are certain; two candidate laws, each fixed by its continuous flow up
-to an energy offset; a reading of a pair under the reread bound; and
-observers that count their own events.
+executable model supplies several of these premises. Its main candidate law,
+Interval Echo, uses the seam interaction of the contrast-memory law and lets
+an observer patch carry its own clock, which runs slow by the relativistic
+factor when it travels and returns. Its readers have complete outcome sets
+and copy orthogonal labels, so rereads of agreed records are certain; the
+free flow of each candidate law fixes its generator up to an energy offset;
+a reading of a pair obeys the reread bound; and observers count their own
+events.
 \end{abstract}
 
 \input{tex_fragments/INTERPRETATION_CONVENTIONS.tex}
@@ -216,14 +219,27 @@ physical reading of a modular parameter are conditional implications whose
 premises are displayed where they enter. The two closure equations that
 layer~7 tests are stated in Section~\ref{sec:closure-equations}.
 
-The candidate executable model, A-contrast-memory-spherical-v1~\cite{ophmodel}, places loads $0$, $1$
-or $2$ on the ports of federations of twelve-port icosahedral cells and a
-private memory on every seam. Its candidate native repair law, the
-contrast-memory law, is the exchange of loads across seams plus an agreement
-energy that lowers the energy of a seam whose two ports both hold a load.
-Port observers count their own events and admit a seam record only when both
-ends agree. On its agreed records the model reproduces particle stability, by a theorem that holds for every number of cells. Under a second candidate law on the same carrier, the scalar channel, an object on four seams is kept for every interval and carries a prepared clock that an observer reads in units of its own reference. The repair, memory and closure examples in this paper are
-independent services under the displayed hypotheses. The state of the
+The executable model~\cite{ophmodel} places loads $0$, $1$ or $2$ on the
+ports of federations of twelve-port icosahedral cells and a private memory
+on every seam. One cell is one native observer, its twelve ports are its
+interfaces, and larger observers are finite, possibly overlapping patches of
+cells. The main candidate law, Interval Echo, uses the seam interaction of
+the reference candidate A-contrast-memory-spherical-v1, the contrast-memory
+law, at coupling $\kappa=8$: the exchange of loads across seams plus an
+agreement energy that lowers the energy of a seam whose two ports both hold
+a load. Observers count their own events and admit a seam record only when
+both ends agree. On the agreed records the contrast-memory interaction
+reproduces particle stability, by a theorem that holds for every number of
+cells, and Interval Echo inherits that theorem. Interval Echo adds a clock
+that a finite observer patch carries with it. When a patch travels and
+returns, the ratio of its elapsed count to the count of a patch that stayed
+at home matches the relativistic proper-time forecast computed from the
+observers' own light-pulse timings, within about one part in a thousand.
+Under the second candidate law on the same carrier, the scalar channel, an
+object on four seams is kept for every interval and carries a prepared clock
+that an observer reads in units of its own reference. The repair, memory and
+closure examples in this paper are independent services under the displayed
+hypotheses. The state of the
 simulation is no spacetime, and its carrier is hardware of the computation:
 a test of the model compares distributions of admissible observer records
 with what observers in our world record. Observers who inhabit the
@@ -238,22 +254,28 @@ Its readers have complete outcome sets and copy orthogonal labels, so its
 agreed records form a commutative public algebra in which an immediate
 reread returns the record with probability one
 (Section~\ref{sec:finite-event-algebra} and
-Proposition~\ref{prop:zeno-limit}). The finite Stone converse fixes each of
-its two laws by its flow up to an energy offset, and the flow parameter is
-no observer's clock (Theorem~\ref{thm:finite-stone-converse}). The bound on
+Proposition~\ref{prop:zeno-limit}). The finite Stone converse fixes the
+generator of the free flow of each candidate law up to an energy offset,
+and the flow parameter is no observer's clock
+(Theorem~\ref{thm:finite-stone-converse}). The bound on
 rereads applies to its reading of the presence of a pair
-(Proposition~\ref{prop:zeno-limit}). Its port observers count their own
+(Proposition~\ref{prop:zeno-limit}). Its observers count their own
 events, and two shared records fix the positive affine map between the
 counts of two observers, which a third shared record checks
 (Section~\ref{sec:observer-language}). The settling theorems of the
 consensus paper~\cite{ophconsensus} consume repairs that lower a
 well-founded measure, and the thermodynamic identifications below consume a
 stochastic repair kernel, a clock and energy calibration and a
-refinement-uniform gap family; both laws of the model are unitary and
-conserve their loads and objects, so the model supplies none of these
-premises. The spacetime premises consume readouts that are polynomials in
-the Weyl operators of a free field, a refinement family and regional
-readouts; the model produces none of them.
+refinement-uniform gap family. The shared seam interaction is unitary and
+conserves its loads, and the scalar channel conserves its objects. Under
+Interval Echo two repairs that compete for one doubled load end in one
+common terminal state in either order under a prepared local priority;
+federation-wide confluence of all accepted repairs and the thermodynamic
+premises lie outside what the model supplies. The spacetime premises
+consume readouts that are polynomials in the Weyl operators of a free
+field, a jointly authenticated causal order with count-volume convergence
+on a refinement family, and regional readouts; the model produces none of
+them in that form.
 
 Application to an executable source requires the precise domains of
 these implications. The valuation theorem additionally assumes
@@ -2802,7 +2824,7 @@ enters.
 \item \emph{Particles from Observer Consistency: Defect Classes, Statistics and the Bound Objects of an Executable Observer}~\cite{ophparticles}, which carries the defect classes, their statistics and the bound objects of the executable model.
 \item \emph{Observer Patch Holography and the Dark Sector}~\cite{ophdarkmatter}, which studies modular charge on overlap collars under a physical stress attachment, with conditional recovery bounds, compact-source saturation and deep-galaxy scaling laws.
 \item \emph{A Conditional Identification of the Yang--Mills Gap with a Finite Repair Gap: Dobrushin Repair Floors and a \(\mathbb Z_2\) Test of the Transfer Receipt}~\cite{ophyangmills}, which isolates the controlled compact-gauge repair mechanism and states the continuum certificate needed before the finite repair gap becomes a Clay-facing four-dimensional Yang--Mills gap.
-\item \emph{An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records}~\cite{ophmodel}, which specifies the candidate executable model A-contrast-memory-spherical-v1 with its two candidate native repair laws, the contrast-memory law and the scalar channel, proves the binding theorem of the first, constructs the local emitter, the reader and the agreed seam records, reports particle stability as an observable the model reproduces on those records, gives its bound objects, its port response, its unrecovered collar and the cage of the second law, and lists the finite theorems whose premises its outputs supply.
+\item \emph{An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records}~\cite{ophmodel}, which specifies the executable model with its candidate laws: the main candidate Interval Echo, whose observer patches carry their own clocks, the reference candidate A-contrast-memory-spherical-v1, whose seam interaction Interval Echo uses, and the scalar channel as second candidate. It proves the binding theorem of the contrast-memory seam, constructs the local emitter, the reader and the agreed seam records, reports particle stability as an observable the model reproduces on those records and the moving-clock comparison of Interval Echo, gives the bound objects, the port response, the unrecovered collar and the cage of the scalar channel, and lists the finite theorems whose premises its outputs supply.
 \end{enumerate}
 
 \def\OPHSkipEmbeddedReferences{1}
@@ -3123,7 +3145,7 @@ level-five to level-ten settlement receipts, and the closure-loop archive
 publishes the carrier event logs, recovered specifications and producer-free
 verifier~\cite{ophfpe}. Hardware and prototype evidence supports no claim of this manuscript; the finite receipts, verifier code and configurations behind the stated implementation claims are in the repository.
 
-\noindent\textbf{Code Availability declaration:} The code is in the OPH repository, and the candidate executable model, A-contrast-memory-spherical-v1, with its specification and tests is in its model directory \cite{ophrepo}. The archived large run pins the simulator revision that produced
+\noindent\textbf{Code Availability declaration:} The code is in the OPH repository, and the executable model, with its main candidate law Interval Echo, the reference candidate A-contrast-memory-spherical-v1, the scalar channel and their specifications and tests, is in its model directory \cite{ophrepo}. The archived large run pins the simulator revision that produced
 it and supplies byte-hash and simulator-independent normal-form verification
 for the curated evidence subset.
 

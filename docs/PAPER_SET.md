@@ -1,10 +1,11 @@
 # The OPH paper set
 
-The candidate executable model is [A-contrast-memory-spherical-v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md).
-Its contrast-memory law is a candidate native repair law of the theory, and
-the model reproduces particle stability on its observers' agreed records. A
-second candidate law on the same carrier, the scalar channel, holds an object
-that carries a prepared clock. The executable-model paper lists the finite
+The main candidate law of the executable model is [Interval Echo](../model/candidate_laws/interval_echo/README.md).
+It runs the contrast-memory law of the reference candidate
+[A-contrast-memory-spherical-v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md), which reproduces
+particle stability on its observers' agreed records, and gives each observer patch a travelling clock whose
+reunions follow the proper-time forecast of special relativity. A further candidate law on the same carrier, the
+scalar channel, holds an object that carries a prepared clock. The executable-model paper lists the finite
 theorems whose premises the outputs of the model supply. The
 papers state the theory around it, the law, what its observers read, the
 applicable mathematical theorems and the physical identification conditions.

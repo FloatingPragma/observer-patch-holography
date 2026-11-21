@@ -263,7 +263,7 @@ def run_figure():
     steps = (('prepare', INK, '#f6f8fa', ('blank memories, or', 'the calm reference', 'of the second law')),
              ('write', AMBER, LIGHT_AMBER, ('a local emitter', 'turns its fuel', 'into an object')),
              ('let it run', PURPLE, LIGHT_PURPLE, ('the law acts alone;', 'each observer', 'counts its events')),
-             ('read', ORANGE, '#fff1e5', ('the two observers', 'of a seam copy one', 'answer to pointers')),
+             ('read', ORANGE, '#fff1e5', ('the two ends', 'of a seam copy one', 'answer to pointers')),
              ('agree', GREEN, LIGHT_GREEN, ('a record needs two', 'agreeing copies;', 'every outcome kept')),
              ('record', BLUE, LIGHT_BLUE, ('the agreed record;', 'its count is the', "observer's clock")))
     bw, gap = 196, 34

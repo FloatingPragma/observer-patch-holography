@@ -1,8 +1,10 @@
 # OPH Claim Registry
 
-The candidate executable model is [A-contrast-memory-spherical-v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md).
-Its contrast-memory law is a candidate native repair law of the theory, and
-the [scalar channel](../model/candidate_laws/scalar_channel/README.md) on the same carrier is a second.
+The main candidate law of the executable model is [Interval Echo](../model/candidate_laws/interval_echo/README.md).
+It runs the contrast-memory law of the reference candidate
+[A-contrast-memory-spherical-v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md) and gives each
+observer patch a clock that travels with it; the
+[scalar channel](../model/candidate_laws/scalar_channel/README.md) on the same carrier is a further candidate.
 Claims about the model are owned by the
 [executable-model paper](../paper/executable_observer_construction.tex), and
 `python -m model` recomputes their evidence. Other claims keep their stated

@@ -57,10 +57,11 @@ every other observer's record statistics unchanged. The result passes to
 finer and coarser descriptions, approximate recovery and distributed
 implementations; noisy repair stays near it under a certificate; records of
 who read whose write order the events. Fields, clocks and gravity need
-further premises. In A-contrast-memory-spherical-v1, the candidate executable model of the theory,
-agreed records and local events meet the record and local-operation
-premises; its laws are reversible, so the settling theorems apply to the
-classical repair rule behind its first law.
+further premises. In the executable model of the theory, agreed records and
+local events meet the record and local-operation premises. Under its main
+candidate law, Interval Echo, overlapping observers agree on every shared
+reading, and a prepared local priority settles a fork between two competing
+repairs.
 \end{abstract}
 
 
@@ -75,18 +76,22 @@ The closure hypothesis proposes that observers recover and realize the
 specification of their world; selecting a particular source, state and
 physical interpretation requires additional premises \cite{ophsynthesis}.
 
-The candidate executable model of the programme, A-contrast-memory-spherical-v1~\cite{ophmodel},
-places loads $0$, $1$ or $2$ on the ports of federations of twelve-port
-icosahedral cells and a private memory on every seam. Its first candidate
-native repair law, the contrast-memory law, is the exchange of loads across
-seams plus an agreement energy that lowers the energy of a seam whose two
-ports both hold a load; port observers count their own events and admit a
-seam record only when both ends agree. On its agreed records the model
-reproduces particle stability, by a theorem that holds for every number of
-cells. Under a second candidate law on the same carrier, the scalar channel,
-an object on four seams is kept for every interval and carries a prepared
-clock that an observer reads in units of its own reference. Both laws are
-candidates, and their couplings are supplied. The state of that simulation
+The executable model of the programme~\cite{ophmodel} places loads $0$,
+$1$ or $2$ on the ports of federations of twelve-port icosahedral cells and
+a private memory on every seam. One cell is one native observer and its
+twelve ports are its interfaces; larger observers are finite, possibly
+overlapping patches of cells. The reference candidate law,
+A-contrast-memory-spherical-v1 or the contrast-memory law, is the exchange
+of loads across seams plus an agreement energy that lowers the energy of a
+seam whose two ports both hold a load; a seam record is admitted only when
+the copies at both ends agree. On its agreed records the model reproduces
+particle stability, by a theorem that holds for every number of cells. The
+main candidate law, Interval Echo, uses this seam interaction at
+$\kappa=8$ and lets a finite observer patch carry its own clock. Under the
+second candidate law on the same carrier, the scalar channel, an object on
+four seams is kept for every interval and carries a prepared clock that an
+observer reads in units of its own reference. The laws are candidates, and
+their couplings are supplied. The state of that simulation
 is no spacetime, and its carrier is hardware of the computation. A test of
 the model compares distributions of admissible observer records with what
 observers in our world record. Observers who inhabit the computation can
@@ -95,22 +100,40 @@ dimensions of space and one of time, by the proposition on smooth effective
 field descriptions of the flagship paper and the reconstruction of the
 spacetime paper, under their stated premises~\cite{ophsynthesis,ophEinstein};
 those results consume readouts and limits that the model does not produce in
-the required form. Three results of this paper apply to the model as it
-stands~\cite{ophmodel}. Its agreed seam records are orthogonal projectors
+the required form. Three results of this paper apply to the
+model~\cite{ophmodel}. Its agreed seam records are orthogonal projectors
 with complete outcome sets, so Theorem~\ref{thm:crdt} gives them Born
 weights, L\"uders conditioning and certain rereads. A seam event or a seam
 reading is a complete operation on the registers of one seam, so by
 Proposition~\ref{prop:bipartite-marginal-invariance} it leaves the record
-law of every observer on other registers unchanged. Each of the two laws is
-a continuous one-parameter unitary flow on finite registers, so the
-Hamiltonian rigidity of Section~\ref{sec:finite-observable-nets} fixes it by
-its flow up to an energy offset. Applying this paper's quotient theorem
-requires a specified mismatch, protected boundary, strict descent and
-complete consistent-state presentation. Both laws of the model are unitary
-and conserve their loads and objects, so the settling and normal-form
-theorems apply to the classical seam rule, whose write the contrast-memory
-law performs with the coin in superposition, follows with a phase and then
-reverses; they make no statement about the laws themselves.
+law of every observer on other registers unchanged. The free evolution of
+the contrast-memory seam, which Interval Echo uses, and that of the scalar
+channel are continuous one-parameter unitary flows on finite registers, so
+the Hamiltonian rigidity of Section~\ref{sec:finite-observable-nets} fixes
+each by its flow up to an energy offset. Applying this paper's quotient
+theorem requires a specified mismatch, protected boundary, strict descent
+and complete consistent-state presentation. The free evolutions are unitary
+and conserve their loads and objects, so for them the settling and
+normal-form theorems apply to the classical seam rule, whose write the
+contrast-memory law performs with the coin in superposition, follows with a
+phase and then reverses; they make no statement about the free evolutions
+themselves.
+
+Overlapping observers of Interval Echo agree on what they
+share~\cite{ophmodel}: on the federation of $320$ cells, $320$ single-cell
+observers and $960$ overlapping three-cell observers read signed repair
+records and track conserved mobile doubles through $2{,}399$ transfers, and
+every shared checkpoint reading agrees. In a repair experiment of Interval
+Echo on one cell, an attempt applies the echo and accepts the write when a
+sharp reading finds both ends of the seam holding one load, and each
+accepted write lowers the sum of the squared loads. Two such repairs
+competing for one doubled load leave distinguishable records, so without
+arbitration one fork has two distinct terminal states, an outcome that the
+local-diamond premise of Theorem~\ref{thm:quotient-repair-normal-form}
+excludes. A prepared local priority, read without being moved, makes both
+request orders end in one common terminal state in all six combinations of
+sharp preparation and priority. No confluence of all accepted repairs on
+the federation is proved.
 
 The construction uses Newman's confluence lemma \cite{newman42}.
 Termination differs from a continuing legitimate regime in
@@ -1374,8 +1397,9 @@ not an excitation energy above its own ground state. Localization,
 reference subtraction, transport and a common physical energy and clock
 map are additional requirements.
 
-The contrasts of A-contrast-memory-spherical-v1, the differences of the two loads of a
-seam~\cite{ophmodel}, are exact port gradients and have zero cycle
+The contrasts of the contrast-memory seam, the differences of the two loads
+of a seam that the reference candidate and Interval Echo both
+write~\cite{ophmodel}, are exact port gradients and have zero cycle
 holonomy, so the obstruction leaves the model no residual mismatch. The seam
 graph has a cycle space, but the filled icosahedral face
 complex has vanishing first homology: face-curl-free offsets have zero
@@ -2821,11 +2845,14 @@ the subalgebra is a finite direct sum of full matrix blocks; and a
 pointwise-continuous automorphism group fixes every block and acts by one
 Hamiltonian per block, with block fixing derived and the block swap
 realized on the square two-block algebra. The parameter is a real number,
-and no physical clock or source-selected Hamiltonian is claimed. Both
-candidate laws of A-contrast-memory-spherical-v1 lie inside the reversibility
-hypothesis~\cite{ophmodel}: each is a continuous one-parameter unitary flow
-on finite registers, so each is fixed by its flow up to an energy offset, and
-its parameter is no observer's clock. On each seam the local term of the
+and no physical clock or source-selected Hamiltonian is claimed. The free
+evolutions of the executable model lie inside the reversibility
+hypothesis~\cite{ophmodel}: the contrast-memory seam, which the reference
+candidate and the main candidate law Interval Echo share, and the scalar
+channel each give a continuous one-parameter unitary flow on finite
+registers, so each is fixed by its flow up to an energy offset, and its
+parameter is no observer's clock; the clock of Interval Echo is a register
+that an observer patch carries. On each seam the local term of the
 contrast-memory law is a self-adjoint generator conjugated by a Hermitian
 unitary contrast write, acting on the two loads and the private seam memory.
 

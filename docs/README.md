@@ -104,8 +104,10 @@ native repair law: it runs on the fixed federation and fulfils the premises of
 the finite theorems together. [CANDIDATE.md](../model/candidate_laws/CANDIDATE.md)
 lists the candidates with their status, and `python -m model evaluate` scores
 each of them against the requirements. The main candidate is
-[A-contrast-memory-spherical-v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md),
-with its [specification](../model/candidate_laws/contrast_memory_spherical_v1/SPEC.md)
+[Interval Echo](../model/candidate_laws/interval_echo/README.md), with its
+[specification](../model/candidate_laws/interval_echo/SPEC.md); its seam interaction is the reference candidate
+[A-contrast-memory-spherical-v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md), with its
+[specification](../model/candidate_laws/contrast_memory_spherical_v1/SPEC.md)
 and [binding theorem](../model/candidate_laws/contrast_memory_spherical_v1/PROOF.md);
 the [executable-model paper](../paper/executable_observer_construction.pdf)
 gives the full account, and the [observation ledger](registers/OBSERVATION_LEDGER_V3.md)

@@ -34,10 +34,11 @@ and Bianchi identities turn a prescribed null balance into the Einstein
 equation up to a cosmological constant; the response implication requires
 common modular flow, matter stress, area normalization and fixed-volume
 entropy stationarity. The executable model of the theory supplies the
-carrier with its rank-three band and observers whose count clocks are
-compared through shared readings. A test
-compares the records of its observers with ours, and the state of the
-simulation is no spacetime.
+carrier with its rank-three band, and under its main candidate law,
+Interval Echo, observers carry their own clocks: a clock that travels and
+returns runs slow by the relativistic factor, as the observers measure with
+their own light pulses and records. A test compares the records of its
+observers with ours, and the state of the simulation is no spacetime.
 \end{abstract}
 
 \input{tex_fragments/INTERPRETATION_CONVENTIONS.tex}
@@ -49,13 +50,25 @@ This paper sits at layers 4 and 6 of the tower. Its hypothesis is that the
 clocks, causal order and spatial geometry an observer reads are effective
 descriptions of the records that observers agree on, and that Einstein
 dynamics is the coarse-scale response of those descriptions to their own
-matter. The candidate executable model of the programme, A-contrast-memory-spherical-v1~\cite{ophmodel},
-places loads $0$, $1$ or $2$ on the ports of federations of twelve-port
-icosahedral cells and a private memory on every seam. Its first candidate native
-repair law, the contrast-memory law, is the exchange of loads across seams
-plus an agreement energy that lowers the energy of a seam whose two ports
-both hold a load. Port observers count their own events and admit a seam
-record only when both ends agree. On its agreed records the model reproduces particle stability, by a theorem that holds for every number of cells. Under a second candidate law on the same carrier, the scalar channel, an object on four seams is kept for every interval and carries a prepared clock that an observer reads in units of its own reference.
+matter. The executable model of the programme~\cite{ophmodel} places loads
+$0$, $1$ or $2$ on the ports of federations of twelve-port icosahedral cells
+and a private memory on every seam. One cell is one native observer, its
+twelve ports are its interfaces, and larger observers are finite, possibly
+overlapping patches of cells. The main candidate law, Interval Echo, uses
+the seam interaction of the reference candidate
+A-contrast-memory-spherical-v1, the contrast-memory law, at coupling
+$\kappa=8$: the exchange of loads across seams plus an agreement energy that
+lowers the energy of a seam whose two ports both hold a load. Observers
+count their own events and admit a seam record only when both ends agree. On
+the agreed records the contrast-memory interaction reproduces particle
+stability, by a theorem that holds for every number of cells, and Interval
+Echo inherits that theorem. Interval Echo adds a clock that a finite
+observer patch carries with it, and a clock that travels and returns runs
+slow by the relativistic factor that the observers forecast from their own
+light-pulse timings (Appendix~\ref{app:source-causal-order}). Under the
+second candidate law on the same carrier, the scalar channel, an object on
+four seams is kept for every interval and carries a prepared clock that an
+observer reads in units of its own reference.
 
 The state of that simulation is no spacetime, and its carrier is hardware of
 the computation. A test of the model compares distributions of admissible
@@ -70,15 +83,19 @@ the spatial carrier, and the causal and count limits of
 Appendix~\ref{app:source-causal-order} supply order, volume and proper-time
 ratios. The model supplies part of these premises with its own
 records~\cite{ophmodel}. Its cell is the twelve-port carrier whose Gram
-matrix has rank three, and one load of its law moves with half the port
-Laplacian, whose slowest nontrivial band is that rank-three space. Its port
-observers count their own events, and two shared records fix the relation
-between the counts of two observers. The premises that it does not supply in
-the form these theorems consume are readouts that are polynomials in the Weyl
+matrix has rank three, and one load under its seam interaction moves with
+half the port Laplacian, whose slowest nontrivial band is that rank-three
+space. Its observers count their own events, and two shared records fix the
+relation between the counts of two observers. Under Interval Echo the
+observers' own light-pulse speeds and reunion counts reproduce the
+proper-time forecast for a travelling clock within about one part in a
+thousand on three journeys. The premises that it does not supply in the form
+these theorems consume are readouts that are polynomials in the Weyl
 operators of a free field on the radial cylinder, for the smooth effective
-field descriptions; an authenticated order of events with its placement and a
-refinement family, for the causal and count limits; and regional entropy,
-area and stress readouts, for the Einstein theorems. The finite constructions
+field descriptions; a jointly authenticated order of events with its
+placement and count-volume convergence on a refinement family, for the
+causal and count limits; and regional entropy, area and stress readouts, for
+the Einstein theorems. The finite constructions
 below are separately declared services with their own hypotheses.
 
 The paper proves finite and analytic theorems under displayed premises. The
@@ -875,6 +892,43 @@ The theorems of this appendix concern supplied source populations, read laws
 and model clocks. They prove the causal, count and clock limits under those
 premises; an executable process must produce the population and law before
 the limits apply to it.
+
+\paragraph{Travelling clocks of the executable model.}
+The main candidate law of the executable model, Interval Echo~\cite{ophmodel},
+uses the contrast-memory seam interaction at coupling $\kappa=8$ and gives a
+finite observer patch a clock that it carries: a five-position hand, an
+elapsed count and the number of its own repair opportunities since its last
+verified handoff. A handoff closes an interval, and a bounded first-return
+walk on local fair draws decides whether the closing mark advances the hand;
+the clock reads no speed and no target table. The observers measure the
+motion themselves: a home patch times a reciprocal light pulse and obtains
+the one-way light time $d$, a pulse triggered by the arrival of the
+traveller at the far end gives the outward duration $T_1$, and the rest of
+the trip is the return duration $T_2$. At reunion both owners read the
+traveller's and the home counts on one common seam, and their ratio is
+compared with the proper-time forecast
+\[
+ \frac{\sqrt{T_1^2-d^2}+\sqrt{T_2^2-d^2}}{T_1+T_2}.
+\]
+On three journeys with outward and return leg speeds $(1/2,1/6)$,
+$(1/6,1/2)$ and $(1/4,1/4)$ of the signal speed, each with $524{,}288$
+paired journeys, the residuals
+are ${-0.00105\pm0.00068}$, ${+0.00019\pm0.00052}$ and ${+0.00087\pm0.00064}$ (one
+standard error). The dilation is $3.2$ to $4.4$ percent, so the travelling
+clock runs slow by the relativistic factor, resolved at dozens of standard
+errors and within about one part in a thousand of the forecast. Embeddings
+of $1{,}280$ and $5{,}120$ cells give the same material handoff sequence. The
+closing filter is calibrated on the reunion ratio of one supplied reciprocal
+relay journey; the guide, custody transfers, gate selection, relative
+cadence and read windows are supplied services, and the hand size, the
+register widths and the walk budget are designed. Clock capacity behaves as
+it does for a physical clock: on handoffs of eight services the three-bit
+clock overflows, and a four-bit clock, which costs one more cell at each
+checkpoint, extends the working range from seven to fifteen services and
+restores the forecast, ${0.99005\pm0.00193}$ against $0.99216$. The causal and
+count limits of this appendix and premise (G1) further require a jointly
+authenticated causal order of the candidate's events whose counts converge
+to volume.
 
 \input{tex_fragments/SOURCE_NET_CAUSAL_LIMIT.tex}
 \input{tex_fragments/SOURCE_POPULATION_QUADRATURE.tex}
