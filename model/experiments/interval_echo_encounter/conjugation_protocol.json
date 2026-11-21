@@ -1,0 +1,41 @@
+{
+  "source": "6462c2494a6c4f328f730004362af4962cb89954",
+  "background": 1,
+  "defects": [
+    1,
+    -1
+  ],
+  "levels": [
+    0,
+    1,
+    2
+  ],
+  "native": {
+    "kappa": 8,
+    "reference": 0
+  },
+  "controls": [
+    {
+      "kappa": 0,
+      "reference": 0
+    },
+    {
+      "kappa": 8,
+      "reference": 1
+    }
+  ],
+  "cell": 13,
+  "ports": "Least degree-six home port a, least degree-five home neighbor b, least home neighbor c of b distinct from a and b.",
+  "sequence": "Starting at a single defect on a, apply isolated native half contacts ab then bc, free exposure, and a final half contact ab. Read the defect address among all twelve home ports or quiet. A fresh preparation supplies every exposure.",
+  "exposures": [
+    0,
+    0.0625,
+    0.125
+  ],
+  "predictions": [
+    "Compare full reduced generators inferred from native qutrit matrix elements with the exact complement formula for every board and both defect signs.",
+    "At a mixed-degree seam the two native xy-read slopes differ by kappa. A supplied unit reference at every missing seam restores occupation complement for the full free law. Exchange alone also gives equal records.",
+    "At exposure 1/16 the native nominated-port probabilities differ by more than 0.10 on the 20-cell board; report all other fixed levels and exposures including any failure."
+  ],
+  "scope": "Test of the sitewise occupation-complement particle/antiparticle dictionary. The uniform medium, controller, local occupation read and prepared reference are supplied. The unit-reference law is a changed comparison, with no inherited physical row. The paired local interference design and analytic predictions were known before these runs. No empirical constants."
+}
