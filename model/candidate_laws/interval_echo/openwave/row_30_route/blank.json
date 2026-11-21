@@ -1,0 +1,62 @@
+{
+  "candidate": "interval_echo",
+  "kappa": 8.0,
+  "exact_local_identities": {
+    "h_kappa_J_equals_J_seam_term": true,
+    "blank_code_reducing": true,
+    "reference_pair_D2_reduces_to_contrast_square": true,
+    "reference_stays_at_zero": true
+  },
+  "native_dimension": 99,
+  "checked_blank_columns": 9,
+  "reference_zero_input_loads": [
+    0,
+    1,
+    2
+  ],
+  "square_law_residual_quadratic_coefficient": 0.25,
+  "boards": [
+    {
+      "cells": 20,
+      "ports": 240,
+      "seams": 630,
+      "one_unit_offset": 48.0,
+      "all_nonzero_modes_with_multiplicity": 239,
+      "positive_levels_variance_numerator": 305280,
+      "exact_graph_traces": [
+        1260,
+        7920
+      ],
+      "max_native_matrix_residual": 7.1e-15,
+      "max_registered_matrix_residual": 0.0
+    },
+    {
+      "cells": 80,
+      "ports": 960,
+      "seams": 2520,
+      "one_unit_offset": 48.0,
+      "all_nonzero_modes_with_multiplicity": 959,
+      "positive_levels_variance_numerator": 4979520,
+      "exact_graph_traces": [
+        5040,
+        31680
+      ],
+      "max_native_matrix_residual": 7.1e-15,
+      "max_registered_matrix_residual": 0.0
+    },
+    {
+      "cells": 320,
+      "ports": 3840,
+      "seams": 10080,
+      "one_unit_offset": 48.0,
+      "all_nonzero_modes_with_multiplicity": 3839,
+      "positive_levels_variance_numerator": 80052480,
+      "exact_graph_traces": [
+        20160,
+        126720
+      ],
+      "max_native_matrix_residual": 7.1e-15,
+      "max_registered_matrix_residual": 0.0
+    }
+  ]
+}

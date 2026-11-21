@@ -1,0 +1,26 @@
+{
+  "parities": [
+    {
+      "sign_parity": 1,
+      "forward_coin_0_from_1": -4.0,
+      "reverse_coin_1_from_0": -4.0,
+      "one_coin_algebra_dimension": 4,
+      "two_coin_algebra_dimension": 16
+    },
+    {
+      "sign_parity": -1,
+      "forward_coin_0_from_1": -4.5,
+      "reverse_coin_1_from_0": -4.5,
+      "one_coin_algebra_dimension": 4,
+      "two_coin_algebra_dimension": 16
+    }
+  ],
+  "one_retained_edge_endpoint_dimension": 8,
+  "one_retained_edge_numerical_perturbation_rank": 8,
+  "uniform_edges": [
+    630,
+    2520,
+    10080
+  ],
+  "lower_bound_common_internal_dimension": "2^number_of_marked_contrast_one_seams"
+}

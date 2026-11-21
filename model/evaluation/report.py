@@ -44,6 +44,16 @@ def table(*columns):
     return [table_row(*columns), table_row(*['---' for _ in columns])]
 
 
+def criterion_grade(case):
+    grade = STATUS[case['status']]
+    measurement = case.get('demonstrated_measurement')
+    if measurement is None:
+        return grade
+    source = local_link(measurement['source'])
+    linked = f"**Demonstrated** · [{measurement['label']}]({source})"
+    return linked if case['status'] == 'demonstrated' else f"{linked}. Full criterion · {grade}"
+
+
 def short(result):
     return SHORT.get(result['candidate'], result['title'])
 
@@ -108,7 +118,7 @@ def scorecard(results):
                 lines.extend(['', *table(*headings)])
             key = row['id']
             regime = ' (' + row['regime'] + ')' if row.get('regime') else ''
-            cells = [f"[{key}](EVIDENCE.md#{key.lower()}) {row['title']}{regime}", *(STATUS[r['status']] for r in cases)]
+            cells = [f"[{key}](EVIDENCE.md#{key.lower()}) {row['title']}{regime}", *(criterion_grade(r) for r in cases)]
             if group['id'] == 'observer_benchmarks':
                 cells.append(row['context'])
             lines.append(table_row(*cells))
@@ -139,7 +149,10 @@ def evidence_ledger(results):
                               else f"**All listed candidates · Open.** {row['note']} {detail}".rstrip(), ''])
             else:
                 for r, c in zip(results, cases, strict=True):
-                    lines.append(f"- **{short(r)} · {STATUS[c['status']]}.** {c['note']} {links(c['evidence'])}".rstrip())
+                    heading = f"**{short(r)} · {STATUS[c['status']]}.**"
+                    if 'demonstrated_measurement' in c:
+                        heading = f"**{short(r)}** · {criterion_grade(c)}."
+                    lines.append(f"- {heading} {c['note']} {links(c['evidence'])}".rstrip())
                 lines.append('')
     lines.extend(['## Agreement across theorems and experiments', ''])
     for key, definition in results[0]['joint'].items():

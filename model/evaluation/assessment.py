@@ -107,6 +107,11 @@ def for_candidate(candidate, register_ids, known_laws, shared=None):
             if (record["status"] not in STATUS or not record["note"].strip()
                     or (record["status"] != "open" and not record["evidence"])):
                 raise ValueError(f"{key}: unsupported verdict for {candidate.NAME}")
+            if "demonstrated_measurement" in record:
+                measurement = record["demonstrated_measurement"]
+                if (not isinstance(measurement, dict) or not isinstance(measurement.get("label"), str)
+                        or not measurement["label"].strip() or measurement.get("source") not in record["evidence"]):
+                    raise ValueError(f"{key}: demonstrated measurement needs a label and a listed evidence source")
             for source in [*definition["sources"], *record["evidence"]]:
                 check_source(source)
             rows.append({**{k: v for k, v in definition.items() if k != "results"}, **record})

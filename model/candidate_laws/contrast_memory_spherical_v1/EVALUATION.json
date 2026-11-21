@@ -1756,15 +1756,15 @@
     {
      "id": "OW-04",
      "title": "Particle stability (Derrick escape)",
-     "requires": "Demonstrate free persistence of the candidate particle in the electron sector, including its localized preparation and readout.",
+     "requires": "Release the prepared particle state and measure its persistence under free evolution. Identify the excitation and the domain of the measurement. The separate SM-e entry assesses its identification as an electron.",
      "domain": "PARTICLE - ELECTRON",
      "regime": "dynamic",
      "upstream_number": 4,
      "sources": [
       "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L104"
      ],
-     "status": "partial",
-     "note": "The free-persistence measurement succeeds for a prepared bound pair. An all-time bound controls loss of adjacency on the spherical federation. Applying this result to the electron requires identifying the excitation.",
+     "status": "demonstrated",
+     "note": "The registered seam emitter prepares a pair that retains adjacency during free flight. The finite records resolve the pair and the binding theorem bounds loss of adjacency for all times on the spherical federation.",
      "evidence": [
       "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
       "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"

@@ -1,0 +1,627 @@
+{
+  "candidate": "interval_echo",
+  "kappa": 8.0,
+  "shot_seed": 731590,
+  "boards": [
+    {
+      "cells": 20,
+      "external_contacts": 30,
+      "audit": {
+        "independent_four_port_modes_per_cell": {
+          "2": 20
+        },
+        "all_dark_modes_per_cell": {
+          "2": 20
+        },
+        "best_all_time_home_floor_single_sharp_port": 0.333333333,
+        "certified_cells": 20,
+        "energy": 51.0
+      },
+      "stationary": {
+        "home_cell": 0,
+        "gateways": [
+          1,
+          3,
+          10
+        ],
+        "plus_pair": [
+          4,
+          7
+        ],
+        "minus_pair": [
+          5,
+          6
+        ],
+        "circuit": {
+          "initial_sharp_port": 4,
+          "routed_pi_contacts": 6,
+          "partial_contacts": 3,
+          "addressed_degree_phases": 4
+        },
+        "preparations": [
+          "signed",
+          "all_positive",
+          "single_port",
+          "ten_percent_gateway"
+        ],
+        "all_time_home_lower_bounds": [
+          1.0,
+          0.333333333,
+          0.333333333,
+          0.9
+        ],
+        "mean_dark_weight_over_sharp_ports": 0.166666667,
+        "readings": [
+          {
+            "t": 0,
+            "home": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "signed_port_probabilities": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "t": 1,
+            "home": [
+              1.0,
+              0.976223393,
+              0.989425827,
+              0.985111552
+            ],
+            "signed_port_probabilities": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "t": 4,
+            "home": [
+              1.0,
+              0.938169757,
+              0.8687292,
+              0.944559649
+            ],
+            "signed_port_probabilities": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "t": 16,
+            "home": [
+              1.0,
+              0.536065101,
+              0.625018401,
+              0.921740937
+            ],
+            "signed_port_probabilities": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "t": 64,
+            "home": [
+              1.0,
+              0.503051517,
+              0.6427733,
+              0.921112029
+            ],
+            "signed_port_probabilities": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "beating": {
+        "eligible": false
+      }
+    },
+    {
+      "cells": 80,
+      "external_contacts": 120,
+      "audit": {
+        "independent_four_port_modes_per_cell": {
+          "2": 56,
+          "3": 24
+        },
+        "all_dark_modes_per_cell": {
+          "2": 56,
+          "5": 24
+        },
+        "best_all_time_home_floor_single_sharp_port": 0.625,
+        "certified_cells": 80,
+        "energy": 51.0
+      },
+      "stationary": {
+        "home_cell": 0,
+        "gateways": [
+          1,
+          3,
+          10
+        ],
+        "plus_pair": [
+          4,
+          7
+        ],
+        "minus_pair": [
+          5,
+          6
+        ],
+        "circuit": {
+          "initial_sharp_port": 4,
+          "routed_pi_contacts": 6,
+          "partial_contacts": 3,
+          "addressed_degree_phases": 4
+        },
+        "preparations": [
+          "signed",
+          "all_positive",
+          "single_port",
+          "ten_percent_gateway"
+        ],
+        "all_time_home_lower_bounds": [
+          1.0,
+          0.333333333,
+          0.333333333,
+          0.9
+        ],
+        "mean_dark_weight_over_sharp_ports": 0.166666667,
+        "readings": [
+          {
+            "t": 0,
+            "home": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "signed_port_probabilities": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "t": 1,
+            "home": [
+              1.0,
+              0.976228062,
+              0.989426026,
+              0.985098318
+            ],
+            "signed_port_probabilities": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "t": 4,
+            "home": [
+              1.0,
+              0.938006115,
+              0.868193839,
+              0.944624587
+            ],
+            "signed_port_probabilities": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "t": 16,
+            "home": [
+              1.0,
+              0.537222189,
+              0.655625488,
+              0.928176678
+            ],
+            "signed_port_probabilities": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "t": 64,
+            "home": [
+              1.0,
+              0.479071118,
+              0.612280147,
+              0.920271055
+            ],
+            "signed_port_probabilities": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "beating": {
+        "eligible": true,
+        "home_cell": 5,
+        "gateways": [
+          0,
+          1,
+          2
+        ],
+        "read_port": 4,
+        "incident_reader_neighbours": [
+          2,
+          3
+        ],
+        "circuit": {
+          "initial_sharp_port": 4,
+          "routed_pi_contacts": 10,
+          "partial_contacts": 7,
+          "addressed_degree_phases": 8
+        },
+        "energies": [
+          49.381966011,
+          51.618033989
+        ],
+        "period": 2.809925892,
+        "shots_per_setting": 8192,
+        "readings": [
+          {
+            "beat_periods": 0,
+            "active_probability": 0.236803399,
+            "mixed_probability": 0.125,
+            "active_counts": 1865,
+            "mixed_counts": 1095
+          },
+          {
+            "beat_periods": 0.5,
+            "active_probability": 0.013196601,
+            "mixed_probability": 0.125,
+            "active_counts": 116,
+            "mixed_counts": 1019
+          },
+          {
+            "beat_periods": 1,
+            "active_probability": 0.236803399,
+            "mixed_probability": 0.125,
+            "active_counts": 1964,
+            "mixed_counts": 1053
+          },
+          {
+            "beat_periods": 16.5,
+            "active_probability": 0.013196601,
+            "mixed_probability": 0.125,
+            "active_counts": 121,
+            "mixed_counts": 1018
+          }
+        ]
+      }
+    },
+    {
+      "cells": 320,
+      "external_contacts": 480,
+      "audit": {
+        "independent_four_port_modes_per_cell": {
+          "2": 216,
+          "3": 104
+        },
+        "all_dark_modes_per_cell": {
+          "2": 216,
+          "5": 104
+        },
+        "best_all_time_home_floor_single_sharp_port": 0.625,
+        "certified_cells": 320,
+        "energy": 51.0
+      },
+      "stationary": {
+        "home_cell": 0,
+        "gateways": [
+          1,
+          3,
+          10
+        ],
+        "plus_pair": [
+          4,
+          7
+        ],
+        "minus_pair": [
+          5,
+          6
+        ],
+        "circuit": {
+          "initial_sharp_port": 4,
+          "routed_pi_contacts": 6,
+          "partial_contacts": 3,
+          "addressed_degree_phases": 4
+        },
+        "preparations": [
+          "signed",
+          "all_positive",
+          "single_port",
+          "ten_percent_gateway"
+        ],
+        "all_time_home_lower_bounds": [
+          1.0,
+          0.333333333,
+          0.333333333,
+          0.9
+        ],
+        "mean_dark_weight_over_sharp_ports": 0.166666667,
+        "readings": [
+          {
+            "t": 0,
+            "home": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "signed_port_probabilities": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "t": 1,
+            "home": [
+              1.0,
+              0.976228062,
+              0.989426026,
+              0.985098318
+            ],
+            "signed_port_probabilities": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "t": 4,
+            "home": [
+              1.0,
+              0.938006374,
+              0.868193839,
+              0.944624585
+            ],
+            "signed_port_probabilities": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "t": 16,
+            "home": [
+              1.0,
+              0.537328799,
+              0.656989803,
+              0.928238937
+            ],
+            "signed_port_probabilities": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "t": 64,
+            "home": [
+              1.0,
+              0.444852761,
+              0.587912787,
+              0.927280366
+            ],
+            "signed_port_probabilities": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "beating": {
+        "eligible": true,
+        "home_cell": 8,
+        "gateways": [
+          0,
+          2,
+          3
+        ],
+        "read_port": 4,
+        "incident_reader_neighbours": [
+          2,
+          3
+        ],
+        "circuit": {
+          "initial_sharp_port": 4,
+          "routed_pi_contacts": 10,
+          "partial_contacts": 7,
+          "addressed_degree_phases": 8
+        },
+        "energies": [
+          49.381966011,
+          51.618033989
+        ],
+        "period": 2.809925892,
+        "shots_per_setting": 8192,
+        "readings": [
+          {
+            "beat_periods": 0,
+            "active_probability": 0.236803399,
+            "mixed_probability": 0.125,
+            "active_counts": 1950,
+            "mixed_counts": 1080
+          },
+          {
+            "beat_periods": 0.5,
+            "active_probability": 0.013196601,
+            "mixed_probability": 0.125,
+            "active_counts": 108,
+            "mixed_counts": 1020
+          },
+          {
+            "beat_periods": 1,
+            "active_probability": 0.236803399,
+            "mixed_probability": 0.125,
+            "active_counts": 2003,
+            "mixed_counts": 1004
+          },
+          {
+            "beat_periods": 16.5,
+            "active_probability": 0.013196601,
+            "mixed_probability": 0.125,
+            "active_counts": 115,
+            "mixed_counts": 993
+          }
+        ]
+      }
+    }
+  ]
+}

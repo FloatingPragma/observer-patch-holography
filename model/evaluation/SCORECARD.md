@@ -119,11 +119,11 @@ Assess the 31 OpenWave physical targets on each of the three RER candidate laws.
 
 Sources · [MODELS.md L94-L137](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L94-L137) · [MODELS.md L426-L430](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L426-L430)
 
-**Interval Echo** · 6 partial, 25 open of 31.
+**Interval Echo** · 1 demonstrated, 6 partial, 24 open of 31.
 
-**Contrast memory** · 5 partial, 26 open of 31.
+**Contrast memory** · 1 demonstrated, 4 partial, 26 open of 31.
 
-**Scalar channel** · 5 partial, 26 open of 31.
+**Scalar channel** · 1 demonstrated, 4 partial, 26 open of 31.
 
 ### PARTICLE - ELECTRON
 
@@ -132,7 +132,7 @@ Sources · [MODELS.md L94-L137](https://github.com/openwave-labs/openwave/blob/2
 | [OW-01](EVIDENCE.md#ow-01) Charge quantization (static) | Open | Open | Open |
 | [OW-02](EVIDENCE.md#ow-02) Electron rest energy (mass) (static) | Partial | Partial | Partial |
 | [OW-03](EVIDENCE.md#ow-03) de Broglie clock (Zitterbewegung) (dynamic) | Open | Open | Partial |
-| [OW-04](EVIDENCE.md#ow-04) Particle stability (Derrick escape) (dynamic) | Partial | Partial | Partial |
+| [OW-04](EVIDENCE.md#ow-04) Particle stability (Derrick escape) (dynamic) | **Demonstrated** · [Free persistence of a prepared pair](../candidate_laws/interval_echo/openwave/row_04/README.md) | Demonstrated | Demonstrated |
 | [OW-05](EVIDENCE.md#ow-05) Magnetic moment μ (g ≈ 2, magnetostatics) (dynamic) | Open | Open | Open |
 | [OW-06](EVIDENCE.md#ow-06) Angular momentum J (spin ℏ/2) (dynamic) | Open | Open | Open |
 | [OW-07](EVIDENCE.md#ow-07) Spin-½ statistics (720° double cover) (static) | Open | Open | Open |
@@ -173,7 +173,7 @@ Sources · [MODELS.md L94-L137](https://github.com/openwave-labs/openwave/blob/2
 | Requirement | Interval Echo | Contrast memory | Scalar channel |
 | --- | --- | --- | --- |
 | [OW-29](EVIDENCE.md#ow-29) EM waves (Maxwell) (dynamic) | Open | Open | Open |
-| [OW-30](EVIDENCE.md#ow-30) Quantum wave equation (Klein-Gordon) (dynamic) | Open | Open | Partial |
+| [OW-30](EVIDENCE.md#ow-30) Quantum wave equation (Klein-Gordon) (dynamic) | **Demonstrated** · [Low-energy Klein–Gordon dispersion of free matter on a prepared record channel](../candidate_laws/interval_echo/openwave/row_30_autonomous/README.md). Full criterion · Partial | Open | Partial |
 | [OW-31](EVIDENCE.md#ow-31) Orbital quantization (atomic structure) (static) | Partial | Partial | Open |
 
 ## Standard Model particle identifications

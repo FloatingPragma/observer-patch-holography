@@ -333,6 +333,9 @@ def main(argv=None):
                 print(row['id'], row['title'], row['requires'], sep='\n')
             note = row['note'] or 'No candidate-specific discharge is registered.'
             print(f"{r['title']} · {report.GRADES[row['status']]} · {note}")
+            if 'demonstrated_measurement' in row:
+                measurement = row['demonstrated_measurement']
+                print(f"  Demonstrated · {measurement['label']} ({measurement['source']})")
             for source in row['evidence']:
                 if row.get('role') or args.criterion.casefold().startswith('joint-'):
                     source = (INDEX.parent / r['candidate'] / source).resolve().relative_to(ROOT)

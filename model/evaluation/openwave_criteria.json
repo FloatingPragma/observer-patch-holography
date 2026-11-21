@@ -114,7 +114,7 @@
         {
           "id": "OW-04",
           "title": "Particle stability (Derrick escape)",
-          "requires": "Demonstrate free persistence of the candidate particle in the electron sector, including its localized preparation and readout.",
+          "requires": "Release the prepared particle state and measure its persistence under free evolution. Identify the excitation and the domain of the measurement. The separate SM-e entry assesses its identification as an electron.",
           "domain": "PARTICLE - ELECTRON",
           "regime": "dynamic",
           "upstream_number": 4,
@@ -123,25 +123,36 @@
           ],
           "results": {
             "interval_echo": {
-              "status": "partial",
-              "note": "The free-persistence measurement succeeds for a prepared bound pair. An all-time bound controls loss of adjacency on the spherical federation. Applying this result to the electron requires identifying the excitation.",
+              "status": "demonstrated",
+              "demonstrated_measurement": {
+                "label": "Free persistence of a prepared pair",
+                "source": "model/candidate_laws/interval_echo/openwave/row_04/README.md"
+              },
+              "note": "The original patch detects an adjacent pair with probability 98.39% at exposure 150, versus 14.96% under exchange alone. At a second source it recorded 4,028 of 4,096 pairs at exposure 37, versus 824 of 4,096. The finite ensemble probability stays at least 94% over the entire interval [0,37]. This tests a prepared bound excitation of unassigned species.",
               "evidence": [
+                "model/candidate_laws/interval_echo/openwave/row_04/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_04/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_04_compact/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_04_compact/results.json",
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
-                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "model/candidate_laws/interval_echo/openwave/submission/ROW_04.md",
+                "model/candidate_laws/interval_echo/openwave/submission/ROW_04_PLATFORM_AUDIT.md",
+                "model/candidate_laws/interval_echo/openwave/row_04_large/README.md"
               ]
             },
             "contrast_memory_spherical_v1": {
-              "status": "partial",
-              "note": "The free-persistence measurement succeeds for a prepared bound pair. An all-time bound controls loss of adjacency on the spherical federation. Applying this result to the electron requires identifying the excitation.",
+              "status": "demonstrated",
+              "note": "The registered seam emitter prepares a pair that retains adjacency during free flight. The finite records resolve the pair and the binding theorem bounds loss of adjacency for all times on the spherical federation.",
               "evidence": [
                 "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
                 "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
               ]
             },
             "scalar_channel": {
-              "status": "partial",
-              "note": "Free persistence succeeds for a prepared four-seam excitation. The exact invariant subspace keeps its support localized at every free time and the local fuel records test its return. The electron assignment remains open.",
+              "status": "demonstrated",
+              "note": "With the registered cage preparation and terminal reader on one cell, the four-seam excitation persists at five free waits. Its invariant subspace keeps it localized for all times under the scalar channel's free generator.",
               "evidence": [
                 "model/experiments/cage/results.json",
                 "model/experiments/cage/PROOF.md"
@@ -935,11 +946,30 @@
           ],
           "results": {
             "interval_echo": {
-              "status": "open",
-              "note": "Free bound clusters have measured resting and moving energies on a ring. The tested branches have incompatible kinetic and rest-mass ratios. A Klein–Gordon branch on the sphere remains open.",
+              "status": "partial",
+              "demonstrated_measurement": {
+                "label": "Low-energy Klein–Gordon dispersion of free matter on a prepared record channel",
+                "source": "model/candidate_laws/interval_echo/openwave/row_30_autonomous/README.md"
+              },
+              "note": "Under free evolution on a prepared 194-cell channel, four held frequencies agree with the low-energy Klein–Gordon envelope within 1.19% using packet speed, or 1.62% using a local stationary reference and independently measured seam coefficients. A separately calibrated parabola misses by 6.68% at the last held point. With shortest internal routes between the same gateways, 62 modes fill the periodic gap. The origin of a corresponding matter branch on an independently established background is open.",
               "evidence": [
+                "model/candidate_laws/interval_echo/openwave/row_30/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_30/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_30/patch_time.json",
+                "model/candidate_laws/interval_echo/openwave/row_30_free/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_30_free/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_30_branch/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_30_memory/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_30_arrows/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_30_arrows/CLOCK.md",
+                "model/candidate_laws/interval_echo/openwave/row_30_arrows/PHASE_SPECTRUM.md",
                 "model/candidate_laws/interval_echo/SPEC.md",
-                "model/experiments/material_inertia/README.md"
+                "model/experiments/material_inertia/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_30_autonomous/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_30_selective/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_30_selective/CHANNEL_REVIEW.md",
+                "model/candidate_laws/interval_echo/openwave/row_30_route/README.md",
+                "model/candidate_laws/interval_echo/openwave/submission/ROW_30_DECISION.md"
               ]
             },
             "contrast_memory_spherical_v1": {

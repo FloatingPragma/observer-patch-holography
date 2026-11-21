@@ -1,0 +1,503 @@
+From 52a7cfe62adbb9009737b502c65d3c12508aa1c3 Mon Sep 17 00:00:00 2001
+From: OPH Research <research@users.noreply.github.com>
+Date: Sat, 21 Nov 2026 14:34:50 +0700
+Subject: [PATCH 1/2] Register M10.3 reproduction gates with commit-pinned
+ external inputs
+
+---
+ .../m10_oph/research/m10_roadmap.md           |   1 +
+ .../m10_oph/research/m10_theory_canonical.md  |  15 ++
+ .../research/scripts/m10_3/check_inputs.py    |  18 +++
+ .../research/scripts/m10_3/row_04_check.py    | 136 ++++++++++++++++++
+ .../research/scripts/m10_3/row_04_window.py   |  84 +++++++++++
+ .../research/tasks/m10_3_task_details.md      |  25 ++++
+ 6 files changed, 279 insertions(+)
+ create mode 100644 openwave/xperiments/m10_oph/research/scripts/m10_3/check_inputs.py
+ create mode 100644 openwave/xperiments/m10_oph/research/scripts/m10_3/row_04_check.py
+ create mode 100644 openwave/xperiments/m10_oph/research/scripts/m10_3/row_04_window.py
+ create mode 100644 openwave/xperiments/m10_oph/research/tasks/m10_3_task_details.md
+
+diff --git a/openwave/xperiments/m10_oph/research/m10_roadmap.md b/openwave/xperiments/m10_oph/research/m10_roadmap.md
+index afa728e4385506e14767bb9cbb140fc045879951..0484969bc2de4f07d46edf2261692e595e5c6aab 100644
+--- a/openwave/xperiments/m10_oph/research/m10_roadmap.md
++++ b/openwave/xperiments/m10_oph/research/m10_roadmap.md
+@@ -9,6 +9,7 @@
+ 
+ | TaskID | Title | Description | Gated By |
+ | --- | --- | --- | --- |
++| 🔶 [M10.3](tasks/m10_3_task_details.md) | Free particle persistence | Review the Interval Echo pin and free-pair reproduction for row 4. | Maintainer assessment |
+ 
+ ## BACKLOG
+ 
+diff --git a/openwave/xperiments/m10_oph/research/m10_theory_canonical.md b/openwave/xperiments/m10_oph/research/m10_theory_canonical.md
+index 4905c1886e1a716c90ec1652f3021f125c58d985..299e5f55274db140a27c628a8cdf1acf766baec7 100644
+--- a/openwave/xperiments/m10_oph/research/m10_theory_canonical.md
++++ b/openwave/xperiments/m10_oph/research/m10_theory_canonical.md
+@@ -12,6 +12,7 @@
+ | Item | Value |
+ | --- | --- |
+ | Author repository | [FloatingPragma/observer-patch-holography](https://github.com/FloatingPragma/observer-patch-holography) |
++| Proposed pin for M10.3 | [Interval Echo at `4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c`](https://github.com/FloatingPragma/observer-patch-holography/tree/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/openwave/interval_echo), proposed as the single candidate for the M10 column. Row 4 is the sole result requested. The [registered task](tasks/m10_3_task_details.md) gives the source change, observer and controls. |
+ | Pinned candidate for M10.2 | [`c330c6e7f23506b5f87c339cd73906928c1a7cd9`](https://github.com/FloatingPragma/observer-patch-holography/tree/c330c6e7f23506b5f87c339cd73906928c1a7cd9/code/openwave_static_signed_source), `A-static-signed-source-v1`; its exact executable scope is § 1.1 |
+ | Admission pin (ancestry) | [`3c4e1e23fc32dd241e8c2bfba75de123fe5c6984`](https://github.com/FloatingPragma/observer-patch-holography/tree/3c4e1e23fc32dd241e8c2bfba75de123fe5c6984) (2026-11-13), the commit the application's links use in its short form `3c4e1e23fc32`; the full hash was resolved from the repository at scaffold time |
+ | For admission-snapshot numbers | The executable model at the pinned commit: [`model/CONSTRUCTION.md`](https://github.com/FloatingPragma/observer-patch-holography/blob/3c4e1e23fc32dd241e8c2bfba75de123fe5c6984/model/CONSTRUCTION.md), [`model/PREMISES.md`](https://github.com/FloatingPragma/observer-patch-holography/blob/3c4e1e23fc32dd241e8c2bfba75de123fe5c6984/model/PREMISES.md), and the `PROOF.md` of the package that produces the number (the author's statement) |
+@@ -56,6 +57,20 @@ They do not assign those separate sources' results to M10.2. Section 8 remains
+ the scoring rule for the selected candidate. The source admissibility and
+ physical dictionary of M10.2 are submitted for maintainer review.
+ 
++## 1.2 Proposed Interval Echo candidate for M10.3
++
++| Element | Declaration or consequence |
++| --- | --- |
++| Carrier and addresses | Complete 12-port echosahedra with local and intercell seams on the spherical federation. The launch observer owns one 30-seam cell. |
++| Update and memory | Each seam balances endpoint loads and writes their old contrast and a coin in an eleven-state memory. The free generator uses the coherent echo and zero-load degree references. |
++| Schedule and preparation | The free-pair assay starts from blank collars and two distinct units on an internal gateway-touching seam. Uniform exposure enables every contact until one terminal read per preparation. |
++| Observable | The terminal patch copies the outgoing pair flag and undoes the echo. Its record is one of 30 home seams or quiet. Report the probability over all releases. |
++| Comparison and units | Coupling 8 and dimensionless exposures are supplied. A control sets the contrast coupling to zero on the same carrier. The assay uses no calibration to a measured particle mass. |
++| Source ancestry | M10.2 used a signed-coordinate compact source and static transfer observable. Its static replay and its unresolved charge, rest-energy and spin identifications remain attached to that pin. M10.3 tests free binding on a separate law. |
++| Scope | The decision requested concerns free persistence of this prepared excitation on its tested time window. Electromagnetic charge, spin, particle identity and a universal lifetime require other measurements. |
++
++[Registered terms](tasks/m10_3_task_details.md)
++
+ ## 2. Arena
+ 
+ A holographic screen of twelve-port icosahedral carriers. Each carrier holds integer
+diff --git a/openwave/xperiments/m10_oph/research/scripts/m10_3/check_inputs.py b/openwave/xperiments/m10_oph/research/scripts/m10_3/check_inputs.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..25bd5f304739dcf1e962dad9445fe26aefd7e159
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/scripts/m10_3/check_inputs.py
+@@ -0,0 +1,18 @@
++"""Check the three immutable author inputs used by the offline M10.3 replay."""
++
++import hashlib
++from pathlib import Path
++import sys
++
++INPUTS = {
++    "FEDERATION_LEVEL0.npz": "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b",
++    "row_04_receipt.json": "7f6e458fd0b7cf9b9e50fb15a5c4b77f944a2457a9c53cdcca88efdf4d4c3bdd",
++    "row_04_window.json": "f0b594675b4468c35d28954ae754ecf88ab41ad3887449c5fc07bc21566d4754"
++}
++
++if __name__ == "__main__":
++    root = Path(sys.argv[1])
++    for name, digest in INPUTS.items():
++        if hashlib.sha256((root / name).read_bytes()).hexdigest() != digest:
++            raise SystemExit(f"Author input changed: {name}")
++    print("All three author inputs match.")
+diff --git a/openwave/xperiments/m10_oph/research/scripts/m10_3/row_04_check.py b/openwave/xperiments/m10_oph/research/scripts/m10_3/row_04_check.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..af870fdd3cd25c32f1cce90a9cb61ed8de8022dd
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/scripts/m10_3/row_04_check.py
+@@ -0,0 +1,136 @@
++"""Independent sparse-exponential check of the freely released Interval Echo pair."""
++
++import argparse
++import base64
++import hashlib
++import itertools
++import json
++from pathlib import Path
++import zlib
++
++import numpy as np
++from scipy import sparse
++from scipy.sparse.linalg import expm_multiply
++
++
++HERE = Path(__file__).resolve().parent
++BOARD_HASH = "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b"
++EXPOSURES = (1, 7, 37)
++SHOTS = 4096
++MARGIN = np.sqrt(np.log(8 / 0.01) / (2 * SHOTS))
++
++
++def screen(path):
++    if hashlib.sha256(path.read_bytes()).hexdigest() != BOARD_HASH:
++        raise ValueError("Unexpected 20-cell carrier file")
++    with np.load(path, allow_pickle=False) as board:
++        edges = np.sort(board["edges"], axis=1)
++    edges = edges[np.lexsort((edges[:, 1], edges[:, 0]))]
++    n = int(edges.max()) + 1
++    if (n, len(edges)) != (240, 630):
++        raise ValueError("The registered fixture has 240 ports and 630 contacts")
++    ports = np.arange(n)
++    adjacency = sparse.coo_matrix((np.ones(len(edges)), edges.T), shape=(n, n)).tocsr()
++    adjacency += adjacency.T
++    adjacency.sort_indices()
++    pairs = np.array(list(itertools.combinations(ports, 2)))
++    pair_index = np.full((n, n), -1)
++    pair_index[pairs[:, 0], pairs[:, 1]] = np.arange(len(pairs))
++    pair_index[pairs[:, 1], pairs[:, 0]] = np.arange(len(pairs))
++    rows, columns = [], []
++    for port in ports:
++        neighbors = adjacency.indices[adjacency.indptr[port]:adjacency.indptr[port + 1]]
++        for neighbor in neighbors:
++            other = ports[(ports != port) & (ports != neighbor)]
++            rows.extend(pair_index[port, other])
++            columns.extend(pair_index[neighbor, other])
++    moves = sparse.csr_matrix((np.ones(len(rows)), (rows, columns)), shape=(len(pairs),) * 2)
++    exchange = (sparse.diags(np.asarray(moves.sum(axis=1)).ravel()) - moves) / 2
++    adjacent = np.zeros(len(pairs))
++    adjacent[pair_index[edges[:, 0], edges[:, 1]]] = 1
++    return edges, pair_index, exchange, adjacent
++
++
++def local_law(state, patch):
++    probabilities = np.abs(state)**2
++    if abs(probabilities.sum() - 1.0) > 1e-8:
++        raise ArithmeticError("Free evolution lost norm")
++    quiet = np.ones(len(state), dtype=bool)
++    quiet[patch] = False
++    return np.r_[probabilities[patch], probabilities[quiet].sum()]
++
++
++def evolve(h, source, times):
++    state = np.zeros(h.shape[0], complex)
++    state[source] = 1
++    previous = 0
++    for exposure in times:
++        state = expm_multiply(-1j * (exposure - previous) * h, state)
++        yield state
++        previous = exposure
++
++
++def run(board, kappa):
++    edges, index, exchange, adjacent = screen(board)
++    old = edges[(edges[:, 0] < 12) & (edges[:, 1] < 12)]
++    home = edges[(edges[:, 0] // 12 == 13) & (edges[:, 1] // 12 == 13)]
++    gateways = np.unique(edges[edges[:, 0] // 12 != edges[:, 1] // 12])
++    launch = home[np.isin(home, gateways).any(axis=1)][0]
++    patch = index[home[:, 0], home[:, 1]]
++    original = index[old[:, 0], old[:, 1]]
++    # Decoder challenge uses genuine states in the same two-load sector.
++    for state_index, outcome in [(patch[0], 0), (patch[1], 1), (index[0, 13], len(home))]:
++        state = np.zeros(len(adjacent))
++        state[state_index] = 1
++        if local_law(state, patch)[outcome] != 1:
++            raise ArithmeticError("Patch decoder missed a planted terminal outcome")
++    report = {"home_cell": 13, "source": launch.tolist(), "addresses": home.tolist() + ["quiet"],
++              "shots_per_setting": SHOTS, "native_kappa": kappa, "arms": []}
++    for arm, strength in enumerate([kappa, 0.0]):
++        h = exchange - 2 * strength * sparse.diags(adjacent)
++        original_state = next(evolve(h, index[0, 1], [150]))
++        original_probability = float(local_law(original_state, original)[:-1].sum())
++        arm_result = {"strength": strength, "original_probability": round(original_probability, 9),
++                      "readings": []}
++        for j, state in enumerate(evolve(h, index[tuple(launch)], EXPOSURES)):
++            p = local_law(state, patch)
++            rng = np.random.default_rng([917421, arm, j])
++            draws = rng.choice(len(p), size=SHOTS, p=p / p.sum()).astype(np.uint8)
++            counts = np.bincount(draws, minlength=len(p))
++            arm_result["readings"].append({"exposure": EXPOSURES[j], "counts": counts.tolist(),
++                "probabilities": np.round(p, 9).tolist(),
++                "trials_zlib_base64": base64.b64encode(zlib.compress(draws.tobytes(), 9)).decode()})
++        report["arms"].append(arm_result)
++    return report
++
++
++def scientific_checks(report):
++    native, control = report["arms"]
++    hits = lambda setting: sum(setting["counts"][:-1]) / SHOTS
++    if min(hits(s) for s in native["readings"]) - MARGIN <= 0.8:
++        raise SystemExit("REJECT: freely released pair missed its local persistence gate")
++    if hits(control["readings"][-1]) + MARGIN >= 0.65:
++        raise SystemExit("REJECT: unchanged detector did not resolve loss under exchange alone")
++    if max(abs(a["original_probability"] - p)
++           for a, p in zip(report["arms"], [0.983881, 0.149559])) > 0.000002:
++        raise SystemExit("Original headline could not be reproduced within published rounding")
++
++
++if __name__ == "__main__":
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--board", type=Path, required=True)
++    parser.add_argument("--receipt", type=Path, default=HERE / "row_04_receipt.json")
++    parser.add_argument("--record", action="store_true", help="create a new receipt exclusively")
++    parser.add_argument("--remove-contrast", action="store_true", help="exercise the real rejection path")
++    args = parser.parse_args()
++    result = run(args.board, 0.0 if args.remove_contrast else 8.0)
++    if args.record:
++        with args.receipt.open("x") as f:
++            json.dump(result, f, ensure_ascii=False, indent=2)
++            f.write("\n")
++    scientific_checks(result)
++    if result != json.loads(args.receipt.read_text()):
++        raise SystemExit("Calculated records differ from the archived receipt")
++    for arm in result["arms"]:
++        print(arm["strength"], arm["original_probability"],
++              [sum(setting["counts"][:-1]) for setting in arm["readings"]])
+diff --git a/openwave/xperiments/m10_oph/research/scripts/m10_3/row_04_window.py b/openwave/xperiments/m10_oph/research/scripts/m10_3/row_04_window.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..fb44f1e7765771a17cf5622434154dfa815970f9
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/scripts/m10_3/row_04_window.py
+@@ -0,0 +1,84 @@
++"""Lower-bound the home-pair Born probability throughout the free interval."""
++
++import argparse
++import json
++import math
++from pathlib import Path
++
++import numpy as np
++from scipy import sparse
++
++from row_04_check import screen
++
++
++def continuous_window(board):
++    edges, indices, exchange, adjacent = screen(board)
++    internal = edges[(edges[:, 0] // 12 == 13) & (edges[:, 1] // 12 == 13)]
++    gateways = np.unique(edges[edges[:, 0] // 12 != edges[:, 1] // 12])
++    source = internal[np.isin(internal, gateways).any(axis=1)][0]
++    patch = indices[internal[:, 0], internal[:, 1]]
++    source_index = indices[tuple(source)]
++
++    # Adding 2 times the identity only changes the overall phase.
++    h = (exchange + sparse.diags(2 - 16 * adjacent)).tocsr()
++    max_abs_row_sum = float(np.asarray(abs(h).sum(axis=1)).max())
++    max_terms = int(np.diff(h.indptr).max())
++    if max_abs_row_sum > 14 or max_terms > 13:
++        raise ArithmeticError("The operator exceeds the numerical enclosure")
++    column = h.getcol(source_index)
++    variance = float(column.multiply(column).sum() - h[source_index, source_index] ** 2)
++    dt, degree, steps = 1 / 8, 24, 296
++    scaled_norm = max_abs_row_sum * dt
++    taylor_tail = math.exp(scaled_norm) * scaled_norm ** (degree + 1) / math.factorial(degree + 1)
++    # Budget for complex arithmetic at double precision in each Taylor step.
++    u = np.finfo(float).eps / 2
++    gamma = 128 * u / (1 - 128 * u)
++    local_error = taylor_tail + math.exp(scaled_norm) * math.expm1((degree + 2) * math.log1p(gamma))
++    vector_error = math.expm1(steps * math.log1p(local_error))
++    probability_error = 1e-6
++    if 2 * vector_error + vector_error**2 + gamma >= probability_error:
++        raise ArithmeticError("Floating-point uncertainty exceeds the declared budget")
++
++    state = np.zeros(h.shape[0], complex)
++    state[source_index] = 1
++    weights = [1.0]
++    for _ in range(steps):
++        term = state
++        total = state.copy()
++        for j in range(1, degree + 1):
++            term = ((-1j * dt) * (h @ term)) / j
++            total += term
++        state = total
++        local = state[patch]
++        weights.append(float(np.vdot(local, local).real))
++
++    grid_floor = min(weights) - probability_error
++    # Distance in projective Hilbert space to this patch's material subspace
++    # is acos(sqrt(p)). Delta-H bounds its change per unit exposure.
++    angle = math.acos(math.sqrt(grid_floor)) + math.sqrt(variance) * dt / 2
++    if angle >= math.pi / 2:
++        raise ArithmeticError("The continuous bound is vacuous")
++    guaranteed_percent = math.floor(100 * math.cos(angle) ** 2)
++    return dict(source=source.tolist(), kappa=8, last_exposure=37, steps=steps,
++                step=dt, variance=variance, polynomial_degree=degree, max_terms=max_terms,
++                absolute_row_sum=max_abs_row_sum, grid_probability_error_budget=probability_error,
++                grid_minimum=round(min(weights), 9), grid_minimum_exposure=dt * weights.index(min(weights)),
++                sample_probabilities=[round(weights[round(t / dt)], 9) for t in (1, 7, 37)],
++                all_exposures_lower_bound_percent=guaranteed_percent)
++
++
++if __name__ == "__main__":
++    ap = argparse.ArgumentParser(description=__doc__)
++    ap.add_argument("--inputs", type=Path, required=True, help="RER author evidence directory")
++    ap.add_argument("--board", type=Path, required=True)
++    args = ap.parse_args()
++    folder = args.inputs
++    report = continuous_window(args.board)
++    original = json.loads((folder / "row_04_receipt.json").read_text())
++    for weight, reading in zip(report["sample_probabilities"], original["arms"][0]["readings"], strict=True):
++        if abs(weight - sum(reading["probabilities"][:-1])) > report["grid_probability_error_budget"]:
++            raise ArithmeticError("Independent grid evolution disagrees with the terminal read")
++    receipt = folder / "row_04_window.json"
++    if report != json.loads(receipt.read_text()):
++        raise SystemExit("The calculated bound differs from the supplemental receipt")
++    print(json.dumps(report, indent=2))
+diff --git a/openwave/xperiments/m10_oph/research/tasks/m10_3_task_details.md b/openwave/xperiments/m10_oph/research/tasks/m10_3_task_details.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..a8710dcc808b52ebac44324cdb3547696c8ea77f
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/tasks/m10_3_task_details.md
+@@ -0,0 +1,25 @@
++# M10.3 · Free persistence of a prepared pair
++
++We propose Interval Echo as the single M10 executable. This task concerns row 4. The M10.2 signed-source candidate at `c330c6e7f23506b5f87c339cd73906928c1a7cd9` supplied a compact ray, a transfer spectrum and a static read. Its experiments left free lifetime unresolved. Interval Echo uses a complete 99-state coherent seam memory, local load exchanges, an endpoint contrast at coupling 8 and degree compensation on the spherical federation. All seams act during the free interval. The detector at the launch cell can record an occupied seam or quiet. Each appointment uses a fresh preparation. The earlier pin and its static results retain their own scope. [M10.2 review](../findings/m10_2_maintainer_review.md) · [Interval Echo law and author evidence](https://github.com/FloatingPragma/observer-patch-holography/tree/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/openwave/interval_echo)
++
++## Reproduction gates recorded before platform execution
++
++This is a reproduction of disclosed author results. Binding, local probabilities, the derivative window bound, and the source choice were known when the terms were fixed. The author had frozen the cell-13 experiment locally before its acquisition. The public matrix states the simplest criterion as persistence of a particle state in free evolution. Its M6 entry also asks for evolution of a neutral profile. This test concerns a prepared bound pair with unassigned charge and spin. It supports no electron identity or cosmological lifetime. [Official criterion](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L104)
++
++1. Run the included sparse-exponential program with the canonical 20-cell board, then compare every saved address byte, all counts, and the rounded probabilities. The historical cell-0 result at exposure 150 must reproduce the printed 0.983881 and 0.149559 within 0.000002.
++2. In cell 13, start with unit loads at 156 and 157, all collars blank. Count local occupied-seam reports from 4,096 terminal reads at each of exposures 1, 7 and 37 in both arms. Include quiet. Use the frozen per-setting PCG64 seeds in the replay. The lower bounds for the native fraction must exceed 0.80 at all three settings, and the exchange-only upper bound must be below 0.65 at the last. The simultaneous one-sided Hoeffding radius is approximately 0.02857. This changes only the binding term.
++3. The separate Taylor propagation and energy-variance interpolation must reproduce a downward-rounded lower bound of at least 94% on the home-cell seam probability throughout [0,37]. This is a statement about terminal probabilities over an ensemble.
++4. Replacing the native contrast by zero must make the native persistence gate reject with exit 1. The detector must give the correct sharp outcomes on two local pairs and a separated pair. A mismatch in a saved receipt, or a mutation rejected only by the file matcher, is insufficient.
++5. Verify the source export and replay board digests and compare both sector generators to the pinned law. The author checker tests the full binary terminal instrument in the 99-state seam space. Any material source or gate change calls for a fresh review. Retain failed outcomes.
++
++Obtain the author checkout at the proposed pin. Set `ECHO_INPUTS` to the absolute path of its `openwave/interval_echo/row_04` directory. All data inputs are read offline from that checkout under its terms. This platform task includes the Apache-2.0 replay software. From the platform repository root, with Python 3.12, NumPy 2.3.5 and SciPy 1.18.1, run
++
++```sh
++cd openwave/xperiments/m10_oph/research/scripts/m10_3
++python -B check_inputs.py "$ECHO_INPUTS"
++python -B row_04_check.py --board "$ECHO_INPUTS/FEDERATION_LEVEL0.npz" --receipt "$ECHO_INPUTS/row_04_receipt.json"
++python -B row_04_window.py --inputs "$ECHO_INPUTS" --board "$ECHO_INPUTS/FEDERATION_LEVEL0.npz"
++python -B row_04_check.py --board "$ECHO_INPUTS/FEDERATION_LEVEL0.npz" --receipt "$ECHO_INPUTS/row_04_receipt.json" --remove-contrast
++```
++
++The last command is expected to exit 1 at the persistence gate. The 20-cell exposure and its units are supplied. No additional interventions occur in flight. The author carries out the platform replay after the planning commit. A pass supports a request for full row 4 credit. The maintainers decide the mark and pin. [Complete design and raw inputs](https://github.com/FloatingPragma/observer-patch-holography/tree/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/openwave/interval_echo)
+-- 
+2.39.5 (Apple Git-154)
+
+
+From 22458e7f91b394628cd92a5db4eb677e8719d7bc Mon Sep 17 00:00:00 2001
+From: OPH Research <research@users.noreply.github.com>
+Date: Sat, 21 Nov 2026 14:35:07 +0700
+Subject: [PATCH 2/2] Report the M10.3 free-pair reproduction and request a row
+ decision
+
+---
+ .../research/data/m10_3_reproduction.json     | 62 +++++++++++++++++++
+ .../research/findings/m10_3_method_note.md    | 31 ++++++++++
+ .../m10_oph/research/m10_roadmap.md           |  2 +-
+ .../research/tasks/m10_3_task_details.md      |  4 ++
+ 4 files changed, 98 insertions(+), 1 deletion(-)
+ create mode 100644 openwave/xperiments/m10_oph/research/data/m10_3_reproduction.json
+ create mode 100644 openwave/xperiments/m10_oph/research/findings/m10_3_method_note.md
+
+diff --git a/openwave/xperiments/m10_oph/research/data/m10_3_reproduction.json b/openwave/xperiments/m10_oph/research/data/m10_3_reproduction.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..a802f456a40ccb10874998ef8f4f85939fcc7c51
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/data/m10_3_reproduction.json
+@@ -0,0 +1,62 @@
++{
++  "planning_commit": "52a7cfe62adbb9009737b502c65d3c12508aa1c3",
++  "source_pin": "4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c",
++  "author_input_sha256": {
++    "FEDERATION_LEVEL0.npz": "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b",
++    "row_04_receipt.json": "7f6e458fd0b7cf9b9e50fb15a5c4b77f944a2457a9c53cdcca88efdf4d4c3bdd",
++    "row_04_window.json": "f0b594675b4468c35d28954ae754ecf88ab41ad3887449c5fc07bc21566d4754"
++  },
++  "environment": {
++    "OPENBLAS_NUM_THREADS": "1",
++    "OMP_NUM_THREADS": "1"
++  },
++  "python_numpy_scipy": "3.12.6 2.3.5 1.18.1",
++  "runs": [
++    {
++      "command": [
++        "check_inputs.py",
++        "$ECHO_INPUTS"
++      ],
++      "exit": 0,
++      "seconds": 0.02,
++      "output": "All three author inputs match."
++    },
++    {
++      "command": [
++        "row_04_check.py",
++        "--board",
++        "$ECHO_INPUTS/FEDERATION_LEVEL0.npz",
++        "--receipt",
++        "$ECHO_INPUTS/row_04_receipt.json"
++      ],
++      "exit": 0,
++      "seconds": 8.08,
++      "output": "8.0 0.983880525 [4048, 4052, 4028]\n0.0 0.149558605 [1780, 1182, 824]"
++    },
++    {
++      "command": [
++        "row_04_window.py",
++        "--board",
++        "$ECHO_INPUTS/FEDERATION_LEVEL0.npz",
++        "--inputs",
++        "$ECHO_INPUTS"
++      ],
++      "exit": 0,
++      "seconds": 3.85,
++      "output": "{\n  \"source\": [\n    156,\n    157\n  ],\n  \"kappa\": 8,\n  \"last_exposure\": 37,\n  \"steps\": 296,\n  \"step\": 0.125,\n  \"variance\": 2.25,\n  \"polynomial_degree\": 24,\n  \"max_terms\": 13,\n  \"absolute_row_sum\": 14.0,\n  \"grid_probability_error_budget\": 1e-06,\n  \"grid_minimum\": 0.978883326,\n  \"grid_minimum_exposure\": 34.0,\n  \"sample_probabilities\": [\n    0.990982505,\n    0.989653268,\n    0.980271948\n  ],\n  \"all_exposures_lower_bound_percent\": 94\n}"
++    },
++    {
++      "command": [
++        "row_04_check.py",
++        "--board",
++        "$ECHO_INPUTS/FEDERATION_LEVEL0.npz",
++        "--receipt",
++        "$ECHO_INPUTS/row_04_receipt.json",
++        "--remove-contrast"
++      ],
++      "exit": 1,
++      "seconds": 4.64,
++      "output": "REJECT: freely released pair missed its local persistence gate"
++    }
++  ]
++}
+diff --git a/openwave/xperiments/m10_oph/research/findings/m10_3_method_note.md b/openwave/xperiments/m10_oph/research/findings/m10_3_method_note.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..cabcf2183e0391095ff766ce58bfd76113379af2
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/findings/m10_3_method_note.md
+@@ -0,0 +1,31 @@
++# M10.3 · A freely evolving bound pair
++
++In the two-unit sector the native seam and degree-reference terms reduce, up to an overall phase, to `H = L_moves/2 − 2κ P_adjacent`. Allowed swaps connect all distinct-port configurations. The contrast is 10 for adjacent units and 12 when separated. The observer occupies one echosahedron and returns the occupied internal seam or quiet. Its echo writes the pair flag and the inverse echo restores the state in each terminal branch. A fresh source is released for each read. [Native operator, full-matrix comparison and decoder](https://github.com/FloatingPragma/observer-patch-holography/tree/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/openwave/interval_echo/row_04/native_check.py) · [Independent sparse evolution](../scripts/m10_3/row_04_check.py)
++
++| Native exposure | Pair records in the home cell, κ = 8 | Exchange only, κ = 0 |
++| ---: | ---: | ---: |
++| 1 | 4,048 / 4,096 | 1,780 / 4,096 |
++| 7 | 4,052 / 4,096 | 1,182 / 4,096 |
++| 37 | 4,028 / 4,096 | 824 / 4,096 |
++
++A changed-law run using the same source and detector rejects at the native persistence gate. Reproducing the older cell-0 experiment gives local probabilities 0.983880525 and 0.149558605 at exposure 150. The source, same-geometry control, complete simulated single-trial records and logic of the simultaneous four one-sided decisions were fixed for the reproduction at planning commit `52a7cfe62adbb9009737b502c65d3c12508aa1c3`. The strongest native lower confidence bound common to these three comparisons exceeds 95.48%. A separate Taylor evolution on a 1/8 mesh and a bound on between-mesh motion using ΔH = 1.5 give a downward-rounded lower bound of 94% on the local probability throughout the finite window. This bounds the ensemble probability at each possible terminal read. [Complete author records](https://github.com/FloatingPragma/observer-patch-holography/tree/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/openwave/interval_echo) · [Mesh and interpolation code](../scripts/m10_3/row_04_window.py) · [Replay outputs and failing control](../data/m10_3_reproduction.json)
++
++## Equation-to-code map
++
++- [Full seam echo and its memory generator](https://github.com/FloatingPragma/observer-patch-holography/blob/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/model/candidate_laws/contrast_memory_spherical_v1/law.py#L67)
++- [Two-load Hamiltonian at either coupling](https://github.com/FloatingPragma/observer-patch-holography/blob/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/model/candidate_laws/contrast_memory_spherical_v1/sectors.py#L74)
++- [Independent configuration graph](https://github.com/FloatingPragma/observer-patch-holography/blob/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/openwave/interval_echo/row_04/row_04_check.py#L23)
++- [The local outcome probabilities](https://github.com/FloatingPragma/observer-patch-holography/blob/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/openwave/interval_echo/row_04/row_04_check.py#L54)
++- [Exponential time evolution](https://github.com/FloatingPragma/observer-patch-holography/blob/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/openwave/interval_echo/row_04/row_04_check.py#L63)
++- [All-time interpolation within the tested window](https://github.com/FloatingPragma/observer-patch-holography/blob/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/openwave/interval_echo/row_04/row_04_window.py#L14)
++- [Native generator and detector comparison](https://github.com/FloatingPragma/observer-patch-holography/blob/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/openwave/interval_echo/row_04/native_check.py#L17)
++
++## Requested row 4 cell
++
++✅ A prepared two-unit pair persists under Interval Echo on a 20-cell sphere. With all seams active its one-cell detection probability stays at least 94% through native exposure 37. At 37 the terminal receiver recorded 4,028/4,096 pairs, versus 824/4,096 under exchange alone. The adjacent launch, blank memories, uniform exposure and read window are supplied. Charge and spin are unassigned.
++
++The free-persistence experiment supplies the initial adjacent pair. Its later spatial distribution is a consequence of the law. A separate encountered pair could give a different preparation yield. The row assigns neither a charged-lepton species nor an indefinite small-patch lifetime. The related simulator demonstrates local repair and recording in a teaching model. The numerical pair measurements use the scripts here. Maintainers decide the pin and cell. [Teaching repair view](https://simulation.floatingpragma.io/patches?scene=repair)
++
++## Source and attribution
++
++The replay scripts come from the RER author package, copyright 2026 Bernhard Mueller and the Observer Patch Holography contributors, under Apache-2.0. The checker reads the author fixture and two source receipts from the separate RER checkout at the proposed pin. The three input digests are committed in the checker. Author data follow the RER data terms. [Source terms](https://github.com/FloatingPragma/observer-patch-holography/blob/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/LICENSE)
+diff --git a/openwave/xperiments/m10_oph/research/m10_roadmap.md b/openwave/xperiments/m10_oph/research/m10_roadmap.md
+index 0484969bc2de4f07d46edf2261692e595e5c6aab..28c1a870652f500b252003b5bab06f4c55d0589c 100644
+--- a/openwave/xperiments/m10_oph/research/m10_roadmap.md
++++ b/openwave/xperiments/m10_oph/research/m10_roadmap.md
+@@ -9,7 +9,7 @@
+ 
+ | TaskID | Title | Description | Gated By |
+ | --- | --- | --- | --- |
+-| 🔶 [M10.3](tasks/m10_3_task_details.md) | Free particle persistence | Review the Interval Echo pin and free-pair reproduction for row 4. | Maintainer assessment |
++| 🔶 [M10.3](tasks/m10_3_task_details.md) | Free particle persistence | Review the Interval Echo pin and free-pair reproduction for row 4. [Method](findings/m10_3_method_note.md) | Maintainer assessment |
+ 
+ ## BACKLOG
+ 
+diff --git a/openwave/xperiments/m10_oph/research/tasks/m10_3_task_details.md b/openwave/xperiments/m10_oph/research/tasks/m10_3_task_details.md
+index a8710dcc808b52ebac44324cdb3547696c8ea77f..16a072fb2198164a8a88e9d758797d64f25af286 100644
+--- a/openwave/xperiments/m10_oph/research/tasks/m10_3_task_details.md
++++ b/openwave/xperiments/m10_oph/research/tasks/m10_3_task_details.md
+@@ -23,3 +23,7 @@ python -B row_04_check.py --board "$ECHO_INPUTS/FEDERATION_LEVEL0.npz" --receipt
+ ```
+ 
+ The last command is expected to exit 1 at the persistence gate. The 20-cell exposure and its units are supplied. No additional interventions occur in flight. The author carries out the platform replay after the planning commit. A pass supports a request for full row 4 credit. The maintainers decide the mark and pin. [Complete design and raw inputs](https://github.com/FloatingPragma/observer-patch-holography/tree/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/openwave/interval_echo)
++
++## Execution
++
++Planning commit `52a7cfe62adbb9009737b502c65d3c12508aa1c3` preceded the headless platform replay. The two programs reproduced both receipts, and the contrast-removal control exited at its scientific gate. [Measured output and timings](../data/m10_3_reproduction.json) · [Method and proposed cell](../findings/m10_3_method_note.md)
+-- 
+2.39.5 (Apple Git-154)
+
