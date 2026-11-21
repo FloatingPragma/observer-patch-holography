@@ -314,10 +314,8 @@ supplies none of this geometry.
 
 In all three cases, choose x-=rho(n)x+. If y+=f(x+), equivariance gives
 `f(x-)=rho'(n)y+`, the other target pole. Lemma 1 applies.
-The finite normalizer checks in `verify_port_support_source_audit.py`
-reconstruct sizes 4,6,10 and pole swaps in the incidence action. These
-finite calculations corroborate the group hypotheses; the SO(3) arguments
-above establish the assertion simultaneously for the two marked actions.
+The SO(3) arguments above establish the assertion simultaneously for the two
+marked actions.
 
 ## Weights, residues and sharpness
 
@@ -396,15 +394,14 @@ are unchanged. A convention varying by branch cannot be used to compare
 the two signed witnesses.
 
 
-## Independent algebraic cross-control and lift boundary
+## Characters and the lift boundary
 
-`equivariant_degree_crosscheck.py` constructs all nine irreducible
-characters of 2I over Q(phi). Opposite lifts, including the central -1,
-remain separate classes. Q is the defining SU(2) representation; Q' has
-character sigma(chi_Q), with sigma(phi)=1-phi. Its symmetric square has the
-twin SO(3) character. Character inner products give the McKay graph and the
-two multiplicity sequences through degree 94. The independent verifier
-starts with the affine E8 graph and uses `v_n=A v_(n-1)-v_(n-2)` instead.
+The nine irreducible characters of 2I are defined over Q(phi). Opposite
+lifts, including the central -1, are separate classes. Q is the defining
+SU(2) representation; Q' has character sigma(chi_Q), with sigma(phi)=1-phi.
+Its symmetric square has the twin SO(3) character. Character inner products
+give the McKay graph, the affine E8 graph, and the two multiplicity sequences,
+which also follow from `v_n=A v_(n-1)-v_(n-2)` on that graph.
 
 The unique Q' in Sym^7(Q*) gives a nonzero covariant homogeneous polynomial
 pair P of degree seven. Its common projective zero set, if nonempty, is

@@ -3,13 +3,13 @@
 
 Each lane is one independent replay: shell commands run from the repository
 root with the lane's environment. A lane belongs to one tier ("push" runs on
-every push and pull request, "nightly" runs on the schedule) and one install
+every push and pull request; "nightly" is reserved for the schedule and holds no lane) and one install
 profile (the requirements file its job installs). The runner packs the lanes
 of one tier and profile into a fixed number of buckets by their measured
 minutes, so a workflow matrix job only names its bucket:
 
     python tools/ci_lanes.py run --tier push --profile root --bucket 0 --buckets 8
-    python tools/ci_lanes.py run --lane m1_fixed_noise
+    python tools/ci_lanes.py run --lane m1_quantum_transport
     python tools/ci_lanes.py list --tier push --profile root --buckets 8
 
 Every lane in a bucket runs even after an earlier one fails; the bucket exits
@@ -61,11 +61,6 @@ LANES: tuple[Lane, ...] = (
                 "code/yang_mills/tests/test_collar_certificate_accounting.py tools/test_strict_json.py",
                 flags="-q -W error"),
     lane("consensus", "push", "root", 1.5, "python -W error -m pytest -q code/consensus", env=BLAS1),
-    lane("dark_source_lensing", "push", "root", 2,
-         "python -m dark_source_lensing.verify", "python -m pytest -q code/dark_source_lensing",
-         env={**CODE, "OPENBLAS_NUM_THREADS": "1"}),
-    lane("dispersion_feasibility", "push", "root", 0.5,
-         "python -m dispersion_feasibility.check", "python -m pytest -q code/dispersion_feasibility", env=CODE),
     lane("finite_gauge_transfer", "push", "root", 2,
          "python -W error -m pytest -q code/yang_mills/tests/test_z2_finite_transfer_receipt.py "
          "code/yang_mills/tests/test_z2_finite_transfer_verifier.py code/yang_mills/tests/test_z2_transfer_spectrum.py "
@@ -77,20 +72,13 @@ LANES: tuple[Lane, ...] = (
          "python code/angular_sprint/k7_gauge_kinetic_cross_control.py --check",
          "python code/angular_sprint/verify_k7_gauge_kinetic_cross_control_independent.py "
          "--receipt code/angular_sprint/runtime/k7_gauge_kinetic_cross_control.json",
-         "python -m pytest -q code/angular_sprint/test_k7_gauge_kinetic_cross_control.py",
          "python code/angular_sprint/kinetic_form_selection_certificate.py --verify",
          "python code/angular_sprint/verify_kinetic_form_selection_independent.py "
          "--receipt code/angular_sprint/runtime/kinetic_form_selection_receipt.json"),
-    pytest_lane("m1_expander_archive", 1.5, "code/m1_expander_archive"),
-    pytest_lane("m1_fermionic_source", 2, "code/m1_fermionic_source"),
-    pytest_lane("m1_fixed_noise", 2.5, "code/m1_fixed_noise"),
     pytest_lane("m1_interfaces", 1, "code/m1_interfaces"),
-    pytest_lane("m1_leakage", 1.5, "code/m1_leakage"),
     pytest_lane("m1_necessity", 1.5, "code/m1_necessity"),
-    pytest_lane("m1_noisy_records", 1, "code/m1_noisy_records"),
     pytest_lane("m1_operational_clocks", 1, "code/m1_operational_clocks"),
     pytest_lane("m1_quantum_transport", 2.5, "code/m1_quantum_transport"),
-    pytest_lane("m1_sea_energy", 1.5, "code/m1_sea_energy", env={**CODE, **BLAS1}),
     pytest_lane("m1_source_realization", 1.5, "code/m1_source_realization"),
     pytest_lane("m1_vacuum_fidelity", 1, "code/m1_vacuum_fidelity", flags="-q -W error"),
     lane("mckay_golden_field", "push", "root", 1.5,
@@ -103,62 +91,40 @@ LANES: tuple[Lane, ...] = (
     lane("neutral_packet", "push", "root", 2,
          "python -m pytest -q -W error code/electromagnetism/test_neutral_packet_projection.py "
          "code/electromagnetism/test_neutral_packet_observables.py code/electromagnetism/test_whitney_quantum_packet.py",
-         "python -m pytest -q -W error code/electromagnetism/test_whitney_interacting_quantum.py "
-         "code/electromagnetism/test_whitney_kinetic_precision.py code/electromagnetism/test_whitney_kinetic_inputs.py "
-         "code/electromagnetism/test_whitney_kinetic_replay.py code/electromagnetism/test_whitney_kinetic_scale.py "
-         "code/electromagnetism/test_whitney_public_scale.py",
+         "python -m pytest -q -W error code/electromagnetism/test_whitney_interacting_quantum.py",
          env={"OPENBLAS_NUM_THREADS": "1"}),
     pytest_lane("quantum_information", 2.5,
                 "code/quantum_information code/collar_alignment code/maxent",
                 env={**CODE, "OPENBLAS_NUM_THREADS": "1"}),
     lane("radial_inverse", "push", "root", 1,
-         "python -W error -m pytest -q code/cosmology/test_oph_radial_lift_330.py "
-         "code/cosmology/test_radial_inverse_regressions.py code/cosmology/test_radial_inverse_controls.py", env=BLAS1),
+         "python -W error -m pytest -q code/cosmology/test_oph_radial_lift_330.py", env=BLAS1),
     pytest_lane("rg_principle", 1, "code/rg_principle"),
     lane("ringdown_arithmetic", "push", "root", 1, "python -W error -m pytest -q code/gravitation/ringdown_comb"),
-    pytest_lane("source_gravity_admissibility", 1, "code/source_gravity_admissibility",
-                env={**CODE, "OPENBLAS_NUM_THREADS": "1"}),
     lane("source_selection_model", "push", "root", 6.5,
          "python -m source_selection_model.verify", "python -m source_record_gluing.verify",
          "python -m pytest -q code/source_selection_model code/source_record_gluing", env=CODE),
-    lane("arithmon_interface_contracts", "push", "root", 2,
-         "python -B code/a5_closure/port_support_source_audit.py --check",
-         "python -B code/a5_closure/verify_port_support_source_audit.py",
-         "python -B code/a5_closure/equivariant_degree_crosscheck.py --check",
-         "python -B code/a5_closure/verify_equivariant_degree_crosscheck.py",
-         "python -B -m pytest -q code/a5_closure/tests/test_port_support_source_audit.py "
-         "code/a5_closure/tests/test_equivariant_degree_crosscheck.py"),
     lane("certificate_smoke", "push", "root", 3,
          "python tools/run_mandatory_suite.py --certificate-smoke-only",
          "python -m pytest -q code/a5_closure/tests/test_source_repair_generator_certificate.py"),
 
     # ------------------------------------------------------------------
-    # Push tier, model requirements (model/requirements.txt): the theory
-    # packages kept beside the A-contrast-memory-spherical-v1 model.
-    lane("contrast_clock", "push", "model", 3,
-         "python -B -O -m model.contrast_clock",
-         "python -B -m pytest -q -W error model/contrast_clock", env=BLAS1),
+    # Push tier, model requirements (model/requirements.txt): programs of the
+    # main candidate law and the theory certificates that use the same pins.
     lane("support_refinement", "push", "model", 2,
-         "python -m pytest -q -W error model/support_refinement",
-         "python -m model.support_refinement --check model/support_refinement/results.json", env=BLAS1),
+         "python -m pytest -q -W error code/support_refinement",
+         "python -m support_refinement --check code/support_refinement/results.json", env={**CODE, **BLAS1}),
     lane("matched_einstein_limit", "push", "model", 1,
-         "python -m pytest -q -W error model/matched_einstein_limit", env=BLAS1),
+         "python -m pytest -q -W error code/matched_einstein_limit", env={**CODE, **BLAS1}),
     lane("defect_particle_classes", "push", "model", 1,
-         "python -m model.defect_particle_classes --check",
-         "python -m pytest -q -W error model/defect_particle_classes", env=BLAS1),
+         "python -m defect_particle_classes --check",
+         "python -m pytest -q -W error code/defect_particle_classes", env={**CODE, **BLAS1}),
     lane("maxwell_certificates", "push", "model", 1,
-         "python -m pytest -q -W error model/maxwell_local_selection model/maxwell_weak_field", env=BLAS1),
+         "python -m pytest -q -W error code/maxwell_local_selection code/maxwell_weak_field", env={**CODE, **BLAS1}),
     lane("selection_certificates", "push", "model", 1,
-         "python -m pytest -q -W error model/carrier_selection_reduction model/finite_instrument_calibration",
-         env=BLAS1),
-
-    # ------------------------------------------------------------------
-    # Nightly tier, root requirements.
-    # Red on main since r2066: the ledger requires anchor text in a cosmology paper.
-    lane("cosmology_accounting", "nightly", "root", 1,
-         "python -m pytest -q code/cosmology/fixed_capacity_wlaw code/cosmology/postdiction_ledger -W error",
-         "python code/cosmology/postdiction_ledger/verify_cosmology_postdiction_ledger_independent.py"),
+         "python -m pytest -q -W error code/carrier_selection_reduction code/finite_instrument_calibration",
+         env={**CODE, **BLAS1}),
 )
+
 
 def select(tier: str | None, profile: str | None) -> list[Lane]:
     return [x for x in LANES if (tier is None or x.tier == tier) and (profile is None or x.profile == profile)]

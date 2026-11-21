@@ -7,50 +7,44 @@ then have their own theorem, certificate, or experimental acceptance rule.
 
 ## Executable model
 
-[A-contrast-memory-spherical-v1](model/contrast_memory_spherical_v1/README.md) is the executable model of
-OPH. Its contrast-memory law is a candidate native repair law of the theory
-([specification](model/contrast_memory_spherical_v1/SPEC.md),
-[binding theorem and proof](model/contrast_memory_spherical_v1/PROOF.md)); the
-[executable-model paper](paper/executable_observer_construction.pdf) gives the
-full account. From the repository root:
+The [executable model](model/README.md) has a fixed carrier, the spherical echosahedral federation in
+`model/executable_model`, and candidate laws in `model/candidate_laws`. The main candidate is
+[A-contrast-memory-spherical-v1](model/candidate_laws/contrast_memory_spherical_v1/README.md)
+([specification](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md),
+[binding theorem and proof](model/candidate_laws/contrast_memory_spherical_v1/PROOF.md)); the
+[executable-model paper](paper/executable_observer_construction.pdf) gives the full account. From the repository
+root:
 
 ```sh
 python -m pip install -r model/requirements.txt
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model
-python -m pytest -q -W error model/contrast_memory_spherical_v1
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
+python -m model                              # the main candidate against RESULTS.json; --full adds 80 and 320 cells
+python -m model run --law scalar_channel     # the second candidate
+python -m model evaluate --check             # the evaluation of every candidate against model/REQUIREMENTS.md
+python -m pytest -q -W error model
 ```
 
-`python -m model` runs `model.contrast_memory_spherical_v1.verify`. It recomputes the
-headline results (the exact identities of the local law for symbolic
-coupling, the constants of the binding theorem, particle stability on the
-observers' agreed records with its controls, the bound objects, the port
-response and the unrecovered collar) and compares them with
-`model/contrast_memory_spherical_v1/RESULTS.json` within stated tolerances. A disagreement
-fails verification; the last line printed is a JSON line with
-`"verified": true`. `python -m model --full` adds the federations of 80 and
-320 cells and every long run (an hour or more). `--output PATH` writes a fresh
-result file and `--verify PATH` compares another one. The model needs no
-sibling checkout and no Git history.
+`python -m model` recomputes the headline results of the main candidate (the exact identities of the local law
+for symbolic coupling, the constants of the binding theorem, particle stability on the observers' agreed records
+with its controls, the bound objects, the port response and the unrecovered collar) and compares them with its
+`RESULTS.json` within stated tolerances. A disagreement fails verification; the last line printed is a JSON line
+with `"verified": true`. The model needs no sibling checkout and no Git history.
 
-Every test of the model compares distributions of admissible observer records,
-read by the port observers of the seams, with what observers in our world
-record. The state of the simulation is no physical space; the theory proves
-that observers who inhabit the simulation can describe their experiences as
-relativistic 3+1D continuum spacetimes, so no test asks the carrier to be a
-three-dimensional lattice.
+Every test of the model compares distributions of admissible observer records with what observers in our world
+record. The state of the simulation is no physical space, so no test asks the carrier to be a three-dimensional
+lattice.
 
-## Theory packages under `model/`
+## Theory certificates
 
-The other packages under `model/` check conditional theorems on their own
-declared carriers. Their replay establishes no transfer to A-contrast-memory-spherical-v1
-without an explicit source map:
+These packages check conditional theorems on their own declared carriers. Their replay establishes no transfer
+to a candidate law without an explicit source map:
 
 ```sh
-python -m pytest -q -W error \
-  model/carrier_selection_reduction model/defect_particle_classes \
-  model/finite_instrument_calibration model/matched_einstein_limit \
-  model/maxwell_local_selection model/maxwell_weak_field \
-  model/support_refinement
+PYTHONPATH=code python -m pytest -q -W error \
+  code/carrier_selection_reduction code/defect_particle_classes \
+  code/finite_instrument_calibration code/matched_einstein_limit \
+  code/maxwell_local_selection code/maxwell_weak_field \
+  code/support_refinement
 ```
 
 ## Additional component calculations
@@ -59,9 +53,7 @@ The bounded modal Maxwell-shaped factorization is also an exact, laptop-scale
 algebra check rather than a simulation campaign:
 
 ```bash
-python -m pytest -q \
-  code/electromagnetism/test_modal_maxwell_factorization.py \
-  tools/test_modal_maxwell_factorization_surfaces.py
+python -m pytest -q code/electromagnetism/test_modal_maxwell_factorization.py
 ```
 
 The coupled-action controls can also be reproduced together:
@@ -131,17 +123,7 @@ python tools/run_mandatory_suite.py --shard-index 1 --shard-count 2
 The indices are zero-based. Their ordered union is exactly the default suite;
 running only one partition does not verify the complete suite. Partition flags
 apply only to standard mode; full and certificate runs use their unpartitioned
-commands. Five designated
-replay/mutation-scan steps (listed in `HEAVY_STEP_TITLES` inside the runner)
-are deferred to
-
-```bash
-python tools/run_mandatory_suite.py --full
-```
-
-which CI enforces nightly and on demand, and which the release checklist
-runs before publication. The standard run prints exactly which steps it
-skipped. The suite
+commands. CI runs the whole standard list in six shards. The suite
 both collects and executes: claim-registry validation, generated scientific
 register validation, external-data provenance/hash/license-boundary validation,
 release-manifest validation and its regression tests, a clean `--collect-only`
@@ -152,10 +134,8 @@ non-identifiability receipts (the suite's step titles call them Phase-0). One fi
 `code/audit/test_e4_absence_guards.py` needs the pinned Mathlib sources and
 runs in the Lean CI workflow instead, where the toolchain is provisioned.
 
-The exact certificate suites (port-current, matter-lift, axis-center-descent
-and matter-menu spectral-ledger, ~26 minutes) run through the same runner in the nightly workflow
-(`.github/workflows/nightly.yml`); the canonical smoke receipts run on every
-push in `.github/workflows/ci.yml`:
+The exact certificate suites (port-current and matter-lift, about 26 minutes) run on demand through the same
+runner; the canonical smoke receipts run on every push in `.github/workflows/ci.yml`:
 
 ```bash
 python tools/run_mandatory_suite.py --certificates    # mandatory + certificates
@@ -180,7 +160,7 @@ from a clean clone, so it is not the documented gate here. A bare
 `python -m pytest` collects `code/` only (`testpaths` in `pytest.ini`); the
 regression tests under `tools/` run through the mandatory suite. The
 executable model has its own gate above (`python -m model` and
-`python -m pytest -q -W error model/contrast_memory_spherical_v1`). Individual scientific
+`python -m pytest -q -W error model/candidate_laws/contrast_memory_spherical_v1`). Individual scientific
 test outcomes are tracked as their own issues, and some are not reproducible
 from the public checkout alone. In particular:
 
@@ -229,7 +209,7 @@ Einstein-branch axiom check. `Lean/README.md` documents the layout;
 ## Paper review and publication builds
 
 A new paper release follows the owner's approval of a recorded model
-milestone of the [executable model](model/contrast_memory_spherical_v1/README.md); the
+milestone of the [executable model](model/candidate_laws/contrast_memory_spherical_v1/README.md); the
 [paper set](docs/PAPER_SET.md) records the role of each paper. Correctness fixes, errata, review builds and their validation continue
 between releases. The publication commands below require that maintainer
 decision or an authorized scoped corrective release.

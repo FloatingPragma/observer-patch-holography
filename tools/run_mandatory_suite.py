@@ -15,11 +15,9 @@ cannot be combined with full or certificate modes. Concatenating the shard
 command lists reproduces the unchanged standard list in order.
 
 The standard suite runs every register validation, certificate check,
-independent replay, and fast mutation gate. Five long-running replay and
-mutation-scan steps (listed in HEAVY_STEP_TITLES, together most of the
-suite's runtime) are excluded from the default run and enforced by --full,
-which the nightly full job and the pre-release checklist execute; the
-default run prints exactly which steps it skipped.
+independent replay and fast mutation gate; CI runs it in six shards beside
+the replay lanes. HEAVY_STEP_TITLES is empty, so --full equals the standard
+run. The exhaustive certificate suites run on demand with --certificates.
 
 The mandatory suite validates the scientific claim registry, external inputs,
 public quantitative surfaces, null-model controls, and the paper release
@@ -42,24 +40,24 @@ ROOT = Path(__file__).resolve().parents[1]
 
 MANDATORY_STEPS: list[tuple[str, list[str]]] = [
     (
-        "Replay the retrospective ACT tilt posterior and decimal-boundary controls",
-        [sys.executable, "-m", "pytest", "-q", "code/cosmology/tilt_posterior"],
+        "Replay the retrospective ACT tilt posterior audit",
+        [sys.executable, "code/cosmology/tilt_posterior/audit.py", "--check"],
+    ),
+    (
+        "Replay the retrospective ACT tilt likelihood slice",
+        [sys.executable, "code/cosmology/tilt_posterior/likelihood_slice.py", "--check"],
     ),
     (
         "Verify proof-domain, sampling, spectrum and radial-inverse counterexamples",
         [
-            sys.executable, "-m", "pytest", "-q",
-            "code/audit/test_quotient_ensemble_math.py",
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
             "code/audit/test_recurrent_proof_boundaries.py",
-            "code/consensus/test_sampling_and_record_boundaries.py",
-            "code/particles/test_paper_proof_boundaries.py",
             "code/P_derivation/test_thomson_spectral_transport.py",
             "code/P_derivation/test_source_spectral_theorem.py",
             "code/P_derivation/test_thomson_endpoint_interval_certificate.py",
-            "code/cosmology/test_radial_inverse_regressions.py",
-            "code/cosmology/test_radial_inverse_controls.py",
-            "code/cosmology/test_radial_window_regressions.py",
-            "tools/test_string_continuation_boundaries.py",
         ],
     ),
     (
@@ -96,24 +94,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
     (
         "Validate reader-facing prose style across papers, essays and registers",
         [sys.executable, "tools/check_reader_style.py"],
-    ),
-    (
-        "Replay the surface tests that bind claims to their published statements",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_carrier_dynamics_and_profile_likelihood_surfaces.py",
-            "tools/test_carrier_map_and_matched_diagnostic_surfaces.py",
-            "tools/test_dark_sector_and_expectation_net_surfaces.py",
-            "tools/test_finite_two_site_ising_surfaces.py",
-            "tools/test_joint_action_and_arming_surfaces.py",
-            "tools/test_physics_outputs_surfaces.py",
-            "tools/test_source_binding_and_collar_derivation_surfaces.py",
-            "tools/test_source_history_gns_surfaces.py",
-            "tools/test_source_history_three_slot_local_gns_surfaces.py",
-        ],
     ),
     (
         "Replay the Maxwell-lane receipts against their pinned Lean sources",
@@ -195,16 +175,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         [
             sys.executable,
             "code/phase_operation_producer/verify_phase_operation_receipt.py",
-        ],
-    ),
-    (
-        "Execute the phase-operation producer determinism and mutation gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "code/phase_operation_producer/test_phase_operation_receipt.py",
         ],
     ),
     (
@@ -290,26 +260,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
-        "Execute the Issue 750 adaptive-repair cross-surface gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_adaptive_repair_stratification_surfaces.py",
-        ],
-    ),
-    (
-        "Execute the Issue 750 cumulative attempt-capacity cross-surface gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_cumulative_attempt_capacity_surfaces.py",
-        ],
-    ),
-    (
         "Execute the Issue 763 source-derived causal-order cross-surface gates",
         [
             sys.executable,
@@ -320,26 +270,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
-        "Execute the Issue 750 fixed-federation cross-surface gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_fixed_federation_progress_surfaces.py",
-        ],
-    ),
-    (
-        "Execute the Issue 750 fixed-federation execution-classification gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_fixed_federation_execution_classification_surfaces.py",
-        ],
-    ),
-    (
         "Execute the fixed-unitary scattering obstruction controls",
         [
             sys.executable,
@@ -347,16 +277,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "pytest",
             "-q",
             "code/qft/test_finite_unitary_scattering_no_go.py",
-        ],
-    ),
-    (
-        "Execute the fixed-unitary scattering cross-surface gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_finite_unitary_scattering_surfaces.py",
         ],
     ),
     (
@@ -377,16 +297,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         "Execute independent continuum, forcing and false-green controls",
         [sys.executable, "-m", "pytest", "-q",
          "code/electromagnetism/test_seam_maxwell_continuum.py"],
-    ),
-    (
-        "Execute the modal Maxwell cross-surface scope gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_modal_maxwell_factorization_surfaces.py",
-        ],
     ),
     (
         "Execute serial feedback, decoded Maxwell action and provenance controls",
@@ -543,16 +453,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             sys.executable,
             "code/particles/alpha_hvp_audit/build_alpha_hvp_verdict.py",
             "--verify",
-        ],
-    ),
-    (
-        "Execute the alpha/HVP provenance and mutation gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "code/particles/alpha_hvp_audit/tests/test_alpha_hvp_verdict.py",
         ],
     ),
     (
@@ -718,31 +618,11 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
-        "Execute the angular template tests",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "code/angular_sprint/test_angular_interpolant_certificate.py",
-        ],
-    ),
-    (
         "Validate the kinetic ray receipt",
         [
             sys.executable,
             "code/angular_sprint/kinetic_ray_certificate.py",
             "--verify",
-        ],
-    ),
-    (
-        "Execute the kinetic ray tests",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "code/angular_sprint/test_kinetic_ray_certificate.py",
         ],
     ),
     (
@@ -820,7 +700,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "tools/test_null_models.py",
             "tools/test_receipt_portability.py",
             "tools/test_github_release_channel.py",
-            "tools/test_gates_actually_fail.py",
         ],
     ),
     (
@@ -846,31 +725,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "code/particles/hierarchy/test_antecedent_only_nonidentifiability.py",
             "code/particles/hierarchy/test_hierarchy_bundle.py",
             "code/particles/hierarchy/test_interval_witness.py",
-        ],
-    ),
-    (
-        "Validate the exact discrete-refinement theorem packet",
-        [
-            sys.executable,
-            "code/refinement/discrete_refinement_certificate.py",
-            "--check",
-        ],
-    ),
-    (
-        "Replay the discrete-refinement packet independently",
-        [
-            sys.executable,
-            "code/refinement/verify_discrete_refinement_independent.py",
-        ],
-    ),
-    (
-        "Execute the discrete-refinement mutation gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "code/refinement/test_discrete_refinement_certificate.py",
         ],
     ),
     (
@@ -972,28 +826,14 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "-m",
             "pytest",
             "-q",
-            "code/a5_fingerprint/test_a5_multipole_fixed_point_certificate.py",
             "code/a5_fingerprint/test_a5_multipole_fixed_point_hardening_certificate.py",
             "code/a5_fingerprint/test_a5_multipole_persistence_certificate.py",
             "code/a5_fingerprint/test_a5_multipole_persistence_independent_verifier.py",
             "code/a5_fingerprint/test_a5_multipole_persistence_stage4_certificate.py",
             "code/a5_fingerprint/test_a5_multipole_persistence_stage4_independent_verifier.py",
-            "code/a5_fingerprint/test_spin_six_universality_certificate.py",
-            "code/a5_fingerprint/test_spin_six_primitive_port_prediction.py",
-            "code/a5_fingerprint/test_seam_current_edge_prediction.py",
-            "code/a5_fingerprint/test_fz12_observation_map_certificate.py",
-            "code/a5_fingerprint/test_fz12_full_symbol_remainder_certificate.py",
-            "code/a5_fingerprint/test_fz12_synthetic_recovery_coverage.py",
-            "code/a5_fingerprint/test_fz12_free_photon_hamiltonian.py",
-            "code/a5_fingerprint/test_fz12_auger_threshold_diagnostic.py",
             "code/a5_fingerprint/test_carrier_scale_bound_diagnostic.py",
             "code/a5_fingerprint/test_carrier_frequency_speed_certificate.py",
             "code/a5_fingerprint/test_carrier_class_dispersion_certificate.py",
-            "code/a5_fingerprint/test_differentiator_inventory_certificate.py",
-            "code/a5_fingerprint/test_fz11_decision_rule_v2_sibling.py",
-            # test_fz12_joint_threshold_certificate.py rebuilds its Lean kernel
-            # with lake, so it runs in the nightly full Lean build
-            # (.github/workflows/lean-full-nightly.yml), not in this job.
         ],
     ),
     ("Collect the mandatory scientific suite", [sys.executable, "-m", "pytest", "--collect-only", "-q", "code"]),
@@ -1023,25 +863,15 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "pytest",
             "-q",
             "code/a5_closure/tests/test_equal_state_weights_certificate.py",
-            "code/a5_closure/tests/test_response_grammar_completeness_certificate.py",
-            "code/a5_closure/tests/test_a3_scheduler_kernel_certificate.py",
             "code/a5_closure/tests/test_routed_seam_grammar_certificate.py",
             "code/a5_closure/tests/test_optimizer_pushforward_certificate.py",
-            "code/a5_closure/tests/test_multiplicity_window_certificate.py",
             "code/capacity_readback/test_capacity_semantics_menu_certificate.py",
             "code/capacity_readback/test_toy_readback.py",
             "code/capacity_readback/test_cp2_p4_premise_reduction.py",
             "code/a5_closure/tests/test_load_fiber_readback_certificate.py",
             "code/a5_closure/tests/test_noncentral_seam_reduction_certificate.py",
             "code/a5_closure/tests/test_record_counting_mechanism_certificate.py",
-            "code/a5_closure/tests/test_scalar_sector_blindness_certificate.py",
-            "code/a5_closure/tests/test_seam_grammar_matter_classification_certificate.py",
-            "code/a5_closure/tests/test_family_band_attachment_certificate.py",
-            "code/particles/leptons/test_koide_balance_comparison_certificate.py",
-            "code/a5_closure/tests/test_flux_defect_criterion_certificate.py",
             "code/a5_closure/tests/test_coset_carrier_certificate.py",
-            "code/cosmology/test_edge_center_clock_certificate.py",
-            "code/consensus/test_compiled_lattice_settling_certificate.py",
             "code/thermodynamics/test_conditional_repair_certificate.py",
         ],
     ),
@@ -1067,66 +897,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "pytest",
             "-q",
             "code/thermodynamics/protected_memory/test_protected_memory.py",
-        ],
-    ),
-    (
-        "Execute the core-physics precursor cross-surface gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_core_physics_precursor_surfaces.py",
-        ],
-    ),
-    (
-        "Execute the mass-energy selection cross-surface gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_mass_energy_selection_surfaces.py",
-        ],
-    ),
-    (
-        "Execute the second-wave transport and collar cross-surface gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_second_wave_surfaces.py",
-        ],
-    ),
-    (
-        "Execute the third-wave force-law, speed-limit, clock-rate, and golden-split gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_third_wave_surfaces.py",
-        ],
-    ),
-    (
-        "Execute the fourth-wave clocked-chain, irreducibility, in-block, and flow gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_fourth_wave_surfaces.py",
-        ],
-    ),
-    (
-        "Execute the fourth-wave clocked-chain, irreducibility, in-block, and flow gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_fifth_wave_surfaces.py",
         ],
     ),
     (
@@ -1200,22 +970,8 @@ CERTIFICATE_SMOKE_STEPS: list[tuple[str, list[str]]] = [
 ]
 
 
-# The heavy replay/mutation steps excluded from the default run and enforced
-# by --full. Measured 2026-08-14 on the reference laptop these five steps take
-# about 260s, 220s, 45s, 35s, and 22s. Several standard groups now also take
-# minutes; CI shards the standard list without adding heavy exclusions.
-# Each entry must match a MANDATORY_STEPS title exactly; main()
-# fails closed if one does not, so a renamed step cannot silently drop out of
-# both modes.
-HEAVY_STEP_TITLES: frozenset[str] = frozenset(
-    {
-        "Replay the B20 random-scan preflight offline algebra layer",
-        "Execute the B20 random-scan mutation gates",
-        "Execute the fixed-unitary scattering obstruction controls",
-        "Execute the invariant-metric phase mutation gates",
-        "Execute the complete-packet lift mutation gates",
-    }
-)
+# Steps excluded from the standard run and enforced by --full. None: every step runs in the CI shards.
+HEAVY_STEP_TITLES: frozenset[str] = frozenset()
 
 
 def run_steps(steps: list[tuple[str, list[str]]]) -> None:

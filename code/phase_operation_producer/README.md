@@ -20,7 +20,6 @@ Run from the repository root:
 ```bash
 python3 code/phase_operation_producer/produce_phase_operation_receipt.py --check
 python3 code/phase_operation_producer/verify_phase_operation_receipt.py
-python3 -m pytest -q code/phase_operation_producer/test_phase_operation_receipt.py
 ```
 
 Boundary: an effect is not a state transition or an instrument. These values

@@ -1,0 +1,71 @@
+{
+  "schema": "oph.native_base_obligations.v1",
+  "construction": "OPH-NSC-1",
+  "default_law": "A-native-scalar-overlap-v3",
+  "obligations": [
+    {
+      "id": "native_compiler",
+      "status": "finite_component",
+      "supplies": "Star isometries, fixed even-parity graph encoding, executed local ancilla loop preparation and finite source-on instruments.",
+      "evidence": [
+        "model/candidate_laws/scalar_channel/compiler.py",
+        "model/candidate_laws/scalar_channel/singlet_fusion.py",
+        "model/candidate_laws/scalar_channel/routed.py",
+        "model/candidate_laws/scalar_channel/instruments.py"
+      ],
+      "boundary": "Whole-star primitives and classical local controllers are supplied; a two-owner gate synthesis and autonomous controller are not established."
+    },
+    {
+      "id": "matter_capacity",
+      "status": "scalar_sector_only",
+      "supplies": "Explicit scalar architecture has 174 modes in one even-total-parity sector; both binary fuel preparations retain the paired parity reference.",
+      "evidence": [
+        "model/candidate_laws/scalar_channel/gauge_capacity.py",
+        "model/candidate_laws/scalar_channel/instruments.py"
+      ],
+      "boundary": "Seven-state owners do not encode unrestricted seven-species Fock space. No common interacting charged sector is supplied."
+    },
+    {
+      "id": "gauge_response",
+      "status": "obstruction_to_transfer",
+      "supplies": "Twelve raw owner currents annihilate the scalar singlet code; relative scalar phase and global total-number phase have different complete instrument laws.",
+      "evidence": [
+        "model/candidate_laws/scalar_channel/gauge_capacity.py"
+      ],
+      "boundary": "Neither a faithful twelve-current scalar response nor A1 completeness follows."
+    },
+    {
+      "id": "effective_spacetime",
+      "status": "uninstantiated",
+      "supplies": "One-cell scalar incidence and local circulation; separately imported federation carrier arrays.",
+      "evidence": [
+        "model/candidate_laws/scalar_channel/carrier.py",
+        "model/executable_model/carriers/FEDERATION_LEVEL0.npz",
+        "model/executable_model/carriers/FEDERATION_LEVEL1.npz",
+        "model/executable_model/carriers/FEDERATION_LEVEL2.npz"
+      ],
+      "boundary": "Joint angular/radial state, clock, and instrument transfer required by the retained spacetime theorem is unproved."
+    },
+    {
+      "id": "apparatus_and_memory",
+      "status": "finite_controlled",
+      "supplies": "Local ancilla preparation, routed gate execution, retained syndrome/reset records, transport failure branches and source-on finite instrument histories. Each finite instrument history accounts for source energy and pulse switching work.",
+      "evidence": [
+        "model/candidate_laws/scalar_channel/routed.py",
+        "model/candidate_laws/scalar_channel/instruments.py"
+      ],
+      "boundary": "Finite supplied control is not indefinite autonomous dynamics. Controller and preparation work, continuing preparation and bounded archival replacement require an explicit common construction."
+    },
+    {
+      "id": "physical_interactions",
+      "status": "unestablished",
+      "supplies": "Free scalar dynamics and separate contrast-memory pair-persistence diagnostic.",
+      "evidence": [
+        "model/candidate_laws/scalar_channel/carrier.py",
+        "model/candidate_laws/contrast_memory_spherical_v1/replay.py"
+      ],
+      "boundary": "No combined law for Coulomb dynamics, binding spectra, universal gravitational response or observed species is established."
+    }
+  ],
+  "scope": "Scalar experimental construction; no transfer to A-contrast-memory-spherical-v1 from labels or shared carrier alone"
+}

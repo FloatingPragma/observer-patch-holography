@@ -95,9 +95,8 @@ the repository, the ledgers, or the other papers.
 - Where a paper depends on a companion result, it states the result in words
   and cites the companion paper. It does not hand the reader a label.
 - After any paper-prose edit, run `python3 tools/check_reader_style.py` from
-  the repository root. When changing this policy or its checker, also run
-  `python3 -m pytest -q tools/test_gates_actually_fail.py`. Do not add an
-  exception merely to retain project-control prose in a paper.
+  the repository root. Do not add an exception merely to retain
+  project-control prose in a paper.
 
 ## Abstracts and informal surfaces
 

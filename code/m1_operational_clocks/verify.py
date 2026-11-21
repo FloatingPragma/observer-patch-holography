@@ -17,12 +17,10 @@ ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 SOURCES = [f'code/m1_operational_clocks/{p}' for p in
            ('__init__.py', 'model.py', 'check.py', 'verify.py', 'build.py', 'test_clocks.py', 'README.md', 'CONTRACT.md')]
-SOURCES += ['docs/research/MASSIVE_OPERATIONAL_CLOCKS.md', '.github/workflows/m1-operational-clocks.yml',
-            'code/m1_quantum_transport/tetra_model.py', 'code/m1_quantum_transport/tetra_check.py',
+SOURCES += ['code/m1_quantum_transport/tetra_model.py', 'code/m1_quantum_transport/tetra_check.py',
             'code/m1_quantum_transport/DERIVATION.md', 'requirements.txt', '.gitattributes']
 SOURCES = pin_scope.bound(SOURCES)
-CLAIMS = ('OPH-M1-MINIMAL-TETRAHEDRAL-TRANSPORT', 'OPH-M1-MASSIVE-FLIGHT-SPECTRUM',
-          'OPH-M1-RESOLVED-LOCAL-READ-CONE', 'OPH-M1-OBSERVABLE-MASS-CLOCK')
+CLAIMS = ('OPH-M1-MINIMAL-TETRAHEDRAL-TRANSPORT',)
 
 
 def pins():

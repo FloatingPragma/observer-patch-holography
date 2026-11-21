@@ -1,8 +1,8 @@
 # OPH Claim Registry
 
-The candidate executable model is [A-contrast-memory-spherical-v1](../model/contrast_memory_spherical_v1/README.md).
+The candidate executable model is [A-contrast-memory-spherical-v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md).
 Its contrast-memory law is a candidate native repair law of the theory, and
-the [scalar channel](../model/scalar_channel/README.md) on the same carrier is a second.
+the [scalar channel](../model/candidate_laws/scalar_channel/README.md) on the same carrier is a second.
 Claims about the model are owned by the
 [executable-model paper](../paper/executable_observer_construction.tex), and
 `python -m model` recomputes their evidence. Other claims keep their stated
@@ -41,7 +41,7 @@ its source.
 | Papers | `paper/content_inventory.yml` and the paper list in `tools/build_tex_papers.py` | `paper/paper_release_manifest.json`, `docs/PAPER_SET.md` |
 
 The executable model uses the existing claim identities and premises through
-its [specification](../model/contrast_memory_spherical_v1/SPEC.md) and the
+its [specification](../model/candidate_laws/contrast_memory_spherical_v1/SPEC.md) and the
 [premise register](../docs/registers/PREMISE_REGISTER_V3.md). Candidate
 hypotheses and issue closure do not change a registered claim's scientific
 status. Change this registry when the established claim or its evidence
@@ -107,13 +107,13 @@ registry/check surface. That rule keeps the registry from becoming a stale snaps
 ## Executable model
 
 The executable-model paper owns the claims about
-[A-contrast-memory-spherical-v1](../model/contrast_memory_spherical_v1/README.md): the exact reduction of the
+[A-contrast-memory-spherical-v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md): the exact reduction of the
 private seam memory to an exchange plus an agreement energy, on every state
-of the memory; the [binding theorem](../model/contrast_memory_spherical_v1/PROOF.md) on every
+of the memory; the [binding theorem](../model/candidate_laws/contrast_memory_spherical_v1/PROOF.md) on every
 federation of complete cells; particle stability on the observers' agreed
 records, with the controls that lose it; the bound objects of one cell; the
 port response; and the unrecovered collar. Their supplied parts are listed in
-the [specification](../model/contrast_memory_spherical_v1/SPEC.md). The model reproduces
+the [specification](../model/candidate_laws/contrast_memory_spherical_v1/SPEC.md). The model reproduces
 particle stability; its other observables are work in progress, and no
 registered claim promotes them.
 

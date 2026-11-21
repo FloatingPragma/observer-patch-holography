@@ -447,13 +447,13 @@ not a prerequisite.
 
 The class rule, its multiplicities, the Aharonov--Bohm phases, the register channels,
 class neutrality on closed carriers and the grading are checked in exact arithmetic by
-\path{model/defect_particle_classes}; the census bounds of
+\path{code/defect_particle_classes}; the census bounds of
 Section~\ref{sec:species-identifiability} are proved in the text. The contrast-memory law
-of the executable model is the package \path{model/contrast_memory_spherical_v1} of the public repository
-\cite{ophrepo}. The command \texttt{python -m model.contrast\_memory\_spherical\_v1.verify} recomputes the
+of the executable model is the package \path{model/candidate_laws/contrast_memory_spherical_v1} of the public repository
+\cite{ophrepo}. The command \texttt{python -m model.candidate\_laws.contrast\_memory\_spherical\_v1.verify} recomputes the
 stability readings, the controls, the event programs, the objects and bindings and the port
 response from the carrier arrays of the package and compares them with the stored results.
-The command \texttt{python -m model.scalar\_channel.cage} recomputes the statements on the
+The command \texttt{python -m model.experiments.cage} recomputes the statements on the
 cage of Section~\ref{sec:cms-cage}, reads the stored counts of its experiments and compares
 the readings with the stored results. The binding theorem, the emitter and reader bounds,
 the order statement and the theorems on the cage are proved in

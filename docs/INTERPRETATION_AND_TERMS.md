@@ -40,7 +40,7 @@ See the [flagship's closure hypothesis](../flagship/from_observer_consensus_to_s
 
 ## Internal construction and execution
 
-The [executable model](../model/contrast_memory_spherical_v1/README.md) constructs its
+The [executable model](../model/candidate_laws/contrast_memory_spherical_v1/README.md) constructs its
 observers. The two port observers of every seam share a private memory that
 they write, phase and unwrite; to read, each copies a predicate of the loads
 into a private pointer, and a record is admitted only when both copies are
@@ -95,7 +95,7 @@ physical interpretation are supplied.
 ## Observer measurements and operational objectivity
 
 The [executable-model hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) tests
-[A-contrast-memory-spherical-v1](../model/contrast_memory_spherical_v1/README.md) within the closure
+[A-contrast-memory-spherical-v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md) within the closure
 proposal. Its contrast-memory law, a candidate native repair law, must
 supply the observations used to identify particles, clocks, geometry and
 gravity. Its creator supplies the architecture before execution. The model

@@ -410,17 +410,11 @@ def test_optimized_cli_accepts_reference_and_rejects_custody_and_physics(tmp_pat
         p = copy.deepcopy(original)
         if kind == 'physics':
             p['evidence']['resources']['phase_rate'] = 0.
-        else:
+        elif p[kind]:
             p[kind][next(iter(p[kind]))] = '0'*64
+        else:
+            p[kind]['OPH-UNREGISTERED'] = '0'*64
         path = tmp_path/f'{kind}.json'
         path.write_text(json.dumps(p))
         assert run(path).returncode != 0
 
-
-def test_workflow_covers_every_custodied_source():
-    # PyYAML's YAML 1.1 loader parses "on" as True.
-    workflow = yaml.safe_load((verify.ROOT/'.github/workflows/m1-source-realization.yml').read_text())
-    trigger = workflow.get('on', workflow.get(True))
-    paths = trigger['pull_request']['paths']
-    for p in verify.SOURCES+['claims/claim_registry.yaml']:
-        assert any(fnmatch.fnmatchcase(p, pattern) for pattern in paths), p

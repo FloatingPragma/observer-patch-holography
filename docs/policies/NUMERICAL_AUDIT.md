@@ -15,14 +15,12 @@ owns the calculation.
   each wrong by 75 percent while their ratio stays correct. Compute every
   response component from the original supplied parameters with a separate
   scalar partition function, and cross population precision boundaries at
-  ordinary and rescaled observable units. The regression is
-  [`test_gibbs_population_response.py`](../../code/quantum_information/test_gibbs_population_response.py).
+  ordinary and rescaled observable units.
 - Structural equality on complex Markov states. A symbolic equality test
   rejects an ordinary full-rank state whose exact support residual is zero.
   Compare operators in a canonical exact domain, and exercise complex
   conditional products, singular supports, nearby non-Markov states and
-  support escape through the public consumers. The regression is
-  [`test_complex_markov_support.py`](../../code/quantum_information/test_complex_markov_support.py).
+  support escape through the public consumers.
 - Evidence discarded on a valid refusal. A correct support refusal aborts a
   valid count-to-CMI run before its acquired evidence is saved, and a default
   circuit selection hides a separate seed failure. Save acquired evidence

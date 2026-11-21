@@ -3274,7 +3274,7 @@ def render(register: dict, rows: list[dict], bitcoin_upgrades: dict | None = Non
     lines.append("## Executable model and exposed-data correspondence")
     lines.append("")
     lines.append(
-        "The candidate executable model, [A-contrast-memory-spherical-v1](../model/contrast_memory_spherical_v1/README.md),"
+        "The candidate executable model, [A-contrast-memory-spherical-v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md),"
         " reproduces particle stability as an observable on the observers'"
         " agreed records. Its results are finite mathematical and software"
         " results under a declared law and declared preparations, and none of"
@@ -3489,8 +3489,7 @@ def render(register: dict, rows: list[dict], bitcoin_upgrades: dict | None = Non
         " freezes, so the exposure is retrospective and decides nothing under"
         " the frozen rules; the rows, decision rules and eligible data are"
         " unchanged. Sources:"
-        " `code/a5_fingerprint/runtime/fz12_auger_threshold_diagnostic_receipt.json`,"
-        " `docs/research/DISPERSION_FEASIBILITY.md` and"
+        " `code/a5_fingerprint/runtime/fz12_auger_threshold_diagnostic_receipt.json` and"
         " `docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md`."
     )
     lines.append("")

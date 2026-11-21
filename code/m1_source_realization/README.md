@@ -30,8 +30,7 @@ Population-independent stability does not hold for occupation-flip noise.
 Ordinary register flights do not automatically supply fermionic signs on
 many-particle states; the executable countercontrol keeps that boundary.
 
-Read the [contract](CONTRACT.md) and
-[complete proof and resource ledger](../../docs/research/COHERENT_SOURCE_CLOCKS.md).
+Read the [contract](CONTRACT.md).
 This is an explicit mathematical source completion, not a simulator capture
 or selection of empirical masses, physical energy or a unique representation.
 

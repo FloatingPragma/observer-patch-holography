@@ -1776,9 +1776,8 @@ establishes no physical reading of the collar as that carrier.
 
 The same carrier holds a second candidate law, with other registers. Its
 results stand beside those of the contrast-memory law and are not added to
-them. The construction manual of the model describes both laws part by
-part, and the packages \path{model/scalar_channel} and
-\path{model/scalar_channel/cage} execute this one on one
+them. The packages \path{model/candidate_laws/scalar_channel} and
+\path{model/experiments/cage} execute this one on one
 cell~\cite{ophrepo}.
 
 \subsection{The law}
@@ -2310,10 +2309,10 @@ laws are candidate native repair laws, and their couplings are supplied.
 \section{Reproducibility}
 \label{sec:repro}
 
-The model is the package \path{model/contrast_memory_spherical_v1} of the public
+The model is the package \path{model/candidate_laws/contrast_memory_spherical_v1} of the public
 repository \cite{ophrepo}. The command
 \begin{center}
-\texttt{python -m model.contrast\_memory\_spherical\_v1.verify}
+\texttt{python -m model.candidate\_laws.contrast\_memory\_spherical\_v1.verify}
 \end{center}
 recomputes the model from the carrier arrays of the package and compares
 the outcome with the stored results; with the option \texttt{-{}-full} it
@@ -2332,10 +2331,10 @@ given in full in the text and do not depend on the computations.
 
 The commands
 \begin{center}
-\texttt{python -m model.contrast\_memory\_spherical\_v1.presence}\\
-\texttt{python -m model.contrast\_memory\_spherical\_v1.presence\_certificate}\\
-\texttt{python -m model.scalar\_channel}\\
-\texttt{python -m model.scalar\_channel.cage}
+\texttt{python -m model.candidate\_laws.contrast\_memory\_spherical\_v1.presence}\\
+\texttt{python -m model.candidate\_laws.contrast\_memory\_spherical\_v1.presence\_certificate}\\
+\texttt{python -m model.candidate\_laws.scalar\_channel}\\
+\texttt{python -m model.experiments.cage}
 \end{center}
 recompute the laws of two readings of Section~\ref{sec:presence}, the
 certified event in exact arithmetic, the scalar channel of

@@ -11,9 +11,7 @@ of valid inputs, not the moment theorem, frozen evidence or paper claims.
 
 The [review summary](https://github.com/FloatingPragma/observer-patch-holography/pull/1049#pullrequestreview-5423084144)
 and [inline comment](https://github.com/FloatingPragma/observer-patch-holography/pull/1049#discussion_r4190904723)
-identify this same defect. The eleven direct controls in
-`test_complex_markov_support.py` cover both entries' requirements; five fail
-against the reviewed `10fffe19` implementation. The broader follow-up retains
+identify this same defect. The broader follow-up retains
 24 independently constructed complex conditional-product families, with
 unequal sector weights and complex states at both endpoints. In each case,
 an explicit within-sector correlation preserves both marginals and destroys

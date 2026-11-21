@@ -13,9 +13,9 @@ comparison here establishes agreement with all public observations or at
 every physical scale.
 
 The candidate executable model of OPH is
-[A-contrast-memory-spherical-v1](../../model/contrast_memory_spherical_v1/README.md), whose contrast-memory law
-is a candidate native repair law ([specification](../../model/contrast_memory_spherical_v1/SPEC.md),
-[binding theorem](../../model/contrast_memory_spherical_v1/PROOF.md)). Its tests compare
+[A-contrast-memory-spherical-v1](../../model/candidate_laws/contrast_memory_spherical_v1/README.md), whose contrast-memory law
+is a candidate native repair law ([specification](../../model/candidate_laws/contrast_memory_spherical_v1/SPEC.md),
+[binding theorem](../../model/candidate_laws/contrast_memory_spherical_v1/PROOF.md)). Its tests compare
 distributions of admissible observer records with what observers in our world
 record. The state of the simulation is no physical space: the flagship's
 proposition on smooth effective field descriptions proves that observers who

@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 499,
+  "surface_count": 480,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -856,11 +856,6 @@
       "allowlisted": false
     },
     {
-      "path": "docs/policies/HARDWARE_EVIDENCE_BUNDLE_H.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
       "path": "docs/policies/NUMERICAL_AUDIT.md",
       "glob": "docs/**/*.md",
       "allowlisted": false
@@ -886,62 +881,7 @@
       "allowlisted": false
     },
     {
-      "path": "docs/research/COHERENT_SOURCE_CLOCKS.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/research/DARK_SOURCE_DYNAMICS_LENSING.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/research/DISPERSION_FEASIBILITY.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/research/FERMIONIC_SOURCE_CLOCKS.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/research/FIXED_RATE_SOURCE_READS.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/research/FIXED_STRENGTH_PUBLIC_RECORDS.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/research/LEAKAGE_SOURCE_REFINEMENT.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/research/MASSIVE_OPERATIONAL_CLOCKS.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/research/NOISY_SOURCE_RECORDS.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
       "path": "docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/research/SOURCE_GRAVITY_ADMISSIBILITY.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/research/SOURCE_SEA_ENERGY.md",
       "glob": "docs/**/*.md",
       "allowlisted": false
     },
@@ -951,167 +891,132 @@
       "allowlisted": false
     },
     {
-      "path": "model/carrier_selection_reduction/PROOF.md",
+      "path": "model/REQUIREMENTS.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/carrier_selection_reduction/README.md",
+      "path": "model/benchmarks/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/construction_manual/CONSTRUCTION_MANUAL.md",
+      "path": "model/candidate_laws/CANDIDATE.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/construction_manual/README.md",
+      "path": "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/contrast_clock/PROOF.md",
+      "path": "model/candidate_laws/contrast_memory_spherical_v1/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/contrast_clock/README.md",
+      "path": "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/contrast_memory_spherical_v1/PROOF.md",
+      "path": "model/candidate_laws/scalar_channel/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/contrast_memory_spherical_v1/README.md",
+      "path": "model/candidate_laws/scalar_channel/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/contrast_memory_spherical_v1/SPEC.md",
+      "path": "model/evaluation/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/defect_particle_classes/PROOF.md",
+      "path": "model/evaluation/SCORECARD.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/defect_particle_classes/README.md",
+      "path": "model/executable_model/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/finite_instrument_calibration/PROOF.md",
+      "path": "model/experiments/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/finite_instrument_calibration/README.md",
+      "path": "model/experiments/cage/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/matched_einstein_limit/PROOF.md",
+      "path": "model/experiments/cage/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/matched_einstein_limit/README.md",
+      "path": "model/experiments/contact/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/maxwell_local_selection/PROOF.md",
+      "path": "model/experiments/contrast_clock/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/maxwell_local_selection/README.md",
+      "path": "model/experiments/contrast_clock/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/maxwell_weak_field/PROOF.md",
+      "path": "model/experiments/material_inertia/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/maxwell_weak_field/README.md",
+      "path": "model/experiments/mobile_memory/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/scalar_channel/PROOF.md",
+      "path": "model/experiments/mobile_memory/calibrated/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/scalar_channel/README.md",
+      "path": "model/experiments/mobile_memory/relativity/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/scalar_channel/cage/PROOF.md",
+      "path": "model/experiments/radiative_repair/FLAT_BAND.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/scalar_channel/cage/README.md",
+      "path": "model/experiments/radiative_repair/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/scalar_channel/contact/README.md",
+      "path": "model/experiments/refinement_spectrum/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/scalar_channel/mobile_memory/README.md",
+      "path": "model/experiments/seam_program/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
-      "path": "model/scalar_channel/mobile_memory/calibrated/README.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/scalar_channel/mobile_memory/relativity/README.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/scalar_channel/radiative_repair/FLAT_BAND.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/scalar_channel/radiative_repair/README.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/scalar_channel/refinement_spectrum/README.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/seam_program/PROOF.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/seam_program/README.md",
-      "glob": "model/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "model/support_refinement/README.md",
+      "path": "model/experiments/seam_program/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

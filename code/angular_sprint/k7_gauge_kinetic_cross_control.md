@@ -61,5 +61,4 @@ The irreducible missing datum at these pins is source-clean transport of the het
 python3 code/angular_sprint/k7_gauge_kinetic_cross_control.py --check
 python3 code/angular_sprint/verify_k7_gauge_kinetic_cross_control_independent.py \
   --receipt code/angular_sprint/runtime/k7_gauge_kinetic_cross_control.json
-python3 -m pytest -q code/angular_sprint/test_k7_gauge_kinetic_cross_control.py
 ```

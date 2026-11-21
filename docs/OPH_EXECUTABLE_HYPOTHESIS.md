@@ -4,12 +4,12 @@ The candidate executable model is
 [A-contrast-memory-spherical-v1](../model/README.md). Its law, the contrast-memory
 law, is a candidate native repair law of the theory: a simple local rule
 by which neighbouring observers settle their disagreements. A second candidate
-law runs on the same carrier, the [scalar channel](../model/scalar_channel/README.md).
+law runs on the same carrier, the [scalar channel](../model/candidate_laws/scalar_channel/README.md).
 The executable observer is a candidate and may change as the research goes on.
 The hypothesis is
 that the agreed records of its observers reproduce the observable physics of
-our Universe. The [specification](../model/contrast_memory_spherical_v1/SPEC.md), the
-[binding theorem](../model/contrast_memory_spherical_v1/PROOF.md) and the
+our Universe. The [specification](../model/candidate_laws/contrast_memory_spherical_v1/SPEC.md), the
+[binding theorem](../model/candidate_laws/contrast_memory_spherical_v1/PROOF.md) and the
 [executable-model paper](../paper/executable_observer_construction.pdf)
 state the law and what its observers read.
 
@@ -79,7 +79,7 @@ the graph of seams. Its reference state has every negative level filled. On a
 ring of four seams with alternating signs the law holds an object and
 couples it to nothing else: its excitation is kept for every interval, and
 after a pulse its seam record swings at the difference of its two levels
-([cage](../model/scalar_channel/cage/README.md)).
+([cage](../model/experiments/cage/README.md)).
 
 ### Supplied
 
@@ -134,7 +134,7 @@ own domain until an explicit map connects it.
 
 ## Gravity through the matched-regional theorem
 
-The [matched-regional theorem](../model/matched_einstein_limit/README.md)
+The [matched-regional theorem](../code/matched_einstein_limit/README.md)
 consumes ten entropy/area/stress observations in one orthonormal frame. Its
 finite residual bound propagates three stated errors, with common positive
 area coefficient and radius. The same regional data must enter all three

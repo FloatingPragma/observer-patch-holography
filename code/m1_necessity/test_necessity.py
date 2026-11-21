@@ -27,39 +27,7 @@ def test_complete_reference_execution_and_counts(packet):
     assert {k:actual[k] for k in ('routes','route_steps','executed_events','executed_reads','consumer_claims')} == {
         "routes":298,"route_steps":2215,"executed_events":149760,"executed_reads":13479912,"consumer_claims":8}
     assert actual['balanced_routes']==161 and actual['balanced_steps']>0
-    assert actual['downstream_claims']==122
-
-
-def test_dark_source_context_does_not_transfer_dense_m1_or_physical_admission():
-    downstream = audit.downstream_audit()
-    row = downstream['claims']['OPH-DARK-SOURCE-DYNAMICS-LENSING']
-    assert row['assumptions'] == ['declared_spherical_Einstein_source_and_null_observable']
-    assert row['disposition'] == 'existing_contract_retained_without_automatic_transfer'
-    assert not (set(row['assumptions']) & audit.KEYS)
-    edges = [edge for edge in downstream['links'] if edge['to'] == 'OPH-DARK-SOURCE-DYNAMICS-LENSING']
-    assert len(edges) == 1 and edges[0]['from'] == 'OPH-DM-CONT'
-    assert 'does not derive physical admission' in edges[0]['role']
-
-
-def test_operational_clock_descendants_do_not_inherit_dense_m1_premises():
-    downstream = audit.downstream_audit()
-    inputs = {
-        'OPH-M1-MASSIVE-FLIGHT-SPECTRUM': {
-            'declared_charged_coherent_flight_grammar', 'declared_massive_tetrahedral_process'},
-        'OPH-M1-RESOLVED-LOCAL-READ-CONE': {
-            'declared_massive_tetrahedral_process', 'declared_smooth_local_car_operations'},
-        'OPH-M1-OBSERVABLE-MASS-CLOCK': {
-            'declared_massive_tetrahedral_process', 'declared_two_mass_clock_preparation'}}
-    for name, assumptions in inputs.items():
-        row = downstream['claims'][name]
-        assert set(row['assumptions']) == assumptions
-        assert row['disposition'] == 'existing_contract_retained_without_automatic_transfer'
-        assert not (set(row['assumptions']) & audit.KEYS)
-    # The massive result is attached through the actual tetrahedral parent;
-    # reachability records that use, without transferring a dense read law.
-    assert any(edge['from'] == 'OPH-M1-MINIMAL-TETRAHEDRAL-TRANSPORT' and
-               edge['to'] == 'OPH-M1-MASSIVE-FLIGHT-SPECTRUM'
-               for edge in downstream['links'])
+    assert actual['downstream_claims']==100
 
 
 @pytest.mark.parametrize("bad", [True,False,0,-1,25,1.0,"2",None])

@@ -36,14 +36,61 @@ and built that process is a mathematically guaranteed fixed point of the
 history, and it exists in our subjective future just as our past exists. The
 [basis](docs/BASIS.md) states this closure hypothesis in full.
 
+## The search for the repair law
+
+The open problem of the project is the native repair law: the one local rule
+that every observer follows when it compares its records with a neighbour,
+which says how a disagreement is repaired and what the repair leaves behind in
+memory. Everything else is in place. The finite theorems say how three
+directions of space, the rules of quantum measurement, the forces of the
+Standard Model and Einstein's gravity come about once their premises hold. So
+the law has one job: fulfil those premises, all of them together, on one
+process.
+
+The [requirements](model/REQUIREMENTS.md) make this a precise target:
+
+- **Fixed:** the carrier, a sphere of echosahedral cells in which each cell is
+  one observer and its twelve ports are its interfaces, and the premises of the
+  finite theorems, listed in the [premise register](docs/registers/PREMISE_REGISTER_V3.md).
+- **Free:** anything a designer can build in the simulating universe may be
+  calibrated so that the observers' records match ours: couplings,
+  preparations, feedback, readouts.
+- **Forbidden:** putting in by hand what the theorems derive or what observers
+  measure, such as particle masses, the number of space dimensions or a
+  spatial lattice.
+- **Together:** where two theorems talk about the same thing, the law supplies
+  one record, one clock and one response for both. The stress that observers
+  read from their clocks is the stress carried by the excitations that move,
+  and the gauge currents act on those same excitations.
+
+Once a law meets the requirements it is frozen, and its observers' records say
+which particles exist, with which spins, charges and mass ratios. That is the
+prediction of the search: a law found from the premises alone, whose observers
+then discover our particles.
+
+Every candidate law lives in [model/candidate_laws](model/candidate_laws/CANDIDATE.md)
+and runs on the same fixed carrier. One command scores all of them against the
+requirements, premise by premise, and writes the
+[scorecard](model/evaluation/SCORECARD.md):
+
+```sh
+python -m model evaluate
+```
+
+The main candidate is A-contrast-memory-spherical-v1; a second, the scalar
+channel, runs beside it. Most premises are open for both, and the scorecard
+shows which. New candidates are welcome: a candidate is a folder with a
+`candidate.py`, and [CANDIDATE.md](model/candidate_laws/CANDIDATE.md#adding-a-candidate)
+says what it declares.
+
 ## Research focus
 
-We have a working candidate [executable model](model/README.md) of OPH, called
-A-contrast-memory-spherical-v1. Small observers sit on the ports of icosahedral cells. Each
-holds a few records and compares them with its neighbours, and where two
-neighbours disagree they repair the difference between the two of them. The
-theory around the model is finished: the closure principle, the theorem
-library and the finite constructions below are in place.
+We have a working candidate [executable model](model/README.md) of OPH. Its
+hardware is the fixed sphere of echosahedral cells; its main candidate law,
+A-contrast-memory-spherical-v1, keeps a few records on the ports and seams of
+each cell, compares neighbouring records, and repairs every disagreement
+between the two of them. The theory around the model is in place: the closure
+principle, the theorem library and the finite constructions below.
 
 **What the observers inside experience.** The state of the simulation does
 not contain the physical Universe. Its ports, seams and cells are the hardware
@@ -66,14 +113,12 @@ Every check is local, every repair is local, and every accepted repair
 removes a fixed amount of disagreement, so the work grows as a polynomial in
 the number of observers: with this design the Universe thinks itself into
 existence in polynomial time. The
-[construction manual](model/construction_manual/CONSTRUCTION_MANUAL.md)
-builds the model part by part and says which part of this is a theorem.
+[specification](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md) of the
+main candidate says which part of this is a theorem.
 
 Two candidate repair laws run on the model, the contrast-memory law and the
-scalar channel. No measured number enters them. Under them the repair
-process reproduces real observable values and structures, in the effective
-descriptions of the
-observers who inhabit the computation:
+scalar channel. No measured number enters them. Under them the observers
+who inhabit the computation record the following structures:
 
 - **Particles that hold together.** A pair of loads written on one seam is
   read as a pair at every later reading, with a probability that a theorem
@@ -93,44 +138,13 @@ observers who inhabit the computation:
   a cell's ports has twelve generators with the algebra of the Standard
   Model's forces.
 
-These outputs plug into the theorem library. A theorem applies to the model
-wherever an output of the model has the form of its premise: the cell is the
-carrier of the three-direction theorem, the model's write is the repair rule
-that four requirements single out, its readings are the projective
-instruments of the measurement theorems, and its observers compare clocks
-through shared records as the clock theorems require. The
-[observation ledger](docs/registers/OBSERVATION_LEDGER_V3.md) lists what the
-model reproduces and what is open.
-
-## Finding the repair and memory law
-
-The main focus of the research is to identify the correct repair and memory
-law. This is the native repair law, the simple law that governs the
-interactions of observers in the early Universe: the one local rule that
-every observer follows when it compares its records with a neighbour, which
-says how a disagreement is repaired and what the repair leaves behind in
-memory. Repair decides what becomes a shared fact. Memory matters just as
-much: in A-contrast-memory-spherical-v1, the phase that a seam's memory picks up from the
-contrast it wrote is the agreement energy that binds a pair of loads, and the
-same law without it loses the pair.
-
-A-contrast-memory-spherical-v1 is the candidate under test. Its two laws are candidates, their
-couplings are supplied, and the other observables in the papers, from charge
-and the particle spectrum to gravity, are work in progress on the same
-process. Any part of the executable observer may change as the research goes
-on.
-
-**Why it matters.** The theorem library states what follows once a law
-supplies certain outputs: three directions of space, the rules of quantum
-measurement, the forces of the Standard Model, Einstein's gravity. A law has
-to supply all of them at once, on one process, with every check and every
-repair local. With the correct law, the physics we measure becomes something
-you compute: run the law, let its observers keep their records, and read off
-what they find. A wrong law gives itself away the same way, because its
-observers record something we do not. That makes the search for the law the
-sharpest test of the whole idea, and the rest of the project serves it. The
-[model overview](model/README.md) lists what the candidates reproduce and what
-is open.
+These outputs plug into the theorem library wherever an output has the form
+of a premise: the cell is the carrier of the three-direction theorem, the
+readings are projective instruments of the measurement theorems, and the
+observers compare clocks through shared records. The
+[scorecard](model/evaluation/SCORECARD.md) records which premises each
+candidate fulfils, and the [observation ledger](docs/registers/OBSERVATION_LEDGER_V3.md)
+lists what the candidates reproduce.
 
 ## What comes out
 
@@ -204,12 +218,13 @@ the construction can fail.
 From the repository root, with Python 3.11 or newer:
 
 ```sh
-python3 -m model
+python3 -m model                          # the main candidate against its stored results
+python3 -m model run --law scalar_channel # another candidate on the same carrier
+python3 -m model evaluate                 # every candidate against the requirements
 ```
 
-This recomputes the headline results of A-contrast-memory-spherical-v1 and compares them
-with the stored ones. The [model guide](model/README.md) explains the full
-run.
+The [model guide](model/README.md) explains the layout: the fixed carrier, the
+candidate laws, their evaluation and the experiments that observers run.
 
 ## Papers
 
@@ -231,7 +246,7 @@ run.
 
 | Path | What it holds |
 | --- | --- |
-| [model/](model/README.md) | The executable observer: implementation, tests and receipts |
+| [model/](model/README.md) | The executable model: the fixed carrier, the candidate laws, their evaluation and the experiments |
 | [flagship/](flagship/) | The main paper |
 | [paper/](paper/README.md) | The construction paper and the theorem library |
 | [extra/](extra/README.md), [cosmology/](cosmology/) | Companion papers |
@@ -260,9 +275,10 @@ the gentlest introductions.
 
 ## Contributing
 
-Contributions should connect one more piece of observed physics to the
-running observer, or expose a failure in it. The
-[A-contrast-memory-spherical-v1 specification](model/contrast_memory_spherical_v1/SPEC.md) and the
+The most valuable contribution is a candidate law that fulfils more premises
+of the finite theorems on the fixed carrier, or a failure of a candidate shown
+on its observers' records. The [requirements](model/REQUIREMENTS.md), the
+[scorecard](model/evaluation/SCORECARD.md) and the
 [research issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+is%3Aopen+label%3Aprogram%3Aphysics)
 set out the work. Main-branch PDFs are source previews; deposited releases
 keep their original bytes.

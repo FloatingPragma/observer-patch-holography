@@ -1,0 +1,25 @@
+{
+  "schema": "oph.law_evaluation.premise_roles.v1",
+  "rule": "A premise of type structural_rule is supplied by the law. Selection rules, representation choices and numerical inputs may be supplied by the designer as implementable calibration. Empirical imports and external mathematics are imports. The overrides below assign premises that would encode an observed outcome to the law, because supplying them would hardcode what the theorems or the observers are to produce.",
+  "defaults": {
+    "structural_rule": "law",
+    "selection_rule": "designer",
+    "representation_choice": "designer",
+    "numerical_input": "designer",
+    "empirical_import": "import",
+    "external_mathematics": "import"
+  },
+  "overrides": {
+    "PR-12": {"role": "law", "reason": "the matter grammar would fix the observed matter content"},
+    "PR-13": {"role": "law", "reason": "the Koide balance fixes lepton mass ratios"},
+    "PR-36": {"role": "law", "reason": "the family band selection would fix the number of families"},
+    "PR-37": {"role": "law", "reason": "the closure map selection would fix the fine-structure constant"},
+    "PR-41": {"role": "law", "reason": "the electroweak selection premises fix observed electroweak values"},
+    "PR-48": {"role": "law", "reason": "the one-Higgs carrier fixes the observed scalar content"},
+    "PR-50": {"role": "law", "reason": "the Yukawa coefficients fix particle masses"},
+    "PR-55": {"role": "law", "reason": "baryon and lepton labels fix observed quantum numbers"},
+    "PR-59": {"role": "law", "reason": "the exterior mask grammar fixes the observed matter representation"},
+    "PR-67": {"role": "law", "reason": "the one-doublet grammar fixes the observed electroweak content"},
+    "PR-69": {"role": "law", "reason": "a Yukawa-line coefficient fixes a particle mass"}
+  }
+}

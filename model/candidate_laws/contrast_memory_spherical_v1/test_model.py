@@ -1,0 +1,204 @@
+"""Tests of the A-contrast-memory-spherical-v1 model: local identities, carriers, the theorem's inequalities, the headline checks,
+the controls, mutations that each headline check must notice, and the default verification."""
+from __future__ import annotations
+
+import math
+
+import numpy as np
+import pytest
+from scipy import sparse
+
+from model.executable_model import carrier as cr
+from . import law, stability, theorem, verify
+from .sectors import PairSector, emit, free_run, record_bound, theorem_bound
+
+KAPPA = 8.0
+
+
+@pytest.fixture(scope='module')
+def result():
+    """One default verification: recomputes the headline subset and compares it with RESULTS.json."""
+    return verify.main([])
+
+
+# ------------------------------------------------------------------------------------------- local law, carrier
+
+def test_local_identities_exact():
+    out = law.exact_checks()
+    assert all(out['checks'].values())
+    assert out['local_dimension'] == 99
+
+
+def test_local_reduction_numeric():
+    out = law.numeric_checks()
+    assert out['U_unitary'] and out['reduction_residual'] < 1e-12
+
+
+def test_changed_write_breaks_the_reduction(monkeypatch):
+    # an output that keeps the order of the inputs: the write stays an isometry, the reduction is lost
+    monkeypatch.setattr(law, 'native_event', lambda a, b, c: (a, b))
+    assert law.numeric_checks()['reduction_residual'] > 0.1
+
+
+def test_carriers():
+    res = cr.run(levels=(0, 1))
+    assert cr.check(res) == []
+    assert (res['level0']['ports'], res['level0']['seams']) == (240, 630)
+    assert (res['level1']['ports'], res['level1']['seams']) == (960, 2520)
+
+
+def test_broken_carrier_is_noticed():
+    car = cr.federation(0)
+    a = car.external[0][0]
+    c = next(v for v in range(car.n) if v // 12 != a // 12 and v not in car.neighbours[a])
+    broken = cr.Carrier('broken', car.n, car.seams + [(min(a, c), max(a, c))])
+    entry = cr.federation_checks(broken)
+    assert not entry['external_seams_form_a_matching']
+
+
+# ---------------------------------------------------------------------------------------------------- theorem
+
+def test_operator_inequalities_20_cells():
+    car = cr.federation(0)
+    for kappa in (4.0, 8.0):
+        entry = theorem.operator_inequalities(car, kappa)
+        assert entry['holds'], entry
+        assert entry['PHP_largest'] <= 10 * kappa + 6
+        assert entry['QHQ_smallest'] >= 12 * kappa
+        assert entry['QHP_norm'] <= math.sqrt(10)
+
+
+def test_single_cell_constants():
+    s = theorem.single_cell()
+    assert s['amax_is_5'] and s['beta_is_2'] and s['separate_minimum_is_4_minus_sqrt6']
+    assert (s['adjacent_pairs'], s['distance_two_pairs'], s['antipodal_pairs']) == (30, 30, 6)
+
+
+def test_emitter_rationals():
+    e = theorem.emitter_bounds()
+    assert e['no_pair_doubled_or_fuel'] == '64009/25600000'
+    assert e['outside_band_or_fuel'] == '35721/25600000'
+
+
+@pytest.mark.parametrize('key', ['cell', 0])
+def test_probability_bound_against_a_run(key):
+    car = cr.carrier(key)
+    ps = PairSector(car)
+    c = theorem.constants(car)
+    seam = cr.EMITTER_SEAM[key]
+    state, Ef = emit(ps.hamiltonian(KAPPA), ps.index(*seam))
+    lines, _ = free_run(ps, ps.hamiltonian(KAPPA), state[1:], stability.TIMES, shift=Ef)
+    worst = max(r['no_pair'] for r in lines)
+    da, db = (int(car.degree[v]) for v in seam)
+    assert worst <= record_bound(KAPPA, c['adjacent_block_largest_level'], c['coupling_largest_singular_value'], da, db)
+    assert worst <= theorem_bound(KAPPA, 64.0)
+
+
+# ------------------------------------------------------------------------------------- headline and controls
+
+def test_default_verification_passes(result):
+    assert result['mode'] == 'default'
+    assert all(result['particle_stability']['verdict'].values())
+
+
+def test_controls(result):
+    ch = result['particle_stability']['changed_laws']
+    for carrier_rows in ch.values():
+        assert carrier_rows['exchange alone']['max_no_pair'] > 0.5
+        assert carrier_rows['exchange alone']['lowest_level'] > -1e-9
+        assert carrier_rows['agreement energy reversed']['lowest_level'] > 0
+        assert carrier_rows['law']['lowest_level'] < -1.0 and carrier_rows['law']['pair_in_lowest_level'] > 0.5
+
+
+def test_face_object(result):
+    face = result['particle_stability']['face_object']['one cell']
+    assert face['law']['max_no_face'] < 0.05 < face['exchange alone']['max_no_face']
+
+
+def test_lowest_level_against_dense_diagonalization():
+    """The sparse path of `lowest_level` returns the bottom of the spectrum for the law and both changed laws."""
+    for key in ('cell', 0):
+        ps = PairSector(cr.carrier(key))
+        for kind in ('law', 'exchange alone', 'agreement energy reversed'):
+            H = stability.law(ps, KAPPA, kind)
+            level, weight, deg = stability.lowest_level(H, ps.adjacent, dense_limit=0)
+            if key == 'cell':
+                w = np.linalg.eigvalsh(H.toarray())
+                assert abs(level - w[0]) < 1e-9 and deg == int((w - w[0] < 1e-8).sum())
+                assert abs(weight - stability.lowest_level(H, ps.adjacent)[1]) < 1e-9
+            if kind == 'exchange alone':
+                # the uniform state is annihilated by every exchange term: level 0, pair weight = seams / pairs
+                assert abs(level) < 1e-9 and abs(weight - len(ps.car.seams) / ps.P) < 1e-9
+            if kind == 'agreement energy reversed':
+                assert level > 0
+
+
+# ------------------------------------------------------------------------------------------------- mutations
+
+def four_checks(H, H_control, p, ps, bound):
+    """The four headline checks on one cell for a given law, start state and control."""
+    state, Ef = emit(H, p)
+    lines, _ = free_run(ps, H, state[1:], stability.TIMES, first=p if ps.adjacent[p] else None, shift=Ef)
+    lost = max(r['no_pair'] for r in lines)
+    moved = max(r['pair_on_another_seam'] if ps.adjacent[p] else 1 - r['no_pair'] for r in lines)
+    level, pair_in_it, _ = stability.lowest_level(H, ps.adjacent)
+    s0, E0 = emit(H_control, p)
+    lost0 = max(r['no_pair'] for r in free_run(ps, H_control, s0[1:], stability.TIMES, shift=E0)[0])
+    return {'kept within the bound': lost <= bound and lost < 0.05, 'read on other seams': moved > 0.05,
+            'level below two free loads': level < -1.0 and pair_in_it > 0.5, 'control loses the pair': lost0 > 0.5}
+
+
+@pytest.fixture(scope='module')
+def cell_setup():
+    ps = PairSector(cr.cell())
+    p = ps.index(0, 1)
+    bound = record_bound(KAPPA, 5.0, 2.0, 5, 5)
+    return ps, p, bound
+
+
+def test_the_law_passes_the_four_checks(cell_setup):
+    ps, p, bound = cell_setup
+    assert all(four_checks(ps.hamiltonian(KAPPA), ps.hamiltonian(0.0), p, ps, bound).values())
+
+
+def test_every_check_fails_under_some_mutation(cell_setup):
+    ps, p, bound = cell_setup
+    H, H0 = ps.hamiltonian(KAPPA), ps.hamiltonian(0.0)
+    half = ps.adjacent & ((ps.aa + ps.bb) % 2 == 0)
+    apart = next(i for i in range(ps.P) if ps.aa[i] == 0 and not ps.adjacent[i])
+    mutations = {
+        'agreement energy removed': (H0, H0, p),
+        'agreement energy reversed': (ps.hamiltonian(-KAPPA), H0, p),
+        'exchange removed': (sparse.diags(H.diagonal()).tocsr(), H0, p),
+        'agreement energy on half of the seams': ((H + sparse.diags(2 * KAPPA * (ps.adjacent & ~half))).tocsr(), H0, p),
+        'start on two ports that share no seam': (H, H0, apart),
+        'control equal to the law': (H, H, p),
+    }
+    noticed = {}
+    for name, (Hm, Hc, pm) in mutations.items():
+        for check, ok in four_checks(Hm, Hc, pm, ps, bound).items():
+            if not ok:
+                noticed.setdefault(check, []).append(name)
+    assert set(noticed) == {'kept within the bound', 'read on other seams', 'level below two free loads',
+                            'control loses the pair'}, noticed
+
+
+def test_changed_reader_is_noticed(cell_setup):
+    ps, p, bound = cell_setup
+    H = ps.hamiltonian(KAPPA)
+    state, Ef = emit(H, p)
+    lines, psi = free_run(ps, H, state[1:], stability.TIMES, shift=Ef)
+    seam_reader = np.abs(psi[ps.seam_states]) ** 2
+    # a reader that reports "both ends loaded" on pairs of ports that share no seam
+    wrong = np.flatnonzero(~ps.adjacent)[:len(ps.seam_states)]
+    assert 1 - seam_reader.sum() < 0.05
+    assert 1 - (np.abs(psi[wrong]) ** 2).sum() > 0.5
+
+
+def test_comparison_names_the_failing_key(result):
+    import copy
+    stored = copy.deepcopy(result)
+    stored['theorem']['level0']['adjacent_block_largest_level'] += 1e-3
+    failures = []
+    verify.compare(stored, result, '', failures, False)
+    assert failures and failures[0].startswith('theorem.level0.adjacent_block_largest_level')

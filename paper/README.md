@@ -33,8 +33,8 @@ carrier is hardware of the computation and no physical space: every test
 compares distributions of admissible observer records with what observers in
 our world record, and the flagship proves that observers who inhabit the
 simulation can describe their experiences as relativistic 3+1D continuum
-spacetimes. The [specification](../model/contrast_memory_spherical_v1/SPEC.md) and the
-[proof of the binding theorem](../model/contrast_memory_spherical_v1/PROOF.md) sit beside the
+spacetimes. The [specification](../model/candidate_laws/contrast_memory_spherical_v1/SPEC.md) and the
+[proof of the binding theorem](../model/candidate_laws/contrast_memory_spherical_v1/PROOF.md) sit beside the
 code.
 
 The [particle paper](deriving_the_particle_zoo_from_observer_consistency.pdf)

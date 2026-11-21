@@ -376,7 +376,7 @@
         "PR-04 declared phase-sensitive effect",
         "PR-64 public-outcome readback and instrument selection; the CP/TNI outcome maps and trace-preserving summed channel are constructed by a declared Lüders instrument",
         "PR-65 common preparation, outcome readback, and run custody",
-        "model/finite_instrument_calibration selects effects and full outcome maps from trusted finite joint probes and supplies a reference-uniform error contract; authenticated preparation, probabilities, readback and custody are separate physical inputs."
+        "code/finite_instrument_calibration selects effects and full outcome maps from trusted finite joint probes and supplies a reference-uniform error contract; authenticated preparation, probabilities, readback and custody are separate physical inputs."
       ],
       "blocking_issues": [
         {
@@ -423,8 +423,8 @@
         "PR-66 declared discrete kinetic term; the step-scaled update and the Gauss constraint are its Euler-Lagrange equations, and a derivation of the term from the axioms or repair dynamics is open",
         "physical time and calibration of the declared step below the sharp threshold h^2 (3 + sqrt(5)) < 4",
         "physical field, current, frame, clock, continuum, and detector readback",
-        "model/maxwell_weak_field derives the Maxwell vacuum derivative and a controlled nonlinear remainder under smooth constitutive, nonzero susceptibility, locality, conservation and reversal premises; it selects no native energy, integrator, clock or physical field.",
-        "model/carrier_selection_reduction selects icosahedral incidence from a supplied three-dimensional weighted quadratic-readout objective; its response dimension, resource objective, inverse-port convention and native seam attachment are inputs."
+        "code/maxwell_weak_field derives the Maxwell vacuum derivative and a controlled nonlinear remainder under smooth constitutive, nonzero susceptibility, locality, conservation and reversal premises; it selects no native energy, integrator, clock or physical field.",
+        "code/carrier_selection_reduction selects icosahedral incidence from a supplied three-dimensional weighted quadratic-readout objective; its response dimension, resource objective, inverse-port convention and native seam attachment are inputs."
       ],
       "blocking_issues": [
         {

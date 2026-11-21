@@ -21,15 +21,18 @@ domains and error bounds. Agreement alone neither fixes Born probabilities
 nor proves a relativistic field limit. A record-copying operation copies an
 orthogonal classical record, not an arbitrary quantum state.
 
-The candidate executable model is [A-contrast-memory-spherical-v1](model/contrast_memory_spherical_v1/README.md),
-specified in [model/contrast_memory_spherical_v1/SPEC.md](model/contrast_memory_spherical_v1/SPEC.md). Its
-contrast-memory law is a candidate native repair law; the scalar channel of
-[model/scalar_channel](model/scalar_channel/README.md) is a second.
-Use its law, carrier, emitter and reader for model claims. Independent
-component proofs retain their own hypotheses and require an explicit source
-map.
+The executable model in [model/](model/README.md) has a fixed carrier,
+[model/executable_model](model/executable_model/README.md), and candidate laws in
+[model/candidate_laws](model/candidate_laws/CANDIDATE.md). The main candidate is
+[A-contrast-memory-spherical-v1](model/candidate_laws/contrast_memory_spherical_v1/README.md),
+specified in [SPEC.md](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md); the scalar channel is a
+second. [REQUIREMENTS.md](model/REQUIREMENTS.md) states the criterion for the correct law: it runs on the
+fixed federation and fulfils the premises of the finite theorems together, with free calibration and no
+hardcoded outcomes. A new candidate gets a folder with a `candidate.py`, and `python -m model evaluate --write`
+updates its evaluation. Use a candidate's law, carrier, emitter and reader for model claims. Independent
+component proofs retain their own hypotheses and require an explicit source map.
 
-Use the [specification](model/contrast_memory_spherical_v1/SPEC.md)
+Use the [specification](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md)
 and [executable-model hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md).
 The carrier, code, repair law, scheduler, preparation and observer apparatus
 may be declared design choices. Do not make proof that these choices are
@@ -52,7 +55,7 @@ between actual preparations, interventions and shared records. Deriving a
 consequence of a specified construction does not require deriving that
 construction's uniqueness.
 
-Field claims use the [specification](model/contrast_memory_spherical_v1/SPEC.md)
+Field claims use the [specification](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md)
 and its typed consumers. Regenerate the actual member and result; matching
 labels or hashes alone do not admit a different preparation or clock.
 Comparison programs retain their stated domains until an explicit transfer
@@ -81,10 +84,8 @@ The full rules are in the [docs index](docs/README.md#rules-for-this-directory).
   PR handoff or status summary anywhere under `docs/`, and never put a date in
   a file name or heading there. Record integration and review history in the
   GitHub pull request or issue.
-- A note in `docs/research/` is allowed only when it states a current result
-  that its code package verifies, without history, dated findings or progress
-  narrative. Prefer extending the owning paper or package README, because
-  separate notes go stale.
+- No research note repeats what the code, the Lean library or the papers
+  contain. Extend the owning paper or package README instead.
 - Release papers do not cite files in `docs/`. Cite papers, Lean modules, code
   packages, machine registers and public preprints. The one exception is
   `docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md`.

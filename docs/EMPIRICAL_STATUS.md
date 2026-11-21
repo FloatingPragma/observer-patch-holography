@@ -5,7 +5,7 @@ stability, an observable of nature. Bound objects persist in free
 evolution, read on the observers' agreed records. A pair of loads written on
 one seam by a local emitter is read as a pair on some seam at every reading,
 with probability at least one minus a proved bound
-([binding theorem](../model/contrast_memory_spherical_v1/PROOF.md)); it is read on seams
+([binding theorem](../model/candidate_laws/contrast_memory_spherical_v1/PROOF.md)); it is read on seams
 other than the first; nothing holds it but the contrast-memory law; and the
 same law without its agreement energy loses it. At coupling `kappa = 8` the
 largest probability of reading no pair is `0.0096` on one cell and on
@@ -14,13 +14,13 @@ alone on 20 cells. Three loads on a face are read as an agreed face object in
 the same way. The coupling is supplied.
 
 Under a second candidate law on the same carrier, the
-[scalar channel](../model/scalar_channel/README.md), an object on a ring of
+[scalar channel](../model/candidate_laws/scalar_channel/README.md), an object on a ring of
 four seams is kept for every interval, and a local detector reads its
 excitation from counts at five waits. After a pulse its seam record swings
 with no drive at one line, which an observer reads at `4.8990` of its own
 reference and finds equal to the level difference of the object read
 separately. A changed law with the same alphabet, routing and symmetry loses
-both ([cage](../model/scalar_channel/cage/README.md)). The
+both ([cage](../model/experiments/cage/README.md)). The
 [observation ledger](registers/OBSERVATION_LEDGER_V3.md) records these as
 particle persistence and an internal clock attained on this construction.
 
@@ -79,9 +79,10 @@ From the repository root:
 
 ```sh
 python -m model
-python -B -O -m model.scalar_channel.cage
-python -m pytest -q -W error model/contrast_memory_spherical_v1 model/scalar_channel
-python -m pytest -q code/cosmology/tilt_posterior
+python -B -O -m model.experiments.cage
+python -m pytest -q -W error model/candidate_laws/contrast_memory_spherical_v1 model/candidate_laws/scalar_channel
+python code/cosmology/tilt_posterior/audit.py --check
+python code/cosmology/tilt_posterior/likelihood_slice.py --check
 ```
 
 The [reproduction guide](../REPRODUCE.md) gives the pinned environment and

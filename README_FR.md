@@ -54,9 +54,60 @@ effectives que les observateurs conviennent d’employer. L’état du programme
 son paramètre de temps calculent ces lectures. Ils ne forment aucun second
 univers à côté d’elles.**
 
+## La recherche de la loi de réparation
+
+Le problème ouvert du projet est la loi de réparation native : la règle locale
+unique que suit chaque observateur lorsqu’il compare ses registres à ceux d’un
+voisin, qui dit comment un désaccord est réparé et ce que la réparation laisse
+en mémoire. Tout le reste est en place. Les théorèmes finis disent comment trois
+directions d’espace, les règles de la mesure quantique, les forces du Modèle
+standard et la gravitation d’Einstein apparaissent dès que leurs prémisses sont
+remplies. La loi n’a donc qu’une tâche : remplir ces prémisses, toutes ensemble,
+sur un seul processus.
+
+Les [exigences](model/REQUIREMENTS.md) (en anglais) en font une cible précise :
+
+- **Fixé :** le support, une sphère de cellules échosaédriques dans laquelle
+  chaque cellule est un observateur et ses douze ports sont ses interfaces, et
+  les prémisses des théorèmes finis, listées dans le
+  [registre des prémisses](docs/registers/PREMISE_REGISTER_V3.md).
+- **Libre :** tout ce qu’un concepteur peut construire dans l’univers qui
+  simule peut être calibré pour que les registres des observateurs
+  correspondent aux nôtres : couplages, préparations, rétroactions, lectures.
+- **Interdit :** introduire à la main ce que les théorèmes dérivent ou ce que
+  les observateurs mesurent, comme les masses des particules, le nombre de
+  dimensions d’espace ou un réseau spatial.
+- **Ensemble :** là où deux théorèmes parlent de la même chose, la loi fournit
+  un seul registre, une seule horloge et une seule réponse pour les deux. La
+  contrainte que les observateurs lisent sur leurs horloges est celle que
+  portent les excitations qui se déplacent, et les courants de jauge agissent
+  sur ces mêmes excitations.
+
+Une fois qu’une loi satisfait les exigences, elle est figée, et les registres
+de ses observateurs disent quelles particules existent, avec quels spins,
+quelles charges et quels rapports de masse. C’est la prédiction de la
+recherche : une loi trouvée à partir des seules prémisses, dont les observateurs
+découvrent ensuite nos particules.
+
+Chaque loi candidate se trouve dans [model/candidate_laws](model/candidate_laws/CANDIDATE.md)
+et tourne sur le même support fixe. Une seule commande les évalue toutes au
+regard des exigences, prémisse par prémisse, et écrit le
+[tableau d’évaluation](model/evaluation/SCORECARD.md) :
+
+```sh
+python -m model evaluate
+```
+
+Le candidat principal est A-contrast-memory-spherical-v1 ; un second, le canal
+scalaire, tourne à côté. La plupart des prémisses restent ouvertes pour les
+deux, et le tableau montre lesquelles. Les nouveaux candidats sont bienvenus :
+un candidat est un dossier avec un fichier `candidate.py`, et
+[CANDIDATE.md](model/candidate_laws/CANDIDATE.md#adding-a-candidate) dit ce
+qu’il déclare.
+
 ## L’hypothèse exécutable
 
-Le [modèle exécutable](model/contrast_memory_spherical_v1/README.md), A-contrast-memory-spherical-v1, place de petits
+Le [modèle exécutable](model/candidate_laws/contrast_memory_spherical_v1/README.md), A-contrast-memory-spherical-v1, place de petits
 observateurs sur les ports de cellules icosaédriques. Deux voisins comparent
 leurs charges par une mémoire privée sur la couture qu’ils partagent ; un
 échange cohérent les fait circuler, et l’accord abaisse l’énergie. La loi,
@@ -72,13 +123,12 @@ reproduire ce que mesurent les observateurs de notre monde.
 
 ## Axe de recherche
 
-Nous avons un [modèle exécutable](model/README.md) d’OPH qui fonctionne,
-appelé A-contrast-memory-spherical-v1. De petits observateurs sont placés sur les ports de
-cellules icosaédriques. Chacun détient quelques registres et les compare
-avec ses voisins ; là où deux voisins sont en désaccord, ils réparent la
-différence entre eux deux. La théorie qui l’entoure est achevée : le principe
-de clôture, la bibliothèque de théorèmes et les constructions finies sont en
-place.
+Nous avons un [modèle exécutable](model/README.md) d’OPH qui fonctionne. Son
+matériel est la sphère fixe de cellules échosaédriques ; sa loi candidate
+principale, A-contrast-memory-spherical-v1, garde quelques registres sur les
+ports et les coutures de chaque cellule, compare les registres voisins et
+répare chaque désaccord entre eux deux. La théorie qui l’entoure est en place :
+le principe de clôture, la bibliothèque de théorèmes et les constructions finies.
 
 **Ce que vivent les observateurs intérieurs.** L’état de la simulation ne
 contient pas l’Univers physique. Ses ports, ses coutures et ses cellules sont
@@ -102,9 +152,8 @@ Le réseau ne cherche pas. Chaque vérification est locale, chaque réparation
 est locale, et chaque réparation acceptée retire une quantité fixe de
 désaccord : le travail croît comme un polynôme du nombre d’observateurs.
 Avec cette conception, l’Univers se pense lui-même jusqu’à l’existence en
-temps polynomial. Le [manuel de construction](model/construction_manual/CONSTRUCTION_MANUAL.md)
-(en anglais) construit le modèle pièce par pièce et dit quelle part de cela
-est un théorème.
+temps polynomial. La [spécification](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md)
+(en anglais) du candidat principal dit quelle part de cela est un théorème.
 
 Deux lois de réparation candidates tournent sur le modèle : la loi de mémoire
 de contraste et le canal scalaire. Aucun nombre mesuré n’y entre. Sous ces
@@ -141,38 +190,6 @@ de la mesure, et ses observateurs comparent leurs horloges par des registres
 partagés, comme l’exigent les théorèmes d’horloge. Le
 [registre des observations](docs/registers/OBSERVATION_LEDGER_V3.md) (en
 anglais) liste ce que le modèle reproduit et ce qui est ouvert.
-
-## Trouver la loi de réparation et de mémoire
-
-L’objectif principal de la recherche est d’identifier la bonne loi de
-réparation et de mémoire. C’est la loi de réparation native, la loi simple
-qui gouverne les interactions des observateurs dans l’Univers primitif : la
-règle locale que chaque observateur suit lorsqu’il compare ses registres avec
-un voisin, et qui dit comment un désaccord est réparé et ce que la réparation
-laisse en mémoire. La réparation décide de ce qui devient un fait partagé. La
-mémoire compte tout autant : dans A-contrast-memory-spherical-v1, la phase que la mémoire
-d’une couture acquiert à partir du contraste qu’elle a écrit est l’énergie
-d’accord qui lie une paire de charges, et la même loi sans elle perd la paire.
-
-A-contrast-memory-spherical-v1 est le candidat à l’essai. Ses deux lois sont des candidates,
-leurs couplages sont fournis, et les autres observables des articles, de la
-charge et du spectre des particules à la gravitation, sont en cours sur le
-même processus. Toute partie de l’observateur exécutable pourra changer au
-fil de la recherche.
-
-**Pourquoi c’est important.** La bibliothèque de théorèmes énonce ce qui
-découle d’une loi dès qu’elle fournit certaines sorties : trois directions
-d’espace, les règles quantiques de la mesure, les forces du Modèle standard,
-la gravitation d’Einstein. Une loi doit les fournir toutes à la fois, sur un
-seul processus, avec des vérifications et des réparations toutes locales.
-Avec la bonne loi, la physique que nous mesurons devient quelque chose que
-l’on calcule : on fait tourner la loi, ses observateurs tiennent leurs
-registres, et on lit ce qu’ils trouvent. Une mauvaise loi se trahit de la
-même manière, car ses observateurs enregistrent autre chose que nous. La
-recherche de la loi est ainsi le test le plus net de toute l’idée, et le
-reste du projet est à son service. La
-[vue d’ensemble du modèle](model/README.md) (en anglais) liste ce que les
-candidats reproduisent et ce qui est ouvert.
 
 ## Ce qui en sort
 
@@ -217,12 +234,14 @@ finies donnent :
 Depuis la racine du dépôt, avec Python 3.11 ou plus récent :
 
 ```sh
-python3 -m model
+python3 -m model                          # le candidat principal face à ses résultats conservés
+python3 -m model run --law scalar_channel # un autre candidat sur le même support
+python3 -m model evaluate                 # chaque candidat face aux exigences
 ```
 
-Cette commande recalcule les résultats principaux d’A-contrast-memory-spherical-v1 et les
-compare aux résultats conservés. Le [guide du modèle](model/README.md)
-indique l’exécution complète.
+Le [guide du modèle](model/README.md) (en anglais) décrit l’organisation : le
+support fixe, les lois candidates, leur évaluation et les expériences des
+observateurs.
 
 ## Des mathématiques vérifiables
 
@@ -264,7 +283,7 @@ la construction peut échouer.
 
 | Chemin | Contenu |
 | --- | --- |
-| [model/](model/README.md) | L’observateur exécutable : implémentation, tests, reçus conservés et enregistrements de protocole |
+| [model/](model/README.md) | Le modèle exécutable : le support fixe, les lois candidates, leur évaluation et les expériences |
 | [flagship/](flagship/) | L’article de synthèse |
 | [paper/](paper/README.md) | L’article de construction et la bibliothèque de théorèmes, avec les articles archivés sous [paper/archive/](paper/archive/README.md) |
 | [extra/](extra/README.md), [cosmology/](cosmology/) | Les articles compagnons |
@@ -305,7 +324,7 @@ fournissent la physique effective : l’horloge de l’observateur, son interpr�
 spatiale et ses mesures de champ sur les mêmes histoires, comparées à des
 observations indépendantes. Les
 contributions doivent résoudre une connexion nommée ou révéler un défaut du
-modèle ; la [spécification d’A-contrast-memory-spherical-v1](model/contrast_memory_spherical_v1/SPEC.md) et les
+modèle ; la [spécification d’A-contrast-memory-spherical-v1](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md) et les
 [tâches de recherche](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+is%3Aopen+label%3Aprogram%3Aphysics)
 décrivent ce travail. Les publications d’articles suivent le
 [guide des articles](paper/README.md#reproducibility) ;

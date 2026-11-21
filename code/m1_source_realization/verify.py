@@ -19,17 +19,14 @@ HERE = Path(__file__).resolve().parent
 SOURCES = [f'code/m1_source_realization/{p}' for p in
            ('__init__.py', 'model.py', 'circuits.py', 'topology.py', 'check.py', 'verify.py', 'build.py',
             'test_source.py', 'README.md', 'CONTRACT.md')]
-SOURCES += ['docs/research/COHERENT_SOURCE_CLOCKS.md', '.github/workflows/m1-source-realization.yml',
-            'claims/axiom_registry.yaml', 'docs/AXIOM_REFERENCE.md',
+SOURCES += ['claims/axiom_registry.yaml', 'docs/AXIOM_REFERENCE.md',
             'code/source_selection_model/response.json', 'code/source_selection_model/response.py',
             'code/source_selection_model/verify_response.py', 'code/source_selection_model/geometry.py',
             'code/source_selection_model/DERIVATION.md', 'code/source_selection_model/RECORD_GLUING.md',
             'code/a5_closure/port_current_inner_certificate.py',
-            'code/m1_operational_clocks/check.py', 'docs/research/MASSIVE_OPERATIONAL_CLOCKS.md',
-            'requirements.txt', '.gitattributes']
+            'code/m1_operational_clocks/check.py', 'requirements.txt', '.gitattributes']
 SOURCES = pin_scope.bound(SOURCES)
-CLAIMS = ('OPH-SOURCE-COHERENT-CODE-COMPLETION', 'OPH-SOURCE-TWO-BASIS-A3-SELECTION',
-          'OPH-SOURCE-COMPILED-MASS-CLOCK', 'OPH-M1-OBSERVABLE-MASS-CLOCK')
+CLAIMS = ()
 
 
 def pins():

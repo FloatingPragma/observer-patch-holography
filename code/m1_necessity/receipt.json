@@ -1079,13 +1079,6 @@
         "disposition": "existing_contract_retained_without_automatic_transfer",
         "original_claim_sha256": "b875b7adf73c5f05735e0b63804f96c046efa3814a1da163b3dae58f360aad98"
       },
-      "OPH-DARK-SOURCE-DYNAMICS-LENSING": {
-        "assumptions": [
-          "declared_spherical_Einstein_source_and_null_observable"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "4df289362380f8a952c0cbcdbd3ba5f2aeeaf09d35afc5e32e8d02986427da2d"
-      },
       "OPH-DE-FIXED-CAPACITY-WLAW": {
         "assumptions": [
           "fixed_or_monotone_capacity_branch",
@@ -1575,14 +1568,6 @@
         "disposition": "existing_contract_retained_without_automatic_transfer",
         "original_claim_sha256": "5e7ad3e8f736b7b1a63a3ec41bf7916e473034655faa1b078987e1beba873f12"
       },
-      "OPH-M1-MASSIVE-FLIGHT-SPECTRUM": {
-        "assumptions": [
-          "declared_charged_coherent_flight_grammar",
-          "declared_massive_tetrahedral_process"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "19288f6fc809c44aa8ae1df8d3f8053c19a3029a6435cf3c3a94dcd96b3a833a"
-      },
       "OPH-M1-MICROSCOPIC-CUT-OBSTRUCTION": {
         "assumptions": [
           "declared_spaced_ball_uniform_crossing_functional"
@@ -1598,14 +1583,6 @@
         "disposition": "existing_contract_retained_without_automatic_transfer",
         "original_claim_sha256": "2f729f847bfa1708530469c99a6c0d4a91ee743a828bfe163e0563a74ca74766"
       },
-      "OPH-M1-OBSERVABLE-MASS-CLOCK": {
-        "assumptions": [
-          "declared_massive_tetrahedral_process",
-          "declared_two_mass_clock_preparation"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "801c0de93dd7a194cd4a1c8a0ca1dc73f363313a06d341746d6aa3a750c4e3ea"
-      },
       "OPH-M1-POLYNOMIAL-VACUUM-OBSTRUCTION": {
         "assumptions": [
           "declared_scalar_polynomial_symplectic_action_update"
@@ -1619,14 +1596,6 @@
         ],
         "disposition": "existing_contract_retained_without_automatic_transfer",
         "original_claim_sha256": "2b5363c402e6bd7a0598caa1c79238cdc75cd87d4efc2d5d2641d9279bd10679"
-      },
-      "OPH-M1-RESOLVED-LOCAL-READ-CONE": {
-        "assumptions": [
-          "declared_massive_tetrahedral_process",
-          "declared_smooth_local_car_operations"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "5883728a56ecc9f27628f7403e2214b07e3a7a1da088026da204445fc97e4037"
       },
       "OPH-M1-SPARSE-QUANTUM-TICK-REPAIR": {
         "assumptions": [
@@ -1759,164 +1728,6 @@
         ],
         "disposition": "existing_contract_retained_without_automatic_transfer",
         "original_claim_sha256": "fab574f8e2403d4e5438d639fe20d820b9dfa523f95f51357c29c0b1d82ed78d"
-      },
-      "OPH-SOURCE-ADMISSIBLE-CLOCK-SPATIAL-NONSELECTION": {
-        "assumptions": [
-          "declared_proper_code_source_completion",
-          "constructed_common_source_clock_and_native_transport_policies"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "c7a2b380ab8d3fceb8cba43526b0b9da28740eab490b3a12992134a55e726021"
-      },
-      "OPH-SOURCE-COHERENT-CODE-COMPLETION": {
-        "assumptions": [
-          "declared_proper_code_source_completion"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "96987f6b3b6ca75d66e159f545c15e6a421e8123a90788c3fe9c4bf931f05efc"
-      },
-      "OPH-SOURCE-COMPILED-MASS-CLOCK": {
-        "assumptions": [
-          "declared_proper_code_source_completion",
-          "proposed_coherent_code_gluing_CCG",
-          "declared_two_mass_clock_preparation",
-          "declared_source_clock_control_and_noise_budget"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "09adf2fd5a5be9680702281a5c5aaefc4f3138981c098c9d0272f6bd6835645f"
-      },
-      "OPH-SOURCE-ENCODED-FERMION-CLOCK": {
-        "assumptions": [
-          "declared_proper_code_source_completion",
-          "proposed_coherent_code_gluing_CCG",
-          "declared_massive_tetrahedral_process",
-          "declared_smooth_local_car_operations",
-          "declared_two_mass_clock_preparation",
-          "declared_encoded_fermionic_clock_budget"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "5d89a55624b224cf715ad016e66d9ebb653571b16ce971c65da4abeecbdeda1f"
-      },
-      "OPH-SOURCE-EXPANDER-LIVE-ARCHIVE": {
-        "assumptions": [
-          "declared_proper_code_source_completion",
-          "proposed_coherent_code_gluing_CCG",
-          "declared_fixed_strength_public_record_source"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "13a43d5a83e94e92a1ed73ba2fe733d3b6bb7c38df595c820eb286cc482f928b"
-      },
-      "OPH-SOURCE-FERMIONIC-VACUUM-NOISE": {
-        "assumptions": [
-          "declared_encoded_fermionic_clock_budget"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "1d7fafedfc0f074ab74589909fb2918fd2f98b9e5aab8d5dac72c88bc65d1d93"
-      },
-      "OPH-SOURCE-FIXED-RATE-PROTECTED-READS": {
-        "assumptions": [
-          "declared_proper_code_source_completion",
-          "proposed_coherent_code_gluing_CCG",
-          "declared_fault_protected_source_schedule"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "2e86b440661154c929ca44ba78b748fe435fd15bcf31ac369c60a7cecb8a818c"
-      },
-      "OPH-SOURCE-FIXED-STRENGTH-PUBLIC-HISTORY": {
-        "assumptions": [
-          "declared_proper_code_source_completion",
-          "proposed_coherent_code_gluing_CCG",
-          "declared_fixed_strength_public_record_source"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "8b66c669066d7b3c96b0bce0c47b160804fcf9aff2f8f2ec852d02360d2111f2"
-      },
-      "OPH-SOURCE-GENERAL-NOISE-REFINEMENT": {
-        "assumptions": [
-          "declared_proper_code_source_completion",
-          "proposed_coherent_code_gluing_CCG",
-          "declared_full_interface_noise_and_leakage_schedule"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "353714fce6c6be19566ba1c9cbfc152e3443c6c50a81487e4b6acbee2159c63d"
-      },
-      "OPH-SOURCE-LIVE-RECORD-PROTECTION": {
-        "assumptions": [
-          "declared_proper_code_source_completion",
-          "proposed_coherent_code_gluing_CCG",
-          "declared_noisy_control_source_schedule"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "51347787c1c96a14138fd1bae9a19cb39b12e9ee05b2e61a09ce86be8672353d"
-      },
-      "OPH-SOURCE-LOCAL-FERMIONIC-REALIZATION": {
-        "assumptions": [
-          "declared_proper_code_source_completion",
-          "proposed_coherent_code_gluing_CCG",
-          "declared_encoded_fermionic_clock_budget"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "ccda076a1a8f2441a58c400d60f28149f6e8ac81784cddabe0fc7575a52477a6"
-      },
-      "OPH-SOURCE-LOCAL-SEA-LIMIT": {
-        "assumptions": [
-          "declared_proper_code_source_completion",
-          "proposed_coherent_code_gluing_CCG",
-          "declared_filled_source_vacuum_and_read_program"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "5bdb2b9a502bc92c45be021f7582c379a7054d10f0f21e381071e127881d70f5"
-      },
-      "OPH-SOURCE-NATIVE-LEAKAGE-REDUCTION": {
-        "assumptions": [
-          "declared_proper_code_source_completion",
-          "proposed_coherent_code_gluing_CCG",
-          "declared_full_interface_noise_and_leakage_schedule"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "c5d9aa4396841a0f02c841a94c20209d50aa30248d745c5e83c2971499b7110c"
-      },
-      "OPH-SOURCE-NOISY-CONTROL-HISTORIES": {
-        "assumptions": [
-          "declared_proper_code_source_completion",
-          "proposed_coherent_code_gluing_CCG",
-          "declared_noisy_control_source_schedule"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "10be91a7bf3718bcfa1add498b4c19db99370544444445c8dcfd5eeed18f7dba"
-      },
-      "OPH-SOURCE-RAW-DECODED-NOISE-SEPARATION": {
-        "assumptions": [
-          "declared_fault_protected_source_schedule"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "1a9a55a1249672afc8579210d571a4a4ed07813d84cd5467484b979faa863c40"
-      },
-      "OPH-SOURCE-SEA-CLOCK": {
-        "assumptions": [
-          "declared_proper_code_source_completion",
-          "proposed_coherent_code_gluing_CCG",
-          "declared_filled_source_vacuum_and_read_program",
-          "declared_fixed_strength_public_record_source"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "21553ad1598bf87d667c1fa00526b9dd64113877bc5fc1ffafdab898da89271b"
-      },
-      "OPH-SOURCE-SEA-GENERATOR": {
-        "assumptions": [
-          "declared_proper_code_source_completion",
-          "proposed_coherent_code_gluing_CCG",
-          "declared_filled_source_vacuum_and_read_program"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "8d98a71ac89fa7d6f22e62e705e67e4eabd65f6ba94e357fac995e604adac509"
-      },
-      "OPH-SOURCE-TWO-BASIS-A3-SELECTION": {
-        "assumptions": [
-          "declared_code_channel_agreement_and_tracial_reference"
-        ],
-        "disposition": "existing_contract_retained_without_automatic_transfer",
-        "original_claim_sha256": "1bdcb7073ee99db537436e2518ea01f0055223df14d859c90f45e0ca824efa8c"
       },
       "OPH-THERMO-COLLAR-TEMPERATURE-READING": {
         "assumptions": [
@@ -2200,11 +2011,6 @@
         "from": "OPH-DM-COLLAR-SATURATION",
         "role": "supplies the envelope delimitation the mechanism complements: the envelope forces no defect, the record model forces one on sparse cuts; neither claim consumes the other's hypotheses",
         "to": "OPH-DM-SPARSE-DEFECT-MECHANISM"
-      },
-      {
-        "from": "OPH-DM-CONT",
-        "role": "identifies the scalar anomalous-charge and linear-mass interface whose missing relativistic stress closure is tested; does not derive physical admission of the alternatives",
-        "to": "OPH-DARK-SOURCE-DYNAMICS-LENSING"
       },
       {
         "from": "OPH-DM-CONT",
@@ -2627,49 +2433,9 @@
         "to": "OPH-M1-SPARSE-QUANTUM-TICK-REPAIR"
       },
       {
-        "from": "OPH-M1-MASSIVE-FLIGHT-SPECTRUM",
-        "role": "Supplies the explicit massive walk, full-channel dynamics and fixed positive accounting observable; mass interference and the clock error are constructed directly.",
-        "to": "OPH-M1-OBSERVABLE-MASS-CLOCK"
-      },
-      {
-        "from": "OPH-M1-MASSIVE-FLIGHT-SPECTRUM",
-        "role": "Supplies the full-channel dynamic error and native record; actual local sampled CAR read errors are derived without assuming low-energy state selection.",
-        "to": "OPH-M1-RESOLVED-LOCAL-READ-CONE"
-      },
-      {
-        "from": "OPH-M1-MASSIVE-FLIGHT-SPECTRUM",
-        "role": "Supplies the full one-particle walk and fixed positive Floquet observable used for the phase-noise ultraviolet test; no physical energy calibration is inherited.",
-        "to": "OPH-SOURCE-COMPILED-MASS-CLOCK"
-      },
-      {
-        "from": "OPH-M1-MASSIVE-FLIGHT-SPECTRUM",
-        "role": "Supplies the actual massive walk, specified principal branch and complete spectral partition limit; the filled reference changes the vacuum interpretation.",
-        "to": "OPH-SOURCE-SEA-GENERATOR"
-      },
-      {
         "from": "OPH-M1-MICROSCOPIC-CUT-OBSTRUCTION",
         "role": "Identifies the residue defect and necessary short-ball threshold; the repair proves sufficiency, recovery and minimum convergence from the actual added reads.",
         "to": "OPH-M1-VARIATIONAL-AREA-REPAIR"
-      },
-      {
-        "from": "OPH-M1-MINIMAL-TETRAHEDRAL-TRANSPORT",
-        "role": "Supplies the charged tetrahedral coin, complete parent spectrum and native duration; the massive spectrum and all-band bound are proved for the explicit doubled process.",
-        "to": "OPH-M1-MASSIVE-FLIGHT-SPECTRUM"
-      },
-      {
-        "from": "OPH-M1-OBSERVABLE-MASS-CLOCK",
-        "role": "Supplies the bounded finite one-particle clock signal and sampled preparation/detector estimates. Source gates, preparation program and positive control time are supplied here; arbitrary Fock-sector claims are not transferred.",
-        "to": "OPH-SOURCE-COMPILED-MASS-CLOCK"
-      },
-      {
-        "from": "OPH-M1-OBSERVABLE-MASS-CLOCK",
-        "role": "Supplies the finite analytic clock interval certificate and one-particle effect, with its full Fock instrument and all setup/report latency implemented here.",
-        "to": "OPH-SOURCE-ENCODED-FERMION-CLOCK"
-      },
-      {
-        "from": "OPH-M1-OBSERVABLE-MASS-CLOCK",
-        "role": "Supplies massive packet dynamics and phase estimates; a resolved-mode detector is proved separately, and no visibility is transferred.",
-        "to": "OPH-SOURCE-SEA-CLOCK"
       },
       {
         "from": "OPH-M1-QUANTUM-VELOCITY-BUDGET",
@@ -2690,21 +2456,6 @@
         "from": "OPH-M1-QUANTUM-VELOCITY-BUDGET",
         "role": "Equality in the sharp trace budget forces the weighted two-design and its unique minimal tetrahedron.",
         "to": "OPH-M1-MINIMAL-TETRAHEDRAL-TRANSPORT"
-      },
-      {
-        "from": "OPH-M1-RESOLVED-LOCAL-READ-CONE",
-        "role": "Supplies the sampled full-vector bound used in the actual local clock detector comparison; source admission and physical energy are not inherited.",
-        "to": "OPH-M1-OBSERVABLE-MASS-CLOCK"
-      },
-      {
-        "from": "OPH-M1-RESOLVED-LOCAL-READ-CONE",
-        "role": "Supplies the all-state resolved CAR norm bound, transferred by the explicit source isometry at macrostep endpoints.",
-        "to": "OPH-SOURCE-ENCODED-FERMION-CLOCK"
-      },
-      {
-        "from": "OPH-M1-RESOLVED-LOCAL-READ-CONE",
-        "role": "Supplies state-independent compact resolved-read commutator and sampling bounds; these transfer to the new quasi-free state.",
-        "to": "OPH-SOURCE-LOCAL-SEA-LIMIT"
       },
       {
         "from": "OPH-M1-SPARSE-QUANTUM-TICK-REPAIR",
@@ -2750,11 +2501,6 @@
         "from": "OPH-QFT-SOURCE-RECURRENCE-CLOCK-PRECURSOR",
         "role": "supplies the mean return time that the two declared readings convert",
         "to": "OPH-GEOMETRY-SOURCE-CLOCK-RATE-ALONG-WORLDLINES"
-      },
-      {
-        "from": "OPH-RECORD-GLUING-M1-SUFFICIENCY",
-        "role": "Supplies the proposed classical RG service being completed and separated from noncentral transport; no quantum service is inherited.",
-        "to": "OPH-SOURCE-COHERENT-CODE-COMPLETION"
       },
       {
         "from": "OPH-RG-INFORMATION-RESOURCE-BOUND",
@@ -2810,171 +2556,6 @@
         "from": "OPH-SM-Q3-BV-RESTORATION",
         "role": "places the strict fixed-parameter W/Z algebra in QFT-Q3 after a complete renormalized packet; no QFT-Q4 consequence follows",
         "to": "OPH-WZ-STRICT-1L-POLE-MAP"
-      },
-      {
-        "from": "OPH-SOURCE-COHERENT-CODE-COMPLETION",
-        "role": "Supplies the full named axiom-model, native controls, proper instruments and unchanged refinement used by the two source-conditioned policies.",
-        "to": "OPH-SOURCE-ADMISSIBLE-CLOCK-SPATIAL-NONSELECTION"
-      },
-      {
-        "from": "OPH-SOURCE-COHERENT-CODE-COMPLETION",
-        "role": "Supplies the native single-qubit and entangling response controls and full physical code instruments in the named source.",
-        "to": "OPH-SOURCE-COMPILED-MASS-CLOCK"
-      },
-      {
-        "from": "OPH-SOURCE-COHERENT-CODE-COMPLETION",
-        "role": "Supplies complete native proper-code operations, finite per-owner inventories and cofinal charged control capability; no reliable recovery service is added.",
-        "to": "OPH-SOURCE-FIXED-RATE-PROTECTED-READS"
-      },
-      {
-        "from": "OPH-SOURCE-COHERENT-CODE-COMPLETION",
-        "role": "Supplies complete proper-code transfer and reset services from which the noisy full-carrier reduction is derived without a new reversible M6 operation.",
-        "to": "OPH-SOURCE-FIXED-STRENGTH-PUBLIC-HISTORY"
-      },
-      {
-        "from": "OPH-SOURCE-COHERENT-CODE-COMPLETION",
-        "role": "Supplies the native complete classical services and cofinal finite inventory; noisy archive maintenance is proved separately.",
-        "to": "OPH-SOURCE-LIVE-RECORD-PROTECTION"
-      },
-      {
-        "from": "OPH-SOURCE-COHERENT-CODE-COMPLETION",
-        "role": "Supplies the existing native response, complete proper-code interfaces and constructed support; fermionic encoding and preparation are proved here.",
-        "to": "OPH-SOURCE-LOCAL-FERMIONIC-REALIZATION"
-      },
-      {
-        "from": "OPH-SOURCE-COHERENT-CODE-COMPLETION",
-        "role": "Supplies complete proper-code transfer, complement and reset services; the new local leakage-reduction instrument is derived from them.",
-        "to": "OPH-SOURCE-NATIVE-LEAKAGE-REDUCTION"
-      },
-      {
-        "from": "OPH-SOURCE-COHERENT-CODE-COMPLETION",
-        "role": "Supplies the declared proper-code interfaces to which the general finite channel theorem is applied; accepted complementary read data are stated explicitly.",
-        "to": "OPH-SOURCE-TWO-BASIS-A3-SELECTION"
-      },
-      {
-        "from": "OPH-SOURCE-COMPILED-MASS-CLOCK",
-        "role": "Supplies the prior source-clock target and charged-control conventions; its vacuum/one-particle restriction is removed by this separate fermionic compiler.",
-        "to": "OPH-SOURCE-ENCODED-FERMION-CLOCK"
-      },
-      {
-        "from": "OPH-SOURCE-ENCODED-FERMION-CLOCK",
-        "role": "Supplies the full prepared clock/read programs, finite accounting reference and padded source schedule; protection and fixed-rate operational convergence are proved separately.",
-        "to": "OPH-SOURCE-FIXED-RATE-PROTECTED-READS"
-      },
-      {
-        "from": "OPH-SOURCE-EXPANDER-LIVE-ARCHIVE",
-        "role": "Supplies a live public archive with fixed-degree native service count and an exponential bad-cycle bound at fixed subthreshold strength.",
-        "to": "OPH-SOURCE-FIXED-STRENGTH-PUBLIC-HISTORY"
-      },
-      {
-        "from": "OPH-SOURCE-FERMIONIC-VACUUM-NOISE",
-        "role": "Supplies the full-interface noise estimate, including off-code intermediate pulses and gauge preparation; the unencoded sector bound is not reused.",
-        "to": "OPH-SOURCE-ENCODED-FERMION-CLOCK"
-      },
-      {
-        "from": "OPH-SOURCE-FERMIONIC-VACUUM-NOISE",
-        "role": "Supplies the unprotected raw-vacuum obstruction, retained rather than misread as an obstruction to corrected operational outputs.",
-        "to": "OPH-SOURCE-RAW-DECODED-NOISE-SEPARATION"
-      },
-      {
-        "from": "OPH-SOURCE-FIXED-RATE-PROTECTED-READS",
-        "role": "Supplies the merged prepared source programs, universal gadget construction and causal schedule. Its independent code-preserving dephasing hypothesis is replaced, not inherited, in the new general-noise proof.",
-        "to": "OPH-SOURCE-GENERAL-NOISE-REFINEMENT"
-      },
-      {
-        "from": "OPH-SOURCE-FIXED-RATE-PROTECTED-READS",
-        "role": "Supplies the proper-code noise decomposition, protected output convention and charged cofinal source; reliable runtime classical control is removed here.",
-        "to": "OPH-SOURCE-NOISY-CONTROL-HISTORIES"
-      },
-      {
-        "from": "OPH-SOURCE-FIXED-STRENGTH-PUBLIC-HISTORY",
-        "role": "Supplies fixed-strength protection and live records; new schedules and lifetime exponents account for the much longer filled-sea preparation.",
-        "to": "OPH-SOURCE-SEA-CLOCK"
-      },
-      {
-        "from": "OPH-SOURCE-LIVE-RECORD-PROTECTION",
-        "role": "Supplies the central-bit interpretation, private-voter fault ownership and live-bank handoff. The new explicit graph replaces its all-to-all fanout and shrinking-error bound.",
-        "to": "OPH-SOURCE-EXPANDER-LIVE-ARCHIVE"
-      },
-      {
-        "from": "OPH-SOURCE-LIVE-RECORD-PROTECTION",
-        "role": "Supplies the actual live archive, disjoint export islands and complete storage ledger. The norm-tail proof replaces its stochastic estimate; six fixed levels preserve its joint convergence rate.",
-        "to": "OPH-SOURCE-GENERAL-NOISE-REFINEMENT"
-      },
-      {
-        "from": "OPH-SOURCE-LIVE-RECORD-PROTECTION",
-        "role": "Supplies actual noisy public export and live record maintenance, with every retained lifetime and terminal boundary counted.",
-        "to": "OPH-SOURCE-NOISY-CONTROL-HISTORIES"
-      },
-      {
-        "from": "OPH-SOURCE-LOCAL-FERMIONIC-REALIZATION",
-        "role": "Supplies the all-sector gates, deterministic local preparation and complete number instruments.",
-        "to": "OPH-SOURCE-ENCODED-FERMION-CLOCK"
-      },
-      {
-        "from": "OPH-SOURCE-LOCAL-FERMIONIC-REALIZATION",
-        "role": "Supplies the edge encoding and independent cycle constraints on which the physical vacuum-noise obstruction is proved.",
-        "to": "OPH-SOURCE-FERMIONIC-VACUUM-NOISE"
-      },
-      {
-        "from": "OPH-SOURCE-LOCAL-FERMIONIC-REALIZATION",
-        "role": "Supplies the all-sector CAR source compiler and actual reflecting flight; no periodic source link is substituted.",
-        "to": "OPH-SOURCE-SEA-GENERATOR"
-      },
-      {
-        "from": "OPH-SOURCE-LOCAL-SEA-LIMIT",
-        "role": "Supplies the blocking and finite-boundary covariance estimates used by the informative clock bound.",
-        "to": "OPH-SOURCE-SEA-CLOCK"
-      },
-      {
-        "from": "OPH-SOURCE-NATIVE-LEAKAGE-REDUCTION",
-        "role": "Supplies native complete reduction and single-carrier correction identities; noisy reductions and full gadget hypotheses are charged.",
-        "to": "OPH-SOURCE-GENERAL-NOISE-REFINEMENT"
-      },
-      {
-        "from": "OPH-SOURCE-NOISY-CONTROL-HISTORIES",
-        "role": "Supplies the exact causal instrument compiler, actual computation code, protected classical feedback and source lifetime ledger; a staged record decoder and growing protection replace its fixed-level export.",
-        "to": "OPH-SOURCE-FIXED-STRENGTH-PUBLIC-HISTORY"
-      },
-      {
-        "from": "OPH-SOURCE-NOISY-CONTROL-HISTORIES",
-        "role": "Supplies the exact causal instrument compiler and explicit measurement-free computation code; native leakage reduction and norm fault paths extend its quantum noise model.",
-        "to": "OPH-SOURCE-GENERAL-NOISE-REFINEMENT"
-      },
-      {
-        "from": "OPH-SOURCE-RAW-DECODED-NOISE-SEPARATION",
-        "role": "Specifies complete decoded observables and abort accounting; does not transfer raw fidelity or unweighted native counts.",
-        "to": "OPH-SOURCE-FIXED-RATE-PROTECTED-READS"
-      },
-      {
-        "from": "OPH-SOURCE-RAW-DECODED-NOISE-SEPARATION",
-        "role": "Supplies the complete syndrome decoder and declared accounting reference; the full-carrier extension is changed to correct leakage locally.",
-        "to": "OPH-SOURCE-NATIVE-LEAKAGE-REDUCTION"
-      },
-      {
-        "from": "OPH-SOURCE-SEA-GENERATOR",
-        "role": "Supplies both endpoint gaps and the negative-energy projection; weighted resolvents establish its local reflecting limit.",
-        "to": "OPH-SOURCE-LOCAL-SEA-LIMIT"
-      },
-      {
-        "from": "OPH-SOURCE-SEA-GENERATOR",
-        "role": "Supplies the actual positive excitation generator and filled reference; complete preparation is explicitly charged.",
-        "to": "OPH-SOURCE-SEA-CLOCK"
-      },
-      {
-        "from": "OPH-SOURCE-TWO-BASIS-A3-SELECTION",
-        "role": "Supplies the same code-transition optimizer in both policies, without optimizing transport programs.",
-        "to": "OPH-SOURCE-ADMISSIBLE-CLOCK-SPATIAL-NONSELECTION"
-      },
-      {
-        "from": "OPH-SOURCE-TWO-BASIS-A3-SELECTION",
-        "role": "Supplies coherent transfer under two read tables and the exact-Z A3 noise semigroup; its rate is declared data.",
-        "to": "OPH-SOURCE-COMPILED-MASS-CLOCK"
-      },
-      {
-        "from": "OPH-SOURCE-TWO-BASIS-A3-SELECTION",
-        "role": "Supplies the explicitly proposed CCG coherent transport service, without granting a freely variable code basis.",
-        "to": "OPH-SOURCE-LOCAL-FERMIONIC-REALIZATION"
       },
       {
         "from": "OPH-THERMO-GIBBS-REFERENCE-ENERGY-IDENTIFICATION",
@@ -3599,7 +3180,7 @@
     "code/m1_necessity/build.py": "02da13ead4ae1dda4bbce10d2d54fd3868e11a9c772675df85fedb8f85af9bd6",
     "code/m1_necessity/check.py": "5b32a5391dbbdd4f2ea428b8913ff0f7359234757eaa675f85d40e49a42d26e3",
     "code/m1_necessity/consumers.json": "4a87088d7d58bd8a61a0d5560961bd5cf4f7c204776235e479d3848afddb181b",
-    "code/m1_necessity/downstream.json": "1e4ada8212971c8be610152377f16a602ec4d3ed1760b550b40a0602f885aa5e",
+    "code/m1_necessity/downstream.json": "db5ffe3adb17f1d6887deb86a634c30c8f6c166edb3f993b3169c2461936303a",
     "code/m1_necessity/model.py": "8193f1ebd30f00ee4ba5616839899b2dac86e6ee9ca2f3dfd71fe2022f65cb89",
     "code/m1_necessity/verify.py": "1373fad01d6af846ac2429b4b0e0563ace79d827927e1678336e492016c377d4"
   }

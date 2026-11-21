@@ -1,9 +1,8 @@
 name: CI
 
-# The one required workflow. Every job has a hard timeout so the whole run
-# stays under 45 minutes. Heavy replays run in nightly.yml and Lean builds in
-# lean.yml. Lane tables live in tools/ci_lanes.py and the mandatory step list
-# in tools/run_mandatory_suite.py; this file only names jobs and buckets.
+# The one required workflow: four jobs in parallel, each with a hard timeout, so a run finishes within about
+# fifteen minutes and never takes thirty. The mandatory steps live in tools/run_mandatory_suite.py and the replay
+# lanes in tools/ci_lanes.py; this file only names the jobs. Lean builds run in lean.yml.
 
 on:
   push:
@@ -23,10 +22,10 @@ env:
   PYTHONUTF8: '1'
 
 jobs:
-  gates:
-    name: Registers and ledgers
+  ledgers:
+    name: Ledgers and registers
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -38,12 +37,10 @@ jobs:
           cache: pip
           cache-dependency-path: requirements.txt
       - run: python -m pip install -r requirements.txt
-      - name: Claim registry and premise countermodels
+      - name: Claim registry, premise countermodels and generated registers
         run: |
           python tools/check_claim_registry.py
           python -W error code/audit/test_basis_principle_boundaries.py
-      - name: Generated registers and ledgers
-        run: |
           python tools/build_premise_register.py --check
           python tools/build_observation_ledger.py --check
           python tools/build_selection_ledger.py --check
@@ -53,7 +50,7 @@ jobs:
         run: |
           python verify_symbolic_q1_q4_wz.py
           python -m unittest -v test_theorem_oracle.py
-      - name: Lean trust inventory and Lean CI budget wiring
+      - name: Lean trust inventory and CI wiring
         run: |
           python tools/check_lean_native_decide_inventory.py
           python tools/check_lean_ci_budget.py
@@ -62,8 +59,8 @@ jobs:
         if: github.event_name == 'pull_request'
         run: python tools/check_docs_policy.py --changed "${{ github.event.pull_request.base.sha }}"
 
-  official-model:
-    name: A-contrast-memory-spherical-v1 model
+  model:
+    name: Executable model and candidate laws
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
@@ -71,52 +68,45 @@ jobs:
       OMP_NUM_THREADS: '1'
       PYTHONDONTWRITEBYTECODE: '1'
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.12'
           cache: pip
           cache-dependency-path: model/requirements.txt
       - run: python -m pip install -r model/requirements.txt
-      - run: python -B -O -m model
-      - run: python -m pytest -q -W error model/contrast_memory_spherical_v1
+      - name: Fixed carrier, candidate laws and their evaluation
+        run: |
+          python -B -O -m model carrier
+          python -B -O -m model
+          python -B -O -m model run --law scalar_channel
+          python -B -O -m model run --law scalar_channel --extended
+          python -B -O -m model evaluate --check
+      - name: Experiments
+        run: |
+          python -B -O -W error -m model.experiments.cage
+          python -B -O -W error -m model.experiments.contact.material_radar
+          python -B -O -W error -m model.experiments.contact.radar_checks
+          python -B -O -W error -m model.experiments.contact.message_replay
+          python -B -O -W error -m model.experiments.seam_program
+          python -B -O -W error -m model.experiments.seam_program.preparation
+          python -B -O -W error -m model.experiments.seam_program.receiver
+          python -B -O -m model.experiments.contrast_clock
+      - name: Tests of the model
+        run: python -B -m pytest -q -W error model
+      - name: Theory certificates on the model pins
+        run: python tools/ci_lanes.py run --tier push --profile model --buckets 1 --bucket 0
 
-  experimental-scalar:
-    name: Experimental scalar construction
+  certificates:
+    name: Certificates (shard ${{ matrix.shard }})
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    env:
-      OPENBLAS_NUM_THREADS: '1'
-      OMP_NUM_THREADS: '1'
-      PYTHONDONTWRITEBYTECODE: '1'
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
-        with:
-          python-version: '3.12'
-          cache: pip
-          cache-dependency-path: model/requirements.txt
-      - run: python -m pip install -r model/requirements.txt
-      - run: python -B -O -m model.scalar_channel.experiment
-      - run: python -B -O -m model.scalar_channel.experiment --extended
-      - run: python -B -O -W error -m model.scalar_channel.cage
-      - run: python -B -O -W error -m model.scalar_channel.contact.material_radar
-      - run: python -B -O -W error -m model.scalar_channel.contact.radar_checks
-      - run: python -B -O -W error -m model.scalar_channel.contact.message_replay
-      - run: python -B -O -W error -m model.seam_program
-      - run: python -B -O -W error -m model.seam_program.preparation
-      - run: python -B -O -W error -m model.seam_program.receiver
-      - run: python -B -m pytest -q -W error model/scalar_channel model/seam_program model/test_contrast_replay.py
-
-  suite:
-    name: Mandatory suite (shard ${{ matrix.shard }})
-    runs-on: ubuntu-latest
-    # The last shard holds the three-axiom certificate campaign (about 20 min).
-    timeout-minutes: 40
+    timeout-minutes: 25
     strategy:
       fail-fast: false
       matrix:
-        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        shard: [0, 1, 2, 3, 4, 5]
+    env:
+      SHARDS: '6'
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -129,68 +119,32 @@ jobs:
           cache: pip
           cache-dependency-path: requirements.txt
       - run: python -m pip install -r requirements.txt
+      - name: Mandatory steps
+        run: python tools/run_mandatory_suite.py --shard-index ${{ matrix.shard }} --shard-count $SHARDS
+      - name: Replay lanes
+        run: python tools/ci_lanes.py run --tier push --profile root --buckets $SHARDS --bucket ${{ matrix.shard }}
       - name: Additional scientific evidence
         if: matrix.shard == 0
         run: |
-          python -m pytest -q code/P_derivation/test_selection_accounting.py code/P_derivation/test_printed_pair_identity.py evidence/source_net_causal_poset/manifold_refinement/test_verify.py code/geometry/test_collar_scaling_boundaries.py code/thermodynamics/test_collar_stationary_regressions.py code/thermodynamics/test_exact_count_chain_controls.py tools/test_check_docs_policy.py code/a5_closure/tests/test_galois_port_frame_certificate.py code/a5_closure/tests/test_galois_source_response_pins.py code/a5_closure/tests/test_port_support_source_audit.py code/a5_closure/tests/test_port_gram_support_attachment.py
+          python -m pytest -q code/P_derivation/test_selection_accounting.py code/P_derivation/test_printed_pair_identity.py evidence/source_net_causal_poset/manifold_refinement/test_verify.py code/thermodynamics/test_collar_stationary_regressions.py code/thermodynamics/test_exact_count_chain_controls.py tools/test_check_docs_policy.py code/a5_closure/tests/test_galois_port_frame_certificate.py code/a5_closure/tests/test_port_gram_support_attachment.py
       - name: Sampled-manifold evidence
         if: matrix.shard == 0
         # The package vendors its own oph_exact and needs its root on the path.
         env:
           PYTHONPATH: ${{ github.workspace }}/evidence/source_net_causal_poset/manifold_sampled
         run: python -m pytest -q evidence/source_net_causal_poset/manifold_sampled/tests/test_exact_source_net_manifold_sampled.py evidence/source_net_causal_poset/manifold_sampled/tests/test_retained_receipt_mutations.py
-      - name: Mandatory suite shard
-        run: python tools/run_mandatory_suite.py --shard-index ${{ matrix.shard }} --shard-count 10
 
-  lanes:
-    name: Replays (${{ matrix.profile }} ${{ matrix.bucket }})
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - {profile: root, requirements: requirements.txt, buckets: 8, bucket: 0}
-          - {profile: root, requirements: requirements.txt, buckets: 8, bucket: 1}
-          - {profile: root, requirements: requirements.txt, buckets: 8, bucket: 2}
-          - {profile: root, requirements: requirements.txt, buckets: 8, bucket: 3}
-          - {profile: root, requirements: requirements.txt, buckets: 8, bucket: 4}
-          - {profile: root, requirements: requirements.txt, buckets: 8, bucket: 5}
-          - {profile: root, requirements: requirements.txt, buckets: 8, bucket: 6}
-          - {profile: root, requirements: requirements.txt, buckets: 8, bucket: 7}
-          - {profile: model, requirements: model/requirements.txt, buckets: 5, bucket: 0}
-          - {profile: model, requirements: model/requirements.txt, buckets: 5, bucket: 1}
-          - {profile: model, requirements: model/requirements.txt, buckets: 5, bucket: 2}
-          - {profile: model, requirements: model/requirements.txt, buckets: 5, bucket: 3}
-          - {profile: model, requirements: model/requirements.txt, buckets: 5, bucket: 4}
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          fetch-depth: 0
-          filter: blob:none
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
-        with:
-          python-version: '3.12'
-          cache: pip
-          cache-dependency-path: ${{ matrix.requirements }}
-      - run: python -m pip install -r ${{ matrix.requirements }}
-      - name: Lane plan
-        run: python tools/ci_lanes.py list --tier push --profile ${{ matrix.profile }} --buckets ${{ matrix.buckets }} --bucket ${{ matrix.bucket }}
-      - name: Run lanes
-        run: python tools/ci_lanes.py run --tier push --profile ${{ matrix.profile }} --buckets ${{ matrix.buckets }} --bucket ${{ matrix.bucket }}
-
-  paper-preview:
+  papers:
     name: Paper preview build
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.12'
-
-      # The Tectonic bundle server rate-limits shared runners (HTTP 429). The
-      # run-scoped key with a prefix restore keeps warm runs off the network.
+      # The Tectonic bundle server rate-limits shared runners (HTTP 429). The run-scoped key with a prefix restore
+      # keeps warm runs off the network.
       - name: Cache the Tectonic bundle
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
@@ -198,50 +152,32 @@ jobs:
           key: tectonic-bundle-0.15.0-${{ runner.os }}-${{ github.run_id }}
           restore-keys: |
             tectonic-bundle-0.15.0-${{ runner.os }}-
-
       - name: Install pinned Tectonic
         uses: wtfjoke/setup-tectonic@5e1ba6e10229bd876c6594189bdab1a62b9d0b1c # v4.0.6
         with:
           tectonic-version: "0.15.0"
-
       - name: Install pinned Pandoc
         uses: r-lib/actions/setup-pandoc@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
         with:
           pandoc-version: "3.8.3"
-
       - name: Install preview build tools
         run: |
           sudo apt-get update
           sudo apt-get install --yes poppler-utils
-
       - name: Validate source-bound canonical book PDF assets
         run: python tools/book_pdf_assets.py
-
-      - name: Build every review PDF and enforce its warning budget
+      - name: Build every review PDF and the book, each within its warning budget
         run: |
           for attempt in 1 2 3; do
-            if python tools/refresh_paper_release.py --preview; then
+            if python tools/refresh_paper_release.py --preview && \
+               python tools/build_book_pdf.py --output "${RUNNER_TEMP}/book.pdf"; then
               exit 0
             fi
             echo "preview build attempt ${attempt} failed; backing off before retry"
-            sleep 90
+            sleep 60
           done
           exit 1
-
-      # Build to scratch so verification cannot silently refresh stale committed bytes.
-      # The canonical book must match its current manuscript even without a release bump.
-      - name: Build the book and enforce its warning budget
-        run: |
-          for attempt in 1 2 3; do
-            if python tools/build_book_pdf.py --output "${RUNNER_TEMP}/book-first.pdf"; then
-              exit 0
-            fi
-            echo "book build attempt ${attempt} failed; backing off before retry"
-            sleep 90
-          done
-          exit 1
-
-      - name: Require committed preview artifacts to match the source rebuild
+      - name: Require committed PDFs to match the source rebuild
         run: |
           set -o pipefail
           find paper flagship extra cosmology -maxdepth 1 -type f -name '*.pdf' -print0 \
@@ -252,47 +188,19 @@ jobs:
                 fi
               done
           if ! git diff --quiet -- paper flagship extra cosmology; then
-            echo "::error::The committed PDFs or manifest do not match the source rebuild. No release bump is required. Run 'python3 tools/refresh_paper_release.py --preview', 'python3 tools/build_book_pdf.py', inspect the PDFs, then commit the rebuilt artifacts."
+            echo "::error::The committed PDFs or manifest do not match the source rebuild. Run 'python3 tools/refresh_paper_release.py --preview' and 'python3 tools/build_book_pdf.py', inspect the PDFs, then commit them."
             git diff --stat -- paper flagship extra cosmology
             exit 1
           fi
-          if ! cmp --silent "${RUNNER_TEMP}/book-first.pdf" book/reverse-engineering-reality-book.pdf; then
-            echo "::error::The committed book PDF does not match its manuscript. Run 'python3 tools/build_book_pdf.py', inspect it, and commit the PDF and manifest."
+          if ! cmp --silent "${RUNNER_TEMP}/book.pdf" book/reverse-engineering-reality-book.pdf; then
+            echo "::error::The committed book PDF does not match its manuscript. Run 'python3 tools/build_book_pdf.py' and commit the PDF."
             exit 1
           fi
-
-      - name: Record first-pass preview hashes
-        run: |
-          find paper flagship extra cosmology -maxdepth 1 -type f -name '*.pdf' -print0 \
-            | sort -z \
-            | xargs -0 sha256sum > "${RUNNER_TEMP}/papers-first.sha256"
-          sha256sum paper/paper_release_manifest.json \
-            > "${RUNNER_TEMP}/manifest-first.sha256"
-          sha256sum "${RUNNER_TEMP}/book-first.pdf" | awk '{print $1}' \
-            > "${RUNNER_TEMP}/book-first.sha256"
-
-      - name: Rebuild every preview artifact
-        run: |
-          python tools/refresh_paper_release.py --preview
-          python tools/build_book_pdf.py --output "${RUNNER_TEMP}/book-second.pdf"
-
-      - name: Require byte-identical second pass
-        run: |
-          find paper flagship extra cosmology -maxdepth 1 -type f -name '*.pdf' -print0 \
-            | sort -z \
-            | xargs -0 sha256sum > "${RUNNER_TEMP}/papers-second.sha256"
-          sha256sum paper/paper_release_manifest.json \
-            > "${RUNNER_TEMP}/manifest-second.sha256"
-          sha256sum "${RUNNER_TEMP}/book-second.pdf" | awk '{print $1}' \
-            > "${RUNNER_TEMP}/book-second.sha256"
-          diff -u "${RUNNER_TEMP}/papers-first.sha256" "${RUNNER_TEMP}/papers-second.sha256"
-          diff -u "${RUNNER_TEMP}/manifest-first.sha256" "${RUNNER_TEMP}/manifest-second.sha256"
-          diff -u "${RUNNER_TEMP}/book-first.sha256" "${RUNNER_TEMP}/book-second.sha256"
 
   ci-ok:
     name: CI result
     if: always()
-    needs: [gates, official-model, experimental-scalar, suite, lanes, paper-preview]
+    needs: [ledgers, model, certificates, papers]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

@@ -14,36 +14,33 @@ from tools import ci_lanes
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def _matrix(workflow: str, job: str) -> list[dict]:
-    data = yaml.safe_load((ROOT / ".github/workflows" / workflow).read_text(encoding="utf-8"))
-    return data["jobs"][job]["strategy"]["matrix"]["include"]
+def _job(job: str) -> dict:
+    data = yaml.safe_load((ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8"))
+    return data["jobs"][job]
 
 
 def test_lane_names_are_unique_and_classified():
     names = Counter(lane.name for lane in ci_lanes.LANES)
     assert not [name for name, count in names.items() if count > 1]
     for lane in ci_lanes.LANES:
-        assert lane.tier in {"push", "nightly"}
+        assert lane.tier == "push"
         assert lane.profile in {"root", "model"}
         assert lane.commands and lane.minutes > 0
 
 
-@pytest.mark.parametrize(("workflow", "job", "tier"), [("ci.yml", "lanes", "push"), ("nightly.yml", "lanes", "nightly")])
-def test_workflow_buckets_run_every_lane_once(workflow, job, tier):
-    include = _matrix(workflow, job)
-    by_profile: dict[str, set[int]] = {}
-    counts: dict[str, int] = {}
-    for row in include:
-        by_profile.setdefault(row["profile"], set()).add(row["bucket"])
-        counts[row["profile"]] = row["buckets"]
-    expected = {lane.profile for lane in ci_lanes.LANES if lane.tier == tier}
-    assert set(by_profile) == expected
-    for profile, buckets in by_profile.items():
-        assert buckets == set(range(counts[profile]))
-        packed = ci_lanes.pack(ci_lanes.select(tier, profile), counts[profile])
-        flat = [lane.name for group in packed for lane in group]
-        assert sorted(flat) == sorted(lane.name for lane in ci_lanes.select(tier, profile))
-        assert all(packed)
+def test_ci_runs_every_lane_once():
+    job = _job("certificates")
+    shards = job["strategy"]["matrix"]["shard"]
+    count = int(job["env"]["SHARDS"])
+    assert shards == list(range(count))
+    steps = "\n".join(step.get("run", "") for step in job["steps"])
+    assert "ci_lanes.py run --tier push --profile root --buckets $SHARDS --bucket ${{ matrix.shard }}" in steps
+    packed = ci_lanes.pack(ci_lanes.select("push", "root"), count)
+    assert sorted(lane.name for group in packed for lane in group) == sorted(
+        lane.name for lane in ci_lanes.select("push", "root"))
+    assert all(packed)
+    model = "\n".join(step.get("run", "") for step in _job("model")["steps"])
+    assert "ci_lanes.py run --tier push --profile model --buckets 1 --bucket 0" in model
 
 
 def test_every_referenced_repository_path_exists():

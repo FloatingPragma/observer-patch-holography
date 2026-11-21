@@ -1,0 +1,861 @@
+{
+ "schema": "oph.law_evaluation.v1",
+ "candidate": "scalar_channel",
+ "title": "A-scalar-CAR-pair-transit-v2 (the scalar channel)",
+ "role": "second",
+ "summary": "One object or none on every seam and on every wedge, a wedge being two seams at one port. An object hops between a seam and a wedge, which sit at the two opposite levels +m and -m.",
+ "parameters": {
+  "m": {
+   "value": 1.0,
+   "provenance": "designed",
+   "quantity": "rest level of the seam and wedge modes"
+  },
+  "half_link_coefficient": {
+   "value": "1/sqrt(2)",
+   "provenance": "designed",
+   "quantity": "amplitude of the seam-wedge hop"
+  },
+  "services": {
+   "value": "protocol.json",
+   "provenance": "designed",
+   "quantity": "loop instruments, reference ramps, pulses and pointers"
+  }
+ },
+ "checks": {
+  "native_cell": {
+   "status": "pass",
+   "detail": "the labelling is the fixed cell"
+  },
+  "hermitian": {
+   "status": "pass",
+   "detail": "largest asymmetry 0.0e+00"
+  },
+  "locality": {
+   "status": "pass",
+   "detail": "every coupling joins incident registers of one cell"
+  },
+  "rotations": {
+   "status": "pass",
+   "detail": "commutes with the sixty rotations of the cell (largest defect 0.0e+00)"
+  },
+  "rank_three_response": {
+   "status": "pass",
+   "detail": "levels above the lowest: 1.381966 x3, 3.000000 x5, 3.618034 x3, 5.000000 x18"
+  },
+  "federation": {
+   "status": "partial",
+   "detail": "builds on cell (the scalar channel is written on one cell)"
+  },
+  "parameters": {
+   "status": "pass",
+   "detail": "no parameter hardcodes an observed outcome"
+  }
+ },
+ "joint": {
+  "one-law": {
+   "requirement": "Every premise assigned to the law is fulfilled by one unchanged law on one process.",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  "einstein-together": {
+   "requirement": "The stress that observers infer from modular flow is the stress carried by the excitations that propagate and interact under the law.",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  "matter-together": {
+   "requirement": "Gauge currents act on those excitations through the law's operations; detector, generator, clock and currents refer to the same object.",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  "patch-measurement": {
+   "requirement": "Finite patches measure both the current response and the stress of one bound excitation with their own clocks and records.",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  "relativistic-matter": {
+   "requirement": "The rest energy and the inertia of every bound excitation follow one dictionary.",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  }
+ },
+ "premise_counts": {
+  "law": {
+   "fulfilled": 1,
+   "partial": 0,
+   "open": 58,
+   "fails": 0
+  },
+  "designer": {
+   "fulfilled": 0,
+   "partial": 1,
+   "open": 20,
+   "fails": 0
+  },
+  "import": {
+   "fulfilled": 0,
+   "partial": 0,
+   "open": 3,
+   "fails": 0
+  }
+ },
+ "premises": [
+  {
+   "id": "PR-01",
+   "name": "confluent terminating repair contract",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-02",
+   "name": "algebra-state representation of public records",
+   "type": "representation_choice",
+   "role": "designer",
+   "status": "partial",
+   "evidence": [
+    "PROOF.md",
+    "instruments.py"
+   ],
+   "note": "Loop instruments and the complete law of two pointers are finite instruments with their back-action; the representation of the records is supplied with them."
+  },
+  {
+   "id": "PR-03",
+   "name": "operational effect additivity",
+   "type": "selection_rule",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-04",
+   "name": "declared phase-sensitive effect",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-05",
+   "name": "counting path reference",
+   "type": "selection_rule",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-06",
+   "name": "real Legendre enrichment",
+   "type": "representation_choice",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-07",
+   "name": "declared repair law: common faithful reference and repaired-visible fibre",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-08",
+   "name": "refinement-uniform low-temperature control",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-09",
+   "name": "equal-face-weight and barycentric one-third port-dual rules",
+   "type": "selection_rule",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-10",
+   "name": "measure-to-metric and nearest-point repair rules",
+   "type": "selection_rule",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-11",
+   "name": "compact-Lie classification inputs",
+   "type": "external_mathematics",
+   "role": "import",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-12",
+   "name": "matter candidate grammar",
+   "type": "selection_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-13",
+   "name": "Koide balance premise",
+   "type": "selection_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-14",
+   "name": "hadronic transport packet",
+   "type": "empirical_import",
+   "role": "import",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-15",
+   "name": "clock and energy calibration anchors",
+   "type": "empirical_import",
+   "role": "import",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-16",
+   "name": "source-causal continuum and stable-causality certificate",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-17",
+   "name": "proposed fundamental numerical parameters P and N",
+   "type": "numerical_input",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-18",
+   "name": "spherically symmetric radial readout",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-19",
+   "name": "shell-flux normalization",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-20",
+   "name": "equal source-counting measure on the sixty directed source seams",
+   "type": "selection_rule",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-21",
+   "name": "auxiliary oscillator lift of the seam-current generator",
+   "type": "representation_choice",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-22",
+   "name": "physical-frequency identification for the seam-current symbol",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-23",
+   "name": "typed modular flow supply",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-24",
+   "name": "half-sided inclusion and null translation supply",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-25",
+   "name": "null-stress tomography supply",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-26",
+   "name": "generalized-entropy stationarity supply",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-27",
+   "name": "small-ball geometry supply",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-28",
+   "name": "physical tower and calibration supply",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-29",
+   "name": "layered shell-cardinality law",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-30",
+   "name": "layered shell equidistribution",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-31",
+   "name": "layered steady sourcing",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-32",
+   "name": "Cartesian joint carrier of an observer pair",
+   "type": "representation_choice",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-33",
+   "name": "two-slot diamond region map",
+   "type": "selection_rule",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-34",
+   "name": "two-observer slot split",
+   "type": "representation_choice",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-35",
+   "name": "same-source loop-to-kernel identity",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-36",
+   "name": "family band-selection rules: single complete faithful band and operational cost order",
+   "type": "selection_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-37",
+   "name": "fine-structure closure map selection",
+   "type": "selection_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-38",
+   "name": "same-quantity bridge for the P closure",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-39",
+   "name": "physical Thomson readback contract",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-41",
+   "name": "electroweak sector selection premises",
+   "type": "selection_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-42",
+   "name": "horizon record central-charge identification",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-43",
+   "name": "pointwise-continuous public star-automorphism flow",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "fulfilled",
+   "evidence": [
+    "PROOF.md",
+    "carrier.py"
+   ],
+   "note": "The law is the conjugation flow of the quadratic generator D, a pointwise-continuous group of star-automorphisms of the public algebra."
+  },
+  {
+   "id": "PR-44",
+   "name": "finite subsystem split and normalized local-operation interface",
+   "type": "representation_choice",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-45",
+   "name": "source-selected real variational dynamics and symmetry data",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-46",
+   "name": "physical global-form selection attachments",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-47",
+   "name": "spacetime Spin and fermion-chirality attachment",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-48",
+   "name": "one-Higgs scalar carrier and kinetic-action attachment",
+   "type": "representation_choice",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-49",
+   "name": "renormalizable Higgs potential and electroweak-breaking law",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-50",
+   "name": "Yukawa interaction-line and coupling-matrix attachment",
+   "type": "selection_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-51",
+   "name": "common screen-electroweak load and capacity bridge",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-52",
+   "name": "observer-to-physical-spacetime and causal attachment",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-53",
+   "name": "physical finite-carrier propagation, frame, and comparison attachment",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-54",
+   "name": "source gauge-field, current, and action attachment",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-55",
+   "name": "declared baryon- and lepton-number labels",
+   "type": "selection_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-56",
+   "name": "dimension-six baryon-operator eligibility and contraction grammar",
+   "type": "representation_choice",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-57",
+   "name": "physical proton state and baryon-violating effective-action attachment",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-58",
+   "name": "time-indexed net evolution and time-slice generation interface",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-59",
+   "name": "declared five-mode exterior component and mask-selection grammar",
+   "type": "selection_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-60",
+   "name": "admissible scheduler class: mismatch non-increase clause",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-61",
+   "name": "admissible scheduler class: single-register locality clause",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-62",
+   "name": "admissible scheduler class: unit expected capacity clause",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-63",
+   "name": "two-register capacity-split reading",
+   "type": "representation_choice",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-64",
+   "name": "operational phase-instrument channel realization",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-65",
+   "name": "source-produced phase preparation and readback provenance",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-66",
+   "name": "declared discrete kinetic term of the temporal Maxwell action",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-67",
+   "name": "declared finite one-doublet electroweak grammar",
+   "type": "representation_choice",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-68",
+   "name": "declared finite quartic breaking packet",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-69",
+   "name": "declared finite Yukawa-line coefficient",
+   "type": "selection_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-70",
+   "name": "source homogeneous edge position action",
+   "type": "selection_rule",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-71",
+   "name": "continuous field same-operator sector attachment",
+   "type": "selection_rule",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-72",
+   "name": "cofinal gluing into the compared regime",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-73",
+   "name": "declared finite carrier scale",
+   "type": "numerical_input",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-74",
+   "name": "coherent frame and boost transport",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-75",
+   "name": "frozen nuisance and coverage readout rules",
+   "type": "representation_choice",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-76",
+   "name": "source-derived positive exclusivity lower bound",
+   "type": "numerical_input",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-77",
+   "name": "pathwise weak fairness for canonical adaptive repair",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-78",
+   "name": "work-conserving canonical adaptive choice",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-79",
+   "name": "bounded waste between canonical adaptive changes",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-80",
+   "name": "sufficient cumulative attempt budget",
+   "type": "numerical_input",
+   "role": "designer",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-81",
+   "name": "certified causal read support",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-82",
+   "name": "abstract semantic ancestry acyclicity rank",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-84",
+   "name": "pathwise weak fairness for fixed node attempts",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-85",
+   "name": "bounded waste between fixed node changes",
+   "type": "structural_rule",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  }
+ ]
+}

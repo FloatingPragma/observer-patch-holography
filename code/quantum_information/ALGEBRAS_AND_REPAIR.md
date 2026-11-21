@@ -141,8 +141,7 @@ orthogonal pair `[U-V,U+V]`. Exact Gram-Schmidt of the canonical chart
 introduces a coordinate of order `epsilon^2`, which underflows on conversion;
 the canonical chart itself is well-conditioned and preserves its small
 coordinates numerically. Its action on `(0,1)` has the exact annihilator U.
-The retained real and complex controls in `test_operator_span_recharting.py`
-check this zero and small projector entries on their own scale. Refusal of
+Refusal of
 one attempted chart does not prove that the supplied span is unrepresentable.
 Coordinate permutations also expose partial loss within an occupied row:
 for `U=[[epsilon,1],[0,0]]`, `V=[[epsilon,0],[1,0]]`, Householder QR can erase
@@ -169,11 +168,7 @@ outputs that underflow. A small computed singular value alone is never
 silently changed to zero. Masked and Boolean reference entries are rejected
 before coercion.
 
-The retained controls in `test_operator_span_charts.py` use exact
-original-entry Gram pencils and projectors, together with independently
-known annihilators and positive neighbors. They cover real and complex
-shears, reordered bases, finite extreme scales, conditional expectations,
-repeated intersections and repair gaps. In particular, nearly aligned
+In particular, nearly aligned
 but distinct algebras still have their actual scalar intersection; an
 unresolved slow gap cannot become a fast gap by inventing a conserved
 observable. These controls validate calculations on the supplied inputs;
@@ -512,12 +507,8 @@ overflows on final rounding, raises explicitly. A scalar distance can
 therefore succeed even when individual projected components cannot be
 represented.
 
-The controls in [test_linear_actions.py](test_linear_actions.py) and
-[test_projection_residuals.py](test_projection_residuals.py) use independent
-rational contractions, analytic projections and high-precision scalar
-norms. They cover mixed scales, complex dual maps, retained intersections,
-and final-range refusals. Observable evaluation, channel recognition and
-spectral support are distinct checks; none selects a physical repair law.
+Observable evaluation, channel recognition and spectral support are distinct
+checks; none selects a physical repair law.
 
 | Component | Current contract |
 | --- | --- |

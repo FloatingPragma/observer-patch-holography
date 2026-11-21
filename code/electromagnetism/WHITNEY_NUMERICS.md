@@ -33,10 +33,6 @@ practical, the subtractive Gaussian log amplitude differs by about `4.6e-6`.
 Repeating the same unstable subtraction in a second implementation would
 not provide independent validation.
 
-[The original-input controls](test_whitney_kinetic_precision.py)
-derive the scalar modes and absolute determinant from the original cone,
-simplex moments and icosahedral adjacency spectrum. They do not use producer
-quadrature or a rounded reduced matrix as the expected answer.
 
 ## Kinetic reduction and domain
 
@@ -373,11 +369,6 @@ From the repository root, with the pinned requirements:
 
 ```bash
 python -m pytest -q -W error \
-  code/electromagnetism/test_whitney_kinetic_precision.py \
-  code/electromagnetism/test_whitney_kinetic_inputs.py \
-  code/electromagnetism/test_whitney_kinetic_replay.py \
-  code/electromagnetism/test_whitney_kinetic_scale.py \
-  code/electromagnetism/test_whitney_public_scale.py \
   code/electromagnetism/test_whitney_quantum_packet.py \
   code/electromagnetism/test_neutral_packet_observables.py \
   code/electromagnetism/test_neutral_packet_projection.py

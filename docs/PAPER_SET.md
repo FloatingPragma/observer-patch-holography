@@ -1,6 +1,6 @@
 # The OPH paper set
 
-The candidate executable model is [A-contrast-memory-spherical-v1](../model/contrast_memory_spherical_v1/README.md).
+The candidate executable model is [A-contrast-memory-spherical-v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md).
 Its contrast-memory law is a candidate native repair law of the theory, and
 the model reproduces particle stability on its observers' agreed records. A
 second candidate law on the same carrier, the scalar channel, holds an object
@@ -33,7 +33,7 @@ cosmology, a pure Yang–Mills gap or a physical coupling for the executable
 model merely by sharing terminology.
 
 The results of the executable model are reproduced in
-[model/contrast_memory_spherical_v1](../model/contrast_memory_spherical_v1/README.md). Its tests compare
+[model/candidate_laws/contrast_memory_spherical_v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md). Its tests compare
 distributions of admissible observer records; the carrier is hardware of the
 computation and no physical space, and the theory proves that observers who
 inhabit the simulation can describe their experiences as relativistic 3+1D

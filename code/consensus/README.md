@@ -10,11 +10,6 @@ Canonical runners:
   conflict-component, prepared-acceptance/lock BFT, refinement-modulus,
   \(\ell^p\), and
   selector/separation receipts used by proof-audit issue #517.
-- `compiled_lattice_settling_certificate.py`: recomputes the finite-table
-  Boolean settling results and the source-pinned production scatter-project
-  counterexample for issue #328 (NAND/wire/fan-out table encodings, exhaustive
-  primitive intertwiner, DAG composition checker, exact period-two orbit, and
-  fail-closed controls).
 
 Run the benchmark suite from the repo root:
 
@@ -35,47 +30,6 @@ python3 code/consensus/verify_issue_517_proof_obligations.py verify \
   --receipt code/consensus/runs/issue_517_proof_obligations.json
 python3 -m pytest code/consensus/test_issue_517_proof_obligations.py
 ```
-
-Run and verify the issue #328 settling certificate from the repo root:
-
-```bash
-python3 code/consensus/compiled_lattice_settling_certificate.py emit
-python3 code/consensus/compiled_lattice_settling_certificate.py verify
-python3 -W error -m pytest -q code/consensus
-```
-
-The emitted manifest is
-`code/consensus/manifests/compiled_lattice_settling_reference.json`
-(schema `oph.compiled_lattice_settling_certificate.v2`). The abstract acyclic
-Boolean-circuit compiler corollary stays a paper/Lean result
-(`extra/observable_normal_forms.tex`, `cor:boolean-circuit-compiler`;
-`Lean/ObservableNormalForms/ObservableNormalForms/Functional.lean`,
-`synchronous_depth_settling`). The certificate gives an exact correspondence
-between that ranked system and the finite software transition tables declared
-in the certificate. Those tables are not the production scatter-project
-dynamics. The source-identified synchronous `ophminer` rule was checked
-separately and fails the direct correspondence: a satisfiable depth-two AND
-chain alternates between `(w, out) = (0, 1)` and `(1, 1)`, with one invalid
-vertex in each state, while its unique zero-mismatch extension is `(0, 0)`.
-The downstream AND projection rewrites its input wire, whereas the ranked
-normalizer treats parent wires as read-only. A directional output-only rule or
-a compiler gadget that blocks backward writes would be a revised theorem
-target requiring its own proof; issue #626 tracks that construction.
-Continuum and physical-hardware attachment
-are separate open interfaces.
-
-Compilation checks the complete Boolean truth and update tables over every
-declared port assignment and internal register state. It accepts only kernels
-whose update is state independent, whose readback equals the declared truth,
-and whose settled register state is fixed. The compiled object binds immutable
-snapshots of those tables to its netlist, register layout, wiring and rank
-data; construction checks that the derived fields agree, and certification
-checks the used entries of any supplied primitive library against that binding.
-
-Receipt verification preserves the types of the supplied fields and rejects
-duplicate JSON keys. Numeric substitutes for Boolean flags and fractional
-depths that round to integer-valued floats cannot pass through Python's loose
-numeric equality. Valid changes to whitespace and object-key order are accepted.
 
 Runtime evaluates the full supplied `update(ports, state)` table at each patch
 using the pre-round state. The assembled step is therefore exactly the product

@@ -1,12 +1,11 @@
 # OPH Reference Documents, Registers And Research Notes
 
 This directory contains the canonical reference documents, the generated
-scientific registers, repository policies, and the research notes that
-accompany the executable lanes. Research planning and task state live in this
+scientific registers, repository policies, and the public-data comparison that
+the papers cite. Research planning and task state live in this
 repository's [GitHub issues](https://github.com/FloatingPragma/observer-patch-holography/issues).
 Scientific results live in the papers, Lean library, executable code, and
-evidence artifacts. The registers index those results, and each research note
-states a result that its code package verifies.
+evidence artifacts, and the registers index those results.
 
 If you are new to OPH, the strongest starting material lives outside this
 directory. The [technical paper](https://philpapers.org/rec/MUEFOC)
@@ -21,8 +20,8 @@ run data from declared candidate models.
 | --- | --- |
 | This folder | The basis, the paper set, canonical references and the common-objections guide |
 | [`registers/`](registers/) | Generated V3 registers and ledgers |
-| [`research/`](research/) | Research notes, each verified by a code lane |
-| [`policies/`](policies/) | Data, hardware-evidence and writing policies |
+| [`research/`](research/) | The public-data comparison that the papers cite |
+| [`policies/`](policies/) | Data and writing policies |
 
 ## Rules for this directory
 
@@ -33,11 +32,9 @@ run data from declared candidate models.
   integration record, PR handoff or status summary. File names and headings
   carry no dates. Integration and review history belongs in the GitHub pull
   request or issue.
-- Research results live in the papers, Lean library and code. A note in
-  `research/` is allowed only when it states a current result that its code
-  package verifies, without history, dated findings or progress narrative.
-  Prefer extending the paper or the package README, because separate notes
-  go stale.
+- Research results live in the papers, Lean library and code. No research
+  note repeats what the code, the Lean library or the papers contain; extend
+  the paper or the package README instead.
 - Release papers do not cite files in `docs/`. They cite papers, Lean
   modules, code packages, machine registers and public preprints. The one
   exception is `research/PUBLIC_DATA_PREDICTION_AUDIT.md`, which collects
@@ -59,7 +56,7 @@ run data from declared candidate models.
   the [observation ledger](registers/OBSERVATION_LEDGER_V3.md), the [premise register](registers/PREMISE_REGISTER_V3.md),
   the [falsification program](OPH_FALSIFICATION_PROGRAM.md), and the [paper index](../paper/).
 - **Build and test:** begin with the repository [reproduction
-  guide](../REPRODUCE.md), the [executable model](../model/contrast_memory_spherical_v1/README.md),
+  guide](../REPRODUCE.md), the [executable model](../model/candidate_laws/contrast_memory_spherical_v1/README.md),
   [executable evidence](../code/), and [Lean
   formalization](../Lean/). Follow the [numerical audit
   procedure](policies/NUMERICAL_AUDIT.md) when changing finite numerical
@@ -100,39 +97,26 @@ premise.
 
 ## Executable model
 
-The candidate executable model of OPH is [A-contrast-memory-spherical-v1](../model/contrast_memory_spherical_v1/README.md).
-Its law, the contrast-memory law, is a candidate native repair law of the
-theory: every port of a twelve-port cell holds a load, every seam keeps a
-private memory of the contrast between its two loads, and what the memory
-leaves on the loads is an exchange plus an agreement energy with one
-supplied coupling. The [specification](../model/contrast_memory_spherical_v1/SPEC.md) states
-the carrier, the law, the emitter and the reader; the
-[binding theorem](../model/contrast_memory_spherical_v1/PROOF.md) bounds the probability that
-a pair of loads comes apart, on every federation of complete cells. The
-[executable-model paper](../paper/executable_observer_construction.pdf),
-"An Executable Observer for Observer Patch Holography: Specification, Memory
-and Agreed Records", gives the full account. `python -m model` recomputes the
-results.
+The [executable model](../model/README.md) holds the fixed carrier, the
+spherical echosahedral federation, and the candidate laws that run on it. The
+[requirements](../model/REQUIREMENTS.md) state the criterion for the correct
+native repair law: it runs on the fixed federation and fulfils the premises of
+the finite theorems together. [CANDIDATE.md](../model/candidate_laws/CANDIDATE.md)
+lists the candidates with their status, and `python -m model evaluate` scores
+each of them against the requirements. The main candidate is
+[A-contrast-memory-spherical-v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md),
+with its [specification](../model/candidate_laws/contrast_memory_spherical_v1/SPEC.md)
+and [binding theorem](../model/candidate_laws/contrast_memory_spherical_v1/PROOF.md);
+the [executable-model paper](../paper/executable_observer_construction.pdf)
+gives the full account, and the [observation ledger](registers/OBSERVATION_LEDGER_V3.md)
+records what the candidates reproduce. The state of the simulation is no
+physical space: every test compares distributions of admissible observer
+records with what observers in our world record.
 
-The model reproduces particle stability on its observers' agreed records:
-a pair of loads written on one seam is read as a pair at every reading, with
-probability at least one minus a proved bound, on seams other than the first,
-and the law without its agreement energy loses it. A second candidate law on the same carrier, the [scalar channel](../model/scalar_channel/README.md), holds an object on four seams: its excitation is kept for every interval, and after a pulse its seam record swings at one line that an observer reads from counts in units of its own reference ([cage](../model/scalar_channel/cage/README.md)).
-The [construction manual](../model/construction_manual/CONSTRUCTION_MANUAL.md)
-builds both laws part by part, the executable-model paper lists the finite
-theorems whose premises the outputs of the model supply, and the
-[observation ledger](registers/OBSERVATION_LEDGER_V3.md) records what the model
-reproduces.
-The state of the simulation is no physical space. Every test compares
-distributions of admissible observer records with what observers in our world
-record, and the theory proves that observers who inhabit the simulation can
-describe their experiences as relativistic 3+1D continuum spacetimes. The
-other observables of the theory on this model are work in progress.
-
-Other model and code packages contain conditional mathematical components
-with explicit equations and proof domains. [Established Mathematics for
-Observer Agreement](AGREEMENT_RESEARCH_FOUNDATIONS.md) describes the general
-theorem reuse requirements.
+Other code packages contain conditional mathematical components with explicit
+equations and proof domains. [Established Mathematics for Observer
+Agreement](AGREEMENT_RESEARCH_FOUNDATIONS.md) describes the general theorem
+reuse requirements.
 
 ## Registers
 
@@ -160,59 +144,19 @@ and papers ledgers.
 
 ## Research Notes
 
-Each note states a construction or theorem tied to its verifying code
-package. The eight clock and source-realization notes are conditional
-theorems on their own declared sources. Source-pinned notes require matching
-receipt updates when their content changes. Consolidate overlapping notes and
-keep implementation contracts beside the code; `extra/` holds TeX papers only.
-
-**Clocks and source realization.** These notes build on one another in this
-order:
-
-1. [Massive flights, resolved reads and observable clocks](research/MASSIVE_OPERATIONAL_CLOCKS.md),
-   verified by [`code/m1_operational_clocks`](../code/m1_operational_clocks/).
-2. [Coherent source codes, entropy selection and charged clocks](research/COHERENT_SOURCE_CLOCKS.md),
-   verified by [`code/m1_source_realization`](../code/m1_source_realization/).
-3. [Fermionic clocks and reads from the proper-code source](research/FERMIONIC_SOURCE_CLOCKS.md),
-   verified by [`code/m1_fermionic_source`](../code/m1_fermionic_source/).
-4. [Fixed-rate noise and protected source reads](research/FIXED_RATE_SOURCE_READS.md),
-   verified by [`code/m1_fixed_noise`](../code/m1_fixed_noise/).
-5. [Source histories with noisy records and control](research/NOISY_SOURCE_RECORDS.md),
-   verified by [`code/m1_noisy_records`](../code/m1_noisy_records/).
-6. [Fixed-strength quantum computation and live public records](research/FIXED_STRENGTH_PUBLIC_RECORDS.md),
-   verified by [`code/m1_expander_archive`](../code/m1_expander_archive/).
-7. [Full-interface leakage, dissipation and source refinement](research/LEAKAGE_SOURCE_REFINEMENT.md),
-   verified by [`code/m1_leakage`](../code/m1_leakage/).
-8. [A filled source vacuum, positive excitation energy and readable clocks](research/SOURCE_SEA_ENERGY.md),
-   verified by [`code/m1_sea_energy`](../code/m1_sea_energy/).
-
-**Gravity and the dark sector.**
-
-- [Finite geometry: support, refinement and oriented caps](../code/geometry/GEOMETRY_RECEIPT_AUDIT.md)
-  audits the geometry readout, preserves higher-dimensional joint support,
-  certifies midpoint subdivisions, and reconstructs oriented caps from
-  explicit conformal data and a side witness.
-- [Clock agreement does not select a spatial response in the coherent source](research/SOURCE_GRAVITY_ADMISSIBILITY.md)
-  proves that clock agreement does not select the light-deflection response
-  for programs of the constructed coherent source, verified by
-  [`code/source_gravity_admissibility`](../code/source_gravity_admissibility/).
-- [What the anomalous density must supply to predict lensing](research/DARK_SOURCE_DYNAMICS_LENSING.md)
-  shows that the released density interface does not fix dynamics and lensing
-  together, verified by [`code/dark_source_lensing`](../code/dark_source_lensing/).
-
-**Independent comparison.**
+Results live in the papers, the Lean library and the code. The one note kept
+here is cited by the released papers:
 
 - [OPH predictions and public-data comparisons](research/PUBLIC_DATA_PREDICTION_AUDIT.md)
   places the fixed predictions against public data: the primordial tilt at
   the lower 0.612 percent tail of ACT DR6 P-ACT-LB, the coupling and the
   photon dispersion.
-- [Can the fixed edge dispersion support the proposed photon test?](research/DISPERSION_FEASIBILITY.md)
-  bounds the exact pair-production thresholds and distinguishes vacuum emission
-  in two specified lepton controls, verified by
-  [`code/dispersion_feasibility`](../code/dispersion_feasibility/).
+
+The audit notes of the code packages sit beside their code, for example
+[finite geometry: support, refinement and oriented caps](../code/geometry/GEOMETRY_RECEIPT_AUDIT.md).
 
 **Defect classes.** The
-[defect-class certificate](../model/defect_particle_classes/README.md)
+[defect-class certificate](../code/defect_particle_classes/README.md)
 identifies each protected defect class with the centre class `6Y mod 6` of a
 Standard Model multiplet.
 
@@ -240,8 +184,6 @@ Standard Model multiplet.
 ## Evidence, Data And Writing Policies
 
 - [Hadron Data Policy](policies/HADRON.md) defines provenance and promotion rules for the hadronic pipeline.
-- [Hardware Evidence Bundle H](policies/HARDWARE_EVIDENCE_BUNDLE_H.md) defines the
-  evidence and attestation contract for physical hardware claims.
 - [Writing Style Guide](policies/STYLE_GUIDE.md) defines the project’s reader-facing prose conventions.
 - Simulator outputs have no theorem or empirical-promotion authority in the
   paper stack. A simulator count, replay, fit, or diagnostic closes no

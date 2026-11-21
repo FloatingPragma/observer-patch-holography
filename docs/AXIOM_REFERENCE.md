@@ -483,7 +483,7 @@ it.
 
 ## Repair laws and conditional selection
 
-The [executable construction](../model/contrast_memory_spherical_v1/SPEC.md) specifies a carrier,
+The [executable construction](../model/candidate_laws/contrast_memory_spherical_v1/SPEC.md) specifies a carrier,
 observer interface and complete repair instrument. These are legitimate inputs
 to a candidate's conditional predictions. A1--A3 constrain the instance;
 they do not select an unrestricted repair algorithm. The distinction between

@@ -7,7 +7,7 @@ claims. These artifacts let a reader recompute the
 finite and numerical parts, inspect their inputs, and see which physical bridge
 each result requires.
 
-The candidate executable model is [A-contrast-memory-spherical-v1](../model/contrast_memory_spherical_v1/README.md),
+The candidate executable model is [A-contrast-memory-spherical-v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md),
 whose contrast-memory law is a candidate native repair law. This directory
 contains supporting component calculations; their source-specific hypotheses
 are stated individually.
@@ -23,7 +23,7 @@ the theorem or physical carrier named by that branch.
 
 | Surface | What to inspect |
 | --- | --- |
-| [`../model/contrast_memory_spherical_v1/`](../model/contrast_memory_spherical_v1/README.md) | The executable model: the contrast-memory law, the binding theorem, particle stability on agreed records, bound objects, port response and the unrecovered collar |
+| [`../model/candidate_laws/contrast_memory_spherical_v1/`](../model/candidate_laws/contrast_memory_spherical_v1/README.md) | The executable model: the contrast-memory law, the binding theorem, particle stability on agreed records, bound objects, port response and the unrecovered collar |
 | [`consensus/`](consensus/) | Finite patch-net repair, schedule independence, and reference-architecture benchmarks |
 | [`geometry/`](geometry/) | Screen incidence, modular clocks, event reconstruction, causal cones, and Einstein-branch receipts |
 | [`m1_operational_clocks/`](m1_operational_clocks/) | Massive charged flights, all-band speed bounds, resolved local reads and an observable moving clock |
@@ -57,7 +57,7 @@ Run the executable model and its tests:
 
 ```bash
 python -m model
-python -m pytest -q -W error model/contrast_memory_spherical_v1
+python -m pytest -q -W error model/candidate_laws/contrast_memory_spherical_v1
 ```
 
 The geometry suite is available through:

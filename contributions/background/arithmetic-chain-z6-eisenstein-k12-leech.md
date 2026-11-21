@@ -59,7 +59,7 @@ As a real lattice, $`\mathbb{Z}[\omega]`$ is the $`A_2`$ root lattice, a hexagon
 
 $$N(a + b\omega) = a^2 - ab + b^2.$$
 
-**Convention.** This note takes $`\omega`$ to be the primitive cube root of unity, with $`\omega^2 = -1 - \omega`$. The certified A5 code in this repository (`code/a5_closure/flux_defect_criterion_certificate.py`) works with the primitive sixth root $`\zeta_6 = e^{\pi i/3} = 1 + \omega = -\omega^2`$, which satisfies $`\zeta_6^2 = \zeta_6 - 1`$ and gives $`N(a + b\zeta_6) = a^2 + ab + b^2`$ (Gram matrix $`\begin{pmatrix}2&1\\1&2\end{pmatrix}`$ for twice the norm). Both generate the same ring, $`\mathbb{Z}[\omega] = \mathbb{Z}[\zeta_6]`$, and the substitution $`\zeta_6 = 1 + \omega`$ translates between the two conventions.
+**Convention.** This note takes $`\omega`$ to be the primitive cube root of unity, with $`\omega^2 = -1 - \omega`$. Exact A5 calculations work with the primitive sixth root $`\zeta_6 = e^{\pi i/3} = 1 + \omega = -\omega^2`$, which satisfies $`\zeta_6^2 = \zeta_6 - 1`$ and gives $`N(a + b\zeta_6) = a^2 + ab + b^2`$ (Gram matrix $`\begin{pmatrix}2&1\\1&2\end{pmatrix}`$ for twice the norm). Both generate the same ring, $`\mathbb{Z}[\omega] = \mathbb{Z}[\zeta_6]`$, and the substitution $`\zeta_6 = 1 + \omega`$ translates between the two conventions.
 
 **Theorem 2.2** (Splitting of rational primes in $`\mathbb{Z}[\omega]`$). Let $`p`$ be a rational prime with $`p \geq 5`$. Then:
 

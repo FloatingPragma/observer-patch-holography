@@ -254,9 +254,9 @@ def test_duplicate_json_key_rejected(tmp_path: Path) -> None:
 def test_evidence_directory_is_not_evidence() -> None:
     register = _register()
     row = next(row for row in register["rows"] if row["id"] == "PR-05")
-    row["evidence"] = ["model/contrast_memory_spherical_v1"]
-    row["evidence_roles"] = {"model/contrast_memory_spherical_v1": "statement"}
-    assert (register_tool.ROOT / "model/contrast_memory_spherical_v1").is_dir()
+    row["evidence"] = ["model/candidate_laws/contrast_memory_spherical_v1"]
+    row["evidence_roles"] = {"model/candidate_laws/contrast_memory_spherical_v1": "statement"}
+    assert (register_tool.ROOT / "model/candidate_laws/contrast_memory_spherical_v1").is_dir()
     with pytest.raises(SystemExit, match="evidence path missing or not a file"):
         register_tool.validate(register)
 

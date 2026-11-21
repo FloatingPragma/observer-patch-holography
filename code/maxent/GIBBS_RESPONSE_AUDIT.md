@@ -205,7 +205,6 @@ and deletes the mean-product or interenergy terms from the certificate.
 Reproduce from the repository root with `PYTHONPATH=code`:
 
 ```text
-python -m pytest -q code/maxent/test_covariance_precision.py code/maxent/test_covariance_controls.py code/quantum_information/test_thermal_population_precision.py -W error
 python -m pytest -q code/quantum_information code/collar_alignment code/geometry code/maxent -W error
 python code/maxent/maxent_closure_acceptance.py
 ```

@@ -2,7 +2,7 @@
 
 The [executable-model hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) states the
 target: the agreed records of the observers of
-[A-contrast-memory-spherical-v1](../model/contrast_memory_spherical_v1/README.md), whose contrast-memory law
+[A-contrast-memory-spherical-v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md), whose contrast-memory law
 is a candidate native repair law, reproduce the observable physics of our
 Universe. Its tests compare distributions of admissible observer records with
 what observers in our world record; a difference between microscopic state
@@ -40,7 +40,7 @@ The eligible sources are:
   [*Twelve-Port Icosahedral Carriers and Native Seam Repair*](../paper/screen_microphysics_and_observer_synchronization.pdf);
 - the binding theorem of the executable model in
   [*An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records*](../paper/executable_observer_construction.pdf),
-  with its proof in [model/contrast_memory_spherical_v1/PROOF.md](../model/contrast_memory_spherical_v1/PROOF.md);
+  with its proof in [model/candidate_laws/contrast_memory_spherical_v1/PROOF.md](../model/candidate_laws/contrast_memory_spherical_v1/PROOF.md);
 - the substrate-neutral
   [normal-form](../extra/observable_normal_forms.pdf) and
   [finite-event-algebra](../extra/machine_checked_finite_event_algebras.pdf)
