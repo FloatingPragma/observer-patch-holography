@@ -56,7 +56,7 @@ class PhysicalFlight:
         require(np.linalg.norm(h@embed-embed@rounded)<2e-12,"a physical control leaks from the parity sector")
         blank=binary.T@law.seam_term(kappa)@binary
         sector=self.sector
-        return (sector.hamiltonian(kappa)-sparse.diags(kappa*self.boundary)
+        return (sector.hamiltonian(kappa)-sparse.diags(kappa*self.boundary,dtype=float)
                 +lift(rounded-blank,self.positions,sector.P)).tocsr()
 
 
