@@ -144,13 +144,39 @@ def test_load_conjugation_on_all_qutrit_states_and_terminal_records():
     conjugation.verify(result, json.loads(conjugation.RECEIPT.read_text()))
     for board in result.values():
         port = board["ports"][0] % 12
-        native, exchange, centered = board["arms"]
+        native, exchange, centered, singleton = board["arms"]
         assert native["excess"]["slope"] - native["vacancy"]["slope"] == 8
         assert (native["excess"]["readings"]["0.0625"][port] -
                 native["vacancy"]["readings"]["0.0625"][port]) > 0.10
         for law_control in (exchange, centered):
             assert law_control["excess"] == law_control["vacancy"]
+        assert singleton["excess"] == singleton["vacancy"] == native["vacancy"]
     corrupted = deepcopy(result)
     corrupted["2"]["arms"][-1]["vacancy"]["readings"]["0.125"][-1] += 0.001
     with pytest.raises(ValueError):
         conjugation.verify(result, corrupted)
+
+
+def test_singleton_reference_preserves_binary_and_changes_doubled_sector():
+    import itertools
+    profile = conjugation.singleton_profile()
+    assert profile == (0,1,0) and profile == profile[::-1]
+    car = federation(0)
+    missing = 6 - car.degree
+    pair = PairSector(car)
+    # Every two-single configuration, including cross-cell and separated pairs.
+    delta_binary = (profile[1]-profile[0]-1)*(missing[pair.aa]+missing[pair.bb])
+    assert np.all(delta_binary == 0)
+    # Every sharp doubled-load state. Only its missing-seam terms change.
+    delta_double = (profile[2]-profile[0]-4)*8*missing
+    assert set(delta_double.tolist()) == {-32, 0}
+    from scipy.sparse import diags, eye
+    from model.candidate_laws.contrast_memory_spherical_v1.sectors import doubled_hamiltonian
+    native = conjugation.defect_generator(car, 2, 8, 0, background=0)
+    modified = conjugation.defect_generator(car, 2, 8, "singleton", background=0)
+    assert (native - doubled_hamiltonian(car,8) - 96*eye(car.n)).count_nonzero() == 0
+    assert (modified - native - diags(delta_double, dtype=float)).count_nonzero() == 0
+    for state in itertools.product(range(3), repeat=3):
+        reverse = tuple(2-n for n in state)
+        assert sum(w*profile[n] for w,n in zip((0,1,1),state)) == sum(
+            w*profile[n] for w,n in zip((0,1,1),reverse))

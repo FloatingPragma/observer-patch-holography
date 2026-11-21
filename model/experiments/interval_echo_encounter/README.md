@@ -102,6 +102,16 @@ Both signs share the exchange operator. The three gateways of a cell have degree
 
 Under the sitewise reflection n ↦ 2−n, exchange and every seam contrast square are invariant. The change of the full reference energy is 4κ(1−r)Σᵥ(6−dᵥ)(1−nᵥ). Within this uniform-reference family, r = 1 is the unique value restoring this symmetry of the free law at nonzero κ on the federations. It gives identical excess and vacancy records and a probability of 0.101933 for the same gateway read. It also gives less than 80% home-pair retention at every tested sharp-release exposure in the table. The unit-reference control changes the law. A symmetry of its free generator establishes neither an electromagnetic charge nor conjugation of the complete clock and service program. Particle masses, spin, statistics and an identification with electrons or positrons require independent operational measurements.
 
+### A symmetric reference that preserves the binary sector
+
+There is a second way to realize occupation reflection. Keep the physical seam law, κ and the blank reference load. Write the missing-seam energy as κf(n). Preserving the native binary energies with the vacuum as zero fixes f(0) = 0 and f(1) = 1. Reflection fixes f(2) = f(0). Thus f(n) = n(2−n) is the unique normalized diagonal profile in this class. This is an experimental variant of the free reference service.
+
+The native echo writes the signed difference d into its collar. On each missing seam, assign unit energy to the written labels with |d| = 1, leave every other label at zero energy, and undo the echo. Both coin branches of every blank input carry the same absolute contrast. The label projector therefore intertwines the native write with the diagonal test for |a−b| = 1 on all nine load inputs. Undo returns the collar to blank throughout the exposure. A reference rail at b = 0 then implements the required f. The replay checks all 99 components of every blank input column. [Native collar construction](conjugation.py) · [Frozen tests](conjugation_protocol.json)
+
+This gives occupation-reflection symmetry on the entire blank-collar free load space. Every binary configuration has exactly its native diagonal and exchange action, on any of the federations. Free propagation and the registered physical half contacts preserve the binary sector. Consequently **every probability in the original pair release** agrees at every exposure. The full 34-bin replay at all five exposures checks this identity. On the common one-load background the excess and vacancy both have generator L/2 + κ diag(2dᵥ−6). Their terminal distributions equal the native vacancy distributions on all three boards, including the 0.029887 gateway reading. [Defect records](conjugation.json) · [Shared binary records](transport.json)
+
+The doubled load above the empty background exposes the cost. Its free generator changes from L/2 + 24κI to L/2 + 4κ diag(dᵥ). The shifts relative to the native law are 0 at gateways and −32 on the other ports at κ = 8. Thus a single diagonal reference of this kind cannot preserve all three properties: the binary free energy, occupation reflection and native doubled-load propagation. The construction supplies the first two and gives a distinct prediction for the third. Equivalence of protocols using occupied collars, doubled clock fuel or interventions that split a double requires a separate calculation.
+
 ### Replay and numerical accuracy
 
 From the repository root, set the BLAS thread count to one. The short checks are
@@ -118,6 +128,7 @@ The extended checks replay the published release, the changed reference and the 
 ```sh
 python -B -O -m model.experiments.interval_echo_encounter.transport
 python -B -O -m model.experiments.interval_echo_encounter.conjugation --pair-regression
+python -B -O -m model.experiments.interval_echo_encounter.conjugation --singleton-pair
 python -B -O -m model.experiments.interval_echo_encounter.check_transport
 ```
 

@@ -1,6 +1,7 @@
 """Excess and vacancy records above one common uniform load background."""
 import argparse
 import json
+from functools import lru_cache
 
 import numpy as np
 from scipy import sparse
@@ -15,20 +16,46 @@ from .transport import HERE, PROTOCOL as RELEASE_PROTOCOL, census, release, writ
 PROTOCOL = HERE / "conjugation_protocol.json"
 RECEIPT = HERE / "conjugation.json"
 
+@lru_cache(maxsize=1)
+def singleton_profile():
+    """Read |written contrast| = 1 through the native echo on a blank reference."""
+    labels = np.repeat([abs(d) == 1 for _,d in law.LABELS], law.N_SRC)
+    write = law._write_pattern()  # integer sqrt(2) times the native isometry
+    selected = np.array([int(abs(a-b) == 1) for a,b in law.SRC])
+    if not np.array_equal(labels[:,None]*write, write*selected):
+        raise ArithmeticError("The material label projector fails to intertwine the native write")
+    echo = law.echo()
+    embedded = np.eye(law.DIM, law.N_SRC)
+    selector = np.r_[np.zeros(law.N_SRC), labels]
+    if not np.allclose(echo @ (selector[:,None] * (echo @ embedded)),
+                       embedded*selected, rtol=0, atol=2e-14):
+        raise ArithmeticError("The inverse echo leaks outside the blank reference code")
+    return tuple(int(selected[law.SRC.index((n,0))]) for n in range(3))
 
-def defect_generator(car, sign, strength, reference):
+
+def reference_profile(reference):
+    if reference == "singleton":
+        return singleton_profile()
+    if reference in (0,1):
+        return tuple((n-reference)**2 for n in range(3))
+    raise ValueError("Unknown reference service")
+
+
+def defect_generator(car, sign, strength, reference, background=1):
     """Assemble native seam columns relative to the energy of the uniform medium."""
-    if sign not in (-1, 1) or reference not in (0, 1):
-        raise ValueError("Unregistered defect or reference")
+    amount = background + sign
+    if (background, amount) not in ((1,0), (1,2), (0,2)):
+        raise ValueError("Unregistered one-position defect")
+    profile = reference_profile(reference)
     seam = law.seam_term(strength)
-    medium = law.SRC.index((1, 1))
-    left = law.SRC.index((1 + sign, 1))
-    right = law.SRC.index((1, 1 + sign))
+    medium = law.SRC.index((background, background))
+    left = law.SRC.index((amount, background))
+    right = law.SRC.index((background, amount))
     a, b = np.array(car.seams).T
     diag = np.zeros(car.n)
     np.add.at(diag, a, seam[left,left] - seam[medium,medium])
     np.add.at(diag, b, seam[right,right] - seam[medium,medium])
-    diag += strength*(6-car.degree)*((1+sign-reference)**2 - (1-reference)**2)
+    diag += strength*(6-car.degree)*(profile[amount]-profile[background])
     exchange = sparse.coo_matrix((np.r_[np.full(len(a), seam[right,left]),
                                        np.full(len(a), seam[left,right])],
                                   (np.r_[b,a], np.r_[a,b])), shape=(car.n,car.n))
@@ -51,7 +78,10 @@ def run_arm(car, ports, home, exposures, strength, reference, sign):
     a,b,c = ports
     pulse = local_pulse(strength, sign)
     h = defect_generator(car, sign, strength, reference)
-    potential = strength*(6 + 2*sign*(1-reference)*(6-car.degree))
+    if reference == "singleton":
+        potential = strength*(2*car.degree-6)
+    else:
+        potential = strength*(6 + 2*sign*(1-reference)*(6-car.degree))
     difference = h - (car.laplacian()/2 + sparse.diags(potential, dtype=float))
     if difference.count_nonzero():
         raise ArithmeticError("Qutrit columns differ from the defect Hamiltonian")
@@ -88,7 +118,9 @@ def campaign():
         b = min(p for p in car.neighbours[a] if p in local and car.degree[p] == 5)
         c = min(p for p in car.neighbours[b] if p in local and p != a)
         arms = []
-        for setting in [spec["native"], *spec["controls"]]:
+        if list(singleton_profile()) != spec["singleton_reference"]["profile"]:
+            raise ValueError("The registered reference profile differs from the native projector")
+        for setting in [spec["native"], *spec["controls"], {"kappa": 8, "reference": "singleton"}]:
             records = [run_arm(car, (a,b,c), home, spec["exposures"], setting["kappa"],
                                setting["reference"], sign) for sign in spec["defects"]]
             arms.append({**setting, "excess": records[0], "vacancy": records[1]})
@@ -117,13 +149,15 @@ def verify(result, archive):
                         raise ValueError(f"Defect read differs at {level}, {sign}, {t}")
 
 
-def pair_regression():
+def pair_regression(reference):
     spec = json.loads(PROTOCOL.read_text())["pair_regression"]
     launch = json.loads(RELEASE_PROTOCOL.read_text())["release"]
     sector = PairSector(federation(launch["level"]))
     seams, source = release(sector, launch["cell"])
     missing = 6 - sector.car.degree
-    potential = -2.0*spec["kappa"]*spec["reference"]*(missing[sector.aa]+missing[sector.bb])
+    profile = reference_profile(reference)
+    # Each unit changes its local correction by f(1)-f(0), versus one natively.
+    potential = float(spec["kappa"])*(profile[1]-profile[0]-1)*(missing[sector.aa]+missing[sector.bb])
     generator = -1j*(sector.hamiltonian(spec["kappa"]) + sparse.diags(potential))
     state = np.zeros(sector.P, complex)
     state[sector.index(*source)] = 1
@@ -140,14 +174,17 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--write", action="store_true")
     parser.add_argument("--pair-regression", action="store_true")
+    parser.add_argument("--singleton-pair", action="store_true")
     args = parser.parse_args()
-    if args.pair_regression:
-        readings = pair_regression()
+    if args.pair_regression or args.singleton_pair:
+        selected = "singleton" if args.singleton_pair else 1
+        readings = pair_regression(selected)
         path = HERE / "centered_pair.json"
-        if args.write:
+        if args.write and not args.singleton_pair:
             write_receipt(path, readings)
         else:
-            stored = json.loads(path.read_text())
+            stored = (json.loads((HERE/"transport.json").read_text())["arms"]["8"]
+                      if args.singleton_pair else json.loads(path.read_text()))
             if (readings.keys() != stored.keys() or
                 any(np.shape(stored[t]) != (34,) or not np.allclose(v, stored[t], atol=1e-9, rtol=0)
                     for t,v in readings.items())):
