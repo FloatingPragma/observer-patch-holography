@@ -56,7 +56,7 @@ Sources · [executable_observer_construction.tex](../../paper/executable_observe
 | [FT-STRICT-WEDGE](EVIDENCE.md#ft-strict-wedge) Strict repair with an order-independent endpoint and a retained phase on an intercell wedge | Demonstrated | Open | Open |
 | [FT-BORN](EVIDENCE.md#ft-born) Operational probability and event additivity | Partial | Partial | Partial |
 | [FT-CURRENT](EVIDENCE.md#ft-current) Faithful twelve-current response on the declared finite sector | Demonstrated | Demonstrated | Counterexample |
-| [FT-GLOBAL](EVIDENCE.md#ft-global) Global gauge group and representation attachment | Open | Open | Open |
+| [FT-GLOBAL](EVIDENCE.md#ft-global) Global gauge group and representation attachment | Partial | Open | Open |
 | [FT-MATTER](EVIDENCE.md#ft-matter) Matter-sector and fermion premises | Open | Open | Open |
 
 ## Einstein realization on one physical source
@@ -69,9 +69,9 @@ Sources · [recovering_observer_spacetime_and_einstein_dynamics_from_overlap_con
 | --- | --- | --- | --- |
 | [G1](EVIDENCE.md#g1) Lorentzian event and geometry domain | Partial | Partial | Open |
 | [G2](EVIDENCE.md#g2) Cap modular charges measure the propagating matter stress | Partial | Open | Open |
-| [G3](EVIDENCE.md#g3) Independent matter Ward identity | Open | Open | Open |
-| [G4](EVIDENCE.md#g4) Stationary generalized entropy at fixed proper volume | Open | Open | Open |
-| [G5](EVIDENCE.md#g5) Small-ball control and sufficient null directions | Open | Open | Open |
+| [G3](EVIDENCE.md#g3) Independent matter Ward identity | Partial | Open | Open |
+| [G4](EVIDENCE.md#g4) Stationary generalized entropy at fixed proper volume | Partial | Open | Open |
+| [G5](EVIDENCE.md#g5) Small-ball control and sufficient null directions | Partial | Open | Open |
 | [G6](EVIDENCE.md#g6) Universal coupling and a shared positive Newton constant | Open | Open | Open |
 | [GR-NULL](EVIDENCE.md#gr-null) Null balance and tensor closure | Open | Open | Open |
 
