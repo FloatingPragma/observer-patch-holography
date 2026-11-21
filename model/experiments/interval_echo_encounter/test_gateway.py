@@ -1,6 +1,7 @@
 """Independent source, detector, spectral and failure checks for the remote phase experiment."""
 from fractions import Fraction
 from math import factorial, log
+import json
 
 import numpy as np
 import pytest
@@ -9,7 +10,7 @@ from scipy import sparse
 from model.candidate_laws.contrast_memory_spherical_v1.sectors import BinarySector, PairSector
 from model.executable_model.carrier import CELL_SEAMS, Carrier, federation
 from . import gateway as g, gateway_complement as complement, gateway_message as message
-from .gateway_source import band_budget, geometry, high_projection, reference, source
+from .gateway_source import band_budget, candidate, clock_read, geometry, high_projection, reference, source
 
 
 def test_dense_federation_launch_complement_and_clock():
@@ -86,6 +87,28 @@ def test_short_time_coefficients_from_actual_generator():
     assert -2*len(incident)*a*b_im == Fraction(-1,18432)
 
 
+def test_clock_counter_requires_an_emitted_record(monkeypatch):
+    law = candidate.native_law
+    echo = law.echo()
+    mask = np.arange(law.DIM) % len(law.SRC) == law.SRC.index((1,1))
+    for pointer, bit in (((2,0),1), ((0,2),0)):
+        state = np.eye(len(law.SRC),dtype=complex)[:,law.SRC.index(pointer)]
+        observed,restored = clock_read(state,echo,mask)
+        assert observed == bit
+        np.testing.assert_allclose(restored,state,rtol=0,atol=1e-14)
+    state = np.zeros(len(law.SRC),complex)
+    state[[law.SRC.index((2,0)),law.SRC.index((0,2))]] = [1/np.sqrt(2),1j/np.sqrt(2)]
+    with pytest.raises(ValueError,match="deterministic"):
+        clock_read(state,echo,mask)
+    # Preserve the swapping Hamiltonian and disconnect only the probe. The
+    # material pointer keeps alternating, while the counter sees no switch.
+    terms = law.local_term_parts()
+    monkeypatch.setattr(law,"local_term_parts",lambda:terms)
+    monkeypatch.setattr(law,"echo",lambda:np.eye(law.DIM))
+    with pytest.raises(ValueError,match="missing clock booking"):
+        reference([0,1])
+
+
 def test_receiver_only_adversarial_records_and_controls():
     cfg = g.settings()
     receipt = g.load_json(g.RECEIPT)
@@ -93,6 +116,9 @@ def test_receiver_only_adversarial_records_and_controls():
     counts = receipt["counts"][key]
     p = np.asarray(receipt["weights"][key])/10**13
     L = log(2*63*81/cfg["alpha"])
+    for malformed in (p[:,None], p[:31], p*0.5, np.full(32, np.nan)):
+        with pytest.raises(ValueError, match="joint probability law"):
+            g.read(counts, cfg["shots"], malformed, L)
     for bad in (counts[:-1], [True]+counts[1:], [-1]+counts[1:],
                 [0]*31+[cfg["shots"]],receipt["counts"]["native_minus_32"]):
         with pytest.raises(ValueError):
@@ -110,6 +136,38 @@ def test_receiver_only_adversarial_records_and_controls():
         g.summarize(cfg,{key:p},np.zeros((31,2)),{key:counts})
     with pytest.raises(ValueError):
         g.close({"quiet":1},{"quiet":True})
+
+
+def test_standalone_consumers_bind_all_cohorts_and_the_message_protocol(tmp_path,monkeypatch):
+    receipt = g.load_json(g.RECEIPT)
+    row = receipt["counts"]["exchange_minus_4"]
+    # A conserved transfer between quiet and refused in an unused cohort.
+    row[-1] -= 1
+    row[-2] += 1
+    corrupt = tmp_path/"counts.json"
+    corrupt.write_text(json.dumps(receipt),encoding="utf8")
+    for consumer in (message,complement):
+        monkeypatch.setattr(consumer,"RECEIPT",corrupt)
+        with pytest.raises(ValueError,match="registered acquisition"):
+            consumer.replay()
+    protocol = g.load_json(message.PROTOCOL)
+    protocol["frames_per_sign"] = 0
+    path = tmp_path/"message_protocol.json"
+    path.write_text(json.dumps(protocol),encoding="utf8")
+    monkeypatch.setattr(message,"PROTOCOL",path)
+    with pytest.raises(ValueError,match="registered message protocol"):
+        message.replay()
+
+
+@pytest.mark.parametrize("replacement",[0,-1e-10,1e-10])
+def test_relative_erasure_bound_rejects_substitution(tmp_path,monkeypatch,replacement):
+    result = g.load_json(message.OUTPUT)
+    result["bounds"]["plus"]["erasure_upper"] = replacement
+    path = tmp_path/"message.json"
+    path.write_text(json.dumps(result),encoding="utf8")
+    monkeypatch.setattr(message,"OUTPUT",path)
+    with pytest.raises(ValueError,match="numeric replay"):
+        message.replay()
 
 
 def test_capped_message_reader_uses_counts_only():

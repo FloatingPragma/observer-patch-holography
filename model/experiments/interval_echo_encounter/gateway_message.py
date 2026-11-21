@@ -1,13 +1,15 @@
 """A finite receiver for the launch phase, with a cap on ordinary separated starts."""
 import argparse
+import hashlib
 from math import exp, log, log1p, sqrt
 
 import numpy as np
 
-from .gateway import HERE, RECEIPT, close, load_json, pins, read, require, save, settings
+from .gateway import HERE, RECEIPT, close, load_json, read, registered_receipt, require, save, settings
 
 PROTOCOL = HERE / "gateway_message_protocol.json"
 OUTPUT = HERE / "gateway_message.json"
+PROTOCOL_DIGEST = "ee0cffb0138ffb8a7a3bd5b2bbfcf5aa692cc78b160c954a190e9aee06692d14"
 
 
 def frame(rng, live, cap, admission, click):
@@ -40,12 +42,13 @@ def chernoff(n,cut,p,upper):
 
 
 def replay(record=False):
+    digest = hashlib.sha256(PROTOCOL.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+    require(digest == PROTOCOL_DIGEST, "registered message protocol differs")
     cfg = load_json(PROTOCOL)
     base = settings()
     live,cap,t = cfg["admissions_per_frame"],cfg["maximum_starts"],cfg["threshold_minus"]
     rng = np.random.default_rng(cfg["seed"])
-    receipt = load_json(RECEIPT)
-    require(receipt["sources"]==pins(),"different paired source for message experiment")
+    receipt = registered_receipt(load_json(RECEIPT))
     rows,bounds = {},{}
     L = log(2*(32+31)*81/base["alpha"])
     for law in ("native","exchange","blocked","dephased"):
@@ -76,7 +79,8 @@ def replay(record=False):
     if record:
         save(OUTPUT,result)
     else:
-        close(result,load_json(OUTPUT))
+        # Even the 1e-300 conservative erasure bound has a meaningful sign.
+        close(result, load_json(OUTPUT), absolute=0.0)
     print("Verified all message frames, including competing laws and wrong or erased messages.")
 
 

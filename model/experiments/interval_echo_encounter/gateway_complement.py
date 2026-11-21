@@ -8,9 +8,9 @@ import numpy as np
 from scipy import sparse
 from scipy.special import jv
 
-from .gateway import RECEIPT, close, load_json, pins, read, save
+from .gateway import RECEIPT, close, load_json, read, registered_receipt, save
 from .gateway_source import (HERE, PairSector, candidate, federation, geometry, high_projection,
-                             require, settings, source)
+                             reference, require, settings, source)
 
 PROTOCOL = HERE/"gateway_complement_protocol.json"
 OUTPUT = HERE/"gateway_complement.json"
@@ -56,14 +56,16 @@ def apertures(state, receiver):
 
 def replay(record=False):
     cfg = settings()
-    receipt = load_json(RECEIPT)
-    require(receipt["sources"] == pins(), "complement witness needs the registered launches")
+    receipt = registered_receipt(load_json(RECEIPT))
     sector = PairSector(federation(cfg["level"]))
     layout = geometry(sector.car)
     h,admit,prepared = source(sector,candidate.KAPPA,layout)
     inds = [sector.index(*e) for e in layout[-1]]
-    state,error = high_projection(h,prepared)
-    initial = apertures(state,inds)
+    high_source,error = high_projection(h,prepared)
+    initial = apertures(high_source,inds)
+    # Evolve both complete launches independently of the sparse exponential
+    # that supplied the counts. Subtract amplitudes before taking any norms.
+    state = np.column_stack((high_source, prepared))
     norms = np.linalg.norm(state,axis=0)
     x = ((h+2*sparse.eye(sector.P,format="csr"))/14).tocsr()
     require(max(np.asarray(abs(x).sum(axis=1)).flat)<1+1e-14 and max(np.diff(x.indptr))<=13,
@@ -71,18 +73,24 @@ def replay(record=False):
     weights = coefficients()
     L = log(2*(32+31)*81/cfg["alpha"])
     results = {}
-    for word in range(cfg["appointments"][-1]+1):
-        if word:
+    bookings = {tick:word for word,tick in reference(cfg["appointments"]).items()}
+    for tick in range(max(bookings)+1):
+        if tick:
             state = step(x,state,weights)
-        if word not in cfg["appointments"]:
+        if tick not in bookings:
             continue
-        require(max(abs(np.linalg.norm(state,axis=0)-norms))<1e-9, "upper-band evolution lost norm")
-        upper = apertures(state,inds) + error + word*1e-8
+        word = bookings[tick]
+        require(max(abs(np.linalg.norm(state,axis=0)-norms))<1e-9, "independent evolution lost norm")
+        upper = apertures(state[:, :2],inds) + error + tick*1e-8
+        total = apertures(state[:, 2:],inds)
+        direct_low = apertures(state[:, 2:] - state[:, :2],inds)
         lo,hi = [],[]
-        for sign in ("plus","minus"):
+        for j,sign in enumerate(("plus","minus")):
             key = f"native_{sign}_{word}"
             p = np.array(receipt["weights"][key])/10**13
             require(abs(sum(p[:-1])-admit)<3.2e-12,"source enrollment differs")
+            require(np.sum(abs(admit*total[:-1,j]**2 - p[:30])) < 3.2e-12,
+                    "independent complete propagation disagrees with the sampling law")
             lower,higher = read(receipt["counts"][key],cfg["shots"],p,L)
             lo.append(lower)
             hi.append(higher)
@@ -90,6 +98,10 @@ def replay(record=False):
         high = np.minimum(1,np.sqrt(np.asarray(hi).T)+upper)
         movement = np.maximum(0,low-initial-error)
         contrast = np.maximum(0,np.maximum(low[:,0]-high[:,1],low[:,1]-high[:,0]))
+        direct_error = error + 2*tick*1e-8
+        require(np.all((low <= direct_low + direct_error) & (direct_low <= high + direct_error))
+                and np.all(contrast <= abs(direct_low[:, 0] - direct_low[:, 1]) + 2*direct_error),
+                "local bounds exclude the directly evolved bound band")
         results[str(word)] = {"upper_amplitude_limit":upper.tolist(), "motion_lower":movement.tolist(),
                               "phase_norm_lower":contrast.tolist()}
     files = [PROTOCOL, HERE/"gateway_complement.py", RECEIPT]

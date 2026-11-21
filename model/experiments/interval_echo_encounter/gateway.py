@@ -2,8 +2,7 @@
 import argparse
 import hashlib
 import json
-from math import log
-from pathlib import Path
+from math import isclose, log
 
 import numpy as np
 
@@ -13,6 +12,9 @@ from model.candidate_laws.contrast_memory_spherical_v1.presence import load_json
 
 RECEIPT = HERE / "gateway_counts.json"
 RESULT = HERE / "gateway_result.json"
+# Acquisition at 093c582cb. The digest covers every original sampling weight
+# and count. Replay source fingerprints can change without moving this anchor.
+ACQUISITION = "4ac3881772103bff00f0280958728d26116b0e50d0aeb1e307b221456bcaafc4"
 MODEL = HERE.parents[1]
 CONTRAST = "candidate_laws/contrast_memory_spherical_v1/"
 SOURCES = [HERE / name for name in ("gateway_protocol.json", "gateway_kernel_protocol.json",
@@ -20,11 +22,28 @@ SOURCES = [HERE / name for name in ("gateway_protocol.json", "gateway_kernel_pro
 SOURCES += [MODEL / path for path in ("executable_model/carrier.py", "candidate_laws/interval_echo/candidate.py",
             *(CONTRAST + name for name in ("candidate.py", "law.py", "reader.py", "sectors.py", "presence.py",
                                            "common.py")))]
+SOURCES += [MODEL / "executable_model" / "carriers" / f"FEDERATION_LEVEL{level}.npz" for level in range(3)]
+SOURCES.append(MODEL / "requirements.txt")
 
 
 def pins():
-    return {p.relative_to(MODEL).as_posix(): hashlib.sha256(
-            p.read_bytes().replace(b"\r\n", b"\n")).hexdigest() for p in SOURCES}
+    result = {}
+    for path in SOURCES:
+        data = path.read_bytes()
+        if path.suffix != ".npz":
+            data = data.replace(b"\r\n", b"\n")
+        result[path.relative_to(MODEL).as_posix()] = hashlib.sha256(data).hexdigest()
+    return result
+
+
+def registered_receipt(receipt):
+    require(type(receipt) is dict and set(receipt) == {"sources", "weights", "counts"},
+            "incomplete gateway receipt")
+    require(receipt["sources"] == pins(), "measurement code or dependencies changed")
+    payload = json.dumps([receipt["weights"], receipt["counts"]], sort_keys=True,
+                         separators=(",", ":"), allow_nan=False).encode("ascii")
+    require(hashlib.sha256(payload).hexdigest() == ACQUISITION, "registered acquisition differs")
+    return receipt
 
 
 def counts_law(p):
@@ -50,6 +69,9 @@ def sample(weights, shots, rng):
 
 
 def read(row, shots, p, L):
+    p = np.asarray(p)
+    require(p.shape == (32,) and np.all(np.isfinite(p)) and np.all((p >= 0) & (p <= 1))
+            and abs(p.sum() - 1) < 1e-13 and p[-1] < 1, "invalid joint probability law")
     require(type(row) is list and len(row) == 32 and all(type(x) is int and 0 <= x <= shots for x in row)
             and sum(row) == shots, "incomplete original-start receipt")
     data = np.array(row, dtype=np.int64)
@@ -95,17 +117,18 @@ def summarize(cfg, laws, budget, counts):
     return rows
 
 
-def close(actual, saved):
+def close(actual, saved, *, absolute=1e-9):
     if isinstance(actual, dict):
         require(type(saved) is dict and actual.keys() == saved.keys(), "result fields changed")
         for key in actual:
-            close(actual[key], saved[key])
+            close(actual[key], saved[key], absolute=absolute)
     elif isinstance(actual, (tuple,list)):
         require(type(saved) is list and len(actual) == len(saved), "result list changed")
         for left,right in zip(actual,saved,strict=True):
-            close(left,right)
+            close(left,right, absolute=absolute)
     elif type(actual) is float:
-        require(type(saved) in (float,int) and abs(saved-actual)<1e-9, "numeric replay disagrees")
+        require(type(saved) in (float,int) and isclose(saved, actual, abs_tol=absolute, rel_tol=1e-12),
+                "numeric replay disagrees")
     else:
         require(saved == actual and type(saved) is type(actual), "result identity changed")
 
@@ -121,8 +144,7 @@ def replay(record=False):
     if record:
         require(not RECEIPT.exists() and not RESULT.exists(), "acquisition already exists")
     else:
-        receipt = load_json(RECEIPT)
-        require(receipt["sources"] == pins(), "measurement code or dependencies changed")
+        receipt = registered_receipt(load_json(RECEIPT))
     probes = kernel()
     laws, budget, atlas = forecast(cfg)
     rng = np.random.default_rng(cfg["seed"])
@@ -132,7 +154,7 @@ def replay(record=False):
             weights = counts_law(p)
             receipt["weights"][name] = weights.tolist()
             receipt["counts"][name] = sample(weights, cfg["shots"], rng)
-        save(RECEIPT, receipt)
+        save(RECEIPT, registered_receipt(receipt))
     else:
         require(set(receipt) == {"sources","weights","counts"} and set(receipt["weights"]) == set(laws),
                 "sampling menu changed")
@@ -140,7 +162,8 @@ def replay(record=False):
             weights = receipt["weights"][name]
             require(type(weights) is list and len(weights) == 32
                     and all(type(x) is int and 0 <= x <= 10**13 for x in weights) and sum(weights)==10**13
-                    and np.max(abs(np.asarray(weights)/10**13-p))<3.2e-12, "archived sampling law changed")
+                    and np.all(np.asarray(weights)[p == 0] == 0)
+                    and np.sum(abs(np.asarray(weights)/10**13-p))<3.2e-12, "archived sampling law changed")
             require(sample(weights,cfg["shots"],rng)==receipt["counts"].get(name), "seeded counts disagree")
     row = {"receiver":atlas, "amplitude_contamination":budget.tolist(), "kernel":probes,
            "bookings":summarize(cfg,laws,budget,receipt["counts"])}

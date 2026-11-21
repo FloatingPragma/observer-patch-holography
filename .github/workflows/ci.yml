@@ -87,6 +87,7 @@ jobs:
         run: |
           python -B -O -W error -m model.experiments.interval_echo_encounter.gateway
           python -B -O -W error -m model.experiments.interval_echo_encounter.gateway_complement
+          python -B -O -W error -m model.experiments.interval_echo_encounter.gateway_message
           python -B -O -W error -m model.experiments.cage
           python -B -O -W error -m model.experiments.contact.material_radar
           python -B -O -W error -m model.experiments.contact.radar_checks

@@ -67,30 +67,47 @@ def gate(kappa, duration):
     return blank[:len(law.SRC)]
 
 
+def clock_read(state, echo, mask):
+    """Write the first clock endpoint against a blank, read it and undo the write."""
+    law = candidate.native_law
+    inputs = [law.SRC.index((a, 0)) for a in range(3)]
+    # The second clock endpoint is the spectator column. The rows contain
+    # the first endpoint, the blank probe port and its private seam memory.
+    written = echo[:, inputs] @ state.reshape(3, 3)
+    yes = np.linalg.norm(written[mask])**2
+    quiet = np.linalg.norm(written[~mask])**2
+    if abs(yes - 1) < 2e-12 and quiet < 2e-12:
+        bit, retained = 1, mask
+    elif abs(quiet - 1) < 2e-12 and yes < 2e-12:
+        bit, retained = 0, ~mask
+    else:
+        raise ValueError("booked clock did not emit a deterministic word")
+    restored = echo[:, retained] @ written[retained]
+    unused = np.ones(law.DIM, dtype=bool)
+    unused[inputs] = False
+    require(np.linalg.norm(restored[unused]) < 2e-12, "clock read failed to restore its probe")
+    pointer = restored[inputs].reshape(-1)
+    return bit, pointer / np.linalg.norm(pointer)
+
+
 def reference(bookings):
     law = candidate.native_law
     require(bool(bookings) and all(type(i) is int and 0<=i<128 for i in bookings)
             and bookings == sorted(set(bookings)), "invalid finite counter booking")
     block = gate(candidate.KAPPA,np.pi)
-    indices = [law.SRC.index((2,0)),law.SRC.index((0,2))]
-    probes = np.eye(law.DIM)[:,[law.SRC.index((0,0)),law.SRC.index((2,0))]]
     echo = law.echo()
-    read = (echo @ probes)[np.arange(law.DIM)%len(law.SRC)==law.SRC.index((1,1))]
-    require(np.allclose(read.T@read,np.diag([0,1]),atol=1e-13,rtol=0)
-            and np.linalg.norm(echo@echo@probes-probes)<1e-13, "invalid nondestructive clock probe")
-    state = np.eye(len(law.SRC),dtype=complex)[:,indices[0]]
-    previous, word = 0, 0
+    mask = np.arange(law.DIM) % len(law.SRC) == law.SRC.index((1, 1))
+    state = np.eye(len(law.SRC), dtype=complex)[:, law.SRC.index((2, 0))]
+    previous, state = clock_read(state, echo, mask)
+    word = 0
     appointments = {0:0} if 0 in bookings else {}
     for exposure in range(1,bookings[-1]+1):
-        state = block @ state
-        weights = abs(state[indices])**2
-        active = int(np.argmax(weights))
-        require(abs(weights[active]-1)<2e-12, "clock pointer unresolved")
-        if active != previous:
+        bit, state = clock_read(block @ state, echo, mask)
+        if bit != previous:
             word = (word+1)%128
             if word in bookings:
                 appointments[word] = exposure
-        previous = active
+        previous = bit
     require(list(appointments) == bookings, "missing clock booking")
     return appointments
 
@@ -99,6 +116,7 @@ def partition(size):
     # The binary sector permits at most one positive seam at a time.
     flags = np.vstack((np.eye(size,dtype=bool),np.zeros((1,size),bool)))
     records = presence.compile_records(flags,["nominal"]*size,True)
+    require(len(records) == size + 1, "incomplete public pair readings")
     for row,(status,words) in enumerate(records):
         expected = tuple(29 if j==row else 1 for j in range(size))
         require(words==expected and status==int(row<size), "incorrect public pair reading")
