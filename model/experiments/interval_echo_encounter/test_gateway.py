@@ -33,6 +33,14 @@ def test_dense_federation_launch_complement_and_clock():
         psi[[home,second]]=[1,sgn*1j]
         np.testing.assert_allclose(prepared[:,j]/prepared[home,j],psi,atol=2e-13)
     high = basis[:,energies>=-5]
+    # In any real eigenbasis the two pulses have the same spectral weights,
+    # including projection onto any degenerate eigenspace.
+    weights_by_energy = abs(basis.T @ prepared)**2
+    np.testing.assert_allclose(weights_by_energy[:,0],weights_by_energy[:,1],atol=2e-14,rtol=0)
+    for t in (0.13,2.71):
+        forward = abs(evolve(prepared[:,[0]],t))**2
+        backward = abs(evolve(prepared[:,[1]],-t))**2
+        np.testing.assert_allclose(forward,backward,atol=2e-13,rtol=0)
     exact = high@(high.T@prepared)
     projected,err = high_projection(h,prepared)
     assert max(np.linalg.norm(projected-exact,axis=0))<=err
