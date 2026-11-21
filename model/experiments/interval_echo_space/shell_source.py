@@ -83,7 +83,7 @@ class Board:
             check(keys.tolist()==[list(e) for e in adjacency] and np.all(counts==2),
                   "four-child quotient changes angular interfaces")
             # Each parent is a connected star of four edge-adjacent children.
-            within = np.zeros(4*(parent.cells,),int)
+            within = np.zeros(4*parent.cells,dtype=int)
             for a,b in edges:
                 if a//4==b//4:
                     within[[a,b]]+=1

@@ -145,7 +145,7 @@ def save(name,data,summary,output):
         folder.mkdir(exist_ok=True,parents=True)
     archive(folder/(name+"_counts.npz"),data,output is not None)
     receipt(folder/(name+"_result.json"),summary,output is not None)
-    print(f"{name}: {sum(len(a) for a in data.values())} complete measurement panels")
+    print(f"{name}: {sum(int(a.sum()) for a in data.values())} retained simulated trials")
 
 
 if __name__=="__main__":
