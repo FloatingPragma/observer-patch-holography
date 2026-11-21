@@ -8,6 +8,7 @@ from __future__ import annotations
 import copy
 import json
 import os
+import re
 import shutil
 import subprocess
 import textwrap
@@ -532,12 +533,12 @@ def test_actual_preview_artifact_step_rejects_missing_or_stale_commits(
         REPO_ROOT / ".github" / "workflows" / "ci.yml"
     ).read_text(encoding="utf-8")
     marker = (
-        "      - name: Require committed preview artifacts to match the source rebuild\n"
+        "      - name: Require committed PDFs to match the source rebuild\n"
         "        run: |\n"
     )
     assert workflow.count(marker) == 1
     script = textwrap.dedent(
-        workflow.split(marker, 1)[1].split("\n      - name:", 1)[0]
+        re.split(r"\n      - name:|\n\n  \S", workflow.split(marker, 1)[1], maxsplit=1)[0]
     )
     env = os.environ.copy()
     bash = shutil.which("bash")
@@ -582,7 +583,7 @@ def test_actual_preview_artifact_step_rejects_missing_or_stale_commits(
         (repo / directory / "existing paper.pdf").write_bytes(b"%PDF-existing\n")
     book = repo / "book/reverse-engineering-reality-book.pdf"
     book.write_bytes(b"%PDF-book\n")
-    (scratch / "book-first.pdf").write_bytes(book.read_bytes())
+    (scratch / "book.pdf").write_bytes(book.read_bytes())
     if case == "ignored":
         (repo / ".gitignore").write_text("cosmology/generated.pdf\n", encoding="utf-8")
     if case.startswith("untracked") or case == "ignored":
@@ -597,7 +598,7 @@ def test_actual_preview_artifact_step_rejects_missing_or_stale_commits(
     elif case == "changed_tracked":
         (repo / "cosmology/existing paper.pdf").write_bytes(b"%PDF-rebuilt\n")
     elif case == "stale_book":
-        (scratch / "book-first.pdf").write_bytes(b"%PDF-current-book\n")
+        (scratch / "book.pdf").write_bytes(b"%PDF-current-book\n")
 
     result = subprocess.run(
         [bash, "--noprofile", "--norc", "-e", "-c", script],
