@@ -80,7 +80,20 @@ def spectrum(H,port,kappa,gap):
     return value,float(v[port]**2)
 
 
+def valid_shots(shots):
+    return (isinstance(shots,(int,np.integer)) and not isinstance(shots,(bool,np.bool_))
+            and 0<shots<=np.iinfo(np.int32).max)
+
+
 def counts_for(a,b,clock,shots,rng):
+    a,b,clock=map(np.asarray,(a,b,clock))
+    require(valid_shots(shots) and a.ndim==1 and a.size>0 and b.shape==a.shape
+            and np.isfinite(a).all() and np.isfinite(b).all()
+            and np.all(abs(a)<=1+1e-10) and np.all(abs(b)<=1+1e-10),
+            "invalid return amplitudes or trial count")
+    require(clock.shape==(a.size,4) and clock.dtype.kind in "fiu" and np.isfinite(clock).all()
+            and np.all(clock>=0) and np.all(abs(clock.sum(axis=1)-1)<1e-12),
+            "invalid reference clock probabilities")
     hit=(abs(a)**2+abs(b)**2)/2
     z=a*b.conj()
     cohorts=[]
@@ -98,8 +111,7 @@ def counts_for(a,b,clock,shots,rng):
 
 
 def read(counts,shots,component_error,phase_distortion):
-    require(isinstance(shots,(int,np.integer)) and not isinstance(shots,(bool,np.bool_))
-            and 0<shots<=np.iinfo(np.int32).max and np.isfinite(component_error) and component_error>0
+    require(valid_shots(shots) and np.isfinite(component_error) and component_error>0
             and (phase_distortion is None or (np.isfinite(phase_distortion) and phase_distortion>=0))
             and counts.ndim==4 and counts.shape[0]==2 and counts.shape[2:]==(3,4)
             and counts.shape[1]>=2 and counts.dtype.kind in "iu" and np.all(counts>=0)
