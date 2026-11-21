@@ -34,6 +34,11 @@ def plan():
 
 def returns(H, port, times):
     """Complete spectral measure of the sharp port word through Chebyshev moments."""
+    times=np.asarray(times)
+    require(times.ndim==1 and times.size>0 and np.isfinite(times).all() and min(times)>=0,
+            "invalid return exposures")
+    if max(times)==0:
+        return np.ones(len(times),complex)
     diag = H.diagonal()
     off = np.asarray(abs(H).sum(axis=1)).ravel()-abs(diag)
     lo,hi = min(diag-off),max(diag+off)
@@ -93,7 +98,10 @@ def counts_for(a,b,clock,shots,rng):
 
 
 def read(counts,shots,component_error,phase_distortion):
-    require(counts.ndim==4 and counts.shape[0]==2 and counts.shape[2:]==(3,4)
+    require(isinstance(shots,(int,np.integer)) and not isinstance(shots,(bool,np.bool_))
+            and 0<shots<=np.iinfo(np.int32).max and np.isfinite(component_error) and component_error>0
+            and (phase_distortion is None or (np.isfinite(phase_distortion) and phase_distortion>=0))
+            and counts.ndim==4 and counts.shape[0]==2 and counts.shape[2:]==(3,4)
             and counts.shape[1]>=2 and counts.dtype.kind in "iu" and np.all(counts>=0)
             and np.all(counts<=shots) and np.all(counts.sum(axis=(2,3),dtype=np.int64)==shots),
             "invalid joint pair and timebase counts")

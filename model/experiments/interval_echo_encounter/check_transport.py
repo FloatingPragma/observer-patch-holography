@@ -28,7 +28,7 @@ def terminal_labels(sector, home, internal):
     return labels
 
 
-def checked_steps(h, start, exposures):
+def checked_steps(h, start, exposures, *, degree=24):
     # Center the Gershgorin interval. All matrix entries and the step are dyadic.
     off = np.asarray(abs(h).sum(axis=1)).ravel() - abs(h.diagonal())
     low, high = min(h.diagonal() - off), max(h.diagonal() + off)
@@ -37,7 +37,6 @@ def checked_steps(h, start, exposures):
     matrix = ((h - center * eye(h.shape[0], format="csr")) * step).tocsr()
     radius = float(np.asarray(abs(matrix).sum(axis=1)).max())
     terms = max(np.diff(matrix.indptr))
-    degree = 24
     u = np.finfo(float).eps / 2
     def gamma(k):
         return k*u / (1-k*u)
