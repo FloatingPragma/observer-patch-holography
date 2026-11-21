@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SOURCE_SHA256 = MappingProxyType({
     'code/source_selection_model/geometry.py': 'de47ae19dd4ae1677d0cefb0163513f2f1f6d24dfb4dd0264506d0b17fceb843',
     'Lean/ObserverPatchHolography/CoreAxioms.lean': 'addcea08fe55c0ccc3edbeb90ebd9df4b640c96bd20e9755417bcdb84f093fe4',
-    'code/a5_closure/verify_port_gram_support_attachment_independent.py': 'eb7fe01bfa930b2c14365ae9c8aad7fc9fddb751fb4e209fde210afd7f386291',
+    'code/a5_closure/verify_port_gram_support_attachment_independent.py': '1521a9a8a15e6316ba097893b6f69606e0e336d8265423d9c7ff0eb4d815a73b',
     'code/m1_source_realization/receipt.json': '55180dc4ad95a19a985b64589dc38dc2e44d3d841240c02de5a3113f718628f9',
 })
 GEOMETRY, CORE, SEARCH, RECEIPT = SOURCE_SHA256
