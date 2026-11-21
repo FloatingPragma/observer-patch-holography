@@ -1,0 +1,144 @@
+{
+  "profiles": [
+    {
+      "gates": [0, 1, 2],
+      "cells_by_level": {
+        "1": 24,
+        "2": 104
+      },
+      "windows": {
+        "single": {
+          "0": {
+            "dimension": 5,
+            "twice_shifted_energy_polynomial": [1, -28, 308, -1656, 4320, -4320]
+          }
+        },
+        "home": {
+          "8": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          },
+          "0": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          },
+          "-8": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          }
+        },
+        "seams": {
+          "8": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          },
+          "0": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          },
+          "-8": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          }
+        }
+      }
+    },
+    {
+      "gates": [0, 1, 4],
+      "cells_by_level": {
+        "0": 8
+      },
+      "windows": {
+        "single": {
+          "0": {
+            "dimension": 2,
+            "twice_shifted_energy_polynomial": [1, -12, 36]
+          }
+        },
+        "home": {
+          "8": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          },
+          "0": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          },
+          "-8": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          }
+        },
+        "seams": {
+          "8": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          },
+          "0": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          },
+          "-8": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          }
+        }
+      }
+    },
+    {
+      "gates": [0, 2, 8],
+      "cells_by_level": {
+        "0": 12,
+        "1": 56,
+        "2": 216
+      },
+      "windows": {
+        "single": {
+          "0": {
+            "dimension": 2,
+            "twice_shifted_energy_polynomial": [1, -12, 36]
+          }
+        },
+        "home": {
+          "8": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          },
+          "0": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          },
+          "-8": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          }
+        },
+        "seams": {
+          "8": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          },
+          "0": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          },
+          "-8": {
+            "dimension": 0,
+            "twice_shifted_energy_polynomial": [1]
+          }
+        }
+      }
+    }
+  ],
+  "distinct_cell_product_dimensions": {
+    "0": 760,
+    "1": 26500,
+    "2": 451420
+  },
+  "release_local_ports": [0, 1],
+  "release_compact_weight": 0,
+  "quiet_quadratic_coefficients": {
+    "home": "1/4",
+    "seams": "5/4"
+  }
+}
