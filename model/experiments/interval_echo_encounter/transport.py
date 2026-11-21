@@ -1,5 +1,6 @@
 """Terminal home-seam reads and the complete position census on fresh releases."""
 import argparse
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -15,10 +16,36 @@ HERE = Path(__file__).resolve().parent
 PROTOCOL = HERE / "confinement_protocol.json"
 RECEIPT = HERE / "transport.json"
 
+# Hash the LF representation of the registered files on every platform.
+PROTOCOL_DIGESTS = {
+    "confinement_protocol.json": "8cbb398148793923b726daf2a63d49678cefbc3fff4152a63133c4cb433f7a46",
+    "sign_protocol.json": "8387837b36e99512a77e1e3405358a000690789d550a595ed3b5a3ee5264e218",
+    "conjugation_protocol.json": "2294f3b91d95c3054118cbe49de8d480c2ba75c09ed7c47d1c94be5bf7991b57",
+}
+
+
+def read_protocol(path):
+    raw = path.read_bytes().replace(b"\r\n", b"\n")
+    if hashlib.sha256(raw).hexdigest() != PROTOCOL_DIGESTS[path.name]:
+        raise ValueError(f"Registered protocol differs: {path.name}")
+    return json.loads(raw)
+
+
+def probability_vector(values, size):
+    """Validate one complete 12-decimal published distribution before comparison."""
+    if len(values) != size or any(type(p) not in (int, float) for p in values):
+        raise ValueError("Expected a complete vector of numeric probabilities")
+    vector = np.asarray(values, dtype=float)
+    if not np.isfinite(vector).all() or np.any(vector < 0) or np.any(vector > 1):
+        raise ValueError("Probability outside the finite unit interval")
+    if abs(vector.sum() - 1) > size * (0.5e-12 + np.finfo(float).eps):
+        raise ValueError("Probability vector does not sum to one at receipt precision")
+    return vector
+
 
 def write_receipt(path, result):
     """Keep each numeric spectrum or outcome vector together on one line."""
-    content = json.dumps(result, indent=2)
+    content = json.dumps(result, indent=2, allow_nan=False)
     content = re.sub(r"\[\s*([-+0-9.eE,\s]+?)\s*\]",
                      lambda m: "[" + " ".join(m[1].split()) + "]", content)
     path.write_text(content + "\n", encoding="utf-8")
@@ -40,13 +67,19 @@ def census(sector, home, internal, state):
     bins.extend(weights[mask].sum() for mask in (
         home_pair & ~seam, ~internal_pair & seam, internal_pair & ~home_pair & seam,
         ~home_pair & ~seam))
-    if abs(sum(bins) - 1) > 1e-10:
+    if not abs(sum(bins) - 1) <= 1e-10:
         raise ArithmeticError("Terminal census lost probability")
     return [round(float(p), 12) for p in bins]
 
 
+def release_metadata(sector, internal, source):
+    return {"dimension": sector.P, "source": list(source), "home_seams": [list(e) for e in internal],
+            "complement": ["home nonadjacent", "external seam", "other internal seam",
+                           "nonadjacent outside home window"]}
+
+
 def campaign():
-    protocol = json.loads(PROTOCOL.read_text())
+    protocol = read_protocol(PROTOCOL)
     settings = protocol["release"]
     sector = PairSector(federation(settings["level"]))
     internal, source = release(sector, settings["cell"])
@@ -64,9 +97,7 @@ def campaign():
             readings[str(exposure)] = census(sector, settings["cell"], internal, state)
             previous = exposure
         arms[str(strength)] = readings
-    return {"dimension": sector.P, "source": list(source), "home_seams": internal,
-            "complement": ["home nonadjacent", "external seam", "other internal seam",
-                           "nonadjacent outside home window"], "arms": arms}
+    return {**release_metadata(sector, internal, source), "arms": arms}
 
 
 def verify(result, archive):
@@ -80,8 +111,8 @@ def verify(result, archive):
         if readings.keys() != retained.keys():
             raise ValueError("Exposure menus differ")
         for exposure, bins in readings.items():
-            other = np.asarray(retained[exposure])
-            if other.shape != (34,) or not np.allclose(bins, other, rtol=0, atol=1e-9):
+            other = probability_vector(retained[exposure], 34)
+            if np.abs(bins - other).sum() > 1e-9:
                 raise ValueError(f"Census mismatch at {strength}, {exposure}")
 
 
@@ -89,7 +120,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--write", action="store_true")
     args = parser.parse_args()
-    result = json.loads(json.dumps(campaign()))
+    result = campaign()
     if args.write:
         write_receipt(RECEIPT, result)
     else:

@@ -8,7 +8,7 @@ from scipy.sparse.linalg import expm_multiply
 from model.candidate_laws.contrast_memory_spherical_v1.law import seam_term
 from model.candidate_laws.contrast_memory_spherical_v1.sectors import PairSector, SeamEvents
 from model.executable_model.carrier import federation
-from .transport import HERE, release, write_receipt
+from .transport import HERE, probability_vector, read_protocol, release, write_receipt
 
 PROTOCOL = HERE / "sign_protocol.json"
 RECEIPT = HERE / "sign_read.json"
@@ -34,7 +34,7 @@ def pulse_check(strength):
 
 
 def campaign():
-    spec = json.loads(PROTOCOL.read_text())
+    spec = read_protocol(PROTOCOL)
     sector = PairSector(federation(spec["carrier_level"]))
     internal, (x, y) = release(sector, spec["cell"])
     z, w = contacts(sector.car, x, y)
@@ -73,7 +73,7 @@ def campaign():
             coherent, mixture = prob[:, 0], prob[:, 1:].sum(axis=1)
             records = []
             for weights in (coherent, mixture):
-                if abs(weights.sum() - 1) > 1e-12:
+                if not abs(weights.sum() - 1) <= 1e-12:
                     raise ArithmeticError("Preparation or terminal branches lost probability")
                 quiet = np.ones(sector.P, bool)
                 quiet[screen] = False
@@ -95,9 +95,9 @@ def verify(result, archive):
         if arm["slopes"] != stored["slopes"] or arm["readings"].keys() != stored["readings"].keys():
             raise ValueError("Initial slopes or exposures differ")
         for t, rows in arm["readings"].items():
-            target = np.asarray(stored["readings"][t])
-            if target.shape != (2,31) or not np.allclose(rows, target, atol=2e-11, rtol=0):
-                raise ValueError(f"Sign-read probabilities differ at {strength}, {t}")
+            for row, target in zip(rows, stored["readings"][t], strict=True):
+                if not np.allclose(row, probability_vector(target, 31), atol=2e-11, rtol=0):
+                    raise ValueError(f"Sign-read probabilities differ at {strength}, {t}")
 
 
 if __name__ == "__main__":

@@ -7,7 +7,25 @@ from scipy.sparse import eye
 
 from model.candidate_laws.contrast_memory_spherical_v1.sectors import PairSector
 from model.executable_model.carrier import federation
-from .transport import PROTOCOL, RECEIPT, census, release
+from .transport import PROTOCOL, RECEIPT, probability_vector, read_protocol, release, release_metadata
+
+
+def terminal_labels(sector, home, internal):
+    """Decode individual port pairs independently of the propagation replay's masks."""
+    local = {tuple(seam): i for i, seam in enumerate(internal)}
+    seams = set(sector.car.seams)
+    labels = np.empty(sector.P, dtype=np.intp)
+    for i, (a, b) in enumerate(zip(sector.aa, sector.bb, strict=True)):
+        pair = (a, b)
+        if pair in local:
+            labels[i] = local[pair]
+        elif a // 12 == b // 12 == home:
+            labels[i] = len(local)
+        elif pair in seams:
+            labels[i] = len(local) + (1 if a // 12 != b // 12 else 2)
+        else:
+            labels[i] = len(local) + 3
+    return labels
 
 
 def checked_steps(h, start, exposures):
@@ -45,22 +63,28 @@ def checked_steps(h, start, exposures):
 
 
 def verify():
-    spec = json.loads(PROTOCOL.read_text())["release"]
+    spec = read_protocol(PROTOCOL)["release"]
     stored = json.loads(RECEIPT.read_text())
     sector = PairSector(federation(spec["level"]))
     home, source = release(sector, spec["cell"])
+    if {k: v for k, v in stored.items() if k != "arms"} != release_metadata(sector, home, source):
+        raise ValueError("Stored release or terminal addresses differ")
+    if set(stored["arms"]) != {str(k) for k in spec["strengths"]}:
+        raise ValueError("Stored interactions differ")
+    labels = terminal_labels(sector, spec["cell"], home)
     state = np.zeros(sector.P, complex)
     state[sector.index(*source)] = 1
     for strength in spec["strengths"]:
         h = sector.hamiltonian(strength)
+        readings = stored["arms"][str(strength)]
+        if set(readings) != {str(t) for t in spec["exposures"]}:
+            raise ValueError("Stored exposures differ")
         for t, evolved, budget in checked_steps(h, state, spec["exposures"]):
-            bins = census(sector, spec["cell"], home, evolved)
-            reference = stored["arms"][str(strength)][str(t)]
-            if np.shape(reference) != (34,):
-                raise ValueError("Incomplete stored census")
-            discrepancy = sum(abs(x-y) for x,y in zip(bins, reference))
-            bound = discrepancy + budget + len(bins)*0.5e-12
-            if not bound < 1e-9:
+            bins = np.bincount(labels, weights=evolved.real**2 + evolved.imag**2, minlength=34)
+            reference = probability_vector(readings[str(t)], 34)
+            discrepancy = np.abs(bins - reference).sum()
+            bound = discrepancy + budget
+            if not bound < 1.2e-10:
                 raise ArithmeticError(f"Terminal law exceeds budget at {(strength,t)}: {bound}")
             print(strength, t, f"L1 error <= {bound:.3g}")
 

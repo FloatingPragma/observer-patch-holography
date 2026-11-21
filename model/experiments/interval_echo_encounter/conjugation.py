@@ -9,9 +9,11 @@ from scipy.linalg import expm
 from scipy.sparse.linalg import expm_multiply
 
 from model.candidate_laws.contrast_memory_spherical_v1 import law
-from model.candidate_laws.contrast_memory_spherical_v1.sectors import PairSector
+from model.candidate_laws.contrast_memory_spherical_v1.sectors import PairSector, pair_index
 from model.executable_model.carrier import federation
-from .transport import HERE, PROTOCOL as RELEASE_PROTOCOL, census, release, write_receipt
+from .transport import (
+    HERE, PROTOCOL as RELEASE_PROTOCOL, census, probability_vector, read_protocol, release, write_receipt,
+)
 
 PROTOCOL = HERE / "conjugation_protocol.json"
 RECEIPT = HERE / "conjugation.json"
@@ -41,13 +43,31 @@ def reference_profile(reference):
     raise ValueError("Unknown reference service")
 
 
+@lru_cache(maxsize=None)
+def free_seam(strength):
+    """Check the blank-collar reduction and all transitions omitted by the sector models."""
+    seam = law.seam_term(strength)
+    exchanged = [law.SRC.index((b, a)) for a, b in law.SRC]
+    columns = np.arange(law.N_SRC)
+    supported = np.eye(law.N_SRC, dtype=bool)
+    supported[exchanged, columns] = True
+    if np.any(seam[~supported]):
+        raise ArithmeticError("Free seam changes the load multiset")
+    kinetic, contrast = law.local_term_parts()
+    embedded = np.eye(law.DIM, law.N_SRC)
+    if not np.allclose((kinetic + strength * contrast) @ embedded,
+                       embedded @ seam, atol=3e-13, rtol=0):
+        raise ArithmeticError("Native generator differs on the blank collar")
+    return seam
+
+
 def defect_generator(car, sign, strength, reference, background=1):
     """Assemble native seam columns relative to the energy of the uniform medium."""
     amount = background + sign
     if (background, amount) not in ((1,0), (1,2), (0,2)):
         raise ValueError("Unregistered one-position defect")
     profile = reference_profile(reference)
-    seam = law.seam_term(strength)
+    seam = free_seam(strength)
     medium = law.SRC.index((background, background))
     left = law.SRC.index((amount, background))
     right = law.SRC.index((background, amount))
@@ -63,7 +83,7 @@ def defect_generator(car, sign, strength, reference, background=1):
 
 
 def local_pulse(strength, sign):
-    u = expm(-0.5j*np.pi*law.seam_term(strength))
+    u = expm(-0.5j*np.pi*free_seam(strength))
     inputs = [law.SRC.index((1+sign,1)), law.SRC.index((1,1+sign))]
     spectator = law.SRC.index((1,1))
     if not np.allclose(u[:,spectator], np.eye(9)[:,spectator], atol=2e-14, rtol=0):
@@ -101,14 +121,14 @@ def run_arm(car, ports, home, exposures, strength, reference, sign):
         weights = abs(evolved)**2
         quiet = weights[:inside.start].sum() + weights[inside.stop:].sum()
         record = np.r_[weights[inside], quiet]
-        if abs(record.sum() - 1) > 2e-12:
+        if not abs(record.sum() - 1) <= 2e-12:
             raise ArithmeticError("Defect read lost probability")
         readings[str(t)] = record.round(12).tolist()
     return {"slope": round(float(slope),12), "readings": readings}
 
 
 def campaign():
-    spec = json.loads(PROTOCOL.read_text())
+    spec = read_protocol(PROTOCOL)
     boards = {}
     for level in spec["levels"]:
         car = federation(level)
@@ -145,20 +165,41 @@ def verify(result, archive):
                     raise ValueError("Tangent or exposure menu differs")
                 for t, bins in readings.items():
                     target = stored[sign]["readings"][t]
-                    if np.shape(target) != (13,) or not np.allclose(bins, target, rtol=0, atol=2e-11):
+                    if not np.allclose(bins, probability_vector(target, 13), rtol=0, atol=2e-11):
                         raise ValueError(f"Defect read differs at {level}, {sign}, {t}")
 
 
-def pair_regression(reference):
-    spec = json.loads(PROTOCOL.read_text())["pair_regression"]
-    launch = json.loads(RELEASE_PROTOCOL.read_text())["release"]
-    sector = PairSector(federation(launch["level"]))
-    seams, source = release(sector, launch["cell"])
+def binary_generator(sector, strength, reference):
+    """Assemble by physical seam, relative to vacuum and the common 12κ shift."""
+    seam = free_seam(strength)
+    empty, left, right, both = [law.SRC.index(s) for s in ((0,0), (1,0), (0,1), (1,1))]
     missing = 6 - sector.car.degree
     profile = reference_profile(reference)
-    # Each unit changes its local correction by f(1)-f(0), versus one natively.
-    potential = float(spec["kappa"])*(profile[1]-profile[0]-1)*(missing[sector.aa]+missing[sector.bb])
-    generator = -1j*(sector.hamiltonian(spec["kappa"]) + sparse.diags(potential))
+    diagonal = strength * float(profile[1] - profile[0]) * (missing[sector.aa] + missing[sector.bb])
+    diagonal -= 12 * strength
+    ports = np.arange(sector.n)
+    left_positions, right_positions = [], []
+    for a, b in sector.car.seams:
+        other = ports[(ports != a) & (ports != b)]
+        ia = pair_index(sector.n, np.minimum(a, other), np.maximum(a, other))
+        ib = pair_index(sector.n, np.minimum(b, other), np.maximum(b, other))
+        diagonal[ia] += seam[left,left] - seam[empty,empty]
+        diagonal[ib] += seam[right,right] - seam[empty,empty]
+        diagonal[sector.index(a,b)] += seam[both,both] - seam[empty,empty]
+        left_positions.append(ia)
+        right_positions.append(ib)
+    ia, ib = np.concatenate(left_positions), np.concatenate(right_positions)
+    amplitudes = np.r_[np.full(len(ia), seam[right,left]), np.full(len(ib), seam[left,right])]
+    moves = sparse.coo_matrix((amplitudes, (np.r_[ib,ia], np.r_[ia,ib])), shape=(sector.P,sector.P))
+    return (moves + sparse.diags(diagonal)).tocsr()
+
+
+def pair_regression(reference):
+    spec = read_protocol(PROTOCOL)["pair_regression"]
+    launch = read_protocol(RELEASE_PROTOCOL)["release"]
+    sector = PairSector(federation(launch["level"]))
+    seams, source = release(sector, launch["cell"])
+    generator = -1j * binary_generator(sector, spec["kappa"], reference)
     state = np.zeros(sector.P, complex)
     state[sector.index(*source)] = 1
     readings = {}
@@ -173,11 +214,12 @@ def pair_regression(reference):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--write", action="store_true")
-    parser.add_argument("--pair-regression", action="store_true")
-    parser.add_argument("--singleton-pair", action="store_true")
+    comparisons = parser.add_mutually_exclusive_group()
+    comparisons.add_argument("--pair-regression", action="store_true")
+    comparisons.add_argument("--singleton-pair", action="store_true")
     args = parser.parse_args()
     if args.pair_regression or args.singleton_pair:
-        selected = "singleton" if args.singleton_pair else 1
+        selected = "singleton" if args.singleton_pair else read_protocol(PROTOCOL)["pair_regression"]["reference"]
         readings = pair_regression(selected)
         path = HERE / "centered_pair.json"
         if args.write and not args.singleton_pair:
@@ -186,10 +228,13 @@ if __name__ == "__main__":
             stored = (json.loads((HERE/"transport.json").read_text())["arms"]["8"]
                       if args.singleton_pair else json.loads(path.read_text()))
             if (readings.keys() != stored.keys() or
-                any(np.shape(stored[t]) != (34,) or not np.allclose(v, stored[t], atol=1e-9, rtol=0)
-                    for t,v in readings.items())):
-                raise ValueError("Centered-reference pair census differs")
-        print({t: sum(bins[:30]) for t,bins in readings.items()})
+                any(np.abs(v - probability_vector(stored[t], 34)).sum() > 1e-9
+                    for t, v in readings.items())):
+                raise ValueError("Reference-service pair census differs")
+        native = json.loads((HERE / "transport.json").read_text())["arms"]["8"]
+        for t, bins in readings.items():
+            hit = sum(bins[:30])
+            print(t, "home", round(hit, 9), "change from native", round(hit - sum(native[t][:30]), 9))
         raise SystemExit(0)
     result = campaign()
     if args.write:

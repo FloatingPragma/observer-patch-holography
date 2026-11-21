@@ -10,6 +10,7 @@ from pathlib import Path
 import numpy as np
 
 from model.executable_model.carrier import CELL_SEAMS, automorphisms, federation
+from .transport import read_protocol
 
 HERE = Path(__file__).resolve().parent
 RECEIPT = HERE / "confinement.json"
@@ -110,7 +111,7 @@ def gate_profiles(car):
 
 
 def certificate():
-    protocol = json.loads((HERE / "confinement_protocol.json").read_text())
+    protocol = read_protocol(HERE / "confinement_protocol.json")
     symmetries = automorphisms(CELL_SEAMS)
     if len(symmetries) != 120:
         raise ArithmeticError("Incomplete cell symmetry group")

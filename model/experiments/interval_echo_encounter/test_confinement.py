@@ -9,8 +9,8 @@ from scipy.linalg import expm
 
 from model.candidate_laws.contrast_memory_spherical_v1 import law
 from model.candidate_laws.contrast_memory_spherical_v1.sectors import PairSector
-from model.executable_model.carrier import federation
-from . import confinement, conjugation, sign_read, transport
+from model.executable_model.carrier import Carrier, federation
+from . import check_transport, confinement, conjugation, sign_read, transport
 
 
 def test_exact_spaces_and_cell_counts():
@@ -158,12 +158,19 @@ def test_load_conjugation_on_all_qutrit_states_and_terminal_records():
 
 
 def test_singleton_reference_preserves_binary_and_changes_doubled_sector():
-    import itertools
     profile = conjugation.singleton_profile()
     assert profile == (0,1,0) and profile == profile[::-1]
     car = federation(0)
     missing = 6 - car.degree
     pair = PairSector(car)
+    # Compare every matrix entry on the published release board. One assembly
+    # walks each physical seam; the native PairSector walks configuration neighbors.
+    native_pair = pair.hamiltonian(8)
+    assert (conjugation.binary_generator(pair, 8, "singleton") - native_pair).count_nonzero() == 0
+    centered = conjugation.binary_generator(pair, 8, 1)
+    difference = centered - native_pair
+    np.testing.assert_array_equal(difference.diagonal(), -16*(missing[pair.aa] + missing[pair.bb]))
+    assert difference.count_nonzero() == np.count_nonzero(difference.diagonal())
     # Every two-single configuration, including cross-cell and separated pairs.
     delta_binary = (profile[1]-profile[0]-1)*(missing[pair.aa]+missing[pair.bb])
     assert np.all(delta_binary == 0)
@@ -176,7 +183,68 @@ def test_singleton_reference_preserves_binary_and_changes_doubled_sector():
     modified = conjugation.defect_generator(car, 2, 8, "singleton", background=0)
     assert (native - doubled_hamiltonian(car,8) - 96*eye(car.n)).count_nonzero() == 0
     assert (modified - native - diags(delta_double, dtype=float)).count_nonzero() == 0
-    for state in itertools.product(range(3), repeat=3):
-        reverse = tuple(2-n for n in state)
-        assert sum(w*profile[n] for w,n in zip((0,1,1),state)) == sum(
-            w*profile[n] for w,n in zip((0,1,1),reverse))
+
+
+def test_full_qutrit_path_including_sector_complements():
+    car = Carrier("three-port path", 3, [(0, 1), (1, 2)])
+    states = list(product(range(3), repeat=3))
+    seam = law.seam_term(8)
+    physical = np.kron(seam, np.eye(3)) + np.kron(np.eye(3), seam)
+    binary = [i for i, state in enumerate(states) if max(state) <= 1]
+    native = None
+    for reference, profile in ((0, (0, 1, 4)), (1, (1, 0, 1)), ("singleton", (0, 1, 0))):
+        correction = [sum((6-d) * profile[n] for d, n in zip(car.degree, state)) for state in states]
+        full = physical + 8*np.diag(correction)
+        if reference == 0:
+            native = full
+            assert not np.array_equal(full[::-1, ::-1], full)
+        else:
+            np.testing.assert_array_equal(full[::-1, ::-1], full)
+        if reference == "singleton":
+            np.testing.assert_array_equal(full[:, binary], native[:, binary])
+        for background, change in ((1, 1), (1, -1), (0, 2)):
+            basis = [states.index(tuple(background + change*(i == j) for j in range(3)))
+                     for i in range(3)]
+            embedding = np.eye(len(states))[:, basis]
+            medium = states.index((background,)*3)
+            expected = full @ embedding - full[medium, medium]*embedding
+            reduced = conjugation.defect_generator(car, change, 8, reference, background)
+            np.testing.assert_array_equal(embedding @ reduced.toarray(), expected)
+
+
+def test_probability_and_registration_verifiers_reject_invalid_inputs(tmp_path):
+    for vector in ([True, 0.0], [-1e-12, 1.0], [0.0, float("nan")], [0.6, 0.6], [0.0]):
+        with pytest.raises(ValueError):
+            transport.probability_vector(vector, 2)
+    path = tmp_path / transport.PROTOCOL.name
+    original = transport.PROTOCOL.read_bytes().replace(b"\r\n", b"\n")
+    path.write_bytes(original.replace(b"\n", b"\r\n"))
+    assert transport.read_protocol(path) == transport.read_protocol(transport.PROTOCOL)
+    path.write_bytes(original.replace(b"148", b"147"))
+    with pytest.raises(ValueError, match="Registered protocol"):
+        transport.read_protocol(path)
+
+
+def test_terminal_decoder_resolves_each_address_and_each_quiet_alternative():
+    sector = PairSector(federation(0))
+    internal, _ = transport.release(sector, 13)
+    labels = check_transport.terminal_labels(sector, 13, internal)
+    assert set(labels) == set(range(34))
+    for label in range(34):
+        state = np.zeros(sector.P)
+        state[np.flatnonzero(labels == label)[0]] = 1
+        expected = np.zeros(34)
+        expected[label] = 1
+        np.testing.assert_array_equal(transport.census(sector, 13, internal, state), expected)
+
+
+def test_centered_release_against_complete_archived_first_read():
+    from scipy.sparse.linalg import expm_multiply
+    pair = PairSector(federation(0))
+    internal, source = transport.release(pair, 13)
+    start = np.zeros(pair.P, complex)
+    start[pair.index(*source)] = 1
+    final = expm_multiply(-1j * conjugation.binary_generator(pair, 8, 1), start)
+    bins = transport.census(pair, 13, internal, final)
+    archived = json.loads((transport.HERE / "centered_pair.json").read_text())
+    np.testing.assert_allclose(bins, transport.probability_vector(archived["1"], 34), rtol=0, atol=1e-10)
