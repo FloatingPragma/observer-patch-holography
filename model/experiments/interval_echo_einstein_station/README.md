@@ -10,7 +10,7 @@ The conserved total number of doubles gives a local algebra with a vacuum block 
 
 A separate G2 comparison uses the bound pair that generates the two-gateway energy flux. Its local source-mixture modular charge and the independently metered central energy predict opposite signs on a held pulse direction. [Same-source energy comparison](PAIR.md)
 
-| Reference p | Exact first-law slope tr(K dρ/dp) | Entropy slope at step 1/1024 | Expected finite slope at step 1/16 | Sampled slope at step 1/16 ± one SE |
+| Source mixture p | Exact first-law slope tr(K dρ/dp) | Entropy slope at step 1/1024 | Expected finite slope at step 1/16 | Sampled slope at step 1/16 ± one SE |
 | --- | ---: | ---: | ---: | ---: |
 | 3/4 | −0.693669 | −0.693670 | −0.698376 | −0.689896 ± 0.007515 |
 | 1/2, symmetric launch | 0 | 0 | 0 | −0.003230 ± 0.004832 |

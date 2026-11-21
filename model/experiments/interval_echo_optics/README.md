@@ -2,7 +2,7 @@
 
 At fixed-home reunion, the three-bit Interval Echo hand agrees with the prediction from its home observer’s optical records for three held out-and-back schedules. At eight services per handoff, the three-bit interval counter saturates and the clock runs close to its raw primary rate. A five-bit clock on the same optical itinerary brings its elapsed ratio back into the frozen equivalence band. [Primary protocol](PROTOCOL.md) · [Separate capacity protocol](CAPACITY_PROTOCOL.md) · [Material witnesses and estimates](results.json)
 
-| Out/back services | Moving interval width | Measured out/back speeds in relay units | Measured traveller/home | Optical prediction | Difference ± one paired SE | Frozen decision |
+| Out/back services | Moving interval width | Out/back speeds from the home optics, in relay units | Traveller/home ratio | Optical prediction | Difference ± one paired SE | Frozen decision |
 | --- | ---: | --- | ---: | ---: | ---: | --- |
 | 3 / 5 | 3 bits | 0.33348 / 0.20015 | 0.966543 | 0.965885 | +0.000658 ± 0.000382 | Agrees |
 | 5 / 3 | 3 bits | 0.20003 / 0.33341 | 0.966049 | 0.965913 | +0.000136 ± 0.000334 | Agrees |
