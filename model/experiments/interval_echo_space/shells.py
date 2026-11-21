@@ -13,6 +13,7 @@ from .shell_source import Board, check, local_source
 
 HERE = Path(__file__).resolve().parent
 SOURCE_FILES = {"shell_source.py","shells.py","shell_spectroscopy.py","shell_protocol.json",
+                "shell_beats.py","shell_beat_protocol.json",
                 "shell_spectroscopy_protocol.json","../../executable_model/carrier.py",
                 "../../candidate_laws/contrast_memory_spherical_v1/law.py",
                 "../seam_program/gate.py",
@@ -22,7 +23,7 @@ SOURCE_FILES = {"shell_source.py","shells.py","shell_spectroscopy.py","shell_pro
 
 def protocol(name):
     pins = json.loads((HERE/"shell_sources.json").read_text(encoding="utf8"))
-    check(set(pins)==SOURCE_FILES and name in ("shell_protocol.json","shell_spectroscopy_protocol.json"),
+    check(set(pins)==SOURCE_FILES and name in ("shell_protocol.json","shell_spectroscopy_protocol.json","shell_beat_protocol.json"),
           "incomplete source manifest or unknown experiment")
     for file, digest in pins.items():
         raw = (HERE/file).read_bytes()
