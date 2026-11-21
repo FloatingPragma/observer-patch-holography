@@ -122,8 +122,9 @@ def read(counts,shots,component_error,phase_distortion):
     z=parts[0]+1j*parts[1]
     c=counts.sum(axis=(0,2),dtype=np.int64)/(2*shots)
     hand=(c[:,0]+c[:,1]-c[:,2]-c[:,3])+1j*(c[:,0]-c[:,1]+c[:,2]-c[:,3])
+    clock_phase=np.unwrap(np.angle(hand))
     result=dict(minimum_tag_probability=float(np.min(1-sig[:,:,2])),quiet_at_last=float(sig[:,-1,2].mean()),
-                minimum_visibility=float(min(abs(z))),hand_elapsed=float(np.diff(np.unwrap(np.angle(hand))[[0,-1]])[0]),
+                minimum_visibility=float(min(abs(z))),hand_elapsed=float(clock_phase[-1]-clock_phase[0]),
                 rate_interval=None)
     radius=np.sqrt(2)*component_error
     if phase_distortion is None or min(abs(z))<=radius or min(abs(hand))<=radius:
@@ -135,6 +136,21 @@ def read(counts,shots,component_error,phase_distortion):
     if 1+2*max(error,clock_error)>=pi or result["hand_elapsed"]<=2*clock_error:
         return result
     phase=np.unwrap(np.angle(z))
+    # Both prepared phases start at zero. The reference advances one radian
+    # per appointment; validate its entire record before using its elapsed phase.
+    if abs(phase[0])>error or np.any(abs(clock_phase-np.arange(len(hand)))>clock_error):
+        return result
+    early=clock_phase[1:]-clock_error
+    late=clock_phase[1:]+clock_error
+    if np.any(early<=0):
+        return result
+    # At each appointment a nonnegative common rate must take some reference
+    # phase in [early, late] into the measured signal's error interval.
+    lower=max(0.,np.max((phase[1:]-error)/late))
+    upper=min(1.,np.min((phase[1:]+error)/early))
+    if lower>upper:
+        return result
+    # Return the registered endpoint estimate after this consistency check.
     slope=(phase[-1]-phase[0]-2*error,phase[-1]-phase[0]+2*error)
     bounds=[s/t for s in slope for t in (result["hand_elapsed"]-2*clock_error,result["hand_elapsed"]+2*clock_error)]
     result["rate_interval"]=[min(bounds),max(bounds)]
@@ -186,8 +202,9 @@ def run(spec):
             delta=lines[1][0]-lines[0][0] if lines else (1. if member=="always_ticking" else None)
             result["arms"][tag]=dict(observed=observed,isolation=cert,isolated_energies=[u[0] for u in lines],
                 spectral_weights=[u[1] for u in lines],branch_difference=delta,
-                positive_gate=bool(kappa==8 and member=="native" and all(c["survival"]>.9 for c in cert)
-                                   and observed["rate_interval"] is not None and observed["rate_interval"][1]<1.))
+                positive_gate=bool(kappa==8 and member=="native" and all(c and c["survival"]>.9 for c in cert)
+                                   and observed["rate_interval"] is not None
+                                   and 0<observed["rate_interval"][0]<=observed["rate_interval"][1]<1.))
     return raw,result
 
 

@@ -6,7 +6,7 @@ from scipy.linalg import expm
 
 from model.candidate_laws.contrast_memory_spherical_v1 import law
 from model.candidate_laws.contrast_memory_spherical_v1 import reader
-from .dwell import counts_for, plan, read, returns
+from .dwell import HERE, counts_for, plan, read, returns
 from .dwell_checks import PhysicalFlight
 from .dwell_source import Station, local_blocks
 from .dwell_scaling import coefficient, memory_charges, secular
@@ -79,6 +79,20 @@ def test_projected_operators_and_parameter_free_coefficient():
     assert (delta-sparse.eye(b.sector.P)).count_nonzero()==0
 
 
+def test_retaining_degree_references_detunes_the_source_pulse():
+    station=Station(0,(0,1))
+    tag=law.seam_term(8)
+    doubles=[law.SRC.index(word) for word in ((2,0),(0,2))]
+    isolated=tag[np.ix_(doubles,doubles)]
+    references=[4*8*(6-station.host.degree[v]) for v in station.tag]
+    exposed=isolated+np.diag(references)
+    # Maximum transfer in a two-level system over all possible pulse lengths,
+    # obtained from its full eigensystem independently of the detuning formula.
+    _,vectors=np.linalg.eigh(exposed)
+    assert np.sum(abs(vectors[0]*vectors[1]))**2==pytest.approx(1/1025)
+    assert abs(expm(-1j*1.5*np.pi*isolated)[1,0])**2==pytest.approx(.5)
+
+
 def test_polynomial_phase_and_secular_crossing():
     H=np.array([[-12.,-.5,-.5],[-.5,-3.,-.5],[-.5,-.5,8.]])
     times=np.array([0.,.3,2.,96.])
@@ -117,3 +131,26 @@ def test_quiet_and_impossible_histograms():
     for amp in (np.ones(3),np.full(2,1.001),np.full(2,np.inf)):
         with pytest.raises(ValueError,match="return amplitudes"):
             counts_for(np.zeros(2),amp,hands,64,np.random.default_rng(5))
+
+
+@pytest.mark.parametrize("mutation",["reverse_signal","bend_signal","reverse_reference"])
+def test_complete_history_rejects_incompatible_middle_appointment(mutation):
+    config=plan()
+    board=Station(config["flight_level"],config["tag"])
+    weights=[board.isolation(8,s)["weight"] for s in (0,1)]
+    distortion=sum(np.arcsin((1-w)/w) for w in weights)
+    with np.load(HERE/"dwell_counts.npz") as data:
+        counts=data["native_8"]
+    panels=counts.shape[1]*len(config["strengths"])*len(config["arms"])
+    error=np.sqrt(2*np.log(8*panels/config["alpha"])/config["shots"])+1e-8
+    interval=read(counts,config["shots"],error,distortion)["rate_interval"]
+    assert 0<interval[0]<interval[1]<1
+    mid=counts.shape[1]//2
+    if mutation=="reverse_reference":
+        counts[:,mid]=counts[:,mid][:,:,[3,2,1,0]]
+    else:
+        # A reflection of just the imaginary part preserves visibility and
+        # winding; only consistency with one frequency detects this mutation.
+        cohort=slice(None) if mutation=="reverse_signal" else slice(1,2)
+        counts[cohort,mid]=counts[cohort,mid][:,[1,0,2],:]
+    assert read(counts,config["shots"],error,distortion)["rate_interval"] is None
