@@ -1,0 +1,41 @@
+{
+  "interval_echo": {
+    "port_to_candidate_map": "identity",
+    "response": "one-load Hamiltonian",
+    "one_load_scalar_offset": 48.0,
+    "lifted_rank": 3,
+    "frobenius_errors": {
+      "binary_unit_rate_mean": 0.0,
+      "projector_idempotence": 1.415262216750919e-16,
+      "gram_eigenrelation": 2.830524433501838e-16,
+      "full_operator_intertwining": 0.0,
+      "candidate_band_eigenrelation": 2.830524433501838e-16
+    }
+  },
+  "contrast_memory_spherical_v1": {
+    "port_to_candidate_map": "identity",
+    "response": "one-load Hamiltonian",
+    "one_load_scalar_offset": 48.0,
+    "lifted_rank": 3,
+    "frobenius_errors": {
+      "binary_unit_rate_mean": 0.0,
+      "projector_idempotence": 1.415262216750919e-16,
+      "gram_eigenrelation": 2.830524433501838e-16,
+      "full_operator_intertwining": 0.0,
+      "candidate_band_eigenrelation": 2.830524433501838e-16
+    }
+  },
+  "scalar_channel": {
+    "port_to_candidate_map": "unsigned seam-port incidence",
+    "response": "squared frequency minus squared rest level",
+    "one_load_scalar_offset": 0,
+    "lifted_rank": 3,
+    "frobenius_errors": {
+      "binary_unit_rate_mean": 0.0,
+      "projector_idempotence": 1.4686870114880517e-16,
+      "gram_eigenrelation": 3.4219371797089426e-16,
+      "full_operator_intertwining": 4.224686731655424e-15,
+      "candidate_band_eigenrelation": 1.454377176337868e-15
+    }
+  }
+}

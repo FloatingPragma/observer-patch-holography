@@ -1,0 +1,873 @@
+{
+  "groups": [
+    {
+      "id": "axioms",
+      "title": "The three OPH axioms",
+      "purpose": "Full foundational contracts. A finite witness can establish a clause while common-regime completeness and refinement remain open. The PR identifiers are related ledger entries.",
+      "sources": [
+        "claims/axiom_registry.yaml",
+        "docs/AXIOM_REFERENCE.md"
+      ],
+      "criteria": [
+        {
+          "id": "A1",
+          "title": "Oriented observer-patch federation and spherical support",
+          "requires": "Exhibit the local patch algebras and state/record/refinement maps on fielded oriented icosahedral cells, the degree-one spherical support bridge, and a faithful closed twelve-port current response exhausting observable response directions naturally on the declared cover.",
+          "sources": [
+            "claims/axiom_registry.yaml",
+            "docs/AXIOM_REFERENCE.md"
+          ],
+          "premises": [
+            "PR-02",
+            "PR-11"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "The shared sphere, physical patch records and a closed twelve-current service are present. An additional accessible occupation control expands the closure to 18 (17 visible). Exhaustion and naturality across refinements remain open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/CURRENTS.md",
+                "model/candidate_laws/interval_echo/observations.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "partial",
+              "note": "The shared sphere, orthogonal public records and twelve weighted current services are present. All plain single-load services give 17 visible directions. Common-regime completeness and refinement remain open.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md"
+              ]
+            },
+            "scalar_channel": {
+              "status": "partial",
+              "note": "Finite local instruments and the shared board are specified. The twelve raw owner currents annihilate the encoded scalar singlets. A faithful complete response on that code remains open.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json",
+                "model/candidate_laws/scalar_channel/gauge_capacity.py"
+              ]
+            }
+          }
+        },
+        {
+          "id": "A2",
+          "title": "Observer agreement",
+          "requires": "Transport the same public effects and outcomes across overlapping observers, translations, chains of refinements, and proper carrier rechartings. Derive accepted overlap holonomy and its projective implementer in the connected response group on the same histories, modulo the centralizer.",
+          "sources": [
+            "claims/axiom_registry.yaml",
+            "docs/AXIOM_REFERENCE.md"
+          ],
+          "premises": [],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "Shared patch readings agree. Prior prepared overlap transport generated all 60 proper rechartings on 20 and 80 cells, with a matching unit-gain current implementer. Refined histories and complete physical effect transport remain open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/observations.json",
+                "model/candidate_laws/interval_echo/CURRENTS.md",
+                "model/candidate_laws/interval_echo/prior_calibration.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "partial",
+              "note": "The seam reader produces agreed orthogonal copies and the one-cell current controls are rotation covariant. The copies and one-cell identity do not supply the full interpatch transport contract.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "model/candidate_laws/contrast_memory_spherical_v1/reader.py"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "Available ancilla and pointer experiments lack a common interpatch record/holonomy and inner-implementer audit.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "A3",
+          "title": "Conditional maximum randomness",
+          "requires": "From the repair and record grammar supply the feasible family, faithful reference and positive weights. Realize its unique weighted relative-entropy minimizer on the jointly separating accessible cover with exact constraint satisfaction and compatibility under overlap and refinement.",
+          "sources": [
+            "claims/axiom_registry.yaml",
+            "docs/AXIOM_REFERENCE.md"
+          ],
+          "premises": [],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "Two overlapping two-cell observers realize the unique accessible minimizer in both orders for a frozen faithful reference, weights and constraints. Selection and refinement of general source-derived covers and constraints remain open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/projection.json",
+                "model/candidate_laws/interval_echo/projection.py"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "The echo and weighted current generator do not define a general weighted information projection on observer record tables.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The scalar repair channel and routed readouts do not provide an information-projection receipt with feasible tables, source weights and a faithful reference.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "finite-theorems",
+      "title": "Finite theorem premises and executable witnesses",
+      "purpose": "Each bounded row names its source, menu and sector. The confluence, public probability and global gauge rows make explicit the additional premises needed to transfer those witnesses.",
+      "sources": [
+        "paper/executable_observer_construction.tex",
+        "paper/reality_as_consensus_protocol.tex",
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
+      ],
+      "criteria": [
+        {
+          "id": "FT-SEAM",
+          "title": "Exact directed seam write",
+          "requires": "On the blank seam register preserve total integer load, minimize the two squared endpoint loads, use a load-independent fair tie bit, and respect endpoint exchange. Verify the exact decrease for strict classical writes.",
+          "sources": [
+            "paper/executable_observer_construction.tex",
+            "Lean/ObserverPatchHolography/DirectedSeamRepair.lean"
+          ],
+          "premises": [],
+          "results": {
+            "interval_echo": {
+              "status": "demonstrated",
+              "note": "The native write used inside Interval Echo is the contrast-memory seam isometry. Its classical strict branch has the theorem’s load-dependent decrease.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/clock.py"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "demonstrated",
+              "note": "The directed write puts the endpoints at floor/ceiling of half the total and stores contrast and tie. The bounded-load polynomial settling estimate covers strict classical moves.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/law.py",
+                "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "Scalar exchanges, star isometries and source-on instruments do not certify the directed integer-load minimizer.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/compiler.py",
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "FT-BAND",
+          "title": "Native repair selects and the candidate carries the rank-three Gram band",
+          "requires": "Use the oriented 12-port incidence and the balanced binary repair sector with independent unit-rate seam attempts. Derive the centered mean −L/2 and identify the slow projector G/4. Supply an explicit map intertwining the candidate’s finite response with L/2 on this sector and verify it carries all three directions on the cell.",
+          "sources": [
+            "paper/screen_microphysics_and_observer_synchronization.tex",
+            "Lean/Screen/PortGramRepairBand.lean",
+            "paper/executable_observer_construction.tex"
+          ],
+          "premises": [],
+          "results": {
+            "interval_echo": {
+              "status": "demonstrated",
+              "note": "The native fair write gives the conditional mean. With equal seam rates, the one-load Hamiltonian minus its common offset 48 equals L/2. The Gram projector intertwines on all three directions. Transport of a full moving observer’s records is a separate test.",
+              "evidence": [
+                "model/evaluation/repair_band.py",
+                "model/evaluation/repair_band.json",
+                "model/candidate_laws/interval_echo/candidate.py"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "demonstrated",
+              "note": "The fair binary write and all 30 unit rates generate the centered mean −L/2. The actual one-load Hamiltonian minus 48 matches the positive operator L/2 on all ports, carrying its full rank-three Gram band.",
+              "evidence": [
+                "model/evaluation/repair_band.py",
+                "model/evaluation/repair_band.json",
+                "model/candidate_laws/contrast_memory_spherical_v1/candidate.py"
+              ]
+            },
+            "scalar_channel": {
+              "status": "partial",
+              "note": "The unsigned endpoint-sum map embeds all three Gram directions on seams and intertwines the full port operator with BBᵀ to error below 5×10⁻¹⁵. The scalar frequency-squared response is verified. Its own scalar repair does not instantiate the balanced binary write/attempt process.",
+              "evidence": [
+                "model/evaluation/repair_band.py",
+                "model/evaluation/repair_band.json",
+                "model/candidate_laws/scalar_channel/candidate.py"
+              ]
+            }
+          }
+        },
+        {
+          "id": "FT-RECORD",
+          "title": "Orthogonal local pointer records",
+          "requires": "For a declared finite reader, implement distinguishable orthogonal outcome labels retained in physical registers with a certain immediate reread on the same record.",
+          "sources": [
+            "paper/executable_observer_construction.tex",
+            "Lean/EventAlgebra/NoBroadcastingAdapter.lean"
+          ],
+          "premises": [
+            "PR-02"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "demonstrated",
+              "note": "The cell-patch clock reads a sharp material rail; repeated protected readings of the reported states agree. Both owners reread the same physical digit in the projection test.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/projection.json",
+                "model/candidate_laws/interval_echo/clock.py"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "demonstrated",
+              "note": "The two-load seam and presence circuits produce orthogonal outcome labels and realize repeatable record effects on their declared windows.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/presence_results.json",
+                "model/candidate_laws/contrast_memory_spherical_v1/reader.py"
+              ]
+            },
+            "scalar_channel": {
+              "status": "demonstrated",
+              "note": "The supplied scalar apparatus writes the outcome and routing syndrome to distinguishable retained pointer labels in its finite instrument histories. The immediate reread is the diagonal read of those labels.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/instruments.py",
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "FT-LOCAL",
+          "title": "Disjoint finite operations preserve a remote marginal",
+          "requires": "Give a tensor-factor split and a complete normalized operation acting on finite support. An observer whose registers are entirely disjoint retains its marginal after outcomes are summed.",
+          "sources": [
+            "paper/executable_observer_construction.tex",
+            "paper/reality_as_consensus_protocol.tex"
+          ],
+          "premises": [
+            "PR-44"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "demonstrated",
+              "note": "The supported seam gates and sharp pointer instruments act on the addressed factors, so a complete local operation preserves a disjoint marginal. This covers the declared finite operations.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/clock.py",
+                "model/candidate_laws/interval_echo/candidate.py"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "demonstrated",
+              "note": "Seam events and their complete local readings satisfy the finite-factor no-signalling premise.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/law.py",
+                "model/candidate_laws/contrast_memory_spherical_v1/reader.py"
+              ]
+            },
+            "scalar_channel": {
+              "status": "demonstrated",
+              "note": "On the declared scalar star and ancilla factors the complete outcomes sum to a trace-preserving operation. A disjoint untouched factor retains its reduced state.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/instruments.py",
+                "model/candidate_laws/scalar_channel/compiler.py"
+              ]
+            }
+          }
+        },
+        {
+          "id": "FT-FLOW",
+          "title": "Finite continuous free evolution",
+          "requires": "On the declared finite free sector identify a Hermitian generator and its continuous automorphism flow. The laboratory clock and time-dependent interventions are separate measurements.",
+          "sources": [
+            "paper/executable_observer_construction.tex",
+            "paper/observers_are_all_you_need.tex"
+          ],
+          "premises": [
+            "PR-43"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "demonstrated",
+              "note": "The free one- and two-load evolution used by the signed patch instrument exponentiates the native Hermitian generator.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/currents.py"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "demonstrated",
+              "note": "The one- and two-load sectors evolve with the contrast-memory Hermitian generator. The theorem determines it up to a scalar on a matrix block.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
+                "model/candidate_laws/contrast_memory_spherical_v1/sectors.py"
+              ]
+            },
+            "scalar_channel": {
+              "status": "demonstrated",
+              "note": "The executed free scalar hopping sector is finite and Hermitian and supports the registered cage frequency measurement.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/carrier.py",
+                "model/candidate_laws/scalar_channel/results.json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "FT-PROJECTION",
+          "title": "Two-overlapping-patch information projection",
+          "requires": "On two overlapping two-cell observers with a shared fair record and private mismatch probability 1/4, implement the unique weighted projection to a uniform reference. Check all branches in both orders and distinguish accessible marginals from the unobserved joint coupling.",
+          "sources": [
+            "claims/axiom_registry.yaml",
+            "docs/AXIOM_REFERENCE.md"
+          ],
+          "premises": [],
+          "results": {
+            "interval_echo": {
+              "status": "demonstrated",
+              "note": "On the 20-cell sphere, 32 native branches per order give (3/8, 1/8, 1/8, 3/8) for each owner. Independent and common private errors give the same accessible tables and different external agreement.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/projection.json",
+                "model/candidate_laws/interval_echo/projection.py"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "The contrast-memory package supplies the seam write. The complete two-owner projection instrument has been replayed in the Interval Echo configuration.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The scalar instruments do not implement this two-patch projection experiment.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "FT-CONFLUENCE",
+          "title": "Consensus on the declared observation quotient",
+          "requires": "Declare the repair relation and protected record equivalence. Prove completeness of normal forms for consistency, joinability of every overlap fork on that quotient, and strictly well-founded descent for accepted nontrivial transactions.",
+          "sources": [
+            "paper/reality_as_consensus_protocol.tex",
+            "Lean/ObservableNormalForms/ObservableNormalForms/ObserverConfluence.lean",
+            "tracking/premise_register.json"
+          ],
+          "premises": [
+            "PR-01"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "Unarbitrated overlapping repairs give distinguishable terminals. A blank-collar contrast guard and stored priority yield identical endpoint channels on a six-dimensional intercell input. Within a single winning address the priority-first policy also preserves a discriminable phase. Arbitrary schedules, sectors and coupled clock transactions lack a global termination and joining certificate.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/consensus.json",
+                "model/candidate_laws/interval_echo/CONSENSUS.md",
+                "model/experiments/interval_echo_consensus/results.json",
+                "model/experiments/interval_echo_consensus/phase.json",
+                "model/experiments/interval_echo_consensus/README.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "partial",
+              "note": "Strict classical writes lower squared load. The native echo unwrites the event and preserves the multiset. The general quotient, overlaps and termination of accepted transactions remain open.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/law.py",
+                "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The routed circuit has retained outcomes and branches. A well-founded accepted-repair relation with all diamonds and consistent normal forms is unspecified.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "FT-STRICT-WEDGE",
+          "title": "Strict repair with an order-independent endpoint and a retained phase on an intercell wedge",
+          "requires": "Realize strictly descending accepted writes and a common endpoint channel for all blank-collar two-unit inputs on two competing native seams, including coherences. At a fixed winning address perform a local phase read after the write.",
+          "sources": [
+            "model/experiments/interval_echo_consensus/PROTOCOL.md",
+            "model/experiments/interval_echo_consensus/FOLLOWUP.md"
+          ],
+          "premises": [
+            "PR-01"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "demonstrated",
+              "note": "A buffered two-request priority service on two cells tests absolute written contrast. It excludes balanced inputs, accepts only energy-lowering writes, and gives identical channels under reversed arrivals. Relative-phase preparations give rail probabilities 0 and 1; the control which interrogates both seams gives 1/2 for both preparations.",
+              "evidence": [
+                "model/experiments/interval_echo_consensus/results.json",
+                "model/experiments/interval_echo_consensus/phase.json",
+                "model/experiments/interval_echo_consensus/README.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "The reference supplies the underlying native echo. This assessment also requires a registered priority service and a phase-sensitive terminal reader.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "No such two-unit strict-write and terminal-phase instrument is registered for the scalar channel.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "FT-BORN",
+          "title": "Operational probability and event additivity",
+          "requires": "Recover a normalized positive state on public effects with common values for operationally equivalent readings and additive probabilities for jointly realized disjoint effects. Track which quantum instrument and state structure the law supplies.",
+          "sources": [
+            "paper/observers_are_all_you_need.tex",
+            "Lean/EventAlgebra/OperationalBornBridge.lean",
+            "tracking/premise_register.json"
+          ],
+          "premises": [
+            "PR-02",
+            "PR-03",
+            "PR-64",
+            "PR-65"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "Complete sharp measurements and local fair-sign branches have normalized operational tables. The circuit uses the quantum instrument rule for these branches; a derivation for the entire event grammar remains open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/clock.py",
+                "model/candidate_laws/interval_echo/projection.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "partial",
+              "note": "Presence and addressed instruments distinguish updates sharing one effect. The outcome predictions use a finite quantum instrument and its state.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/presence_results.json",
+                "model/candidate_laws/contrast_memory_spherical_v1/reader.py"
+              ]
+            },
+            "scalar_channel": {
+              "status": "partial",
+              "note": "Finite source-on instruments give normalized branch and failure outcomes conditional on the prescribed state and quantum channels. Extension to the whole operational effect theory remains open.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/instruments.py",
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "FT-CURRENT",
+          "title": "Faithful twelve-current response on the declared finite sector",
+          "requires": "On one cell specify the prepared finite sector and the exact allowed current service. Verify twelve independent visible operators, positive trace form, commutator closure and the proper rotational action needed by the finite Lie-type classification.",
+          "sources": [
+            "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+            "paper/executable_observer_construction.tex"
+          ],
+          "premises": [
+            "PR-11"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "demonstrated",
+              "note": "The rotation-selected service on each of the one- and bound-two-load sectors gives 12 independent visible closed directions. All 66 brackets and 720 covariance checks pass per sector. An extended service reaches 17 visible directions.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/currents.json",
+                "model/candidate_laws/interval_echo/CURRENTS.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "demonstrated",
+              "note": "On one cell the weighted load-plus-twist service on the one-load triplets yields the compact type u(3) ⊕ so(3), rank of the response 12, with positive Gram and the required rotational action.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "model/candidate_laws/contrast_memory_spherical_v1/port_response.py"
+              ]
+            },
+            "scalar_channel": {
+              "status": "counterexample",
+              "note": "For the registered twelve raw owner currents on the scalar singlet code all twelve responses vanish. This rules out faithful transfer on this code and menu.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json",
+                "model/candidate_laws/scalar_channel/gauge_capacity.py"
+              ]
+            }
+          }
+        },
+        {
+          "id": "FT-GLOBAL",
+          "title": "Global gauge group and representation attachment",
+          "requires": "Supply the common-source loop action and exact central kernel, normalization/cover and faithful response on physical carriers. Certify the hypotheses selecting the global quotient and the action on matter.",
+          "sources": [
+            "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+            "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+            "tracking/premise_register.json"
+          ],
+          "premises": [
+            "PR-11",
+            "PR-35",
+            "PR-46",
+            "PR-54"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "The measured Lie algebra of a guarded instrument has no measured same-source global loop kernel and matter action.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/CURRENTS.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "The weighted local Lie type provides no global central quotient or physical matter representation receipt.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The native scalar singlets lack a faithful charged response and a global loop-kernel calculation.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "FT-MATTER",
+          "title": "Matter-sector and fermion premises",
+          "requires": "Realize on the same source the proposed sector-selection grammar and transport, its physical spin and chirality, and the response under the measured global gauge group. These are prerequisites for interpreting the visible states as matter multiplets.",
+          "sources": [
+            "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+            "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+            "tracking/premise_register.json"
+          ],
+          "premises": [
+            "PR-12",
+            "PR-36",
+            "PR-47",
+            "PR-59"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "Stable pair and current readouts have no measured spin, chirality or complete matter-sector selection.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/CURRENTS.md",
+                "model/candidate_laws/interval_echo/RESULTS.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "The persistent pair, triplets and excitation catalogue have no attached chiral physical spin/gauge representations.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The implemented finite scalar sector has no common interacting chiral sector. An abstract mode count does not establish these attachments.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "einstein",
+      "title": "Einstein realization on one physical source",
+      "purpose": "G1–G6 are the six hypotheses for a common source, state and refinement tower. GR-NULL records the null-direction route. The paper also gives a quantitative route using ten timelike observers with matched bulk, area and stationarity errors o(ℓ⁴); it requires no separately assumed null-balance equation.",
+      "sources": [
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+        "tracking/premise_register.json",
+        "Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean"
+      ],
+      "criteria": [
+        {
+          "id": "G1",
+          "title": "Lorentzian event and geometry domain",
+          "requires": "On one candidate-generated refinement tower supply an authenticated causal order, event placement and count/volume limits that agree on a local differentiable, stably causal Lorentzian domain.",
+          "sources": [
+            "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+            "tracking/premise_register.json"
+          ],
+          "premises": [
+            "PR-16",
+            "PR-28",
+            "PR-52",
+            "PR-72",
+            "PR-74"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "Patch clocks, distinct overlapping owners and spherical refinements provide finite measurements. The jointly authenticated causal order and count-volume convergence have not been established.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/RESULTS.json",
+                "model/candidate_laws/interval_echo/observations.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "partial",
+              "note": "The native slow rank-three band and finite record clocks are inputs. A source-generated causal order, volume normalization and common differentiable limit remain open.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "model/candidate_laws/contrast_memory_spherical_v1/events.py"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "Scalar propagation and native local clock counts are available, but a joint transferred angular/radial state and causal-volume refinement tower are missing.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "G2",
+          "title": "Cap modular charges measure the propagating matter stress",
+          "requires": "Calibrate cap modular flow to geometric normalization and show its directional charges measure the same stress tensor that the candidate uses in propagation and interactions.",
+          "sources": [
+            "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+            "tracking/premise_register.json"
+          ],
+          "premises": [
+            "PR-23",
+            "PR-24",
+            "PR-25",
+            "PR-53"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "Prior four-cell metering on the current-pulsed bound pair reconstructed a supplied thermal-reference modular generator with 4,423 noiseless settings. The sampled during-flight change was unresolved. Geometric cap normalization and identification with directional propagating matter stress remain open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/prior_calibration.json",
+                "model/candidate_laws/interval_echo/currents.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "A finite free generator and record-clock relations do not identify cap modular dilation or the directional matter-stress charges.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "A local cage frequency and a source-energy ledger are measured. Their identification with geometrically normalized cap charges remains open.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json",
+                "model/candidate_laws/scalar_channel/instruments.py"
+              ]
+            }
+          }
+        },
+        {
+          "id": "G3",
+          "title": "Independent matter Ward identity",
+          "requires": "Derive or test a covariantly conserved matter stress tensor on the G1 domain, using matter dynamics independently of the Einstein equation.",
+          "sources": [
+            "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+            "tracking/premise_register.json"
+          ],
+          "premises": [
+            "PR-25",
+            "PR-28"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "The working clock and current services lack a physical stress tensor and independent Ward check.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/CURRENTS.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "Conservation of load within the candidate does not supply an independently conserved spacetime stress tensor.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "Finite source/work accounting has no covariant stress-divergence identity on a matched geometry.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json",
+                "model/candidate_laws/scalar_channel/instruments.py"
+              ]
+            }
+          }
+        },
+        {
+          "id": "G4",
+          "title": "Stationary generalized entropy at fixed proper volume",
+          "requires": "For the same region and state establish the edge-center entropy split and physical area normalization, modular first law, and vanishing first variation of generalized entropy at fixed proper volume.",
+          "sources": [
+            "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+            "tracking/premise_register.json"
+          ],
+          "premises": [
+            "PR-26",
+            "PR-27",
+            "PR-28"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "The constrained information projection on two patch records measures classical accessible tables. No matched area term or fixed-proper-volume entropy variation is present.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/projection.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "The finite presence and seam-record instruments supply no edge area normalization or fixed-volume derivative.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The scalar source and its retained pointer histories supply no measured edge-center split and matched fixed-volume variation.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "G5",
+          "title": "Small-ball control and sufficient null directions",
+          "requires": "Bound the small-ball remainders across scales and demonstrate enough independent observer and null directions to recover directional tensor data in the same regional frame.",
+          "sources": [
+            "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+            "tracking/premise_register.json"
+          ],
+          "premises": [
+            "PR-25",
+            "PR-27",
+            "PR-28"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "An earlier direct assignment of twelve port-current readings to null stress missed a symmetric-tensor design by 61.64% on conjugate inputs. A separate stress instrument and a regional small-ball remainder bound remain open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/CURRENTS.md",
+                "model/candidate_laws/interval_echo/prior_calibration.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "Single-cell rotational covariance and stable pair bounds leave the regional small-ball remainder open.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "Local source and fuel measurements supply no shrinking-ball frame, angular tomography or uniform error estimate.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "G6",
+          "title": "Universal coupling and a shared positive Newton constant",
+          "requires": "Use a common vacuum and calibration. Establish that all admitted excitations couple to the same responsive geometry with one positive Newton constant.",
+          "sources": [
+            "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+            "tracking/premise_register.json"
+          ],
+          "premises": [
+            "PR-15",
+            "PR-25",
+            "PR-28"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "The same-source response of distinct matter preparations to geometry and one common Newton constant have not been measured.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/RESULTS.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "The tested bindings and load sectors have no calibrated geometry response across matter species.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The native scalar sector has no implemented universally coupled responsive geometry.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "GR-NULL",
+          "title": "Null balance and tensor closure",
+          "requires": "For the same source, state, tower and calibrated coupling, compare G(k,k) with 8πG times the measured T(k,k) on all nine spanning null design directions, control the residual, then apply independent Ward and geometric Bianchi identities to fix the remaining trace up to Λ.",
+          "sources": [
+            "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+            "tracking/premise_register.json"
+          ],
+          "premises": [
+            "PR-25",
+            "PR-26",
+            "PR-27",
+            "PR-28"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "No regional joint curvature/stress receipt. Clock arrival and reunion measurements do not determine this residual.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/RESULTS.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "No matched null curvature/stress measurement on nine design directions is registered.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "No matched native curvature/stress experiment is present. The static radial counterexample in the spacetime paper belongs to a separately specified construction.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

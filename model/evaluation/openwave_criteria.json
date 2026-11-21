@@ -1,0 +1,999 @@
+{
+  "groups": [
+    {
+      "id": "openwave",
+      "title": "OpenWave empirical criteria",
+      "purpose": "Assess the 31 OpenWave physical targets on each of the three RER candidate laws. The criterion number follows upstream row order. A partial entry names the finite measurement and the missing step to the physical target. These local assessments are independent of the upstream M10 column, which evaluates a different candidate.",
+      "source_revision": "26fbb5fdd07049625d6bb7930af2f6bf545fb6fc",
+      "source_sha256": "07d76807c5e109beb19a7600c67a5daa675e88dfaa70116e4866d6afa5049fe3",
+      "sources": [
+        "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L94-L137",
+        "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L426-L430"
+      ],
+      "criteria": [
+        {
+          "id": "OW-01",
+          "title": "Charge quantization",
+          "requires": "Exhibit an integer topological electric charge and exclude division of one unit between two half-charged excitations.",
+          "domain": "PARTICLE - ELECTRON",
+          "regime": "static",
+          "upstream_number": 1,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L101"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "Integer port loads and their conserved populations are measured in the coherent blank sector. Establishing an electric topological charge and excluding physical half-charge daughters requires a charge readout.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "Integer port loads and their conserved populations are measured in the coherent blank sector. Establishing an electric topological charge and excluding physical half-charge daughters requires a charge readout.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "Electric topological charge and a forbidden splitting channel have yet to be identified.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-02",
+          "title": "Electron rest energy (mass)",
+          "requires": "Select a localized state dynamically. With its energy anchored at 511 keV, predict and independently measure another physical quantity fixed by that anchor.",
+          "domain": "PARTICLE - ELECTRON",
+          "regime": "static",
+          "upstream_number": 2,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L102"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "The free contrast interaction binds localized loads and has measurable binding energies. Electron identification, rest-energy calibration and an independent physical prediction from 511 keV remain open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "model/experiments/material_inertia/README.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "partial",
+              "note": "The free contrast interaction binds localized loads and has measurable binding energies. Electron identification, rest-energy calibration and an independent physical prediction from 511 keV remain open.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "model/experiments/material_inertia/README.md"
+              ]
+            },
+            "scalar_channel": {
+              "status": "partial",
+              "note": "A prepared four-seam branch has a measured single-addition gap. Two separated additions give the sum in joint phase records. The 511 keV anchor alone supplies a scale. An independent electron observable and identification remain open.",
+              "evidence": [
+                "model/experiments/cage/PROOF.md"
+              ]
+            }
+          }
+        },
+        {
+          "id": "OW-03",
+          "title": "de Broglie clock (Zitterbewegung)",
+          "requires": "Measure an internally initiated, frequency-rigid oscillation whose angular frequency equals the measured rest energy divided by ℏ.",
+          "domain": "PARTICLE - ELECTRON",
+          "regime": "dynamic",
+          "upstream_number": 3,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L103"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "A spontaneously starting oscillation tied to an independently measured rest energy remains open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "A spontaneously starting oscillation tied to an independently measured rest energy remains open.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "partial",
+              "note": "After a finite preparation pulse two local clocks resolve a free line at about 4.89898, agreeing with a separate fuel-gap measurement. Autonomous onset and the electron rest-energy identification remain open.",
+              "evidence": [
+                "model/experiments/cage/results.json",
+                "model/experiments/cage/PROOF.md"
+              ]
+            }
+          }
+        },
+        {
+          "id": "OW-04",
+          "title": "Particle stability (Derrick escape)",
+          "requires": "Demonstrate free persistence of the candidate particle in the electron sector, including its localized preparation and readout.",
+          "domain": "PARTICLE - ELECTRON",
+          "regime": "dynamic",
+          "upstream_number": 4,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L104"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "The free-persistence measurement succeeds for a prepared bound pair. An all-time bound controls loss of adjacency on the spherical federation. Applying this result to the electron requires identifying the excitation.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "partial",
+              "note": "The free-persistence measurement succeeds for a prepared bound pair. An all-time bound controls loss of adjacency on the spherical federation. Applying this result to the electron requires identifying the excitation.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+              ]
+            },
+            "scalar_channel": {
+              "status": "partial",
+              "note": "Free persistence succeeds for a prepared four-seam excitation. The exact invariant subspace keeps its support localized at every free time and the local fuel records test its return. The electron assignment remains open.",
+              "evidence": [
+                "model/experiments/cage/results.json",
+                "model/experiments/cage/PROOF.md"
+              ]
+            }
+          }
+        },
+        {
+          "id": "OW-05",
+          "title": "Magnetic moment μ (g ≈ 2, magnetostatics)",
+          "requires": "Measure a static magnetic dipole sourced by internal circulation in the stationary electron, its gyromagnetic factor near two and its Larmor response.",
+          "domain": "PARTICLE - ELECTRON",
+          "regime": "dynamic",
+          "upstream_number": 5,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L105"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "The electron dipole, gyromagnetic factor and field-driven precession require an electromagnetic readout.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "The electron dipole, gyromagnetic factor and field-driven precession require an electromagnetic readout.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The electron dipole, gyromagnetic factor and field-driven precession require an electromagnetic readout.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-06",
+          "title": "Angular momentum J (spin ℏ/2)",
+          "requires": "Measure angular momentum of magnitude ℏ/2 carried by the field of the same electron state.",
+          "domain": "PARTICLE - ELECTRON",
+          "regime": "dynamic",
+          "upstream_number": 6,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L106"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "Field angular momentum has yet to be measured on an identified electron.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "Field angular momentum has yet to be measured on an identified electron.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "Field angular momentum has yet to be measured on an identified electron.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-07",
+          "title": "Spin-½ statistics (720° double cover)",
+          "requires": "Interfere a full rotation, or a two-core exchange, with a reference and recover a minus sign. A dynamically selected half-turn discriminated from a polar control provides intermediate evidence.",
+          "domain": "PARTICLE - ELECTRON",
+          "regime": "static",
+          "upstream_number": 7,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L107"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "A physical rotation or exchange phase and its polar control remain unmeasured.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "A physical rotation or exchange phase and its polar control remain unmeasured.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The scalar register construction uses fermionic operators. An interference measurement of a dynamically selected two-core exchange or 2π rotation remains open.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/PROOF.md"
+              ]
+            }
+          }
+        },
+        {
+          "id": "OW-08",
+          "title": "Antimatter + annihilation",
+          "requires": "Observe a particle and its conjugate convert into radiation. Resolve the two- and three-photon positronium channels as follow-up measurements.",
+          "domain": "PARTICLE - FULL SPECTRUM",
+          "regime": "both",
+          "upstream_number": 8,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L110"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "The free contrast term preserves load. An identified conjugate pair converting into outgoing field quanta has yet to be measured.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "The free contrast term preserves load. An identified conjugate pair converting into outgoing field quanta has yet to be measured.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "Local instruments distinguish adding and removing an object from the filled reference. The sharp cage occupations persist during free evolution. A radiative annihilation channel requires different evidence.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-09",
+          "title": "Neutrinos (neutral states)",
+          "requires": "Identify electrically neutral, light excitations among the products of a decay.",
+          "domain": "PARTICLE - FULL SPECTRUM",
+          "regime": "both",
+          "upstream_number": 9,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L111"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "Production in a decay, electric neutrality and lightness have yet to be established for the same excitation.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "Production in a decay, electric neutrality and lightness have yet to be established for the same excitation.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The scalar law supports neutral excitations relative to its supplied gauge reference. A light neutral product released in a weak decay remains unidentified.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-10",
+          "title": "Neutrino oscillations (PMNS)",
+          "requires": "Distinguish three neutrino flavours through production and detection, observe their oscillations and extract the PMNS angles.",
+          "domain": "PARTICLE - FULL SPECTRUM",
+          "regime": "both",
+          "upstream_number": 10,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L112"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "A flavour-tagged source, transitions and a mixing-angle determination remain open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "A flavour-tagged source, transitions and a mixing-angle determination remain open.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The resolved bands belong to one scalar channel. Three flavour-labelled channels, their oscillations and mixing angles remain open.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-11",
+          "title": "Lepton mass spectrum (μ, τ)",
+          "requires": "Resolve precisely three charged-lepton minima and compare their relative masses with 1, 207 and 3477.",
+          "domain": "PARTICLE - FULL SPECTRUM",
+          "regime": "static",
+          "upstream_number": 11,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L113"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "No three minima have been identified as charged leptons and compared on a common mass scale.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "No three minima have been identified as charged leptons and compared on a common mass scale.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "Several scalar lines have measured frequencies for a supplied level parameter. A charged-lepton family assignment and three mass ratios remain open.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-12",
+          "title": "Quarks",
+          "requires": "Recover fractional electric charge from a partial winding of a quark string.",
+          "domain": "PARTICLE - FULL SPECTRUM",
+          "regime": "static",
+          "upstream_number": 12,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L114"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "An electric response tied to fractional string winding remains unmeasured.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "An electric response tied to fractional string winding remains unmeasured.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "An electric response tied to fractional string winding remains unmeasured.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-13",
+          "title": "Baryons: bound state (p, n)",
+          "requires": "Recover a persistent bound composite whose three constituents are identified as quarks.",
+          "domain": "PARTICLE - FULL SPECTRUM",
+          "regime": "static",
+          "upstream_number": 13,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L115"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "Three ordinary loads bind on a triangular face in the free contrast interaction. The constituent charge, colour and baryon identity remain open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/contrast_memory_spherical_v1/catalogue.py",
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "partial",
+              "note": "Three ordinary loads bind on a triangular face in the free contrast interaction. The constituent charge, colour and baryon identity remain open.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/catalogue.py",
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "A three-quark identification remains open.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-14",
+          "title": "Baryons: mass ordering + charge profile",
+          "requires": "Distinguish neutron and proton, obtain a heavier neutron and resolve the positive-core and negative-shell charge distribution.",
+          "domain": "PARTICLE - FULL SPECTRUM",
+          "regime": "static",
+          "upstream_number": 14,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L116"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "The neutron and proton identities, mass order and resolved electric profile remain open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "The neutron and proton identities, mass order and resolved electric profile remain open.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The neutron and proton identities, mass order and resolved electric profile remain open.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-15",
+          "title": "Baryons: exact masses",
+          "requires": "Predict the proton and neutron rest energies from the field and compare with 938.3 and 939.6 MeV, respectively.",
+          "domain": "PARTICLE - FULL SPECTRUM",
+          "regime": "static",
+          "upstream_number": 15,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L117"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "A common field-based prediction for both identified baryon energies remains open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "A common field-based prediction for both identified baryon energies remains open.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "A common field-based prediction for both identified baryon energies remains open.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-16",
+          "title": "Deuteron (binding + quadrupole)",
+          "requires": "Demonstrate deuteron binding below the sum of the proton and neutron masses and measure its electric quadrupole.",
+          "domain": "PARTICLE - FULL SPECTRUM",
+          "regime": "static",
+          "upstream_number": 16,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L118"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "No deuteron binding and electric quadrupole measurement exists on the identified constituents.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "No deuteron binding and electric quadrupole measurement exists on the identified constituents.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "No deuteron binding and electric quadrupole measurement exists on the identified constituents.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-17",
+          "title": "Nuclear structure (levels, halos)",
+          "requires": "Recover nuclear binding across species, excitation levels and lifetimes of halo nuclei.",
+          "domain": "PARTICLE - FULL SPECTRUM",
+          "regime": "both",
+          "upstream_number": 17,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L119"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "Identified nuclear species with binding, spectroscopy and halo lifetime records remain open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "Identified nuclear species with binding, spectroscopy and halo lifetime records remain open.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "Identified nuclear species with binding, spectroscopy and halo lifetime records remain open.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-18",
+          "title": "Mesons (π, K)",
+          "requires": "Identify pion and kaon states and a strange decay such as Λ⁰ → p + π⁻.",
+          "domain": "PARTICLE - FULL SPECTRUM",
+          "regime": "static",
+          "upstream_number": 18,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L120"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "Meson assignments and a decay tagged by strangeness remain open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "Meson assignments and a decay tagged by strangeness remain open.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "Meson assignments and a decay tagged by strangeness remain open.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-19",
+          "title": "Dark matter candidate",
+          "requires": "Demonstrate a stable massive excitation with measured neutrality as a dark-matter candidate.",
+          "domain": "PARTICLE - FULL SPECTRUM",
+          "regime": "static",
+          "upstream_number": 19,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L121"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "A written seam with empty endpoints retains a label and has a resolved energy level. Its electric neutrality and inertial mass as a propagating dark particle remain unmeasured.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/contrast_memory_spherical_v1/collar.py",
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "partial",
+              "note": "A written seam with empty endpoints retains a label and has a resolved energy level. Its electric neutrality and inertial mass as a propagating dark particle remain unmeasured.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/collar.py",
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The prepared four-seam state is persistent. Its dark-matter identification requires electric neutrality and a moving inertial-mass measurement on the same branch.",
+              "evidence": [
+                "model/experiments/cage/results.json",
+                "model/experiments/cage/PROOF.md"
+              ]
+            }
+          }
+        },
+        {
+          "id": "OW-20",
+          "title": "Electric force (Coulomb 1/r, electrostatics)",
+          "requires": "Measure an inverse-distance far-field potential sourced by one elementary electric charge. A strength claim also needs α derived from the mechanism.",
+          "domain": "FORCES",
+          "regime": "static",
+          "upstream_number": 20,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L124"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "The bare two-load interaction vanishes beyond adjacent ports. The tested written and bare source sectors have no identified elementary electric charge with the required far field.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "The bare two-load interaction vanishes beyond adjacent ports. The tested written and bare source sectors have no identified elementary electric charge with the required far field.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The elementary free scalar law is quadratic. Green kernels of the seam operator alone establish no charged far-field potential measured by a unit source and a test object.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/PROOF.md"
+              ]
+            }
+          }
+        },
+        {
+          "id": "OW-21",
+          "title": "Lorentz covariance (+ Coulomb = EM)",
+          "requires": "Establish Lorentz covariance without a preferred inertial frame, including contraction of boosted states and an operational signal-speed bound.",
+          "domain": "FORCES",
+          "regime": "dynamic",
+          "upstream_number": 21,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L125"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "Guided finite-patch reunion counts track the calibrated time-dilation target on the tested service menu. A boost and a signal-speed limit on freely evolving spherical states remain open. Free contrast clusters retain the known ring inertia mismatch.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/RESULTS.json",
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/experiments/material_inertia/README.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "The free-cluster ring experiment finds a rest-mass versus kinetic-mass mismatch. Covariance, a native boost, and an observer signal-speed bound on the sphere remain open.",
+              "evidence": [
+                "model/experiments/material_inertia/README.md"
+              ]
+            },
+            "scalar_channel": {
+              "status": "partial",
+              "note": "Four one-cell wave bands follow a relativistic scalar dispersion. The continuous-duration equal-term test has influence at arbitrarily early times. Native boosts, contraction and a finite operational signal-speed bound on the sphere remain open.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/PROOF.md"
+              ]
+            }
+          }
+        },
+        {
+          "id": "OW-22",
+          "title": "Strong force: confinement",
+          "requires": "Measure a linear confining potential between identified colour charges and recover a string tension near 1 GeV/fm.",
+          "domain": "FORCES",
+          "regime": "static",
+          "upstream_number": 22,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L126"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "A colour-source separation scan and a measured confining tension remain open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "A colour-source separation scan and a measured confining tension remain open.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "A colour-source separation scan and a measured confining tension remain open.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-23",
+          "title": "Running coupling",
+          "requires": "Resolve a coupling that changes with measurement scale, including the onset near the physical core radius.",
+          "domain": "FORCES",
+          "regime": "static",
+          "upstream_number": 23,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L127"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "A scale scan of a physical coupling referred to the same core radius remains open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "A scale scan of a physical coupling referred to the same core radius remains open.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "A scale scan of a physical coupling referred to the same core radius remains open.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-24",
+          "title": "Weak force: muon decay",
+          "requires": "Observe an identified muon decay into an electron with neutral products.",
+          "domain": "FORCES",
+          "regime": "dynamic",
+          "upstream_number": 24,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L128"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "Muon, electron and neutral decay-product records remain open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "Muon, electron and neutral decay-product records remain open.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "Muon, electron and neutral decay-product records remain open.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-25",
+          "title": "Weak force: beta decay (n → p)",
+          "requires": "Resolve neutron decay into a proton, an electron and an antineutrino, and measure parity violation.",
+          "domain": "FORCES",
+          "regime": "dynamic",
+          "upstream_number": 25,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L129"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "A tagged beta decay and its parity asymmetry remain open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "A tagged beta decay and its parity asymmetry remain open.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "A tagged beta decay and its parity asymmetry remain open.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-26",
+          "title": "Gravity: Newton limit (GEM)",
+          "requires": "Recover an attractive inverse-square force between masses from the gravitoelectromagnetic limit. Credit for the strength requires G to follow from the mechanism.",
+          "domain": "FORCES",
+          "regime": "both",
+          "upstream_number": 26,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L130"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "Attractive contact phases are available for adjacent loads. The one-load energy shift is common to all paths. Neither measurement supplies an attractive inverse-square force between distant masses.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "Attractive contact phases are available for adjacent loads. The one-load energy shift is common to all paths. Neither measurement supplies an attractive inverse-square force between distant masses.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "A sourced gravitoelectromagnetic force law and its strength remain unmeasured.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-27",
+          "title": "Gravity: local metric phenomena",
+          "requires": "Measure local curved-metric phenomena with material clocks and light, such as bending, gravitational redshift or Shapiro delay.",
+          "domain": "FORCES",
+          "regime": "both",
+          "upstream_number": 27,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L131"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "The guided reunion experiment changes the motion of the patch. Testing gravitational clock rates or light paths requires a measured source of curvature.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/RESULTS.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "A sourced gravitational field with independent clock or light propagation records remains open.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "A sourced gravitational field with independent clock or light propagation records remains open.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-28",
+          "title": "Cosmology: Λ / cosmic acceleration",
+          "requires": "Obtain a cosmological constant that explains acceleration from the model dynamics, identify outstanding gaps and give a falsification test.",
+          "domain": "FORCES",
+          "regime": "static",
+          "upstream_number": 28,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L132"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "A constant shift of the free load generator drops out of probabilities. A vacuum contribution linked to measured acceleration and an independent falsification test remain open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "A constant shift of the free load generator drops out of probabilities. A vacuum contribution linked to measured acceleration and an independent falsification test remain open.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "A derived cosmological constant, acceleration observable and falsification test remain open.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-29",
+          "title": "EM waves (Maxwell)",
+          "requires": "Recover Maxwell dynamics and measure transverse electromagnetic disturbances travelling at the limiting speed.",
+          "domain": "WAVES + QUANTUM EMERGENCE",
+          "regime": "dynamic",
+          "upstream_number": 29,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L135"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "A measured electric current, transverse electromagnetic wave and recovery of Maxwell dynamics remain open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "A measured electric current, transverse electromagnetic wave and recovery of Maxwell dynamics remain open.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The exports distinguish gapped propagating seam modes and a gapless scalar branch. The measured modes have yet to furnish Maxwell dynamics and a transverse electromagnetic signal at a common speed.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "OW-30",
+          "title": "Quantum wave equation (Klein-Gordon)",
+          "requires": "Recover the Klein–Gordon energy–momentum relation for propagating matter using independently identifiable spatial and temporal observables.",
+          "domain": "WAVES + QUANTUM EMERGENCE",
+          "regime": "dynamic",
+          "upstream_number": 30,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L136"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "Free bound clusters have measured resting and moving energies on a ring. The tested branches have incompatible kinetic and rest-mass ratios. A Klein–Gordon branch on the sphere remains open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/experiments/material_inertia/README.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "Free bound clusters have measured resting and moving energies on a ring. The tested branches have incompatible kinetic and rest-mass ratios. A Klein–Gordon branch on the sphere remains open.",
+              "evidence": [
+                "model/experiments/material_inertia/README.md"
+              ]
+            },
+            "scalar_channel": {
+              "status": "partial",
+              "note": "The measured one-cell scalar bands agree with the square of the first-order seam operator, ω² = m² + λ. A multi-cell matter wave with independently reconstructed physical momentum and the third spatial direction remains open.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/PROOF.md"
+              ]
+            }
+          }
+        },
+        {
+          "id": "OW-31",
+          "title": "Orbital quantization (atomic structure)",
+          "requires": "Observe standing-wave bound levels with a hydrogen-like spectrum, including characteristic spacings.",
+          "domain": "WAVES + QUANTUM EMERGENCE",
+          "regime": "static",
+          "upstream_number": 31,
+          "sources": [
+            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L137"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "A load bound to a static seam has discrete levels in the free contrast interaction. The computed spacings and shell multiplicities fail the hydrogenic comparison, and the level count at fixed record number is bounded under refinement.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/contrast_memory_spherical_v1/collar.py"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "partial",
+              "note": "A load bound to a static seam has discrete levels in the free contrast interaction. The computed spacings and shell multiplicities fail the hydrogenic comparison, and the level count at fixed record number is bounded under refinement.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/collar.py"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "Free scalar excitations have discrete cage levels. The quadratic matter sector supplies no hydrogen-like bound spectrum around another excitation.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/PROOF.md"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

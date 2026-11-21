@@ -7,7 +7,7 @@ a pair. The code records what the observers of the torus read and runs controls,
 of the torus law, to show which part produces each result. The [specification](SPEC.md) states every part exactly.
 
 The torus is an architecture its makers supply, so this is no candidate for the native repair law: the
-[requirements](../../REQUIREMENTS.md) fix the spherical echosahedral federation as the carrier and count a supplied
+[scorecard](../../evaluation/SCORECARD.md) fixes the spherical echosahedral federation as the carrier and counts a supplied
 spatial architecture as hardcoding. Its clocks, waves and bound pairs are a phenomenological benchmark that a
 candidate on the federation can be compared with.
 

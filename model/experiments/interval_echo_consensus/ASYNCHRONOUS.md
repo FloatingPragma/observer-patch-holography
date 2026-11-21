@@ -1,0 +1,27 @@
+# Consensus for sharp repairs across an entire screen
+
+Starting from the same sharp port loads and signed seam memories, local repair attempts on the 20-, 80- and 320-cell spheres reached identical material endpoints in forward, reverse and shuffled orders. Each controller inspects at most three adjacent echosahedra, independently of when its neighbours request service. The observer reads which incident collars are occupied and which are ready to repair. These answers define a closed operational quotient. The service uses the native strict write and a supplied priority rule fixed for that installation. [Protocol and readout audit](ASYNC_PROTOCOL.md) · [Complete receipt](asynchronous.json)
+
+## Why the endpoint is unique in this sector
+
+A local inconsistency is a blank edge whose endpoints differ by two. Each controller orders its incident seams using the same cell chart, with an external seam ahead of internal seams. External seams form a matching, and internal seams at the same port all have different chart addresses. An enabled write repairs a discrepancy with no higher-priority discrepant edge touching either endpoint. The probe is deterministic on a sharp input. On the accepted branch the registered echo sends 2,0 or 0,2 to 1,1 and retains the oriented difference on the collar. The private coin is in the same fixed state for either sign. A completed guard and write is one local transaction. Its admission and material payload can be recomputed at commit. [Native collar check and local controller](asynchronous.py)
+
+1. **Protected data and descent.** On the public quotient keep the two edge sets O (occupied) and R (ready). A commit at edge e adds e to O and deletes from R exactly the edges incident to its endpoints, including e. Thus the public update is independent of the hidden loads and signs. For the theorem's boundary map use the occupation flags of any fixed set of initially marked collars. They are invariant. The public integer |R| strictly decreases. The stronger material calculation also conserves total load, preserves every existing collar and decreases the sum of squared loads by exactly two per write.
+2. **Joining competing schedules.** Each write removes all discrepancies at its two endpoints because a load of one differs by at most one from any allowed load. It creates no new discrepancy anywhere. Any two simultaneously enabled edges must have disjoint endpoints. After either write the other edge stays discrepant and cannot acquire a higher-priority blocker. The two commits give exactly the same port loads and signed collars in either order.
+3. **Completeness.** Every inconsistent configuration has a highest-priority discrepant edge. It can commit. A consistent configuration enables no write. Strict descent and the local joining result therefore give one consistent normal form per initial configuration, including for classical mixtures evolved branch by branch. A scheduler that ignores an enabled edge forever can stall; a weakly fair scheduler reaches the normal form.
+
+This establishes the sharp-sector hypotheses of the paper's finite quotient normal-form theorem directly. This proof uses the monotonicity of discrepancies under this service. The paper's stronger, implementation-specific hypotheses about conflict-component reclosure are a separate route. Free propagation, coherent source states and clock transactions change the set of admissible moves. Applying the proof to those operations would require a new descent and joining argument. The chart orders the internal addresses and the supplied order can affect physical results. [Formal theorem and hypotheses](../../../paper/reality_as_consensus_protocol.tex)
+
+## Measurements
+
+On a five-port induced path crossing a native external seam, the check enumerated all **19,683** combinations of sharp loads and blank or signed collars. These yield **81 public flag configurations**. It checked all **5,364** accepted one-step transitions and all **284** unordered one-step forks. Both orders joined at every fork. Without the priority guard, the same double at an intercell junction yielded two fully stable, locally distinguishable occupied addresses.
+
+| Complete sphere | Seams | Accepted writes in the three preparations | Collar readings changed by reversing the priority rule |
+| --- | ---: | --- | --- |
+| 20 cells | 630 | 53, 46, 49 | 58, 53, 73 |
+| 80 cells | 2,520 | 184, 203, 202 | 220, 234, 269 |
+| 320 cells | 10,080 | 768, 777, 791 | 898, 976, 948 |
+
+All three fair request orders agreed with a separate priority-sorted matching on each preparation. The changed readings in the last column distinguish the chosen local rule from the service order. Local native matrices were checked on every blank input and the entire occupied-collar subspace. The larger runs execute the resulting exact sharp transitions on the registered geometry. From the RER root run `python -m model.experiments.interval_echo_consensus.asynchronous`. [Executable and independent matching](asynchronous.py)
+
+Reading a private collar's orientation requires additional hardware. On the 320-cell runs, 354 of 768, 368 of 777 and 392 of 791 new writes had both intact endpoints and an incident vacant rail on a blank probe seam. For each such write the registered unwrite, rail read and rearm instrument recovers the sign on its own checkpoint copy. The complete terminal-array comparisons also include material signs outside that detector menu. [Native sign reader](../../candidate_laws/interval_echo/observations.py)

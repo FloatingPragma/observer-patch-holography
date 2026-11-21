@@ -57,9 +57,55 @@ def test_a_preferred_port_breaks_the_rotations():
     assert ev.carrier_checks(toy(H))['rotations']['status'] == 'fail'
 
 
+def test_rotations_move_the_native_registers():
+    cand = toy(laplacian())
+    cand.represent = lambda rotation, car: np.eye(12)
+    assert ev.carrier_checks(cand)['rotations']['status'] == 'fail'
+
+
+def test_complex_generators_use_the_adjoint_and_retain_imaginary_couplings():
+    H = laplacian().astype(complex)
+    a, b = next((a, b) for a in range(12) for b in range(a + 1, 12) if H[a, b] == 0)
+    H[a, b], H[b, a] = 1j, -1j
+    checks = ev.carrier_checks(toy(H, response=laplacian()))
+    assert checks['hermitian']['status'] == 'pass'
+    assert checks['locality']['status'] == 'fail'
+    H[b, a] = 1j
+    assert ev.carrier_checks(toy(H, response=laplacian()))['hermitian']['status'] == 'fail'
+
+
+def test_federation_requires_the_native_basis_in_each_cell():
+    cand = toy(laplacian())
+    cand.generator = lambda car: laplacian()
+    assert ev.carrier_checks(cand)['federation']['status'] == 'fail'
+
+
+def test_federation_rejects_a_link_between_unjoined_cells():
+    cand = toy(laplacian())
+    cand.basis = lambda car: [('port', p) for p in range(car.n)]
+
+    def generator(car):
+        H = car.laplacian().tolil()
+        if car.cells > 1:
+            a, b = next((0, b) for b in range(12, car.n) if b not in car.neighbours[0])
+            H[a, b] = H[b, a] = 1.0
+        return H.tocsr()
+
+    cand.generator = generator
+    check = ev.carrier_checks(cand)['federation']
+    assert check['status'] == 'fail'
+    assert 'nonlocal couplings 2' in check['detail']
+
+
 def test_the_slowest_response_must_have_rank_three():
     flat = np.diag([0.0] + [1.0] * 11)
     assert ev.carrier_checks(toy(laplacian(), response=flat))['rank_three_response']['status'] == 'fail'
+
+
+def test_a_nonhermitian_response_cannot_pass_via_its_lower_triangle():
+    response = laplacian().astype(complex)
+    response[0, 1] += 1j
+    assert ev.carrier_checks(toy(laplacian(), response=response))['rank_three_response']['status'] == 'fail'
 
 
 @pytest.mark.parametrize('quantity', ['electron particle mass', 'spatial dimension', 'spacetime metric'])
@@ -88,3 +134,50 @@ def test_written_evaluations_are_current():
     stale = [p for p, text in ev.outputs([ev.evaluate(n) for n in order]).items()
              if not p.exists() or p.read_text(encoding='utf-8') != text]
     assert not stale, f'run python -m model evaluate --write: {stale}'
+
+
+def test_every_existing_law_has_an_explicit_assessment_for_each_required_id():
+    from . import assessment
+
+    ids = set()
+    for filename in assessment.FILES:
+        for group in assessment.read_json(assessment.HERE / filename)['groups']:
+            for row in group['criteria']:
+                assert set(assessment.SHORT) <= set(row['results']), row['id']
+                assert row['id'] not in ids
+                ids.add(row['id'])
+    assert {'A1', 'A2', 'A3', 'FT-BAND', 'FT-CONFLUENCE', 'GR-NULL'} <= ids
+    assert {f'G{i}' for i in range(1, 7)} <= ids
+    assert {key for key in ids if key.startswith('OBS-')} == {f'OBS-{i:02}' for i in range(1, 8)}
+    ow = assessment.read_json(assessment.HERE / 'openwave_criteria.json')['groups'][0]['criteria']
+    assert [(row['id'], row['upstream_number']) for row in ow] == [(f'OW-{i:02}', i) for i in range(1, 32)]
+
+    for name in laws.names():
+        particles = assessment.species_group(laws.load(name))['criteria']
+        assert len(particles) == len({r['id'] for r in particles}) == 17
+
+
+def test_readout_matches_the_original_measurement_and_scope_is_preserved():
+    result = ev.evaluate('interval_echo')
+    rows = {r['id']: r for group in result['requirements'] for r in group['criteria']}
+    m = result['measurement']
+    original = ev.json.loads((ev.ROOT / m['source']).read_text())
+    measured = original['cohorts']['panels']['alternating_2_6']['three_bits']
+    assert (m['value'], m['standard_error']) == (measured['ratio'], measured['standard_error'])
+    assert rows['PATCH-02']['status'] == 'demonstrated'
+    assert rows['OBS-01']['status'] == 'partial'
+    assert rows['SM-e']['status'] == 'open'
+    assert ev.criterion(result, 'JOINT-relativistic-matter')['status'] == 'fails'
+    assert ev.criterion(result, 'pr-43')['status'] == 'fulfilled'
+    assert ev.criterion(result, 'unregistered') is None
+
+
+def test_every_scorecard_requirement_links_to_its_own_evidence_heading():
+    import re
+
+    scorecard = ev.SCORECARD.read_text()
+    evidence = (ev.HERE / 'EVIDENCE.md').read_text()
+    headings = {title.casefold() for title in re.findall(r'^### (.+)$', evidence, re.M)}
+    targets = re.findall(r'\]\(EVIDENCE\.md#([^)]*)\)', scorecard)
+    assert 'ow-31' in targets and 'sm-h' in targets and 'joint-one-law' in targets
+    assert set(targets) - {'full-premise-register'} <= headings

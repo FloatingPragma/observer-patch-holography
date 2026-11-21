@@ -4,7 +4,7 @@
     python -m model --full                  # the main candidate, recomputing every result
     python -m model run --law NAME [ARGS]   # any candidate law; ARGS go to its replay
     python -m model list                    # the candidate laws and their roles
-    python -m model evaluate [--write | --check | --law NAME]
+    python -m model evaluate [--write | --check] [--law NAME] [--criterion ID]
     python -m model carrier                 # the checks of the fixed carrier
 """
 from __future__ import annotations
@@ -32,7 +32,8 @@ def main(argv=None):
             name, rest = rest[1], rest[2:]
         return laws.load(name).run(rest)
     if command == 'list':
-        for name in laws.names():
+        primary = laws.main_candidate()
+        for name in sorted(laws.names(), key=lambda n: (n != primary, n)):
             cand = laws.load(name)
             print(f'{name:32s} {cand.ROLE:8s} {cand.TITLE}')
         return 0

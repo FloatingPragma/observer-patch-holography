@@ -1,0 +1,56 @@
+{
+  "protocol_sha256": "a312eb36920858d08d80e62d7badf204400217ead04eeb5896d0129cb46ee62e",
+  "rail_vacancies": [
+    {
+      "cells": 20,
+      "rail_vacancies": [
+        5,
+        5
+      ]
+    },
+    {
+      "cells": 80,
+      "rail_vacancies": [
+        5,
+        5
+      ]
+    },
+    {
+      "cells": 320,
+      "rail_vacancies": [
+        5,
+        5
+      ]
+    }
+  ],
+  "phase_order": [
+    "+i",
+    "-i"
+  ],
+  "priority_rows": [
+    {
+      "priority": 0,
+      "choi_frobenius_distance": 0.0,
+      "priority_probe_rail_probabilities": [
+        0.0,
+        1.0
+      ],
+      "both_probes_rail_probabilities": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "priority": 1,
+      "choi_frobenius_distance": 0.0,
+      "priority_probe_rail_probabilities": [
+        0.0,
+        1.0
+      ],
+      "both_probes_rail_probabilities": [
+        0.5,
+        0.5
+      ]
+    }
+  ]
+}

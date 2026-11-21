@@ -1,0 +1,1247 @@
+{
+ "schema": "oph.interval_echo.two_seam_consensus.v1",
+ "ports": [
+  1,
+  0,
+  10
+ ],
+ "seams": [
+  [
+   1,
+   0
+  ],
+  [
+   0,
+   10
+  ]
+ ],
+ "priority_rails": [
+  2,
+  3
+ ],
+ "priority_reader": [
+  2,
+  4
+ ],
+ "native_wedges": 120,
+ "native_open_wedges": 60,
+ "rows": [
+  {
+   "double_at": 1,
+   "priority": null,
+   "initial": {
+    "loads": [
+     2,
+     0,
+     0
+    ],
+    "pair_flags": [
+     0,
+     0
+    ],
+    "public_words": [
+     106,
+     106
+    ]
+   },
+   "schedules": [
+    {
+     "order": [
+      0,
+      1
+     ],
+     "attempts": [
+      {
+       "seam": 0,
+       "readiness": [],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      },
+      {
+       "seam": 1,
+       "readiness": [],
+       "outcome": "quiet",
+       "probability_quiet_hit": [
+        1,
+        0
+       ],
+       "squared_load_before_after": [
+        2,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       1,
+       1,
+       0
+      ],
+      "pair_flags": [
+       1,
+       0
+      ],
+      "public_words": [
+       1919,
+       106
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    },
+    {
+     "order": [
+      1,
+      0
+     ],
+     "attempts": [
+      {
+       "seam": 1,
+       "readiness": [],
+       "outcome": "quiet",
+       "probability_quiet_hit": [
+        1,
+        0
+       ],
+       "squared_load_before_after": [
+        4,
+        4
+       ]
+      },
+      {
+       "seam": 0,
+       "readiness": [],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       1,
+       1,
+       0
+      ],
+      "pair_flags": [
+       1,
+       0
+      ],
+      "public_words": [
+       1919,
+       106
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    }
+   ],
+   "same_addressed_endpoint": true,
+   "terminal_state_fidelity": 1.0
+  },
+  {
+   "double_at": 1,
+   "priority": 0,
+   "initial": {
+    "loads": [
+     2,
+     0,
+     0
+    ],
+    "pair_flags": [
+     0,
+     0
+    ],
+    "public_words": [
+     106,
+     106
+    ]
+   },
+   "schedules": [
+    {
+     "order": [
+      0,
+      1
+     ],
+     "attempts": [
+      {
+       "seam": 0,
+       "readiness": [
+        1,
+        0
+       ],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      },
+      {
+       "seam": 1,
+       "readiness": [
+        0,
+        0
+       ],
+       "outcome": "quiet",
+       "probability_quiet_hit": [
+        1,
+        0
+       ],
+       "squared_load_before_after": [
+        2,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       1,
+       1,
+       0
+      ],
+      "pair_flags": [
+       1,
+       0
+      ],
+      "public_words": [
+       1919,
+       106
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    },
+    {
+     "order": [
+      1,
+      0
+     ],
+     "attempts": [
+      {
+       "seam": 1,
+       "readiness": [
+        1,
+        0
+       ],
+       "outcome": "quiet",
+       "probability_quiet_hit": [
+        1,
+        0
+       ],
+       "squared_load_before_after": [
+        4,
+        4
+       ]
+      },
+      {
+       "seam": 0,
+       "readiness": [
+        1,
+        0
+       ],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       1,
+       1,
+       0
+      ],
+      "pair_flags": [
+       1,
+       0
+      ],
+      "public_words": [
+       1919,
+       106
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    }
+   ],
+   "same_addressed_endpoint": true,
+   "terminal_state_fidelity": 1.0
+  },
+  {
+   "double_at": 1,
+   "priority": 1,
+   "initial": {
+    "loads": [
+     2,
+     0,
+     0
+    ],
+    "pair_flags": [
+     0,
+     0
+    ],
+    "public_words": [
+     106,
+     106
+    ]
+   },
+   "schedules": [
+    {
+     "order": [
+      0,
+      1
+     ],
+     "attempts": [
+      {
+       "seam": 0,
+       "readiness": [
+        1,
+        0
+       ],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      },
+      {
+       "seam": 1,
+       "readiness": [
+        0,
+        0
+       ],
+       "outcome": "quiet",
+       "probability_quiet_hit": [
+        1,
+        0
+       ],
+       "squared_load_before_after": [
+        2,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       1,
+       1,
+       0
+      ],
+      "pair_flags": [
+       1,
+       0
+      ],
+      "public_words": [
+       1919,
+       106
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    },
+    {
+     "order": [
+      1,
+      0
+     ],
+     "attempts": [
+      {
+       "seam": 1,
+       "readiness": [
+        1,
+        0
+       ],
+       "outcome": "quiet",
+       "probability_quiet_hit": [
+        1,
+        0
+       ],
+       "squared_load_before_after": [
+        4,
+        4
+       ]
+      },
+      {
+       "seam": 0,
+       "readiness": [
+        1,
+        0
+       ],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       1,
+       1,
+       0
+      ],
+      "pair_flags": [
+       1,
+       0
+      ],
+      "public_words": [
+       1919,
+       106
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    }
+   ],
+   "same_addressed_endpoint": true,
+   "terminal_state_fidelity": 1.0
+  },
+  {
+   "double_at": 0,
+   "priority": null,
+   "initial": {
+    "loads": [
+     0,
+     2,
+     0
+    ],
+    "pair_flags": [
+     0,
+     0
+    ],
+    "public_words": [
+     106,
+     106
+    ]
+   },
+   "schedules": [
+    {
+     "order": [
+      0,
+      1
+     ],
+     "attempts": [
+      {
+       "seam": 0,
+       "readiness": [],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      },
+      {
+       "seam": 1,
+       "readiness": [],
+       "outcome": "quiet",
+       "probability_quiet_hit": [
+        1,
+        0
+       ],
+       "squared_load_before_after": [
+        2,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       1,
+       1,
+       0
+      ],
+      "pair_flags": [
+       1,
+       0
+      ],
+      "public_words": [
+       1919,
+       106
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    },
+    {
+     "order": [
+      1,
+      0
+     ],
+     "attempts": [
+      {
+       "seam": 1,
+       "readiness": [],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      },
+      {
+       "seam": 0,
+       "readiness": [],
+       "outcome": "quiet",
+       "probability_quiet_hit": [
+        1,
+        0
+       ],
+       "squared_load_before_after": [
+        2,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       0,
+       1,
+       1
+      ],
+      "pair_flags": [
+       0,
+       1
+      ],
+      "public_words": [
+       106,
+       1919
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    }
+   ],
+   "same_addressed_endpoint": false,
+   "terminal_state_fidelity": 0.0
+  },
+  {
+   "double_at": 0,
+   "priority": 0,
+   "initial": {
+    "loads": [
+     0,
+     2,
+     0
+    ],
+    "pair_flags": [
+     0,
+     0
+    ],
+    "public_words": [
+     106,
+     106
+    ]
+   },
+   "schedules": [
+    {
+     "order": [
+      0,
+      1
+     ],
+     "attempts": [
+      {
+       "seam": 0,
+       "readiness": [
+        1,
+        1
+       ],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      },
+      {
+       "seam": 1,
+       "readiness": [
+        0,
+        0
+       ],
+       "outcome": "quiet",
+       "probability_quiet_hit": [
+        1,
+        0
+       ],
+       "squared_load_before_after": [
+        2,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       1,
+       1,
+       0
+      ],
+      "pair_flags": [
+       1,
+       0
+      ],
+      "public_words": [
+       1919,
+       106
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    },
+    {
+     "order": [
+      1,
+      0
+     ],
+     "attempts": [
+      {
+       "seam": 1,
+       "readiness": [
+        1,
+        1
+       ],
+       "outcome": "deferred"
+      },
+      {
+       "seam": 0,
+       "readiness": [
+        1,
+        1
+       ],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       1,
+       1,
+       0
+      ],
+      "pair_flags": [
+       1,
+       0
+      ],
+      "public_words": [
+       1919,
+       106
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    }
+   ],
+   "same_addressed_endpoint": true,
+   "terminal_state_fidelity": 1.0
+  },
+  {
+   "double_at": 0,
+   "priority": 1,
+   "initial": {
+    "loads": [
+     0,
+     2,
+     0
+    ],
+    "pair_flags": [
+     0,
+     0
+    ],
+    "public_words": [
+     106,
+     106
+    ]
+   },
+   "schedules": [
+    {
+     "order": [
+      0,
+      1
+     ],
+     "attempts": [
+      {
+       "seam": 0,
+       "readiness": [
+        1,
+        1
+       ],
+       "outcome": "deferred"
+      },
+      {
+       "seam": 1,
+       "readiness": [
+        1,
+        1
+       ],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       0,
+       1,
+       1
+      ],
+      "pair_flags": [
+       0,
+       1
+      ],
+      "public_words": [
+       106,
+       1919
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    },
+    {
+     "order": [
+      1,
+      0
+     ],
+     "attempts": [
+      {
+       "seam": 1,
+       "readiness": [
+        1,
+        1
+       ],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      },
+      {
+       "seam": 0,
+       "readiness": [
+        0,
+        0
+       ],
+       "outcome": "quiet",
+       "probability_quiet_hit": [
+        1,
+        0
+       ],
+       "squared_load_before_after": [
+        2,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       0,
+       1,
+       1
+      ],
+      "pair_flags": [
+       0,
+       1
+      ],
+      "public_words": [
+       106,
+       1919
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    }
+   ],
+   "same_addressed_endpoint": true,
+   "terminal_state_fidelity": 1.0
+  },
+  {
+   "double_at": 10,
+   "priority": null,
+   "initial": {
+    "loads": [
+     0,
+     0,
+     2
+    ],
+    "pair_flags": [
+     0,
+     0
+    ],
+    "public_words": [
+     106,
+     106
+    ]
+   },
+   "schedules": [
+    {
+     "order": [
+      0,
+      1
+     ],
+     "attempts": [
+      {
+       "seam": 0,
+       "readiness": [],
+       "outcome": "quiet",
+       "probability_quiet_hit": [
+        1,
+        0
+       ],
+       "squared_load_before_after": [
+        4,
+        4
+       ]
+      },
+      {
+       "seam": 1,
+       "readiness": [],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       0,
+       1,
+       1
+      ],
+      "pair_flags": [
+       0,
+       1
+      ],
+      "public_words": [
+       106,
+       1919
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    },
+    {
+     "order": [
+      1,
+      0
+     ],
+     "attempts": [
+      {
+       "seam": 1,
+       "readiness": [],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      },
+      {
+       "seam": 0,
+       "readiness": [],
+       "outcome": "quiet",
+       "probability_quiet_hit": [
+        1,
+        0
+       ],
+       "squared_load_before_after": [
+        2,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       0,
+       1,
+       1
+      ],
+      "pair_flags": [
+       0,
+       1
+      ],
+      "public_words": [
+       106,
+       1919
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    }
+   ],
+   "same_addressed_endpoint": true,
+   "terminal_state_fidelity": 1.0
+  },
+  {
+   "double_at": 10,
+   "priority": 0,
+   "initial": {
+    "loads": [
+     0,
+     0,
+     2
+    ],
+    "pair_flags": [
+     0,
+     0
+    ],
+    "public_words": [
+     106,
+     106
+    ]
+   },
+   "schedules": [
+    {
+     "order": [
+      0,
+      1
+     ],
+     "attempts": [
+      {
+       "seam": 0,
+       "readiness": [
+        0,
+        1
+       ],
+       "outcome": "quiet",
+       "probability_quiet_hit": [
+        1,
+        0
+       ],
+       "squared_load_before_after": [
+        4,
+        4
+       ]
+      },
+      {
+       "seam": 1,
+       "readiness": [
+        0,
+        1
+       ],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       0,
+       1,
+       1
+      ],
+      "pair_flags": [
+       0,
+       1
+      ],
+      "public_words": [
+       106,
+       1919
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    },
+    {
+     "order": [
+      1,
+      0
+     ],
+     "attempts": [
+      {
+       "seam": 1,
+       "readiness": [
+        0,
+        1
+       ],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      },
+      {
+       "seam": 0,
+       "readiness": [
+        0,
+        0
+       ],
+       "outcome": "quiet",
+       "probability_quiet_hit": [
+        1,
+        0
+       ],
+       "squared_load_before_after": [
+        2,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       0,
+       1,
+       1
+      ],
+      "pair_flags": [
+       0,
+       1
+      ],
+      "public_words": [
+       106,
+       1919
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    }
+   ],
+   "same_addressed_endpoint": true,
+   "terminal_state_fidelity": 1.0
+  },
+  {
+   "double_at": 10,
+   "priority": 1,
+   "initial": {
+    "loads": [
+     0,
+     0,
+     2
+    ],
+    "pair_flags": [
+     0,
+     0
+    ],
+    "public_words": [
+     106,
+     106
+    ]
+   },
+   "schedules": [
+    {
+     "order": [
+      0,
+      1
+     ],
+     "attempts": [
+      {
+       "seam": 0,
+       "readiness": [
+        0,
+        1
+       ],
+       "outcome": "quiet",
+       "probability_quiet_hit": [
+        1,
+        0
+       ],
+       "squared_load_before_after": [
+        4,
+        4
+       ]
+      },
+      {
+       "seam": 1,
+       "readiness": [
+        0,
+        1
+       ],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       0,
+       1,
+       1
+      ],
+      "pair_flags": [
+       0,
+       1
+      ],
+      "public_words": [
+       106,
+       1919
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    },
+    {
+     "order": [
+      1,
+      0
+     ],
+     "attempts": [
+      {
+       "seam": 1,
+       "readiness": [
+        0,
+        1
+       ],
+       "outcome": "accepted",
+       "probability_quiet_hit": [
+        0,
+        1
+       ],
+       "squared_load_before_after": [
+        4,
+        2
+       ]
+      },
+      {
+       "seam": 0,
+       "readiness": [
+        0,
+        0
+       ],
+       "outcome": "quiet",
+       "probability_quiet_hit": [
+        1,
+        0
+       ],
+       "squared_load_before_after": [
+        2,
+        2
+       ]
+      }
+     ],
+     "terminal": {
+      "loads": [
+       0,
+       1,
+       1
+      ],
+      "pair_flags": [
+       0,
+       1
+      ],
+      "public_words": [
+       106,
+       1919
+      ]
+     },
+     "terminal_retries": [
+      0,
+      0
+     ]
+    }
+   ],
+   "same_addressed_endpoint": true,
+   "terminal_state_fidelity": 1.0
+  }
+ ]
+}

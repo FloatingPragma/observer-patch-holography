@@ -8,15 +8,12 @@ that history contains the observers who work out how the network is built.
 This folder holds that network as a program. Its hardware is fixed: the spherical echosahedral federation. Its
 software is a candidate for the native repair law, the simple local rule by which neighbouring observers settle
 their disagreements. Finding the correct law is the open problem of the project, and the
-[requirements](REQUIREMENTS.md) state what it must do: run on the fixed federation and fulfil the premises of the
-finite theorems together. Every law here is a candidate, and every candidate is scored against the requirements by
-one command.
+official [scorecard](evaluation/SCORECARD.md) covers the axioms and finite theorem premises on one process, the patch-clock and field experiments, the 31 OpenWave phenomena, and identification of all Standard Model particle types, and it gives each law’s evidence and the scope of every measurement.
 
 ## What is where
 
 | Folder | What it holds |
 | --- | --- |
-| [REQUIREMENTS.md](REQUIREMENTS.md) | the criterion for the correct law: the fixed carrier, the fixed premises, free calibration, no hardcoded outcomes |
 | [executable_model/](executable_model/README.md) | everything fixed for every law: the echosahedral cell, the federations of 20, 80 and 320 cells, their rotations and incidence, and the registry of laws |
 | [candidate_laws/](candidate_laws/CANDIDATE.md) | one folder per candidate law with its specification, implementation, tests and evaluation; [CANDIDATE.md](candidate_laws/CANDIDATE.md) lists them with their status |
 | [evaluation/](evaluation/README.md) | the systematic evaluation of every candidate and its [scorecard](evaluation/SCORECARD.md) |
@@ -27,10 +24,14 @@ one command.
 
 ```sh
 pip install -r model/requirements.txt
-python -m model                                # the main candidate against its stored results; --full recomputes everything
+python -m model                                # replay Interval Echo on 20 cells and compare the reunion cohorts
+python -m model --full                         # include 80/320 cells, patch records, the repair fork and port currents
+python -m model --full --seed 42 --output /tmp/echo-42  # generate an independent data set
 python -m model run --law scalar_channel       # another candidate
+python -m model run --law interval_echo --clock-trip 8 8   # five-bit clock, local hands and shared reunion
 python -m model list                           # the candidates and their roles
 python -m model evaluate                       # every candidate against the requirements
+python -m model evaluate --criterion G2        # evidence for one criterion across the candidates
 python -m model carrier                        # the checks of the fixed carrier
 python -m pytest -q model                      # every test
 ```
@@ -39,20 +40,19 @@ python -m pytest -q model                      # every test
 
 | Observable | What the observers read | Candidate | Ledger row |
 | --- | --- | --- | --- |
-| Particle stability | Two loads written on one seam are read as a pair at every later reading, on every number of cells, by a theorem; the same law without the agreement energy loses them. A second object, the excitation of a [cage](experiments/cage/README.md), is kept for every interval and read by a local detector. | main and scalar channel | OL-K5, attained |
+| A clock carried by a patch | Both owners read a travelling nine-bit elapsed word and a home word on the same signed seam at reunion. The patch derives each handoff interval from its own repair record. | [Interval Echo](candidate_laws/interval_echo/SPEC.md) | finite guided comparison |
+| Particle stability | Two loads written on one seam are read as a pair at every later reading, on every number of cells, by a theorem; the same law without the agreement energy loses them. A second object, the excitation of a [cage](experiments/cage/README.md), is kept for every interval and read by a local detector. | contrast-memory reference and scalar channel | OL-K5, attained |
 | A clock inside an object | After a pulse the seam record of a cage swings at one line with no drive. An observer reads the line at 4.8990 of its own reference and reads the level difference of the two modes separately at the same value. | scalar channel | OL-K4, attained as a prepared clock |
-| A stable neutral object | A seam memory that holds a record while its ports are empty stays that way under every event, holds no load, and its level is read from its observers' own records. | main | OL-K9, attained |
+| A stable neutral object | A seam memory that holds a record while its ports are empty stays that way under every event, holds no load, and its level is read from its observers' own records. | contrast-memory reference | OL-K9, attained |
 | Waves of an object | Every frequency of the scalar channel obeys `ω² = m² + λ`, with `λ` a level of the seams. One point of the relation is read from records. | scalar channel | OL-K8, partial |
-| What a reading leaves | Asking "is a pair there?" and asking "where is it?" give the same first answer and different later records. | main | |
+| What a reading leaves | Asking "is a pair there?" and asking "where is it?" give the same first answer and different later records. | contrast-memory reference | |
 
 The last column names the row of the [observation ledger](../docs/registers/OBSERVATION_LEDGER_V3.md). Each result
-is a statement about one construction, with everything its makers supplied listed beside it. The two candidates act
-on different state spaces, and their results are not added up. The evaluation records which premises of the finite
-theorems each candidate fulfils; most are open for both.
+is a statement about one construction, with everything its makers supplied listed beside it. Interval Echo shares the reference candidate’s seam operator and adds a patch clock. The scalar channel acts on a different state space. Each candidate has its own premise evaluation.
 
 ## Supplied, and open
 
 Supplied by the makers of the construction, and listed with every result: the couplings `κ` of the main candidate
-and `m` of the scalar channel; emitters, pulses and their strengths; the reference registers; the readers; the
+and `m` of the scalar channel; emitters, pulses and their strengths; the reference registers, guides, gate selection, service cadence, readers and
 apparatus of the experiments. Open, and work in progress: the premises the scorecard lists as open, a law that
 fulfils them together, and the particle census of a frozen law.

@@ -14,7 +14,7 @@ from . import law
 
 NAME = 'contrast_memory_spherical_v1'
 TITLE = 'A-contrast-memory-spherical-v1'
-ROLE = 'main'
+ROLE = 'reference'
 SUMMARY = ('Loads 0, 1 or 2 on the ports and an eleven-state memory on every seam. A seam event writes the '
            'contrast of its two loads into the memory, gives it a phase and erases it again; on loads this is '
            'an exchange plus an agreement energy kappa.')
@@ -91,7 +91,7 @@ PREMISES = {
                       'the algebra-state representation of the records is supplied with them.'},
 }
 
-# The joint requirements of REQUIREMENTS.md: premises fulfilled together, on the same objects.
+# The joint requirements of the scorecard: premises fulfilled together, on the same objects.
 JOINT = {
     'relativistic-matter': {
         'status': 'fails',

@@ -65,7 +65,7 @@ standard et la gravitation d’Einstein apparaissent dès que leurs prémisses s
 remplies. La loi n’a donc qu’une tâche : remplir ces prémisses, toutes ensemble,
 sur un seul processus.
 
-Les [exigences](model/REQUIREMENTS.md) (en anglais) en font une cible précise :
+Le [tableau d'évaluation](model/evaluation/SCORECARD.md) officiel (en anglais) en fait une cible précise :
 
 - **Fixé :** le support, une sphère de cellules échosaédriques dans laquelle
   chaque cellule est un observateur et ses douze ports sont ses interfaces, et
@@ -98,9 +98,7 @@ regard des exigences, prémisse par prémisse, et écrit le
 python -m model evaluate
 ```
 
-Le candidat principal est A-contrast-memory-spherical-v1 ; un second, le canal
-scalaire, tourne à côté. La plupart des prémisses restent ouvertes pour les
-deux, et le tableau montre lesquelles. Les nouveaux candidats sont bienvenus :
+Le candidat principal est [Interval Echo](model/candidate_laws/interval_echo/README.md). Un observateur formé de plusieurs cellules transporte sa mémoire et son horloge. La loi de mémoire de contraste sert de référence et le canal scalaire a sa propre évaluation. Les nouveaux candidats sont bienvenus :
 un candidat est un dossier avec un fichier `candidate.py`, et
 [CANDIDATE.md](model/candidate_laws/CANDIDATE.md#adding-a-candidate) dit ce
 qu’il déclare.
@@ -124,40 +122,18 @@ reproduire ce que mesurent les observateurs de notre monde.
 ## Axe de recherche
 
 Nous avons un [modèle exécutable](model/README.md) d’OPH qui fonctionne. Son
-matériel est la sphère fixe de cellules échosaédriques ; sa loi candidate
-principale, A-contrast-memory-spherical-v1, garde quelques registres sur les
-ports et les coutures de chaque cellule, compare les registres voisins et
-répare chaque désaccord entre eux deux. La théorie qui l’entoure est en place :
+matériel est la sphère fixe de cellules échosaédriques. Le candidat principal, Interval Echo, utilise la réparation par mémoire de contraste et transporte l’horloge d’un observateur fini de cellule en cellule. La théorie qui l’entoure est en place :
 le principe de clôture, la bibliothèque de théorèmes et les constructions finies.
 
 **Ce que vivent les observateurs intérieurs.** L’état de la simulation ne
 contient pas l’Univers physique. Ses ports, ses coutures et ses cellules sont
 le matériel d’un calcul, et ils ne sont pas un espace. L’espace, le temps, les
 champs et les particules sont la manière dont les observateurs intérieurs
-décrivent les registres dont ils conviennent. Nous avons montré que les
-observateurs qui habitent la simulation peuvent décrire leurs expériences
-comme un espace-temps continu relativiste à trois dimensions d’espace et une
-de temps, bâti sur la réponse la plus lente d’une cellule, qui a exactement
-trois directions. Leurs registres obéissent aux règles quantiques de la
-mesure et, sous des prémisses énoncées, leurs forces ont l’algèbre du Modèle
-standard et leur gravitation obéit à l’équation d’Einstein : ce qu’ils
-peuvent mesurer a la structure de ce que nous mesurons. Chaque test du modèle
-compare donc ce que ses observateurs enregistrent avec ce que nous
-enregistrons. Il ne compare jamais l’état de la simulation avec le monde.
+décrivent les registres dont ils conviennent. La cellule native possède une réponse lente de rang trois. Des expériences antérieures ont reconstruit trois directions à partir des registres. Une construction scalaire distincte admet une description relativiste continue en 3+1 dimensions sous ses hypothèses. Le tableau précise les mesures de géométrie, d’horloge et de raffinement réalisées pour chaque candidat. Les théorèmes de jauge et d’Einstein exigent aussi des mesures sur une même source. [Observations et portée](model/evaluation/EVIDENCE.md#patch-05) · [Hypothèses de gravitation](model/evaluation/EVIDENCE.md#g1)
 
-La conception répond à la question de savoir comment un univers peut
-calculer sa propre histoire. Une histoire cohérente est un point fixe sur un
-nombre énorme de registres, et la chercher prendrait un temps exponentiel.
-Le réseau ne cherche pas. Chaque vérification est locale, chaque réparation
-est locale, et chaque réparation acceptée retire une quantité fixe de
-désaccord : le travail croît comme un polynôme du nombre d’observateurs.
-Avec cette conception, l’Univers se pense lui-même jusqu’à l’existence en
-temps polynomial. La [spécification](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md)
-(en anglais) du candidat principal dit quelle part de cela est un théorème.
+Une histoire peut être le registre terminal commun de réparations locales. Si chaque réparation acceptée diminue d’une quantité fixe une mesure positive ou nulle du désaccord, la valeur initiale de cette mesure borne le nombre de réparations acceptées. Une borne polynomiale sur le temps de calcul exige aussi des bornes sur cette valeur initiale et sur le coût de la recherche et de l’exécution des réparations. Pour que le résultat soit unique, les réparations qui se chevauchent doivent pouvoir aboutir au même registre public. Interval Echo teste cette condition sur deux coutures. Une borne polynomiale pour l’histoire unique de toute la fédération reste une question ouverte. [Spécification de référence](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md) · [Expérience sur l’ordre des réparations](model/candidate_laws/interval_echo/CONSENSUS.md)
 
-Deux lois de réparation candidates tournent sur le modèle : la loi de mémoire
-de contraste et le canal scalaire. Aucun nombre mesuré n’y entre. Sous ces
-lois, le processus de
+Les observations suivantes proviennent de la loi de mémoire de contraste et du canal scalaire. Interval Echo ajoute à la première une horloge étalonnée sur des retrouvailles guidées. Pour ces expériences, le processus de
 réparation reproduit des valeurs et des structures observables réelles, dans
 les descriptions effectives des observateurs qui habitent le calcul :
 

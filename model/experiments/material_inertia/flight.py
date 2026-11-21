@@ -32,6 +32,13 @@ def probabilities(returns, start):
     return np.r_[compact,max(0.,remainder)]
 
 
+def launch_probability(size, start):
+    """The zero-time propagator is the identity on the compact preparation at start."""
+    p = np.zeros(size + 1)
+    p[start] = 1.
+    return p
+
+
 def forecast(spec,chemical,rate):
     size = spec['size']
     angles = 1-np.cos(2*np.pi*np.arange(size)/size)
@@ -39,7 +46,8 @@ def forecast(spec,chemical,rate):
     for n in spec['orders']:
         ratio = sum(chemical['inertia'][str(n)])/2
         ticks = np.rint(np.array(spec['scaled_waits'])*ratio/rate).astype(np.int64)
-        predictions = [probabilities(np.exp(-1j*tick*rate*angles/ratio),spec['starting_port'])
+        predictions = [launch_probability(size,spec['starting_port']) if tick == 0 else
+                       probabilities(np.exp(-1j*tick*rate*angles/ratio),spec['starting_port'])
                        for tick in ticks]
         programs[str(n)] = (ticks,predictions)
     return programs
@@ -64,8 +72,11 @@ def collect(spec,base,programs,kappa):
             draws = []
             for tick in ticks:
                 t = tick/base['tick_divisor']
-                returns = np.array([np.exp(-1j*t*(E-ground))@w for E,w in modes])
-                p = probabilities(returns,spec['starting_port'])
+                if tick == 0:
+                    p = launch_probability(size,spec['starting_port'])
+                else:
+                    returns = np.array([np.exp(-1j*t*(E-ground))@w for E,w in modes])
+                    p = probabilities(returns,spec['starting_port'])
                 edges = instrument.counts(p.cumsum(),spec['shots'])[:,1]
                 draws.append(np.diff(edges,prepend=np.int32(0)))
             raw[key] = np.array(draws)

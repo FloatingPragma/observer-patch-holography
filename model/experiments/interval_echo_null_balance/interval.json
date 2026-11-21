@@ -1,0 +1,54 @@
+{
+  "interval": [
+    1.125,
+    1.375
+  ],
+  "quadrature_points": [
+    1.133441311,
+    1.167348827,
+    1.220172602,
+    1.279827398,
+    1.332651173,
+    1.366558689
+  ],
+  "current_port": 9,
+  "current_sign": 1,
+  "preparations_per_setting": 524288,
+  "seed": 114702,
+  "energy_readouts": 230,
+  "total_preparations": 3738173440,
+  "expected_change": -0.432427482,
+  "expected_gate_integrals": [
+    -0.277680732,
+    -0.15474675
+  ],
+  "largest_change_doubling_quadrature": 2e-08,
+  "expected_residual_6": -2e-08,
+  "endpoint_change": {
+    "value": -0.438417435,
+    "standard_error": 0.005721202,
+    "excludes_zero_at_4se": true
+  },
+  "gateways": [
+    {
+      "value": -0.280201823,
+      "standard_error": 0.005193784,
+      "excludes_zero_at_4se": true
+    },
+    {
+      "value": -0.159910586,
+      "standard_error": 0.003372257,
+      "excludes_zero_at_4se": true
+    }
+  ],
+  "endpoint_minus_both": {
+    "value": 0.001694974,
+    "standard_error": 0.008430875,
+    "excludes_zero_at_4se": false
+  },
+  "endpoint_minus_first": {
+    "value": -0.158215612,
+    "standard_error": 0.007727065,
+    "excludes_zero_at_4se": true
+  }
+}

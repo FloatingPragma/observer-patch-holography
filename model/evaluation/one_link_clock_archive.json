@@ -1,0 +1,1069 @@
+{
+  "fields": [
+    "cal_emit",
+    "cal_receive",
+    "start",
+    "far_receipt",
+    "reunion",
+    "traveller"
+  ],
+  "studies": [
+    {
+      "prepared_motion": [
+        2,
+        6
+      ],
+      "material_replays": [
+        {
+          "cells": 1280,
+          "near": 54,
+          "far": 21,
+          "calibration_relay_hops": 2,
+          "material_packet": [
+            0,
+            1,
+            1,
+            3,
+            4,
+            3
+          ],
+          "home_shared_ports": [
+            648,
+            649,
+            653,
+            656,
+            658
+          ],
+          "far_arms": [
+            252,
+            262
+          ],
+          "events": [
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              false
+            ],
+            [
+              false,
+              true,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              true
+            ]
+          ],
+          "near_reread_registers": [
+            "cal_emit",
+            "cal_receive",
+            "start",
+            "far_receipt",
+            "reunion",
+            "traveller"
+          ],
+          "native_gate_counts": {
+            "native_pi": 43817,
+            "W_flag_undo": 443,
+            "local_committed_record_controlled_pi_copies": 90,
+            "native_fair_source": 22,
+            "retained_W": 88,
+            "inverse_retained_W": 88,
+            "custody_changes_checked_at_both_actual_cells": 2
+          }
+        },
+        {
+          "cells": 5120,
+          "near": 281,
+          "far": 286,
+          "calibration_relay_hops": 2,
+          "material_packet": [
+            0,
+            1,
+            1,
+            4,
+            6,
+            3
+          ],
+          "home_shared_ports": [
+            3372,
+            3373,
+            3377,
+            3380,
+            3382
+          ],
+          "far_arms": [
+            3432,
+            3442
+          ],
+          "events": [
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              false
+            ],
+            [
+              false,
+              true,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              true
+            ]
+          ],
+          "near_reread_registers": [
+            "cal_emit",
+            "cal_receive",
+            "start",
+            "far_receipt",
+            "reunion",
+            "traveller"
+          ],
+          "native_gate_counts": {
+            "native_pi": 30033,
+            "W_flag_undo": 374,
+            "local_committed_record_controlled_pi_copies": 90,
+            "native_fair_source": 18,
+            "retained_W": 88,
+            "inverse_retained_W": 88,
+            "custody_changes_checked_at_both_actual_cells": 2
+          }
+        }
+      ],
+      "cohort": {
+        "seed": 373061,
+        "repetitions": 131072,
+        "mean_six_words": [
+          0.0,
+          1.00299072265625,
+          1.00299072265625,
+          2.5024871826171875,
+          5.005714416503906,
+          3.8209152221679688
+        ],
+        "first_five_individual_packets": [
+          [
+            0,
+            2,
+            2,
+            3,
+            6,
+            5
+          ],
+          [
+            0,
+            2,
+            2,
+            4,
+            5,
+            4
+          ],
+          [
+            0,
+            1,
+            1,
+            2,
+            3,
+            3
+          ],
+          [
+            0,
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            2,
+            5,
+            6
+          ]
+        ],
+        "observations": {
+          "half_round_trip": {
+            "value": 0.501495361328125,
+            "paired_block_se": 0.0010399980665507476
+          },
+          "out_time": {
+            "value": 0.9980010986328125,
+            "paired_block_se": 0.002942981858581863
+          },
+          "in_time": {
+            "value": 3.0047225952148438,
+            "paired_block_se": 0.0033804394946304554
+          },
+          "out_speed": {
+            "value": 0.502499808883113,
+            "paired_block_se": 0.0020770524364903853
+          },
+          "in_speed": {
+            "value": 0.16690238297764293,
+            "paired_block_se": 0.0003704185052845922
+          },
+          "optical_segment_prediction": {
+            "value": 0.9557056733602894,
+            "paired_block_se": 0.0002851830327049899
+          },
+          "reunion_ratio": {
+            "value": 0.9545788104337218,
+            "paired_block_se": 0.0016164799969818303
+          },
+          "residual": {
+            "value": -0.0011268629265676067,
+            "paired_block_se": 0.0017665575552536623
+          }
+        }
+      },
+      "replication": {
+        "seed": 1273061,
+        "repetitions": 524288,
+        "mean_six_words": [
+          0.0,
+          0.9996376037597656,
+          0.9996376037597656,
+          2.497161865234375,
+          4.998504638671875,
+          3.818521499633789
+        ],
+        "first_five_individual_packets": [
+          [
+            0,
+            1,
+            1,
+            2,
+            3,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            5,
+            5
+          ],
+          [
+            0,
+            2,
+            2,
+            3,
+            6,
+            2
+          ],
+          [
+            0,
+            2,
+            2,
+            3,
+            6,
+            4
+          ],
+          [
+            0,
+            1,
+            1,
+            2,
+            6,
+            3
+          ]
+        ],
+        "observations": {
+          "half_round_trip": {
+            "value": 0.4998188018798828,
+            "paired_block_se": 0.0006669785458889964
+          },
+          "out_time": {
+            "value": 0.9977054595947266,
+            "paired_block_se": 0.0013419225781790582
+          },
+          "in_time": {
+            "value": 3.001161575317383,
+            "paired_block_se": 0.0016190525608789674
+          },
+          "out_speed": {
+            "value": 0.5009682938719329,
+            "paired_block_se": 0.001224741535861252
+          },
+          "in_speed": {
+            "value": 0.1665417836848805,
+            "paired_block_se": 0.00020642944926162852
+          },
+          "optical_segment_prediction": {
+            "value": 0.9559528499395997,
+            "paired_block_se": 0.00016948064770426634
+          },
+          "reunion_ratio": {
+            "value": 0.9549008422376104,
+            "paired_block_se": 0.0006112097950955287
+          },
+          "residual": {
+            "value": -0.0010520077019893215,
+            "paired_block_se": 0.0006810026955274568
+          }
+        }
+      }
+    },
+    {
+      "prepared_motion": [
+        6,
+        2
+      ],
+      "material_replays": [
+        {
+          "cells": 1280,
+          "near": 54,
+          "far": 21,
+          "calibration_relay_hops": 2,
+          "material_packet": [
+            0,
+            1,
+            1,
+            6,
+            7,
+            5
+          ],
+          "home_shared_ports": [
+            648,
+            649,
+            653,
+            656,
+            658
+          ],
+          "far_arms": [
+            252,
+            262
+          ],
+          "events": [
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              false
+            ],
+            [
+              false,
+              true,
+              false
+            ],
+            [
+              true,
+              false,
+              true
+            ]
+          ],
+          "near_reread_registers": [
+            "cal_emit",
+            "cal_receive",
+            "start",
+            "far_receipt",
+            "reunion",
+            "traveller"
+          ],
+          "native_gate_counts": {
+            "native_pi": 31348,
+            "W_flag_undo": 379,
+            "local_committed_record_controlled_pi_copies": 90,
+            "native_fair_source": 18,
+            "retained_W": 88,
+            "inverse_retained_W": 88,
+            "custody_changes_checked_at_both_actual_cells": 2
+          }
+        },
+        {
+          "cells": 5120,
+          "near": 281,
+          "far": 286,
+          "calibration_relay_hops": 2,
+          "material_packet": [
+            0,
+            1,
+            1,
+            5,
+            6,
+            4
+          ],
+          "home_shared_ports": [
+            3372,
+            3373,
+            3377,
+            3380,
+            3382
+          ],
+          "far_arms": [
+            3432,
+            3442
+          ],
+          "events": [
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              false
+            ],
+            [
+              false,
+              true,
+              false
+            ],
+            [
+              true,
+              false,
+              true
+            ]
+          ],
+          "near_reread_registers": [
+            "cal_emit",
+            "cal_receive",
+            "start",
+            "far_receipt",
+            "reunion",
+            "traveller"
+          ],
+          "native_gate_counts": {
+            "native_pi": 42960,
+            "W_flag_undo": 449,
+            "local_committed_record_controlled_pi_copies": 90,
+            "native_fair_source": 22,
+            "retained_W": 88,
+            "inverse_retained_W": 88,
+            "custody_changes_checked_at_both_actual_cells": 2
+          }
+        }
+      ],
+      "cohort": {
+        "seed": 374061,
+        "repetitions": 131072,
+        "mean_six_words": [
+          0.0,
+          1.00018310546875,
+          1.00018310546875,
+          4.500244140625,
+          5.000312805175781,
+          3.8237457275390625
+        ],
+        "first_five_individual_packets": [
+          [
+            0,
+            1,
+            1,
+            6,
+            7,
+            5
+          ],
+          [
+            0,
+            1,
+            1,
+            4,
+            5,
+            4
+          ],
+          [
+            0,
+            1,
+            1,
+            3,
+            3,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            1,
+            1,
+            3,
+            4,
+            3
+          ]
+        ],
+        "observations": {
+          "half_round_trip": {
+            "value": 0.500091552734375,
+            "paired_block_se": 0.0010100588183347427
+          },
+          "out_time": {
+            "value": 2.999969482421875,
+            "paired_block_se": 0.003238153902602908
+          },
+          "in_time": {
+            "value": 1.0001602172851562,
+            "paired_block_se": 0.0015507637754685506
+          },
+          "out_speed": {
+            "value": 0.1666988799934895,
+            "paired_block_se": 0.000399514715672968
+          },
+          "in_speed": {
+            "value": 0.5000114422585493,
+            "paired_block_se": 0.0008187546981813473
+          },
+          "optical_segment_prediction": {
+            "value": 0.956006754773376,
+            "paired_block_se": 0.00016289279008428363
+          },
+          "reunion_ratio": {
+            "value": 0.9559054367209926,
+            "paired_block_se": 0.0013087474345925094
+          },
+          "residual": {
+            "value": -0.00010131805238344782,
+            "paired_block_se": 0.0013128327174235254
+          }
+        }
+      },
+      "replication": {
+        "seed": 1274061,
+        "repetitions": 524288,
+        "mean_six_words": [
+          0.0,
+          1.0001392364501953,
+          1.0001392364501953,
+          4.50079345703125,
+          5.000816345214844,
+          3.8254566192626953
+        ],
+        "first_five_individual_packets": [
+          [
+            0,
+            2,
+            2,
+            6,
+            6,
+            3
+          ],
+          [
+            0,
+            2,
+            2,
+            6,
+            6,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            3,
+            3,
+            2
+          ],
+          [
+            0,
+            2,
+            2,
+            5,
+            6,
+            4
+          ]
+        ],
+        "observations": {
+          "half_round_trip": {
+            "value": 0.5000696182250977,
+            "paired_block_se": 0.0005431776224984955
+          },
+          "out_time": {
+            "value": 3.000584602355957,
+            "paired_block_se": 0.001473716626099003
+          },
+          "in_time": {
+            "value": 1.0000925064086914,
+            "paired_block_se": 0.0009594878997850184
+          },
+          "out_speed": {
+            "value": 0.16665739663946152,
+            "paired_block_se": 0.0002039933215476965
+          },
+          "in_speed": {
+            "value": 0.5000233628595377,
+            "paired_block_se": 0.0004443651583800149
+          },
+          "optical_segment_prediction": {
+            "value": 0.956016429537298,
+            "paired_block_se": 8.407406392247091e-05
+          },
+          "reunion_ratio": {
+            "value": 0.9562022915775727,
+            "paired_block_se": 0.000523400251767984
+          },
+          "residual": {
+            "value": 0.0001858620402747091,
+            "paired_block_se": 0.0005245308129342392
+          }
+        }
+      }
+    },
+    {
+      "prepared_motion": [
+        4,
+        4
+      ],
+      "material_replays": [
+        {
+          "cells": 1280,
+          "near": 54,
+          "far": 21,
+          "calibration_relay_hops": 2,
+          "material_packet": [
+            0,
+            1,
+            1,
+            3,
+            4,
+            4
+          ],
+          "home_shared_ports": [
+            648,
+            649,
+            653,
+            656,
+            658
+          ],
+          "far_arms": [
+            252,
+            262
+          ],
+          "events": [
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              false
+            ],
+            [
+              false,
+              true,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              true
+            ]
+          ],
+          "near_reread_registers": [
+            "cal_emit",
+            "cal_receive",
+            "start",
+            "far_receipt",
+            "reunion",
+            "traveller"
+          ],
+          "native_gate_counts": {
+            "native_pi": 42349,
+            "W_flag_undo": 439,
+            "local_committed_record_controlled_pi_copies": 90,
+            "native_fair_source": 21,
+            "retained_W": 88,
+            "inverse_retained_W": 88,
+            "custody_changes_checked_at_both_actual_cells": 2
+          }
+        },
+        {
+          "cells": 5120,
+          "near": 281,
+          "far": 286,
+          "calibration_relay_hops": 2,
+          "material_packet": [
+            0,
+            2,
+            2,
+            2,
+            3,
+            5
+          ],
+          "home_shared_ports": [
+            3372,
+            3373,
+            3377,
+            3380,
+            3382
+          ],
+          "far_arms": [
+            3432,
+            3442
+          ],
+          "events": [
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              false
+            ],
+            [
+              false,
+              true,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              true
+            ]
+          ],
+          "near_reread_registers": [
+            "cal_emit",
+            "cal_receive",
+            "start",
+            "far_receipt",
+            "reunion",
+            "traveller"
+          ],
+          "native_gate_counts": {
+            "native_pi": 41734,
+            "W_flag_undo": 437,
+            "local_committed_record_controlled_pi_copies": 90,
+            "native_fair_source": 21,
+            "retained_W": 88,
+            "inverse_retained_W": 88,
+            "custody_changes_checked_at_both_actual_cells": 2
+          }
+        }
+      ],
+      "cohort": {
+        "seed": 375061,
+        "repetitions": 131072,
+        "mean_six_words": [
+          0.0,
+          1.0010147094726562,
+          1.0010147094726562,
+          3.5026321411132812,
+          5.009422302246094,
+          3.8666000366210938
+        ],
+        "first_five_individual_packets": [
+          [
+            0,
+            0,
+            0,
+            2,
+            4,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            2,
+            4,
+            3
+          ],
+          [
+            0,
+            1,
+            1,
+            3,
+            4,
+            5
+          ],
+          [
+            0,
+            0,
+            0,
+            3,
+            3,
+            3
+          ],
+          [
+            0,
+            1,
+            1,
+            3,
+            6,
+            5
+          ]
+        ],
+        "observations": {
+          "half_round_trip": {
+            "value": 0.5005073547363281,
+            "paired_block_se": 0.0010087359938770123
+          },
+          "out_time": {
+            "value": 2.001110076904297,
+            "paired_block_se": 0.002956185229563613
+          },
+          "in_time": {
+            "value": 2.0072975158691406,
+            "paired_block_se": 0.002648031324874504
+          },
+          "out_speed": {
+            "value": 0.25011485400673683,
+            "paired_block_se": 0.0006842815903648577
+          },
+          "in_speed": {
+            "value": 0.24934388190064252,
+            "paired_block_se": 0.0004826654423378702
+          },
+          "optical_segment_prediction": {
+            "value": 0.9683157447326771,
+            "paired_block_se": 0.0001362338816196352
+          },
+          "reunion_ratio": {
+            "value": 0.9646224709263594,
+            "paired_block_se": 0.0011828233488440413
+          },
+          "residual": {
+            "value": -0.003693273806317676,
+            "paired_block_se": 0.0012004802143150322
+          }
+        }
+      },
+      "replication": {
+        "seed": 1275061,
+        "repetitions": 524288,
+        "mean_six_words": [
+          0.0,
+          1.0011959075927734,
+          1.0011959075927734,
+          3.503572463989258,
+          5.001121520996094,
+          3.8760852813720703
+        ],
+        "first_five_individual_packets": [
+          [
+            0,
+            1,
+            1,
+            1,
+            3,
+            4
+          ],
+          [
+            0,
+            1,
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            0,
+            0,
+            0,
+            2,
+            2,
+            6
+          ],
+          [
+            0,
+            2,
+            2,
+            3,
+            4,
+            5
+          ],
+          [
+            0,
+            2,
+            2,
+            6,
+            6,
+            2
+          ]
+        ],
+        "observations": {
+          "half_round_trip": {
+            "value": 0.5005979537963867,
+            "paired_block_se": 0.0004385555737607098
+          },
+          "out_time": {
+            "value": 2.0017786026000977,
+            "paired_block_se": 0.0014571687628899847
+          },
+          "in_time": {
+            "value": 1.9981470108032227,
+            "paired_block_se": 0.0014070185483515665
+          },
+          "out_speed": {
+            "value": 0.250076583467404,
+            "paired_block_se": 0.0003335120670530381
+          },
+          "in_speed": {
+            "value": 0.25053109260221773,
+            "paired_block_se": 0.00026950519438156414
+          },
+          "optical_segment_prediction": {
+            "value": 0.9681673599423679,
+            "paired_block_se": 7.170763294588795e-05
+          },
+          "reunion_ratio": {
+            "value": 0.9690393412276782,
+            "paired_block_se": 0.0005935368042080031
+          },
+          "residual": {
+            "value": 0.0008719812853102971,
+            "paired_block_se": 0.0006414647866286087
+          }
+        }
+      }
+    }
+  ],
+  "scope": "One-link reciprocal guide and independently prepared rounds. Only home words enter the estimator. Each cohort resamples the sharp, replayed event trace once across both equivalent embeddings. Oriented optics, arrival response, actuation and service windows are supplied."
+}

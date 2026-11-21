@@ -306,6 +306,7 @@ def test_scientific_verdicts_include_failures():
     assert memory_result['rest_inertia']=={f'{size}_{n}':'outside tolerance' for size in (12,16) for n in (2,3)}
     measured = load(HERE/'records/flight/result.json')
     for key,row in measured.items():
+        assert row['total_variation'][row['ticks'].index(0)] == 0
         assert row['passes']==key.startswith('contrast')
         if key.startswith('contrast'):
             assert max(row['total_variation']) < max(row['binding_only_tv_bound']) < .15

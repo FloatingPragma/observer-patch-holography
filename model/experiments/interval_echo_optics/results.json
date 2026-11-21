@@ -1,0 +1,6868 @@
+{
+  "candidate": "interval_echo",
+  "fields": [
+    "emit",
+    "calibration_receipt",
+    "start",
+    "far_report",
+    "reunion",
+    "traveller",
+    "raw_primary_control"
+  ],
+  "protocol_sha256": "58ccf7fd59fa1ded500005f42ebe941cecd9bc89403f6227aa7f9221542cc54f",
+  "capacity_protocol_sha256": "d544ebe70ac6b0e8826c680b8a73f8cd4b7af1d9e04b37c63b22d947825000ee",
+  "material_witnesses": [
+    {
+      "carrier_seams": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "cells": 80,
+      "seed": 9201900,
+      "guide": [
+        63,
+        62,
+        21,
+        23,
+        20,
+        6,
+        9,
+        11,
+        8,
+        12,
+        16,
+        0,
+        3
+      ],
+      "private_home": [
+        4,
+        7,
+        5,
+        2
+      ],
+      "home_word_banks": [
+        24,
+        27,
+        25,
+        26,
+        66,
+        60,
+        65,
+        28,
+        67,
+        42,
+        45,
+        18,
+        31,
+        64,
+        43,
+        47,
+        19,
+        29
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 1,
+      "physical_link": [
+        1,
+        38
+      ],
+      "width": 3,
+      "intervals": [
+        3,
+        5
+      ],
+      "calibration_primaries": [
+        1,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            0,
+            0,
+            0
+          ],
+          "elapsed": 3
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 7
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 7
+        }
+      ],
+      "material_words": [
+        0,
+        2,
+        2,
+        3,
+        6,
+        7
+      ],
+      "operator_counts": {
+        "echo_read_undo": 887,
+        "half_contacts": 21,
+        "pi_contacts": 2196,
+        "intercell_pi_contacts": 564,
+        "strict_writes": 26,
+        "strict_rereads": 44
+      }
+    },
+    {
+      "carrier_seams": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "cells": 80,
+      "seed": 9201901,
+      "guide": [
+        63,
+        62,
+        21,
+        23,
+        20,
+        6,
+        9,
+        11,
+        8,
+        12,
+        16,
+        0,
+        3
+      ],
+      "private_home": [
+        4,
+        7,
+        5,
+        2
+      ],
+      "home_word_banks": [
+        24,
+        27,
+        25,
+        26,
+        66,
+        60,
+        65,
+        28,
+        67,
+        42,
+        45,
+        18,
+        31,
+        64,
+        43,
+        47,
+        19,
+        29
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 1,
+      "physical_link": [
+        1,
+        38
+      ],
+      "width": 3,
+      "intervals": [
+        5,
+        3
+      ],
+      "calibration_primaries": [
+        0,
+        0
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "elapsed": 3
+        }
+      ],
+      "material_words": [
+        0,
+        0,
+        0,
+        5,
+        7,
+        3
+      ],
+      "operator_counts": {
+        "echo_read_undo": 863,
+        "half_contacts": 23,
+        "pi_contacts": 2171,
+        "intercell_pi_contacts": 564,
+        "strict_writes": 26,
+        "strict_rereads": 44
+      }
+    },
+    {
+      "carrier_seams": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "cells": 80,
+      "seed": 9201902,
+      "guide": [
+        63,
+        62,
+        21,
+        23,
+        20,
+        6,
+        9,
+        11,
+        8,
+        12,
+        16,
+        0,
+        3
+      ],
+      "private_home": [
+        4,
+        7,
+        5,
+        2
+      ],
+      "home_word_banks": [
+        24,
+        27,
+        25,
+        26,
+        66,
+        60,
+        65,
+        28,
+        67,
+        42,
+        45,
+        18,
+        31,
+        64,
+        43,
+        47,
+        19,
+        29
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 1,
+      "physical_link": [
+        1,
+        38
+      ],
+      "width": 3,
+      "intervals": [
+        7,
+        7
+      ],
+      "calibration_primaries": [
+        1,
+        0
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 7
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 8
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 8
+        }
+      ],
+      "material_words": [
+        0,
+        1,
+        1,
+        6,
+        10,
+        8
+      ],
+      "operator_counts": {
+        "echo_read_undo": 1080,
+        "half_contacts": 30,
+        "pi_contacts": 2245,
+        "intercell_pi_contacts": 564,
+        "strict_writes": 32,
+        "strict_rereads": 50
+      }
+    },
+    {
+      "carrier_seams": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "cells": 80,
+      "seed": 9201903,
+      "guide": [
+        63,
+        62,
+        21,
+        23,
+        20,
+        6,
+        9,
+        11,
+        8,
+        12,
+        16,
+        0,
+        3
+      ],
+      "private_home": [
+        4,
+        7,
+        5,
+        2
+      ],
+      "home_word_banks": [
+        24,
+        27,
+        25,
+        26,
+        66,
+        60,
+        65,
+        28,
+        67,
+        42,
+        45,
+        18,
+        31,
+        64,
+        43,
+        47,
+        19,
+        29
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 1,
+      "physical_link": [
+        1,
+        38
+      ],
+      "width": 3,
+      "intervals": [
+        8,
+        8
+      ],
+      "calibration_primaries": [
+        0,
+        0
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 3,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 7
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 7
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 8
+        }
+      ],
+      "material_words": [
+        0,
+        0,
+        0,
+        3,
+        6,
+        8
+      ],
+      "operator_counts": {
+        "echo_read_undo": 1063,
+        "half_contacts": 34,
+        "pi_contacts": 2227,
+        "intercell_pi_contacts": 564,
+        "strict_writes": 34,
+        "strict_rereads": 52
+      }
+    },
+    {
+      "carrier_seams": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "cells": 80,
+      "seed": 9201904,
+      "guide": [
+        2,
+        5,
+        21,
+        23,
+        20,
+        6,
+        9,
+        11,
+        8,
+        12,
+        16,
+        0,
+        4
+      ],
+      "private_home": [
+        3,
+        1,
+        18,
+        19
+      ],
+      "home_word_banks": [
+        25,
+        28,
+        17,
+        27,
+        66,
+        31,
+        14,
+        29,
+        24,
+        26,
+        67,
+        30,
+        15,
+        32,
+        70,
+        62,
+        60,
+        65
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 7,
+      "physical_link": [
+        10,
+        56
+      ],
+      "width": 3,
+      "intervals": [
+        3,
+        5
+      ],
+      "calibration_primaries": [
+        0,
+        0
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 4,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "elapsed": 2
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "elapsed": 5
+        }
+      ],
+      "material_words": [
+        0,
+        0,
+        0,
+        2,
+        5,
+        5
+      ],
+      "operator_counts": {
+        "echo_read_undo": 933,
+        "half_contacts": 27,
+        "pi_contacts": 2201,
+        "intercell_pi_contacts": 564,
+        "strict_writes": 26,
+        "strict_rereads": 44
+      }
+    },
+    {
+      "carrier_seams": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "cells": 80,
+      "seed": 9201905,
+      "guide": [
+        2,
+        5,
+        21,
+        23,
+        20,
+        6,
+        9,
+        11,
+        8,
+        12,
+        16,
+        0,
+        4
+      ],
+      "private_home": [
+        3,
+        1,
+        18,
+        19
+      ],
+      "home_word_banks": [
+        25,
+        28,
+        17,
+        27,
+        66,
+        31,
+        14,
+        29,
+        24,
+        26,
+        67,
+        30,
+        15,
+        32,
+        70,
+        62,
+        60,
+        65
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 7,
+      "physical_link": [
+        10,
+        56
+      ],
+      "width": 3,
+      "intervals": [
+        5,
+        3
+      ],
+      "calibration_primaries": [
+        0,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 4,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "elapsed": 3
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        }
+      ],
+      "material_words": [
+        0,
+        1,
+        1,
+        5,
+        6,
+        5
+      ],
+      "operator_counts": {
+        "echo_read_undo": 895,
+        "half_contacts": 25,
+        "pi_contacts": 2188,
+        "intercell_pi_contacts": 564,
+        "strict_writes": 26,
+        "strict_rereads": 44
+      }
+    },
+    {
+      "carrier_seams": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "cells": 80,
+      "seed": 9201906,
+      "guide": [
+        2,
+        5,
+        21,
+        23,
+        20,
+        6,
+        9,
+        11,
+        8,
+        12,
+        16,
+        0,
+        4
+      ],
+      "private_home": [
+        3,
+        1,
+        18,
+        19
+      ],
+      "home_word_banks": [
+        25,
+        28,
+        17,
+        27,
+        66,
+        31,
+        14,
+        29,
+        24,
+        26,
+        67,
+        30,
+        15,
+        32,
+        70,
+        62,
+        60,
+        65
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 7,
+      "physical_link": [
+        10,
+        56
+      ],
+      "width": 3,
+      "intervals": [
+        7,
+        7
+      ],
+      "calibration_primaries": [
+        1,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 4,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "elapsed": 5
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 7
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 8
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 8
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 9
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 9
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 9
+        }
+      ],
+      "material_words": [
+        0,
+        2,
+        2,
+        6,
+        8,
+        9
+      ],
+      "operator_counts": {
+        "echo_read_undo": 1130,
+        "half_contacts": 34,
+        "pi_contacts": 2252,
+        "intercell_pi_contacts": 564,
+        "strict_writes": 32,
+        "strict_rereads": 50
+      }
+    },
+    {
+      "carrier_seams": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "cells": 80,
+      "seed": 9201907,
+      "guide": [
+        2,
+        5,
+        21,
+        23,
+        20,
+        6,
+        9,
+        11,
+        8,
+        12,
+        16,
+        0,
+        4
+      ],
+      "private_home": [
+        3,
+        1,
+        18,
+        19
+      ],
+      "home_word_banks": [
+        25,
+        28,
+        17,
+        27,
+        66,
+        31,
+        14,
+        29,
+        24,
+        26,
+        67,
+        30,
+        15,
+        32,
+        70,
+        62,
+        60,
+        65
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 7,
+      "physical_link": [
+        10,
+        56
+      ],
+      "width": 3,
+      "intervals": [
+        8,
+        8
+      ],
+      "calibration_primaries": [
+        0,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 4,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 7
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 8
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 8
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 8
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 9
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 10
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 10
+        }
+      ],
+      "material_words": [
+        0,
+        1,
+        1,
+        7,
+        10,
+        10
+      ],
+      "operator_counts": {
+        "echo_read_undo": 1171,
+        "half_contacts": 34,
+        "pi_contacts": 2276,
+        "intercell_pi_contacts": 564,
+        "strict_writes": 34,
+        "strict_rereads": 52
+      }
+    },
+    {
+      "carrier_seams": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "cells": 80,
+      "seed": 9201908,
+      "guide": [
+        29,
+        31,
+        28,
+        66,
+        25,
+        27,
+        24,
+        2,
+        5,
+        7,
+        4,
+        0,
+        16
+      ],
+      "private_home": [
+        3,
+        1,
+        18,
+        19
+      ],
+      "home_word_banks": [
+        17,
+        14,
+        15,
+        32,
+        13,
+        35,
+        70,
+        10,
+        33,
+        34,
+        71,
+        11,
+        36,
+        74,
+        68,
+        73,
+        69,
+        8
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 12,
+      "physical_link": [
+        3,
+        192
+      ],
+      "width": 3,
+      "intervals": [
+        3,
+        5
+      ],
+      "calibration_primaries": [
+        1,
+        0
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 16,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            1,
+            0,
+            1
+          ],
+          "elapsed": 2
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        }
+      ],
+      "material_words": [
+        0,
+        1,
+        1,
+        2,
+        3,
+        4
+      ],
+      "operator_counts": {
+        "echo_read_undo": 779,
+        "half_contacts": 21,
+        "pi_contacts": 2158,
+        "intercell_pi_contacts": 563,
+        "strict_writes": 26,
+        "strict_rereads": 44
+      }
+    },
+    {
+      "carrier_seams": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "cells": 80,
+      "seed": 9201909,
+      "guide": [
+        29,
+        31,
+        28,
+        66,
+        25,
+        27,
+        24,
+        2,
+        5,
+        7,
+        4,
+        0,
+        16
+      ],
+      "private_home": [
+        3,
+        1,
+        18,
+        19
+      ],
+      "home_word_banks": [
+        17,
+        14,
+        15,
+        32,
+        13,
+        35,
+        70,
+        10,
+        33,
+        34,
+        71,
+        11,
+        36,
+        74,
+        68,
+        73,
+        69,
+        8
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 12,
+      "physical_link": [
+        3,
+        192
+      ],
+      "width": 3,
+      "intervals": [
+        5,
+        3
+      ],
+      "calibration_primaries": [
+        0,
+        0
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 16,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 0,
+          "extra": [
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "elapsed": 3
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            1,
+            0,
+            0
+          ],
+          "elapsed": 4
+        }
+      ],
+      "material_words": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        4
+      ],
+      "operator_counts": {
+        "echo_read_undo": 852,
+        "half_contacts": 26,
+        "pi_contacts": 2155,
+        "intercell_pi_contacts": 563,
+        "strict_writes": 26,
+        "strict_rereads": 44
+      }
+    },
+    {
+      "carrier_seams": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "cells": 80,
+      "seed": 9201910,
+      "guide": [
+        29,
+        31,
+        28,
+        66,
+        25,
+        27,
+        24,
+        2,
+        5,
+        7,
+        4,
+        0,
+        16
+      ],
+      "private_home": [
+        3,
+        1,
+        18,
+        19
+      ],
+      "home_word_banks": [
+        17,
+        14,
+        15,
+        32,
+        13,
+        35,
+        70,
+        10,
+        33,
+        34,
+        71,
+        11,
+        36,
+        74,
+        68,
+        73,
+        69,
+        8
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 12,
+      "physical_link": [
+        3,
+        192
+      ],
+      "width": 3,
+      "intervals": [
+        7,
+        7
+      ],
+      "calibration_primaries": [
+        1,
+        0
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 16,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        }
+      ],
+      "material_words": [
+        0,
+        1,
+        1,
+        5,
+        7,
+        5
+      ],
+      "operator_counts": {
+        "echo_read_undo": 972,
+        "half_contacts": 30,
+        "pi_contacts": 2207,
+        "intercell_pi_contacts": 563,
+        "strict_writes": 32,
+        "strict_rereads": 50
+      }
+    },
+    {
+      "carrier_seams": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "cells": 80,
+      "seed": 9201911,
+      "guide": [
+        29,
+        31,
+        28,
+        66,
+        25,
+        27,
+        24,
+        2,
+        5,
+        7,
+        4,
+        0,
+        16
+      ],
+      "private_home": [
+        3,
+        1,
+        18,
+        19
+      ],
+      "home_word_banks": [
+        17,
+        14,
+        15,
+        32,
+        13,
+        35,
+        70,
+        10,
+        33,
+        34,
+        71,
+        11,
+        36,
+        74,
+        68,
+        73,
+        69,
+        8
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 12,
+      "physical_link": [
+        3,
+        192
+      ],
+      "width": 3,
+      "intervals": [
+        8,
+        8
+      ],
+      "calibration_primaries": [
+        1,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 16,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 6
+        }
+      ],
+      "material_words": [
+        0,
+        2,
+        2,
+        6,
+        10,
+        6
+      ],
+      "operator_counts": {
+        "echo_read_undo": 1099,
+        "half_contacts": 34,
+        "pi_contacts": 2243,
+        "intercell_pi_contacts": 563,
+        "strict_writes": 34,
+        "strict_rereads": 52
+      }
+    },
+    {
+      "carrier_seams": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "cells": 320,
+      "seed": 9201912,
+      "guide": [
+        36,
+        24,
+        27,
+        25,
+        30,
+        18,
+        33,
+        35,
+        32,
+        48,
+        64,
+        0,
+        3
+      ],
+      "private_home": [
+        16,
+        19,
+        17,
+        2
+      ],
+      "home_word_banks": [
+        28,
+        14,
+        22,
+        31,
+        9,
+        15,
+        23,
+        29,
+        11,
+        12,
+        13,
+        20,
+        21,
+        26,
+        8,
+        10,
+        6,
+        5
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 1,
+      "physical_link": [
+        1,
+        38
+      ],
+      "width": 3,
+      "intervals": [
+        3,
+        5
+      ],
+      "calibration_primaries": [
+        1,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            0,
+            0,
+            0
+          ],
+          "elapsed": 3
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        }
+      ],
+      "material_words": [
+        0,
+        2,
+        2,
+        2,
+        5,
+        4
+      ],
+      "operator_counts": {
+        "echo_read_undo": 815,
+        "half_contacts": 21,
+        "pi_contacts": 2175,
+        "intercell_pi_contacts": 564,
+        "strict_writes": 26,
+        "strict_rereads": 44
+      }
+    },
+    {
+      "carrier_seams": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "cells": 320,
+      "seed": 9201913,
+      "guide": [
+        36,
+        24,
+        27,
+        25,
+        30,
+        18,
+        33,
+        35,
+        32,
+        48,
+        64,
+        0,
+        3
+      ],
+      "private_home": [
+        16,
+        19,
+        17,
+        2
+      ],
+      "home_word_banks": [
+        28,
+        14,
+        22,
+        31,
+        9,
+        15,
+        23,
+        29,
+        11,
+        12,
+        13,
+        20,
+        21,
+        26,
+        8,
+        10,
+        6,
+        5
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 1,
+      "physical_link": [
+        1,
+        38
+      ],
+      "width": 3,
+      "intervals": [
+        5,
+        3
+      ],
+      "calibration_primaries": [
+        0,
+        0
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 3,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            0,
+            0,
+            0
+          ],
+          "elapsed": 4
+        }
+      ],
+      "material_words": [
+        0,
+        0,
+        0,
+        5,
+        6,
+        4
+      ],
+      "operator_counts": {
+        "echo_read_undo": 831,
+        "half_contacts": 21,
+        "pi_contacts": 2166,
+        "intercell_pi_contacts": 564,
+        "strict_writes": 26,
+        "strict_rereads": 44
+      }
+    },
+    {
+      "carrier_seams": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "cells": 320,
+      "seed": 9201914,
+      "guide": [
+        36,
+        24,
+        27,
+        25,
+        30,
+        18,
+        33,
+        35,
+        32,
+        48,
+        64,
+        0,
+        3
+      ],
+      "private_home": [
+        16,
+        19,
+        17,
+        2
+      ],
+      "home_word_banks": [
+        28,
+        14,
+        22,
+        31,
+        9,
+        15,
+        23,
+        29,
+        11,
+        12,
+        13,
+        20,
+        21,
+        26,
+        8,
+        10,
+        6,
+        5
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 1,
+      "physical_link": [
+        1,
+        38
+      ],
+      "width": 3,
+      "intervals": [
+        7,
+        7
+      ],
+      "calibration_primaries": [
+        0,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        }
+      ],
+      "material_words": [
+        0,
+        1,
+        1,
+        5,
+        7,
+        5
+      ],
+      "operator_counts": {
+        "echo_read_undo": 972,
+        "half_contacts": 30,
+        "pi_contacts": 2207,
+        "intercell_pi_contacts": 564,
+        "strict_writes": 32,
+        "strict_rereads": 50
+      }
+    },
+    {
+      "carrier_seams": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "cells": 320,
+      "seed": 9201915,
+      "guide": [
+        36,
+        24,
+        27,
+        25,
+        30,
+        18,
+        33,
+        35,
+        32,
+        48,
+        64,
+        0,
+        3
+      ],
+      "private_home": [
+        16,
+        19,
+        17,
+        2
+      ],
+      "home_word_banks": [
+        28,
+        14,
+        22,
+        31,
+        9,
+        15,
+        23,
+        29,
+        11,
+        12,
+        13,
+        20,
+        21,
+        26,
+        8,
+        10,
+        6,
+        5
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 1,
+      "physical_link": [
+        1,
+        38
+      ],
+      "width": 3,
+      "intervals": [
+        8,
+        8
+      ],
+      "calibration_primaries": [
+        1,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        }
+      ],
+      "material_words": [
+        0,
+        2,
+        2,
+        7,
+        9,
+        5
+      ],
+      "operator_counts": {
+        "echo_read_undo": 1063,
+        "half_contacts": 34,
+        "pi_contacts": 2232,
+        "intercell_pi_contacts": 564,
+        "strict_writes": 34,
+        "strict_rereads": 52
+      }
+    },
+    {
+      "carrier_seams": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "cells": 320,
+      "seed": 9201916,
+      "guide": [
+        36,
+        24,
+        27,
+        25,
+        30,
+        18,
+        33,
+        35,
+        32,
+        48,
+        64,
+        0,
+        16
+      ],
+      "private_home": [
+        3,
+        1,
+        12,
+        6
+      ],
+      "home_word_banks": [
+        2,
+        66,
+        15,
+        7,
+        73,
+        14,
+        17,
+        67,
+        78,
+        13,
+        4,
+        5,
+        75,
+        9,
+        28,
+        65,
+        79,
+        10
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 19,
+      "physical_link": [
+        10,
+        200
+      ],
+      "width": 3,
+      "intervals": [
+        3,
+        5
+      ],
+      "calibration_primaries": [
+        1,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 16,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            1,
+            0,
+            0
+          ],
+          "elapsed": 2
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        }
+      ],
+      "material_words": [
+        0,
+        2,
+        2,
+        5,
+        9,
+        2
+      ],
+      "operator_counts": {
+        "echo_read_undo": 851,
+        "half_contacts": 21,
+        "pi_contacts": 2190,
+        "intercell_pi_contacts": 564,
+        "strict_writes": 26,
+        "strict_rereads": 44
+      }
+    },
+    {
+      "carrier_seams": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "cells": 320,
+      "seed": 9201917,
+      "guide": [
+        36,
+        24,
+        27,
+        25,
+        30,
+        18,
+        33,
+        35,
+        32,
+        48,
+        64,
+        0,
+        16
+      ],
+      "private_home": [
+        3,
+        1,
+        12,
+        6
+      ],
+      "home_word_banks": [
+        2,
+        66,
+        15,
+        7,
+        73,
+        14,
+        17,
+        67,
+        78,
+        13,
+        4,
+        5,
+        75,
+        9,
+        28,
+        65,
+        79,
+        10
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 19,
+      "physical_link": [
+        10,
+        200
+      ],
+      "width": 3,
+      "intervals": [
+        5,
+        3
+      ],
+      "calibration_primaries": [
+        1,
+        0
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 16,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "elapsed": 3
+        }
+      ],
+      "material_words": [
+        0,
+        1,
+        1,
+        5,
+        5,
+        3
+      ],
+      "operator_counts": {
+        "echo_read_undo": 935,
+        "half_contacts": 27,
+        "pi_contacts": 2178,
+        "intercell_pi_contacts": 564,
+        "strict_writes": 26,
+        "strict_rereads": 44
+      }
+    },
+    {
+      "carrier_seams": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "cells": 320,
+      "seed": 9201918,
+      "guide": [
+        36,
+        24,
+        27,
+        25,
+        30,
+        18,
+        33,
+        35,
+        32,
+        48,
+        64,
+        0,
+        16
+      ],
+      "private_home": [
+        3,
+        1,
+        12,
+        6
+      ],
+      "home_word_banks": [
+        2,
+        66,
+        15,
+        7,
+        73,
+        14,
+        17,
+        67,
+        78,
+        13,
+        4,
+        5,
+        75,
+        9,
+        28,
+        65,
+        79,
+        10
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 19,
+      "physical_link": [
+        10,
+        200
+      ],
+      "width": 3,
+      "intervals": [
+        7,
+        7
+      ],
+      "calibration_primaries": [
+        1,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 16,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 6
+        }
+      ],
+      "material_words": [
+        0,
+        2,
+        2,
+        5,
+        7,
+        6
+      ],
+      "operator_counts": {
+        "echo_read_undo": 990,
+        "half_contacts": 30,
+        "pi_contacts": 2219,
+        "intercell_pi_contacts": 564,
+        "strict_writes": 32,
+        "strict_rereads": 50
+      }
+    },
+    {
+      "carrier_seams": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "cells": 320,
+      "seed": 9201919,
+      "guide": [
+        36,
+        24,
+        27,
+        25,
+        30,
+        18,
+        33,
+        35,
+        32,
+        48,
+        64,
+        0,
+        16
+      ],
+      "private_home": [
+        3,
+        1,
+        12,
+        6
+      ],
+      "home_word_banks": [
+        2,
+        66,
+        15,
+        7,
+        73,
+        14,
+        17,
+        67,
+        78,
+        13,
+        4,
+        5,
+        75,
+        9,
+        28,
+        65,
+        79,
+        10
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 19,
+      "physical_link": [
+        10,
+        200
+      ],
+      "width": 3,
+      "intervals": [
+        8,
+        8
+      ],
+      "calibration_primaries": [
+        0,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 16,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 7
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 7
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 7
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 7
+        }
+      ],
+      "material_words": [
+        0,
+        1,
+        1,
+        9,
+        11,
+        7
+      ],
+      "operator_counts": {
+        "echo_read_undo": 1135,
+        "half_contacts": 34,
+        "pi_contacts": 2259,
+        "intercell_pi_contacts": 564,
+        "strict_writes": 34,
+        "strict_rereads": 52
+      }
+    },
+    {
+      "carrier_seams": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "cells": 320,
+      "seed": 9201920,
+      "guide": [
+        21,
+        23,
+        20,
+        8,
+        11,
+        9,
+        14,
+        2,
+        17,
+        19,
+        16,
+        0,
+        64
+      ],
+      "private_home": [
+        3,
+        1,
+        12,
+        6
+      ],
+      "home_word_banks": [
+        66,
+        15,
+        7,
+        73,
+        67,
+        78,
+        13,
+        4,
+        5,
+        75,
+        65,
+        79,
+        10,
+        72,
+        100,
+        102,
+        74,
+        50
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 48,
+      "physical_link": [
+        3,
+        768
+      ],
+      "width": 3,
+      "intervals": [
+        3,
+        5
+      ],
+      "calibration_primaries": [
+        0,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 64,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "elapsed": 2
+        }
+      ],
+      "material_words": [
+        0,
+        1,
+        1,
+        4,
+        6,
+        2
+      ],
+      "operator_counts": {
+        "echo_read_undo": 804,
+        "half_contacts": 22,
+        "pi_contacts": 2165,
+        "intercell_pi_contacts": 563,
+        "strict_writes": 26,
+        "strict_rereads": 44
+      }
+    },
+    {
+      "carrier_seams": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "cells": 320,
+      "seed": 9201921,
+      "guide": [
+        21,
+        23,
+        20,
+        8,
+        11,
+        9,
+        14,
+        2,
+        17,
+        19,
+        16,
+        0,
+        64
+      ],
+      "private_home": [
+        3,
+        1,
+        12,
+        6
+      ],
+      "home_word_banks": [
+        66,
+        15,
+        7,
+        73,
+        67,
+        78,
+        13,
+        4,
+        5,
+        75,
+        65,
+        79,
+        10,
+        72,
+        100,
+        102,
+        74,
+        50
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 48,
+      "physical_link": [
+        3,
+        768
+      ],
+      "width": 3,
+      "intervals": [
+        5,
+        3
+      ],
+      "calibration_primaries": [
+        0,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 64,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            1,
+            0,
+            1
+          ],
+          "elapsed": 3
+        }
+      ],
+      "material_words": [
+        0,
+        1,
+        1,
+        4,
+        4,
+        3
+      ],
+      "operator_counts": {
+        "echo_read_undo": 777,
+        "half_contacts": 21,
+        "pi_contacts": 2144,
+        "intercell_pi_contacts": 563,
+        "strict_writes": 26,
+        "strict_rereads": 44
+      }
+    },
+    {
+      "carrier_seams": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "cells": 320,
+      "seed": 9201922,
+      "guide": [
+        21,
+        23,
+        20,
+        8,
+        11,
+        9,
+        14,
+        2,
+        17,
+        19,
+        16,
+        0,
+        64
+      ],
+      "private_home": [
+        3,
+        1,
+        12,
+        6
+      ],
+      "home_word_banks": [
+        66,
+        15,
+        7,
+        73,
+        67,
+        78,
+        13,
+        4,
+        5,
+        75,
+        65,
+        79,
+        10,
+        72,
+        100,
+        102,
+        74,
+        50
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 48,
+      "physical_link": [
+        3,
+        768
+      ],
+      "width": 3,
+      "intervals": [
+        7,
+        7
+      ],
+      "calibration_primaries": [
+        1,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 64,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "elapsed": 4
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 7
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 8
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 8
+        }
+      ],
+      "material_words": [
+        0,
+        2,
+        2,
+        6,
+        10,
+        8
+      ],
+      "operator_counts": {
+        "echo_read_undo": 1148,
+        "half_contacts": 34,
+        "pi_contacts": 2253,
+        "intercell_pi_contacts": 563,
+        "strict_writes": 32,
+        "strict_rereads": 50
+      }
+    },
+    {
+      "carrier_seams": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "cells": 320,
+      "seed": 9201923,
+      "guide": [
+        21,
+        23,
+        20,
+        8,
+        11,
+        9,
+        14,
+        2,
+        17,
+        19,
+        16,
+        0,
+        64
+      ],
+      "private_home": [
+        3,
+        1,
+        12,
+        6
+      ],
+      "home_word_banks": [
+        66,
+        15,
+        7,
+        73,
+        67,
+        78,
+        13,
+        4,
+        5,
+        75,
+        65,
+        79,
+        10,
+        72,
+        100,
+        102,
+        74,
+        50
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 48,
+      "physical_link": [
+        3,
+        768
+      ],
+      "width": 3,
+      "intervals": [
+        8,
+        8
+      ],
+      "calibration_primaries": [
+        0,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 64,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 6
+        }
+      ],
+      "material_words": [
+        0,
+        1,
+        1,
+        5,
+        9,
+        6
+      ],
+      "operator_counts": {
+        "echo_read_undo": 1081,
+        "half_contacts": 34,
+        "pi_contacts": 2237,
+        "intercell_pi_contacts": 563,
+        "strict_writes": 34,
+        "strict_rereads": 52
+      }
+    }
+  ],
+  "five_bit_material_witnesses": [
+    {
+      "carrier_seams": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "cells": 80,
+      "seed": 9205922,
+      "guide": [
+        26,
+        60,
+        63,
+        62,
+        21,
+        23,
+        20,
+        6,
+        9,
+        11,
+        8,
+        12,
+        16,
+        0,
+        3
+      ],
+      "private_home": [
+        4,
+        7,
+        5,
+        2
+      ],
+      "home_word_banks": [
+        24,
+        27,
+        25,
+        66,
+        28,
+        67,
+        18,
+        31,
+        64,
+        65,
+        19,
+        29,
+        30,
+        46,
+        45,
+        17,
+        70,
+        69
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 1,
+      "physical_link": [
+        1,
+        38
+      ],
+      "width": 5,
+      "intervals": [
+        8,
+        8
+      ],
+      "calibration_primaries": [
+        1,
+        0
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 3,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "elapsed": 4
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "elapsed": 7
+        }
+      ],
+      "material_words": [
+        0,
+        1,
+        1,
+        6,
+        8,
+        7
+      ],
+      "operator_counts": {
+        "echo_read_undo": 1325,
+        "half_contacts": 42,
+        "pi_contacts": 2583,
+        "intercell_pi_contacts": 656,
+        "strict_writes": 34,
+        "strict_rereads": 52
+      }
+    },
+    {
+      "carrier_seams": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "cells": 80,
+      "seed": 9205926,
+      "guide": [
+        27,
+        24,
+        2,
+        5,
+        21,
+        23,
+        20,
+        6,
+        9,
+        11,
+        8,
+        12,
+        16,
+        0,
+        4
+      ],
+      "private_home": [
+        3,
+        1,
+        18,
+        19
+      ],
+      "home_word_banks": [
+        25,
+        28,
+        17,
+        66,
+        31,
+        14,
+        29,
+        67,
+        30,
+        15,
+        32,
+        70,
+        64,
+        65,
+        69,
+        13,
+        35,
+        71
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 7,
+      "physical_link": [
+        10,
+        56
+      ],
+      "width": 5,
+      "intervals": [
+        8,
+        8
+      ],
+      "calibration_primaries": [
+        1,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 4,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "elapsed": 5
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 7
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 7
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 7
+        },
+        {
+          "cell": 4,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 7
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 7
+        }
+      ],
+      "material_words": [
+        0,
+        2,
+        2,
+        6,
+        10,
+        7
+      ],
+      "operator_counts": {
+        "echo_read_undo": 1271,
+        "half_contacts": 38,
+        "pi_contacts": 2599,
+        "intercell_pi_contacts": 656,
+        "strict_writes": 34,
+        "strict_rereads": 52
+      }
+    },
+    {
+      "carrier_seams": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "cells": 80,
+      "seed": 9205930,
+      "guide": [
+        32,
+        70,
+        29,
+        31,
+        28,
+        66,
+        25,
+        27,
+        24,
+        2,
+        5,
+        7,
+        4,
+        0,
+        16
+      ],
+      "private_home": [
+        3,
+        1,
+        18,
+        19
+      ],
+      "home_word_banks": [
+        17,
+        14,
+        15,
+        13,
+        10,
+        33,
+        11,
+        36,
+        35,
+        74,
+        8,
+        9,
+        39,
+        34,
+        75,
+        6,
+        37,
+        38
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 12,
+      "physical_link": [
+        3,
+        192
+      ],
+      "width": 5,
+      "intervals": [
+        8,
+        8
+      ],
+      "calibration_primaries": [
+        0,
+        0
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 0
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 16,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "elapsed": 6
+        }
+      ],
+      "material_words": [
+        0,
+        0,
+        0,
+        4,
+        6,
+        6
+      ],
+      "operator_counts": {
+        "echo_read_undo": 1181,
+        "half_contacts": 38,
+        "pi_contacts": 2559,
+        "intercell_pi_contacts": 655,
+        "strict_writes": 34,
+        "strict_rereads": 52
+      }
+    },
+    {
+      "carrier_seams": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "cells": 320,
+      "seed": 9205934,
+      "guide": [
+        37,
+        39,
+        36,
+        24,
+        27,
+        25,
+        30,
+        18,
+        33,
+        35,
+        32,
+        48,
+        64,
+        0,
+        3
+      ],
+      "private_home": [
+        16,
+        19,
+        17,
+        2
+      ],
+      "home_word_banks": [
+        28,
+        14,
+        22,
+        31,
+        9,
+        15,
+        23,
+        29,
+        11,
+        12,
+        13,
+        20,
+        21,
+        26,
+        8,
+        10,
+        6,
+        5
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 1,
+      "physical_link": [
+        1,
+        38
+      ],
+      "width": 5,
+      "intervals": [
+        8,
+        8
+      ],
+      "calibration_primaries": [
+        0,
+        0
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 3,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "elapsed": 7
+        }
+      ],
+      "material_words": [
+        0,
+        0,
+        0,
+        3,
+        6,
+        7
+      ],
+      "operator_counts": {
+        "echo_read_undo": 1199,
+        "half_contacts": 38,
+        "pi_contacts": 2566,
+        "intercell_pi_contacts": 656,
+        "strict_writes": 34,
+        "strict_rereads": 52
+      }
+    },
+    {
+      "carrier_seams": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "cells": 320,
+      "seed": 9205938,
+      "guide": [
+        37,
+        39,
+        36,
+        24,
+        27,
+        25,
+        30,
+        18,
+        33,
+        35,
+        32,
+        48,
+        64,
+        0,
+        16
+      ],
+      "private_home": [
+        3,
+        1,
+        12,
+        6
+      ],
+      "home_word_banks": [
+        2,
+        66,
+        15,
+        7,
+        73,
+        14,
+        17,
+        67,
+        78,
+        13,
+        4,
+        5,
+        75,
+        9,
+        28,
+        65,
+        79,
+        10
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 19,
+      "physical_link": [
+        10,
+        200
+      ],
+      "width": 5,
+      "intervals": [
+        8,
+        8
+      ],
+      "calibration_primaries": [
+        0,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 16,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 6
+        },
+        {
+          "cell": 16,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 7
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "elapsed": 8
+        }
+      ],
+      "material_words": [
+        0,
+        1,
+        1,
+        6,
+        11,
+        8
+      ],
+      "operator_counts": {
+        "echo_read_undo": 1307,
+        "half_contacts": 38,
+        "pi_contacts": 2611,
+        "intercell_pi_contacts": 656,
+        "strict_writes": 34,
+        "strict_rereads": 52
+      }
+    },
+    {
+      "carrier_seams": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "cells": 320,
+      "seed": 9205942,
+      "guide": [
+        26,
+        29,
+        21,
+        23,
+        20,
+        8,
+        11,
+        9,
+        14,
+        2,
+        17,
+        19,
+        16,
+        0,
+        64
+      ],
+      "private_home": [
+        3,
+        1,
+        12,
+        6
+      ],
+      "home_word_banks": [
+        66,
+        15,
+        7,
+        73,
+        67,
+        78,
+        13,
+        4,
+        5,
+        75,
+        65,
+        79,
+        10,
+        72,
+        100,
+        102,
+        74,
+        50
+      ],
+      "home_patch_cells": 23,
+      "far_response_reservoir": 48,
+      "physical_link": [
+        3,
+        768
+      ],
+      "width": 5,
+      "intervals": [
+        8,
+        8
+      ],
+      "calibration_primaries": [
+        1,
+        1
+      ],
+      "events": [
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 1
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 2
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 0,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 64,
+          "handoff": true,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": true,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 3
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 4
+        },
+        {
+          "cell": 64,
+          "handoff": false,
+          "report": false,
+          "reunion": false,
+          "home_primary": 1,
+          "traveller_primary": 1,
+          "tick": 1,
+          "extra": [],
+          "elapsed": 5
+        },
+        {
+          "cell": 0,
+          "handoff": true,
+          "report": false,
+          "reunion": true,
+          "home_primary": 0,
+          "traveller_primary": 0,
+          "tick": 0,
+          "extra": [],
+          "elapsed": 5
+        }
+      ],
+      "material_words": [
+        0,
+        2,
+        2,
+        7,
+        10,
+        5
+      ],
+      "operator_counts": {
+        "echo_read_undo": 1145,
+        "half_contacts": 34,
+        "pi_contacts": 2574,
+        "intercell_pi_contacts": 655,
+        "strict_writes": 34,
+        "strict_rereads": 52
+      }
+    }
+  ],
+  "panels": [
+    {
+      "id": "q3_5",
+      "intervals": [
+        3,
+        5
+      ],
+      "installations": 6,
+      "width": 3,
+      "base_seed": 551200,
+      "enrolled": 2097152,
+      "blocks": 64,
+      "estimates": {
+        "distance": {
+          "value": 0.5000503063201904,
+          "paired_block_se": 0.00025126622859080215
+        },
+        "out_speed": {
+          "value": 0.33348035517381464,
+          "paired_block_se": 0.0002632548316055717
+        },
+        "in_speed": {
+          "value": 0.2001489071537558,
+          "paired_block_se": 9.146166111383083e-05
+        },
+        "optical_forecast": {
+          "value": 0.9658846935468263,
+          "paired_block_se": 4.053343732412472e-05
+        },
+        "ratio": {
+          "value": 0.9665427584670339,
+          "paired_block_se": 0.00037215927077998063
+        },
+        "residual": {
+          "value": 0.0006580649202075906,
+          "paired_block_se": 0.0003823182327258052
+        },
+        "raw_ratio": {
+          "value": 1.0006440713707414,
+          "paired_block_se": 0.00036953581779492454
+        },
+        "raw_residual": {
+          "value": 0.03475937782391514,
+          "paired_block_se": 0.00037995576537042976
+        },
+        "filtered_minus_raw": {
+          "value": -0.03410131290370755,
+          "paired_block_se": 6.260980546690404e-05
+        }
+      },
+      "decision": "agrees",
+      "raw_decision": "disagrees"
+    },
+    {
+      "id": "q5_3",
+      "intervals": [
+        5,
+        3
+      ],
+      "installations": 6,
+      "width": 3,
+      "base_seed": 551201,
+      "enrolled": 2097152,
+      "blocks": 64,
+      "estimates": {
+        "distance": {
+          "value": 0.4999706745147705,
+          "paired_block_se": 0.0002384766534436546
+        },
+        "out_speed": {
+          "value": 0.2000288831226509,
+          "paired_block_se": 0.00012567364015960298
+        },
+        "in_speed": {
+          "value": 0.33340689276227686,
+          "paired_block_se": 0.00012464440242069676
+        },
+        "optical_forecast": {
+          "value": 0.9659130486054073,
+          "paired_block_se": 2.995022170264766e-05
+        },
+        "ratio": {
+          "value": 0.9660487213928302,
+          "paired_block_se": 0.00032815867275150045
+        },
+        "residual": {
+          "value": 0.00013567278742288025,
+          "paired_block_se": 0.00033446597773174614
+        },
+        "raw_ratio": {
+          "value": 1.0002167726980868,
+          "paired_block_se": 0.00033642121119206443
+        },
+        "raw_residual": {
+          "value": 0.034303724092679566,
+          "paired_block_se": 0.00034352204587861706
+        },
+        "filtered_minus_raw": {
+          "value": -0.034168051305256686,
+          "paired_block_se": 5.773136020336652e-05
+        }
+      },
+      "decision": "agrees",
+      "raw_decision": "disagrees"
+    },
+    {
+      "id": "q7_7",
+      "intervals": [
+        7,
+        7
+      ],
+      "installations": 6,
+      "width": 3,
+      "base_seed": 551202,
+      "enrolled": 2097152,
+      "blocks": 64,
+      "estimates": {
+        "distance": {
+          "value": 0.49974966049194336,
+          "paired_block_se": 0.000263446277831079
+        },
+        "out_speed": {
+          "value": 0.1427259409886913,
+          "paired_block_se": 9.235393480433141e-05
+        },
+        "in_speed": {
+          "value": 0.1428232687575539,
+          "paired_block_se": 7.348918967068075e-05
+        },
+        "optical_forecast": {
+          "value": 0.9897552296008436,
+          "paired_block_se": 1.1597937142077382e-05
+        },
+        "ratio": {
+          "value": 0.9895757144614493,
+          "paired_block_se": 0.00026561296215962176
+        },
+        "residual": {
+          "value": -0.00017951513939429287,
+          "paired_block_se": 0.0002681200596019625
+        },
+        "raw_ratio": {
+          "value": 0.999830190969429,
+          "paired_block_se": 0.0002713934392363894
+        },
+        "raw_residual": {
+          "value": 0.010074961368585433,
+          "paired_block_se": 0.0002739638640260301
+        },
+        "filtered_minus_raw": {
+          "value": -0.010254476507979726,
+          "paired_block_se": 2.7006005711749245e-05
+        }
+      },
+      "decision": "agrees",
+      "raw_decision": "disagrees"
+    },
+    {
+      "id": "q8_8",
+      "intervals": [
+        8,
+        8
+      ],
+      "installations": 6,
+      "width": 3,
+      "base_seed": 551203,
+      "enrolled": 2097152,
+      "blocks": 64,
+      "estimates": {
+        "distance": {
+          "value": 0.5001368522644043,
+          "paired_block_se": 0.0002417011967593638
+        },
+        "out_speed": {
+          "value": 0.12502813202406576,
+          "paired_block_se": 7.29031224734366e-05
+        },
+        "in_speed": {
+          "value": 0.12503135132557697,
+          "paired_block_se": 5.983274868884039e-05
+        },
+        "optical_forecast": {
+          "value": 0.9921529940988322,
+          "paired_block_se": 7.971704784620254e-06
+        },
+        "ratio": {
+          "value": 0.9997587290264717,
+          "paired_block_se": 0.0002455905404215918
+        },
+        "residual": {
+          "value": 0.007605734927639496,
+          "paired_block_se": 0.0002479077653310937
+        },
+        "raw_ratio": {
+          "value": 0.9997587290264717,
+          "paired_block_se": 0.0002455905404215918
+        },
+        "raw_residual": {
+          "value": 0.007605734927639496,
+          "paired_block_se": 0.0002479077653310937
+        },
+        "filtered_minus_raw": {
+          "value": 0.0,
+          "paired_block_se": 0.0
+        }
+      },
+      "decision": "disagrees",
+      "raw_decision": "disagrees"
+    },
+    {
+      "id": "capacity8",
+      "intervals": [
+        8,
+        8
+      ],
+      "installations": 6,
+      "width": 5,
+      "base_seed": 996173,
+      "enrolled": 2097152,
+      "blocks": 64,
+      "estimates": {
+        "distance": {
+          "value": 0.5001378059387207,
+          "paired_block_se": 0.000276257086373617
+        },
+        "out_speed": {
+          "value": 0.12505248946097466,
+          "paired_block_se": 8.839760631119597e-05
+        },
+        "in_speed": {
+          "value": 0.12500977323240364,
+          "paired_block_se": 6.385947743004877e-05
+        },
+        "optical_forecast": {
+          "value": 0.9921528191982784,
+          "paired_block_se": 9.225201080862528e-06
+        },
+        "ratio": {
+          "value": 0.9921182701141553,
+          "paired_block_se": 0.00025960338673027304
+        },
+        "residual": {
+          "value": -3.45490841230367e-05,
+          "paired_block_se": 0.0002611243836424102
+        },
+        "raw_ratio": {
+          "value": 0.9999544632619253,
+          "paired_block_se": 0.00026274150937547586
+        },
+        "raw_residual": {
+          "value": 0.0078016440636469175,
+          "paired_block_se": 0.0002642855472881174
+        },
+        "filtered_minus_raw": {
+          "value": -0.007836193147769954,
+          "paired_block_se": 1.9905627357127358e-05
+        }
+      },
+      "decision": "agrees",
+      "raw_decision": "disagrees"
+    }
+  ]
+}

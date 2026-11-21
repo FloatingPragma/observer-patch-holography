@@ -47,7 +47,7 @@ Standard Model and Einstein's gravity come about once their premises hold. So
 the law has one job: fulfil those premises, all of them together, on one
 process.
 
-The [requirements](model/REQUIREMENTS.md) make this a precise target:
+The official [scorecard](model/evaluation/SCORECARD.md) makes this a precise target:
 
 - **Fixed:** the carrier, a sphere of echosahedral cells in which each cell is
   one observer and its twelve ports are its interfaces, and the premises of the
@@ -63,62 +63,34 @@ The [requirements](model/REQUIREMENTS.md) make this a precise target:
   read from their clocks is the stress carried by the excitations that move,
   and the gauge currents act on those same excitations.
 
-Once a law meets the requirements it is frozen, and its observers' records say
-which particles exist, with which spins, charges and mass ratios. That is the
-prediction of the search: a law found from the premises alone, whose observers
-then discover our particles.
+Once a law and its calibrations are frozen, held observer records test the predicted field, clocks, OpenWave phenomena and the identity of every Standard Model particle. The inventory requires measured distinctions among species, including their spins, charges and interactions.
 
 Every candidate law lives in [model/candidate_laws](model/candidate_laws/CANDIDATE.md)
-and runs on the same fixed carrier. One command scores all of them against the
-requirements, premise by premise, and writes the
-[scorecard](model/evaluation/SCORECARD.md):
+and runs on the same fixed carrier. One command scores all of them against
+the official [scorecard](model/evaluation/SCORECARD.md). To display it, run
 
 ```sh
 python -m model evaluate
 ```
 
-The main candidate is A-contrast-memory-spherical-v1; a second, the scalar
-channel, runs beside it. Most premises are open for both, and the scorecard
-shows which. New candidates are welcome: a candidate is a folder with a
+The main candidate is [Interval Echo](model/candidate_laws/interval_echo/README.md). It equips the contrast-memory interaction with a clock carried and read by a finite patch. The contrast-memory reference and the scalar channel appear alongside it in the common scorecard. New candidates are welcome: a candidate is a folder with a
 `candidate.py`, and [CANDIDATE.md](model/candidate_laws/CANDIDATE.md#adding-a-candidate)
 says what it declares.
 
 ## Research focus
 
 We have a working candidate [executable model](model/README.md) of OPH. Its
-hardware is the fixed sphere of echosahedral cells; its main candidate law,
-A-contrast-memory-spherical-v1, keeps a few records on the ports and seams of
-each cell, compares neighbouring records, and repairs every disagreement
-between the two of them. The theory around the model is in place: the closure
+hardware is the fixed sphere of echosahedral cells. Its main candidate, Interval Echo, runs the contrast-memory seam repair and carries a finite observer’s clock through local handoffs. The theory around the model is in place: the closure
 principle, the theorem library and the finite constructions below.
 
 **What the observers inside experience.** The state of the simulation does
 not contain the physical Universe. Its ports, seams and cells are the hardware
 of a computation, and they are no space. Space, time, fields and particles are
-how the observers inside describe the records they agree on. We have shown
-that the observers who inhabit the simulation can describe their experiences
-as a relativistic continuum spacetime with three dimensions of space and one
-of time, built on the slowest response of a cell, which has exactly three
-directions. Their records obey the quantum rules of measurement, and under
-stated premises their forces have the algebra of the Standard Model and their
-gravity obeys Einstein's equation: what they can measure has the structure of
-what we measure. Every test of the model therefore compares what its
-observers record with what we record. It never compares the state of the
-simulation with the world.
+how the observers inside describe the records they agree on. The native cell has a rank-three slow response. Earlier finite observers recovered three directions from records, and a separate scalar construction admits a smooth relativistic 3+1 description under its stated premises. The scorecard specifies which geometry, clocks and refinement tests each current candidate supplies. The gauge and Einstein theorems have further common-source premises. [Finite observations and their scope](model/evaluation/EVIDENCE.md#patch-05) · [Gravity requirements](model/evaluation/EVIDENCE.md#g1)
 
-The design answers how a Universe can compute its own history at all. A
-consistent history is a fixed point over an enormous number of records, and
-a search for it would take exponentially long. The network does not search.
-Every check is local, every repair is local, and every accepted repair
-removes a fixed amount of disagreement, so the work grows as a polynomial in
-the number of observers: with this design the Universe thinks itself into
-existence in polynomial time. The
-[specification](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md) of the
-main candidate says which part of this is a theorem.
+A history can be a common terminal record of local repairs. If a nonnegative disagreement measure decreases by a fixed amount at every accepted repair, its initial value bounds the number of accepted repairs. A polynomial running-time bound also requires bounds on that initial value and the cost of finding and serving the repairs. Uniqueness requires overlapping repairs to reach a common endpoint on the public records. Interval Echo tests that condition on a two-seam fork. A polynomial bound for its unique federation-wide history is open. [Reference specification](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md) · [Interval Echo repair-order test](model/candidate_laws/interval_echo/CONSENSUS.md)
 
-Two candidate repair laws run on the model, the contrast-memory law and the
-scalar channel. No measured number enters them. Under them the observers
-who inhabit the computation record the following structures:
+The contrast-memory reference and the scalar channel supplied the following observer records. Interval Echo uses the same contrast-memory interaction and a clock filter calibrated to a guided reunion comparison.
 
 - **Particles that hold together.** A pair of loads written on one seam is
   read as a pair at every later reading, with a probability that a theorem
@@ -277,8 +249,8 @@ the gentlest introductions.
 
 The most valuable contribution is a candidate law that fulfils more premises
 of the finite theorems on the fixed carrier, or a failure of a candidate shown
-on its observers' records. The [requirements](model/REQUIREMENTS.md), the
-[scorecard](model/evaluation/SCORECARD.md) and the
+on its observers' records. The [scorecard](model/evaluation/SCORECARD.md)
+and the
 [research issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+is%3Aopen+label%3Aprogram%3Aphysics)
 set out the work. Main-branch PDFs are source previews; deposited releases
 keep their original bytes.

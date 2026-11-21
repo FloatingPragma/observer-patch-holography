@@ -1,0 +1,656 @@
+{
+  "groups": [
+    {
+      "id": "observer_benchmarks",
+      "title": "Clock dilation, three-dimensional fields, signal timing and bound-pair dynamics",
+      "purpose": "Observers measure how a moving clock runs, whether a field varies along three independent spatial directions, and when a message can first be decoded. They also test whether separated loads form a lasting pair, where it travels and whether it returns, how its clock phase advances, and how its wave frequency depends on momentum.",
+      "reference": "The archived positive and negative controls ran on an eight-slot periodic routing architecture. The historical numbers belong to that apparatus. The candidate columns use the current spherical law and state which preparations, sectors and services produced their records.",
+      "sources": [
+        "https://github.com/FloatingPragma/observer-patch-holography/blob/cea95a7e62df1059bc55b299339ea45c09159977/model/README.md#measured-on-simulated-observers",
+        "model/benchmarks/eight_slot_torus/README.md"
+      ],
+      "criteria": [
+        {
+          "id": "OBS-01",
+          "title": "Time dilation of a moving clock",
+          "requires": "Measure speed independently. Read a returning finite patch’s evolving hand and its rest companion at home. Reproduce the clock forecast and its tolerance on held journeys, clock constructions and speeds.",
+          "context": "On the torus five long-wave moving/rest residuals were at most 0.00371 against a 0.035 limit. A broad packet missed by 0.06546. Two clocks agreed on five journeys. Six bound-clock flights passed the finite-packet correction.",
+          "sources": [
+            "https://github.com/FloatingPragma/observer-patch-holography/blob/cea95a7e62df1059bc55b299339ea45c09159977/model/README.md#measured-on-simulated-observers"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "Prepared moving and home hands agree with independent reciprocal optical timing on held 3/5, 5/3 and 7/7 schedules across three physical home links on each of two screens. At 8/8 the original three-bit hand fails the frozen band; the five-bit hand passes on the same itinerary. The coherent hand passes separate accepted-event comparisons. Timing-equivalent embeddings share one cohort. An independently generated light cone and a common rate across other physical clock mechanisms are open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/RESULTS.json",
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/evaluation/ONE_LINK_CLOCK.md",
+                "model/evaluation/one_link_clock_archive.json",
+                "model/experiments/interval_echo_clock/results.json",
+                "model/experiments/interval_echo_clock/replication.json",
+                "model/experiments/interval_echo_clock/README.md",
+                "model/experiments/interval_echo_optics/results.json",
+                "model/experiments/interval_echo_optics/README.md",
+                "model/experiments/interval_echo_clock/PUBLICATION.md",
+                "model/experiments/interval_echo_clock/publication.json",
+                "model/experiments/interval_echo_clock/CAPACITY.md",
+                "model/experiments/interval_echo_clock/capacity.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "Seam-event counters give a patch timing resources. The supplied event sequencer has no moving/rest observer hand comparison.",
+              "evidence": [
+                "model/experiments/contrast_clock/README.md",
+                "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "A stationary ring has a measurable line against its reference. A transported clock, independent speed and fixed-home reunion remain open.",
+              "evidence": [
+                "model/experiments/cage/README.md"
+              ]
+            }
+          }
+        },
+        {
+          "id": "OBS-02",
+          "title": "Three spatial directions in a field measured by observers",
+          "requires": "Infer three independent directions and scales from timed patch records. Predict withheld field measurements across stations and refinements and test whether dropping any direction spoils them.",
+          "context": "The torus supplied its three spatial routing axes. Nine stations predicted 120 held field values with RMS 0.001103. Omitting successive spatial derivatives raised RMS to 0.3123, 0.3246 and 0.3246. RER also recovered a three-dimensional Gram matrix from native cell records and, in a separate free-field inverse experiment, a supplied cube from eight relabelled channels.",
+          "sources": [
+            "https://github.com/FloatingPragma/observer-patch-holography/blob/cea95a7e62df1059bc55b299339ea45c09159977/model/README.md#measured-on-simulated-observers",
+            "https://github.com/FloatingPragma/observer-patch-holography/blob/374b2390801842d38de9b9c326e79a8ab29a6be5/model/observer_reconstruction/README.md"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "Relabelled local ports recover a rank-three Gram. On complete 20-, 80- and 320-cell screens, neighbouring patches decode all 144 held three-sign preparations. A short-range incidence survey plus the frozen hopping scale predicts 72 further words at held senders and previously untested dwell times. The signal is an occupation-probability contrast. Timing and addresses are supplied; a three-dimensional field with independently ranged physical scales and corresponding refined stations remains open.",
+              "evidence": [
+                "model/evaluation/patch_spatial_readout.json",
+                "model/candidate_laws/interval_echo/candidate.py",
+                "model/candidate_laws/interval_echo/CURRENTS.md",
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/experiments/interval_echo_space/result.json",
+                "model/experiments/interval_echo_space/forecast.json",
+                "model/experiments/interval_echo_space/README.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "partial",
+              "note": "Relabelled local ports recover a rank-three Gram. On complete 20-, 80- and 320-cell screens, neighbouring patches decode all 144 held three-sign preparations. A short-range incidence survey plus the frozen hopping scale predicts 72 further words at held senders and previously untested dwell times. The signal is an occupation-probability contrast. Timing and addresses are supplied; a three-dimensional field with independently ranged physical scales and corresponding refined stations remains open.",
+              "evidence": [
+                "model/evaluation/patch_spatial_readout.json",
+                "model/candidate_laws/contrast_memory_spherical_v1/port_response.py",
+                "model/candidate_laws/contrast_memory_spherical_v1/candidate.py",
+                "model/experiments/seam_program/README.md",
+                "model/experiments/interval_echo_space/result.json",
+                "model/experiments/interval_echo_space/forecast.json",
+                "model/experiments/interval_echo_space/README.md"
+              ]
+            },
+            "scalar_channel": {
+              "status": "partial",
+              "note": "The seam response BBᵀ has a three-dimensional first nonconstant eigenspace on one cell. The registered scalar generator supplies cell modes. A propagation experiment with independently surveyed stations remains open.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/candidate.py",
+                "model/evaluation/evaluate.py"
+              ]
+            }
+          }
+        },
+        {
+          "id": "OBS-03",
+          "title": "Earliest decodable message in observer time",
+          "requires": "Choose a bit after setup. The receiver commits its answer by independently ranged early and late deadlines on its own patch clock. Test passive signals, every allowed relay and quiet controls. Record both accuracy and rare early clicks.",
+          "context": "The torus passive receiver had early probability at most 5.878 × 10⁻³⁵, early balanced decoding at 50% and late decoding at 100%. An addressed relay decoded all 512 bits early. A pulse peak measures a different event from the first usable message.",
+          "sources": [
+            "https://github.com/FloatingPragma/observer-patch-holography/blob/cea95a7e62df1059bc55b299339ea45c09159977/model/README.md#measured-on-simulated-observers"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "The guide delivers local handoff records. No deposited receiver locks a late-chosen bit against both early and late deadlines across the allowed signal menu.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/RESULTS.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "Pair propagation and phase-sensitive returns have receiver records. Their senders do not run the late-choice, clocked deadline comparison.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "model/experiments/seam_program/receiver_records/result.json"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The scalar service prepares and reads local pointer signals. Its protocol does not compare early and late remote decoding on observers’ clocks.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/protocol.json",
+                "model/candidate_laws/scalar_channel/results.json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "OBS-04",
+          "title": "Formation of an enduring pair in an ordinary encounter",
+          "requires": "Start with separated constituents. A patch records a birth and later an intact pair. Distinguish formation from binding after a measurement or deliberate preparation, report all quiet starts and compare disabled capture.",
+          "context": "The archived simple routed encounter formed a pair with probability 1/2 and gave zero when its capture vertex was disabled. Preparation and capture rates depend on the experiment.",
+          "sources": [
+            "https://github.com/FloatingPragma/observer-patch-holography/blob/cea95a7e62df1059bc55b299339ea45c09159977/model/README.md#measured-on-simulated-observers",
+            "model/benchmarks/eight_slot_torus/formation.py"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "After separated starts, bypassing the first reader gives late patch adjacency 0.00499425. An unread sharp first observation raises it to 0.00512724. Conditioning on a first click gives 0.993226, and the sharp ensemble gains dressed bound-band weight. An ordinary durable capture record independent of the detector remains open. An unselected scheduled native write with its memory retained increases later pair yield on disjoint seams from 0.003485 to 0.126725 relative to erasure. The service appointment is supplied.",
+              "evidence": [
+                "model/evaluation/observer_encounter.json",
+                "model/evaluation/observer_encounter.py",
+                "model/candidate_laws/interval_echo/candidate.py",
+                "model/candidate_laws/interval_echo/test_currents.py",
+                "model/experiments/interval_echo_encounter/result.json",
+                "model/experiments/interval_echo_encounter/README.md",
+                "model/experiments/interval_echo_encounter/MEMORY.md",
+                "model/experiments/interval_echo_encounter/memory.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "partial",
+              "note": "After separated starts, bypassing the first reader gives late patch adjacency 0.00499425. An unread sharp first observation raises it to 0.00512724. Conditioning on a first click gives 0.993226, and the sharp ensemble gains dressed bound-band weight. An ordinary durable capture record independent of the detector remains open. An unselected scheduled native write with its memory retained increases later pair yield on disjoint seams from 0.003485 to 0.126725 relative to erasure. The service appointment is supplied.",
+              "evidence": [
+                "model/evaluation/observer_encounter.json",
+                "model/evaluation/observer_encounter.py",
+                "model/candidate_laws/contrast_memory_spherical_v1/sectors.py",
+                "model/experiments/interval_echo_encounter/result.json",
+                "model/experiments/interval_echo_encounter/README.md",
+                "model/experiments/interval_echo_encounter/MEMORY.md",
+                "model/experiments/interval_echo_encounter/memory.json"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The pulse prepares the protected ring. The registered free scalar generator has no interaction term that binds two colliding objects. The separate conversion experiment changes the law.",
+              "evidence": [
+                "model/experiments/cage/README.md",
+                "model/candidate_laws/scalar_channel/candidate.py",
+                "model/experiments/radiative_repair/README.md"
+              ]
+            }
+          }
+        },
+        {
+          "id": "OBS-05",
+          "title": "Direction, coverage and return of a formed pair",
+          "requires": "Register direction by the time order of local station records. Report intended and wrong-way crossings per enrolled start and per crossing for both launch senses. Read the marker and pair at return and include losses.",
+          "context": "The archived late train reached 96.56% in the intended direction among crossings. Early coverage was 9.680% against 10% required. The closed-wire example had about 0.53% breakup after its marker’s second return.",
+          "sources": [
+            "https://github.com/FloatingPragma/observer-patch-holography/blob/cea95a7e62df1059bc55b299339ea45c09159977/model/README.md#measured-on-simulated-observers"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "A guided traveller returns to a fixed patch. The shared free pair also reappears on other seams. No common enrolment yet checks an encounter-born pair’s chosen direction, absolute coverage and second return.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/RESULTS.json",
+                "model/candidate_laws/interval_echo/candidate.py",
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "model/evaluation/observer_encounter.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "partial",
+              "note": "An emitted pair was read on a different seam with probability up to 0.977 on each tested federation. Signed ordinary launches, an encounter marker and its return are separate measurements.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/README.md",
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "model/evaluation/observer_encounter.json"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The observed ring is exactly confined. The free scalar response has other modes, but the specified direction-and-return experiment has no registered formed-pair cohort.",
+              "evidence": [
+                "model/experiments/cage/PROOF.md",
+                "model/candidate_laws/scalar_channel/candidate.py"
+              ]
+            }
+          }
+        },
+        {
+          "id": "OBS-06",
+          "title": "Phase rate of a clock on the formed pair",
+          "requires": "Read the same internal phase at several declared elapsed intervals using local reference records. Include visibility, rate uncertainty, source width, receiver aperture and quiet outcomes.",
+          "context": "At width five the torus array reported 0.000439509–0.000440033 radians per home tick across six durations. The central layer failed. Widening the preparation from three to five changed the array rate by about 31%.",
+          "sources": [
+            "https://github.com/FloatingPragma/observer-patch-holography/blob/cea95a7e62df1059bc55b299339ea45c09159977/model/README.md#measured-on-simulated-observers"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "Finite hands advance on the patch’s own signed repairs. The hand, its source and service windows are prepared. No collision-born pair has supplied the six-duration phase series.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/observations.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "partial",
+              "note": "A prepared, written seam has locally readable level splittings. The archive supplies the collar phase preparation, and its ordinary formed pair lacks a stable phase-rate series.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/collar.py",
+                "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md",
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+              ]
+            },
+            "scalar_channel": {
+              "status": "partial",
+              "note": "A pulsed cage gives 4.898982 and 4.898976 in local reference units under equal and unequal waits. A fuel read gives 4.898980. This is a stationary prepared cage with a supplied phase.",
+              "evidence": [
+                "model/experiments/cage/README.md",
+                "model/experiments/cage/results.json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "OBS-07",
+          "title": "Relativistic matter-wave dispersion of the same formed object",
+          "requires": "Independently measure rest frequency, signal speed and spatial phase gradient. Predict the moving object’s frequency in held directions and at multiple wavelengths with a changed-law control.",
+          "context": "The archived routed pair passed 14 signed directions at periods 64, 128 and 256, with a 3.5% kinetic tolerance. Halving the spatial weight failed all 42 comparisons. The higher-momentum runs left the smooth regime.",
+          "sources": [
+            "https://github.com/FloatingPragma/observer-patch-holography/blob/cea95a7e62df1059bc55b299339ea45c09159977/model/README.md#measured-on-simulated-observers",
+            "model/benchmarks/eight_slot_torus/matter_wave.py"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "The shared free-sector binding predicts cluster motion on rings. Its rest and kinetic mass ratios disagree across species. A clocked, independently ranged, three-direction shell for one collision-born object remains open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/candidate.py",
+                "model/experiments/material_inertia/README.md",
+                "model/experiments/material_inertia/records/flight/result.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "partial",
+              "note": "The ring flight forecasts match complete distributions within 0.00214 total variation. Measured kinetic ratios about 34, 1,155 and 39,236 disagree with rest-energy ratios 1.686, 2.354 and 3.020. The three-direction held shell is open.",
+              "evidence": [
+                "model/experiments/material_inertia/README.md",
+                "model/experiments/material_inertia/records/flight/result.json"
+              ]
+            },
+            "scalar_channel": {
+              "status": "partial",
+              "note": "The seam operator has the exact spectral relation ω² = m² + λ. Here λ comes from BBᵀ and m is supplied. The cage measures one internal gap. An observer-derived wavevector, independent signal speed and held moving-pair shell are open.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/candidate.py",
+                "model/experiments/cage/results.json"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "patch_measurements",
+      "title": "Patch clocks, stable excitations and a spacetime description",
+      "purpose": "Record what the spherical candidates have already demonstrated at finite size and which ingredients a full spacetime reconstruction still needs.",
+      "reference": "A patch can own one or several echosahedra and may share cells with another observer. Supplied references, detectors and local schedules belong to each experiment. A source comparison may use an unchanged reducing sector when the preparation, generator and readout coincide.",
+      "sources": [
+        "model/candidate_laws/interval_echo/SPEC.md",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+        "https://github.com/FloatingPragma/observer-patch-holography/blob/374b2390801842d38de9b9c326e79a8ab29a6be5/model/observer_reconstruction/README.md"
+      ],
+      "criteria": [
+        {
+          "id": "PATCH-01",
+          "title": "A fixed observer reads a material timing record",
+          "requires": "A finite patch reads a local hand or periodic reference from physical registers at more than one setting. State how the source, cadence and readout are supplied.",
+          "context": "This finite test credits a readable clock resource with its preparation and range. A universal clock rate or a shared screen-wide history is outside its scope.",
+          "sources": [
+            "model/candidate_laws/interval_echo/SPEC.md",
+            "model/experiments/contrast_clock/README.md",
+            "model/experiments/cage/README.md"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "demonstrated",
+              "note": "A patch retains both the latest primary repair outcome and the physical five-position hand. On 320 cells patches posted 41,108 marks and retained 40,812 quiet opportunities under the supplied schedule.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/observations.json",
+                "model/candidate_laws/interval_echo/patch_records.npz"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "partial",
+              "note": "Native seam events increment physical port counters and retain two reader blocks. The finite autonomous sequencer is apparatus. The experiment has yet to identify a complete patch hand and its reference from these counters.",
+              "evidence": [
+                "model/experiments/contrast_clock/README.md",
+                "model/experiments/contrast_clock/results.json"
+              ]
+            },
+            "scalar_channel": {
+              "status": "demonstrated",
+              "note": "A native cell’s ring detector and a prepared local reference yield a single phase line after a finite pulse. Stopping both cage modes removes the swing while its reference continues.",
+              "evidence": [
+                "model/experiments/cage/README.md",
+                "model/experiments/cage/results.json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "PATCH-02",
+          "title": "Own-history clock transport and fixed-home reunion",
+          "requires": "A finite moving patch physically carries its hand, elapsed count and interval history. At reunion both owners recover the same home/traveller readings through a shared local register. State all supplied movement and gating services.",
+          "context": "This measures local register custody and agreement at one event. A distribution over completed travel schedules also tests the closing filter over its declared finite capacity.",
+          "sources": [
+            "model/candidate_laws/interval_echo/SPEC.md",
+            "model/candidate_laws/interval_echo/clock.py"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "demonstrated",
+              "note": "Both owners read home and traveller words at physical reunion. The patch publishes accepted repairs to an orthogonal local register. Two distinct hands agree on all 396 tested service opportunities, and the five-bit material profile represents intervals up to 31. Gate windows and movement are supplied.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/RESULTS.json",
+                "model/candidate_laws/interval_echo/reunions.npz",
+                "model/experiments/interval_echo_clock/PUBLICATION.md",
+                "model/experiments/interval_echo_clock/publication.json",
+                "model/experiments/interval_echo_clock/CAPACITY.md",
+                "model/experiments/interval_echo_clock/capacity.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "A prepared event counter or local seam memory is readable. The reference law’s deposited runs do not transport the hand and elapsed words to a fixed home patch.",
+              "evidence": [
+                "model/experiments/contrast_clock/README.md",
+                "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The cage phase can be read locally. It is fixed to the ring. The routed scratch service transports a control, with no moving cage hand or joint reunion record.",
+              "evidence": [
+                "model/experiments/cage/README.md",
+                "model/candidate_laws/scalar_channel/routed.py"
+              ]
+            }
+          }
+        },
+        {
+          "id": "PATCH-03",
+          "title": "A prepared excitation persists and is locally detectable",
+          "requires": "Give a fixed preparation, a patch readout, delays and a perturbation or interaction-off control. Demonstrate persistence of internal binding or protected local support and specify which is tested.",
+          "context": "Later torus work added persistence as an eighth observation. Survival of a prepared state is independently testable and does not imply that the same state forms in a typical encounter.",
+          "sources": [
+            "model/benchmarks/eight_slot_torus/pair_persistence.py",
+            "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
+            "model/experiments/cage/PROOF.md"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "demonstrated",
+              "note": "Its idle-clock binary sector is precisely the reference interaction at κ = 8. The same patch reads an intact pair again with probability 0.993226 after heralding one locally, compared with 0.338671 for exchange alone. The reference’s prepared-pair theorem applies in this free sector.",
+              "evidence": [
+                "model/evaluation/observer_encounter.json",
+                "model/candidate_laws/interval_echo/candidate.py",
+                "model/candidate_laws/interval_echo/test_currents.py",
+                "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "demonstrated",
+              "note": "The prepared seam pair has a uniform binding bound. On 20, 80 and 320 cells sampled no-pair probability stayed below 0.0097. On 20 cells exchange alone reached 0.80. A one-cell observer on that federation also detected post-herald persistence.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "model/evaluation/observer_encounter.json"
+              ]
+            },
+            "scalar_channel": {
+              "status": "demonstrated",
+              "note": "The alternating four-seam ring and its partner span an invariant subspace. The detector reads the excitation over five waits. Altering the hopping breaks the line and its predicted records. Ring tests cover 20, 80 and 320 cells.",
+              "evidence": [
+                "model/experiments/cage/PROOF.md",
+                "model/experiments/cage/results.json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "PATCH-04",
+          "title": "Propagation of a localized defect or bound excitation",
+          "requires": "After a local excitation is identified, another local site or patch detects it with its identifying property intact. Specify whether transport is passive or serviced and keep disappearance and quiet outcomes.",
+          "context": "Motion of a bound pair to another seam, transport of a registered load between patches and motion of a phase-carrying particle are distinct measurements. Only the first two meet this bounded location-change test.",
+          "sources": [
+            "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
+            "model/candidate_laws/interval_echo/observations.py",
+            "model/experiments/cage/PROOF.md"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "demonstrated",
+              "note": "On 320 cells, patches tracked 34 mobile doubles across 2,399 serviced transfers, with conservation checked. Separately, a locally heralded free pair reached another internal seam of its cell at the next read with probability 0.803077.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/observations.json",
+                "model/candidate_laws/interval_echo/observations.py",
+                "model/evaluation/observer_encounter.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "demonstrated",
+              "note": "An emitted pair appears on a different seam with probability up to 0.977 on each of the three federations. At 20 cells the local two-read experiment gives probability 0.803077 on another internal seam at the second read given a first hit.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/README.md",
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "model/evaluation/observer_encounter.json"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The measured cage has exactly flat levels and remains confined to its ring. A separately named mobile-memory generator changes the dynamics. A mobile protected scalar excitation in the registered law remains open.",
+              "evidence": [
+                "model/experiments/cage/PROOF.md",
+                "model/experiments/mobile_memory/README.md"
+              ]
+            }
+          }
+        },
+        {
+          "id": "PATCH-05",
+          "title": "Smooth 3+1D description of a finite observer menu",
+          "requires": "On the same candidate identify the recorded source, clock, positive angular form, radial propagation and refinement assumptions of the smooth-description proposition, or directly verify a declared family of held four-dimensional predictions with quantified errors.",
+          "context": "RER’s smooth-effective-descriptions proposition proves approximation of every fixed finite admissible menu on bounded times by a free scalar on a smooth static 1+3 metric under S1 and S2 with radial Dirichlet interval. An earlier eight-channel free-field reconstruction inferred 12 cube edges and rank three, and predicted 16 withheld settings below 3 × 10⁻¹⁴ in probability. A separate 720-branch echosahedral experiment recovered a rank-three Gram matrix from repair records. In the separate OL-A1 fresh-seed signature replication the high-carrier arm recovered its threshold signature in 5/5 replicates and the lower arm in 2/5. The margin and ancestry controls failed. The small eigenvalue was about 3 × 10⁻⁵ relative to the largest and the robust signature lost a direction. The ledger keeps OL-A1 owed.",
+          "sources": [
+            "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+            "paper/executable_observer_construction.tex",
+            "https://github.com/FloatingPragma/observer-patch-holography/blob/374b2390801842d38de9b9c326e79a8ab29a6be5/model/observer_reconstruction/README.md",
+            "docs/registers/OBSERVATION_LEDGER_V3.md",
+            "tracking/observation_ledger.json"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "The local slow band, patch clock and overlap records are implemented. The free product-wave/refinement construction and a jointly measured radial and two angular responses have not been attached to the same clocked candidate.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/observations.json",
+                "model/candidate_laws/interval_echo/CURRENTS.md",
+                "model/evaluation/patch_spatial_readout.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "partial",
+              "note": "The candidate gives a native rank-three cell response and measured pair propagation. A supplied four-index grid can be compiled into its seam gates. The rank-three response alone does not identify a radial coordinate or a three-direction metric across patches.",
+              "evidence": [
+                "model/candidate_laws/contrast_memory_spherical_v1/port_response.py",
+                "model/candidate_laws/contrast_memory_spherical_v1/candidate.py",
+                "model/experiments/seam_program/README.md",
+                "model/evaluation/patch_spatial_readout.json"
+              ]
+            },
+            "scalar_channel": {
+              "status": "partial",
+              "note": "The free scalar law gives a native one-cell seam dispersion and a local phase reference. A source-to-metric map with radial propagation and clocked refinements over this law’s observer records remains open.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/candidate.py",
+                "model/experiments/cage/README.md",
+                "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "PATCH-06",
+          "title": "Three independent spatial response components in local patch records",
+          "requires": "Infer the multiplicity and Gram matrix of the slowest nonconstant response from records of an observer with a finite spatial aperture. Predict new local readouts and bound the loss from a two-component description.",
+          "context": "The source supplies one native cell, sharp preparations, complete local detectors, the weak-exposure branch and relative dwell settings. The inverse receives relabelled probabilities and a uniform-hopping model class. It receives no coordinates, spatial dimension, seams or Hamiltonian. The measurement concerns the local angular response. OBS-02 asks whether three directions propagate between observers.",
+          "sources": [
+            "model/evaluation/patch_spatial_readout.py",
+            "model/evaluation/patch_spatial_readout.json",
+            "model/evaluation/repair_band.py"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "demonstrated",
+              "note": "A one-cell patch prepares and reads one load at twelve ports. From anonymous calibration probabilities the inverse infers 30 edges, a hop angle of 0.0625, and a Gram of rank three. Twice and three times the exposure reproduce that subspace and 288 individual held probabilities to below 10⁻¹⁰. The best rank-two Gram has relative error 0.57735. The shared free sector is measured with the clock idle.",
+              "evidence": [
+                "model/evaluation/patch_spatial_readout.json",
+                "model/evaluation/patch_spatial_readout.py",
+                "model/candidate_laws/interval_echo/candidate.py"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "demonstrated",
+              "note": "A one-cell patch prepares and reads one load at twelve ports. From anonymous calibration probabilities the inverse infers 30 edges, a hop angle of 0.0625, and a Gram of rank three. Twice and three times the exposure reproduce that subspace and 288 individual held probabilities to below 10⁻¹⁰. The best rank-two Gram has relative error 0.57735.",
+              "evidence": [
+                "model/evaluation/patch_spatial_readout.json",
+                "model/evaluation/patch_spatial_readout.py",
+                "model/candidate_laws/contrast_memory_spherical_v1/candidate.py"
+              ]
+            },
+            "scalar_channel": {
+              "status": "partial",
+              "note": "The unsigned seam–port incidence sends the same rank-three projector into the actual scalar squared-frequency response. A detector-table reconstruction of that rank on physical scalar preparations remains open.",
+              "evidence": [
+                "model/evaluation/repair_band.json",
+                "model/evaluation/repair_band.py",
+                "model/candidate_laws/scalar_channel/candidate.py"
+              ]
+            }
+          }
+        },
+        {
+          "id": "PATCH-07",
+          "title": "Three spatial response components reach neighbouring patches",
+          "requires": "Use native evolution to transmit independently prepared components from one sender to real neighbouring patches. Decode held combinations from local port/quiet counts, test rank-two and sham controls, and check predictions at untrained stations or exposure times.",
+          "context": "This section tests the transfer of prepared local load-probability contrasts on a one-load source. The exposures are externally set. The three receivers contribute separate local inboxes.",
+          "sources": [
+            "model/experiments/interval_echo_space/PROTOCOL.md",
+            "model/experiments/interval_echo_space/FORECAST_PROTOCOL.md"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "demonstrated",
+              "note": "Relabelled local ports recover a rank-three Gram. On complete 20-, 80- and 320-cell screens, neighbouring patches decode all 144 held three-sign preparations. A short-range incidence survey plus the frozen hopping scale predicts 72 further words at held senders and previously untested dwell times. The signal is an occupation-probability contrast. Timing and addresses are supplied; a three-dimensional field with independently ranged physical scales and corresponding refined stations remains open.",
+              "evidence": [
+                "model/experiments/interval_echo_space/result.json",
+                "model/experiments/interval_echo_space/forecast.json",
+                "model/experiments/interval_echo_space/README.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "demonstrated",
+              "note": "The one-load generator and all preparations and readers used in the passive propagation are identical to Interval Echo’s. All 144 held words and all 72 additional station/time words were decoded. The clock is idle.",
+              "evidence": [
+                "model/experiments/interval_echo_space/result.json",
+                "model/experiments/interval_echo_space/forecast.json",
+                "model/experiments/interval_echo_space/README.md"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The scalar sector uses different registers and propagation. This receiver experiment has no scalar-channel counterpart.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "PATCH-08",
+          "title": "Two kinds of material hand agree on the same accepted repair events",
+          "requires": "Compare a transported oscillator with a registered event hand on the same guided journeys and local accepted repair histories. Use independent phase readout, a frozen equivalence margin, rest calibration and a distinct raw-event control.",
+          "context": "The accepted-event oscillator and event hand implement distinct transducers of a common tick stream. The alternative oscillator counts every positive primary. Their comparison isolates the physical event selection.",
+          "sources": [
+            "model/experiments/interval_echo_clock/PROTOCOL.md",
+            "model/experiments/interval_echo_clock/REPLICATION.md"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "demonstrated",
+              "note": "The two unequal-leg schedules meet the ±0.006 equivalence criterion. The initial equal-leg result was unresolved. An independent equal-leg replication gives oscillator minus hand +0.000046 ± 0.000497 (SE). The matched raw-positive oscillator disagrees by +0.03204 ± 0.00044. The guide and gate schedule are supplied. Both hands independently read the material posted bit. For one trip followed by rest the raw-minus-accepted fractional gap shrinks as 1/T. Sustained slow travel gives a 0.0520% gap that the tested terminal-only reader missed.",
+              "evidence": [
+                "model/experiments/interval_echo_clock/results.json",
+                "model/experiments/interval_echo_clock/replication.json",
+                "model/experiments/interval_echo_clock/README.md",
+                "model/experiments/interval_echo_clock/PUBLICATION.md",
+                "model/experiments/interval_echo_clock/publication.json",
+                "model/experiments/interval_echo_clock/DURATION.md",
+                "model/experiments/interval_echo_clock/duration.json"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "The registered reference has no transported pair of clock hands using this accepted-event service.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The stationary cage line has no corresponding guided two-hand replication.",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "PATCH-09",
+          "title": "Optically ranged reunion on held native links and motion schedules",
+          "requires": "A finite home patch measures a reciprocal light time, receives a physical arrival report and reads both elapsed words at reunion. Compare the optical forecast with the material hand for prospectively held schedules on different native links. Require all in-domain tests to meet their frozen uncertainty band, and report overflow and raw-event controls separately.",
+          "sources": [
+            "model/experiments/interval_echo_optics/PROTOCOL.md",
+            "model/experiments/interval_echo_optics/CAPACITY_PROTOCOL.md"
+          ],
+          "context": "The relative pace of the reciprocal light guide and transfer opportunities is provided. Physical link installations with identical service timelines share their statistical cohort.",
+          "results": {
+            "interval_echo": {
+              "status": "demonstrated",
+              "note": "Three-bit 3/5, 5/3 and 7/7 and five-bit 8/8 all met the frozen ±0.004 band including four paired standard errors. The narrow 8/8 overflow control and the raw-primary controls disagreed. Home read both words at one local reunion.",
+              "evidence": [
+                "model/experiments/interval_echo_optics/results.json",
+                "model/experiments/interval_echo_optics/README.md"
+              ]
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "The registered reference lacks a travelling hand carrying this event selection and ranged reunion apparatus.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "A held reciprocal optical comparison of the transported scalar oscillator is open.",
+              "evidence": []
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

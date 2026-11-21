@@ -9,26 +9,20 @@ then have their own theorem, certificate, or experimental acceptance rule.
 
 The [executable model](model/README.md) has a fixed carrier, the spherical echosahedral federation in
 `model/executable_model`, and candidate laws in `model/candidate_laws`. The main candidate is
-[A-contrast-memory-spherical-v1](model/candidate_laws/contrast_memory_spherical_v1/README.md)
-([specification](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md),
-[binding theorem and proof](model/candidate_laws/contrast_memory_spherical_v1/PROOF.md)); the
-[executable-model paper](paper/executable_observer_construction.pdf) gives the full account. From the repository
-root:
+[Interval Echo](model/candidate_laws/interval_echo/README.md). Its [specification](model/candidate_laws/interval_echo/SPEC.md) defines the material clock and the prepared service protocol. From the repository root run
 
 ```sh
 python -m pip install -r model/requirements.txt
 export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
-python -m model                              # the main candidate against RESULTS.json; --full adds 80 and 320 cells
-python -m model run --law scalar_channel     # the second candidate
-python -m model evaluate --check             # the evaluation of every candidate against model/REQUIREMENTS.md
+python -m model                              # 20-cell material clock and paired reunion cohorts
+python -m model --full                       # all three sizes, stationary records, repair forks and port currents
+python -m model run --law contrast_memory_spherical_v1   # reference binding and reader replay
+python -m model run --law scalar_channel
+python -m model evaluate --check
 python -m pytest -q -W error model
 ```
 
-`python -m model` recomputes the headline results of the main candidate (the exact identities of the local law
-for symbolic coupling, the constants of the binding theorem, particle stability on the observers' agreed records
-with its controls, the bound objects, the port response and the unrecovered collar) and compares them with its
-`RESULTS.json` within stated tolerances. A disagreement fails verification; the last line printed is a JSON line
-with `"verified": true`. The model needs no sibling checkout and no Git history.
+The main replay compares fresh clock decisions and reunion words with the deposited results. Full verification includes every stationary record in the archive, the two-seam repair outcomes and the guarded port-current response. A mismatch returns a nonzero exit status. Use `--full --seed 42 --output /tmp/echo-42` to generate an independent realization. These commands run in a standalone RER checkout.
 
 Every test of the model compares distributions of admissible observer records with what observers in our world
 record. The state of the simulation is no physical space, so no test asks the carrier to be a three-dimensional

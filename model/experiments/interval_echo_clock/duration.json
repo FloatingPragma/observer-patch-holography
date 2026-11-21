@@ -1,0 +1,1302 @@
+{
+  "protocol_sha256": "fded2b21889bfdc1f6916e3b6ef3e383c94cc4a770a2d1594a5689a5e69bab3d",
+  "seed": 2026112357,
+  "material": [
+    {
+      "cycles": 1,
+      "observed_primary_marks": 4,
+      "reunion": {
+        "traveller": 4,
+        "home": 2
+      }
+    },
+    {
+      "cycles": 4,
+      "observed_primary_marks": 13,
+      "reunion": {
+        "traveller": 13,
+        "home": 17
+      }
+    }
+  ],
+  "histories": [
+    {
+      "history": "repeated_motion",
+      "cycles_or_windows": 1,
+      "opportunities": 8,
+      "expected_count_gap": 0.175933465975,
+      "expected_ratio_gap": 0.043983366494,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          0.680322163504,
+          0.680322163504
+        ],
+        [
+          0.703750921149,
+          0.656596611062
+        ]
+      ],
+      "visibility": [
+        0.96212083041,
+        0.96248868496
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 24,
+          "home_marks": 512,
+          "estimated_ratio_gap": 0.046875,
+          "paired_standard_error": 0.0090812127,
+          "rail_clicks": [
+            [
+              107,
+              23
+            ],
+            [
+              105,
+              23
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.1886358823,
+            0.1919634746
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 1441,
+          "home_marks": 32860,
+          "estimated_ratio_gap": 0.0438527085,
+          "paired_standard_error": 0.0011082697,
+          "rail_clicks": [
+            [
+              6845,
+              1273
+            ],
+            [
+              6904,
+              1425
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.0229607433,
+            0.0231803142
+          ],
+          "terminal_split_resolved": false
+        }
+      ]
+    },
+    {
+      "history": "repeated_motion",
+      "cycles_or_windows": 4,
+      "opportunities": 32,
+      "expected_count_gap": 0.703733863899,
+      "expected_ratio_gap": 0.043983366494,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          -0.856876968414,
+          0.0
+        ],
+        [
+          -0.84995870119,
+          0.118562916174
+        ]
+      ],
+      "visibility": [
+        0.856876968414,
+        0.858188183804
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 86,
+          "home_marks": 2104,
+          "estimated_ratio_gap": 0.0408745247,
+          "paired_standard_error": 0.0037097474,
+          "rail_clicks": [
+            [
+              5,
+              57
+            ],
+            [
+              8,
+              52
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.1097753554,
+            0.2472304477
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 5774,
+          "home_marks": 131489,
+          "estimated_ratio_gap": 0.0439124185,
+          "paired_standard_error": 0.0005551545,
+          "rail_clicks": [
+            [
+              554,
+              4105
+            ],
+            [
+              568,
+              3520
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.0157856413,
+            0.0311750576
+          ],
+          "terminal_split_resolved": true
+        }
+      ]
+    },
+    {
+      "history": "repeated_motion",
+      "cycles_or_windows": 16,
+      "opportunities": 128,
+      "expected_count_gap": 2.814935455595,
+      "expected_ratio_gap": 0.043983366494,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          0.539105644759,
+          -0.0
+        ],
+        [
+          0.461170521492,
+          -0.285540989397
+        ]
+      ],
+      "visibility": [
+        0.539105644759,
+        0.542413040513
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 353,
+          "home_marks": 8229,
+          "estimated_ratio_gap": 0.0428970713,
+          "paired_standard_error": 0.002033519,
+          "rail_clicks": [
+            [
+              100,
+              61
+            ],
+            [
+              93,
+              83
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.2153669057,
+            0.2480391854
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 22922,
+          "home_marks": 524149,
+          "estimated_ratio_gap": 0.0437318396,
+          "paired_standard_error": 0.0002761288,
+          "rail_clicks": [
+            [
+              6297,
+              4149
+            ],
+            [
+              6024,
+              5249
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.0269902227,
+            0.0309095078
+          ],
+          "terminal_split_resolved": true
+        }
+      ]
+    },
+    {
+      "history": "repeated_motion",
+      "cycles_or_windows": 32,
+      "opportunities": 256,
+      "expected_count_gap": 5.629870911191,
+      "expected_ratio_gap": 0.043983366494,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          0.290634896211,
+          -0.0
+        ],
+        [
+          0.131144593267,
+          -0.263366173975
+        ]
+      ],
+      "visibility": [
+        0.290634896211,
+        0.294211906519
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 738,
+          "home_marks": 16245,
+          "estimated_ratio_gap": 0.0454293629,
+          "paired_standard_error": 0.0016566731,
+          "rail_clicks": [
+            [
+              73,
+              67
+            ],
+            [
+              70,
+              81
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.2482774519,
+            0.2469293848
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 46374,
+          "home_marks": 1048803,
+          "estimated_ratio_gap": 0.0442161207,
+          "paired_standard_error": 0.0001932275,
+          "rail_clicks": [
+            [
+              5306,
+              4091
+            ],
+            [
+              4614,
+              5210
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.030546861,
+            0.0309623219
+          ],
+          "terminal_split_resolved": true
+        }
+      ]
+    },
+    {
+      "history": "repeated_motion",
+      "cycles_or_windows": 60,
+      "opportunities": 480,
+      "expected_count_gap": 10.556007958483,
+      "expected_ratio_gap": 0.043983366494,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          -0.098577329079,
+          0.0
+        ],
+        [
+          0.049079153463,
+          0.088118477975
+        ]
+      ],
+      "visibility": [
+        0.098577329079,
+        0.100864411292
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 1359,
+          "home_marks": 30828,
+          "estimated_ratio_gap": 0.0440833009,
+          "paired_standard_error": 0.001039901,
+          "rail_clicks": [
+            [
+              48,
+              60
+            ],
+            [
+              58,
+              58
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.2462796917,
+            0.2492358928
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 86478,
+          "home_marks": 1965534,
+          "estimated_ratio_gap": 0.0439972038,
+          "paired_standard_error": 0.0001430118,
+          "rail_clicks": [
+            [
+              3758,
+              4111
+            ],
+            [
+              4411,
+              3683
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.0312498768,
+            0.0312130969
+          ],
+          "terminal_split_resolved": true
+        }
+      ]
+    },
+    {
+      "history": "one_trip_then_rest",
+      "cycles_or_windows": 1,
+      "opportunities": 8,
+      "expected_count_gap": 0.175933465975,
+      "expected_ratio_gap": 0.043983366494,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          0.680322163504,
+          0.680322163504
+        ],
+        [
+          0.703750921149,
+          0.656596611062
+        ]
+      ],
+      "visibility": [
+        0.96212083041,
+        0.96248868496
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 21,
+          "home_marks": 513,
+          "estimated_ratio_gap": 0.0409356725,
+          "paired_standard_error": 0.0088732164,
+          "rail_clicks": [
+            [
+              107,
+              19
+            ],
+            [
+              103,
+              18
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.1919634746,
+            0.1758137991
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 1393,
+          "home_marks": 32827,
+          "estimated_ratio_gap": 0.0424345813,
+          "paired_standard_error": 0.0010909353,
+          "rail_clicks": [
+            [
+              6808,
+              1287
+            ],
+            [
+              6988,
+              1361
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.0227939088,
+            0.0230064288
+          ],
+          "terminal_split_resolved": false
+        }
+      ]
+    },
+    {
+      "history": "one_trip_then_rest",
+      "cycles_or_windows": 4,
+      "opportunities": 32,
+      "expected_count_gap": 0.175933465975,
+      "expected_ratio_gap": 0.010995841623,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          -0.856876968414,
+          0.0
+        ],
+        [
+          -0.856690059447,
+          0.029695815043
+        ]
+      ],
+      "visibility": [
+        0.856876968414,
+        0.857204584324
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 18,
+          "home_marks": 2092,
+          "estimated_ratio_gap": 0.0086042065,
+          "paired_standard_error": 0.0018844902,
+          "rail_clicks": [
+            [
+              11,
+              54
+            ],
+            [
+              12,
+              58
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.1429788888,
+            0.2480391854
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 1460,
+          "home_marks": 130978,
+          "estimated_ratio_gap": 0.0111469102,
+          "paired_standard_error": 0.000275558,
+          "rail_clicks": [
+            [
+              583,
+              4131
+            ],
+            [
+              597,
+              3979
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.0161577176,
+            0.0312484344
+          ],
+          "terminal_split_resolved": false
+        }
+      ]
+    },
+    {
+      "history": "one_trip_then_rest",
+      "cycles_or_windows": 16,
+      "opportunities": 128,
+      "expected_count_gap": 0.175933465975,
+      "expected_ratio_gap": 0.002748960406,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          0.539105644759,
+          -0.0
+        ],
+        [
+          0.538988050655,
+          -0.018683174021
+        ]
+      ],
+      "visibility": [
+        0.539105644759,
+        0.539311764883
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 21,
+          "home_marks": 8201,
+          "estimated_ratio_gap": 0.0025606633,
+          "paired_standard_error": 0.0005141388,
+          "rail_clicks": [
+            [
+              106,
+              68
+            ],
+            [
+              102,
+              68
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.1951561874,
+            0.249511241
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 1456,
+          "home_marks": 524193,
+          "estimated_ratio_gap": 0.0027776029,
+          "paired_standard_error": 6.78753e-05,
+          "rail_clicks": [
+            [
+              6319,
+              4110
+            ],
+            [
+              6324,
+              4195
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.0262348751,
+            0.0312470268
+          ],
+          "terminal_split_resolved": false
+        }
+      ]
+    },
+    {
+      "history": "one_trip_then_rest",
+      "cycles_or_windows": 32,
+      "opportunities": 256,
+      "expected_count_gap": 0.175933465975,
+      "expected_ratio_gap": 0.001374480203,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          0.290634896211,
+          -0.0
+        ],
+        [
+          0.290571500566,
+          -0.010072204577
+        ]
+      ],
+      "visibility": [
+        0.290634896211,
+        0.290746016733
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 25,
+          "home_marks": 16137,
+          "estimated_ratio_gap": 0.0015492347,
+          "paired_standard_error": 0.0002934122,
+          "rail_clicks": [
+            [
+              79,
+              70
+            ],
+            [
+              93,
+              66
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.2347653,
+            0.249511241
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 1451,
+          "home_marks": 1047676,
+          "estimated_ratio_gap": 0.0013849702,
+          "paired_standard_error": 3.44613e-05,
+          "rail_clicks": [
+            [
+              5274,
+              4082
+            ],
+            [
+              5299,
+              4174
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.0299009256,
+            0.0312490463
+          ],
+          "terminal_split_resolved": false
+        }
+      ]
+    },
+    {
+      "history": "one_trip_then_rest",
+      "cycles_or_windows": 60,
+      "opportunities": 480,
+      "expected_count_gap": 0.175933465975,
+      "expected_ratio_gap": 0.000733056108,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          -0.098577329079,
+          0.0
+        ],
+        [
+          -0.098555826591,
+          0.003416282897
+        ]
+      ],
+      "visibility": [
+        0.098577329079,
+        0.098615018856
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 27,
+          "home_marks": 30603,
+          "estimated_ratio_gap": 0.0008822664,
+          "paired_standard_error": 0.0001516348,
+          "rail_clicks": [
+            [
+              59,
+              67
+            ],
+            [
+              62,
+              74
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.2496258797,
+            0.2487072901
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 1395,
+          "home_marks": 1966868,
+          "estimated_ratio_gap": 0.0007092494,
+          "paired_standard_error": 1.79631e-05,
+          "rail_clicks": [
+            [
+              3641,
+              4043
+            ],
+            [
+              3728,
+              4055
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.0310918971,
+            0.0312479426
+          ],
+          "terminal_split_resolved": false
+        }
+      ]
+    },
+    {
+      "history": "slow_repeated_motion",
+      "cycles_or_windows": 1,
+      "opportunities": 62,
+      "expected_count_gap": 0.016133230341,
+      "expected_ratio_gap": 0.000520426785,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          0.72711562042,
+          -0.144632289417
+        ],
+        [
+          0.726654147615,
+          -0.146942675135
+        ]
+      ],
+      "visibility": [
+        0.741360657576,
+        0.741362529416
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 1,
+          "home_marks": 4012,
+          "estimated_ratio_gap": 0.0002492522,
+          "paired_standard_error": 0.000249227,
+          "rail_clicks": [
+            [
+              114,
+              75
+            ],
+            [
+              114,
+              75
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.1560545653,
+            0.2462796917
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 142,
+          "home_marks": 253871,
+          "estimated_ratio_gap": 0.0005593392,
+          "paired_standard_error": 4.6546e-05,
+          "rail_clicks": [
+            [
+              7093,
+              4653
+            ],
+            [
+              7099,
+              4780
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.0212765963,
+            0.0308893407
+          ],
+          "terminal_split_resolved": false
+        }
+      ]
+    },
+    {
+      "history": "slow_repeated_motion",
+      "cycles_or_windows": 4,
+      "opportunities": 248,
+      "expected_count_gap": 0.064532921363,
+      "expected_ratio_gap": 0.000520426785,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          0.213600931884,
+          -0.213600931884
+        ],
+        [
+          0.210870610596,
+          -0.216301051725
+        ]
+      ],
+      "visibility": [
+        0.302077334806,
+        0.302080385643
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 11,
+          "home_marks": 15810,
+          "estimated_ratio_gap": 0.0006957622,
+          "paired_standard_error": 0.0002201927,
+          "rail_clicks": [
+            [
+              67,
+              79
+            ],
+            [
+              75,
+              75
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.2485001395,
+            0.2447882037
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 491,
+          "home_marks": 1015726,
+          "estimated_ratio_gap": 0.0004833981,
+          "paired_standard_error": 2.18777e-05,
+          "rail_clicks": [
+            [
+              4892,
+              4952
+            ],
+            [
+              4943,
+              5028
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.0306150347,
+            0.030496571
+          ],
+          "terminal_split_resolved": false
+        }
+      ]
+    },
+    {
+      "history": "slow_repeated_motion",
+      "cycles_or_windows": 7,
+      "opportunities": 434,
+      "expected_count_gap": 0.112932612385,
+      "expected_ratio_gap": 0.000520426785,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          0.024012781669,
+          -0.1207204056
+        ],
+        [
+          0.021321920917,
+          -0.121226817311
+        ]
+      ],
+      "visibility": [
+        0.123085458165,
+        0.123087633607
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 20,
+          "home_marks": 27664,
+          "estimated_ratio_gap": 0.0007229612,
+          "paired_standard_error": 0.0001658154,
+          "rail_clicks": [
+            [
+              70,
+              64
+            ],
+            [
+              58,
+              72
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.25,
+            0.249511241
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 901,
+          "home_marks": 1778395,
+          "estimated_ratio_gap": 0.0005066366,
+          "paired_standard_error": 1.66832e-05,
+          "rail_clicks": [
+            [
+              4164,
+              4586
+            ],
+            [
+              4007,
+              4616
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.0312498973,
+            0.03101158
+          ],
+          "terminal_split_resolved": false
+        }
+      ]
+    },
+    {
+      "history": "at_rest",
+      "cycles_or_windows": 1,
+      "opportunities": 8,
+      "expected_count_gap": 0.0,
+      "expected_ratio_gap": 0.0,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          0.680322163504,
+          0.680322163504
+        ],
+        [
+          0.680322163504,
+          0.680322163504
+        ]
+      ],
+      "visibility": [
+        0.96212083041,
+        0.96212083041
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 0,
+          "home_marks": 493,
+          "estimated_ratio_gap": 0.0,
+          "paired_standard_error": 0.0,
+          "rail_clicks": [
+            [
+              104,
+              24
+            ],
+            [
+              119,
+              24
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.1675480742,
+            0.1951561874
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 0,
+          "home_marks": 32845,
+          "estimated_ratio_gap": 0.0,
+          "paired_standard_error": 0.0,
+          "rail_clicks": [
+            [
+              6961,
+              1245
+            ],
+            [
+              6917,
+              1324
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.0224964532,
+            0.022725716
+          ],
+          "terminal_split_resolved": false
+        }
+      ]
+    },
+    {
+      "history": "at_rest",
+      "cycles_or_windows": 4,
+      "opportunities": 32,
+      "expected_count_gap": 0.0,
+      "expected_ratio_gap": 0.0,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          -0.856876968414,
+          0.0
+        ],
+        [
+          -0.856876968414,
+          0.0
+        ]
+      ],
+      "visibility": [
+        0.856876968414,
+        0.856876968414
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 0,
+          "home_marks": 2095,
+          "estimated_ratio_gap": 0.0,
+          "paired_standard_error": 0.0,
+          "rail_clicks": [
+            [
+              9,
+              68
+            ],
+            [
+              9,
+              67
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.1278364701,
+            0.2496258797
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 0,
+          "home_marks": 131231,
+          "estimated_ratio_gap": 0.0,
+          "paired_standard_error": 0.0,
+          "rail_clicks": [
+            [
+              590,
+              4066
+            ],
+            [
+              609,
+              4093
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.0162771014,
+            0.0312497464
+          ],
+          "terminal_split_resolved": false
+        }
+      ]
+    },
+    {
+      "history": "at_rest",
+      "cycles_or_windows": 16,
+      "opportunities": 128,
+      "expected_count_gap": 0.0,
+      "expected_ratio_gap": 0.0,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          0.539105644759,
+          -0.0
+        ],
+        [
+          0.539105644759,
+          -0.0
+        ]
+      ],
+      "visibility": [
+        0.539105644759,
+        0.539105644759
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 0,
+          "home_marks": 8156,
+          "estimated_ratio_gap": 0.0,
+          "paired_standard_error": 0.0,
+          "rail_clicks": [
+            [
+              97,
+              67
+            ],
+            [
+              105,
+              68
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.203987053,
+            0.2496258797
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 0,
+          "home_marks": 523946,
+          "estimated_ratio_gap": 0.0,
+          "paired_standard_error": 0.0,
+          "rail_clicks": [
+            [
+              6361,
+              4038
+            ],
+            [
+              6304,
+              4121
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.0261803691,
+            0.0312497464
+          ],
+          "terminal_split_resolved": false
+        }
+      ]
+    },
+    {
+      "history": "at_rest",
+      "cycles_or_windows": 32,
+      "opportunities": 256,
+      "expected_count_gap": 0.0,
+      "expected_ratio_gap": 0.0,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          0.290634896211,
+          -0.0
+        ],
+        [
+          0.290634896211,
+          -0.0
+        ]
+      ],
+      "visibility": [
+        0.290634896211,
+        0.290634896211
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 0,
+          "home_marks": 16299,
+          "estimated_ratio_gap": 0.0,
+          "paired_standard_error": 0.0,
+          "rail_clicks": [
+            [
+              95,
+              67
+            ],
+            [
+              76,
+              70
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.2354710699,
+            0.2493812533
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 0,
+          "home_marks": 1047495,
+          "estimated_ratio_gap": 0.0,
+          "paired_standard_error": 0.0,
+          "rail_clicks": [
+            [
+              5286,
+              4096
+            ],
+            [
+              5313,
+              4091
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.0298706179,
+            0.0312499942
+          ],
+          "terminal_split_resolved": false
+        }
+      ]
+    },
+    {
+      "history": "at_rest",
+      "cycles_or_windows": 60,
+      "opportunities": 480,
+      "expected_count_gap": 0.0,
+      "expected_ratio_gap": 0.0,
+      "fringe_order": [
+        "raw",
+        "accepted"
+      ],
+      "expected_fringe": [
+        [
+          -0.098577329079,
+          0.0
+        ],
+        [
+          -0.098577329079,
+          0.0
+        ]
+      ],
+      "visibility": [
+        0.098577329079,
+        0.098577329079
+      ],
+      "panels": [
+        {
+          "shots_per_analyzer": 128,
+          "paired_omitted_marks": 0,
+          "home_marks": 30786,
+          "estimated_ratio_gap": 0.0,
+          "paired_standard_error": 0.0,
+          "rail_clicks": [
+            [
+              69,
+              63
+            ],
+            [
+              61,
+              69
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.2499694806,
+            0.2498778999
+          ],
+          "terminal_split_resolved": false
+        },
+        {
+          "shots_per_analyzer": 8192,
+          "paired_omitted_marks": 0,
+          "home_marks": 1965671,
+          "estimated_ratio_gap": 0.0,
+          "paired_standard_error": 0.0,
+          "rail_clicks": [
+            [
+              3692,
+              4024
+            ],
+            [
+              3706,
+              4107
+            ]
+          ],
+          "four_se_quadrature_margin": [
+            0.0311028688,
+            0.0312491336
+          ],
+          "terminal_split_resolved": false
+        }
+      ]
+    }
+  ]
+}

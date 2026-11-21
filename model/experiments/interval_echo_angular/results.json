@@ -1,0 +1,58 @@
+{
+  "exposure": 0.25,
+  "count_tables": [
+    {
+      "preparations_per_launch": 128,
+      "tables": 32,
+      "outcomes": {
+        "abstained": 32
+      },
+      "ranks": {}
+    },
+    {
+      "preparations_per_launch": 65536,
+      "tables": 32,
+      "outcomes": {
+        "correct": 32
+      },
+      "ranks": {
+        "3": 32
+      }
+    }
+  ],
+  "angular_design": {
+    "frame_rank": 3,
+    "subset_size_to_rank_counts": {
+      "9": {
+        "8": 60,
+        "9": 160
+      },
+      "10": {
+        "8": 6,
+        "9": 60
+      },
+      "11": {
+        "9": 12
+      },
+      "12": {
+        "9": 1
+      }
+    },
+    "nine_direction_minimum_singular_value_range": [
+      0.266794283,
+      0.562579105
+    ],
+    "best_nine_example_native_ports": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9
+    ],
+    "antipodal_average_rank": 6
+  }
+}

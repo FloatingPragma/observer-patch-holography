@@ -1,0 +1,194 @@
+{
+  "native_dimension": 99,
+  "sharp_inputs": 9,
+  "occupied_collar_basis_states": 90,
+  "patch": {
+    "ports": [
+      0,
+      1,
+      82,
+      72,
+      73
+    ],
+    "seams": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        82
+      ],
+      [
+        72,
+        73
+      ],
+      [
+        72,
+        82
+      ]
+    ],
+    "states": 19683,
+    "public_quotient_states": 81,
+    "normal_states": 14603,
+    "transitions": 5364,
+    "joined_one_step_peaks": 284,
+    "control_start": [
+      [
+        0,
+        2,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "unguarded_endpoints": [
+      [
+        [
+          1,
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          -2,
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          2,
+          0,
+          0
+        ]
+      ]
+    ],
+    "guarded_endpoint": [
+      [
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        2,
+        0,
+        0
+      ]
+    ]
+  },
+  "boards": [
+    {
+      "cells": 20,
+      "seams": 630,
+      "maximum_guard_cells": 3,
+      "runs": [
+        {
+          "seed": 31,
+          "initial_discrepancies": 115,
+          "writes": 53,
+          "external_writes": 6,
+          "new_signs_with_vacancy_reader": 35,
+          "different_collars_after_priority_reversal": 58
+        },
+        {
+          "seed": 47,
+          "initial_discrepancies": 104,
+          "writes": 46,
+          "external_writes": 1,
+          "new_signs_with_vacancy_reader": 22,
+          "different_collars_after_priority_reversal": 53
+        },
+        {
+          "seed": 131,
+          "initial_discrepancies": 120,
+          "writes": 49,
+          "external_writes": 8,
+          "new_signs_with_vacancy_reader": 26,
+          "different_collars_after_priority_reversal": 73
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "seams": 2520,
+      "maximum_guard_cells": 3,
+      "runs": [
+        {
+          "seed": 31,
+          "initial_discrepancies": 413,
+          "writes": 184,
+          "external_writes": 14,
+          "new_signs_with_vacancy_reader": 80,
+          "different_collars_after_priority_reversal": 220
+        },
+        {
+          "seed": 47,
+          "initial_discrepancies": 465,
+          "writes": 203,
+          "external_writes": 28,
+          "new_signs_with_vacancy_reader": 92,
+          "different_collars_after_priority_reversal": 234
+        },
+        {
+          "seed": 131,
+          "initial_discrepancies": 498,
+          "writes": 202,
+          "external_writes": 27,
+          "new_signs_with_vacancy_reader": 99,
+          "different_collars_after_priority_reversal": 269
+        }
+      ]
+    },
+    {
+      "cells": 320,
+      "seams": 10080,
+      "maximum_guard_cells": 3,
+      "runs": [
+        {
+          "seed": 31,
+          "initial_discrepancies": 1722,
+          "writes": 768,
+          "external_writes": 77,
+          "new_signs_with_vacancy_reader": 354,
+          "different_collars_after_priority_reversal": 898
+        },
+        {
+          "seed": 47,
+          "initial_discrepancies": 1776,
+          "writes": 777,
+          "external_writes": 104,
+          "new_signs_with_vacancy_reader": 368,
+          "different_collars_after_priority_reversal": 976
+        },
+        {
+          "seed": 131,
+          "initial_discrepancies": 1803,
+          "writes": 791,
+          "external_writes": 88,
+          "new_signs_with_vacancy_reader": 392,
+          "different_collars_after_priority_reversal": 948
+        }
+      ]
+    }
+  ]
+}

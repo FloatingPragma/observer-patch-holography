@@ -1,0 +1,1124 @@
+{
+  "candidate": "interval_echo",
+  "kappa": 8.0,
+  "trials_per_local_setting": 4194304,
+  "protocol_sha256": "cdfec576111f7e6a73f19a24dfaddc1ea8899fe258b9474c898578ce078f32f7",
+  "sites": [
+    {
+      "cells": 20,
+      "seams_sha256": "4dadf98983c609e5d305099dc18c19c4f668f9425f12ba75511dbd148c2d60b8",
+      "sender": 0,
+      "receivers": [
+        1,
+        4,
+        6
+      ],
+      "anonymous_local_port_order": [
+        [
+          2,
+          10,
+          6,
+          7,
+          9,
+          3,
+          8,
+          5,
+          1,
+          11,
+          0,
+          4
+        ],
+        [
+          11,
+          10,
+          9,
+          7,
+          4,
+          6,
+          8,
+          2,
+          3,
+          0,
+          5,
+          1
+        ],
+        [
+          11,
+          8,
+          6,
+          2,
+          10,
+          1,
+          7,
+          3,
+          9,
+          4,
+          0,
+          5
+        ],
+        [
+          11,
+          1,
+          8,
+          2,
+          10,
+          9,
+          0,
+          3,
+          4,
+          7,
+          6,
+          5
+        ]
+      ],
+      "local_rank": 3,
+      "inferred_edges": 30,
+      "dwells": {
+        "2": {
+          "singular_values": [
+            0.003883015552,
+            0.003693577109,
+            0.000967619098
+          ],
+          "smallest_to_largest": 0.249192691819,
+          "each_recipient_smallest_to_largest": [
+            1.502704e-06,
+            2.12405e-07,
+            3.60409e-07
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.177682104902,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 0,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 4.5475372e-05,
+          "sampled_rank_two_click_rms": 0.000103979887,
+          "held_per_recipient_min_max_detection": [
+            0.037729408755,
+            0.049359003997
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        },
+        "4": {
+          "singular_values": [
+            0.002830690577,
+            0.002594402512,
+            0.000675147158
+          ],
+          "smallest_to_largest": 0.238509699212,
+          "each_recipient_smallest_to_largest": [
+            0.000758484862,
+            0.000715089416,
+            0.000215378859
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.173174114466,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 1,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 6.1551399e-05,
+          "sampled_rank_two_click_rms": 9.2079492e-05,
+          "held_per_recipient_min_max_detection": [
+            0.083167308698,
+            0.093675326206
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        }
+      }
+    },
+    {
+      "cells": 20,
+      "seams_sha256": "4dadf98983c609e5d305099dc18c19c4f668f9425f12ba75511dbd148c2d60b8",
+      "sender": 6,
+      "receivers": [
+        0,
+        15,
+        16
+      ],
+      "anonymous_local_port_order": [
+        [
+          8,
+          11,
+          3,
+          2,
+          5,
+          9,
+          10,
+          4,
+          7,
+          0,
+          6,
+          1
+        ],
+        [
+          9,
+          6,
+          0,
+          1,
+          3,
+          4,
+          7,
+          11,
+          2,
+          8,
+          5,
+          10
+        ],
+        [
+          8,
+          0,
+          1,
+          3,
+          5,
+          11,
+          7,
+          6,
+          10,
+          4,
+          9,
+          2
+        ],
+        [
+          6,
+          8,
+          2,
+          1,
+          5,
+          11,
+          0,
+          9,
+          3,
+          4,
+          7,
+          10
+        ]
+      ],
+      "local_rank": 3,
+      "inferred_edges": 30,
+      "dwells": {
+        "2": {
+          "singular_values": [
+            0.004245415286,
+            0.002248381496,
+            0.002116538577
+          ],
+          "smallest_to_largest": 0.498546887427,
+          "each_recipient_smallest_to_largest": [
+            0.002763069351,
+            0.002972218112,
+            1.71141e-07
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.403179419022,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 1,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 3.9446881e-05,
+          "sampled_rank_two_click_rms": 0.000203070727,
+          "held_per_recipient_min_max_detection": [
+            0.037748482718,
+            0.048120151033
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        },
+        "4": {
+          "singular_values": [
+            0.003153338381,
+            0.001607057762,
+            0.000901223444
+          ],
+          "smallest_to_largest": 0.285799789165,
+          "each_recipient_smallest_to_largest": [
+            0.044349878444,
+            0.053123320908,
+            0.000706719603
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.246763497405,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 2,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 6.4249137e-05,
+          "sampled_rank_two_click_rms": 0.000109032816,
+          "held_per_recipient_min_max_detection": [
+            0.080028998829,
+            0.091240485652
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        }
+      }
+    },
+    {
+      "cells": 20,
+      "seams_sha256": "4dadf98983c609e5d305099dc18c19c4f668f9425f12ba75511dbd148c2d60b8",
+      "sender": 13,
+      "receivers": [
+        12,
+        14,
+        18
+      ],
+      "anonymous_local_port_order": [
+        [
+          0,
+          2,
+          10,
+          4,
+          3,
+          7,
+          8,
+          5,
+          6,
+          1,
+          11,
+          9
+        ],
+        [
+          11,
+          2,
+          1,
+          0,
+          9,
+          7,
+          4,
+          3,
+          8,
+          5,
+          10,
+          6
+        ],
+        [
+          9,
+          7,
+          11,
+          5,
+          10,
+          8,
+          0,
+          1,
+          3,
+          2,
+          6,
+          4
+        ],
+        [
+          4,
+          2,
+          11,
+          0,
+          9,
+          1,
+          8,
+          3,
+          5,
+          10,
+          6,
+          7
+        ]
+      ],
+      "local_rank": 3,
+      "inferred_edges": 30,
+      "dwells": {
+        "2": {
+          "singular_values": [
+            0.003883015552,
+            0.003693577109,
+            0.000967619098
+          ],
+          "smallest_to_largest": 0.249192691819,
+          "each_recipient_smallest_to_largest": [
+            1.502704e-06,
+            2.12405e-07,
+            3.60409e-07
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.177682104902,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 1,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 4.648884e-05,
+          "sampled_rank_two_click_rms": 0.000109821939,
+          "held_per_recipient_min_max_detection": [
+            0.037716508986,
+            0.049338886601
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        },
+        "4": {
+          "singular_values": [
+            0.002830690577,
+            0.002594402512,
+            0.000675147158
+          ],
+          "smallest_to_largest": 0.238509699212,
+          "each_recipient_smallest_to_largest": [
+            0.000758484862,
+            0.000715089416,
+            0.000215378859
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.173174114466,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 1,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 7.7147745e-05,
+          "sampled_rank_two_click_rms": 0.00010105412,
+          "held_per_recipient_min_max_detection": [
+            0.082917227251,
+            0.093109611064
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        }
+      }
+    },
+    {
+      "cells": 80,
+      "seams_sha256": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "sender": 0,
+      "receivers": [
+        3,
+        4,
+        16
+      ],
+      "anonymous_local_port_order": [
+        [
+          5,
+          3,
+          7,
+          9,
+          6,
+          10,
+          4,
+          11,
+          1,
+          8,
+          2,
+          0
+        ],
+        [
+          9,
+          3,
+          2,
+          1,
+          10,
+          0,
+          11,
+          4,
+          5,
+          7,
+          8,
+          6
+        ],
+        [
+          0,
+          2,
+          7,
+          9,
+          1,
+          6,
+          4,
+          3,
+          11,
+          5,
+          10,
+          8
+        ],
+        [
+          4,
+          7,
+          3,
+          11,
+          9,
+          5,
+          10,
+          6,
+          0,
+          8,
+          1,
+          2
+        ]
+      ],
+      "local_rank": 3,
+      "inferred_edges": 30,
+      "dwells": {
+        "2": {
+          "singular_values": [
+            0.003882604755,
+            0.003882599462,
+            0.000995261753
+          ],
+          "smallest_to_largest": 0.256338673618,
+          "each_recipient_smallest_to_largest": [
+            1.59e-10,
+            4.1546e-08,
+            4.1555e-08
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.178352743549,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 2,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 4.1617679e-05,
+          "sampled_rank_two_click_rms": 0.00010067996,
+          "held_per_recipient_min_max_detection": [
+            0.037728519471,
+            0.049359906534
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        },
+        "4": {
+          "singular_values": [
+            0.002873876264,
+            0.002871977183,
+            0.000720331825
+          ],
+          "smallest_to_largest": 0.250648169393,
+          "each_recipient_smallest_to_largest": [
+            1.483443e-06,
+            3.6231542e-05,
+            3.6330066e-05
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.174571167865,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 1,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 6.3875006e-05,
+          "sampled_rank_two_click_rms": 9.2886632e-05,
+          "held_per_recipient_min_max_detection": [
+            0.083319562338,
+            0.093684158152
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        }
+      }
+    },
+    {
+      "cells": 80,
+      "seams_sha256": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "sender": 26,
+      "receivers": [
+        27,
+        60,
+        65
+      ],
+      "anonymous_local_port_order": [
+        [
+          8,
+          5,
+          4,
+          9,
+          7,
+          3,
+          10,
+          1,
+          2,
+          6,
+          11,
+          0
+        ],
+        [
+          5,
+          4,
+          7,
+          9,
+          10,
+          8,
+          11,
+          0,
+          3,
+          2,
+          6,
+          1
+        ],
+        [
+          11,
+          4,
+          3,
+          1,
+          9,
+          10,
+          7,
+          8,
+          6,
+          2,
+          0,
+          5
+        ],
+        [
+          6,
+          0,
+          1,
+          10,
+          3,
+          11,
+          7,
+          9,
+          4,
+          8,
+          2,
+          5
+        ]
+      ],
+      "local_rank": 3,
+      "inferred_edges": 30,
+      "dwells": {
+        "2": {
+          "singular_values": [
+            0.003882585954,
+            0.003656198462,
+            0.000961311055
+          ],
+          "smallest_to_largest": 0.247595562822,
+          "each_recipient_smallest_to_largest": [
+            3.61e-10,
+            4.48103e-07,
+            4.47959e-07
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.177393919943,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 1,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 3.8604815e-05,
+          "sampled_rank_two_click_rms": 0.000103199598,
+          "held_per_recipient_min_max_detection": [
+            0.037176396916,
+            0.048958866994
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        },
+        "4": {
+          "singular_values": [
+            0.003519047155,
+            0.002868699871,
+            0.000783475791
+          ],
+          "smallest_to_largest": 0.222638616758,
+          "each_recipient_smallest_to_largest": [
+            3.490772e-06,
+            0.000701411731,
+            0.000699246507
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.170051950571,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 1,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 5.7444904e-05,
+          "sampled_rank_two_click_rms": 9.3296384e-05,
+          "held_per_recipient_min_max_detection": [
+            0.076582573908,
+            0.09335427627
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        }
+      }
+    },
+    {
+      "cells": 80,
+      "seams_sha256": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "sender": 53,
+      "receivers": [
+        50,
+        55,
+        73
+      ],
+      "anonymous_local_port_order": [
+        [
+          10,
+          1,
+          4,
+          11,
+          5,
+          8,
+          6,
+          0,
+          9,
+          7,
+          2,
+          3
+        ],
+        [
+          5,
+          0,
+          1,
+          6,
+          7,
+          8,
+          3,
+          9,
+          2,
+          11,
+          10,
+          4
+        ],
+        [
+          11,
+          10,
+          0,
+          7,
+          4,
+          3,
+          2,
+          6,
+          8,
+          5,
+          1,
+          9
+        ],
+        [
+          10,
+          1,
+          2,
+          9,
+          8,
+          0,
+          6,
+          4,
+          7,
+          5,
+          3,
+          11
+        ]
+      ],
+      "local_rank": 3,
+      "inferred_edges": 30,
+      "dwells": {
+        "2": {
+          "singular_values": [
+            0.003781557213,
+            0.003563528341,
+            0.000936343005
+          ],
+          "smallest_to_largest": 0.247607784802,
+          "each_recipient_smallest_to_largest": [
+            4.491578e-06,
+            2.6353e-08,
+            4.428259e-06
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.177346445671,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 0,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 3.7638676e-05,
+          "sampled_rank_two_click_rms": 9.6463952e-05,
+          "held_per_recipient_min_max_detection": [
+            0.03725600826,
+            0.048617581136
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        },
+        "4": {
+          "singular_values": [
+            0.003477811104,
+            0.002688490533,
+            0.000741352624
+          ],
+          "smallest_to_largest": 0.213166443523,
+          "each_recipient_smallest_to_largest": [
+            0.000299980788,
+            5.5285118e-05,
+            0.001105553256
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.166301355303,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 1,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 5.4200607e-05,
+          "sampled_rank_two_click_rms": 8.704129e-05,
+          "held_per_recipient_min_max_detection": [
+            0.078352093305,
+            0.092655879045
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        }
+      }
+    },
+    {
+      "cells": 320,
+      "seams_sha256": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "sender": 0,
+      "receivers": [
+        3,
+        16,
+        64
+      ],
+      "anonymous_local_port_order": [
+        [
+          7,
+          2,
+          9,
+          0,
+          11,
+          1,
+          8,
+          6,
+          4,
+          5,
+          10,
+          3
+        ],
+        [
+          0,
+          4,
+          5,
+          10,
+          8,
+          6,
+          9,
+          2,
+          1,
+          3,
+          7,
+          11
+        ],
+        [
+          11,
+          5,
+          0,
+          4,
+          10,
+          2,
+          6,
+          9,
+          7,
+          8,
+          1,
+          3
+        ],
+        [
+          2,
+          3,
+          6,
+          8,
+          11,
+          10,
+          0,
+          1,
+          7,
+          4,
+          9,
+          5
+        ]
+      ],
+      "local_rank": 3,
+      "inferred_edges": 30,
+      "dwells": {
+        "2": {
+          "singular_values": [
+            0.003882604556,
+            0.003882599462,
+            0.000995261726
+          ],
+          "smallest_to_largest": 0.256338679761,
+          "each_recipient_smallest_to_largest": [
+            2.27e-10,
+            4.1555e-08,
+            4.1555e-08
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.178352743267,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 0,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 5.7287184e-05,
+          "sampled_rank_two_click_rms": 0.000107364312,
+          "held_per_recipient_min_max_detection": [
+            0.037728514454,
+            0.04935989825
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        },
+        "4": {
+          "singular_values": [
+            0.002873875995,
+            0.00287260915,
+            0.000720430587
+          ],
+          "smallest_to_largest": 0.250682558366,
+          "each_recipient_smallest_to_largest": [
+            1.969922e-06,
+            3.6351463e-05,
+            3.6329056e-05
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.174575770459,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 1,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 7.2257945e-05,
+          "sampled_rank_two_click_rms": 0.000103636213,
+          "held_per_recipient_min_max_detection": [
+            0.083321483268,
+            0.093687200942
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        }
+      }
+    },
+    {
+      "cells": 320,
+      "seams_sha256": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "sender": 106,
+      "receivers": [
+        107,
+        109,
+        261
+      ],
+      "anonymous_local_port_order": [
+        [
+          5,
+          0,
+          7,
+          2,
+          8,
+          4,
+          6,
+          3,
+          9,
+          11,
+          1,
+          10
+        ],
+        [
+          4,
+          10,
+          0,
+          1,
+          2,
+          11,
+          8,
+          3,
+          7,
+          9,
+          6,
+          5
+        ],
+        [
+          6,
+          0,
+          10,
+          7,
+          1,
+          2,
+          9,
+          4,
+          11,
+          3,
+          5,
+          8
+        ],
+        [
+          10,
+          1,
+          9,
+          3,
+          5,
+          8,
+          7,
+          11,
+          0,
+          2,
+          6,
+          4
+        ]
+      ],
+      "local_rank": 3,
+      "inferred_edges": 30,
+      "dwells": {
+        "2": {
+          "singular_values": [
+            0.003882605807,
+            0.003842677337,
+            0.000989756892
+          ],
+          "smallest_to_largest": 0.254920777728,
+          "each_recipient_smallest_to_largest": [
+            4.2e-10,
+            2.6186e-08,
+            2.6272e-08
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.178282735336,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 0,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 4.6933307e-05,
+          "sampled_rank_two_click_rms": 0.000107694377,
+          "held_per_recipient_min_max_detection": [
+            0.037728527849,
+            0.049359911271
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        },
+        "4": {
+          "singular_values": [
+            0.003904260362,
+            0.002870671046,
+            0.000802143023
+          ],
+          "smallest_to_largest": 0.205453260847,
+          "each_recipient_smallest_to_largest": [
+            2.803485e-06,
+            4.4620265e-05,
+            4.4444536e-05
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.163303779476,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 1,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 6.1319484e-05,
+          "sampled_rank_two_click_rms": 0.000105240088,
+          "held_per_recipient_min_max_detection": [
+            0.079032838088,
+            0.093681039735
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        }
+      }
+    },
+    {
+      "cells": 320,
+      "seams_sha256": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "sender": 213,
+      "receivers": [
+        215,
+        221,
+        294
+      ],
+      "anonymous_local_port_order": [
+        [
+          9,
+          0,
+          8,
+          10,
+          5,
+          6,
+          11,
+          4,
+          1,
+          7,
+          2,
+          3
+        ],
+        [
+          3,
+          8,
+          6,
+          9,
+          4,
+          7,
+          5,
+          10,
+          1,
+          2,
+          0,
+          11
+        ],
+        [
+          10,
+          7,
+          4,
+          0,
+          5,
+          8,
+          6,
+          2,
+          11,
+          1,
+          3,
+          9
+        ],
+        [
+          2,
+          4,
+          10,
+          1,
+          9,
+          11,
+          5,
+          7,
+          0,
+          6,
+          8,
+          3
+        ]
+      ],
+      "local_rank": 3,
+      "inferred_edges": 30,
+      "dwells": {
+        "2": {
+          "singular_values": [
+            0.003882578822,
+            0.003656084915,
+            0.000961291329
+          ],
+          "smallest_to_largest": 0.247590937242,
+          "each_recipient_smallest_to_largest": [
+            1.49e-10,
+            2.30629e-07,
+            2.30712e-07
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.177393069606,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 1,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 4.1904658e-05,
+          "sampled_rank_two_click_rms": 9.9875551e-05,
+          "held_per_recipient_min_max_detection": [
+            0.037729417189,
+            0.049359008776
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        },
+        "4": {
+          "singular_values": [
+            0.003522638483,
+            0.002870326025,
+            0.000784267641
+          ],
+          "smallest_to_largest": 0.222636425771,
+          "each_recipient_smallest_to_largest": [
+            1.394873e-06,
+            0.000678390347,
+            0.00067911079
+          ],
+          "held_exact_max_error": 0.0,
+          "rank_two_relative_rms": 0.170080205562,
+          "held_decoded_of_eight": 8,
+          "sham_decoded_of_eight": 1,
+          "sham_exact_max_contrast": 0.0,
+          "sampled_full_click_rms": 6.2767821e-05,
+          "sampled_rank_two_click_rms": 0.000100026539,
+          "held_per_recipient_min_max_detection": [
+            0.078329225943,
+            0.093672018351
+          ],
+          "passes_exact": true,
+          "passes_sampled": true
+        }
+      }
+    }
+  ]
+}

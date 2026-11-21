@@ -1,0 +1,86 @@
+{
+  "candidate": "interval_echo",
+  "seed": 2026112131,
+  "services": 256,
+  "boards": [
+    {
+      "level": 0,
+      "cells": 20,
+      "seam_sha256": "4dadf98983c609e5d305099dc18c19c4f668f9425f12ba75511dbd148c2d60b8",
+      "singletons": 20,
+      "three_cell_patches": 60,
+      "checkpoint_patch_reads": 200,
+      "overlap_disagreements": 0,
+      "positive_marks": 2540,
+      "quiet_marks": 2580,
+      "signed_negative": 1,
+      "signed_positive": 2,
+      "initial_doubles": 5,
+      "final_doubles": 5,
+      "transfers": 381,
+      "final_hands": [
+        6,
+        7,
+        1,
+        3,
+        3
+      ]
+    },
+    {
+      "level": 1,
+      "cells": 80,
+      "seam_sha256": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "singletons": 80,
+      "three_cell_patches": 240,
+      "checkpoint_patch_reads": 800,
+      "overlap_disagreements": 0,
+      "positive_marks": 10081,
+      "quiet_marks": 10399,
+      "signed_negative": 1,
+      "signed_positive": 2,
+      "initial_doubles": 15,
+      "final_doubles": 15,
+      "transfers": 1172,
+      "final_hands": [
+        17,
+        18,
+        10,
+        22,
+        13
+      ]
+    },
+    {
+      "level": 2,
+      "cells": 320,
+      "seam_sha256": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "singletons": 320,
+      "three_cell_patches": 960,
+      "checkpoint_patch_reads": 3200,
+      "overlap_disagreements": 0,
+      "positive_marks": 41108,
+      "quiet_marks": 40812,
+      "signed_negative": 12,
+      "signed_positive": 11,
+      "initial_doubles": 34,
+      "final_doubles": 34,
+      "transfers": 2399,
+      "final_hands": [
+        66,
+        60,
+        67,
+        64,
+        63
+      ]
+    }
+  ],
+  "native_half_transfer_probability_02_20": 0.49999999999999334,
+  "supplied": "Independent double preparation on each tag end (0.04), mobile rail (0.16), separate fair sources and five-rail hands, cyclic matching schedule and protected readout windows.",
+  "record_fields": [
+    "signed_repair_in_units_of_two",
+    "mobile_double",
+    "positive_primary",
+    "five_rail_hand"
+  ],
+  "shapes": "singleton_history[service, cell, field], initial state at 0. triple_support[patch, site] names three cells with the owner of the hand in the middle. triple_checkpoint[patch, site, field] records all their terminal readings. initial_tag_input encodes two input occupancies as 2*(left occupied)+(right occupied).",
+  "scope": "Stationary branch of the equipped clock during measured transport. Three-cell patches overlap. No distinct long-lived moving-object, intrinsic-abundance or gauge assignment is inferred."
+}

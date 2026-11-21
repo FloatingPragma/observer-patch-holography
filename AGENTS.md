@@ -24,15 +24,11 @@ orthogonal classical record, not an arbitrary quantum state.
 The executable model in [model/](model/README.md) has a fixed carrier,
 [model/executable_model](model/executable_model/README.md), and candidate laws in
 [model/candidate_laws](model/candidate_laws/CANDIDATE.md). The main candidate is
-[A-contrast-memory-spherical-v1](model/candidate_laws/contrast_memory_spherical_v1/README.md),
-specified in [SPEC.md](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md); the scalar channel is a
-second. [REQUIREMENTS.md](model/REQUIREMENTS.md) states the criterion for the correct law: it runs on the
-fixed federation and fulfils the premises of the finite theorems together, with free calibration and no
-hardcoded outcomes. A new candidate gets a folder with a `candidate.py`, and `python -m model evaluate --write`
+[Interval Echo](model/candidate_laws/interval_echo/README.md), specified in its [patch-clock specification](model/candidate_laws/interval_echo/SPEC.md). The contrast-memory seam is the reference candidate and the scalar channel is a separate candidate. The official [scorecard](model/evaluation/SCORECARD.md) specifies A1–A3, the finite theorem premises on one process, the observer experiments, the 31 OpenWave phenomena and the Standard Model particle inventory. Every calibration has declared provenance. A new candidate gets a folder with a `candidate.py`, and `python -m model evaluate --write`
 updates its evaluation. Use a candidate's law, carrier, emitter and reader for model claims. Independent
 component proofs retain their own hypotheses and require an explicit source map.
 
-Use the [specification](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md)
+Use the [main candidate specification](model/candidate_laws/interval_echo/SPEC.md)
 and [executable-model hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md).
 The carrier, code, repair law, scheduler, preparation and observer apparatus
 may be declared design choices. Do not make proof that these choices are
@@ -55,7 +51,7 @@ between actual preparations, interventions and shared records. Deriving a
 consequence of a specified construction does not require deriving that
 construction's uniqueness.
 
-Field claims use the [specification](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md)
+Field claims about the contrast-memory seam use its [specification](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md)
 and its typed consumers. Regenerate the actual member and result; matching
 labels or hashes alone do not admit a different preparation or clock.
 Comparison programs retain their stated domains until an explicit transfer

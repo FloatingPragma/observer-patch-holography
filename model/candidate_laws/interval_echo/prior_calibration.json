@@ -1,0 +1,152 @@
+{
+  "source": "Prior LAW calibration of the same κ=8 bound pair and unit-gain rotation-selected service. The supplied guide, thermal state, metering apparatus, and scheduled exposure below are scoped to that calibration. The current RER full replay checks the finite native clock, currents, projection and consensus separately.",
+  "workspace_directory": "LAW/current-interval-clock/theorem-calibration/search",
+  "receipts": {
+    "holonomy/result.json": {
+      "sha256": "0ddde2f0138b5cd6bfa16c0bafed8eacfa4eb141f56a5793e711a01c27eac4c1",
+      "extract": {
+        "unit_gain_symmetry_flag_60_rotation_numeric_checks": {
+          "leak": 8.205896916177834e-14,
+          "connected_current_reconstruction": 7.0257503541586074e-15,
+          "current_covariance": 2.0050240706139703e-14
+        },
+        "scope": "Supplied reversible material transport on real overlap links and finite home pair readout. The graph transport is separate from a flat gluing atlas. All physical route gates are addressed. The current-space comparison is numerical on an isolated cell's two selected bound triplets with each route conditioned on native strict receiver admission. Durable history across the whole federation, completeness of the public current menu and refinement naturality are open.",
+        "screens": [
+          {
+            "cells": 20,
+            "bridges": 30,
+            "board_sha256": "bb937e80df03327ec1b2001145f5218733865f370abd51b003fbb7c991a87659",
+            "flat_atlas_holonomy_size": 1,
+            "rules": [
+              {
+                "bearing_tie_priority": "ascending",
+                "nonidentity_paths": 10,
+                "based_holonomy_size": 60
+              },
+              {
+                "bearing_tie_priority": "descending",
+                "nonidentity_paths": 10,
+                "based_holonomy_size": 60
+              }
+            ]
+          },
+          {
+            "cells": 80,
+            "bridges": 120,
+            "board_sha256": "39bae3eacd040f3ed7f8f2d59974327a94b7cb2d31452f20ebc16f19962ea324",
+            "flat_atlas_holonomy_size": 1,
+            "rules": [
+              {
+                "bearing_tie_priority": "ascending",
+                "nonidentity_paths": 34,
+                "based_holonomy_size": 60
+              },
+              {
+                "bearing_tie_priority": "descending",
+                "nonidentity_paths": 32,
+                "based_holonomy_size": 60
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "stress/joint.json": {
+      "sha256": "1caa04146f9e17c06e10d1eb068602fbe4a4e8c2be27083fa8fb09f0892aac93",
+      "extract": {
+        "kappa": 8,
+        "beta": 0.25,
+        "source_port": 1,
+        "control_strengths": [
+          -0.41,
+          0.41
+        ],
+        "elementary_pulse_bits": 32,
+        "definition": "Difference of terminal expectations after +s versus -s, including every preparation and quiet receiver outcomes. Comparison uses the full 32-bit native phase and contact pulse word on the 66-state two-load cell before free release. Modular charges are block-centered computed operators in the declared Gibbs reference. All rows retain both raw signs and ideal paired controls.",
+        "rotation_flag_unit_gain_at_t16": [
+          {
+            "cells": [
+              410,
+              413
+            ],
+            "time": 16,
+            "in_flight_true_rms": 4.745420483708779e-05,
+            "in_flight_rms_error_on_all_12_ports": {
+              "true": 0.0,
+              "bare": 0.014098065608982364,
+              "first": 2.5207873733139822e-05,
+              "third": 5.3624104695516e-05
+            }
+          },
+          {
+            "cells": [
+              410,
+              413,
+              405
+            ],
+            "time": 16,
+            "in_flight_true_rms": 0.000148270128931611,
+            "in_flight_rms_error_on_all_12_ports": {
+              "true": 0.0,
+              "bare": 0.0166151339183225,
+              "first": 1.8073114277595428e-05,
+              "third": 6.614434955854191e-05
+            }
+          }
+        ]
+      }
+    },
+    "stress/meter.json": {
+      "sha256": "a7300de566c2ad2cec16e9a4329bfc8b9e4e44f84f601b28573e8f93e83de5c7",
+      "extract": {
+        "geometry": [
+          410,
+          413,
+          405
+        ],
+        "settings_for_exact_tomography": 4423,
+        "current_menu": "unit-gain rotation flag",
+        "source_port": 1,
+        "read_port": 9,
+        "centered_K_from_tomography_norm_error": 3.8241673544739796e-12,
+        "min_prepared_reference_eigenvalue": 2.3796853722864442e-06,
+        "paired_current_contrasts": [
+          {
+            "t": 0,
+            "true": 0.06942981002256277,
+            "direct": 0.06951918480417607,
+            "sampled": 0.06557559967041016,
+            "se": 0.0030419890001586953
+          },
+          {
+            "t": 16,
+            "true": 0.06951935795259967,
+            "direct": 0.06963199548716736,
+            "sampled": 0.07216669513721641,
+            "se": 0.0033303709024098084
+          }
+        ],
+        "scope": "Full tomography uses exact probabilities of the compiled finite instruments, not finite-sample eigenvalue reconstruction. The separate 31-setting K1 program includes independent finite samples. The experimental Gibbs reference and its preparation, and the geometric boost/stress identification, remain supplied or open.",
+        "owner_cells": [
+          413,
+          415,
+          412,
+          414
+        ]
+      }
+    },
+    "ledger/null_test.json": {
+      "sha256": "6bd63186dea6076e38c74cc1924a2024deab7b9818904e376c639974cf263fb9",
+      "extract": {
+        "ordered_native_triangles_tested": 120,
+        "admitted_tensor_rank": 9,
+        "directions": 12,
+        "relative_residual_conjugate_difference_range": [
+          0.6164215279821474,
+          0.6164215279821912
+        ],
+        "domain": "Computed zero extension of the previously calibrated energy-diagonal current to the single-cell two-load sector, native port directions, direct identification with the tensor's null contractions. Conditional readings in the retained sector yield the same relative residual for these conjugate inputs. No physical null-direction attachment or measured stress is assumed."
+      }
+    }
+  }
+}

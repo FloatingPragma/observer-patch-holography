@@ -1,6 +1,6 @@
 # A-contrast-memory-spherical-v1
 
-A-contrast-memory-spherical-v1 is the candidate executable model of OPH. Its law is the contrast-memory law,
+A-contrast-memory-spherical-v1 is the reference contrast-memory candidate for the executable model of OPH. Its law is the contrast-memory law,
 a candidate for the native repair law of the theory: the simple local rule
 by which neighbouring observers settle their disagreements. Each port of a twelve-port cell (the echosahedron)
 holds a load of 0, 1 or 2. Each seam between two ports keeps a small private memory of how much its two ends

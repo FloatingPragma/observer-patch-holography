@@ -1,0 +1,207 @@
+{
+  "protocol_sha256": "2454d3480325be0d59bec954c7e28a33ba428d8095a7d2da55d3b3450a80ee20",
+  "tolerance": "1/2000",
+  "itinerary": [
+    8,
+    16,
+    31,
+    32,
+    2,
+    1
+  ],
+  "profiles": [
+    {
+      "bits": 3,
+      "first_overflow": 8,
+      "first_passing_tail_interval": 32,
+      "outside_tolerance": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "worst_interval": 8,
+      "max_absolute_rate_error": 0.007843258351,
+      "first_tail_error": 0.007843258351
+    },
+    {
+      "bits": 4,
+      "first_overflow": 16,
+      "first_passing_tail_interval": 32,
+      "outside_tolerance": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "worst_interval": 16,
+      "max_absolute_rate_error": 0.001955036083,
+      "first_tail_error": 0.001955036083
+    },
+    {
+      "bits": 5,
+      "first_overflow": 32,
+      "first_passing_tail_interval": 32,
+      "outside_tolerance": [],
+      "worst_interval": 32,
+      "max_absolute_rate_error": 0.000488400518,
+      "first_tail_error": 0.000488400518
+    }
+  ],
+  "closing_tape": [
+    {
+      "bits": 3,
+      "q": 8,
+      "accepted": true
+    },
+    {
+      "bits": 3,
+      "q": 16,
+      "accepted": true
+    },
+    {
+      "bits": 3,
+      "q": 31,
+      "accepted": true
+    },
+    {
+      "bits": 3,
+      "q": 32,
+      "accepted": true
+    },
+    {
+      "bits": 4,
+      "q": 8,
+      "accepted": false
+    },
+    {
+      "bits": 4,
+      "q": 16,
+      "accepted": true
+    },
+    {
+      "bits": 4,
+      "q": 31,
+      "accepted": true
+    },
+    {
+      "bits": 4,
+      "q": 32,
+      "accepted": true
+    },
+    {
+      "bits": 5,
+      "q": 8,
+      "accepted": false
+    },
+    {
+      "bits": 5,
+      "q": 16,
+      "accepted": false
+    },
+    {
+      "bits": 5,
+      "q": 31,
+      "accepted": false
+    },
+    {
+      "bits": 5,
+      "q": 32,
+      "accepted": true
+    }
+  ],
+  "material": [
+    {
+      "cells": 20,
+      "seed": 31,
+      "moving_cells": 14,
+      "transfer_cells": 15,
+      "reunion": {
+        "home": 47,
+        "traveller": 33
+      }
+    },
+    {
+      "cells": 20,
+      "seed": 47,
+      "moving_cells": 14,
+      "transfer_cells": 15,
+      "reunion": {
+        "home": 46,
+        "traveller": 35
+      }
+    },
+    {
+      "cells": 80,
+      "seed": 31,
+      "moving_cells": 14,
+      "transfer_cells": 15,
+      "reunion": {
+        "home": 47,
+        "traveller": 33
+      }
+    },
+    {
+      "cells": 80,
+      "seed": 47,
+      "moving_cells": 14,
+      "transfer_cells": 15,
+      "reunion": {
+        "home": 46,
+        "traveller": 35
+      }
+    },
+    {
+      "cells": 320,
+      "seed": 31,
+      "moving_cells": 14,
+      "transfer_cells": 15,
+      "reunion": {
+        "home": 47,
+        "traveller": 33
+      }
+    },
+    {
+      "cells": 320,
+      "seed": 47,
+      "moving_cells": 14,
+      "transfer_cells": 15,
+      "reunion": {
+        "home": 46,
+        "traveller": 35
+      }
+    }
+  ]
+}

@@ -51,7 +51,7 @@ def incident(first, second, seams) -> bool:
     """
     if first == second:
         return True
-    seamset = {tuple(sorted(e)) for e in seams}
+    seamset = seams if isinstance(seams, (set, frozenset)) else {tuple(sorted(e)) for e in seams}
     a, b = ports_of(first), ports_of(second)
     kinds = {first[0], second[0]}
     if kinds == {'port'}:

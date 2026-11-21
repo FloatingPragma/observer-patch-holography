@@ -1,6 +1,6 @@
 # Material inertia: binding, motion and rest energy
 
-This experiment runs the main candidate law,
+This experiment runs the reference seam law,
 [A-contrast-memory-spherical-v1](../../candidate_laws/contrast_memory_spherical_v1/README.md), on rings and on the
 federation, and asks what an observer who measures one binding energy can predict about the motion of clusters.
 The law, its coupling, the apparatus and the ring are supplied; the observer reads only its own counters.

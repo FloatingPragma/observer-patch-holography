@@ -1,0 +1,318 @@
+{
+  "time": 4,
+  "cells": [
+    0,
+    6,
+    4
+  ],
+  "links": [
+    [
+      1,
+      82
+    ],
+    [
+      3,
+      48
+    ]
+  ],
+  "launch_keys": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      -1
+    ],
+    [
+      9,
+      1
+    ],
+    [
+      9,
+      -1
+    ]
+  ],
+  "energy": [
+    67.74673966374884,
+    67.73708408052349,
+    67.78887357127223,
+    67.68908202670231
+  ],
+  "reference_sector_weights": [
+    8.76644835556391e-05,
+    0.002463121043890678,
+    0.9974492144725451
+  ],
+  "cutoffs": [
+    {
+      "cutoff": 1e-14,
+      "ranks": [
+        1,
+        12,
+        4
+      ],
+      "min_retained_eigenvalue": 6.875279407421413e-09,
+      "omitted_weight": -2.6068471607541006e-16,
+      "max_outside_support_frobenius": 3.3027118382980913e-14,
+      "charge_plus_minus": [
+        0.16172683041864014,
+        0.15793643716647507,
+        0.15754669092389956,
+        0.16213968397522954
+      ],
+      "modular_contrasts": [
+        0.0037903932521650696,
+        -0.0045929930513299855
+      ],
+      "energy_contrasts": [
+        0.00965558322535287,
+        0.0997915445699249
+      ],
+      "port0_gain": 2.5473829713678415,
+      "port9_prediction": -0.011700112286568828,
+      "port9_residual": -0.11149165685649372,
+      "residual_over_abs_held": -1.1172455275343538,
+      "matches_held": false
+    },
+    {
+      "cutoff": 1e-12,
+      "ranks": [
+        1,
+        12,
+        4
+      ],
+      "min_retained_eigenvalue": 6.875279407421413e-09,
+      "omitted_weight": -2.6068471607541006e-16,
+      "max_outside_support_frobenius": 3.3027118382980913e-14,
+      "charge_plus_minus": [
+        0.16172683041864014,
+        0.15793643716647507,
+        0.15754669092389956,
+        0.16213968397522954
+      ],
+      "modular_contrasts": [
+        0.0037903932521650696,
+        -0.0045929930513299855
+      ],
+      "energy_contrasts": [
+        0.00965558322535287,
+        0.0997915445699249
+      ],
+      "port0_gain": 2.5473829713678415,
+      "port9_prediction": -0.011700112286568828,
+      "port9_residual": -0.11149165685649372,
+      "residual_over_abs_held": -1.1172455275343538,
+      "matches_held": false
+    },
+    {
+      "cutoff": 1e-10,
+      "ranks": [
+        1,
+        12,
+        4
+      ],
+      "min_retained_eigenvalue": 6.875279407421413e-09,
+      "omitted_weight": -2.6068471607541006e-16,
+      "max_outside_support_frobenius": 3.3027118382980913e-14,
+      "charge_plus_minus": [
+        0.16172683041864014,
+        0.15793643716647507,
+        0.15754669092389956,
+        0.16213968397522954
+      ],
+      "modular_contrasts": [
+        0.0037903932521650696,
+        -0.0045929930513299855
+      ],
+      "energy_contrasts": [
+        0.00965558322535287,
+        0.0997915445699249
+      ],
+      "port0_gain": 2.5473829713678415,
+      "port9_prediction": -0.011700112286568828,
+      "port9_residual": -0.11149165685649372,
+      "residual_over_abs_held": -1.1172455275343538,
+      "matches_held": false
+    }
+  ],
+  "diagonal_only": {
+    "cutoff": 1e-12,
+    "ranks": [
+      1,
+      12,
+      66
+    ],
+    "min_retained_eigenvalue": 6.585565089154469e-06,
+    "omitted_weight": 0.0,
+    "max_outside_support_frobenius": 0.0,
+    "charge_plus_minus": [
+      3.1773388573879116,
+      3.2059369919754115,
+      3.201339545848999,
+      3.194455321494643
+    ],
+    "modular_contrasts": [
+      -0.028598134587499935,
+      0.006884224354355872
+    ],
+    "energy_contrasts": [
+      0.00965558322535287,
+      0.0997915445699249
+    ],
+    "port0_gain": -0.33762982672209907,
+    "port9_prediction": -0.0023243194758772274,
+    "port9_residual": -0.10211586404580213,
+    "residual_over_abs_held": -1.023291747671553,
+    "matches_held": false
+  },
+  "reference_survey": {
+    "shots_per_setting": 262144,
+    "seed": 2026112111,
+    "settings": 4423,
+    "min_eigenvalue": -0.00460837804722978,
+    "negative_eigenvalues": 36,
+    "frobenius_error": 0.015687024214069235
+  },
+  "compiler": {
+    "reader_cells": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "flight_cells": [
+      0,
+      6,
+      4
+    ],
+    "all_words": 79,
+    "settings": 4423,
+    "projector_errors": [
+      2.220446049250313e-16,
+      1.1102230246251565e-16
+    ],
+    "max_elementary_ops_per_setting": [
+      0,
+      2828
+    ],
+    "max_reconstruction_error": 1.9769315564574853e-16,
+    "hardware": {
+      "owner_cells": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "gateway": 10,
+      "known_unit_probe": 20,
+      "twelve_pair_record_rails": [
+        [
+          12,
+          13
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          17,
+          16
+        ],
+        [
+          19,
+          18
+        ],
+        [
+          24,
+          25
+        ],
+        [
+          26,
+          27
+        ],
+        [
+          29,
+          28
+        ],
+        [
+          31,
+          30
+        ],
+        [
+          60,
+          61
+        ],
+        [
+          62,
+          63
+        ],
+        [
+          65,
+          64
+        ],
+        [
+          67,
+          66
+        ]
+      ],
+      "sharp_occupancy_labels_checked": 79,
+      "local_register_reread_paths_to_vacancies": [
+        [
+          13,
+          21
+        ],
+        [
+          15,
+          21
+        ],
+        [
+          16,
+          21
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          25,
+          32
+        ],
+        [
+          27,
+          32
+        ],
+        [
+          28,
+          33
+        ],
+        [
+          30,
+          32
+        ],
+        [
+          61,
+          68
+        ],
+        [
+          63,
+          68
+        ],
+        [
+          64,
+          69
+        ],
+        [
+          66,
+          68
+        ]
+      ],
+      "native_pi_all_ternary_inputs_error": 2.5102732898578948e-14,
+      "register_vacancy_probe_error": 2.919319475950537e-16,
+      "local_read_column_error": 2.9193194759505373e-16,
+      "native_beamsplitter_error": 1.5939204681559301e-15,
+      "native_one_port_phase_error": 2.9193194759505373e-16,
+      "max_probe_routing_swaps_per_word": 36
+    }
+  }
+}

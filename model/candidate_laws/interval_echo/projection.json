@@ -1,0 +1,52 @@
+{
+  "cells": 20,
+  "owners": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ]
+  ],
+  "branches_per_order": 32,
+  "owner_orders": 2,
+  "constraints": {
+    "shared_one": "1/2",
+    "private_mismatch": "1/4"
+  },
+  "reference_per_outcome": "1/4",
+  "owner_weights": [
+    1,
+    1
+  ],
+  "outcome_order": [
+    "00",
+    "01",
+    "10",
+    "11"
+  ],
+  "accessible_tables": [
+    [
+      "3/8",
+      "1/8",
+      "1/8",
+      "3/8"
+    ],
+    [
+      "3/8",
+      "1/8",
+      "1/8",
+      "3/8"
+    ]
+  ],
+  "unique_projected_table": [
+    "3/8",
+    "1/8",
+    "1/8",
+    "3/8"
+  ],
+  "external_private_agreement": "5/8",
+  "same_tables_with_common_error_private_agreement": "1"
+}

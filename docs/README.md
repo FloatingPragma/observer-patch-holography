@@ -99,11 +99,11 @@ premise.
 
 The [executable model](../model/README.md) holds the fixed carrier, the
 spherical echosahedral federation, and the candidate laws that run on it. The
-[requirements](../model/REQUIREMENTS.md) state the criterion for the correct
-native repair law: it runs on the fixed federation and fulfils the premises of
-the finite theorems together. [CANDIDATE.md](../model/candidate_laws/CANDIDATE.md)
+official [scorecard](../model/evaluation/SCORECARD.md) states the criterion
+for the correct native repair law: it runs on the fixed federation and fulfils
+the premises of the finite theorems together. [CANDIDATE.md](../model/candidate_laws/CANDIDATE.md)
 lists the candidates with their status, and `python -m model evaluate` scores
-each of them against the requirements. The main candidate is
+each of them against the scorecard. The main candidate is
 [Interval Echo](../model/candidate_laws/interval_echo/README.md), with its
 [specification](../model/candidate_laws/interval_echo/SPEC.md); its seam interaction is the reference candidate
 [A-contrast-memory-spherical-v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md), with its

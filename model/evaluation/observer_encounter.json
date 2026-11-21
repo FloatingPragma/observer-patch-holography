@@ -1,0 +1,41 @@
+{
+  "federation_cells": 20,
+  "sector_dimension": 28680,
+  "observer_cells": [
+    0
+  ],
+  "first_seam": [
+    0,
+    1
+  ],
+  "separated_start_count": 36,
+  "local_seams": 30,
+  "first_wait": 1,
+  "repeat_wait": 4,
+  "preparation": "Uniform mixture over distinct nonadjacent ports of the observer cell, with one load on each and no other load.",
+  "instrument": "At the first wait one specified seam reports a pair or quiet. After a positive, the same patch reads each of its internal seams or quiet at the second wait. State amplitudes evolve on the whole federation.",
+  "omitted_services": "Free native binary sector. The interval filter, gate sequencer and readout duration are idle. The two ideal projective patch reads and their times are supplied.",
+  "initial_positive": 0.0,
+  "laws": {
+    "contrast": {
+      "kappa": 8.0,
+      "first_positive_per_trial": 0.000189141805,
+      "first_quiet_per_trial": 0.999810858195,
+      "repeat_positive_given_first": 0.993225822167,
+      "repeat_quiet_given_first": 0.006774177833,
+      "same_seam_given_first": 0.190149170003,
+      "other_local_seam_given_first": 0.803076652164,
+      "both_positive_per_trial": 0.000187860525
+    },
+    "exchange_only": {
+      "kappa": 0,
+      "first_positive_per_trial": 0.011066895415,
+      "first_quiet_per_trial": 0.988933104585,
+      "repeat_positive_given_first": 0.338671012908,
+      "repeat_quiet_given_first": 0.661328987092,
+      "same_seam_given_first": 0.001522634214,
+      "other_local_seam_given_first": 0.337148378694,
+      "both_positive_per_trial": 0.00374803668
+    }
+  }
+}

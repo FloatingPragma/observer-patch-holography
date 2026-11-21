@@ -1,8 +1,8 @@
 {
- "schema": "oph.law_evaluation.v1",
+ "schema": "oph.law_evaluation.v2",
  "candidate": "contrast_memory_spherical_v1",
  "title": "A-contrast-memory-spherical-v1",
- "role": "main",
+ "role": "reference",
  "summary": "Loads 0, 1 or 2 on the ports and an eleven-state memory on every seam. A seam event writes the contrast of its two loads into the memory, gives it a phase and erases it again; on loads this is an exchange plus an agreement energy kappa.",
  "parameters": {
   "kappa": {
@@ -50,7 +50,7 @@
   },
   "parameters": {
    "status": "pass",
-   "detail": "no parameter hardcodes an observed outcome"
+   "detail": "declared parameter descriptions pass provenance and forbidden-input checks"
   }
  },
  "joint": {
@@ -112,6 +112,7 @@
   {
    "id": "PR-01",
    "name": "confluent terminating repair contract",
+   "statement": "Declared repair moves close every covered local mismatch, overlapping moves complete to a common local diamond on the quotient, and every accepted nontrivial aggregate transaction strictly lowers one declared well-founded exact measure, so repair reduction terminates and normal endpoints from sources with equal protected observation agree exactly when the observation identifies consistent states. The contract is declared through the rows repair_completeness, local_diamond, and strict_well_founded_transactional_descent in claims/assumption_dictionary.md; the endpoint-uniqueness characterization is machine-checked in Lean/ObservableNormalForms/ObservableNormalForms/ObserverConfluence.lean.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -121,6 +122,7 @@
   {
    "id": "PR-02",
    "name": "algebra-state representation of public records",
+   "statement": "Public records are represented as the span of the mutually orthogonal projectors of a projective partition inside a finite complex matrix star algebra, with states read through the trace pairing and record events using that declared algebraic readout surface. The representation is packaged in Lean/EventAlgebra/PublicRecordAlgebra.lean and declared as declared_record_surface in claims/assumption_dictionary.md.",
    "type": "representation_choice",
    "role": "designer",
    "status": "partial",
@@ -134,6 +136,7 @@
   {
    "id": "PR-03",
    "name": "operational effect additivity",
+   "statement": "A public frame valuation is additive on every required coexistent effect sum, v(A + B) = v(A) + v(B) whenever A + B remains an effect, across measurement contexts. With this additivity the finite Busch-Gleason theorem in Lean/EventAlgebra/FiniteBuschGleason.lean forces the Born trace form; the same module carries the countermodel in which positivity, per-context normalisation, and continuity hold while cross-context additivity fails, and the row source_produced_public_effect_algebra_deferred in claims/assumption_dictionary.md records that the retained finite unsharp web admits a transverse cubic non-Born valuation.",
    "type": "selection_rule",
    "role": "designer",
    "status": "open",
@@ -143,6 +146,7 @@
   {
    "id": "PR-04",
    "name": "declared phase-sensitive effect",
+   "statement": "The exact matrix I/2 - (2*sqrt(3)/3)*i*(QP - PQ), equal to the Pauli-Y plus projector, is one declared phase-sensitive effect. Together with the two committed real effects it completes fixed-trace two-by-two tomography. This declaration supplies an effect only, not a quantum operation or instrument; CP outcome maps, a trace-preserving summed channel, preparation, readback, and provenance are separate premises.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -152,6 +156,7 @@
   {
    "id": "PR-05",
    "name": "counting path reference",
+   "statement": "The path-space reference is a supplied initial law times the uniform-step counting weight; among row-stochastic kernels this normal form is characterized by invariance under independent relabeling of transition targets at fixed source, by row-constant weight, or by constant log-transition step action, and the formalized Axiom 3 takes the reference as an input, so no theorem selects the counting reference or the trivial datum whose conditional resampling realizes it. The reference is formalized in Lean/InformationProjection/LogTransitionAction.lean; Lean/InformationProjection/ReferenceNormalForm.lean proves the characterization, and Lean/InformationProjection/SourceReferenceSelection.lean proves the conditional counting-reference realization together with the rescaling and initial-law non-uniqueness controls.",
    "type": "selection_rule",
    "role": "designer",
    "status": "open",
@@ -161,6 +166,7 @@
   {
    "id": "PR-06",
    "name": "real Legendre enrichment",
+   "statement": "The finite source law fixes its four-corner log-transition action and a bilinear real extension that is affine in the velocity slot; adding (a/2)*y*(y - 1) for any a > 0 changes no realized source history and yields strictly convex Legendre-Hamilton systems that differ between values of a. Selecting one real velocity curvature is therefore a representation choice beyond the realized-history law, proved as an explicit-witness nonidentifiability on the committed chain literals in Lean/Variational/RealizedHistoryLegendreNoGo.lean with the bridge itself in Lean/Variational/LegendreBridge.lean; finer alphabets, refinement limits, and other source data are untested by it.",
    "type": "representation_choice",
    "role": "designer",
    "status": "open",
@@ -170,6 +176,7 @@
   {
    "id": "PR-07",
    "name": "declared repair law: common faithful reference and repaired-visible fibre",
+   "statement": "One common faithful reference serves both Axiom 3 instantiations, and the transition feasible set is the fibre of the complete repaired visible datum of the active collar; on these two declared inputs the state projection selects the Gibbs exponential family and the transition projection selects weighted conditional resampling from the same reference, which yields the exact four-law package. The pair is declared through the row complete_repaired_visible_datum_fibre in claims/assumption_dictionary.md and consumed by Lean/Thermodynamics/FiniteConditionalRepair.lean; the B12 obstruction (code/thermodynamics/common_reference_obstruction/) and the B20 random-scan preflight (code/b20_random_scan/) prove that the pinned source run and its certified random-scan grammar do not supply the pair.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -179,6 +186,7 @@
   {
    "id": "PR-08",
    "name": "refinement-uniform low-temperature control",
+   "statement": "A declared indexed family carries one uniform low-temperature tail bound strong enough to drive the off-minimum Gibbs mass, and where claimed the entropy excess, to zero with one inverse-temperature threshold across the family. The original sufficient member uses a uniformly positive energy gap plus a uniform finite cardinality bound to obtain cardBound * exp(-beta * gapBound); its maps preserve minima but do not supply the later functorial and cofinal structure. The coherent-envelope route adds directed functorial data, and the ambient-cofinal route adds a nonterminal regulator embedding plus strict carrier growth on one supplied spectral-tail family. Neither route is asserted to be necessary for every growing regulator tower. A direct density-of-states or excited-to-ground degeneracy-ratio bound remains an allowed alternative.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -188,6 +196,7 @@
   {
    "id": "PR-09",
    "name": "equal-face-weight and barycentric one-third port-dual rules",
+   "statement": "The port-dual measure places equal normalized weights on the twenty faces of the oriented carrier, and each face's weight is shared barycentrically, one third to each incident port, giving the normalized port-dual weight 1/12. The rules are declared in code/b14_jacobi/port_dual_metric_selector.certificate.json (declared_rules.face_weighting and declared_rules.vertex_share), with the measure pinned by the committed theorem in Lean/Screen/PrimitivePortDualMeasure.lean.",
    "type": "selection_rule",
    "role": "designer",
    "status": "open",
@@ -197,6 +206,7 @@
   {
    "id": "PR-10",
    "name": "measure-to-metric and nearest-point repair rules",
+   "statement": "The normalized port-dual measure is read as the diagonal carrier inner product it induces on port functions, and the discriminator verdict is the nearest classified compact family in the functorially induced bracket-space metric. Both rules are declared in code/b14_jacobi/port_dual_metric_selector.certificate.json (declared_rules.measure_to_metric and declared_rules.repair_rule) and in the row carrier_induced_invariant_metric_class_and_nearest_point_rule of claims/assumption_dictionary.md; neither is source-derived.",
    "type": "selection_rule",
    "role": "designer",
    "status": "open",
@@ -206,6 +216,7 @@
   {
    "id": "PR-11",
    "name": "compact-Lie classification inputs",
+   "statement": "Three Lie-theory facts enter the gauge classification as declared classical inputs: the direct-sum splitting L = Z(L) + [L, L] of a compact Lie algebra into invariant submodules, surjectivity of the exponential map on compact connected groups, and the classification of compact simple Lie algebras through its dimension list. The cited modules declare the remaining Lie-theoretic bridge steps of the classification (centre rationality through the torus/cocharacter step, the su(2)^4 fixed-space exclusion, and the reductive-decomposition boundary bundle) as classical inputs subsumed under this row. They are marked as inputs in Lean/Screen/A5OPH.lean and Lean/Screen/TrichotomyCases.lean and cited by paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex.",
    "type": "external_mathematics",
    "role": "import",
    "status": "open",
@@ -215,6 +226,7 @@
   {
    "id": "PR-12",
    "name": "matter candidate grammar",
+   "statement": "A matter candidate is a pair (S, M): S a stratum of the classified compact locus of the fourteen-parameter equivariant Jacobi variety on the twelve-port carrier, and M a nonempty Z/2-graded finite-dimensional complex module of the complexified semisimple bracket at S with zero abelian charges and total dimension at most twelve, counted up to graded isomorphism and the global parity flip. The grammar, budget, observables, and decision rule are frozen before any comparison in code/b15_matter_freeze/matter_class_freeze_v1.json; the exterior selection boundary is recorded as exterior_Higgs_matter_selection in claims/assumption_dictionary.md.",
    "type": "selection_rule",
    "role": "law",
    "status": "open",
@@ -224,6 +236,7 @@
   {
    "id": "PR-13",
    "name": "Koide balance premise",
+   "statement": "For a positive-chamber face circulant with square-root masses sqrt(m_k) = sqrt(s)*(a + 2*rho*cos(delta + 2*pi*k/3)), the balance premise rho/a = 1/sqrt(2) makes the signed Koide quotient equal 2/3 exactly. The circulant identity is machine-checked in Lean/ObserverPatchHolography/KoideCirculant.lean, and code/particles/leptons/koide_balance_comparison_certificate.py records the declared ancestry: the balance condition is the relation Koide published in 1981-1983, and a source-only derivation of the balance value is work in progress.",
    "type": "selection_rule",
    "role": "law",
    "status": "open",
@@ -233,6 +246,7 @@
   {
    "id": "PR-14",
    "name": "hadronic transport packet",
+   "statement": "The hadronic vacuum-polarization and spectral input is a pinned empirical payload built from the e+e- hadronic compilation registered in code/particles/hadron/empirical_ee_hadrons_sources.yaml (KNT19, arXiv:1911.00367, per docs/policies/HADRON.md), consumed by the Ward-projected hadron lane and the alpha(m_Z) anchor transport as a flagged import. The registry carries a nonperturbative-QCD barrier policy: the payload is compare and transport data and is never promoted to a source-only theorem.",
    "type": "empirical_import",
    "role": "import",
    "status": "open",
@@ -242,6 +256,7 @@
   {
    "id": "PR-15",
    "name": "clock and energy calibration anchors",
+   "statement": "Internal modular charge, energy gaps, and repair-step order carry no laboratory units. PR-15 is the empirical attachment to declared measured clock and energy standards, including conversion into laboratory or SI units. It is separate from the source-side independent_physical_scale_receipt in claims/assumption_dictionary.md: that structural receipt asks two internally generated readouts to remove positive-rescaling freedom before any empirical unit conversion, and it is not part of this import row. The four-law claim in claims/claim_registry.yaml records laboratory energy and clock calibration as a named empirical input shared by the thermodynamics and constants lanes.",
    "type": "empirical_import",
    "role": "import",
    "status": "open",
@@ -251,6 +266,7 @@
   {
    "id": "PR-16",
    "name": "source-causal continuum and stable-causality certificate",
+   "statement": "Promotion of the source-derived finite event order and exact one-plus-three Lorentz carrier to a physical continuum requires one source-selected refinement family with physical event and link identification, injective two-way order-cone-faithful placements, compatible transport of order and source directions, dense and isotropic physical link directions on the source two-sphere, calibrated event count to spacetime volume, independent dimension, manifoldlikeness, interval-height, and stable-topology tests, a unique distinguishing Lorentzian limit, and convergent curvature estimators. Stable causality or global hyperbolicity remains an additional global condition wherever a downstream theorem invokes it. The finite carrier theorem supplies none of these continuum or physical-identification clauses.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -260,6 +276,7 @@
   {
    "id": "PR-17",
    "name": "proposed fundamental numerical parameters P and N",
+   "statement": "P and N are the two proposed fundamental free numerical parameters of the program. Measured calibration anchors, fitted inputs, comparison targets, and empirical transport payloads are separate numerical empirical inputs and remain flagged as such; other quantities are derived or imported mathematics. The screen-grain proposal P = phi + sqrt(pi)/A_T(P) has an interval-certified fixed point (docs/AXIOM_REFERENCE.md, certified under code/P_derivation/), and the direct capacity proposal N = log M_0(U_N), declared as declared_capacity_map in claims/assumption_dictionary.md, is not evaluable on the incomplete source antecedent.",
    "type": "numerical_input",
    "role": "designer",
    "status": "open",
@@ -269,6 +286,7 @@
   {
    "id": "PR-18",
    "name": "spherically symmetric radial readout",
+   "statement": "A source distribution on the committed three-dimensional completion carrier is read through one radial strength profile: the flux through a shell depends on the shell radius alone. The premise enters as the strength field of RadialFluxData in Lean/Geometry/InverseSquareShellLaw.lean and is a symmetry declaration; no source theorem produces it.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -278,6 +296,7 @@
   {
    "id": "PR-19",
    "name": "shell-flux normalization",
+   "statement": "The radial strength times the shell content (the derivative of the ball volume) is the constant source charge on every positive shell: a Gauss-shaped conservation declaration entering as the normalized field of RadialFluxData in Lean/Geometry/InverseSquareShellLaw.lean. Under it the inverse-square law is forced with the exponent supplied by the carrier dimension; no source theorem produces the normalization itself.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -287,6 +306,7 @@
   {
    "id": "PR-20",
    "name": "equal source-counting measure on the sixty directed source seams",
+   "statement": "The seam move law is selected by an A2-natural, A3-unique projection on the sixty directed source seams: a feasible move simplex, a naturality-invariant objective, and a unique selected minimizer, supplied as the structure A2A3DirectedSeamProjection in Lean/Screen/SeamCurrentHomogeneousAction.lean. Given the data, the committed theorems force the equal weight 1/60 and the one dimensionless completion Dirichlet generator; no source theorem constructs the projection data.",
    "type": "selection_rule",
    "role": "designer",
    "status": "open",
@@ -296,6 +316,7 @@
   {
    "id": "PR-21",
    "name": "auxiliary oscillator lift of the seam-current generator",
+   "statement": "The dynamics of one transverse mode on the carrier completion is declared to be the first-order oscillator lift (A', Pi') = (Pi, -Lambda A) of the spatial symbol, with the second application of the generator defining the algebraic A''. The committed record derives the spatial generator; the second-order evolution shape enters as this declaration and no source theorem produces it. Carried as the fields modeDynamics and modeDynamics_is_lift of LightSignalPremiseData.",
    "type": "representation_choice",
    "role": "designer",
    "status": "open",
@@ -305,6 +326,7 @@
   {
    "id": "PR-22",
    "name": "physical-frequency identification for the seam-current symbol",
+   "statement": "A nonnegative readout frequency omega(k) is identified with the coordinate-dilated carrier symbol through omega(k)^2 = dilatedCompletionFourierSymbol(a, k) at a supplied strictly positive chart scale a. The chart scale is a declared coordinate; identifying a with a physical length and omega with a laboratory frequency consumes the clock and energy calibration anchors (PR-15). Carried as the fields chartScale, physicalFrequency, and physicalFrequency_sq_eq_symbol of LightSignalPremiseData.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -314,6 +336,7 @@
   {
    "id": "PR-23",
    "name": "typed modular flow supply",
+   "statement": "The finite first-law pairings on the variation space satisfy the typed modular flow package: the entropy differential equals the modular pairing, the modular generator splits as 2*pi times the bulk pairing plus the central pairing, and the central pairing equals the edge differential; the continuum diamond-kernel identification reads the bulk entropy variation as the modular charge of the stress. The package is a theorem on the finite thermodynamic model and a declared supply beyond it.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -323,6 +346,7 @@
   {
    "id": "PR-24",
    "name": "half-sided inclusion and null translation supply",
+   "statement": "The reconstructed stress readout satisfies the weak Ward identity under the chart coordinate steps, the conservation shadow of the null translations generated by half-sided modular inclusion.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -332,6 +356,7 @@
   {
    "id": "PR-25",
    "name": "null-stress tomography supply",
+   "statement": "On the null cone the geometry and stress quadratic charges match up to the coupling, both charge forms are symmetric, and one universal stress source feeds the entropy channel and the null tomography.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -341,6 +366,7 @@
   {
    "id": "PR-26",
    "name": "generalized-entropy stationarity supply",
+   "statement": "The first-order bulk entropy variation balances the fixed-volume area variation over 4*G, and the declared MaxEnt family has zero normalisation rate, unit constraint speed, and the Gibbs differential equation.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -350,6 +376,7 @@
   {
    "id": "PR-27",
    "name": "small-ball geometry supply",
+   "statement": "The fixed-volume small-geodesic-ball area identity holds with the exact 4*pi*ell^4/15 coefficient, one cofinal shrinking family carries the collar, kernel, and chart remainders as o(ell^4), the smooth geometric side satisfies the contracted Bianchi identity, and the Newton constant and ball radius are positive.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -359,6 +386,7 @@
   {
    "id": "PR-28",
    "name": "physical tower and calibration supply",
+   "statement": "An Einstein-admissible tower exists with protected boundary fibre, typed common-domain readouts, and refinement naturality; the strict dependency manifest validates; the discrete chart is connected in the symmetric step closure; the vacuum reference fixes the metric residue at the chart base; and the coupling carries the independent scale identification kappa = 8*pi*G_N.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -368,6 +396,7 @@
   {
    "id": "PR-29",
    "name": "layered shell-cardinality law",
+   "statement": "The layered readout graph has exactly shellCoeff * n^2 outward boundary edges at shell n for every positive layer index n up to a declared resolution depth. The premise enters as the shellCard field of LayeredFluxData in Lean/Screen/LayeredDiscreteGauss.lean; no source theorem produces it. The committed 20 * n^2 faceCount in Lean/Screen/DiscreteRefinement.lean is a subdivision count on one fixed screen; identifying subdivision frequency with radial layer distance is exactly the open step, so the count is declared rather than derived. The depth truncation is forced: unbounded_shellCard_forces_zero proves an n^2 law imposed at every positive layer collapses the coefficient to zero on any finite carrier.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -377,6 +406,7 @@
   {
    "id": "PR-30",
    "name": "layered shell equidistribution",
+   "statement": "Within one shell of the layered readout graph, up to the declared depth, every outward boundary edge carries the same outward flux. The premise enters as the equidistributed field of LayeredFluxData in Lean/Screen/LayeredDiscreteGauss.lean and is the discrete counterpart of the spherically symmetric radial readout premise (PR-18); no source theorem produces it.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -386,6 +416,7 @@
   {
    "id": "PR-31",
    "name": "layered steady sourcing",
+   "statement": "On the layered readout graph the vertex outflow of the flux field equals a declared source supported in the layer-zero ball, for every vertex up to the declared depth, so the flux is divergence-free outside the source region there. The premise enters as the steadyGauss and sourceSupport fields of LayeredFluxData in Lean/Screen/LayeredDiscreteGauss.lean. The depth truncation is forced: steady_total_source_eq_zero proves a steady drained source on the whole closed finite carrier has zero total load, so layers beyond depth absorb the flux in place of spatial infinity. On the fixed twelve-port carrier the corresponding identity is a theorem: steady_witness_regionFlux_eq_source derives it from the committed regional continuity law.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -395,6 +426,7 @@
   {
    "id": "PR-32",
    "name": "Cartesian joint carrier of an observer pair",
+   "statement": "The joint index space of a two-observer regional construction is the Cartesian product of the two observers' label alphabets, entering as the LeftLabels and RightLabels fields of StructuralNetDeclaredPremises in Lean/QFT/StructuralNetAdequacySurface.lean, with committed instances Fin 13 x Fin 14 (pair 86, 88) and Fin 13 x Fin 13 (pair 86, 247). No source theorem produces the product form.",
    "type": "representation_choice",
    "role": "designer",
    "status": "open",
@@ -404,6 +436,7 @@
   {
    "id": "PR-33",
    "name": "two-slot diamond region map",
+   "statement": "The region system of the committed net is the four-region diamond bot < left, right < top with the region map assigning the scalar bottom, the two slot-factor algebras, and the full joint algebra, entering as the regionMap field of StructuralNetDeclaredPremises with committed instances twoSlotAlgebra (Lean/QFT/TwoSlotCPNetWitness.lean) and twoSlotAlgebra247 (Lean/QFT/SourceCorrelationCapstone.lean). No source theorem produces the region system.",
    "type": "selection_rule",
    "role": "designer",
    "status": "open",
@@ -413,6 +446,7 @@
   {
    "id": "PR-34",
    "name": "two-observer slot split",
+   "statement": "Two observers of a pair are read as the two tensor factors of the joint carrier through the left and right slot embeddings A -> A (x) 1 and B -> 1 (x) B, entering as the splitLeft and splitRight fields of StructuralNetDeclaredPremises. For the support-disjoint pair (86, 247) the split is backed by the kernel-checked support disjointness theorem supports_disjoint; the split itself is declared, and the designated pair (86, 88) has overlapping supports with no disjointness receipt.",
    "type": "representation_choice",
    "role": "designer",
    "status": "open",
@@ -422,6 +456,7 @@
   {
    "id": "PR-35",
    "name": "same-source loop-to-kernel identity",
+   "statement": "The carrier loop classes realized by the source are the six-axis screen gluing classes of Lean/Screen/Z6Exact.lean, and their image under the committed intertwiner sixAxisToKernel of Lean/Screen/Z6Descent.lean (axis generator to the kernel generator (omega_3 I_3, -I_2, e^{i pi/3}), antipodal sign reversal to conjugation, injective with image exactly the tensor-action kernel) generates the full Z6 tensor-action kernel of Lean/Screen/TraceBalancedKernel.lean. The corresponding maximal faithful tensor-action image is S(U(3) x U(2)), equivalently (SU(3) x SU(2) x U(1))/Z6. The realized local weights descend through all four admissible quotients (Z6Descent.four_admissible_global_forms), so the same-source loop-to-kernel identity is one necessary clause toward selecting the physical quotient; it does not select that quotient without PR-46. The intertwiner itself is a proved receipt, and the premise is the same-source physical identification of its domain.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -431,6 +466,7 @@
   {
    "id": "PR-36",
    "name": "family band-selection rules: single complete faithful band and operational cost order",
+   "statement": "The family multiplicity object is a single complete spectral band of the twelve-port adjacency realized inside the screen coefficient space: candidates carrying a source-visible proper splitting projector are excluded (the single-complete-object clause), bands whose rotation action has nontrivial kernel are excluded (the faithfulness clause), and the complex dimension lies in the pinned physical window [3, 5]. Admissible candidates are compared by the operational Laplacian seam cost per unit norm over Z[sqrt5], and the unique strict minimizer is selected. On the committed carrier the admissible candidates are the 3, 3', and 5 bands with exact costs 5 - sqrt5 < 6 < 5 + sqrt5, so the rules select the rank-three band (Lean/Screen/A5FamilyBand.lean, family_band_selected); over all four bands the minimizer is the trivial band at cost zero (trivial_band_without_faithfulness). On this finite table faithfulness and the [3, 5] window each exclude that same trivial entry: removing either condition while retaining the other changes no admissible candidate. The all-band control drops both exclusions; it does not show that either clause is separately necessary when the other is retained. The clauses are declared in code/a5_closure/family_band_attachment_certificate.py and its reference manifest.",
    "type": "selection_rule",
    "role": "law",
    "status": "open",
@@ -440,6 +476,7 @@
   {
    "id": "PR-37",
    "name": "fine-structure closure map selection",
+   "statement": "The P-closure map consumed by the fine-structure lane is a declared selection: the one-loop running and matching conventions, the tree-level m_Z closure, and the continuation masses enter as declared map data, certified as declared in the interval contraction certificate, and no source rule selects this map among admissible closure maps.",
    "type": "selection_rule",
    "role": "law",
    "status": "open",
@@ -449,6 +486,7 @@
   {
    "id": "PR-38",
    "name": "same-quantity bridge for the P closure",
+   "statement": "The screen detuning reading of P and the electromagnetic return reading are the same typed quantity, so the fixed point of the declared closure map and the fine-structure return value factor through one same-invariant identification; the physical-identification row p_detuning_same_quantity_readback records the bridge as an undischarged anchor.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -458,6 +496,7 @@
   {
    "id": "PR-39",
    "name": "physical Thomson readback contract",
+   "statement": "The Thomson endpoint transport attaches to the physical Thomson scheme through a declared readback contract; the endpoint receipt consumes the contract as declared, and the physical-identification row alpha_in_thomson records the physical attachment as an undischarged anchor.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -467,6 +506,7 @@
   {
    "id": "PR-41",
    "name": "electroweak sector selection premises",
+   "statement": "The conditional Higgs and top rows of the electroweak section consume declared selection premises; the postdiction ledger records the rows as conditional on the declared selection axioms, and the sector stance is owed.",
    "type": "selection_rule",
    "role": "law",
    "status": "open",
@@ -476,6 +516,7 @@
   {
    "id": "PR-42",
    "name": "horizon record central-charge identification",
+   "statement": "Over the declared repair law (PR-07), the modular weight of the declared reference splits as -log ref = 2*pi*B + Z, with the central charge Z measurable through the repaired visible datum; the identification of B with a physical boost energy and of Z with the edge record of a physical horizon is content of the row. The 2*pi coefficient is the declared modular normalization of the split.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -485,6 +526,7 @@
   {
    "id": "PR-43",
    "name": "pointwise-continuous public star-automorphism flow",
+   "statement": "A real-parameter group of star automorphisms of one represented finite matrix algebra is supplied, with identity at zero, the group law, and pointwise continuity. The finite Stone-converse receipt then represents that supplied flow by conjugation with a time-independent self-adjoint generator, unique up to an additive real scalar. The premise supplies neither a source-selected evolution nor a physical clock.",
    "type": "structural_rule",
    "role": "law",
    "status": "fulfilled",
@@ -497,6 +539,7 @@
   {
    "id": "PR-44",
    "name": "finite subsystem split and normalized local-operation interface",
+   "statement": "The finite locality helpers are read on a supplied bipartite carrier split with a designated local factor and a normalized local operation: a row-normalized classical kernel or Kraus-complete quantum family. Adaptive variants additionally take a supplied scheduler and consultation region. These data yield exact algebraic no-signalling and dependency-cone identities but do not identify spacelike physical regions, a laboratory channel, or a source-selected factorization.",
    "type": "representation_choice",
    "role": "designer",
    "status": "partial",
@@ -509,6 +552,7 @@
   {
    "id": "PR-45",
    "name": "source-selected real variational dynamics and symmetry data",
+   "statement": "The variational surface is supplied with a positive initial law and transition kernel, a finite history length, a record embedding of the alphabet into the reals, a real Lagrangian or stiffness and potential with derivative data, and, for Noether transport, a differentiable one-parameter transformation and exact invariance law. The finite Euler-Lagrange, Legendre-Hamilton, and Noether receipts are conditional on these data and are stated for fixed-endpoint interior-junction variations; the observer source does not select them.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -518,6 +562,7 @@
   {
    "id": "PR-46",
    "name": "physical global-form selection attachments",
+   "statement": "Selection of the physical global gauge group from the four quotients compatible with the realized local weights requires a source-complete character category, an instanton or topological normalization, and a laboratory flux or line-operator attachment. The finite kernel, six-axis intertwiner, and four-quotient menu do not supply those identifications.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -527,6 +572,7 @@
   {
    "id": "PR-47",
    "name": "spacetime Spin and fermion-chirality attachment",
+   "statement": "The parity-graded exterior component table is attached to a physical Lorentzian Spin structure, odd-Weyl fermion typing, and fermion parity so that the finite table grading has the claimed spacetime chirality meaning. The central arithmetic and parity scan do not construct this attachment.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -536,6 +582,7 @@
   {
    "id": "PR-48",
    "name": "one-Higgs scalar carrier and kinetic-action attachment",
+   "statement": "One complex weak doublet of hypercharge one half is selected as the physical scalar carrier, identified with the declared weak block, and furnished with a gauge-covariant kinetic action and normalization. The exterior table and central-weight arithmetic identify a compatible candidate but do not select its physical existence or dynamics.",
    "type": "representation_choice",
    "role": "law",
    "status": "open",
@@ -545,6 +592,7 @@
   {
    "id": "PR-49",
    "name": "renormalizable Higgs potential and electroweak-breaking law",
+   "statement": "The scalar sector carries the renormalizable quadratic-plus-quartic Higgs potential, a stable symmetry-breaking branch, and a vacuum attachment with a declared relation to the physical electroweak scale. No committed OPH theorem selects the potential, its coefficients, or the broken vacuum.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -554,6 +602,7 @@
   {
    "id": "PR-50",
    "name": "Yukawa interaction-line and coupling-matrix attachment",
+   "statement": "The gauge-invariant up, down, and charged-lepton interaction lines are selected on the one-Higgs matter package and furnished with complete Yukawa matrices, including family labels and physical chiral attachment. The exterior grammar records compatible invariant lines. The exact non-identifiability receipt holds both frames fixed and frees the two eigenvalue moduli, while matrices, textures, and phases are absent from the registered one-generation grammar.",
    "type": "selection_rule",
    "role": "law",
    "status": "open",
@@ -563,6 +612,7 @@
   {
    "id": "PR-51",
    "name": "common screen-electroweak load and capacity bridge",
+   "statement": "The A5-invariant screen-load line and the electroweak scalar order-unit line are identified by one refinement-natural positive unital readout, and that same typed load is attached to the global capacity action used by the conditional N closure. The current branch certificate explicitly leaves the common-load identification and inherited screen-electroweak bridge premises open.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -572,6 +622,7 @@
   {
    "id": "PR-52",
    "name": "observer-to-physical-spacetime and causal attachment",
+   "statement": "The source-derived finite informational order, the constructed ambient Lorentz target, and source-selected event placements are jointly identified with one observer-produced effective physical spacetime. This identification requires physical causal faithfulness of the order, a faithful embedding, a calibrated event-counting or replacement measure for spacetime volume, manifoldlikeness, independent recovery of intrinsic dimension and topology, compatible rods and operational clocks, stability across a physical continuum family, uniqueness of the limit, and convergence of metric, curvature, and stress data. The legacy EventGermAtlas remains an optional algebraic soldering adapter and is neither an input to nor the active route for this attachment. The existing algebraic geometry, provenance, placement, and finite-net modules explicitly do not construct the joint physical identification.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -581,6 +632,7 @@
   {
    "id": "PR-53",
    "name": "physical finite-carrier propagation, frame, and comparison attachment",
+   "statement": "A named branch-indexed finite-carrier propagation action is identified with a physical photon or other declared field sector, a coherent frame and boost law, a calibrated clock and length scale, a cofinal gluing or continuum domain, and an operational wave-packet readout with nuisance and comparison semantics. The primitive-port rank-six and seam-current rank-two actions are distinct branches; their exact internal dispersion coefficients alone supply none of these attachments.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -590,6 +642,7 @@
   {
    "id": "PR-54",
    "name": "source gauge-field, current, and action attachment",
+   "statement": "The selected compact bracket and matter representation are realized by one source-produced gauge connection, current algebra, field strength, covariant matter operator, and local action on the same spacetime carrier. The finite classification and invariant-form receipts determine conditional algebraic shapes but do not construct this physical field/action package.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -599,6 +652,7 @@
   {
    "id": "PR-55",
    "name": "declared baryon- and lepton-number labels",
+   "statement": "The ten one-generation Weyl-field labels are furnished with the displayed accidental baryon number B and lepton number L. These labels are used to classify baryon-violating dimension-six field multisets and to state Delta B equals Delta L. Gauge representation and hypercharge data do not by themselves derive these two global labels or prove their conservation.",
    "type": "selection_rule",
    "role": "law",
    "status": "open",
@@ -608,6 +662,7 @@
   {
    "id": "PR-56",
    "name": "dimension-six baryon-operator eligibility and contraction grammar",
+   "statement": "Candidate dimension-six baryon operators are represented by ordered four-field multisets on the declared one-generation Weyl table and filtered by exact hypercharge neutrality, color triality, weak parity, Lorentz-chirality parity, and nonzero baryon label. Surviving rows are tested in the supplied epsilon-contraction and exterior-algebra grammar. The exhaustive finite result proves completeness only inside this declared grammar.",
    "type": "representation_choice",
    "role": "designer",
    "status": "open",
@@ -617,6 +672,7 @@
   {
    "id": "PR-57",
    "name": "physical proton state and baryon-violating effective-action attachment",
+   "statement": "The declared quark and lepton fields, baryon labels, and finite operator census are attached to a physical proton state and one low-energy effective action with source-selected Wilson coefficients, renormalization and scale conventions, QCD matrix elements, and decay readout. Without this attachment the census neither proves proton stability nor predicts a lifetime.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -626,6 +682,7 @@
   {
    "id": "PR-58",
    "name": "time-indexed net evolution and time-slice generation interface",
+   "statement": "A source-selected time-indexed or Cauchy-region interface must be jointly realized with net-compatible evolution and a proof that its admitted slice algebra generates the corresponding evolved regional algebra. A supplied finite scalar action has an exact regional collar criterion and a common sheared Weyl net; this does not supply native continuous observable access, physical regions or a continuum time-slice realization. PR-43 supplies a flow on one full matrix block, PR-52 owns the physical time and causal reading, and the constructed Z/2 slot swap remains an internal finite symmetry. Continuous symmetry alone is neither necessary nor sufficient for the time-slice property.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -635,6 +692,7 @@
   {
    "id": "PR-59",
    "name": "declared five-mode exterior component and mask-selection grammar",
+   "statement": "The bounded exterior-matter receipts supply the five-mode carrier V = C^3 + C^2 with trace-balanced integer charges q = 6Y = (-2, 3), omit exterior degrees zero and five, and use the ten remaining nontrivial isotypic rows with their committed color and weak dimensions, q6 column, exterior parity, and conjugation. The finite selection domain is exactly the 2^10 subsets of that table; admissibility requires nonemptiness, no row together with its conjugate, and vanishing of the displayed mixed gravitational-U(1), SU(3)^2 U(1), SU(2)^2 U(1), and U(1)^3 sums. This declared charged rank-fifteen exterior-table and mask grammar is distinct from the separately frozen PR-12 class, whose candidates have dimension at most twelve and zero abelian charges. Neither class contains the other. PR-59 neither source-selects physical matter nor proves completeness against other carriers, direct sums, vectorlike additions, neutral singlets, or light sectors.",
    "type": "selection_rule",
    "role": "law",
    "status": "open",
@@ -644,6 +702,7 @@
   {
    "id": "PR-60",
    "name": "admissible scheduler class: mismatch non-increase clause",
+   "statement": "Every supported step of an admissible scheduler on the two-register repair carrier does not increase the declared defect mismatch, one unit per raised private defect flag. Typed as the mismatch_nonincrease clause of ObservableNormalForms.ProtectedObstructions.SchedulerClass.AdmissibleScheduler in Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean; the all-scheduler defect cut consumes exactly this clause.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -653,6 +712,7 @@
   {
    "id": "PR-61",
    "name": "admissible scheduler class: single-register locality clause",
+   "statement": "Every supported step writes at most one of the two registers, typed as the locality clause over the declared LocalMove grammar in Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean. Declared; no obstruction theorem consumes it.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -662,6 +722,7 @@
   {
    "id": "PR-62",
    "name": "admissible scheduler class: unit expected capacity clause",
+   "statement": "The expected declared capacity spend of every step, stepCost = privateCost + sharedCost integrated against the kernel row, is at most one unit, typed as the capacity_bound clause in Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean. Declared; no obstruction theorem consumes it.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -671,6 +732,7 @@
   {
    "id": "PR-63",
    "name": "two-register capacity-split reading",
+   "statement": "The first register of the committed two-bit repair carrier is read as the shared network-facing record and the second as the private local defect flag; privateCost charges one unit per private write and sharedCost one unit per shared write, and the self-update-only and network-update-only sub-classes are their zero-spend loci. The reading is a declaration, not a derivation.",
    "type": "representation_choice",
    "role": "designer",
    "status": "open",
@@ -680,6 +742,7 @@
   {
    "id": "PR-64",
    "name": "operational phase-instrument channel realization",
+   "statement": "A phase-sensitive measurement is represented by context- and outcome-indexed completely-positive trace-nonincreasing state-update maps whose sum in each context is trace preserving, whose induced effects agree with the declared effect table, and whose outcome readback agrees with the recorded public outcome. A matrix effect or exact Born table alone is not such an instrument.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -689,6 +752,7 @@
   {
    "id": "PR-65",
    "name": "source-produced phase preparation and readback provenance",
+   "statement": "One source construction supplies the common preparation used across the phase and real contexts, selects the phase-sensitive effect or instrument, produces the public outcomes through that instrument, and binds preparation, context, operation, readback, and receipt custody to one run. Deterministic recomputation of Born weights from declared matrices does not supply this provenance.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -698,6 +762,7 @@
   {
    "id": "PR-66",
    "name": "declared discrete kinetic term of the temporal Maxwell action",
+   "statement": "The temporal Maxwell packet is the Euler-Lagrange system of one declared discrete action on a finite step window: the committed local sourced face action at the forward step, with its committed seam-current coupling, plus the declared kinetic term (h/2)|E_n|^2 with E_n = -(A_{n+1}-A_n)/h - d phi_n, plus the port-load coupling h <rho_n, phi_n>. Stationarity under endpoint-vanishing variations of A is equivalent to the step-scaled Ampere update E_{n+1}-E_n = h (C^T B_{n+1} - J_n) at every interior step, and stationarity under variations of phi is equivalent to the Gauss constraint at every window step. The kinetic term and the step h are the declared inputs; the unit-step recurrence of the earlier packet is the h = 1 instance and is no separate declaration.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -707,6 +772,7 @@
   {
    "id": "PR-67",
    "name": "declared finite one-doublet electroweak grammar",
+   "statement": "The finite electroweak composition uses one declared complex doublet with q=6Y equal to three, a four-parameter weak-hypercharge infinitesimal action with declared positive couplings, and the displayed finite normalization. This is a mathematical grammar declaration, not selection of a physical scalar field or kinetic action.",
    "type": "representation_choice",
    "role": "law",
    "status": "open",
@@ -716,6 +782,7 @@
   {
    "id": "PR-68",
    "name": "declared finite quartic breaking packet",
+   "statement": "The finite composition declares lambda>0, a model-shell radius r>0, the potential lambda times (normSq(h)-r^2)^2, and the chosen point (0,r). Its minimizer, stabilizer, quadratic-coefficient, and gauge-mass-form identities are conditional finite consequences of this packet.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -725,6 +792,7 @@
   {
    "id": "PR-69",
    "name": "declared finite Yukawa-line coefficient",
+   "statement": "The finite electroweak composition selects one epsilon-paired doublet-singlet Yukawa line with one declared real coefficient y and proves its exact bilinear value at the declared finite vacuum. It supplies no family matrices, physical chiral attachment, texture, phase, or measured mass identification.",
    "type": "selection_rule",
    "role": "law",
    "status": "open",
@@ -734,6 +802,7 @@
   {
    "id": "PR-70",
    "name": "source homogeneous edge position action",
+   "statement": "The physical position action of the compared regime is homogeneous, its sole direct support is the complete thirty-direction edge orbit of the committed seam current, and its source weights are equal across the thirty directions. The committed corpus proves the control counterpart only: the seam-derived control symbol has complete edge support with one common squared chord and equal control weight (source_seam_edge30_control_certificate), and no committed theorem attaches that control symbol to a physical action.",
    "type": "selection_rule",
    "role": "designer",
    "status": "open",
@@ -743,6 +812,7 @@
   {
    "id": "PR-71",
    "name": "continuous field same-operator sector attachment",
+   "statement": "The compared observable lives in a continuous field sector, and the comparison reads the same operator sector that the committed source theorem fixes for the seam-derived symbol. No committed theorem selects the physical sector or identifies the committed symbol with a laboratory operator.",
    "type": "selection_rule",
    "role": "designer",
    "status": "open",
@@ -752,6 +822,7 @@
   {
    "id": "PR-72",
    "name": "cofinal gluing into the compared regime",
+   "statement": "The finite committed patch embeds cofinally into the compared regime, so that the committed edge-branch symbol governs propagation at the compared scales. No committed theorem supplies this gluing for the FZ-12 comparison path.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -761,6 +832,7 @@
   {
    "id": "PR-73",
    "name": "declared finite carrier scale",
+   "statement": "One declared positive carrier scale fills the committed coefficient slot, giving C4 = -a^2/20, B0 = a^4/840, and B6 = -a^4/12600 at that scale. The committed manifold ratios are scale free and therefore do not select a value by themselves. This scoped non-forcing leaves independent source invariants such as a correlation length, refinement scale, defect density, or spectral gap as viable scale-selection routes.",
    "type": "numerical_input",
    "role": "designer",
    "status": "open",
@@ -770,6 +842,7 @@
   {
    "id": "PR-74",
    "name": "coherent frame and boost transport",
+   "statement": "One coherent frame carries the comparison, and a boost transport connects that frame to the source frame of the committed symbol, so that the intrinsic coefficients are read in a resolved frame. No committed theorem supplies frame resolution or boost transport for the FZ-12 comparison path.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -779,6 +852,7 @@
   {
    "id": "PR-75",
    "name": "frozen nuisance and coverage readout rules",
+   "statement": "The readout of any eligible comparison isolates nuisance parameters and calibrates joint coverage under rules fixed before exposure, as the frozen decision rule requires for every verdict class. These are declared analysis conventions of the comparison protocol, not source-derivable structure.",
    "type": "representation_choice",
    "role": "designer",
    "status": "open",
@@ -788,6 +862,7 @@
   {
    "id": "PR-76",
    "name": "source-derived positive exclusivity lower bound",
+   "statement": "A pre-exposure same-action, same-sector source theorem fixes a positive lower bound a_min for the admissible scales in the comparison units, and the preregistered sensitivity and remainder contract covers every admissible scale at or above a_min. The frozen append-only clarification makes a null verdict conditional on exactly this obligation, owned by issue #664. No current source theorem supplies the bound. The permissive checklist realizes every positive label only because it stipulates the field; this proves no universal lower-bound no-go.",
    "type": "numerical_input",
    "role": "designer",
    "status": "open",
@@ -797,6 +872,7 @@
   {
    "id": "PR-77",
    "name": "pathwise weak fairness for canonical adaptive repair",
+   "statement": "Along one canonical adaptive repair run, every site that remains enabled throughout a tail is eventually selected on that tail. The premise is sufficient for the eventual constant record to be normal, but it is not needed for premise-free eventual constancy and is not derived or selected by canonical repair.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -806,6 +882,7 @@
   {
    "id": "PR-78",
    "name": "work-conserving canonical adaptive choice",
+   "statement": "At every canonical adaptive repair state, whenever some site has an effective repair, the selected site has an effective repair. This stronger premise gives a normal and stable horizon bounded by the initial mismatch count. It is not required for premise-free eventual constancy or the weaker pathwise-fair normality theorem.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -815,6 +892,7 @@
   {
    "id": "PR-79",
    "name": "bounded waste between canonical adaptive changes",
+   "statement": "From every scheduler index and every reducible canonical repair record, at least one genuine record change occurs among the next q+1 attempts for one declared natural q. The premise permits bounded equality stutter and yields a normal horizon no larger than (q+1) times the initial mismatch count. Canonical repair does not derive q or select a scheduler.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -824,6 +902,7 @@
   {
    "id": "PR-80",
    "name": "sufficient cumulative attempt budget",
+   "statement": "The declared natural attempt budget B is at least (q+1) times the initial mismatch count for the same bounded-waste value q. Every scheduler invocation costs one unit, including equality stutter. This adequacy inequality supplies a finite execution capacity but no physical time, rate, energy, bandwidth, fee, or hardware interpretation.",
    "type": "numerical_input",
    "role": "designer",
    "status": "open",
@@ -833,6 +912,7 @@
   {
    "id": "PR-81",
    "name": "certified causal read support",
+   "statement": "Every semantic commit declares the register versions on which its enablement, accepted payload, visible label, or continuation genuinely depends, and the declared support is sound and complete for that dependence. The generated parent relation authenticates each cited version by requiring parent write-membership, the matching writer identifier, and value continuity from the parent's post-state to the child's pre-state. The Lean execution bridge threads states but does not infer support completeness from arbitrary executor code, and a repair that does not cite the injected seam version acquires no mismatch-response edge.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -842,6 +922,7 @@
   {
    "id": "PR-82",
    "name": "abstract semantic ancestry acyclicity rank",
+   "statement": "An arbitrary inhabitant of the abstract SemanticEventLog certificate interface supplies a natural rank strictly increasing across every authenticated direct semantic parent edge as an acyclicity and well-foundedness witness. The canonical fresh, duplicate-free, carrier-complete executed-history constructor does not import this rank: it derives the witness from commit position and proves exact agreement with threaded authenticated provenance. The spacetime placement does not use these rank values; it computes canonical sourceHeight from authenticated parenthood. The supplied witness is not a repair schedule, modular parameter, clock reading, proper time, or global time coordinate; neither is sourceHeight.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -851,6 +932,7 @@
   {
    "id": "PR-84",
    "name": "pathwise weak fairness for fixed node attempts",
+   "statement": "Along one attempt run of an input-independent fixed node federation, if one declared node remains failing throughout a tail, that exact node is eventually selected on the tail. The premise removes reducible equality-stutter tails but does not cause accepted-step termination, select a scheduler, bound attempts, or provide a physical rate.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
@@ -860,11 +942,1494 @@
   {
    "id": "PR-85",
    "name": "bounded waste between fixed node changes",
+   "statement": "From every scheduler index and every non-consensus state of one input-independent fixed node federation, at least one genuine state change occurs among the next q+1 attempts for one declared natural q. Combined with the source-specific triangular potential, the premise yields stable consensus within (q+1) times the triangular node bound. It is not implied by pathwise weak fairness and gives no physical rate or unit.",
    "type": "structural_rule",
    "role": "law",
    "status": "open",
    "evidence": [],
    "note": ""
+  }
+ ],
+ "measurement": {
+  "label": "Largest probability of losing pair adjacency across nine sampled waits on 20 cells at κ = 8",
+  "value": 0.009621636829642455,
+  "standard_error": null,
+  "source": "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+  "pointer": "/particle_stability/law/20 cells/by_kappa/8.0/max_no_pair",
+  "error_pointer": null
+ },
+ "requirements": [
+  {
+   "id": "axioms",
+   "title": "The three OPH axioms",
+   "purpose": "Full foundational contracts. A finite witness can establish a clause while common-regime completeness and refinement remain open. The PR identifiers are related ledger entries.",
+   "sources": [
+    "claims/axiom_registry.yaml",
+    "docs/AXIOM_REFERENCE.md"
+   ],
+   "criteria": [
+    {
+     "id": "A1",
+     "title": "Oriented observer-patch federation and spherical support",
+     "requires": "Exhibit the local patch algebras and state/record/refinement maps on fielded oriented icosahedral cells, the degree-one spherical support bridge, and a faithful closed twelve-port current response exhausting observable response directions naturally on the declared cover.",
+     "sources": [
+      "claims/axiom_registry.yaml",
+      "docs/AXIOM_REFERENCE.md"
+     ],
+     "premises": [
+      "PR-02",
+      "PR-11"
+     ],
+     "status": "partial",
+     "note": "The shared sphere, orthogonal public records and twelve weighted current services are present. All plain single-load services give 17 visible directions. Common-regime completeness and refinement remain open.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+      "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md"
+     ]
+    },
+    {
+     "id": "A2",
+     "title": "Observer agreement",
+     "requires": "Transport the same public effects and outcomes across overlapping observers, translations, chains of refinements, and proper carrier rechartings. Derive accepted overlap holonomy and its projective implementer in the connected response group on the same histories, modulo the centralizer.",
+     "sources": [
+      "claims/axiom_registry.yaml",
+      "docs/AXIOM_REFERENCE.md"
+     ],
+     "premises": [],
+     "status": "partial",
+     "note": "The seam reader produces agreed orthogonal copies and the one-cell current controls are rotation covariant. The copies and one-cell identity do not supply the full interpatch transport contract.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+      "model/candidate_laws/contrast_memory_spherical_v1/reader.py"
+     ]
+    },
+    {
+     "id": "A3",
+     "title": "Conditional maximum randomness",
+     "requires": "From the repair and record grammar supply the feasible family, faithful reference and positive weights. Realize its unique weighted relative-entropy minimizer on the jointly separating accessible cover with exact constraint satisfaction and compatibility under overlap and refinement.",
+     "sources": [
+      "claims/axiom_registry.yaml",
+      "docs/AXIOM_REFERENCE.md"
+     ],
+     "premises": [],
+     "status": "open",
+     "note": "The echo and weighted current generator do not define a general weighted information projection on observer record tables.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "finite-theorems",
+   "title": "Finite theorem premises and executable witnesses",
+   "purpose": "Each bounded row names its source, menu and sector. The confluence, public probability and global gauge rows make explicit the additional premises needed to transfer those witnesses.",
+   "sources": [
+    "paper/executable_observer_construction.tex",
+    "paper/reality_as_consensus_protocol.tex",
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
+   ],
+   "criteria": [
+    {
+     "id": "FT-SEAM",
+     "title": "Exact directed seam write",
+     "requires": "On the blank seam register preserve total integer load, minimize the two squared endpoint loads, use a load-independent fair tie bit, and respect endpoint exchange. Verify the exact decrease for strict classical writes.",
+     "sources": [
+      "paper/executable_observer_construction.tex",
+      "Lean/ObserverPatchHolography/DirectedSeamRepair.lean"
+     ],
+     "premises": [],
+     "status": "demonstrated",
+     "note": "The directed write puts the endpoints at floor/ceiling of half the total and stores contrast and tie. The bounded-load polynomial settling estimate covers strict classical moves.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/law.py",
+      "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md"
+     ]
+    },
+    {
+     "id": "FT-BAND",
+     "title": "Native repair selects and the candidate carries the rank-three Gram band",
+     "requires": "Use the oriented 12-port incidence and the balanced binary repair sector with independent unit-rate seam attempts. Derive the centered mean −L/2 and identify the slow projector G/4. Supply an explicit map intertwining the candidate’s finite response with L/2 on this sector and verify it carries all three directions on the cell.",
+     "sources": [
+      "paper/screen_microphysics_and_observer_synchronization.tex",
+      "Lean/Screen/PortGramRepairBand.lean",
+      "paper/executable_observer_construction.tex"
+     ],
+     "premises": [],
+     "status": "demonstrated",
+     "note": "The fair binary write and all 30 unit rates generate the centered mean −L/2. The actual one-load Hamiltonian minus 48 matches the positive operator L/2 on all ports, carrying its full rank-three Gram band.",
+     "evidence": [
+      "model/evaluation/repair_band.py",
+      "model/evaluation/repair_band.json",
+      "model/candidate_laws/contrast_memory_spherical_v1/candidate.py"
+     ]
+    },
+    {
+     "id": "FT-RECORD",
+     "title": "Orthogonal local pointer records",
+     "requires": "For a declared finite reader, implement distinguishable orthogonal outcome labels retained in physical registers with a certain immediate reread on the same record.",
+     "sources": [
+      "paper/executable_observer_construction.tex",
+      "Lean/EventAlgebra/NoBroadcastingAdapter.lean"
+     ],
+     "premises": [
+      "PR-02"
+     ],
+     "status": "demonstrated",
+     "note": "The two-load seam and presence circuits produce orthogonal outcome labels and realize repeatable record effects on their declared windows.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/presence_results.json",
+      "model/candidate_laws/contrast_memory_spherical_v1/reader.py"
+     ]
+    },
+    {
+     "id": "FT-LOCAL",
+     "title": "Disjoint finite operations preserve a remote marginal",
+     "requires": "Give a tensor-factor split and a complete normalized operation acting on finite support. An observer whose registers are entirely disjoint retains its marginal after outcomes are summed.",
+     "sources": [
+      "paper/executable_observer_construction.tex",
+      "paper/reality_as_consensus_protocol.tex"
+     ],
+     "premises": [
+      "PR-44"
+     ],
+     "status": "demonstrated",
+     "note": "Seam events and their complete local readings satisfy the finite-factor no-signalling premise.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/law.py",
+      "model/candidate_laws/contrast_memory_spherical_v1/reader.py"
+     ]
+    },
+    {
+     "id": "FT-FLOW",
+     "title": "Finite continuous free evolution",
+     "requires": "On the declared finite free sector identify a Hermitian generator and its continuous automorphism flow. The laboratory clock and time-dependent interventions are separate measurements.",
+     "sources": [
+      "paper/executable_observer_construction.tex",
+      "paper/observers_are_all_you_need.tex"
+     ],
+     "premises": [
+      "PR-43"
+     ],
+     "status": "demonstrated",
+     "note": "The one- and two-load sectors evolve with the contrast-memory Hermitian generator. The theorem determines it up to a scalar on a matrix block.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
+      "model/candidate_laws/contrast_memory_spherical_v1/sectors.py"
+     ]
+    },
+    {
+     "id": "FT-PROJECTION",
+     "title": "Two-overlapping-patch information projection",
+     "requires": "On two overlapping two-cell observers with a shared fair record and private mismatch probability 1/4, implement the unique weighted projection to a uniform reference. Check all branches in both orders and distinguish accessible marginals from the unobserved joint coupling.",
+     "sources": [
+      "claims/axiom_registry.yaml",
+      "docs/AXIOM_REFERENCE.md"
+     ],
+     "premises": [],
+     "status": "open",
+     "note": "The contrast-memory package supplies the seam write. The complete two-owner projection instrument has been replayed in the Interval Echo configuration.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md"
+     ]
+    },
+    {
+     "id": "FT-CONFLUENCE",
+     "title": "Consensus on the declared observation quotient",
+     "requires": "Declare the repair relation and protected record equivalence. Prove completeness of normal forms for consistency, joinability of every overlap fork on that quotient, and strictly well-founded descent for accepted nontrivial transactions.",
+     "sources": [
+      "paper/reality_as_consensus_protocol.tex",
+      "Lean/ObservableNormalForms/ObservableNormalForms/ObserverConfluence.lean",
+      "tracking/premise_register.json"
+     ],
+     "premises": [
+      "PR-01"
+     ],
+     "status": "partial",
+     "note": "Strict classical writes lower squared load. The native echo unwrites the event and preserves the multiset. The general quotient, overlaps and termination of accepted transactions remain open.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/law.py",
+      "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md"
+     ]
+    },
+    {
+     "id": "FT-STRICT-WEDGE",
+     "title": "Strict repair with an order-independent endpoint and a retained phase on an intercell wedge",
+     "requires": "Realize strictly descending accepted writes and a common endpoint channel for all blank-collar two-unit inputs on two competing native seams, including coherences. At a fixed winning address perform a local phase read after the write.",
+     "sources": [
+      "model/experiments/interval_echo_consensus/PROTOCOL.md",
+      "model/experiments/interval_echo_consensus/FOLLOWUP.md"
+     ],
+     "premises": [
+      "PR-01"
+     ],
+     "status": "open",
+     "note": "The reference supplies the underlying native echo. This assessment also requires a registered priority service and a phase-sensitive terminal reader.",
+     "evidence": []
+    },
+    {
+     "id": "FT-BORN",
+     "title": "Operational probability and event additivity",
+     "requires": "Recover a normalized positive state on public effects with common values for operationally equivalent readings and additive probabilities for jointly realized disjoint effects. Track which quantum instrument and state structure the law supplies.",
+     "sources": [
+      "paper/observers_are_all_you_need.tex",
+      "Lean/EventAlgebra/OperationalBornBridge.lean",
+      "tracking/premise_register.json"
+     ],
+     "premises": [
+      "PR-02",
+      "PR-03",
+      "PR-64",
+      "PR-65"
+     ],
+     "status": "partial",
+     "note": "Presence and addressed instruments distinguish updates sharing one effect. The outcome predictions use a finite quantum instrument and its state.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/presence_results.json",
+      "model/candidate_laws/contrast_memory_spherical_v1/reader.py"
+     ]
+    },
+    {
+     "id": "FT-CURRENT",
+     "title": "Faithful twelve-current response on the declared finite sector",
+     "requires": "On one cell specify the prepared finite sector and the exact allowed current service. Verify twelve independent visible operators, positive trace form, commutator closure and the proper rotational action needed by the finite Lie-type classification.",
+     "sources": [
+      "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+      "paper/executable_observer_construction.tex"
+     ],
+     "premises": [
+      "PR-11"
+     ],
+     "status": "demonstrated",
+     "note": "On one cell the weighted load-plus-twist service on the one-load triplets yields the compact type u(3) ⊕ so(3), rank of the response 12, with positive Gram and the required rotational action.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+      "model/candidate_laws/contrast_memory_spherical_v1/port_response.py"
+     ]
+    },
+    {
+     "id": "FT-GLOBAL",
+     "title": "Global gauge group and representation attachment",
+     "requires": "Supply the common-source loop action and exact central kernel, normalization/cover and faithful response on physical carriers. Certify the hypotheses selecting the global quotient and the action on matter.",
+     "sources": [
+      "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tracking/premise_register.json"
+     ],
+     "premises": [
+      "PR-11",
+      "PR-35",
+      "PR-46",
+      "PR-54"
+     ],
+     "status": "open",
+     "note": "The weighted local Lie type provides no global central quotient or physical matter representation receipt.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+     ]
+    },
+    {
+     "id": "FT-MATTER",
+     "title": "Matter-sector and fermion premises",
+     "requires": "Realize on the same source the proposed sector-selection grammar and transport, its physical spin and chirality, and the response under the measured global gauge group. These are prerequisites for interpreting the visible states as matter multiplets.",
+     "sources": [
+      "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tracking/premise_register.json"
+     ],
+     "premises": [
+      "PR-12",
+      "PR-36",
+      "PR-47",
+      "PR-59"
+     ],
+     "status": "open",
+     "note": "The persistent pair, triplets and excitation catalogue have no attached chiral physical spin/gauge representations.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+      "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "einstein",
+   "title": "Einstein realization on one physical source",
+   "purpose": "G1–G6 are the six hypotheses for a common source, state and refinement tower. GR-NULL records the null-direction route. The paper also gives a quantitative route using ten timelike observers with matched bulk, area and stationarity errors o(ℓ⁴); it requires no separately assumed null-balance equation.",
+   "sources": [
+    "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+    "tracking/premise_register.json",
+    "Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean"
+   ],
+   "criteria": [
+    {
+     "id": "G1",
+     "title": "Lorentzian event and geometry domain",
+     "requires": "On one candidate-generated refinement tower supply an authenticated causal order, event placement and count/volume limits that agree on a local differentiable, stably causal Lorentzian domain.",
+     "sources": [
+      "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tracking/premise_register.json"
+     ],
+     "premises": [
+      "PR-16",
+      "PR-28",
+      "PR-52",
+      "PR-72",
+      "PR-74"
+     ],
+     "status": "partial",
+     "note": "The native slow rank-three band and finite record clocks are inputs. A source-generated causal order, volume normalization and common differentiable limit remain open.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+      "model/candidate_laws/contrast_memory_spherical_v1/events.py"
+     ]
+    },
+    {
+     "id": "G2",
+     "title": "Cap modular charges measure the propagating matter stress",
+     "requires": "Calibrate cap modular flow to geometric normalization and show its directional charges measure the same stress tensor that the candidate uses in propagation and interactions.",
+     "sources": [
+      "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tracking/premise_register.json"
+     ],
+     "premises": [
+      "PR-23",
+      "PR-24",
+      "PR-25",
+      "PR-53"
+     ],
+     "status": "open",
+     "note": "A finite free generator and record-clock relations do not identify cap modular dilation or the directional matter-stress charges.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+     ]
+    },
+    {
+     "id": "G3",
+     "title": "Independent matter Ward identity",
+     "requires": "Derive or test a covariantly conserved matter stress tensor on the G1 domain, using matter dynamics independently of the Einstein equation.",
+     "sources": [
+      "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tracking/premise_register.json"
+     ],
+     "premises": [
+      "PR-25",
+      "PR-28"
+     ],
+     "status": "open",
+     "note": "Conservation of load within the candidate does not supply an independently conserved spacetime stress tensor.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md"
+     ]
+    },
+    {
+     "id": "G4",
+     "title": "Stationary generalized entropy at fixed proper volume",
+     "requires": "For the same region and state establish the edge-center entropy split and physical area normalization, modular first law, and vanishing first variation of generalized entropy at fixed proper volume.",
+     "sources": [
+      "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tracking/premise_register.json"
+     ],
+     "premises": [
+      "PR-26",
+      "PR-27",
+      "PR-28"
+     ],
+     "status": "open",
+     "note": "The finite presence and seam-record instruments supply no edge area normalization or fixed-volume derivative.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+     ]
+    },
+    {
+     "id": "G5",
+     "title": "Small-ball control and sufficient null directions",
+     "requires": "Bound the small-ball remainders across scales and demonstrate enough independent observer and null directions to recover directional tensor data in the same regional frame.",
+     "sources": [
+      "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tracking/premise_register.json"
+     ],
+     "premises": [
+      "PR-25",
+      "PR-27",
+      "PR-28"
+     ],
+     "status": "open",
+     "note": "Single-cell rotational covariance and stable pair bounds leave the regional small-ball remainder open.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+     ]
+    },
+    {
+     "id": "G6",
+     "title": "Universal coupling and a shared positive Newton constant",
+     "requires": "Use a common vacuum and calibration. Establish that all admitted excitations couple to the same responsive geometry with one positive Newton constant.",
+     "sources": [
+      "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tracking/premise_register.json"
+     ],
+     "premises": [
+      "PR-15",
+      "PR-25",
+      "PR-28"
+     ],
+     "status": "open",
+     "note": "The tested bindings and load sectors have no calibrated geometry response across matter species.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md"
+     ]
+    },
+    {
+     "id": "GR-NULL",
+     "title": "Null balance and tensor closure",
+     "requires": "For the same source, state, tower and calibrated coupling, compare G(k,k) with 8πG times the measured T(k,k) on all nine spanning null design directions, control the residual, then apply independent Ward and geometric Bianchi identities to fix the remaining trace up to Λ.",
+     "sources": [
+      "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tracking/premise_register.json"
+     ],
+     "premises": [
+      "PR-25",
+      "PR-26",
+      "PR-27",
+      "PR-28"
+     ],
+     "status": "open",
+     "note": "No matched null curvature/stress measurement on nine design directions is registered.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "observer_benchmarks",
+   "title": "Clock dilation, three-dimensional fields, signal timing and bound-pair dynamics",
+   "purpose": "Observers measure how a moving clock runs, whether a field varies along three independent spatial directions, and when a message can first be decoded. They also test whether separated loads form a lasting pair, where it travels and whether it returns, how its clock phase advances, and how its wave frequency depends on momentum.",
+   "reference": "The archived positive and negative controls ran on an eight-slot periodic routing architecture. The historical numbers belong to that apparatus. The candidate columns use the current spherical law and state which preparations, sectors and services produced their records.",
+   "sources": [
+    "https://github.com/FloatingPragma/observer-patch-holography/blob/cea95a7e62df1059bc55b299339ea45c09159977/model/README.md#measured-on-simulated-observers",
+    "model/benchmarks/eight_slot_torus/README.md"
+   ],
+   "criteria": [
+    {
+     "id": "OBS-01",
+     "title": "Time dilation of a moving clock",
+     "requires": "Measure speed independently. Read a returning finite patch’s evolving hand and its rest companion at home. Reproduce the clock forecast and its tolerance on held journeys, clock constructions and speeds.",
+     "context": "On the torus five long-wave moving/rest residuals were at most 0.00371 against a 0.035 limit. A broad packet missed by 0.06546. Two clocks agreed on five journeys. Six bound-clock flights passed the finite-packet correction.",
+     "sources": [
+      "https://github.com/FloatingPragma/observer-patch-holography/blob/cea95a7e62df1059bc55b299339ea45c09159977/model/README.md#measured-on-simulated-observers"
+     ],
+     "status": "open",
+     "note": "Seam-event counters give a patch timing resources. The supplied event sequencer has no moving/rest observer hand comparison.",
+     "evidence": [
+      "model/experiments/contrast_clock/README.md",
+      "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md"
+     ]
+    },
+    {
+     "id": "OBS-02",
+     "title": "Three spatial directions in a field measured by observers",
+     "requires": "Infer three independent directions and scales from timed patch records. Predict withheld field measurements across stations and refinements and test whether dropping any direction spoils them.",
+     "context": "The torus supplied its three spatial routing axes. Nine stations predicted 120 held field values with RMS 0.001103. Omitting successive spatial derivatives raised RMS to 0.3123, 0.3246 and 0.3246. RER also recovered a three-dimensional Gram matrix from native cell records and, in a separate free-field inverse experiment, a supplied cube from eight relabelled channels.",
+     "sources": [
+      "https://github.com/FloatingPragma/observer-patch-holography/blob/cea95a7e62df1059bc55b299339ea45c09159977/model/README.md#measured-on-simulated-observers",
+      "https://github.com/FloatingPragma/observer-patch-holography/blob/374b2390801842d38de9b9c326e79a8ab29a6be5/model/observer_reconstruction/README.md"
+     ],
+     "status": "partial",
+     "note": "Relabelled local ports recover a rank-three Gram. On complete 20-, 80- and 320-cell screens, neighbouring patches decode all 144 held three-sign preparations. A short-range incidence survey plus the frozen hopping scale predicts 72 further words at held senders and previously untested dwell times. The signal is an occupation-probability contrast. Timing and addresses are supplied; a three-dimensional field with independently ranged physical scales and corresponding refined stations remains open.",
+     "evidence": [
+      "model/evaluation/patch_spatial_readout.json",
+      "model/candidate_laws/contrast_memory_spherical_v1/port_response.py",
+      "model/candidate_laws/contrast_memory_spherical_v1/candidate.py",
+      "model/experiments/seam_program/README.md",
+      "model/experiments/interval_echo_space/result.json",
+      "model/experiments/interval_echo_space/forecast.json",
+      "model/experiments/interval_echo_space/README.md"
+     ]
+    },
+    {
+     "id": "OBS-03",
+     "title": "Earliest decodable message in observer time",
+     "requires": "Choose a bit after setup. The receiver commits its answer by independently ranged early and late deadlines on its own patch clock. Test passive signals, every allowed relay and quiet controls. Record both accuracy and rare early clicks.",
+     "context": "The torus passive receiver had early probability at most 5.878 × 10⁻³⁵, early balanced decoding at 50% and late decoding at 100%. An addressed relay decoded all 512 bits early. A pulse peak measures a different event from the first usable message.",
+     "sources": [
+      "https://github.com/FloatingPragma/observer-patch-holography/blob/cea95a7e62df1059bc55b299339ea45c09159977/model/README.md#measured-on-simulated-observers"
+     ],
+     "status": "open",
+     "note": "Pair propagation and phase-sensitive returns have receiver records. Their senders do not run the late-choice, clocked deadline comparison.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+      "model/experiments/seam_program/receiver_records/result.json"
+     ]
+    },
+    {
+     "id": "OBS-04",
+     "title": "Formation of an enduring pair in an ordinary encounter",
+     "requires": "Start with separated constituents. A patch records a birth and later an intact pair. Distinguish formation from binding after a measurement or deliberate preparation, report all quiet starts and compare disabled capture.",
+     "context": "The archived simple routed encounter formed a pair with probability 1/2 and gave zero when its capture vertex was disabled. Preparation and capture rates depend on the experiment.",
+     "sources": [
+      "https://github.com/FloatingPragma/observer-patch-holography/blob/cea95a7e62df1059bc55b299339ea45c09159977/model/README.md#measured-on-simulated-observers",
+      "model/benchmarks/eight_slot_torus/formation.py"
+     ],
+     "status": "partial",
+     "note": "After separated starts, bypassing the first reader gives late patch adjacency 0.00499425. An unread sharp first observation raises it to 0.00512724. Conditioning on a first click gives 0.993226, and the sharp ensemble gains dressed bound-band weight. An ordinary durable capture record independent of the detector remains open. An unselected scheduled native write with its memory retained increases later pair yield on disjoint seams from 0.003485 to 0.126725 relative to erasure. The service appointment is supplied.",
+     "evidence": [
+      "model/evaluation/observer_encounter.json",
+      "model/evaluation/observer_encounter.py",
+      "model/candidate_laws/contrast_memory_spherical_v1/sectors.py",
+      "model/experiments/interval_echo_encounter/result.json",
+      "model/experiments/interval_echo_encounter/README.md",
+      "model/experiments/interval_echo_encounter/MEMORY.md",
+      "model/experiments/interval_echo_encounter/memory.json"
+     ]
+    },
+    {
+     "id": "OBS-05",
+     "title": "Direction, coverage and return of a formed pair",
+     "requires": "Register direction by the time order of local station records. Report intended and wrong-way crossings per enrolled start and per crossing for both launch senses. Read the marker and pair at return and include losses.",
+     "context": "The archived late train reached 96.56% in the intended direction among crossings. Early coverage was 9.680% against 10% required. The closed-wire example had about 0.53% breakup after its marker’s second return.",
+     "sources": [
+      "https://github.com/FloatingPragma/observer-patch-holography/blob/cea95a7e62df1059bc55b299339ea45c09159977/model/README.md#measured-on-simulated-observers"
+     ],
+     "status": "partial",
+     "note": "An emitted pair was read on a different seam with probability up to 0.977 on each tested federation. Signed ordinary launches, an encounter marker and its return are separate measurements.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/README.md",
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+      "model/evaluation/observer_encounter.json"
+     ]
+    },
+    {
+     "id": "OBS-06",
+     "title": "Phase rate of a clock on the formed pair",
+     "requires": "Read the same internal phase at several declared elapsed intervals using local reference records. Include visibility, rate uncertainty, source width, receiver aperture and quiet outcomes.",
+     "context": "At width five the torus array reported 0.000439509–0.000440033 radians per home tick across six durations. The central layer failed. Widening the preparation from three to five changed the array rate by about 31%.",
+     "sources": [
+      "https://github.com/FloatingPragma/observer-patch-holography/blob/cea95a7e62df1059bc55b299339ea45c09159977/model/README.md#measured-on-simulated-observers"
+     ],
+     "status": "partial",
+     "note": "A prepared, written seam has locally readable level splittings. The archive supplies the collar phase preparation, and its ordinary formed pair lacks a stable phase-rate series.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/collar.py",
+      "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md",
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+     ]
+    },
+    {
+     "id": "OBS-07",
+     "title": "Relativistic matter-wave dispersion of the same formed object",
+     "requires": "Independently measure rest frequency, signal speed and spatial phase gradient. Predict the moving object’s frequency in held directions and at multiple wavelengths with a changed-law control.",
+     "context": "The archived routed pair passed 14 signed directions at periods 64, 128 and 256, with a 3.5% kinetic tolerance. Halving the spatial weight failed all 42 comparisons. The higher-momentum runs left the smooth regime.",
+     "sources": [
+      "https://github.com/FloatingPragma/observer-patch-holography/blob/cea95a7e62df1059bc55b299339ea45c09159977/model/README.md#measured-on-simulated-observers",
+      "model/benchmarks/eight_slot_torus/matter_wave.py"
+     ],
+     "status": "partial",
+     "note": "The ring flight forecasts match complete distributions within 0.00214 total variation. Measured kinetic ratios about 34, 1,155 and 39,236 disagree with rest-energy ratios 1.686, 2.354 and 3.020. The three-direction held shell is open.",
+     "evidence": [
+      "model/experiments/material_inertia/README.md",
+      "model/experiments/material_inertia/records/flight/result.json"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "patch_measurements",
+   "title": "Patch clocks, stable excitations and a spacetime description",
+   "purpose": "Record what the spherical candidates have already demonstrated at finite size and which ingredients a full spacetime reconstruction still needs.",
+   "reference": "A patch can own one or several echosahedra and may share cells with another observer. Supplied references, detectors and local schedules belong to each experiment. A source comparison may use an unchanged reducing sector when the preparation, generator and readout coincide.",
+   "sources": [
+    "model/candidate_laws/interval_echo/SPEC.md",
+    "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+    "https://github.com/FloatingPragma/observer-patch-holography/blob/374b2390801842d38de9b9c326e79a8ab29a6be5/model/observer_reconstruction/README.md"
+   ],
+   "criteria": [
+    {
+     "id": "PATCH-01",
+     "title": "A fixed observer reads a material timing record",
+     "requires": "A finite patch reads a local hand or periodic reference from physical registers at more than one setting. State how the source, cadence and readout are supplied.",
+     "context": "This finite test credits a readable clock resource with its preparation and range. A universal clock rate or a shared screen-wide history is outside its scope.",
+     "sources": [
+      "model/candidate_laws/interval_echo/SPEC.md",
+      "model/experiments/contrast_clock/README.md",
+      "model/experiments/cage/README.md"
+     ],
+     "status": "partial",
+     "note": "Native seam events increment physical port counters and retain two reader blocks. The finite autonomous sequencer is apparatus. The experiment has yet to identify a complete patch hand and its reference from these counters.",
+     "evidence": [
+      "model/experiments/contrast_clock/README.md",
+      "model/experiments/contrast_clock/results.json"
+     ]
+    },
+    {
+     "id": "PATCH-02",
+     "title": "Own-history clock transport and fixed-home reunion",
+     "requires": "A finite moving patch physically carries its hand, elapsed count and interval history. At reunion both owners recover the same home/traveller readings through a shared local register. State all supplied movement and gating services.",
+     "context": "This measures local register custody and agreement at one event. A distribution over completed travel schedules also tests the closing filter over its declared finite capacity.",
+     "sources": [
+      "model/candidate_laws/interval_echo/SPEC.md",
+      "model/candidate_laws/interval_echo/clock.py"
+     ],
+     "status": "open",
+     "note": "A prepared event counter or local seam memory is readable. The reference law’s deposited runs do not transport the hand and elapsed words to a fixed home patch.",
+     "evidence": [
+      "model/experiments/contrast_clock/README.md",
+      "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md"
+     ]
+    },
+    {
+     "id": "PATCH-03",
+     "title": "A prepared excitation persists and is locally detectable",
+     "requires": "Give a fixed preparation, a patch readout, delays and a perturbation or interaction-off control. Demonstrate persistence of internal binding or protected local support and specify which is tested.",
+     "context": "Later torus work added persistence as an eighth observation. Survival of a prepared state is independently testable and does not imply that the same state forms in a typical encounter.",
+     "sources": [
+      "model/benchmarks/eight_slot_torus/pair_persistence.py",
+      "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
+      "model/experiments/cage/PROOF.md"
+     ],
+     "status": "demonstrated",
+     "note": "The prepared seam pair has a uniform binding bound. On 20, 80 and 320 cells sampled no-pair probability stayed below 0.0097. On 20 cells exchange alone reached 0.80. A one-cell observer on that federation also detected post-herald persistence.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+      "model/evaluation/observer_encounter.json"
+     ]
+    },
+    {
+     "id": "PATCH-04",
+     "title": "Propagation of a localized defect or bound excitation",
+     "requires": "After a local excitation is identified, another local site or patch detects it with its identifying property intact. Specify whether transport is passive or serviced and keep disappearance and quiet outcomes.",
+     "context": "Motion of a bound pair to another seam, transport of a registered load between patches and motion of a phase-carrying particle are distinct measurements. Only the first two meet this bounded location-change test.",
+     "sources": [
+      "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
+      "model/candidate_laws/interval_echo/observations.py",
+      "model/experiments/cage/PROOF.md"
+     ],
+     "status": "demonstrated",
+     "note": "An emitted pair appears on a different seam with probability up to 0.977 on each of the three federations. At 20 cells the local two-read experiment gives probability 0.803077 on another internal seam at the second read given a first hit.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/README.md",
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+      "model/evaluation/observer_encounter.json"
+     ]
+    },
+    {
+     "id": "PATCH-05",
+     "title": "Smooth 3+1D description of a finite observer menu",
+     "requires": "On the same candidate identify the recorded source, clock, positive angular form, radial propagation and refinement assumptions of the smooth-description proposition, or directly verify a declared family of held four-dimensional predictions with quantified errors.",
+     "context": "RER’s smooth-effective-descriptions proposition proves approximation of every fixed finite admissible menu on bounded times by a free scalar on a smooth static 1+3 metric under S1 and S2 with radial Dirichlet interval. An earlier eight-channel free-field reconstruction inferred 12 cube edges and rank three, and predicted 16 withheld settings below 3 × 10⁻¹⁴ in probability. A separate 720-branch echosahedral experiment recovered a rank-three Gram matrix from repair records. In the separate OL-A1 fresh-seed signature replication the high-carrier arm recovered its threshold signature in 5/5 replicates and the lower arm in 2/5. The margin and ancestry controls failed. The small eigenvalue was about 3 × 10⁻⁵ relative to the largest and the robust signature lost a direction. The ledger keeps OL-A1 owed.",
+     "sources": [
+      "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "paper/executable_observer_construction.tex",
+      "https://github.com/FloatingPragma/observer-patch-holography/blob/374b2390801842d38de9b9c326e79a8ab29a6be5/model/observer_reconstruction/README.md",
+      "docs/registers/OBSERVATION_LEDGER_V3.md",
+      "tracking/observation_ledger.json"
+     ],
+     "status": "partial",
+     "note": "The candidate gives a native rank-three cell response and measured pair propagation. A supplied four-index grid can be compiled into its seam gates. The rank-three response alone does not identify a radial coordinate or a three-direction metric across patches.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/port_response.py",
+      "model/candidate_laws/contrast_memory_spherical_v1/candidate.py",
+      "model/experiments/seam_program/README.md",
+      "model/evaluation/patch_spatial_readout.json"
+     ]
+    },
+    {
+     "id": "PATCH-06",
+     "title": "Three independent spatial response components in local patch records",
+     "requires": "Infer the multiplicity and Gram matrix of the slowest nonconstant response from records of an observer with a finite spatial aperture. Predict new local readouts and bound the loss from a two-component description.",
+     "context": "The source supplies one native cell, sharp preparations, complete local detectors, the weak-exposure branch and relative dwell settings. The inverse receives relabelled probabilities and a uniform-hopping model class. It receives no coordinates, spatial dimension, seams or Hamiltonian. The measurement concerns the local angular response. OBS-02 asks whether three directions propagate between observers.",
+     "sources": [
+      "model/evaluation/patch_spatial_readout.py",
+      "model/evaluation/patch_spatial_readout.json",
+      "model/evaluation/repair_band.py"
+     ],
+     "status": "demonstrated",
+     "note": "A one-cell patch prepares and reads one load at twelve ports. From anonymous calibration probabilities the inverse infers 30 edges, a hop angle of 0.0625, and a Gram of rank three. Twice and three times the exposure reproduce that subspace and 288 individual held probabilities to below 10⁻¹⁰. The best rank-two Gram has relative error 0.57735.",
+     "evidence": [
+      "model/evaluation/patch_spatial_readout.json",
+      "model/evaluation/patch_spatial_readout.py",
+      "model/candidate_laws/contrast_memory_spherical_v1/candidate.py"
+     ]
+    },
+    {
+     "id": "PATCH-07",
+     "title": "Three spatial response components reach neighbouring patches",
+     "requires": "Use native evolution to transmit independently prepared components from one sender to real neighbouring patches. Decode held combinations from local port/quiet counts, test rank-two and sham controls, and check predictions at untrained stations or exposure times.",
+     "context": "This section tests the transfer of prepared local load-probability contrasts on a one-load source. The exposures are externally set. The three receivers contribute separate local inboxes.",
+     "sources": [
+      "model/experiments/interval_echo_space/PROTOCOL.md",
+      "model/experiments/interval_echo_space/FORECAST_PROTOCOL.md"
+     ],
+     "status": "demonstrated",
+     "note": "The one-load generator and all preparations and readers used in the passive propagation are identical to Interval Echo’s. All 144 held words and all 72 additional station/time words were decoded. The clock is idle.",
+     "evidence": [
+      "model/experiments/interval_echo_space/result.json",
+      "model/experiments/interval_echo_space/forecast.json",
+      "model/experiments/interval_echo_space/README.md"
+     ]
+    },
+    {
+     "id": "PATCH-08",
+     "title": "Two kinds of material hand agree on the same accepted repair events",
+     "requires": "Compare a transported oscillator with a registered event hand on the same guided journeys and local accepted repair histories. Use independent phase readout, a frozen equivalence margin, rest calibration and a distinct raw-event control.",
+     "context": "The accepted-event oscillator and event hand implement distinct transducers of a common tick stream. The alternative oscillator counts every positive primary. Their comparison isolates the physical event selection.",
+     "sources": [
+      "model/experiments/interval_echo_clock/PROTOCOL.md",
+      "model/experiments/interval_echo_clock/REPLICATION.md"
+     ],
+     "status": "open",
+     "note": "The registered reference has no transported pair of clock hands using this accepted-event service.",
+     "evidence": []
+    },
+    {
+     "id": "PATCH-09",
+     "title": "Optically ranged reunion on held native links and motion schedules",
+     "requires": "A finite home patch measures a reciprocal light time, receives a physical arrival report and reads both elapsed words at reunion. Compare the optical forecast with the material hand for prospectively held schedules on different native links. Require all in-domain tests to meet their frozen uncertainty band, and report overflow and raw-event controls separately.",
+     "sources": [
+      "model/experiments/interval_echo_optics/PROTOCOL.md",
+      "model/experiments/interval_echo_optics/CAPACITY_PROTOCOL.md"
+     ],
+     "context": "The relative pace of the reciprocal light guide and transfer opportunities is provided. Physical link installations with identical service timelines share their statistical cohort.",
+     "status": "open",
+     "note": "The registered reference lacks a travelling hand carrying this event selection and ranged reunion apparatus.",
+     "evidence": []
+    }
+   ]
+  },
+  {
+   "id": "openwave",
+   "title": "OpenWave empirical criteria",
+   "purpose": "Assess the 31 OpenWave physical targets on each of the three RER candidate laws. The criterion number follows upstream row order. A partial entry names the finite measurement and the missing step to the physical target. These local assessments are independent of the upstream M10 column, which evaluates a different candidate.",
+   "source_revision": "26fbb5fdd07049625d6bb7930af2f6bf545fb6fc",
+   "source_sha256": "07d76807c5e109beb19a7600c67a5daa675e88dfaa70116e4866d6afa5049fe3",
+   "sources": [
+    "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L94-L137",
+    "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L426-L430"
+   ],
+   "criteria": [
+    {
+     "id": "OW-01",
+     "title": "Charge quantization",
+     "requires": "Exhibit an integer topological electric charge and exclude division of one unit between two half-charged excitations.",
+     "domain": "PARTICLE - ELECTRON",
+     "regime": "static",
+     "upstream_number": 1,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L101"
+     ],
+     "status": "open",
+     "note": "Integer port loads and their conserved populations are measured in the coherent blank sector. Establishing an electric topological charge and excluding physical half-charge daughters requires a charge readout.",
+     "evidence": []
+    },
+    {
+     "id": "OW-02",
+     "title": "Electron rest energy (mass)",
+     "requires": "Select a localized state dynamically. With its energy anchored at 511 keV, predict and independently measure another physical quantity fixed by that anchor.",
+     "domain": "PARTICLE - ELECTRON",
+     "regime": "static",
+     "upstream_number": 2,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L102"
+     ],
+     "status": "partial",
+     "note": "The free contrast interaction binds localized loads and has measurable binding energies. Electron identification, rest-energy calibration and an independent physical prediction from 511 keV remain open.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+      "model/experiments/material_inertia/README.md"
+     ]
+    },
+    {
+     "id": "OW-03",
+     "title": "de Broglie clock (Zitterbewegung)",
+     "requires": "Measure an internally initiated, frequency-rigid oscillation whose angular frequency equals the measured rest energy divided by ℏ.",
+     "domain": "PARTICLE - ELECTRON",
+     "regime": "dynamic",
+     "upstream_number": 3,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L103"
+     ],
+     "status": "open",
+     "note": "A spontaneously starting oscillation tied to an independently measured rest energy remains open.",
+     "evidence": []
+    },
+    {
+     "id": "OW-04",
+     "title": "Particle stability (Derrick escape)",
+     "requires": "Demonstrate free persistence of the candidate particle in the electron sector, including its localized preparation and readout.",
+     "domain": "PARTICLE - ELECTRON",
+     "regime": "dynamic",
+     "upstream_number": 4,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L104"
+     ],
+     "status": "partial",
+     "note": "The free-persistence measurement succeeds for a prepared bound pair. An all-time bound controls loss of adjacency on the spherical federation. Applying this result to the electron requires identifying the excitation.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+     ]
+    },
+    {
+     "id": "OW-05",
+     "title": "Magnetic moment μ (g ≈ 2, magnetostatics)",
+     "requires": "Measure a static magnetic dipole sourced by internal circulation in the stationary electron, its gyromagnetic factor near two and its Larmor response.",
+     "domain": "PARTICLE - ELECTRON",
+     "regime": "dynamic",
+     "upstream_number": 5,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L105"
+     ],
+     "status": "open",
+     "note": "The electron dipole, gyromagnetic factor and field-driven precession require an electromagnetic readout.",
+     "evidence": []
+    },
+    {
+     "id": "OW-06",
+     "title": "Angular momentum J (spin ℏ/2)",
+     "requires": "Measure angular momentum of magnitude ℏ/2 carried by the field of the same electron state.",
+     "domain": "PARTICLE - ELECTRON",
+     "regime": "dynamic",
+     "upstream_number": 6,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L106"
+     ],
+     "status": "open",
+     "note": "Field angular momentum has yet to be measured on an identified electron.",
+     "evidence": []
+    },
+    {
+     "id": "OW-07",
+     "title": "Spin-½ statistics (720° double cover)",
+     "requires": "Interfere a full rotation, or a two-core exchange, with a reference and recover a minus sign. A dynamically selected half-turn discriminated from a polar control provides intermediate evidence.",
+     "domain": "PARTICLE - ELECTRON",
+     "regime": "static",
+     "upstream_number": 7,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L107"
+     ],
+     "status": "open",
+     "note": "A physical rotation or exchange phase and its polar control remain unmeasured.",
+     "evidence": []
+    },
+    {
+     "id": "OW-08",
+     "title": "Antimatter + annihilation",
+     "requires": "Observe a particle and its conjugate convert into radiation. Resolve the two- and three-photon positronium channels as follow-up measurements.",
+     "domain": "PARTICLE - FULL SPECTRUM",
+     "regime": "both",
+     "upstream_number": 8,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L110"
+     ],
+     "status": "open",
+     "note": "The free contrast term preserves load. An identified conjugate pair converting into outgoing field quanta has yet to be measured.",
+     "evidence": []
+    },
+    {
+     "id": "OW-09",
+     "title": "Neutrinos (neutral states)",
+     "requires": "Identify electrically neutral, light excitations among the products of a decay.",
+     "domain": "PARTICLE - FULL SPECTRUM",
+     "regime": "both",
+     "upstream_number": 9,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L111"
+     ],
+     "status": "open",
+     "note": "Production in a decay, electric neutrality and lightness have yet to be established for the same excitation.",
+     "evidence": []
+    },
+    {
+     "id": "OW-10",
+     "title": "Neutrino oscillations (PMNS)",
+     "requires": "Distinguish three neutrino flavours through production and detection, observe their oscillations and extract the PMNS angles.",
+     "domain": "PARTICLE - FULL SPECTRUM",
+     "regime": "both",
+     "upstream_number": 10,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L112"
+     ],
+     "status": "open",
+     "note": "A flavour-tagged source, transitions and a mixing-angle determination remain open.",
+     "evidence": []
+    },
+    {
+     "id": "OW-11",
+     "title": "Lepton mass spectrum (μ, τ)",
+     "requires": "Resolve precisely three charged-lepton minima and compare their relative masses with 1, 207 and 3477.",
+     "domain": "PARTICLE - FULL SPECTRUM",
+     "regime": "static",
+     "upstream_number": 11,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L113"
+     ],
+     "status": "open",
+     "note": "No three minima have been identified as charged leptons and compared on a common mass scale.",
+     "evidence": []
+    },
+    {
+     "id": "OW-12",
+     "title": "Quarks",
+     "requires": "Recover fractional electric charge from a partial winding of a quark string.",
+     "domain": "PARTICLE - FULL SPECTRUM",
+     "regime": "static",
+     "upstream_number": 12,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L114"
+     ],
+     "status": "open",
+     "note": "An electric response tied to fractional string winding remains unmeasured.",
+     "evidence": []
+    },
+    {
+     "id": "OW-13",
+     "title": "Baryons: bound state (p, n)",
+     "requires": "Recover a persistent bound composite whose three constituents are identified as quarks.",
+     "domain": "PARTICLE - FULL SPECTRUM",
+     "regime": "static",
+     "upstream_number": 13,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L115"
+     ],
+     "status": "partial",
+     "note": "Three ordinary loads bind on a triangular face in the free contrast interaction. The constituent charge, colour and baryon identity remain open.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/catalogue.py",
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+     ]
+    },
+    {
+     "id": "OW-14",
+     "title": "Baryons: mass ordering + charge profile",
+     "requires": "Distinguish neutron and proton, obtain a heavier neutron and resolve the positive-core and negative-shell charge distribution.",
+     "domain": "PARTICLE - FULL SPECTRUM",
+     "regime": "static",
+     "upstream_number": 14,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L116"
+     ],
+     "status": "open",
+     "note": "The neutron and proton identities, mass order and resolved electric profile remain open.",
+     "evidence": []
+    },
+    {
+     "id": "OW-15",
+     "title": "Baryons: exact masses",
+     "requires": "Predict the proton and neutron rest energies from the field and compare with 938.3 and 939.6 MeV, respectively.",
+     "domain": "PARTICLE - FULL SPECTRUM",
+     "regime": "static",
+     "upstream_number": 15,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L117"
+     ],
+     "status": "open",
+     "note": "A common field-based prediction for both identified baryon energies remains open.",
+     "evidence": []
+    },
+    {
+     "id": "OW-16",
+     "title": "Deuteron (binding + quadrupole)",
+     "requires": "Demonstrate deuteron binding below the sum of the proton and neutron masses and measure its electric quadrupole.",
+     "domain": "PARTICLE - FULL SPECTRUM",
+     "regime": "static",
+     "upstream_number": 16,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L118"
+     ],
+     "status": "open",
+     "note": "No deuteron binding and electric quadrupole measurement exists on the identified constituents.",
+     "evidence": []
+    },
+    {
+     "id": "OW-17",
+     "title": "Nuclear structure (levels, halos)",
+     "requires": "Recover nuclear binding across species, excitation levels and lifetimes of halo nuclei.",
+     "domain": "PARTICLE - FULL SPECTRUM",
+     "regime": "both",
+     "upstream_number": 17,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L119"
+     ],
+     "status": "open",
+     "note": "Identified nuclear species with binding, spectroscopy and halo lifetime records remain open.",
+     "evidence": []
+    },
+    {
+     "id": "OW-18",
+     "title": "Mesons (π, K)",
+     "requires": "Identify pion and kaon states and a strange decay such as Λ⁰ → p + π⁻.",
+     "domain": "PARTICLE - FULL SPECTRUM",
+     "regime": "static",
+     "upstream_number": 18,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L120"
+     ],
+     "status": "open",
+     "note": "Meson assignments and a decay tagged by strangeness remain open.",
+     "evidence": []
+    },
+    {
+     "id": "OW-19",
+     "title": "Dark matter candidate",
+     "requires": "Demonstrate a stable massive excitation with measured neutrality as a dark-matter candidate.",
+     "domain": "PARTICLE - FULL SPECTRUM",
+     "regime": "static",
+     "upstream_number": 19,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L121"
+     ],
+     "status": "partial",
+     "note": "A written seam with empty endpoints retains a label and has a resolved energy level. Its electric neutrality and inertial mass as a propagating dark particle remain unmeasured.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/collar.py",
+      "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+     ]
+    },
+    {
+     "id": "OW-20",
+     "title": "Electric force (Coulomb 1/r, electrostatics)",
+     "requires": "Measure an inverse-distance far-field potential sourced by one elementary electric charge. A strength claim also needs α derived from the mechanism.",
+     "domain": "FORCES",
+     "regime": "static",
+     "upstream_number": 20,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L124"
+     ],
+     "status": "open",
+     "note": "The bare two-load interaction vanishes beyond adjacent ports. The tested written and bare source sectors have no identified elementary electric charge with the required far field.",
+     "evidence": []
+    },
+    {
+     "id": "OW-21",
+     "title": "Lorentz covariance (+ Coulomb = EM)",
+     "requires": "Establish Lorentz covariance without a preferred inertial frame, including contraction of boosted states and an operational signal-speed bound.",
+     "domain": "FORCES",
+     "regime": "dynamic",
+     "upstream_number": 21,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L125"
+     ],
+     "status": "open",
+     "note": "The free-cluster ring experiment finds a rest-mass versus kinetic-mass mismatch. Covariance, a native boost, and an observer signal-speed bound on the sphere remain open.",
+     "evidence": [
+      "model/experiments/material_inertia/README.md"
+     ]
+    },
+    {
+     "id": "OW-22",
+     "title": "Strong force: confinement",
+     "requires": "Measure a linear confining potential between identified colour charges and recover a string tension near 1 GeV/fm.",
+     "domain": "FORCES",
+     "regime": "static",
+     "upstream_number": 22,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L126"
+     ],
+     "status": "open",
+     "note": "A colour-source separation scan and a measured confining tension remain open.",
+     "evidence": []
+    },
+    {
+     "id": "OW-23",
+     "title": "Running coupling",
+     "requires": "Resolve a coupling that changes with measurement scale, including the onset near the physical core radius.",
+     "domain": "FORCES",
+     "regime": "static",
+     "upstream_number": 23,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L127"
+     ],
+     "status": "open",
+     "note": "A scale scan of a physical coupling referred to the same core radius remains open.",
+     "evidence": []
+    },
+    {
+     "id": "OW-24",
+     "title": "Weak force: muon decay",
+     "requires": "Observe an identified muon decay into an electron with neutral products.",
+     "domain": "FORCES",
+     "regime": "dynamic",
+     "upstream_number": 24,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L128"
+     ],
+     "status": "open",
+     "note": "Muon, electron and neutral decay-product records remain open.",
+     "evidence": []
+    },
+    {
+     "id": "OW-25",
+     "title": "Weak force: beta decay (n → p)",
+     "requires": "Resolve neutron decay into a proton, an electron and an antineutrino, and measure parity violation.",
+     "domain": "FORCES",
+     "regime": "dynamic",
+     "upstream_number": 25,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L129"
+     ],
+     "status": "open",
+     "note": "A tagged beta decay and its parity asymmetry remain open.",
+     "evidence": []
+    },
+    {
+     "id": "OW-26",
+     "title": "Gravity: Newton limit (GEM)",
+     "requires": "Recover an attractive inverse-square force between masses from the gravitoelectromagnetic limit. Credit for the strength requires G to follow from the mechanism.",
+     "domain": "FORCES",
+     "regime": "both",
+     "upstream_number": 26,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L130"
+     ],
+     "status": "open",
+     "note": "Attractive contact phases are available for adjacent loads. The one-load energy shift is common to all paths. Neither measurement supplies an attractive inverse-square force between distant masses.",
+     "evidence": []
+    },
+    {
+     "id": "OW-27",
+     "title": "Gravity: local metric phenomena",
+     "requires": "Measure local curved-metric phenomena with material clocks and light, such as bending, gravitational redshift or Shapiro delay.",
+     "domain": "FORCES",
+     "regime": "both",
+     "upstream_number": 27,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L131"
+     ],
+     "status": "open",
+     "note": "A sourced gravitational field with independent clock or light propagation records remains open.",
+     "evidence": []
+    },
+    {
+     "id": "OW-28",
+     "title": "Cosmology: Λ / cosmic acceleration",
+     "requires": "Obtain a cosmological constant that explains acceleration from the model dynamics, identify outstanding gaps and give a falsification test.",
+     "domain": "FORCES",
+     "regime": "static",
+     "upstream_number": 28,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L132"
+     ],
+     "status": "open",
+     "note": "A constant shift of the free load generator drops out of probabilities. A vacuum contribution linked to measured acceleration and an independent falsification test remain open.",
+     "evidence": []
+    },
+    {
+     "id": "OW-29",
+     "title": "EM waves (Maxwell)",
+     "requires": "Recover Maxwell dynamics and measure transverse electromagnetic disturbances travelling at the limiting speed.",
+     "domain": "WAVES + QUANTUM EMERGENCE",
+     "regime": "dynamic",
+     "upstream_number": 29,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L135"
+     ],
+     "status": "open",
+     "note": "A measured electric current, transverse electromagnetic wave and recovery of Maxwell dynamics remain open.",
+     "evidence": []
+    },
+    {
+     "id": "OW-30",
+     "title": "Quantum wave equation (Klein-Gordon)",
+     "requires": "Recover the Klein–Gordon energy–momentum relation for propagating matter using independently identifiable spatial and temporal observables.",
+     "domain": "WAVES + QUANTUM EMERGENCE",
+     "regime": "dynamic",
+     "upstream_number": 30,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L136"
+     ],
+     "status": "open",
+     "note": "Free bound clusters have measured resting and moving energies on a ring. The tested branches have incompatible kinetic and rest-mass ratios. A Klein–Gordon branch on the sphere remains open.",
+     "evidence": [
+      "model/experiments/material_inertia/README.md"
+     ]
+    },
+    {
+     "id": "OW-31",
+     "title": "Orbital quantization (atomic structure)",
+     "requires": "Observe standing-wave bound levels with a hydrogen-like spectrum, including characteristic spacings.",
+     "domain": "WAVES + QUANTUM EMERGENCE",
+     "regime": "static",
+     "upstream_number": 31,
+     "sources": [
+      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L137"
+     ],
+     "status": "partial",
+     "note": "A load bound to a static seam has discrete levels in the free contrast interaction. The computed spacings and shell multiplicities fail the hydrogenic comparison, and the level count at fixed record number is bounded under refinement.",
+     "evidence": [
+      "model/candidate_laws/contrast_memory_spherical_v1/collar.py"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sm-inventory",
+   "title": "Standard Model particle identifications",
+   "purpose": "Identify all 17 elementary particle types on one frozen candidate. Each species has a local preparation or production channel, reproducible detection statistics, and a dictionary that distinguishes its nearest alternatives. A declaration of a field or an input mass cannot identify the excitation.",
+   "reference": "Count six quark flavours, three charged leptons, three active neutrino flavour channels, four gauge-boson types and the Higgs. W covers both signs, and the gluon entry covers the eight colour components. Resolve conjugate partners where distinct. Neutrino flavour is defined by weak production and detection; its propagation can mix mass eigenstates. Composite hadrons provide evidence for confined quarks and gluons. A graviton and a sterile neutrino are outside this inventory.",
+   "sources": [
+    "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+    "code/defect_particle_classes/PROOF.md",
+    "claims/physical_identification_registry.json"
+   ],
+   "criteria": [
+    {
+     "id": "SM-u",
+     "title": "Up",
+     "domain": "Quarks",
+     "requires": "Recover the spin-half colour-triplet sector, its electric and weak responses, and a flavour discriminator in colour-singlet production, decay or scattering records. Resolve the conjugate sector. Light up-type flavour, charge +2/3.",
+     "sources": [
+      "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "code/defect_particle_classes/PROOF.md",
+      "claims/physical_identification_registry.json"
+     ],
+     "status": "open",
+     "note": "No species assignment is registered.",
+     "evidence": []
+    },
+    {
+     "id": "SM-d",
+     "title": "Down",
+     "domain": "Quarks",
+     "requires": "Recover the spin-half colour-triplet sector, its electric and weak responses, and a flavour discriminator in colour-singlet production, decay or scattering records. Resolve the conjugate sector. Light down-type flavour, charge −1/3.",
+     "sources": [
+      "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "code/defect_particle_classes/PROOF.md",
+      "claims/physical_identification_registry.json"
+     ],
+     "status": "open",
+     "note": "No species assignment is registered.",
+     "evidence": []
+    },
+    {
+     "id": "SM-s",
+     "title": "Strange",
+     "domain": "Quarks",
+     "requires": "Recover the spin-half colour-triplet sector, its electric and weak responses, and a flavour discriminator in colour-singlet production, decay or scattering records. Resolve the conjugate sector. Distinguish strangeness from light down flavour.",
+     "sources": [
+      "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "code/defect_particle_classes/PROOF.md",
+      "claims/physical_identification_registry.json"
+     ],
+     "status": "open",
+     "note": "No species assignment is registered.",
+     "evidence": []
+    },
+    {
+     "id": "SM-c",
+     "title": "Charm",
+     "domain": "Quarks",
+     "requires": "Recover the spin-half colour-triplet sector, its electric and weak responses, and a flavour discriminator in colour-singlet production, decay or scattering records. Resolve the conjugate sector. Identify charm production or weak transitions separately from up.",
+     "sources": [
+      "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "code/defect_particle_classes/PROOF.md",
+      "claims/physical_identification_registry.json"
+     ],
+     "status": "open",
+     "note": "No species assignment is registered.",
+     "evidence": []
+    },
+    {
+     "id": "SM-b",
+     "title": "Bottom",
+     "domain": "Quarks",
+     "requires": "Recover the spin-half colour-triplet sector, its electric and weak responses, and a flavour discriminator in colour-singlet production, decay or scattering records. Resolve the conjugate sector. Resolve bottom-flavoured production and decay.",
+     "sources": [
+      "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "code/defect_particle_classes/PROOF.md",
+      "claims/physical_identification_registry.json"
+     ],
+     "status": "open",
+     "note": "No species assignment is registered.",
+     "evidence": []
+    },
+    {
+     "id": "SM-t",
+     "title": "Top",
+     "domain": "Quarks",
+     "requires": "Recover the spin-half colour-triplet sector, its electric and weak responses, and a flavour discriminator in colour-singlet production, decay or scattering records. Resolve the conjugate sector. Resolve the heavy up-type resonance and its weak decay.",
+     "sources": [
+      "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "code/defect_particle_classes/PROOF.md",
+      "claims/physical_identification_registry.json"
+     ],
+     "status": "open",
+     "note": "No species assignment is registered.",
+     "evidence": []
+    },
+    {
+     "id": "SM-e",
+     "title": "Electron",
+     "domain": "Charged leptons",
+     "requires": "Resolve spin half, unit negative charge, colour neutrality and weak interactions. Discriminate the three generations and their positive-charge conjugates through spectral or decay measurements. Light stable charged-lepton branch.",
+     "sources": [
+      "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "code/defect_particle_classes/PROOF.md",
+      "claims/physical_identification_registry.json"
+     ],
+     "status": "open",
+     "note": "No species assignment is registered.",
+     "evidence": []
+    },
+    {
+     "id": "SM-mu",
+     "title": "Muon",
+     "domain": "Charged leptons",
+     "requires": "Resolve spin half, unit negative charge, colour neutrality and weak interactions. Discriminate the three generations and their positive-charge conjugates through spectral or decay measurements. Distinct mass and leptonic decay channel.",
+     "sources": [
+      "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "code/defect_particle_classes/PROOF.md",
+      "claims/physical_identification_registry.json"
+     ],
+     "status": "open",
+     "note": "No species assignment is registered.",
+     "evidence": []
+    },
+    {
+     "id": "SM-tau",
+     "title": "Tau",
+     "domain": "Charged leptons",
+     "requires": "Resolve spin half, unit negative charge, colour neutrality and weak interactions. Discriminate the three generations and their positive-charge conjugates through spectral or decay measurements. Third charged-lepton branch, with its weak decay channels.",
+     "sources": [
+      "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "code/defect_particle_classes/PROOF.md",
+      "claims/physical_identification_registry.json"
+     ],
+     "status": "open",
+     "note": "No species assignment is registered.",
+     "evidence": []
+    },
+    {
+     "id": "SM-nu-e",
+     "title": "Electron neutrino",
+     "domain": "Active neutrinos",
+     "requires": "Resolve a neutral spin-half weak sector, tag flavour by the accompanying charged lepton, and relate production, propagation and detection with the same mixing dictionary. Distinguish neutrino and antineutrino interaction channels where measurable. Electron-tagged weak current.",
+     "sources": [
+      "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "code/defect_particle_classes/PROOF.md",
+      "claims/physical_identification_registry.json"
+     ],
+     "status": "open",
+     "note": "No species assignment is registered.",
+     "evidence": []
+    },
+    {
+     "id": "SM-nu-mu",
+     "title": "Muon neutrino",
+     "domain": "Active neutrinos",
+     "requires": "Resolve a neutral spin-half weak sector, tag flavour by the accompanying charged lepton, and relate production, propagation and detection with the same mixing dictionary. Distinguish neutrino and antineutrino interaction channels where measurable. Muon-tagged weak current.",
+     "sources": [
+      "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "code/defect_particle_classes/PROOF.md",
+      "claims/physical_identification_registry.json"
+     ],
+     "status": "open",
+     "note": "No species assignment is registered.",
+     "evidence": []
+    },
+    {
+     "id": "SM-nu-tau",
+     "title": "Tau neutrino",
+     "domain": "Active neutrinos",
+     "requires": "Resolve a neutral spin-half weak sector, tag flavour by the accompanying charged lepton, and relate production, propagation and detection with the same mixing dictionary. Distinguish neutrino and antineutrino interaction channels where measurable. Tau-tagged weak current.",
+     "sources": [
+      "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "code/defect_particle_classes/PROOF.md",
+      "claims/physical_identification_registry.json"
+     ],
+     "status": "open",
+     "note": "No species assignment is registered.",
+     "evidence": []
+    },
+    {
+     "id": "SM-photon",
+     "title": "Photon",
+     "domain": "Gauge bosons",
+     "requires": "Identify polarization, charge and the current coupled to the same propagating vector excitation. Massless transverse electromagnetic response and its coupling to the measured electric current.",
+     "sources": [
+      "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "code/defect_particle_classes/PROOF.md",
+      "claims/physical_identification_registry.json"
+     ],
+     "status": "open",
+     "note": "No species assignment is registered.",
+     "evidence": []
+    },
+    {
+     "id": "SM-gluon",
+     "title": "Gluon",
+     "domain": "Gauge bosons",
+     "requires": "Identify polarization, charge and the current coupled to the same propagating vector excitation. Colour-octet strong-current response and non-Abelian couplings in gauge-invariant signals.",
+     "sources": [
+      "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "code/defect_particle_classes/PROOF.md",
+      "claims/physical_identification_registry.json"
+     ],
+     "status": "open",
+     "note": "No species assignment is registered.",
+     "evidence": []
+    },
+    {
+     "id": "SM-W",
+     "title": "W boson",
+     "domain": "Gauge bosons",
+     "requires": "Identify polarization, charge and the current coupled to the same propagating vector excitation. Both signs of the massive charged weak vector and charged-current transitions.",
+     "sources": [
+      "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "code/defect_particle_classes/PROOF.md",
+      "claims/physical_identification_registry.json"
+     ],
+     "status": "open",
+     "note": "No species assignment is registered.",
+     "evidence": []
+    },
+    {
+     "id": "SM-Z",
+     "title": "Z boson",
+     "domain": "Gauge bosons",
+     "requires": "Identify polarization, charge and the current coupled to the same propagating vector excitation. Massive neutral weak vector, its polarizations and neutral-current couplings.",
+     "sources": [
+      "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "code/defect_particle_classes/PROOF.md",
+      "claims/physical_identification_registry.json"
+     ],
+     "status": "open",
+     "note": "No species assignment is registered.",
+     "evidence": []
+    },
+    {
+     "id": "SM-H",
+     "title": "Higgs boson",
+     "domain": "Scalar boson",
+     "requires": "Identify a neutral spin-zero resonance with independently distinguished couplings in the same electroweak sector. Electroweak symmetry-breaking scalar and its characteristic production or decay responses.",
+     "sources": [
+      "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+      "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "code/defect_particle_classes/PROOF.md",
+      "claims/physical_identification_registry.json"
+     ],
+     "status": "open",
+     "note": "No species assignment is registered.",
+     "evidence": []
+    }
+   ]
   }
  ]
 }

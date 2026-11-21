@@ -1,0 +1,146 @@
+{
+  "protocol_sha256": "2b34ffc360af11ff61fc4ee55b9d9d4efdd61b0dc2c23ca45a7fe9d9eccafe49",
+  "layouts": [
+    {
+      "cells": 20,
+      "owners": [
+        0,
+        6
+      ],
+      "path": [
+        0,
+        1,
+        82
+      ],
+      "token_rails": [
+        2,
+        3,
+        4
+      ],
+      "priority_readings": [
+        0,
+        1
+      ]
+    },
+    {
+      "cells": 80,
+      "owners": [
+        0,
+        3
+      ],
+      "path": [
+        0,
+        1,
+        38
+      ],
+      "token_rails": [
+        2,
+        3,
+        4
+      ],
+      "priority_readings": [
+        0,
+        1
+      ]
+    },
+    {
+      "cells": 320,
+      "owners": [
+        0,
+        3
+      ],
+      "path": [
+        0,
+        1,
+        38
+      ],
+      "token_rails": [
+        2,
+        3,
+        4
+      ],
+      "priority_readings": [
+        0,
+        1
+      ]
+    }
+  ],
+  "input_basis": [
+    [
+      2,
+      0,
+      0
+    ],
+    [
+      0,
+      2,
+      0
+    ],
+    [
+      0,
+      0,
+      2
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      1
+    ]
+  ],
+  "full_material_dimension": 3267,
+  "legacy_ready_on_balanced_blank": [
+    {
+      "request": 0,
+      "initial": [
+        1,
+        1,
+        0
+      ],
+      "probability": 1.0
+    },
+    {
+      "request": 1,
+      "initial": [
+        0,
+        1,
+        1
+      ],
+      "probability": 1.0
+    }
+  ],
+  "priority_rows": [
+    {
+      "priority": null,
+      "opposite_phases_with_transcript_distance": 0.0,
+      "choi_frobenius_distance": 1.414213562373,
+      "middle_double_order_trace_distance": 1.0,
+      "opposite_phases_endpoint_trace_distance": 0.0
+    },
+    {
+      "priority": 0,
+      "opposite_phases_with_transcript_distance": 0.0,
+      "choi_frobenius_distance": 0.0,
+      "middle_double_order_trace_distance": 0.0,
+      "opposite_phases_endpoint_trace_distance": 0.0
+    },
+    {
+      "priority": 1,
+      "opposite_phases_with_transcript_distance": 0.0,
+      "choi_frobenius_distance": 0.0,
+      "middle_double_order_trace_distance": 0.0,
+      "opposite_phases_endpoint_trace_distance": 0.0
+    }
+  ],
+  "initial_opposite_phases_trace_distance": 1,
+  "verified_tolerance": 1e-10
+}
