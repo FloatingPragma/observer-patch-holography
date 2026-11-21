@@ -1,0 +1,56 @@
+{
+  "base": "0ebb9ba9d6280fec258a7d65e2966c13352dfa8d",
+  "levels": [
+    0,
+    1,
+    2
+  ],
+  "matching": [
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      10,
+      11
+    ]
+  ],
+  "anchors": [
+    0,
+    1
+  ],
+  "launches": [
+    "smooth_0",
+    "smooth_1",
+    "polarized_0"
+  ],
+  "laws": [
+    "native",
+    "half_rate_contrast_reversed",
+    "external_exchange_off",
+    "parked_signal"
+  ],
+  "shots": 524288,
+  "seed": 842029,
+  "window": "Independent preparations at hand angles 0 through 4*4^level inclusive in unit increments. Supplied service cadence resolves phase wraps. Also compare at scaled times 1,2,4 using both 2^level and 4^level. Keep every receiver region, depth and clock sign.",
+  "source": "Cell envelope max(0,1-h*dual_distance_to_anchor_macroface/2), h=2^-level. Smooth launches are uniform over twelve ports per cell. Polarized uses only the first end of each matched seam. Normalize globally. Match original macrofaces by four-child quotient at every level. Keep all 20 region labels and both polarity classes per region.",
+  "clock": "Coin zero, contrast +2 and -2 form each spectator memory. First matched seam starts sign plus, second has (even+i*odd)/sqrt(2), other four are even. Read the first two signs at the cell that detects the load. Occupation and both signs commute. Explicit preparations and finite terminal measurements. No switching during flight.",
+  "controls": "Compare the uniform exchange coefficient b=1/2 and contrast -8 against b=1 and contrast 8 at the same hand angle, with exposure inversely scaled by b. Disable only external exchange for a distinct changed law. Park data with both hands advancing for a detector control. Use the same histogram and decoder in all arms.",
+  "tests": "Check local closure on every relevant 99-state column, complete joint probabilities and count totals, angular quotient incidence, all-size kinetic and polarity bounds, and the all-menu same-clock equivalence. Report worst sampled hand error across all panels and peak angular TV separation from each control for each board and launch; flag separations above the simultaneous count budget, retaining failures. Report every angular versus polarity marginal and all control counts. No choice of wave number, mass, speed or empirical constants from comparisons."
+}
