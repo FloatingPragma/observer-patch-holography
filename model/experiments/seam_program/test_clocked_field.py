@@ -76,6 +76,41 @@ def test_clock_tree_and_timeouts():
         stopping_law(-1,cap)
 
 
+def test_clock_long_window_and_small_tail():
+    pmf, timeout = stopping_law(3,2)
+    assert not pmf.any() and timeout==1
+    assert stopping_law(1,64)[1] == 2**-64
+    pmf, timeout = stopping_law(1024,2048)
+    # By binomial symmetry exactly half the noncentral outcomes time out.
+    centre = comb(2048,1024) / 2**2048
+    assert pmf[-1] == centre/2
+    assert timeout == (2**2048-comb(2048,1024)) / 2**2049
+    assert abs(pmf.sum()+timeout-1) < 3e-16
+
+
+def test_phase_keeps_resolved_modes_at_both_endpoints():
+    for angle in (1e-180, 1e-8, np.pi-1e-8):
+        # For four identical angles on this interval, E is exactly the angle.
+        assert abs(eigenphase(np.full(4,angle))-angle) <= 2*np.spacing(angle)
+    rank, weights = mobile_weights(np.full(4,1e-180))
+    assert rank == 2
+    np.testing.assert_allclose(weights,.25)
+    for function in (eigenphase,mobile_weights):
+        with pytest.raises(ValueError):
+            function([0,0,0,1j])
+    assert scalar_kernel((2,2,2,3),0,(0,0,0),0)[0]==1
+
+
+@pytest.mark.parametrize("shape,order,position,periods", [
+    ((2,2,2,0),0,(0,0,0),[1]), ((2,2,2,3),.5,(0,0,0),[1]),
+    ((2,2,2,3),True,(0,0,0),[1]), ((2,2,2,3),0,(.5,0,0),[1]),
+    ((2,2,2,3),0,(0,0,0),[-1]), ((2,2,2,3),0,(0,0,0),[.5]),
+])
+def test_field_requires_executable_discrete_settings(shape,order,position,periods):
+    with pytest.raises(ValueError):
+        scalar_kernel(shape,order,position,periods)
+
+
 def test_aperture_and_batched_adjoint_on_arbitrary_pair_input():
     host,data,ports,_,_ = patches(0)
     sector,_,_ = finite_source(data,host,ports,64)

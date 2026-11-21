@@ -11,6 +11,7 @@ from tools.strict_json import load
 from model.candidate_laws.contrast_memory_spherical_v1 import sectors
 from model.executable_model import carrier
 from .clocked_apparatus import clock_laws, patches
+from .clocked_field import stopping_law
 from .clocked_pins import verify_sources
 from .clocked_run import finite_source
 from .compiler import Compiler
@@ -115,7 +116,9 @@ def main():
             require(np.max(abs(none+found.sum(axis=1)-live))<1e-11, "free terminal alphabet incomplete")
             for r in protocol["thresholds"]:
                 w = clock[r]
-                law = np.r_[early,live*(1-w.sum()),w@found,w@none]
+                pmf, timeout = stopping_law(r,cap)
+                require(np.array_equal(w,pmf), "material clock differs from free-release stopping law")
+                law = np.r_[early,live*timeout,w@found,w@none]
                 counts = counters(law,shots)
                 opened[f"{order}_{member}_{r}"] = counts
                 quiet[member,r] = counts[-1]/shots
